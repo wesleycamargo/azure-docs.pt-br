@@ -1,240 +1,246 @@
 <properties
-	pageTitle="O OLTP Na Memória melhora o desempenho do txn SQL | Microsoft Azure"
-	description="Adote o OLTP Na Memória para melhorar o desempenho transacional em um banco de dados SQL existente."
-	services="sql-database"
-	documentationCenter=""
-	authors="jodebrui"
-	manager="jhubbard"
-	editor="MightyPen"/>
+    pageTitle="In-Memory OLTP improves SQL txn perf | Microsoft Azure"
+    description="Adopt In-Memory OLTP to improve transactional performance in an existing SQL database."
+    services="sql-database"
+    documentationCenter=""
+    authors="jodebrui"
+    manager="jhubbard"
+    editor="MightyPen"/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/18/2016"
-	ms.author="jodebrui"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/03/2016"
+    ms.author="jodebrui"/>
 
 
-# Usar In-Memory OLTP (visualização) para melhorar o desempenho do aplicativo no Banco de Dados SQL
 
-O [In-Memory OLTP](sql-database-in-memory.md) pode ser usado para melhorar o desempenho da carga de trabalho OLTP em Bancos de Dados SQL do Azure [Premium](sql-database-service-tiers.md) sem aumentar o nível de desempenho.
+# <a name="use-in-memory-oltp-(preview)-to-improve-your-application-performance-in-sql-database"></a>Use In-Memory OLTP (preview) to improve your application performance in SQL Database
 
-Siga estas etapas para adotar o in-memory OLTP no banco de dados existente.
+[In-Memory OLTP](sql-database-in-memory.md) can be used to improve the performance of OLTP workload in  [Premium](sql-database-service-tiers.md) Azure SQL Databases without increasing the performance level.
 
-## Etapa 1: verifique se o banco de dados Premium dá suporte a In-Memory OLTP
+Follow these steps to adopt In-Memory OLTP in your existing database.
 
-Os bancos de dados Premium criados em novembro de 2015 ou posteriormente dão suporte ao recurso Na Memória. Você pode verificar se o seu banco de dados Premium oferece suporte ao recurso Na Memória ao executar a instrução Transact-SQL a seguir. Na Memória terá suporte se o resultado retornado for 1 (e não 0):
+## <a name="step-1:-ensure-your-premium-database-supports-in-memory-oltp"></a>Step 1: Ensure your Premium database supports In-Memory OLTP
+
+Premium databases created in November 2015 or later do support the In-Memory feature. You can ascertain whether your Premium database supports the In-Memory feature by running the following Transact-SQL statement. In-Memory is supported if the returned result is 1 (not 0):
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 ```
 
-*XTP* significa *Processamento de Transação Extrema*
+*XTP* stands for *Extreme Transaction Processing*
 
-Se seu banco de dados existente tiver de ser movido para um novo banco de dados Premium V12, você poderá usar as técnicas a seguir para exportar e importar seus dados.
+If your existing database must be moved to a new V12 Premium database, you can use the following techniques to export and then import your data.
 
-#### Etapas de exportação
+#### <a name="export-steps"></a>Export steps
 
-Exporte seu banco de dados de produção para um bacpac usando:
+Export your production database to a bacpac by using either:
 
-- A funcionalidade [Exportar](sql-database-export.md) do [portal](https://portal.azure.com/).
+- The [Export](sql-database-export.md) functionality in the [portal](https://portal.azure.com/).
 
-- A funcionalidade **Exportar Aplicativo da Camada de Dados** em um [SSMS.exe atualizado](http://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio).
- 1. No **Pesquisador de Objetos**, expanda o nó **Bancos de Dados**.
- 2. Clique com o botão direito do mouse no nó do seu banco de dados.
- 3. Clique em **Tarefas** > **Exportar Aplicativo da Camada de Dados**.
- 4. Opere a janela do assistente exibida.
-
-
-#### Etapas de importação
-
-Importe o bacpac para um novo banco de dados Premium.
-
-1. No [portal](https://portal.azure.com/) do Azure,
- - Navegue até o servidor.
- - Selecione a opção [Importar Banco de Dados](sql-database-import.md).
- - Selecione uma camada de preços Premium.
-
-2. Use o SSMS para importar o bacpac:
- - No **Pesquisador de Objetos**, clique com o botão direito do mouse no nó **Bancos de Dados**.
- - Clique em **Importar Aplicativo da Camada de Dados**.
- - Opere a janela do assistente exibida.
+- The **Export Data-tier Application** functionality in an [up-to-date SSMS.exe](http://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio).
+ 1. In the **Object Explorer**, expand the **Databases** node.
+ 2. Right-click your database node.
+ 3. Click **Tasks** > **Export Data-tier Application**.
+ 4. Operate the wizard window that is displayed.
 
 
-## Etapa 2: Identificar os objetos para migrar para o OLTP Na Memória
+#### <a name="import-steps"></a>Import steps
 
-O SSMS inclui um relatório **Visão Geral da Análise do Desempenho da Transação** que pode ser executado em um banco de dados com uma carga de trabalho ativa. O relatório identifica as tabelas e os procedimentos armazenados candidatos à migração para OLTP Na Memória.
+Import the bacpac into a new Premium database.
 
-No SSMS, para gerar o relatório:
-- No **Pesquisador de Objetos**, clique com o botão direito do mouse no nó do banco de dados.
-- Clique em **Relatórios** > **Relatórios Padrão** > **Visão Geral de Análise de Desempenho de Transação**.
+1. In the Azure [portal](https://portal.azure.com/),
+ - Navigate to the server.
+ - Select the [Import Database](sql-database-import.md) option.
+ - Select a Premium pricing tier.
 
-Para saber mais, confira [Determinando se uma tabela ou um procedimento armazenado deve ser transportado para o OLTP Na Memória](http://msdn.microsoft.com/library/dn205133.aspx).
+2. Use SSMS to import the bacpac:
+ - In the **Object Explorer**, right-click the **Databases** node.
+ - Click **Import Data-Tier Application**.
+ - Operate the wizard window that is displayed.
 
 
-## Etapa 3: Criar um banco de dados de teste comparável
+## <a name="step-2:-identify-objects-to-migrate-to-in-memory-oltp"></a>Step 2: Identify objects to migrate to In-Memory OLTP
 
-Suponha que o relatório indique que o banco de dados tem uma tabela que pode se beneficiar do que está sendo convertido em uma tabela com otimização de memória. É recomendável que você primeiro teste para confirmar a indicação.
+SSMS includes a **Transaction Performance Analysis Overview** report that you can run against a database with an active workload. The report identifies tables and stored procedures that are candidates for migration to In-Memory OLTP.
 
-Você precisa de uma cópia de teste do seu banco de dados de produção. O banco de dados de teste deve estar no mesmo nível da camada de serviço que seu banco de dados de produção.
+In SSMS, to generate the report:
+- In the **Object Explorer**, right-click your database node.
+- Click **Reports** > **Standard Reports** > **Transaction Performance Analysis Overview**.
 
-Para facilitar o teste, ajuste seu banco de dados de teste da seguinte maneira:
+For more information, see [Determining if a Table or Stored Procedure Should Be Ported to In-Memory OLTP](http://msdn.microsoft.com/library/dn205133.aspx).
 
-1. Conecte-se ao banco de dados de teste usando o SSMS.
 
-2. Para evitar a necessidade da opção WITH (SNAPSHOT) em consultas, defina a opção de banco de dados como mostrado na seguinte instrução T-SQL:
+## <a name="step-3:-create-a-comparable-test-database"></a>Step 3: Create a comparable test database
+
+Suppose the report indicates your database has a table that would benefit from being converted to a memory-optimized table. We recommend that you first test to confirm the indication by testing.
+
+You need a test copy of your production database. The test database must be at the same service tier level as your production database.
+
+To ease testing, tweak your test database as follows:
+
+1. Connect to the test database by using SSMS.
+
+2. To avoid needing the WITH (SNAPSHOT) option in queries, set the database option as shown in the following T-SQL statement:
 ```
 ALTER DATABASE CURRENT
-	SET
-		MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
+    SET
+        MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
 ```
 
 
-## Etapa 4: migrar tabelas
+## <a name="step-4:-migrate-tables"></a>Step 4: Migrate tables
 
-Você deve criar e preencher uma cópia com otimização de memória da tabela que você deseja testar. Você pode criá-la usando:
+You must create and populate a memory-optimized copy of the table you want to test. You can create it by using either:
 
-- O Assistente de Otimização de Memória útil no SSMS.
-- T-SQL Manual.
-
-
-#### Assistente de Otimização de Memória no SSMS
-
-Para usar essa opção de migração:
-
-1. Conecte-se ao banco de dados de teste com o SSMS.
-
-2. No **Pesquisador de Objetos**, clique com o botão direito do mouse na tabela e clique em **Supervisor de Otimização de Memória**.
- - O assistente **Supervisor Otimizador de Memória da Tabela** é exibido.
-
-3. No assistente, clique em **Validação de migração** (ou no botão **Avançar**) para ver se a tabela tem algum recurso incompatível que não tenha suporte em tabelas com otimização de memória. Para obter mais informações, consulte:
- - A *lista de verificação de otimização de memória* no [Supervisor de Otimização de Memória](http://msdn.microsoft.com/library/dn284308.aspx).
- - [Construções Transact-SQL sem suporte do OLTP Na Memória](http://msdn.microsoft.com/library/dn246937.aspx).
- - [Migrando para o OLTP Na Memória](http://msdn.microsoft.com/library/dn247639.aspx).
-
-4. Se a tabela não tiver recursos sem suporte, o supervisor poderá executar o esquema e a migração de dados reais para você.
+- The handy Memory Optimization Wizard in SSMS.
+- Manual T-SQL.
 
 
-#### T-SQL Manual
+#### <a name="memory-optimization-wizard-in-ssms"></a>Memory Optimization Wizard in SSMS
 
-Para usar essa opção de migração:
+To use this migration option:
 
-1. Conecte-se ao banco de dados de teste usando o SSMS (ou um utilitário semelhante).
+1. Connect to the test database with SSMS.
 
-2. Obtenha o script T-SQL completo para a tabela e seus índices.
- - No SSMS, clique com o botão direito do mouse no nó da sua tabela.
- - Clique em **Script de Tabela como** > **CREATE Para** > **Nova Janela de Consulta**.
+2. In the **Object Explorer**, right-click on the table, and then click **Memory Optimization Advisor**.
+ - The **Table Memory Optimizer Advisor** wizard is displayed.
 
-3. Na janela de script, adicione WITH (MEMORY\_OPTIMIZED = ON) à instrução CREATE TABLE.
+3. In the wizard, click **Migration validation** (or the **Next** button) to see if the table has any unsupported features that are unsupported in memory-optimized tables. For more information, see:
+ - The *memory optimization checklist* in [Memory Optimization Advisor](http://msdn.microsoft.com/library/dn284308.aspx).
+ - [Transact-SQL Constructs Not Supported by In-Memory OLTP](http://msdn.microsoft.com/library/dn246937.aspx).
+ - [Migrating to In-Memory OLTP](http://msdn.microsoft.com/library/dn247639.aspx).
 
-4. Se houver um índice CLUSTERED, altere-o para NONCLUSTERED.
+4. If the table has no unsupported features, the advisor can perform the actual schema and data migration for you.
 
-5. Renomeie a tabela existente usando SP\_RENAME.
 
-6. Crie a nova cópia da tabela com otimização de memória executando o script CREATE TABLE editado.
+#### <a name="manual-t-sql"></a>Manual T-SQL
 
-7. Copie os dados para sua tabela com otimização de memória usando INSERT...SELECT * INTO:
-	
+To use this migration option:
+
+1. Connect to your test database by using SSMS (or a similar utility).
+
+2. Obtain the complete T-SQL script for your table and its indexes.
+ - In SSMS, right-click your table node.
+ - Click **Script Table As** > **CREATE To** > **New Query Window**.
+
+3. In the script window, add WITH (MEMORY_OPTIMIZED = ON) to the CREATE TABLE statement.
+
+4. If there is a CLUSTERED index, change it to NONCLUSTERED.
+
+5. Rename the existing table by using SP_RENAME.
+
+6. Create the new memory-optimized copy of the table by running your edited CREATE TABLE script.
+
+7. Copy the data to your memory-optimized table by using INSERT...SELECT * INTO:
+    
 ```
 INSERT INTO <new_memory_optimized_table>
-		SELECT * FROM <old_disk_based_table>;
+        SELECT * FROM <old_disk_based_table>;
 ```
 
 
-## Etapa 5 (opcional): migrar procedimentos armazenados
+## <a name="step-5-(optional):-migrate-stored-procedures"></a>Step 5 (optional): Migrate stored procedures
 
-O recurso Na Memória também pode modificar um procedimento armazenado para melhorar o desempenho.
-
-
-### Considerações sobre procedimentos armazenados compilados nativamente
-
-Um procedimento armazenado compilado nativamente deve ter as seguintes opções na sua cláusula WITH T-SQL:
-
-- NATIVE\_COMPILATION
-
-- SCHEMABINDING: significa tabelas cujas definições de coluna o procedimento armazenado não pode alterar de alguma forma que afete o próprio procedimento armazenado, a menos que você descarte o procedimento armazenado.
+The In-Memory feature can also modify a stored procedure for improved performance.
 
 
-Um módulo nativo deve usar grandes [blocos ATOMIC](http://msdn.microsoft.com/library/dn452281.aspx) para o gerenciamento de transações. Não há uma função para BEGIN TRANSACTION explícita ou para ROLLBACK TRANSACTION. Se seu código detectar uma violação de uma regra de negócio, poderá finalizar o bloco atômico com uma instrução [THROW](http://msdn.microsoft.com/library/ee677615.aspx).
+### <a name="considerations-with-natively-compiled-stored-procedures"></a>Considerations with natively compiled stored procedures
+
+A natively compiled stored procedure must have the following options on its T-SQL WITH clause:
+
+- NATIVE_COMPILATION
+
+- SCHEMABINDING: meaning tables that the stored procedure cannot have their column definitions changed in any way that would affect the stored procedure, unless you drop the stored procedure.
 
 
-### CREATE PROCEDURE típico para compilados nativamente
+A native module must use one big [ATOMIC blocks](http://msdn.microsoft.com/library/dn452281.aspx) for transaction management. There is no role for an explicit BEGIN TRANSACTION, or for ROLLBACK TRANSACTION. If your code detects a violation of a business rule, it can terminate the atomic block with a [THROW](http://msdn.microsoft.com/library/ee677615.aspx) statement.
 
-Normalmente, o T-SQL para criar um procedimento armazenado nativamente compilado é semelhante ao seguinte modelo:
+
+### <a name="typical-create-procedure-for-natively-compiled"></a>Typical CREATE PROCEDURE for natively compiled
+
+Typically the T-SQL to create a natively compiled stored procedure is similar to the following template:
 
 ```
 CREATE PROCEDURE schemaname.procedurename
-	@param1 type1, …
-	WITH NATIVE_COMPILATION, SCHEMABINDING
-	AS
-		BEGIN ATOMIC WITH
-			(TRANSACTION ISOLATION LEVEL = SNAPSHOT,
-			LANGUAGE = N'your_language__see_sys.languages'
-			)
-		…
-		END;
+    @param1 type1, …
+    WITH NATIVE_COMPILATION, SCHEMABINDING
+    AS
+        BEGIN ATOMIC WITH
+            (TRANSACTION ISOLATION LEVEL = SNAPSHOT,
+            LANGUAGE = N'your_language__see_sys.languages'
+            )
+        …
+        END;
 ```
 
-- Para TRANSACTION\_ISOLATION\_LEVEL, o SNAPSHOT é o valor mais comum para o procedimento armazenado nativamente compilado. No entanto, também há suporte para um subconjunto dos outros valores:
+- For the TRANSACTION_ISOLATION_LEVEL, SNAPSHOT is the most common value for the natively compiled stored procedure. However,  a subset of the other values are also supported:
  - REPEATABLE READ
  - SERIALIZABLE
 
 
-- O valor LANGUAGE deve estar presente na exibição sys.languages.
+- The LANGUAGE value must be present in the sys.languages view.
 
 
-### Como migrar um procedimento armazenado
+### <a name="how-to-migrate-a-stored-procedure"></a>How to migrate a stored procedure
 
-As etapas de migração são:
-
-
-1. Obtenha o script CREATE PROCEDURE para o procedimento armazenado interpretado regular.
-
-2. Reescreva o cabeçalho para que ele corresponda ao modelo anterior.
-
-3. Verificar se o código T-SQL de procedimento armazenado usa os recursos sem suporte para procedimentos armazenados compilados nativamente. Implemente soluções alternativas, se necessário.
- - Para obter detalhes, consulte [Problemas de migração para procedimentos armazenados compilados nativamente](http://msdn.microsoft.com/library/dn296678.aspx).
-
-4. Renomeie o antigo procedimento armazenado usando SP\_RENAME. Ou simplesmente descarte-o usando DROP.
-
-5. Execute o script T-SQL CREATE PROCEDURE editado.
+The migration steps are:
 
 
-## Etapa 6: executar sua carga de trabalho no teste
+1. Obtain the CREATE PROCEDURE script to the regular interpreted stored procedure.
 
-Execute uma carga de trabalho em seu banco de dados de teste que seja semelhante à carga de trabalho executada em seu banco de dados de produção. Isso deve revelar o ganho de desempenho obtido com o uso do recurso Na Memória para tabelas e procedimentos armazenados.
+2. Rewrite its header to match the previous template.
 
-Os principais atributos da carga de trabalho são:
+3. Ascertain whether the stored procedure T-SQL code uses any features that are not supported for natively compiled stored procedures. Implement workarounds if necessary.
+ - For details see [Migration Issues for Natively Compiled Stored Procedures](http://msdn.microsoft.com/library/dn296678.aspx).
 
-- Número de conexões simultâneas.
+4. Rename the old stored procedure by using SP_RENAME. Or simply DROP it.
 
-- Taxa de leitura/gravação.
-
-
-Para ajustar e executar a carga de trabalho de teste, considere usar a ferramenta útil ostress.exe, ilustrada [aqui](sql-database-in-memory.md).
+5. Run your edited CREATE PROCEDURE T-SQL script.
 
 
-Para minimizar a latência de rede, execute o teste na mesma região geográfica do Azure onde está o banco de dados.
+## <a name="step-6:-run-your-workload-in-test"></a>Step 6: Run your workload in test
+
+Run a workload in your test database that is similar to the workload that runs in your production database. This should reveal the performance gain achieved by your use of the In-Memory feature for tables and stored procedures.
+
+Major attributes of the workload are:
+
+- Number of concurrent connections.
+
+- Read/write ratio.
 
 
-## Etapa 7: Monitoramento pós-implementação
-
-Considere monitorar os efeitos de desempenho de suas implementações de Na Memória em produção:
-
-- [Monitorar o armazenamento na memória](sql-database-in-memory-oltp-monitoring.md).
-
-- [Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)
+To tailor and run the test workload, consider using the handy ostress.exe tool, which illustrated in [here](sql-database-in-memory.md).
 
 
-## Links relacionados
+To minimize network latency, run your test in the same Azure geographic region where the database exists.
 
-- [OLTP Na Memória (Otimização Na Memória)](http://msdn.microsoft.com/library/dn133186.aspx)
 
-- [Introdução aos procedimentos armazenados compilados nativamente](http://msdn.microsoft.com/library/dn133184.aspx)
+## <a name="step-7:-post-implementation-monitoring"></a>Step 7: Post-implementation monitoring
 
-- [Supervisor de Otimização de Memória](http://msdn.microsoft.com/library/dn284308.aspx)
+Consider monitoring the performance effects of your In-Memory implementations in production:
 
-<!---HONumber=AcomDC_0720_2016-->
+- [Monitor In-Memory Storage](sql-database-in-memory-oltp-monitoring.md).
+
+- [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
+
+
+## <a name="related-links"></a>Related links
+
+- [In-Memory OLTP (In-Memory Optimization)](http://msdn.microsoft.com/library/dn133186.aspx)
+
+- [Introduction to Natively Compiled Stored Procedures](http://msdn.microsoft.com/library/dn133184.aspx)
+
+- [Memory Optimization Advisor](http://msdn.microsoft.com/library/dn284308.aspx)
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

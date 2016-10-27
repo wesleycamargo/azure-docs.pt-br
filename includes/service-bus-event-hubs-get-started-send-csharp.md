@@ -1,68 +1,71 @@
-## Enviar mensagens ao Hub de Eventos
+## <a name="send-messages-to-event-hubs"></a>Send messages to Event Hubs
 
-Nesta seção, você escreverá um aplicativo de console do Windows para enviar eventos para o hub de eventos.
+In this section, you'll write a Windows console app that sends events to your Event Hub.
 
-1. No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Visual C# usando o modelo de projeto de **Aplicativo de Console**. Nomeie o projeto como **Remetente**.
+1. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Sender**.
 
-	![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png)
+    ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png)
 
-2. No Gerenciador de Soluções, clique com o botão direito na solução e clique em **Gerenciar Pacotes NuGet para Solução**.
+2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution**. 
 
-3. Clique na guia **Procurar** e pesquise `Microsoft Azure Service Bus`. Verifique se o nome do projeto (**Remetente**) está especificado na caixa **Versão(ões)**. Clique em **Instalar** e aceite os termos de uso.
+3. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Ensure that the project name (**Sender**) is specified in the **Version(s)** box. Click **Install**, and accept the terms of use. 
 
-	![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png)
+    ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png)
 
-	O Visual Studio faz o download, instala e adiciona uma referência ao [pacote NuGet de biblioteca do Barramento de Serviço do Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
+    Visual Studio downloads, installs, and adds a reference to the [Azure Service Bus library NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
-4. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs**:
+4. Add the following `using` statements at the top of the **Program.cs** file:
 
-	```
-	using System.Threading;
-	using Microsoft.ServiceBus.Messaging;
-	```
+    ```
+    using System.Threading;
+    using Microsoft.ServiceBus.Messaging;
+    ```
 
-5. Adicione os seguintes campos à classe **Programa**, substituindo os valores do espaço reservado pelo nome do Hub de Eventos criado na seção anterior e a cadeia de conexão no nível do namespace que você salvou anteriormente.
+5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the Event Hub you created in the previous section, and the namespace-level connection string you saved previously.
 
-	```
-	static string eventHubName = "{Event Hub name}";
-	static string connectionString = "{send connection string}";
-	```
+    ```
+    static string eventHubName = "{Event Hub name}";
+    static string connectionString = "{send connection string}";
+    ```
 
-6. Adicione o seguinte método à classe **Programa**:
+6. Add the following method to the **Program** class:
 
-	```
-	static void SendingRandomMessages()
-	{
-	    var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
-	    while (true)
-	    {
-	        try
-	        {
-	            var message = Guid.NewGuid().ToString();
-	            Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
-	            eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
-	        }
-	        catch (Exception exception)
-	        {
-	            Console.ForegroundColor = ConsoleColor.Red;
-	            Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
-	            Console.ResetColor();
-	        }
+    ```
+    static void SendingRandomMessages()
+    {
+        var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
+        while (true)
+        {
+            try
+            {
+                var message = Guid.NewGuid().ToString();
+                Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
+                eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
+            }
+            catch (Exception exception)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
+                Console.ResetColor();
+            }
 
-	        Thread.Sleep(200);
-	    }
-	}
-	```
+            Thread.Sleep(200);
+        }
+    }
+    ```
 
-	Este método envia continuamente os eventos ao seu hub de eventos com um atraso de 200 ms.
+    This method continuously sends events to your Event Hub with a 200-ms delay.
 
-7. Por fim, adicione as seguintes linhas ao método **Main**:
+7. Finally, add the following lines to the **Main** method:
 
-	```
-	Console.WriteLine("Press Ctrl-C to stop the sender process");
-	Console.WriteLine("Press Enter to start now");
-	Console.ReadLine();
-	SendingRandomMessages();
-	```
+    ```
+    Console.WriteLine("Press Ctrl-C to stop the sender process");
+    Console.WriteLine("Press Enter to start now");
+    Console.ReadLine();
+    SendingRandomMessages();
+    ```
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

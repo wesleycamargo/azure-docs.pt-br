@@ -1,44 +1,48 @@
 <properties 
-	pageTitle="Application Insights para aplicativos do Microsoft Azure" 
-	description="Analise o uso e o desempenho de seu aplicativo do Azure com o Application Insights." 
-	services="application-insights" 
+    pageTitle="Application Insights for Microsoft Azure apps" 
+    description="Analyze usage and performance of your Azure app with Application Insights." 
+    services="application-insights" 
     documentationCenter="windows"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/15/2016" 
-	ms.author="awills"/>
-
-#  Application Insights para aplicativos do Microsoft Azure
-
-*O Application Insights está em modo de visualização.*
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/15/2016" 
+    ms.author="awills"/>
 
 
-Detecte e resolva problemas e melhore continuamente seus aplicativos. Diagnostique problemas rapidamente em seu aplicativo em tempo real. Entenda o que os usuários fazem com ele.
+#  <a name="application-insights-for-microsoft-azure-apps"></a>Application Insights for Microsoft Azure apps
 
-A configuração é muito fácil, e você verá os resultados em minutos.
-
-Que tipo de aplicativo você tem?
-
-* [Aplicativo Web do Azure](app-insights-asp-net.md)
-* [Aplicativo dos Serviços de Nuvem do Azure - funções da Web e de trabalho](app-insights-cloudservices.md)
-* [Aplicativo Web no IIS na VM do Azure](app-insights-asp-net.md)
-* [Aplicativo fora do Azure](app-insights-overview.md)
+*Application Insights is in preview.*
 
 
-Telemetria adicional
+Detect issues, solve problems, and continuously improve your applications. Quickly diagnose any problems in your live application. Understand what your users do with it.
 
-* [Mostrar logs de diagnóstico do Azure no Application Insights](app-insights-azure-diagnostics.md)
+Configuration is very easy, and you'll see results within minutes.
+
+What type of app do you have?
+
+* [Azure web app](app-insights-asp-net.md)
+* [Azure Cloud Services App - web and worker roles](app-insights-cloudservices.md)
+* [Web app on IIS in Azure VM](app-insights-asp-net.md)
+* [Application outside Azure](app-insights-overview.md)
+
+
+Additional telemetry
+
+* [Show Azure diagnostic logs in Application Insights](app-insights-azure-diagnostics.md)
 
 
 
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

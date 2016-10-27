@@ -1,47 +1,52 @@
 <properties
-	pageTitle="Segurança OAuth em conectores de SaaS e aplicativos de API| Azure"
-	description="Leia sobre a segurança OAuth nos conectores e aplicativos de API no Serviço de Aplicativo do Azure; arquitetura de microsserviços; saas"
-	services="logic-apps"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+    pageTitle="OAUTH Security in SaaS Connectors and API Apps | Azure"
+    description="Read about OAUTH security in the Connectors and API Apps in Azure App Service; microservices architecture; saas"
+    services="logic-apps"
+    documentationCenter=""
+    authors="MandiOhlinger"
+    manager="dwrede"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2016"
-	ms.author="mandia"/>
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/23/2016"
+    ms.author="mandia"/>
 
 
-# Saiba mais sobre a segurança OAuth em conectores de SaaS
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+# <a name="learn-about-oauth-security-in-saas-connectors"></a>Learn about OAUTH Security in SaaS connectors
 
-Muitos dos conectores de SaaS (software como serviço), como Facebook, Twitter, DropBox e assim por diante, exigem que os usuários autentiquem usando o protocolo OAUTH. Ao usar esses conectores de SaaS por meio de Aplicativos Lógicos, fornecemos uma experiência do usuário simplificada, na qual você clica em "Autorizar" no designer de Aplicativos Lógicos. Ao **Autorizar**, você será solicitado a se conectar (se já não o tiver feito) e a fornecer consentimento para se conectar ao serviço SaaS em seu nome. Após seu consentimento e autorização, seus Aplicativos Lógicos poderão acessar esses serviços SaaS.
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
 
-## Criar seu próprio aplicativo de SaaS
-Essa experiência simplificada é possível porque criamos e registramos anteriormente o aplicativo nesses serviços SaaS. Em alguns casos, você pode registrar e usar seu próprio aplicativo. Isso é necessário, por exemplo, quando você quer usar esses conectores de SaaS em seus aplicativos personalizados. Este exemplo usa o Conector do DropBox, mas o processo é o mesmo para todos os conectores que dependem de OAUTH.
+Many of the Software as a Service (SaaS) connectors like Facebook, Twitter, DropBox, and so on require users to authenticate using the OAUTH protocol.  When you use these SaaS connectors from Logic Apps, we provide a simplified user experience where you click "Authorize" in the Logic Apps designer. When you **Authorize**, you are asked to sign in (if not already) and provide consent to connect to the SaaS service on your behalf. After you do provide consent and authorize, your Logic Apps can then access these SaaS services.
 
-Até mesmo no contexto de Aplicativos Lógicos, você pode usar seu próprio aplicativo em vez do aplicativo padrão que fornecemos. Se ocorrer falha ao se conectar usando o botão "Autorizar", você pode tentar criar seu próprio aplicativo. As etapas usadas para o conector do Twitter são listadas abaixo:
+## <a name="create-your-own-saas-app"></a>Create your own SaaS app
+This simplified experience is possible because we previously created and registered our application in these SaaS services.  In certain cases, you may want to register and use your own application.  This is necessary, for instance, when you want to use these SaaS connectors in your custom applications. This example uses the DropBox connector, but the process is the same for all connectors that rely on OAUTH.
 
-1. Abra o conector do Twitter na Versão Prévia do Portal do Azure. Vá para **Procurar** > **Aplicativos de API**. Selecione o conector do Twitter: ![][1]
+Even in the context of Logic Apps, you can use your own application instead of using the default application that we provide. If the "Authorize" button fails to connect, you can try creating your own app. The following lists these steps for the Twitter connector:
 
-2. Selecione **Configurações** > **Autenticação**: ![][2]
+1. Open your Twitter connector in the Azure preview portal. Go to **Browse** > **API Apps**. Select your Twitter connector:  
+    ![][1]
 
-3. Copie o valor de **URI de Redirecionamento**: ![][3]
+2. Select **Settings** > **Authentication**:  
+    ![][2]
 
-4. Vá para [Twitter](http://apps.twitter.com) e **Criar um Novo Aplicativo**. Na propriedade **URL de Retorno de Chamada**, cole o valor de **URI de Redirecionamento** copiado do seu conector do Twitter: ![][4]
-5. Quando o aplicativo do Twitter é criado, selecione **Chave e Tokens de Acesso**. Copie esses valores.
-6. Nas configurações de autenticação do conector do Twitter, cole esses valores nas propriedades **ID do Cliente** e **Segredo do Cliente**: ![][5]
-7. Salve as configurações do conector.
+3. Copy the **Redirect URI** value:  
+    ![][3]
 
-Agora, você pode usar o conector por meio de Aplicativos Lógicos. Ao usar o conector por meio de Aplicativos Lógicos, ele usa seu aplicativo em vez do aplicativo padrão.
+4. Go to [Twitter](http://apps.twitter.com) and **Create a New App**. In the **Callback URL** property, paste the **Redirect URI** value copied from  your Twitter connector:  ![][4]  
+5. When your Twitter app is created, select **Key and Access Tokens**. Copy these values.
+6. In your Twitter connector authentication settings, paste these values in the **Client ID** and **Client Secret** properties:   
+    ![][5]  
+7. Save your connector settings.  
 
-> [AZURE.NOTE] Se você autorizou um aplicativo anteriormente, talvez precise autorizá-lo novamente.
+Now, you should be able to use your connector from Logic Apps. When you use this connector from Logic Apps, it uses your application instead of the default application.  
+
+> [AZURE.NOTE] If you have authorized an app previously, you may have to reauthorize the app.
 
 
 <!--Image references-->
@@ -51,4 +56,8 @@ Agora, você pode usar o conector por meio de Aplicativos Lógicos. Ao usar o co
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

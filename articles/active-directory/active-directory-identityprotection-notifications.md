@@ -1,62 +1,80 @@
 <properties
-	pageTitle="Notificações do Azure Active Directory Identity Protection | Microsoft Azure"
-	description="Saiba como as notificações dão suporte às suas atividades de investigação."
-	services="active-directory"
-	keywords="azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure Active Directory Identity Protection notifications| Microsoft Azure"
+    description="Learn how notifications support your investigation activities."
+    services="active-directory"
+    keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
+    documentationCenter=""
+    authors="MarkusVi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/02/2016"
-	ms.author="markvi"/>
-
-#Notificações do Azure Active Directory Identity Protection 
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2016"
+    ms.author="markvi"/>
 
 
-O Azure AD Identity Protection envia dois tipos de emails de notificação automatizados para ajudar você a gerenciar o risco do usuário e eventos de risco:
-
-- Email de alerta de usuário comprometido
-
-- Email de resumo semanal
-
-## Email de alerta de usuário comprometido
-
-Um email de alerta de usuário comprometido é gerado quando o Azure AD Identity Protection identifica uma conta como comprometida. O email inclui um link para os Usuários sinalizados para o relatório de risco no painel do Identity Protection. Recomendamos que as notificações de usuários comprometidos sejam investigadas imediatamente.
+#<a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection notifications 
 
 
-## Email de resumo semanal
+Azure AD Identity Protection sends two types of automated notification emails to help you manage user risk and risk events:
 
-O email de resumo semanal contém um resumo dos novos eventos de risco.<br> Ele inclui:
+- User compromised alert email
 
-- Usuários em risco
-- Atividades suspeitas
-- Vulnerabilidades detectadas
-- Links para os relatórios relacionados no Identity Protection
+- Weekly digest email
+
+## <a name="user-compromised-alert-email"></a>User compromised alert email
+
+A user compromised email alert is generated when Azure AD Identity Protection identifies an account as compromised. The email includes a link to the Users flagged for risk report in the Identity Protection dashboard. We recommend that you immediately investigate notifications of compromised.
 
 
-<br> ![Correção](./media/active-directory-identityprotection-notifications/400.png "Correção") <br>
+## <a name="weekly-digest-email"></a>Weekly digest email
 
-É possível desativar o envio de um email de resumo semanal.<br><br> ![Riscos do usuário](./media/active-directory-identityprotection-notifications/62.png "Riscos do usuário") <br>
+The weekly digest email contains a summary of new risk events.<br>
+It includes:
+
+- Users at risk
+- Suspicious activities
+- Detected vulnerabilities
+- Links to the related reports in Identity Protection
+
+
+<br>
+![Remediation](./media/active-directory-identityprotection-notifications/400.png "Remediation")
+<br> 
+
+You can switch sending a weekly digest email off.
+<br><br>
+![User risks](./media/active-directory-identityprotection-notifications/62.png "User risks")
+<br>
  
 
-**Para abrir o diálogo de configurações relacionadas**:
+**To open the related configuration dialog**:
 
-1. Na folha **Azure AD Identity Protection**, clique em **Configurações**.<br><br> ![Política de risco do usuário](./media/active-directory-identityprotection-notifications/401.png "Política de risco do usuário") <br>
+1. On the **Azure AD Identity Protection** blade, click **Settings**.
+<br><br>
+![User risk policy](./media/active-directory-identityprotection-notifications/401.png "User risk policy")
+<br>
 
-2. Na seção **Geral**, clique em **Notificações**.<br><br> ![Política de risco do usuário](./media/active-directory-identityprotection-notifications/405.png "Política de risco do usuário") <br>
+2. In the **General** section, click **Notifications**.
+<br><br>
+![User risk policy](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
+<br>
 
 
 
 
-## Consulte também
+## <a name="see-also"></a>See also
 
-- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

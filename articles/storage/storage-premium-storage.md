@@ -1,574 +1,581 @@
 <properties
-	pageTitle="Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure"
-	description="O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure. As VMs das séries DS, DSv2 e GS do Azure são compatíveis com o Armazenamento Premium."
-	services="storage"
-	documentationCenter=""
-	authors="aungoo-msft"
-	manager="tadb"
-	editor="tysonn"/>
+    pageTitle="Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads | Microsoft Azure"
+    description="Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines. Azure DS-series, DSv2-series and GS-series VMs support Premium Storage."
+    services="storage"
+    documentationCenter=""
+    authors="yuemlu"
+    manager="aungoo-msft"
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016"
-	ms.author="aungoo;robinsh"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/28/2016"
+    ms.author="yuemlu;aungoo;robinsh"/>
 
 
-# Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure
 
-## Visão geral
+# <a name="premium-storage:-high-performance-storage-for-azure-virtual-machine-workloads"></a>Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads
 
-O Armazenamento Premium do Azure dá suporte de disco de alto desempenho e baixa latência para máquinas virtuais executando cargas de trabalho intensivas para entradas e saídas. Discos de VM (máquina virtual) que usam o armazenamento Premium armazenam dados em SSDs (unidades de estado sólido). Você pode migrar os discos de VM do seu aplicativo para o Armazenamento Premium do Azure para aproveitar a velocidade e o desempenho desses discos.
+## <a name="overview"></a>Overview
 
-Uma VM do Azure dá suporte à anexação vários discos de Armazenamento Premium, para que seus aplicativos possam ter até 64 TB de armazenamento por VM. Com o Armazenamento Premium, seus aplicativos podem atingir 80.000 IOPS (operações de entrada/saída por segundo) por VM e taxa de transferência de disco de 2.000 MB por segundo por VM com latências extremamente baixas para operações de leitura.
+Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines running I/O-intensive workloads. Virtual machine (VM) disks that use Premium Storage store data on solid state drives (SSDs). You can migrate your application's VM disks to Azure Premium Storage to take advantage of the speed and performance of these disks.
 
-Com o Armazenamento Premium, o Azure oferece a capacidade de realmente deslocar os exigentes aplicativos empresariais, por exemplo, Dynamics AX, Dynamics CRM, Exchange Server, Farms do SharePoint e SAP Business Suite, para a nuvem. Você pode executar várias cargas de trabalho de banco de dados com desempenho intenso, como o SQL Server, Oracle, MongoDB, MySQL, Redis, que exigem um desempenho alto e consistente e baixa latência no Armazenamento Premium.
+An Azure VM supports attaching several Premium Storage disks, so that your applications can have up to 64 TB of storage per VM. With Premium Storage, your applications can achieve 80,000 IOPS (input/output operations per second) per VM and 2000 MB per second disk throughput per VM with extremely low latencies for read operations.
 
->[AZURE.NOTE] É recomendável migrar qualquer disco de máquina virtual que exija IOPS alta para o Armazenamento Premium do Azure para obter o melhor desempenho para o seu aplicativo. Se o disco não requer IOPS alta, você pode limitar os custos mantendo-a no armazenamento padrão, que armazena dados de disco da máquina virtual em HDDs (unidades de disco rígido) em vez de SSDs.
+With Premium Storage, Azure offers the ability to truly lift-and-shift your demanding enterprise applications like, Dynamics AX, Dynamics CRM, Exchange Server, SharePoint Farms, and SAP Business Suite, to the cloud. You can run a variety of performance intensive database workloads like SQL Server, Oracle, MongoDB, MySQL, Redis, that require consistent high performance and low latency on Premium Storage.
 
-Para começar com o Armazenamento Premium do Azure, visite a página [Introdução gratuita](https://azure.microsoft.com/pricing/free-trial/). Para saber mais sobre como migrar as máquinas virtuais existentes para o Armazenamento Premium, confira [Migração para o Armazenamento Premium do Azure](storage-migration-to-premium-storage.md).
+>[AZURE.NOTE] We recommend migrating any virtual machine disk requiring high IOPS to Azure Premium Storage for the best performance for your application. If your disk does not require high IOPS, you can limit costs by maintaining it in Standard Storage, which stores virtual machine disk data on Hard Disk Drives (HDDs) instead of SSDs.
 
->[AZURE.NOTE] O Armazenamento Premium tem suporte em algumas regiões. Você pode encontrar a lista de regiões disponíveis em [Serviços do Azure por Região](https://azure.microsoft.com/regions/#services).
+To get started with Azure Premium Storage, visit [Get started for free](https://azure.microsoft.com/pricing/free-trial/) page. For information on migrating your existing virtual machines to Premium Storage, see [Migrating to Azure Premium Storage](storage-migration-to-premium-storage.md).
 
-## Recursos de Armazenamento Premium
+>[AZURE.NOTE] Premium Storage is currently supported in some regions. You can find the list of available regions in [Azure Services by Region](https://azure.microsoft.com/regions/#services).
 
-**Discos de Armazenamento Premium**: o Armazenamento Premium do Azure é compatível com discos de VM que podem ser anexados a VMs do Azure com suporte do Armazenamento Premium (séries DS, DSv2, GS ou Fs). Ao usar o Armazenamento Premium, você tem a opção de três tamanhos de disco, ou seja, P10 (128 GiB), P20 (512 GiB) e P30 (1024 GiB), cada um com suas próprias especificações de desempenho. Dependendo do requisito do aplicativo, você pode anexar um ou mais desses discos à VM com suporte do Armazenamento Premium. Na seção a seguir sobre [Metas de desempenho e escalabilidade do Armazenamento Premium ](#premium-storage-scalability-and-performance-targets), descreveremos as especificações em mais detalhes.
+## <a name="premium-storage-features"></a>Premium Storage Features
 
-**Blob de Páginas Premium**: o Armazenamento Premium dá suporte a Blobs de Páginas do Azure, que são usados para manter discos persistentes para VMs (Máquinas Virtuais) do Azure. Atualmente, o Armazenamento Premium não dá suporte a Blobs de Blocos do Azure, Blobs de Acréscimo do Azure, Arquivos do Azure, Tabelas do Azure nem Filas do Azure. Qualquer outro objeto colocado em uma conta de armazenamento Premium será um Blob de páginas, que será ajustado para um dos tamanhos de provisionados com suporte. A conta de armazenamento Premium não se destina a armazenar blobs pequenos.
+**Premium Storage Disks**: Azure Premium Storage supports VM disks that can be attached to Premium Storage supported Azure VMs (DS, DSv2, GS, or Fs series). When using Premium Storage you have a choice of three disk sizes namely, P10 (128GiB), P20 (512GiB) and P30 (1024GiB), each with its own performance specifications. Depending on your application requirement you can attach one or more of these disks to your Premium Storage supported VM. In the following section on [Premium Storage Scalability and Performance Targets ](#premium-storage-scalability-and-performance-targets) we will describe the specifications in more detail.
 
-**Conta de Armazenamento Premium**: para começar a usar o Armazenamento Premium, você deve criar uma conta de Armazenamento Premium. Se você preferir usar o [Portal do Azure](https://portal.azure.com), você poderá criar uma conta de armazenamento Premium, especificando o nível de desempenho "Premium" e "LRS (Armazenamento com redundância Local)" como a opção de replicação. Também é possível cria uma conta de armazenamento Premium ao especificar o do tipo "Premium\_LRS" usando a [API REST de Armazenamento](http://msdn.microsoft.com//library/azure/dd179355.aspx) versão 2014-02-14 ou posterior; a [API REST do Serviço de Gerenciamento](http://msdn.microsoft.com/library/azure/ee460799.aspx) versão 2014-10-01 ou posterior (implantações clássicas); a [Referência de API REST do Provedor de Recursos de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/mt163683.aspx) (implantações do Resource Manager); e [Azure PowerShell](../powershell-install-configure.md) versão 0.8.10 ou posterior. Saiba mais sobre limites de conta de armazenamento premium na seção a seguir sobre [Metas de Desempenho e Escalabilidade do Armazenamento Premium](#premium-storage-scalability-and-performance-targets).
+**Premium Page Blob**: Premium Storage supports Azure Page Blobs, which are used to hold persistent disks for Azure Virtual Machines (VMs). Currently, Premium Storage does not support Azure Block Blobs, Azure Append Blobs, Azure Files, Azure Tables, or Azure Queues. Any other object placed in a Premium Storage account will be a Page Blob, and it will snap to one of the supported provisioned sizes. Hence Premium Storage account is not meant for storing tiny blobs.
 
-**Armazenamento com Redundância Local Premium**: uma conta de Armazenamento Premium só dá suporte ao LRS (Armazenamento com Redundância Local) como a opção de replicação e mantém três cópias de dados em uma única região. Para obter considerações sobre replicação geográfica ao usar o Armazenamento Premium, confira a seção [Instantâneos e cópia de Blob](#snapshots-and-copy-blob) neste artigo.
+**Premium Storage account**: To start using Premium Storage, you must create a Premium Storage account. If you prefer to use the [Azure portal](https://portal.azure.com), you can create a Premium Storage account by specifying the “Premium” performance tier and “Locally-redundant storage (LRS)” as the replication option. You can also create a Premium Storage account by specifying the type as “Premium_LRS” using the [Storage REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or later; the [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later (Classic deployments); the [Azure Storage Resource Provider REST API Reference](http://msdn.microsoft.com/library/azure/mt163683.aspx) (Resource Manager deployments); and the [Azure PowerShell](../powershell-install-configure.md) version 0.8.10 or later. Learn about premium storage account limits in the following section on [Premium Storage Scalability and Performance Targets](#premium-storage-scalability-and-performance-targets).
 
-O Azure usa a conta de armazenamento como um contêiner para seu sistema operacional (SO) e discos de dados. Quando você cria uma VM DS, DSv2, GS ou Fs do Azure e escolhe uma conta de Armazenamento Premium Azure, o sistema operacional e os discos de dados são armazenados nessa conta de armazenamento.
+**Premium Locally Redundant Storage**: A Premium Storage account only supports Locally Redundant Storage (LRS) as the replication option and keeps three copies of the data within a single region. For considerations regarding geo replication when using Premium Storage, see the [Snapshots and Copy Blob](#snapshots-and-copy-blob) section in this article.
 
-Você pode usar o Armazenamento Premium para discos de uma das seguintes maneiras:
-- Primeiro, crie uma nova conta de armazenamento premium. Em seguida, ao criar uma nova VM DS, DSv2, GS ou Fs, escolha a conta de armazenamento premium nas definições de configuração de Armazenamento. OU
-- Ao criar uma nova VM DS, DSv2, GS ou Fs, crie uma nova conta de armazenamento premium nas definições de Configuração de armazenamento, ou permita que o portal do Azure crie uma conta de armazenamento premium padrão.
+Azure uses the storage account as a container for your operating system (OS) and data disks. When you create an Azure DS, DSv2, GS, or Fs  VM and select an Azure Premium Storage account, your operating system and data disks are stored in that storage account.
 
-Para obter instruções passo a passo, confira a seção [Início rápido](#quick-start), mais adiante neste artigo.
+You can use Premium Storage for Disks in one of two ways:
+- First, create a new premium storage account. Next, when creating a new DS, DSv2, GS, or Fs VM, select the premium storage account in the Storage configuration settings. OR,
+- When creating a new DS, DSv2, GS, or Fs VM create a new premium storage account in Storage configuration settings, or let Azure portal create a default premium storage account.
 
->[AZURE.NOTE] Uma conta de Armazenamento Premium não pode ser mapeada para um nome de domínio personalizado.
+For step-by-step instructions, see the [Quick Start](#quick-start) section later in this article.
 
-## VMs com suporte do Armazenamento Premium
+>[AZURE.NOTE] A premium storage account cannot be mapped to a custom domain name.
 
-O Armazenamento Premium oferece suporte às VMs (Máquinas Virtuais) do Azure das séries DS, DSv2, GS e Fs. Você pode usar discos de armazenamento Standard e Premium com VMs que têm suporte do Armazenamento Premium. Mas não é possível usar discos de Armazenamento Premium com séries de VMs que não são compatíveis com o Armazenamento Premium.
+## <a name="premium-storage-supported-vms"></a>Premium Storage supported VMs
 
-Para obter informações sobre os tipos e tamanhos disponíveis de VM do Azure para VMs Windows, veja [Tamanhos de VMs Windows](../virtual-machines/virtual-machines-windows-sizes.md). Para obter informações sobre os tipos e tamanhos de VM para VMs Linux, veja [Tamanhos de VMs Linux](../virtual-machines/virtual-machines-linux-sizes.md).
+Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series Azure Virtual Machines (VMs). You can use both Standard and Premium storage disks with Premium Storage supported of VMs. But you cannot use Premium Storage disks with VM series which are not Premium Storage compatible.
 
-Veja a seguir algumas das funcionalidades das VMs das séries DS, DSv2, GS e Fs:
+For information on available Azure VM types and sizes for Windows VMs, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md). For information on VM types and sizes for Linux VMs, see [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md).
 
-**Serviço de nuvem**: VMs da série DS podem ser adicionadas a um serviço de nuvem que inclua apenas VMs da série DS. Não adicione VMs da série DS a um serviço de nuvem existente que inclua VMs que não são da série DS. Você pode migrar seus VHDs existentes para um novo serviço de nuvem que executa apenas VMs da série DS. Se quiser manter o mesmo VIP (endereço IP virtual) para o novo serviço de nuvem que hospeda as VMs da série DS, use [Endereços IP Reservados](../virtual-network/virtual-networks-instance-level-public-ip.md). As VMs da série GS podem ser adicionadas a um serviço de nuvem existente executando apenas VMs da série G.
+Following are some of the features of DS, DSv2, GS, and Fs series VMs:
 
-**Disco do sistema operacional**: as máquinas virtuais do Azure com suporte do Armazenamento Premium podem ser configuradas para usar um disco do SO (sistema operacional) hospedado em uma conta de Armazenamento Standard ou em uma conta de Armazenamento Premium. É recomendável usar o armazenamento Premium com base em disco do sistema operacional para obter melhor experiência.
+**Cloud Service**: DS-series VMs can be added to a cloud service that includes only DS-series VMs. Do not add DS-series VMs to an existing cloud service that includes non-DS-series VMs. You can migrate your existing VHDs to a new cloud service running only DS-series VMs. If you want to retain the same virtual IP address (VIP) for the new cloud service that hosts your DS-series VMs, use the [Reserved IP Addresses](../virtual-network/virtual-networks-instance-level-public-ip.md). GS-series VMs can be added to an existing cloud service running only G-series VMs.
 
-**Discos de dados**: você pode usar discos de armazenamento Premium ou Standard na mesma VM com suporte do Armazenamento Premium. Com o Armazenamento Premium, você pode provisionar uma VM com suporte do Armazenamento Premium e anexar vários discos de dados persistentes à VM. Se necessário, pode distribuir entre os discos para aumentar a capacidade e o desempenho do volume.
+**Operating System Disk**: The Premium Storage supported Azure virtual machines can be configured to use an operating system (OS) disk hosted either on a Standard Storage account or on a Premium Storage account. We recommend using Premium Storage based OS disk for best experience.
 
-> [AZURE.NOTE] Se você distribuir discos de dados do Armazenamento Premium usando [Espaços de Armazenamento](http://technet.microsoft.com/library/hh831739.aspx), deverá configurá-lo com uma coluna para cada disco usado. Caso contrário, o desempenho geral do volume distribuído pode ser menor que o esperado devido a uma distribuição irregular de tráfego entre os discos. Por padrão, a interface do usuário do Gerenciador de servidores (UI) permite que você configure colunas para até 8 discos. Mas se você tiver mais de 8 discos, você precisa usar o PowerShell para criar o volume e também especificar manualmente o número de colunas. Caso contrário, a UI do Gerenciador de servidores continuará a usar 8 colunas, mesmo que haja mais discos. Por exemplo, se você tiver 32 discos em um conjunto único de distribuição, você deve especificar 32 colunas. Você pode usar o parâmetro *NumberOfColumns* do cmdlet do PowerShell [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) para especificar o número de colunas usadas pelo disco virtual. Para saber mais, consulte [Visão geral dos espaços de armazenamento](http://technet.microsoft.com/library/hh831739.aspx) e [Perguntas frequentes sobre os espaços de armazenamentos](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
+**Data Disks**: You can use both Premium and Standard storage disks in the same Premium Storage supported VM. With Premium Storage, you can provision a Premium Storage supported VM and attach several persistent data disks to the VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume.
 
-**Cache**: as VMs com suporte do Armazenamento Premium têm uma funcionalidade de cache exclusiva com a qual você pode obter altos níveis de produtividade e latência, o que excede o desempenho do disco de Armazenamento Premium subjacente. Você pode configurar a política de cache de disco nos discos de Armazenamento Premium como ReadOnly, ReadWrite ou None. A política de cache de disco de padrão é ReadOnly para todos os discos de dados premium e ReadWrite para discos do sistema operacional. Use a configuração correta a fim de atingir o desempenho ideal para o aplicativo. Por exemplo, para discos de dados com necessidade de prontidão intensa ou somente leitura, como arquivos de dados do SQL Server, defina a política de cache de disco como "ReadOnly". Para discos de dados com gravação intensa ou somente gravação, como arquivos de log do SQL Server, defina a política de cache de disco como "None". Saiba mais sobre como otimizar seu design com o Armazenamento Premium em [Design para desempenho com o Armazenamento Premium](storage-premium-storage-performance.md).
+> [AZURE.NOTE] If you stripe Premium Storage data disks using [Storage Spaces](http://technet.microsoft.com/library/hh831739.aspx), you should configure it with one column for each disk that is used. Otherwise, overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. By default, the Server Manager user interface (UI) allows you to setup columns up to 8 disks. But if you have more than 8 disks, you need to use PowerShell to create the volume and also specify the number of columns manually. Otherwise, the Server Manager UI continues to use 8 columns even though you have more disks. For example, if you have 32 disks in a single stripe set, you should specify 32 columns. You can use the *NumberOfColumns* parameter of the [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet to specify the number of columns used by the virtual disk. For more information, see [Storage Spaces Overview](http://technet.microsoft.com/library/hh831739.aspx) and [Storage Spaces Frequently Asked Questions](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
 
-**Análise**: para analisar o desempenho de VMs usando discos em contas de armazenamento Premium, você pode habilitar o Diagnóstico de VM do Azure no portal do Azure. Confira [Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) para obter detalhes. Para ver o desempenho de disco, use ferramentas baseadas no sistema operacional, como o [Monitor de Desempenho do Windows](https://technet.microsoft.com/library/cc749249.aspx) para VMs Windows e o [IOSTAT](http://linux.die.net/man/1/iostat) para VMs Linux.
+**Cache**: Premium Storage supported VMs have a unique caching capability with which you can get high levels of throughput and latency, which exceeds underlying Premium Storage disk performance. You can configure disk caching policy on the Premium Storage disks as ReadOnly, ReadWrite or None. The default disk caching policy is ReadOnly for all premium data disks and ReadWrite for operating system disks. Use the right configuration setting to achieve optimal performance for your application. For example, for read heavy or read only data disks, such as SQL Server data files, set disk caching policy to “ReadOnly”. For write heavy or write only data disks, such as SQL Server log files, set disk caching policy to “None”. Learn more about optimizing your design with Premium Storage in [Design for Performance with Premium Storage](storage-premium-storage-performance.md).
 
-**Desempenho e limites de escala de VM**: cada tamanho de VM com suporte do Armazenamento Premium tem limites de escala e uma especificação de desempenho para IOPS, largura de banda e número de discos que podem ser anexados por VM. Ao usar discos de armazenamento premium com VMs com suporte do Armazenamento Premium, verifique se há IOPS e largura de banda suficientes disponíveis na VM para direcionar o tráfego de disco. Por exemplo, uma VM STANDARD\_DS1 tem uma banda larga dedicada de 32 MB por segundo disponível para o tráfego de discos do Armazenamento Premium. Um disco de armazenamento premium P10 pode fornecer largura de banda de 100 MB por segundo. Se um disco P10 do Armazenamento Premium fosse anexado a essa VM poderia chegar apenas até 32 MB por segundo, mas não até os 100 MB por segundo que o disco P10 pode fornecer.
+**Analytics**: To analyze the performance of VMs using disks on Premium Storage accounts, you can enable the Azure VM Diagnostics in the Azure portal. Refer to [Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) for details. To see the disk performance, use operating system based tools, such as [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) for Windows VMs and [IOSTAT](http://linux.die.net/man/1/iostat) for Linux VMs.
 
-Atualmente, a maior VM na série DS é a STANDARD\_DS14, que pode fornecer até 512 MB por segundo em todos os discos. A maior VM na série GS é STANDARD\_GS5 e pode fornecer até 2.000 MB por segundo em todos os discos. Observe que esses limites são apenas para o tráfego de disco, não incluindo acertos de cache e tráfego de rede. Há uma largura de banda separada disponível para tráfego de rede de VM, que é diferente da largura de banda dedicada aos discos do Armazenamento Premium.
+**VM scale limits and performance**: Each Premium Storage supported VM size has scale limits and performance specification for IOPS, bandwidth and number of disks that can be attached per VM. When using premium storage disks with Premium Storage supported VMs, make sure there is sufficient IOPS and Bandwidth available on your VM to drive the disk traffic.
+For example, a STANDARD_DS1 VM has 32 MB per second dedicated bandwidth available for Premium Storage disk traffic. A P10 premium storage disk can provide 100 MB per second bandwidth. If a P10 Premium Storage disk were attached to this VM, it can only go up to 32 MB per second but not up to 100 MB per second that the P10 disk can provide.
 
-Para obter informações mais atualizadas sobre IOPS e produtividade (largura de banda) máximos para as VMs com suporte do Armazenamento Premium, confira [Tamanhos de VMs Windows](../virtual-machines/virtual-machines-windows-sizes.md) ou [Tamanhos de VMs Linux](../virtual-machines/virtual-machines-linux-sizes.md).
+Currently, the largest VM on DS-series is Standard_DS15_v2 and it can provide up to 960 MB per second across all disks. The largest VM on GS-series is Standard_GS5 and it can give up to 2000 MB per second across all disks.
+Note that these limits are for disk traffic alone, not including cache-hits and network traffic. There is a separate bandwidth available for VM network traffic, which is different from the dedicated bandwidth for Premium Storage disks.
 
-Para saber mais sobre os discos de armazenamento Premium e seus limites de IOPs e taxa de transferência, confira a tabela na seção [Metas de desempenho e escalabilidade do Armazenamento Premium](#premium-storage-scalability-and-performance-targets) deste artigo.
+For the most up-to-date information on maximum IOPS and throughput (bandwidth) for Premium Storage supported VMs, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md).
 
-## Metas de desempenho e escalabilidade do Armazenamento Premium
+To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Premium Storage Scalability and Performance Targets](#premium-storage-scalability-and-performance-targets) section in this article.
 
-Nesta seção, descreveremos todas as metas de escalabilidade e desempenho que você deve considerar ao usar o Armazenamento Premium.
+## <a name="premium-storage-scalability-and-performance-targets"></a>Premium Storage Scalability and Performance Targets
 
-### Limites de conta de armazenamento Premium
+In this section, we will describe all the Scalability and Performance targets you must consider when using Premium Storage.
 
-As contas de armazenamento Premium têm as seguintes metas de escalabilidade:
+### <a name="premium-storage-account-limits"></a>Premium Storage account limits
+
+Premium Storage accounts have following scalability targets:
 
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
-	<td><strong>Capacidade total da conta</strong></td>
-	<td><strong>Largura de banda total para uma conta de armazenamento localmente redundante</strong></td>
+    <td><strong>Total Account Capacity</strong></td>
+    <td><strong>Total Bandwidth for a Locally Redundant Storage Account</strong></td>
 </tr>
 <tr>
-	<td>
-	<ul>
-       <li type=round>Capacidade do disco: 35 TB</li>
-       <li type=round>Capacidade de instantâneo: 10TB</li>
+    <td>
+    <ul>
+       <li type=round>Disk capacity: 35 TB</li>
+       <li type=round>Snapshot capacity: 10 TB</li>
     </ul>
-	</td>
-	<td>Até 50 gigabits para Entrada + Saída</td>
+    </td>
+    <td>Up to 50 gigabits per second for Inbound + Outbound</td>
 </tr>
 </tbody>
 </table>
 
-- Entrada refere-se a todos os dados (solicitações) que estão sendo enviados para uma conta de armazenamento.
-- Saída refere-se a todos os dados (respostas) que está sendo recebidos de uma conta de armazenamento.
+- Inbound refers to all data (requests) being sent to a storage account.
+- Outbound refers to all data (responses) being received from a storage account.
 
-Para saber mais, consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md).
+For more information, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).
 
-Se o seu aplicativo precisa exceder as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar múltiplas contas de armazenamento e faça o particionamento dos seus dados através destas contas de armazenamento. Por exemplo, se você quiser anexar discos de 51 terabytes TB em várias VMs, separe-as entre duas contas de armazenamento, já que o limite para uma única conta de armazenamento Premium é de 35 TB. Certifique-se de que uma única conta de Armazenamento Premium nunca tenha mais de 35 TB de discos provisionados.
+If the needs of your application exceed the scalability targets of a single storage account, build your application to use multiple storage accounts, and partition your data across those storage accounts. For example, if you want to attach 51 terabytes (TB) disks across a number of VMs, spread them across two storage accounts since 35 TB is the limit for a single Premium Storage account. Make sure that a single Premium Storage account has never more than 35 TB of provisioned disks.
 
-### Limites de discos de Armazenamento Premium
+### <a name="premium-storage-disks-limits"></a>Premium Storage Disks Limits
 
-Quando você provisiona um disco em relação a uma conta de armazenamento Premium, quantas operações de entrada/saída por segundo (IOPS) e taxa de transferência (largura de banda) que podem ser obtidas depende do tamanho do disco. Atualmente, há três tipos de discos de Armazenamento Premium: P10, P20 e P30. Cada um tem limites específicos de IOPS e taxa de transferência conforme especificados na tabela a seguir:
+When you provision a disk against a Premium Storage account, how much input/output operations per second (IOPS) and throughput (bandwidth) it can get depends on the size of the disk. Currently, there are three types of Premium Storage disks: P10, P20, and P30. Each one has specific limits for IOPS and throughput as specified in the following table:
 
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
-	<td><strong>Tipo de disco do Armazenamento Premium</strong></td>
-	<td><strong>P10</strong></td>
-	<td><strong>P20</strong></td>
-	<td><strong>P30</strong></td>
+    <td><strong>Premium Storage Disk Type</strong></td>
+    <td><strong>P10</strong></td>
+    <td><strong>P20</strong></td>
+    <td><strong>P30</strong></td>
 </tr>
 <tr>
-	<td><strong>Tamanho do disco</strong></td>
-	<td>128 GiB</td>
-	<td>512 GiB</td>
-	<td>1024 GiB (1 TB)</td>
+    <td><strong>Disk size</strong></td>
+    <td>128 GiB</td>
+    <td>512 GiB</td>
+    <td>1024 GiB (1 TB)</td>
 </tr>
 <tr>
-	<td><strong>IOPS por disco</strong></td>
-	<td>500</td>
-	<td>2.300</td>
-	<td>5.000</td>
+    <td><strong>IOPS per disk</strong></td>
+    <td>500</td>
+    <td>2300</td>
+    <td>5000</td>
 </tr>
 <tr>
-	<td><strong>Taxa de transferência por disco</strong></td>
-	<td>100 MB por segundo </td>
-	<td>150 MB por segundo </td>
-	<td>200 MB por segundo </td>
+    <td><strong>Throughput per disk</strong></td>
+    <td>100 MB per second </td>
+    <td>150 MB per second </td>
+    <td>200 MB per second </td>
 </tr>
 </tbody>
 </table>
 
-> [AZURE.NOTE] Certifique-se de que exista largura de banda suficiente disponível em sua VM para direcionar o tráfego de disco, conforme explicado na seção [VMs com suporte do Armazenamento Premium](#ds-dsv2-and-gs-series-vms) anteriormente neste artigo. Caso contrário, a taxa de transferência e o IOPS do disco ficarão restritos a valores mais baixos com base nos limites da VM, e não nos limites de disco mencionados na tabela anterior.
+> [AZURE.NOTE] Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic as explained in the [Premium Storage supported VMs](#ds-dsv2-and-gs-series-vms) section earlier in this article. Otherwise, your disk throughput and IOPS will be constrained to lower values based on the VM limits rather than the disk limits mentioned in the previous table.  
 
-Aqui estão alguns pontos importantes que você deve conhecer sobre metas de desempenho e escalabilidade do Armazenamento Premium:
+Here are some important things you must know regarding Premium Storage scalability and performance targets:
 
-- **Desempenho e capacidade provisionada**: ao provisionar um disco de armazenamento premium, diferentemente do armazenamento padrão, você tem a garantia de capacidade, IOPS e taxa de transferência para o disco. Por exemplo, se você criar um disco P30, o Azure provisionará uma capacidade de armazenamento de 1.024 GB, 5.000 IOPS e uma Taxa de transferência de 200 MB por segundo para o disco. O aplicativo pode usar a capacidade e o desempenho no todo ou em parte.
+- **Provisioned Capacity and Performance**: When you provision a premium storage disk, unlike standard storage, you are guaranteed the Capacity, IOPS and Throughput for that disk. For example, if you create a P30 disk, Azure provisions 1024 GB storage capacity, 5000 IOPS and 200 MB per second Throughput for that disk. Your application can use all or part of the capacity and performance.
 
-- **Tamanho de disco**: o Azure mapeia o tamanho do disco (arredondado) para a opção mais próxima do Disco de Armazenamento Premium, conforme especificado na tabela. Por exemplo, um disco com 100 GiB é classificado como uma opção P10 e pode executar até 500 unidades de E/S por segundo, com uma taxa de transferência de até 100 MB por segundo. Da mesma forma, um disco com 400 GiB é classificado como uma opção P20 e pode executar até 2300 unidades de E/S por segundo, com uma taxa de transferência de até 150 MB por segundo.
+- **Disk Size**: Azure maps the disk size (rounded up) to the nearest Premium Storage Disk option as specified in the table. For example, a disk of size 100 GiB is classified as a P10 option and can perform up to 500 IO units per second, and with up to 100 MB per second throughput. Similarly, a disk of size 400 GiB is classified as a P20 option, and can perform up to 2300 IO units per second and up to 150 MB per second throughput.
 
-	> [AZURE.NOTE] Você pode aumentar com facilidade o tamanho dos discos existentes. Por exemplo, se você quiser aumentar o tamanho de um disco de 30 GB para 128GB ou 1 TB. Ou, se você quiser converter seu disco P20 para P30 porque precisa de mais capacidade ou mais IOPS e taxa de transferência. Você pode expandir o disco usando o commandlet do PowerShell "Update-AzureDisk" com a propriedade "-ResizedSizeInGB". Para executar essa ação, o disco precisa ser desconectado da VM ou a VM precisa ser interrompida.
+    > [AZURE.NOTE] You can easily increase the size of existing disks. For example, if you wish to increase the size of a 30 GB disk to 128GB or to 1 TB. Or, if you wish to convert your P20 disk to a P30 disk because you need more capacity or more IOPS and throughput. You can expand the disk using "Update-AzureDisk" PowerShell commandlet with "-ResizedSizeInGB" property. For performing this action, disk needs to be detached from the VM or the VM needs to be stopped.
 
-- **Tamanho de E/S**: o tamanho da unidade de E/S (entrada/saída) é 256 KB. Se os dados transferidos forem menores que 256 KB, ele será considerado uma única unidade de e/s. Tamanhos maiores de e/s são contados como várias entradas e saídas de tamanho de 256 KB. Por exemplo, taxa de transferência de e/s de KB 1100 é contada como cinco unidades de e/s.
+- **IO Size**: The input/output (I/O) unit size is 256 KB. If the data being transferred is less than 256 KB, it is considered a single I/O unit. The larger I/O sizes are counted as multiple I/Os of size 256 KB. For example, 1100 KB I/O is counted as five I/O units.
 
-- **Taxa de transferência**: o limite de taxa de transferência inclui gravações e leituras do disco que não são realizadas do cache. Por exemplo, um disco P10 tem taxa de transferência de 100 MB por segundo por disco. Alguns exemplos de taxas de transferência válidas para o disco P10 são:
+- **Throughput**: The throughput limit includes writes to the disk as well as reads from that disk that are not served from the cache. For example, a P10 disk has 100 MB per second throughput per disk. Some examples of valid throughput for the P10 disk are,
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
-<td><strong>Taxa de transferência máxima por disco P10</strong></td>
-<td><strong>Leituras não armazenadas em cache do disco</strong></td>
-<td><strong>Gravações não armazenadas em cache do disco</strong></td>
+    <td><strong>Max Throughput per P10 disk</strong></td>
+    <td><strong>Non-cache Reads from disk</strong></td>
+    <td><strong>Non-cache Writes to disk</strong></td>
 </tr>
 <tr>
-<td>100 MB por segundo</td>
-<td>100 MB por segundo</td>
-<td>0</td>
+    <td>100 MB per sec</td>
+    <td>100 MB per sec</td>
+    <td>0</td>
 </tr>
 <tr>
-<td>100 MB por segundo</td>
-<td>0</td>
-<td>100 MB por segundo</td>
+    <td>100 MB per sec</td>
+    <td>0</td>
+    <td>100 MB per sec</td>
 </tr>
 <tr>
-<td>100 MB por segundo </td>
-<td>60 MB por segundo </td>
-<td>40 MB por segundo </td>
+    <td>100 MB per second </td>
+    <td>60 MB per second </td>
+    <td>40 MB per second </td>
 </tr>
 </tbody>
 </table>
 
-- **Acertos de cache**: os acertos de cache não são limitados pelo IOPS/Taxa de transferência alocada do disco. Por exemplo, quando você usa um disco de dados com a configuração de cache ReadOnly em uma VM com suporte do Armazenamento Premium, as Leituras realizadas do cache não estão sujeitas aos limites de disco do Armazenamento Premium. Assim, você pode obter uma taxa de transferência muito alta de um disco se a carga de trabalho for composta predominantemente de Leituras. Observe que o cache está sujeito a limites separados de IOPS/Taxa de transferência no nível da VM, com base no tamanho da VM. As VMs da Série DS têm aproximadamente 4000 IOPS e 33 MB/s por núcleo para IOs SSD em cache e local. As VMs da série DS têm um limite 5000 IOPS e 50 MB/s por núcleo para IOs SSD em cache e local.
+- **Cache hits**: Cache-hits are not limited by the allocated IOPS/Throughput of the disk. For example, when you use a data disk with ReadOnly cache setting on a Premium Storage supported VM, Reads that are served from the cache are not subject to Premium Storage disk limits. Hence you could get very high throughput from a disk if the workload is predominantly Reads. Note that, cache is subject to separate IOPS / Throughput limits at VM level based on the VM size. DS-series VMs have roughly 4000 IOPS and 33 MB/sec per core for cache and local SSD IOs. GS-series VMs have a limit of 5000 IOPS and 50 MB/sec per core for cache and local SSD IOs.
 
-## Limitação
-Talvez você perceba uma limitação se o IOPS ou a taxa de transferência do aplicativo exceder os limites alocados para um disco de Armazenamento Premium ou se o tráfego total em todos os discos na VM exceder o limite de largura de banda em disco disponível para a VM. Para evitar a limitação, recomendamos a limitação do número de solicitações de E/S pendentes para discos com base nas metas de desempenho e escalabilidade do disco que você provisionou e com base na largura de banda de disco disponível na VM.
+## <a name="throttling"></a>Throttling
+You may see throttling if your application IOPS or throughput exceed the allocated limits for a Premium Storage disk or if your total disk traffic across all disks on the VM exceeds the disk bandwidth limit available for the VM. To avoid throttling, we recommend that you limit the number of pending I/O requests for disk based on the scalability and performance targets for the disk you have provisioned and based on the disk bandwidth available to the VM.  
 
-Seu aplicativo pode obter a latência menor quando ele é projetado para evitar a limitação. Por outro lado, se o número de solicitações de e/s pendentes para o disco for muito pequeno, seu aplicativo não poderá tirar proveito dos níveis máximos de IOPS e taxa de transferência que estão disponíveis no disco.
+Your application can achieve the lowest latency when it is designed to avoid throttling. On the other hand, if the number of pending I/O requests for the disk is too small, your application cannot take advantage of the maximum IOPS and throughput levels that are available to the disk.
 
-Os exemplos a seguir demonstram como calcular os níveis de limitação. Todos os cálculos baseiam-se no tamanho da unidade de E/S de 256 KB:
+The following examples demonstrate how to calculate the throttling levels. All calculations are based on I/O unit size of 256 KB:
 
-### Exemplo 1:
-O aplicativo fez 495 unidades de E/S de tamanho de 16 KB em um segundo em um disco P10. Elas são contadas como 495 unidades de E/S por segundo (IOPS). Se você tentar uma e/s de 2 MB no mesmo segundo, o total de unidades de e/s é igual a 495 + 8. Isso ocorre porque a e/s de 2 MB resulta em unidades de e/s de 2048 KB/256 KB = 8 quando o tamanho da unidade de e/s é 256 KB. Como a soma de 495 + 8 excede o limite de 500 IOPS para o disco, a limitação ocorre.
+### <a name="example-1:"></a>Example 1:
+Your application has done 495 I/O units of 16 KB size in one second on a P10 disk. These will be counted as 495 I/O Units per second (IOPS). If you try a 2 MB I/O in the same second, the total of I/O units is equal to 495 + 8. This is because 2 MB I/O results in 2048 KB / 256 KB = 8 I/O Units when the I/O unit size is 256 KB. Since the sum of 495 + 8 exceeds the 500 IOPS limit for the disk, throttling occurs.
 
-### Exemplo 2:
-O aplicativo fez 400 unidades de E/S de tamanho de 256 KB em um disco P10. A largura de banda total consumida é (400 * 256) / 1024 = 100 MB/s. Um disco P10 tem um limite de taxa de transferência de 100 MB por segundo. Se o seu aplicativo tentar realizar mais e/s nesse segundo, ele é limitado porque excede o limite alocado.
+### <a name="example-2:"></a>Example 2:
+Your application has done 400 I/O units of 256 KB size on a P10 disk. The total bandwidth consumed is (400 * 256) / 1024 = 100 MB/sec. A P10 disk has throughput limit of 100 MB per second. If your application tries to perform more I/O in that second, it gets throttled because it exceeds the allocated limit.
 
-### Exemplo 3:
-Você tem uma VM DS4 com dois discos P30 conectados. Cada disco P30 é capaz de uma taxa de transferência de 200 MB por segundo. No entanto, uma VM DS4 tem uma capacidade de largura de banda total do disco de 256 MB por segundo. Portanto, você não pode aplicar a taxa de transferência máxima aos os discos conectados nesta VM DS4 ao mesmo tempo. Para resolver esse problema, você pode sustentar o tráfego de 200 MB por segundo em um disco e 56 MB por segundo em outro disco. Se a soma do tráfego no disco for superior a 256 MB por segundo, o tráfego será limitado.
+### <a name="example-3:"></a>Example 3:
+You have a DS4 VM with two P30 disks attached. Each P30 disk is capable of 200 MB per second throughput. However, a DS4 VM has a total disk bandwidth capacity of 256 MB per second. Therefore, you cannot drive the attached disks to the maximum throughput on this DS4 VM at the same time. To resolve this, you can sustain traffic of 200 MB per second on one disk and 56 MB per second on the other disk. If the sum of your disk traffic goes over 256 MB per second, the disk traffic gets throttled.
 
->[AZURE.NOTE] Se o tráfego de disco consiste principalmente de tamanhos de e/s pequenos, é muito provável que seu aplicativo atingirá o limite de IOPS antes do limite de taxa de transferência. Por outro lado, se o tráfego de disco consiste principalmente de tamanhos de e/s grandes, é muito provável que seu aplicativo atingirá o limite de taxa de transferência em vez do limite de IOPS. Você pode maximizar o IOPS do aplicativo e a capacidade da taxa de transferência usando tamanhos de E/S ideais e também limitando o número de solicitações de E/S pendentes para o disco.
+>[AZURE.NOTE] If the disk traffic mostly consists of small I/O sizes, it is highly likely that your application will hit the IOPS limit before the throughput limit. On the other hand, if the disk traffic mostly consists of large I/O sizes, it is highly likely that your application will hit the throughput limit instead of the IOPS limit. You can maximize your application IOPS and throughput capacity by using optimal I/O sizes and also by limiting the number of pending I/O requests for disk.
 
-Para saber mais sobre o design para alto desempenho usando o Armazenamento Premium, leia o artigo [Design para desempenho com o Armazenamento Premium](storage-premium-storage-performance.md).
+To learn about designing for high performance using Premium Storage read the article, [Design for Performance with Premium Storage](storage-premium-storage-performance.md).
 
-## Instantâneos e Cópia de Blob
-Você pode criar um instantâneo para armazenamento Premium da mesma maneira como você cria um instantâneo ao usar o armazenamento padrão. Como o Armazenamento Premium só dá suporte ao LRS (Armazenamento com Redundância Local) como opção de replicação, recomendamos que você crie instantâneos e, então, copie esses instantâneos para uma conta de armazenamento com redundância geográfica padrão. Para saber mais, consulte [Opções de redundância do Armazenamento do Azure](storage-redundancy.md).
+## <a name="snapshots-and-copy-blob"></a>Snapshots and Copy Blob
+You can create a snapshot for Premium Storage in the same way as you create a snapshot when using Standard Storage. Since Premium Storage only supports Locally Redundant Storage (LRS) as the replication option, we recommend that you create snapshots and then copy those snapshots to a geo-redundant standard storage account. For more information, see [Azure Storage Redundancy Options](storage-redundancy.md).
 
-Se um disco estiver anexado a uma VM, determinadas operações de API não são permitidas no suporte da página de blob do disco. Por exemplo, você não pode executar uma operação de [Cópia de Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx) nesse blob enquanto o disco estiver anexado a uma VM. Em vez disso, primeiro crie um instantâneo desse blob usando o método de API REST do [Instantâneo de Blob ](http://msdn.microsoft.com/library/azure/ee691971.aspx) e depois execute a [Cópia de Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx) do instantâneo para copiar o disco anexado. Como alternativa, você pode desanexar o disco e, em seguida, executar as operações necessárias no blob subjacente.
+If a disk is attached to a VM, certain API operations are not permitted on the page blob backing the disk. For example, you cannot perform a [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx) operation on that blob as long as the disk is attached to a VM. Instead, first create a snapshot of that blob by using the [Snapshot Blob](http://msdn.microsoft.com/library/azure/ee691971.aspx) REST API method, and then perform the [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx) of the snapshot to copy the attached disk. Alternatively, you can detach the disk and then perform any necessary operations on the underlying blob.
 
-Os seguintes limites a se aplicam a instantâneos de blob de Armazenamento Premium:
+Following limits apply to Premium Storage blob snapshots:
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
-	<td><strong>Limite de Armazenamento Premium</strong></td>
-	<td><strong>Valor</strong></td>
+    <td><strong>Premium Storage Limit</strong></td>
+    <td><strong>Value</strong></td>
 </tr>
 <tr>
-	<td>Número máx. de instantâneos por blob</td>
-	<td>100</td>
+    <td>Max. number of snapshots per blob</td>
+    <td>100</td>
 </tr>
 <tr>
-	<td>Capacidade de conta de armazenamento para instantâneos (inclui dados apenas em instantâneos e não inclui dados no blob de base)</td>
-	<td>10 TB</td>
+    <td>Storage account capacity for snapshots (Includes data in snapshots only, and does not include data in base blob)</td>
+    <td>10 TB</td>
 </tr>
 <tr>
-	<td>Tempo mín. entre instantâneos consecutivos</td>
-	<td>10 minutos</td>
+    <td>Min. time between consecutive snapshots</td>
+    <td>10 minutes</td>
 </tr>
 </tbody>
 </table>
 
-Para manter cópias com redundância geográfica de seus instantâneos, você pode copiar instantâneos de uma conta de armazenamento Premium para uma conta de armazenamento com redundância geográfica padrão usando AzCopy ou Copiar Blob. Para obter mais informações, confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) e [Cópia de Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
+To maintain geo-redundant copies of your snapshots, you can copy snapshots from a Premium Storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) and [Copy Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 
-Para obter informações detalhadas sobre como executar operações REST em blobs de página nas contas de Armazenamento Premium, consulte [Usando operações de Serviço de Blob com o Armazenamento Premium do Azure](http://go.microsoft.com/fwlink/?LinkId=521969) na biblioteca MSDN.
+For detailed information on performing REST operations against page blobs in Premium Storage accounts, see [Using Blob Service Operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969) in the MSDN library.
 
-## Usando VMs do Linux com Armazenamento Premium
-Consulte instruções importantes abaixo para configurar suas VMs do Linux no Armazenamento Premium:
+## <a name="using-linux-vms-with-premium-storage"></a>Using Linux VMs with Premium Storage
+Please refer to important instructions below for configuring your Linux VMs on Premium Storage:
 
-- Para todos os discos de Armazenamento Premium com configuração de cache como "ReadOnly" ou "None", você deve desabilitar "barreiras" durante a montagem do sistema de arquivos a fim de atingir as metas de escalabilidade para o Armazenamento Premium. Você não precisa de barreiras para esse cenário, pois as gravações em discos de backup do Armazenamento Premium são duráveis para essas configurações de cache. Quando a solicitação de gravação for concluída, os dados terão sido gravados no armazenamento persistente. Use os métodos a seguir para desabilitar "barreiras", dependendo de seu sistema de arquivos:
-	- Se você usar **reiserFS**, desabilite as barreiras usando a opção de montagem "barrier=none" (para habilitar as barreiras, use "barrier=flush")
-	- Se você usar **ext3/ext4**, desabilite as barreiras usando a opção de montagem “barrier=0” (para habilitar as barreiras, use “barrier=1”)
-	- Se você usar **XFS**, desabilite as barreiras usando a opção de montagem “nobarrier” (para habilitar as barreiras, use a opção “barrier”)
+- For all Premium Storage disks with cache setting as either “ReadOnly” or “None”, you must disable “barriers” while mounting the file system in order to achieve the scalability targets for Premium Storage. You do not need barriers for this scenario because the writes to Premium Storage backed disks are durable for these cache settings. When the write request successfully completes, data has been written to the persistent store. Please use the following methods for disabling “barriers” depending on your file system:
+    - If you use **reiserFS**, disable barriers using the mount option “barrier=none” (For enabling barriers, use “barrier=flush”)
+    - If you use **ext3/ext4**, disable barriers using the mount option “barrier=0” (For enabling barriers, use “barrier=1”)
+    - If you use **XFS**, disable barriers using the mount option “nobarrier” (For enabling barriers, use the option “barrier”)
 
-- Para discos de Armazenamento Premium com a configuração de cache "ReadWrite", as barreiras devem ser habilitadas para durabilidade de gravações.
-- Para que os rótulos de volume persistam após a reinicialização da VM, atualize o /etc/fstab com as referências de UUID para os discos. Além disso, confira também [Como anexar um disco de dados a uma máquina virtual Linux](../virtual-machines/virtual-machines-linux-classic-attach-disk.md)
+- For Premium Storage disks with cache setting “ReadWrite”, barriers should be enabled for durability of writes.
+- For the volume labels to persist after VM reboot, you must update /etc/fstab with the UUID references to the disks. Also refer to [How to Attach a Data Disk to a Linux Virtual Machine](../virtual-machines/virtual-machines-linux-classic-attach-disk.md)
 
-A seguir estão as distribuições do Linux que são validadas com o Armazenamento Premium. Recomendamos a atualização de suas VMs para pelo menos uma dessas versões (ou posterior) para obter melhor desempenho e estabilidade com o Armazenamento Premium. Além disso, algumas das versões exigem um LIS (Serviços de Integração do Linux v4.0 para Microsoft Azure) mais recente. Siga o link fornecido abaixo para download e instalação. Continuaremos a adicionar mais imagens à lista à medida que concluirmos validações adicionais. Perceba que nossas validações mostraram que o desempenho varia para essas imagens, e também depende de características da carga de trabalho e das configurações nas imagens. Imagens diferentes são ajustadas para tipos diferentes de carga de trabalho.
+Following are the Linux Distributions that we validated with Premium Storage. We recommend that you upgrade your VMs to at least one of these versions (or later) for better performance and stability with Premium Storage. Also, some of the versions require the latest LIS (Linux Integration Services v4.0 for Microsoft Azure). Please follow the link provided below for download and installation. We will continue to add more images to the list as we complete additional validations. Please note, our validations showed that performance varies for these images, and it also depends on workload characteristics and settings on the images. Different images are tuned for different kinds of workload.
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
-	<td><strong>Distribuição</strong></td>
-	<td><strong>Versão</strong></td>
-	<td><strong>Kernel com suporte</strong></td>
-	<td><strong>Detalhes</strong></td>
+    <td><strong>Distribution</strong></td>
+    <td><strong>Version</strong></td>
+    <td><strong>Supported Kernel</strong></td>
+    <td><strong>Details</strong></td>
 </tr>
 <tr>
-	<td rowspan="2"><strong>Ubuntu</strong></td>
-	<td>12.04</td>
-	<td>3.2.0-75.110+</td>
-	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-pt-BR-30GB</td>
+    <td rowspan="2"><strong>Ubuntu</strong></td>
+    <td>12.04</td>
+    <td>3.2.0-75.110+</td>
+    <td>Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB</td>
 </tr>
 <tr>
-	<td>14.04+</td>
-	<td>3.13.0-44.73+</td>
-	<td>Ubuntu-14_04_1-LTS-amd64-server-20150123-pt-BR-30GB</td>
+    <td>14.04+</td>
+    <td>3.13.0-44.73+</td>
+    <td>Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB</td>
 </tr>
 <tr>
-	<td><strong>Debian</strong></td>
-	<td>7.x, 8.x</td>
-	<td>3.16.7-ckt4-1+</td>
+    <td><strong>Debian</strong></td>
+    <td>7.x, 8.x</td>
+    <td>3.16.7-ckt4-1+</td>
     <td> </td>
 </tr>
 <tr>
-	<td rowspan="2"><strong>SUSE</strong></td>
-	<td>SLES 12</td>
-	<td>3.12.36-38.1+</td>
-	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
+    <td rowspan="2"><strong>SUSE</strong></td>
+    <td>SLES 12</td>
+    <td>3.12.36-38.1+</td>
+    <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
 </tr>
 <tr>
-	<td>SLES 11 SP4</td>
+    <td>SLES 11 SP4</td>
     <td>3.0.101-0.63.1+</td>
     <td> </td>
 </tr>
 <tr>
-	<td><strong>CoreOS</strong></td>
-	<td>584.0.0+</td>
-	<td>3.18.4+</td>
-	<td>CoreOS 584.0.0</td>
+    <td><strong>CoreOS</strong></td>
+    <td>584.0.0+</td>
+    <td>3.18.4+</td>
+    <td>CoreOS 584.0.0</td>
 </tr>
 <tr>
-	<td rowspan="2"><strong>CentOS</strong></td>
-	<td>6.5, 6.6, 6.7, 7.0</td>
-	<td></td>
-	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS4 necessário </a> <br/>
-		*Confira a observação abaixo*
-	</td>
+    <td rowspan="2"><strong>CentOS</strong></td>
+    <td>6.5, 6.6, 6.7, 7.0</td>
+    <td></td>
+    <td>
+        <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS4 Required </a> <br/>
+        *See note below*
+    </td>
 </tr>
 <tr>
-	<td>7.1+</td>
-	<td>3.10.0-229.1.2.el7+</td>
-	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS4 recomendado </a> <br/>
-		*Confira a observação abaixo*
-	</td>
+    <td>7.1+</td>
+    <td>3.10.0-229.1.2.el7+</td>
+    <td>
+        <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS4 Recommended </a> <br/>
+        *See note below*
+    </td>
 </tr>
 <tr>
-	<td><strong>RHEL</strong></td>
-	<td>6.8+, 7.2+</td>
-	<td> </td>
-	<td></td>
-</tr>
-<tr>
-	<td rowspan="3"><strong>Oracle</strong></td>
+    <td><strong>RHEL</strong></td>
     <td>6.8+, 7.2+</td>
     <td> </td>
-    <td> UEK4 ou RHCK </td>
+    <td></td>
+</tr>
+<tr>
+    <td rowspan="3"><strong>Oracle</strong></td>
+    <td>6.8+, 7.2+</td>
+    <td> </td>
+    <td> UEK4 or RHCK </td>
 
 </tr>
 <tr>
-	<td>7.0-7.1</td>
-	<td> </td>
-	<td>UEK4 ou RHCK c/<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 4.1+</a></td>
+    <td>7.0-7.1</td>
+    <td> </td>
+    <td>UEK4 or RHCK w/<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 4.1+</a></td>
 </tr>
 <tr>
-	<td>6.4-6.7</td>
-	<td></td>
-	<td>UEK4 ou RHCK c/<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 4.1+</a></td>
+    <td>6.4-6.7</td>
+    <td></td>
+    <td>UEK4 or RHCK w/<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 4.1+</a></td>
 </tr>
 </tbody>
 </table>
 
 
-### Drivers LIS para Openlogic CentOS
+### <a name="lis-drivers-for-openlogic-centos"></a>LIS Drivers for Openlogic CentOS
 
-Os clientes que executam VMs com OpenLogic CentOS devem executar o comando a seguir para instalar os drivers mais recentes:
+Customers running OpenLogic CentOS VMs should run the following command to install the latest drivers:
 
-	sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
-	sudo yum install microsoft-hyper-v
+    sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
+    sudo yum install microsoft-hyper-v
 
-Depois, uma reinicialização será necessária para ativar os novos drivers.
+A reboot will then be required to activate the new drivers.
 
-## Preços e cobrança
-Ao usar o Armazenamento Premium, as seguintes considerações de cobrança se aplicam:
-- Tamanho de disco / blob do Armazenamento Premium
-- Instantâneos de Armazenamento Premium
-- Transferências de dados de saída
+## <a name="pricing-and-billing"></a>Pricing and Billing
+When using Premium Storage, the following billing considerations apply:
+- Premium Storage Disk / Blob Size
+- Premium Storage Snapshots
+- Outbound data transfers
 
-**Tamanho de disco / blob de Armazenamento Premium**: a cobrança para um disco/blob de Armazenamento Premium depende do tamanho provisionado do disco/blob. O Azure mapeia o tamanho provisionado (arredondado) para a opção mais próxima de Disco de Armazenamento Premium, conforme especificado na tabela fornecida na seção [Escalabilidade e metas de desempenho ao usar o Armazenamento Premium](#premium-storage-scalability-and-performance-targets). Todos os objetos armazenados em uma conta de armazenamento Premium será mapeado para um dos tamanhos provisionados com suporte e cobrado de acordo. Desta forma, evite usar a conta de armazenamento Premium para armazenar blobs pequenos. A cobrança por qualquer disco/blob provisionado é rateada por hora usando o preço mensal para a oferta de Armazenamento Premium. Por exemplo, se você provisionou um disco P10 e ele foi excluído após 20 horas, você será cobrado pela a oferta P10 rateada em 20 horas. Isto é independente da quantidade de dados reais gravados no disco ou do IOPS/taxa de transferência usados.
+**Premium Storage Disk / Blob Size**: Billing for a Premium Storage disk/blob depends on the provisioned size of the disk/blob. Azure maps the provisioned size (rounded up) to the nearest Premium Storage Disk option as specified in the table given in the [Scalability and Performance Targets when using Premium Storage](#premium-storage-scalability-and-performance-targets) section. All objects stored in a Premium Storage account will map to one of the the supported provisioned sizes and will be billed accordingly. Hence avoid using Premium Storage account for storing tiny blobs. Billing for any provisioned disk/blob is prorated hourly using the monthly price for the Premium Storage offer. For example, if you provisioned a P10 disk and deleted it after 20 hours, you are billed for the P10 offering prorated to 20 hours. This is regardless of the amount of actual data written to the disk or the IOPS/throughput used.
 
-**Instantâneos de Armazenamento Premium**: os instantâneos no Armazenamento Premium são cobrados pela capacidade adicional usada pelos instantâneos. Para saber mais sobre instantâneos, consulte [Criando um instantâneo de um Blob](http://msdn.microsoft.com/library/azure/hh488361.aspx).
+**Premium Storage Snapshots**: Snapshots on Premium Storage are billed for the additional capacity used by the snapshots. For information on snapshots, see [Creating a Snapshot of a Blob](http://msdn.microsoft.com/library/azure/hh488361.aspx).
 
-**Transferências de dados de saída**: as [transferências de dados de saída](https://azure.microsoft.com/pricing/details/data-transfers/) (dados saindo dos datacenters do Azure) incorrem em cobrança por uso de largura de banda.
+**Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
-Para obter informações detalhadas sobre os preços para Armazenamento Premium e VMs com suporte do Armazenamento Premium, confira em:
+For detailed information on pricing for Premium Storage,  Premium Storage supported VMs, see:
 
-- [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/)
-- [Preços de Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/)
+- [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/)
+- [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/)
 
-## Backup
-O backup de máquinas virtuais que usam o Armazenamento Premium pode ser feito com o Backup do Azure. [Mais detalhes](../backup/backup-azure-vms-first-look-arm.md).
+## <a name="backup"></a>Backup
+Virtual machines using premium storage can be backed up using Azure Backup. [More details](../backup/backup-azure-vms-first-look-arm.md).
 
-## Início rápido
+## <a name="quick-start"></a>Quick Start
 
-## Criar e usar uma conta de Armazenamento Premium para um disco de dados da máquina virtual
+## <a name="create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk"></a>Create and use a Premium Storage account for a virtual machine data disk
 
-Nesta seção, demonstraremos os cenários a seguir usando o portal do Azure, o Azure PowerShell e a CLI do Azure:
+In this section we will demonstrate the following scenarios using Azure portal, Azure PowerShell and Azure CLI:
 
-- Como criar uma conta de Armazenamento Premium
-- Como criar uma máquina virtual e anexar um disco de dados a ela ao usar o Armazenamento Premium.
-- Como alterar a política de cache de um disco de dados anexado a uma máquina virtual.
+- How to create a Premium Storage account.
+- How to create a virtual machine and attach a data disk to the virtual machine when using Premium Storage.
+- How to change disk caching policy of a data disk attached to a virtual machine.
 
-### Criar uma máquina virtual do Azure usando o Armazenamento Premium pelo Portal do Azure
+### <a name="create-an-azure-virtual-machine-using-premium-storage-via-the-azure-portal"></a>Create an Azure virtual machine using Premium Storage via the Azure portal
 
-#### I. Criar uma conta de armazenamento Premium no Portal do Azure
+#### <a name="i.-create-a-premium-storage-account-in-azure-portal"></a>I. Create a Premium Storage account in Azure portal
 
-Esta seção mostra como criar uma conta de armazenamento Premium usando o Portal do Azure.
+This section shows how to create a Premium Storage account using the Azure portal.
 
-1.	Entre no [Portal do Azure](https://portal.azure.com). Confira a oferta [Avaliação Gratuita](https://azure.microsoft.com/pricing/free-trial/) caso você ainda não tenha uma assinatura.
+1.  Sign in to the [Azure portal](https://portal.azure.com). Check out the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) offer if you do not have a subscription yet.
 
-2. No menu Hub, selecione **Novo** -> **Dados + Armazenamento** -> **Conta de armazenamento**.
+2. On the Hub menu, select **New** -> **Data + Storage** -> **Storage account**.
 
-3. Insira um nome para a conta de armazenamento.
+3. Enter a name for your storage account.
 
-	> [AZURE.NOTE] Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas.
-	>  
-	> O nome da sua conta de armazenamento deve ser exclusivo no Azure. O portal do Azure indicará se o nome da conta de armazenamento selecionada já está em uso.
+    > [AZURE.NOTE] Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+    >  
+    > Your storage account name must be unique within Azure. The Azure portal will indicate if the storage account name you select is already in use.
 
-4. Especifique o modelo de implantação a ser usado: **Resource Manager** ou **Clássico**. O **Gerenciador de Recursos** é o modelo de implantação recomendado. Para saber mais, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../resource-manager-deployment-model.md).
+4. Specify the deployment model to be used: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
 
-5. Especifique a camada de desempenho para a conta de armazenamento como **Premium**.
+5. Specify the performance tier for the storage account as **Premium**.
 
-6. **LRS (armazenamento com redundância local)** é a única opção de replicação disponível no Armazenamento Premium. Para obter mais detalhes sobre as opções de replicação do Armazenamento do Azure, confira [Replicação do Armazenamento do Azure](storage-redundancy.md).
+6. **Locally-redundant storage (LRS)** is the only available replication option with Premium Storage. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
 
-7. Selecione a assinatura na qual você deseja criar a nova conta de armazenamento.
+7. Select the subscription in which you want to create the new storage account.
 
-8. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para saber mais sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../resource-group-overview.md).
+8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../resource-group-overview.md).
 
-9. Selecione a região geográfica para sua conta de armazenamento. É possível confirmar se o Armazenamento Premium está disponível na Localização selecionada consultando os [Serviços do Azure por região](https://azure.microsoft.com/regions/#services).
+9. Select the geographic location for your storage account. You can confirm whether Premium Storage is available in the selected Location by referring to [Azure Services by Region](https://azure.microsoft.com/regions/#services).
 
-10. Clique em **Criar** para criar a conta de armazenamento.
+10. Click **Create** to create the storage account.
 
-#### II. Criar uma máquina virtual do Azure por meio do Portal do Azure
+#### <a name="ii.-create-an-azure-virtual-machine-via-azure-portal"></a>II. Create an Azure virtual machine via Azure portal
 
-Você deve criar uma VM com suporte do Armazenamento Premium para poder usar o Armazenamento Premium. Siga as etapas em [Criar sua primeira máquina virtual do Windows no Portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para criar uma nova máquina virtual DS, DSv2, GS ou Fs.
+You must create a Premium Storage supported VM to be able to use Premium Storage. Follow the steps in [Create a Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) to create a new DS, DSv2, GS, or Fs virtual machine.
 
-#### III. Anexar um disco de dados de armazenamento premium por meio do Portal do Azure
+#### <a name="iii.-attach-a-premium-storage-data-disk-via-azure-portal"></a>III. Attach a premium storage data disk via Azure portal
 
-1. Localize a VM DS, DSv2, GS ou Fs nova ou existente no Portal do Azure.
-2. Em **Todas as Configurações** da VM, vá para **Discos** e clique em **Anexar Novo**.
-3. Insira o nome do disco de dados e selecione o **Tipo** como **Premium**. Selecione a configuração desejada de **Tamanho** e **Caching de host**.
+1. Find the new or existing DS, DSv2, GS, or Fs VM in Azure portal.
+2. In the VM **All Settings**, go to **Disks** and click on **Attach New**.
+3. Enter the name of your data disk and select the **Type** as **Premium**. Select the desired **Size** and **Host caching** setting.
 
-	![Disco Premium][Image1]
+    ![Premium Disk][Image1]
 
-Veja etapas mais detalhadas em [Como anexar um disco de dados a uma VM do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-attach-disk-portal.md).
+See more detailed steps in [How to attach a data disk in Azure portal](../virtual-machines/virtual-machines-windows-attach-disk-portal.md).
 
-#### IV. Alterar a política de cache de disco por meio do Portal do Azure
+#### <a name="iv.-change-disk-caching-policy-via-azure-portal"></a>IV. Change disk caching policy via Azure portal
 
-1. Localize a VM DS, DSv2, GS ou Fs nova ou existente no Portal do Azure.
-2. Em Todas as Configurações da VM, vá para Discos e clique no disco que você deseja alterar.
-3. Alterar a opção de cache de host para o valor desejado, None, ReadOnly ou ReadWrite
+1. Find the new or existing DS, DSv2, GS, or Fs VM in Azure portal.
+2. In the VM All Settings, go to Disks and click on the disk you wish to change.
+3. Change the Host caching option to the desired value, None or ReadOnly or ReadWrite
 
->[AZURE.WARNING] Alterar a configuração de cache de um disco do Azure desanexa e anexa novamente o disco de destino. Se for o disco do sistema operacional, a VM será reiniciada. Pare todos os aplicativos/serviços que podem ser afetados por essa interrupção antes de alterar a configuração de cache do disco.
+>[AZURE.WARNING] Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
 
-### Criar uma máquina virtual do Azure usando o Armazenamento Premium por meio do PowerShell do Azure
+### <a name="create-an-azure-virtual-machine-using-premium-storage-via-azure-powershell"></a>Create an Azure virtual machine using Premium Storage via Azure PowerShell
 
-#### I. Criar uma conta de armazenamento Premium no Portal do Azure PowerShell
+#### <a name="i.-create-a-premium-storage-account-in-azure-powershell"></a>I. Create a Premium Storage account in Azure PowerShell
 
-Este exemplo de PowerShell mostra como criar uma nova conta de Armazenamento Premium e conectar um disco de dados que usa essa conta a uma nova máquina virtual do Azure.
+This PowerShell example shows how to create a new Premium Storage account and attach a data disk that uses that account to a new Azure virtual machine.
 
-1. Configure o ambiente do PowerShell seguindo as etapas fornecidas em [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
-2. Inicie o console do PowerShell, conecte-se a sua assinatura e execute o seguinte cmdlet do PowerShell na janela do console. Como visto nesta instrução do PowerShell, você precisa especificar o parâmetro **Type** como **Premium\_LRS** ao criar uma conta do Armazenamento Premium.
+1. Setup your PowerShell environment by following the steps given at [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+2. Start the PowerShell console, connect to your subscription, and run the following PowerShell cmdlet in the console window. As seen in this PowerShell statement, you need to specify the **Type** parameter as **Premium_LRS** when you create a Premium Storage account.
 
-		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
+        New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
 
-#### II. Criar uma máquina virtual do Azure por meio do Azure PowerShell
+#### <a name="ii.-create-an-azure-virtual-machine-via-azure-powershell"></a>II. Create an Azure virtual machine via Azure PowerShell
 
-Em seguida, crie uma nova VM da série DS e especifique que deseja o Armazenamento Premium, executando os cmdlets do PowerShell a seguir na janela do console. Você pode criar uma VM da série GS usando as mesmas etapas. Especifique o tamanho da VM apropriado nos comandos. Por exemplo, Standard\_GS2:
+Next, create a new DS-Series VM and specify that you want Premium Storage by running the following PowerShell cmdlets in the console window. You can create a GS-series VM using the same steps. Specify the appropriate VM size in the commands. For e.g. Standard_GS2:
 
-    	$storageAccount = "yourpremiumaccount"
-    	$adminName = "youradmin"
-    	$adminPassword = "yourpassword"
-    	$vmName ="yourVM"
-    	$location = "West US"
-    	$imageName = "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201409.01-en.us-127GB.vhd"
-    	$vmSize ="Standard_DS2"
-    	$OSDiskPath = "https://" + $storageAccount + ".blob.core.windows.net/vhds/" + $vmName + "_OS_PIO.vhd"
-    	$vm = New-AzureVMConfig -Name $vmName -ImageName $imageName -InstanceSize $vmSize -MediaLocation $OSDiskPath
-    	Add-AzureProvisioningConfig -Windows -VM $vm -AdminUsername $adminName -Password $adminPassword
-    	New-AzureVM -ServiceName $vmName -VMs $VM -Location $location
+        $storageAccount = "yourpremiumaccount"
+        $adminName = "youradmin"
+        $adminPassword = "yourpassword"
+        $vmName ="yourVM"
+        $location = "West US"
+        $imageName = "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201409.01-en.us-127GB.vhd"
+        $vmSize ="Standard_DS2"
+        $OSDiskPath = "https://" + $storageAccount + ".blob.core.windows.net/vhds/" + $vmName + "_OS_PIO.vhd"
+        $vm = New-AzureVMConfig -Name $vmName -ImageName $imageName -InstanceSize $vmSize -MediaLocation $OSDiskPath
+        Add-AzureProvisioningConfig -Windows -VM $vm -AdminUsername $adminName -Password $adminPassword
+        New-AzureVM -ServiceName $vmName -VMs $VM -Location $location
 
-#### III. Anexar um disco de dados de armazenamento premium por meio do Azure PowerShell
+#### <a name="iii.-attach-a-premium-storage-data-disk-via-azure-powershell"></a>III. Attach a premium storage data disk via Azure PowerShell
 
-Se você quiser mais espaço em disco para sua VM, anexe um novo disco de dados em uma VM com suporte do Armazenamento Premium existente depois de criada, executando os seguintes cmdlets do PowerShell na janela do console:
+If you want more disk space for your VM, attach a new data disk to an existing Premium Storage supported VM after it is created by running the following PowerShell cmdlets in the console window:
 
-    	$storageAccount = "yourpremiumaccount"
-    	$vmName ="yourVM"
-    	$vm = Get-AzureVM -ServiceName $vmName -Name $vmName
-    	$LunNo = 1
-    	$path = "http://" + $storageAccount + ".blob.core.windows.net/vhds/" + "myDataDisk_" + $LunNo + "_PIO.vhd"
-    	$label = "Disk " + $LunNo
-    	Add-AzureDataDisk -CreateNew -MediaLocation $path -DiskSizeInGB 128 -DiskLabel $label -LUN $LunNo -HostCaching ReadOnly -VM $vm | Update-AzureVm
+        $storageAccount = "yourpremiumaccount"
+        $vmName ="yourVM"
+        $vm = Get-AzureVM -ServiceName $vmName -Name $vmName
+        $LunNo = 1
+        $path = "http://" + $storageAccount + ".blob.core.windows.net/vhds/" + "myDataDisk_" + $LunNo + "_PIO.vhd"
+        $label = "Disk " + $LunNo
+        Add-AzureDataDisk -CreateNew -MediaLocation $path -DiskSizeInGB 128 -DiskLabel $label -LUN $LunNo -HostCaching ReadOnly -VM $vm | Update-AzureVm
 
-#### IV. Alterar a política de cache de disco por meio do Azure PowerShell
+#### <a name="iv.-change-disk-caching-policy-via-azure-powershell"></a>IV. Change disk caching policy via Azure PowerShell
 
-Para atualizar a política de cache de disco, anote o número de LUN do disco de dados anexado. Execute o comando a seguir para atualizar o disco de dados anexado na LUN número 2 para ReadOnly.
+To update the disk caching policy, note the LUN number of the data disk attached. Run the following command to update data disk attached at LUN number 2, to ReadOnly.
 
-		Get-AzureVM "myservice" -name "MyVM" | Set-AzureDataDisk -LUN 2 -HostCaching ReadOnly | Update-AzureVM
+        Get-AzureVM "myservice" -name "MyVM" | Set-AzureDataDisk -LUN 2 -HostCaching ReadOnly | Update-AzureVM
 
->[AZURE.WARNING] Alterar a configuração de cache de um disco do Azure desanexa e anexa novamente o disco de destino. Se for o disco do sistema operacional, a VM será reiniciada. Pare todos os aplicativos/serviços que podem ser afetados por essa interrupção antes de alterar a configuração de cache do disco.
+>[AZURE.WARNING] Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
 
-### Criar uma máquina virtual do Azure usando o Armazenamento Premium por meio da Interface de Linha de Comando do Azure
+### <a name="create-an-azure-virtual-machine-using-premium-storage-via-the-azure-command-line-interface"></a>Create an Azure virtual machine using Premium Storage via the Azure Command-Line Interface
 
-A [CLI (Interface de Linha de Comando) do Azure](../xplat-cli-install.md) fornece um conjunto de comandos de software livre de plataforma cruzada para trabalhar com a Plataforma Azure. Os exemplos a seguir mostram como usar o Azure CLI (versão 0.8.14 e posterior) para criar uma conta de armazenamento Premium, uma nova máquina virtual e conectar um novo disco de dados de uma conta de armazenamento Premium.
+The [Azure Command-Line Interface](../xplat-cli-install.md)(Azure CLI) provides a provides a set of open source, cross-platform commands for working with the Azure Platform. The following examples show how to use Azure CLI (version 0.8.14 and later) to create a Premium Storage account, a new virtual machine, and attach a new data disk from a Premium Storage account.
 
-#### I. Criar uma conta de armazenamento Premium por meio da CLI do Azure
+#### <a name="i.-create-a-premium-storage-account-via-azure-cli"></a>I. Create a Premium Storage account via Azure CLI
 
 ````
 azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 ````
 
-#### II. Criar uma máquina virtual da série DS por meio da CLI do Azure
+#### <a name="ii.-create-a-ds-series-virtual-machine-via-azure-cli"></a>II. Create a DS-series virtual machine via Azure CLI
 
-	azure vm create -z "Standard_DS2" -l "west us" -e 22 "premium-test-vm"
-		"b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-pt-BR-30GB" -u "myusername" -p "passwd@123"
+    azure vm create -z "Standard_DS2" -l "west us" -e 22 "premium-test-vm"
+        "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB" -u "myusername" -p "passwd@123"
 
-Exibir informações sobre a máquina virtual
+Display information about the virtual machine
 
-	azure vm show premium-test-vm
+    azure vm show premium-test-vm
 
-#### III. Anexar um novo disco de dados premium por meio da CLI do Azure
+#### <a name="iii.-attach-a-new-premium-data-disk-via-azure-cli"></a>III. Attach a new premium data disk via Azure CLI
 
-	azure vm disk attach-new premium-test-vm 20 https://premiumstorageaccount.blob.core.windows.net/vhd-store/data1.vhd
+    azure vm disk attach-new premium-test-vm 20 https://premiumstorageaccount.blob.core.windows.net/vhd-store/data1.vhd
 
-Exibir informações sobre o novo disco de dados
+Display information about the new data disk
 
-	azure vm disk show premium-test-vm-premium-test-vm-0-201502210429470316
+    azure vm disk show premium-test-vm-premium-test-vm-0-201502210429470316
 
-#### IV. Alterar a política de cache de disco
+#### <a name="iv.-change-disk-caching-policy"></a>IV. Change disk caching policy
 
-Para alterar a política de cache em um dos seus discos usando o Azure CLI, execute o seguinte comando:
+To change the cache policy on one of your disks using Azure CLI, run the following command:
 
-		$ azure vm disk attach -h ReadOnly <VM-Name> <Disk-Name>
+        $ azure vm disk attach -h ReadOnly <VM-Name> <Disk-Name>
 
-Observe que as opções da política de cache podem ser ReadOnly, None ou ReadWrite. Para saber mais, consulte a ajuda executando o seguinte comando:
+Note that the caching policy options can be ReadOnly, None, or ReadWrite. For more options, see the help by running the following command:
 
-		azure vm disk attach --help
+        azure vm disk attach --help
 
->[AZURE.WARNING] Alterar a configuração de cache de um disco do Azure desanexa e anexa novamente o disco de destino. Se for o disco do sistema operacional, a VM será reiniciada. Pare todos os aplicativos/serviços que podem ser afetados por essa interrupção antes de alterar a configuração de cache do disco.
+>[AZURE.WARNING] Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
 
-## Perguntas frequentes
+## <a name="faqs"></a>FAQs
 
-1. **Posso anexar discos de dados premium e standard a uma VM com suporte do Armazenamento Premium?**
+1. **Can I attach both premium and standard data disks to a Premium Storage supported VM?**
 
-	Sim. Você pode anexar discos de dados premium e standard a uma VM com suporte do Armazenamento Premium.
+    Yes. You can attach both premium and standard data disks to a Premium Storage supported series VM.
 
-2. **Posso anexar discos de dados premium e standard a uma VM das séries D, Dv2, G ou F?**
+2. **Can I attach both premium and standard data disks to a D, Dv2, G or F series VM?**
 
-	Não. Você só pode anexar um disco de dados standard a todas as VMs que não são das séries com suporte do Armazenamento Premium.
+    No. You can only attach a standard data disk to all VMs that are not Premium Storage supported series.
 
-3. **Se criar um disco de dados premium com base em um VHD existente que tinha 80 GB de tamanho, quanto isso custará?**
+3. **If I create a premium data disk from an existing VHD that was 80 GB in size, how much will that cost me?**
 
-	Um disco de dados premium criado com base no VHD de 80 GB será tratado como o próximo tamanho de disco premium disponível, um disco P10. Você será cobrado de acordo com os preços do disco P10.
+    A premium data disk created from 80 GB VHD will be treated as the next available premium disk size, a P10 disk. You will be charged as per the P10 disk pricing.
 
-4. **Existem custos de transação ao se usar o Armazenamento Premium?**
+4. **Are there any transaction costs when using Premium Storage?**
 
-	Há um custo fixo para cada tamanho de disco que vem provisionado com determinado número de IOPS e Taxa de Transferência. Os únicos outros custos são largura de banda de saída e recurso de instantâneos, caso aplicável. Confira [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter mais detalhes.
+    There is a fixed cost for each disk size which comes provisioned with certain number of IOPS and Throughput. The only other costs are outbound bandwidth and snapshots capacity, if applicable. See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for more details.
 
-5. **Onde posso armazenar diagnósticos de inicialização da minha VM com suporte do Armazenamento Premium?**
+5. **Where can I store boot diagnostics for my Premium Storage supported series VM?**
 
-	Crie uma conta de armazenamento standard para armazenar os diagnósticos de inicialização de sua VM com suporte do Armazenamento Premium.
+    Create a standard storage account to store the boot diagnostics of your Premium Storage supported series VM.
 
-6. **Que quantidade de IOPS e Taxa de Transferência posso obter do cache de disco?**
+6. **How many IOPS and Throughput can I get from the disk cache?**
 
-	Os limites combinados para cache e SSD local para um item da série DS são 4000 IOPS por núcleo e 33 MB por segundo por núcleo. A série GS oferece 5000 IOPS por núcleo e 50 MB por segundo por núcleo.
+    The combined limits for cache and local SSD for a DS series are 4000 IOPS per core and 33 MB per second per core. GS series offers 5000 IOPS per core and 50 MB per second per core.
 
-7. **O que é o SSD local em uma VM de série com suporte do Armazenamento Premium?**
+7. **What is the local SSD in a Premium Storage supported series VM?**
 
-	O SSD local é um armazenamento temporário fornecido com uma VM de séries com suporte do Armazenamento Premium. Não há custo adicional para esse armazenamento temporário. É recomendável que você não use esse armazenamento temporário ou SSD local para armazenar os dados do aplicativo, pois eles não são persistidos no Armazenamento de Blobs do Azure.
+    The local SSD is a temporary storage that is included with a Premium Storage supported series VM. There is no extra cost for this temporary storage. It is recommended that you do not use this temporary storage or local SSD for storing your application data as it is not persisted in Azure Blob Storage.
 
-8. **Posso converter minha conta de armazenamento padrão em uma conta de armazenamento Premium?**
+8. **Can I convert my standard storage account to a Premium Storage account?**
 
-	Não. Não é possível converter uma conta de armazenamento padrão em uma conta de armazenamento Premium ou vice-versa. Você deve criar uma nova conta de armazenamento com o tipo desejado e copiar dados para a nova conta de armazenamento, caso aplicável.
+    No. It is not possible to convert standard storage account to Premium Storage account or vice versa. You must create a new storage account with the desired type and copy data to new storage account, if applicable.
 
-9. **Como converter minha VM da série D em uma VM da série DS**
+9. **How can I convert my D series VM to a DS series VM?**
 
-	Confira o guia de migração, [Migrando para o Armazenamento Premium do Azure](storage-migration-to-premium-storage.md), para mover sua carga de trabalho de uma VM da série D usando uma conta do Armazenamento Standard para uma VM da série DS usando uma conta do Armazenamento Premium.
+    Please refer to the migration guide, [Migrating to Azure Premium Storage](storage-migration-to-premium-storage.md) to move your workload from a D series VM using standard storage account to a DS series VM using Premium Storage account.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Para obter mais informações sobre o Armazenamento Premium do Azure, confira os artigos a seguir.
+For more information about Azure Premium Storage refer to the following articles.
 
-### Projetar e implementar com o Armazenamento Premium do Azure
+### <a name="design-and-implement-with-azure-premium-storage"></a>Design and implement with Azure Premium Storage
 
-- [Design para desempenho com o Armazenamento Premium](storage-premium-storage-performance.md)
-- [Usando operações do serviço Blob com o Armazenamento Premium do Azure](http://go.microsoft.com/fwlink/?LinkId=521969)
+- [Design for Performance with Premium Storage](storage-premium-storage-performance.md)
+- [Using Blob Service Operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969)
 
-### Diretrizes operacionais
+### <a name="operational-guidance"></a>Operational guidance
 
-- [Migrando para o Armazenamento do Azure Premium](storage-migration-to-premium-storage.md)
+- [Migrating to Azure Premium Storage](storage-migration-to-premium-storage.md)
 
-### Postagens de blog
+### <a name="blog-posts"></a>Blog Posts
 
-- [Armazenamento Premium do Azure com disponibilidade geral](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
-- [Anúncio da série GS: como adicionar suporte ao Armazenamento Premium para as maiores VMs na nuvem pública](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
+- [Azure Premium Storage Generally Available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
+- [Announcing the GS-Series: Adding Premium Storage Support to the Largest VMs in the Public Cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
 
 [Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

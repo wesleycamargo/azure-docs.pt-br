@@ -1,4 +1,8 @@
 
-> [AZURE.NOTE]As etapas neste artigo criam um cluster HDInsight usando definições de configuração básica. Para obter informações sobre outras definições de configuração do cluster (como usar a Rede Virtual do Azure ou um metastore para Hive e Oozie), consulte [Provisionar clusters do Hadoop em HDInsight](../articles/hdinsight/hdinsight-provision-clusters.md).
+> [AZURE.NOTE] The steps in this article create an HDInsight cluster by using basic configuration settings. For information about other cluster configuration settings (such as using Azure virtual network or a metastore for Hive and Oozie), see [Provision Hadoop clusters in HDInsight](../articles/hdinsight/hdinsight-provision-clusters.md).
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

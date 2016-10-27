@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: integração do Active Directory do Azure ao Clever | Microsoft Azure" 
-    description="Saiba como usar o Clever com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    pageTitle="Tutorial: Azure Active Directory integration with Clever | Microsoft Azure" 
+    description="Learn how to use Clever with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,143 +11,152 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Tutorial: integração do Active Directory do Azure ao Clever
 
-O objetivo deste tutorial é mostrar a integração do Azure ao Clever. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+#<a name="tutorial:-azure-active-directory-integration-with-clever"></a>Tutorial: Azure Active Directory integration with Clever
 
--   Uma assinatura válida do Azure
--   Um locatário do Clever
+The objective of this tutorial is to show the integration of Azure and Clever. The scenario outlined in this tutorial assumes that you already have the following items:
 
-Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Clever poderão fazer logon único no aplicativo em seu site de empresa do Clever (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+-   A valid Azure subscription
+-   A Clever tenant
 
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+After completing this tutorial, the Azure AD users you have assigned to Clever will be able to single sign into the application at your Clever company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-1.  Habilitando a integração de aplicativos para o Clever
-2.  Configurando o logon único
-3.  Configurando o provisionamento de usuários
-4.  Atribuindo usuários
+The scenario outlined in this tutorial consists of the following building blocks:
 
-![Cenário](./media/active-directory-saas-clever-tutorial/IC798977.png "Cenário")
-##Habilitando a integração de aplicativos para o Clever
+1.  Enabling the application integration for Clever
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Clever.
+![Scenario](./media/active-directory-saas-clever-tutorial/IC798977.png "Scenario")
+##<a name="enabling-the-application-integration-for-clever"></a>Enabling the application integration for Clever
 
-###Para habilitar a integração de aplicativos para o Clever, execute as seguintes etapas:
+The objective of this section is to outline how to enable the application integration for Clever.
 
-1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
+###<a name="to-enable-the-application-integration-for-clever,-perform-the-following-steps:"></a>To enable the application integration for Clever, perform the following steps:
+
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-clever-tutorial/IC700993.png "Active Directory")
 
-2.  Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicativos](./media/active-directory-saas-clever-tutorial/IC700994.png "Aplicativos")
+    ![Applications](./media/active-directory-saas-clever-tutorial/IC700994.png "Applications")
 
-4.  Clique em **Adicionar** na parte inferior da página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Adicionar aplicativo](./media/active-directory-saas-clever-tutorial/IC749321.png "Adicionar aplicativo")
+    ![Add application](./media/active-directory-saas-clever-tutorial/IC749321.png "Add application")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-clever-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
+    ![Add an application from gallerry](./media/active-directory-saas-clever-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Na **caixa de pesquisa**, digite **Clever**.
+6.  In the **search box**, type **Clever**.
 
-    ![Galeria de Aplicativos](./media/active-directory-saas-clever-tutorial/IC798978.png "Galeria de Aplicativos")
+    ![Application Gallery](./media/active-directory-saas-clever-tutorial/IC798978.png "Application Gallery")
 
-7.  No painel de resultados, selecione **Clever** e clique em **Concluir** para adicionar o aplicativo.
+7.  In the results pane, select **Clever**, and then click **Complete** to add the application.
 
     ![Clever](./media/active-directory-saas-clever-tutorial/IC798979.png "Clever")
-##Configurando o logon único
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
 
-O objetivo desta seção é descrever como permitir que os usuários autentiquem no Clever com a própria conta no Azure AD usando federação baseada no protocolo SAML. Seu aplicativo Clever espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de **atributos do token SAML**. A captura de tela a seguir mostra um exemplo disso.
+The objective of this section is to outline how to enable users to authenticate to Clever with their account in Azure AD using federation based on the SAML protocol.  
+Your Clever application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
+The following screenshot shows an example for this.
 
-![Atributos](./media/active-directory-saas-clever-tutorial/IC798980.png "Atributos")
+![Attributes](./media/active-directory-saas-clever-tutorial/IC798980.png "Attributes")
 
-###Para configurar o logon único, execute as seguintes etapas:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  No portal clássico do Azure, na página de integração do aplicativo **Clever**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  In the Azure classic portal, on the **Clever** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurar o logon único](./media/active-directory-saas-clever-tutorial/IC784682.png "Configurar o logon único")
+    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/IC784682.png "Configure Single Sign-On")
 
-2.  Na página **Como você deseja que os usuários façam logon no Clever**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
+2.  On the **How would you like users to sign on to Clever** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar o logon único](./media/active-directory-saas-clever-tutorial/IC798981.png "Configurar o logon único")
+    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/IC798981.png "Configure Single Sign-On")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Clever**, digite a URL usada pelos seus usuários para fazer logon em seu aplicativo Clever (por exemplo: *https://clever.com/in/azsandbox*) e clique em **Avançar**.
+3.  On the **Configure App URL** page, in the **Clever Sign On URL** textbox, type the URL used by your users to sign-on to your Clever application (e.g.: *https://clever.com/in/azsandbox*), and then click **Next**.
 
-    ![Configurar a URL do Aplicativo](./media/active-directory-saas-clever-tutorial/IC798982.png "Configurar a URL do Aplicativo")
+    ![Configure App URL](./media/active-directory-saas-clever-tutorial/IC798982.png "Configure App URL")
 
-4.  Na página **Configurar logon único no Clever**, para baixar os metadados, clique em **Baixar metadados** e salve o arquivo de metadados localmente no computador.
+4.  On the **Configure single sign-on at Clever** page, to download your metadata, click **Download metadata**, and then save the metadata file locally on your computer.
 
-    ![Configurar o logon único](./media/active-directory-saas-clever-tutorial/IC798983.png "Configurar o logon único")
+    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/IC798983.png "Configure Single Sign-On")
 
-5.  Em outra janela do navegador da Web, faça logon em seu site de empresa do Clever como um administrador.
+5.  In a different web browser window, log into your Clever company site as an administrator.
 
-6.  Na barra de ferramentas, clique em **Logon Instantâneo**.
+6.  In the toolbar, click **Instant Login**.
 
-    ![Logon Instantâneo](./media/active-directory-saas-clever-tutorial/IC798984.png "Logon Instantâneo")
+    ![Instant Login](./media/active-directory-saas-clever-tutorial/IC798984.png "Instant Login")
 
-7.  Na página **Logon Instantâneo**, execute as seguintes etapas:
+7.  On the **Instant Login** page, perform the following steps:
 
-    ![Logon Instantâneo](./media/active-directory-saas-clever-tutorial/IC798985.png "Logon Instantâneo")
+    ![Instant Login](./media/active-directory-saas-clever-tutorial/IC798985.png "Instant Login")
 
-    1.  Digite a **URL de Logon**.
+    1.  Type the **Login URL**.  
 
-        >[AZURE.NOTE] A **URL de Logon** é um valor personalizado. Você pode obter o valor real com a equipe de suporte do Clever.
+        >[AZURE.NOTE] The **Login URL** is a custom value.
+You can get the actual value from your Clever support team.
 
-    2.  Para **Sistema de Identidade**, selecione **ADFS**.
-    3.  Clique em **Salvar**.
+    2.  As **Identity System**, select **ADFS**.
+    3.  Click **Save**.
 
-8.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+8.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurar o logon único](./media/active-directory-saas-clever-tutorial/IC798986.png "Configurar o logon único")
+    ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/IC798986.png "Configure Single Sign-On")
 
-9.  Na parte superior do menu, clique em **Atributos** para abrir o diálogo **Atributos de Token SAML**.
+9.  In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
 
-    ![Atributos](./media/active-directory-saas-clever-tutorial/IC795920.png "Atributos")
+    ![Attributes](./media/active-directory-saas-clever-tutorial/IC795920.png "Attributes")
 
-10. Para adicionar os mapeamentos de atributo necessários, execute as seguintes etapas:
+10. To add the required attribute mappings, perform the following steps:
 
-    ![atributos de token saml](./media/active-directory-saas-clever-tutorial/IC795921.png "atributos de token saml")
+    ![saml token attributes](./media/active-directory-saas-clever-tutorial/IC795921.png "saml token attributes")
 
-	|Nome do atributo|Valor do atributo|
-    |---|---|
-    |clever.student.credentials.district\_username|User.userprincipalname|
+  	|Attribute Name|Attribute Value|
+  	|---|---|
+  	|clever.student.credentials.district\_username|User.userprincipalname|
 
-    1.  Para cada linha de dados na tabela acima, clique em **adicionar atributo do usuário**.
-    2.  Na caixa de texto **Nome do Atributo**, digite o nome do atributo mostrado para essa linha.
-    3.  Na caixa de texto **Valor do Atributo**, selecione o valor do atributo mostrado para essa linha.
-    4.  Clique em **Concluído**.
+    1.  For each data row in the table above, click **add user attribute**.
+    2.  In the **Attribute Name** textbox, type the attribute name shown for that row.
+    3.  In the **Attribute Value** textbox, select the attribute value shown for that row.
+    4.  Click **Complete**.
 
-11. Clique em **Aplicar alterações**.
+11. Click **Apply Changes**.
 
-##Configurando o provisionamento de usuários
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
 
-Para permitir que os usuários do Azure AD façam logon no Clever, eles devem ser provisionados no Clever. No caso do Clever, o provisionamento é uma tarefa manual que precisa ser realizada por sua equipe de suporte do Clever.
+In order to enable Azure AD users to log into Clever, they must be provisioned into Clever.  
+In the case of Clever, provisioning is a manual task that needs to be performed by your Clever support team.
 
->[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Clever ou as APIs fornecidas pelo Clever para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] You can use any other Clever user account creation tools or APIs provided by Clever to provision AAD user accounts.
 
-##Atribuindo usuários
+##<a name="assigning-users"></a>Assigning users
 
-Para testar sua configuração, será necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que o utilizem.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para atribuir usuários ao Clever, execute as etapas a seguir:
+###<a name="to-assign-users-to-clever,-perform-the-following-steps:"></a>To assign users to Clever, perform the following steps:
 
-1.  No Portal clássico do Azure, crie uma conta de teste.
+1.  In the Azure classic portal, create a test account.
 
-2.  Na página de integração do aplicativo **Clever**, clique em **Atribuir usuários**.
+2.  On the **Clever **application integration page, click **Assign users**.
 
-    ![Atribuir usuários](./media/active-directory-saas-clever-tutorial/IC798987.png "Atribuir Usuários")
+    ![Assign Users](./media/active-directory-saas-clever-tutorial/IC798987.png "Assign Users")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sim](./media/active-directory-saas-clever-tutorial/IC767830.png "Sim")
+    ![Yes](./media/active-directory-saas-clever-tutorial/IC767830.png "Yes")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

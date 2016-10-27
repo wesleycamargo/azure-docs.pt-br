@@ -1,48 +1,53 @@
 <properties
-	pageTitle="Conectar uma VM do Windows Server | Microsoft Azure"
-	description="Saiba como se conectar e fazer logon em uma VM do Windows usando o portal do Azure e o modelo de implantação do Gerenciador de Recursos."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager"/>
+    pageTitle="Connect to a Windows Server VM | Microsoft Azure"
+    description="Learn how to connect and log on to a Windows VM using the Azure portal and the Resource Manager deployment model."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="07/28/2016"
-	ms.author="cynthn"/>
-
-# Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows 
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="07/28/2016"
+    ms.author="cynthn"/>
 
 
-Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão da Área de Trabalho Remota (RDP). Primeiro, conecte-se à máquina virtual, em seguida, faça logon.
+# <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>How to connect and log on to an Azure virtual machine running Windows 
 
-## Conectar-se à máquina virtual
 
-1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com/).
+You'll use the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session. First you connect to the virtual machine, then you log on.
 
-2.	No menu Hub, clique em **Máquinas Virtuais**.
+## <a name="connect-to-the-virtual-machine"></a>Connect to the virtual machine
 
-3.	Selecione a máquina virtual na lista.
+1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/).
 
-4. Na folha da máquina virtual, clique em **Conectar**.
+2.  On the Hub menu, click **Virtual Machines**.
 
-	![Captura de tela do portal do Azure mostrando como conectar sua VM.](./media/virtual-machines-windows-connect-logon/connect.png)
-	
- > [AZURE.TIP] Se o botão **Conectar** no portal estiver acinzentado e você não estiver conectado ao Azure por meio de uma [Rota Expressa](../expressroute/expressroute-introduction.md) ou de uma conexão [VPN Site a Site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), será necessário criar e atribuir à VM um endereço IP público antes de usar o RDP. Leia mais sobre os [endereços IP públicos no Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+3.  Select the virtual machine from the list.
 
-## Faça logon na máquina virtual
+4. On the blade for the virtual machine, click **Connect**.
+
+    ![Screenshot of the Azure portal showing how to connect to your VM.](./media/virtual-machines-windows-connect-logon/connect.png)
+    
+ > [AZURE.TIP] If the **Connect** button in the portal is greyed out and you are not connected to Azure via an [Express Route](../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+
+## <a name="log-on-to-the-virtual-machine"></a>Log on to the virtual machine
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Se você tiver problemas ao tentar se conectar, consulte [Solucionar Problemas de conexões da Área de Trabalho Remota](virtual-machines-windows-troubleshoot-rdp-connection.md). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
+If you run into trouble when you try to connect, see [Troubleshoot Remote Desktop connections](virtual-machines-windows-troubleshoot-rdp-connection.md). This article walks you through diagnosing and resolving common problems.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

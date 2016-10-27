@@ -1,6 +1,6 @@
 <properties
- pageTitle="Habilitar dispositivos gerenciados atrás de um gateway IoT | Microsoft Azure"
- description="Tópico de diretrizes usando um Gateway IoT criado com o SDK do Gateway juntamente com dispositivos gerenciados pelo Hub IoT."
+ pageTitle="Enable managed devices behind an IoT gateway | Microsoft Azure"
+ description="Guidance topic using an IoT Gateway created using the Gateway SDK along with devices managed by IoT Hub."
  services="iot-hub"
  documentationCenter=""
  authors="chipalost"
@@ -16,80 +16,71 @@
  ms.date="04/29/2016"
  ms.author="cstreet"/>
  
-# Habilitar dispositivos gerenciados atrás de um gateway IoT
 
-## Isolamento básico de dispositivos
+# <a name="enable-managed-devices-behind-an-iot-gateway"></a>Enable managed devices behind an IoT gateway
 
-Em geral, as organizações usam gateways IoT para aumentar a segurança geral de suas soluções IoT. Alguns dispositivos precisam enviar dados para a nuvem, mas não conseguem se proteger contra ameaças na Internet. É possível proteger esses dispositivos contra threads externos fazendo com que se comuniquem com o mundo exterior por meio de um gateway.
+## <a name="basic-device-isolation"></a>Basic device isolation
 
-O gateway está na borda entre um ambiente seguro e a Internet aberta. Os dispositivos se comunicam com o gateway e o gateway transmite as mensagens para o destino de nuvem correto. O gateway está protegido contra threads externos, bloqueia solicitações não autorizadas, permite o tráfego de entrada autorizado e encaminha esse tráfego de entrada para o dispositivo correto.
+Organizations often use IoT gateways to increase the overall security of their IoT solutions. Some devices need to send data to the cloud but are not capable of protecting themselves from threats on the internet. You can shield these devices from external threads by having them communicate with the outside world through a gateway.
+
+The gateway sits on the border between a secure environment and the open internet. Devices talk to the gateway and the gateway passes the messages along to the correct cloud destination. The gateway is hardened against external threads, blocks unauthorized requests, allows authorized in-bound traffic, and forwards that in-bound traffic to the correct device.
 
 ![][1]
 
-Também é possível colocar os dispositivos que podem se proteger atrás de um gateway para obter uma camada adicional de segurança. Nesse cenário, você precisa apenas manter o sistema operacional do gateway protegido contra as vulnerabilidades mais recentes, em vez de atualizá-lo em cada dispositivo.
+You can also place devices that can protect themselves behind a gateway for an added layer of security. In this scenario you only need to keep the gateway OS patched against the latest vulnerabilities, instead of updating the OS on every device.
 
-## Isolamento mais inteligência
+## <a name="isolation-plus-intelligence"></a>Isolation plus intelligence
 
-Um roteador protegido é um gateway suficiente para simplesmente isolar dispositivos. No entanto, as soluções IoT geralmente exigem que um gateway forneça mais inteligência do que simplesmente isolar dispositivos. Por exemplo, talvez você queira gerenciar seus dispositivos na nuvem. Você está apto a usar o LWM2M, um protocolo de gerenciamento de dispositivo padrão, para a parte do gerenciamento de nuvem da solução. No entanto, os dispositivos enviam telemetria usando um protocolo não habilitado para TCP/IP. Além disso, os dispositivos geram grandes quantidades de dados e você deseja carregar apenas um subconjunto filtrado da telemetria. É possível criar uma solução que incorpora um gateway IoT capaz de lidar com duas transmissões distintas de dados. O gateway deve:
+A hardened router is a sufficient gateway to simply isolate devices. However, IoT solutions often require that a gateway provides more intelligence than simply isolating devices. For example, you may want to manage your devices from the cloud. You are able use LWM2M, a standard device management protocol, for the cloud management part of the solution. However, the devices send telemetry using a non TCP/IP enabled protocol. Furthermore, the devices produce lots of data and you only want to upload a filtered subset of the telemetry. You can build a solution that incorporates an IoT gateway capable of dealing with two distinct streams of data. The gateway should:
 
--   Compreenda a **telemetria**, filtre-a e, em seguida, carregue-a na nuvem por meio do gateway. O gateway não é mais um roteador simples que simplesmente encaminha dados entre o dispositivo e a nuvem.
+-   Understand the **Telemetry**, filter it, and then upload it to the cloud through the gateway. The gateway is no longer a simple router that simply forwards data between the device and the cloud.
 
--   Basta trocar os **dados de gerenciamento de dispositivo LWM2M** entre os dispositivos e a nuvem. O gateway não precisa compreender os dados de entrada; ele só precisa se certificar de que os dados são transmitidos entre os dispositivos e a nuvem.
+-   Simply exchange the **LWM2M device management data** between the devices and the cloud. The gateway does not need to understand the data coming into it, and only needs to make sure the data gets passed back and forth between the devices and the cloud.
 
-A figura a seguir ilustra esse cenário:
+The following figure illustrates this scenario:
 
 ![][2]
 
-## A solução: gerenciamento de dispositivo IoT do Azure e o SDK do Gateway 
+## <a name="the-solution:-azure-iot-device-management-and-the-gateway-sdk"></a>The solution: Azure IoT device management and the Gateway SDK 
 
-A versão de preview pública do [gerenciamento de dispositivo IoT do Azure][lnk-device-management] e a versão beta do [SDK do Gateway IoT do Azure] permitem este cenário. O gateway trata cada fluxo de dados da seguinte maneira:
+The public preview release of [Azure IoT device management][lnk-device-management] and beta release of the [Azure IoT Gateway SDK] enable this scenario. The gateway handles each stream of data as follows:
 
--   **Telemetria**: é possível usar o SDK do Gateway para criar um pipeline que compreende, filtra e envia dados telemétricos para a nuvem. O SDK do Gateway fornece um código que implementa partes desse pipeline em nome do desenvolvedor. É possível encontrar mais informações sobre a arquitetura do SDK no tutorial [SDK do Gateway IoT - Introdução][lnk-gateway-get-started].
+-   **Telemetry**: You can use the Gateway SDK to build a pipeline that understands, filters, and sends telemetry data to the cloud. The Gateway SDK provides code that implements parts of this pipeline on behalf of the developer. You can find more information on the architecture of the SDK in the [IoT Gateway SDK - Get Started][lnk-gateway-get-started] tutorial.
 
--   **Gerenciamento de dispositivo**: o gerenciamento de dispositivo do Azure fornece um cliente LWM2M que é executado no dispositivo, bem como uma interface de nuvem para emitir comandos de gerenciamento para o dispositivo.
+-   **Device management**: Azure device management provides an LWM2M client that runs on the device as well as a cloud interface for issuing management commands to the device.
     
-    Não é necessário nenhuma lógica especial no gateway, pois ele não precisa processar os dados do LWM2M trocados entre o dispositivo e o hub IoT. É possível habilitar o compartilhamento de conexão com a Internet, um recurso de vários sistemas operacionais modernos, no gateway para permitir a troca de dados do LWM2M. Você pode escolher um sistema operacional adequado para esse cenário, pois o SDK do gateway dá suporte a uma variedade de sistemas operacionais. Estas são as instruções para habilitar o compartilhamento da conexão com a Internet no [Windows 10] e [Ubuntu], dois dos vários sistemas operacionais com suporte.
+    You don't require any special logic on the gateway because it does not need to process the LWM2M data exchanged between the device and your IoT hub. You can enable internet connection sharing, a feature of many modern operating systems, on the gateway to enable the exchange of LWM2M data. You can can choose a suitable operating system for this scenario because the gateway SDK supports a variety of operating systems. Here are instructions for enabling internet connection sharing on [Windows 10] and [Ubuntu], two of the many supported operating systems.
 
-A ilustração a seguir mostra a arquitetura de alto nível usada para habilitar esse cenário usando o [gerenciamento de dispositivo IoT do Azure][lnk-device-management] e o [SDK do Gateway IoT do Azure].
+The following illustration shows the high level architecture used to enable this scenario using [Azure IoT device management][lnk-device-management] and the [Azure IoT Gateway SDK].
 
 ![][3]
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Para saber mais sobre como usar o SDK do Gateway, veja os tutoriais a seguir:
+To learn about how to use the Gateway SDK, see the following tutorials:
 
-- [SDK do Gateway IoT - Introdução usando o Linux][lnk-gateway-get-started]
-- [SDK do Gateway IoT - enviar mensagens do dispositivo para a nuvem com um dispositivo simulado usando o Linux][lnk-gateway-simulated]
+- [IoT Gateway SDK - Get started using Linux][lnk-gateway-get-started]
+- [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated]
 
-Para saber mais sobre o gerenciamento de dispositivos com o Hub IoT, consulte [Introdução à biblioteca do cliente de gerenciamento de dispositivos do Hub IoT do Azure][lnk-library-c].
+To further explore the capabilities of IoT Hub, see:
 
-Para explorar melhor as funcionalidades do Hub IoT, consulte:
-
-- [Projetar sua solução][lnk-design]
-- [Guia do desenvolvedor][lnk-devguide]
-- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
-- [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
+- [Developer guide][lnk-devguide]
+- [Simulating a device with the Gateway SDK][lnk-gateway-simulated]
 
 <!-- Images and links -->
 [1]: media/iot-hub-gateway-device-management/overview.png
 [2]: media/iot-hub-gateway-device-management/manage.png
-[SDK do Gateway IoT do Azure]: https://github.com/Azure/azure-iot-gateway-sdk/
-[Windows 10]: http://windows.microsoft.com/pt-BR/windows/using-internet-connection-sharing#1TC=windows-7
+[Azure IoT Gateway SDK]: https://github.com/Azure/azure-iot-gateway-sdk/
+[Windows 10]: http://windows.microsoft.com/en-us/windows/using-internet-connection-sharing#1TC=windows-7
 [Ubuntu]: https://help.ubuntu.com/community/Internet/ConnectionSharing
 [3]: media/iot-hub-gateway-device-management/manage_2.png
 [lnk-gateway-get-started]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-gateway-simulated]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
-[lnk-dm-gateway]: iot-hub-gateway-device-management.md
-[lnk-library-c]: iot-hub-device-management-library.md
-
-[lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SQL Azure com o Azure RemoteApp | Microsoft Azure"
-   description="Saiba como usar o SQL Azure com o Azure RemoteApp."
+   pageTitle="SQL Azure with Azure RemoteApp | Microsoft Azure"
+   description="Learn how to use SQL Azure with Azure RemoteApp."
    services="remoteapp"
    documentationCenter=""
    authors="ericorman"
@@ -16,41 +16,47 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
-# SQL Azure com o Azure RemoteApp
+
+# <a name="sql-azure-with-azure-remoteapp"></a>SQL Azure with Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-O RemoteApp do Azure está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Geralmente, quando os clientes optam por hospedar seus aplicativos do Windows na nuvem com o Azure RemoteApp, também querem migrar seus dados, como servidores SQL, para a nuvem para uma implantação de nuvem completa. Isso possibilita a solução hospedada de nuvem completa que pode ser acessada a qualquer momento por qualquer dispositivo em qualquer lugar usando o Azure RemoteApp. A seguir, os links e as referências juntamente com as orientações para ajudar você neste processo.
+Often when customers choose to host their Windows applications in the cloud with Azure RemoteApp they also want to migrate their data such as SQL servers into the cloud for an entire cloud deployment. This allows for entire cloud hosted solution that can be accessed anytime by any device anywhere using Azure RemoteApp. Below are links and references along with guidance to help you with this process.  
 
-## Migrar os dados SQL
+## <a name="migrate-your-sql-data"></a>Migrate your SQL data
 
-Comece com [Migrando um banco de dados do SQL Server para o Banco de Dados SQL do Azure](../sql-database/sql-database-cloud-migrate.md).
+Start with [Migrating a SQL Server database to Azure SQL Database](../sql-database/sql-database-cloud-migrate.md). 
 
-## Configurar o Azure RemoteApp
-Hospede seu aplicativo do Windows no Azure RemoteApp. A seguir, um passo a passo de nível muito alto:
+## <a name="configure-azure-remoteapp"></a>Configure Azure RemoteApp
+Host your Windows application in Azure RemoteApp. Below is a very high level step-by-step:
 
-1.     Crie a [VM de modelo do RemoteApp do Azure](remoteapp-imageoptions.md).
-2.     Instale o aplicativo necessário na VM.
-3.     Configure o aplicativo para que ele se conecte ao banco de dados SQL e confirme se ele funciona.
-4.     Execute o sysprep e desligue a máquina virtual. Capture isso como uma imagem para usá-la com o Azure. **Observação:** você precisará garantir que o aplicativo seja capaz de manter as informações de conectividade do banco de dados por meio do processo sysprep. Se o aplicativo for incapaz de reter as informações de conexão do banco de dados, talvez seja melhor entrar em contato com o fornecedor do aplicativo para verificar como podemos especificar a cadeia de conexão.
-5.     Importe a imagem personalizada para a biblioteca do Azure RemoteApp selecionando a localização geográfica adequada da sua implantação do SQL Azure.
-6.     Implante uma coleção do RemoteApp no mesmo data center como a implantação do SQL Azure usando o modelo acima e publique o aplicativo. A implantação do Azure RemoteApp no mesmo data center que a implantação do SQL Azure ajuda a garantir velocidades de conexão mais rápidas e a reduzir a latência.
+1.     Create the [Azure RemoteApp template VM](remoteapp-imageoptions.md). 
+2.     Install the required application on the VM.
+3.     Configure the application so it connects to the SQL DB and confirm that it works.
+4.     Sysprep and shutdown the VM. Capture this as an image for use with Azure. **Note:** You will need to ensure that the application is able to retain the DB connectivity information through the sysprep process. If the application is unable to retain the DB connection information, you might want to engage the vendor of the application to check how we can specify the connection string.
+5.     Import the custom image into your Azure RemoteApp library selecting the proper geographical location that your SQL Azure deployment resides. 
+6.     Deploy a RemoteApp collection in the same data center as your SQL Azure deployment using the above template and publish the application. Deploying Azure RemoteApp in the same data center as your SQL Azure deployment helps ensure the fastest connection speeds and reduce latency. 
 
-## Considerações sobre a configuração do aplicativo e do SQL:
-Há alguns pontos a considerar quando você estiver usando o SQL Azure com o RemoteApp:
+## <a name="app-and-sql-configuration-considerations:"></a>App and SQL configuration considerations:
+There are a few points to consider when using Azure SQL with RemoteApp:
 
-Saiba [como configurar um firewall do banco de dados SQL do Azure](../sql-database/sql-database-firewall-configure.md). Um trecho do artigo declara “Inicialmente, todo acesso ao seu servidor do Banco de Dados SQL do Azure é bloqueado pelo firewall. Para começar a usar seu servidor de Banco de Dados SQL do Azure, você deve acessar o Portal Clássico e especificar uma ou mais regras de firewall no nível do servidor que permitem acesso ao seu servidor de Banco de Dados SQL do Azure. Use as regras de firewall para especificar quais intervalos de endereço IP da Internet têm permissão e se os aplicativos do Azure podem tentar se conectar ao seu servidor de Banco de Dados SQL”.
+Learn [how to configure an Azure SQL database firewall](../sql-database/sql-database-firewall-configure.md). An excerpt from the article states, “Initially, all access to your Azure SQL Database server is blocked by the firewall. In order to begin using your Azure SQL Database server, you must go to the Classic Portal and specify one or more server-level firewall rules that enable access to your Azure SQL Database server. Use the firewall rules to specify which IP address ranges from the Internet are allowed, and whether or not Azure applications can attempt to connect to your Azure SQL Database server.”
 
-Além disso, quando um computador tenta se conectar ao seu servidor de banco de dados pela Internet, o firewall verifica o endereço IP de origem da solicitação com base no conjunto completo de regras de firewall no nível do servidor e (se necessário) no nível do banco de dados: “Se o endereço IP da solicitação estiver dentro de um dos intervalos especificados nas regras de firewall no nível do servidor, a conexão será concedida ao seu servidor de Banco de Dados SQL do Azure”. Portanto, podemos usar Intervalos de IP e não apenas os endereços IP de origem individuais.
+Also, when a computer attempts to connect to your database server from the Internet, the firewall checks the originating IP address of the request against the full set of server-level and (if required) database-level firewall rules. “If the IP address of the request is within one of the ranges specified in the server-level firewall rules, the connection is granted to your Azure SQL Database server.” Hence, we can make use of IP Ranges and not just individual source IP addresses.
 
-Siga as instruções passo a passo em [Como definir as configurações de firewall no Banco de Dados SQL usando o Portal do Azure](../sql-database/sql-database-configure-firewall-settings.md) para especificar o intervalo de IPs. Quando você estiver configurando as regras do Firewall do SQL, forneça o intervalo de IP da sub-rede especificada para a coleção do Azure RemoteApp. Isso deve permitir que os servidores ARA se conectem ao banco de dados SQL, embora eles tenham Endereços IP atribuídos dinamicamente.
+Follow the step by step instructions in [How to: Configure firewall settings on SQL Database using the Azure Portal](../sql-database/sql-database-configure-firewall-settings.md) to specify the IP range. When you are configuring the SQL Firewall rules, please provide the IP range of the subnet that is specified for the Azure RemoteApp collection. This should allow the ARA servers to connect to the SQL DB even though they will have dynamically-assigned IP Addresses.
 
-## Solucionar problemas
-Se a experiência de usar um aplicativo cliente hospedado no Azure RemoteApp que se conecta a um banco de dados SQL quando hospedado no Azure ou no local estiver lenta, pode haver alguns motivos para isso.
+## <a name="troubleshooting"></a>Troubleshooting
+If the experience of using a client application hosted in Azure RemoteApp that connects to a SQL database where hosted on Azure or on-premises is slow there could be a few reasons why.  
 
-- A latência de rede do dispositivo até o Azure é alta. Mova para uma conexão de rede que seja melhor e mais rápida para obter o melhor desempenho. Use [azurespeed.com](http://azurespeed.com/) como uma ferramenta geral para testar a latência dos dispositivos para o data center do Azure.
-- O aplicativo cliente hospedado no Azure RemoteApp está sob carga excessiva. Escolher um plano de cobrança diferente, como a cobrança Premium, melhorará o desempenho. Outro truque é monitorar os recursos que o aplicativo está consumindo: durante uma sessão ativa, execute uma sequência de teclas ctrl-alt-end para iniciar a tela SAS, selecione o Gerenciador de Tarefas e observe a utilização de recursos para seu aplicativo.
-- O servidor SQL está sob carga excessiva ou não está otimizado. Siga as diretrizes do SQL para solução de problemas.
+- Network latency from your device to Azure is high. Move to the best and fastest network connection you can for best performance. Use [azurespeed.com](http://azurespeed.com/) as a general tool to test your devices latency to Azure data center.  
+- Client app hosted in Azure RemoteApp is under stress. Selecting a different billing plan such as Premium billing will improve performance. Another trick is to monitor the resources your application is consuming: during an active session perform a ctrl-alt-end key sequence which will launch the SAS screen, select Task Manager and observe resource utilization for your app.
+- SQL server is under stress or not optimized. Follow SQL guidance for troubleshooting. 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

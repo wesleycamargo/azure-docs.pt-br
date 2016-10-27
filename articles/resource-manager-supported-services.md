@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Serviços com suporte do Gerenciador de Recursos | Microsoft Azure"
-   description="Descreve os provedores de recursos que oferecem suporte ao Gerenciador de Recursos, aos respectivos esquemas e versões de API disponíveis, bem como às regiões que podem hospedar os recursos."
+   pageTitle="Resource Manager supported services | Microsoft Azure"
+   description="Describes the resource providers that support Resource Manager, their schemas and available API versions, and the regions that can host the resources."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,169 +16,170 @@
    ms.date="07/18/2016"
    ms.author="magoedte;tomfitz"/>
 
-# Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos
 
-O Gerenciador de Recursos do Azure fornece uma nova maneira de implantar e gerenciar os serviços que compõem seus aplicativos. A maioria (não todos) dos serviços suporta o Gerenciador de Recursos e alguns serviços suportam o Gerenciador de Recursos apenas parcialmente. A Microsoft habilitará o Gerenciador de Recursos para todos os serviços importantes para soluções futuras, mas, até que o suporte seja consistente, você precisa saber o status atual de cada serviço. Este tópico fornece uma lista de provedores de recursos com suporte para o Gerenciador de Recursos do Azure.
+# <a name="resource-manager-providers,-regions,-api-versions-and-schemas"></a>Resource Manager providers, regions, API versions and schemas
 
-Ao implantar seus recursos, você também precisa saber quais são as regiões que oferecem suporte a esses recursos e quais versões de API estão disponíveis para os recursos. A seção [Regiões com suporte](#supported-regions) mostra como descobrir quais regiões funcionarão para sua assinatura e seus recursos. A seção [Versões de API com suporte](#supported-api-versions) mostra como determinar quais versões de API você pode usar.
+Azure Resource Manager provides a new way for you to deploy and manage the services that make up your applications. Most, but not all, services support Resource Manager, and some services support Resource Manager only partially. Microsoft will enable Resource Manager for every service that is important for future solutions, but until the support is consistent, you need to know the current status for each service. This topic provides a list of supported resource providers for Azure Resource Manager.
 
-Para ver quais serviços têm suporte no Portal do Azure e no portal clássico, confira o [Gráfico de disponibilidade do Portal do Azure](https://azure.microsoft.com/features/azure-portal/availability/). Para ver quais serviços oferecem suporte a recursos de movimentação, confira [Mover recursos para o novo grupo de recursos ou assinatura](resource-group-move-resources.md).
+When deploying your resources, you also need to know which regions support those resources and which API versions are available for the resources. The section [Supported regions](#supported-regions) shows you how to find out which regions will work for your subscription and resources. The section [Supported API versions](#supported-api-versions) shows you how to determine which API versions you can use.
 
-As tabelas a seguir listam quais serviços suportam a implantação e o gerenciamento por meio do Gerenciador de Recursos e quais não. O link na coluna **Modelos de Início Rápido** envia uma consulta ao repositório Modelos de Início Rápido do Azure para o provedor de recursos especificado. Os modelos de início rápido são adicionados e atualizados com frequência. A presença de um link para um serviço específico não significa necessariamente que a consulta retornará modelos do repositório.
+To see which services are supported in the Azure portal and classic portal, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/). To see which services support moving resources, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
+
+The following tables list which services support deployment and management through Resource Manager and which do not. The link in the column **Quickstart Templates** sends a query to the Azure Quickstart Templates repository for the specified resource provider. Quickstart templates are added and updated frequently. The presence of a link for a particular service does not necessarily mean the query will return templates from the repository. 
 
 
-## Computação
+## <a name="compute"></a>Compute
 
-| O Barramento de | Gerenciador de Recursos habilitado | API REST | Esquema | Modelos de Início Rápido |
+| Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | ------- | ------------------------ |-------- | ------ | ------ |
-| Batch | Sim | [REST do Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx) | [01-12-2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-12-01/Microsoft.Batch.json) | |
-|Contêiner | Sim | [REST do Serviço de Contêiner](https://msdn.microsoft.com/library/azure/mt711470.aspx) | [30-03-2016](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.ContainerService.json) | [Microsoft.ContainerService](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ContainerService%22&type=Code) |
-| Serviços de ciclo de vida do Dynamics | Sim | | | |
-| Conjuntos de Dimensionamento | Sim | [REST do Conjunto de Dimensionamento](https://msdn.microsoft.com/library/azure/mt705635.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [virtualMachineScaleSets](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=virtualMachineScaleSets&type=Code) | 
-| Service Fabric | Sim | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
-| Máquinas Virtuais | Sim | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [virtualMachines](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%2Fvirtualmachines%22&type=Code) |
-| Máquinas Virtuais (clássico) | Limitado | - | - | - |
-| Aplicativo Remoto | Não | - | - | - |
-| Serviços de Nuvem (clássico) | Limitado (veja abaixo) | - | - | - |
+| Batch   | Yes     | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | [2015-12-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-12-01/Microsoft.Batch.json)       |  |
+|Container | Yes | [Container Service REST](https://msdn.microsoft.com/library/azure/mt711470.aspx) | [2016-03-30](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.ContainerService.json) | [Microsoft.ContainerService](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ContainerService%22&type=Code) |
+| Dynamics Lifecycle Services | Yes  |      |        |  |
+| Scale Sets | Yes | [Scale Set REST](https://msdn.microsoft.com/library/azure/mt705635.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [virtualMachineScaleSets](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=virtualMachineScaleSets&type=Code) | 
+| Service Fabric | Yes  | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx)  |      | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
+| Virtual Machines | Yes | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [virtualMachines](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%2Fvirtualmachines%22&type=Code) |
+| Virtual Machines (classic) | Limited | - | - | - |
+| Remote App | No      | -  | - | - |
+| Cloud Services (classic) | Limited (see below) | - | - | - |
 
-Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para saber mais sobre esses modelos de implantação, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
+Virtual Machines (classic) refers to resources that were deployed through the classic deployment model, instead of through the Resource Manager deployment model. In general, these resources do not support Resource Manager operations, but there are some operations that have been enabled. For more information about these deployment models, see [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md). 
 
-Os Serviços de Nuvem (clássico) podem ser usados com outros recursos clássicos; no entanto, os recursos clássicos não tiram proveito de todos os recursos do Gerenciador de Recursos e não são uma boa opção para soluções futuras. Em vez disso, considere alterar a infraestrutura de aplicativos para usar os recursos dos namespaces Microsoft.Compute, Microsoft.Storage e Microsoft.Network.
+Cloud Services (classic) can be used with other classic resources; however, classic resources do not take advantage of all Resource Manager features and are not a good option for future solutions. Instead, consider changing your application infrastructure to use resources from the Microsoft.Compute, Microsoft.Storage, and Microsoft.Network namespaces.
 
 
-## Rede
+## <a name="networking"></a>Networking
 
-| O Barramento de | Gerenciador de Recursos habilitado | API REST | Esquema | Modelos de Início Rápido |
+| Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | ------- | -------  | -------- | ------ | ------ |
-| Application Gateway | Sim | [REST do Application Gateway](https://msdn.microsoft.com/library/azure/mt684939.aspx) | | [applicationGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FapplicationGateways%22&type=Code) |
-| DNS | Sim | [DNS REST](https://msdn.microsoft.com/library/azure/mt163862.aspx) | [01-04-2016](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-01/Microsoft.Network.json) | [dnsZones](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FdnsZones%22&type=Code) |
-| Rota Expressa | Sim | [REST da Rota Expressa](https://msdn.microsoft.com/library/azure/mt586720.aspx) | | [expressRouteCircuits](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FexpressRouteCircuits%22&type=Code) |
-| Balanceador de carga | Sim | [REST do balanceador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [loadBalancers](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Floadbalancers%22&type=Code) |
-| Gerenciador de Tráfego | Sim | [REST do Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/mt163667.aspx) | [2015-11-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-11-01/Microsoft.Network.json) | [trafficmanagerprofiles](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Ftrafficmanagerprofiles%22&type=Code) |
-| Redes Virtuais | Sim| [REST da Rede Virtual](https://msdn.microsoft.com/pt-BR/library/azure/mt163650.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [virtualNetworks](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworks%22&type=Code) |
-| Gateway de VPN | Sim | [REST de Gateway de rede](https://msdn.microsoft.com/library/azure/mt163859.aspx) | | [Conexões](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworkGateways%22&type=Code) <br /> [virtualNetworkGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FlocalNetworkGateways%22&type=Code) <br />[localNetworkGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Fconnections%22&type=Code) |
+| Application Gateway | Yes | [Application Gateway REST](https://msdn.microsoft.com/library/azure/mt684939.aspx)   |        | [applicationGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FapplicationGateways%22&type=Code) |
+| DNS     | Yes | [DNS REST](https://msdn.microsoft.com/library/azure/mt163862.aspx)         | [2016-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-01/Microsoft.Network.json) | [dnsZones](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FdnsZones%22&type=Code) |
+| ExpressRoute | Yes  | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx)  |       | [expressRouteCircuits](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FexpressRouteCircuits%22&type=Code) |
+| Load Balancer | Yes  | [Load Balancer REST](https://msdn.microsoft.com/library/azure/mt163651.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [loadBalancers](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Floadbalancers%22&type=Code) |
+| Traffic Manager | Yes | [Traffic Manager REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) | [2015-11-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-11-01/Microsoft.Network.json)  | [trafficmanagerprofiles](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Ftrafficmanagerprofiles%22&type=Code) |
+| Virtual Networks | Yes| [Virtual Network REST](https://msdn.microsoft.com/en-us/library/azure/mt163650.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [virtualNetworks](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworks%22&type=Code) |
+| VPN Gateway | Yes | [Network Gateway REST](https://msdn.microsoft.com/library/azure/mt163859.aspx) |  | [virtualNetworkGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworkGateways%22&type=Code) <br /> [localNetworkGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FlocalNetworkGateways%22&type=Code) <br />[connections](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Fconnections%22&type=Code) |
 
 
 
-## Armazenamento de dados
+## <a name="data-&-storage"></a>Data & Storage
 
-| O Barramento de | Gerenciador de Recursos habilitado | API REST | Esquema | Modelos de Início Rápido |
+| Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | ------- | ------- | -------- | ------ | ------- | ------ |
-| Banco de Dados de Documentos | Sim | [REST do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781481.aspx) | [2015-04-08](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-08/Microsoft.DocumentDB.json) | [Microsoft.DocumentDB](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DocumentDb%22&type=Code) |
-| Cache Redis | Sim | | [01-04-2016](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-01/Microsoft.Cache.json) | [Microsoft.Cache](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cache%22&type=Code) |
-| Pesquisar | Sim | [REST de pesquisa](https://msdn.microsoft.com/library/azure/dn798935.aspx) | | [Microsoft.Search](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
-| Armazenamento | Sim | [REST de armazenamento](https://msdn.microsoft.com/library/azure/mt163683.aspx) | [Conta de armazenamento](resource-manager-template-storage.md) | [Microsoft.Storage](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Storage%22&type=Code) |
-| Banco de dados SQL | Sim | [REST do Banco de Dados SQL](https://msdn.microsoft.com/library/azure/mt163571.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) | [Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
-| SQL Data Warehouse | Sim | | |
-| StorSimple | Não | - | - | - | - |
+| DocumentDB | Yes  | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) | [2015-04-08](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-08/Microsoft.DocumentDB.json)  | [Microsoft.DocumentDB](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DocumentDb%22&type=Code) |
+| Redis Cache | Yes |   | [2016-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-01/Microsoft.Cache.json) | [Microsoft.Cache](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cache%22&type=Code) |
+| Search | Yes  | [Search REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) |  | [Microsoft.Search](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
+| Storage | Yes  | [Storage REST](https://msdn.microsoft.com/library/azure/mt163683.aspx) | [Storage account](resource-manager-template-storage.md) | [Microsoft.Storage](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Storage%22&type=Code) |
+| SQL Database | Yes | [SQL Database REST](https://msdn.microsoft.com/library/azure/mt163571.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) | [Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
+| SQL Data Warehouse | Yes |   |      |
+| StorSimple | No  | -        | -       | - |
 
-## Web e serviços móveis
+## <a name="web-&-mobile"></a>Web & Mobile
 
-| O Barramento de | Gerenciador de Recursos habilitado | API REST | Esquema | Modelos de Início Rápido |
+| Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | ------- | ------- | -------- | ------ | ------ |
-| Aplicativos de API | Sim | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) | [Aplicativos de API](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22kind%22%3A+%22apiApp%22&type=Code) |
-| Gerenciamento da API | Sim | [REST de gerenciamento de API](https://msdn.microsoft.com/library/azure/dn776326.aspx) | | [Microsoft.ApiManagement](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ApiManagement%22&type=Code) | 
-| Aplicativos Lógicos | Sim | [API REST do Serviço de Fluxo de Trabalho](https://msdn.microsoft.com/library/azure/mt643787.aspx) | [2015-02-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-02-01-preview/Microsoft.Logic.json) | [Microsoft.Logic](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Logic%22&type=Code) |
-| Aplicativos Móveis | Sim | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) | [mobileApp](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22mobileApp%22&type=Code) |
-| Compromisso de mobilidade | Sim | | | [Microsoft.MobileEngagements](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.MobileEngagement%22&type=Code) |
-| Aplicativos Web | Sim | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) | [Microsoft.Web](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Web%22&type=Code) |
+| API Apps | Yes |   | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) | [API Apps](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22kind%22%3A+%22apiApp%22&type=Code) |
+| API Management | Yes  | [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) |        | [Microsoft.ApiManagement](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ApiManagement%22&type=Code) | 
+| Logic Apps | Yes   | [Workflow Service REST API](https://msdn.microsoft.com/library/azure/mt643787.aspx) | [2015-02-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-02-01-preview/Microsoft.Logic.json) | [Microsoft.Logic](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Logic%22&type=Code) |
+| Mobile Apps | Yes |  | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json)  | [mobileApp](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22mobileApp%22&type=Code)   |
+| Mobile Engagements | Yes  |          |        | [Microsoft.MobileEngagements](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.MobileEngagement%22&type=Code) |
+| Web Apps | Yes |          | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) | [Microsoft.Web](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Web%22&type=Code) |
 
-## Análise
+## <a name="analytics"></a>Analytics
 
-| O Barramento de | Gerenciador de Recursos habilitado | API REST | Esquema | Modelos de Início Rápido |
+| Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | ------- | -------  | -------- | ------ | ------ |
-| Catálogo de Dados | Sim | [REST do Catálogo de Dados](https://msdn.microsoft.com/library/azure/mt267595.aspx) | [30-03-2016](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.DataCatalog.json) | |
-| Data Factory | Sim | [REST do Data Factory](https://msdn.microsoft.com/library/azure/dn906738.aspx) | | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| Análises Data Lake | Sim | | [2015-10-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) | [Microsoft.DataLakeAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeAnalytics%22&type=Code) |
-| Repositório Data Lake | Sim | [REST do Data Lake Store](https://msdn.microsoft.com/library/azure/mt693424.aspx) | [2015-10-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) | [Microsoft.DataLakeStore](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeStore%22&type=Code) |
-| HDInsights | Sim | [REST do HDInsights](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
-| Aprendizado de Máquina | Sim | [REST do Aprendizado de Máquina](https://msdn.microsoft.com/library/azure/mt767538.aspx) | [2016-05-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-05-01-preview/Microsoft.MachineLearning.json) |
-| Análise de fluxo | Sim | [Análise de fluxo REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | |
-| Power BI | Sim | [REST do Power BI Embedded](https://msdn.microsoft.com/library/azure/mt712303.aspx) | [29-01-2016](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-01-29/Microsoft.PowerBI.json) | |
+| Data Catalog | Yes  | [Data Catalog REST](https://msdn.microsoft.com/library/azure/mt267595.aspx)  | [2016-03-30](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.DataCatalog.json) |  |
+| Data Factory | Yes | [Data Factory REST](https://msdn.microsoft.com/library/azure/dn906738.aspx) |    | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
+| Data Lake Analytics | Yes |   |   [2015-10-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) | [Microsoft.DataLakeAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeAnalytics%22&type=Code) |
+| Data Lake Store | Yes  | [Data Lake Store REST](https://msdn.microsoft.com/library/azure/mt693424.aspx) | [2015-10-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) | [Microsoft.DataLakeStore](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeStore%22&type=Code) |
+| HDInsights | Yes | [HDInsights REST](https://msdn.microsoft.com/library/azure/mt622197.aspx) |        | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
+| Machine Learning | Yes | [Machine Learning REST](https://msdn.microsoft.com/library/azure/mt767538.aspx)        | [2016-05-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-05-01-preview/Microsoft.MachineLearning.json) |
+| Stream Analytics | Yes  | [Steam Analytics REST](https://msdn.microsoft.com/library/azure/dn835031.aspx)   |        |  |
+| Power BI | Yes | [Power BI Embedded REST](https://msdn.microsoft.com/library/azure/mt712303.aspx) | [2016-01-29](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-01-29/Microsoft.PowerBI.json) |  |
 
-## Inteligência
+## <a name="intelligence"></a>Intelligence
 
-| O Barramento de | Gerenciador de Recursos habilitado | API REST | Esquema | Modelos de Início Rápido |
+| Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | ------- | ------- | -------- | ------ | ------ |
-| Serviços Cognitivos | Sim | | [2016-02-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-02-01-preview/Microsoft.CognitiveServices.json) | |
+| Cognitive Services | Yes |  | [2016-02-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-02-01-preview/Microsoft.CognitiveServices.json) |   |
 
-## Internet das coisas
+## <a name="internet-of-things"></a>Internet of Things
 
-| O Barramento de | Gerenciador de Recursos habilitado | API REST | Esquema | Modelos de Início Rápido |
+| Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | ------- | ------- | -------- | ------ | ------ |
-| Hub de evento | Sim | [REST do Hub de Eventos](https://msdn.microsoft.com/library/azure/dn790674.aspx) | | |
-| IoTHubs | Sim | [REST do Hub IoT](https://msdn.microsoft.com/library/azure/mt589014.aspx) | [03-02-2016](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-02-03/Microsoft.Devices.json) | [Microsoft.Devices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Devices%22&type=Code) |
-| Hubs de Notificação | Sim | [REST do Hub de notificação](https://msdn.microsoft.com/library/azure/dn495827.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) | [Microsoft.NotificationHubs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.NotificationHubs%22&type=Code) |
+| Event Hub | Yes  | [Event Hub REST](https://msdn.microsoft.com/library/azure/dn790674.aspx) |        |  |
+| IoTHubs | Yes | [IoT Hub REST](https://msdn.microsoft.com/library/azure/mt589014.aspx) | [2016-02-03](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-02-03/Microsoft.Devices.json) | [Microsoft.Devices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Devices%22&type=Code) |
+| Notification Hubs | Yes | [Notification Hub REST](https://msdn.microsoft.com/library/azure/dn495827.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) | [Microsoft.NotificationHubs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.NotificationHubs%22&type=Code) |
 
-## Mídia e CDN
+## <a name="media-&-cdn"></a>Media & CDN
 
-| O Barramento de | Gerenciador de Recursos habilitado | API REST | Esquema | Modelos de Início Rápido |
+| Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | ------- | ------- | -------- | ------ | ------ |
-| CDN | Sim | [REST CDN](https://msdn.microsoft.com/library/azure/mt634456.aspx) | [02-04-2016](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-02/Microsoft.Cdn.json) | [Microsoft.Cdn](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cdn%22&type=Code) |
-| Serviço de mídia | Sim | [REST dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/hh973617.aspx) | [01-10-2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01/Microsoft.Media.json) |
+| CDN | Yes | [CDN REST](https://msdn.microsoft.com/library/azure/mt634456.aspx)  | [2016-04-02](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-02/Microsoft.Cdn.json) | [Microsoft.Cdn](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cdn%22&type=Code) |
+| Media Service | Yes | [Media Services REST](https://msdn.microsoft.com/library/azure/hh973617.aspx)  | [2015-10-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01/Microsoft.Media.json) |
 
 
-## Integração híbrida
+## <a name="hybrid-integration"></a>Hybrid Integration
 
-| O Barramento de | Gerenciador de Recursos habilitado | API REST | Esquema | Modelos de Início Rápido |
+| Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | ------- | ------- | -------- | ------ | ------ |
-| Serviços do BizTalk | Sim | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | |
-| Serviço de Recuperação | Sim | [REST de Recuperação de Site](https://msdn.microsoft.com/library/azure/mt750497.aspx) | [01-06-2016](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-06-01/Microsoft.RecoveryServices.json) | [Microsoft.RecoveryServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.RecoveryServices%22&type=Code) |
-| Barramento de Serviço | Sim | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
+| BizTalk Services | Yes |          | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |  |
+| Recovery Service | Yes | [Site Recovery REST](https://msdn.microsoft.com/library/azure/mt750497.aspx) | [2016-06-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-06-01/Microsoft.RecoveryServices.json) | [Microsoft.RecoveryServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.RecoveryServices%22&type=Code) |
+| Service Bus | Yes |  |        | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
 
-## Gerenciamento de acesso e identidade 
+## <a name="identity-&-access-management"></a>Identity & Access Management 
 
-O Active Directory do Azure funciona com o Gerenciador de Recursos para habilitar o controle de acesso baseado em função para sua assinatura. Para saber mais sobre como usar o controle de acesso baseado em funções e o Active Directory, consulte [Controle de Acesso Baseado em Funções do Azure](./active-directory/role-based-access-control-configure.md).
+Azure Active Directory works with Resource Manager to enable role-based access control for your subscription. To learn about using role-based access control and Active Directory, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
 
-## Serviços para Desenvolvedores 
+## <a name="developer-services"></a>Developer Services 
 
-| O Barramento de | Gerenciador de Recursos habilitado | API REST | Esquema | Modelos de Início Rápido |
+| Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | ------- | ------- | -------- | ------ | ------ |
-| Application Insights | Sim | [REST do Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx) | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) | [Microsoft.insights](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.insights%22&type=Code) |
-| Bing Mapas | Sim | | | |
-| Laboratórios de Desenvolvimento/Teste | Sim | | [15-05-2016](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-05-15/Microsoft.DevTestLab.json) | [Microsoft.DevTestLab](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DevTestLab%22&type=Code) |
-| Conta do Visual Studio | Sim | | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) | |
+| Application Insights | Yes  | [Insights REST](https://msdn.microsoft.com/library/azure/dn931943.aspx)  | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) | [Microsoft.insights](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.insights%22&type=Code) |
+| Bing Maps | Yes  |          |        |  |
+| DevTest Labs | Yes |   | [2016-05-15](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-05-15/Microsoft.DevTestLab.json) | [Microsoft.DevTestLab](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DevTestLab%22&type=Code)  |
+| Visual Studio account | Yes   |          | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |  |
 
-## Gerenciamento e segurança
+## <a name="management-and-security"></a>Management and Security
 
-| O Barramento de | Gerenciador de Recursos habilitado | API REST | Esquema | Modelos de Início Rápido |
+| Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | ------- | ------- | -------- | ------ | ------ |
-| Automação | Sim | [Automação REST](https://msdn.microsoft.com/library/azure/mt662285.aspx) | [31-10-2015](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-31/Microsoft.Automation.json) | [Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
-| Cofre da Chave | Sim | [REST do Cofre da Chave](https://msdn.microsoft.com/library/azure/dn903609.aspx) | [Cofre da chave](resource-manager-template-keyvault.md)<br />[Segredo do cofre da chave](resource-manager-template-keyvault-secret.md) | [Microsoft.KeyVault](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.KeyVault%22&type=Code) |
-| Insights Operacionais | Sim | | | |
-| Agendador | Sim | [REST do Agendador](https://msdn.microsoft.com/library/azure/mt629143.aspx) | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) | [Microsoft.Scheduler](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Scheduler%22&type=Code) |
-| Segurança (visualização) | Sim | [REST de Segurança](https://msdn.microsoft.com/library/azure/mt704034.aspx) | | [Microsoft.Security](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Security%22&type=Code) |
+| Automation | Yes | [Automation REST](https://msdn.microsoft.com/library/azure/mt662285.aspx) | [2015-10-31](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-31/Microsoft.Automation.json)       | [Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
+| Key Vault | Yes | [Key Vault REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) | [Key vault](resource-manager-template-keyvault.md)<br />[Key vault secret](resource-manager-template-keyvault-secret.md)   | [Microsoft.KeyVault](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.KeyVault%22&type=Code) |
+| Operational Insights | Yes |          |        |  |
+| Scheduler | Yes  | [Scheduler REST](https://msdn.microsoft.com/library/azure/mt629143.aspx)     | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) | [Microsoft.Scheduler](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Scheduler%22&type=Code) |
+| Security (preview) | Yes | [Security REST](https://msdn.microsoft.com/library/azure/mt704034.aspx)  |  | [Microsoft.Security](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Security%22&type=Code)  |
 
-## Gerenciador de Recursos
+## <a name="resource-manager"></a>Resource Manager
 
-| Recurso | Gerenciador de Recursos habilitado | API REST | Esquema | Modelos de Início Rápido |
+| Feature | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | ------- | ------- | -------------- | -------- | ------ | ------ |
-| Autorização | Sim | [Gerenciamento de bloqueios](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[Controle de acesso baseado em função](https://msdn.microsoft.com/library/azure/dn906885.aspx) | [Bloqueio de recurso](resource-manager-template-lock.md)<br />[Atribuições de função](resource-manager-template-role.md) | [Microsoft.Authorization](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Authorization%22&type=Code) |
-| Recursos | Sim | [Recursos vinculados](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [Link de recursos](resource-manager-template-links.md) | [Microsoft.Resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Resources%22&type=Code) |
+| Authorization | Yes | [Management locks](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[Role-based access control](https://msdn.microsoft.com/library/azure/dn906885.aspx)  | [Resource lock](resource-manager-template-lock.md)<br />[Role assignments](resource-manager-template-role.md)  | [Microsoft.Authorization](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Authorization%22&type=Code) |
+| Resources | Yes | [Linked resources](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [Resource links](resource-manager-template-links.md) | [Microsoft.Resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Resources%22&type=Code) |
 
 
-## Provedores e tipos de recursos
+## <a name="resource-providers-and-types"></a>Resource providers and types
 
-Ao implantar recursos, com frequência você precisa recuperar informações sobre os provedores e tipos de recursos. Você pode recuperar essas informações por meio da API REST, do Azure PowerShell ou da CLI do Azure.
+When deploying resources, you frequently need to retrieve information about the resource providers and types. You can retrieve this information through REST API, Azure PowerShell, or Azure CLI.
 
-Para trabalhar com um provedor de recursos, o provedor de recursos deve ser registrado com sua conta. Por padrão, vários provedores de recursos são automaticamente registrados; no entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Os exemplos abaixo mostram como obter o status do registro de um provedor de recursos e registrar o provedor de recursos, se necessário.
+To work with a resource provider, that resource provider must be registered with your account. By default, many resource providers are automatically registered; however, you may need to manually register some resource providers. The examples below show how to get the registration status of a resource provider, and register the resource provider, if needed.
 
-### API REST
+### <a name="rest-api"></a>REST API
 
-Para obter todos os provedores de recursos disponíveis, incluindo seus tipos, locais, versões de API e status do registro, use a operação [Listar todos os provedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx). Se você precisar registrar um provedor de recursos, consulte [Registrar uma assinatura em um provedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+To get all of the available resource providers, including their types, locations, API versions, and registration status, use the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. If you need to register a resource provider, see [Register a subscription with a resource provider](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 
-O exemplo a seguir mostra como obter todos os provedores de recursos disponíveis.
+The following example shows how to get all of the available resource providers.
 
     Get-AzureRmResourceProvider -ListAvailable
     
 
-O exemplo a seguir mostra como obter os tipos de recursos para um provedor de recursos específico.
+The next example shows how to get the resource types for a particular resource provider.
 
     (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
     
-A saída será semelhante a:
+The output will be similar to:
 
     ResourceTypeName                Locations                                         
     ----------------                ---------                                         
@@ -186,17 +187,17 @@ A saída será semelhante a:
     sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} .
     ...
     
-Para registrar um provedor de recursos, forneça o namespace:
+To register a resource provider provide the namespace:
 
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
 
-### CLI do Azure
+### <a name="azure-cli"></a>Azure CLI
 
-O exemplo a seguir mostra como obter todos os provedores de recursos disponíveis.
+The following example shows how to get all of the available resource providers.
 
     azure provider list
     
-A saída será semelhante a:
+The output will be similar to:
 
     info:    Executing command provider list
     + Getting ARM registered providers
@@ -207,31 +208,31 @@ A saída será semelhante a:
     data:    Microsoft.Authorization          Registered
     ...
 
-Você pode salvar as informações para um provedor de recursos específico em um arquivo com o comando a seguir.
+You can save the information for a particular resource provider to a file with the following command.
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
 
-Para registrar um provedor de recursos, forneça o namespace:
+To register a resource provider provide the namespace:
 
     azure provider register -n Microsoft.ServiceBus
 
-## Regiões com suporte
+## <a name="supported-regions"></a>Supported regions
 
-Durante a implantação de recursos, você normalmente precisa especificar uma região para os recursos. O Gerenciador de Recursos tem suporte em todas as regiões, mas os recursos que você implanta talvez não tenham suporte em todas as regiões. Além disso, pode haver limitações em sua assinatura que impedem o uso de algumas regiões que oferecem suporte aos recursos. Essas limitações podem estar relacionadas a problemas tributários de seu país de residência ou ao resultado de uma política colocada pelo seu administrador de assinatura para usar somente determinadas regiões.
+When deploying resources, you typically need to specify a region for the resources. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there may be limitations on your subscription which prevent you from using some regions that support the resource. These limitations may be related to tax issues for your home country, or the result of a policy placed by your subscription administrator to use only certain regions. 
 
-Para obter uma lista completa de todas as regiões com suporte para todos os serviços do Azure, veja [Serviços por região](https://azure.microsoft.com/regions/#services); no entanto, essa lista pode incluir regiões que não tem suporte em sua assinatura. É possível determinar as regiões para um determinado tipo de recurso com suporte da sua assinatura executando um dos comandos a seguir.
+For a complete list of all supported regions for all Azure services, see [Services by region](https://azure.microsoft.com/regions/#services); however, this list may include regions that your subscription does not support. You can determine the regions for a particular resource type that your subscription supports by running one of the following commands.
 
-### API REST
+### <a name="rest-api"></a>REST API
 
-Para descobrir quais regiões estão disponíveis para um tipo de recurso específico em sua assinatura, use a operação [Listar todos os fornecedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx).
+To discover which regions are available for a particular resource type in your subscription, use the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. 
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 
-O exemplo a seguir mostra como obter as regiões com suporte para sites da web.
+The following example shows how to get the supported regions for web sites.
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
-A saída será semelhante a:
+The output will be similar to:
 
     Brazil South
     East Asia
@@ -247,17 +248,17 @@ A saída será semelhante a:
     Central US
     East US 2
 
-### CLI do Azure
+### <a name="azure-cli"></a>Azure CLI
 
-O exemplo a seguir retorna todos os locais com suporte para cada tipo de recurso.
+The following example returns all of the supported locations for each resource type.
 
     azure location list
 
-Também é possível filtrar os resultados do local com um utilitário JSON, como o [jq](https://stedolan.github.io/jq/).
+You can also filter the location results with a JSON utility like [jq](https://stedolan.github.io/jq/).
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
-Que retorna:
+Which returns:
 
     {
       "name": "Microsoft.Web/sites",
@@ -265,21 +266,21 @@ Que retorna:
             North Europe,South Central US,West Europe,West US,Southeast Asia,Central US,East US 2"
     }
 
-## Versões de API com suporte
+## <a name="supported-api-versions"></a>Supported API versions
 
-Ao implantar um modelo, você deve especificar uma versão de API a ser usada para criar cada recurso. A versão disponível da API corresponde a uma versão das operações da API REST lançadas pelo provedor de recursos. Como um provedor de recursos habilita novos recursos, ele lançará uma nova versão da API REST. Portanto, a versão da API especificada em seu modelo afetará quais propriedades estarão disponíveis para você durante a criação do modelo. Em geral, você deve selecionar a versão mais recente da API ao criar novos modelos. Para os modelos existentes, você pode decidir se deseja continuar usando uma versão de API anterior ou atualizar o modelo para a versão mais recente para aproveitar os novos recursos.
+When you deploy a template, you must specify an API version to use for creating each resource. The API version corresponds to a version of REST API operations that are released by the resource provider. As a resource provider enables new features, it will release a new version of the REST API. Therefore, the version of the API you specify in your template affects which properties you can specify in the template. In general, you will want to select the most recent API version when creating new templates. For existing templates, you can decide whether you want to continue using an earlier API version, or update your template for the latest version to take advantage of new features.
 
-### API REST
+### <a name="rest-api"></a>REST API
 
-Para descobrir quais versões de API está disponíveis para os tipos de recurso, use a operação [Listar todos os provedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx).
+To discover which API versions are available for resource types, use the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. 
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 
-O exemplo a seguir mostra como obter as versões de API disponíveis para um tipo de recurso determinado.
+The following example shows how to get the available API versions for a paticular resource type.
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
     
-A saída será semelhante a:
+The output will be similar to:
     
     2015-08-01
     2015-07-01
@@ -292,17 +293,21 @@ A saída será semelhante a:
     2014-04-01-preview
     2014-04-01
 
-### CLI do Azure
+### <a name="azure-cli"></a>Azure CLI
 
-Você pode salvar as informações (incluindo as versões disponíveis de API) para um provedor de recursos em um arquivo com o comando a seguir.
+You can save the information (including the available API versions) for a resource provider to a file with the following command.
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
 
-Você pode abrir o arquivo e localizar o elemento **apiVersions**
+You can open the file and find the **apiVersions** element
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
-- Para saber mais sobre como implantar recursos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
+- To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+- To learn about deploying resources, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 
-<!----HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

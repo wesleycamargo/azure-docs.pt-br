@@ -1,66 +1,71 @@
 <properties
-	pageTitle="Políticas e restrições de senha do Active Directory do Azure | Microsoft Azure"
-	description="Descreve as políticas que se aplicam a senhas no Active Directory do Azure, incluindo caracteres permitidos, comprimento e expiração"
+    pageTitle="Password policies and restrictions in Azure Active Directory | Microsoft Azure"
+    description="Describes the policies that apply to passwords in Azure Active Directory, including allowed characters, length, and expiration"
   services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="curtand"/>
 
 
-# Políticas e restrições de senha do Active Directory do Azure
 
-Este artigo descreve as políticas de senha e requisitos de complexidade associados a contas de usuário armazenadas no diretório do AD do Azure.
+# <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Password policies and restrictions in Azure Active Directory
 
-> [AZURE.IMPORTANT] **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+This article describes the password policies and complexity requirements associated with user accounts stored in your Azure AD directory.
 
-## Políticas UserPrincipalName que se aplicam a todas as contas de usuário
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 
-Cada conta de usuário que precisa entrar no sistema de autenticação do AD do Azure deve ter um valor de atributo UPN (nome principal do usuário) exclusivo associado a essa conta. A tabela a seguir descreve as políticas que se aplicam a contas de usuário de origem do Active Directory no local (sincronizadas na nuvem) e a contas de usuário somente em nuvem.
+## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>UserPrincipalName policies that apply to all user accounts
 
-| Propriedade | Requisitos de UserPrincipalName |
+Every user account that needs to sign in to the Azure AD authentication system must have a unique user principal name (UPN) attribute value associated with that account. The following table outlines the polices  that apply to both on-premises Active Directory-sourced user accounts   (synced to the cloud) and to cloud-only user accounts.
+
+|   Property           |     UserPrincipalName requirements  |
 |   ----------------------- |   ----------------------- |
-| Caracteres permitidos | <ul> <li>A – Z</li> <li>a -z </li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
-| Caracteres não permitidos | <ul> <li>Qualquer caractere '@' que não esteja separando o nome de usuário do domínio.</li> <li>Não pode conter um caractere de ponto '.' imediatamente antes do símbolo '@'</li></ul> |
-| Restrições de comprimento | <ul> <li>O comprimento total não deve exceder 113 caracteres</li><li>64 caracteres antes do símbolo ' @'</li><li>48 caracteres depois do símbolo '@'</li></ul>
+|  Characters allowed    |  <ul> <li>A – Z</li> <li>a -z </li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
+|  Characters not allowed  | <ul> <li>Any '@' character that is not separating the user name from the domain.</li> <li>Cannot contain a period character '.' immediately preceding the '@' symbol</li></ul> |
+| Length constraints  |       <ul> <li>Total length must not exceed 113 characters</li><li>64 characters before the ‘@’ symbol</li><li>48 characters after the ‘@’ symbol</li></ul>
 
-## Políticas de senha que se aplicam somente a contas de usuário na nuvem
+## <a name="password-policies-that-apply-only-to-cloud-user-accounts"></a>Password policies that apply only to cloud user accounts
 
-A tabela a seguir descreve as configurações de política de senha disponíveis que podem ser aplicadas a contas de usuário que são criadas e gerenciadas no AD do Azure.
+The following table describes the available password policy settings that can be applied to user accounts that are created and managed in   Azure AD.
 
-| Propriedade | Requisitos |
+|  Property       |    Requirements          |
 |   ----------------------- |   ----------------------- |
-| Caracteres permitidos | <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| Caracteres não permitidos | <ul><li>Caracteres Unicode</li><li>Espaços</li><li> **Somente senhas fortes**: não pode conter um caractere ponto '.' imediatamente antes do símbolo '@'</li></ul> |
-| Restrições de senha | <ul><li>Mínimo de 8 caracteres e máximo de 16 caracteres</li><li>**Somente senhas fortes**: exige 3 dos 4 requisitos a seguir:<ul><li>Caracteres minúsculos</li><li>Caracteres maiúsculos</li><li>Números (0-9)</li><li>Símbolos (consulte as restrições de senha acima)</li></ul></li></ul> |
-| Tempo de expiração da senha | <ul><li>Valor padrão: **90** dias </li><li>O valor é configurável usando o cmdlet Set-MsolPasswordPolicy do Módulo do Active Directory do Azure para Windows PowerShell.</li></ul> |
-| Notificação de expiração de senha | <ul><li>Valor padrão: **14** dias (antes da expiração da senha)</li><li>O valor é configurável usando o cmdlet Set-MsolPasswordPolicy.</li></ul> |
-| Expiração de senha | <ul><li>Valor padrão: **falso** dias (indica que a expiração da senha está habilitada) </li><li>O valor pode ser configurado para contas de usuário individuais usando o cmdlet Set-MsolUser. </li></ul> |
-| Histórico de senha | A última senha não pode ser usada novamente. |
-| Duração do histórico de senha | Para sempre |
-| Bloqueio de conta | Após 10 tentativas malsucedidas de entrar (senha incorreta), o usuário será bloqueado por um minuto. Mais tentativas de entrar incorretas farão com que o usuário seja bloqueado por durações cada vez maiores. |
+|  Characters allowed   |   <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+|  Characters not allowed   |       <ul><li>Unicode characters</li><li>Spaces</li><li> **Strong passwords only**: Cannot contain a dot character '.' immediately preceding the '@' symbol</li></ul> |
+|   Password restrictions | <ul><li>8 characters minimum and 16 characters maximum</li><li>**Strong passwords only**: Requires 3 out of 4 of the following:<ul><li>Lowercase characters</li><li>Uppercase characters</li><li>Numbers (0-9)</li><li>Symbols (see password restrictions above)</li></ul></li></ul> |
+| Password expiry duration      | <ul><li>Default value: **90** days </li><li>Value is configurable using the Set-MsolPasswordPolicy cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
+| Password expiry notification |  <ul><li>Default value: **14** days (before password expires)</li><li>Value is configurable using the Set-MsolPasswordPolicy cmdlet.</li></ul> |
+| Password Expiry |  <ul><li>Default value: **false** days (indicates that password expiry is enabled) </li><li>Value can be configured for individual user accounts using the Set-MsolUser cmdlet. </li></ul> |
+|  Password history  | Last password cannot be used again. |
+|  Password history duration | Forever |
+|  Account Lockout | After 10 unsuccessful sign-in attempts (wrong password), the user will be locked out for one minute. Further incorrect sign-in attempts will lock out the user for increasing durations. |
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next Steps
 
-* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
-* [Gerenciar suas senhas de qualquer lugar](active-directory-passwords.md)
-* [Como funciona o gerenciamento de senhas](active-directory-passwords-how-it-works.md)
-* [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md)
-* [Personalizar o gerenciamento de senhas](active-directory-passwords-customize.md)
-* [Práticas recomendadas de gerenciamento de senhas](active-directory-passwords-best-practices.md)
-* [Como obter percepções operacionais com relatórios de gerenciamento de senhas](active-directory-passwords-get-insights.md)
-* [Perguntas frequentes sobre Gerenciamento de Senhas](active-directory-passwords-faq.md)
-* [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
-* [Saiba mais](active-directory-passwords-learn-more.md)
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* [Manage your passwords from anywhere](active-directory-passwords.md)
+* [How Password Management works](active-directory-passwords-how-it-works.md)
+* [Getting started with Password Mangement](active-directory-passwords-getting-started.md)
+* [Customize Password Management](active-directory-passwords-customize.md)
+* [Password Management Best Practices](active-directory-passwords-best-practices.md)
+* [How to get Operational Insights with Password Management Reports](active-directory-passwords-get-insights.md)
+* [Password Management FAQ](active-directory-passwords-faq.md)
+* [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
+* [Learn More](active-directory-passwords-learn-more.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

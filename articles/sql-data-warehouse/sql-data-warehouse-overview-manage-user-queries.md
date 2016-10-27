@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Monitorar consultas de usuário no SQL Data Warehouse do Azure| Microsoft Azure"
-   description="Visão geral sobre considerações, melhores práticas e tarefas para monitoramento de consultas de usuário no SQL Data Warehouse do Azure"
+   pageTitle="Monitor user queries in Azure SQL Data Warehouse | Microsoft Azure"
+   description="Overview of the considerations, best practices, and tasks for monitoring user queries in Azure SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -16,36 +16,41 @@
    ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Monitorar consultas de usuário no SQL Data Warehouse do Azure
 
-Visão geral sobre considerações, melhores práticas e tarefas para monitoramento de consultas de usuário no SQL Data Warehouse.
+# <a name="monitor-user-queries-in-azure-sql-data-warehouse"></a>Monitor user queries in Azure SQL Data Warehouse
+
+Overview of the considerations, best practices, and tasks for monitoring user queries in SQL Data Warehouse.
 
 
 
-| Categoria | Tarefa ou consideração | Descrição |
+| Category                | Task or consideration                           | Description  |
 | :-----------------------| :---------------------------------------------- | :----------- |
-| Desempenho lento | Localizar uma consulta de usuário com execução longa | [Encontrar consultas com execução longa][] |
-| Simultaneidade | Atribuir recursos simultâneos para consultas de usuário | [Gerenciamento de simultaneidade e carga de trabalho][] |
+| Slow performance        | Find a long-running user query                  | [Find long-running queries][] |
+| Concurrency             | Assign concurrent resources to user queries     | [Concurrency and workload management][] |
 
 
 
 
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Para obter mais dicas de gerenciamento, acesse a [Visão geral de gerenciamento][].
+For more management tips, head over to the [Management overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Encontrar consultas com execução longa]: sql-data-warehouse-manage-monitor.md
-[Gerenciamento de simultaneidade e carga de trabalho]: sql-data-warehouse-develop-concurrency.md
-[Visão geral de gerenciamento]: sql-data-warehouse-overview-manage.md
+[Find long-running queries]: sql-data-warehouse-manage-monitor.md
+[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md
+[Management overview]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

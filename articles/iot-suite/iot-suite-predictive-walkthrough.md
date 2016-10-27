@@ -1,6 +1,6 @@
 <properties
- pageTitle="Passo a passo da manutenção preditiva | Microsoft Azure"
- description="Um passo a passo da solução pré-configurada de manutenção preditiva do Azure IoT."
+ pageTitle="Predictive maintenance walkthrough | Microsoft Azure"
+ description="A walkthrough of the Azure IoT predictive maintenance preconfigured solution."
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,104 +17,105 @@
  ms.date="08/17/2016"
  ms.author="araguila"/>
 
-# Passo a passo da solução pré-configurada de manutenção preditiva
 
-## Introdução
+# <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Predictive maintenance preconfigured solution walkthrough
 
-A solução pré-configurada de manutenção preditiva do IoT Suite é uma solução de ponta a ponta para um cenário comercial e prevê o ponto no qual há a probabilidade de ocorrer uma falha. Você pode usar essa solução pré-configurada de forma pró-ativa para atividades como a manutenção de otimização. A solução combina os principais serviços do Azure IoT Suite, incluindo um espaço de trabalho [Aprendizado de Máquina do Azure][lnk_machine_learning]. Esse espaço de trabalho contém testes, com base em um conjunto de dados de exemplo público, para prever a RUL (Vida Útil Restante) de um motor de aeronave. A solução implementa totalmente o cenário de negócios IoT como um ponto de partida para você planejar e implementar uma solução que atenda aos seus requisitos de negócios específicos.
+## <a name="introduction"></a>Introduction
 
-## Arquitetura lógica
+The IoT Suite predictive maintenance preconfigured solution is an end-to-end solution for a business scenario that predicts the point when failure is likely to occur. You can use this preconfigured solution proactively for activities such as optimizing maintenance. The solution combines key Azure IoT Suite services, including an [Azure Machine Learning][lnk_machine_learning] workspace. This workspace contains experiments, based on a public sample data set, to predict the Remaining Useful Life (RUL) of an aircraft engine. The solution fully implements the IoT business scenario as a starting point for you to plan and implement a solution that meets your own specific business requirements.
 
-O seguinte diagrama descreve os componentes lógicos da solução pré-configurada:
+## <a name="logical-architecture"></a>Logical architecture
+
+The following diagram outlines the logical components of the preconfigured solution:
 
 ![][img-architecture]
 
-Os itens em azul são os serviços do Azure provisionados no local selecionado no provisionamento da solução pré-configurada. Você pode provisionar a solução pré-configurada na região Leste dos EUA, Norte da Europa ou na Ásia Oriental.
+The blue items are Azure services that are provisioned in the location you select when you provision the preconfigured solution. You can provision the preconfigured solution in either the East US, North Europe, or East Asia region.
 
-Alguns recursos não estão disponíveis em regiões nas quais você provisiona a solução pré-configurada. Os itens em laranja no diagrama representam os serviços do Azure provisionados na região mais próxima disponível (Centro-Sul dos EUA, Europa Ocidental e Sudeste Asiático) com base na região selecionada.
+Some resources are not available in the regions where you provision the preconfigured solution. The orange items in the diagram represent the Azure services provisioned in the closest available region (South Central US, Europe West, or SouthEast Asia) given the selected region.
 
-O item em verde é um dispositivo simulado que representa um motor de aeronave. Você pode aprender mais sobre esses dispositivos simulados na seção a seguir.
+The green item is a simulated device that represents an aircraft engine. You can learn more about these simulated devices in the following section.
 
-Os itens em cinza representam os componentes que implementam os recursos de *administração do dispositivo*. A versão atual da solução pré-configurada de manutenção preditiva não provisiona esses recursos. Para saber mais sobre administração do dispositivo, consulte a [solução pré-configurada de monitoramento remoto][lnk-remote-monitoring].
+The gray items represent components that implement *device administration* capabilities. The current release of the predictive maintenance preconfigured solution does not provision these resources. To learn more about device administration, refer to the [remote monitoring pre-configured solution][lnk-remote-monitoring].
 
-## Dispositivos simulados
+## <a name="simulated-devices"></a>Simulated devices
 
-Na solução pré-configurada, um dispositivo simulado representa um motor de aeronave. A solução é provisionada com dois motores que mapeiam uma única aeronave. Cada motor emite quatro tipos de telemetria: o Sensor 9, Sensor 11, Sensor 14 e Sensor 15 fornecem os dados necessários para o modelo de Aprendizado de Máquina calcular a RUL (Vida Útil Restante) do motor. Cada dispositivo simulado envia as seguintes mensagens de telemetria ao Hub IoT:
+In the preconfigured solution, a simulated device represents an aircraft engine. The solution is provisioned with two engines that map to a single aircraft. Each engine emits four types of telemetry: Sensor 9, Sensor 11, Sensor 14, and Sensor 15 provide the data necessary for the Machine Learning model to calculate the Remaining Useful Life (RUL) for the engine. Each simulated device sends the following telemetry messages to IoT Hub:
 
-*Contagem de ciclos*. Um ciclo representa um voo completo com duração variada de 2 a 10 horas, nas quais os dados de telemetria são capturados a cada meia hora.
+*Cycle count*. A cycle represents a completed flight of variable length between 2-10 hours in which telemetry data is captured every half hour during the flight.
 
-*Telemetria* Há quatro sensores que representam os atributos do motor. Os sensores são rotulados genericamente de Sensor 9, Sensor 11, Sensor 14 e Sensor 15. Esses quatro sensores representam telemetria suficiente para obter resultados úteis do modelo de Aprendizado de Máquina para o RUL. Esse modelo é criado de um conjunto de dados públicos que inclui dados de sensores de um motor real. Para saber mais sobre como o modelo foi criado no conjunto de dados original, confira o [Modelo de manutenção preditiva da galeria do Cortana Intelligence][lnk-cortana-analytics].
+*Telemetry*. There are four sensors that represent engine attributes. The sensors are generically labeled Sensor 9, Sensor 11, Sensor 14, and Sensor 15. These 4 sensors represent telemetry sufficient to get useful results from the Machine Learning model for RUL. This model is created from a public data set that includes real engine sensor data. For more information on how the model was created from the original data set, see the [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics].
 
-Os dispositivos simulados podem lidar com os seguintes comandos enviados de um hub IoT:
+The simulated devices can handle the following commands sent from an IoT hub:
 
-| Command | Descrição |
+| Command | Description |
 |---------|-------------|
-| StartTelemetry | Controla o estado da simulação.<br/>Inicia o dispositivo que envia a telemetria |
-| StopTelemetry | Controla o estado da simulação.<br/>Para o dispositivo que envia a telemetria |
+| StartTelemetry | Controls the state of the simulation.<br/>Starts the device sending telemetry     |
+| StopTelemetry  | Controls the state of the simulation.<br/>Stops the device sending telemetry |
 
-O Hub IoT fornece reconhecimento de comando do dispositivo.
+IoT Hub provides device command acknowledgment.
 
-## Trabalho do Stream Analytics do Azure
+## <a name="azure-stream-analytics-job"></a>Azure Stream Analytics job
 
-**Trabalho: Telemetria** funciona no fluxo de entrada da telemetria do dispositivo usando duas instruções. A primeira seleciona toda a telemetria dos dispositivos e envia esses dados ao armazenamento de blobs de onde são visualizados no aplicativo Web. A segunda instrução calcula os valores médios do sensor em uma janela deslizante de dois minutos e envia esses dados por meio do Hub de Eventos para um **processador de eventos**.
+**Job: Telemetry** operates on the incoming device telemetry stream using two statements. The first selects all telemetry from the devices and sends this data to blob storage from where it is visualized in the web app. The second statement computes average sensor values over a two-minute sliding window and sends this data through the Event hub to an **event processor**.
 
-## Processador de eventos
+## <a name="event-processor"></a>Event processor
 
-O **processador de eventos** obtém os valores do sensor médios para um ciclo completo. Ele passa esses valores para uma API que expõe o modelo treinado do Aprendizado de Máquina para calcular a RUL para um motor.
+The **event processor** takes the average sensor values for a completed cycle. It the passes those values to an API that exposes the Machine Learning trained model to calculate the RUL for an engine.
 
-## Aprendizado de Máquina do Azure
+## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Para saber mais sobre como o modelo foi criado no conjunto de dados original, confira o [Modelo de manutenção preditiva da Galeria do Cortana Intelligence][lnk-cortana-analytics].
+For more information on how the model was created from the original data set, see the [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics].
 
-## Vamos começar a praticar
+## <a name="let's-start-walking"></a>Let's start walking
 
-Esta seção apresenta os componentes da solução, descreve o caso de uso pretendido e fornece exemplos.
+This section walks you through the components of the solution, describes the intended use case, and provides examples.
 
-### Painel Manutenção Preditiva
+### <a name="predictive-maintenance-dashboard"></a>Predictive Maintenance Dashboard
 
-Esta página no aplicativo Web usa controles JavaScript do PowerBI (confira o [repositório de elementos visuais do PowerBI][lnk-powerbi]) para visualizar:
+This page in the web application uses PowerBI JavaScript controls (see the [PowerBI-visuals repository][lnk-powerbi]) to visualize:
 
-- Os dados de saída de trabalhos do Stream Analytics no armazenamento de blobs.
-- O RUL e a contagem de ciclo por motor da aeronave.
+- The output data from the Stream Analytics jobs in blob storage.
+- The RUL and cycle count per aircraft engine.
 
-### Observando o comportamento da solução de nuvem
+### <a name="observing-the-behavior-of-the-cloud-solution"></a>Observing the behavior of the cloud solution
 
-No portal do Azure, navegue até o grupo de recursos com o nome da solução escolhido para exibir os recursos provisionados.
+In the Azure portal, navigate to the resource group with the solution name you chose to view your provisioned resources.
 
 ![][img-resource-group]
 
-Quando você provisiona a solução pré-configurada, recebe um email com um link para o espaço de trabalho de Aprendizado de Máquina. Você também pode navegar até o Espaço de Trabalho do Machine Learning na página [azureiotsuite.com][lnk-azureiotsuite] para sua solução provisionada quando ela está no estado **Pronto**.
+When you provision the preconfigured solution, you receive an email with a link to the Machine Learning workspace. You can also navigate to the Machine Learning workspace from the [azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution when it’s in the **Ready** state.
 
 ![][img-machine-learning]
 
-No portal da solução, você pode ver que o exemplo é provisionado com quatro dispositivos simulados para representar duas aeronaves com dois motores por aeronave, cada um com quatro sensores. Quando você navega pela primeira vez até o portal de solução, a simulação é interrompida.
+In the solution portal, you can see that the sample is provisioned with four simulated devices to represent two aircraft with two engines per aircraft, each with four sensors. When you first navigate to the solution portal, the simulation is stopped.
 
 ![][img-simulation-stopped]
 
-Clique em **Iniciar simulação** para começar a simulação e ver o histórico de sensores, RUL, Ciclos e histórico de RULs preenchidos no painel.
+Click **Start simulation** to begin the simulation in which you see the sensor history, RUL, Cycles, and RUL history populate the dashboard.
 
 ![][img-simulation-running]
 
-Quando a RUL for menor que 160 (um limite aleatório escolhido para fins de demonstração), o portal da solução exibirá um símbolo de aviso ao lado da exibição da RUL e destacará em amarelo o motor da aeronave. Observe que os valores da RUL têm uma tendência descendente geral, mas tendem a subir e a descer. Este comportamento é resultado de durações variáveis do ciclo e da precisão do modelo.
+When RUL is less than 160 (an arbitrary threshold chosen for demonstration purposes), the solution portal displays a warning symbol next to the RUL display and highlights the aircraft engine in yellow. Notice how the RUL values have a general downward trend overall, but tend to bounce up and down. This behavior results from the varying cycle lengths and the model accuracy.
 
 ![][img-simulation-warning]
 
-A simulação completa leva cerca de 35 minutos para concluir 148 ciclos. O limite de 160 do RUL é atingido pela primeira vez aproximadamente aos cinco minutos, e os dois motores atingem o limite aproximadamente aos oito minutos.
+The full simulation takes around 35 minutes to complete 148 cycles. The 160 RUL threshold is met for the first time at around 5 minutes and both engines hit the threshold at around 8 minutes.
 
-A simulação percorre todo o conjunto de dados dos 148 ciclos e estabelece nos valores finais de RUL e de ciclo.
+The simulation runs through the complete dataset for 148 cycles and settles on final RUL and cycle values.
 
-Você pode parar a simulação a qualquer momento, mas clicar em **Iniciar Simulação** repetirá a simulação desde o início do conjunto de dados.
+You can stop the simulation at any point, but clicking **Start Simulation** replays the simulation from the start of the dataset.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Agora que você executou a solução pré-configurada de manutenção preditiva, convém modificá-la. Confira a [Orientação sobre como personalizar soluções pré-configuradas][lnk-customize].
+Now you've run the predictive maintenance preconfigured solution you may want to modify it, see [Guidance on customizing preconfigured solutions][lnk-customize].
 
-A postagem de blog [IoT Suite - Under the Hood - Predictive Maintenance (Manutenção preditiva)](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) do TechNet fornece detalhes adicionais sobre a solução pré-configurada de manutenção preditiva.
+The [IoT Suite - Under The Hood - Predictive Maintenance](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) TechNet blog post provides additional detail about the predictive maintenance preconfigured solution.
 
-Você também pode explorar alguns dos outros recursos das soluções pré-configuradas do IoT Suite:
+You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
 
-- [Perguntas frequentes sobre o IoT Suite][lnk-faq]
-- [Segurança IoT desde o início][lnk-security-groundup]
+- [Frequently asked questions for IoT Suite][lnk-faq]
+- [IoT security from the ground up][lnk-security-groundup]
 
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
@@ -133,4 +134,8 @@ Você também pode explorar alguns dos outros recursos das soluções pré-confi
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

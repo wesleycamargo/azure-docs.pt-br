@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Solucionar problemas de um dispositivo StorSimple implantado | Microsoft Azure"
-   description="Descreve como diagnosticar e corrigir os erros que ocorrem em um dispositivo StorSimple que esteja implantado e operacional."
+   pageTitle="Troubleshoot a deployed StorSimple device | Microsoft Azure"
+   description="Describes how to diagnose and fix errors that occur on a StorSimple device that is currently deployed and operational."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,56 +15,61 @@
    ms.date="05/16/2016"
    ms.author="v-sharos" />
 
-# Solucionar problemas de um dispositivo operacional do StorSimple
 
-## Visão geral
+# <a name="troubleshoot-an-operational-storsimple-device"></a>Troubleshoot an operational StorSimple device
 
-Este artigo oferece orientações úteis de solução de problemas para resolver problemas de configuração que você poderá encontrar depois que seu dispositivo StorSimple estiver implantado e operacional. Descreve problemas comuns, possíveis causas e etapas recomendadas para ajudá-lo a resolver problemas que podem ocorrer durante a execução do Microsoft Azure StorSimple. Essas informações se aplicam ao dispositivo físico local StorSimple e ao dispositivo virtual StorSimple.
+## <a name="overview"></a>Overview
 
-No final deste artigo, há uma lista de códigos de erro que você pode encontrar durante a operação do Microsoft Azure StorSimple, bem como procedimentos que você pode seguir para resolver os erros.
+This article provides helpful troubleshooting guidance for resolving configuration issues that you might encounter after your StorSimple device is deployed and operational. It describes common issues, possible causes, and recommended steps to help you resolve problems that you might experience when you run Microsoft Azure StorSimple. This information applies to both the StorSimple on-premises physical device and the StorSimple virtual device.
 
-## Processo do assistente de instalação de dispositivos operacionais
+At the end of this article you can find a list of error codes that you might encounter during Microsoft Azure StorSimple operation, as well as steps you can take to resolve the errors. 
 
-Você pode usar o assistente de instalação ([Invoke-HcsSetupWizard][1]) para verificar a configuração do dispositivo e tomar uma ação corretiva, se necessário.
+## <a name="setup-wizard-process-for-operational-devices"></a>Setup wizard process for operational devices
 
-Quando você executa o assistente de instalação em um dispositivo previamente configurado e operacional, o fluxo do processo é diferente. Você pode alterar apenas as seguintes entradas:
+You use the setup wizard ([Invoke-HcsSetupWizard][1]) to check the device configuration and take corrective action if necessary.
 
-- Endereço IP, máscara de sub-rede e gateway
-- Servidor DNS primário
-- Servidor NTP primário
-- Configuração do proxy da Web opcional
+When you run the setup wizard on a previously configured and operational device, the process flow is different. You can change only the following entries:
 
-O assistente de instalação não executa as operações relacionadas à coleta de senha e ao registro do dispositivo.
+- IP address, subnet mask, and gateway
+- Primary DNS server
+- Primary NTP server
+- Optional web proxy configuration
 
-## Erros que ocorrem durante as execuções subsequentes do assistente de instalação
+The setup wizard does not perform the operations related to password collection and device registration.
 
-A tabela a seguir descreve os erros que você poderá encontrar ao executar o assistente de instalação em um dispositivo operacional, as possíveis causas dos erros e as ações recomendadas para resolvê-los.
+## <a name="errors-that-occur-during-subsequent-runs-of-the-setup-wizard"></a>Errors that occur during subsequent runs of the setup wizard
 
-| Nº | Mensagem ou condição de erro | Possíveis causas | Ação recomendada |
+The following table describes the errors that you might encounter when you run the setup wizard on an operational device, possible causes for the errors, and recommended actions to resolve them. 
+
+| No. | Error message or condition | Possible causes | Recommended action |
 |:--- |:-------------------------- |:--------------- |:------------------ |
-| 1 | Erro 350032: este dispositivo já foi desativado. | Você verá esse erro se executar o assistente de instalação em um dispositivo que esteja desativado. | [Contate o Suporte da Microsoft Support](storsimple-contact-microsoft-support.md) para as próximas etapas. Um dispositivo desativado não pode ser colocado em serviço. Uma redefinição de fábrica pode ser necessária antes que seja possível ativar o dispositivo novamente. |
-| 2 | Invoke-HcsSetupWizard : ERROR\_INVALID\_FUNCTION(Exception from HRESULT: 0x80070001) | A atualização do servidor DNS está falhando. As configurações de DNS são configurações globais e são aplicadas a todas as interfaces de rede habilitadas. | Habilite a interface e aplique as configurações de DNS novamente. Isso poderá afetar a rede para outras interfaces habilitadas, já que essas configurações são globais. |
-| 3 | O dispositivo parece estar online no portal de serviço do StorSimple Manager, mas quando você tenta concluir a instalação mínima e salvar a configuração, a operação falha. | Durante a instalação inicial, o proxy da Web não foi configurado, mesmo havendo um servidor proxy real pronto. | Use o [cmdlet Test-HcsmConnection][2] para localizar o erro. [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) se você não puder corrigir o problema. |
-| 4 | Invoke-HcsSetupWizard: Value não está no intervalo esperado. | Uma máscara de sub-rede incorreta gera esse erro. As possíveis causas são: <ul><li> A máscara de sub-rede está ausente ou vazia.</li><li>O formato do prefixo Ipv6 está incorreto.</li><li>A interface está habilitada para a nuvem, mas o gateway está ausente ou incorreto.</li></ul>Observe que DATA 0 será automaticamente habilitado para nuvem se configurado por meio do assistente de instalação. | Para determinar o problema, use a sub-rede 0.0.0.0 ou 256.256.256.256 e, em seguida, examine a saída. Insira os valores corretos para a máscara de sub-rede, o gateway e o prefixo Ipv6, como necessário. |
+|  1  | Error 350032: This device has already been deactivated. | You will see this error if you run the setup wizard on a device that is deactivated. | [Contact Microsoft Support](storsimple-contact-microsoft-support.md) for next steps. A deactivated device cannot be put in service. A factory reset may be required before the device can be activated again. |
+|  2  | Invoke-HcsSetupWizard : ERROR_INVALID_FUNCTION(Exception from HRESULT: 0x80070001) | The DNS server update is failing. DNS settings are global settings and are applied across all the enabled network interfaces. | Enable the interface and apply the DNS settings again. This may disrupt the network for other enabled interfaces because these settings are global. |
+|  3  | The device appears to be online in the StorSimple Manager service portal, but when you try to complete the minimum setup and save the configuration, the operation fails. | During initial setup, the web proxy was not configured, even though there was an actual proxy server in place. | Use the [Test-HcsmConnection cmdlet][2] to locate the error. [Contact Microsoft Support](storsimple-contact-microsoft-support.md) if you are unable to correct the problem. |
+|  4  | Invoke-HcsSetupWizard: Value does not fall within the expected range. | An incorrect subnet mask produces this error. Possible causes are: <ul><li> The subnet mask is missing or empty.</li><li>The Ipv6 prefix format is incorrect.</li><li>The interface is cloud-enabled, but the gateway is missing or incorrect.</li></ul>Note that DATA 0 is automatically cloud-enabled if configured through the setup wizard. | To determine the problem, use subnet 0.0.0.0 or 256.256.256.256, and then look at the output. Enter correct values for the subnet mask, gateway, and Ipv6 prefix, as needed. |
  
-## Códigos do Erro
+## <a name="error-codes"></a>Error codes
 
-Os erros estão listados em ordem numérica.
+Errors are listed in numeric order.
 
-|Número do erro|Texto do erro ou descrição|Ação recomendada do usuário|
+|Error Number|Error text or description|Recommended user action|
 |:---|:---|:---|
-|10502|Foi encontrado um erro ao acessar sua conta de armazenamento.|Aguarde alguns minutos e tente novamente. Se o erro persistir, entre em contato com o Suporte da Microsoft para as próximas etapas.|
-|40017|Não é possível resolver um disco em um conjunto de backup.|Se o erro persistir, entre em contato com o Suporte da Microsoft para as próximas etapas.|
-|40018|Não é possível resolver nenhum disco em um conjunto de backup.|Se o erro persistir, entre em contato com o Suporte da Microsoft para as próximas etapas.|
-|390061|O sistema está ocupado ou indisponível.|Aguarde alguns minutos e tente novamente. Se o erro persistir, entre em contato com o Suporte da Microsoft para as próximas etapas.|
-|390143|Ocorreu um erro com o código de erro 390143. Erro desconhecido.|Se o erro persistir, entre em contato com o Suporte da Microsoft para as próximas etapas.|
+|10502|An error was encountered while accessing your storage account.|Wait for a few minutes and then try again. If the error persists, please Contact Microsoft Support for next steps.|
+|40017|Unable to resolve a disk in a backup set.|If the error persists, please Contact Microsoft Support for next steps.|
+|40018|Unable to resolve any of the disks in  backup set.|If the error persists, please Contact Microsoft Support for next steps.|
+|390061|The system is busy or unavailable.|Wait for a few minutes and then try again. If the error persists, please Contact Microsoft Support for next steps.|
+|390143|An error has occurred with error code 390143. (Unknown error.)|If the error persists, please contact Microsoft Support for next steps.|
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Se não for possível resolver o problema, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para obter assistência.
+If you are unable to resolve the problem, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance. 
 
 
-[1]: https://technet.microsoft.com/pt-BR/%5Clibrary/Dn688135(v=WPS.630).aspx
-[2]: https://technet.microsoft.com/pt-BR/%5Clibrary/Dn715782(v=WPS.630).aspx
+[1]: https://technet.microsoft.com/en-us/%5Clibrary/Dn688135(v=WPS.630).aspx
+[2]: https://technet.microsoft.com/en-us/%5Clibrary/Dn715782(v=WPS.630).aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

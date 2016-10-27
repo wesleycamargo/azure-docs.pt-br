@@ -1,54 +1,59 @@
 <properties
-	pageTitle="Azure Active Directory B2C: atributos personalizados | Microsoft Azure"
-	description="Como usar atributos personalizados no Active Directory B2C do Azure para coletar informações sobre seus consumidores"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+    pageTitle="Azure Active Directory B2C: Custom attributes | Microsoft Azure"
+    description="How to use custom attributes in Azure Active Directory B2C to collect information about your consumers"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="mbaldwin"
+    editor="bryanla"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/24/2016"
+    ms.author="swkrish"/>
 
-#  Azure Active Directory B2C: usar atributos personalizados para coletar informações sobre seus consumidores
 
-O diretório do Azure AD (Azure Active Directory) B2C é fornecido com um conjunto interno de informações (atributos): Nome, Sobrenome, Cidade e CEP, entre outros atributos. No entanto, todos os aplicativos voltados para o consumidor têm requisitos exclusivos sobre quais atributos devem ser coletados dos consumidores. Com o Azure AD B2C, você pode estender o conjunto de atributos armazenados em cada conta de consumidor. Você pode criar atributos personalizados no [Portal do Azure](https://portal.azure.com/) e usá-los em suas políticas de inscrição, conforme mostrado abaixo. Você também pode ler e gravar esses atributos usando a [API do Graph do Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md).
+#  <a name="azure-active-directory-b2c:-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C: Use custom attributes to collect information about your consumers
+
+Your Azure Active Directory (Azure AD) B2C directory comes with a built-in set of information (attributes): Given Name, Surname, City, Postal Code, and other attributes. However, every consumer-facing application has unique requirements on what attributes to gather from consumers. With Azure AD B2C, you can extend the set of attributes stored on each consumer account. You can create custom attributes on the [Azure portal](https://portal.azure.com/) and use it in your sign-up policies, as shown below. You can also read and write these attributes by using the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
 > [AZURE.NOTE]
-Os atributos personalizados usam as [Extensões de Esquema de Diretório da API do Graph do Azure AD](https://msdn.microsoft.com/library/azure/dn720459.aspx).
+Custom attributes use [Azure AD Graph API Directory Schema Extensions](https://msdn.microsoft.com/library/azure/dn720459.aspx).
 
-## Como criar um atributo personalizado
+## <a name="create-a-custom-attribute"></a>Create a custom attribute
 
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
-2. Clique em **Atributos de usuário**.
-3. Clique em **+Adicionar** na parte superior da folha.
-4. Forneça um **Nome** para o atributo personalizado (por exemplo, "ShoeSize") e, opcionalmente, uma **Descrição**. Clique em **Criar**.
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Click **User attributes**.
+3. Click **+Add** at the top of the blade.
+4. Provide a **Name** for the custom attribute (for example, "ShoeSize") and optionally, a **Description**. Click **Create**.
 
     > [AZURE.NOTE]
-    Apenas o **Tipo de Dados** "String" está disponível no momento.
+    Only the "String" **Data Type** is currently available.
 
-O atributo personalizado agora está disponível na lista de **Atributos do usuário** e para uso em suas políticas de inscrição.
+The custom attribute is now available in the list of **User attributes**, and for use in your sign-up policies.
 
-## Usar um atributo personalizado na sua política de inscrição
+## <a name="use-a-custom-attribute-in-your-sign-up-policy"></a>Use a custom attribute in your sign-up policy
 
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
-2. Clique em **Políticas de inscrição**.
-3. Clique na sua política de inscrição (por exemplo, "B2C\_1\_SiUp") para abri-la. Clique em **Editar** na parte superior da folha.
-4. Clique em **Atributos de inscrição** e selecione o atributo personalizado (por exemplo, "ShoeSize"). Clique em **OK**.
-5. Clique em **Declarações de aplicativo** e selecione o atributo personalizado. Clique em **OK**.
-6. Clique em **Salvar** na parte superior da folha.
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Click **Sign-up policies**.
+3. Click your sign-up policy (for example, "B2C_1_SiUp") to open it. Click **Edit** at the top of the blade.
+4. Click **Sign-up attributes** and select the custom attribute (for example, "ShoeSize"). Click **OK**.
+5. Click **Application claims** and select the custom attribute. Click **OK**.
+6. Click **Save** at the top of the blade.
 
-Você pode usar o recurso "Executar agora" da política para verificar a experiência do consumidor. Agora você deve ver "ShoeSize" na lista de atributos que são coletados durante a inscrição do consumidor e vê-lo no token enviado de volta ao seu aplicativo.
+You can use the "Run now" feature on the policy to verify the consumer experience. You should now see "ShoeSize" in the list of attributes collected during consumer sign-up, and see it in the token sent back to your application.
 
-## Observações
+## <a name="notes"></a>Notes
 
-- Juntamente com as políticas de inscrição, os atributos personalizados também podem ser usados nas políticas de inscrição ou de entrada e também nas políticas de edição de perfil.
-- Há uma limitação conhecida de atributos personalizados. Esse tipo de atributo só é criado na primeira vez que é usado em qualquer política, e não quando você o adiciona à lista de **Atributos de usuário**.
+- Along with sign-up policies, custom attributes can also be used in sign-up or sign-in policies and profile editing policies.
+- There is a known limitation of custom attributes. It is only created the first time it is used in any policy, and not when you add it to the list of **User attributes**.
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

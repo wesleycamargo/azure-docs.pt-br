@@ -1,6 +1,6 @@
 <properties
- pageTitle="Arquitetura de Segurança da IoT | Microsoft Azure"
- description="Considerações e diretrizes da arquitetura de segurança da IoT"
+ pageTitle="IoT Security Architecture | Microsoft Azure"
+ description="IoT security architecture guidelines and considerations"
  services="iot-hub"
  documentationCenter=""
  authors="YuriDio"
@@ -16,25 +16,24 @@
  ms.date="08/02/2016"
  ms.author="yurid"/>
  
+
 [AZURE.INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Para saber mais sobre como proteger sua solução IoT, confira [Proteger sua implantação IoT][lnk-security-deployment]
+To learn more about securing your IoT solution see, [Secure your IoT deployment][lnk-security-deployment]
 
-Para explorar melhor as funcionalidades do Hub IoT, consulte:
+To further explore the capabilities of IoT Hub, see:
 
-- [Projetar sua solução][lnk-design]
-- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
-- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
-- [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
 
 [lnk-security-deployment]: iot-hub-security-deployment.md
 
-[lnk-design]: iot-hub-guidance.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,9 +1,12 @@
-Um Azure Load Balancer é um balanceador de carga de Camada 4 (TCP, UDP). O balanceador de carga fornece alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço de integridade em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. O Azure Load Balancer também pode apresentar esses serviços em várias portas, vários endereços IP ou ambos.
+An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
 
-Você pode configurar um balanceador de carga para:
+You can configure a load balancer to:
 
-* Balancear a carga do tráfego de entrada na Internet para VMs (máquinas virtuais). Nós nos referimos a um balanceador de carga neste cenário como um [Balanceador de carga voltado para a Internet](../articles/load-balancer/load-balancer-internet-overview.md).
-* Balancear a carga do tráfego entre máquinas virtuais em uma VNet (rede virtual), entre VMs em serviços de nuvem ou entre computadores locais e máquinas virtuais em uma rede virtual entre instalações. Nós nos referimos a um balanceador de carga neste cenário como um [ILB (Balanceador de carga interno)](../articles/load-balancer/load-balancer-internal-overview.md).
-* Encaminhar tráfego externo para uma instância VM específica.
+* Load balance incoming Internet traffic to virtual machines (VMs). We refer to a load balancer in this scenario as an [Internet-facing load balancer](../articles/load-balancer/load-balancer-internet-overview.md).
+* Load balance traffic between VMs in a virtual network (VNet), between VMs in cloud services, or between on-premises computers and VMs in a cross-premises virtual network. We refer to a load balancer in this scenario as an [internal load balancer (ILB)](../articles/load-balancer/load-balancer-internal-overview.md).
+* Forward external traffic to a specific VM instance.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

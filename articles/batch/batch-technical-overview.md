@@ -1,138 +1,139 @@
 <properties
-	pageTitle="Noções básicas do serviço Lote do Azure | Microsoft Azure"
-	description="Saiba mais sobre o uso do serviço Lote do Azure para cargas de trabalho paralelas e HPC em larga escala."
-	services="batch"
-	documentationCenter=""
-	authors="mmacy"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Azure Batch service basics | Microsoft Azure"
+    description="Learn about using the Azure Batch service for large-scale parallel and HPC workloads"
+    services="batch"
+    documentationCenter=""
+    authors="mmacy"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.workload="big-compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/22/2016"
-	ms.author="marsma"/>
+    ms.service="batch"
+    ms.workload="big-compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/22/2016"
+    ms.author="marsma"/>
 
-# Noções básicas de Lote do Azure
 
-O Lote do Azure o habilita a executar aplicativos paralelos em larga escala e de HPC (computação de alto desempenho) na nuvem. É um serviço de plataforma que agenda o trabalho de computação intensiva para executar em uma coleção gerenciada de máquinas virtuais e que pode dimensionar automaticamente os recursos de computação para atender às necessidades dos trabalhos.
+# <a name="basics-of-azure-batch"></a>Basics of Azure Batch
 
-Com o serviço em Lotes, você define os recursos de computação do Azure para executar os aplicativos em paralelo e em escala. Você pode executar trabalhos sob demanda ou agendados e não precisa criar, configurar e gerenciar manualmente um cluster HPC, máquinas virtuais individuais, redes virtuais ou uma infraestrutura complexa de agendamento de trabalhos e tarefas.
+Azure Batch enables you to run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
 
-## Casos de uso para o Lote
+With the Batch service, you define Azure compute resources to execute your applications in parallel, and at scale. You can run on-demand or scheduled jobs, and you don't need to manually create, configure, and manage an HPC cluster, individual virtual machines, virtual networks, or a complex job and task scheduling infrastructure.
 
-O Lote é um serviço do Azure gerenciado que é usado para *processamento em lotes* ou *computação em lotes*, executando grandes volumes de tarefas semelhantes para obter o resultado desejado. A computação em lote é mais comumente usada por organizações que processam, transformam e analisam grandes volumes de dados regularmente.
+## <a name="use-cases-for-batch"></a>Use cases for Batch
 
-O Lote funciona bem com cargas de trabalho e aplicativos intrinsecamente paralelos (também conhecidos como "excessivamente paralelos"). Cargas de trabalho intrinsecamente paralelas são divididas com facilidade em várias tarefas que executam o trabalho simultaneamente em vários computadores.
+Batch is a managed Azure service that is used for *batch processing* or *batch computing*--running a large volume of similar tasks to get some desired result. Batch computing is most commonly used by organizations that regularly process, transform, and analyze large volumes of data.
 
-![Tarefas paralelas][1]<br/>
+Batch works well with intrinsically parallel (also known as "embarrassingly parallel") applications and workloads. Intrinsically parallel workloads are easily split into multiple tasks that perform work simultaneously on many computers.
 
-Alguns exemplos de cargas de trabalho que normalmente são processadas usando essa técnica são:
+![Parallel tasks][1]<br/>
 
-* Modelagem de riscos financeiros
-* Análise de dados de clima e hidrologia
-* Processamento, análise e renderização de imagens
-* Codificação e transcodificação de mídia
-* Análise de sequência genética
-* Análise de estresse de engenharia
-* Teste de software
+Some examples of workloads that are commonly processed using this technique are:
 
-O lote também pode realizar cálculos paralelos com uma etapa de redução no final, além de executar cargas de trabalho HPC mais complexas, como aplicativos [MPI (nterface de Transmissão de Mensagens)](batch-mpi.md).
+* Financial risk modeling
+* Climate and hydrology data analysis
+* Image rendering, analysis, and processing
+* Media encoding and transcoding
+* Genetic sequence analysis
+* Engineering stress analysis
+* Software testing
 
-Para obter uma comparação entre o Lote e outras opções de solução HPC no Azure, confira [Soluções do Lote e HPC](batch-hpc-solutions.md).
+Batch can also perform parallel calculations with a reduce step at the end, and execute more complex HPC workloads such as [Message Passing Interface (MPI)](batch-mpi.md) applications.
 
-## Desenvolvendo com o Lote
+For a comparison between Batch and other HPC solution options in Azure, see [Batch and HPC solutions](batch-hpc-solutions.md).
 
-O processamento de cargas de trabalho paralelas com o Lote normalmente é feito por meio de programação usando uma das [APIs do Lote](#batch-development-apis). Com as APIs de Lote, você criar e gerenciar pools de nós de computação (máquinas virtuais) e agendar trabalhos e tarefas para serem executadas nesses nós. Um aplicativo cliente ou serviço que você cria usa as APIs de Lote para se comunicar com o serviço de Lote.
+## <a name="developing-with-batch"></a>Developing with Batch
 
-Você pode processar com eficiência cargas de trabalho em grande escala para sua organização ou fornecer um front-end de serviço a seus clientes para que eles possam executar trabalhos e tarefas, sob demanda ou de acordo com uma agenda, em um ou em centenas ou em milhares de nós. Você também pode usar o Lote como parte de um fluxo de trabalho maior, gerenciado por ferramentas como o [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md).
+Processing parallel workloads with Batch is typically done programmatically by using one of the [Batch APIs](#batch-development-apis). With the Batch APIs, you create and manage pools of compute nodes (virtual machines) and schedule jobs and tasks to run on those nodes. A client application or service that you author uses the Batch APIs to communicate with the Batch service.
 
-> [AZURE.TIP] Quando estiver pronto para se aprofundar na API do Lote e obter uma compreensão mais profunda dos recursos que ele fornece, confira a [Visão geral do recurso Lote para desenvolvedores](batch-api-basics.md).
+You can efficiently process large-scale workloads for your organization, or provide a service front end to your customers so that they can run jobs and tasks--on demand, or on a schedule--on one, hundreds, or even thousands of nodes. You can also use Batch as part of a larger workflow, managed by tools such as [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md).
 
-### Contas do Azure das quais você precisará
+> [AZURE.TIP] When you're ready to dig in to the Batch API for a more in-depth understanding of the features it provides, check out the [Batch feature overview for developers](batch-api-basics.md).
 
-Ao desenvolver soluções de Lote, você usará as contas a seguir no Microsoft Azure.
+### <a name="azure-accounts-you'll-need"></a>Azure accounts you'll need
 
-- [Conta e assinatura do Azure][free_account] - se ainda não tiver uma assinatura do Azure, você poderá ativar o **benefício de assinante do MSDN** ou inscrever-se para uma [conta gratuita do Azure][msdn_benefits]. Ao criar uma conta, uma assinatura padrão será criada para você.
+When you develop Batch solutions, you'll use the following accounts in Microsoft Azure.
 
-- **Conta do Lote** - quando os aplicativos interagem com o serviço de Lote, o nome da conta, a URL da conta, e uma chave de acesso são usados como credenciais. Todos os recursos do Lote, como pools, nós de computação, trabalhos e tarefas estão associados a uma conta do Lote. Você pode [criar a conta do Lote](batch-account-create-portal.md) no portal do Azure.
+- **Azure account and subscription** - If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefit][msdn_benefits], or sign up for a [free Azure account][free_account]. When you create an account, a default subscription is created for you.
 
-- **Conta de armazenamento** - o Lote inclui suporte interno para trabalhar com arquivos no [Armazenamento do Azure][azure_storage]. Quase todos os cenários de Lote usam o Armazenamento do Azure para preparar os programas que as tarefas executam e os dados que eles processam e para o armazenamento dos dados de saída que eles geram. Para criar uma conta de Armazenamento, confira [Sobre as contas de armazenamento do Azure](./../storage/storage-create-storage-account.md).
+- **Batch account** - When your applications interact with the Batch service, the account name, the URL of the account, and an access key are used as credentials. All your Batch resources such as pools, compute nodes, jobs, and tasks are associated with a Batch account. You can [create Batch account](batch-account-create-portal.md) in the Azure portal.
 
-### APIs de desenvolvimento em lotes
+- **Storage account** - Batch includes built-in support for working with files in [Azure Storage][azure_storage]. Nearly every Batch scenario uses Azure Storage--for staging the programs that your tasks run and the data that they process, and for the storage of output data that they generate. To create a Storage account, see [About Azure storage accounts](./../storage/storage-create-storage-account.md).
 
-Os aplicativos e serviços podem emitir chamadas à API REST diretamente, usar uma ou mais das bibliotecas de cliente a seguir ou uma combinação de ambos para gerenciar recursos de computação e executar cargas de trabalho paralelas em escala usando o serviço em Lotes.
+### <a name="batch-development-apis"></a>Batch development APIs
 
-| API | Referência de API | Baixar | Exemplos de código |
+Your applications and services can issue direct REST API calls, use one or more of the following client libraries, or a combination of both to manage compute resources and run parallel workloads at scale using the Batch service.
+
+| API    | API reference | Download | Code samples |
 | ----------------- | ------------- | -------- | ------------ |
-| **REST do Lote** | [MSDN][batch_rest] | N/D | [MSDN][batch_rest] |
-| **.NET do Lote** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
-| **Python em lotes** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Node.js do Lote** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
-| **Java do Lote** (visualização) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
+| **Batch REST** | [MSDN][batch_rest] | N/A | [MSDN][batch_rest] |
+| **Batch .NET**    | [MSDN][api_net] | [NuGet ][api_net_nuget] | [GitHub][api_sample_net] |
+| **Batch Python**  | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
+| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
+| **Batch Java** (preview) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
 
-### Gerenciamento de recursos em lotes
+### <a name="batch-resource-management"></a>Batch resource management
 
-Além das APIs de cliente, você também pode usar os itens a seguir para gerenciar recursos em sua conta do Lote.
+In addition to the client APIs, you can also use the following to manage resources within your Batch account.
 
-- [Cmdlets do PowerShell do Lote][batch_ps]\: os cmdlets do Lote do Azure no módulo do [Azure PowerShell](../powershell-install-configure.md) permitem que você gerencie recursos do Lote com o PowerShell.
+- [Batch PowerShell cmdlets][batch_ps]: The Azure Batch cmdlets in the [Azure PowerShell](../powershell-install-configure.md) module enable you to manage Batch resources with PowerShell.
 
-- [CLI do Azure](../xplat-cli-install.md): a CLI do Azure (Interface de linha de comando do Azure) é um conjunto de ferramentas de plataforma cruzada que fornece comandos do shell para interagir com muitos serviços do Azure, incluindo o Lote.
+- [Azure CLI](../xplat-cli-install.md): The Azure Command-Line Interface (Azure CLI) is a cross-platform toolset that provides shell commands for interacting with many Azure services, including Batch.
 
-- Biblioteca de cliente do [.NET de Gerenciamento do Lote](batch-management-dotnet.md): também disponível via [NuGet][api_net_mgmt_nuget]. Use a biblioteca de cliente .NET de Gerenciamento do Lote para gerenciar programaticamente contas, cotas e pacotes de aplicativos do Lote. A referência da biblioteca de gerenciamento está no [MSDN][api_net_mgmt].
+- [Batch Management .NET](batch-management-dotnet.md) client library: Also available via [NuGet][api_net_mgmt_nuget], you can use the Batch Management .NET client library to programmatically manage Batch accounts, quotas, and application packages. Reference for the management library is on [MSDN][api_net_mgmt].
 
-### Ferramentas do Lote
+### <a name="batch-tools"></a>Batch tools
 
-Embora não sejam necessárias para compilar soluções usando o Lote, veja algumas ferramentas essenciais para a compilação e depuração de aplicativos e serviços do Lote.
+While not required to build solutions using Batch, here are some valuable tools to use while building and debugging your Batch applications and services.
 
- - [Portal do azure][portal]\: você pode criar, monitorar e excluir pools, trabalhos e tarefas do Lote nas folhas do Lote do portal do Azure. Você pode exibir as informações de status para esses e outros recursos ao executar seus trabalhos e até mesmo baixar arquivos de nós de computação em seus pools (baixar um `stderr.txt` de uma tarefa com falha durante a solução de problemas, por exemplo). Você também pode baixar arquivos da área de trabalho remota (RDP) que pode usar para fazer logon em nós de computação.
+ - [Azure portal][portal]: You can create, monitor, and delete Batch pools, jobs, and tasks in the Azure portal's Batch blades. You can view the status information for these and other resources while you run your jobs, and even download files from the compute nodes in your pools (download a failed task's `stderr.txt` while troubleshooting, for example). You can also download Remote Desktop (RDP) files that you can use to log in to compute nodes.
 
- - [Gerenciador do Lote do Azure][batch_explorer]\: o Gerenciador do Lote oferece uma funcionalidade de gerenciamento de recursos do Lote semelhante como no portal do Azure, mas em um aplicativo cliente autônomo do WPF (Windows Presentation Foundation). Um dos aplicativos de exemplo do .NET do Lote disponíveis no [GitHub][github_samples], você pode compilá-lo com o Visual Studio 2015 ou acima e usá-lo para procurar e gerenciar os recursos na sua conta do Lote enquanto desenvolver e depurar suas soluções do Lote. Exiba detalhes da tarefa, do pool e do trabalho, baixe arquivos de nós de computação e se conecte a nós remotamente por meio de arquivos de RDP (Área de Trabalho Remota) que você pode baixar com o Gerenciador do Lote.
+ - [Azure Batch Explorer][batch_explorer]: Batch Explorer provides similar Batch resource management functionality as the Azure portal, but in a standalone Windows Presentation Foundation (WPF) client application. One of the Batch .NET sample applications available on [GitHub][github_samples], you can build it with Visual Studio 2015 or above and use it to browse and manage the resources in your Batch account while you develop and debug your Batch solutions. View job, pool, and task details, download files from compute nodes, and connect to nodes remotely by using Remote Desktop (RDP) files you can download with Batch Explorer.
 
- - [Gerenciador de Armazenamento do Microsoft Azure][storage_explorer]\: embora não seja estritamente uma ferramenta do Lote do Azure, o Gerenciador de Armazenamento é outra ferramenta valiosa a ser usada durante o desenvolvimento e a depuração de suas soluções do Lote.
+ - [Microsoft Azure Storage Explorer][storage_explorer]: While not strictly an Azure Batch tool, the Storage Explorer is another valuable tool to have while you are developing and debugging your Batch solutions.
 
-## Cenário: escalar horizontalmente uma carga de trabalho paralela
+## <a name="scenario:-scale-out-a-parallel-workload"></a>Scenario: Scale out a parallel workload
 
-Uma solução comum que usa as APIs de Lote para interagir com o serviço de Lote envolve a expansão de trabalho intrinsecamente paralelo (como a renderização de imagens para cenas 3D) em um pool de nós de computação. Esse pool de nós de computação pode ser seu "farm de renderização" que oferece dezenas, centenas ou até milhares de núcleos para o trabalho de renderização, por exemplo.
+A common solution that uses the Batch APIs to interact with the Batch service involves scaling out intrinsically parallel work--such as the rendering of images for 3D scenes--on a pool of compute nodes. This pool of compute nodes can be your "render farm" that provides tens, hundreds, or even thousands of cores to your rendering job, for example.
 
-O diagrama a seguir mostra um fluxo de trabalho do Lote comum, com um aplicativo cliente ou serviço hospedado usando o Lote para executar uma carga de trabalho paralela.
+The following diagram shows a common Batch workflow, with a client application or hosted service using Batch to run a parallel workload.
 
-![Fluxo de trabalho da solução do Lote][2]
+![Batch solution workflow][2]
 
-Nesse cenário comum, o aplicativo ou serviço processa uma carga de trabalho computacional no Lote do Azure, executando as seguintes etapas:
+In this common scenario, your application or service processes a computational workload in Azure Batch by performing the following steps:
 
-1. Carregue os **arquivos de entrada** e o **aplicativo** que processará esses arquivos em sua conta de Armazenamento do Azure. Os arquivos de entrada podem ser quaisquer dados que o aplicativo processará, como dados de modelagem financeira ou arquivos de vídeo a serem transcodificados. Os arquivos do aplicativo podem ser qualquer aplicativo que seja usado para processar os dados, como um aplicativo de renderização 3D ou um transcodificador de mídia.
+1. Upload the **input files** and the **application** that will process those files to your Azure Storage account. The input files can be any data that your application will process, such as financial modeling data, or video files to be transcoded. The application files can be any application that is used for processing the data, such as a 3D rendering application or media transcoder.
 
-2. Crie um **pool** do Lote de nós de computação em sua conta do Lote. Esses nós são as máquinas virtuais que executarão suas tarefas. Especifique propriedades, como o [tamanho de nó](./../cloud-services/cloud-services-sizes-specs.md), o sistema operacional e o local no Armazenamento do Azure do aplicativo para instalação quando os nós ingressarem no pool (o aplicativo que você carregou na etapa 1). Você também pode configurar o pool para [dimensionamento automático](batch-automatic-scaling.md) (ajustar dinamicamente o número de nós de computação no pool) em resposta à carga de trabalho gerada por suas tarefas.
+2. Create a Batch **pool** of compute nodes in your Batch account--these nodes are the virtual machines that will execute your tasks. You specify properties such as the [node size](./../cloud-services/cloud-services-sizes-specs.md), their operating system, and the location in Azure Storage of the application to install when the nodes join the pool (the application that you uploaded in step #1). You can also configure the pool to [automatically scale](batch-automatic-scaling.md)--dynamically adjust the number of compute nodes in the pool--in response to the workload that your tasks generate.
 
-3. Crie um **trabalho** do Lote para executar a carga de trabalho no pool de nós de computação. Ao criar um trabalho, você pode associá-lo a um pool do Lote.
+3. Create a Batch **job** to run the workload on the pool of compute nodes. When you create a job, you associate it with a Batch pool.
 
-4. Adicione **Tarefas** ao trabalho. Quando você adiciona tarefas a um trabalho, o serviço de Lote agenda automaticamente as tarefas para execução em nós de computação no pool. Cada tarefa usa o aplicativo que você carregou para processar os arquivos de entrada.
+4. Add **tasks** to the job. When you add tasks to a job, the Batch service automatically schedules the tasks for execution on the compute nodes in the pool. Each task uses the application that you uploaded to process the input files.
 
-    - 4a. Antes da execução de uma tarefa, ela pode baixar os dados (os arquivos de entrada) que deve processar para o nó de computação ao qual está atribuída. Se o aplicativo ainda não tiver sido instalado no nó (confira a etapa nº 2), ele poderá ser baixado aqui em vez disso. Quando os downloads forem concluídos, as tarefas serão executadas em seus nós atribuídos.
+    - 4a. Before a task executes, it can download the data (the input files) that it is to process to the compute node it is assigned to. If the application has not already been installed on the node (see step #2), it can be downloaded here instead. When the downloads are complete, the tasks execute on their assigned nodes.
 
-5. À medida que as tarefas são executadas, você pode consultar o Lote para monitorar o andamento do trabalho e suas tarefas. O serviço ou aplicativo cliente se comunica com o serviço de Lote via HTTPS. Como você pode estar monitorando milhares de tarefas em execução em milhares de nós de computação, [confira o serviço do Lote de forma eficiente](batch-efficient-list-queries.md).
+5. As the tasks run, you can query Batch to monitor the progress of the job and its tasks. Your client application or service communicates with the Batch service over HTTPS, and because you might be monitoring thousands of tasks running on thousands of compute nodes, be sure to [query the Batch service efficiently](batch-efficient-list-queries.md).
 
-6. À medida que as tarefas são concluídas,elas podem carregar seus dados de resultados para o Armazenamento do Azure. Você também pode recuperar arquivos diretamente de nós de computação.
+6. As the tasks complete, they can upload their result data to Azure Storage. You can also retrieve files directly from compute nodes.
 
-7. Quando o monitoramento detecta que as tarefas em seu trabalho foram concluídas, o aplicativo cliente ou serviço pode baixar os dados de saída para processamento adicional ou avaliação.
+7. When your monitoring detects that the tasks in your job have completed, your client application or service can download the output data for further processing or evaluation.
 
-Lembre-se de que essa é apenas uma maneira de usar o Lote, e este cenário descreve apenas alguns de seus recursos disponíveis. Por exemplo, você pode executar [várias tarefas em paralelo](batch-parallel-node-tasks.md) em cada nó de computação e pode usar [tarefas de preparo e conclusão de trabalhos](batch-job-prep-release.md) para preparar os nós para os trabalhos e realizar a limpeza posteriormente.
+Keep in mind this is just one way to use Batch, and this scenario describes only a few of its available features. For example, you can execute [multiple tasks in parallel](batch-parallel-node-tasks.md) on each compute node, and you can use [job preparation and completion tasks](batch-job-prep-release.md) to prepare the nodes for your jobs, then clean up afterward.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Agora que você já viu uma visão geral de alto nível do serviço Lote, é hora de se aprofundar para saber como pode usá-lo para processar suas cargas de trabalho paralelas com uso intensivo de computação.
+Now that you have a high-level overview of the Batch service, it's time to dig deeper to learn how you can use it to process your compute-intensive parallel workloads.
 
-- Leia ae [Visão geral de recursos do Lote para desenvolvedores](batch-api-basics.md), informações essenciais para qualquer pessoa que está se preparando para usar o Lote. O artigo contém informações mais detalhadas sobre os recursos de serviço do Lote, como pools, nós, trabalhos e tarefas, e os muitos recursos da API que você pode usar ao criar o aplicativo do Lote.
+- Read the [Batch feature overview for developers](batch-api-basics.md), essential information for anyone preparing to use Batch. The article contains more detailed information about Batch service resources like pools, nodes, jobs, and tasks, and the many API features that you can use while building your Batch application.
 
-- [Introdução à biblioteca do Lote do Azure para .NET](batch-dotnet-get-started.md) para aprender a usar o C# e a biblioteca do .NET do Lote para executar uma carga de trabalho simples usando um fluxo de trabalho comum do Lote. Este artigo deve ser uma de suas primeiras etapas ao aprender a usar o serviço de Lote. Também há uma [Versão do Python](batch-python-tutorial.md) do tutorial.
+- [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md) to learn how to use C# and the Batch .NET library to execute a simple workload using a common Batch workflow. This article should be one of your first stops while learning how to use the Batch service. There is also a [Python version](batch-python-tutorial.md) of the tutorial.
 
-- Baixe os [exemplos de código no GitHub][github_samples] para ver como o C# e o Python podem interagir com o Lote para agendar e processar cargas de trabalho de exemplo.
+- Download the [code samples on GitHub][github_samples] to see how both C# and Python can interface with Batch to schedule and process sample workloads.
 
-- Confira o [Roteiro de Aprendizagem do Lote][learning_path] para ter uma noção dos recursos disponíveis para você ao aprender a trabalhar com o Lote.
+- Check out the [Batch Learning Path][learning_path] to get an idea of the resources available to you as you learn to work with Batch.
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: http://azure.github.io/azure-sdk-for-java/
@@ -161,4 +162,8 @@ Agora que você já viu uma visão geral de alto nível do serviço Lote, é hor
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

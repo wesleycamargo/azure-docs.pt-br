@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configurar serviços com o Gerenciador de Recursos de Cluster do Service Fabric | Microsoft Azure"
-   description="Descrevendo um Serviço do Service Fabric especificando métricas, restrições de posicionamento e outras políticas de posicionamento."
+   pageTitle="Configure Services With the Service Fabric Cluster Resource Manager | Microsoft Azure"
+   description="Describing a Service Fabric Service by specifying metrics, placement constraints, and other placement policies."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -17,30 +17,35 @@
    ms.author="masnider"/>
 
 
-# Configurando as definições do Gerenciador de Recursos de Cluster para serviços do Service Fabric
-O Gerenciador de Recursos de Cluster do Service Fabric permite obter um controle muito refinado sobre as regras que regem cada serviço nomeado individual. Cada instância de serviço nomeada pode especificar regras de como ela deve ser alocada no cluster e pode definir o conjunto de métricas que deseja relatar, incluindo seu grau de importância para esse serviço. Em geral, a configuração de serviços é dividida em três tarefas diferentes:
 
-1. Configurando restrições de posicionamento
-2. Configurando métricas
-3. Configurando políticas de posicionamento avançado (menos comum)
+# <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configuring cluster resource manager settings for service fabric services
+The Service Fabric Cluster Resource manager allows very fine grained control over the rules which govern every individual named service. Each named service instance can specify rules for how it should be allocated in the cluster, and can define the set of metrics that it wants to report, including how important they are to that service. Generally configuring services breaks down into three different tasks:
 
-Vamos abordar todas elas, uma por vez:
+1. Configuring placement constraints
+2. Configuring metrics
+3. Configuring advanced placement policies (less common)
 
-## Restrições de posicionamento
-As restrições de posicionamento são usadas para controlar em quais nós no cluster um serviço pode, na verdade, ser executado. Normalmente, você verá uma instância de serviço nomeada específica ou todos os serviços de um determinado tipo restrito para ser executado em um determinado tipo de nó. Dito isso, as restrições de posicionamento são extensíveis – você pode definir qualquer conjunto de propriedades em uma base de tipo de nó e, em seguida, selecionar para ele com restrições quando o serviço for criado. As restrições de posicionamento também são atualizadas dinamicamente durante o tempo de vida do serviço, permitindo que você responda às alterações no cluster. As propriedades de um determinado nó também podem ser atualizadas dinamicamente no cluster. Para obter mais informações sobre as restrições de posicionamento e como configurá-los podem ser encontradas [neste artigo](service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-properties)
+Let's talk about each of these in turn:
 
-## Métricas
-As métricas são o conjunto de recursos que uma determinada instância de serviço nomeada precisa, incluindo as informações sobre o quanto desse recurso cada réplica com monitoração de estado ou cada instância sem monitoração de estado deste serviço consome por padrão. As métricas também incluem um peso que indica até que ponto o balanceamento dessa métrica é importante para o serviço, caso as compensações sejam necessárias.
+## <a name="placement-constraints"></a>Placement constraints
+Placement constraints are used to control which nodes in the cluster a service can actually run on. Typically you'll see a particular named service instance or all services of a given type constrained to run on a particular type of node. That said, placement constraints are extensible - you can define any set of properties on a node type basis, and then select for them with constraints when the service is created. Placement constraints are also dynamically updatable over the lifetime of the service, allowing you to respond to changes in the cluster. The properties of a given node can also be updated dynamically in the cluster. More information on placement constraints and how to configure them can be found in [this article](service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-properties)
 
-## Outras regras de posicionamento
-Há outros tipos de regras de posicionamento que são principalmente úteis em clusters distribuídos geograficamente ou em outros cenários menos comuns. Elas são configuradas por meio de Correlações ou Políticas. Embora não sejam usadas em muitos cenários, vamos descrevê-las para fins de integridade.
+## <a name="metrics"></a>Metrics
+Metrics are the set of resources that a given named service instance needs, including information about how much of that resource each stateful replica or stateless instance of that service consumes by default. Metrics also include a weight which indicates how important balancing that metric is to that service, in case tradeoffs are necessary.
 
-## Próximas etapas
-- As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre elas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
-- A afinidade é um modo de configurar seus serviços. Ela não é comum, mas se precisar dela, você poderá saber mais [aqui](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md).
-- Há muitas regras de posicionamento diferentes que podem ser configuradas em seu serviço para lidar com cenários adicionais. Você pode obter informações sobre essas diferentes políticas de posicionamento [aqui](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-- Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
-- Para descobrir como o Resource Manager de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md).
-- O Gerenciador de Recursos de Cluster tem muitas opções para descrever o cluster. Para saber mais sobre elas, confira este artigo sobre a [descrição de um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+## <a name="other-placement-rules"></a>Other placement rules
+There are other types of placement rules that are mainly useful in clusters which are geographically distributed, or in other less common scenarios. These are configured via either Correlations or Policies. While they're not used in a lot of scenarios, we'll describe them for completeness.
 
-<!---HONumber=AcomDC_0824_2016-->
+## <a name="next-steps"></a>Next steps
+- Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about them and how to configure them check out [this article](service-fabric-cluster-resource-manager-metrics.md)
+- Affinity is one mode you can configure for your services. It is not common, but if you need it you can learn about it [here](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+- There are many different placement rules that can be configured on your service to handle additional scenarios. You can find out about those different placement policies [here](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
+- The Cluster Resource Manager has a lot of options for describing the cluster. To find out more about them check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

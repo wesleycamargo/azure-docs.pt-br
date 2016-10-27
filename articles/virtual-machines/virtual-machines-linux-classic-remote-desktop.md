@@ -1,119 +1,124 @@
 <properties
-	pageTitle="Área de Trabalho Remota a uma VM do Linux | Microsoft Azure"
-	description="Saiba como instalar e configurar a Área de Trabalho Remota em uma VM do Linux no Microsoft Azure."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="SuperScottz"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Remote Desktop to a Linux VM | Microsoft Azure"
+    description="Learn how to install and configure Remote Desktop to connect to a Microsoft Azure Linux VM"
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="SuperScottz"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/01/2016"
-	ms.author="mingzhan"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="02/01/2016"
+    ms.author="mingzhan"/>
 
 
-#Usando a Área de Trabalho Remota para se conectar a uma VM do Linux do Microsoft Azure
+
+#<a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Using Remote Desktop to connect to a Microsoft Azure Linux VM
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-##Visão geral
+##<a name="overview"></a>Overview
 
-O protocolo RDP é um protocolo proprietário usado para o Windows. Como podemos usar o RDP para se conectar remotamente a uma VM (máquina virtual) do Linux?
+RDP (Remote Desktop Protocol) is a proprietary protocol used for Windows. How can we use RDP to connect to a Linux VM (virtual machine) remotely?
 
-Essa orientação fornecerá a resposta! Ela ajudará você com a instalação e configuração de xrdp em sua VM Linux do Microsoft Azure, e você poderá se conectar com a Área de Trabalho Remota de uma máquina com Windows. Usaremos a VM do Linux executando o Ubuntu ou OpenSUSE como o exemplo neste guia.
+This guidance will give you the answer! It will help you to install and config xrdp on your Microsoft Azure Linux VM, and you are able to connect it with Remote Desktop from a Windows machine. We will use Linux VM running Ubuntu or OpenSUSE as the example in this guidance.
 
-Xrdp é um servidor RDP do código aberto que permite a conexão do servidor Linux com a Área de Trabalho Remota de uma máquina com Windows. Ele é executado com muito mais qualidade do que a VNC (Computação de Rede Virtual). A VNC possui uma qualidade "JPEG" e comportamento lento, enquanto o RDP é rápido e claro.
-
-
-> [AZURE.NOTE] Você já deve ter uma VM do Microsoft Azure executando o Linux. Para criar e configurar uma VM do Linux, veja o [tutorial de VM do Linux do Azure](virtual-machines-linux-classic-createportal.md).
+Xrdp is an open source RDP server, which allows you to connect your Linux server with Remote Desktop from a Windows machine. It performs much nicer than VNC (Virtual Network Computing). VNC has this streak of “JPEG” quality and slow behavior, whereas RDP is fast and crystal clear.
 
 
-##Criar ponto de extremidade para a Área de Trabalho Remota
-Usaremos o ponto de extremidade padrão 3389 para a Área de Trabalho Remota neste documento. Portanto, configure o ponto de extremidade 3389 como a Área de Trabalho Remota para sua VM Linux, como abaixo:
+> [AZURE.NOTE] You must already have an Microsoft Azure VM running Linux. To create and set up a Linux VM, see the [Azure Linux VM tutorial](virtual-machines-linux-classic-createportal.md).
 
 
-![imagem](./media/virtual-machines-linux-classic-remote-desktop/no1.png)
+##<a name="create-endpoint-for-remote-desktop"></a>Create endpoint for Remote Desktop
+We will use the default endpoint 3389 for Remote Desktop in this doc. So set up 3389 endpoint as Remote Desktop to your Linux VM like below:
 
 
-Se você não sabe como configurar o ponto de extremidade para a sua VM, veja a [orientação](virtual-machines-linux-classic-setup-endpoints.md).
+![image](./media/virtual-machines-linux-classic-remote-desktop/no1.png)
 
 
-##Instalar o Gnome Desktop
-
-Conecte-se à sua VM do Linux por meio do PuTTY e instale o `Gnome Desktop`.
-
-Para o Ubuntu, use:
-
-	#sudo apt-get update
-	#sudo apt-get install ubuntu-desktop
+if you didn't know how to set up endpoint to your VM, see [guidance](virtual-machines-linux-classic-setup-endpoints.md).
 
 
-Para OpenSUSE, use:
+##<a name="install-gnome-desktop"></a>Install Gnome Desktop
 
-	#sudo zypper install gnome-session
+Connect to your Linux VM through putty, and install `Gnome Desktop`.
 
-##Instalar o xrdp
+For Ubuntu, use:
 
-Para o Ubuntu, use:
+    #sudo apt-get update
+    #sudo apt-get install ubuntu-desktop
 
-	#sudo apt-get install xrdp
 
-Para OpenSUSE, use:
+For OpenSUSE, use:
 
-> [AZURE.NOTE] Atualize a versão do OpenSUSE com a versão que você está usando com o comando abaixo. Veja abaixo um exemplo de comando para o `OpenSUSE 13.2`.
+    #sudo zypper install gnome-session
 
-	#sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
+##<a name="install-xrdp"></a>Install xrdp
+
+For Ubuntu, use:
+
+    #sudo apt-get install xrdp
+
+For OpenSUSE, use:
+
+> [AZURE.NOTE] Update the OpenSUSE version with the version you are using into below command, below is an example command for `OpenSUSE 13.2`.
+
+    #sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
     #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
 
 
-##Inicie o xrdp e defina o serviço xdrp na inicialização
+##<a name="start-xrdp-and-set-xdrp-service-at-boot-up"></a>Start xrdp and set xdrp service at boot-up
 
-Para OpenSUSE, use:
+For OpenSUSE, use:
 
-	#sudo systemctl start xrdp
-	#sudo systemctl enable xrdp
+    #sudo systemctl start xrdp
+    #sudo systemctl enable xrdp
 
-Para Ubuntu, o xrdp será iniciado e habilitado automaticamente na inicialização após a instalação.
+For Ubuntu, xrdp will be started and eanbled at boot-up automatically after installation.
 
-##Usando xfce se você estiver usando a versão do Ubuntu posterior ao Ubuntu 12.04LTS
+##<a name="using-xfce-if-you-are-using-ubuntu-version-later-than-ubuntu-12.04lts"></a>Using xfce if you are using Ubuntu version later than Ubuntu 12.04LTS
 
-Como o xrdp atual não dava suporte ao Gnome Desktop da versão do Ubuntu posterior ao Ubuntu 12.04LTS, usaremos o `xfce` Desktop em vez disso.
+Because current xrdp could not support the Gnome Desktop from Ubuntu version later than Ubuntu 12.04LTS, we will use `xfce` Desktop instead.
 
-Instale o `xfce`, use:
+Install `xfce`, use:
 
     #sudo apt-get install xubuntu-desktop
 
-Em seguida, habilite `xfce`, use:
+Then enable `xfce`, use:
 
     #echo xfce4-session >~/.xsession
 
-Edite o arquivo de configuração `/etc/xrdp/startwm.sh`, use:
+Edit the config file `/etc/xrdp/startwm.sh`, use:
 
     #sudo vi /etc/xrdp/startwm.sh   
 
-Adicione a linha `xfce4-session` antes da linha `/etc/X11/Xsession`.
+Add line `xfce4-session` before the line `/etc/X11/Xsession`.
 
-Reinicie o serviço xrdp, use:
+Restart xrdp service, use:
 
     #sudo service xrdp restart
 
 
-##Conectar-se à VM Linux de uma máquina com Windows
-Em um computador com Windows, inicie o cliente de área de trabalho remota, insira o nome DNS da VM do Linux ou acesse `Dashboard` da VM no portal clássico do Azure e clique em `Connect` para se conectar à VM do Linux. Você verá a janela de logon abaixo:
+##<a name="connect-your-linux-vm-from-a-windows-machine"></a>Connect your Linux VM from a Windows machine
+In a Windows machine, start the remote desktop client, input your Linux VM DNS name, or go to `Dashboard` of your VM in Azure classic portal and click `Connect` to connect your Linux VM, you will see below login window:
 
-![imagem](./media/virtual-machines-linux-classic-remote-desktop/no2.png)
+![image](./media/virtual-machines-linux-classic-remote-desktop/no2.png)
 
-Faça logon com o `user` e a `password` de sua VM do Linux e aproveite agora mesmo a Área de Trabalho Remota de sua VM do Linux no Microsoft Azure!
+Login with the `user` & `password` of your Linux VM, and enjoy the Remote Desktop from your Microsoft Azure Linux VM right now!
 
 
-##Avançar
-Para obter mais informações sobre como usar o xrdp, acesse [aqui](http://www.xrdp.org/).
+##<a name="next"></a>Next
+For more information to use xrdp, you could refer [here](http://www.xrdp.org/).
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

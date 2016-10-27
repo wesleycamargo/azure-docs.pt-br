@@ -1,6 +1,6 @@
 <properties
-pageTitle="Adicionar identidade visual da empresa específica do idioma à sua página de entrada na visualização do Azure Active Directory | Microsoft Azure"
-description="Saiba como adicionar imagens e texto de identidade visual da empresa específicos do idioma a uma página de entrada do Azure"
+pageTitle="Add language-specific company branding to your sign-in page in the Azure Active Directory preview | Microsoft Azure"
+description="Learn how to add a language specific company branding pictures and text to an Azure sign-in page"
 services="active-directory"
 documentationCenter=""
 authors="curtand"
@@ -16,42 +16,47 @@ ms.topic="article"
 ms.date="09/12/2016"
 ms.author="curtand"/>
 
-# Adicionar identidade visual específica ao idioma à sua página de entrada na visualização do Azure Active Directory
 
-Para evitar confusão, muitas empresas desejam aplicar uma aparência consistente em todos os sites e serviços que elas gerenciam. A visualização do Azure Active Directory fornece esse recurso, permitindo que você personalize a aparência da página de entrada com esquemas de cores e o logotipo da empresa. [O que há na visualização?](active-directory-preview-explainer.md) A página de entrada é a página que aparece quando você entra no Office 365 ou em outros aplicativos baseados na Web que estejam usando o Azure AD como provedor de identidade. Você interage com essa página para inserir suas credenciais.
+# <a name="add-language-specific-company-branding-to-your-sign-in-page-in-the-azure-active-directory-preview"></a>Add language-specific company branding to your sign-in page in the Azure Active Directory preview
 
-## Personalizando a página de entrada para outro idioma
+To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory preview provides this capability by allowing you to customize the appearance of the sign-in page with your company logo and custom color schemes. [What's in the preview?](active-directory-preview-explainer.md) The sign-in page is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page to enter your credentials.
 
-Você pode adicionar elementos específicos do idioma à sua página de entrada somente se já tiver criado uma página de entrada personalizada, conforme descrito em [Add company branding to your sign-in page](active-directory-branding-custom-signon-azure-portal.md) (Adicionar a identidade visual da empresa à página de entrada). Você pode configurar uma página de entrada por diretório com um conjunto padrão de elementos personalizáveis. Depois de ter configurado o conjunto padrão de elementos de página, é possível configurar mais versões para diferentes localidades. Você também pode misturar e combinar vários elementos. Por exemplo, você pode:
+## <a name="customizing-the-sign-in-page-for-another-language"></a>Customizing the sign-in page for another language
 
-- Criar uma **Imagem de página de entrada** padrão que funcione para todas as culturas e depois criar versões específicas para o inglês e o francês. Quando você define seus navegadores para um desses dois idiomas, é exibida a imagem específica do idioma, enquanto a ilustração padrão é exibida para todos os outros idiomas.
+You can add language-specific elements to your custom sign-in page only if you have already created a custom sign-in page as described in [Add company branding to your sign-in page](active-directory-branding-custom-signon-azure-portal.md). You can configure one sign-in page per directory with a default set of customizable elements. After you’ve configured the default set of page elements, you can configure more versions for different locales. You can also mix and match various elements. For example, you could:
 
-- Configure logotipos diferentes para sua organização (por exemplo, versões em japonês ou hebraico).
+- Create a default **Sign-in page image** that works for all cultures, then create specific versions for English and French. When you set your browsers to one of these two languages, the language-specific image appears, while the default illustration appears for all other languages.
 
-É recomendável manter o número de variações de linguagem baixo, por motivos de desempenho e manutenção.
+- Configure different logos for your organization (for example, Japanese or Hebrew versions).
 
-**Para adicionar identidade visual da empresa ao diretório:**
+We recommend that you keep the number of language variations low, for maintenance and performance reasons.
 
-1.  Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
+**To add company branding to your directory:**
 
-2.  Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.
+1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-    ![Abrir o gerenciamento de usuários](./media/active-directory-branding-localize-azure-portal/user-management.png)
+2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
-3. Na folha **Usuários e grupos**, escolha **Identidade visual da empresa**.
+    ![Opening user management](./media/active-directory-branding-localize-azure-portal/user-management.png)
 
-4. Na folha **Usuários e grupos – Identidade visual da empresa**, escolha o comando **Adicionar idioma**.
+3. On the **Users and groups** blade, select **Company branding**.
 
-    ![Adicionar elementos de identidade visual específicos do idioma](./media/active-directory-branding-localize-azure-portal/add-language.png)
+4. On the **Users and groups - Company branding** blade, select the **Add language** command.
 
-5. Modifique os elementos que você deseja personalizar. Todos os elementos são opcionais.
+    ![Add language-specific branding elements](./media/active-directory-branding-localize-azure-portal/add-language.png)
 
-6. Clique em **Salvar**.
+5. Modify the elements you want to customize. All elements are optional.
 
-Pode demorar até uma hora para que apareçam todas as alterações feitas à identidade visual da página de entrada.
+6. Click **Save**.
 
-## Próximas etapas
+It can take up to an hour for any changes you made to the sign-in page branding to appear.
 
-[Adicionar identidade visual da empresa à página de entrada](active-directory-branding-custom-signon-azure-portal.md)
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0914_2016-->
+[Add company branding to your sign-in page](active-directory-branding-custom-signon-azure-portal.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

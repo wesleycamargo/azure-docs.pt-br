@@ -1,124 +1,117 @@
 <properties
-	pageTitle="Automação do Banco de Dados de Documentos - Gerenciador de Recursos - CLI | Microsoft Azure"
-	description="Use modelos do Gerenciador de Recursos do Azure ou a CLI para implantar uma conta de banco de dados do Banco de Dados de Documentos. O Banco de Dados de Documentos é um banco de dados NoSQL baseado em nuvem para dados JSON."
-	services="documentdb"
-	authors="mimig1"
-	manager="jhubbard"
-	editor=""
+    pageTitle="DocumentDB Automation - Resource Manager - CLI | Microsoft Azure"
+    description="Use Azure Resource Manager templates or CLI to deploy a DocumentDB database account. DocumentDB is a cloud-based NoSQL database for JSON data."
+    services="documentdb"
+    authors="mimig1"
+    manager="jhubbard"
+    editor=""
     tags="azure-resource-manager"
-	documentationCenter=""/>
-
+    documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/03/2016" 
-	ms.author="mimig"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/28/2016" 
+    ms.author="mimig"/>
 
-# Automatizar a criação de conta do Banco de Dados de Documentos usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure
+
+# <a name="automate-documentdb-account-creation-using-azure-cli-and-azure-resource-manager-templates"></a>Automate DocumentDB account creation using Azure CLI and Azure Resource Manager templates 
 
 > [AZURE.SELECTOR]
-- [Portal do Azure](documentdb-create-account.md)
-- [CLI do Azure e ARM](documentdb-automation-resource-manager-cli.md)
+- [Azure portal](documentdb-create-account.md)
+- [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
 
-Este artigo mostra como criar uma conta de Banco de Dados de Documentos do Azure usando modelos do Azure Resource Manager ou a CLI (Interface de Linha de Comando) do Azure. Para criar uma conta do Banco de Dados de Documentos usando o Portal do Azure, confira [Criar uma conta de banco de dados do Banco de Dados de Documentos usando o portal do Azure](documentdb-create-account.md).
+This article shows you how to create an Azure DocumentDB account by using Azure Resource Manager templates or directly with the Azure Command-Line Interface (CLI). To create a DocumentDB account using the Azure portal, see [Create a DocumentDB database account using the Azure portal](documentdb-create-account.md).
 
-- [Criar uma conta do Banco de Dados de Documentos usando a CLI](#quick-create-documentdb-account)
-- [Criar uma conta do Banco de Dados de Documentos usando um modelo ARM](#deploy-documentdb-from-a-template)
+DocumentDB database accounts are currently the only DocumentDB resource that can be created using Resource Manager templates and the Azure CLI.
 
-No momento, as contas de banco de dados do Banco de Dados de Documentos são o único recurso do Banco de Dados de Documentos que pode ser criado usando modelos ARM e a CLI do Azure.
+## <a name="getting-ready"></a>Getting ready
 
-## Preparando-se
+Before you can use the Azure CLI with Azure resource groups, you need to have the right Azure CLI version and an Azure account. If you don't have the Azure CLI, [install it](../xplat-cli-install.md).
 
-Para usar a CLI do Azure com grupos de recursos do Azure, você precisará ter a versão correta da CLI do Azure e uma conta do Azure. Se você não tiver a CLI do Azure, [instale-a](../xplat-cli-install.md).
+### <a name="update-your-azure-cli-version"></a>Update your Azure CLI version
 
-### Atualizar sua versão da CLI do Azure
+At the command prompt, type `azure --version` to see whether you have already installed version 0.10.4 or later. You may be prompted to participate in Microsoft Azure CLI data collection at this step, and can select y or n to opt-in or opt-out.
 
-No prompt de comando, digite `azure --version` para ver se você já tem a versão 0.9.11 ou posterior instalada. Poderá ser solicitado que você participe da coleta de dados da CLI do Microsoft Azure nesta etapa; você poderá selecionar S ou N para aceitar ou recusar.
+    azure --version
+    0.10.4 (node: 4.2.4)
 
-	azure --version
-    0.9.11 (node: 0.12.7)
+If your version is not 0.10.4 or later, you need to either [install the Azure CLI](../xplat-cli-install.md) or update by using one of the native installers, or through **npm** by typing `npm update -g azure-cli` to update or `npm install -g azure-cli` to install.
 
-Se a sua versão não for a 0.9.11 ou posterior, será necessário [instalar a CLI do Azure](../xplat-cli-install.md) ou atualizá-la usando um dos instaladores nativos, ou por meio do **npm** digitando `npm update -g azure-cli` para atualizar ou `npm install -g azure-cli` para instalar.
+### <a name="set-your-azure-account-and-subscription"></a>Set your Azure account and subscription
 
-### Definir sua conta e assinatura do Azure
+If you don't already have an Azure subscription but you do have a Visual Studio subscription, you can activate your [Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Se você ainda não tiver uma assinatura do Azure, mas tiver uma assinatura do Visual Studio, poderá ativar seus [benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou então, você poderá se inscrever para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+You need to have a work or school account or a Microsoft account identity to use Azure resource management templates. If you have one of these accounts, type the following command:
 
-Você precisa ter uma conta corporativa ou de estudante, ou uma identidade de conta da Microsoft, para usar os modelos de gerenciamento de recursos do Azure. Se você tiver uma dessas contas, digite o comando a seguir.
+    azure login
 
-	azure login
-
-Que produz esta saída:
+Which produces the following output: 
 
     info:    Executing command login
-    |info:    To sign in, use a web browser to open the page https://aka.ms/devicelogin. 
+  	|info:    To sign in, use a web browser to open the page https://aka.ms/devicelogin. 
     Enter the code E1A2B3C4D to authenticate.
 
-> [AZURE.NOTE] Se você não tiver uma conta do Azure, verá uma mensagem de erro indicando que você precisa de um tipo diferente de conta. Para criar uma com base em sua atual conta do Azure, veja [Criando uma identidade corporativa ou de estudante no Active Directory do Azure](../virtual-machines/virtual-machines-windows-create-aad-work-id.md).
+> [AZURE.NOTE] If you don't have an Azure account, you see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](../virtual-machines/virtual-machines-windows-create-aad-work-id.md).
 
-Abra [https://aka.ms/devicelogin](https://aka.ms/devicelogin) em um navegador e insira o código fornecido na saída do comando.
+Open [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in a browser and enter the code provided in the command output.
 
-![Captura de tela mostrando a tela de logon do dispositivo para a CLI do Microsoft Azure](media/documentdb-automation-resource-manager-cli/azure-cli-login-code.png)
+![Screenshot showing the device login screen for Microsoft Azure CLI](media/documentdb-automation-resource-manager-cli/azure-cli-login-code.png)
 
-Depois de inserir o código, selecione a identidade que você deseja usar no navegador e forneça seu nome de usuário e senha, se for necessário.
+Once you've entered the code, select the identity you want to use in the browser and provide your user name and password if needed.
 
-![Captura de tela mostrando onde selecionar a conta de identidade da Microsoft associada à assinatura do Azure que você deseja usar](media/documentdb-automation-resource-manager-cli/identity-cli-login.png)
+![Screenshot showing where to select the Microsoft identity account associated with the Azure subscription you want to use](media/documentdb-automation-resource-manager-cli/identity-cli-login.png)
 
-Você receberá a seguinte tela de confirmação quando estiver conectado e poderá fechar a janela do navegador.
+You receive the following confirmation screen when you're successfully logged in, and you can then close the browser window.
 
-![Captura de tela mostrando a confirmação de logon para a Interface de linha de comando de plataforma cruzada do Microsoft Azure](media/documentdb-automation-resource-manager-cli/login-confirmation.png)
+![Screenshot showing confirmation of login to the Microsoft Azure Cross-platform Command Line Interface](media/documentdb-automation-resource-manager-cli/login-confirmation.png)
 
-O shell de comando também fornece a saída a seguir.
+The command shell also provides the following output:
 
     /info:    Added subscription Visual Studio Ultimate with MSDN
     info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
     +
     info:    login command OK
 
-Além do método de logon interativo descrito aqui, há métodos adicionais de logon disponíveis na CLI do Azure. Para saber mais sobre os outros métodos e informações sobre como lidar com várias assinaturas, confira [Conectar uma assinatura do Azure da CLI (Interface de Linha de Comando) do Azure](../xplat-cli-connect.md).
+In addition to the interactive login method described here, there are additional Azure CLI login methods available. For more information about the other methods and information about handling multiple subscriptions, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md).
 
-### Alternar para o modo de grupo de recursos da CLI do Azure
+### <a name="switch-to-the-azure-cli-resource-group-mode"></a>Switch to the Azure CLI resource group mode
 
-Por padrão, a CLI do Azure é iniciada no modo de gerenciamento de serviços (modo **asm**). Digite o seguinte para alternar para o modo de grupo de recursos.
+By default, the Azure CLI starts in the service management mode (**asm** mode). Type the following to switch to resource group mode.
 
-	azure config mode arm
+    azure config mode arm
 
-Que fornece esta saída:
+Which provides the following output:
 
     info:    Executing command config mode
     info:    New mode is arm
     info:    config mode command OK
 
-Se necessário, você poderá voltar para o conjunto de comandos padrão digitando `azure config mode asm`.
+If needed, you can switch back to the default set of commands by typing `azure config mode asm`.
 
-## <a id="quick-create-documentdb-account"></a>Tarefa: criar uma conta do Banco de Dados de Documentos usando a CLI do Azure
+### <a name="create-or-retrieve-your-resource-group"></a>Create or retrieve your resource group
 
-Use as instruções nesta seção para criar uma conta do Banco de Dados de Documentos com a CLI do Azure.
+To create a DocumentDB account, you first need a resource group. If you already know the name of the resource group that you'd like to use, then skip to [Step 2](#create-documentdb-account-cli). 
 
-### Etapa 1: criar ou recuperar o grupo de recursos
-
-Para criar uma conta do Banco de Dados de Documentos, primeiro você precisará de um grupo de recursos. Se você já souber o nome do grupo de recursos que deseja usar, pule para a [Etapa 2](#create-documentdb-account-cli).
-
-Para examinar uma lista de todos os grupos de recursos atuais, execute o seguinte comando e anote o nome do grupo de recursos que você deseja usar:
+To review a list of all your current resource groups, run the following command and take note of the resource group name you'd like to use: 
 
     azure group list
 
-Para criar um novo grupo de recursos, execute o seguinte comando, especifique o nome do novo grupo de recursos a ser criado e a região na qual você quer criar o grupo de recursos:
+To create a resource group, run the following command, specify the name of the new resource group to create, and the region in which to create the resource group: 
 
-	azure group create <resourcegroupname> <resourcegrouplocation>
+    azure group create <resourcegroupname> <resourcegrouplocation>
 
- - `<resourcegroupname>` pode usar apenas caracteres alfanuméricos, pontos, sublinhados, o caractere '-' e parênteses, e não pode terminar em um ponto.
- - `<resourcegrouplocation>` deve ser uma das regiões na qual o Banco de Dados de Documentos normalmente está disponível. Confira a lista atual de regiões na [página Regiões do Azure](https://azure.microsoft.com/regions/#services).
+ - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period. 
+ - `<resourcegrouplocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
-Entrada de exemplo:
+Example input:
 
-	azure group create new_res_group westus
+    azure group create new_res_group westus
 
-Que produz esta saída:
+Which produces the following output:
 
     info:    Executing command group create
     + Getting resource group new_res_group
@@ -132,25 +125,38 @@ Que produz esta saída:
     data:
     info:    group create command OK
 
-Se você encontrar erros, confira a [Solução de problemas](#troubleshooting).
+If you encounter errors, see [Troubleshooting](#troubleshooting). 
 
-### <a id="create-documentdb-account-cli"></a>Etapa 2: criar uma conta do Banco de Dados de Documentos usando a CLI
+## <a name="understanding-resource-manager-templates-and-resource-groups"></a>Understanding Resource Manager templates and resource groups
 
-Crie uma conta do Banco de Dados de Documentos no grupo de recursos novo ou existente inserindo o seguinte comando no prompt de comando:
+Most applications are built from a combination of different resource types (such as one or more DocumentDB account, storage accounts, a virtual network, or a content delivery network). The default Azure service management API and the Azure portal represented these items by using a service-by-service approach. This approach requires you to deploy and manage the individual services individually (or find other tools that do so), and not as a single logical unit of deployment.
 
-> [AZURE.TIP] Se você executar este comando no Azure PowerShell ou no Windows PowerShell, receberá um erro sobre um token inesperado. Em vez disso, execute este comando no Prompt de Comando do Windows.
+*Azure Resource Manager templates* make it possible for you to deploy and manage these different resources as one logical deployment unit in a declarative fashion. Instead of imperatively telling Azure what to deploy one command after another, you describe your entire deployment in a JSON file -- all the resources and associated configuration and deployment parameters -- and tell Azure to deploy those resources as one group.
 
-    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{"databaseAccountOfferType":"Standard"}" 
+You can learn lots more about Azure resource groups and what they can do for you in the [Azure Resource Manager overview](../resource-group-overview.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
- - `<resourcegroupname>` pode usar apenas caracteres alfanuméricos, pontos, sublinhados, o caractere '-' e parênteses, e não pode terminar em um ponto.
- - `<databaseaccountname>` pode usar apenas letras minúsculas, números, o caractere '-' e deve ter entre três e 50 caracteres.
- - `<databaseaccountlocation>` deve ser uma das regiões na qual o Banco de Dados de Documentos normalmente está disponível. Confira a lista atual de regiões na [página Regiões do Azure](https://azure.microsoft.com/regions/#services).
+## <a name="<a-id="quick-create-documentdb-account"></a>task:-create-a-single-region-documentdb-account"></a><a id="quick-create-documentdb-account"></a>Task: Create a Single Region DocumentDB account
 
-Entrada de exemplo:
+Use the instructions in this section to create a Single Region DocumentDB account. This can be accomplished using Azure CLI with or without Resource Manager templates.
 
-    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08  -l westus -p "{"databaseAccountOfferType":"Standard"}"
+### <a name="<a-id="create-single-documentdb-account-cli-arm"></a>-create-a-single-region-documentdb-account-using-azure-cli-without-resource-manager-templates"></a><a id="create-single-documentdb-account-cli-arm"></a> Create a Single Region DocumentDB account using Azure CLI without Resource Manager templates
 
-Que produz a seguinte saída à medida que sua nova conta é provisionada:
+Create a DocumentDB account in the new or existing resource group by entering the following command at the command prompt:
+
+> [AZURE.TIP] If you run this command in Azure PowerShell or Windows PowerShell you receive an error about an unexpected token. Instead, run this command at the Windows Command Prompt. 
+
+    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"<databaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority>\"}"]}"
+
+ - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period.
+ - `<resourcegrouplocation>` is the region of the current resource group.
+ - `<databaseaccountname>` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters.
+ - `<databaseaccountlocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+
+Example input: 
+
+    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"}"]}"
+
+Which produces the following output as your new account is provisioned:
 
     info:    Executing command resource create
     + Getting resource samplecliacct
@@ -166,25 +172,15 @@ Que produz a seguinte saída à medida que sua nova conta é provisionada:
     data:
     info:    resource create command OK
 
-Se você encontrar erros, confira a [Solução de problemas](#troubleshooting).
+If you encounter errors, see [Troubleshooting](#troubleshooting). 
 
-Após o retorno do comando, a conta ficará no estado **Criando** por alguns minutos antes de mudar para o estado **Online**, no qual estará pronta para uso. Você pode verificar o status da conta no [portal do Azure](https://portal.azure.com), na folha **Contas do Banco de Dados de Documentos**.
+After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
 
-## <a id="deploy-documentdb-from-a-template"></a>Tarefa: criar uma conta do Banco de Dados de Documentos usando um modelo ARM
+### <a name="<a-id="create-single-documentdb-account-cli-arm"></a>-create-a-single-region-documentdb-account-using-azure-cli-with-resource-manager-templates"></a><a id="create-single-documentdb-account-cli-arm"></a> Create a Single Region DocumentDB account using Azure CLI with Resource Manager templates
 
-Use as instruções nesta seção para criar uma conta do Banco de Dados de Documentos com um modelo ARM (Gerenciador de Recursos do Azure) e um arquivo de parâmetros opcionais, ambos arquivos JSON. O uso de um modelo permite a descrição exata do que você deseja e também a repetição sem erros.
+The instructions in this section describe how to create a DocumentDB account with an Azure Resource Manager template and an optional parameters file, both of which are JSON files. Using a template enables you to describe exactly what you want and repeat it without errors.
 
-### Noções básicas sobre modelos ARM e grupos de recursos
-
-A maioria dos aplicativos é criada a partir de uma combinação de diferentes tipos de recursos (como uma ou mais contas do Banco de Dados de Documentos, contas de Armazenamento, uma rede virtual ou uma rede de distribuição de conteúdo). A API de gerenciamento de serviço do Azure padrão e o portal do Azure representava esses itens usando uma abordagem de acordo com o serviço. Essa abordagem requer que você implante e gerencie individualmente os serviços individuais (ou localize outras ferramentas fazê-lo) e não como uma única unidade lógica de implantação.
-
-Com os *modelos do Gerenciador de Recursos do Azure*, é possível implantar e gerenciar esses diferentes recursos como uma unidade lógica de implantação de forma declarativa. Em vez de informar imperativamente ao Azure o que implantar, em um comando após o outro, você descreve a implantação inteira em um arquivo JSON (todos os recursos e configurações e parâmetros de implantação associados) e instrui o Azure a implantar esses recursos como um grupo.
-
-Você pode saber muito mais sobre os grupos de recursos do Azure e o que eles podem fazer por você na [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md). Se você estiver interessado na criação de modelos, confira [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
-
-### Etapa 1: criar um modelo e um arquivo de parâmetro
-
-Crie um arquivo de modelo local com o seguinte conteúdo. Nomeie o arquivo como azuredeploy.json.
+Create a local template file with the following content. Name the file azuredeploy.json.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -192,9 +188,12 @@ Crie um arquivo de modelo local com o seguinte conteúdo. Nomeie o arquivo como 
         "parameters": {
             "databaseAccountName": {
                 "type": "string"
+            },
+            "locationName1": {
+                "type": "string"
             }
         },
-        "variables": { },
+        "variables": {},
         "resources": [
             {
                 "apiVersion": "2015-04-08",
@@ -202,18 +201,21 @@ Crie um arquivo de modelo local com o seguinte conteúdo. Nomeie o arquivo como 
                 "name": "[parameters('databaseAccountName')]",
                 "location": "[resourceGroup().location]",
                 "properties": {
-                    "name": "[parameters('databaseAccountName')]",
-                    "databaseAccountOfferType": "Standard"
+                    "databaseAccountOfferType": "Standard",
+                    "locations": [
+                        {
+                            "failoverPriority": 0,
+                            "locationName": "[parameters('locationName1')]"
+                        }
+                    ]
                 }
             }
         ]
     }
 
-Este modelo exige apenas um parâmetro, o nome da conta de banco de dados a ser criada. O local da nova conta de banco de dados é definido como o mesmo local do grupo de recursos.
+The failoverPriority must be set to 0 since this is a single region account. A failoverPriority of 0 indicates that this region be kept as the [write region for the DocumentDB account][scaling-globally]. You can either enter the value at the command line, or create a parameter file to specify the value.
 
-Como o modelo usa apenas um parâmetro, você pode inserir o valor na linha de comando ou criar um arquivo de parâmetro para especificar o valor.
-
-Para criar um arquivo de parâmetro, copie o seguinte conteúdo em um novo arquivo e nomeie esse arquivo como azuredeploy.parameters.json. Se você planeja especificar o nome da conta de banco de dados no prompt de comando, continue sem criar esse arquivo.
+To create a parameters file, copy the following content into a new file and name the file azuredeploy.parameters.json. If you plan on specifying the database account name at the command prompt, you can continue without creating this file.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -221,76 +223,42 @@ Para criar um arquivo de parâmetro, copie o seguinte conteúdo em um novo arqui
         "parameters": {
             "databaseAccountName": {
                 "value": "samplearmacct"
+            },
+            "locationName1": {
+                "value": "westus"
             }
         }
     }
 
-No arquivo azuredeploy.parameters.json, atualize o valor "samplearmacct" com o nome do banco de dados que você deseja usar e salve o arquivo. O `"databaseAccountName"` pode usar apenas letras minúsculas, números, o caractere '-' e deve conter entre três e 50 caracteres.
+In the azuredeploy.parameters.json file, update the value field of `"samplearmacct"` to the database name you'd like to use, then save the file. `"databaseAccountName"` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. Update the value field of `"locationName1"` to the region where you would like to create the DocumentDB account.
 
-### Etapa 2: criar ou recuperar o grupo de recursos
+To create a DocumentDB account in your resource group, run the following command and provide the path to the template file, the path to the parameter file or the parameter value, the name of the resource group in which to deploy, and a deployment name (-n is optional). 
 
-Para criar uma conta do Banco de Dados de Documentos, primeiro você precisará de um grupo de recursos. Se você já souber o nome do grupo de recursos que deseja usar, verifique se o local é uma [região na qual o Banco de Dados de Documentos normalmente está disponível](https://azure.microsoft.com/regions/#services) e pule para a [Etapa 3](#create-account-from-template). No modelo, o local da conta é criado na mesma região do grupo de recursos, portanto, tentar criar uma conta em uma região na qual o Banco de Dados de Documentos não está disponível resultará em um erro de implantação.
-
-Para examinar uma lista de todos os grupos de recursos atuais, execute o seguinte comando e anote o nome do grupo de recursos que você deseja usar:
-
-    azure group list
-
-Para criar um novo grupo de recursos, execute o seguinte comando, especifique o nome do novo grupo de recursos a ser criado e a região na qual você quer criar o grupo de recursos:
-
-	azure group create <resourcegroupname> <databaseaccountlocation>
-
- - `<resourcegroupname>` pode usar apenas caracteres alfanuméricos, pontos, sublinhados, o caractere '-' e parênteses, e não pode terminar em um ponto.
- - `<databaseaccountlocation>` deve ser uma das regiões na qual o Banco de Dados de Documentos normalmente está disponível. Confira a lista atual de regiões na [página Regiões do Azure](https://azure.microsoft.com/regions/#services).
-
-Entrada de exemplo:
-
-	azure group create new_res_group westus
-
-Que produz esta saída:
-
-    info:    Executing command group create
-    + Getting resource group new_res_group
-    + Creating resource group new_res_group
-    info:    Created resource group new_res_group
-    data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/new_res_group
-    data:    Name:                new_res_group
-    data:    Location:            West US
-    data:    Provisioning State:  Succeeded
-    data:    Tags: null
-    data:
-    info:    group create command OK
-
-Se você encontrar erros, confira a [Solução de problemas](#troubleshooting).
-
-### <a id="create-account-from-template"></a>Etapa 3: criar a conta do Banco de Dados de Documentos usando um modelo ARM
-
-Para criar uma conta do Banco de Dados de Documentos em seu grupo de recursos, execute o seguinte comando e forneça o caminho até o arquivo de modelo, o caminho até o arquivo de parâmetro ou o valor do parâmetro, o nome do grupo de recursos no qual deseja implantar e um nome de implantação (-n é opcional).
-
-Para usar um arquivo de parâmetro:
+To use a parameter file:
 
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
 
- - `<PathToTemplate>` é o caminho até o arquivo azuredeploy.json criado na Etapa 1. Se o nome do caminho tiver espaços, delimite o parâmetro com aspas duplas.
- - `<PathToParameterFile>` é o caminho até o arquivo azuredeploy.parameters.json criado na Etapa 1. Se o nome do caminho tiver espaços, delimite o parâmetro com aspas duplas.
- - `<resourcegroupname>` é o nome do grupo de recursos existente no qual você quer adicionar uma conta de banco de dados do Banco de Dados de Documentos.
- - `<deploymentname>` é o nome opcional da implantação.
+ - `<PathToTemplate>` is the path to the azuredeploy.json file created in step 1. If your path name has spaces in it, put double quotes around this parameter.
+ - `<PathToParameterFile>` is the path to the azuredeploy.parameters.json file created in step 1. If your path name has spaces in it, put double quotes around this parameter.
+ - `<resourcegroupname>` is the name of the existing resource group in which to add a DocumentDB database account. 
+ - `<deploymentname>` is the optional name of the deployment.
 
-Entrada de exemplo:
+Example input: 
 
     azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json -g new_res_group -n azuredeploy
 
-OU para especificar o parâmetro de nome de conta do banco de dados sem um arquivo de parâmetro e, em vez disso, receber uma solicitação pelo valor, execute o seguinte comando:
+OR to specify the database account name parameter without a parameter file, and instead get prompted for the value, run the following command:
 
     azure group deployment create -f <PathToTemplate> -g <resourcegroupname> -n <deploymentname>
 
-Exemplo de entrada que exibe o prompt e a entrada de uma conta de banco de dados denominada new\_db\_acct:
+Example input which shows the prompt and entry for a database account named samplearmacct:
 
     azure group deployment create -f azuredeploy.json -g new_res_group -n azuredeploy
     info:    Executing command group deployment create
     info:    Supply values for the following parameters
     databaseAccountName: samplearmacct
 
-À medida que a conta for provisionada, você receberá as seguintes informações:
+As the account is provisioned, you receive the following information: 
 
     info:    Executing command group deployment create
     + Initializing template configurations and parameters
@@ -312,51 +280,225 @@ Exemplo de entrada que exibe o prompt e a entrada de uma conta de banco de dados
     data:    Name                 Type    Value
     data:    -------------------  ------  ------------------
     data:    databaseAccountName  String  samplearmacct
+    data:    locationName1        String  westus
     info:    group deployment create command OK
 
-Se você encontrar erros, confira a [Solução de problemas](#troubleshooting).
+If you encounter errors, see [Troubleshooting](#troubleshooting).  
 
-Após o retorno do comando, a conta ficará no estado **Criando** por alguns minutos antes de mudar para o estado **Online**, no qual estará pronta para uso. Você pode verificar o status da conta no [portal do Azure](https://portal.azure.com), na folha **Contas do Banco de Dados de Documentos**.
+After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
 
-## Solucionar problemas
+## <a name="<a-id="create-multi-documentdb-account"></a>task:-create-a-multi-region-documentdb-account"></a><a id="create-multi-documentdb-account"></a>Task: Create a multi-region DocumentDB account
 
-Se você receber erros como `Deployment provisioning state was not successful` ao criar sua conta de banco de dados ou grupo de recursos, poderá usar algumas opções para a solução do problema.
+DocumentDB has the capability to [distribute your data globally][distribute-globally] across various [Azure regions](https://azure.microsoft.com/regions/#services). When creating a DocumentDB account, the regions in which you would like the service to exist can be specified. Use the instructions in this section to create a multi-region DocumentDB account. This can be accomplished using Azure CLI with or without Resource Manager templates.
 
-> [AZURE.NOTE] O fornecimento de caracteres incorretos no nome da conta de banco de dados ou o fornecimento de um local no qual o Banco de Dados de Documentos não está disponível causará erros de implantação. Os nomes de conta de banco de dados podem usar apenas letras minúsculas, números, o caractere '-' e devem ter entre três e 50 caracteres. Todos os locais de conta do banco de dados válidos são listados na [página Regiões do Azure](https://azure.microsoft.com/regions/#services).
+### <a name="<a-id="create-multi-documentdb-account-cli"></a>-create-a-multi-region-documentdb-account-using-azure-cli-without-resource-manager-templates"></a><a id="create-multi-documentdb-account-cli"></a> Create a multi-region DocumentDB account using Azure CLI without Resource Manager templates
 
-- Se a saída apresentar o seguinte `Error information has been recorded to C:\Users\wendy\.azure\azure.err`, examine as informações de erro no arquivo azure.err.
+Create a DocumentDB account in the new or existing resource group by entering the following command at the command prompt:
 
-- Você pode encontrar informações úteis no arquivo de log do grupo de recursos. Para exibir o arquivo de log, execute o seguinte comando:
+> [AZURE.TIP] If you run this command in Azure PowerShell or Windows PowerShell you receive an error about an unexpected token. Instead, run this command at the Windows Command Prompt. 
 
-    	azure group log show <resourcegroupname> --last-deployment
+    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"<databaseaccountlocation1>\",\"failoverPriority\":\"<failoverPriority1>\"},{\"locationName\":\"<databaseaccountlocation2>\",\"failoverPriority\":\"<failoverPriority2>\"}"]}"
 
-    Entrada de exemplo:
+ - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period.
+ - `<resourcegrouplocation>` is the region of the current resource group.
+ - `<databaseaccountname>` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters.
+ - `<databaseaccountlocation1>` and `<databaseaccountlocation2>` must be regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
-    	azure group log show new_res_group --last-deployment
+Example input: 
 
-    Em seguida, confira [Solucionando problemas de implantações do grupo de recursos no Azure](../resource-manager-troubleshoot-deployments-cli.md) para saber mais.
+    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"},{\"locationName\":\"eastus\",\"failoverPriority\":\"1\"}"]}"
 
-- As informações sobre o erro também estão disponíveis no Portal do Azure, conforme mostra a seguinte captura de tela. Para navegar até as informações sobre o erro: clique em Grupos de Recursos na Jumpbar, selecione o Grupo de Recursos que apresentou o erro e, na área Essentials da folha Grupo de Recursos, clique na data da Última Implantação. Na folha Histórico de implantação escolha a implantação com falha e, na folha Implantação, clique no Detalhe da operação com o ponto de exclamação vermelho. A Mensagem de Status da implantação com falha é exibida na folha Detalhes da operação.
+Which produces the following output as your new account is provisioned:
 
-    ![Captura de tela do portal do Azure mostrando como navegar até a mensagem de erro de implantação](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png)
+    info:    Executing command resource create
+    + Getting resource samplecliacct
+    + Creating resource samplecliacct
+    info:    Resource samplecliacct is updated
+    data:
+    data:    Id:        /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/new_res_group/providers/Microsoft.DocumentDB/databaseAccounts/samplecliacct
+    data:    Name:      samplecliacct
+    data:    Type:      Microsoft.DocumentDB/databaseAccounts
+    data:    Parent:
+    data:    Location:  West US
+    data:    Tags:
+    data:
+    info:    resource create command OK
 
-## Próximas etapas
+If you encounter errors, see [Troubleshooting](#troubleshooting). 
 
-Agora que você tem uma conta do Banco de Dados de Documentos, a próxima etapa é criar um banco de dados do Banco de Dados de Documentos. Você pode criar um banco de dados usando:
+After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
 
-- O portal do Azure, como descrito em [Criar um banco de dados do Banco de Dados de Documentos usando o portal do Azure](documentdb-create-database.md).
-- As amostras do C# .NET no projeto [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) do repositório [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) no GitHub.
-- As [SDKs do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx). O Banco de Dados de Documentos tem SDKs de API de JavaScript, .NET, Java, Python e Node.js.
+### <a name="<a-id="create-multi-documentdb-account-cli-arm"></a>-create-a-multi-region-documentdb-account-using-azure-cli-with-resource-manager-templates"></a><a id="create-multi-documentdb-account-cli-arm"></a> Create a multi-region DocumentDB account using Azure CLI with Resource Manager templates
 
-Depois de criar seu banco de dados, você precisa [adicionar uma ou mais coleções](documentdb-create-collection.md) ao banco de dados e [adicionar documentos](documentdb-view-json-document-explorer.md) às coleções.
+The instructions in this section describe how to create a DocumentDB account with an Azure Resource Manager template and an optional parameters file, both of which are JSON files. Using a template enables you to describe exactly what you want and repeat it without errors.
 
-Depois que os documentos estiverem em uma coleção, você poderá usar o [SQL do Banco de Dados de Documentos](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-queries) nos documentos usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no portal, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou um dos [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Create a local template file with the following content. Name the file azuredeploy.json.
 
-Para saber mais sobre o Banco de Dados de Documentos, explore estes recursos:
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "databaseAccountName": {
+                "type": "string"
+            },
+            "locationName1": {
+                "type": "string"
+            },
+            "locationName2": {
+                "type": "string"
+            }
+        },
+        "variables": {},
+        "resources": [
+            {
+                "apiVersion": "2015-04-08",
+                "type": "Microsoft.DocumentDb/databaseAccounts",
+                "name": "[parameters('databaseAccountName')]",
+                "location": "[resourceGroup().location]",
+                "properties": {
+                    "databaseAccountOfferType": "Standard",
+                    "locations": [
+                        {
+                            "failoverPriority": 0,
+                            "locationName": "[parameters('locationName1')]"
+                        },
+                        {
+                            "failoverPriority": 1,
+                            "locationName": "[parameters('locationName2')]"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
 
--	[Roteiro de aprendizagem para o Banco de Dados de Documentos](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
--	[Conceitos e modelo de recursos do Banco de Dados de Documentos](documentdb-resources.md)
+The preceding template file can be used to create a DocumentDB account with two regions. To create the account with more regions, add it to the "locations" array and add the corresponding parameters.
 
-Para obter mais modelos que você possa usar, confira [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
+One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account][scaling-globally]. The failover priority values must be unique among the locations and the highest failover priority value must be less than the total number of regions. You can either enter the value at the command line, or create a parameter file to specify the value.
 
-<!---HONumber=AcomDC_0720_2016-->
+To create a parameters file, copy the following content into a new file and name the file azuredeploy.parameters.json. If you plan on specifying the database account name at the command prompt, you can continue without creating this file.
+
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "databaseAccountName": {
+                "value": "samplearmacct"
+            },
+            "locationName1": {
+                "value": "westus"
+            },
+            "locationName2": {
+                "value": "eastus"
+            }
+        }
+    }
+
+In the azuredeploy.parameters.json file, update the value field of `"samplearmacct"` to the database name you'd like to use, then save the file. `"databaseAccountName"` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. Update the value field of `"locationName1"` and `"locationName2"` to the region where you would like to create the DocumentDB account.
+
+To create a DocumentDB account in your resource group, run the following command and provide the path to the template file, the path to the parameter file or the parameter value, the name of the resource group in which to deploy, and a deployment name (-n is optional). 
+
+To use a parameter file:
+
+    azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
+
+ - `<PathToTemplate>` is the path to the azuredeploy.json file created in step 1. If your path name has spaces in it, put double quotes around this parameter.
+ - `<PathToParameterFile>` is the path to the azuredeploy.parameters.json file created in step 1. If your path name has spaces in it, put double quotes around this parameter.
+ - `<resourcegroupname>` is the name of the existing resource group in which to add a DocumentDB database account. 
+ - `<deploymentname>` is the optional name of the deployment.
+
+Example input: 
+
+    azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json -g new_res_group -n azuredeploy
+
+OR to specify the database account name parameter without a parameter file, and instead get prompted for the value, run the following command:
+
+    azure group deployment create -f <PathToTemplate> -g <resourcegroupname> -n <deploymentname>
+
+Example input, which shows the prompt and entry for a database account named samplearmacct:
+
+    azure group deployment create -f azuredeploy.json -g new_res_group -n azuredeploy
+    info:    Executing command group deployment create
+    info:    Supply values for the following parameters
+    databaseAccountName: samplearmacct
+
+As the account is provisioned, you receive the following information: 
+
+    info:    Executing command group deployment create
+    + Initializing template configurations and parameters
+    + Creating a deployment
+    info:    Created template deployment "azuredeploy"
+    + Waiting for deployment to complete
+    + 
+    + 
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Running
+    + 
+    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Succeeded
+    data:    DeploymentName     : azuredeploy
+    data:    ResourceGroupName  : new_res_group
+    data:    ProvisioningState  : Succeeded
+    data:    Timestamp          : 2015-11-30T18:50:23.6300288Z
+    data:    Mode               : Incremental
+    data:    CorrelationId      : 4a5d4049-c494-4053-bad4-cc804d454700
+    data:    DeploymentParameters :
+    data:    Name                 Type    Value
+    data:    -------------------  ------  ------------------
+    data:    databaseAccountName  String  samplearmacct
+    data:    locationName1        String  westus
+    data:    locationName2        String  eastus
+    info:    group deployment create command OK
+
+If you encounter errors, see [Troubleshooting](#troubleshooting).  
+
+After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
+
+## <a name="troubleshooting"></a>Troubleshooting
+
+If you receive errors like `Deployment provisioning state was not successful` while creating your resource group or database account, you have a few troubleshooting options. 
+
+> [AZURE.NOTE] Providing incorrect characters in the database account name or providing a location in which DocumentDB is not available will cause deployment errors. Database account names can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. All valid database account locations are listed on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+
+- If your output contains the following `Error information has been recorded to C:\Users\wendy\.azure\azure.err`, then review the error info in the azure.err file.
+
+- You may find useful info in the log file for the resource group. To view the log file, run the following command:
+
+        azure group log show <resourcegroupname> --last-deployment
+
+    Example input:
+
+        azure group log show new_res_group --last-deployment
+
+    Then see [Troubleshooting resource group deployments in Azure](../resource-manager-troubleshoot-deployments-cli.md) for additional information.
+
+- Error information is also available in the Azure portal as shown in the following screenshot. To navigate to the error info: click Resource Groups in the Jumpbar, select the Resource Group that had the error, then in the Essentials area of the Resource group blade click the date of the Last Deployment, then in the Deployment history blade select the failed deployment, then in the Deployment blade click the Operation detail with the red exclamation mark. The Status Message for the failed deployment is displayed in the Operation details blade. 
+
+    ![Screenshot of the Azure portal showing how to navigate to the deployment error message](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png) 
+
+## <a name="next-steps"></a>Next steps
+
+Now that you have a DocumentDB account, the next step is to create a DocumentDB database. You can create a database by using one of the following:
+
+- The Azure portal, as described in [Create a DocumentDB database using the Azure portal](documentdb-create-database.md).
+- The C# .NET samples in the [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) project of the [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) repository on GitHub.
+- The [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs. 
+
+After creating your database, you need to [add one or more collections](documentdb-create-collection.md) to the database, then [add documents](documentdb-view-json-document-explorer.md) to the collections. 
+
+After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#executing-queries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+
+To learn more about DocumentDB, explore these resources:
+
+-   [Learning path for DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
+-   [DocumentDB resource model and concepts](documentdb-resources.md)
+
+For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/).
+
+
+<!--Reference style links - using these makes the source content way more readable than using inline links-->
+[distribute-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally
+[scaling-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
+
+
+<!--HONumber=Oct16_HO2-->
+
+

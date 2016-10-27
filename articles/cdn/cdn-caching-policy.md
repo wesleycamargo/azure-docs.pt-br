@@ -1,47 +1,52 @@
 <properties
-	pageTitle="Política de armazenamento em cache de CDN na extensão dos Serviços de Mídia"
-	description="Este tópico fornece uma visão geral de uma política de armazenamento em cache de CDN na extensão dos Serviços de Mídia."
-	services="media-services,cdn"
-	documentationCenter=".NET"
-	authors="juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle="CDN Caching Policy in Media Services Extension"
+    description="This topic gives an overview of a CDN caching policy in Media Services Extension."
+    services="media-services,cdn"
+    documentationCenter=".NET"
+    authors="juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/19/2016"
+    ms.author="juliako"/>
  
-#Política de armazenamento em cache de CDN na extensão dos Serviços de Mídia
 
-Os Serviços de Mídia do Azure fornecem streaming adaptável e download progressivo com base em HTTP. Streaming com base em HTTP é altamente escalonável, com os benefícios do armazenamento em cache em camadas proxy e CDN, bem como armazenamento em cache no lado do cliente. Pontos de extremidade de streaming fornecem recursos de streaming gerais e também a configuração de cabeçalhos de cache HTTP. Pontos de extremidade de streaming definem o Controle de Cache HTTP: cabeçalhos idade máxima e Vencimento. Saiba mais sobre os cabeçalhos de cache HTTP em [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
+#<a name="cdn-caching-policy-in-media-services-extension"></a>CDN Caching Policy in Media Services Extension
 
-##Cabeçalhos de armazenamento em cache padrão
+Azure Media Services provides HTTP based Adaptive Streaming and progressive download. HTTP based streaming is highly scalable with benefits of caching in proxy and CDN layers as well as client side caching. Streaming endpoints provides general streaming capabilities and also configuration for HTTP cache headers. Streaming endpoints sets HTTP Cache-Control: max-age and Expires headers. You can get more information for HTTP cache headers from [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
 
-Por padrão, os pontos de extremidade de streaming aplicam cabeçalhos de cache de 3 dias para dados de streaming sob demanda (fragmentos/partes reais de mídia) e manifesto (lista de reprodução). Para transmissão ao vivo, os pontos de extremidade de streaming aplicam cabeçalhos de cache de 3 dias para solicitações de dados (fragmentos/partes reais de mídia) e cabeçalho de cache de 2 segundos para solicitações de manifesto (lista de reprodução). Quando os programa ao vivo são transformados em sob demanda (arquivamento dinâmico) os cabeçalhos de cache de streaming sob demanda são aplicados.
+##<a name="default-caching-headers"></a>Default Caching headers
 
-##Integração da CDN com o Azure
+By default streaming-endpoints apply 3 day cache headers for on-demand streaming data (actual media fragments/chunks) and manifest(playlist). For live streaming, streaming endpoints apply 3 day cache headers for data (actual media fragments/chunks) and 2 seconds cache header for manifest(playlist) requests. When live program turns to on-demand (live archive) then on-demand streaming cache headers apply.
 
-Os Serviços de Mídia do Azure fornecem [CDN integrada](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) para pontos de extremidade de streaming. Cabeçalhos do controle de cache são aplicados da mesma forma que os pontos de extremidade de streaming para pontos de extremidade de streaming habilitados para CDN. O Azure CDN usa os valores de cache configurados para o ponto de extremidade de streaming para definir o tempo de vida dos objetos armazenados internamente em cache e também usa esse valor para definir os cabeçalhos de cache de entrega. Ao usar os pontos de extremidades de streaming habilitados para CDN, não é recomendável definir valores pequenos para o cache. A definição de valores pequenos diminuirá o desempenho e reduzirá o benefício da CDN. Não é permitido definir cabeçalhos de cache menores do que 600 segundos para pontos de extremidades de streaming habilitados para CDN.
+##<a name="azure-cdn-integration"></a>Azure CDN integration
 
->[AZURE.IMPORTANT] Integração dos Serviços de Mídia do Azure com a CDN do Azure é implementada na **CDN do Azure da Verizon**. Para usar a **CDN do Azure da Akamai** para Serviços de Mídia do Azure, é preciso [configurar o ponto de extremidade manualmente](cdn-create-new-endpoint.md). Para obter mais informações sobre os recursos da CDN do Azure, consulte [Visão geral da CDN](cdn-overview.md).
+Azure Media Services provides [integrated CDN](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) for streaming-endpoints. Cache-control headers applies in the same way as streaming endpoints to CDN enabled streaming endpoints. Azure CDN uses streaming endpoint configured cache values to define the life time of the internally cached objects and also uses this value to set the delivery cache headers. When using CDN enabled streaming endpoints it is not recommended to set small cache values. Setting small values will decrease the performance and reduce the benefit of CDN. It is not allowed to set cache headers smaller than 600 seconds for CDN enabled streaming endpoints.
 
-##Configurando os cabeçalhos de cache com os Serviços de Mídia do Azure
+>[AZURE.IMPORTANT] Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon**.  If you wish to use **Azure CDN from Akamai** for Azure Media Services, you must [configure the endpoint manually](cdn-create-new-endpoint.md).  For more information about Azure CDN features, see the [CDN overview](cdn-overview.md).
 
-Você pode usar o Portal de Gerenciamento do Azure ou as APIs de Serviços de Mídia do Azure para configurar os valores de cabeçalho de cache.
+##<a name="configuring-cache-headers-with-azure-media-services"></a>Configuring cache headers with Azure Media Services
 
-1. Para configurar cabeçalhos de cache usando o Portal de Gerenciamento, consulte [Como gerenciar pontos de extremidade de streaming](../media-services/media-services-portal-manage-streaming-endpoints.md), seção Configurando o ponto de extremidade de streaming.
-2. API REST dos Serviços de Mídia do Azure, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
-3. SDK do .NET dos Serviços de Mídia do Azure, [Propriedades de StreamingEndpointCacheControl](http://go.microsoft.com/fwlink/?LinkId=615302).
+You can use Azure Management portal or Azure Media Services APIs to configure cache header values.
 
-##Ordem de precedência de configuração do cache
+1. To configure cache headers using management portal please refer to [How to Manage Streaming Endpoints](../media-services/media-services-portal-manage-streaming-endpoints.md) section Configuring the Streaming Endpoint.
+2. Azure Media Services REST API, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
+3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl Properties](http://go.microsoft.com/fwlink/?LinkId=615302).
 
-1. O valor de cache configurado dos Serviços de Mídia do Azure substitui o valor padrão.
-2. Se não houver configuração manual, os valores padrão serão aplicados.
-3. Por padrão, os cabeçalhos de cache de 2 segundos são aplicados ao manifesto (lista de reprodução) do streaming dinâmico, independentemente da configuração de Mídia do Azure ou do Armazenamento do Azure, e não é possível substituir esse valor.
+##<a name="cache-configuration-precedence-order"></a>Cache configuration precedence order
 
-<!---HONumber=AcomDC_0921_2016-->
+1. Azure Media Services configured cache value overrides default value.
+2. If there is no manual configuration, default values applies.
+3. By default 2 seconds cache headers applies to live streaming manifest(playlist) regardless of Azure Media or Azure Storage configuration and overriding of this value is not available.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

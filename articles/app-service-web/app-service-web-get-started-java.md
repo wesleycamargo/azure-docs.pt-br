@@ -1,128 +1,135 @@
 <properties 
-	pageTitle="Implante seu primeiro aplicativo Web Java no Azure em cinco minutos | Microsoft Azure" 
-	description="Saiba como é fácil executar aplicativos Web no Serviço de Aplicativo implantando um aplicativo de exemplo. Inicie o desenvolvimento real rapidamente e veja os resultados imediatamente." 
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor=""
+    pageTitle="Deploy your first Java web app to Azure in five minutes | Microsoft Azure" 
+    description="Learn how easy it is to run web apps in App Service by deploying a sample app. Start doing real development quickly and see results immediately." 
+    services="app-service\web"
+    documentationCenter=""
+    authors="cephalin"
+    manager="wpickett"
+    editor=""
 />
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="09/16/2016" 
-	ms.author="cephalin"
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="09/16/2016" 
+    ms.author="cephalin"
 />
-	
-# Implante seu primeiro aplicativo Web Java no Azure em cinco minutos
+    
 
-Este tutorial o ajuda a implantar um aplicativo Web Java simples para o [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md). Você pode usar o Serviço de Aplicativo para criar aplicativos Web, [back-ends de aplicativos móveis](/documentation/learning-paths/appservice-mobileapps/) e [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md).
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>Deploy your first Java web app to Azure in five minutes
 
-Você irá:
+This tutorial helps you deploy a simple Java web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
+You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/), and [API apps](../app-service-api/app-service-api-apps-why-best-platform.md).
 
-- Criar um aplicativo Web no Serviço de Aplicativo do Azure.
-- Implante um aplicativo Java de exemplo.
-- Ver seu código em execução na produção.
+You will: 
 
-## Pré-requisitos
+- Create a web app in Azure App Service.
+- Deploy a sample Java app.
+- See your code running live in production.
 
-- Obtenha um cliente FTP/FTPS, como [FileZilla](https://filezilla-project.org/).
-- Obtenha uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) ou [ativar seus benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+## <a name="prerequisites"></a>Prerequisites
 
->[AZURE.NOTE] Você pode [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) sem uma conta do Azure. Crie um aplicativo inicial e brinque com ele por até uma hora: não é necessário cartão de crédito ou compromissos.
+- Get an FTP/FTPS client, such as [FileZilla](https://filezilla-project.org/).
+- Get a Microsoft Azure account. If you don't have an account, you can [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+
+>[AZURE.NOTE] You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with it for up to an hour--no credit card required, no commitments.
 
 <a name="create"></a>
-## Criar um aplicativo Web
+## <a name="create-a-web-app"></a>Create a web app
 
-1. Entre no [portal do Azure](https://portal.azure.com) com sua conta do Azure.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-2. No menu à esquerda, clique em **Novo** > **Web + Móvel** > **Aplicativo Web**.
+2. From the left menu, click **New** > **Web + Mobile** > **Web App**.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-portal.png)
 
-3. Na folha de criação do aplicativo, use as seguintes configurações para o novo aplicativo:
+3. In the app creation blade, use the following settings for your new app:
 
-    - **Nome do aplicativo**: digite um nome exclusivo.
-    - **Grupo de recursos**: selecione **Criar novo** e dê um nome ao grupo de recursos.
-    - **Local/Plano do Serviço de Aplicativo**: clique para configurar e clique em **Criar Novo** para definir o nome, o local e o tipo de preço do Plano do Serviço de Aplicativo. Fique à vontade para usar o tipo de preço **Gratuito**.
+    - **App name**: Type a unique name.
+    - **Resource group**: Select **Create new** and give the resource group a name.
+    - **App Service plan/Location**: Click it to configure, then click **Create New** to set the name, location, and pricing tier of the App Service plan. Feel free to use the **Free** pricing tier.
 
-    Quando terminar, a folha de criação do aplicativo deve ter esta aparência:
+    When you're done, your app creation blade should look like this:
 
     ![](./media/app-service-web-get-started-languages/create-web-app-settings.png)
 
-3. Clique em **Criar** na parte inferior. Você pode clicar no ícone **Notificação** na parte superior para ver o progresso.
+3. Click **Create** at the bottom. You can click the **Notification** icon at the top to see the progress.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-started.png)
 
-4. Quando a implantação for concluída, você verá esta mensagem de notificação. Clique na mensagem para abrir a folha da implantação.
+4. When deployment is finished, you should see this notification message. Click the message to open your deployment's blade.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-finished.png)
 
-5. Na folha **Implantação com êxito**, clique no link **Recurso** para abrir a folha do novo aplicativo Web.
+5. In the **Deployment succeeded** blade, click the **Resource** link to open your new web app's blade.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
 
-## Implante um aplicativo Java em seu aplicativo Web
+## <a name="deploy-a-java-app-to-your-web-app"></a>Deploy a Java app to your web app
 
-Agora, vamos implantar um aplicativo Java no Azure usando FTPS.
+Now, let's deploy a Java app to Azure using FTPS.
 
-5. Na folha do aplicativo Web, role para baixo até as **Configurações do aplicativo** ou procure-as e clique nelas.
-
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
-
-6. Em **versão Java**, selecione **Java 8** e clique em **Salvar**.
+5. In the web app blade, scroll down to **Application settings** or search for it, then click it. 
 
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 
-    Quando chegar a notificação **Configurações do aplicativo Web atualizadas com êxito**, navegue até http://*&lt;appname>*.azurewebsites.net para ver o servlet do JSP padrão em ação.
+6. In **Java version**, select **Java 8** and click **Save**.
 
-7. Na folha do aplicativo Web, role para baixo até as **Credenciais de implantação** ou procure-as e clique nelas.
+    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 
-8. Configure suas credenciais de implantação e clique em **Salvar**.
+    When you get the notificiation **Successfully updated web app settings**, navigate to http://*&lt;appname>*.azurewebsites.net  to see the default JSP servlet in action.
 
-7. Na folha do aplicativo Web, clique em **Visão geral**. Próximo ao **Nome de usuário FTP/Implantação** e **Nome de host FTPS**, clique no botão **Copiar** para copiar esses valores.
+7. Back in the web app blade, scroll down to **Deployment credentials** or search for it, then click it.
+
+8. Set your deployment credentials and click **Save**.
+
+7. Back in the web app blade, click **Overview**. Next to **FTP/Deployment username** and **FTPS hostname**, click the **Copy** button to copy these values.
 
     ![](./media/app-service-web-get-started-languages/get-ftp-url.png)
 
-    Você está pronto para implantar seu aplicativo Java com o FTPS.
+    You're now ready to deploy your Java app with FTPS.
 
-8. Em seu cliente FTP/FTPS, faça logon no servidor FTP do seu aplicativo web do Azure usando os valores que você copiou na última etapa. Use a senha de implantação que você criou anteriormente.
+8. In your FTP/FTPS client, log in to your Azure web app's FTP server using the values you copied in the last step. Use the deployment password that you created earlier.
 
-    A captura de tela a seguir mostra o log usando o FileZilla.
+    The following screenshot shows logging in using FileZilla.
 
     ![](./media/app-service-web-get-started-languages/filezilla-login.png)
 
-    Você pode ver avisos de segurança para o certificado SSL não reconhecido do Azure. Vá em frente e continue.
+    You may see security warnings for the unrecognized SSL certificate from Azure. Go ahead and continue.
 
-9. Clique [nesse link](https://github.com/Azure-Samples/app-service-web-java-get-started/raw/master/webapps/ROOT.war) para baixar o arquivo WAR em seu computador local.
+9. Click [this link](https://github.com/Azure-Samples/app-service-web-java-get-started/raw/master/webapps/ROOT.war) to download the WAR file to your local machine.
 
-9. Em seu cliente FTP/FTPS, navegue até **/site/wwwroot/webapps** no site remoto e arraste o arquivo WAR baixado em seu computador local no diretório remoto.
+9. In your FTP/FTPS client, navigate to **/site/wwwroot/webapps** in the remote site, and drag the downloaded WAR file on your local machine into that remote directory.
 
     ![](./media/app-service-web-get-started-languages/transfer-war-file.png)
 
-    Clique em **OK** para substituir o arquivo no Azure.
+    Click **OK** to override the file in Azure.
 
-    >[AZURE.NOTE] De acordo com o comportamento padrão do Tomcat, o nome de arquivo **ROOT.war** em /site/wwwroot/webapps lhe dá o aplicativo web raiz (http://*&lt;appname>*. azurewebsites.net) e o nome de arquivo ***&lt;anyname>*.war** fornece um aplicativo Web nomeado (http://*&lt;appname>*.azurewebsites.net/*&lt;anyname>*).
+    >[AZURE.NOTE] In accordance with Tomcat's default behavior, filename **ROOT.war** in /site/wwwroot/webapps gives you the root web app (http://*&lt;appname>*.azurewebsites.net), and filename ***&lt;anyname>*.war** gives you a named web app (http://*&lt;appname>*.azurewebsites.net/*&lt;anyname>*).
 
-É isso! Seu aplicativo Java agora está em execução no Azure. No navegador, vá até http://*&lt;appname>*.azurewebsites.net para vê-lo em ação.
+That's it! Your Java app is now running live in Azure. In your browser, navigate to http://*&lt;appname>*.azurewebsites.net to see it in action. 
 
-## Fazer atualizações no aplicativo
+## <a name="make-updates-to-your-app"></a>Make updates to your app
 
-Sempre que você precisar fazer uma atualização, basta carregar o novo arquivo WAR no mesmo diretório remoto com o cliente FTP/FTPS.
+Whenever you need to make an update, just upload the new WAR file to the same remote directory with your FTP/FTPS client.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-[Criar um aplicativo Web Java de um modelo no Azure Marketplace](web-sites-java-get-started.md#marketplace). Você pode obter seu próprio contêiner Tomcat totalmente personalizável e obter interface do usuário do Manager familiar.
+[Create a Java web app from a template in the Azure Marketplace](web-sites-java-get-started.md#marketplace). You can get your own fully-customizable Tomcat container and get the familiar Manager UI. 
 
-Depure seu aplicativo Web, diretamente no [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) ou [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
+Debug your Azure web app, directly in [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) or [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
 
-Ou faça mais com seu primeiro aplicativo Web. Por exemplo:
+Or, do more with your first web app. For example:
 
-- Experimente [outras maneiras de implantar seu código no Azure](../app-service-web/web-sites-deploy.md). Por exemplo, para implantar de um dos repositórios GitHub, basta selecionar **GitHub** em vez de **Repositório Git Local** nas **Opções de implantação**.
-- Leve o aplicativo do Azure para o próximo patamar. Autenticar os usuários. Dimensione-o com base na demanda. Configure alguns alertas de desempenho. Tudo isso com apenas alguns cliques. Confira [Adicionar funcionalidade a seu primeiro aplicativo Web](app-service-web-get-started-2.md).
+- Try out [other ways to deploy your code to Azure](../app-service-web/web-sites-deploy.md). For example, to deploy from one of your GitHub repositories, simply select **GitHub** instead of **Local Git Repository** in **Deployment options**.
+- Take your Azure app to the next level. Authenticate your users. Scale it based on demand. Set up some performance alerts. All with a few clicks. See [Add functionality to your first web app](app-service-web-get-started-2.md).
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

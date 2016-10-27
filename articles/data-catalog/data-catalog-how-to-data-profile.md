@@ -1,94 +1,99 @@
 <properties
-	pageTitle="Como criar um perfil de dados para fontes de dados"
-	description="Artigo de instruções destacando como incluir os perfis de dados nos níveis da tabela e da coluna ao registrar as fontes de dados no Catálogo de Dados do Azure e como usar os perfis de dados para entender as fontes de dados."
-	services="data-catalog"
-	documentationCenter=""
-	authors="spelluru"
-	manager="NA"
-	editor=""
-	tags=""/>
+    pageTitle="How to Data profile data sources"
+    description="How-to article highlighting how to include table- and column-level data profiles when registering data sources in Azure Data Catalog, and how to use data profiles to understand data sources."
+    services="data-catalog"
+    documentationCenter=""
+    authors="spelluru"
+    manager="NA"
+    editor=""
+    tags=""/>
 <tags
-	ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="09/13/2016"
-	ms.author="spelluru"/>
+    ms.service="data-catalog"
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="data-catalog"
+    ms.date="09/13/2016"
+    ms.author="spelluru"/>
 
-# Fontes de dados de perfil de dados
 
-## Introdução
+# <a name="data-profile-data-sources"></a>Data profile data sources
 
-O**Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, o **Catálogo de Dados do Azure** ajuda as pessoas a descobrir, entender e usar fontes de dados, ajudando as empresas a obter mais valor de seus dados existentes. Quando uma fonte de dados é registrada no **Catálogo de Dados do Azure**, seus metadados são copiados e indexados pelo serviço, mas a história não para por aí.
+## <a name="introduction"></a>Introduction
 
-O recurso **Criação de Perfil de Dados** do **Catálogo de Dados do Azure** examina os dados de fontes de dados com suporte no catálogo e coleta estatísticas e informações sobre esses dados. É fácil incluir um perfil de seus ativos de dados. Ao registrar um ativo de dados, escolha **Incluir Perfil de Dados** na ferramenta de registro de fonte de dados.
+**Microsoft Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. In other words, **Azure Data Catalog** is all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data. When a data source is registered with **Azure Data Catalog**, its metadata is copied and indexed by the service, but the story doesn’t end there.
 
-## O que é a criação de perfil de dados
+The **Data Profiling** feature of **Azure Data Catalog** examines the data from supported data sources in your catalog and collects statistics and information about that data. It's easy to include a profile of your data assets. When you register a data asset, choose **Include Data Profile** in the data source registration tool.
 
-A criação de perfil de dados examina os dados na fonte de dados que está sendo registrada e coleta estatísticas e informações sobre esses dados. Durante a descoberta de fonte de dados, as estatísticas podem ajudar você a determinar a adequação dos dados para resolver seu problema de negócios.
+## <a name="what-is-data-profiling"></a>What is Data Profiling
+
+Data profiling examines the data in the data source being registered, and collects statistics and information about that data. During data source discovery, these statistics can help you determine the suitability of the data to solve their business problem.
 
 <!-- In [How to discover data sources](data-catalog-how-to-discover.md), you learn about **Azure Data Catalog's** extensive search capabilities including searching for data assets that have a profile. See [How to include a data profile when registering a data source](#howto). -->
 
-As seguintes fontes de dados dão suporte à criação de perfil de dados:
+The following data sources support data profiling:
 
-- Tabelas e exibições do SQL Server (incluindo o Banco de Dados SQL do Azure e o Azure SQL Data Warehouse)
-- Tabelas e exibições do oracle
-- Tabelas e exibições do Teradata
-- Tabelas do Hive
+- SQL Server (including Azure SQL DB and Azure SQL Data Warehouse) tables and views
+- Oracle tables and views
+- Teradata tables and views
+- Hive tables
 
-A inclusão de perfis de dados ao registrar ativos de dados ajuda os usuários a responder a perguntas sobre fontes de dados, incluindo:
+Including data profiles when registering data assets helps users answer questions about data sources, including:
 
--	Ele pode ser usado para resolver meu problema de negócios?
--	Os dados estão em conformidade com padrões específicos?
--	Quais são algumas das anomalias da fonte de dados?
--	Quais são os possíveis desafios de integração desses dados a meu aplicativo?
+-   Can it be used to solve my business problem?
+-   Does the data conform to particular standards or patterns?
+-   What are some of the anomalies of the data source?
+-   What are possible challenges of integrating this data into my application?
 
-> [AZURE.NOTE] Você também pode adicionar documentação a um ativo para descrever como os dados podem ser integrados a um aplicativo. Confira [Como documentar fontes de dados](data-catalog-how-to-documentation.md).
+> [AZURE.NOTE] You can also add documentation to an asset to describe how data could be integrated into an application. See [How to document data sources](data-catalog-how-to-documentation.md).
 
 
 <a name="howto"/>
-## Como incluir um perfil de dados ao registrar uma fonte de dados
+## <a name="how-to-include-a-data-profile-when-registering-a-data-source"></a>How to include a data profile when registering a data source
 
-É fácil incluir um perfil de sua fonte de dados. Ao registrar uma fonte de dados, no painel **Objetos a serem registrados** da ferramenta de registro de fonte de dados, escolha **Incluir Perfil de Dados**.
+It's easy to include a profile of your data source. When you register a data source, in the **Objects to be registered** panel of the data source registration tool, choose **Include Data Profile**.
 
 ![](media\data-catalog-data-profile\data-catalog-register-profile.png)
 
-Para saber mais sobre como registrar fontes de dados, confira [Como registrar fontes de dados](data-catalog-how-to-register.md) e [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md).
+To learn more about how to register data sources, see [How to register data sources](data-catalog-how-to-register.md) and [Get started with Azure Data Catalog](data-catalog-get-started.md).
 
 
-## Filtragem de ativos de dados que incluem perfis de dados
-Para descobrir ativos de dados que incluem um perfil de dados, você pode incluir `has:tableDataProfiles`ou `has:columnsDataProfiles`como um dos seus termos de pesquisa.
+## <a name="filtering-on-data-assets-that-include-data-profiles"></a>Filtering on data assets that include data profiles
+To discover data assets that include a data profile, you can include `has:tableDataProfiles` or `has:columnsDataProfiles` as one of your search terms.
 
-> [AZURE.NOTE] A seleção de **Incluir Dados de Perfil** na ferramenta de registro de fonte de dados inclui informações de perfil de nível de coluna e da tabela. No entanto, a API de Catálogo de Dados permite que os ativos de dados sejam registrados com um único conjunto de informações de perfil incluído.
+> [AZURE.NOTE] Selecting **Include Data Profile** in the data source registration tool includes both table and column-level profile information. However, the Data Catalog API allows data assets to be registered with only one set of profile information included.
 
-## Exibição de informações de perfil de dados
+## <a name="viewing-data-profile-information"></a>Viewing data profile information
 
-Depois de encontrar uma fonte de dados adequada com um perfil, você pode exibir os detalhes do perfil de dados. Para exibir o perfil de dados, selecione um ativo de dados e escolha **Perfil de Dados** na janela do portal do Catálogo de Dados.
+Once you find a suitable data source with a profile, you can view the data profile details. To view the data profile, select a data asset and choose **Data Profile** in the Data Catalog portal window.
 
 ![](media\data-catalog-data-profile\data-catalog-view.png)
 
-Um perfil de dados no **Catálogo de Dados do Azure** mostra informações de perfil de tabela e coluna, incluindo:
+A data profile in **Azure Data Catalog** shows table and column profile information including:
 
-### Perfil de dados de objeto
+### <a name="object-data-profile"></a>Object data profile
 
--	Número de linhas
--	Tamanho de tabela
--	Quando o objeto foi atualizado pela última vez
+-   Number of rows
+-   Table size
+-   When the object was last updated
 
-### Perfil de dados de coluna
+### <a name="column-data-profile"></a>Column data profile
 
-- Tipo de dados de coluna
-- Número de valores distintos
-- Número de linhas com valores NULL
-- Desvio mínimo, máximo, médio e padrão para valores de colunas
+- Column data type
+- Number of distinct values
+- Number of rows with NULL values
+- Minimum, maximum, average, and standard deviation for column values
 
-## Resumo
-A criação de perfil de dados fornece estatísticas e informações sobre ativos de dados registrados para ajudar você a determinar a adequação dos dados para solucionar problemas de negócios. Além de anotar e documentar fontes de dados, os perfis de dados podem dar aos usuários uma compreensão mais profunda dos dados.
+## <a name="summary"></a>Summary
+Data profiling provides statistics and information about registered data assets to help you determine the suitability of the data to solve business problems. Along with annotating, and documenting data sources, data profiles can give users a deeper understanding of your data.
 
 
-## Consulte também
--	[Como registrar fontes de dados](data-catalog-how-to-register.md)
--	[Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)
+## <a name="see-also"></a>See Also
+-   [How to register data sources](data-catalog-how-to-register.md)
+-   [Get started with Azure Data Catalog](data-catalog-get-started.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

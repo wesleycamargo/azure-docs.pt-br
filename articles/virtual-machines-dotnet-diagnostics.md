@@ -1,82 +1,84 @@
 <properties
-	pageTitle="Como usar o diagnóstico do Azure em Máquinas Virtuais | Microsoft Azure"
-	description="Usando o diagnóstico do Azure para coletar dados de Máquinas Virtuais do Azure para depuração, medição de desempenho, monitoramento, análise de tráfego e muito mais."
-	services="virtual-machines"
-	documentationCenter=".net"
-	authors="rboucher"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="How to use Azure diagnostics in Virtual Machines  | Microsoft Azure"
+    description="Using Azure diagnostics to gather data from Azure Virtual Machines for debugging, measuring performance, monitoring, traffic analysis, and more."
+    services="virtual-machines"
+    documentationCenter=".net"
+    authors="rboucher"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="02/20/2016"
-	ms.author="robb"/>
+    ms.service="virtual-machines"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="02/20/2016"
+    ms.author="robb"/>
 
 
 
-# Habilitando o diagnóstico em Máquinas Virtuais do Azure
 
-Confira [Visão geral do Diagnóstico do Azure](azure-diagnostics.md) para obter informações preliminares sobre o Diagnóstico do Azure.
+# <a name="enabling-diagnostics-in-azure-virtual-machines"></a>Enabling Diagnostics in Azure Virtual Machines
 
-## Como habilitar o Diagnostics em uma Máquina Virtual
+See [Azure Diagnostics Overview](azure-diagnostics.md) for a background on Azure Diagnostics.
 
-Esse passo a passo descreve como instalar remotamente o Diagnostics em uma máquina virtual do Azure a partir de um computador de desenvolvedor. Você também aprende como implementar um aplicativo que executa nesta máquina virtual do Azure e emite dados de telemetria usando o .NET [EventSource Class][]. O Diagnóstico do Azure é usado para coletar a telemetria e armazená-la em uma conta de armazenamento do Azure.
+## <a name="how-to-enable-diagnostics-in-a-virtual-machine"></a>How to Enable Diagnostics in a Virtual Machine
 
-### Pré-requisitos
-Esse passo a passo assume que você tem uma assinatura do Azure e está usando o Visual Studio 2013 com o SDK do Azure. Se você não tiver uma conta do Azure, será possível se inscrever para um [Teste Gratuito][]. Certifique-se de [Instalar e configurar o PowerShell do Azure, versão 0.8.7 ou posterior][].
+This walk through describes how to remotely install Diagnostics to an Azure virtual machine from a development computer. You also learn how to implement an application that runs on that Azure virtual machine and emits telemetry data using the .NET [EventSource Class][]. Azure Diagnostics is used to collect the telemetry and store it in an Azure storage account.
 
-### Etapa 1: Criar uma máquina virtual
-1.	No computador do desenvolvedor, inicie o Visual Studio 2013.
-2.	No **Gerenciador de Servidores** do Visual Studio, expanda o **Azure**, clique com botão direito do mouse em **Máquinas Virtuais** e, em seguida, selecione **Criar Máquina Virtual**.
-3.	Selecione sua assinatura do Azure na caixa de diálogo **Escolher uma Assinatura** e clique em **Avançar**.
-4.	Selecione **Windows Server 2012 R2 Datacenter, novembro de 2014** na caixa de diálogo **Selecionar uma Imagem da Máquina Virtual** e clique em **Avançar**.
-5.	Nas **Configurações Básicas da Máquina Virtual**, defina o nome da máquina virtual para "wadexample". Defina o nome de usuário e senha do Administrador clique em **Avançar**.
-6.	Na caixa de diálogo **Configurações de Serviço de Nuvem**, crie um novo serviço de nuvem chamado "wadexampleVM". Crie uma nova conta de Armazenamento chamada "wadexample" e clique em **Avançar**.
-7.	Clique em **Criar**.
+### <a name="pre-requisites"></a>Pre-requisites
+This walk through assumes you have an Azure subscription and are using Visual Studio 2013 with the Azure SDK. If you do not have an Azure subscription, you can sign up for the [Free Trial][]. Make sure to [Install and configure Azure PowerShell version 0.8.7 or later][].
 
-### Etapa 2: Criar o seu aplicativo
-1.	No computador do desenvolvedor, inicie o Visual Studio 2013.
-2.	Crie um novo aplicativo de console do Visual C# que se destina ao .NET Framework 4.5. Atribua o nome “WadExampleVM” ao projeto. ![CloudServices\_diag\_new\_project](./media/virtual-machines-dotnet-diagnostics/NewProject.png)
-3.	Substitua os conteúdos do Program.cs pelo código a seguir. A classe **SampleEventSourceWriter** implementa quatro métodos de registro em log: **SendEnums**, **MessageMethod**, **SetOther** e **HighFreq**. O primeiro parâmetro para o método WriteEvent define a ID para o respectivo evento. O método Executar implementa um loop infinito que chama cada um dos métodos de registro implementados na classe **SampleEventSourceWriter** a cada 10 segundos.
+### <a name="step-1:-create-a-virtual-machine"></a>Step 1: Create a Virtual Machine
+1.  On your development computer, launch Visual Studio 2013.
+2.  In the Visual Studio **Server Explorer** expand **Azure**, right-click **Virtual Machines** then select **Create Virtual Machine**.
+3.  Select your Azure subscription in the **Choose a Subscription** dialog and click **Next**.
+4.  Select **Windows Server 2012 R2 Datacenter, November 2014** in the **Select a Virtual Machine Image** dialog and click **Next**.
+5.  In the **Virtual Machine Basic Settings**, set the virtual machine name to "wadexample". Set your Administrator user name and password and click **Next**.
+6.  In the **Cloud Service Settings** dialog create a new cloud service named "wadexampleVM". Create a new Storage account named "wadexample" and click **Next**.
+7.  Click **Create**.
 
-		using System;
-		using System.Diagnostics;
-		using System.Diagnostics.Tracing;
-		using System.Threading;
+### <a name="step-2:-create-your-application"></a>Step 2: Create your Application
+1.  On your development computer, launch Visual Studio 2013.
+2.  Create a new Visual C# Console Application that targets .NET Framework 4.5. Name the project "WadExampleVM".
+    ![CloudServices_diag_new_project](./media/virtual-machines-dotnet-diagnostics/NewProject.png)
+3.  Replace the contents of Program.cs with the following code. The class **SampleEventSourceWriter** implements four logging methods: **SendEnums**, **MessageMethod**, **SetOther** and **HighFreq**. The first parameter to the WriteEvent method defines the ID for the respective event. The Run method implements an infinite loop that calls each of the logging methods implemented in the **SampleEventSourceWriter** class every 10 seconds.
 
-		namespace WadExampleVM
-		{
-    	sealed class SampleEventSourceWriter : EventSource
-    	{
-        	public static SampleEventSourceWriter Log = new SampleEventSourceWriter();
-        	public void SendEnums(MyColor color, MyFlags flags) { if (IsEnabled())  WriteEvent(1, (int)color, (int)flags); }// Cast enums to int for efficient logging.
-        	public void MessageMethod(string Message) { if (IsEnabled())  WriteEvent(2, Message); }
-        	public void SetOther(bool flag, int myInt) { if (IsEnabled())  WriteEvent(3, flag, myInt); }
-        	public void HighFreq(int value) { if (IsEnabled()) WriteEvent(4, value); }
+        using System;
+        using System.Diagnostics;
+        using System.Diagnostics.Tracing;
+        using System.Threading;
 
-    	}
+        namespace WadExampleVM
+        {
+        sealed class SampleEventSourceWriter : EventSource
+        {
+            public static SampleEventSourceWriter Log = new SampleEventSourceWriter();
+            public void SendEnums(MyColor color, MyFlags flags) { if (IsEnabled())  WriteEvent(1, (int)color, (int)flags); }// Cast enums to int for efficient logging.
+            public void MessageMethod(string Message) { if (IsEnabled())  WriteEvent(2, Message); }
+            public void SetOther(bool flag, int myInt) { if (IsEnabled())  WriteEvent(3, flag, myInt); }
+            public void HighFreq(int value) { if (IsEnabled()) WriteEvent(4, value); }
 
-    	enum MyColor
-    	{
-        	Red,
-        	Blue,
-        	Green
-    	}
+        }
 
-    	[Flags]
-    	enum MyFlags
-    	{
-        	Flag1 = 1,
-        	Flag2 = 2,
-        	Flag3 = 4
-    	}
+        enum MyColor
+        {
+            Red,
+            Blue,
+            Green
+        }
 
-    	class Program
-    	{
+        [Flags]
+        enum MyFlags
+        {
+            Flag1 = 1,
+            Flag2 = 2,
+            Flag3 = 4
+        }
+
+        class Program
+        {
         static void Main(string[] args)
         {
             Trace.TraceInformation("My application entry point called");
@@ -105,92 +107,96 @@ Esse passo a passo assume que você tem uma assinatura do Azure e está usando o
             }
 
         }
-    	}
-		}
+        }
+        }
 
 
-4.	Salve o arquivo e selecione **Compilar Solução** a partir do menu **Compilar** para compilar seu código.
+4.  Save the file and select **Build Solution** from the **Build** menu to build your code.
 
 
-### Etapa 3: Implantar seu aplicativo
-1.	Clique com o botão direito do mouse no projeto **WadExampleVM** no **Gerenciador de Soluções** e selecione **Abrir Pasta no Explorador de Arquivos**.
-2.	Navegue para a pasta *bin\\Debug* e copie todos os arquivos (WadExampleVM.*)
-3.	No **Gerenciador de Servidores**, clique com o botão direito do mouse na máquina virtual e selecione **Conectar usando a Área de Trabalho Remota**.
-4.	Após conectado ao VM, crie uma pasta com o nome de WadExampleVM e cole seus arquivos do aplicativo na pasta.
-5.	Inicie o aplicativo WadExampleVM.exe. Você verá uma janela de console em branco.
+### <a name="step-3:-deploy-your-application"></a>Step 3: Deploy your Application
+1.  Right-click on the **WadExampleVM** project in **Solution Explorer** and choose **Open Folder in File Explorer**.
+2.  Navigate to the *bin\Debug* folder and copy all the files (WadExampleVM.*)
+3.  In **Server Explorer** right-click on the virtual machine and choose **Connect using Remote Desktop**.
+4.  Once connected to the VM create a folder named WadExampleVM and paste your application files into the folder.
+5.  Launch the application WadExampleVM.exe. You should see a blank console window.
 
-### Etapa 4: Criar sua configuração do Diagnostics e instalar a extensão
-1.	Baixe a definição do esquema do arquivo de configuração pública para seu computador de desenvolvimento ao executar o seguinte comando PowerShell:
+### <a name="step-4:-create-your-diagnostics-configuration-and-install-the-extension"></a>Step 4: Create your Diagnostics configuration and install the Extension
+1.  Download the public configuration file schema definition to your development computer by executing the following PowerShell command:
 
-		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
+        (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
 
-2.	Abra um novo arquivo XML no Visua Studio, seja em um projeto que você já abriu, ou em uma instância do Visual Studio com nenhum projeto aberto. No Visual Studio, selecione **Adicionar** -> **Novo Item…** -> **Itens do Visual C#** -> **Dados** -> **Arquivo XML**. Nomeie o arquivo como "WadExample.xml"
-3.	Associe o WadConfig.xsd com o arquivo de configuração. Certifique-se de que a janela do editor WadExample.xml é uma janela ativa. Pressione **F4** para abrir a janela de **Propriedades**. Clique na propriedade **Esquemas** na janela **Propriedades**. Clique em **…** na propriedade **Esquemas**. Clique no botão **Adicionar…** e navegue até o local onde você salvou o arquivo XSD e selecione o arquivo WadConfig.xsd. Clique em **OK**.
-4.	Substitua os conteíudos do arquivo de configuração WadExample.xml com o seguinte XML e salve o arquivo. Este arquivo de configuração define dois contadores de desempenho a serem coletados: um relacionado à utilização da CPU e um ao uso de memória. Após a configuração, defina os quatro eventos correspondentes aos métodos na classe SampleEventSourceWriter.
+2.  Open a new XML file in Visual Studio, either in a project you already have open or in a Visual Studio instance with no open projects. In Visual Studio, select **Add** -> **New Item…** -> **Visual C# items** -> **Data** -> **XML File**. Name the file "WadExample.xml"
+3.  Associate the WadConfig.xsd with the configuration file. Make sure the WadExample.xml editor window is the active window. Press **F4** to open the **Properties** window. Click on the **Schemas** property in the **Properties** window. Click the **…** in the **Schemas** property. Click the **Add…** button and navigate to the location where you saved the XSD file and select the file WadConfig.xsd. Click **OK**.
+4.  Replace the contents of the WadExample.xml configuration file with the following XML and save the file. This configuration file defines a couple performance counters to collect: one for CPU utilization and one for memory utilization. Then the configuration defines the four events corresponding to the methods in the SampleEventSourceWriter class.
 
 ```
-		<?xml version="1.0" encoding="utf-8"?>
-		<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-  			<WadCfg>
-    			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
-      			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
-        			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
-      				</PerformanceCounters>
-      				<EtwProviders>
-        				<EtwEventSourceProviderConfiguration provider="SampleEventSourceWriter" scheduledTransferPeriod="PT5M">
-          					<Event id="1" eventDestination="EnumsTable"/>
-          					<Event id="2" eventDestination="MessageTable"/>
-          					<Event id="3" eventDestination="SetOtherTable"/>
-          					<Event id="4" eventDestination="HighFreqTable"/>
-          					<DefaultEvents eventDestination="DefaultTable" />
-        				</EtwEventSourceProviderConfiguration>
-      				</EtwProviders>
-    			</DiagnosticMonitorConfiguration>
-  			</WadCfg>
-		</PublicConfig>
+        <?xml version="1.0" encoding="utf-8"?>
+        <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+            <WadCfg>
+                <DiagnosticMonitorConfiguration overallQuotaInMB="25000">
+                <PerformanceCounters scheduledTransferPeriod="PT1M">
+                    <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+                    <PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
+                    </PerformanceCounters>
+                    <EtwProviders>
+                        <EtwEventSourceProviderConfiguration provider="SampleEventSourceWriter" scheduledTransferPeriod="PT5M">
+                            <Event id="1" eventDestination="EnumsTable"/>
+                            <Event id="2" eventDestination="MessageTable"/>
+                            <Event id="3" eventDestination="SetOtherTable"/>
+                            <Event id="4" eventDestination="HighFreqTable"/>
+                            <DefaultEvents eventDestination="DefaultTable" />
+                        </EtwEventSourceProviderConfiguration>
+                    </EtwProviders>
+                </DiagnosticMonitorConfiguration>
+            </WadCfg>
+        </PublicConfig>
 ```
 
-### Etapa 5: instalar remotamente o Diagnostics na sua Máquina Virtual do Azure
-Os cmdlets do PowerShell para gerenciar Diagnostics em uma máquina virtual são: Set-AzureVMDiagnosticsExtension, Get-AzureVMDiagnosticsExtension e Remove-AzureVMDiagnosticsExtension.
+### <a name="step-5:-remotely-install-diagnostics-on-your-azure-virtual-machine"></a>Step 5: Remotely install Diagnostics on your Azure Virtual Machine
+The PowerShell cmdlets for managing Diagnostics on a VM are: Set-AzureVMDiagnosticsExtension, Get-AzureVMDiagnosticsExtension, and Remove-AzureVMDiagnosticsExtension.
 
-1.	No computador do desenvolvedor, abra o PowerShell do Azure.
-2.	Execute o script para instalar remotamente o Diagnostics no seu VM (substitua o *StorageAccountKey* com a chave de conta de armazenamento para sua conta de armazenamento wadexamplevm):
+1.  On your developer computer, open Azure PowerShell.
+2.  Execute the script to remotely install Diagnostics on your VM (Replace *StorageAccountKey* with the storage account key for your wadexamplevm storage account):
 
-		$storage_name = "wadexamplevm"
-		$key = "<StorageAccountKey>"
-		$config_path="c:\users<user>\documents\visual studio 2013\Projects\WadExampleVM\WadExampleVM\WadExample.xml"
-		$service_name="wadexamplevm"
-		$vm_name="WadExample"
-		$storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key
-		$VM1 = Get-AzureVM -ServiceName $service_name -Name $vm_name
-		$VM2 = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $config_path -Version "1.*" -VM $VM1 -StorageContext $storageContext
-		$VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
-
-
-### Etapa 6: Examinar os dados de telemetria
-No **Gerenciador de Servidores** do Visual Studio, navegue até a conta de armazenamento wadexample. Depois que o VM foi executado por cerca de 5 minutos, você deve ver as tabelas **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**. Clique duas vezes em uma das tabelas para exibir a telemetria que foi coletada.
-
-![CloudServices\_diag\_wadexamplevm\_tables](./media/virtual-machines-dotnet-diagnostics/WadExampleVMTables.png)
-
-## Esquema de arquivo de configuração
-
-O arquivo de configuração do Diagnóstico define valores que são usados para inicializar as definições de configurações do diagnóstico quando o agente de diagnóstico é iniciado. Veja a [referência de esquema mais recente](https://msdn.microsoft.com/library/azure/mt634524.aspx) para obter valores válidos e exemplos.
-
-## Solucionar problemas
-
-Veja [Solucionando problemas do Diagnóstico do Azure](azure-diagnostics-troubleshooting.md) para obter mais informações.
+        $storage_name = "wadexamplevm"
+        $key = "<StorageAccountKey>"
+        $config_path="c:\users\<user>\documents\visual studio 2013\Projects\WadExampleVM\WadExampleVM\WadExample.xml"
+        $service_name="wadexamplevm"
+        $vm_name="WadExample"
+        $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key
+        $VM1 = Get-AzureVM -ServiceName $service_name -Name $vm_name
+        $VM2 = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $config_path -Version "1.*" -VM $VM1 -StorageContext $storageContext
+        $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
 
 
-## Próximas etapas
-[Ver uma lista de artigos sobre o Diagnóstico do Azure relacionados a máquinas virtuais](azure-diagnostics.md#virtual-machines-using-azure-diagnostics) para alterar os dados coletados, solucionar problemas ou saber mais sobre o diagnóstico em geral.
+### <a name="step-6:-look-at-your-telemetry-data"></a>Step 6: Look at your telemetry data
+In the Visual Studio **Server Explorer** navigate to the wadexample storage account. After the VM has been running about 5 minutes you should see the tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** and **WADSetOtherTable**. Double-click on one of the tables to view the telemetry that has been collected.
+
+![CloudServices_diag_wadexamplevm_tables](./media/virtual-machines-dotnet-diagnostics/WadExampleVMTables.png)
+
+## <a name="configuration-file-schema"></a>Configuration file schema
+
+The Diagnostics configuration file defines values that are used to initialize diagnostic configuration settings when the diagnostics agent starts. See the [latest schema reference](https://msdn.microsoft.com/library/azure/mt634524.aspx) for valid values and examples.
+
+## <a name="troubleshooting"></a>Troubleshooting
+
+See [Troubleshooting Azure Diagnostics](azure-diagnostics-troubleshooting.md) for more information.
+
+
+## <a name="next-steps"></a>Next Steps
+[See a list of virtual machine related Azure Diagnostics articles](azure-diagnostics.md#virtual-machines-using-azure-diagnostics) to change the data you are collecting, troubleshoot problems or learn more about diagnostics in general.
 
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 
-[Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx
+[Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
-[Teste Gratuito]: http://azure.microsoft.com/pricing/free-trial/
-[Instalar e configurar o PowerShell do Azure, versão 0.8.7 ou posterior]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Free Trial]: http://azure.microsoft.com/pricing/free-trial/
+[Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
-<!---HONumber=AcomDC_0302_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

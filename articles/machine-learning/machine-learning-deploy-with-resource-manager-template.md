@@ -1,30 +1,32 @@
 <properties
-	pageTitle="Implantar Espaço de Trabalho do Machine Learning usando o modelo do Azure Resource Manager | Microsoft Azure"
-	description="Como implantar um espaço de trabalho para o Aprendizado de Máquina do Azure usando o modelo do Azure Resource Manager"
-	services="machine-learning"
-	documentationCenter=""
-	authors="ahgyger"
-	manager="haining"
-	editor="garye"/>
+    pageTitle="Deploy Machine Learning Workspace Using Azure Resource Manager Template | Microsoft Azure"
+    description="How to deploy a workspace for Azure Machine Learning using Azure Resource Manager template"
+    services="machine-learning"
+    documentationCenter=""
+    authors="ahgyger"
+    manager="haining"
+    editor="garye"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2016"
-	ms.author="ahgyger"/>
-# Implantar Espaço de Trabalho do Machine Learning usando o Azure Resource Manager
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/23/2016"
+    ms.author="ahgyger"/>
 
-## Introdução
-Usar um modelo de implantação do Azure Resource Manager poupa tempo fornecendo a você uma maneira escalonável de implantar componentes interconectados com um mecanismo de validação e repetição. Para configurar Espaço de Trabalho do Azure Machine Learning, por exemplo, você precisa configurar uma conta de armazenamento do Azure e implantar seu espaço de trabalho. Imagine fazer isso manualmente para centenas de espaços de trabalho. Uma alternativa mais fácil é usar um modelo do Azure Resource Manager para implantar um Espaço de Trabalho do Azure Machine Learning e todas as suas dependências. Este artigo guia você pelo passo a passo desse processo. Para obter uma excelente visão geral do Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../resource-group-overview.md).
+# <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Deploy Machine Learning Workspace Using Azure Resource Manager
 
-## Passo a passo: criar um Espaço de Trabalho do Machine Learning
-Criaremos um grupo de recursos do Azure, implantaremos uma nova conta de armazenamento do Azure e um novo Espaço de Trabalho do Azure Machine Learning usando um modelo do Resource Manager. Assim que a implantação estiver concluída, imprimiremos informações importantes sobre os espaços de trabalho que foram criados (a chave primária, a workspaceID e a URL para o espaço de trabalho).
+## <a name="introduction"></a>Introduction
+Using an Azure Resource Manager deployment template saves you time by giving you a scalable way to deploy interconnected components with a validation and retry mechanism. To set up Azure Machine Learning Workspaces, for example, you need to first configure an Azure storage account and then deploy your workspace. Imagine doing this manually for hundreds of workspaces. An easier alternative is to use an Azure Resource Manager template to deploy an Azure Machine Learning Workspace and all its dependencies. This article takes you through this process step-by-step. For a great overview of Azure Resource Manager, see [Azure Resource Manager overview](../resource-group-overview.md).
 
-### Criar um modelo do Azure Resource Manager
-Um Espaço de Trabalho do Machine Learning exige uma conta de armazenamento do Azure para armazenar o conjunto de dados vinculado a ele. O modelo a seguir usa o nome do grupo de recursos para gerar o nome da conta de armazenamento e o nome do espaço de trabalho. Ele também usa o nome da conta de armazenamento como uma propriedade ao criar o espaço de trabalho.
+## <a name="step-by-step:-create-a-machine-learning-workspace"></a>Step-by-step: create a Machine Learning Workspace
+We will create an Azure resource group, then deploy a new Azure storage account and a new Azure Machine Learning Workspace using a Resource Manager template. Once the deployment is complete, we will print out important information about the workspaces that were created (the primary key, the workspaceID, and the URL to the workspace).
+
+### <a name="create-an-azure-resource-manager-template"></a>Create an Azure Resource Manager template
+A Machine Learning Workspace requires an Azure storage account to store the dataset linked to it.
+The following template uses the name of the resource group to generate the storage account name and the workspace name.  It also uses the storage account name as a property when creating the workspace.
 
 ```
 {
@@ -71,11 +73,11 @@ Um Espaço de Trabalho do Machine Learning exige uma conta de armazenamento do A
 }
 
 ```
-Salve esse modelo como arquivo mlworkspace.json em c:\\temp.
+Save this template as mlworkspace.json file under c:\temp\.
 
-### Implantar o grupo de recursos, com base no modelo
-* Abrir o PowerShell
-* Instale módulos do Azure Resource Manager e do Gerenciamento de Serviços do Azure
+### <a name="deploy-the-resource-group,-based-on-the-template"></a>Deploy the resource group, based on the template
+* Open PowerShell
+* Install modules for Azure Resource Manager and Azure Service Management  
 
 ```
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
@@ -85,57 +87,58 @@ Install-Module AzureRM -Scope CurrentUser
 Install-Module Azure -Scope CurrentUser
 ```
 
-   Estas etapas baixam e instalam os módulos necessários para concluir as etapas restantes. Isso só precisa ser feito uma vez no ambiente em que você está executando os comandos do PowerShell.
+   These steps download and install the modules necessary to complete the remaining steps. This only needs to be done once in the environment where you are executing the PowerShell commands.   
 
-* Autenticar-se no Azure
+* Authenticate to Azure  
 
 ```
 # Authenticate (enter your credentials in the pop-up window)
 Add-AzureRmAccount
 ```
-Esta etapa precisa ser repetida para cada sessão. Uma vez autenticado, as informações da sua assinatura devem ser exibidas.
+This step needs to be repeated for each session. Once authenticated, your subscription information should be displayed.
 
-![Conta do Azure][1]
+![Azure Account][1]
 
-Agora que temos acesso ao Azure, podemos criar o grupo de recursos.
+Now that we have access to Azure, we can create the resource group.
 
-* Criar um grupos de recursos
+* Create a resource group
 
 ```
 $rg = New-AzureRmResourceGroup -Name "uniquenamerequired523" -Location "South Central US"
 $rg
 ```
 
-Verifique se o grupo de recursos está provisionado corretamente. **ProvisioningState** deve ser "Succeeded". O nome do grupo de recursos é usado pelo modelo para gerar o nome da conta de armazenamento. O nome da conta de armazenamento deve ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas.
+Verify that the resource group is correctly provisioned. **ProvisioningState** should be “Succeeded.”
+The resource group name is used by the template to generate the storage account name. The storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 
-![Grupo de recursos][2]
+![Resource Group][2]
 
-* Usando a implantação do grupo de recursos, implante um novo Espaço de Trabalho do Machine Learning.
+* Using the resource group deployment, deploy a new Machine Learning Workspace.
 
 ```
 # Create a Resource Group, TemplateFile is the location of the JSON template.
 $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
 ```
 
-Depois que a implantação for concluída, é fácil acessar as propriedades do espaço de trabalho que você implantou. Por exemplo, você pode acessar o Token de Chave Primária.
+Once the deployment is completed, it is straightforward to access properties of the workspace you deployed. For example, you can access the Primary Key Token.
 
 ```
 # Access Azure ML Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
-Outra maneira de recuperar tokens de um espaço de trabalho existente é usar o comando Invoke-AzureRmResourceAction. Por exemplo, você pode listar os tokens primário e secundário de todos os espaços de trabalho.
+Another way to retrieve tokens of existing workspace is to use the Invoke-AzureRmResourceAction command. For example, you can list the primary and secondary tokens of all workspaces.
 
 ```  
 # List the primary and secondary tokens of all workspaces
 Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
 ```
-Depois que o espaço de trabalho estiver provisionado, você também poderá automatizar muitas tarefas do Estúdio de Aprendizado de Máquina do Azure usando o [Módulo do PowerShell para Aprendizado de Máquina do Azure](http://aka.ms/amlps).
+After the workspace is provisioned, you can also automate many Azure Machine Learning Studio tasks using the [PowerShell Module for Azure Machine Learning](http://aka.ms/amlps).
 
-## Próximas etapas 
-* Saiba mais sobre [como criar modelos do Azure Resource Manager](../resource-group-authoring-templates.md).
-* Examine o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
-* Assista a este vídeo sobre o [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
+## <a name="next-steps"></a>Next Steps 
+* Learn more about [authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md). 
+* Have a look at the [Azure Quickstart Templates Repository](https://github.com/Azure/azure-quickstart-templates). 
+* Watch this video about [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
  
 <!--Image references-->
 [1]: ../media/machine-learning-deploy-with-resource-manager-template/azuresubscription.png
@@ -144,4 +147,8 @@ Depois que o espaço de trabalho estiver provisionado, você também poderá aut
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,8 +1,8 @@
 
 
 <properties
-   pageTitle="Visão geral do monitoramento de integridade do Application Gateway do Azure | Microsoft Azure"
-   description="Saiba mais sobre os recursos de monitoramento do Application Gateway do Azure"
+   pageTitle="Health monitoring overview for Azure Application Gateway | Microsoft Azure"
+   description="Learn about the monitoring capabilities in Azure Application Gateway"
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
@@ -19,53 +19,62 @@
    ms.date="08/29/2016"
    ms.author="gwallace" />
 
-# Visão geral do monitoramento de integridade do Application Gateway
 
-Por padrão, o Application Gateway do Azure monitora a integridade de todos os recursos em seu pool de back-end e remove automaticamente qualquer recurso do pool que não for considerado íntegro. O Application Gateway continua monitorando as instâncias não íntegras e as adiciona de volta ao pool de back-end íntegro depois que elas se tornarem disponíveis e responderem a investigações de integridade.
+# <a name="application-gateway-health-monitoring-overview"></a>Application Gateway health monitoring overview
 
-![exemplo de investigação de gateway de aplicativo][1]
+Azure Application Gateway by default monitors the health of all resources in its back-end pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy back-end pool once they become available and respond to health probes.
 
-Além de usar o monitoramento da investigação de integridade padrão, você também pode personalizar a investigação de integridade para atender às necessidades do seu aplicativo. Neste artigo, serão abordadas as investigações de integridade padrão e personalizadas.
+![application gateway probe example][1]
 
-## Investigação de integridade padrão
+In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. In this article, both default and custom health probes are covered.
 
-Um Application Gateway configura automaticamente uma investigação de integridade padrão quando você não define nenhuma configuração de investigação personalizada. O comportamento de monitoramento funciona fazendo uma solicitação HTTP para os endereços IP configurados para o pool de back-end.
+## <a name="default-health-probe"></a>Default health probe
 
-Por exemplo: configure seu Application Gateway para usar os servidores de back-end, A, B e C para receber o tráfego de rede HTTP na porta 80. O monitoramento de integridade padrão testa os três servidores a cada 30 segundos para receber uma de HTTP íntegra. Uma resposta de HTTP íntegra tem um [código de status](https://msdn.microsoft.com/library/aa287675.aspx) entre 200 e 399.
+An application gateway automatically configures a default health probe when you don't set up any custom probe configuration. The monitoring behavior works by making an HTTP request to the IP addresses configured for the back-end pool.
 
-Se a verificação de investigação padrão falhar para o servidor A, o Application Gateway o remove do seu pool de back-end e o tráfego de rede para de fluir para este servidor. A investigação padrão ainda continua a verificar o servidor A a cada 30 segundos. Quando o Servidor A responde com êxito a uma solicitação de uma investigação de integridade, ela é adicionada de volta como íntegro ao pool de back-end e o tráfego começa a fluir para esse servidor novamente.
+For example: You configure your application gateway to use back-end servers A, B, and C to receive HTTP network traffic on port 80. The default health monitoring tests the three servers every 30 seconds for a healthy HTTP response. A healthy HTTP response has a [status code](https://msdn.microsoft.com/library/aa287675.aspx) between 200 and 399.
 
-### Configurações da investigação de integridade padrão
+If the default probe check fails for server A, the application gateway removes it from its back-end pool, and network traffic stops flowing to this server. The default probe still continues to check for server A every 30 seconds. When server A responds successfully to one request from a default health probe, it is added back as healthy to the back-end pool, and traffic starts flowing to the server again.
 
-|Propriedades da investigação | Valor | Descrição|
+### <a name="default-health-probe-settings"></a>Default health probe settings
+
+|Probe property | Value | Description|
 |---|---|---|
-| URL de investigação| http://127.0.0.1:\<porta>/ | Caminho da URL |
-| Intervalo | 30 | Intervalo da investigação em segundos |
-| Tempo limite | 30 | Tempo limite da investigação em segundos |
-| Limite não íntegro | 3 | Contagem de repetições da investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite de não íntegro. |
+| Probe URL| http://127.0.0.1:\<port\>/ | URL path |
+| Interval | 30 | Probe interval in seconds |
+| Time-out  | 30 | Probe time-out in seconds |
+| Unhealthy threshold | 3 | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
-A investigação padrão examina apenas http://127.0.0.1:\<port> para determinar o status de integridade. Se precisar configurar a investigação de integridade para ir para uma URL personalizada ou modificar outras configurações, você deve usar investigações personalizadas, conforme descrito nas etapas a seguir.
+The default probe looks only at http://127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes as described in the following steps.
 
-## Investigação de integridade personalizada
+## <a name="custom-health-probe"></a>Custom health probe
 
-Investigações personalizadas permitem que você tenha um controle mais granular sobre o monitoramento de integridade. Ao usar investigações personalizadas, você pode configurar o intervalo de investigação, a URL e o caminho a testar e quantas respostas com falha devem ser aceitas antes de marcar a instância do pool de back-end como não íntegra.
+Custom probes allow you to have a more granular control over the health monitoring. When using custom probes, you can configure the probe interval, the URL and path to test, and how many failed responses to accept before marking the back-end pool instance as unhealthy.
 
-### Configurações da investigação de integridade personalizada
+### <a name="custom-health-probe-settings"></a>Custom health probe settings
 
-|Propriedades da investigação| Descrição|
+The following table provides definitions for the properties of a custom health probe.
+
+|Probe property| Description|
 |---|---|
-| Name | O nome da investigação. Este é o nome usado para se referir à investigação nas configurações de HTTP de back-end. |
-| Protocolo | O protocolo usado para enviar a investigação. HTTP ou HTTPS são os protocolos válidos. |
-| Host | O nome do host para enviar a investigação. |
-| Caminho | O caminho relativo da investigação. Um caminho válido começa com '/'. A investigação é enviada a <protocolo>://<host>:<porta><caminho> |
-| Intervalo | Intervalo de investigação em segundos. Este é o intervalo de tempo entre duas investigações consecutivas.|
-| Tempo limite | Tempo limite da investigação em segundos. A investigação é marcada como com falha se não for recebida uma resposta válida dentro desse período de tempo limite. |
-| Limite não íntegro | Contagem de repetições da investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite de não íntegro. |
+| Name | Name of the probe. This name is used to refer to the probe in back-end HTTP settings. |
+| Protocol | Protocol used to send the probe. The probe will use the protocol defined in the back-end HTTP settings |
+| Host |  Host name to send the probe. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This is different from VM host name. |
+| Path | Relative path of the probe. The valid path starts from '/'. |
+| Interval | Probe interval in seconds. This is the time interval between two consecutive probes.|
+| Time-out | Probe time-out in seconds. The probe is marked as failed if a valid response is not received within this time-out period. |
+| Unhealthy threshold | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
-## Próximas etapas
+> [AZURE.IMPORTANT] If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
+For reference a custom probe is sent to \<protocol\>://\<host\>:\<port\>\<path\>.
 
-Depois de aprender sobre o monitoramento de integridade do Application Gateway, você poderá configurar uma [investigação de integridade personalizada](application-gateway-create-probe-portal.md) no portal do Azure ou uma [investigação de integridade personalizada](application-gateway-create-probe-ps.md) usando o PowerShell e o modelo de implantação do Azure Resource Manager.
+## <a name="next-steps"></a>Next steps
+
+After learning about Application Gateway health monitoring, you can configure a [custom health probe](application-gateway-create-probe-portal.md) in the Azure portal or a [custom health probe](application-gateway-create-probe-ps.md) using PowerShell and the Azure Resource Manager deployment model.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

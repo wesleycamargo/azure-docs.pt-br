@@ -1,36 +1,37 @@
 <properties
-	pageTitle="Azure Active Directory B2C: estrutura de política extensível | Microsoft Azure"
-	description="Um tópico sobre a estrutura de política extensível do Active Directory B2C do Azure e como criar vários tipos de política"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+    pageTitle="Azure Active Directory B2C: Extensible policy framework | Microsoft Azure"
+    description="A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="mbaldwin"
+    editor="bryanla"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/24/2016"
+    ms.author="swkrish"/>
 
-# Azure Active Directory B2C: estrutura de política extensível
 
-## Noções básicas
+# <a name="azure-active-directory-b2c:-extensible-policy-framework"></a>Azure Active Directory B2C: Extensible policy framework
 
-A estrutura de política extensível do Azure AD (Azure Active Directory) B2C é o principal ponto forte do serviço. As políticas descrevem totalmente as experiências de identidade do consumidor, como inscrição, credenciais ou edição de perfil. Por exemplo, uma política de inscrição permite controlar comportamentos definindo as seguintes configurações:
+## <a name="the-basics"></a>The basics
 
-- Tipos de conta (contas sociais, como o Facebook, ou contas locais como um endereço de email) que os consumidores podem usar para se inscrever no aplicativo.
-- Atributos (como nome, CEP e tamanho do calçado, por exemplo) que serão coletados junto ao consumidor durante a inscrição.
-- Uso da Multi-Factor Authentication.
-- A aparência e funcionalidade de todas as páginas de inscrição.
-- Informações (que se manifestam como declarações em um token) que o aplicativo recebe quando a execução da política é concluída.
+The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe consumer identity experiences such as sign-up, sign-in or profile editing. For instance, a sign-up policy allows you to control behaviors by configuring the following settings:
 
-Você pode criar várias políticas de tipos diferentes em seu locatário e usá-las em seus aplicativos, conforme necessário. As políticas podem ser reutilizadas entre os aplicativos. Isso permite aos desenvolvedores definir e modificar experiências de identidade do consumidor com pouca ou nenhuma alteração no código.
+- Account types (social accounts such as Facebook, or local accounts such as email address) that consumers can use to sign up for the application.
+- Attributes (for example, first name, postal code, and shoe size) to be collected from the consumer during sign-up.
+- Use of Multi-Factor Authentication.
+- The look-and-feel of all sign-up pages.
+- Information (which manifests as claims in a token) that the application receives when the policy run finishes.
 
-As políticas estão disponíveis para uso por meio de uma interface simples do desenvolvedor. O aplicativo dispara uma política usando uma solicitação de autenticação HTTP padrão (passando um parâmetro de política na solicitação) e recebe um token personalizado como resposta. Por exemplo, a única diferença entre solicitações que invocam uma política de inscrição e aquelas que invocam uma política de credenciais é o nome da política usado no parâmetro de cadeia de caracteres de consulta "p":
+You can create multiple policies of different types in your tenant and use them in your applications as needed. Policies can be reused across applications. This allows developers to define and modify consumer identity experiences with minimal or no changes to their code.
+
+Policies are available for use via a simple developer interface. Your application triggers a policy using a standard HTTP authentication request (passing a policy parameter in the request) and receives a customized token as response. For example, the only difference between requests invoking a sign-up policy and those invoking a sign-in policy is the policy name used in the "p" query string parameter:
 
 ```
 
@@ -60,103 +61,107 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-Para obter mais detalhes sobre a estrutura de políticas, confira esta [postagem do blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
+For more details about the policy framework, see this [blog post](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
-## Criar uma política de inscrição
+## <a name="create-a-sign-up-policy"></a>Create a sign-up policy
 
-Para habilitar a inscrição no seu aplicativo, você precisará criar uma política de inscrição. Essa política descreve as experiências pelas quais os consumidores passarão durante a inscrição e o conteúdo dos tokens que o aplicativo receberá de inscrições bem-sucedidas.
+To enable sign-up on your application, you will need to create a sign-up policy. This policy describes the experiences that consumers will go through during sign-up and the contents of tokens that the application will receive on successful sign-ups.
 
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
-2. Clique em **Políticas de inscrição**.
-3. Clique em **+Adicionar**, na parte superior da folha.
-4. O **Nome** determina o nome da política de inscrição usado pelo seu aplicativo. Por exemplo, insira "SiUp".
-5. Clique em **Provedores de identidade** e selecione "Inscrição de email". Opcionalmente, você também pode selecionar provedores de identidade social, se já configurado. Clique em **OK**.
-6. Clique em **Atributos de inscrição**. Escolha aqui os atributos do consumidor que você deseja coletar durante a inscrição. Por exemplo, selecione "Cidade/região", "Nome de exibição" e "CEP". Clique em **OK**.
-7. Clique em **Declarações do aplicativo**. Escolha aqui as declarações que você deseja que sejam retornadas nos tokens enviados ao aplicativo após uma experiência de inscrição bem-sucedida. Por exemplo, selecione "Nome de exibição", "Provedor de identidade", "CEP", "Novo usuário" e "ID de objeto do usuário".
-8. Clique em **Criar**. Observe que a política recém-criada aparece como "**B2C\_1\_SiUp**" (o fragmento **B2C\_1\_** é adicionado automaticamente) na folha **Políticas de inscrição**.
-9. Abra a política clicando em "**B2C\_1\_SiUp**".
-10. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**.
-11. Clique em **Executar agora**. Uma nova guia do navegador se abre e você poderá percorrer a experiência do consumidor de inscrição no aplicativo.
-
-    > [AZURE.NOTE]
-    Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
-
-## Usar uma política de entrada
-
-Para habilitar a entrada no aplicativo, você precisará criar uma política de entrada. Essa política descreve as experiências pelas quais os consumidores passarão durante a entrada e o conteúdo de tokens que o aplicativo receberá de entradas bem-sucedidas.
-
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
-2. Clique em **Políticas de entrada**.
-3. Clique em **+Adicionar**, na parte superior da folha.
-4. O **Nome** determina o nome da política de entrada usado pelo seu aplicativo. Por exemplo, insira "SiIn".
-5. Clique em **Provedores de identidade** e selecione "Entrada na conta local". Opcionalmente, você também pode selecionar provedores de identidade social, se já configurado. Clique em **OK**.
-6. Clique em **Declarações do aplicativo**. Escolha aqui as declarações que você deseja que sejam retornadas dos tokens enviados ao aplicativo após uma experiência de entrada bem-sucedida. Por exemplo, selecione "Nome de exibição", "Provedor de identidade", "CEP" e "ID de objeto do usuário". Clique em **OK**.
-7. Clique em **Criar**. Observe que a política recém-criada aparece como "**B2C\_1\_SiIn**" (o fragmento **B2C\_1\_** torna-se automaticamente pré-pendente) na folha **Políticas de entrada**.
-8. Abra a política clicando em "**B2C\_1\_SiIn**".
-9. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**.
-10. Clique em **Executar agora**. Uma nova guia do navegador se abre e você poderá percorrer a experiência do consumidor de entrada no aplicativo.
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Click **Sign-up policies**.
+3. Click **+Add** at the top of the blade.
+4. The **Name** determines the sign-up policy name used by your application. For example, enter "SiUp".
+5. Click **Identity providers** and select "Email signup". Optionally, you can also select social identity providers, if already configured. Click **OK**.
+6. Click **Sign-up attributes**. Here you choose attributes that you want to collect from the consumer during sign-up. For example, select "Country/Region", "Display Name" and "Postal Code". Click **OK**.
+7. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful sign-up experience. For example, select "Display Name", "Identity Provider", "Postal Code", "User is new" and "User's Object ID".
+8. Click **Create**. Note that the policy just created appears as "**B2C_1_SiUp**" (the **B2C\_1\_** fragment is automatically added) in the **Sign-up policies** blade.
+9. Open the policy by clicking "**B2C_1_SiUp**".
+10. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
+11. Click **Run now**. A new browser tab opens, and you can run through the consumer experience of signing up for your application.
 
     > [AZURE.NOTE]
-    Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
+    It takes up to a minute for policy creation and updates to take effect.
 
-## Criar uma política de inscrição ou credenciais
+## <a name="create-a-sign-in-policy"></a>Create a sign-in policy
 
-Esta política controla as duas experiências de inscrição e credenciais do consumidor com uma única configuração. Os consumidores são conduzidos para o caminho certo (inscrição ou credenciais), dependendo do contexto. Ele também descreve o conteúdo de tokens que o aplicativo receberá mediante inscrições ou entradas bem-sucedidas. Há um exemplo de código para a política de inscrição ou de entrada [disponível aqui](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+To enable sign-in on your application, you will need to create a sign-in policy. This policy describes the experiences that consumers will go through during sign-in and the contents of tokens that the application will receive on successful sign-ins.
 
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
-2. Clique em **Políticas de inscrição ou de entrada**.
-3. Clique em **+Adicionar**, na parte superior da folha.
-4. O **Nome** determina o nome da política de inscrição usado pelo seu aplicativo. Por exemplo, insira "SiUpIn".
-5. Clique em **Provedores de identidade** e selecione "Inscrição de email". Opcionalmente, você também pode selecionar provedores de identidade social, se já configurado. Clique em **OK**.
-6. Clique em **Atributos de inscrição**. Escolha aqui os atributos do consumidor que você deseja coletar durante a inscrição. Por exemplo, selecione "Cidade/região", "Nome de exibição" e "CEP". Clique em **OK**.
-7. Clique em **Declarações do aplicativo**. Escolha aqui as declarações que você deseja que sejam retornadas dos tokens enviados ao aplicativo após uma experiência de inscrição ou credenciais bem-sucedida. Por exemplo, selecione "Nome de exibição", "Provedor de identidade", "CEP", "Novo usuário" e "ID de objeto do usuário".
-8. Clique em **Criar**. Observe que a política recém-criada aparece como "**B2C\_1\_SiUpIn**" (o fragmento **B2C\_1\_** é automaticamente adicionado) na folha **Políticas de inscrição ou de entrada**.
-9. Abra a política clicando em "**B2C\_1\_SiUpIn**".
-10. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**.
-11. Clique em **Executar agora**. Uma nova guia do navegador se abre e você poderá percorrer a experiência do consumidor de inscrição ou credenciais, conforme configurado.
-
-    > [AZURE.NOTE]
-    Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
-
-## Criar uma política de edição de perfil
-
-Para habilitar a edição de perfil no aplicativo, você precisará criar uma política de edição de perfil. Essa política descreve as experiências pelas quais os consumidores passarão durante a edição do perfil e o conteúdo de tokens que o aplicativo receberá na conclusão bem-sucedida.
-
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
-2. Clique em **Políticas de edição de perfil**.
-3. Clique em **+Adicionar**, na parte superior da folha.
-4. O **Nome** determina o nome da política de edição de perfil usado pelo seu aplicativo. Por exemplo, insira "SiPe".
-5. Clique em **Provedores de identidade** e selecione "Endereço de email". Opcionalmente, você também pode selecionar provedores de identidade social, se já configurado. Clique em **OK**.
-6. Clique em **Atributos do perfil**. Aqui você escolhe os atributos que o consumidor pode exibir e editar. Por exemplo, selecione "País/Região", "Nome de Exibição" e "CEP". Clique em **OK**.
-7. Clique em **Declarações do aplicativo**. Aqui você escolhe as declarações que quer retornar dos tokens de volta ao aplicativo após uma experiência de edição de perfil bem-sucedida. Por exemplo, selecione "Nome de exibição" e "CEP".
-8. Clique em **Criar**. Observe que a política recém-criada aparece como "**B2C\_1\_SiPe**" (o fragmento **B2C\_1\_** é adicionado automaticamente) na folha **Políticas de edição de perfil**.
-9. Abra a política clicando em "**B2C\_1\_SiPe**".
-10. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**.
-11. Clique em **Executar agora**. Uma nova guia do navegador se abre e você pode percorrer a experiência do consumidor de edição de perfil no aplicativo.
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Click **Sign-in policies**.
+3. Click **+Add** at the top of the blade.
+4. The **Name** determines the sign-in policy name used by your application. For example, enter "SiIn".
+5. Click **Identity providers** and select "Local Account SignIn". Optionally, you can also select social identity providers, if already configured. Click **OK**.
+6. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful sign-in experience. For example, select "Display Name", "Identity Provider", "Postal Code"  and "User's Object ID". Click **OK**.
+7. Click **Create**. Note that the policy just created appears as "**B2C_1_SiIn**" (the **B2C\_1\_** fragment is automatically added) in the **Sign-in policies** blade.
+8. Open the policy by clicking "**B2C_1_SiIn**".
+9. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
+10. Click **Run now**. A new browser tab opens, and you can run through the consumer experience of signing into your application.
 
     > [AZURE.NOTE]
-    Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
+    It takes up to a minute for policy creation and updates to take effect.
+
+## <a name="create-a-sign-up-or-sign-in-policy"></a>Create a sign-up or sign-in policy
+
+This policy handles both consumer sign-up & sign-in experiences with a single configuration. Consumers are led down the right path (sign-up or sign-in) depending on the context. It also describes the contents of tokens that the application will receive upon successful sign-ups or sign-ins.  A code sample for the sign-up or sign-in policy is [available here](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Click **Sign-up or sign-in policies**.
+3. Click **+Add** at the top of the blade.
+4. The **Name** determines the sign-up policy name used by your application. For example, enter "SiUpIn".
+5. Click **Identity providers** and select "Email signup". Optionally, you can also select social identity providers, if already configured. Click **OK**.
+6. Click **Sign-up attributes**. Here you choose attributes that you want to collect from the consumer during sign-up. For example, select "Country/Region", "Display Name" and "Postal Code". Click **OK**.
+7. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful sign-up or sign-in experience. For example, select "Display Name", "Identity Provider", "Postal Code", "User is new" and "User's Object ID".
+8. Click **Create**. Note that the policy just created appears as "**B2C_1_SiUpIn**" (the **B2C\_1\_** fragment is automatically added) in the **Sign-up or sign-in policies** blade.
+9. Open the policy by clicking "**B2C_1_SiUpIn**".
+10. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
+11. Click **Run now**. A new browser tab opens, and you can run through the sign-up or sign-in consumer experience as configured.
+
+    > [AZURE.NOTE]
+    It takes up to a minute for policy creation and updates to take effect.
+
+## <a name="create-a-profile-editing-policy"></a>Create a profile editing policy
+
+To enable profile editing on your application, you will need to create a profile editing policy. This policy describes the experiences that consumers will go through during profile editing and the contents of tokens that the application will receive on successful completion.
+
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Click **Profile editing policies**.
+3. Click **+Add** at the top of the blade.
+4. The **Name** determines the profile editing policy name used by your application. For example, enter "SiPe".
+5. Click **Identity providers** and select "Email address". Optionally, you can also select social identity providers, if already configured. Click **OK**.
+6. Click **Profile attributes**. Here you choose attributes that the consumer can view and edit. For example, select "Country/Region", "Display Name", and "Postal Code". Click **OK**.
+7. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful profile editing experience. For example, select "Display Name" and "Postal Code".
+8. Click **Create**. Note that the policy just created appears as "**B2C_1_SiPe**" (the **B2C\_1\_** fragment is automatically added) in the **Profile editing policies** blade.
+9. Open the policy by clicking "**B2C_1_SiPe**".
+10. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
+11. Click **Run now**. A new browser tab opens, and you can run through the profile editing consumer experience in your application.
+
+    > [AZURE.NOTE]
+    It takes up to a minute for policy creation and updates to take effect.
     
-## Criar uma política de redefinição de senha
+## <a name="create-a-password-reset-policy"></a>Create a password reset policy
 
-Para habilitar a redefinição de senha refinada, você precisará criar uma política de redefinição de senha. Observe que a opção de redefinição de senha para todo o locatário especificada [aqui](active-directory-b2c-reference-sspr.md) também é aplicável para as políticas de credenciais. Essa política descreve as experiências pelas quais os consumidores passarão durante a redefinição da senha e o conteúdo de tokens que o aplicativo receberá na conclusão bem-sucedida.
+To enable fine-grained password reset on your application, you will need to create a password reset policy. Note that the tenant-wide password reset option specified [here](active-directory-b2c-reference-sspr.md) is still applicable for sign-in policies. This policy describes the experiences that the consumers will go through during password reset and the contents of tokens that the application will receive on successful completion.
 
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
-2. Clique em **Políticas de redefinição de senha**.
-3. Clique em **+Adicionar**, na parte superior da folha.
-4. O **Nome** determina o nome da política de redefinição de senha usada pelo aplicativo. Por exemplo, insira “SSPR”.
-5. Clique em **Provedores de identidade** e escolha "Redefinir senha usando endereço de email". Clique em **OK**.
-6. Clique em **Declarações do aplicativo**. Aqui você escolhe as declarações que quer retornar dos tokens de volta ao aplicativo após uma experiência de redefinição de senha bem-sucedida. Por exemplo, escolha "ID de Objeto do Usuário".
-7. Clique em **Criar**. Observe que a política recém-criada aparece como "**B2C\_1\_SSPR**" (o fragmento **B2C\_1\_** é adicionado automaticamente) na folha **Políticas de redefinição de senha**.
-8. Abra a política clicando em "**B2C\_1\_SSPR**".
-9. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**.
-10. Clique em **Executar agora**. Uma nova guia do navegador se abre e você pode percorrer a experiência do consumidor de redefinição de senha no aplicativo.
+1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Click **Password reset policies**.
+3. Click **+Add** at the top of the blade.
+4. The **Name** determines the password reset policy name used by your application. For example, enter "SSPR".
+5. Click **Identity providers** and select "Reset password using email address". Click **OK**.
+6. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful password reset experience. For example, select "User's Object ID".
+7. Click **Create**. Note that the policy just created appears as "**B2C_1_SSPR**" (the **B2C\_1\_** fragment is automatically added) in the **Password reset policies** blade.
+8. Open the policy by clicking "**B2C_1_SSPR**".
+9. Select "Contoso B2C app" in the **Applications** drop-down and `https://localhost:44321/` in the **Reply URL / Redirect URI** drop-down.
+10. Click **Run now**. A new browser tab opens, and you can run through the password reset consumer experience in your application.
 
     > [AZURE.NOTE]
-    Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
+    It takes up to a minute for policy creation and updates to take effect.
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Additional resources
 
-- [Token, sessão e configuração de logon único](active-directory-b2c-token-session-sso.md).
+- [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

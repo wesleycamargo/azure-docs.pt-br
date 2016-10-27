@@ -1,42 +1,46 @@
-Recurso|Limite padrão
+Resource|Default Limit
 ---|---
-Número máximo de contas de armazenamento por assinatura|200<sup>1</sup>
-TB por conta de armazenamento|500 TB
-Número máximo de contêineres de blob, blobs, compartilhamentos de arquivo, tabelas, filas, entidades ou mensagens por conta de armazenamento|O único limite é a capacidade de conta de armazenamento de 500 TB
-Tamanho máximo de um único contêiner de blob, tabela ou fila|500 TB
-Número máximo de blocos em um blob de blocos ou de acréscimo|50\.000
-Tamanho máximo de um bloco em um blob de blocos ou de acréscimo|4 MB
-Tamanho máximo de um blob de blocos ou de acréscimo|50\.000 x 4 MB (aproximadamente 195 GB) 
-Tamanho máximo de um blob de páginas |1 TB
-Tamanho máximo de uma entidade de tabela|1 MB
-Número máximo de propriedades em uma entidade de tabela|252
-Tamanho máximo de uma mensagem em uma fila|64 KB
-Tamanho máximo de um compartilhamento de arquivo|5 TB
-Tamanho máximo de um arquivo em um compartilhamento de arquivos|1 TB
-Número máximo de arquivos em um compartilhamento de arquivo|O único limite é a capacidade total de 5 TB do compartilhamento de arquivo
-Máx. de 8 KB de IOPS por compartilhamento|1000
-Número máximo de arquivos em um compartilhamento de arquivo|O único limite é a capacidade total de 5 TB do compartilhamento de arquivo
-Número máximo de contêineres de blob, blobs, compartilhamentos de arquivo, tabelas, filas, entidades ou mensagens por conta de armazenamento|O único limite é a capacidade de conta de armazenamento de 500 TB
-Número máximo de políticas de acesso armazenada por contêiner, compartilhamento de arquivos, tabela ou fila|5
-Taxa de solicitação total (presumindo um tamanho de objeto de 1KB) por conta de armazenamento|Até 20.000 IOPS, entidades por segundo ou mensagens por segundo
-Taxa de transferência de destino para blob único|Até 60 MB por segundo, ou até 500 solicitações por segundo
-Taxa de transferência de destino para fila única (mensagens de 1 KB)|Até 2000 mensagens por segundo
-Meta de taxa de transferência para partição de tabela única (entidades de 1 KB)|Até 2000 entidades por segundo
-Taxa de transferência de destino para compartilhamento de arquivo único|Até 60 MB por segundo
-Entrada máxima<sup>2</sup> por conta de armazenamento (regiões dos EUA)|10 Gbps se o GRS/ZRS<sup>3</sup> estiver habilitado, 20 Gbps para o LRS
-Saída máxima<sup>2</sup> por conta de armazenamento (regiões dos EUA)|20 Gbps se o RA-GRS/GRS/ZRS<sup>3</sup> estiver habilitado, 30 Gbps para o LRS
-Entrada máxima<sup>2</sup> por conta de armazenamento (regiões da Ásia e Europa)|5 Gbps se o GRS/ZRS<sup>3</sup> estiver habilitado, 10 Gbps para o LRS
-Saída máxima<sup>2</sup> por conta de armazenamento (regiões da Ásia e Europa)|10 Gbps se o RA-GRS/GRS/ZRS<sup>3</sup> estiver habilitado, 15 Gbps para o LRS
+Number of storage accounts per subscription|200<sup>1</sup>
+TB per storage account|500 TB
+Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account|Only limit is the 500 TB storage account capacity
+Max size of a single blob container, table, or queue|500 TB
+Max number of blocks in a block blob or append blob|50,000
+Max size of a block in a block blob or append blob|4 MB
+Max size of a block blob or append blob|50,000 X 4 MB (approx. 195 GB) 
+Max size of a page blob |1 TB
+Max size of a table entity|1 MB
+Max number of properties in a table entity|252
+Max size of a message in a queue|64 KB
+Max size of a file share|5 TB
+Max size of a file in a file share|1 TB
+Max number of files in a file share|Only limit is the 5 TB total capacity of the file share
+Max 8 KB IOPS per share|1000
+Max number of files in a file share|Only limit is the 5 TB total capacity of the file share
+Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account|Only limit is the 500 TB storage account capacity
+Max number of stored access policies per container, file share, table, or queue|5
+Total Request Rate (assuming 1KB object size) per storage account|Up to 20,000 IOPS, entities per second, or messages per second
+Target throughput for single blob|Up to 60 MB per second, or up to 500 requests per second
+Target throughput for single queue (1 KB messages)|Up to 2000 messages per second
+Target throughput for single table partition (1 KB entities)|Up to 2000 entities per second
+Target throughput for single file share|Up to 60 MB per second
+Max ingress<sup>2</sup> per storage account (US Regions)|10 Gbps if GRS/ZRS<sup>3</sup> enabled, 20 Gbps for LRS
+Max egress<sup>2</sup> per storage account (US Regions)|20 Gbps if RA-GRS/GRS/ZRS<sup>3</sup> enabled, 30 Gbps for LRS
+Max ingress<sup>2</sup> per storage account (European and Asian Regions)|5 Gbps if GRS/ZRS<sup>3</sup> enabled, 10 Gbps for LRS
+Max egress<sup>2</sup> per storage account (European and Asian Regions)|10 Gbps if RA-GRS/GRS/ZRS<sup>3</sup> enabled, 15 Gbps for LRS
 
-<sup>1</sup>Isso inclui contas de armazenamento Standard e Premium. Se você precisar de mais de 200 contas de armazenamento, faça uma solicitação por meio do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe de Armazenamento do Azure examinará seu caso de negócios e poderá aprovar até 250 contas de armazenamento.
+<sup>1</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
 
-<sup>2</sup>*Entrada* refere-se a todos os dados (solicitações) que estão sendo enviados a uma conta de armazenamento. *Saída* refere-se a todos os dados (respostas) recebidos de uma conta de armazenamento.
+<sup>2</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.  
 
-<sup>3</sup>As opções de replicação do Armazenamento do Azure incluem:
+<sup>3</sup>Azure Storage replication options include:
 
-- **RA-GRS**: armazenamento com redundância geográfica com acesso de leitura. Se o RA-GRS estiver habilitado, os destinos de saída para o local secundário serão idênticos àqueles para o local principal.
-- **GRS**: armazenamento com redundância geográfica.
-- **ZRS**: armazenamento com redundância de zona. Disponível apenas para blobs de blocos.
-- **LRS**: armazenamento com redundância local.
+- **RA-GRS**: Read-access geo-redundant storage. If RA-GRS is enabled, egress targets for the secondary location are identical to those for the primary location.
+- **GRS**:  Geo-redundant storage. 
+- **ZRS**: Zone-redundant storage. Available only for block blobs. 
+- **LRS**: Locally redundant storage. 
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO3-->
+
+

@@ -1,172 +1,173 @@
 <properties
-	pageTitle="Obter percepções: relatórios de gerenciamento de senhas do AD do Azure | Microsoft Azure"
-	description="Este artigo descreve como usar os relatórios para obter informações sobre operações de gerenciamento de senhas em sua organização."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Get Insights: Azure AD Password Management Reports | Microsoft Azure"
+    description="This article describes how to use reports to get insight into Password Management operations in your organization."
+    services="active-directory"
+    documentationCenter=""
+    authors="asteen"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="asteen"/>
-
-# Como obter percepções operacionais com relatórios de gerenciamento de senhas
-
-> [AZURE.IMPORTANT] **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
-
-Esta seção descreve como você pode usar relatórios de gerenciamento de senhas do Active Directory do Azure para ver como os usuários estão usando a redefinição e alteração de senhas em sua organização.
-
-- [**Visão geral de relatórios de gerenciamento de senhas**](#overview-of-password-management-reports)
-- [**Como exibir relatórios de gerenciamento de senhas**](#how-to-view-password-management-reports)
-- [**Exibir atividade de registro de redefinição de senhas em sua organização**](#view-password-reset-registration-activity)
-- [**Exibir atividade de redefinição de senha em sua organização**](#view-password-reset-activity)
-
-## Visão geral dos relatórios de gerenciamento de senhas
-Após a implantação da redefinição de senhas, uma das próximas etapas mais comuns é ver como ela está sendo usada na organização. Por exemplo, talvez você queira obter uma visão de como os usuários estão s registrando para a redefinição de senha ou quantas redefinições de senha foram feitas nos últimos dias. Aqui estão algumas perguntas comuns que você poderá responder com os relatórios de gerenciamento de senhas que existem nos [Portal de Gerenciamento do Azure](https://manage.windowsazure.com) hoje:
-
-- Quantas pessoas foram registradas para a redefinição de senhas?
-- Quem se registrou para a redefinição de senhas?
-- Que dados as pessoas estão registrando?
-- Quantas pessoas redefiniram suas senhas nos últimos sete dias?
-- Quais são os métodos mais comuns que os usuários ou administradores usam para redefinir suas senhas?
-- Quais são os problemas comuns que os usuários ou administradores enfrentam ao tentar usar a redefinição de senhas?
-- Quais administradores estão redefinindo suas próprias senhas com frequência?
-- Há qualquer atividade suspeita acontecendo na redefinição de senhas?
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/12/2016"
+    ms.author="asteen"/>
 
 
-## Como exibir relatórios de gerenciamento de senhas
-Para localizar os relatórios de gerenciamento de senhas, siga as etapas abaixo:
+# <a name="how-to-get-operational-insights-with-password-management-reports"></a>How to get operational insights with Password Management reports
 
-1.	Clique na **Extensão do Active Directory** no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
-2.	Selecione o diretório na lista que aparece no portal.
-3.	Clique na guia **Relatórios**.
-4.	Procure na seção **Logs de Atividade**.
-5.	Selecione o relatório **Atividade de redefinição de senhas** ou **Atividade de registro de redefinição de senhas**.
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+
+This section describes how you can use Azure Active Directory’s Password Management reports to view how users are using password reset and change in your organization.
+
+- [**Password Management reports overview**](#overview-of-password-management-reports)
+- [**How to view Password Management reports**](#how-to-view-password-management-reports)
+- [**View password reset registration activity in your organization**](#view-password-reset-registration-activity)
+- [**View password reset activity in your organization**](#view-password-reset-activity)
+
+## <a name="overview-of-password-management-reports"></a>Overview of Password Management reports
+Once you deploy password reset, one of the most common next steps is to see how it is being used in your organization.  For example, you may want to get insight into how users are registering for password reset, or how many password resets have been done in the last few days.  Here are some of the common questions that you will be able to answer with the Password Management reports that exist in the [Azure Management Portal](https://manage.windowsazure.com) today:
+
+- How many people have registered for password reset?
+- Who has registered for password reset?
+- What data are people registering?
+- How many people reset their passwords in the last 7 days?
+- What are the most common methods users or admins use to reset their passwords?
+- What are common issues users or admins face when attempting to use password reset?
+- What admins are resetting their own passwords frequently?
+- Is there any suspicious activity going on with password reset?
+
+
+## <a name="how-to-view-password-management-reports"></a>How to view Password Management reports
+To find the Password Management reports, follow the steps below:
+
+1.  Click on the **Active Directory** extension in the [Azure Management Portal](https://manage.windowsazure.com).
+2.  Select your directory from the list that appears in the portal.
+3.  Click on the **Reports** tab.
+4.  Look under the **Activity Logs** section.
+5.  Select either the **Password reset activity** report or the **Password reset registration activity** report.
 
     ![][001]
 
-## Como acessar os Relatórios de Gerenciamento de Senhas de uma API
-A partir de agosto de 2015, os Eventos e os Relatórios do AD do Azure agora oferecem suporte ao recuperar todas as informações incluídas nos relatórios de Redefinição de Senhas e de Registro da Redefinição de Senhas.
+## <a name="how-to-access-password-management-reports-from-an-api"></a>How to access Password Management Reports from an API
+As of August 2015, the Azure AD Reports and Events now supports retrieving all of the information included in the Password Reset and Password Reset Registration reports.
 
-Para acessar esses dados, você precisará gravar um pequeno aplicativo ou script para recuperá-los de nossos servidores. [Saiba como começar com a API de Relatório do AD do Azure](active-directory-reporting-api-getting-started.md).
+To access this data, you'll need to write a small app or script to retrieve it from our servers. [Learn how to get started with the Azure AD Reporting API](active-directory-reporting-api-getting-started.md).
 
-Quando você tiver um script de trabalho, em seguida desejará examinar os eventos de registro e redefinição de senhas que podem ser recuperados para atender suas situações.
+Once you have a working script, you'll next want to examine the password reset and registration events that you can retrieve to meet your scenarios.
 
-- [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): lista as colunas disponíveis para os eventos de redefinição de senhas
-- [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): lista as colunas disponíveis para os eventos do registro de redefinição de senhas
+- [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): Lists the columns available for password reset events
+- [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): Lists the columns available for password reset registration events
 
-## Exibir atividade de registro de redefinição de senhas
+## <a name="view-password-reset-registration-activity"></a>View password Reset registration activity
 
-O relatório de atividade de registro de redefinição de senhas mostra todos os registros de redefinição de senhas que ocorreram na sua organização. Um registro de redefinição de senhas é exibido no relatório para qualquer usuário que registrou com êxito as informações de autenticação no portal de registro de senha de redefinição de senhas ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
+The password reset registration activity report shows all password reset registrations that have occurred in your organization.  A password reset registration is displayed in this report for any user who has successfully registered authentication information at the password reset registration portal ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
 
-- **Intervalo de tempo máximo**: um mês
-- **Número máximo de linhas**: ilimitado
-- **Baixável**: sim, por meio de arquivo CSV
+- **Max time range**: 1 month
+- **Max number of rows**: unlimited
+- **Downloadable**: Yes, via CSV file
 
     ![][002]
 
-### Descrição das colunas do relatório
-A lista a seguir explica cada uma das colunas do relatório em detalhes:
+### <a name="description-of-report-columns"></a>Description of report columns
+The following list explains each of the report columns in detail:
 
-- **Usuário** – o usuário que tentou uma operação de registro de redefinição de senha.
-- **Função** – a função do usuário no diretório.
-- **Data e hora** – a data e a hora da tentativa.
-- **Dados Registrados** – os dados de autenticação fornecidos pelo usuário durante o registro de redefinição de senha.
+- **User** – the user who attempted a password reset registration operation.
+- **Role** – the role of the user in the directory.
+- **Date and Time** – the date and time of the attempt.
+- **Data Registered** – what authentication data the user provided during password reset registration.
 
-### Descrição dos valores de relatório
-A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
+### <a name="description-of-report-values"></a>Description of report values
+The following table describes the different values allowed for each column:
 
-Coluna|Valores permitidos e seus significados
+Column|Allowed values and their meanings
 ---|---
-Dados Registrados| **Email Alternativo** – email alternativo usado pelo usuário ou email de autenticação para autenticar<p><p>**Telefone Comercial** – telefone comercial usado pelo usuário para autenticar<p>**Celular** – celular usado pelo usuário ou telefone de autenticação para autenticar<p>**Perguntas de Segurança** – perguntas de segurança usadas pelo usuário para autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email Alternativo + Celular)** – ocorre quando uma política de 2 acessos é especificada e mostra quais dos dois métodos o usuário utilizou para autenticar a solicitação de redefinição de sua senha.
+Data Registered| **Alternate Email** – user used alternate email or authentication email to authenticate<p><p>**Office Phone**– user used office phone to authenticate<p>**Mobile Phone** - user used mobile phone or authentication phone to authenticate<p>**Security Questions** – user used security questions to authenticate<p>**Any combination of the above (e.g. Alternate Email + Mobile Phone)** – occurs when a 2 gate policy is specified and shows which two methods the user used to authentication his password reset request.
 
-## Exibir atividade de redefinição de senha
+## <a name="view-password-reset-activity"></a>View password reset activity
 
-Esse relatório mostra todas as tentativas de redefinição de senha que ocorreram na sua organização.
+This report shows all password reset attempts that have occurred in your organization.
 
-- **Intervalo de tempo máximo**: um mês
-- **Número máximo de linhas**: ilimitado
-- **Baixável**: sim, por meio de arquivo CSV
+- **Max time range**: 1 month
+- **Max number of rows**: unlimited
+- **Downloadable**: Yes, via CSV file
 
     ![][003]
 
-### Descrição das colunas do relatório
-A lista a seguir explica cada uma das colunas do relatório em detalhes:
+### <a name="description-of-report-columns"></a>Description of report columns
+The following list explains each of the report columns in detail:
 
-1. **Usuário** – o usuário que tentou uma operação de redefinição de senha (com base no campo ID de Usuário fornecido quando o usuário redefine uma senha).
-2. **Função** – a função do usuário no diretório.
-3. **Data e hora** – a data e a hora da tentativa.
-4. **Método(s) usado(s)** – os métodos de autenticação de usuário usados para essa operação de redefinição.
-5. **Resultado** – resultado final da operação de redefinição de senha.
-6. **Detalhes** – os detalhes do motivo pelo qual a redefinição de senha resultou no valor obtido. Também inclui as etapas de atenuação que você pode tomar para resolver um erro inesperado.
+1. **User** – the user who attempted a password reset operation (based on the User ID field provided when the user comes to reset a password).
+2. **Role** – the role of the user in the directory.
+3. **Date and Time** – the date and time of the attempt.
+4. **Method(s) Used** – what authentication methods the user used for this reset operation.
+5. **Result** – the end result of the password reset operation.
+6. **Details** – the details of why the password reset resulted in the value it did.  Also includes any mitigation steps you might take to resolve an unexpected error.
 
-### Descrição dos valores de relatório
-A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
+### <a name="description-of-report-values"></a>Description of report values
+The following table describes the different values allowed for each column:
 
-Coluna|Valores permitidos e seus significados
+Column|Allowed values and their meanings
 ---|---
-Métodos usados|**Email Alternativo** – email alternativo usado pelo usuário ou email de autenticação para autenticar<p>**Telefone Comercial** – telefone comercial usado pelo usuário para autenticar<p>**Celular** – celular usado pelo usuário ou telefone de autenticação para autenticar<p>**Perguntas de Segurança** – perguntas de segurança usadas pelo usuário para autenticar<p>**Qualquer combinação dos itens acima (por exemplo, email alternativo + celular)** – ocorre quando uma política de 2 acessos é especificada e mostra quais dos dois métodos o usuário utilizou para autenticar a solicitação de redefinição de sua senha.
-Resultado|**Abandonado** – o usuário iniciou a redefinição de senha mas, em seguida, parou na metade sem concluir<p>**Bloqueado** – a conta de usuário foi impedida de usar a redefinição de senha devido à tentativa de usar a página de redefinição de senha ou um acesso de redefinição de senha muitas vezes em um período de 24 horas<p>**Cancelado** – o usuário iniciou a redefinição de senha do usuário, mas, em seguida, clicou no botão Cancelar no meio do processo<p>**Administrador Contatado** – o usuário teve um problema durante a sessão que não foi possível resolver, então, ele clicou no link "Contate seu administrador" em vez de concluir o fluxo de redefinição de senha<p>**Falha** – o usuário não foi capaz de redefinir uma senha, provavelmente porque ele não foi configurado para usar o recurso (por exemplo, nenhuma licença, sem informações de autenticação, senha gerenciada localmente, mas o write-back está desativado).<p>**Bem-sucedida** – a redefinição de senha foi bem-sucedida.
-Detalhes|Consulte a tabela abaixo.
+Methods Used|**Alternate Email** – user used alternate email or authentication email to authenticate<p>**Office Phone** – user used office phone to authenticate<p>**Mobile Phone** – user used mobile phone or authentication phone to authenticate<p>**Security Questions** – user used security questions to authenticate<p>**Any combination of the above (e.g. Alternate Email + Mobile Phone)** – occurs when a 2 gate policy is specified and shows which two methods the user used to authentication his password reset request.
+Result|**Abandoned** – user started password reset but then stopped halfway through without completing<p>**Blocked** – user’s account was prevented to use password reset due to attempting to use the password reset page or a single password reset gate too many times in a 24 hour period<p>**Cancelled** – user started password reset but then clicked the cancel button to cancel the session part way through <p>**Contacted Admin** – user had a problem during his session that he could not resolve, so the user clicked the “Contact your administrator” link instead of finishing the password reset flow<p>**Failed** – user was not able to reset a password, likely because the user was not configured to use the feature (e.g. no license, missing authentication info, password managed on-prem but writeback is off).<p>**Succeeded** – password reset was successful.
+Details|See table below
 
-### Valores permitidos para a coluna de detalhes
-Abaixo está a lista de tipos de resultado que você pode esperar ao usar o relatório de atividade de redefinição de senha:
+### <a name="allowed-values-for-details-column"></a>Allowed values for details column
+Below is the list of result types you may expect when using the password reset activity report:
 
-Detalhes | Tipo de resultado
+Details | Result Type
 ----|----
-Abandonado pelo usuário depois de concluir a opção de verificação de email | Abandonado
-Abandonado pelo usuário depois de concluir a opção de verificação de SMS móvel|Abandonado
-Abandonado pelo usuário depois de concluir a opção de verificação de chamada de voz móvel | Abandonado
-Abandonado pelo usuário depois de concluir a opção de verificação de chamada de voz comercial | Abandonado
-Abandonado pelo usuário depois de concluir a opção de perguntas de segurança|Abandonado
-Abandonado pelo usuário depois de inserir sua ID de usuário| Abandonado
-Abandonado pelo usuário depois de iniciar a opção de verificação de email|Abandonado
-Abandonado pelo usuário depois de iniciar a opção de verificação de SMS móvel|Abandonado
-Abandonado pelo usuário depois de iniciar a opção de verificação de chamada de voz móvel|Abandonado
-Abandonado pelo usuário depois de iniciar a opção de verificação de chamada de voz comercial|Abandonado
-Abandonado pelo usuário depois de iniciar a opção de perguntas de segurança| Abandonado
-Abandonado pelo usuário antes de selecionar uma nova senha| Abandonado
-Abandonado pelo usuário ao selecionar uma nova senha| Abandonado
-O usuário inseriu muitos códigos de verificação de SMS inválidos e está bloqueado para 24 horas|Bloqueado
-O usuário tentou muitas vezes a verificação de voz por telefone celular e está bloqueado por 24 horas|Bloqueado
-O usuário tentou muitas vezes a verificação de voz comercial e está bloqueado por 24 horas |Bloqueado
-O usuário tentou responder às perguntas de segurança muitas vezes e está bloqueado por 24 horas| Bloqueado
-O usuário tentou verificar um número de telefone muitas vezes e está bloqueado por 24 horas|Bloqueado
-O usuário fez o cancelamento antes de passar pelos métodos de autenticação obrigatórios|Cancelado
-O usuário fez o cancelamento antes de enviar uma nova senha|Cancelado
-O usuário contatou um administrador depois de tentar a opção de verificação de email |Administrador contatado
-O usuário contatou um administrador depois de tentar a opção de verificação de SMS móvel|Administrador contatado
-O usuário contatou um administrador depois de tentar a opção de verificação de chamada de voz móvel|Administrador contatado
-O usuário contatou um administrador depois de tentar a opção de verificação de chamada de voz comercial |Administrador contatado
-O usuário contatou um administrador depois de tentar a opção de verificação de pergunta de segurança|Administrador contatado
-A redefinição de senha não está habilitada para este usuário. Habilite a redefinição de senha na guia Configurar para resolver o problema| Falha
-O usuário não tem uma licença. Você pode adicionar uma licença para o usuário para resolver o problema|Falha
-O usuário tentou redefinir em um dispositivo sem cookies habilitados| Falha
-A conta do usuário tem métodos de autenticação insuficiente definidos. Adicione informações de autenticação para resolver esse problema|Falha
-A senha do usuário é gerenciada localmente. Você pode habilitar o Write-back de Senha para resolver o problema|Falha
-Não foi possível acessar o serviço de redefinição de senha no local. Verifique o log de eventos de seu computador de sincronização|Falha
-Encontramos um problema durante a redefinição de senha local do usuário. Verifique o log de eventos de seu computador de sincronização | Falha
-Este usuário não é membro do grupo de usuários de redefinição de senha. Adicione esse usuário ao grupo para resolver o problema.|Falha
-A redefinição de senha foi desabilitada inteiramente para este locatário. Confira [aqui](http://aka.ms/ssprtroubleshoot) para resolver isto. | Falha
-O usuário redefiniu a senha com êxito|Bem-sucedido
+User abandoned after completing the email verification option  | Abandoned
+User abandoned after completing the mobile SMS verification option|Abandoned
+User abandoned after completing the mobile voice call verification option | Abandoned
+User abandoned after completing the office voice call verification option | Abandoned
+User abandoned after completing the security questions option|Abandoned
+User abandoned after entering their user ID| Abandoned
+User abandoned after starting the email verification option|Abandoned
+User abandoned after starting the mobile SMS verification option|Abandoned
+User abandoned after starting the mobile voice call verification option|Abandoned
+User abandoned after starting the office voice call verification option|Abandoned
+User abandoned after starting the security questions option| Abandoned
+User abandoned before selecting a new password| Abandoned
+User abandoned while selecting a new password| Abandoned
+User entered too many invalid SMS verification codes and is blocked for 24 hours|Blocked
+User tried mobile phone voice verification too many times and is blocked for 24 hours|Blocked
+User tried office phone voice verification too many times and is blocked for 24 hours |Blocked
+User tried to answer security questions too many times and is blocked for 24 hours| Blocked
+User tried to verify a phone number too many times and is blocked for 24 hours|Blocked
+User cancelled before passing the required authentication methods|Cancelled
+User cancelled before submitting a new password|Cancelled
+User contacted an admin after trying the email verification option |Contacted admin
+User contacted an admin after trying the mobile SMS verification option|Contacted admin
+User contacted an admin after trying the mobile voice call verification option|Contacted admin
+User contacted an admin after trying the office voice call verification option |Contacted admin
+User contacted an admin after trying the security question verification option|Contacted admin
+Password reset is not enabled for this user. Enable password reset under the configure tab to resolve this|  Failed
+User does not have a license. You can add a license to the user to resolve this|Failed
+User tried to reset from a device without cookies enabled| Failed
+User's account has insufficient authentication methods defined. Add authentication info to resolve this|Failed
+User's password is managed on-premises. You can enable Password Writeback to resolve this|Failed
+We could not reach your on-premises password reset service. Check your sync machine's event log|Failed
+We encountered a problem while resetting the user's on-premises password. Check your sync machine's event log | Failed
+This user is not a member of the password reset users group. Add this user to that group to resolve this.|Failed
+Password reset has been disabled entirely for this tenant. See [here](http://aka.ms/ssprtroubleshoot) to resolve this. | Failed
+User successfully reset password|Succeeded
 
-## Links para a documentação de redefinição de senha
-Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
+## <a name="links-to-password-reset-documentation"></a>Links to password reset documentation
+Below are links to all of the Azure AD Password Reset documentation pages:
 
-* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
-* [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
-* [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
-* [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
-* [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
-* [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
-* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - aprenda a solucionar rapidamente os problemas com o serviço
-* [**Saiba mais**](active-directory-passwords-learn-more.md) - aprofunde-se nos detalhes técnicos do funcionamento do serviço
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
+* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
+* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
 
 
 
@@ -174,4 +175,8 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

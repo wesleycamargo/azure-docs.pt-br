@@ -1,3 +1,6 @@
-Após tiver criado o ouvinte do grupo de disponibilidade, é possível que seja necessário ajustar os parâmetros do cluster **RegisterAllProvidersIP** e **HostRecordTTL** para o recurso do ouvinte. Esses parâmetros podem reduzir o tempo de reconexão após um failover que pode impedir as interrupções de conexão. Para obter mais informações sobre esses parâmetros, bem como um código de exemplo, consulte[Criar ou configurar um ouvinte de grupo de disponibilidade](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover).
+After the availability group listener is created, it may be necessary to adjust the **RegisterAllProvidersIP** and **HostRecordTTL** cluster parameters for the listener resource.  These parameters may reduce reconnection time after a failover which may prevent connection timeouts. For more information on these parameters, as well as sample code, see [Create or Configure an Availability Group Listener](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover).
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

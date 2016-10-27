@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Adicionar runbooks de automação do Azure aos planos de recuperação | Microsoft Azure"
-   description="Este artigo descreve como o Azure Site Recovery permite a ampliação dos planos de recuperação usando a Automação do Azure para concluir tarefas complexas durante a recuperação para o Azure"
+   pageTitle="Add Azure automation runbooks to recovery plans | Microsoft Azure"
+   description="This article describes how Azure Site Recovery now enables you to extend recovery plans using Azure Automation to complete complex tasks during recovery to Azure"
    services="site-recovery"
    documentationCenter=""
    authors="ruturaj"
@@ -17,101 +17,104 @@
    ms.author="ruturajd@microsoft.com"/>
 
 
-# Adicionar runbooks de automação do Azure aos planos de recuperação
+
+# <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Add Azure automation runbooks to recovery plans
 
 
-Este tutorial descreve como o Azure Site Recovery é integrado à Automação do Azure para fornecer extensibilidade aos planos de recuperação. Os planos de recuperação podem coordenar a recuperação de máquinas virtuais protegidas usando o Azure Site Recovery para cenários de replicação na nuvem secundária e replicação no Azure. Eles também ajudam a tornar a recuperação **precisa de forma consistente**, **reproduzível** e **automatizada**. Se você estiver realizando o failover de suas máquinas virtuais para o Azure, a integração com a Automação do Azure estende os planos de recuperação e oferece a capacidade de executar runbooks, possibilitando tarefas avançadas de automação.
+This tutorial describes how Azure Site Recovery integrates with Azure Automation to provide extensibility to recovery plans. Recovery plans can orchestrate recovery of your virtual machines protected using Azure Site Recovery for both replication to secondary cloud and replication to Azure scenarios. They also help in making the recovery **consistently accurate**, **repeatable**, and **automated**. If you are failing over your virtual machines to Azure, integration with Azure Automation extends the recovery plans and gives you capability to execute runbooks, thus allowing powerful automation tasks.
 
-Se você ainda não souber o que é a Automação do Azure, inscreva-se [aqui](https://azure.microsoft.com/services/automation/) e baixar os exemplos de script [aqui](https://azure.microsoft.com/documentation/scripts/). Leia mais sobre o [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) e como coordenar a recuperação no Azure usando o planos de recuperação [aqui](https://azure.microsoft.com/blog/?p=166264).
+If you have not heard about Azure Automation yet, sign up [here](https://azure.microsoft.com/services/automation/) and download their sample scripts [here](https://azure.microsoft.com/documentation/scripts/). Read more about [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) and how to orchestrate recovery to Azure using recovery plans [here](https://azure.microsoft.com/blog/?p=166264).
 
-Neste tutorial, veremos como você pode integrar os runbooks de automação do Azure aos planos de recuperação. Automatizaremos tarefas simples que exigiam uma intervenção manual e veremos como converter uma recuperação com várias etapa em uma ação de recuperação de clique único. Também veremos como você pode solucionar problemas de um script simples, caso ocorra algum erro.
+In this tutorial, we will look at how you can integrate Azure Automation runbooks into recovery plans. We will automate simple tasks that earlier required manual intervention and see how to convert a multi-step recovery into a single-click recovery action. We will also look at how you can troubleshoot a simple script if it goes wrong.
 
-## Proteger o aplicativo no Azure
+## <a name="protect-the-application-to-azure"></a>Protect the application to Azure
 
-Vamos começa com um aplicativo simples composto por duas máquinas virtuais. Aqui, temos um aplicativo HRweb da Fabrikam. Fabrikam-HRweb-frontend e Fabrikam-Hrweb-backend são duas máquinas virtuais protegidas no Azure usando o Azure Site Recovery. Para proteger as máquinas virtuais com o Azure Site Recovery, execute as etapas abaixo.
+Let us begin with a simple application consisting of two virtual machines. Here, we have a HRweb application of Fabrikam. Fabrikam-HRweb-frontend and Fabrikam-Hrweb-backend are the two virtual machines protected to Azure using Azure Site Recovery. To protect the virtual machines using Azure Site Recovery, follow the steps below.
 
-1.  Habilite a proteção para as máquinas virtuais.
+1.  Enable protection for your virtual machines.
 
-2.  Verifique se as máquinas virtuais concluíram a replicação inicial e se estão replicando.
+2.  Ensure that the virtual machines have completed initial replication and are replicating.
 
-3.  Aguarde até a conclusão da replicação inicial e o status de Replicação indicar Protegido.
+3.  Wait till the initial replication completes and the Replication status says Protected.
 
 ![](media/site-recovery-runbook-automation/01.png)
 ---------------------
 
-Neste tutorial, criaremos um plano de recuperação para o aplicativo Fabrikam HRweb, a fim de realizar o failover do aplicativo no Azure. Em seguida, realizaremos uma integração com um runbook que criará um ponto de extremidade na máquina virtual do Azure em estado de failover para servir páginas da Web na porta 80.
+In this tutorial, we will create a recovery plan for the Fabrikam HRweb application to failover the application to Azure. Then we will integrate it with a runbook that will create an endpoint on the failed over Azure virtual machine to serve web pages at port 80.
 
-Primeiro, vamos criar um plano de recuperação para nosso aplicativo.
+First, let's create a recovery plan for our application.
 
-## Criar o plano de recuperação
+## <a name="create-the-recovery-plan"></a>Create the recovery plan
 
-Para recuperar o aplicativo no Azure, você precisa criar um plano de recuperação. Com um plano de recuperação, você pode especificar a ordem de recuperação das máquinas virtuais. A máquina virtual colocada no grupo 1 será recuperada e iniciada primeiro, em seguida, a máquina virtual no grupo 2.
+To recover the application to Azure, you need to create a recovery plan.
+Using a recovery plan you can specify the order of recovery of the virtual machines. The virtual machine placed in group 1 will recover and start first, and then the virtual machine in group 2 will follow.
 
-Crie um Plano de recuperação parecido com o exibido abaixo.
+Create a Recovery Plan that looks like below.
 
 ![](media/site-recovery-runbook-automation/12.png)
 
-Para ler mais sobre os planos de recuperação, leia a documentação contida [aqui](https://msdn.microsoft.com/library/azure/dn788799.aspx "aqui").
+To read more about recovery plans, read documentation [here](https://msdn.microsoft.com/library/azure/dn788799.aspx "here").
 
-Em seguida, vamos criar os artefatos necessários na Automação do Azure.
+Next, let's create the necessary artifacts in Azure Automation.
 
-## Criar a conta de automação e seus ativos
+## <a name="create-the-automation-account-and-its-assets"></a>Create the automation account and its assets
 
-Você precisa de uma conta de Automação do Azure para criar runbooks. Se você ainda não tiver uma conta, navegue até a guia Automação do Azure indicada por ![](media/site-recovery-runbook-automation/02.png) e crie uma nova conta.
+You need an Azure Automation account to create runbooks. If you do not already have an account, navigate to Azure Automation tab denoted by ![](media/site-recovery-runbook-automation/02.png)and create a new account.
 
-1.  Dê um nome à conta para identificá-la.
+1.  Give the account a name to identify with.
 
-2.  Especifique uma região geográfica na qual você deseja colocar a conta.
+2.  Specify a geographical region where you want to place the account.
 
-É recomendável colocar a conta na mesma região que o cofre ASR.
+It is recommended to place the account in the same region as the ASR vault.
 
 ![](media/site-recovery-runbook-automation/03.png)
 
-Em seguida, crie os seguintes ativos na Conta.
+Next, create the following assets in the Account.
 
-### Adicionar um nome de assinatura como ativo
+### <a name="add-a-subscription-name-as-asset"></a>Add a subscription name as asset
 
-1.  Adicione uma nova configuração ![](media/site-recovery-runbook-automation/04.png) nos Ativos de Automação do Azure e selecione ![](media/site-recovery-runbook-automation/05.png)
+1.  Add a new setting ![](media/site-recovery-runbook-automation/04.png) in the Azure Automation Assets and select to ![](media/site-recovery-runbook-automation/05.png)
 
-2.  Selecione o tipo de variável como **String**
+2.  Select the variable type as **String**
 
-3.  Especifique o nome da variável como **AzureSubscriptionName**
+3.  Specify variable name as **AzureSubscriptionName**
 
     ![](media/site-recovery-runbook-automation/06.png)
 
-4.  Especifique o nome real de sua Assinatura do Azure como o valor da variável.
+4.  Specify your actual Azure Subscription name as the variable value.
 
-	![](media/site-recovery-runbook-automation/07_1.png)
+    ![](media/site-recovery-runbook-automation/07_1.png)
 
-Você pode identificar o nome de sua assinatura na página Configurações de sua conta no Portal do Azure.
+You can identify the name of your subscription from the settings page of your account on the Azure portal.
 
-### Adicionar uma credencial de logon do Azure como ativo
+### <a name="add-an-azure-login-credential-as-asset"></a>Add an Azure login credential as asset
 
-A Automação do Azure usa o Azure PowerShell para se conectar à assinatura e opera nos artefatos de lá. Para isso, você precisa autenticar usando sua conta da Microsoft ou uma conta corporativa ou de estudante. Você pode armazenar as credenciais da conta em um ativo que será usado com segurança pelo runbook.
+Azure Automation uses Azure PowerShell to connect to the subscription and operates on the artifacts there. For this, you need to authenticate using your Microsoft account or a work or school account.
+You can store the account credentials in an asset to be used securely by the runbook.
 
-1.  Adicione uma nova configuração ![](media/site-recovery-runbook-automation/04.png) nos Ativos de Automação do Azure e selecione ![](media/site-recovery-runbook-automation/09.png)
+1.  Add a new setting ![](media/site-recovery-runbook-automation/04.png) in the Azure Automation Assets and select ![](media/site-recovery-runbook-automation/09.png)
 
-2.  Selecione o Tipo de credencial como **Credencial do Windows PowerShell**
+2.  Select the Credential type as **Windows PowerShell Credential**
 
-3.  Especifique o nome como **AzureCredential**
+3.  Specify the name as **AzureCredential**
 
     ![](media/site-recovery-runbook-automation/10.png)
 
-4.  Especifique o nome de usuário e a senha para logon.
+4.  Specify the username and password to sign-in with.
 
-Agora, essas duas configurações estão disponíveis em seus ativos.
+Now both these settings are available in your assets.
 
 ![](media/site-recovery-runbook-automation/11.png)
 
-Para saber mais sobre como se conectar à sua assinatura por meio do PowerShell clique [aqui](../powershell-install-configure.md).
+More information about how to connect to your subscription via PowerShell is given [here](../powershell-install-configure.md).
 
-Em seguida, você criará um runbook na Automação do Azure que pode adicionar um ponto de extremidade à máquina virtual front-end após o failover.
+Next, you will create a runbook in Azure Automation that can add an endpoint for the front-end virtual machine after failover.
 
-## Contexto de automação do Azure
+## <a name="azure-automation-context"></a>Azure automation context
 
-ASR passa uma variável de contexto para o runbook a fim de ajudar você a escrever scripts deterministas. Alguém poderia argumentar que os nomes do Serviço de nuvem e da Máquina virtual são previsíveis, mas nem sempre esse é o caso devido a certos cenários, por exemplo, aquele no qual o nome da máquina virtual pode ter sido alterado devido a caracteres sem suporte no Azure. Portanto, essas informações são passadas ao plano de recuperação ASR como parte do *contexto*.
+ASR passes a context variable to the runbook to help you write deterministic scripts. One could argue that the names of the Cloud Service and the Virtual Machine are predictable, but happens that it is not always the case owing to certain scenarios such as the one where the name of the virtual machine name might have changed due to unsupported characters in Azure. Hence this information is passed to the ASR recovery plan as part of the *context*.
 
-Veja abaixo um exemplo da aparência da variável de contexto.
+Below is an example of how the context variable looks.
 
         {"RecoveryPlanName":"hrweb-recovery",
 
@@ -132,180 +135,188 @@ Veja abaixo um exemplo da aparência da variável de contexto.
         }
 
 
-A tabela a seguir contém o nome e uma descrição para cada variável no contexto.
+The table below contains name and description for each variable in the context.
 
-**Nome da variável** | **Descrição**
+**Variable name** | **Description**
 ---|---
-RecoveryPlanName | Nome do plano de execução. Ajuda você a agir com base no nome usando o mesmo script
-FailoverType | Especifica se o failover é de teste, planejado ou não planejado.
-FailoverDirection | Especifica se a recuperação é para o principal ou secundário
-GroupID | Identifica o número de grupo no plano de recuperação quando o plano está em execução
-VmMap | Matriz de todas as máquinas virtuais do grupo
-Chave VMMap | Chave exclusiva (GUID) para cada VM. É igual à ID do VMM da máquina virtual onde aplicável.
-RoleName | Nome da VM do Azure que está sendo recuperada
-CloudServiceName | Nome do serviço de nuvem do Azure sob o qual a máquina virtual é criada.
+RecoveryPlanName | Name of plan being run. Helps you take action based on name using the same script
+FailoverType | Specifies whether the failover is test, planned, or unplanned.
+FailoverDirection | Specify whether recovery is to primary or secondary
+GroupID | Identify the group number within the recovery plan when the plan is running
+VmMap | Array of all the virtual machines in the group
+VMMap key | Unique key (GUID) for each VM. It's the same as the VMM ID of the virtual machine where applicable.
+RoleName | Name of the Azure VM that's being recovered
+CloudServiceName | Azure Cloud Service name under which the virtual machine is created.
 
 
-Para identificar a Chave de VmMap no contexto, também é possível acessar a página de propriedades da VM no ASR e examinar a propriedade VM GUID.
+To identify the VmMap Key in the context you could also go to the VM properties page in ASR and look at the VM GUID property.
 
 ![](media/site-recovery-runbook-automation/13.png)
 
-## Criar um runbook de automação
+## <a name="author-an-automation-runbook"></a>Author an Automation runbook
 
-Agora, crie o runbook para abrir a porta 80 na máquina virtual front-end.
+Now create the runbook to open port 80 on the front-end virtual machine.
 
-1.  Crie um novo runbook na conta de Automação do Azure com o nome **OpenPort80**
+1.  Create a new runbook in the Azure Automation account with the name **OpenPort80**
 
-	![](media/site-recovery-runbook-automation/14.png)
+    ![](media/site-recovery-runbook-automation/14.png)
 
-2.  Navegue até o modo de exibição de Criação do runbook e entre no modo de rascunho.
+2.  Navigate to the Author view of the runbook and enter the draft mode.
 
-3.  Primeiro, especifique a variável a ser usada como o contexto do plano de recuperação
+3.  First specify the variable to use as the recovery plan context
 
-	```
-		param (
-			[Object]$RecoveryPlanContext
-		)
+    ```
+        param (
+            [Object]$RecoveryPlanContext
+        )
 
-	```
+    ```
 
-4.  Em seguida, conecte-se à assinatura usando o nome da credencial e da assinatura
+4.  Next connect to the subscription using the credential and subscription name
 
-	```
-		$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
+    ```
+        $Cred = Get-AutomationPSCredential -Name 'AzureCredential'
 
-		# Connect to Azure
-		$AzureAccount = Add-AzureAccount -Credential $Cred
-		$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
-		Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
-	```
+        # Connect to Azure
+        $AzureAccount = Add-AzureAccount -Credential $Cred
+        $AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
+        Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
+    ```
 
-	Observe que você usa aqui os ativos do Azure – **AzureCredential** e **AzureSubscriptionName**.
+    Note that you use the Azure assets – **AzureCredential** and **AzureSubscriptionName** here.
 
-5.  Agora, especifique os detalhes do ponto de extremidade e o GUID da máquina virtual para a qual você deseja expor o ponto de extremidade. Neste caso, a máquina virtual de front-end.
+5.  Now specify the endpoint details and the GUID of the virtual machine for which you want to expose the endpoint. In this case the front-end virtual machine.
 
-	```
-		# Specify the parameters to be used by the script
-		$AEProtocol = "TCP"
-		$AELocalPort = 80
-		$AEPublicPort = 80
-		$AEName = "Port 80 for HTTP"
-		$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
-	```
+    ```
+        # Specify the parameters to be used by the script
+        $AEProtocol = "TCP"
+        $AELocalPort = 80
+        $AEPublicPort = 80
+        $AEName = "Port 80 for HTTP"
+        $VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
+    ```
 
-	Isso especifica o protocolo do ponto de extremidade do Azure, a porta local na VM e sua porta pública mapeada. Essas variáveis são parâmetros exigidos pelos comandos do Azure que adicionam pontos de extremidade às máquinas virtuais. O VMGUID contém o GUID da máquina virtual na qual você precisa operar.
+    This specifies the Azure endpoint protocol, local port on the VM and its mapped public port. These variables are parameters     required by the Azure commands that add endpoints to VMs. The VMGUID holds the GUID of the virtual machine you need to operate on.
 
-6.  Agora, o script extrairá o contexto do VM GUID determinado e criará um ponto de extremidade na máquina virtual indicada por ele.
+6.  The script will now extract the context for the given VM GUID and create an endpoint on the virtual machine referenced by it.
 
-	```
-		#Read the VM GUID from the context
-		$VM = $RecoveryPlanContext.VmMap.$VMGUID
+    ```
+        #Read the VM GUID from the context
+        $VM = $RecoveryPlanContext.VmMap.$VMGUID
 
-		if ($VM -ne $null)
-		{
-			# Invoke pipeline commands within an InlineScript
+        if ($VM -ne $null)
+        {
+            # Invoke pipeline commands within an InlineScript
 
-			$EndpointStatus = InlineScript {
-				# Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
-				# Commands include: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including parameters)
+            $EndpointStatus = InlineScript {
+                # Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
+                # Commands include: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including parameters)
 
-				$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
-					Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
-					Update-AzureVM
-				Write-Output $Status
-			}
-		}
-	```
+                $Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
+                    Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
+                    Update-AzureVM
+                Write-Output $Status
+            }
+        }
+    ```
 
-7. Quando isso for concluído, pressione Publicar ![](media/site-recovery-runbook-automation/20.png) para permitir que seu script esteja disponível para execução.
+7. Once this is complete, hit Publish ![](media/site-recovery-runbook-automation/20.png) to allow your script to be available for execution.
 
-O script completo é fornecido abaixo para sua referência
+The complete script is given below for your reference
 
 ```
   workflow OpenPort80
   {
-	param (
-		[Object]$RecoveryPlanContext
-	)
+    param (
+        [Object]$RecoveryPlanContext
+    )
 
-	$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
+    $Cred = Get-AutomationPSCredential -Name 'AzureCredential'
 
-	# Connect to Azure
-	$AzureAccount = Add-AzureAccount -Credential $Cred
-	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
-	Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
+    # Connect to Azure
+    $AzureAccount = Add-AzureAccount -Credential $Cred
+    $AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
+    Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
 
-	# Specify the parameters to be used by the script
-	$AEProtocol = "TCP"
-	$AELocalPort = 80
-	$AEPublicPort = 80
-	$AEName = "Port 80 for HTTP"
-	$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
+    # Specify the parameters to be used by the script
+    $AEProtocol = "TCP"
+    $AELocalPort = 80
+    $AEPublicPort = 80
+    $AEName = "Port 80 for HTTP"
+    $VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
 
-	#Read the VM GUID from the context
-	$VM = $RecoveryPlanContext.VmMap.$VMGUID
+    #Read the VM GUID from the context
+    $VM = $RecoveryPlanContext.VmMap.$VMGUID
 
-	if ($VM -ne $null)
-	{
-		# Invoke pipeline commands within an InlineScript
+    if ($VM -ne $null)
+    {
+        # Invoke pipeline commands within an InlineScript
 
-		$EndpointStatus = InlineScript {
-			# Invoke the necessary pipeline commands to add an Azure Endpoint to a specified Virtual Machine
-			# This set of commands includes: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including necessary parameters)
+        $EndpointStatus = InlineScript {
+            # Invoke the necessary pipeline commands to add an Azure Endpoint to a specified Virtual Machine
+            # This set of commands includes: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including necessary parameters)
 
-			$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
-				Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
-				Update-AzureVM
-			Write-Output $Status
-		}
-	}
+            $Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
+                Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
+                Update-AzureVM
+            Write-Output $Status
+        }
+    }
   }
 ```
 
-## Adicione o script ao plano de recuperação
+## <a name="add-the-script-to-the-recovery-plan"></a>Add the script to the recovery plan
 
-Quando o script estiver pronto, você poderá adicioná-lo ao plano de recuperação criado anteriormente.
+Once the script is ready, you can add it to the recovery plan that you created earlier.
 
-1.  No plano de recuperação que você criou, escolha adicionar um script após o grupo 2. ![](media/site-recovery-runbook-automation/15.png)
+1.  In the recovery plan you created, choose to add a script after the group 2. ![](media/site-recovery-runbook-automation/15.png)
 
-2.  Especifique um nome de script. Esse é apenas um nome amigável para mostrar o script no Plano de recuperação.
+2.  Specify a script name. This is just a friendly name for this script for showing within the Recovery plan.
 
-3.  No script do failover para o Azure – Selecione o nome da Conta de Automação do Azure.
+3.  In the failover to Azure script – Select the Azure Automation Account name.
 
-4.  Nos Runbooks do Azure, selecione o runbook criado por você.
+4.  In the Azure Runbooks, select the runbook you authored.
 
 ![](media/site-recovery-runbook-automation/16.png)
 
-## Scripts do lado principal
+## <a name="primary-side-scripts"></a>Primary side scripts
 
-Quando você estiver executando um failover para o Azure, também poderá optar por executar scripts do lado principal. Esses scripts serão executados no servidor VMM durante o failover. Scripts do lado principal só ficam disponíveis para estágios pré-desligamento e pós-desligamento. Isso ocorre porque esperamos que o site principal fique normalmente indisponível quando ocorre um desastre. Durante um failover não planejado, apenas se você optar por operações de site principal, ele tentará executar os scripts do lado principal. Se não for possível acessá-los ou tempo limite esgotar, o failover continuará a recuperar as máquinas virtuais. Scripts do lado principal não estão disponíveis para sites de VMware/físico/Hyper-v sem o VMM protegido para o Azure - durante o failover para o Azure. No entanto, quando você realiza o failback do Azure para o local, os scripts do lado principal (Runbooks) podem ser usados em todos os destinos, exceto no VMware.
+When you are executing a failover to Azure, you can also choose to execute primary side scripts. These scripts will run on the VMM server during failover.
+Primary side scripts are only available only for pre-shutdown and post shutdown stages. This is because we expect the primary site to be typically unavailable when a disaster strikes.
+During an unplanned failover, only if you opt in for primary site operations, it will attempt to run the primary side scripts. If they are not reachable or timeout, the failover will continue to recover the virtual machines.
+Primary side scripts are un-available for VMware/Physical/Hyper-v Sites without VMM protected to Azure - while you failover to Azure.
+However, when you failback from Azure to on-premises, primary side scripts (Runbooks) can be used for all targets except VMware.
 
-## Testar o plano de recuperação
+## <a name="test-the-recovery-plan"></a>Test the recovery plan
 
-Após adicionar o runbook ao plano, você poderá iniciar um failover de teste e vê-lo em ação. É sempre recomendável executar um failover de teste para testar seu aplicativo e o plano de recuperação a fim de garantir que não exista erros.
+Once you have added the runbook to the plan you can initiate a test failover and see it in action. It is always recommended to run a test failover to test your application and the recovery plan to ensure that there are no errors.
 
-1.  Selecione o plano de recuperação e inicie um failover de teste.
+1.  Select the recovery plan and initiate a test failover.
 
-2.  Durante a execução do plano, você pode ver se o runbook foi executado ou não por meio do status.
+2.  During the plan execution, you can see whether the runbook has executed or not via its status.
 
     ![](media/site-recovery-runbook-automation/17.png)
 
-3.  Você também pode ver o status detalhado de execução do runbook na página de trabalhos da Automação do Azure para o runbook.
+3.  You can also see the detailed runbook execution status on the Azure Automation jobs page for the runbook.
 
     ![](media/site-recovery-runbook-automation/18.png)
 
-4.  Após a conclusão do failover, exceto o resultado da execução do runbook, você poderá ver se a execução foi bem-sucedida ou não, visitando a página da máquina virtual do Azure e observando os pontos de extremidade.
+4.  After the failover completes, apart from the runbook execution result, you can see whether the execution is successful or not by visiting the Azure virtual machine page and looking at the endpoints.
 
 ![](media/site-recovery-runbook-automation/19.png)
 
-## Exemplos de scripts
+## <a name="sample-scripts"></a>Sample scripts
 
-Embora tenhamos mostrado neste tutorial como automatizar uma tarefa usada normalmente, a adição de um ponto de extremidade a uma máquina virtual do Azure, você pode fazer várias outras tarefas avançadas de automação usando a Automação do Azure. A Microsoft e a comunidade da Automação do Azure fornecem exemplos de runbooks que podem ajudar você a começar a criar suas próprias soluções, e de runbooks utilitários, que você pode usar como blocos de construção para tarefas maiores de automação. Comece a usá-los na galeria e crie planos de recuperação avançados e realizados com um único clique para seus aplicativos usando o Azure Site Recovery.
+While we walked through automating one commonly used task of adding an endpoint to an Azure virtual machine in this tutorial, you could do a number of other powerful automation tasks using Azure automation. Microsoft and the Azure Automation community provide sample runbooks which can help you get started creating your own solutions, and utility runbooks, which you can use as building blocks for larger automation tasks. Start using them from the gallery and build  powerful one-click recovery plans for your applications using Azure Site Recovery.
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Additional Resources
 
-[Visão geral da Automação](http://msdn.microsoft.com/library/azure/dn643629.aspx "Visão geral da Automação")
+[Azure Automation Overview](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation Overview")
 
-[Exemplos de scripts da Automação do Azure](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Exemplos de scripts da Automação do Azure")
+[Sample Azure Automation Scripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Sample Azure Automation Scripts")
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

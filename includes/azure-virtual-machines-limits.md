@@ -1,10 +1,13 @@
-Recurso|Limite padrão|Limite máximo
+Resource|Default Limit|Maximum Limit
 ---|---|---
-[Máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-about.md) por serviço de nuvem<sup>1</sup>|50|50
-Pontos de extremidade de entrada por serviço de nuvem<sup>2</sup>|150|150
+[Virtual machines](../articles/virtual-machines/virtual-machines-linux-about.md) per cloud service<sup>1</sup>|50|50
+Input endpoints per cloud service<sup>2</sup>|150|150
 
-<sup>1</sup>Máquinas virtuais criadas no Gerenciamento de Serviços (e não no Gerenciador de Recursos) são armazenadas automaticamente em um serviço de nuvem. Você pode adicionar mais máquinas virtuais a esse serviço de nuvem para disponibilidade e balanceamento de carga. Consulte [Como conectar máquinas virtuais a uma rede virtual ou serviço de nuvem](../articles/virtual-machines/virtual-machines-linux-classic-connect-vms.md).
+<sup>1</sup>Virtual machines created in Service Management (instead of Resource Manager) are automatically stored in a cloud service. You can add more virtual machines to that cloud service for load balancing and availability. See  [How to Connect Virtual Machines with a Virtual Network or Cloud Service](../articles/virtual-machines/virtual-machines-linux-classic-connect-vms.md).
 
-<sup>2</sup>Pontos de extremidade de entrada permitem comunicações com uma máquina virtual de fora do serviço de nuvem da máquina virtual. As máquinas virtuais no mesmo serviço de nuvem ou rede virtual podem se comunicar automaticamente umas com as outras. Consulte [Como instalar pontos de extremidade em uma máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
+<sup>2</sup>Input endpoints allow communications to a virtual machine from outside the virtual machine's cloud service. Virtual machines in the same cloud service or virtual network can automatically communicate with each other. See [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md). 
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

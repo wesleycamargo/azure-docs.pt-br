@@ -1,10 +1,12 @@
 
-Para configurar seu dispositivo VPN, você precisará do endereço IP público do gateway de rede virtual para configurar seu dispositivo VPN local. Trabalhe com o fabricante do dispositivo para obter informações específicas de configuração e configurar seu dispositivo. Confira [Dispositivos VPN](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) para saber mais sobre dispositivos VPN que funcionam bem com o Azure.
+To configure your VPN device, you'll need the public IP address of the virtual network gateway for configuring your on-premises VPN device. Work with your device manufacturer for specific configuration information and configure your device. Refer to the [VPN Devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) for more information about VPN devices that work well with Azure.
 
-Para localizar o endereço IP público do seu gateway de rede virtual usando o PowerShell, use o exemplo a seguir:
+To find the public IP address of your virtual network gateway using PowerShell, use the following sample:
 
-	Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+    Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
 
-Você também pode exibir o endereço IP público do seu gateway de rede virtual usando o Portal do Azure. Navegue até **Gateways de Rede Virtual**, em seguida, clique no nome do seu gateway.
+You can also view the public IP address for your virtual network gateway by using the Azure portal. Navigate to **Virtual network gateways**, then click the name of your gateway.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,38 +1,43 @@
 <properties
-	pageTitle="Dicas de ajuste de desempenho de Banco de Dados SQL | Microsoft Azure"
-	description="Dicas de ajuste de desempenho no Banco de Dados SQL por meio de avaliação e melhoria."
-	services="sql-database"
-	documentationCenter=""
-	authors="v-shysun"
-	manager="felixwu"
-	editor=""
-	keywords="ajuste de desempenho de sql, ajuste de desempenho de banco de dados, dicas de ajuste de desempenho do sql, ajuste de desempenho de banco de dados sql"/>
+    pageTitle="SQL Database performance tuning tips | Microsoft Azure"
+    description="Tips for performance tuning in Azure SQL Database through evaluation and improvement."
+    services="sql-database"
+    documentationCenter=""
+    authors="v-shysun"
+    manager="felixwu"
+    editor=""
+    keywords="sql performance tuning, database performance tuning, sql performance tuning tips, sql database performance tuning"/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="v-shysun"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/13/2016"
+    ms.author="v-shysun"/>
 
-# Dicas de ajuste de desempenho do Banco de Dados SQL
-Você pode alterar quando quiser a [camada de serviço](sql-database-service-tiers.md) de um banco de dados individual ou aumentar os eDTUs de um pool de banco de dados elástico para melhorar o desempenho, mas convém identificar primeiro as oportunidades de aprimoramento e otimização do desempenho da consulta. Índices ausentes e consultas precárias são motivos comuns de um desempenho ruim do banco de dados. Este artigo fornece orientação para ajuste de desempenho no Banco de Dados SQL.
+
+# <a name="sql-database-performance-tuning-tips"></a>SQL Database performance tuning tips
+You can change the [service tier](sql-database-service-tiers.md) of a single database or increase the eDTUs of an elastic database pool at any time to improve performance, but you may want to identify opportunities to improve and optimize query performance first. Missing indexes and poorly optimized queries are common reasons for poor database performance. This article provides guidance for performance tuning in SQL Database.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Etapas para avaliar e ajustar o desempenho do banco de dados
-1.	No [Portal do Azure](https://portal.azure.com), clique em **Bancos de Dados SQL**, escolha o banco de dados e use o gráfico de monitoramento para procurar recursos que estão atingindo o limite. O consumo de DTU é exibido por padrão. Clique em **Editar** para alterar o intervalo de tempo e os valores mostrados.
-2.	Use a [Análise de Desempenho de Consultas](sql-database-query-performance.md) para avaliar as consultas usando DTUs e use o [Supervisor de Banco de Dados SQL](sql-database-advisor.md) para exibir as recomendações para criar e descartar índices, parametrizar consultas e corrigir problemas de esquema.
-3.	Você pode usar as DMVs (exibições de gerenciamento dinâmico), os Xevents (Eventos Estendidos) e o Armazenamento de Consulta no SSMS para obter os parâmetros de desempenho em tempo real. Veja o [tópico com diretrizes sobre desempenho](sql-database-performance-guidance.md) para obter dicas detalhadas de monitoramento e ajuste.
+## <a name="steps-to-evaluate-and-tune-database-performance"></a>Steps to evaluate and tune database performance
+1.  In the [Azure Portal](https://portal.azure.com), click **SQL databases**, select the database, and then use the Monitoring chart to look for resources approaching their maximum. DTU consumption is shown by default. Click **Edit** to change the time range and values shown.
+2.  Use [Query Performance Insight](sql-database-query-performance.md) to evaluate the queries using DTUs, and then use [SQL Database Advisor](sql-database-advisor.md) to view recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues.
+3.  You can use dynamic management views (DMVs), Extended Events (Xevents), and the Query Store in SSMS to get performance parameters in real time. See the [performance guidance topic](sql-database-performance-guidance.md) for detailed monitoring and tuning tips.
 
 
-    > [AZURE.IMPORTANT] Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+    > [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
-## Etapas para melhorar o desempenho do banco de dados com mais recursos
-1.	Para bancos de dados individuais, você pode [alterar as camadas de serviço](sql-database-scale-up.md) sob demanda para melhorar o desempenho do banco de dados.
-2.	Para vários bancos de dados, considere o uso de [pools de banco de dados elásticos](sql-database-elastic-pool-guidance.md) para escalar os recursos automaticamente.
+## <a name="steps-to-improve-database-performance-with-more-resources"></a>Steps to improve database performance with more resources
+1.  For single databases, you can [change service tiers](sql-database-scale-up.md) on-demand to improve database performance.
+2.  For multiple databases, consider using [elastic database pools](sql-database-elastic-pool-guidance.md) to scale resources automatically.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,48 +1,58 @@
 <properties
-	pageTitle="Sincronização do Azure AD Connect: como gerenciar a conta de serviço do Azure AD | Microsoft Azure"
-	description="Este tópico documenta como restaurar a conta de serviço do Azure AD."
-	services="active-directory"
-    keywords="AADSTS70002, AADSTS50054: Como redefinir a senha da conta de serviço do Conector de sincronização do Azure AD Connect"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure AD Connect sync: How to manage the Azure AD service account | Microsoft Azure"
+    description="This topic documents how to restore the Azure AD service account."
+    services="active-directory"
+    keywords="AADSTS70002, AADSTS50054, How to reset the password for the Azure AD Connect sync Connector service account"
+    documentationCenter=""
+    authors="andkjell"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/01/2016"
+    ms.author="billmath"/>
 
-# Sincronização do Azure AD Connect: como gerenciar a conta de serviço do Azure AD
-A conta de serviço usada pelo Azure AD Connector deve ter serviço gratuito. Se você precisa redefinir suas credenciais, este tópico é indicado para você. Por exemplo, se um Administrador Global tiver redefinido a senha por engano na conta de serviço usando o PowerShell.
 
-## Redefinir as credenciais
-Se a conta de serviço definida no Azure AD Connector não puder contatar o Azure AD devido a problemas de autenticação, a senha poderá ser redefinida.
+# <a name="azure-ad-connect-sync:-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect sync: How to manage the Azure AD service account
+The service account used by the Azure AD Connector is supposed to be service free. If you need to reset its credentials, then this topic is for you. For example, if a Global Administrator has by mistake reset the password on the service account using PowerShell.
 
-1. Entre no servidor de sincronização do Azure AD Connector e inicie o PowerShell.
-2. Execute `Add-ADSyncAADServiceAccount`. ![Cmdlet addadsyncaadserviceaccount do PowerShell](./media/active-directory-aadconnectsync-howto-azureadaccount/addadsyncaadserviceaccount.png)
-3. Forneça credenciais de Administrador Global do Azure AD.
+## <a name="reset-the-credentials"></a>Reset the credentials
+If the service account defined on the Azure AD Connector cannot contact Azure AD due to authentication problems, the password can be reset.
 
-Esse cmdlet redefinirá a senha da conta de serviço e a atualizará no Azure AD e no mecanismo de sincronização.
+1. Sign in to the Azure AD Connect sync server and start PowerShell.
+2. Run `Add-ADSyncAADServiceAccount`.  
+![PowerShell cmdlet addadsyncaadserviceaccount](./media/active-directory-aadconnectsync-howto-azureadaccount/addadsyncaadserviceaccount.png)
+3. Provide Azure AD Global admin credentials.
 
-## Problemas conhecidos que essas etapas podem resolver
-Esta seção é uma lista de erros relatados por clientes que foram corrigidos por uma redefinição de credenciais na conta de serviço do Azure AD.
+This cmdlet resets the password for the service account and update it both in Azure AD and in the sync engine.
+
+## <a name="known-issues-these-steps-can-solve"></a>Known issues these steps can solve
+This section is a list of errors reported by customers that were fixed by a credentials reset on the Azure AD service account.
 
 -----------
-Evento 6900 O servidor encontrou um erro inesperado ao processar uma notificação de alteração de senha: AADSTS70002: erro ao validar as credenciais. AADSTS50054: A senha antiga é usada para autenticação.
+Event 6900  
+The server encountered an unexpected error while processing a password change notification:  
+AADSTS70002: Error validating credentials. AADSTS50054: Old password is used for authentication.
 
 ----------
-Erro de evento 659 ao recuperar a configuração de sincronização de política de senha. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException: AADSTS70002: Erro ao validar as credenciais. AADSTS50054: A senha antiga é usada para autenticação.
+Event 659  
+Error while retrieving password policy sync configuration. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException:  
+AADSTS70002: Error validating credentials. AADSTS50054: Old password is used for authentication.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-**Tópicos de visão geral**
+**Overview topics**
 
-- [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
-- [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,40 +1,45 @@
-## Conectar-se ao Banco de Dados SQL do Azure como um usuário
+## <a name="connect-to-azure-sql-database-as-a-user"></a>Connect to Azure SQL Database as a user
 
-Use as etapas a seguir para se conectar ao Banco de Dados SQL do Azure com SSMS como um usuário.
+Use the following steps to connect to Azure SQL Database with SSMS as a user.
 
-1. Digite "Microsoft SQL Server Management Studio" na caixa de pesquisa do Windows e clique no aplicativo de área de trabalho para iniciar o SSMS.
+1. Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.
 
-2. Na janela Conectar ao Servidor, insira as informações a seguir:
+2. In the Connect to Server window, enter the following information:
 
-- **Tipo de servidor**: o padrão é o mecanismo de banco de dados; não altere esse valor.
- - **Nome do servidor**: digite o nome do servidor que hospeda seu banco de dados SQL no seguinte formato: *&lt;servername>*.**database.windows.net**
- - **Tipo de autenticação**: se você acabou de começar, selecione a Autenticação SQL. Se você tiver habilitado o Active Directory para seu servidor lógico do Banco de Dados SQL, selecione a Autenticação de Senha do Active Directory ou a Autenticação Integrada do Active Directory.
- - **Nome de usuário**: se você selecionou a Autenticação do SQL ou a Autenticação de Senha do Active Directory, digite o nome de um usuário com acesso ao banco de dados no servidor.
- - **Senha**: se você selecionou a Autenticação do SQL ou a Autenticação de Senha do Active Directory, digite a senha para o usuário especificado.
+- **Server type**: The default is database engine; do not change this value.
+ - **Server name**: Enter the name of the server that hosts your SQL database in the followinbg format: *&lt;servername>*.**database.windows.net**
+ - **Authentication type**: If you are just getting started, select SQL Authentication. If you have enabled Active Directory for your SQL Database logical server, you can select either Active Directory Password Authentication or Active Directory Integrated Authentication.
+ - **User name**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the name of a user with access to a database on the server.
+ - **Password**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the password for the specified user.
    
-       ![SQL Server Manager Studio: conectar-se a um servidor de Banco de Dados SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
+       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
 
-3. Clique em **Opções** para especificar o banco de dados ao qual você deseja se conectar.
+3. Click **Options** to specify the database to which you want to connect.
 
-      ![SQL Server Manager Studio: conectar-se a um servidor de Banco de Dados SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
+      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
  
-4. Em **Conectar ao Banco de Dados**, selecione o banco de dados ao qual você deseja se conectar.
+4. In the **Connect to Database**, select the database to which you wish to connect.
 
-     ![SQL Server Manager Studio: conectar-se a um servidor de Banco de Dados SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
 
-5. Clique em **Conectar**.
+5. Click **Connect**.
  
-6. Se o endereço IP de seu cliente não tiver acesso ao servidor lógico do Banco de Dados SQL, você receberá uma solicitação para entrar em uma conta do Azure e criar uma regra de firewall no nível do servidor. Se você for um administrador de assinatura do Azure, clique em **Entrar** para criar uma regra de firewall no nível do servidor. Caso contrário, peça para um administrador criar uma regra de firewall no nível do servidor ou uma regra de firewall no nível do banco de dados no banco de dados ao qual você está tentando se conectar.
+6. If your client's IP address does not have access to the SQL Database logical server, you will be prompted to sign in to an Azure account and create a server-level firewall rule. If you are an Azure subscription administrator, Click **Sign in** to create a server-level firewall rule. If not, have an administrator create either a server-level firewall rule or a database-level firewall rule in the database to which you are trying to connect.
  
-      ![SQL Server Manager Studio: conectar-se a um servidor de Banco de Dados SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
+      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
  
-7. Se suas credenciais concederem a você acesso ao banco de dados especificado, o Pesquisador de Objetos será aberto e você poderá executar tarefas administrativas ou consultar dados, dependendo das permissões do usuário.
+7. If your credentials grant you access to the specified database, Object Explorer opens and you can now perform administrative tasks or query data, depending upon the user permissions.
   
-      ![SQL Server Manager Studio: conectar-se a um servidor de Banco de Dados SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
+      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
       
  
-## Solucionar falhas de conexão
+## <a name="troubleshoot-connection-failures"></a>Troubleshoot connection failures
 
-O motivo mais comum das falhas de conexão são os erros no nome do servidor (lembre-se, <*nomeservidor*> é o nome do servidor lógico, não do banco de dados), nome de usuário ou senha, bem como o fato de o servidor não permitir conexões por motivos de segurança.
+The most common reason for connection failures are mistakes in the server name (remember, <*servername*> is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. 
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

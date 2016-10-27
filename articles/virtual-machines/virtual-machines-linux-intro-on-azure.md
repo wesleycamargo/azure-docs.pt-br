@@ -1,101 +1,107 @@
 <properties
-	pageTitle="Introdução ao Linux no Azure | Microsoft Azure"
-	description="Saiba como usar máquinas virtuais Linux no Azure."
-	services="virtual-machines-linux"
-	documentationCenter="python"
-	authors="szarkos"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="Introduction to Linux in Azure | Microsoft Azure"
+    description="Learn about using Linux virtual machines on Azure."
+    services="virtual-machines-linux"
+    documentationCenter="python"
+    authors="szarkos"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="szark"/>
-
-#Introdução ao Linux no Azure
-
-Este tópico apresenta uma visão geral de alguns aspectos do uso de máquinas virtuais Linux na nuvem do Azure. Implantar uma máquina virtual Linux é um processo simples usando uma imagem da galeria.
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/24/2016"
+    ms.author="szark"/>
 
 
-## Autenticação: nomes de usuário, senhas e chaves SSH.
+#<a name="introduction-to-linux-on-azure"></a>Introduction to Linux on Azure
 
-Ao criar uma máquina virtual Linux usando o portal clássico do Azure, você deve fornecer um nome de usuário, senha ou uma chave pública SSH. A escolha de um nome de usuário para a implantação de uma máquina virtual Linux no Azure está sujeita à seguinte restrição: nomes de contas (UID <100) do sistema já presentes na máquina virtual não são permitidos - root por exemplo.
-
-
- - Confira [Criar uma máquina virtual que executa Linux](virtual-machines-linux-quick-create-cli.md)
- - Consulte [Como usar SSH com Linux no Azure](virtual-machines-linux-mac-create-ssh-keys.md)
+This topic provides an overview of some aspects of using Linux virtual machines in the Azure cloud. Deploying a Linux virtual machine is a straightforward process using an image from the gallery.
 
 
-## Obtendo privilégios de superusuário usando o `sudo`
+## <a name="authentication:-usernames,-passwords-and-ssh-keys"></a>Authentication: Usernames, Passwords and SSH Keys
 
-A conta de usuário especificada durante a implantação da instância de máquina virtual no Azure é uma conta privilegiada. Essa conta é configurada pelo Agente Linux do Azure para poder elevar privilégios para raiz (conta de superusuário) usando o utilitário `sudo`. Depois de fazer logon usando essa conta de usuário, você poderá executar comandos como raiz usando a sintaxe de comando.
-
-	# sudo <COMMAND>
-
-Opcionalmente, você pode obter um shell de root usando **sudo -s**.
-
-- Consulte [Usando privilégios de raiz em máquinas virtuais Linux do Azure](virtual-machines-linux-use-root-privileges.md)
+When creating a Linux virtual machine using the Azure classic portal, you are asked to provide a username, password or an SSH public key. The choice of a username for deploying a Linux virtual machine on Azure is subject to the following constraint: names of system accounts (UID <100) already present in the virtual machine are not allowed, 'root' for example.
 
 
-## Configuração do firewall
-
-O Azure fornece um filtro de pacote de entrada que restringe a conectividade a portas especificadas no portal clássico do Azure. Por padrão, a única porta permitida é SSH. Você pode abrir o acesso a portas adicionais na sua máquina virtual Linux configurando pontos de extremidade no portal clássico do Azure:
-
- - Confira: [Como instalar pontos de extremidade em uma máquina virtual](virtual-machines-windows-classic-setup-endpoints.md)
-
-As imagens do Linux na Galeria do Azure não habilitam o firewall *iptables* por padrão. Se desejado, o firewall poderá ser configurado para fornecer filtragem adicional.
+ - See [Create a Virtual Machine Running Linux](virtual-machines-linux-quick-create-cli.md)
+ - See [How to Use SSH with Linux on Azure](virtual-machines-linux-mac-create-ssh-keys.md)
 
 
-## Alterações de nome do host
+## <a name="obtaining-superuser-privileges-using-`sudo`"></a>Obtaining Superuser Privileges Using `sudo`
 
-Ao implantar uma instância de uma imagem do Linux inicialmente, você precisa fornecer um nome de host para a máquina virtual. Quando a máquina virtual está em execução, esse nome de host é publicado nos servidores DNS da plataforma, de forma que as várias máquinas virtuais conectadas entre si possam executar pesquisas de endereço IP usando nomes de host.
+The user account that is specified during virtual machine instance deployment on Azure is a privileged account. This account is configured by the Azure Linux Agent to be able to elevate privileges to root (superuser account) using the `sudo` utility. Once logged in using this user account, you will be able to run commands as root using the command syntax
 
-Se forem desejadas alterações no nome do host depois da implantação de uma máquina virtual, use o comando
+    # sudo <COMMAND>
 
-	# sudo hostname <newname>
+You can optionally obtain a root shell using **sudo -s**.
 
-O Agente Linux do Azure inclui uma funcionalidade para detectar automaticamente essa alteração de nome e configurar corretamente a máquina virtual para persistir nessa alteração e, além disso, publicá-la nos servidores DNS da plataforma.
-
- - [Guia do usuário do agente Linux para o Azure](virtual-machines-linux-agent-user-guide.md)
-
-### Inicialização de nuvem
-As imagens do **Ubuntu** e **CoreOS** utilizam inicialização de nuvem no Azure, que fornece recursos adicionais para inicializar uma máquina virtual.
-
- - [Como injetar dados personalizados](virtual-machines-windows-classic-inject-custom-data.md)
- - [Dados personalizados e inicialização de nuvem no Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
- - [Criar partições de troca do Azure usando a nuvem Init](https://wiki.ubuntu.com/AzureSwapPartitions)
- - [Como usar o CoreOS no Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
+- See [Using root privileges on Linux virtual machines in Azure](virtual-machines-linux-use-root-privileges.md)
 
 
-## Captura de imagem da máquina virtual
+## <a name="firewall-configuration"></a>Firewall Configuration
 
-O Azure oferece a possibilidade de capturar o estado de uma máquina virtual existente em uma imagem que pode ser usada depois na implantação de instâncias de máquina virtual. O Agente Linux do Azure pode ser usado para reverter algumas das personalizações que foram realizadas durante o processo de provisionamento. Você pode seguir as seguintes etapas para capturar uma máquina virtual como uma imagem:
+Azure provides an inbound packet filter that restricts connectivity to ports specified in the Azure classic portal. By default, the only allowed port is SSH. You may open up access to additional ports on your Linux virtual machine by configuring endpoints in the Azure classic portal:
 
-1. Execute **waagent-deprovision** para desfazer a personalização do provisionamento. Ou **waagent -deprovision+user** para, opcionalmente, excluir a conta de usuário especificada durante o provisionamento e todos os dados associados.
+ - See: [How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md)
 
-2. Desligue a máquina virtual.
-
-3. Clique em *Capturar* no portal clássico do Azure ou use as ferramentas Powershell ou CLI para capturar a máquina virtual como uma imagem.
-
- - Confira: [Como capturar uma máquina virtual Linux para ser usada como um modelo](virtual-machines-linux-classic-capture-image.md)
+The Linux images in the Azure Gallery do not enable the *iptables* firewall by default. If desired, the firewall may be configured to provide additional filtering.
 
 
-## Anexando discos
+## <a name="hostname-changes"></a>Hostname Changes
 
-Cada máquina virtual tem um *disco de recursos* anexado. Como os dados em um disco de recurso talvez não sejam duráveis nas reinicializações, ele costuma ser usado por aplicativos e processos em execução na máquina virtual para o armazenamento de dados transitório e **temporário**. Ele também é usado para armazenar páginas ou trocar arquivos para o sistema operacional.
+When you initially deploy an instance of a Linux image, you are required to provide a host name for the virtual machine. Once the virtual machine is running, this hostname is published to the platform DNS servers so that multiple virtual machines connected to each other can perform IP address lookups using hostnames.
 
-No Linux, o disco de recurso é normalmente gerenciado pelo agente do Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu).
+If hostname changes are desired after a virtual machine has been deployed, please use the command
+
+    # sudo hostname <newname>
+
+The Azure Linux Agent includes functionality to automatically detect this name change and appropriately configure the virtual machine to persist this change and publish this change to the platform DNS servers.
+
+ - [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
+
+### <a name="cloud-init"></a>Cloud-Init
+**Ubuntu** and **CoreOS** images utilize cloud-init on Azure, which provides additional capabilities for bootstrapping a virtual machine.
+
+ - [How to Inject Custom Data](virtual-machines-windows-classic-inject-custom-data.md)
+ - [Custom Data and Cloud-Init on Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
+ - [Create Azure Swap Partitions Using Cloud-Init](https://wiki.ubuntu.com/AzureSwapPartitions)
+ - [How to Use CoreOS on Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 
->[AZURE.NOTE] Observe que o disco de recurso é um disco **temporário** e pode ser excluído e reformatado quando a VM é reinicializada.
+## <a name="virtual-machine-image-capture"></a>Virtual Machine Image Capture
 
-No Linux, o disco de dados pode ser nomeado pelo kernel como `/dev/sdc`, e os usuários precisarão particionar, formatar e montar esse recurso. Isso é abordado passo a passo no tutorial: [Como anexar um disco de dados a uma máquina virtual](virtual-machines-linux-classic-attach-disk.md).
+Azure provides the ability to capture the state of an existing virtual machine into an image that can subsequently be used to deploy additional virtual machine instances. The Azure Linux Agent may be used to rollback some of the customization that was performed during the provisioning process. You may follow the steps below to capture a virtual machine as an image:
 
- - **Consulte também:** [Configurar o Software RAID no Linux](virtual-machines-linux-configure-raid.md) e [Configurar LVM em uma VM do Linux no Azure](virtual-machines-linux-configure-lvm.md)
+1. Run **waagent -deprovision** to undo provisioning customization. Or **waagent -deprovision+user** to optionally, delete the user account specified during provisioning and all associated data.
 
-<!---HONumber=AcomDC_0831_2016-->
+2. Shut down/power off the virtual machine.
+
+3. Click *Capture* in the Azure classic portal or use the Powershell or CLI tools to capture the virtual machine as an image.
+
+ - See: [How to Capture a Linux Virtual Machine to Use as a Template](virtual-machines-linux-classic-capture-image.md)
+
+
+## <a name="attaching-disks"></a>Attaching Disks
+
+Each virtual machine has a temporary, local *resource disk* attached. Because data on a resource disk may not be durable across reboots, it is often used by applications and processes running in the virtual machine for transient and **temporary** storage of data. It is also used to store the page or swap files for the operating system.
+
+On Linux, the resource disk is typically managed by the Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images).
+
+
+>[AZURE.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
+
+On Linux the data disk might be named by the kernel as `/dev/sdc`, and users will need to partition, format and mount that resource. This is covered step-by-step in the tutorial: [How to Attach a Data Disk to a Virtual Machine](virtual-machines-linux-classic-attach-disk.md).
+
+ - **See also:** [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md) & [Configure LVM on a Linux VM in Azure](virtual-machines-linux-configure-lvm.md)
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

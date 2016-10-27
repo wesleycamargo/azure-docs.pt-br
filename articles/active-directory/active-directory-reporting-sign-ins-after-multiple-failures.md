@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Entradas após várias falhas"
-	description="Um relatório que indica os usuários que obtiveram êxito após várias tentativas de entrada malsucedidas consecutivas."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="femila"
-	editor=""/>
+    pageTitle="Entradas após várias falhas"
+    description="Um relatório que indica os usuários que obtiveram êxito após várias tentativas de entrada malsucedidas consecutivas."
+    services="active-directory"
+    documentationCenter=""
+    authors="SSalahAhmed"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="03/04/2016"
+    ms.author="saah;kenhoff"/>
 
-# Entradas após várias falhas
+
+# <a name="sign-ins-after-multiple-failures"></a>Entradas após várias falhas
 Este relatório indica os usuários que obtiveram êxito após várias tentativas de entrada malsucedidas consecutivas. Entre as possíveis causas estão:
 
 - O usuário esqueceu a senha</li><li>O usuário for vítima de uma ataque de força bruta de detecção de senha bem-sucedido
@@ -28,4 +29,8 @@ Os resultados desse relatório mostrarão o número de tentativas consecutivas d
 
 ![Entradas após várias falhas](./media/active-directory-reporting-sign-ins-after-multiple-failures/signInsAfterMultipleFailures.PNG)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

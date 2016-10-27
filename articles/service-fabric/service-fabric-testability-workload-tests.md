@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Cenários de teste personalizados | Microsoft Azure"
-   description="Como fortalecer seus serviços contra falhas normais/anormais."
+   pageTitle="Custom test scenarios | Microsoft Azure"
+   description="How to harden your services against graceful and ungraceful failures."
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -16,18 +16,19 @@
    ms.date="05/17/2016"
    ms.author="anmola"/>
 
-# Simular falhas durante cargas de trabalho de serviço
 
-Os cenários de possibilidade de teste no Service Fabric do Azure isentam os desenvolvedores da preocupação com o tratamento de falhas individuais. No entanto, há cenários em que uma intercalação explícita das falhas e da carga de trabalho do cliente pode ser necessária. A intercalação das falhas e da carga de trabalho do cliente garante que o serviço realmente execute alguma ação quando a falha acontece. Dado o nível de controle que a possibilidade de teste fornece, elas podem estar em pontos precisos da execução da carga de trabalho. Essa indução de falhas em diferentes estados no aplicativo pode encontrar bugs e melhorar a qualidade.
+# <a name="simulate-failures-during-service-workloads"></a>Simulate failures during service workloads
 
-## Exemplo de cenário personalizado
-Esse teste mostra um cenário que intercala a carga de trabalho de negócios com [falhas normais e anormais](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). As falhas devem ser induzidas durante as operações ou cálculos do serviço para obter melhores resultados.
+The testability scenarios in Azure Service Fabric enable developers to not worry about dealing with individual faults. There are scenarios, however, where an explicit interleaving of client workload and failures might be needed. The interleaving of client workload and faults ensures that the service is actually performing some action when failure happens. Given the level of control that testability provides, these could be at precise points of the workload execution. This induction of faults at different states in the application can find bugs and improve quality.
 
-Vamos examinar um exemplo de um serviço que expõe quatro cargas de trabalho: A, B, C e D. Cada uma corresponde a um conjunto de fluxos de trabalho que pode ser computação, armazenamento ou uma combinação. Para simplificar, vamos abstrair as cargas de trabalho de nosso exemplo. As diferentes falhas executadas neste exemplo são:
-  + RestartNode: falha anormal para simular uma reinicialização do computador.
-  + RestartDeployedCodePackage: falha anormal para simular uma falha do processo de host de serviço.
-  + RemoveReplica: falha normal para simular remoção de réplica.
-  + MovePrimary: falha normal para simular movimentações de réplica disparadas pelo balanceador de carga do Service Fabric.
+## <a name="sample-custom-scenario"></a>Sample custom scenario
+This test shows a scenario that interleaves the business workload with [graceful and ungraceful failures](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). The faults should be induced in the middle of service operations or compute for best results.
+
+Let's walk through an example of a service that exposes four workloads: A, B, C, and D. Each corresponds to a set of workflows and could be compute, storage, or a mix. For the sake of simplicity, we will abstract out the workloads in our example. The different faults executed in this example are:
+  + RestartNode: Ungraceful fault to simulate a machine restart.
+  + RestartDeployedCodePackage: Ungraceful fault to simulate service host process crashes.
+  + RemoveReplica: Graceful fault to simulate replica removal.
+  + MovePrimary: Graceful fault to simulate replica moves triggered by the Service Fabric load balancer.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
@@ -155,4 +156,8 @@ class Test
 }
 ```
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

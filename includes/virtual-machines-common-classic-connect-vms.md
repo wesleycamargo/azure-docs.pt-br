@@ -1,31 +1,36 @@
 
 
-![Máquinas virtuais em um serviço de nuvem autônomo](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
+![Virtual machines in a standalone cloud service](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
-Ao colocar as máquinas virtuais em uma rede virtual, você pode decidir quantos serviços de nuvem deseja usar para os conjuntos de disponibilidade e o balanceamento de carga. Além disso, você pode organizar as máquinas virtuais em sub-redes da mesma forma como sua rede local e conectar a rede virtual à sua rede local. Aqui está um exemplo:
+If you place your virtual machines in a virtual network, you can decide how many cloud services you want to use for load balancing and availability sets. Additionally, you can organize the virtual machines on subnets in the same way as your on-premises network and connect the virtual network to your on-premises network. Here's an example:
 
-![Máquinas virtuais em uma rede virtual](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
+![Virtual machines in a virtual network](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
 
-As redes virtuais são a maneira recomendada para conectar máquinas virtuais no Azure. A prática recomendada é configurar cada camada do aplicativo em um serviço de nuvem separado. No entanto, talvez seja necessário combinar algumas máquinas virtuais de diferentes níveis de aplicativos no mesmo serviço de nuvem para permanecer dentro do máximo de 200 serviços de nuvem por assinatura. Para verificar isso e outros limites, consulte [Assinatura do Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md).
+Virtual networks are the recommended way to connect virtual machines in Azure. The best practice is to configure each tier of your application in a separate cloud service. However, you may need to combine some virtual machines from different application tiers into the same cloud service to remain within the maximum of 200 cloud services per subscription. To review this and other limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../articles/azure-subscription-service-limits.md).
 
-## Conectar VMs em uma rede virtual
+## <a name="connect-vms-in-a-virtual-network"></a>Connect VMs in a virtual network
 
-Para conectar máquinas virtuais em uma rede virtual:
+To connect virtual machines in a virtual network:
 
-1.	Crie a rede virtual no [portal do Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md).
-2.	Crie o conjunto de serviços de nuvem para sua implantação de modo a refletir seu design para conjuntos de disponibilidade e balanceamento de carga. No portal clássico do Azure, clique em **Novo > Computação > Serviço de Nuvem > Criação Personalizada** para cada serviço de nuvem.
-3.	Para criar cada máquina virtual nova, clique em **Novo > Computação > Máquina Virtual > Da Galeria**. Escolha o serviço de nuvem e a rede virtual corretos para a VM. Se o serviço de nuvem já fizer parte de uma rede virtual, seu nome já estará selecionado para você.
+1.  Create the virtual network in the [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+2.  Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the Azure classic portal, click **New > Compute > Cloud Service > Custom Create** for each cloud service.
+3.  To create each new virtual machine, click **New > Compute > Virtual Machine > From Gallery**. Choose the correct cloud service and virtual network for the VM. If the cloud service is already joined to a virtual network, its name will already be selected for you.
 
-![Selecionar um serviço de nuvem para uma máquina virtual](./media/virtual-machines-common-classic-connect-vms/VMConfig1.png)
+![Selecting a cloud service for a virtual machine](./media/virtual-machines-common-classic-connect-vms/VMConfig1.png)
 
-## Conectar VMs em um serviço de nuvem autônomo
+## <a name="connect-vms-in-a-standalone-cloud-service"></a>Connect VMs in a standalone cloud service
 
-Para conectar máquinas virtuais em um serviço de nuvem autônomo:
+To connect virtual machines in a standalone cloud service:
 
-1.	Crie o serviço de nuvem no [portal clássico do Azure](http://manage.windowsazure.com). Clique em **Novo > Computação > Serviço de Nuvem > Criação Personalizada**. Ou você pode criar o serviço de nuvem para sua implantação ao criar sua primeira máquina virtual.
+1.  Create the cloud service in the [Azure classic portal](http://manage.windowsazure.com). Click **New > Compute > Cloud Service > Custom Create**. Or, you can create the cloud service for your deployment when you create your first virtual machine.
 
-2.	Ao criar as máquinas virtuais, escolha o nome do serviço de nuvem criado na etapa anterior.
+2.  When you create the virtual machines, choose the name of cloud service created in the previous step.
 
-	![Adicionar uma máquina virtual a um serviço de nuvem existente](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
+    ![Add a virtual machine to an existing cloud service](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

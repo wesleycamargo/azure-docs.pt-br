@@ -1,6 +1,6 @@
 <properties
- pageTitle="Hub IoT HA e DR | Microsoft Azure"
- description="Descreve os recursos que ajudam a criar soluções IoT altamente disponíveis com a recuperação de desastre."
+ pageTitle="IoT Hub HA and DR | Microsoft Azure"
+ description="Describes features that help to build highly available IoT solutions with disaster recovery capabilities."
  services="iot-hub"
  documentationCenter=""
  authors="fsautomata"
@@ -16,48 +16,52 @@
  ms.date="02/03/2016"
  ms.author="elioda"/>
 
-# Alta disponibilidade e recuperação de desastres do Hub IoT
 
-Por ser um serviço do Azure, o Hub IoT fornece alta disponibilidade (HA) com redundâncias no nível de região do Azure, sem a necessidade de qualquer trabalho adicional da solução. Além disso, o Azure oferece vários recursos que ajudam a criar soluções com recursos de recuperação de desastres ou disponibilidade entre regiões, se isso for necessário. Você deve projetar e preparar suas soluções para aproveitar a vantagem desses recursos de recuperação de desastre se quiser fornecer alta disponibilidade global entre regiões para dispositivos ou usuários. O artigo [Orientação Técnica de Continuidade de Negócios do Azure](../resiliency/resiliency-technical-guidance.md) descreve os recursos internos do Azure para recuperação de desastres e continuidade de negócios. O documento [Recuperação de desastres e alta disponibilidade para aplicativos do Azure][] fornece uma orientação de arquitetura sobre estratégias para que os aplicativos do Azure obtenham alta disponibilidade e recuperação de desastres.
+# <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub high availability and disaster recovery
 
-## DR do Hub IoT do Azure
-Além de HA entre regiões, o Hub IoT implementa mecanismos de failover para recuperação de desastres que não exigem intervenção do usuário. A DR do Hub IoT é iniciada automaticamente e tem um RTO (objetivo de tempo de recuperação) de 2 a 26 horas e os RPOs (objetivos de ponto de recuperação) a seguir.
+As an Azure service, IoT Hub provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. In addition, Azure offers a number of features that help to build solutions with disaster recovery (DR) capabilities or cross-region availability if required. You must design and prepare your solutions to take advantage of these DR features if you want to provide global, cross-region high availability for devices or users. The article [Azure Business Continuity Technical Guidance](../resiliency/resiliency-technical-guidance.md) describes the built-in features in Azure for business continuity and DR. The [Disaster recovery and high availability for Azure applications][] paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
 
-| Funcionalidade | RPO |
+## <a name="azure-iot-hub-dr"></a>Azure IoT Hub DR
+In addition to intra-region HA, IoT Hub implements failover mechanisms for disaster recovery that require no intervention from the user. IoT Hub DR is self-initiated and has a recovery time objective (RTO) of 2-26 hours, and the following recovery point objectives (RPOs).
+
+| Functionality | RPO |
 | ------------- | --- |
-| Disponibilidade de serviço para operações de registro e comunicação | Possível perda de CName |
-| Dados de identidade no registro de identidade de dispositivo | Perda de dados de 0 a 5 minutos |
-| Mensagens do dispositivo para a nuvem | Todas as mensagens não lidas são perdidas |
-| Mensagens de monitoramento de operações | Todas as mensagens não lidas são perdidas |
-| Mensagens da nuvem para o dispositivo | Perda de dados de 0 a 5 minutos |
-| Fila de comentários da nuvem para o dispositivo | Todas as mensagens não lidas são perdidas |
+| Service availability for registry and communication operations | Possible CName loss |
+| Identity data in device identity registry | 0-5 mins data loss |
+| Device-to-cloud messages | All unread messages are lost |
+| Operations monitoring messages | All unread messages are lost |
+| Cloud-to-device messages | 0-5 mins data loss |
+| Cloud-to-device feedback queue | All unread messages are lost |
 
-## Failover regional com o Hub IoT
+## <a name="regional-failover-with-iot-hub"></a>Regional failover with IoT Hub
 
-Um tratamento completo das topologias de implantação em soluções IoT está fora do escopo deste artigo, mas, para fins de alta disponibilidade e de recuperação de desastres, consideraremos o modelo de implantação de *failover regional*.
+A complete treatment of deployment topologies in IoT solutions is outside the scope of this article, but for the purpose of high availability and disaster recovery we will consider the *regional failover* deployment model.
 
-Em um modelo de failover regional, o back-end da solução é executado principalmente em um datacenter, mas um Hub IoT e back-end adicionais serão implantados em outro local de datacenter para fins de failover, no caso do Hub IoT no datacenter principal sofrer uma interrupção ou no caso de a conectividade de rede do dispositivo com o datacenter primário ser interrompida. Os dispositivos usarão um ponto de extremidade de serviço secundário sempre que o gateway primário não puder ser alcançado. Com um recurso de failover entre regiões, é possível melhorar a disponibilidade da solução ultrapassando a alta disponibilidade de uma única região.
+In a regional failover model, the solution back end is running primarily in one datacenter location, but an additional IoT hub and back end are deployed in another datacenter location for failover purposes, in case the IoT hub in the primary datacenter suffers an outage or the network connectivity from the device to the primary datacenter is somehow interrupted. Devices use a secondary service endpoint whenever the primary gateway cannot be reached. With a cross-region failover capability, the solution availability can be improved beyond the high availability of a single region.
 
-Em um alto nível, para implementar um modelo de failover regional com o Hub IoT, você precisará do seguinte.
+At a high level, to implement a regional failover model with IoT Hub, you will need the following.
 
-* **Um Hub IoT secundário e lógica de roteamento do dispositivo** - no caso de uma interrupção do serviço em sua região primária, os dispositivos deverão iniciar a conexão com a região secundária. Com base na natureza consciente do estado da maioria dos serviços envolvidos, é comum os administradores de solução acionarem o processo de failover entre regiões. A melhor maneira de comunicar o novo ponto de extremidade para os dispositivos, enquanto mantém o controle do processo, é fazer com que eles verifiquem regularmente um serviço de *concierge* para o ponto de extremidade ativo atual. O serviço de concierge pode ser um aplicativo Web simples que é replicado e acessível usando técnicas de redirecionamento de DNS (por exemplo, usando o [Gerenciador de Tráfego do Azure][]).
-* **Replicação do registro de identidade** - para ser usado, o Hub IoT secundário deverá conter todas as identidades de dispositivo que possam se conectar à solução. A solução deve manter backups replicados geograficamente das identidades do dispositivo e carregá-los no Hub IoT secundário antes de mudar o ponto de extremidade ativo para os dispositivos. A funcionalidade de exportação de identidade do dispositivo do Hub IoT é muito útil neste contexto. Para saber mais, confira [Guia do desenvolvedor do Hub IoT - registro de identidade][].
-* **Mesclando a lógica** - quando a região primária ficar disponível novamente, o estado e os dados criados no site secundário deverão ser migrados de volta para a região primária. Isso está relacionado principalmente às identidades de dispositivo e aos metadados do aplicativo, que deverão ser mesclados ao Hub IoT principal e com todos os outros armazenamentos específicos do aplicativo na região primária. Para simplificar esta etapa, normalmente recomendamos o uso de operações idempotente. Isso minimiza os efeitos colaterais não apenas para a distribuição eventual e consistente de eventos, mas também de duplicatas ou a entrega de eventos fora de ordem. Além disso, a lógica do aplicativo deve ser projetada para tolerar possíveis inconsistências ou situações "ligeiramente" fora do estado dos dados. Isso se deve ao tempo adicional necessário para que o sistema seja “corrigido” com base nos objetivos de ponto de recuperação (RPO).
+* **A secondary IoT hub and device routing logic**: In the case of a service disruption in your primary region, devices must start connecting to your secondary region. Given the state-aware nature of most services involved, it is common for solution administrators to trigger the inter-region failover process. The best way to communicate the new endpoint to devices, while maintaining control of the process, is have them regularly check a *concierge* service for the current active endpoint. The concierge service can be a simple web application that is replicated and kept reachable using DNS-redirection techniques (for example, using [Azure Traffic Manager][]).
+* **Identity registry replication** - In order to be usable, the secondary IoT hub must contain all device identities that can connect to the solution. The solution should keep geo-replicated backups of device identities, and upload them to the secondary IoT hub before switching the active endpoint for the devices. The device identity export functionality of IoT Hub is very useful in this context. For more information, see [IoT Hub Developer Guide - identity registry][].
+* **Merging logic** - When the primary region becomes available again, all the state and data that have been created in the secondary site must be migrated back to the primary region. This mostly relates to device identities and application meta-data, which must be merged with the primary IoT hub and any other application-specific stores in the primary region. To simplify this step, it is usually recommended that you use idempotent operations. This minimizes side-effects not only from eventual consistent distribution of events, but also from duplicates or out-of-order delivery of events. In addition, the application logic should be designed to tolerate potential inconsistencies or "slightly" out of date-state. This is due to the additional time it takes for the system to "heal" based on recovery point objectives (RPO).
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Para saber mais sobre o Hub IoT do Azure, siga estes links:
+Follow these links to learn more about Azure IoT Hub:
 
-- [Introdução aos Hubs IoT (Tutorial)][lnk-get-started]
-- [O que é o Hub IoT do Azure?][]
+- [Get started with IoT Hubs (Tutorial)][lnk-get-started]
+- [What is Azure IoT Hub?][]
 
-[Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md
-[Recuperação de desastres e alta disponibilidade para aplicativos do Azure]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
-[Failsafe: Guidance for Resilient Cloud Architectures]: https://msdn.microsoft.com/library/azure/jj853352.aspx
-[Gerenciador de Tráfego do Azure]: https://azure.microsoft.com/documentation/services/traffic-manager/
-[Guia do desenvolvedor do Hub IoT - registro de identidade]: iot-hub-devguide.md#identityregistry
+[Disaster recovery and high availability for Azure applications]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
+[Azure Business Continuity Technical Guidance]: https://azure.microsoft.com/documentation/articles/resiliency-technical-guidance/
+[Azure Traffic Manager]: https://azure.microsoft.com/documentation/services/traffic-manager/
+[IoT Hub Developer Guide - identity registry]: iot-hub-devguide-identity-registry.md
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
+[What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

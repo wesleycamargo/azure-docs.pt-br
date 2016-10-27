@@ -1,215 +1,217 @@
 
 
 
-O Azure oferece excelentes soluções de nuvem, baseadas em máquinas virtuais - baseadas na emulação do hardware de um computador físico - para habilitar a movimentação ágil de implantações de software e uma consolidação de recursos consideravelmente melhor do que com hardware físico. Nos últimos anos, em grande parte graças à abordagem do [Docker](https://www.docker.com) a contêineres e ao ecossistema de docker, a tecnologia de contêiner do Linux expandiu radicalmente as maneiras como você pode desenvolver e gerenciar softwares distribuídos. O código de aplicativo em um contêiner fica isolado do da VM host do Azure, bem como de outros contêineres na mesma VM, o que lhe dá mais agilidade no desenvolvimento e na implantação no nível de aplicativo - além da agilidade que as VMs do Azure já oferecem.
+Azure offers you great cloud solutions, built on virtual machines&mdash;based on the emulation of physical computer hardware&mdash;to enable agile movement of software deployments and dramatically better resource consolidation than physical hardware. In the past few years, largely thanks to  the [Docker](https://www.docker.com) approach to containers and the docker ecosystem, Linux container technology has dramatically expanded the ways you can develop and manage distributed software. Application code in a container is isolated from the host Azure VM as well as other containers on the same VM, which gives you more development and deployment agility at the application level&mdash;in addition to the agility that Azure VMs already give you.
 
-**Mas isso já não é novidade.** A notícia que é realmente *nova* é que o Azure oferece ainda mais benefícios do Docker:
+**But that's old news.** The *new* news is that Azure offers you even more Docker goodness:
 
-- [Muitas maneiras](../articles/virtual-machines/virtual-machines-linux-docker-machine.md) [diferentes](../articles/virtual-machines/virtual-machines-linux-dockerextension.md) de criar hosts do Docker para contêineres de acordo com sua situação
-- O [Serviço de Contêiner do Azure](https://azure.microsoft.com/documentation/services/container-service/) cria clusters de hosts de contêiner usando orquestradores como **marathon** e **swarm**.
-- O [Gerenciador de Recursos do Azure](../articles/resource-group-overview.md) e os [modelos do grupo de recursos](../articles/resource-group-authoring-templates.md) para simplificar a implantação e a atualização de aplicativos distribuídos complexos
-- Integração com uma ampla variedade de ferramentas de gerenciamento de configuração patenteadas e de código aberto
+- [Many](../articles/virtual-machines/virtual-machines-linux-docker-machine.md) [different](../articles/virtual-machines/virtual-machines-linux-dockerextension.md) ways to create Docker hosts for containers to suit your situation
+- The [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/) creates clusters of container hosts using orchestrators such as **marathon** and **swarm**.
+- [Azure Resource Manager](../articles/resource-group-overview.md) and [resource group templates](../articles/resource-group-authoring-templates.md) to simplify deploying and updating complex distributed applications
+- integration with a large array of both proprietary and open-source configuration management tools
 
-E como no Azure você pode criar contêineres Linux e VMs programaticamente, também é possível usar ferramentas de *orquestração* de contêiner e VM para criar grupos de VMs (Máquinas Virtuais) e implantar aplicativos em contêineres do Linux e, agora, [Contêineres do Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
+And because you can programmatically create VMs and Linux containers on Azure, you can also use VM and container *orchestration* tools to create groups of Virtual Machines (VMs) and to deploy applications inside both Linux containers and now [Windows Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
 
-Este artigo discute não apenas esses conceitos em um nível amplo, mas também um monte de links para mais informações, tutoriais e produtos relacionados ao uso de contêineres e clusters no Azure. Se você já sabe de tudo isso e quer apenas os links, eles estão lá, em [ferramentas para trabalhar com contêineres](#tools-for-working-with-containers).
+This article not only discusses these concepts at a high level, it also contains tons of links to more information, tutorials, and products related to container and cluster usage on Azure. If you know all this, and just want the links, they're right here at [tools for working with containers](#tools-for-working-with-containers).
 
-## A diferença entre máquinas virtuais e contêineres
+## <a name="the-difference-between-virtual-machines-and-containers"></a>The difference between virtual machines and containers
 
-Máquinas virtuais são executadas em um ambiente de virtualização de hardware isolado fornecido por um [hipervisor](http://en.wikipedia.org/wiki/Hypervisor). No Azure, o serviço de [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/) cuida de tudo isso para você: você simplesmente cria as Máquinas Virtuais escolhendo o sistema operacional e configurando-o para ser executado da forma que desejar, ou carregando sua própria imagem de VM personalizada. Máquinas virtuais são uma tecnologia que vem sendo testada há bastante tempo e que ficou mais robusta com o tempo, e há muitas ferramentas disponíveis para gerenciar sistemas operacionais e configurar os aplicativos que você instala e executa. Qualquer coisa em execução em uma máquina virtual fica oculta do sistema operacional host e, do ponto de vista de um aplicativo ou usuário que está executando na máquina virtual, ela parece ser um computador físico autônomo.
+Virtual machines run inside an isolated hardware virtualization environment provided by a [hypervisor](http://en.wikipedia.org/wiki/Hypervisor). In Azure, the [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) service handles all that for you: You just create Virtual Machines by choosing the operating system and configuring it to run the way you want&mdash;or by uploading your own custom VM image. Virtual Machines are a time-tested, "battle-hardened" technology, and there are many tools available to manage operating systems and to configure the applications you install and run. Anything running in a virtual machine is hidden from the host operating system and, from the point of view of an application or user running inside a virtual machine, the virtual machine appears to be an autonomous physical computer.
 
-[Contêineres Linux](http://en.wikipedia.org/wiki/LXC) - que incluem aqueles criados e hospedados usando ferramentas de docker, além de outras abordagens - não usam ou precisam de um hipervisor para fornecer isolamento. Em vez disso, o host do contêiner usa os recursos de isolamento de sistema de arquivos e processos do kernel do Linux para expor ao contêiner (e seu aplicativo) apenas determinados recursos do kernel e seu próprio sistema de arquivos isolado (no mínimo). Do ponto de vista de um aplicativo em execução dentro de um contêiner, o contêiner parece ser uma instância exclusiva do sistema operacional. Um aplicativo independente não pode ver processos ou quaisquer outros recursos fora de seu contêiner.
+[Linux containers](http://en.wikipedia.org/wiki/LXC)&mdash;which includes those created and hosted using docker tools, and there are other approaches&mdash;do not require or use a hypervisor to provide isolation. Instead, the container host uses the process and file system isolation features of the Linux kernel to expose to the container (and its application) only certain kernel features and its own isolated file system (at a minimum). From the point of view of an application running inside a container, the container appears to be a unique operating system instance. A contained application cannot see processes or any other resources outside of its container.
 
-Como nesse modelo de isolamento e execução o kernel do computador host do Docker é compartilhado, e os requisitos de disco do contêiner agora não incluem um sistema operacional completo, o tempo de inicialização do contêiner e a sobrecarga de armazenamento em disco necessária são muito, muito menores.
+Because in this isolation and execution model the kernel of the Docker host computer is shared, and because the disk requirements of the container now do not include an entire operating system, both the start-up time of the container and the required disk storage overhead are much, much smaller.
 
-É bem legal.
+It's pretty cool.
 
-Os Contêineres do Windows Server oferecem as mesmas vantagens que os contêineres do Linux para aplicativos executados no Windows. Contêineres do Windows tem suporte no formato de imagem e API de Docker, mas também podem ser gerenciados usando o PowerShell. Dois tempos de execução do contêiner estão disponíveis com contêineres do Windows, contêineres do Windows Server e contêineres do Hyper-V. Contêineres de Hyper-V fornecem uma camada adicional de isolamento, hospedando cada contêiner em uma máquina virtual superotimizada. Para saber mais sobre contêineres do Windows, consulte [Sobre contêineres do Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). Para tentar contêineres do Windows no Azure, consulte o [Início rápido de contêiner do Windows no Azure](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/azure_setup).
+Windows Containers provide the same advantages as Linux containers for applications that run on Windows. Windows Containers support the Docker image format and Docker API, but they can also be managed using PowerShell. Two container runtimes are available with Windows Containers, Windows Server Containers and Hyper-V Containers. Hyper-V Containers provide an additional layer of isolation by hosting each container in a super-optimized virtual machine. To learn more about Windows Containers see [About Windows Containers]( https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). To try Windows Containers in Azure, see the [Windows Container Azure Quick Start]( https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/azure_setup).
 
-Isso também é bem legal.
+That's pretty cool, too.
 
-### Muito bom para ser verdade?
+### <a name="is-this-too-good-to-be-true?"></a>Is this too good to be true?
 
-Bem, sim e não. Os contêineres, como qualquer outra tecnologia, não eliminam num passe de mágica todo o trabalho pesado exigido por aplicativos distribuídos. No entanto, eles realmente mudam:
+Well, yes&mdash;and no. Containers, like any other technology, do not magically wipe away all the hard work required by distributed applications. Yet, at the same time containers do really change:
 
-- a velocidade com que o código do aplicativo pode ser desenvolvido e compartilhado amplamente
-- a velocidade e a confiabilidade com que ele pode ser testado
-- a velocidade e a confiabilidade com que ele pode ser implantado
+- how fast application code can be developed and shared widely
+- how fast and with what confidence it can be tested
+- how fast and with what confidence it can be deployed
 
-Dito isso, lembre-se de que os contêineres são executados em um host do contêiner - um sistema operacional, e no Azure isso significa uma Máquina Virtual do Azure. Mesmo que já adore a ideia dos contêineres, você ainda vai precisar de uma infraestrutura de VM que hospede os contêineres, mas o benefício é que os contêineres não se importam com a máquina virtual em que estão sendo executados (embora seja importante se o contêiner quiser um ambiente de execução Linux ou Windows, por exemplo).
+That said, remember containers execute on a container host&mdash;an operating system, and in Azure that means an Azure Virtual Machine. Even if you already love the idea of containers, you're still going to need a VM infrastructure hosting the containers, but the benefits are that containers do not care on which VM they are running (although whether the container wants a Linux or Windows execution environment will be important, for example).
 
-## Para que os contêineres são eficazes?
+## <a name="what-are-containers-good-for?"></a>What are containers good for?
 
-Eles são ótimos para muitas coisas, mas incentivam, assim como os [Serviços de nuvem do Azure](https://azure.microsoft.com/services/cloud-services/) e [Service Fabric do Azure](../articles/service-fabric/service-fabric-overview.md), a criação de aplicativos de serviço único, orientados a microsserviços, nos quais o design de aplicativos se baseia mais em partes menores, que podem ser compostas, em vez de componentes maiores e mais acoplados.
+They're great for many things, but they encourage&mdash;as do [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) and [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md)&mdash;the creation of single-service, microservice-oriented distributed applications, in which application design is based on more small, composable parts rather than on larger, more strongly coupled components.
 
-Isso vale ainda mais em ambientes de nuvem pública como o Azure, nos quais você aluga as VMs onde e quando precisa delas. Você obtém não só ferramentas de orquestração com implantação rápida e isolamento, mas pode tomar decisões mais eficientes de infraestrutura de aplicativo.
+This is especially true in public cloud environments like Azure, in which you rent VMs when and where you want them. Not only do you get isolation and rapid deployment and orchestration tools, but you can make more efficient application infrastructure decisions.
 
-Por exemplo, você pode ter atualmente uma implantação que consiste em 9 VMs do Azure de tamanho grande para um aplicativo distribuído de alta disponibilidade. Se os componentes do aplicativo puderem ser implantados em contêineres, você poderá usar somente 4 VMs e implantar os componentes do aplicativo dentro de 20 contêineres para maior redundância e balanceamento de carga.
+For example, you might currently have a deployment consisting of 9 Azure VMs of a large size for a highly-available, distributed application. If the components of this application can be deployed in containers, you might be able to use only 4 VMs and deploy your application components inside 20 containers for redundancy and load balancing.
 
-Este é apenas um exemplo, é claro, mas se puder fazer isso em seu contexto, você poderá se ajustar para os picos de uso com mais contêineres em vez de mais VMs do Azure e usar a carga de CPU restante geral de forma muito mais eficiente.
+This is just an example, of course, but if you can do this in your scenario, you can adjust to usage spikes with more containers rather than more Azure VMs, and use the remaining overall CPU load much more efficiently than before.
 
-Além disso, há muitos contextos em que a uma abordagem de microsserviços não é adequada. Você saberá melhor se os microsserviços ou os contêineres é que vão ajudá-lo.
+In addition, there are many scenarios that do not lend themselves to a microservices approach; you will know best whether microservices and containers will help you.
 
-### Benefícios do contêiner para desenvolvedores
+### <a name="container-benefits-for-developers"></a>Container benefits for developers
 
-É fácil ver de modo geral que a tecnologia de contêineres é um passo à frente, mas também há benefícios mais específicos. Vejamos o exemplo dos contêineres do Docker. Este tópico não tratará profundamente do Docker agora (leia [O que é Docker?](https://www.docker.com/whatisdocker/) ou a [wikipédia](http://wikipedia.org/wiki/Docker_%28software%29) para saber mais), mas o Docker e seu ecossistema oferecem benefícios significativos para desenvolvedores e profissionais de TI.
+In general, it's easy to see that container technology is a step forward, but there are more specific benefits as well. Let's take the example of Docker containers. This topic will not dive deeply into Docker right now (read [What is Docker?](https://www.docker.com/whatisdocker/) for that story, or [wikipedia](http://wikipedia.org/wiki/Docker_%28software%29)), but Docker and its ecosystem offer tremendous benefits to both developers and IT professionals.
 
-Os desenvolvedores adotam contêineres do Docker rapidamente, porque sobretudo ele facilita o uso de contêineres do Linux e do Windows:
+Developers take to Docker containers quickly, because above all it makes using Linux and Windows containers easy:
 
-- Eles podem usar comandos simples e incrementais para criar uma imagem fixa que é fácil de implantar e pode automatizar a criação dessas imagens usando um dockerfile
-- Eles podem compartilhar essas imagens facilmente usando comandos push e pull simples no estilo [git](https://git-scm.com/) para [registros docker públicos](https://registry.hub.docker.com/) ou [privados](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md)
-- Pense em componentes de aplicativo isolados em vez de computadores
-- Eles podem usar um grande número de ferramentas que compreendem contêineres docker e diferentes imagens de base
+- They can use simple, incremental commands to create a fixed image that is easy to deploy and can automate building those images using a dockerfile
+- They can share those images easily using simple, [git](https://git-scm.com/)-style push and pull commands to [public](https://registry.hub.docker.com/) or [private docker registries](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md)
+- They can think of isolated application components instead of computers
+- They can use a large number of tools that understand docker containers and different base images
 
-### Benefícios do contêiner para profissionais de TI e operações
+### <a name="container-benefits-for-operations-and-it-professionals"></a>Container benefits for operations and IT professionals
 
-Profissionais de TI e operações também se beneficiam da combinação de contêineres e máquinas virtuais.
+IT and operations professionals also benefit from the combination of containers and virtual machines.
 
-- Serviços independentes ficam isolados do ambiente de execução do host da VM
-- Códigos independentes são comprovadamente idênticos
-- Serviços independentes podem ser iniciados, interrompidos e movidos rapidamente entre ambientes de produção, teste e desenvolvimento
+- contained services are isolated from VM host execution environment
+- contained code is verifiably identical
+- contained services can be started, stopped, and moved quickly between development, test, and production environments
 
-Recursos como esses - e há mais deles - auxiliam empresas estabelecidas, em que empresas profissionais de tecnologia da informação têm a função de ajustar recursos - incluindo a pura capacidade de processamento - às tarefas necessárias não apenas para permanecer nos negócios, mas para aumentar o alcance e a satisfação do cliente. Pequenas empresas, ISVs e startups têm exatamente os mesmos requisitos, mas podem descrevê-los de formas diferentes.
+Features like these&mdash;and there are more&mdash;excite established businesses, where professional information technology organizations have the job of fitting resources&mdash;including pure processing power&mdash;to the tasks required to not only stay in business, but increase customer satisfaction and reach. Small businesses, ISVs, and startups have exactly the same requirement, but they might describe it differently.
 
-## Para que as máquinas virtuais são eficazes?
+## <a name="what-are-virtual-machines-good-for?"></a>What are virtual machines good for?
 
-As máquinas virtuais compõem a espinha dorsal da computação em nuvem, e isso não muda. Embora as máquinas virtuais iniciarem mais lentamente, ocuparem mais espaço em disco e não mapearem diretamente para uma arquitetura de microsserviços, eles têm muitos benefícios importantes:
+Virtual machines provide the backbone of cloud computing, and that doesn't change. If virtual machines start more slowly, have a larger disk footprint, and do not map directly to a microservices architecture, they do have very important benefits:
 
-1. Por padrão, elas têm proteções de segurança padrão muito mais robustas para o computador host
-2. Elas dão suporte a qualquer uma das principais configurações de aplicativos e sistemas operacionais
-3. Elas têm ecossistemas de ferramentas permanentes para comando e controle
-4. Elas fornecem o ambiente de execução para contêineres host
+1. By default, they have much more robust default security protections for host computer
+2. They support any major OS and application configurations
+3. They have longstanding tool ecosystems for command and control
+4. They provide the execution environment to host containers
 
-O último item é importante, porque um aplicativo independente ainda requer um tipo específico de CPU e sistema operacional, dependendo das chamadas que o aplicativo fará. É importante lembrar-se de que você instala contêineres em VMs porque eles contêm os aplicativos que você deseja implantar; os contêineres não substituem VMs ou sistemas operacionais.
+The last item is important, because a contained application still requires a specific operating system and CPU type, depending upon the calls the application will make. It's important to remember that you install containers on VMs because they contain the applications you want to deploy; containers are not replacements for VMs or operating systems.
 
-## Comparação geral de recursos de VMs e contêineres
+## <a name="high-level-feature-comparison-of-vms-and-containers"></a>High-level feature comparison of VMs and containers
 
-A tabela a seguir descreve de maneira ampla as diferenças entre os recursos que existem - sem que haja muito trabalho extra - entre contêineres Linux e VMs. Observe que alguns recursos podem ser mais ou menos desejáveis dependendo das necessidades do seu aplicativo, e que, assim como acontece com todos os softwares, o trabalho extra dá mais suporte a recursos, especialmente na área de segurança.
+The following table describes at a very high level the kind of feature differences that&mdash;without much extra work&mdash;exist between VMs and Linux containers. Note that some features maybe more or less desirable depending upon your own application needs, and that as with all software, extra work provides increased feature support, especially in the area of security.
 
-| Recurso | VMs | Contêineres |
+|   Feature      | VMs | Containers  |
 | :------------- |-------------| ----------- |
-| Suporte de segurança "padrão" | em um nível mais alto | em um nível um pouco menor |
-| Requisição de memória em disco | SO completo, mais aplicativos | Somente os requisitos dos aplicativos |
-| Tempo necessário para iniciar | Muito mais longo: inicialização do sistema operacional e carregamento do aplicativo | Muito mais curto: somente os aplicativos precisam ser iniciados porque o kernel já está em execução |
-| Portabilidade | Portátil com a preparação adequada | Portátil em dentro do formato de imagem; normalmente menor |
-| Automação de imagem | Varia muito de acordo com o SO e os aplicativos | [Registro Docker](https://registry.hub.docker.com/); outros
+| "Default" security support | to a greater degree | to a slightly lesser degree |
+| Memory on disk required | Complete OS plus apps | App requirements only |
+| Time taken to start up | Substantially Longer: Boot of OS plus app loading | Substantially shorter: Only apps need to start because kernel is already running  |
+| Portability | Portable With Proper Preparation | Portable within image format; typically smaller |
+| Image Automation | Varies widely depending on OS and apps | [Docker registry](https://registry.hub.docker.com/); others
 
-## Criando e gerenciando grupos de VMs e contêineres
+## <a name="creating-and-managing-groups-of-vms-and-containers"></a>Creating and managing groups of VMs and containers
 
-Neste ponto, qualquer arquiteto, desenvolvedor ou especialista de operações de TI pode estar pensando, "Eu posso automatizar TUDO isso. Esse realmente É um banco de dados como serviço! ".
+At this point, any architect, developer, or IT operations specialist might be thinking, "I can automate ALL of this; this really IS Data-Center-As-A-Service!".
 
-Você está certo, ele pode ser, e há uma variedade de sistemas, muitos dos quais você talvez já use, que podem gerenciar grupos de VMs do Azure e injetar código personalizado usando scripts, geralmente com a [CustomScriptingExtension para Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) ou a [CustomScriptingExtension para Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Você pode automatizar suas implantações do Azure usando scripts do PowerShell ou da CLI do Azure (e talvez já o tenha feito).
+You're right, it can be, and there are any number of systems, many of which you may already use, that can either manage groups of Azure VMs and inject custom code using scripts, often with the [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) or the [CustomScriptingExtension for Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). You can&mdash;and perhaps already have&mdash;automated your Azure deployments using PowerShell or Azure CLI scripts.
 
-Essas capacidades frequentemente são migradas para ferramentas como [Puppet](https://puppetlabs.com/) e [Chef](https://www.chef.io/) para automatizar a criação e configuração de VMs em escala. (Estes são alguns links para [usar essas ferramentas com o Azure](#tools-for-working-with-containers).)
+These abilities are often then migrated to tools like [Puppet](https://puppetlabs.com/) and [Chef](https://www.chef.io/) to automate the creation of and configuration for VMs at scale. (Here are some links to [using these tools with Azure](#tools-for-working-with-containers).)
 
-### Modelos do grupo de recursos do Azure
+### <a name="azure-resource-group-templates"></a>Azure resource group templates
 
-Mais recentemente, o Azure lançou a API REST de [Gerenciamento de recursos do Azure](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md) e atualizou as ferramentas PowerShell e CLI do Azure para usá-lo facilmente. Você pode implantar, modificar ou reimplantar topologias de aplicativo usando [modelos do Gerenciador de Recursos do Azure](../articles/resource-group-authoring-templates.md) com a API de gerenciamento de recursos do Azure, usando:
+More recently, Azure released the [Azure resource management](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md) REST API, and updated PowerShell and Azure CLI tools to use it easily. You can deploy, modify, or redeploy entire application topologies using [Azure Resource Manager templates](../articles/resource-group-authoring-templates.md) with the Azure resource management API using:
 
-- o [portal do Azure usando modelos](https://github.com/Azure/azure-quickstart-templates); dica, use o botão "DeployToAzure"
-- [A CLI do Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md)
-- os [módulos de Azure PowerShell](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md)
+- the [Azure portal using templates](https://github.com/Azure/azure-quickstart-templates)&mdash;hint, use the "DeployToAzure" button
+- the [Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md)
+- the [Azure PowerShell modules](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md)
 
-### Implantação e gerenciamento de grupos inteiros de VMs do Azure e contêineres
+### <a name="deployment-and-management-of-entire-groups-of-azure-vms-and-containers"></a>Deployment and management of entire groups of Azure VMs and containers
 
-Há vários sistemas populares que podem implantar grupos inteiros de VMs e instalar o Docker (ou outros sistemas de host de contêineres do Linux) nelas como um grupo automatizável. Para obter os links diretos, consulte a seção [contêineres e ferramentas](#containers-and-vm-technologies) abaixo. Há vários sistemas que fazem isso de forma mais ou menos ampla, e essa lista não é exaustiva. Dependendo das suas habilidades e do contexto, eles podem ou não ser úteis.
+There are several popular systems that can deploy entire groups of VMs and install Docker (or other Linux container host systems) on them as an automatable group. For direct links, see the [containers and tools](#containers-and-vm-technologies) section, below. There are several systems that do this to a greater or lesser extent, and this list is not exhaustive. Depending upon your skill set and scenarios, they may or may not be useful.
 
-O Docker tem seu próprio conjunto de ferramentas de criação de VMs ([docker-machine](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)) e uma ferramenta de balanceamento de carga e gerenciamento de cluster de contêineres do Docker ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)). Além disso, a [Extensão de VM do Docker do Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) vem com suporte padrão para [`docker-compose`](https://docs.docker.com/compose/), que pode implantar contêineres de aplicativos configurados em vários contêineres.
+Docker has its own set of VM-creation tools ([docker-machine](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)) and a load-balancing, docker-container cluster management tool ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)). In addition, the [Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md) comes with default support for [`docker-compose`](https://docs.docker.com/compose/), which can deploy configured application containers across multiple containers.
 
-Além disso, você pode experimentar o [DCOS (Sistema Operacional de Data  
-Center) do Mesosphere](http://docs.mesosphere.com/install/azurecluster/). O DCOS baseia-se no "kernel de sistemas distribuídos" de software livre [mesos](http://mesos.apache.org/), que permite que você trate seu data center como um serviço endereçável. O DCOS tem pacotes internos para vários sistemas importantes, como [Spark](http://spark.apache.org/) e [Kafka](http://kafka.apache.org/) (e outros), bem como serviços internos como [Marathon](https://mesosphere.github.io/marathon/) (um sistema de controle de contêineres) e [Chronos](https://mesos.github.io/chronos/) (um agendador distribuído). O Mesos foi derivado de lições aprendidas com o Twitter, AirBnb e outras empresas de escala da Web. Você também pode usar **swarm** como mecanismo de orquestração.
+In addition, you can try out [Mesosphere's Data Center Operating System (DCOS)](http://docs.mesosphere.com/install/azurecluster/). DCOS is based on the open-source [mesos](http://mesos.apache.org/) "distributed systems kernel" that enables you to treat your datacenter as one addressable service. DCOS has built-in packages for several important systems such as [Spark](http://spark.apache.org/) and [Kafka](http://kafka.apache.org/) (and others) as well as built-in services such as [Marathon](https://mesosphere.github.io/marathon/) (a container control system) and [Chronos](https://mesos.github.io/chronos/) (a distributed scheduler). Mesos was derived from lessons learned at Twitter, AirBnb, and other web-scale businesses. You can also use **swarm** as the orchestration engine.
 
-Além disso, o [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) é um sistema de software livre para gerenciamento de grupos de VMs e contêineres, derivado de lições aprendidas no Google. Você pode até usar o [kubernetes com trança para fornecer suporte a redes](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
+Also, [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) is an open-source system for VM and container group management derived from lessons learned at Google. You can even use [kubernetes with weave to provide networking support](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-O [Deis](http://deis.io/overview/) é uma PaaS (Plataforma como Serviço) de software livre que facilita a implantação e o gerenciamento de aplicativos em seus próprios servidores. O Deis é usado em conjunto com o Docker e o CoreOS para fornecer uma PaaS leve com fluxo de trabalho inspirado no Heroku. Você pode facilmente [criar um grupo de VMs do Azure de 3 nós e instalar o Deis](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md) no Azure e, em seguida, [instalar um aplicativo Hello World Go](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.io/overview/) is an open source "Platform-as-a-Service" (PaaS) that makes it easy to deploy and manage applications on your own servers. Deis builds upon Docker and CoreOS to provide a lightweight PaaS with a Heroku-inspired workflow. You can easily [create a 3-Node Azure VM group and install Deis](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md) on Azure and then [install a Hello World Go application](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
-O [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), uma distribuição do Linux com superfície otimizada, suporte ao Docker e seu próprio sistema de contêineres chamado [rkt](https://github.com/coreos/rkt), também tem uma ferramenta de gerenciamento de grupos de contêineres chamada [fleet](https://coreos.com/using-coreos/clustering/).
+[CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), a Linux distribution with an optimized footprint, Docker support, and their own container system called [rkt](https://github.com/coreos/rkt), also has a container group management tool called [fleet](https://coreos.com/using-coreos/clustering/).
 
-O Ubuntu, outra distribuição muito popular do Linux, dá um suporte muito bom ao Docker, mas dá suporte também a [clusters Linux (estilo LXC)](https://help.ubuntu.com/lts/serverguide/lxc.html).
+Ubuntu, another very popular Linux distribution, supports Docker very well, but also supports [Linux (LXC-style) clusters](https://help.ubuntu.com/lts/serverguide/lxc.html).
 
-## Ferramentas para trabalhar com máquinas virtuais do Azure e contêineres
+## <a name="tools-for-working-with-azure-vms-and-containers"></a>Tools for working with Azure VMs and containers
 
-Trabalhar com contêineres e VMs do Azure usa ferramentas. Esta seção fornece uma lista de alguns dos conceitos e ferramentas mais úteis ou importantes sobre contêineres, grupos e as ferramentas de configuração e orquestração usadas com elas.
+Working with containers and Azure VMs uses tools. This section provides a list of only some of the most useful or important concepts and tools about containers, groups, and the larger configuration and orchestration tools used with them.
 
-> [AZURE.NOTE] Essa área está mudando com uma velocidade incrível e, embora façamos o melhor para manter este tópico e seus links atualizados, esta pode ser uma tarefa quase impossível. Certifique-se de pesquisar sobre os assuntos interessantes para se manter atualizado!
+> [AZURE.NOTE] This area is changing amazingly rapidly, and while we will do our best to keep this topic and its links up to date, it might well be an impossible task. Make sure you search on interesting subjects to keep up to date!
 
-### Tecnologias de contêineres e VMs
+### <a name="containers-and-vm-technologies"></a>Containers and VM technologies
 
-Algumas tecnologias de contêineres do Linux:
+Some Linux container technologies:
 
 - [Docker](https://www.docker.com)
 - [LXC](https://linuxcontainers.org/)
-- [CoreOS e rkt](https://github.com/coreos/rkt)
+- [CoreOS and rkt](https://github.com/coreos/rkt)
 - [Open Container Project](http://opencontainers.org/)
 - [RancherOS](http://rancher.com/rancher-os/)
 
-Links para contêineres do Windows:
+Windows Container links:
 
-- [Contêineres do Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)
+- [Windows Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)
 
-Links do Visual Studio Docker:
+Visual Studio Docker links:
 
-- [Ferramentas do Visual Studio 2015 RC para Docker - Visualização](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0)
+- [Visual Studio 2015 RC Tools for Docker - Preview](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0)
 
-Ferramentas do Docker:
+Docker tools:
 
 - [Docker daemon](https://docs.docker.com/installation/#installation)
-- Clientes Docker
-	- [Cliente Docker do Windows no Chocolatey](https://chocolatey.org/packages/docker)
-	- [Instruções de instalação do Docker](https://docs.docker.com/installation/#installation)
+- Docker clients
+    - [Windows Docker Client on Chocolatey](https://chocolatey.org/packages/docker)
+    - [Docker installation instructions](https://docs.docker.com/installation/#installation)
 
 
-Docker no Microsoft Azure:
+Docker on Microsoft Azure:
 
-- [Extensão VM Docker para Linux no Azure](../articles/virtual-machines/virtual-machines-linux-dockerextension.md)
-- [Guia de Usuário da Extensão de VM Docker do Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
-- [Usando a extensão de VM Docker da interface de linha de comando do Azure (CLI do Azure)](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md)
-- [Usando a extensão de VM Docker do portal do Azure](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md)
-- [Como usar a máquina docker no Azure](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)
-- [Como usar o docker com avanço no Azure](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)
-- [Introdução ao Docker e Redija no Azure](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md)
-- [Usando um modelo do grupo de recursos do Azure para criar rapidamente um host Docker no Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
-- [Suporte interno `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) para aplicativos independentes
-- [Implementar um Registro privado do Docker no Azure](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md)
+- [Docker VM Extension for Linux on Azure](../articles/virtual-machines/virtual-machines-linux-dockerextension.md)
+- [Azure Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
+- [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](../articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md)
+- [Using the Docker VM Extension from the Azure portal](../articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md)
+- [How to use docker-machine on Azure](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)
+- [How to use docker with swarm on Azure](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)
+- [Get Started with Docker and Compose on Azure](../articles/virtual-machines/virtual-machines-linux-docker-compose-quickstart.md)
+- [Using an Azure resource group template to create a Docker host on Azure quickly](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
+- [The built-in support for `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) for contained applications
+- [Implement a Docker private registry on Azure](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md)
 
-Distribuições do Linux e exemplos do Azure:
+Linux distributions and Azure examples:
 
 - [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
-Configuração, gerenciamento de clusters e coordenação de contêineres:
+Configuration, cluster management, and container orchestration:
 
-- [Fleet no CoreOS](https://coreos.com/using-coreos/clustering/)
+- [Fleet on CoreOS](https://coreos.com/using-coreos/clustering/)
 
--	Deis
-	- [Criar um grupo de VMs de 3 nós no Azure, instalar o Deis e iniciar um aplicativo Go Hello World](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md)
+-   Deis
+    - [Create a 3-Node Azure VM group, install Deis, and start a Hello World Go application](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md)
 
--	Kubernetes
-	- [Guia completo para a implantação automatizada do cluster Kubernetes com CoreOS e Trança](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
-	- [Visualizador do Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
+-   Kubernetes
+    - [Complete guide to automated Kubernetes cluster deployment with CoreOS and Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
+    - [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
 
--	[Mesos](http://mesos.apache.org/)
-	-	[DCOS (Sistema operacional de centro de dados) Mesosphere](http://beta-docs.mesosphere.com/install/azurecluster/)
+-   [Mesos](http://mesos.apache.org/)
+    -   [Mesosphere's Data Center Operating System (DCOS)](http://beta-docs.mesosphere.com/install/azurecluster/)
 
--	[Jenkins](https://jenkins-ci.org/) e [Hudson](http://hudson-ci.org/)
-	- [Blog: Plug-in de subordinado Jenkins para o Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
-	- [Repositório GitHub: plug-in de armazenamento Jenkins do Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
-	- [Terceiros: plug-in de subordinado Hudson do Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
-	- [Terceiros: plug-in de armazenamento Hudson do Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
+-   [Jenkins](https://jenkins-ci.org/) and [Hudson](http://hudson-ci.org/)
+    - [Blog: Jenkins Slave Plug-in for Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
+    - [GitHub repo: Jenkins Storage Plug-in for Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
+    - [Third Party: Hudson Slave Plug-in for Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
+    - [Third Party: Hudson Storage Plug-in for Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
 
--	[Automação do Azure](https://azure.microsoft.com/services/automation/)
-	- [Vídeo: Como usar a automação do Azure com VMs Linux](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
+-   [Azure Automation](https://azure.microsoft.com/services/automation/)
+    - [Video: How to Use Azure Automation with Linux VMs](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
 
--	PowerShell DSC para Linux
-    - [Blog: Como fazer Powershell DSC para Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
-    - [GitHub: Cliente Docker DSC](https://github.com/anweiss/DockerClientDSC)
+-   Powershell DSC for Linux
+    - [Blog: How to do Powershell DSC for Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
+    - [GitHub: Docker Client DSC](https://github.com/anweiss/DockerClientDSC)
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Confira o [Docker](https://www.docker.com) e os [Contêineres do Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
+Check out [Docker](https://www.docker.com) and [Windows Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
 
 <!--Anchors-->
 [microservices]: http://martinfowler.com/articles/microservices.html
 [microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

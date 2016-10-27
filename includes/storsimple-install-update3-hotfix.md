@@ -1,49 +1,50 @@
 <!--author=alkohli last changed: 09/01/16-->
 
-#### Para baixar os hotfixes
+#### <a name="to-download-hotfixes"></a>To download hotfixes
 
-Execute as etapas a seguir para baixar a atualização do software do Catálogo do Microsoft Update.
+Perform the following steps to download the software update from the Microsoft Update Catalog.
 
-1. Inicie o Internet Explorer e acesse [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
 
-2. Caso esta seja a primeira vez que estiver usando o Catálogo do Microsoft Update neste computador, clique em **Instalar** quando a instalação do complemento do Catálogo do Microsoft Update for solicitada.![Instalar o catálogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
+2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
+    ![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. Na caixa de pesquisa do Catálogo do Microsoft Update, insira o número da KB (base de dados de conhecimento) do hotfix que deseja baixar, por exemplo, **3186843**, e clique em **Pesquisar**.
+3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download, for example **3186843**, and then click **Search**.
 
-    A listagem de hotfixes aparece, por exemplo, **Atualização de pacote cumulativo de software 3.0 para a série 8000 do StorSimple**.
+    The hotfix listing appears, for example, **Cumulative Software Bundle Update 3.0 for StorSimple 8000 Series**.
 
-    ![Pesquisar o catálogo](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
+    ![Search catalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. Clique em **Adicionar**. A atualização é adicionada ao carrinho de compras.
+4. Click **Add**. The update is added to the basket.
 
-5. Pesquise quaisquer hotfixes adicionais relacionados na tabela acima (**3186859**) e adicione cada um deles ao carrinho de compras.
+5. Search for any additional hotfixes listed in the table above (**3186859**), and add each to the basket.
 
-5. Clique em **Exibir carrinho**.
+5. Click **View Basket**.
 
-6. Clique em **Download**. Especifique ou **Navegue** até o local em que deseja que o download apareça. As atualizações são baixadas para o local especificado e colocadas em uma subpasta com o mesmo nome que a atualização. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
+6. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. The updates are downloaded to the specified location and placed in a sub-folder with the same name as the update. The folder can also be copied to a network share that is reachable from the device.
 
 >   [AZURE.NOTE]
-Os hotfixes devem estar acessíveis nos dois controladores para detectar mensagens de erro potenciais do controlador em par.
+The hotfixes must be accessible from both controllers to detect any potential error messages from the peer controller.
 
-#### Para instalar e verificar os hotfixes do modo normal
+#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>To install and verify regular mode hotfixes
 
-Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso você já os tenha instalado usando o Portal do Azure, ignore essa etapa e vá para [Instalar e verificar hotfixes do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes).
+Perform the following steps to install and verify regular-mode hotfixes. If you already installed them using the Azure Portal, skip ahead to [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. Para instalar os hotfixes, acesse a interface do Windows PowerShell no console serial do dispositivo StorSimple. Siga as instruções detalhadas em [Usar o PuTTy para se conectar ao console serial do dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). No prompt de comando, pressione **Enter**.
+1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
 
-4. Selecione a **Opção 1** para fazer logon no dispositivo com acesso completo. Recomendamos que você instale o hotfix no controlador passivo primeiro.
+4. Select **Option 1** to log on to the device with full access. We recommend that you install the hotfix on the passive controller first.
 
-5. Para instalar o hotfix, no prompt de comando, digite:
+5. To install the hotfix, at the command prompt, type:
 
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
 
-    Use o IP em vez do DNS no caminho de compartilhamento no comando acima. O parâmetro credential é usado somente para acessar um compartilhamento autenticado.
+    Use IP rather than DNS in share path in the above command. The credential parameter is used only if you are accessing an authenticated share.
 
-	É recomendável usar o parâmetro de credencial para acessar compartilhamentos. Até mesmo os compartilhamentos abertos para "todos" geralmente não são abertos para usuários não autenticados.
+    We recommend that you use the credential parameter to access shares. Even shares that are open to “everyone” are typically not open to unauthenticated users.
 
-	Forneça a senha, quando solicitado.
+    Supply the password when prompted.
 
-    Um exemplo de saída é mostrado abaixo.
+    A sample output is shown below.
 
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -58,186 +59,187 @@ Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso
 
         ````
 
-6. Digite **Y** quando solicitado a confirmar a instalação do hotfix.
+6. Type **Y** when prompted to confirm the hotfix installation.
 
-	> [AZURE.IMPORTANT] Se estiver instalando a Atualização 2.2, instale apenas o arquivo binário precedido por “all-hcsmdssoftwareudpate”. Não instale a atualização do agente MDS e Cis precedido por all-cismdsagentupdatebundle. Se você não fizer isso, receberá um erro.
+7. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet. The update will first complete on the passive controller. Once the passive controller is updated, there will be a failover and the update will then get applied on the other controller. The update is complete when both the controllers are updated.
 
-7. Monitore a atualização usando o cmdlet `Get-HcsUpdateStatus`. Primeiro, a atualização será concluída no controlador passivo. Depois que o controlador passivo for atualizado, haverá um failover e a atualização será, então, aplicada no outro controlador. A atualização é concluída quando ambos os controladores são atualizados.
-
-    A saída de exemplo a seguir mostra a atualização em andamento. O `RunInprogress` será `True` quando a atualização estiver em andamento.
+    The following sample output shows the update in progress. The `RunInprogress` will be `True` when the update is in progress.
 
         ````
         Controller0>Get-HcsUpdateStatus
-		RunInprogress       : True
-		LastHotfixTimestamp :
-		LastUpdateTimestamp : 8/29/2016 2:04:02 AM
-		Controller0Events   :
-		Controller1Events   :
+        RunInprogress       : True
+        LastHotfixTimestamp :
+        LastUpdateTimestamp : 8/29/2016 2:04:02 AM
+        Controller0Events   :
+        Controller1Events   :
 
         ````
 
-     A saída de exemplo a seguir indica que a atualização foi concluída. O `RunInProgress` será `False` quando a atualização estiver concluída.
+     The following sample output indicates that the update is finished. The `RunInProgress` will be `False` when the update has completed.
 
         ````
         Controller0>Get-HcsUpdateStatus
-		RunInprogress       : False
-		LastHotfixTimestamp : 8/30/2016 9:15:55 AM
-		LastUpdateTimestamp : 8/30/2016 9:06:07 AM
-		Controller0Events   :
-		Controller1Events   :
+        RunInprogress       : False
+        LastHotfixTimestamp : 8/30/2016 9:15:55 AM
+        LastUpdateTimestamp : 8/30/2016 9:06:07 AM
+        Controller0Events   :
+        Controller1Events   :
 
 
         ````
 
-	> [AZURE.NOTE] Ocasionalmente, o cmdlet relatará `False` quando a atualização ainda estiver em andamento. Para garantir que o hotfix seja concluído, aguarde alguns minutos, execute esse comando novamente e verifique se `RunInProgress` é `False`. Em caso positivo, o hotfix foi concluído.
+    > [AZURE.NOTE] Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed.
 
-8. Depois que a atualização do software estiver concluída, verifique as versões de software do sistema. Digite:
+8. After the software update is complete, verify the system software versions. Type:
 
     `Get-HcsSystem`
 
-    Você deverá ver as seguintes versões:
+    You should see the following versions:
 
     - `HcsSoftwareVersion: 6.3.9600.17759`
     - `CisAgentVersion:  1.0.9343.0`
     - `MdsAgentVersion: 30.0.4698.16`
 
-	Se os números de versão não mudarem após a aplicação da atualização, isso indica que houve falha na aplicação do hotfix. Caso isso aconteça, entre em contato com o [Suporte da Microsoft](storsimple-contact-microsoft-support.md) para obter mais ajuda.
-	
-	> [AZURE.IMPORTANT] Você deve reiniciar o controlador ativo por meio do cmdlet `Restart-HcsController` antes de aplicar as atualizações restantes.
+    If the version numbers do not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) for further assistance.
+    
+    > [AZURE.IMPORTANT] You must restart the active controller via the `Restart-HcsController` cmdlet before applying the remaining updates. 
 
-9. Repita as etapas 3 a 5 para instalar o hotfix de firmware e o driver LSI **KB3186859**. Após a instalação do hotfix, use o cmdlet `Get-HcsSystem`. A versão de LSI deve ser:
+9. Repeat steps 3-5 to install the LSI driver and firmware hotfix **KB3186859**. After the hotfix is installed, use the `Get-HcsSystem` cmdlet. The LSI version should be:
 
-	- `Lsisas2Version: 2.0.78.00`
-	
-10. Repita as etapas 3 a 5 para instalar a atualização de Storport e Spaceport **KB3121261**.
-
-
-11. Se estiver atualizando da Atualização 2 ou de uma versão anterior, você precisará também baixar:
-
-	- Correção de iSCSI usando o KB3146621
-
-	- Correção de WMI usando o KB3103616
+    - `Lsisas2Version: 2.0.78.00`
+    
+10. Repeat steps 3-5 to install the Storport and Spaceport update **KB3121261**.
 
 
+11. If you are updating from Update 2 or earlier version, you will also need to download:
 
-#### Para instalar e verificar hotfixes do modo de manutenção
+    - iSCSI fix using KB3146621
 
-Use o KB3121899 para instalar atualizações de firmware de disco. Estas são atualizações com interrupção e levam cerca de 30 minutos para ser concluídas. Você pode optar por instalá-las em uma janela de manutenção planejada conectando-se ao console serial do dispositivo.
+    - WMI fix using KB3103616
 
-Observe que, se o firmware de disco já estiver atualizado, você não precisará instalar essas atualizações. Execute o cmdlet `Get-HcsUpdateAvailability` no console serial do dispositivo para verificar se as atualizações estão disponíveis e se elas são interruptivas (modo de manutenção) ou não interruptivas (modo normal).
 
-Para instalar as atualizações de firmware de disco, siga as instruções abaixo.
 
-1. Coloque o dispositivo no Modo de manutenção. Observe que você não deve usar a comunicação remota do Windows PowerShell ao se conectar a um dispositivo no Modo de manutenção. Em vez disso, execute esse cmdlet no controlador do dispositivo quando conectado por meio do console serial do dispositivo. Tipo:
+#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>To install and verify maintenance mode hotfixes
 
-	`Enter-HcsMaintenanceMode`
+Use KB3121899 to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.
 
-	Um exemplo de saída é mostrado abaixo.
+Note that if your disk firmware is already up-to-date, you won't need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console to check if updates are available and whether the updates are disruptive (maintenance mode) or non-disruptive (regular mode) updates.
 
-		Controller0>Enter-HcsMaintenanceMode
-		Checking device state...
+To install the disk firmware updates, follow the instructions below.
 
-		In maintenance mode, your device will not service IOs and will be disconnected from the Microsoft Azure StorSimple Manager service. Entering maintenance mode will end the current session and reboot both controllers, which takes a few minutes to complete. Are you sure you want to enter maintenance mode?
-		[Y] Yes [N] No (Default is "Y"): Y
+1. Place the device in the Maintenance mode. Note that you should not use Windows PowerShell remoting when connecting to a device in Maintenance mode. Instead run this cmdlet on the device controller when connected through the device serial console. Type:
 
-		-----------------------MAINTENANCE MODE------------------------
-		Microsoft Azure StorSimple Appliance Model 8100
-		Name: Update2-8100-SHG0997879L76673
-		Copyright (C) 2014 Microsoft Corporation. All rights reserved.
-		You are connected to Controller0 - Passive
-		---------------------------------------------------------------
+    `Enter-HcsMaintenanceMode`
 
-		Serial Console Menu
-		[1] Log in with full access
-		[2] Log into peer controller with full access
-		[3] Connect with limited access
-		[4] Change language
-		Please enter your choice>
+    A sample output is shown below.
 
-	Em seguida, ambos os controladores são reiniciados no modo de manutenção.
+        Controller0>Enter-HcsMaintenanceMode
+        Checking device state...
 
-3. Para instalar a atualização de firmware de disco, digite:
-
-	`Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
-
-	Um exemplo de saída é mostrado abaixo.
-
-        Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\DiskFirmwarePackage.exe -Credential contoso\john
-		Enter Password:
-		WARNING: In maintenance mode, hotfixes should be installed on each controller sequentially. After the hotfix is installed on this controller, install it on the peer controller.
-		Confirm
-		This operation starts a hotfix installation and could reboot one or both of the controllers. By installing new updates you agree to, and accept any additional terms associated with, the new functionality listed in the release notes (https://go.microsoft.com/fwLink/?LinkID=613790). Are you sure you want to continue?
-		[Y] Yes [N] No (Default is "Y"): Y
-		WARNING: Installation is currently in progress. This operation can take several minutes to complete.
-
-1.  Monitore o progresso da instalação usando o comando `Get-HcsUpdateStatus`. A atualização é concluída quando o `RunInProgress` muda para `False`.
-
-2.  Depois que a instalação for concluída, o controlador no qual o hotfix do modo de manutenção foi instalado será reiniciado. Faça logon como opção 1 com acesso completo e verifique a versão de firmware de disco. Tipo:
-
-	`Get-HcsFirmwareVersion`
-
-	As versões de firmware de disco esperados são:
-
-	`XMGG, XGEG, KZ50, F6C2, VR08`
-
-	Um exemplo de saída é mostrado abaixo.
+        In maintenance mode, your device will not service IOs and will be disconnected from the Microsoft Azure StorSimple Manager service. Entering maintenance mode will end the current session and reboot both controllers, which takes a few minutes to complete. Are you sure you want to enter maintenance mode?
+        [Y] Yes [N] No (Default is "Y"): Y
 
         -----------------------MAINTENANCE MODE------------------------
-    	Microsoft Azure StorSimple Appliance Model 8100
-    	Name: Update2-8100-SHG0997879L76YD
-    	Software Version: 6.3.9600.17705
-    	Copyright (C) 2014 Microsoft Corporation. All rights reserved.
-    	You are connected to Controller1
-    	---------------------------------------------------------------
+        Microsoft Azure StorSimple Appliance Model 8100
+        Name: Update2-8100-SHG0997879L76673
+        Copyright (C) 2014 Microsoft Corporation. All rights reserved.
+        You are connected to Controller0 - Passive
+        ---------------------------------------------------------------
 
-    	Controller1>Get-HcsFirmwareVersion
+        Serial Console Menu
+        [1] Log in with full access
+        [2] Log into peer controller with full access
+        [3] Connect with limited access
+        [4] Change language
+        Please enter your choice>
 
-    	Controller0 : TalladegaFirmware
-    	  ActiveBIOS:0.45.0006
-    	  BackupBIOS:0.45.0008
-    	  MainCPLD:17.0.0005
-    	  ActiveBMCRoot:2.0.000E
-    	  BackupBMCRoot:2.0.000E
-    	  BMCBoot:2.0.0001
-    	  LsiFirmware:19.00.00.00
-    	  LsiBios:07.37.00.00
-    	  Battery1Firmware:06.29
-    	  Battery2Firmware:06.29
-    	  DomFirmware:X231600
-    	  CanisterFirmware:3.5.0.32
-    	  CanisterBootloader:5.03
-    	  CanisterConfigCRC:0xD1B030A4
-    	  CanisterVPDStructure:0x06
-    	  CanisterGEMCPLD:0x17
-    	  CanisterVPDCRC:0xEE3504B4
-    	  MidplaneVPDStructure:0x0C
-    	  MidplaneVPDCRC:0xA6BD4F64
-    	  MidplaneCPLD:0x10
-    	  PCM1Firmware:1.00|1.05
-    	  PCM1VPDStructure:0x05
-    	  PCM1VPDCRC:0x41BEF99C
-    	  PCM2Firmware:1.00|1.05
-    	  PCM2VPDStructure:0x05
-    	  PCM2VPDCRC:0x41BEF99C
+    Both the controllers then restart into Maintenance mode.
 
-    	  DisksFirmware
-    	  SEAGATE:ST400FM0073:XGEG
-    	  SEAGATE:ST400FM0073:XGEG
-    	  SEAGATE:ST400FM0073:XGEG
-    	  SEAGATE:ST400FM0073:XGEG
-    	  SEAGATE:ST4000NM0023:XMGG
-    	  SEAGATE:ST4000NM0023:XMGG
-    	  SEAGATE:ST4000NM0023:XMGG
-    	  SEAGATE:ST4000NM0023:XMGG
-    	  SEAGATE:ST4000NM0023:XMGG
-    	  SEAGATE:ST4000NM0023:XMGG
-    	  SEAGATE:ST4000NM0023:XMGG
-    	  SEAGATE:ST4000NM0023:XMGG
+3. To install the disk firmware update, type:
 
-	 Execute o comando `Get-HcsFirmwareVersion` no segundo controlador para verificar se a versão do software foi atualizada. Em seguida, você pode sair do modo de manutenção. Para isso, digite o comando a seguir para cada controlador de dispositivo:
+    `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
+
+    A sample output is shown below.
+
+        Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\DiskFirmwarePackage.exe -Credential contoso\john
+        Enter Password:
+        WARNING: In maintenance mode, hotfixes should be installed on each controller sequentially. After the hotfix is installed on this controller, install it on the peer controller.
+        Confirm
+        This operation starts a hotfix installation and could reboot one or both of the controllers. By installing new updates you agree to, and accept any additional terms associated with, the new functionality listed in the release notes (https://go.microsoft.com/fwLink/?LinkID=613790). Are you sure you want to continue?
+        [Y] Yes [N] No (Default is "Y"): Y
+        WARNING: Installation is currently in progress. This operation can take several minutes to complete.
+
+1.  Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`.
+
+2.  After the installation is complete, the controller on which the maintenance mode hotfix was installed restarts. Log in as option 1 with full access and verify the disk firmware version. Type:
+
+    `Get-HcsFirmwareVersion`
+
+    The expected disk firmware versions are:
+
+    `XMGG, XGEG, KZ50, F6C2, VR08`
+
+    A sample output is shown below.
+
+        -----------------------MAINTENANCE MODE------------------------
+        Microsoft Azure StorSimple Appliance Model 8100
+        Name: Update2-8100-SHG0997879L76YD
+        Software Version: 6.3.9600.17705
+        Copyright (C) 2014 Microsoft Corporation. All rights reserved.
+        You are connected to Controller1
+        ---------------------------------------------------------------
+
+        Controller1>Get-HcsFirmwareVersion
+
+        Controller0 : TalladegaFirmware
+          ActiveBIOS:0.45.0006
+          BackupBIOS:0.45.0008
+          MainCPLD:17.0.0005
+          ActiveBMCRoot:2.0.000E
+          BackupBMCRoot:2.0.000E
+          BMCBoot:2.0.0001
+          LsiFirmware:19.00.00.00
+          LsiBios:07.37.00.00
+          Battery1Firmware:06.29
+          Battery2Firmware:06.29
+          DomFirmware:X231600
+          CanisterFirmware:3.5.0.32
+          CanisterBootloader:5.03
+          CanisterConfigCRC:0xD1B030A4
+          CanisterVPDStructure:0x06
+          CanisterGEMCPLD:0x17
+          CanisterVPDCRC:0xEE3504B4
+          MidplaneVPDStructure:0x0C
+          MidplaneVPDCRC:0xA6BD4F64
+          MidplaneCPLD:0x10
+          PCM1Firmware:1.00|1.05
+          PCM1VPDStructure:0x05
+          PCM1VPDCRC:0x41BEF99C
+          PCM2Firmware:1.00|1.05
+          PCM2VPDStructure:0x05
+          PCM2VPDCRC:0x41BEF99C
+
+          DisksFirmware
+          SEAGATE:ST400FM0073:XGEG
+          SEAGATE:ST400FM0073:XGEG
+          SEAGATE:ST400FM0073:XGEG
+          SEAGATE:ST400FM0073:XGEG
+          SEAGATE:ST4000NM0023:XMGG
+          SEAGATE:ST4000NM0023:XMGG
+          SEAGATE:ST4000NM0023:XMGG
+          SEAGATE:ST4000NM0023:XMGG
+          SEAGATE:ST4000NM0023:XMGG
+          SEAGATE:ST4000NM0023:XMGG
+          SEAGATE:ST4000NM0023:XMGG
+          SEAGATE:ST4000NM0023:XMGG
+
+     Run the `Get-HcsFirmwareVersion` command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. To do so, type the following command for each device controller:
 
     `Exit-HcsMaintenanceMode`
 
-1. Os controladores são reiniciados quando você sai do modo de manutenção. Depois que as atualizações do firmware de disco forem aplicadas com êxito e o dispositivo tiver saído do modo de manutenção, retorne ao portal clássico do Azure. Observe que, por 24 horas, o portal poderá não mostrar que as atualizações do modo de manutenção foram instaladas.
+1. The controllers restart when you exit Maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure classic portal. Note that the portal might not show that you installed the Maintenance mode updates for 24 hours.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

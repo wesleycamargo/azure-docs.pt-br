@@ -1,16 +1,18 @@
-Vamos adicionar um gatilho.
+Let's add a trigger.
 
-1. Digite *stfp* na caixa de pesquisa no designer de aplicativos lógicos e selecione o gatilho **SFTP - Quando um arquivo é criado ou modificado**   
-![Imagem do gatilho de SFTP 1](./media/connectors-create-api-sftp/trigger-1.png)  
-- O controle **Quando um arquivo é adicionado ou modificado** é aberto  
-![Imagem do gatilho de SFTP 2](./media/connectors-create-api-sftp/trigger-2.png)  
-- Escolha **...**, localizado no lado direito do controle. Isso abre o controle de seletor de pasta  
-![Imagem do gatilho de SFTP 3](./media/connectors-create-api-sftp/action-1.png)  
-- Selecione o **SFTP** para selecionar a pasta raiz da pasta para monitorar arquivos novos ou modificados. Observe que a pasta raiz agora é exibida no controle **Pasta**.  
-![Imagem do gatilho de SFTP 4](./media/connectors-create-api-sftp/action-2.png)  
+1. Enter *sftp* in the search box on the logic apps designer then select the **SFTP - When a file is added or modified**  trigger   
+![SFTP trigger image 1](./media/connectors-create-api-sftp/trigger-1.png)  
+- The **When a file is added or modified** control opens up  
+![SFTP trigger image 2](./media/connectors-create-api-sftp/trigger-2.png)  
+- Select the **...** located on the right side of the control. This opens the folder picker control  
+![SFTP trigger image 3](./media/connectors-create-api-sftp/action-1.png)  
+- Select the **SFTP** to select the root folder as the folder to monitor for new or modified files. Notice the root folder is now displayed in the **Folder** control.  
+![SFTP trigger image 4](./media/connectors-create-api-sftp/action-2.png)   
 
-Neste ponto, seu aplicativo lógico foi configurado com um gatilho que iniciará uma execução de outros gatilhos e as ações no fluxo de trabalho quando um arquivo é modificado ou criado na pasta SFTP específica.
+At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a file is either modified or created in the specific SFTP folder. 
 
->[AZURE.NOTE]Para que um aplicativo lógico funcione, ele deve conter pelo menos um gatilho e uma ação. Siga as etapas na próxima seção para adicionar uma ação.
+>[AZURE.NOTE]For a logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Perguntas frequentes sobre o Gateway de VPN de rede virtual | Microsoft Azure"
-   description="Perguntas frequentes sobre o Gateway de VPN. Perguntas frequentes para conexões entre locais de rede virtual do Microsoft Azure, conexões de configuração híbrida e gateways de VPN"
+   pageTitle="Virtual Network VPN Gateway FAQ | Microsoft Azure"
+   description="The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-premises connections, hybrid configuration connections, and VPN Gateways"
    services="vpn-gateway"
    documentationCenter="na"
    authors="yushwang"
@@ -15,265 +15,273 @@
    ms.date="03/10/2016"
    ms.author="yushwang" />
 
-# Perguntas frequentes de gateway de VPN
 
-## Conectando-se a Redes Virtuais
+# <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
-### Posso conectar redes virtuais em diferentes regiões do Azure?
-Sim. Na verdade, não há nenhuma restrição de região. Uma rede virtual pode se conectar a outra rede virtual na mesma região ou em outra região do Azure.
+## <a name="connecting-to-virtual-networks"></a>Connecting to Virtual Networks
 
-### Posso conectar redes virtuais em assinaturas diferentes?
-Sim.
+### <a name="can-i-connect-virtual-networks-in-different-azure-regions?"></a>Can I connect virtual networks in different Azure regions?
+Yes. In fact, there is no region constraint. One virtual network can connect to another virtual network in the same region, or in a different Azure region.
 
-### Posso me conectar vários sites de uma única rede virtual?
+### <a name="can-i-connect-virtual-networks-in-different-subscriptions?"></a>Can I connect virtual networks in different subscriptions?
+Yes.
 
-Você pode se conectar a vários sites usando o Windows PowerShell e as APIs REST do Azure. Consulte a seção [Conectividade multissite e de VNet para VNet](#multi-site-and-vnet-to-vnet-connectivity) das perguntas frequentes.
-## Quais são minhas opções de conexão entre locais?
+### <a name="can-i-connect-to-multiple-sites-from-a-single-virtual-network?"></a>Can I connect to multiple sites from a single virtual network?
 
-Há suporte para as seguintes conexões entre locais:
+You can connect to multiple sites by using Windows PowerShell and the Azure REST APIs. See the [Multi-Site and VNet-to-VNet Connectivity](#multi-site-and-vnet-to-vnet-connectivity) FAQ section.
+## <a name="what-are-my-cross-premises-connection-options?"></a>What are my cross-premises connection options?
 
-- [Site a Site](vpn-gateway-site-to-site-create.md) – conexão VPN sobre IPsec (IKE v1 e IKE v2). Esse tipo de conexão exige um dispositivo VPN ou RRAS.
+The following cross-premises connections are supported:
 
-- [Ponto a Site](vpn-gateway-point-to-site-create.md) – conexão VPN sobre SSTP (Secure Socket Tunneling Protocol). Essa conexão não exige um dispositivo VPN.
+- [Site-to-Site](vpn-gateway-site-to-site-create.md) – VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS.
 
-- [VNet a VNet](virtual-networks-configure-vnet-to-vnet-connection.md) - Esse tipo de conexão é o mesmo que uma configuração de site a site. VNet a VNet é uma conexão VPN sobre IPsec (IKE v1 e IKE v2). Ela não requer um dispositivo VPN.
+- [Point-to-Site](vpn-gateway-point-to-site-create.md) – VPN connection over SSTP (Secure Socket Tunneling Protocol). This connection does not require a VPN device.
 
-- [Multissite](vpn-gateway-multi-site.md) - Essa é uma variação de uma configuração de site a site que permite conectar vários sites locais a uma rede virtual.
+- [VNet-to-VNet](virtual-networks-configure-vnet-to-vnet-connection.md) – This type of connection is the same as a Site-to-Site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device.
 
-- [Rota Expressa](../expressroute/expressroute-introduction.md) - Rota Expressa é uma conexão direta para o Azure de sua WAN, não pela Internet pública. Consulte a [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md) e as [Perguntas frequentes sobre a Rota Expressa](../expressroute/expressroute-faqs.md) para obter mais informações.
+- [Multi-Site](vpn-gateway-multi-site.md) – This is a variation of a Site-to-Site configuration that allows you to connect multiple on-premises sites to a virtual network.
 
-Para saber mais sobre conexões, confira [Sobre Gateway de VPN](vpn-gateway-about-vpngateways.md).
+- [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. See the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more information.
 
-### Qual é a diferença entre uma conexão site a site e uma ponto a site?
+For more information about connections, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 
-As conexões **site a site** permitem que você conecte entre qualquer um dos computadores localizados em suas instalações para qualquer máquina virtual ou instância de função em sua rede virtual, dependendo de como você optar por configurar o roteamento. É uma ótima opção para uma conexão entre locais sempre disponível e é bastante adequada para configurações híbridas. Esse tipo de conexão se baseia em um dispositivo VPN IPsec (dispositivo de hardware ou software), que deve ser implantado na borda de sua rede. Para criar esse tipo de conexão, você deverá ter o hardware de VPN necessário e um endereço IPv4 voltado para o exterior.
+### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site?"></a>What is the difference between a Site-to-Site connection and Point-to-Site?
 
-As conexões de **ponto a site** permitem que você se conecte de um único computador em qualquer lugar para qualquer item localizado em sua rede virtual. Elas usam o cliente de VPN integrado ao Windows. Como parte da configuração de ponto a site, você pode instalar um certificado e um pacote de configuração de cliente VPN, que contém as configurações que permitem que o computador se conecte a qualquer máquina virtual ou instância de função na rede virtual. É ótimo quando você deseja se conectar a uma rede virtual, mas não está localizado no local. Também é uma boa opção quando você não tem acesso a hardware de VPN ou a um endereço IPv4 voltado para o exterior, sendo que ambos são necessários para uma conexão site a site.
+**Site-to-Site** connections let you connect between any of the computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing. It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations. This type of connection relies on an IPsec VPN appliance (hardware or soft appliance), which must be deployed at the edge of your network. To create this type of connection, you must have the required VPN hardware and an externally facing IPv4 address.
 
-Você pode configurar sua rede virtual para usar as opções de site a site e ponto a site simultaneamente, desde que crie sua conexão site a site usando um tipo de VPN com base em rota para seu gateway. Tipos de VPN baseados em rota são chamados de gateways dinâmicos no modelo de implantação clássica.
+**Point-to-Site** connections let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client. As part of the Point-to-Site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network. It's great when you want to connect to a virtual network, but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a Site-to-Site connection. 
 
-### O que é Rota Expressa?
+You can configure your virtual network to use both Site-to-Site and Point-to-Site concurrently, provided that you create your Site-to-Site connection using a route-based VPN type for your gateway. Route-based VPN types are called dynamic gateways in the classic deployment model.
 
-A Rota Expressa permite a criação de conexões privadas entre os datacenters da Microsoft e a infraestrutura no seu local ou em um ambiente de colocalização. Com a Rota Expressa, é possível estabelecer conexões com os serviços em nuvem da Microsoft como o Microsoft Azure e Office 365 em uma instalação de colocalização de parceiro da Rota Expressa, ou conectar-se diretamente pela rede WAN existente (como VPN MLPS fornecidas por um provedor de serviços de rede).
+### <a name="what-is-expressroute?"></a>What is ExpressRoute?
 
-As conexões de rota expressa oferecem maior segurança, mais confiabilidade, maior largura de banda e latências menores do que as conexões típicas pela Internet. Em alguns casos, o uso de conexões de Rota Expressa para transferir dados entre sua rede local e o Azure também pode proporcionar relações custo/benefício significativas. Se você já tiver criado uma conexão entre locais de sua rede local para o Azure, você pode migrar para uma conexão de Rota Expressa, mantendo a sua rede virtual intacta.
+ExpressRoute lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a co-location environment. With ExpressRoute, you can establish connections to Microsoft cloud services such as Microsoft Azure and Office 365 at an ExpressRoute partner co-location facility, or directly connect from your existing WAN network (such as an MPLS VPN provided by a network service provider).
 
-Consulte as [Perguntas Frequentes sobre Rota Expressa](../expressroute/expressroute-faqs.md) para obter mais detalhes.
+ExpressRoute connections offer better security, more reliability, higher bandwidth, and lower latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between your on-premises network and Azure can also yield significant cost benefits. If you already have created a cross-premises connection from your on-premises network to Azure, you can migrate to an ExpressRoute connection while keeping your virtual network intact.
 
-## Conexões de site a site e dispositivos VPN
+See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more details.
 
-### O que devo considerar ao escolher um dispositivo VPN?
+## <a name="site-to-site-connections-and-vpn-devices"></a>Site-to-Site connections and VPN devices
 
-Validamos um conjunto de dispositivos de VPN site a site padrão em parceria com fornecedores de dispositivos. Uma lista de dispositivos de VPN compatíveis conhecidos, as instruções de configuração correspondentes ou exemplos e especificações de dispositivo pode ser encontrados [aqui](vpn-gateway-about-vpn-devices.md). Todos os dispositivos das famílias de dispositivos listadas como compatíveis e conhecidas devem funcionar com a Rede Virtual. Para ajudar a configurar seu dispositivo VPN, consulte o exemplo de configuração do dispositivo ou o link que corresponde à família de dispositivos apropriada.
+### <a name="what-should-i-consider-when-selecting-a-vpn-device?"></a>What should I consider when selecting a VPN device?
 
-### O que devo fazer se tiver um dispositivo VPN que não esteja na lista de dispositivos compatíveis conhecidos?
+We have validated a set of standard Site-to-Site VPN devices in partnership with device vendors. A list of known compatible VPN devices, their corresponding configuration instructions or samples, and device specs can be found [here](vpn-gateway-about-vpn-devices.md). All devices in the device families listed as known compatible should work with Virtual Network. To help configure your VPN device, refer to the device configuration sample or link that corresponds to appropriate device family.
 
-Se não encontrar seu dispositivo listado como um dispositivo VPN compatível conhecido e quiser usá-lo para a conexão VPN, você precisará verificar se ele atende às opções de configuração de IPsec/IKE e aos parâmetros listados com suporte [aqui](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Os dispositivos que atendem aos requisitos mínimos devem funcionar bem com os gateways de VPN. Entre em contato com o fabricante do dispositivo para obter instruções adicionais de configuração e suporte.
+### <a name="what-do-i-do-if-i-have-a-vpn-device-that-isn't-in-the-known-compatible-device-list?"></a>What do I do if I have a VPN device that isn't in the known compatible device list?
 
-### Por que meu túnel VPN baseado em políticas é desativado quando o tráfego está ocioso?
+If you do not see your device listed as a known compatible VPN device and you want to use it for your VPN connection, you'll need to verify that it meets the supported IPsec/IKE configuration options and parameters listed [here](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Devices meeting the minimum requirements should work well with VPN gateways. Contact your device manufacturer for additional support and configuration instructions.
 
-Esse comportamento é esperado para gateways de VPN baseados em políticas (também conhecidos como roteamento estático). Quando o tráfego pelo túnel de fica ocioso por mais de 5 minutos, o túnel é interrompido. Assim que o tráfego começa a fluir em qualquer direção, o túnel é restabelecido imediatamente.
+### <a name="why-does-my-policy-based-vpn-tunnel-go-down-when-traffic-is-idle?"></a>Why does my policy-based VPN tunnel go down when traffic is idle?
 
-### Posso usar VPNs de software para me conectar ao Azure?
+This is expected behavior for policy-based (also known as static routing) VPN gateways. When the traffic over the tunnel is idle for more than 5 minutes, the tunnel will be torn down. When traffic starts flowing in either direction, the tunnel will be reestablished immediately.
 
-Há suporte para servidores RRAS (Roteamento e Acesso Remoto) do Windows Server 2012 para configuração entre locais site a site.
+### <a name="can-i-use-software-vpns-to-connect-to-azure?"></a>Can I use software VPNs to connect to Azure?
 
-Outras soluções VPN de software devem funcionar com nosso gateway, contanto que estejam em conformidade com implementações de IPsec padrão do setor. Contate o fornecedor do software para obter instruções de configuração e suporte.
+We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site-to-Site cross-premises configuration.
 
-## Conexões Ponto a Site
+Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
-### Quais sistemas operacionais posso usar com ponto a site?
+## <a name="point-to-site-connections"></a>Point-to-Site connections
 
-Há suporte para os seguintes sistemas operacionais:
+### <a name="what-operating-systems-can-i-use-with-point-to-site?"></a>What operating systems can I use with Point-to-Site?
 
-- Windows 7 (32 bits e 64 bits)
+The following operating systems are supported:
 
-- Windows Server 2008 R2 (somente 64 bits)
+- Windows 7 (32-bit and 64-bit)
 
-- Windows 8 (32 bits e 64 bits)
+- Windows Server 2008 R2 (64-bit only)
 
-- Windows 8.1 (32 bits e 64 bits)
+- Windows 8 (32-bit and 64-bit)
 
-- Windows Server 2012 (somente 64 bits)
+- Windows 8.1 (32-bit and 64-bit)
 
-- Windows Server 2012 R2 (somente 64 bits)
+- Windows Server 2012 (64-bit only)
+
+- Windows Server 2012 R2 (64-bit only)
 
 - Windows 10
 
-### Posso usar qualquer cliente de VPN de software para ponto a site que dê suporte a SSTP?
+### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp?"></a>Can I use any software VPN client for Point-to-Site that supports SSTP?
 
-Não. O suporte é limitado somente às versões do sistema operacional Windows listadas acima.
+No. Support is limited only to the Windows operating system versions listed above.
 
-### Quantos pontos de extremidade de cliente VPN posso ter em minha configuração ponto a site?
+### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration?"></a>How many VPN client endpoints can I have in my Point-to-Site configuration?
 
-Damos suporte para até 128 clientes VPN para poderem se conectar a uma rede virtual ao mesmo tempo.
+We support up to 128 VPN clients to be able to connect to a virtual network at the same time.
 
-### Posso usar minha própria CA de raiz de PKI interna para a conectividade ponto a site?
+### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity?"></a>Can I use my own internal PKI root CA for Point-to-Site connectivity?
 
-Sim. Anteriormente, somente os certificados raiz autoassinados podiam ser usados. Você ainda pode carregar 20 certificados raiz.
+Yes. Previously, only self-signed root certificates could be used. You can still upload 20 root certificates.
 
-### Posso atravessar proxies e firewalls usando o recurso de ponto a site?
+### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability?"></a>Can I traverse proxies and firewalls using Point-to-Site capability?
 
-Sim. Usamos o protocolo SSTP (Secure Socket Tunneling Protocol) para túnel através de firewalls. Esse túnel aparecerá como uma conexão HTTPs.
+Yes. We use SSTP (Secure Socket Tunneling Protocol) to tunnel through firewalls. This tunnel will appear as an HTTPs connection.
 
-### Se eu reiniciar um computador cliente configurado para ponto a site, a VPN se reconectará automaticamente?
+### <a name="if-i-restart-a-client-computer-configured-for-point-to-site,-will-the-vpn-automatically-reconnect?"></a>If I restart a client computer configured for Point-to-Site, will the VPN automatically reconnect?
 
-Por padrão, o computador cliente não restabelecerá a conexão VPN automaticamente.
+By default, the client computer will not reestablish the VPN connection automatically.
 
-### A opção de ponto para site dá suporte a reconexão automática e DDNS nos clientes de VPN?
+### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients?"></a>Does Point-to-Site support auto-reconnect and DDNS on the VPN clients?
 
-A reconexão automática e o DDNS atualmente não têm suporte em VPNs ponto a site.
+Auto-reconnect and DDNS are currently not supported in Point-to-Site VPNs.
 
-### Posso ter configurações site a site e ponto a site que coexistam para a mesma rede virtual?
+### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network?"></a>Can I have Site-to-Site and Point-to-Site configurations coexist for the same virtual network?
 
-Sim. Essas duas soluções funcionarão se você tiver um tipo VPN Baseada em Rota para o gateway. Para o modelo de implantação clássica, você precisará de um gateway dinâmico. Não damos suporte a ponto a site para o roteamento estático de gateways VPN ou gateways usando -VpnType PolicyBased.
+Yes. Both these solutions will work if you have a RouteBased VPN type for your gateway. For the classic deployment model, you need a dynamic gateway. We do not support Point-to-Site for static routing VPN gateways or gateways using -VpnType PolicyBased.
 
-### Posso configurar um cliente de ponto a site para se conectar a várias redes virtuais ao mesmo tempo?
+### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time?"></a>Can I configure a Point-to-Site client to connect to multiple virtual networks at the same time?
 
-Sim, isso é possível. Porém, as redes virtuais não podem ter prefixos IP sobrepostos, e os espaços de endereço de ponto para site não devem causar sobreposição entre as redes virtuais.
+Yes, it is possible. But the virtual networks cannot have overlapping IP prefixes and the Point-to-Site address spaces must not overlap between the virtual networks.
 
-### Quanta taxa de transferência posso esperar por meio de conexões site a site ou ponto a site?
+### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections?"></a>How much throughput can I expect through Site-to-Site or Point-to-Site connections?
 
-É difícil manter a taxa de transferência exata dos túneis de VPN. IPsec e SSTP são protocolos VPN de criptografia pesada. A taxa de transferência também é limitada pela latência e pela largura de banda entre seus locais e na Internet.
+It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SSTP are crypto-heavy VPN protocols. Throughput is also limited by the latency and bandwidth between your premises and the Internet.
 
-## Gateways
+## <a name="gateways"></a>Gateways
 
-### O que é um gateway baseado em políticas (roteamento estático)?
+### <a name="what-is-a-policy-based-(static-routing)-gateway?"></a>What is a policy-based (static-routing) gateway?
 
-Os gateways baseados em política implementam VPNs baseadas em política. As VPNs baseadas em política criptografam e direcionam pacotes por meio de túneis IPsec com base em combinações de prefixos de endereço entre sua rede local e a VNet do Azure. A política (ou o seletor de tráfego) normalmente é definida como uma lista de acesso na configuração de VPN.
+Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the combinations of address prefixes between your on-premises network and the Azure VNet. The policy (or Traffic Selector) is usually defined as an access list in the VPN configuration.
 
-### O que é um gateway baseado em rotas (roteamento dinâmico)?
+### <a name="what-is-a-route-based-(dynamic-routing)-gateway?"></a>What is a route-based (dynamic-routing) gateway?
 
-Gateways baseados em rota implementam VPNs baseadas em rota. As VPNs baseadas em rota usam "rotas" da tabela de roteamento ou de encaminhamento de IP para direcionar pacotes para as interfaces de túnel correspondentes. As interfaces de túnel criptografam ou descriptografam então os pacotes para dentro e para fora dos túneis. O seletor de política ou de tráfego para as VPNs baseadas em rota são configurados como qualquer para qualquer (ou curingas).
+Route-based gateways implement the route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route based VPNs are configured as any-to-any (or wild cards).
 
-### Posso obter o endereço IP do gateway de VPN antes de criá-lo?
+### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it?"></a>Can I get my VPN gateway IP address before I create it?
 
-Não. Você precisa criar seu gateway primeiro para obter o endereço IP. O endereço IP será alterado se você excluir e recriar o gateway de VPN.
+No. You have to create your gateway first to get the IP address. The IP address changes if you delete and recreate your VPN gateway.
 
-### Como meu túnel de VPN é autenticado?
+### <a name="how-does-my-vpn-tunnel-get-authenticated?"></a>How does my VPN tunnel get authenticated?
 
-A VPN do Azure usa autenticação PSK (Chave Pré-Compartilhada). Geramos uma PSK (chave pré-compartilhada) durante a criação do túnel de VPN. Você pode alterar a PSK gerada automaticamente para a sua própria com o cmdlet do PowerShell Definir Chave Pré-Compartilhada ou a API REST.
+Azure VPN uses PSK (Pre-Shared Key) authentication. We generate a pre-shared key (PSK) when we create the VPN tunnel. You can change the auto-generated PSK to your own with the Set Pre-Shared Key PowerShell cmdlet or REST API.
 
-### Posso usar a API Definir chave pré-compartilhada para configurar minha VPN de gateway baseada em política (roteamento estático)?
+### <a name="can-i-use-the-set-pre-shared-key-api-to-configure-my-policy-based-(static-routing)-gateway-vpn?"></a>Can I use the Set Pre-Shared Key API to configure my policy-based (static routing) gateway VPN?
 
-Sim, a API Definir chave pré-compartilhada e o cmdlet do PowerShell podem ser usados para configurar VPNs baseadas em política (estáticas) do Azure e as VPNs de roteamento baseadas em rota (dinâmicas).
+Yes, the Set Pre-Shared Key API and PowerShell cmdlet can be used to configure both Azure policy-based (static) VPNs and route-based (dynamic) routing VPNs.
 
-### É possível usar outras opções de autenticação?
+### <a name="can-i-use-other-authentication-options?"></a>Can I use other authentication options?
 
-Estamos limitados ao uso de PSK (chaves pré-compartilhadas) para autenticação.
+We are limited to using pre-shared keys (PSK) for authentication.
 
-### O que é a "sub-rede de gateway" e por que ela é necessária?
+### <a name="what-is-the-"gateway-subnet"-and-why-is-it-needed?"></a>What is the "gateway subnet" and why is it needed?
 
-Temos um serviço de gateway que executamos para habilitar a conectividade entre locais.
+We have a gateway service that we run to enable cross-premises connectivity. 
 
-Você precisará criar uma sub-rede de gateway para sua rede virtual a fim de configurar um gateway de VPN. Todas as sub-redes de gateway devem ser nomeadas como GatewaySubnet para funcionar adequadamente. Não dê outro nome à sua sub-rede de gateway. E não implante VMs ou qualquer outra coisa na sub-rede de gateway.
+You'll need to create a gateway subnet for your VNet to configure a VPN gateway. All gateway subnets must be named GatewaySubnet to work properly. Don't name your gateway subnet something else. And don't deploy VMs or anything else to the gateway subnet.
 
-O tamanho mínimo de sub-rede de gateway depende totalmente da configuração que você deseja criar. Embora seja possível criar uma sub-rede de gateway tão pequena quanto /29 em algumas configurações, recomendamos que você crie uma sub-rede de gateway de /28 ou maior (/28, /27, /26 etc.).
+The gateway subnet minimum size depends entirely on the configuration that you want to create. Although it is possible to create a gateway subnet as small as /29 for some configurations, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26 etc.). 
 
-### Posso implantar máquinas virtuais ou instâncias de função na minha sub-rede de gateway?
+### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet?"></a>Can I deploy Virtual Machines or role instances to my gateway subnet?
 
-Nº
+No.
 
-### Como especificar qual tráfego passa pelo gateway de VPN?
+### <a name="how-do-i-specify-which-traffic-goes-through-the-vpn-gateway?"></a>How do I specify which traffic goes through the VPN gateway?
 
-Se estiver usando o Portal do Azure, adicione cada intervalo que deseja enviar pelo gateway para sua rede virtual na página Redes, em Redes Locais.
+If you are using the Azure Classic Portal, add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks.
 
-### Posso configurar o Túnel Forçado?
+### <a name="can-i-configure-forced-tunneling?"></a>Can I configure Forced Tunneling?
 
-Sim. Consulte [Configurar o túnel forçado](vpn-gateway-about-forced-tunneling.md).
+Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
 
-### Posso configurar meu próprio servidor de VPN no Azure e usá-lo para me conectar à minha rede local?
+### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network?"></a>Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 
-Sim, você pode implantar seus próprios gateways de VPN ou servidores no Azure, por meio do Azure Marketplace, ou criar seus próprios roteadores de VPN. Você precisará configurar Rotas Definidas pelo Usuário em sua rede virtual para garantir que o tráfego seja roteado corretamente entre suas redes locais e suas sub-redes de rede virtual.
+Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You will need to configure user defined routes in your virtual network to ensure traffic is routed properly between your on-premises networks and your virtual network subnets.
 
-### Por que determinadas portas serão abertas no meu gateway VPN?
+### <a name="why-are-certain-ports-opened-on-my-vpn-gateway?"></a>Why are certain ports opened on my VPN gateway?
 
-Elas são necessárias para a comunicação de infraestrutura do Azure. Elas são protegidas (bloqueadas) por certificados do Azure. Sem certificados apropriados, entidades externas, incluindo os clientes desses gateways, não poderão causar efeitos nesses pontos de extremidade.
+They are required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to cause any effect on those endpoints.
 
-Um gateway de VPN é fundamentalmente um dispositivo de hospedagem múltipla com um toque de NIC para a rede privada do cliente e uma NIC voltada para a rede pública. As entidades de infraestrutura do Azure não podem tocar em redes privadas de cliente por motivos de conformidade, devendo utilizar pontos de extremidade públicos para comunicação de infraestrutura. Os pontos de extremidade públicos são verificados periodicamente pela auditoria de segurança do Azure.
+A VPN gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities cannot tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
 
 
-### Mais informações sobre tipos de gateway, requisitos e taxa de transferência
+### <a name="more-information-about-gateway-types,-requirements,-and-throughput"></a>More information about gateway types, requirements, and throughput
 
-Para saber mais, confira [Sobre configurações de Gateway de VPN] (vpn-gateway-about-vpn gateway-settings.md).
+For more information, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md).
 
-## Conectividade multissite e de VNet para VNet
+## <a name="multi-site-and-vnet-to-vnet-connectivity"></a>Multi-Site and VNet-to-VNet connectivity
 
-### Que tipo de gateways podem dar suporte a vários locais e conectividade VNet para VNet?
+### <a name="which-type-of-gateways-can-support-multi-site-and-vnet-to-vnet-connectivity?"></a>Which type of gateways can support multi-site and VNet-to-VNet connectivity?
 
-Somente VPNs baseadas em rota (roteamento dinâmico).
+Only route-based (dynamic routing) VPNs.
 
-### Posso conectar uma rede virtual a um tipo de VPN RouteBased para outra rede virtual com um tipo de VPN PolicyBased?
+### <a name="can-i-connect-a-vnet-with-a-routebased-vpn-type-to-another-vnet-with-a-policybased-vpn-type?"></a>Can I connect a VNet with a RouteBased VPN Type to another VNet with a PolicyBased VPN type?
 
-Não, ambas as redes virtuais DEVEM estar usando VPNs baseadas em rota (roteamento dinâmico).
+No, both virtual networks MUST be using route-based (dynamic routing) VPNs.
 
-### O tráfego de VNet para VNet é seguro?
+### <a name="is-the-vnet-to-vnet-traffic-secure?"></a>Is the VNet-to-VNet traffic secure?
 
-Sim, ele é protegido por criptografia IPsec/IKE.
+Yes, it is protected by IPsec/IKE encryption.
 
-### Tráfego Rede Virtual para Rede Virtual passa pelo backbone do Azure?
+### <a name="does-vnet-to-vnet-traffic-travel-over-the-azure-backbone?"></a>Does VNet-to-VNet traffic travel over the Azure backbone?
 
-Sim.
+Yes.
 
-### A quantos sites locais e redes virtuais uma rede virtual pode se conectar?
+### <a name="how-many-on-premises-sites-and-virtual-networks-can-one-virtual-network-connect-to?"></a>How many on-premises sites and virtual networks can one virtual network connect to?
 
-Máx. Dez combinados para os gateways Basic e Standard de Roteamento Dinâmico; 30 para os gateways de VPN de Alto Desempenho.
+Max. 10 combined for the Basic and Standard Dynamic Routing gateways; 30 for the High Performance VPN gateways.
 
-### Posso usar VPNs de ponto a site com minha rede virtual com vários túneis de VPN?
+### <a name="can-i-use-point-to-site-vpns-with-my-virtual-network-with-multiple-vpn-tunnels?"></a>Can I use Point-to-Site VPNs with my virtual network with multiple VPN tunnels?
 
-Sim, as VPNs P2S (ponto a site) podem ser usadas com os gateways de VPN conectando a vários sites locais e outras redes virtuais.
+Yes, Point-to-Site (P2S) VPNs can be used with the VPN gateways connecting to multiple on-premises sites and other virtual networks.
 
-### Posso configurar vários túneis entre minha rede virtual e meu site local usando uma VPN multissite?
+### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn?"></a>Can I configure multiple tunnels between my virtual network and my on-premises site using multi-site VPN?
 
-Não, não há suporte para túneis redundantes entre uma rede virtual do Azure e um site local.
+No, redundant tunnels between an Azure virtual network and an on-premises site are not supported.
 
-### Pode haver sobreposição de espaços de endereço entre as redes virtuais conectadas e sites local locais?
+### <a name="can-there-be-overlapping-address-spaces-among-the-connected-virtual-networks-and-on-premises-local-sites?"></a>Can there be overlapping address spaces among the connected virtual networks and on-premises local sites?
 
-Não. Espaços de endereço sobrepostos farão com que o carregamento de arquivo de configuração de rede ou a “Criação de Rede Virtual” falhe.
+No. Overlapping address spaces will cause the network configuration file upload or "Creating Virtual Network" to fail.
 
-### Obtenho mais largura de banda com mais VPNs site a site do que com uma única rede virtual?
+### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network?"></a>Do I get more bandwidth with more Site-to-Site VPNs than for a single virtual network?
 
-Não, todos os túneis de VPN, incluindo VPNs site a ponto, compartilham o mesmo gateway de VPN do Azure e a largura de banda disponível.
+No, all VPN tunnels, including Point-to-Site VPNs, share the same Azure VPN gateway and the available bandwidth.
 
-### Posso usar o gateway de VPN do Azure para o tráfego entre meus sites locais ou para outra rede virtual?
+### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network?"></a>Can I use Azure VPN gateway to transit traffic between my on-premises sites or to another virtual network?
 
-**Modelo de implantação clássica**<br> O tráfego via Gateway de VPN do Azure é possível usando o modelo de implantação clássica, mas se baseia em espaços de endereço estaticamente definidos no arquivo de configuração de rede. Ainda não há suporte a BGP com Redes Virtuais do Azure e Gateways de VPN usando o modelo de implantação clássica. Sem BGP, a definição manual de espaços de endereço de trânsito é muito propensa a erros e não é recomendada.<br> **Modelo de implantação do Resource Manager**<br> Se você estiver usando o modelo de implantação do Resource Manager, consulte a seção [BGP](#bgp) para saber mais.
+**Classic deployment model**<br>
+Transit traffic via Azure VPN gateway is possible using the classic deployment model, but relies on statically defined address spaces in the network configuration file. BGP is not yet supported with Azure Virtual Networks and VPN gateways using the classic deployment model. Without BGP, manually defining transit address spaces is very error prone, and not recommended.<br>
+**Resource Manager deployment model**<br>
+If you are using the Resource Manager deployment model, see the [BGP](#bgp) section for more information.
 
-### O Azure gera a mesma chave pré-compartilhada IPsec/IKE para todas as minhas conexões VPN para a mesma rede virtual?
+### <a name="does-azure-generate-the-same-ipsec/ike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network?"></a>Does Azure generate the same IPsec/IKE pre-shared key for all my VPN connections for the same virtual network?
 
-Não, por padrão, o Azure gera chaves pré-compartilhadas diferentes para conexões VPN diferentes. No entanto, você pode usar a API REST Definir Chave de Gateway de VPN ou o cmdlet do PowerShell para definir o valor de chave que preferir. A chave deve ser uma cadeia de caracteres alfanumérica com comprimento entre 1 e 128 caracteres.
+No, Azure by default generates different pre-shared keys for different VPN connections. However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer. The key MUST be alphanumerical string of length between 1 to 128 characters.
 
-### O Azure cobra pelo tráfego entre redes virtuais?
+### <a name="does-azure-charge-for-traffic-between-virtual-networks?"></a>Does Azure charge for traffic between virtual networks?
 
-Para o tráfego entre diferentes redes virtuais do Azure, o Azure cobra somente pelo tráfego que passa de uma região do Azure para outra. A taxa de custo é listada na página [Preços do Gateway de VPN do Azure](https://azure.microsoft.com/pricing/details/vpn-gateway/).
+For traffic between different Azure virtual networks, Azure charges only for traffic traversing from one Azure region to another. The charge rate is listed in the Azure [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) page.
 
 
-### Posso conectar uma rede virtual com VPNs IPsec a meu circuito Rota Expressa?
+### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit?"></a>Can I connect a virtual network with IPsec VPNs to my ExpressRoute circuit?
 
-Sim, isso é suportado. Para obter mais informações, consulte [Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam](../expressroute/expressroute-howto-coexist-classic.md).
+Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md).
 
-## <a name="bgp"></a>BGP
+## <a name="<a-name="bgp"></a>bgp"></a><a name="bgp"></a>BGP
 
-[AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
+[AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)] 
 
 
 
-## Conectividade entre locais e VMs
+## <a name="cross-premises-connectivity-and-vms"></a>Cross-premises connectivity and VMs
 
-### Se minha máquina virtual estiver em uma rede virtual e eu tiver uma conexão entre locais, como devo me conectar à VM?
+### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection,-how-should-i-connect-to-the-vm?"></a>If my virtual machine is in a virtual network and I have a cross-premises connection, how should I connect to the VM?
 
-Você tem algumas opções. Se tiver um protocolo RDP habilitado e tiver criado um ponto de extremidade, você poderá se conectar à sua máquina virtual usando o VIP. Nesse caso, você especificaria o VIP e a porta à qual deseja se conectar. Você precisará configurar a porta em sua máquina virtual para o tráfego. Normalmente, você deve ir para o Portal Clássico do Azure e salvar as configurações para a conexão de RDP em seu computador. As configurações conterão as informações de conexão necessárias.
+You have a few options. If you have RDP enabled and you have created an endpoint, you can connect to your virtual machine by using the VIP. In that case, you would specify the VIP and the port that you want to connect to. You'll need to configure the port on your virtual machine for the traffic. Typically, you would go to the Azure Classic Portal and save the settings for the RDP connection to your computer. The settings contain the necessary connection information.
 
-Se tiver uma rede virtual com conectividade entre locais configurada, você poderá se conectar à sua máquina virtual usando o DIP interno ou o endereço IP privado. Você também pode se conectar à sua máquina virtual por DIP interno de outra máquina virtual localizada na mesma rede virtual. Você não poderá RDP para sua máquina virtual usando o DIP se estiver conectando de um local fora de sua rede virtual. Por exemplo, se tiver uma rede virtual de ponto para site configurada e não estabelecer uma conexão do seu computador, você não poderá se conectar à máquina virtual por DIP.
+If you have a virtual network with cross-premises connectivity configured, you can connect to your virtual machine by using the internal DIP or private IP address. You can also connect to your virtual machine by internal DIP from another virtual machine that's located on the same virtual network. You can't RDP to your virtual machine by using the DIP if you are connecting from a location outside of your virtual network. For example, if you have a Point-to-Site virtual network configured and you don't establish a connection from your computer, you can't connect to the virtual machine by DIP.
 
-### Se a minha máquina virtual estiver em uma rede virtual com conectividade entre locais, todo o tráfego de minha VM passará por essa conexão?
+### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity,-does-all-the-traffic-from-my-vm-go-through-that-connection?"></a>If my virtual machine is in a virtual network with cross-premises connectivity, does all the traffic from my VM go through that connection?
 
-Não. Somente o tráfego com um destino IP contido em intervalos de endereços IP de rede Local virtual de rede especificado passará pelo gateway de rede virtual. O tráfego que tiver um destino IP localizado na rede virtual permanecerá na rede virtual. Outro tráfego é enviado pelo balanceador de carga para as redes públicas ou, se for usado o túnel forçado, enviado pelo gateway da VPN do Azure. Se você está solucionando problemas, é importante verificar se tem todos os intervalos listados em sua Rede Local que você deseja enviar pelo gateway. Verifique se os intervalos de endereços de Rede Local não correspondem a nenhum dos intervalos de endereços na rede virtual. Além disso, convém verificar se o servidor DNS que você está usando está resolvendo o nome para o endereço IP apropriado.
+No. Only the traffic that has a destination IP that is contained in the virtual network Local Network IP address ranges that you specified will go through the virtual network gateway. Traffic has a destination IP located within the virtual network stays within the virtual network. Other traffic is sent through the load balancer to the public networks, or if forced tunneling is used, sent through the Azure VPN gateway. If you are troubleshooting, it's important to make sure that you have all the ranges listed in your Local Network that you want to send through the gateway. Verify that the Local Network address ranges do not overlap with any of the address ranges in the virtual network. Also, you want to verify that the DNS server you are using is resolving the name to the proper IP address.
 
 
-## Perguntas frequentes sobre rede virtual
+## <a name="virtual-network-faq"></a>Virtual Network FAQ
 
-As informações adicionais de rede virtual são exibidas em [Perguntas Frequentes sobre Rede Virtual](../virtual-network/virtual-networks-faq.md).
+You view additional virtual network information in the [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md).
  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

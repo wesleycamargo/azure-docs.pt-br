@@ -1,63 +1,70 @@
 <properties 
-	pageTitle="Application Insights para ASP.NET Core" 
-	description="Monitorar aplicativos web de disponibilidade, desempenho e uso." 
-	services="application-insights" 
+    pageTitle="Application Insights for ASP.NET Core" 
+    description="Monitor web applications for availability, performance and usage." 
+    services="application-insights" 
     documentationCenter=".net"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/30/2016" 
-	ms.author="awills"/>
-
-# Application Insights para ASP.NET Core
-
-O [Visual Studio Application Insights](app-insights-overview.md) permite que você monitore o seu aplicativo Web, a sua disponibilidade, desempenho e uso. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
-
-![Exemplo](./media/app-insights-asp-net-core/sample.png)
-
-Você precisará de uma assinatura do [Microsoft Azure](http://azure.com). Entre com uma conta da Microsoft, que você pode ter para o Windows, XBox Live ou outros serviços de nuvem da Microsoft. Sua equipe pode ter uma assinatura organizacional do Azure: peça ao proprietário que adicione você a ela usando sua conta da Microsoft.
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/30/2016" 
+    ms.author="awills"/>
 
 
-## Introdução
+# <a name="application-insights-for-asp.net-core"></a>Application Insights for ASP.NET Core
 
-Siga o [Guia de Introdução](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
+[Visual Studio Application Insights](app-insights-overview.md) lets you monitor your web application for availability, performance and usage. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
-## Usando o Application Insights
+![Example](./media/app-insights-asp-net-core/sample.png)
 
-Entre no [Portal do Microsoft Azure](https://portal.azure.com) e navegue para o recurso que você criou para monitorar seu aplicativo.
-
-Em uma janela separada do navegador, use seu aplicativo por algum tempo. Você verá os dados exibidos nos gráficos do Application Insights. (Talvez você precise clicar em Atualizar.) Haverá uma pequena quantidade de dados enquanto você estiver desenvolvendo, mas estes gráficos realmente ganharão vida quando você publicar seu aplicativo e tiver muitos usuários.
-
-A página Visão geral mostra os gráficos de desempenho em que você provavelmente está interessado: tempo de resposta do servidor, o tempo de carregamento de página e contagens de solicitações com falha. Clique em qualquer gráfico para ver mais gráficos e dados.
-
-Os modos de exibição no portal se enquadram em duas categorias principais:
-
-* O [Metrics Explorer](app-insights-metrics-explorer.md) mostra gráficos e tabelas de métricas e contagens, como tempos de resposta, taxas de falha ou métricas que você cria com a [API](app-insights-api-custom-events-metrics.md). Filtre e segmente os dados por valores de propriedade para obter uma compreensão melhor do seu aplicativo e seus usuários.
-* O [Search Explorer](app-insights-diagnostic-search.md) lista eventos individuais, como solicitações específicas, exceções, rastreamentos de log ou eventos que você criou com a [API](app-insights-api-custom-events-metrics.md). Filtre e pesquise nos eventos e navegue entre os eventos relacionados para investigar problemas.
-* A [Análise](app-insights-analytics.md) permite que você execute consultas SQL em sua telemetria e é uma poderosa ferramenta de análise e de diagnóstico.
-
-## Alertas
-
-* Você obterá automaticamente [alertas adaptáveis](app-insights-nrt-proactive-diagnostics.md) que informarão sobre alterações anormais na taxa de solicitações com falha.
-* Configure [testes de disponibilidade](app-insights-monitor-web-app-availability.md) para testar seu site continuamente em locais em todo o mundo e receber emails assim que qualquer teste falhar.
-* Configure [alertas de métrica](app-insights-monitor-web-app-availability.md) para saber se métricas, como tempos de resposta ou taxas de exceção, saem dos limites aceitáveis.
-
-## Obtenha mais telemetria
-
-* [Adicione telemetria às suas páginas da Web](app-insights-javascript.md) para monitorar o uso e o desempenho de páginas.
-* [Monitore dependências](app-insights-dependencies.md) para ver se REST, SQL ou outros recursos externos estão causando lentidão.
-* [Use a API](app-insights-api-custom-events-metrics.md) para enviar seus próprios eventos e métricas para uma exibição mais detalhada do desempenho e do uso do aplicativo.
-* [Testes de disponibilidade](app-insights-monitor-web-app-availability.md) verificam seu aplicativo constantemente em todo o mundo.
+You'll need a subscription with [Microsoft Azure](http://azure.com). Sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services. Your team might have an organizational subscription to Azure: ask the owner to add you to it using your Microsoft account.
 
 
-## Código-fonte aberto
+## <a name="getting-started"></a>Getting started
 
-[Ler e contribuir para o código](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
+Please follow the [Getting Started guide](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
-<!---HONumber=AcomDC_0907_2016-->
+## <a name="using-application-insights"></a>Using Application Insights
+
+Sign into the [Microsoft Azure portal](https://portal.azure.com) and browse to the resource you created to monitor your app.
+
+In a separate browser window, use your app for a while. You'll see data appearing in the Application Insights charts. (You might have to click Refresh.) There will be only a small amount of data while you're developing, but these charts really come alive when you publish your app and have many users. 
+
+The overview page shows the performance charts you're most likely to be interested in: server response time,  page load time, and counts of failed requests. Click any chart to see more charts and data.
+
+Views in the portal fall into two main categories:
+
+* [Metrics Explorer](app-insights-metrics-explorer.md) shows graphs and tables of metrics and counts, such as response times, failure rates, or metrics you create yourself with the [API](app-insights-api-custom-events-metrics.md). Filter and segment the data by property values to get a better understanding of your app and its users.
+* [Search Explorer](app-insights-diagnostic-search.md) lists individual events, such as specific requests, exceptions, log traces, or events you created yourself with the [API](app-insights-api-custom-events-metrics.md). Filter and search in the events, and navigate among related events to investigate issues.
+* [Analytics](app-insights-analytics.md) lets you run SQL-like queries over your telemetry, and is a powerful analytical and diagnostic tool.
+
+## <a name="alerts"></a>Alerts
+
+* You'll automatically get [adaptive alerts](app-insights-nrt-proactive-diagnostics.md) that will tell you about anomalous changes in the rate of failed requests.
+* Set up [availability tests](app-insights-monitor-web-app-availability.md) to test your website continually from locations worldwide, and get emails as soon as any test fails.
+* Set up [metric alerts](app-insights-monitor-web-app-availability.md) to know if metrics such as response times or exception rates go outside acceptable limits.
+
+## <a name="get-more-telemetry"></a>Get more telemetry
+
+* [Add telemetry to your web pages](app-insights-javascript.md) to monitor page usage and performance.
+* [Monitor dependencies](app-insights-dependencies.md) to see if REST, SQL or other external resources are slowing you down.
+* [Use the API](app-insights-api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
+* [Availability tests](app-insights-monitor-web-app-availability.md) check your app constantly from around the world. 
+
+
+## <a name="open-source"></a>Open source
+
+[Read and contribute to the code](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

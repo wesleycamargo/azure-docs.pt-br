@@ -13,10 +13,11 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="09/14/2016"
+    ms.date="10/04/2016"
     ms.author="sstein"/>
 
-# Criar um pool de banco de dados elástico com o C&#x23;
+
+# <a name="create-an-elastic-database-pool-with-c&#x23;"></a>Criar um pool de banco de dados elástico com o C&#x23;
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](sql-database-elastic-pool-create-portal.md)
@@ -26,19 +27,17 @@
 
 Este artigo descreve como usar C# para criar um Pool de Banco de Dados Elástico do SQL do Azure usando a [Biblioteca de Banco de Dados SQL do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Para criar um banco de dados autônomo, confira [Usar o C# para criar um Banco de Dados SQL com a Biblioteca do Banco de Dados SQL para .NET](sql-database-get-started-csharp.md).
 
-A Biblioteca do Banco de Dados SQL do Azure para .NET fornece uma API baseada no [Gerenciador de Recursos do Azure](../resource-group-overview.md) que encapsula a [API REST do Banco de Dados SQL baseada no Gerenciador de Recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx).
+A Biblioteca do Banco de Dados SQL do Azure para .NET fornece um [Azure Resource Manager](../resource-group-overview.md) baseado na API que encapsula a [API REST do Banco de Dados SQL baseada no Gerenciador de Recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
-
-> [AZURE.NOTE] Atualmente, a Biblioteca do Banco de Dados SQL para .NET está na versão de visualização.
-
+>[AZURE.NOTE] Muitos recursos novos do Banco de Dados SQL só têm suporte quando você está usando o [Modelo de implantação do Azure Resource Manager](../resource-group-overview.md), portanto, você sempre deve usar a versão mais recente da **Biblioteca de Gerenciamento do Banco de Dados SQL do Azure para .NET ([documentos](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Pacote do NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. As [bibliotecas com base no modelo de implantação clássico](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) mais antigas têm suporte para a compatibilidade com versões anteriores, portanto, é recomendável usar as bibliotecas baseadas no Gerenciador de Recursos mais recentes.
 
 Para concluir as etapas neste artigo, você precisa do seguinte:
 
 - Uma assinatura do Azure. Se você precisar de uma assinatura do Azure, basta clicar em **CONTA GRATUITA** na parte superior da página, em seguida, voltar para concluir este artigo.
-- Visual Studio. Para obter uma cópia gratuita do Visual Studio, consulte a página [Downloads do Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+- Visual Studio. Para obter uma cópia gratuita do Visual Studio, consulte a página [Downloads do Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) .
 
 
-## Criar um aplicativo de console e instalar as bibliotecas necessárias
+## <a name="create-a-console-app-and-install-the-required-libraries"></a>Criar um aplicativo de console e instalar as bibliotecas necessárias
 
 1. Inicie o Visual Studio.
 2. Clique em **Arquivo** > **Novo** > **Projeto**.
@@ -50,18 +49,18 @@ Para criar um banco de dados SQL com o C#, carregue as bibliotecas de gerenciame
 1. Clique em **Ferramentas** > **Gerenciador de Pacotes do NuGet** > **Console do Gerenciador de Pacotes**.
 2. Digite `Install-Package Microsoft.Azure.Management.Sql –Pre` para instalar a [Biblioteca de Gerenciamento SQL do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 3. Digite `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` para instalar a [Biblioteca do Microsoft Azure Resource Manager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-4. Digite `Install-Package Microsoft.Azure.Common.Authentication –Pre` para instalar a [Biblioteca de Autenticação Comum do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication).
+4. Digite `Install-Package Microsoft.Azure.Common.Authentication –Pre` para instalar a [Biblioteca de Autenticação Comum do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
 
 
 > [AZURE.NOTE] Os exemplos neste artigo usam uma forma síncrona de cada solicitação de API e ficam bloqueados até a conclusão da chamada REST do serviço subjacente. Há métodos assíncronos disponíveis.
 
 
-## Criar um Pool de Banco de Dados Elástico do SQL - exemplo em C#
+## <a name="create-a-sql-elastic-database-pool---c#-example"></a>Criar um Pool de Banco de Dados Elástico do SQL - exemplo em C#
 
-O exemplo a seguir cria um grupo de recursos, um servidor, uma regra de firewall e um pool elástico, em seguida cria um banco de dados SQL no pool. Consulte, [Criar uma entidade de serviço para acessar os recursos](#create-a-service-principal-to-access-resources) para obter as variáveis `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`.
+O exemplo a seguir cria um grupo de recursos, um servidor, uma regra de firewall e um pool elástico, em seguida cria um banco de dados SQL no pool. Confira [Criar uma entidade de serviço para acessar os recursos](#create-a-service-principal-to-access-resources) para obter as variáveis `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`.
 
-Substitua o conteúdo do **Program.cs** pelo seguinte e atualize `{variables}` com seus valores de aplicativo (não incluem o `{}`).
+Substitua o conteúdo de **Program.cs** pelo seguinte e atualize `{variables}` com seus valores do aplicativo (sem incluir `{}`).
 
 
 ```
@@ -258,7 +257,7 @@ namespace SqlElasticPoolConsoleApp
 
 
 
-## Criar uma entidade de serviço para acessar os recursos
+## <a name="create-a-service-principal-to-access-resources"></a>Criar uma entidade de serviço para acessar os recursos
 
 O seguinte script do PowerShell cria o aplicativo do Active Directory (AD) e a entidade de serviço necessária para autenticar nosso aplicativo C#. O script gera os valores necessários para o exemplo anterior do C#. Para obter informações detalhadas, consulte [usar o Azure PowerShell para criar uma entidade de serviço para acessar os recursos](../resource-group-authenticate-service-principal.md).
 
@@ -304,15 +303,19 @@ O seguinte script do PowerShell cria o aplicativo do Active Directory (AD) e a e
 
   
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - [Gerenciar o pool](sql-database-elastic-pool-manage-csharp.md)
 - [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md): os trabalhos elásticos permitem a execução de scripts T-SQL em vários bancos de dados em um pool.
 - [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md): usar ferramentas de banco de dados Elástico para escalar horizontalmente.
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
 - [Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [APIs de Gerenciamento de Recursos do Azure.](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,79 +1,85 @@
 <properties
-	pageTitle="Indexadores na Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
-	description="Rastrear um Banco de Dados SQL do Azure, Banco de Dados de Documentos ou Armazenamento do Azure para extrair dados pesquisáveis e preencher um índice de Pesquisa do Azure."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="jhubbard"
-	editor=""
+    pageTitle="Indexers in Azure Search | Microsoft Azure | Hosted cloud search service"
+    description="Crawl Azure SQL database, DocumentDB, or Azure storage to extract searchable data and populate an Azure Search index."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="jhubbard"
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="na"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="08/08/2016"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="na"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="10/17/2016"
+    ms.author="heidist"/>
 
-# Indexadores na Pesquisa do Azure
+
+# <a name="indexers-in-azure-search"></a>Indexers in Azure Search
 > [AZURE.SELECTOR]
-- [Visão geral](search-indexer-overview.md)
+- [Overview](search-indexer-overview.md)
 - [Portal](search-import-data-portal.md)
-- [SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
-- [Banco de Dados de Documentos](../documentdb/documentdb-search-indexer.md)
-- [Armazenamento de blobs (preview)](search-howto-indexing-azure-blob-storage.md)
-- [ Armazenamento de Tabelas (visualização)](search-howto-indexing-azure-tables.md)
+- [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [DocumentDB](../documentdb/documentdb-search-indexer.md)
+- [Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md)
+- [Table Storage (preview)](search-howto-indexing-azure-tables.md)
 
-Um **indexador** na Pesquisa do Azure é um rastreador que extrai dados pesquisáveis e metadados de uma fonte de dados externa e popula um índice com base nos mapeamentos de campo a campo entre o índice e a fonte de dados. Essa abordagem às vezes é chamada de 'modelo de pull' porque o serviço obtém os dados sem que você precise escrever código que envia dados por push a um índice.
+An **indexer** in Azure Search is a crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source. This approach is sometimes referred to as a 'pull model' because the service pulls data in without you having to write any code that pushes data to an index.
 
-Você pode usar um indexador como o único meio para ingestão de dados ou usar uma combinação de técnicas que incluam o uso de um indexador para carregar apenas alguns dos campos no índice.
+You can use an indexer as the sole means for data ingestion, or use a combination of techniques that include the use of an indexer for loading just some of the fields in your index.
 
-Você pode executar os indexadores sob demanda ou em uma agenda de atualização de dados recorrente que é executada a cada quinze minutos. Atualizações mais frequentes exigem um modelo de push que atualiza simultaneamente os dados na Pesquisa do Azure e na fonte de dados externa.
+You can run indexers on demand or on a recurring data refresh schedule that runs as often as every fifteen minutes. More frequent updates require a push model that simultaneously updates data in both Azure Search and your external data source.
 
-## Abordagens para criar e gerenciar indexadores
+## <a name="approaches-for-creating-and-managing-indexers"></a>Approaches for creating and managing indexers
 
-Para indexadores disponíveis, como o Azure SQL ou o Banco de Dados de Documentos, você pode criar e gerenciar índices usando estas abordagens:
+For generally available indexers like Azure SQL or DocumentDB, you can create and manage indexers using these approaches:
 
-- [Portal > Assistente de Dados de Importação ](search-get-started-portal.md)
-- [API REST do Serviço](https://msdn.microsoft.com/library/azure/dn946891.aspx)
-- [SDK .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
+- [Portal > Import Data Wizard ](search-get-started-portal.md)
+- [Service REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx)
+- [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
 
-Indexadores de visualização, como o Armazenamento de Blobs ou de Tabelas do Azure, exigem o código e APIs de visualização, como a [API REST de Visualização de Pesquisa do Azure para indexadores](search-api-indexers-2015-02-28-preview.md). As ferramentas de portal normalmente não estão disponíveis para recursos de visualização.
+Preview indexers, such as Azure Blob or Table storage, require code and preview APIs such [Azure Search Preview REST API for indexers](search-api-indexers-2015-02-28-preview.md). Portal tooling is typically not available for preview features.
 
-## Etapas da configuração básica
+## <a name="basic-configuration-steps"></a>Basic configuration steps
 
-Os indexadores podem oferecer recursos que são exclusivos da fonte de dados. Nesse sentido, alguns aspectos de configuração da fonte de dados ou do indexador variam de acordo com o tipo de indexador. No entanto, todos os indexadores compartilham a mesma composição básica e os mesmos requisitos. As etapas que são comuns a todos os indexadores são abordadas a seguir.
+Indexers can offer features that are unique to the data source. In this respect, some aspects of indexer or data source configuration will vary by indexer type. However, all indexers share the same basic composition and requirements. Steps that are common to all indexers are covered below.
 
-### Etapa 1: criar um índice
+### <a name="step-1:-create-an-index"></a>Step 1: Create an index
 
-Um indexador irá automatizar algumas tarefas relacionadas a ingestão de dados, mas a criação de um índice não é uma delas. Como pré-requisito, você deve ter um índice predefinido com campos iguais aos da sua fonte de dados externa. Para saber mais sobre como estruturar um índice, confira [Criar um índice (API REST da Pesquisa do Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+An indexer will automate some tasks related to data ingestion, but creating an index is not one of them. As a prerequisite, you must have a predefined index with fields that match those in your external data source. For more information about structuring an index, see [Create an Index (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
-### Etapa 2: criar uma fonte de dados
+### <a name="step-2:-create-a-data-source"></a>Step 2: Create a data source
 
-Um indexador extrai dados de uma **fonte de dados** que contém informações como uma cadeia de conexão. Atualmente, há suporte às seguintes fontes de dados:
+An indexer pulls data from a **data source** which holds information such as a connection string. Currently the following data sources are supported:
 
-- [Banco de Dados SQL do Azure ou SQL Server em uma máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
-- [Banco de Dados de Documentos](../documentdb/documentdb-search-indexer.md)
-- [Armazenamento de Blobs do Azure (Visualização)](search-howto-indexing-azure-blob-storage.md), usado para extrair texto de documentos PDF, do Office, HTML ou XML
-- [ Armazenamento de Tabelas do Azure (Visualização)](search-howto-indexing-azure-tables.md)
+- [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [DocumentDB](../documentdb/documentdb-search-indexer.md)
+- [Azure Blob storage (Preview)](search-howto-indexing-azure-blob-storage.md), used to extract text from PDF, Office documents, HTML, or XML
+- [Azure Table Storage (Preview)](search-howto-indexing-azure-tables.md)
 
-As fontes de dados são configuradas e gerenciadas independentemente dos indexadores que as utilizam, o que significa que uma fonte de dados pode ser usada por vários indexadores para carregar mais de um índice por vez.
+Data sources are configured and managed independently of the indexers that use them, which means a data source can be used by multiple indexers to load more than one index at a time. 
 
-### Etapa 3: criar e agendar o indexador
+### <a name="step-3:create-and-schedule-the-indexer"></a>Step 3:Create and schedule the indexer
 
-A definição do indexador é uma construção que especifica o índice, a fonte de dados e uma agenda. Um indexador pode referenciar uma fonte de dados de outro serviço, desde que a fonte de dados seja da mesma assinatura. Para saber maissobre como estruturar um indexador, confira [Criar indexador (API REST da Pesquisa do Azure)](https://msdn.microsoft.com/library/azure/dn946899.aspx).
+The indexer definition is a construct specifying the index, data source, and a schedule. An indexer can reference a data source from another service, as long as that data source is from the same subscription. For more information about structuring an indexer, see [Create Indexer (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn946899.aspx).
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Agora que você tem as noções básicas, a próxima etapa é examinar os requisitos e as tarefas específicas para cada tipo de fonte de dados.
+Now that you have the basic idea, the next step is to review requirements and tasks specific to each data source type.
 
-- [Banco de Dados SQL do Azure ou SQL Server em uma máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
-- [Banco de Dados de Documentos](../documentdb/documentdb-search-indexer.md)
-- [Armazenamento de Blobs do Azure (Visualização)](search-howto-indexing-azure-blob-storage.md), usado para extrair texto de documentos PDF, do Office, HTML ou XML
-- [ Armazenamento de Tabelas do Azure (Visualização)](search-howto-indexing-azure-tables.md)
-- [Indexando blobs CSV usando o indexador de Blobs da Pesquisa do AZURE (Visualização)](search-howto-index-csv-blobs.md)
-- [Indexando blobs JSON com o indexador de Blobs da Pesquisa do Azure (Visualização)](search-howto-index-json-blobs.md)
+- [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [DocumentDB](../documentdb/documentdb-search-indexer.md)
+- [Azure Blob storage (Preview)](search-howto-indexing-azure-blob-storage.md), used to extract text from PDF, Office documents, HTML, or XML
+- [Azure Table Storage (Preview)](search-howto-indexing-azure-tables.md)
+- [Indexing CSV blobs using the Azure Search Blob indexer (Preview)](search-howto-index-csv-blobs.md)
+- [Indexing JSON blobs with Azure Search Blob indexer (Preview)](search-howto-index-json-blobs.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

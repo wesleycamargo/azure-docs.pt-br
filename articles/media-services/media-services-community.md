@@ -1,26 +1,27 @@
 <properties
-	pageTitle="Visão Geral da Comunidade dos Serviços de Mídia do Azure | Microsoft Azure"
-	description="Esta página da comunidade dos AMS (Serviços de Mídia do Azure) discute as diferentes maneiras em que você pode obter atualizações sobre o AMS, ver novos vídeos e podcasts, fazer perguntas e comentários. "
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Visão Geral da Comunidade dos Serviços de Mídia do Azure | Microsoft Azure"
+    description="Esta página da comunidade dos AMS (Serviços de Mídia do Azure) discute as diferentes maneiras em que você pode obter atualizações sobre o AMS, ver novos vídeos e podcasts, fazer perguntas e comentários. "
+    services="media-services"
+    documentationCenter=""
+    authors="juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/26/2016"  
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="09/26/2016"  
+    ms.author="juliako"/>
 
-# Comunidade dos Serviços de Mídia do Azure  
 
-Esta página da comunidade dos AMS (Serviços de Mídia do Azure) discute as diferentes maneiras em que você pode obter atualizações sobre o AMS, exibir novos vídeos e podcasts, fazer perguntas e comentários.
+# <a name="azure-media-services-community"></a>Comunidade dos Serviços de Mídia do Azure  
 
-##Vídeos e Podcasts
+Esta página da comunidade dos AMS (Serviços de Mídia do Azure) discute as diferentes maneiras em que você pode obter atualizações sobre o AMS, exibir novos vídeos e podcasts, fazer perguntas e comentários.   
+
+##<a name="videos-and-podcasts"></a>Vídeos e Podcasts
 
 Episódio|Palestrante|Data
 ---|---|---
@@ -30,27 +31,27 @@ Episódio|Palestrante|Data
 [O Indexador de Mídia do Azure cria transcrições para sua mídia automaticamente](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/)|Adarsh Solanki|09/07/2015
 [Microsoft Hyperlapse nos Serviços de Mídia do Azure com Adarsh Solanki](https://azure.microsoft.com/documentation/videos/microsoft-hyperlapse-in-azure-media-services-with-adarsh-solanki/)|Adarsh Solanki|07/10/2015
 
-##Fornecer comentários e fazer sugestões
+##<a name="provide-feedback-and-make-suggestions"></a>Fornecer comentários e fazer sugestões
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##Discussão
+##<a name="discussion"></a>Discussão
 
-###Twitter
+###<a name="twitter"></a>Twitter
 
-Use o identificador do twitter [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) para acompanhar as notícias e atualizações do AMS no Twitter. Use o identificador do twitter [@AzureSupport](https://twitter.com/azuresupport) para solicitar suporte no Twitter.
+Use o identificador do twitter [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) para acompanhar as notícias e atualizações do AMS no Twitter. Use o identificador do twitter [@AzureSupport](https://twitter.com/azuresupport) para solicitar suporte no Twitter.  
  
-### Fóruns online
+### <a name="online-forums"></a>Fóruns online
 
 Os fóruns a seguir podem ser usados para fazer perguntas sobre produtos e recursos atuais.
 
 Atualmente, o MSDN é fórum principal do AMS.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices)
+[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
-[![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services)
+[![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
 
-## Entre em contato com a equipe
+## <a name="contact-the-team"></a>Entre em contato com a equipe
 
 O email principal dos Serviços de Mídia do Azure é: **mediaservices@microsoft.com**.
 
@@ -63,4 +64,8 @@ Azure Media Player|ampinfo@microsoft.com
 Azure Media Explorer|amse@microsoft.com
 Designer de Fluxo de Trabalho|mepd@microsoft.com
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

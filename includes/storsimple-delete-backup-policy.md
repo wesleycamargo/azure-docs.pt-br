@@ -1,15 +1,21 @@
 
 <!--author=SharS last changed: 11/06/15-->
 
-#### Para excluir uma política de backup do StorSimple
+#### <a name="to-delete-a-storsimple-backup-policy"></a>To delete a StorSimple backup policy
 
-1. Na página **Início Rápido** do dispositivo, clique na guia **Políticas de Backup**. Isso o levará para a página **Políticas de Backup**.
+1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
 
-2. Selecione a política clicando em qualquer lugar na linha correspondente, exceto a primeira coluna, e clique em **Excluir** na parte inferior da página.
+2. Select the policy by clicking anywhere in the corresponding row except for the first column, and then click **Delete** at the bottom of the page.
 
-3. Será solicitada a sua confirmação. Tenha em mente que a exclusão de uma política de backup excluirá todos os backups associados. Clique em **Sim** para confirmar.
+3. You will be prompted for confirmation. Keep in mind that deleting a backup policy will delete all the associated backups. Click **Yes** to delete.
 
-A página **Políticas de Backup** será atualizada para exibir a nova lista de políticas.
+The **Backup Policies** page will be updated to display the new list of policies.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

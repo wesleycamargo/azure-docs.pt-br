@@ -1,129 +1,134 @@
 <properties
-	pageTitle="Criar uma VM que executa o MySQL | Microsoft Azure"
-	description="Crie uma máquina virtual do Azure que executa o Windows Server 2012 R2 e o banco de dados MySQL usando o modelo de implantação clássica."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-service-management"/>
+    pageTitle="Create a VM running MySQL | Microsoft Azure"
+    description="Create an Azure virtual machine running Windows Server 2012 R2 and the MySQL database using the classic deployment model."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/25/2016"
+    ms.author="cynthn"/>
 
 
-# Instalar o MySQL em uma máquina virtual criada com o modelo de implantação clássico que executa o Windows Server 2012 R2
 
-[MySQL](http://www.mysql.com) é um banco de dados SQL fonte aberto popular. Este tutorial mostra como instalar e executar a versão de comunidade do MySQL 5.6.23 como um MySQL Server em uma máquina virtual que executa o Windows Server 2012 R2. Para obter instruções sobre como instalar o MySQL no Linux, consulte: [Como instalar o MySQL no Azure](virtual-machines-linux-mysql-install.md).
+# <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2012-r2"></a>Install MySQL on a virtual machine created with the classic deployment model running Windows Server 2012 R2
+
+[MySQL](http://www.mysql.com) is a popular open source, SQL database. This tutorial shows you how to install and run the community version of MySQL 5.6.23 as a MySQL Server on a virtual machine running Windows Server 2012 R2. For instructions on installing MySQL on Linux, refer to: [How to install MySQL on Azure](virtual-machines-linux-mysql-install.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-## Criar uma máquina virtual que executa Windows Server 2012 R2
+## <a name="create-a-virtual-machine-running-windows-server-2012-r2"></a>Create a virtual machine running Windows Server 2012 R2
 
-Se você ainda não tiver uma VM que executa o Windows Server 2012 R2, você pode usar este [tutorial](virtual-machines-windows-classic-tutorial.md) para criar a máquina virtual.
+If you don't already have a VM running Windows Server 2012 R2, you can use this [tutorial](virtual-machines-windows-classic-tutorial.md) to create the virtual machine. 
 
-## Anexar um disco de dados
+## <a name="attach-a-data-disk"></a>Attach a data disk
 
-Depois de criada a máquina virtual, você pode, opcionalmente, anexar um disco de dados adicional. Isso é recomendado para cargas de trabalho de produção e para evitar a falta de espaço na unidade do sistema operacional (C:), que inclui o sistema operacional.
+After the virtual machine is created, you can optionally attach an additional data disk. This is recommended for production workloads and to avoid running out of space on the OS drive (C:), which  includes the operating system.
 
-Veja [Como anexar um disco de dados a uma máquina virtual do Windows](virtual-machines-windows-classic-attach-disk.md) e siga as instruções para anexar um disco vazio. Defina a configuração de cache de host como **Nenhum** ou **Somente leitura**.
+See [How to attach a data disk to a Windows virtual machine](virtual-machines-windows-classic-attach-disk.md) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
 
-## Faça logon na máquina virtual
+## <a name="log-on-to-the-virtual-machine"></a>Log on to the virtual machine
 
-A seguir, você [fará logon na máquina virtual](virtual-machines-windows-classic-connect-logon.md) para poder instalar o MySQL.
+Next, you'll [log on to the virtual machine](virtual-machines-windows-classic-connect-logon.md) so you can install MySQL.
 
-##Instalar e executar MySQL Community Server na máquina virtual
+##<a name="install-and-run-mysql-community-server-on-the-virtual-machine"></a>Install and run MySQL Community Server on the virtual machine
 
-Siga estas etapas para instalar, configurar e executar a versão de comunidade do MySQL Server:
+Follow these steps to install, configure, and run the Community version of MySQL Server:
 
-> [AZURE.NOTE] Estas etapas são para a versão Community 5.6.23.0 do MySQL e Windows Server 2012 R2. Sua experiência pode ser diferente em versões diferentes de servidor MySQL ou de servidor Windows.
+> [AZURE.NOTE] These steps are for the 5.6.23.0 Community version of MySQL and Windows Server 2012 R2. Your experience might be different for different versions of MySQL or Windows Server.
 
-1.	Depois de se conectar à máquina virtual usando a Área de Trabalho Remota, clique em **Internet Explorer** no menu Iniciar.
-2.	Selecione o botão **Ferramentas** no canto superior direito (o ícone de engrenagem) e clique em **Opções da Internet**. Clique na guia **Segurança**, clique no ícone **Sites Confiáveis** e, em seguida, no botão **Sites**. Adicione http://*.mysql.com à lista de sites confiáveis. Clique em **Fechar** e, em seguida, em **OK**.
-3.	Na barra de endereços do Internet Explorer, digite http://dev.mysql.com/downloads/mysql/.
-4.	Use o site do MySQL para localizar e baixar a versão mais recente do instalador do MySQL para Windows. Ao escolher o Instalador do MySQL, baixe a versão que tem o conjunto completo de arquivos (por exemplo, o mysql-installer-community-5.6.23.0.msi, com um tamanho do arquivo de 282,4 MB) e salve o instalador.
-5.	Quando tiver terminado de baixar o instalador, clique em **Executar** para iniciar a instalação.
-6.	Na página **Contrato de Licença**, aceite o contrato de licença e clique em **Avançar**.
-7.	Na página **Escolhendo um Tipo de Instalação**, clique no tipo de instalação desejada e clique em **Avançar**. As etapas a seguir pressupõem a seleção do tipo de instalação **Somente servidor**.
-8.	Na página **Instalação**, clique em **Executar**. Quando a instalação for concluída, clique em **Avançar**.
-9.	Na página **Configuração do Produto**, clique em **Avançar**.
-10.	Na página **Tipo e Rede**, especifique o tipo de configuração desejada e as opções de conectividade, inclusive a porta TCP, se necessário. Selecione **Mostrar Opções Avançadas** e clique em **Próximo**.
+1.  After you've connected to the virtual machine using Remote Desktop, click **Internet Explorer** from the start screen.
+2.  Select the **Tools** button in the upper-right corner (the cogged wheel icon), and then click **Internet Options**. Click the **Security** tab, click the **Trusted Sites** icon, and then click the **Sites** button. Add http://*.mysql.com to the list of trusted sites. Click **Close**, and then click **OK**.
+3.  In the address bar of Internet Explorer, type http://dev.mysql.com/downloads/mysql/.
+4.  Use the MySQL site to locate and download the latest version of the MySQL Installer for Windows. When choosing the MySQL Installer, download the version that has the complete file set (for example, the mysql-installer-community-5.6.23.0.msi with a file size of 282.4 MB), and save the installer.
+5.  When the installer has finished downloading, click **Run** to launch setup.
+6.  On the **License Agreement** page, accept the license agreement and click **Next**.
+7.  On the **Choosing a Setup Type** page, click the setup type that you want, and then click **Next**. The following steps assume the selection of the **Server only** setup type.
+8.  On the **Installation** page, click **Execute**. When installation is complete, click **Next**.
+9.  On the **Product Configuration** page, click **Next**.
+10. On the **Type and Networking** page, specify your desired configuration type and connectivity options, including the TCP port if needed. Select **Show Advanced Options**, and then click **Next**.
 
-	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_TypeNetworking.png)
+    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_TypeNetworking.png)
 
-11.	Na página **Contas e Funções**, especifique uma senha forte de raiz de MySQL. Adicione mais contas de usuário do MySQL, conforme a necessidade, e clique em **Avançar**.
+11. On the **Accounts and Roles** page, specify a strong MySQL root password. Add additional MySQL user accounts as needed, and then click **Next**.
 
-	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_AccountsRoles_Filled.png)
+    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_AccountsRoles_Filled.png)
 
-12.	Na página **Serviço Windows**, especifique as alterações a serem aplicadas às configurações padrão para executar o servidor MySQL como um serviço Windows, conforme a necessidade, e clique em **Avançar**.
+12. On the **Windows Service** page, specify changes to the default settings for running the MySQL Server as a Windows service as needed, and then click **Next**.
 
-	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_WindowsService.png)
+    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_WindowsService.png)
 
-13.	Na página **Opções Avançadas**, especifique as alterações a serem aplicadas às opções de logon, conforme a necessidade, e clique em **Avançar**.
+13. On the **Advanced Options** page, specify changes to logging options as needed, and then click **Next**.
 
-	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_AdvOptions.png)
+    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_AdvOptions.png)
 
-14.	Na página **Aplicar a Configuração de Servidor**, clique em **Executar**. Quando as etapas de configuração forem concluídas, clique em **Concluir**.
-15.	Na página **Configuração do Produto**, clique em **Avançar**.
-16.	Na página **Instalação Concluída**, clique em **Copiar Log para a Área de Transferência**, se quiser examiná-lo mais tarde, e clique em **Concluir**.
-17.	Na tela inicial, digite **mysql** e clique em **Cliente de Linha de Comando do MySQL 5.6**.
-18.	Insira a senha raiz que você especificou na etapa 11 e você verá um prompt onde você pode emitir comandos para configurar o MySQL. Para saber mais sobre os comandos e a sintaxe, confira [Manuais de referência do MySQL](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
+14. On the **Apply Server Configuration** page, click **Execute**. When the configuration steps are complete, click **Finish**.
+15. On the **Product Configuration** page, click **Next**.
+16. On the **Installation Complete** page, click **Copy Log to Clipboard** if you want to examine it later, and then click **Finish**.
+17. From the start screen, type **mysql**, and then click **MySQL 5.6 Command Line Client**.
+18. Enter the root password that you specified in step 11 and you'll be presented with a prompt where you can issue commands to configure MySQL. For the details of commands and syntax, see [MySQL Reference Manuals](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
 
-	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_CommandPrompt.png)
+    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_CommandPrompt.png)
 
-19.	Você também pode configurar definições padrão de configuração do servidor, como os diretórios e unidades básicos e de dados, com entradas no arquivo C:\\Arquivos de Programas (x86)\\MySQL\\MySQL Server 5.6\\my-default.ini. Para obter mais informações, confira [5\.1.2 Padrões de configuração do servidor](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
+19. You can also configure server configuration default settings, such as the base and data directories and drives, with entries in the C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini file. For more information, see [5.1.2 Server Configuration Defaults](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
 
-## Configurar pontos de extremidade
+## <a name="configure-endpoints"></a>Configure endpoints
 
-Se quiser que o serviço do servidor MySQL esteja disponível para computadores cliente MySQL na Internet, você deverá configurar um ponto de extremidade para a porta TCP na qual o serviço MySQL Server escutará e criará uma regra adicional do Firewall do Windows. É a porta TCP 3306, a menos que você tenha especificado uma porta diferente na página **Tipo e Rede** (etapa 10 do procedimento anterior).
-
-
-> [AZURE.NOTE] Você deve considerar cuidadosamente as implicações de segurança de fazer isso, porque isso disponibilizará o serviço MySQL Server para todos os computadores na Internet. Você pode definir o conjunto de endereços IP de origem que têm permissão para usar o ponto de extremidade com uma lista de controle de acesso (ACL). Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](virtual-machines-windows-classic-setup-endpoints.md)
+If you want the MySQL Server service to be available to MySQL client computers on the Internet, you must configure an endpoint for the TCP port on which the MySQL Server service is listening and create an additional Windows Firewall rule. This is TCP port 3306 unless you specified a different port on the **Type and Networking** page (step 10 of the previous procedure).
 
 
-Para configurar um ponto de extremidade para o serviço do servidor MySQL:
-
-1.	No portal clássico do Azure, clique em **Máquinas Virtuais**, clique no nome de sua máquina virtual MySQL e clique em **Pontos de Extremidade**.
-2.	Na barra de comandos, clique em **Adicionar**.
-3.	Na página **Adicionar um ponto de extremidade a uma máquina virtual**, clique na seta para a direita.
-4.	Se você estiver usando a porta TCP 3306 padrão do MySQL, clique em **MySQL** em **Nome** e clique na marca de seleção.
-5.	Se você estiver usando uma porta TCP diferente, digite um nome exclusivo em **Nome**. Selecione **TCP** no protocolo, digite o número da porta em **Porta Pública** e em **Porta Privada** e clique na marca de seleção.
-
-## Adicionar uma regra do Firewall do Windows para permitir o tráfego do MySQL
-
-Para adicionar uma regra do Firewall do Windows que permite o tráfego MySQL da Internet, execute o comando a seguir em um prompt de comando elevado do Windows PowerShell na máquina virtual do servidor MySQL.
-
-	New-NetFirewallRule -DisplayName "MySQL56" -Direction Inbound –Protocol TCP –LocalPort 3306 -Action Allow -Profile Public
+> [AZURE.NOTE] You should carefully consider the security implications of doing this, because this will make the MySQL Server service available to all computers on the Internet. You can define the set of source IP addresses that are allowed to use the endpoint with an Access Control List (ACL). For more information, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-windows-classic-setup-endpoints.md).
 
 
-	
-## Testar sua conexão remota
+To configure an endpoint for the MySQL Server service:
+
+1.  In the Azure classic portal, click **Virtual Machines**, click the name of your MySQL virtual machine, and then click **Endpoints**.
+2.  In the command bar, click **Add**.
+3.  On the **Add an endpoint to a virtual machine** page, click the right arrow.
+4.  If you are using the default MySQL TCP port of 3306, click **MySQL** in **Name**, and then click the check mark.
+5.  If you are using a different TCP port, type a unique name in **Name**. Select **TCP** in protocol, type the port number in both **Public Port** and **Private Port**, and then click the check mark.
+
+## <a name="add-a-windows-firewall-rule-to-allow-mysql-traffic"></a>Add a Windows Firewall rule to allow MySQL traffic
+
+To add a Windows Firewall rule that allows MySQL traffic from the Internet, run the following command at an elevated Windows PowerShell command prompt on the MySQL server virtual machine.
+
+    New-NetFirewallRule -DisplayName "MySQL56" -Direction Inbound –Protocol TCP –LocalPort 3306 -Action Allow -Profile Public
 
 
-Para testar sua conexão remota com o serviço do servidor MySQL em execução na máquina virtual do Azure, primeiro você deve determinar o nome DNS correspondente ao serviço de nuvem que contém a máquina virtual que executa o servidor MySQL.
-
-1.	No portal clássico do Azure, clique em **Máquinas Virtuais**, clique no nome de sua máquina virtual de servidor MySQL e clique em **Painel**.
-2.	No painel da máquina virtual, observe o valor de **Nome DNS** na seção **Visão Rápida**. Veja um exemplo:
-
-	![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_DNSName.png)
-
-3.	De um computador local executando o MySQL ou o cliente MySQL, execute o comando a seguir para fazer logon como um usuário do MySQL:
-
-		mysql -u <yourMysqlUsername> -p -h <yourDNSname>
-
-	Por exemplo, para o nome de usuário do MySQL dbadmin3 e nome de DNS testmysql.cloudapp.net para a máquina virtual, use o comando a seguir.
-
-		mysql -u dbadmin3 -p -h testmysql.cloudapp.net
+    
+## <a name="test-your-remote-connection"></a>Test your remote connection
 
 
-## Próximas etapas
+To test your remote connection to the MySQL Server service running on the Azure virtual machine, you must first determine the DNS name corresponding to the cloud service that contains the virtual machine running MySQL Server.
 
-Para saber mais sobre como executar o MySQL, consulte a [Documentação do MySQL](http://dev.mysql.com/doc/).
+1.  In the Azure classic portal, click **Virtual Machines**, click the name of your MySQL server virtual machine, and then click **Dashboard**.
+2.  From the virtual machine dashboard, note the **DNS Name** value under the **Quick Glance** section. Here is an example:
 
-<!---HONumber=AcomDC_0727_2016-->
+    ![](./media/virtual-machines-windows-classic-mysql-2008r2/MySQL_DNSName.png)
+
+3.  From a local computer running MySQL or the MySQL client, run the following command to log in as a MySQL user.
+
+        mysql -u <yourMysqlUsername> -p -h <yourDNSname>
+
+    For example, for the MySQL user name dbadmin3 and the testmysql.cloudapp.net DNS name for the virtual machine, use the following command.
+
+        mysql -u dbadmin3 -p -h testmysql.cloudapp.net
+
+
+## <a name="next-steps"></a>Next steps
+
+To learn more about running MySQL, see the [MySQL Documentation](http://dev.mysql.com/doc/).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

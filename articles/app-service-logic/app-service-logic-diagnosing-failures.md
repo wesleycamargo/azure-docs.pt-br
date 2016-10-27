@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Diagnosticando falhas dos aplicativos lógicos | Microsoft Azure"
-   description="Abordagens comuns para compreender onde os aplicativos lógicos estão falhando"
+   pageTitle="Diagnosing logic apps failures | Microsoft Azure"
+   description="Common approaches to understanding where logic apps are failing"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -13,67 +13,68 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/18/2016"
+   ms.date="10/18/2016"
    ms.author="jehollan"/>
 
-# Diagnosticando falhas nos aplicativos lógicos
 
-Se você tiver problemas ou falhas com o recurso de aplicativos lógicos do Serviço de Aplicativo do Azure, algumas abordagens poderão ajudá-lo a entender melhor a origem das falhas.
+# <a name="diagnosing-logic-app-failures"></a>Diagnosing logic app failures
 
-## Ferramentas do portal do Azure
+If you experience issues or failures with the Logic Apps feature of Azure App Service, a few approaches can help you better understand where the failures are coming from.  
 
-O Portal do Azure fornece várias ferramentas para diagnosticar cada aplicativo lógico em cada etapa.
+## <a name="azure-portal-tools"></a>Azure portal tools
 
-### Histórico de gatilho
+The Azure portal provides many tools to diagnose each logic app at each step.
 
-Cada aplicativo lógico tem pelo menos um gatilho. Se você perceber que os aplicativos não são acionados, o primeiro lugar para obter informações adicionais será o histórico de gatilhos. Você pode acessar o histórico de gatilhos na folha principal do aplicativo lógico.
+### <a name="trigger-history"></a>Trigger history
 
-![Exibir o histórico de gatilho][1]
+Each logic app has at least one trigger. If you notice that apps aren't firing, the first place to look for additional information is the trigger history. You can access the trigger history on the logic app main blade.
 
-Isso lista todas as tentativas de gatilho feitas por seu aplicativo lógico. Você pode clicar em cada tentativa de gatilho para ir para o próximo nível de detalhe (especificamente, quaisquer entradas ou saídas geradas pela tentativa de gatilho). Se você observar quaisquer gatilhos com falha, clique na tentativa de gatilho e analise o link de **Saídas** para ver quaisquer mensagens de erro que possam estar sendo geradas (por exemplo, credenciais de FTP inválidas).
+![Locating the trigger history][1]
 
-Os diferentes status que você pode ver são:
+This lists all of the trigger attempts that your logic app has made. You can click each trigger attempt to get the next level of detail (specifically, any inputs or outputs that the trigger attempt generated). If you see any failed triggers, click the trigger attempt and drill into the **Outputs** link to see any error messages that might have been generated (for example, for invalid FTP credentials).
 
-* **Ignorado**. Ele sondou o ponto de extremidade para procurar por dados e recebeu uma resposta de que nenhum dado estava disponível.
-* **Êxito**. O gatilho recebeu uma resposta de que havia dados disponíveis. Pode ser de um gatilho manual, um gatilho de recorrência ou um gatilho de sondagem. Isso provavelmente estará acompanhado de um status de **Disparado**, mas talvez isso não aconteça se você tiver uma condição ou comando SplitOn na exibição de código que não foi atendida.
-* **Falha**. Um erro foi gerado.
+The different statuses you might see are:
 
-#### Iniciar um gatilho manualmente
+* **Skipped**. It polled the endpoint to check for data and received a response that no data was available.
+* **Succeeded**. The trigger received a response that data was available. This could be from a manual trigger, a recurrence trigger, or a polling trigger. This likely will be accompanied with a status of **Fired**, but it might not if you have a condition or SplitOn command in code view that wasn't satisfied.
+* **Failed**. An error was generated.
 
-Se você quiser que o aplicativo lógico verifique imediatamente se há um gatilho disponível (sem aguardar a próxima recorrência), você poderá clicar no botão **Selecionar Gatilho** na folha principal para forçar uma verificação. Por exemplo, clicar nesse link com um gatilho Dropbox fará com que o fluxo de trabalho sonde o Dropbox imediatamente em busca de novos arquivos.
+#### <a name="starting-a-trigger-manually"></a>Starting a trigger manually
 
-### Histórico da execução
+If you want the logic app to check for an available trigger immediately (without waiting for the next recurrence), you can click **Select Trigger** on the main blade to force a check. For example, clicking this link with a Dropbox trigger will cause the workflow to immediately poll Dropbox for new files.
 
-Cada gatilho que é acionado resulta em uma execução. Você pode acessar informações da execução da folha principal, que contém muitas informações que podem ser úteis para entender o que aconteceu durante o fluxo de trabalho.
+### <a name="run-history"></a>Run history
 
-![Localizando o histórico da execução][2]
+Every trigger that is fired results in a run. You can access run information from the main blade, which contains a lot of information that can be helpful in understanding what happened during the workflow.
 
-Uma execução exibe um dos seguintes status:
+![Locating the run history][2]
 
-* **Êxito**. Todas as ações foram bem-sucedidas ou, se tiver ocorrido uma falha, ela terá sido tratada por uma ação posterior no fluxo de trabalho. Ou seja, ela terá sido tratada por uma ação que foi definida para ser executada depois de uma ação com falha.
-* **Falha**. Pelo menos uma ação teve uma falha que não foi tratada por uma ação posterior no fluxo de trabalho.
-* **Cancelado**. O fluxo de trabalho estava em execução, mas recebeu uma solicitação de cancelamento.
-* **Executando**. O fluxo de trabalho está em execução atualmente. Isso pode ocorrer para os fluxos que estão sendo limitados, ou devido ao plano do Serviço de Aplicativo atual. Consulte os limites da ação na [página de preços](https://azure.microsoft.com/pricing/details/app-service/plans/) para obter detalhes. Configurar o diagnóstico (os gráficos listados abaixo do histórico da execução) também podem fornecer informações sobre quaisquer eventos de restrição que estão ocorrendo.
+A run displays one of the following statuses:
 
-Quando você estiver observando um histórico da execução, você pode analisar para obter mais detalhes.
+* **Succeeded**. All actions succeeded, or, if there was a failure, it was handled by an action that occurred later in the workflow. That is, it was handled by an action that was set to run after a failed action.
+* **Failed**. At least one action had a failure that was not handled by an action later in the workflow.
+* **Cancelled**. The workflow was running but received a cancel request.
+* **Running**. The workflow is currently running. This may occur for workflows that are being throttled, or because of the current App Service plan. Please see action limits on the [pricing page](https://azure.microsoft.com/pricing/details/app-service/plans/) for details. Configuring diagnostics (the charts listed below the run history) also can provide information about any throttle events that are occurring.
 
-#### Saídas do gatilho
+When you are looking at a run history, you can drill in for more details.  
 
-As saídas do gatilho mostrarão os dados recebidos do gatilho. Isso pode ajudá-lo a determinar se todas as propriedades retornaram conforme o esperado.
+#### <a name="trigger-outputs"></a>Trigger outputs
 
->[AZURE.NOTE] Poderá ser útil entender como o recurso Aplicativos Lógicos [lida com os diferentes tipos de conteúdo](app-service-logic-content-type.md) se você vir qualquer conteúdo que não entender.
+Trigger outputs show the data that was received from the trigger. This can help you determine whether all properties returned as expected.
 
-![Exemplos de saída do gatilho][3]
+>[AZURE.NOTE] It might be helpful to understand how the Logic Apps feature [handles different content types](app-service-logic-content-type.md) if you see any content that you don't understand.
 
-#### Entradas e saídas da ação
+![Trigger output examples][3]
 
-Você pode analisar as entradas e saídas que uma ação recebeu. Isso é útil para entender o tamanho e a forma das saídas, bem como ver todas as mensagens de erro que possam ter sido geradas.
+#### <a name="action-inputs-and-outputs"></a>Action inputs and outputs
 
-![Entradas e saídas da ação][4]
+You can drill into the inputs and outputs that an action received. This is useful for understanding the size and shape of the outputs, as well as to see any error messages that may have been generated.
 
-## Depurando o tempo de execução do fluxo de trabalho
+![Action inputs and outputs][4]
 
-Além de monitorar as entradas, saídas e gatilhos de uma execução, pode ser útil adicionar algumas etapas em um fluxo de trabalho para ajudar na depuração. O [RequestBin](http://requestb.in) é uma ferramenta poderosa que você pode adicionar como uma etapa em um fluxo de trabalho. Usando o RequestBin, você pode configurar um inspetor de solicitação HTTP para determinar exatamente o tamanho, forma e formato de uma solicitação HTTP. Você pode criar um novo RequestBin e colar a URL em uma Ação HTTP POST do aplicativo lógico junto com qualquer conteúdo do corpo que você deseje testar (por exemplo, uma expressão, ou outra saída da etapa). Depois de executar o aplicativo lógico, você poderá atualizar o RequestBin para ver como a solicitação foi formada, já que ela foi gerada do mecanismo dos Aplicativos Lógicos.
+## <a name="debugging-workflow-runtime"></a>Debugging workflow runtime
+
+In addition to monitoring the inputs, outputs, and triggers of a run, it could be useful to add some steps within a workflow to help with debugging. [RequestBin](http://requestb.in) is a powerful tool that you can add as a step in a workflow. By using RequestBin, you can set up an HTTP request inspector to determine the exact size, shape, and format of an HTTP request. You can create a new RequestBin and paste the URL in a logic app HTTP POST action along with body content you want to test (for example, an expression or another step output). After you run the logic app, you can refresh your RequestBin to see how the request was formed as it was generated from the Logic Apps engine.
 
 
 
@@ -84,4 +85,8 @@ Além de monitorar as entradas, saídas e gatilhos de uma execução, pode ser �
 [3]: ./media/app-service-logic-diagnosing-failures/triggerOutputsLink.PNG
 [4]: ./media/app-service-logic-diagnosing-failures/ActionOutputs.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Provedores de computação, rede e armazenamento | Microsoft Azure"
-   description="Visão geral dos CRP, NRP e política SRP (Provedores de Recursos de Computação, Rede e Armazenamento) para aplicativos do Linux no modelo de implantação do Azure Resource Manager"
+   pageTitle="Compute, Network, and Storage providers | Microsoft Azure"
+   description="Overview of the Compute, Network, and Storage Resource Providers (CRP, NRP, and SRP) for Linux applications in Azure Resource Manager deployment model"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="tfitzmac"
@@ -17,10 +17,15 @@
    ms.date="08/19/2015"
    ms.author="tomfitz"/>
 
-# Provedores de Computação, Rede e Armazenamento do Azure para os aplicativos do Linux no modelo de implantação do Azure Resource Manager
 
-A inclusão dos recursos de computação, rede e armazenamento no Azure Resource Manager simplificará fundamentalmente a implantação e o gerenciamento de aplicativos complexos em execução na IaaS. Muitos aplicativos exigem uma combinação de recursos, incluindo uma Rede Virtual, uma Conta de Armazenamento, uma Máquina Virtual e uma Interface de Rede. O modelo de implantação do Azure Resource Manager oferece a capacidade de construir um modelo JSON para implantar e gerenciar todos esses recursos juntos como um único aplicativo.
+# <a name="azure-compute,-network,-and-storage-providers-for-linux-applications-under-azure-resource-manager-deployment-model"></a>Azure Compute, Network, and Storage providers for Linux applications under Azure Resource Manager deployment model
+
+The inclusion of compute, network, and storage capabilities with the Azure Resource Manager deployment model will fundamentally simplify the deployment and management of complex applications running on IaaS. Many applications require a combination of resources, including a Virtual Network, Storage Account, Virtual Machine, and a Network Interface. The Azure Resource Manager deployment model offers the ability to construct a JSON template to deploy and manage all these resources together as a single application.
 
 [AZURE.INCLUDE [virtual-machines-common-compare-deployment-models](../../includes/virtual-machines-common-compare-deployment-models.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

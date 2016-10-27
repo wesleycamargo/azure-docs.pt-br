@@ -1,11 +1,15 @@
-## Encadeamento de Serviço - Trânsito na rede virtual emparelhada
+## <a name="service-chaining---transit-through-peered-vnet"></a>Service Chaining - Transit through peered VNet
 
-Embora o uso de rotas do sistema facilite o tráfego automaticamente para a sua implantação, há casos em que você deseja controlar o roteamento de pacotes por meio de um dispositivo virtual. Nesse cenário, há duas VNets em uma assinatura, HubVNet e VNet1, como descrito no diagrama abaixo. Implante a NVA (Dispositivo de Rede Virtual) na VNet HubVNet. Depois de estabelecer o emparelhamento VNet entre HubVNet e VNet1, você pode configurar as Rotas Definidas pelo Usuário e especificar o próximo salto para NVA na HubVNet.
+Although the use of system routes facilitates traffic automatically for your deployment, there are cases in which you want to control the routing of packets through a virtual appliance.
+In this scenario, there are two VNets in a subscription, HubVNet and VNet1 as described in the diagram below. You deploy Network Virtual Appliance(NVA) in VNet HubVNet. After establishing VNet peering between HubVNet and VNet1, you can set up User Defined Routes and specify the next hop to NVA in the HubVNet.
 
-![Tráfego e NVA](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
+![NVA Transit](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
 
-> [AZURE.NOTE] Para simplificar, suponha que todas as VNets aqui estão na mesma assinatura. Mas isso também funciona para o cenário entre assinaturas.
+> [AZURE.NOTE] For the simplicity, assume all VNets here are in the same subscription. But it also works for cross-subscription scenario.
 
-A principal propriedade para habilitar o Toteamento de tráfego é o parâmetro "Permitir Tráfego Encaminhado". Isso permite aceitar e enviar o tráfego de/para o NVA na VNet emparelhada.
+The key property to enable Transit routing is the "Allow Forwarded Traffic" parameter. This allows accepting and sending traffic from/to the NVA in the peered VNet.  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

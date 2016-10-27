@@ -1,14 +1,17 @@
-Veja como usar o gatilho **Barramento de Serviço - quando uma mensagem é recebida em uma fila** para iniciar um fluxo de trabalho do aplicativo lógico quando um novo item for enviado para uma fila do Barramento de Serviço.
+Here's how to use the **Service Bus - When a message is received in a queue** trigger to initiate a logic app workflow when a new item is sent to a Service Bus queue.  
 
->[AZURE.NOTE]Será solicitado que você entre com sua cadeia de conexão do Barramento de Serviço se você ainda não tiver criado uma conexão com o Barramento de Serviço.
+>[AZURE.NOTE]You will be prompted to sign in with your Service Bus connection string if you have not already created a connection to Service Bus.  
 
-1. Digite *barramento de serviço* na caixa de pesquisa no designer de aplicativos lógicos e selecione o gatilho **Barramento de Serviço - Quando uma mensagem é recebida em uma fila**.  
-![Imagem do gatilho do Barramento de Serviço 1](./media/connectors-create-api-servicebus/trigger-1.png)   
-- O controle **Quando uma mensagem é recebida em uma fila** é exibido.  
-![Imagem do gatilho do Barramento de Serviço 2](./media/connectors-create-api-servicebus/trigger-2.png)   
-- Insira o nome da fila de Barramento de Serviço que você deseja que o gatilho monitore.  
-![Imagem do gatilho do Barramento de Serviço 3](./media/connectors-create-api-servicebus/trigger-3.png)   
+1. In the search box on the logic apps designer, enter **service bus**. Then select the **Service Bus - When a message is received in a queue** trigger.  
+![Service Bus trigger image 1](./media/connectors-create-api-servicebus/trigger-1.png)   
+- The **When a message is received in a queue** dialog box is displayed.  
+![Service Bus trigger image 2](./media/connectors-create-api-servicebus/trigger-2.png)   
+- Enter the name of the Service Bus queue you would like the trigger to monitor.   
+![Service Bus trigger image 3](./media/connectors-create-api-servicebus/trigger-3.png)   
 
-Seu aplicativo lógico foi configurado com um gatilho. Quando um novo item é recebido na fila selecionada, o gatilho inicia uma execução de outros disparadores e ações no fluxo de trabalho.
+At this point, your logic app has been configured with a trigger. When a new item is received in the queue you selected, the trigger will begin a run of the other triggers and actions in the workflow.    
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

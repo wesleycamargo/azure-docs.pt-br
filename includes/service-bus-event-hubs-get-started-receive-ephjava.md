@@ -1,201 +1,205 @@
-## Receber mensagens com EventProcessorHost em Java
+## <a name="receive-messages-with-eventprocessorhost-in-java"></a>Receive messages with EventProcessorHost in Java
 
-EventProcessorHost é uma classe Java que simplifica o recebimento de eventos dos Hubs de Eventos gerenciando pontos de verificação persistentes e recebimentos paralelos desses Hubs de Eventos. Usando o EventProcessorHost, você pode dividir eventos entre vários destinatários, mesmo quando hospedados em nós diferentes. Este exemplo mostra como usar o EventProcessorHost para um único destinatário.
+EventProcessorHost is a Java class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using EventProcessorHost you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use EventProcessorHost for a single receiver.
 
-###Criar uma conta de armazenamento
+###<a name="create-a-storage-account"></a>Create a storage account
 
-Para usar o EventProcessorHost, você deve ter uma [Conta de armazenamento do Azure][]\:
+In order to use EventProcessorHost, you must have an [Azure Storage account][]:
 
-1. Faça logon no [portal clássico do Azure][] e clique em **NOVO** na parte inferior da tela.
+1. Log on to the [Azure classic portal][], and click **NEW** at the bottom of the screen.
 
-2. Clique em **Serviços de Dados**, em **Armazenamento**, em **Criação Rápida** e, em seguida, digite um nome para sua conta de armazenamento. Selecione a região desejada e, em seguida, clique em **Criar Conta de Armazenamento**.
+2. Click **Data Services**, then **Storage**, then **Quick Create**, and then type a name for your storage account. Select your desired region, and then click **Create Storage Account**.
 
     ![][11]
 
-3. Clique na conta de armazenamento criada recentemente e, em seguida, clique em **Gerenciar Chaves de Acesso**:
+3. Click the newly created storage account, and then click **Manage Access Keys**:
 
     ![][12]
 
-    Copie a chave de acesso primária para usar posteriormente neste tutorial.
+    Copy the primary access key to use later in this tutorial.
 
-###Crie um projeto Java usando o Host de EventProcessor
+###<a name="create-a-java-project-using-the-eventprocessor-host"></a>Create a Java project using the EventProcessor Host
 
-A biblioteca de cliente Java para os Hubs de Eventos está disponível para uso em projetos do Maven por meio do [Repositório Central do Maven][Maven Package] e pode ser referenciada usando a seguinte declaração de dependência dentro do arquivo de projeto do Maven:
+The Java client library for Event Hubs is available for use in Maven projects from the [Maven Central Repository][Maven Package], and can be referenced using the following dependency declaration inside your Maven project file:    
 
 ``` XML
 <dependency>
-	<groupId>com.microsoft.azure</groupId>
-	<artifactId>azure-eventhubs</artifactId>
-	<version>{VERSION}</version>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-eventhubs</artifactId>
+    <version>{VERSION}</version>
 </dependency>
 <dependency>
-	<groupId>com.microsoft.azure</groupId>
-	<artifactId>azure-eventhubs-eph</artifactId>
-	<version>{VERSION}</version>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-eventhubs-eph</artifactId>
+    <version>{VERSION}</version>
 </dependency>
 ```
  
-Para diferentes tipos de ambientes de compilação, é possível obter explicitamente os arquivos JAR liberados mais recentemente no [Repositório Central do Maven][Maven Package] ou no [ponto de distribuição de versão no GitHub](https://github.com/Azure/azure-event-hubs/releases).
+For different types of build environments, you can explicitly obtain the latest released JAR files from the [Maven Central Repository][Maven Package] or from [the release distribution point on GitHub](https://github.com/Azure/azure-event-hubs/releases).  
 
-1. Para o exemplo a seguir, primeiro crie um novo projeto do Maven para um aplicativo de console/shell em seu ambiente de desenvolvimento Java favorito. A classe será chamada ```ErrorNotificationHandler```.
+1. For the following sample, first create a new Maven project for a console/shell application in your favorite Java development environment. The class will be called ```ErrorNotificationHandler```.     
 
-	``` Java
-	import java.util.function.Consumer;
-	import com.microsoft.azure.eventprocessorhost.ExceptionReceivedEventArgs;
+    ``` Java
+    import java.util.function.Consumer;
+    import com.microsoft.azure.eventprocessorhost.ExceptionReceivedEventArgs;
 
-	public class ErrorNotificationHandler implements Consumer<ExceptionReceivedEventArgs>
-	{
-		@Override
-		public void accept(ExceptionReceivedEventArgs t)
-		{
-			System.out.println("SAMPLE: Host " + t.getHostname() + " received general error notification during " + t.getAction() + ": " + t.getException().toString());
-		}
-	}
-	```
+    public class ErrorNotificationHandler implements Consumer<ExceptionReceivedEventArgs>
+    {
+        @Override
+        public void accept(ExceptionReceivedEventArgs t)
+        {
+            System.out.println("SAMPLE: Host " + t.getHostname() + " received general error notification during " + t.getAction() + ": " + t.getException().toString());
+        }
+    }
+    ```
 
-2. Use o código a seguir para criar uma nova classe chamada ```EventProcessor```.
+2. Use the following code to create a new class called ```EventProcessor```.
 
-	```Java
-	import com.microsoft.azure.eventhubs.EventData;
-	import com.microsoft.azure.eventprocessorhost.CloseReason;
-	import com.microsoft.azure.eventprocessorhost.IEventProcessor;
-	import com.microsoft.azure.eventprocessorhost.PartitionContext;
+    ```Java
+    import com.microsoft.azure.eventhubs.EventData;
+    import com.microsoft.azure.eventprocessorhost.CloseReason;
+    import com.microsoft.azure.eventprocessorhost.IEventProcessor;
+    import com.microsoft.azure.eventprocessorhost.PartitionContext;
 
-	public class EventProcessor implements IEventProcessor
-	{
-		private int checkpointBatchingCount = 0;
+    public class EventProcessor implements IEventProcessor
+    {
+        private int checkpointBatchingCount = 0;
 
-		@Override
-		public void onOpen(PartitionContext context) throws Exception
-		{
-			System.out.println("SAMPLE: Partition " + context.getPartitionId() + " is opening");
-		}
+        @Override
+        public void onOpen(PartitionContext context) throws Exception
+        {
+            System.out.println("SAMPLE: Partition " + context.getPartitionId() + " is opening");
+        }
 
-		@Override
-		public void onClose(PartitionContext context, CloseReason reason) throws Exception
-		{
-			System.out.println("SAMPLE: Partition " + context.getPartitionId() + " is closing for reason " + reason.toString());
-		}
-		
-		@Override
-		public void onError(PartitionContext context, Throwable error)
-		{
-			System.out.println("SAMPLE: Partition " + context.getPartitionId() + " onError: " + error.toString());
-		}
+        @Override
+        public void onClose(PartitionContext context, CloseReason reason) throws Exception
+        {
+            System.out.println("SAMPLE: Partition " + context.getPartitionId() + " is closing for reason " + reason.toString());
+        }
+        
+        @Override
+        public void onError(PartitionContext context, Throwable error)
+        {
+            System.out.println("SAMPLE: Partition " + context.getPartitionId() + " onError: " + error.toString());
+        }
 
-		@Override
-		public void onEvents(PartitionContext context, Iterable<EventData> messages) throws Exception
-		{
-			System.out.println("SAMPLE: Partition " + context.getPartitionId() + " got message batch");
-			int messageCount = 0;
-			for (EventData data : messages)
-			{
-				System.out.println("SAMPLE (" + context.getPartitionId() + "," + data.getSystemProperties().getOffset() + "," +
-						data.getSystemProperties().getSequenceNumber() + "): " + new String(data.getBody(), "UTF8"));
-				messageCount++;
-				
-				this.checkpointBatchingCount++;
-				if ((checkpointBatchingCount % 5) == 0)
-				{
-					System.out.println("SAMPLE: Partition " + context.getPartitionId() + " checkpointing at " +
-						data.getSystemProperties().getOffset() + "," + data.getSystemProperties().getSequenceNumber());
-					context.checkpoint(data);
-				}
-			}
-			System.out.println("SAMPLE: Partition " + context.getPartitionId() + " batch size was " + messageCount + " for host " + context.getOwner());
-		}
-	}
-	```
+        @Override
+        public void onEvents(PartitionContext context, Iterable<EventData> messages) throws Exception
+        {
+            System.out.println("SAMPLE: Partition " + context.getPartitionId() + " got message batch");
+            int messageCount = 0;
+            for (EventData data : messages)
+            {
+                System.out.println("SAMPLE (" + context.getPartitionId() + "," + data.getSystemProperties().getOffset() + "," +
+                        data.getSystemProperties().getSequenceNumber() + "): " + new String(data.getBody(), "UTF8"));
+                messageCount++;
+                
+                this.checkpointBatchingCount++;
+                if ((checkpointBatchingCount % 5) == 0)
+                {
+                    System.out.println("SAMPLE: Partition " + context.getPartitionId() + " checkpointing at " +
+                        data.getSystemProperties().getOffset() + "," + data.getSystemProperties().getSequenceNumber());
+                    context.checkpoint(data);
+                }
+            }
+            System.out.println("SAMPLE: Partition " + context.getPartitionId() + " batch size was " + messageCount + " for host " + context.getOwner());
+        }
+    }
+    ```
 
-3. Criar uma classe final chamada ```EventProcessorSample```, usando o código a seguir.
+3. Create one final class called ```EventProcessorSample```, using the following code.
 
-	```Java
-	import com.microsoft.azure.eventprocessorhost.*;
-	import com.microsoft.azure.servicebus.ConnectionStringBuilder;
-	import com.microsoft.azure.eventhubs.EventData;
+    ```Java
+    import com.microsoft.azure.eventprocessorhost.*;
+    import com.microsoft.azure.servicebus.ConnectionStringBuilder;
+    import com.microsoft.azure.eventhubs.EventData;
 
-	public class EventProcessorSample
-	{
-		public static void main(String args[])
-		{
-			final String consumerGroupName = "$Default";
-			final String namespaceName = "----ServiceBusNamespaceName-----";
-			final String eventHubName = "----EventHubName-----";
-			final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
-			final String sasKey = "---SharedAccessSignatureKey----";
+    public class EventProcessorSample
+    {
+        public static void main(String args[])
+        {
+            final String consumerGroupName = "$Default";
+            final String namespaceName = "----ServiceBusNamespaceName-----";
+            final String eventHubName = "----EventHubName-----";
+            final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
+            final String sasKey = "---SharedAccessSignatureKey----";
 
-			final String storageAccountName = "---StorageAccountName----";
-			final String storageAccountKey = "---StorageAccountKey----";
-			final String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=" + storageAccountName + ";AccountKey=" + storageAccountKey;
-			
-			ConnectionStringBuilder eventHubConnectionString = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
-			
-			EventProcessorHost host = new EventProcessorHost(eventHubName, consumerGroupName, eventHubConnectionString.toString(), storageConnectionString);
-			
-			System.out.println("Registering host named " + host.getHostName());
-			EventProcessorOptions options = new EventProcessorOptions();
-			options.setExceptionNotification(new ErrorNotificationHandler());
-			try
-			{
-				host.registerEventProcessor(EventProcessor.class, options).get();
-			}
-			catch (Exception e)
-			{
-				System.out.print("Failure while registering: ");
-				if (e instanceof ExecutionException)
-				{
-					Throwable inner = e.getCause();
-					System.out.println(inner.toString());
-				}
-				else
-				{
-					System.out.println(e.toString());
-				}
-			}
+            final String storageAccountName = "---StorageAccountName----";
+            final String storageAccountKey = "---StorageAccountKey----";
+            final String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=" + storageAccountName + ";AccountKey=" + storageAccountKey;
+            
+            ConnectionStringBuilder eventHubConnectionString = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
+            
+            EventProcessorHost host = new EventProcessorHost(eventHubName, consumerGroupName, eventHubConnectionString.toString(), storageConnectionString);
+            
+            System.out.println("Registering host named " + host.getHostName());
+            EventProcessorOptions options = new EventProcessorOptions();
+            options.setExceptionNotification(new ErrorNotificationHandler());
+            try
+            {
+                host.registerEventProcessor(EventProcessor.class, options).get();
+            }
+            catch (Exception e)
+            {
+                System.out.print("Failure while registering: ");
+                if (e instanceof ExecutionException)
+                {
+                    Throwable inner = e.getCause();
+                    System.out.println(inner.toString());
+                }
+                else
+                {
+                    System.out.println(e.toString());
+                }
+            }
 
-			System.out.println("Press enter to stop");
-			try
-			{
-				System.in.read();
-				host.unregisterEventProcessor();
-				
-				System.out.println("Calling forceExecutorShutdown");
-				EventProcessorHost.forceExecutorShutdown(120);
-			}
-			catch(Exception e)
-			{
-				System.out.println(e.toString());
-				e.printStackTrace();
-			}
-			
-			System.out.println("End of sample");
-		}
-	}
-	```
+            System.out.println("Press enter to stop");
+            try
+            {
+                System.in.read();
+                host.unregisterEventProcessor();
+                
+                System.out.println("Calling forceExecutorShutdown");
+                EventProcessorHost.forceExecutorShutdown(120);
+            }
+            catch(Exception e)
+            {
+                System.out.println(e.toString());
+                e.printStackTrace();
+            }
+            
+            System.out.println("End of sample");
+        }
+    }
+    ```
 
-4. Substitua os campos a seguir pelos valores usados durante a criação do Hub de Eventos da conta de armazenamento.
+4. Replace the following fields with the values used when you created the Event Hub and storage account.
 
-	``` Java
-	final String namespaceName = "----ServiceBusNamespaceName-----";
-	final String eventHubName = "----EventHubName-----";
+    ``` Java
+    final String namespaceName = "----ServiceBusNamespaceName-----";
+    final String eventHubName = "----EventHubName-----";
 
-	final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
-	final String sasKey = "---SharedAccessSignatureKey----";
+    final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
+    final String sasKey = "---SharedAccessSignatureKey----";
 
-	final String storageAccountName = "---StorageAccountName----"
-	final String storageAccountKey = "---StorageAccountKey----";
-	```
+    final String storageAccountName = "---StorageAccountName----"
+    final String storageAccountKey = "---StorageAccountKey----";
+    ```
 
-> [AZURE.NOTE] Este tutorial usa uma única instância do EventProcessorHost. Para aumentar a taxa de transferência, é recomendável que você execute várias instâncias do EventProcessorHost. Nesses casos, as diversas instâncias são coordenadas automaticamente umas com as outras para balancear a carga de eventos recebidos. Se você quiser que vários destinatários processem, cada um, *todos* os eventos, você deve usar o conceito **ConsumerGroup**. Ao receber eventos em máquinas diferentes, pode ser útil especificar nomes para instâncias de EventProcessorHost com base em máquinas (ou funções) nas quais eles foram implantados.
+> [AZURE.NOTE] This tutorial uses a single instance of EventProcessorHost. To increase throughput, it is recommended that you run multiple instances of EventProcessorHost. In those cases, the various instances automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for EventProcessorHost instances based on the machines (or roles) in which they are deployed.
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-overview.md
-[Conta de armazenamento do Azure]: ../storage/storage-create-storage-account.md
-[portal clássico do Azure]: http://manage.windowsazure.com
+[Azure Storage account]: ../storage/storage-create-storage-account.md
+[Azure classic portal]: http://manage.windowsazure.com
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
 <!-- Images -->
 [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

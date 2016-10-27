@@ -1,45 +1,49 @@
 <properties
-	pageTitle="Solucionar problemas de backup e restauração com o Banco de Dados SQL do Azure"
-	description="Saiba como recuperar um banco de dados de nuvem que enfrentou erros e falhas usando réplicas e backups no Banco de Dados SQL."
-	services="sql-database"
-	documentationCenter=""
-	authors="dalechen"
-	manager="felixwu"
-	editor=""/>
+    pageTitle="Troubleshoot backup and restore with Azure SQL Database"
+    description="Learn how to recover a cloud database from errors and outages using backups and replicas in Azure SQL Database."
+    services="sql-database"
+    documentationCenter=""
+    authors="dalechen"
+    manager="felixwu"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
-	ms.author="daleche"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/31/2016"
+    ms.author="daleche"/>
 
-# Restaurar um banco de dados para um ponto anterior no tempo, restaurar um banco de dados excluído ou recuperar-se de uma interrupção do datacenter
 
-O Banco de Dados SQL mantém réplicas de seu banco de dados para que você possa recuperar-se de interrupções e erros do usuário. As opções disponíveis dependem da camada de serviço do banco de dados e das opções escolhidas. Confira [Visão Geral de Continuidade de Negócios](sql-database-business-continuity.md) para obter detalhes e considerações sobre o design.
+# <a name="restore-a-database-to-a-previous-point-in-time,-restore-a-deleted-database,-or-recover-from-a-data-center-outage"></a>Restore a database to a previous point in time, restore a deleted database, or recover from a data center outage
 
-## Para restaurar um banco de dados em um momento anterior
-1.	No [Portal do Azure](https://azure.microsoft.com/), clique em **Bancos de dados SQL**.
-2.	Selecione seu banco de dados na lista e clique em **Restaurar**.
-3.	Digite um novo nome para o banco de dados, escolha a data e a hora da restauração e clique em **Criar.**
-4.	Faça ajustes no aplicativo conforme necessário para fazer referência ao novo banco de dados. Consulte [Recuperar um banco de dados para um momento específico](sql-database-recovery-using-backups.md#point-in-time-restore).
+SQL Database keeps replicas of your database so you can recover from outages and user error. Available options depend on the database service tier and options you choose. See the [Business Continuity Overview](sql-database-business-continuity.md) for details and design considerations.
 
-## Para restaurar um banco de dados excluído acidentalmente
-1.	No [Portal do Azure](https://azure.microsoft.com/), clique em **Servidores SQL**.
-2.	Escolha na lista o servidor que hospedou o banco de dados.
-3.	Na folha do Servidor, role a tela para baixo e clique em **Bancos de dados excluídos**.
-4.	Escolha o banco de dados que será restaurado e clique em **Criar**.
-5.	Faça ajustes no aplicativo conforme necessário para fazer referência ao novo banco de dados. Consulte [Recuperar um banco de dados excluído](sql-database-recovery-using-backups.md#deleted-database-restore).
+## <a name="to-restore-a-database-to-a-previous-point-in-time"></a>To restore a database to a previous point in time
+1.  In the [Azure Portal](https://azure.microsoft.com/), click **SQL databases**.
+2.  Select your database from the list and then click **Restore**.
+3.  Type a new name for the database, choose the date and time to restore from, and then click **Create.**
+4.  Make app adjustments as necessary to reference the new database. See [Recover a database to a point in time](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-## Para recuperar-se da interrupção de um datacenter regional
-Com os bancos de dados Standard e Premium, se você configurar secundários replicados geograficamente, poderá recuperar-se usando esses secundários. Isso permite que você restaure um banco de dados com menos possibilidade de perda de dados. Consulte [Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados](sql-database-disaster-recovery.md) para obter detalhes.
+## <a name="to-restore-an-accidentally-deleted-database"></a>To restore an accidentally deleted database
+1.  In the [Azure Portal](https://azure.microsoft.com/), click **SQL servers**.
+2.  Select the server that hosted the database from the list.
+3.  On the Server blade, scroll down and click **Deleted databases**.
+4.  Select the database to restore, and then click **Create**.
+5.  Make app adjustments as necessary to reference the new database. See [Recover a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore).
 
-O Azure também fornece backups de cada banco de dados em uma região diferente (um backup com redundância geográfica). Você pode criar um novo banco de dados a partir desses backups, o que é chamado de restauração geográfica. No entanto, é provável que você enfrente perda de dados se depender apenas desse método.
+## <a name="to-recover-from-a-regional-datacenter-outage"></a>To recover from a regional datacenter outage
+With Standard and Premium databases, if you set up geo-replicated secondaries, you can recover using these secondaries. This gives you the ability to restore a database with a less potential for data loss. See [Recover an Azure SQL database using automated database backups](sql-database-disaster-recovery.md) for details.
 
-**Para recuperar um banco de dados usando a restauração geográfica:**
+Azure also provides backups of every database in a different region (a geo-redundant backup). You can create a new database from these backups, which is called Geo-restore, but it's likely that you'll experience data loss if you rely on this method alone.
 
-- No [Portal do Azure](https://azure.microsoft.com/), clique em **Novo**, clique em **Dados e Armazenamento**, clique em **Banco de Dados SQL** e selecione **Backup** como a origem do banco de dados. Confira [Recuperar um Banco de Dados SQL do Azure de uma interrupção](sql-database-disaster-recovery.md) para obter detalhes.
+**To recover a database using geo-restore:**
 
-<!---HONumber=AcomDC_0831_2016-->
+- In the [Azure Portal](https://azure.microsoft.com/), click **New**, click **Data and Storage**, click **SQL Database**, and then select **Backup** as the database source. See [Recover an Azure SQL database from an outage](sql-database-disaster-recovery.md) for details.
+
+
+<!--HONumber=Oct16_HO2-->
+
+

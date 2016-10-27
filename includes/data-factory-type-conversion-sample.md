@@ -1,72 +1,77 @@
-### Exemplo de conversão de tipo
-O exemplo a seguir é para copiar dados de um Blob para SQL Azure com conversões de tipo.
+### <a name="type-conversion-sample"></a>Type conversion sample
+The following sample is for copying data from a Blob to Azure SQL with type conversions.
 
-Suponha que o conjunto de dados de Blob está no formato CSV e contém 3 colunas. Uma delas é uma coluna de data e hora com um formato de data e hora personalizado usando nomes abreviados em francês para o dia da semana.
+Suppose the Blob dataset is in CSV format and contains 3 columns. One of them is a datetime column with a custom datetime format using abbreviated French names for day of the week.
 
-Você definirá o conjunto de dados de origem de Blob como a seguir, juntamente com definições de tipo para as colunas.
+You will define the Blob Source dataset as follows along with type definitions for the columns.
 
-	{
-	    "name": "AzureBlobTypeSystemInput",
-	    "properties":
-	    {
-	         "structure": 
-	          [
-	                { "name": "userid", "type": "Int64"},
-	                { "name": "name", "type": "String"},
-	                { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
-	          ],
-	        "type": "AzureBlob",
-	        "linkedServiceName": "StorageLinkedService",
-	        "typeProperties": {
-	            "folderPath": "mycontainer/myfolder",
-	            "fileName":"myfile.csv",
-	            "format":
-	            {
-	                "type": "TextFormat",
-	                "columnDelimiter": ","
-	            }
-	        },
-	        "external": true,
-	        "availability":
-	        {
-	            "frequency": "Hour",
-	            "interval": 1
-	        },
-			"policy": {
-	            "externalData": {
-	                "retryInterval": "00:01:00",
-	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
-	            }
-			}
-	    }
-	}
+    {
+        "name": "AzureBlobTypeSystemInput",
+        "properties":
+        {
+             "structure": 
+              [
+                    { "name": "userid", "type": "Int64"},
+                    { "name": "name", "type": "String"},
+                    { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+              ],
+            "type": "AzureBlob",
+            "linkedServiceName": "StorageLinkedService",
+            "typeProperties": {
+                "folderPath": "mycontainer/myfolder",
+                "fileName":"myfile.csv",
+                "format":
+                {
+                    "type": "TextFormat",
+                    "columnDelimiter": ","
+                }
+            },
+            "external": true,
+            "availability":
+            {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "externalData": {
+                    "retryInterval": "00:01:00",
+                    "retryTimeout": "00:10:00",
+                    "maximumRetry": 3
+                }
+            }
+        }
+    }
 
-Considerando a tabela de mapeamento de tipo SQL para tipo .NET acima, você definirá a tabela do SQL Azure com o esquema a seguir.
+Given the SQL type to .NET type mapping table above you would define the Azure SQL table with the following schema.
 
-| Nome da coluna | Tipo SQL |
+| Column Name | SQL Type |
 | ----------- | -------- |
 | userid | bigint |
-| name | texto |
+| name | text |
 | lastlogindate | datetime |
 
-Em seguida, você definirá o conjunto de dados do SQL Azure da seguinte maneira. Observação: você não precisa especificar a seção "estrutura" com as informações de tipo, pois o tipo de informação já está especificado no armazenamento de dados subjacente.
+Next you will define the Azure SQL dataset as follows. Note: You do not need to specify “structure” section with type information since the type information is already specified in the underlying data store.
 
-	{
-	    "name": "AzureSQLOutput",
-	    "properties": {
-	        "type": "AzureSqlTable",
-	        "linkedServiceName": "AzureSqlLinkedService",
-	        "typeProperties": {
-	            "tableName": "MyTable"
-	        },
-	        "availability": {
-	            "frequency": "Hour",
-	            "interval": 1
-	        }
-	    }
-	}
+    {
+        "name": "AzureSQLOutput",
+        "properties": {
+            "type": "AzureSqlTable",
+            "linkedServiceName": "AzureSqlLinkedService",
+            "typeProperties": {
+                "tableName": "MyTable"
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            }
+        }
+    }
 
-Nesse caso, o data factory fará automaticamente as conversões de tipo, inclusive o campo de data e hora, com o formato de data e hora personalizado usando a cultura fr-fr ao mover dados de Blob para o SQL Azure.
+In this case data factory will automatically do the type conversions including the Datetime field with the custom datetime format using the fr-fr culture when moving data from Blob to Azure SQL.
 
-<!---HONumber=Oct15_HO3-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,68 +1,73 @@
 <properties
-	pageTitle="Como alterar as informações de perfil de sua conta do Azure| Microsoft Azure"
-	description="Descreve como alterar o perfil da sua conta do Azure e responde as perguntas mais comuns, como por que não é possível alterar o país no Centro de Contas do Azure"
-	services=""
-	documentationCenter=""
-	authors="genlin"
-	manager="mbaldwin"
-	editor=""
-	tags="billing"
-	/>
+    pageTitle="How to change profile information of your Azure account| Microsoft Azure"
+    description="Describes how to change the profile of your Azure account, and answers the common questions such as why cannot change country in the Azure Account Center"
+    services=""
+    documentationCenter=""
+    authors="genlin"
+    manager="mbaldwin"
+    editor=""
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="genli"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/17/2016"
+    ms.author="genli"/>
 
-# Como alterar as informações de perfil de sua conta do Azure, como email de contato, endereço e número de telefone
 
-## Resumo
+# <a name="how-to-change-profile-information-of-your-azure-account-such-as-contact-email,-address-and-phone-number"></a>How to change profile information of your Azure account such as contact email, address and phone number
 
-Perdeu um email importante do Azure? Deseja atualizar outras informações de contato em seu perfil? Neste artigo, você aprenderá:
+## <a name="summary"></a>Summary
 
--	[Como alterar suas informações de perfil](#how-to-change-your-profile-information)
--	[Respostas para perguntas e problemas comuns](#frequently-asked-questions)
+Missed an important email from Azure? Want to update other contact information in your profile? In this article you will learn:
 
-> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+-   [How to change your profile information](#how-to-change-your-profile-information)
+-   [Answers to common issues and questions](#frequently-asked-questions)
 
-## Informações importantes sobre seu endereço de email do perfil
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-O endereço de email no perfil do administrador da conta é usado pela Microsoft para notificá-lo das atualizações importantes relacionadas à cobrança sobre a assinatura. É recomendável que você especifique um endereço de email de contato que verifica regularmente.
+## <a name="important-information-about-your-profile-email-address"></a>Important information about your profile email address
 
-## Como alterar suas informações de perfil
+The email address in the Account Administrator’s profile is used by Microsoft to notify you about important billing-related updates about the subscription. We recommend that you specify a contact email address that you check regularly.
 
-1.	Entre no [Centro de Contas do Azure](https://account.windowsazure.com/) como o administrador da conta e clique em **Perfil**. Ou vá para https://account.windowsazure.com/Profile.
+## <a name="how-to-change-your-profile-information"></a>How to change your profile information
 
-2.	Selecione o botão **Editar detalhes** e, em seguida, atualize as informações de **Perfil**.
+1.  Sign in to the [Azure Account Center](https://account.windowsazure.com/) as the account administrator and then click **Profile**. Or go to https://account.windowsazure.com/Profile.
 
-	![perfil](./media/billing-how-to-change-azure-account-profile/profile.png)
+2.  Select the **Edit details** button, and then update the **Profile** information.
 
-## Perguntas frequentes
+    ![profile](./media/billing-how-to-change-azure-account-profile/profile.png)
 
-### Posso alterar o endereço de email do administrador da conta no meu perfil?
+## <a name="frequently-asked-questions"></a>Frequently asked questions
 
-Sim. O administrador da conta é a pessoa que configura a conta do Azure e quem recebe as notificações de email importantes sobre todas as assinaturas na conta. É recomendável que você especifique um endereço de email de contato que o administrador da conta verifica regularmente.
+### <a name="can-i-change-the-account-administrator-email-address-in-my-profile?"></a>Can I change the Account Administrator email address in my profile?
 
-### Atualizar meu email do perfil também atualiza meu endereço de email de logon?
+Yes. The Account Administrator is the person who set up the Azure account and who receives important email notifications about all the subscriptions under the account. We recommend that you specify a contact email address that the Account Administrator checks regularly.
 
-Não. Atualizar o endereço de email do perfil não atualiza seu endereço de email de logon. Para alterar seu endereço de email de logon, você precisa transferir a propriedade da conta.
+### <a name="does-updating-my-profile-email-also-update-my-login-email-address?"></a>Does updating my profile email also update my login email address?
 
-### Atualizar meu endereço do perfil também atualiza meu endereço de cobrança do cartão de crédito?
+No. Updating the profile email address does not update your login email address. To change your login email address, you have to transfer ownership of the account.
 
-Não. Você pode atualizar o endereço de cobrança associado ao seu cartão de crédito acessando a [página de assinatura](https://account.windowsazure.com/subscriptions) no Centro de Contas do Azure.
+### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address?"></a>Does updating my profile address also update my credit card billing address?
 
-### Por que não é possível atualizar o país?
+No. You can update the billing address associated with your credit card by going to the [subscription page](https://account.windowsazure.com/subscriptions) in the Azure Account Center.
 
-Devido a restrições técnicas, não podemos alterar o país em uma conta existente. No entanto, você pode criar uma nova conta no país desejado e, em seguida, entrar em contato com o suporte do Azure para migrar os serviços para essa conta.
+### <a name="why-can’t-i-update-the-country?"></a>Why can’t I update the country?
 
-### Qual endereço de email o recurso de visualização de Alertas de Cobrança do Azure usa?
+Because of technical constraints, we cannot change the country on an existing account. However, you can create a new account in the desired country and then contact Azure support to migrate your services to that account.
 
-Se você se inscrever para o novo recurso de visualização de Alertas de Cobrança do Azure, receberá o email de Alertas de Cobrança do Azure no endereço especificado, independentemente de se você tiver alterado o endereço de email do administrador da conta.
+### <a name="what-email-address-does-the-azure-billing-alerts-preview-feature-use?"></a>What email address does the Azure Billing Alerts preview feature use?
 
-> [AZURE.NOTE] Se ainda tiver dúvidas, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+If you sign up for the new Azure Billing Alerts preview feature, you will receive Azure Billing Alerts email at the address you specify, regardless of whether you have changed the Account Administrator email address.
 
-<!---HONumber=AcomDC_0824_2016-->
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

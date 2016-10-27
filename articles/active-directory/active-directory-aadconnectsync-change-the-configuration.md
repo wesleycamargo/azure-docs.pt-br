@@ -1,137 +1,168 @@
 <properties
-	pageTitle="Sincronização do Azure AD Connect: como fazer uma alteração na configuração padrão | Microsoft Azure"
-	description="Explica como fazer uma alteração da configuração na sincronização do Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure AD Connect sync: How to make a change to the default configuration | Microsoft Azure"
+    description="Walks you through how to make a change to the configuration in Azure AD Connect sync."
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
-	ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/31/2016"
+    ms.author="billmath"/>
 
 
-# Sincronização do Azure AD Connect: como fazer uma alteração na configuração padrão
-O objetivo deste tópico é explicar como fazer alterações na configuração padrão na sincronização do Azure AD Connect. Ele fornece etapas para alguns cenários comuns. Com esse conhecimento, você deve ser capaz de fazer algumas alterações simples em sua própria configuração com base em suas próprias regras de negócios.
 
-## Editor de Regras de Sincronização
-O Editor de Regras de Sincronização é usado para exibir e alterar a configuração padrão. Você o encontrará no Menu Iniciar no grupo **Azure Connect AD**. ![Menu Iniciar com o Editor de Regras de Sincronização](./media/active-directory-aadconnectsync-change-the-configuration/startmenu2.png)
+# <a name="azure-ad-connect-sync:-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect sync: How to make a change to the default configuration
+The purpose of this topic is to walk you through how to make changes to the default configuration in Azure AD Connect sync. It provides steps for some common scenarios. With this knowledge, you should be able to make some simple changes to your own configuration based on your own business rules.
 
-Ao abri-lo, você verá as regras padrão prontas para uso.
+## <a name="synchronization-rules-editor"></a>Synchronization Rules Editor
+The Synchronization Rules Editor is used to see and change the default configuration. You can find it in the Start Menu under the **Azure AD Connect** group.  
+![Start Menu with Sync Rule Editor](./media/active-directory-aadconnectsync-change-the-configuration/startmenu2.png)
 
-![Editor de Regras de Sincronização](./media/active-directory-aadconnectsync-change-the-configuration/sre2.png)
+When you open it, you see the default out-of-box rules.
 
-### Navegando no editor
-Os menus suspensos na parte superior do editor permitem localizar rapidamente uma determinada regra. Por exemplo, se você quisesse ver as regras onde o atributo proxyAddresses está incluído, alteraria os menus suspensos para o seguinte: ![Filtragem de SRE](./media/active-directory-aadconnectsync-change-the-configuration/filtering.png) para redefinir a filtragem e carregar uma nova configuração, pressione **F5** no teclado.
+![Sync Rule Editor](./media/active-directory-aadconnectsync-change-the-configuration/sre2.png)
 
-À direita superior, você tem um botão **Adicionar nova regra**. Este botão é usado para criar sua própria regra personalizada.
+### <a name="navigating-in-the-editor"></a>Navigating in the editor
+The drop-downs at the top of the editor allow you to quickly find a particular rule. For example, if you want to see the rules where the attribute proxyAddresses is included, you would change the drop-downs to the following:  
+![SRE filtering](./media/active-directory-aadconnectsync-change-the-configuration/filtering.png)  
+To reset filtering and load a fresh configuration, press **F5** on the keyboard.
 
-Na parte inferior, você tem botões para atuar em uma regra de sincronização selecionada. **Editar** e **Excluir** fazem o que você espera. **Exportar** gera um script do PowerShell para recriar a regra de sincronização. Esse procedimento permite mover uma regra de sincronização de um servidor para outro.
+To the top right, you have a button **Add new rule**. This button is used to create your own custom rule.
 
-## Criar sua primeira regra personalizada
-A alteração mais comum é fazer mudanças nos fluxos do atributo. Os dados no diretório de origem podem não estar como no Azure AD. No exemplo nesta seção, você deseja verificar se o nome fornecido de um usuário está sempre com o **Formato apropriado**.
+At the bottom, you have buttons for acting on a selected sync rule. **Edit** and **Delete** do what you expect them to. **Export** produces a PowerShell script for recreating the sync rule. This procedure allows you to move a sync rule from one server to another.
 
-### Desabilitar o agendador
-O [Agendador](active-directory-aadconnectsync-feature-scheduler.md) é executado a cada 30 minutos por padrão. Você deseja verificar se ele não está iniciando enquanto está fazendo alterações e solucionando os problemas das novas regras. Para desabilitar temporariamente o agendador, inicie o PowerShell e execute `Set-ADSyncScheduler -SyncCycleEnabled $false`
+## <a name="create-your-first-custom-rule"></a>Create your first custom rule
+The most common change is changes to the attribute flows. The data in your source directory might not be as in Azure AD. In the example in this section, you want to make sure the given name of a user is always in **Proper case**.
 
-![Desabilitar o agendador](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)
+### <a name="disable-the-scheduler"></a>Disable the scheduler
+The [scheduler](active-directory-aadconnectsync-feature-scheduler.md) runs every 30 minutes by default. You want to make sure it is not starting while you are making changes and troubleshoot your new rules. To temporarily disable the scheduler, start PowerShell, and run `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
-### Criar a regra
+![Disable the scheduler](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)  
 
-1. Clique em **Adicionar nova regra**.
-2. Na página **Descrição**, insira o seguinte: ![Filtragem das regras de entrada](./media/active-directory-aadconnectsync-change-the-configuration/description2.png)
-	- Nome: dê um nome descritivo à regra.
-	- Descrição: algum esclarecimento para que outra pessoa possa entender para que serve a regra.
-	- Sistema conectado: o sistema no qual o objeto pode ser encontrado. Neste caso, selecionamos o Conector do Active Directory.
-	- Tipo de Sistema Conectado/Objeto do Metaverso: selecione **Usuário** e **Pessoa** respectivamente.
-	- Tipo de Link: altere esse valor para **Ingressar**.
-	- Precedência: forneça um valor que seja exclusivo no sistema. Um valor numérico mais baixo indica uma precedência mais alta.
-	- Marcação: deixe em branco. As regras integradas da Microsoft devem ter essa caixa preenchida com um valor.
-3. Na página **Filtro de escopo**, insira **givenName ISNOTNULL**. ![Filtrar escopo das regras de entrada](./media/active-directory-aadconnectsync-change-the-configuration/scopingfilter.png) Esta seção é usada para definir em quais objetos a regra deve ser aplicada. Se deixada em branco, a regra se aplicaria a todos os objetos de usuário. Mas isso incluiria as salas de conferência, contas de serviço e outros objetos de usuário que não são de pessoas.
-4. Em **Regras de junção**, deixe a caixa vazia.
-5. Na página **Transformações**, altere o Tipo de Fluxo para **Expressão**. Selecione o Atributo de Destino **giveName** e, em Origem, digite `PCase([givenName])`. ![Transformações das regras de entrada](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png) O mecanismo de sincronização diferencia as letras maiúsculas das minúsculas no nome da função e no nome do atributo. Se você digitar algo errado, verá um aviso quando adicionar a regra. O editor permite que você salve e continue, portanto, é necessário reabrir a regra e corrigi-la.
-6. Clique em **Adicionar** para salvar a regra.
+### <a name="create-the-rule"></a>Create the rule
 
-A nova regra personalizada deve ficar visível com as outras regras de sincronização no sistema.
+1. Click **Add new rule**.
+2. On the **Description** page enter the following:  
+![Inbound rule filtering](./media/active-directory-aadconnectsync-change-the-configuration/description2.png)  
+    - Name: Give the rule a descriptive name.
+    - Description: Some clarification so someone else can understand what the rule is for.
+    - Connected system: The system the object can be found in. In this case, we select the Active Directory Connector.
+    - Connected System/Metaverse Object Type: Select **User** and **Person** respectively.
+    - Link Type: Change this value to **Join**.
+    - Precedence: Provide a value that is unique in the system. A lower numeric value indicates higher precedence.
+    - Tag: Leave empty. Only out-of-box rules from Microsoft should have this box populated with a value.
+3. On the **Scoping filter** page, enter **givenName ISNOTNULL**.  
+![Inbound rule scoping filter](./media/active-directory-aadconnectsync-change-the-configuration/scopingfilter.png)  
+This section is used to define which objects the rule should apply to. If left empty, the rule would apply to all user objects. But that would include conference rooms, service accounts, and other non-people user objects.
+4. On the **Join rules**, leave it empty.
+5. On the **Transformations** page, change the FlowType to **Expression**. Select the Target Attribute **givenName**, and in Source enter `PCase([givenName])`.
+![Inbound rule transformations](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png)  
+The sync engine is case-sensitive both on the function name and the name of the attribute. If you type something wrong, you see a warning when you add the rule. The editor allows you to save and continue, so you would have to reopen the rule and correct the rule.
+6. Click **Add** to save the rule.
 
-### Verificar a alteração
-Com essa nova alteração, você deseja verificar se ela está funcionando conforme o esperado e não está gerando erros. Dependendo do número de objetos que você tem, há duas maneiras diferentes de realizar esta etapa.
+Your new custom rule should be visible with the other sync rules in the system.
 
-1. Executar uma sincronização completa em todos os objetos
-2. Executar uma visualização e uma sincronização completa em um único objeto
+### <a name="verify-the-change"></a>Verify the change
+With this new change, you want to make sure it is working as expected and is not throwing any errors. Depending on the number of objects you have, there are two different ways to do this step.
 
-Inicie o **Serviço de Sincronização** no menu Iniciar. As etapas nesta seção estão todas nessa ferramenta.
+1. Run a full sync on all objects
+2. Run a preview and full sync on a single object
 
-1. **Sincronização completa em todos os objetos** Selecione **Conectores** na parte superior. Identifique o Conector no qual você fez uma alteração na seção anterior, neste caso, os Serviços de Domínio do Active Directory, e selecione-o. Selecione **Executar** em Ações e selecione **Sincronização Completa** e **OK**. ![Sincronização completa](./media/active-directory-aadconnectsync-change-the-configuration/fullsync.png)Os objetos estão atualizados no metaverso. Agora você deseja ver o objeto no metaverso.
+Start **Synchronization Service** from the start menu. The steps in this section are all in this tool.
 
-2. **Visualização e sincronização completa em um único objeto** Selecione **Conectores** na parte superior. Identifique o Conector no qual você fez uma alteração na seção anterior, neste caso, os Serviços de Domínio do Active Directory, e selecione-o. Selecione **Pesquisar Espaço do Conector**. Use o escopo para localizar um objeto que você deseja usar para testar a alteração. Selecione o objeto e clique em **Visualizar**. Na nova tela, selecione **Confirmar Visualização**. ![Visualização de confirmação](./media/active-directory-aadconnectsync-change-the-configuration/commitpreview.png) Agora, a alteração está confirmada no metaverso.
+1. **Full sync on all objects**  
+Select **Connectors** at the top. Identify the Connector you made a change to in the previous section, in this case the Active Directory Domain Services, and select it. Select **Run** from Actions and select **Full Synchronization** and **OK**.
+![Full sync](./media/active-directory-aadconnectsync-change-the-configuration/fullsync.png)  
+The objects are now updated in the metaverse. You now want to look at the object in the metaverse.
 
-**Ver o objeto no metaverso** Agora, você deseja escolher alguns objetos de exemplo para verificar se o valor é o esperado e se a regra foi aplicada. Selecione **Pesquisar Metaverso** na parte superior. Adicione qualquer filtro necessário para localizar os objetos relevantes. No resultado da pesquisa, abra um objeto. Veja os valores do atributo e verifique também na coluna **Regras de Sincronização** se a regra aplicada está conforme o esperado. ![Pesquisa de metaverso](./media/active-directory-aadconnectsync-change-the-configuration/mvsearch.png)
-### Habilitar o agendador
-Se tudo estiver como o esperado, você poderá habilitar o agendador novamente. No PowerShell, execute `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+2. **Preview and full sync on a single object**  
+Select **Connectors** at the top. Identify the Connector you made a change to in the previous section, in this case the Active Directory Domain Services, and select it. Select **Search Connector Space**. Use scope to find an object you want to use to test the change. Select the object and click **Preview**. In the new screen, select **Commit Preview**.
+![Commit preview](./media/active-directory-aadconnectsync-change-the-configuration/commitpreview.png)  
+The change is now committed to the metaverse.
 
-## Outras alterações comuns no fluxo de atributos
-A seção anterior descreveu como fazer alterações em um fluxo de atributos. Nesta seção, são fornecidos alguns exemplos adicionais. As etapas para criar a regra de sincronização estão abreviadas, mas você pode encontrar as etapas completas na seção anterior.
+**Look at the object in the metaverse**  
+You now want to pick a few sample objects to make sure the value is expected and that the rule applied. Select **Metaverse Search** from the top. Add any filter you need to find the relevant objects. From the search result, open an object. Look at the attribute values and also verify in the **Sync Rules** column that the rule applied as expected.  
+![Metaverse search](./media/active-directory-aadconnectsync-change-the-configuration/mvsearch.png)  
+### <a name="enable-the-scheduler"></a>Enable the scheduler
+If everything is as expected, you can enable the scheduler again. From PowerShell, run `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
-### Usar outro atributo diferente do padrão
-Na Fabrikam, há uma floresta na qual o alfabeto local é usado para o nome dado, sobrenome e nome de exibição. A representação de caracteres latinos desses atributos pode ser encontrada nos atributos de extensão. Ao compilar a lista de endereços global no AD do Azure e no Office 365, a organização deseja que esses atributos sejam usados.
+## <a name="other-common-attribute-flow-changes"></a>Other common attribute flow changes
+The previous section described how to make changes to an attribute flow. In this section, some additional examples are provided. The steps for how to create the sync rule is abbreviated, but you can find the full steps in the previous section.
 
-Com uma configuração padrão, um objeto da floresta local tem esta aparência: ![Fluxo de atributos 1](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp1.png)
+### <a name="use-another-attribute-than-the-default"></a>Use another attribute than the default
+At Fabrikam, there is a forest where the local alphabet is used for given name, surname, and display name. The Latin character representation of these attributes can be found in the extension attributes. When building the global address list in Azure AD and Office 365, the organization wants these attributes to be used instead.
 
-Para criar uma regra com outros fluxos de atributos, faça o seguinte:
+With a default configuration, an object from the local forest looks like this:  
+![Attribute flow 1](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp1.png)
 
-- Inicie o **Editor da Regra de Sincronização** no menu Iniciar.
-- Com a **Entrada** ainda selecionada à esquerda, clique no botão **Adicionar nova regra**.
-- Dê à regra um nome e uma descrição. Selecione o Active Directory local e os tipos de objetos relevantes. Em **Tipo de Link**, selecione **Junção**. Para a precedência, escolha um número que não seja usado por outra regra. As regras prontas para uso começam com 100, então, o valor 50 pode ser usado neste exemplo. ![Fluxo de atributos 2](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp2.png)
-- Deixe o escopo vazio (ou seja, deve ser aplicada a todos os objetos de usuário na floresta).
-- Deixe as regras de junção vazias (ou seja, permita que a regra pronta para uso lide com quaisquer junções).
-- Em Transformações, crie os seguintes fluxos: ![Fluxo de atributos 3](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp3.png)
-- Clique em **Adicionar** para salvar a regra.
-- Vá para o **Synchronization Service Manager**. Em **Conectores**, selecione o Conector ao qual adicionamos a regra. Selecione **Executar** e **Sincronização Completa**. Uma Sincronização Completa recalcula todos os objetos usando as regras atuais.
+To create a rule with other attribute flows, do the following:
 
-Este é o resultado para o mesmo objeto com essa regra personalizada: ![Fluxo de atributos 4](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp4.png)
+- Start **Synchronization Rule Editor** from the start menu.
+- With **Inbound** still selected to the left, click the button **Add new rule**.
+- Give the rule a name and description. Select the on-premises Active Directory and the relevant object types.  In **Link Type**, select **Join**. For precedence, pick a number that is not used by another rule. The out-of-box rules start with 100, so the value 50 can be used in this example.
+![Attribute flow 2](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp2.png)
+- Leave scope empty (that is, should apply to all user objects in the forest).
+- Leave join rules empty (that is, let the out-of-box rule handle any joins).
+- In Transformations, create the following flows:  
+![Attribute flow 3](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp3.png)
+- Click **Add** to save the rule.
+- Go to **Synchronization Service Manager**. On **Connectors**, select the Connector where we added the rule. Select **Run**, and **Full Synchronization**. A Full Synchronization recalculates all objects using the current rules.
 
-### Comprimento de atributos
-Atributos de cadeia de caracteres são definidos por padrão para serem indexáveis e seu comprimento máximo é 448 caracteres. Se você estiver trabalhando com atributos da cadeia de caracteres que podem conter mais, inclua o seguinte no fluxo de atributos: `attributeName` <- `Left([attributeName],448)`
+This is the result for the same object with this custom rule:  
+![Attribute flow 4](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp4.png)
 
-### Alterando o userPrincipalSuffix
-O atributo userPrincipalName no Active Directory não é sempre conhecido pelos usuários e pode não ser adequado como a ID de logon. O assistente de instalação da sincronização do Azure AD Connect permite escolher um atributo diferente, por exemplo, o email. Mas, em alguns casos, o atributo deve ser calculado. Por exemplo, a empresa Contoso tem dois diretórios do AD do Azure, um para a produção e outro para o teste. Eles querem que os usuários em seu locatário de teste usem outro sufixo na ID de logon. `userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`
+### <a name="length-of-attributes"></a>Length of attributes
+String attributes are by default set to be indexable and the maximum length is 448 characters. If you are working with string attributes that might contain more, then make sure to include the following in the attribute flow:  
+`attributeName` <- `Left([attributeName],448)`
 
-Nesta expressão, pegamos tudo à esquerda do primeiro símbolo @ (Word) e concatenamos com uma cadeia de caracteres fixa.
+### <a name="changing-the-userprincipalsuffix"></a>Changing the userPrincipalSuffix
+The userPrincipalName attribute in Active Directory is not always known by the users and might not be suitable as the sign-in ID. The Azure AD Connect sync installation wizard allows picking a different attribute, for example mail. But in some cases the attribute must be calculated. For example, the company Contoso has two Azure AD directories, one for production and one for testing. They want the users in their test tenant to use another suffix in the sign-in ID.  
+`userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
-### Converter um número de vários valores em um único valor
-Alguns atributos no Active Directory são compostos de vários valores no esquema, mesmo que pareçam de valor único nos Usuários e computadores do Active Directory. Um exemplo é o atributo de descrição. `description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
+In this expression, take everything left of the first @-sign (Word) and concatenate with a fixed string.
 
-Nesta expressão, caso o atributo tenha um valor, podemos levar o primeiro item (Item) no atributo, remover espaços à direita e à esquerda (Trim, cortar) e, em seguida, manter os primeiros 448 caracteres (Left, à esquerda) na cadeia de caracteres.
+### <a name="convert-a-multi-value-to-a-single-value"></a>Convert a multi-value to a single-value
+Some attributes in Active Directory are multi-valued in the schema even though they look single valued in Active Directory Users and Computers. An example is the description attribute.  
+`description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
-### Não faça um atributo fluir
-Para obter informações sobre o cenário para esta seção, confira [Controlar o processo de fluxo de atributos](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
+In this expression in case the attribute has a value, we take the first item (Item) in the attribute, remove leading and trailing spaces (Trim), and then keep the first 448 characters (Left) in the string.
 
-Há duas maneiras de não fazer um atributo fluir. A primeira está disponível no assistente de instalação e permite que você [remova os atributos selecionados](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). Essa opção funciona se você nunca tiver sincronizado o atributo antes. No entanto, se você começou a sincronizar esse atributo e removê-lo mais tarde com esse recurso, o mecanismo de sincronização deixará de gerenciar o atributo e os valores existentes serão deixados no AD do Azure.
+### <a name="do-not-flow-an-attribute"></a>Do not flow an attribute
+For background on the scenario for this section, see [Control the attribute flow process](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
 
-Se você quiser remover o valor de um atributo e assegurar que ele não fluirá no futuro, será necessário criar uma regra personalizada.
+There are two ways to not flow an attribute. The first is available in the installation wizard and allows you to [remove selected attributes](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). This option works if you have never synchronized the attribute before. However, if you have started to synchronize this attribute and later remove it with this feature, then the sync engine stops managing the attribute and the existing values are left in Azure AD.
 
-Na Fabrikam, percebemos que alguns dos atributos que sincronizamos para a nuvem não deveriam estar lá. Queremos removê-los do AD do Azure. ![Atributos de Extensão Ruins](./media/active-directory-aadconnectsync-change-the-configuration/badextensionattribute.png)
+If you want to remove the value of an attribute and make sure it does not flow in the future, you need create a custom rule instead.
 
-- Crie uma nova Regra de Sincronização de entrada e preencha a descrição ![Descrições](./media/active-directory-aadconnectsync-change-the-configuration/syncruledescription.png)
-- Crie fluxos de atributo do tipo **Expression** e com a fonte **AuthoritativeNull**. O literal **AuthoritativeNull** indica que o valor deve ser vazio na MV mesmo se uma regra de sincronização de precedência inferior tentar preencher o valor. ![Transformação dos Atributos de Extensão](./media/active-directory-aadconnectsync-change-the-configuration/syncruletransformations.png)
-- Salve a Regra de Sincronização. Inicie o **Serviço de Sincronização**, localize o Conector, selecione **Executar** e **Sincronização Completa**. Esta etapa recalculará todos os fluxos de atributo.
-- Verifique se as alterações pretendidas estão prestes a ser exportadas pesquisando o espaço conector. ![Exclusão em etapas](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
+At Fabrikam, we have realized that some of the attributes we synchronize to the cloud should not be there. We want to make sure these attributes are removed from Azure AD.  
+![Bad Extension Attributes](./media/active-directory-aadconnectsync-change-the-configuration/badextensionattribute.png)
 
-## Próximas etapas
+- Create a new inbound Synchronization Rule and populate the description ![Descriptions](./media/active-directory-aadconnectsync-change-the-configuration/syncruledescription.png)
+- Create attribute flows of type **Expression** and with the source **AuthoritativeNull**. The literal **AuthoritativeNull** indicates that the value should be empty in the MV even if a lower precedence sync rule tries to populate the value.
+![Transformation for Extension Attributes](./media/active-directory-aadconnectsync-change-the-configuration/syncruletransformations.png)
+- Save the Sync Rule. Start **Synchronization Service**, find the Connector, select **Run**, and **Full Synchronization**. This step recalculates all attribute flows.
+- Verify that the intended changes are about to be exported by searching the connector space.
+![Staged delete](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
-- Leia mais sobre o modelo de configuração em [Noções básicas do provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
-- Leia mais sobre a linguagem de expressão em [Noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+## <a name="next-steps"></a>Next steps
 
-**Tópicos de visão geral**
+- Read more about the configuration model in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+- Read more about the expression language in [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 
-- [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
-- [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
+**Overview topics**
 
-<!---HONumber=AcomDC_0914_2016-->
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

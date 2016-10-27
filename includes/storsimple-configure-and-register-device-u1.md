@@ -1,71 +1,74 @@
 <!--author=alkohli last changed: 02/22/2016-->
 
 
-### Para configurar e registrar o dispositivo
+### <a name="to-configure-and-register-the-device"></a>To configure and register the device
 
-1. Acesse a interface do Windows PowerShell no console serial do dispositivo StorSimple. Consulte [Usar o PuTTY para se conectar ao console serial do dispositivo](#use-putty-to-connect-to-the-device-serial-console) para obter instruções. **Siga o procedimento corretamente ou você não conseguirá acessar o console.**
+1. Access the Windows PowerShell interface on your StorSimple device serial console. See [Use PuTTY to connect to the device serial console](#use-putty-to-connect-to-the-device-serial-console) for instructions. **Be sure to follow the procedure exactly or you will not be able to access the console.**
 
-2. Na sessão que é aberta, pressione Enter uma vez para obter um prompt de comando.
+2. In the session that opens up, press Enter one time to get a command prompt. 
 
-3. Você deverá escolher o idioma que deseja definir para seu dispositivo. Especifique o idioma e pressione Enter.
+3. You will be prompted to choose the language that you would like to set for your device. Specify the language, and then press Enter. 
 
-    ![O StorSimple configura e registra o dispositivo 1](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice1-U1-include.png)
+    ![StorSimple configure and register device 1](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice1-U1-include.png)
 
-4. No menu do console serial apresentado, escolha a opção 1 para efetuar logon com acesso completo.
+4. In the serial console menu that is presented, choose option 1 to log on with full access. 
 
-    ![Dispositivo de registro do StorSimple 2](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice2_U1-include.png)
+    ![StorSimple register device 2](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice2_U1-include.png)
   
-     Conclua as etapas de 5 a 12 para definir as configurações de rede necessárias e mínimas para seu dispositivo. **Essas etapas de configuração devem ser executadas no controlador ativo do dispositivo.** O menu do console serial indica o estado do controlador na mensagem de faixa. Se você não estiver conectado ao controlador ativo, desconecte e conecte-se ao controlador ativo.
+     Complete steps 5-12 to configure the minimum required network settings for your device. **These configuration steps need to be performed on the active controller of the device.** The serial console menu indicates the controller state in the banner message. If you are not connected to the active controller, disconnect and then connect to the active controller.
 
-5. No prompt de comando, digite sua senha. A senha do dispositivo padrão é **Senha1**.
+5. At the command prompt, type your password. The default device password is **Password1**.
 
-6. Digite o seguinte comando: `Invoke-HcsSetupWizard`.
+6. Type the following command: `Invoke-HcsSetupWizard`. 
 
-7. Um assistente de instalação aparecerá para ajudá-lo a configurar as definições da rede para o dispositivo. Forneça as seguintes informações:
-   - Endereço IP para a interface de rede DADOS 0
-   - Máscara da sub-rede
+7. A setup wizard will appear to help you configure the network settings for the device. Supply the the following information: 
+   - IP address for the DATA 0 network interface
+   - Subnet mask
    - Gateway
-   - Endereço IP do servidor DNS Primário
+   - IP address for Primary DNS server
     
-	Note que o sistema validará as configurações de rede após cada etapa no processo.
-		   
-	> [AZURE.NOTE] Você terá que aguardar alguns minutos para que a máscara da sub-rede e as configurações de DNS sejam aplicadas. Se você receber a mensagem de erro "Verificar a conectividade de rede com Dados 0", verifique a conexão de rede física na interface de rede DADOS 0 de seu controlador ativo.
-
-8. (Opcional) configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, **saiba que se você usar um proxy da Web, poderá apenas configurá-lo aqui**. Para obter mais informações, visite [Configurar proxy da Web para seu dispositivo](../articles/storsimple/storsimple-configure-web-proxy.md).
-
-9. Configure um servidor NTP primário para seu dispositivo. Os servidores NTP são necessários, pois seu dispositivo deve sincronizar a hora para que ele possa se autenticar com seus provedores de serviço de nuvem. Verifique se sua rede permite que o tráfego NTP passe do data center para a Internet. Se isso não for possível, especifique um servidor NTP interno.
- 
-10. Por motivos de segurança, a senha de administrador do dispositivo expira após a primeira sessão, e você precisará alterá-la agora. Quando solicitado, forneça uma senha de administrador do dispositivo. Uma senha de administrador do dispositivo válida deve ter entre 8 e 15 caracteres. A senha deve conter três das seguintes opções: caracteres com letras minúsculas e maiúsculas, numéricos e especiais.
-
-	<br/>![Dispositivo de registro do StorSimple 5](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice5_U1-include.png)
-
-11. A etapa final do assistente de instalação registra seu dispositivo no serviço Gerenciador StorSimple. Para isso, será necessária a chave de registro do serviço obtida na etapa 2. Depois de fornecer a chave de registro, talvez seja necessário aguardar de 2 a 3 minutos antes do dispositivo ser registrado.
-
-      > [AZURE.NOTE] Você pode pressionar Ctrl + C a qualquer momento para sair do assistente de instalação. Se você tiver inserido todas as configurações de rede (endereço IP para Dados 0, Máscara de sub-rede e Gateway), as entradas serão mantidas.
-
-	![Dispositivo de registro do StorSimple 6](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice6_U1-include.png)
-
-12. Depois do dispositivo ser registrado, uma chave de Criptografia de Dados do Serviço será exibida. Copie essa chave e salve-a em um local seguro. **Essa chave será necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço Gerenciador StorSimple.** Consulte a [segurança do StorSimple](../articles/storsimple/storsimple-security.md) para obter mais informações sobre essa chave.
-	
-	![Dispositivo de registro do StorSimple 7](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice7_U1-include.png)
-
-      > [AZURE.NOTE] Para copiar o texto da janela do console serial, basta selecionar o texto. Então, você conseguirá colá-lo na área de transferência ou em qualquer editor de texto. NÃO use Ctrl + C para copiar a chave de criptografia de dados do serviço. Usar Ctrl + C fará com que você saia do assistente de instalação. Como resultado, a senha de administrador do dispositivo não será alterada, e o dispositivo voltará para a senha padrão.
-
-13. Saia do console serial.
-
-14. Volte para o portal clássico do Azure e realize as seguintes etapas:
-  1. Clique duas vezes no serviço Gerenciador StorSimple para acessar a página**Início Rápido**.
-  2. Clique em **Exibir dispositivos conectados**.
-  3. Na página **Dispositivos**, verifique se o dispositivo conectou com êxito o serviço pesquisando o status. O status do dispositivo deve ser **Online**.
+        Note that the system is validating network settings after each step in the process.
    
-	![Página dos Dispositivos StorSimple](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png)
+      > [AZURE.NOTE] You may have to wait for a few minutes for the subnet mask and the DNS settings to be applied. If you get a "Check the network connectivity to Data 0" error message, check the physical network connection on the DATA 0 network interface of your active controller.
+
+8. (Optional) configure your web proxy server. Although web proxy configuration is optional, **be aware that if you use a web proxy, you can only configure it here**. For more information, go to [Configure web proxy for your device](../articles/storsimple/storsimple-configure-web-proxy.md).
+
+9. Configure a Primary NTP server for your device. NTP servers are required, as your device must synchronize time so that it can authenticate with your cloud service providers. Ensure that your network allows NTP traffic to pass from your datacenter to the Internet. If this is not possible, specify an internal NTP server. 
+ 
+10. For security reasons, the device administrator password expires after the first session, and you will need to change it now. When prompted, provide a device administrator password. A valid device administrator password must be between 8 and 15 characters. The password must contain three of the following: lowercase, uppercase, numeric, and special characters.
+
+    <br/>![StorSimple register device 5](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice5_U1-include.png)
+
+11. The final step in the setup wizard registers your device with the StorSimple Manager service. For this, you will need the service registration key that you obtained in step 2. After you supply the registration key, you may need to wait for 2-3 minutes before the device is registered.
+
+      > [AZURE.NOTE] You can press Ctrl + C at any time to exit the setup wizard. If you have entered all the network settings (IP address for Data 0, Subnet mask, and Gateway), your entries will be retained.
+
+    ![StorSimple register device 6](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice6_U1-include.png)
+
+12. After the device is registered, a Service Data Encryption key will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Manager service.** Refer to [StorSimple security](../articles/storsimple/storsimple-security.md) for more information about this key.
+    
+    ![StorSimple register device 7](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice7_U1-include.png)    
+
+      > [AZURE.NOTE] To copy the text from the serial console window, simply select the text. You should then be able to paste it in the clipboard or any text editor. DO NOT use Ctrl + C to copy the service data encryption key. Using Ctrl + C will cause you to exit the setup wizard. As a result, the device administrator password will not be changed and the device will revert to the default password.
+
+13. Exit the serial console.
+
+14. Return to the Azure classic portal, and complete the following steps:
+  1. Double-click your StorSimple Manager service to access the **Quick Start** page.
+  2. Click **View connected devices**.
+  3. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**.
+   
+        ![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
   
-	Se o status do dispositivo for **Offline**, aguarde um momento até que o dispositivo fique online.
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
 
-	Se o dispositivo continuar offline após alguns minutos, você precisará certificar-se de que a rede do firewall foi configurada conforme descrito nos [requisitos de rede para seu dispositivo StorSimple](../articles/storsimple/storsimple-system-requirements.md).
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in [networking requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
 
-	Verifique se a porta 9354 está aberta para comunicações de saída, pois ela é usada pelo barramento de serviço para a comunicação serviço-dispositivo do StorSimple Manager.
+        Verify that port 9354 is open for outbound communication as this is used by the service bus for StorSimple Manager Service-to-device communication.
      
        
 
-<!---HONumber=AcomDC_0224_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

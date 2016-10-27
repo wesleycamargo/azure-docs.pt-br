@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Implante seu serviço do StorSimple Manager | Microsoft Azure"
-   description="Explica como criar e excluir o serviço StorSimple Manager no portal clássico do Azure, além de descrever como gerenciar a chave de registro de serviço."
+   pageTitle="Deploy the StorSimple Manager service | Microsoft Azure"
+   description="Explains how to create and delete the StorSimple Manager service in the Azure classic portal, and describes how to manage the service registration key."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -15,104 +15,109 @@
    ms.date="05/24/2016"
    ms.author="v-sharos" />
 
-# Implantar o serviço StorSimple Manager
 
-## Visão geral
+# <a name="deploy-the-storsimple-manager-service"></a>Deploy the StorSimple Manager service
 
-O serviço StorSimple Manager é executado no Microsoft Azure e se conecta a vários dispositivos StorSimple. Depois de criar o serviço, você pode usá-lo para gerenciar os dispositivos no portal clássico do Microsoft Azure em execução em um navegador. Isso permite monitorar todos os dispositivos que estão conectados ao serviço StorSimple Manager de um local único e central, minimizando a sobrecarga administrativa.
+## <a name="overview"></a>Overview
 
-A página de aterrissagem do StorSimple Manager lista todos os serviços StorSimple Manager que você pode usar para gerenciar os dispositivos de armazenamento do StorSimple. Para cada serviço StorSimple Manager, as informações a seguir são apresentadas na página do StorSimple Manager:
+The StorSimple Manager service runs in Microsoft Azure and connects to multiple StorSimple devices. After you create the service, you can use it to manage the devices from the Microsoft Azure classic portal running in a browser. This allows you to monitor all the devices that are connected to the StorSimple Manager service from a single, central location, thereby minimizing administrative burden.
 
-- **Nome**: o nome que foi atribuído ao serviço StorSimple Manager quando ele foi criado. O nome do serviço não pode ser alterado depois que o serviço é criado.
+The StorSimple Manager landing page lists all the StorSimple Manager services that you can use to manage your StorSimple storage devices. For each StorSimple Manager service, the following information is presented on the StorSimple Manager page:
 
-- **Status**: o status do serviço, que pode ser **Ativo**, **Criando** ou **Online**.
+- **Name** – The name that was assigned to your StorSimple Manager service when it was created. The service name cannot be changed after the service is created.
 
-- **Local**: a localização geográfica em que o dispositivo StorSimple será implantado.
+- **Status** – The status of the service, which can be **Active**, **Creating**, or **Online**.
 
-- **Assinatura**: a assinatura de cobrança associada ao seu serviço.
+- **Location** – The geographical location in which the StorSimple device will be deployed.
 
-As tarefas comuns que podem ser executadas pela página do StorSimple Manager são:
+- **Subscription** – The billing subscription that is associated with your service.
 
-- Criar um serviço
-- Excluir um serviço
-- Obtenha a chave de registro do serviço
-- Regenerar a chave de registro do serviço
+The common tasks that can be performed through the StorSimple Manager page are:
 
-Este tutorial descreve como executar cada uma dessas tarefas.
+- Create a service
+- Delete a service
+- Get the service registration key
+- Regenerate the service registration key
 
-## Criar um serviço
+This tutorial describes how to perform each of these tasks.
 
-Use a opção **Criação Rápida** para criar um serviço StorSimple Manager se deseja implantar seu dispositivo StorSimple. Para criar um serviço, você precisa ter:
+## <a name="create-a-service"></a>Create a service
 
-- Uma assinatura com um Enterprise Agreement
-- Uma conta de armazenamento ativa do Microsoft Azure
-- As informações de cobrança que são usadas para gerenciamento de acesso
+Use the **Quick Create** option to create a StorSimple Manager service if you want to deploy your StorSimple device. To create a service, you need to have:
 
-Também é possível optar por gerar uma conta de armazenamento padrão ao criar o serviço.
+- A subscription with an Enterprise Agreement
+- An active Microsoft Azure storage account
+- The billing information that is used for access management
 
-Um único serviço pode gerenciar vários dispositivos. No entanto, um dispositivo não pode abranger vários serviços. Uma grande empresa pode ter várias instâncias do serviço para trabalhar com diferentes assinaturas, organizações ou até mesmo locais de implantação. Observe que você precisa de instâncias separadas do serviço StorSimple Manager para gerenciar as Matrizes Virtuais e os dispositivos da série 8000 do StorSimple.
+You can also choose to generate a default storage account when you create the service.
 
-Execute as etapas a seguir para criar um serviço.
+A single service can manage multiple devices. However, a device cannot span multiple services. A large enterprise can have multiple service instances to work with different subscriptions, organizations, or even deployment locations. Please note that you need separate instances of StorSimple Manager service to manage StorSimple 8000 series devices and StorSimple Virtual Arrays.
+
+Perform the following steps to create a service.
 
 [AZURE.INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
 
-## Excluir um serviço
+## <a name="delete-a-service"></a>Delete a service
 
-Antes de excluir um serviço, verifique se nenhum dispositivo conectado está usando ele. Se o serviço estiver em uso, desative os dispositivos conectados. A operação de desativação desfaz a conexão entre o dispositivo e o serviço, mas preserva os dados do dispositivo na nuvem.
+Before you delete a service, make sure that no connected devices are using it. If the service is in use, deactivate the connected devices. The deactivate operation will sever the connection between the device and the service, but preserve the device data in the cloud. 
 
-[AZURE.IMPORTANT] Depois que um serviço é excluído, a operação não pode ser revertida. Qualquer dispositivo que estava usando o serviço precisará ser redefinida para as configurações de fábrica para que possa ser usado com outro serviço. Nesse cenário, os dados locais no dispositivo, bem como a configuração, serão perdidos.
+[AZURE.IMPORTANT] After a service is deleted, the operation cannot be reversed. Any device that was using the service will need to be factory reset before it can be used with another service. In this scenario, the local data on the device, as well as the configuration, will be lost.
 
-Execute as etapas a seguir para excluir um serviço.
+Perform the following steps to delete a service.
 
-### Para excluir um serviço
+### <a name="to-delete-a-service"></a>To delete a service
 
-1. Na página **Serviço StorSimple Manager**, selecione o serviço que deseja excluir.
+1. On the **StorSimple Manager service** page, select the service that you wish to delete.
 
-1. Clique em **Excluir** na parte inferior da página.
+1. Click **Delete** at the bottom of the page.
 
-1. Clique em **Sim** na notificação de confirmação. Pode levar alguns minutos para que o serviço seja excluído.
+1. Click **Yes** in the confirmation notification. It may take a few minutes for the service to be deleted.
 
-## Obtenha a chave de registro do serviço
+## <a name="get-the-service-registration-key"></a>Get the service registration key
 
-Depois de ter criado um serviço com êxito, você precisará registrar o dispositivo StorSimple no serviço. Para registrar seu primeiro dispositivo StorSimple, será necessária a chave de registro do serviço. Para registrar dispositivos adicionais em um serviço StorSimple existente, serão necessárias a chave de registro e a chave de criptografia dos dados de serviço (que é gerada durante o registro do primeiro dispositivo). Para obter mais informações sobre a chave de criptografia dos dados de serviço, consulte [Segurança do StorSimple](storsimple-security.md). Você pode obter a chave de registro acessando **Chave de Registro** na página **Serviços**.
+After you have successfully created a service, you will need to register your StorSimple device with the service. To register your first StorSimple device, you will need the service registration key. To register additional devices with an existing StorSimple service, you will need both the registration key and the service data encryption key (which is generated on the first device during registration). For more information about the service data encryption key, see [StorSimple security](storsimple-security.md). You can get the registration key by accessing **Registration Key** on the **Services** page.
 
-Execute as etapas a seguir para obter a chave de registro do serviço.
+Perform the following steps to get the service registration key.
 
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
-Mantenha a chave de registro do serviço em local seguro. Você precisará dessa chave, bem como da chave de criptografia dos dados de serviço, para registrar dispositivos adicionais nesse serviço. Depois de obter a chave de registro do serviço, você precisará configurar o dispositivo usando o Windows PowerShell para interface do StorSimple.
+Keep the service registration key in a safe location. You will need this key, as well as the service data encryption key, to register additional devices with this service. After obtaining the service registration key, you will need to configure your device through the Windows PowerShell for StorSimple interface.
 
-Para obter detalhes sobre como usar essa chave de registro, consulte [Etapa 3: Configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](storsimple-deployment-walkthrough.md#step-2-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+For details on how to use this registration key, see [Step 3: Configure and register the device through Windows PowerShell for StorSimple](storsimple-deployment-walkthrough.md#step-2-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
-## Regenerar a chave de registro do serviço
+## <a name="regenerate-the-service-registration-key"></a>Regenerate the service registration key
 
-Você precisará regenerar uma chave de registro de serviço se tiver que executar a rotação de chave ou se a lista de administradores de serviço tiver mudado. Quando você regenera a chave, a nova chave é usada somente para registrar dispositivos subsequentes. Os dispositivos que já foram registrados não serão afetados por esse processo.
+You will need to regenerate a service registration key if you are required to perform key rotation or if the list of service administrators has changed. When you regenerate the key, the new key is used only for registering subsequent devices. The devices that were already registered are unaffected by this process.
 
-Execute as etapas a seguir para regenerar uma chave de registro de serviço.
+Perform the following steps to regenerate a service registration key.
 
-### Para regenerar a chave de registro de serviço
+### <a name="to-regenerate-the-service-registration-key"></a>To regenerate the service registration key
 
-1. Na página **Serviço StorSimple Manager**, clique em **Chave de Registro**.
+1. On the **StorSimple Manager service** page, click **Registration Key**.
 
-1. Na caixa de diálogo **Chave de Registro de Serviço**, clique em **Regenerar**.
+1. In the **Service Registration Key** dialog box, click **Regenerate**.
 
-1. Você verá uma mensagem de confirmação. Clique em **OK** para continuar com a regeneração.
+1. You will see a confirmation message. Click **OK** to continue with the regeneration.
 
-1. Uma nova chave de registro de serviço será exibida.
+1. A new service registration key will appear.
 
-1. Copie essa chave e salve-a para registrar todos os novos dispositivos nesse serviço.
+1. Copy this key and save it for registering any new devices with this service.
 
-1. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-manage-service/HCS_CheckIcon.png) para fechar essa caixa de diálogo.
+1. Click the check icon ![Check icon](./media/storsimple-manage-service/HCS_CheckIcon.png) to close this dialog box.
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Saiba mais sobre o [processo de implantação do StorSimple](storsimple-deployment-walkthrough.md).
+- Learn more about the [StorSimple deployment process](storsimple-deployment-walkthrough.md).
 
-- [Saiba mais sobre como gerenciar sua conta de armazenamento do StorSimple](storsimple-manage-storage-accounts.md).
+- Learn more about [managing your StorSimple storage account](storsimple-manage-storage-accounts.md).
 
-- Saiba mais sobre como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Learn more about how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

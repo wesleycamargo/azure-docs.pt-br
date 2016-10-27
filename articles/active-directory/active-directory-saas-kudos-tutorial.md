@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integração do Active Directory do Azure com o Kudos | Microsoft Azure" 
-    description="Saiba como usar o Kudos com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    pageTitle="Tutorial: Azure Active Directory integration with Kudos | Microsoft Azure" 
+    description="Learn how to use Kudos with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,152 +11,156 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/08/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Tutorial: Integração do Active Directory do Azure com o Kudos
+
+#<a name="tutorial:-azure-active-directory-integration-with-kudos"></a>Tutorial: Azure Active Directory integration with Kudos
   
-O objetivo deste tutorial é mostrar a integração do Azure com o Kudos.  
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+The objective of this tutorial is to show the integration of Azure and Kudos.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Uma assinatura válida do Azure
--   Um locatário do Kudos
+-   A valid Azure subscription
+-   A Kudos tenant
   
-Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Kudos poderão fazer logon único no aplicativo em seu site de empresa do Kudos (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Kudos will be able to single sign into the application at your Kudos company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Habilitando a integração de aplicativos para o Kudos
-2.  Configurando o logon único
-3.  Configurando o provisionamento de usuários
-4.  Atribuindo usuários
+1.  Enabling the application integration for Kudos
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Cenário](./media/active-directory-saas-kudos-tutorial/IC787799.png "Cenário")
-##Habilitando a integração de aplicativos para o Kudos
+![Scenario](./media/active-directory-saas-kudos-tutorial/IC787799.png "Scenario")
+##<a name="enabling-the-application-integration-for-kudos"></a>Enabling the application integration for Kudos
   
-O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Kudos.
+The objective of this section is to outline how to enable the application integration for Kudos.
 
-###Para habilitar a integração de aplicativos com o Kudos, execute as seguintes etapas:
+###<a name="to-enable-the-application-integration-for-kudos,-perform-the-following-steps:"></a>To enable the application integration for Kudos, perform the following steps:
 
-1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-kudos-tutorial/IC700993.png "Active Directory")
 
-2.  Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicativos](./media/active-directory-saas-kudos-tutorial/IC700994.png "Aplicativos")
+    ![Applications](./media/active-directory-saas-kudos-tutorial/IC700994.png "Applications")
 
-4.  Clique em **Adicionar** na parte inferior da página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Adicionar aplicativo](./media/active-directory-saas-kudos-tutorial/IC749321.png "Adicionar aplicativo")
+    ![Add application](./media/active-directory-saas-kudos-tutorial/IC749321.png "Add application")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-kudos-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
+    ![Add an application from gallerry](./media/active-directory-saas-kudos-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Na **caixa de pesquisa**, digite **Kudos**.
+6.  In the **search box**, type **Kudos**.
 
-    ![Galeria de Aplicativos](./media/active-directory-saas-kudos-tutorial/IC787800.png "Galeria de aplicativos")
+    ![Application Gallery](./media/active-directory-saas-kudos-tutorial/IC787800.png "Application Gallery")
 
-7.  No painel de resultados, selecione **Kudos** e clique em **Concluir** para adicionar o aplicativo.
+7.  In the results pane, select **Kudos**, and then click **Complete** to add the application.
 
     ![Kudos](./media/active-directory-saas-kudos-tutorial/IC787801.png "Kudos")
-##Configurando o logon único
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Kudos com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
-Como parte desse procedimento, é necessário criar um arquivo de certificado codificado em base 64.  
-Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+The objective of this section is to outline how to enable users to authenticate to Kudos with their account in Azure AD using federation based on the SAML protocol.  
+As part of this procedure, you are required to create a base-64 encoded certificate file.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-###Para configurar o logon único, execute as seguintes etapas:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  No portal clássico do Azure, na página de integração de aplicativos do **Kudos**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  In the Azure classic portal, on the **Kudos** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurar o logon único](./media/active-directory-saas-kudos-tutorial/IC787802.png "Configurar logon único")
+    ![Configure single sign-on](./media/active-directory-saas-kudos-tutorial/IC787802.png "Configure single sign-on")
 
-2.  Na página **Como você deseja que os usuários façam logon no Kudos**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
+2.  On the **How would you like users to sign on to Kudos** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar logon único](./media/active-directory-saas-kudos-tutorial/IC787803.png "Configurar logon único")
+    ![Configure single sign-on](./media/active-directory-saas-kudos-tutorial/IC787803.png "Configure single sign-on")
 
-3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Entrada do Kudos**, digite a URL usando o padrão "*https://company.kudosnow.com*" e clique em **Avançar**.
+3.  On the **Configure App URL** page, in the **Kudos Sign On URL** textbox, type your URL using the following pattern "*https://company.kudosnow.com*", and then click **Next**.
 
-    ![Configurar a URL do Aplicativo](./media/active-directory-saas-kudos-tutorial/IC787804.png "Configurar a URL do Aplicativo
-")
+    ![Configure App URL](./media/active-directory-saas-kudos-tutorial/IC787804.png "Configure App URL")
 
-4.  Na página **Configurar logon único no Kudos**, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
+4.  On the **Configure single sign-on at Kudos** page, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configurar logon único](./media/active-directory-saas-kudos-tutorial/IC787805.png "Configurar logon único")
+    ![Configure single sign-on](./media/active-directory-saas-kudos-tutorial/IC787805.png "Configure single sign-on")
 
-5.  Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Kudos como administrador.
+5.  In a different web browser window, log into your Kudos company site as an administrator.
 
-6.  No menu na parte superior, clique em **Configurações**.
+6.  In the menu on the top, click **Settings**.
 
-    ![Configurações](./media/active-directory-saas-kudos-tutorial/IC787806.png "Configurações")
+    ![Settings](./media/active-directory-saas-kudos-tutorial/IC787806.png "Settings")
 
-7.  Clique em **Integrações > SSO**.
+7.  Click **Integrations \> SSO**.
 
-8.  Na seção **SSO**, realize as seguintes etapas:
+8.  In the **SSO** section, perform the following steps:
 
     ![SSO](./media/active-directory-saas-kudos-tutorial/IC787807.png "SSO")
 
-    1.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Kudos**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon**.
-	2.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.  
+    1.  In the Azure classic portal, on the **Configure single sign-on at Kudos** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign on URL ** textbox.
+    2.  Create a **base-64 encoded** file from your downloaded certificate.  
 
         >[AZURE.TIP]
-        Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-    3.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509**
-    4.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Kudos**, copie o valor da **URL do Serviço de Logoff Único** e cole-o na caixa de texto **URL de Logoff**.
-	5.  Na caixa de texto **Sua URL do Kudos**, digite o nome de sua empresa.
-    6.  Clique em **Salvar**.
+    3.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 certificate** textbox
+    4.  In the Azure classic portal, on the **Configure single sign-on at Kudos** dialog page, copy the **Single Sign-Out Service URL** value, and then paste it into the **Logout To URL ** textbox.
+    5.  In the **Your Kudos URL** textbox, type your company name.
+    6.  Click **Save**.
 
-9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurar o logon único](./media/active-directory-saas-kudos-tutorial/IC787808.png "Configurar logon único")
-##Configurando o provisionamento de usuários
+    ![Configure single sign-on](./media/active-directory-saas-kudos-tutorial/IC787808.png "Configure single sign-on")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Para permitir que os usuários do AD do Azure façam logon no Kudos, eles devem ser provisionados no Kudos. No caso do Kudos, o provisionamento é uma tarefa manual.
+In order to enable Azure AD users to log into Kudos, they must be provisioned into Kudos.  
+In the case of Kudos, provisioning is a manual task.
 
-###Para provisionar contas de usuário, execute as seguintes etapas:
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Faça logon em seu site de empresa do **Kudos** como administrador.
+1.  Log in to your **Kudos** company site as administrator.
 
-2.  No menu na parte superior, clique em **Configurações**.
+2.  In the menu on the top, click **Settings**.
 
-    ![Configurações](./media/active-directory-saas-kudos-tutorial/IC787806.png "Configurações")
+    ![Settings](./media/active-directory-saas-kudos-tutorial/IC787806.png "Settings")
 
-3.  Clique em **Usuário Administrador**.
+3.  Click **User Admin**.
 
-4.  Clique na guia **Usuários** e, em seguida, clique em **Adicionar um usuário**.
+4.  Click the **Users** tab, and then click **Add a user**.
 
-    ![Usuário administrador](./media/active-directory-saas-kudos-tutorial/IC787809.png "Usuário administrador")
+    ![User Admin](./media/active-directory-saas-kudos-tutorial/IC787809.png "User Admin")
 
-5.  Na seção **Adicionar um Usuário**, execute as seguintes etapas:
+5.  In the **Add a User** section, perform the following steps:
 
-    ![Adicionar um usuário](./media/active-directory-saas-kudos-tutorial/IC787810.png "Adicionar um Usuário")
+    ![Add a User](./media/active-directory-saas-kudos-tutorial/IC787810.png "Add a User")
 
-    1.  Digite o **Nome**, **Sobrenome** e **Email** e outros detalhes de uma conta válida do Active Directory do Azure que você deseja provisionar nas caixas de texto relacionadas.
-    2.  Clique em **Criar Usuário**.
+    1.  Type the **First Name**, **Last Name**, **Email** and other details of a valid Azure Active Directory account you want to provision into the related textboxes.
+    2.  Click **Create User**.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Kudos ou APIs fornecidas pelo Kudos para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE]You can use any other Kudos user account creation tools or APIs provided by Kudos to provision AAD user accounts.
 
-##Atribuindo usuários
+##<a name="assigning-users"></a>Assigning users
   
-Para testar sua configuração, é necessário conceder aos usuários do AD do Azure que você deseja que usem seu aplicativo acesso a ele.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para atribuir usuários ao Kudos, execute as seguintes etapas:
+###<a name="to-assign-users-to-kudos,-perform-the-following-steps:"></a>To assign users to Kudos, perform the following steps:
 
-1.  No Portal clássico do Azure, crie uma conta de teste.
+1.  In the Azure classic portal, create a test account.
 
-2.  Na página de integração de aplicativos do **Kudos**, clique em **Atribuir usuários**.
+2.  On the **Kudos **application integration page, click **Assign users**.
 
-    ![Atribuir usuários](./media/active-directory-saas-kudos-tutorial/IC787811.png "Atribuir usuários")
+    ![Assign users](./media/active-directory-saas-kudos-tutorial/IC787811.png "Assign users")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sim](./media/active-directory-saas-kudos-tutorial/IC767830.png "Sim")
+    ![Yes](./media/active-directory-saas-kudos-tutorial/IC767830.png "Yes")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

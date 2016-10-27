@@ -1,41 +1,47 @@
 <properties
-	pageTitle="Sobre as máquinas virtuais do Linux | Microsoft Azure"
-	description="Saiba mais sobre os conceitos básicos das máquinas virtuais do Linux no Azure usando os dois modelos de implantação."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="About Linux virtual machines | Microsoft Azure"
+    description="Learn about the basics of Linux virtual machines in Azure using both deployment models."
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/15/2016"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/15/2016"
+    ms.author="cynthn"/>
 
-#Sobre máquinas virtuais do Linux no Azure
+
+#<a name="about-linux-virtual-machines-in-azure"></a>About Linux virtual machines in Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-Máquinas Virtuais do Azure é um dos vários tipos de recursos de computação sob demanda escalonáveis oferecidos pelo Azure. Normalmente, você escolhe uma máquina virtual quando precisa de mais controle sobre o ambiente de computação do que as outras opções oferecem.
+Azure Virtual Machines is one of several types of on-demand, scalable computing resources that Azure offers. Typically, you'll choose a virtual machine if you need more control over the computing environment than the other choices offer.
 
-Uma máquina virtual do Azure oferece a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que executa a máquina virtual. No entanto, você ainda precisa manter a máquina virtual – configurar, corrigir e manter o software executado nela. Você também pode aprender [sobre máquinas virtuais do Windows no Azure](virtual-machines-windows-about.md).
+An Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine. However, you still need to maintain the virtual machine -- configuring, patching, and maintaining the software that runs on the virtual machine. You can also learn [about Windows virtual machines in Azure](virtual-machines-windows-about.md).
 
-Esta tabela ajuda a comparar as opções oferecidas pelo Azure.
+This table helps you compare the choices offered by Azure.
 
 [AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Avalie uma máquina virtual criando uma máquina virtual simples rapidamente. Para obter instruções, veja [Criar uma máquina virtual que executa o Linux](virtual-machines-linux-quick-create-cli.md).
+Try out a virtual machine by creating a simple virtual machine quickly. For instructions, see [Create a virtual machine running Linux](virtual-machines-linux-quick-create-cli.md).
 
-Como o tutorial ajuda a criar uma máquina virtual rapidamente, ele mostra apenas uma maneira de fazer isso, em vez de descrever as várias ferramentas que podem ser usada para criar máquinas virtuais. Para obter um resumo dessas ferramentas e os links para as instruções, veja [Diferentes maneiras de criar uma máquina virtual Linux](virtual-machines-linux-creation-choices.md).
+Because the tutorial helps you create a virtual machine quickly, it only shows you one way to do it instead of describing the various tools you can use to create virtual machines. For a summary of these tools and links to instructions, see [Different ways to create a Linux virtual machine](virtual-machines-linux-creation-choices.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

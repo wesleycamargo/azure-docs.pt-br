@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Práticas Recomendadas para o SQL Data Warehouse | Microsoft Azure"
-   description="Recomendações e práticas recomendadas que você deve saber quando for desenvolver soluções para o SQL Data Warehouse do Azure. Isto irá ajudá-lo a alcançar o sucesso."
+   pageTitle="Best practices for Azure SQL Data Warehouse | Microsoft Azure"
+   description="Recommendations and best practices you should know as you develop solutions for Azure SQL Data Warehouse. These will help you be successful."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -10,153 +10,151 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="09/04/2016"
    ms.author="sonyama;barbkess"/>
 
-# Práticas recomendadas para o Azure SQL Data Warehouse
 
-Este artigo é uma coleção de muitas práticas recomendadas que ajudarão você a obter o desempenho ideal do seu Azure SQL Data Warehouse. Alguns conceitos neste artigo são básicos e fáceis de explicar, outros são mais avançados e os abordamos apenas superficialmente neste artigo. A finalidade deste artigo é dar algumas orientações básicas e aumentar o reconhecimento dos pontos importantes a serem considerados ao criar seu data warehouse. Cada seção apresenta um conceito e aponta para artigos mais detalhados que abordam o conceito com maior profundidade.
+# <a name="best-practices-for-azure-sql-data-warehouse"></a>Best practices for Azure SQL Data Warehouse
 
-Se você está apenas começando a usar o SQL Data Warehouse, não deixe que este artigo assuste você. A sequência dos tópicos está, em sua maioria, na ordem de importância. Se você começar focando nos primeiros conceitos, já está de bom tamanho. Conforme você se familiariza e se sente mais à vontade usando o SQL Data Warehouse, volte e examine mais alguns conceitos. Não irá demorar muito para que tudo faça sentido.
+This article is a collection of many best practices that will help you to achieve optimal performance from your Azure SQL Data Warehouse.  Some of the concepts in this article are basic and easy to explain, other concepts are more advanced and we just scratch the surface in this article.  The purpose of this article is to give you some basic guidance and to raise awareness of important areas to focus as you build your data warehouse.  Each section introduces you to a concept and then point you to more detailed articles which cover the concept in more depth.
 
-## Reduzir custos com pausa e dimensionamento
+If you are just getting started with Azure SQL Data Warehouse, do not let this article overwhelm you.  The sequence of the topics is mostly in the order of importance.  If you start by focusing on the first few concepts, you'll be in good shape.  As you get more familiar and comfortable with using SQL Date Warehouse, come back and look at a few more concepts.  It won't take long for everything to make sense.
 
-Um recurso importante do SQL Data Warehouse é a capacidade de pausar quando você não está usando-o, o que interrompe a cobrança dos recursos de computação. Outro recurso importante é a capacidade de dimensionar os recursos. A Pausa e o Dimensionamento podem ser feitos no Portal do Azure ou pelos comandos do PowerShell. Familiarize-se com esses recursos, pois eles podem reduzir bastante o custo do data warehouse quando ele não estiver em uso. Se quiser seu data warehouse esteja sempre acessível, convém considerar dimensioná-lo para ter o menor tamanho, um DW100 em vez de pausar.
+## <a name="reduce-cost-with-pause-and-scale"></a>Reduce cost with pause and scale
 
-Consulte também [Pausar os recursos de computação][], [Retomar os recursos de computação][], [Dimensionar os recursos de computação][]
+A key feature of SQL Data Warehouse is the ability to pause when you are not using it, which stops the billing of compute resources.  Another key feature is the ability to scale resources.  Pausing and Scaling can be done via the Azure portal or through PowerShell commands.  Become familiar with these features as they can greatly reduce the cost of your data warehouse when it is not in use.  If you always want your data warehouse accessible, you may want to consider scaling it down to the smallest size, a DW100 rather than pausing.
+
+See also [Pause compute resources][], [Resume compute resources][], [Scale compute resources][]
 
 
-## Esvaziar as transações antes de pausar ou dimensionar 
+## <a name="drain-transactions-before-pausing-or-scaling"></a>Drain transactions before pausing or scaling 
 
-Ao pausar ou dimensionar o SQL Data Warehouse, nos bastidores, suas consultas são canceladas quando você inicia a pausa ou dimensionar a solicitação. Cancelar uma simples consulta SELECT é uma operação rápida e quase não terá impacto sobre o tempo que leva para pausar ou dimensionar sua instância. No entanto, as consultas transacionais, que modificam os dados ou a estrutura dos dados, não conseguirão parar rapidamente. **As consultas transacionais, por definição, devem ser concluídas na íntegra ou reverter suas alterações.** Reverter o trabalho concluído por uma consulta transacional pode levar tanto tempo, ou até mais, quanto a alteração original que a consulta estava aplicando. Por exemplo, se você cancelar uma consulta que estava excluindo linhas que já estava em execução por uma hora, poderá levar uma hora para o sistema inserir de volta as linhas que foram excluídas. Se você executar a pausa ou o dimensionamento enquanto as transações estiverem em andamento, a pausa ou o dimensionamento poderão demorar muito tempo porque eles têm que esperar a reversão ser concluída antes de prosseguir.
+When you pause or scale your SQL Data Warehouse, behind the scenes your queries are canceled when you initiate the pause or scale request.  Canceling a simple SELECT query is a quick operation and has almost no impact to the time it takes to pause or scale your instance.  However, transactional queries, which modify your data or the structure of the data, may not be able to stop quickly.  **Transactional queries, by definition, must either complete in their entirety or rollback their changes.**  Rolling back the work completed by a transactional query can take as long, or even longer, than the original change the query was applying.  For example, if you cancel a query which was deleting rows and has already been running for an hour, it could take the system an hour to insert back the rows which were deleted.  If you run pause or scaling while transactions are in flight, your pause or scaling may seem to take a long time because pausing and scaling has to wait for the rollback to complete before it can proceed.
 
-Confira também [Compreendendo as transações][], [Otimizando as transações][]
+See also [Understanding transactions][], [Optimizing transactions][]
 
-## Manter as estatísticas
+## <a name="maintain-statistics"></a>Maintain statistics
 
-Ao contrário do SQL Server, que detecta e cria automaticamente ou atualiza as estatísticas em colunas, o SQL Data Warehouse requer uma manutenção manual das estatísticas. Embora estejamos planejando alterar isso no futuro, por enquanto você deve manter as estatísticas para assegurar que os planos do SQL Data Warehouse sejam otimizados. Os planos criados pelo otimizador são tão bons quanto as estatísticas disponíveis. **Criar estatísticas de exemplo em cada coluna é uma maneira fácil de começar a usar as estatísticas.** É igualmente importante atualizar as estatísticas quando ocorrem alterações significativas em seus dados. Pode ser uma abordagem conservadora atualizar as estatísticas diariamente ou após cada carga. Sempre há compensações entre o desempenho e o custo para a criação e a atualização das estatísticas. Se você achar que está demorando muito para manter todas as estatísticas, convém tentar ser mais seletivo sobre quais colunas têm estatísticas ou quais colunas precisam de uma atualização frequente. Por exemplo, convém atualizar as colunas de data, onde novos valores podem ser adicionados, diariamente. **Você terá mais benefícios se tiver estatísticas em colunas envolvidas em junções, colunas usadas na cláusula WHERE e colunas encontradas em GROUP BY.**
+Unlike SQL Server, which automatically detects and creates or updates statistics on columns, SQL Data Warehouse requires manual maintenance of statistics.  While we do plan to change this in the future, for now you will want to maintain your statistics to ensure that the SQL Data Warehouse plans are optimized.  The plans created by the optimizer are only as good as the available statistics.  **Creating sampled statistics on every column is an easy way to get started with statistics.**  It's equally important to update statistics as significant changes happen to your data.  A conservative approach may be to update your statistics daily or after each load.  There are always trade-offs between performance and the cost to create and update statistics. If you find it is taking too long to maintain all of your statistics, you may want to try to be more selective about which columns have statistics or which columns need frequent updating.  For example, you might want to update date columns, where new values may be added, daily. **You will gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause and columns found in GROUP BY.**
 
-Confira também [Gerenciar as estatísticas da tabela][], [CREATE STATISTICS][], [UPDATE STATISTICS][]
+See also [Manage table statistics][], [CREATE STATISTICS][], [UPDATE STATISTICS][]
 
-## Agrupar instruções INSERT em lotes
+## <a name="group-insert-statements-into-batches"></a>Group INSERT statements into batches
 
-Uma única carga para uma pequena tabela com uma instrução INSERT ou mesmo uma recarga periódica de uma pesquisa pode ser útil para satisfazer suas necessidades com uma instrução como `INSERT INTO MyLookup VALUES (1, 'Type 1')`. No entanto, se você precisar carregar milhares ou milhões de linhas ao longo do dia, poderá achar que os INSERTS individuais poderão não dar conta. Em vez disso, desenvolva seus processos de modo que eles gravem em um arquivo e outro processo adiante-se periodicamente e carregue esse arquivo.
+A one-time load to a small table with an INSERT statement or even a periodic reload of a look-up may perform just fine for your needs with a statement like `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  However, if you need to load thousands or millions of rows throughout the day, you might find that singleton INSERTS just can't keep up.  Instead, develop your processes so that they write to a file and another process periodically comes along and loads this file.
 
-Confira também [INSERT][]
+See also [INSERT][]
  
-## Use o PolyBase para carregar e exportar dados rapidamente
+## <a name="use-polybase-to-load-and-export-data-quickly"></a>Use PolyBase to load and export data quickly
 
-O SQL Data Warehouse oferece suporte ao carregamento e exportação dos dados por meio de várias ferramentas, incluindo o Azure Data Factory, PolyBase e BCP. Para pequenas quantidades de dados em que o desempenho não é essencial, qualquer ferramenta poderá ser suficiente para satisfazer suas necessidades. No entanto, quando você estiver carregando ou exportando grandes volumes de dados ou um desempenho rápido for necessário, o PolyBase será a melhor opção. O PolyBase foi projetado para aproveitar a arquitetura MPP (Processamento Paralelo Massivo) do SQL Data Warehouse e, portanto, carregará e exportará grandes quantidades de dados mais rapidamente do que qualquer outra ferramenta. As cargas do PolyBase podem ser executadas usando CTAS ou INSERT INTO. **Usar o CTAS minimizará o registro em log das transações e será o modo mais rápido de carregar os dados.** O Azure Data Factory também oferece suporte para as cargas do PolyBase. O PolyBase oferece suporte a vários formatos de arquivo, incluindo os arquivos Gzip. **Para maximizar a taxa de transferência ao usar os arquivos de texto gzip, divida os arquivos em 60 ou mais arquivos para maximizar o paralelismo de sua carga.** Para ter uma taxa de transferência total mais rápida, considere carregar os dados simultaneamente.
+SQL Data Warehouse supports loading and exporting data through several tools including Azure Data Factory, PolyBase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.  However, when you are loading or exporting large volumes of data or fast performance is needed, PolyBase is the best choice.  PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture of SQL Data Warehouse and will therefore load and export data magnitudes faster than any other tool.  PolyBase loads can be run using CTAS or INSERT INTO.  **Using CTAS will minimize transaction logging and the fastest way to load your data.**  Azure Data Factory also supports PolyBase loads.  PolyBase supports a variety of file formats including Gzip files.  **To maximize throughput when using gzip text files, break files up into 60 or more files to maximize parallelism of your load.**  For faster total throughput, consider loading data concurrently.
 
-Consulte também [Carregar dados][], [Guia para usar o PolyBase][], [Padrões e estratégias de carregamento do Azure SQL Data Warehouse][], [Carregar os Dados com o Azure Data Factory][], [Mover dados com o Azure Data Factory][], [CREATE EXTERNAL FILE FORMAT][], [Create table as select (CTAS)][]
+See also [Load data][], [Guide for using PolyBase][], [Azure SQL Data Warehouse loading patterns and strategies][], [Load Data with Azure Data Factory][], [Move data with Azure Data Factory][], [CREATE EXTERNAL FILE FORMAT][], [Create table as select (CTAS)][]
 
-## Carregar e consultar tabelas externas
+## <a name="load-then-query-external-tables"></a>Load then query external tables
 
-Embora o Polybase, também conhecido como tabelas externas, possa ser a maneira mais rápida de carregar dados, ele não é o ideal para consultas. As tabelas Polybase do SQL Data Warehouse atualmente são compatíveis apenas com arquivos de blob do Azure. Esses arquivos não tem quaisquer recursos de computação que os assegure. Consequentemente, o SQL Data Warehouse não pode descarregar essa carga e, portanto, deve ler o arquivo todo carregando-o no tempdb a fim de ler os dados. Desse modo, se você tiver várias consultas que usarão esses dados, é melhor carregá-los apenas uma vez e fazer com que as consultas usem a tabela local.
+While Polybase, also known as external tables, can be the fastest way to load data, it is not optimal for queries. SQL Data Warehouse Polybase tables currently only support Azure blob files. These files do not have any compute resources backing them.  As a result, SQL Data Warehouse cannot offload this work and therefore must read the entire file by loading it to tempdb in order to read the data.  Therefore, if you have several queries that will be querying this data, it is better to load this data once and have queries use the local table.
 
-Confira também [Guia para usar o PolyBase][]
+See also [Guide for using PolyBase][]
 
 
-## Tabelas grandes com distribuição Hash
+## <a name="hash-distribute-large-tables"></a>Hash distribute large tables
 
-Por padrão, as tabelas são distribuídas pelo método Round Robin. Isso facilita para os usuários começar a criar tabelas sem ter de decidir sobre como as tabelas deverão ser distribuídas. Tabelas Round Robin podem apresentar desempenho suficiente para algumas cargas de trabalho, mas, na maioria das vezes, o desempenho será muito melhor se uma coluna de distribuição for escolhida. O exemplo mais comum de quando uma tabela distribuída por uma coluna superará bastante uma tabela Round Robin ocorre quando duas tabelas de fatos grandes são unidas. Por exemplo, se você tiver uma tabela de pedidos, que é distribuída por order\_id, e uma tabela de transações, que também é distribuída por order\_id, quando você unir a tabela de pedidos e a tabela de transações em order\_id, a consulta se tornará uma consulta de passagem, o que significa que podemos eliminar as operações de movimentação de dados. Menos etapas significam uma consulta mais rápida. Menos movimento de dados também resulta em consultas mais rápidas. Essa explicação é bem superficial. Ao carregar uma tabela distribuída, verifique se os dados de entrada não estão classificados na chave de distribuição, pois isso reduzirá a velocidade das cargas. Consulte os links abaixo para obter muito mais detalhes sobre como escolher uma coluna de distribuição pode melhorar o desempenho e também como definir uma tabela distribuída na cláusula WITH da instrução CREATE TABLES.
+By default, tables are Round Robin distributed.  This makes it easy for users to get started creating tables without having to decide how their tables should be distributed.  Round Robin tables may perform sufficiently for some workloads, but in most cases selecting a distribution column will perform much better.  The most common example of when a table distributed by a column will far outperform a Round Robin table is when two large fact tables are joined.  For example, if you have an orders table, which is distributed by order_id, and a transactions table, which is also distributed by order_id, when you join your orders table to your transactions table on order_id, this query becomes a pass-through query, which means we eliminate data movement operations.  Fewer steps mean a faster query.  Less data movement also makes for faster queries.  This explanation just scratches the surface. When loading a distributed table, be sure that your incoming data is not sorted on the distribution key as this will slow down your loads.  See the below links for much more details on how selecting a distribution column can improve performance as well as how to define a distributed table in the WITH clause of your CREATE TABLES statement.
 
-Confira também [Visão geral das tabelas][], [Distribuição de tabelas][], [Selecionando a distribuição de tabelas][], [CREATE TABLE][], [CREATE TABLE AS SELECT][]
+See also [Table overview][], [Table distribution][], [Selecting table distribution][], [CREATE TABLE][], [CREATE TABLE AS SELECT][]
 
-## Não estender a partição
+## <a name="do-not-over-partition"></a>Do not over-partition
 
-Embora o particionamento dos dados possa ser muito eficiente para manter seus dados na troca de partições ou otimizar as varreduras com a eliminação de partições, ter muitas partições pode reduzir a velocidade de suas consultas. Geralmente, uma estratégia de particionamento com alta granularidade que pode funcionar bem no SQL Server pode não funcionar bem no SQL Data Warehouse. Ter muitas partições também poderá reduzir a eficiência dos índices columnstore clusterizados se cada partição tiver menos de 1 milhão de linhas. Lembre-se que, internamente, o SQL Data Warehouse particiona os dados em 60 bancos de dados, portanto, se você criar uma tabela com 100 partições, isso realmente resultará em 6.000 partições. Cada carga de trabalho é diferente, assim, o melhor conselho é fazer experiências com o particionamento para ver o que funciona melhor para sua carga de trabalho. Considere uma granularidade menor do que pode ter funcionado para você no SQL Server. Por exemplo, considere usar partições semanais ou mensais, em vez de partições diárias.
+While partitioning data can be very effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy which may work well on SQL Server may not work well on SQL Data Warehouse.  Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows.  Keep in mind that behind the scenes, SQL Data Warehouse partitions your data for you into 60 databases, so if you create a table with 100 partitions, this actually results in 6000 partitions.  Each workload is different so the best advice is to experiment with partitioning to see what works best for your workload.  Consider lower granularity than what may have worked for you in SQL Server.  For example, consider using weekly or monthly partitions rather than daily partitions.
 
-Confira também [Particionamento de tabelas][]
+See also [Table partitioning][]
 
-## Minimizar os tamanhos das transações
+## <a name="minimize-transaction-sizes"></a>Minimize transaction sizes
 
-As instruções INSERT, UPDATE e DELETE são executadas em uma transação e quando falham, devem ser revertidas. Para minimizar a possibilidade de uma reversão longa, minimize os tamanhos das transações sempre que possível. Isso pode ser feito dividindo as instruções INSERT, UPDATE e DELETE em partes. Por exemplo, se você tiver uma instrução INSERT e esperar que ela demore uma hora, se possível, divida-a em quatro partes, sendo cada uma executada em 15 minutos. Aproveite os casos especiais de Registro em Log Mínimo, como CTAS, TRUNCATE, DROP TABLE ou INSERT, para esvaziar as tabelas, reduzindo o risco de reversão. Outra maneira de eliminar as reversões é usar as operações de Metadados Somente, como a troca de partição para o gerenciamento de dados. Por exemplo, em vez de executar uma instrução DELETE para excluir todas as linhas em uma tabela onde order\_date foi em outubro de 2001, você poderia particionar os dados mensalmente e, em seguida, trocar a partição com os dados por uma partição vazia a partir de outra tabela (consulte exemplos de ALTER TABLE). Para as tabelas não particionadas, considere usar um CTAS para gravar os dados que você deseja manter em uma tabela em vez de usar DELETE. Se um CTAS demorar a mesma quantidade de tempo, será uma operação muito mais segura de executar quando ele tiver um log de transação mínimo e puder ser cancelado rapidamente, se necessário.
+INSERT, UPDATE, and DELETE statements run in a transaction and when they fail they must be rolled back.  To minimize the potential for a long rollback, minimize transaction sizes whenever possible.  This can be done by dividing INSERT, UPDATE, and DELETE statements into parts.  For example, if you have an INSERT which you expect to take 1 hour, if possible, break the INSERT up into 4 parts, which will each run in 15 minutes.  Leverage special Minimal Logging cases, like CTAS, TRUNCATE, DROP TABLE or INSERT to empty tables, to reduce rollback risk.  Another way to eliminate rollbacks is to use Metadata Only operations like partition switching for data management.  For example, rather than execute a DELETE statement to delete all rows in a table where the order_date was in October of 2001, you could partition your data monthly and then switch out the partition with data for an empty partition from another table (see ALTER TABLE examples).  For unpartitioned tables consider using a CTAS to write the data you want to keep in a table rather than using DELETE.  If a CTAS takes the same amount of time, it is a much safer operation to run as it has very minimal transaction logging and can be canceled quickly if needed.
 
-Confira também [Noções básicas sobre transações][], [Otimização de transações][], [Particionamento de tabelas][], [TRUNCATE TABLE][], [ALTER TABLE][], [CTAS (Create table as select)][]
+See also [Understanding transactions][], [Optimizing transactions][], [Table partitioning][], [TRUNCATE TABLE][], [ALTER TABLE][], [Create table as select (CTAS)][]
 
-## Use o menor tamanho de coluna possível
+## <a name="use-the-smallest-possible-column-size"></a>Use the smallest possible column size
 
-Ao definir a DDL, usar o menor tipo de dados que oferece suporte a seus dados melhorará o desempenho da consulta. Isso é especialmente importante para as colunas CHAR e VARCHAR. Se o maior valor em uma coluna for 25 caracteres, então, defina a coluna como VARCHAR(25). Evite definir todas as colunas de caractere para um tamanho grande padrão. Além disso, defina as colunas como VARCHAR quando isso for realmente necessário em vez de usar NVARCHAR.
+When defining your DDL, using the smallest data type which will support your data will improve query performance.  This is especially important for CHAR and VARCHAR columns.  If the longest value in a column is 25 characters, then define your column as VARCHAR(25).  Avoid defining all character columns to a large default length.  In addition, define columns as VARCHAR when that is all that is needed rather than use NVARCHAR.
 
-Confira também [Visão geral das tabelas][], [Tipos de dados da tabela][], [CREATE TABLE][]
+See also [Table overview][], [Table data types][], [CREATE TABLE][]
 
-## Usar tabelas de heap temporárias para dados transitórios
+## <a name="use-temporary-heap-tables-for-transient-data"></a>Use temporary heap tables for transient data
 
-Quando você estiver descarregando temporariamente os dados no SQL Data Warehouse, poderá achar que usar uma tabela de heap tornará o processo geral mais rápido. Se estiver carregando os dados apenas para prepará-los antes de executar mais transformações, carregar a tabela na tabela de heap será muito mais rápido que carregar os dados em uma tabela columnstore clusterizado. Além disso, o carregamento de dados em uma tabela temporária também carregará muito mais rapidamente do que carregar uma tabela em um armazenamento permanente. As tabelas temporárias começam por "#" e só podem ser acessadas pela sessão que as criou, portanto, elas podem funcionar em cenários limitados. As tabelas de heap são definidas na cláusula WITH de CREATE TABLE. Se você usar uma tabela temporária, lembre-se também de criar estatísticas nela.
+When you are temporarily landing data on SQL Data Warehouse, you may find that using a heap table will make the overall process faster.  If you are loading data only to stage it before running more transformations, loading the table to heap table will be much faster than loading the data to a clustered columnstore table.  In addition, loading data to a temp table will also load much faster than loading a table to permanent storage.  Temporary tables start with a "#" and are only accessible by the session which created it, so they may only work in limited scenarios.   Heap tables are defined in the WITH clause of a CREATE TABLE.  If you do use a temporary table, remember to create statistics on that temporary table too.
 
-Confira também [Tabelas temporárias][], [CREATE TABLE][], [CREATE TABLE AS SELECT][]
+See also [Temporary tables][], [CREATE TABLE][], [CREATE TABLE AS SELECT][]
 
-## Otimizar tabelas columnstore clusterizadas
+## <a name="optimize-clustered-columnstore-tables"></a>Optimize clustered columnstore tables
 
-Os índices columnstore clusterizado são uma das maneiras mais eficientes de poder armazenar os dados no SQL Data Warehouse do Azure. Por padrão, as tabelas no SQL Data Warehouse são criadas como ColumnStore Clusterizado. É importante ter um segmento de boa qualidade para obter o melhor desempenho para as consultas nas tabelas columnstore. Quando as linhas são gravadas nas tabelas columnstore sob pressão da memória, a qualidade do segmento columnstore pode ficar prejudicada. A qualidade de segmento pode ser medida pelo número de linhas em um grupo de linhas compactado. Confira as [Causas da má qualidade de índice columnstore][] no artigo sobre [índices de tabela][] para obter instruções passo a passo sobre como detectar e melhorar a qualidade do segmento para as tabelas columnstore clusterizadas. Como a alta qualidade dos segmentos de columnstore é importante, é uma boa ideia usar ids de usuários que estão na classe de recurso de médio ou grande de carregamento de dados. Quanto menos DWUs você usar, maior será a classe de recurso que você desejará atribuir ao usuário do carregamento.
+Clustered columnstore indexes are one of the most efficient ways you can store your data in Azure SQL Data Warehouse.  By default, tables in SQL Data Warehouse are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Segment quality can be measured by number of rows in a compressed Row Group.  See the [Causes of poor columnstore index quality][] in the [Table indexes][] article for step by step instructions on detecting and improving segment quality for clustered columnstore tables.  Because high quality columnstore segments is important, it's a good idea to use users ids which are in the medium or large resource class for loading data.  The fewer DWUs you use, the larger the resource class you will want to assign to your loading user. 
 
-Como as tabelas columnstore geralmente não enviam os dados em um segmento columnstore compactado até haver mais de 1 milhão de linhas por tabela e cada tabela do SQL Data Warehouse é particionada em 60 tabelas, como regra geral, as tabelas columnstore não aproveitarão uma consulta a menos que a tabela tenha mais de 60 milhões de linhas. Para a tabela com menos de 60 milhões de linhas, talvez não faça sentido ter um índice columnstore. Também pode não prejudicar. Além disso, se você particionar seus dados, desejará considerar que cada partição precisará ter 1 milhão de linhas para se beneficiar de um índice columnstore clusterizado. Se uma tabela tiver 100 partições, será necessário ter, pelo menos, 6 bilhões de linhas para aproveitar uma columnstore clusterizada (60 distribuições * 100 partições * 1 milhão de linhas). Se a tabela não tiver as 6 bilhões de linhas neste exemplo, reduza o número de partições ou considere usar uma tabela de heap. Também pode valer a pena testar para ver se um melhor desempenho pode ser obtido com uma tabela de heap com índices secundários em vez de uma tabela columnstore. As tabelas columnStore ainda não dão suporte aos índices secundários.
+Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table and each SQL Data Warehouse table is partitioned into 60 tables, as a rule of thumb, columnstore tables won't benefit a query unless the table has more than 60 million rows.  For table with less than 60 million rows, it may not make any sense to have a columnstore index.  It also may not hurt.  Furthermore, if you partition your data, then you will want to consider that each partition will need to have 1 million rows to benefit from a clustered columnstore index.  If a table has 100 partitions, then it will need to have at least 6 billion rows to benefit from a clustered columns store (60 distributions * 100 partitions * 1 million rows).  If your table does not have 6 billion rows in this example, either reduce the number of partitions or consider using a heap table instead.  It also may be worth experimenting to see if better performance can be gained with a heap table with secondary indexes rather than a columnstore table.  Columnstore tables do not yet support secondary indexes.
 
-Ao consultar uma tabela columnstore, as consultas serão executadas mais rapidamente se você selecionar apenas as colunas necessárias.
+When querying a columnstore table, queries will run faster if you select only the columns you need.  
 
-Confira também [Índices de tabela][], [Guia dos índices columnstore][] e [Recriando índices columnstore][]
+See also [Table indexes][], [Columnstore indexes guide][], [Rebuilding columnstore indexes][]
 
-## Usar uma classe maior de recursos para melhorar o desempenho da consulta
+## <a name="use-larger-resource-class-to-improve-query-performance"></a>Use larger resource class to improve query performance
 
-O SQL Data Warehouse usa grupos de recursos como uma maneira de alocar memória para as consultas. Para o uso imediato, todos os usuários são atribuídos à classe de recurso pequena, que concede 100 MB de memória por distribuição. Como sempre há 60 distribuições e cada distribuição recebe um mínimo de 100 MB, a alocação de memória total de todo o sistema é de 6.000 MB ou menos de 6 GB. Determinadas consultas, como junções grandes ou cargas para as tabelas columnstore clusterizado, se beneficiarão das alocações de memória maiores. Algumas consultas, como as varreduras puras, não terão qualquer benefício. Por outro lado, usar classes de recurso maiores afeta a simultaneidade, portanto, você deve levar isso em consideração antes de mover todos os usuários para uma classe de recurso grande.
+SQL Data Warehouse uses resource groups as a way to allocate memory to queries.  Out of the box, all users are assigned to the small resource class which grants 100 MB of memory per distribution.  Since there are always 60 distributions and each distribution is given a minimum of 100 MB, system wide the total memory allocation is 6,000 MB, or just under 6 GB.  Certain queries, like large joins or loads to clustered columnstore tables, will benefit from larger memory allocations.  Some queries, like pure scans, will see no benefit.  On the flip side, utilizing larger resource classes impacts concurrency, so you will want to take this into consideration before moving all of your users to a large resource class.
  
-Confira também [Gerenciamento de simultaneidade e carga de trabalho][]
+See also [Concurrency and workload management][]
 
-## Usar uma Classe de Recurso Menor para Aumentar a Simultaneidade
+## <a name="use-smaller-resource-class-to-increase-concurrency"></a>Use Smaller Resource Class to Increase Concurrency
 
-Se você estiver percebendo que as consultas do usuário parecem atrasar muito, é possível que os usuários estejam executando classes de recurso maiores e consumindo muitos slots de simultaneidade, fazendo com que outras consultas entrem na fila. Para saber se as consultas dos usuários estão em fila, execute `SELECT * FROM sys.dm_pdw_waits` para ver se alguma linha é retornada.
+If you are noticing that user queries seem to have a long delay, it could be that your users are running in larger resource classes and are consuming a lot of concurrency slots causing other queries to queue up.  To see if users queries are queued, run `SELECT * FROM sys.dm_pdw_waits` to see if any rows are returned.
 
-Confira também [Gerenciamento de simultaneidade e carga de trabalho][], [sys.dm\_pdw\_waits][]
+See also [Concurrency and workload management][], [sys.dm_pdw_waits][]
 
-## Usar DMVs para monitorar e otimizar suas consultas
+## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Use DMVs to monitor and optimize your queries
 
-O SQL Data Warehouse tem várias DMVs que podem ser usadas para monitorar a execução da consulta. O artigo de monitoramento abaixo apresenta instruções passo a passo sobre como analisar os detalhes de uma consulta em execução. Para encontrar rapidamente as consultas nessas DMVs, usar a opção LABEL com suas consultas poderá ajudar.
+SQL Data Warehouse has several DMVs which can be used to monitor query execution.  The monitoring article below walks through step-by-step instructions on how to look at the details of an executing query.  To quickly find queries in these DMVs, using the LABEL option with your queries can help.
 
-Confira também [Monitore sua carga de trabalho usando DMVs][], [LABEL][], [OPTION][], [sys.dm\_exec\_sessions][], [sys.dm\_pdw\_exec\_requests][], [sys.dm\_pdw\_request\_steps][], [sys.dm\_pdw\_sql\_requests][], [sys.dm\_pdw\_dms\_workers], [DBCC PDW\_SHOWEXECUTIONPLAN][], [sys.dm\_pdw\_waits][]
+See also [Monitor your workload using DMVs][], [LABEL][], [OPTION][], [sys.dm_exec_sessions][], [sys.dm_pdw_exec_requests][], [sys.dm_pdw_request_steps][], [sys.dm_pdw_sql_requests][], [sys.dm_pdw_dms_workers], [DBCC PDW_SHOWEXECUTIONPLAN][], [sys.dm_pdw_waits][]
 
-## Outros recursos
+## <a name="other-resources"></a>Other resources
 
-Confira também nosso artigo de [Solução de problemas][] para conhecer os problemas e as soluções comuns.
+Also see our [Troubleshooting][] article for common issues and solutions.
 
-Se você não encontrar o que estava procurando nesse artigo, tente usar a "Pesquisa de documentos" à esquerda da página para pesquisar todos os documentos do SQL Data Warehouse do Azure. O [Fórum no MSDN do Azure SQL Data Warehouse][] foi criado como um local para você fazer perguntas a outros usuários e ao Grupo de Produtos do SQL Data Warehouse. Monitoramos ativamente esse fórum para garantir que suas perguntas sejam respondidas por outro usuário ou um de nós. Caso você prefira fazer perguntas sobre o Stack Overflow, também temos um [Fórum sobre o Stack Overflow do Azure SQL Data Warehouse][].
+If you didn't find what you were looking for in this article, try using the "Search for docs" on the left side of this page to search all of the Azure SQL Data Warehouse documents.  The [Azure SQL Data Warehouse MSDN Forum][] was create as a place for you to ask questions to other users and to the SQL Data Warehouse Product Group.  We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL Data Warehouse Stack Overflow Forum][].
 
-Por fim, use a página [Comentários do Azure SQL Data Warehouse][] para fazer solicitações de recurso. Adicionar suas solicitações ou recomendar outras solicitações realmente nos ajudará a priorizar os recursos.
+Finally, please do use the [Azure SQL Data Warehouse Feedback][] page to make feature requests.  Adding your requests or up-voting other requests really helps us prioritize features.
 
 <!--Image references-->
 
 <!--Article references-->
 [Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Gerenciamento de simultaneidade e carga de trabalho]: ./sql-data-warehouse-develop-concurrency.md
-[CTAS (Create table as select)]: ./sql-data-warehouse-develop-ctas.md
+[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Create table as select (CTAS)]: ./sql-data-warehouse-develop-ctas.md
-[Visão geral das tabelas]: ./sql-data-warehouse-tables-overview.md
-[Tipos de dados da tabela]: ./sql-data-warehouse-tables-data-types.md
-[Distribuição de tabelas]: ./sql-data-warehouse-tables-distribute.md
-[índices de tabela]: ./sql-data-warehouse-tables-index.md
-[Causas da má qualidade de índice columnstore]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
-[Recriando índices columnstore]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Particionamento de tabelas]: ./sql-data-warehouse-tables-partition.md
-[Gerenciar as estatísticas da tabela]: ./sql-data-warehouse-tables-statistics.md
-[Tabelas temporárias]: ./sql-data-warehouse-tables-temporary.md
-[Guia para usar o PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
-[Carregar dados]: ./sql-data-warehouse-overview-load.md
-[Mover dados com o Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
-[Carregar os Dados com o Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
+[Table overview]: ./sql-data-warehouse-tables-overview.md
+[Table data types]: ./sql-data-warehouse-tables-data-types.md
+[Table distribution]: ./sql-data-warehouse-tables-distribute.md
+[Table indexes]: ./sql-data-warehouse-tables-index.md
+[Causes of poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[Rebuilding columnstore indexes]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Table partitioning]: ./sql-data-warehouse-tables-partition.md
+[Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary tables]: ./sql-data-warehouse-tables-temporary.md
+[Guide for using PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
+[Load data]: ./sql-data-warehouse-overview-load.md
+[Move data with Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Monitore sua carga de trabalho usando DMVs]: ./sql-data-warehouse-manage-monitor.md
-[Pausar os recursos de computação]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
-[Retomar os recursos de computação]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Dimensionar os recursos de computação]: ./sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
-[Compreendendo as transações]: ./sql-data-warehouse-develop-transactions.md
-[Noções básicas sobre transações]: ./sql-data-warehouse-develop-transactions.md
-[Otimizando as transações]: ./sql-data-warehouse-develop-best-practices-transactions.md
-[Otimização de transações]: ./sql-data-warehouse-develop-best-practices-transactions.md
-[Solução de problemas]: ./sql-data-warehouse-troubleshoot.md
+[Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
+[Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
+[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
+[Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
+[Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[Troubleshooting]: ./sql-data-warehouse-troubleshoot.md
 [LABEL]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
@@ -165,24 +163,28 @@ Por fim, use a página [Comentários do Azure SQL Data Warehouse][] para fazer s
 [CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [CREATE TABLE AS SELECT]: https://msdn.microsoft.com/library/mt204041.aspx
-[DBCC PDW\_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
+[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
 [INSERT]: https://msdn.microsoft.com/library/ms174335.aspx
 [OPTION]: https://msdn.microsoft.com/library/ms190322.aspx
 [TRUNCATE TABLE]: https://msdn.microsoft.com/library/ms177570.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
-[sys.dm\_exec\_sessions]: https://msdn.microsoft.com/library/ms176013.aspx
-[sys.dm\_pdw\_exec\_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[sys.dm\_pdw\_request\_steps]: https://msdn.microsoft.com/library/mt203913.aspx
-[sys.dm\_pdw\_sql\_requests]: https://msdn.microsoft.com/library/mt203889.aspx
-[sys.dm\_pdw\_dms\_workers]: https://msdn.microsoft.com/library/mt203878.aspx
-[sys.dm\_pdw\_waits]: https://msdn.microsoft.com/library/mt203893.aspx
-[Guia dos índices columnstore]: https://msdn.microsoft.com/library/gg492088.aspx
+[sys.dm_exec_sessions]: https://msdn.microsoft.com/library/ms176013.aspx
+[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
+[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
+[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
+[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
+[sys.dm_pdw_waits]: https://msdn.microsoft.com/library/mt203893.aspx
+[Columnstore indexes guide]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
-[Selecionando a distribuição de tabelas]: https://blogs.msdn.microsoft.com/sqlcat/2015/08/11/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
-[Comentários do Azure SQL Data Warehouse]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Fórum no MSDN do Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
-[Fórum sobre o Stack Overflow do Azure SQL Data Warehouse]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[Padrões e estratégias de carregamento do Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
+[Selecting table distribution]: https://blogs.msdn.microsoft.com/sqlcat/2015/08/11/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
+[Azure SQL Data Warehouse Feedback]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Azure SQL Data Warehouse MSDN Forum]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
+[Azure SQL Data Warehouse Stack Overflow Forum]:  http://stackoverflow.com/questions/tagged/azure-sqldw
+[Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modos de implantação do Resource Manager e Gerenciamento de Serviços (Clássico) | Microsoft Azure"
-   description="Entenda as diferenças entre os modelos de implantação do Gerenciador de Recursos e do clássico."
+   pageTitle="Resource Manager and Service Management (classic) deployment modes | Microsoft Azure"
+   description="Learn the differences between Resource Manager and classic deployment models."
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
@@ -17,54 +17,59 @@
    ms.date="02/11/2016"
    ms.author="telmos"/>
 
-# Modelos de implantação do Azure
 
-A plataforma Azure está em transição. Se você for iniciante no Azure ou usando há anos, é importante entender algumas das principais alterações que estamos fazendo na plataforma durante a transição.
+# <a name="azure-deployment-models"></a>Azure Deployment Models
 
-Todos os recursos do Azure dão suporte a um ou ambos os seguintes modelos de implantação:
+The Azure platform is in transition.  Whether you're new to Azure or have been using it for years, it's important to understand some of the key changes we're making to the platform during this transition.
 
-- **Gerenciador de Recursos:** esse é o modelo de implantação mais recente para recursos do Azure. A maioria dos recursos mais recentes já dão suporte a esse modelo de implantação e, por fim, todos os recursos oferecerão.
+All Azure resources support one or both of the following deployment models:
+
+- **Resource Manager:** This is the newest deployment model for Azure resources. Most newer resources already support this deployment model and eventually all resources will.   
  
-- **Clássico:** esse modelo tem suporte atualmente pela maioria dos recursos do Azure existentes. Novos recursos adicionados ao Azure não darão suporte a esse modelo.
+- **Classic:** This model is supported by most existing Azure resources today. New resources added to Azure will not support this model.
 
-A documentação para obter detalhes sobre cada recurso do Azure para os quais os modelos de serviço podem ser criados.
+The documentation for each Azure resource details which service models it can be created with.
 
-## Por que isso importa? 
+## <a name="why-does-this-matter?"></a>Why does this matter? 
 
-Isso é importante pelos seguintes motivos:
+It matters for the following reasons:
 
-- Os recursos da plataforma Azure que você usa são diferentes entre esses dois modelos. Por exemplo, os recursos criados usando o modelo de implantação do Gerenciador de Recursos (ou apenas o Gerenciador de Recursos) podem ser criados com [modelos do Gerenciador de Recursos do Azure](resource-group-overview.md#template-deployment), enquanto que os recursos criados com o modelo clássico de implantação não podem.
-- Os recursos do Azure individuais ou comportamentos podem ser diferentes entre os dois modelos ou só existem em um modelo ou em outro. Por exemplo, o tráfego de balanceamento de carga entre máquinas virtuais criadas com o modelo clássico de implantação é *implícito* porque as máquinas virtuais são membros de um serviço de nuvem do Azure e a carga é automaticamente balanceada nas máquinas virtuais em um serviço de nuvem. Máquinas virtuais criadas usando o Gerenciador de Recursos não são membros de um serviço de nuvem e um recurso separado do balanceador de carga do Azure deve ser *explicitamente* criado para tráfego de balanceamento de carga entre várias máquinas virtuais.
-- O modo como criar, configurar e gerenciar os recursos do Azure é diferente entre esses dois modelos.
-- Recursos criados usando um modelo de implantação não necessariamente interoperam com recursos criados usando um modelo de implantação diferente. Por exemplo, máquinas virtuais do Azure criadas usando um modelo de implantação somente podem ser conectadas às redes virtuais do Azure criadas usando o mesmo modelo de implantação.
+- The Azure platform features that you use are different across these two models.  For example, resources created using the Resource Manager deployment model (or just Resource Manager) can be created with [Azure Resource Manager templates](resource-group-overview.md#template-deployment), whereas resources created with the Classic deployment model cannot.
+- The individual Azure resource features or behaviors can be different across the two models, or only exist in one model or the other.  For example, load balancing traffic across virtual machines created with the Classic deployment model is *implicit* because virtual machines are members of an Azure Cloud Service, and load is automatically balanced across virtual machines within a cloud service. Virtual machines created using Resource Manager are not members of a cloud service, and a separate Azure Load Balancer resource must be *explicitly* created to load balance traffic across multiple virtual machines.  
+- How you create, configure, and manage your Azure resources is different between these two models.
+- Resources created using one deployment model can't necessarily interoperate with resources created using a different deployment model. For example, Azure Virtual Machines created using one deployment model can only be connected to Azure Virtual Networks created using the same deployment model.    
 
-Cada um dos modelos de implantação é uma API (interface de programação de aplicativo) para cada recurso. Há uma [API do Gerenciador de Recursos](https://msdn.microsoft.com/library/azure/dn948464.aspx) para o modelo de implantação do Gerenciador de Recursos e uma [API de gerenciamento de serviço](https://msdn.microsoft.com/library/azure/ee460799.aspx) para o modelo de implantação clássico. Os desenvolvedores podem escrever o código para interagir com essas APIs *diretamente*.
+Underlying each of the deployment models is an application programming interface (API) for each resource.  There's a [Resource Manager API](https://msdn.microsoft.com/library/azure/dn948464.aspx) for the Resource Manager deployment model and a [Service Management API](https://msdn.microsoft.com/library/azure/ee460799.aspx) for the Classic deployment model. Developers can write code to interact with these APIs *directly*.  
 
-Os profissionais de TI, no entanto, normalmente interagem com essas APIs *indiretamente* usando um portal gráfico em um navegador da Web, usando os cmdlets do Azure PowerShell em um computador com Windows ou usando a CLI (Interface de linha de comando) do Azure em um computador com Windows, OS X ou Linux. Todos os três métodos indiretos usados por profissionais de TI interagem diretamente com as APIs. Isso significa que quando a nova funcionalidade é introduzida nos recursos ou plataforma do Microsoft Azure, ela está sempre disponível diretamente por meio da API em primeiro lugar, com os métodos indiretos obtendo suporte para os novos recursos, e por meio de recursos depois que a API é disponibilizada.
+IT pros however, typically interact with these APIs *indirectly* by using a graphical portal in a web browser, by using Azure PowerShell cmdlets on a Windows computer, or by using the Azure Command Line Interface (CLI) on either a Windows, OS X, or Linux computer. All three of these indirect methods used by the IT pro interact directly with the APIs. This means that when new functionality is introduced to the Azure platform or resources, it's always directly available through the API first, with the indirect methods gaining support for the new resources and features after the API is made available.  
 
-As seções a seguir explicam como os recursos do Azure são configurados usando modelos de implantação diferentes por meio dos três métodos indiretos.
+The sections below explain how Azure resources are configured using the different deployment models through the three indirect methods.
 
-## Portais
-O Azure tem dois portais:
+## <a name="portals"></a>Portals
+Azure has two portals:
 
-- **[Portal do Azure](https://manage.windowsazure.com):** se usou o Azure por um tempo, você já usou este portal. Ele é usado para criar e configurar recursos mais antigos do Azure que dão suporte ao modelo de implantação clássica. Você não pode usá-lo para criar ou configurar os recursos que dão suporte apenas ao Gerenciador de Recursos.
-- **[Portal de visualização do Azure](https://azure.microsoft.com/overview/preview-portal/):** se você estiver usando um recurso do Azure mais recente, você provavelmente usou este portal. Ele pode ser usado para criar e configurar alguns recursos do Azure. Você poderá, por fim, criar e configurar todos os recursos do Azure com ele. Para alguns recursos que dão suporte a ambos os modelos de implantação, esse portal pode ser usado para criar e configurar um recurso usando qualquer um dos modelos de implantação.
+- **[Azure portal](https://manage.windowsazure.com):** If you've been using Azure for a while, you've used this portal. It is used to create and configure older Azure resources that support the classic deployment model. You cannot use it to create or configure resources that only support Resource Manager. 
+- **[Azure preview portal](https://azure.microsoft.com/overview/preview-portal/):** If you're using a newer Azure resource, you've likely used this portal. It can be used to create and configure some Azure resources. You'll eventually be able to create and configure all Azure resources with it. For some resources that support both deployment models, this portal can be used to create and configure a resource using either deployment model. 
 
-Alguns recursos só podem ser criados e configurados em um portal ou no outro. Alguns recursos (ainda) não podem ser criados ou configurados no portal e só podem ser configurados com o PowerShell, a CLI ou ambos. A documentação para obter detalhes sobre cada recurso do Azure para os quais o método pode ser criado.
+Some resources and features can only be created and configured in one portal or the other. Some resources or features can't (yet) be created or configured in either portal, and can only be configured with PowerShell, the CLI, or both. The documentation for each Azure resource details which method it can be created with. 
 
-## PowerShell
-Com o [PowerShell](powershell-install-configure.md), você pode usar uma linha de comando ou criar scripts para criar e configurar recursos do Azure de um computador Windows. Os recursos individuais do Azure têm [cmdlets do Gerenciador de Recursos](https://msdn.microsoft.com/library/azure/mt125356.aspx), [cmdlets de Gerenciamento de serviço](https://msdn.microsoft.com/library/azure/dn708504.aspx), ou ambos. Alguns recursos só podem ser criados e/ou configurados usando o PowerShell ou a CLI. Ao usar os cmdlets do PowerShell do Gerenciador de Recursos, dependendo do recurso, você terá duas opções para criar e configurar recursos do Azure:
+## <a name="powershell"></a>PowerShell
+With [PowerShell](powershell-install-configure.md) you can use a command line or author scripts to create and configure Azure resources from a Windows computer.  Individual Azure resources have [Resource Manager cmdlets](https://msdn.microsoft.com/library/azure/mt125356.aspx), [Service Management cmdlets](https://msdn.microsoft.com/library/azure/dn708504.aspx), or both.  Some resources and features can only be created and/or configured using PowerShell or the CLI. Depending on the resource, when using Resource Manager PowerShell cmdlets you may have two options for creating and configuring Azure resources:
 
-- **Somente os cmdlets do PowerShell:** você pode criar e configurar cada recurso do Azure individualmente usando os cmdlets para cada recurso. Você pode fazer isso em uma linha de comando ou com a inclusão de vários comandos em um script do PowerShell que você pode armazenar e criar versão.
+- **PowerShell cmdlets only:** You can create and configure each Azure resource individually using the cmdlets for each resource. You can do this from a command line, or by including multiple commands in a PowerShell script that you can store and version.
 
-- **Cmdlets do PowerShell com um modelo do Gerenciador de Recursos do Azure:** você pode usar o PowerShell para criar recursos do Azure usando um modelo do Gerenciador de Recursos do Azure. Os modelos podem ser salvos e versões podem ser criadas. Saiba mais ao ler o artigo [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md). Vários [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) existem para soluções comuns, e eles podem ser baixados e também modificados.
+- **PowerShell cmdlets with an Azure Resource Manager template:** You can use PowerShell to create Azure resources using an Azure Resource Manager template. Templates can be saved and versioned. Learn more by reading the [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md) article. Several [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/) exist for common solutions that can be downloaded and modified too.
 
-## CLI
-Você pode criar e configurar recursos do Azure de computadores com Windows, OS X ou Linux usando a CLI. Leia o artigo [Instalar a CLI do Azure](xplat-cli-install.md) para instalar a CLI no sistema operacional de sua escolha. Como o PowerShell, há diferentes comandos que devem ser usados se você estiver criando recursos usando os modelos de implantação do [Gerenciador de Recursos](xplat-cli-azure-resource-manager.md) ou do [Clássico (Gerenciamento de serviço)](./virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md).
+## <a name="cli"></a>CLI
+You can create and configure Azure resources from Windows, OS X, or Linux computers using the CLI.  Read the [Install the Azure CLI](xplat-cli-install.md) article to install the CLI on your operating system of choice. Like PowerShell, there are different commands that must be used depending on whether you're creating resources using [Resource Manager](xplat-cli-azure-resource-manager.md) or the [Classic (Service Management)](./virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md) deployment models.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Saiba mais sobre o [Gerenciador de Recursos](resource-group-overview.md).
-- Entenda como [criar modelos](best-practices-resource-manager-design-templates.md).
+- Learn more about [Resource Manager](resource-group-overview.md).
+- Understand how to [design templates](best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

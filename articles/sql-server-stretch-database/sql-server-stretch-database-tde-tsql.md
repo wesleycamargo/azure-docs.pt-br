@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Habilitar TDE (Transparent Data Encryption) para SQL Server Stretch Database no Azure TSQL | Microsoft Azure"
-   description="Habilitar TDE (Transparent Data Encryption) para SQL Server Stretch Database no Azure TSQL"
+   pageTitle="Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure TSQL | Microsoft Azure"
+   description="Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure TSQL"
    services="sql-server-stretch-database"
    documentationCenter=""
    authors="douglaslMS"
@@ -16,53 +16,54 @@
    ms.date="06/14/2016"
    ms.author="douglaslMS"/>
 
-# Habilitar TDE (Transparent Data Encryption) para Stretch Database no Azure (Transact-SQL)
+
+# <a name="enable-transparent-data-encryption-(tde)-for-stretch-database-on-azure-(transact-sql)"></a>Enable Transparent Data Encryption (TDE) for Stretch Database on Azure (Transact-SQL)
 > [AZURE.SELECTOR]
-- [Portal do Azure](sql-server-stretch-database-encryption-tde.md)
+- [Azure portal](sql-server-stretch-database-encryption-tde.md)
 - [TSQL](sql-server-stretch-database-tde-tsql.md)
 
-O TDE (Transparent Data Encryption) ajuda a proteger contra ameaças de atividades mal-intencionadas por meio da execução de criptografia e descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem exigir mudanças no aplicativo.
+Transparent Data Encryption (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application.
 
-A TDE criptografa o armazenamento de um banco de dados inteiro usando uma chave simétrica chamada de chave de criptografia de banco de dados. A chave de criptografia do banco de dados está protegida por um certificado do servidor interno. O certificado do servidor interno é exclusivo para cada servidor do Azure. A Microsoft alterna automaticamente esses certificados pelo menos a cada 90 dias. Para obter uma descrição geral da TDE, consulte [Transparent Data Encryption (TDE)].
+TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key. The database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each Azure server. Microsoft automatically rotates these certificates at least every 90 days. For a general description of TDE, see [Transparent Data Encryption (TDE)].
 
-##Habilitando a criptografia
+##<a name="enabling-encryption"></a>Enabling Encryption
 
-Para habilitar a TDE para um banco de dados do Azure que armazena os dados migrados de um banco de dados do SQL Server habilitado para ampliação, faça o seguinte:
+To enable TDE for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
 
-1. Conecte ao banco de dados *mestre* no servidor que está hospedando o banco de dados do Azure, usando um logon de administrador ou de um membro da função **dbmanager** no banco de dados mestre
-2. Execute a instrução a seguir para criptografar o banco de dados.
+1. Connect to the *master* database on the Azure server hosting the database using a login that is an administrator or a member of the **dbmanager** role in the master database
+2. Execute the following statement to encrypt the database.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION ON;
 ```
 
-##Desabilitando a criptografia
+##<a name="disabling-encryption"></a>Disabling Encryption
 
-Para desabilitar a TDE para um banco de dados do Azure que armazena os dados migrados de um banco de dados do SQL Server habilitado para ampliação, faça o seguinte:
+To disable TDE for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
 
-1. Conecte-se ao banco de dados *mestre* que usa um logon de administrador ou de um membro da função **dbmanager** no banco de dados mestre
-2. Execute a instrução a seguir para criptografar o banco de dados.
+1. Connect to the *master* database using a login that is an administrator or a member of the **dbmanager** role in the master database
+2. Execute the following statement to encrypt the database.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION OFF;
 ```
 
-##Verificando a criptografia
+##<a name="verifying-encryption"></a>Verifying Encryption
 
-Para verificar o status da criptografia para um banco de dados do Azure que armazena os dados migrados de um banco de dados do SQL Server habilitado para ampliação, faça o seguinte:
+To verify encryption status for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
 
-1. Conecte-se ao banco de dados *mestre* ou de instância que usa um logon de administrador ou de um membro da função **dbmanager** no banco de dados mestre
-2. Execute a instrução a seguir para criptografar o banco de dados.
+1. Connect to the *master* or instance database using a login that is an administrator or a member of the **dbmanager** role in the master database
+2. Execute the following statement to encrypt the database.
 
 ```sql
 SELECT
-	[name],
-	[is_encrypted]
+    [name],
+    [is_encrypted]
 FROM
-	sys.databases;
+    sys.databases;
 ```
 
-Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica um banco de dados não criptografado.
+A result of ```1``` indicates an encrypted database, ```0``` indicates a non-encrypted database.
 
 
 <!--Anchors-->
@@ -73,4 +74,8 @@ Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica u
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

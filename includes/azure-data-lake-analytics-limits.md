@@ -1,8 +1,11 @@
-A Análise Data Lake simplifica a difícil missão de gerenciar infraestruturas distribuídas e códigos complexos. Ela fornece recursos de maneira dinâmica e permite realizar análises de exabytes de dados. Ao final do trabalho, o serviço deixa de usar os recursos automaticamente, e você paga apenas pela potência de processamento usada. À medida que o tamanho dos dados armazenados ou da quantidade de computação usada aumenta ou diminui, você não precisa reescrever os códigos. Entrando em contato com o suporte, é possível aumentar muitos dos limites padrão facilmente em sua assinatura.
+Data Lake Analytics makes the complex task of managing distributed infrastructure and complex code easy. It dynamically provisions resources and lets you do analytics on exabytes of data. When the job completes, it winds down resources automatically, and you pay only for the processing power used. As you increase or decrease the size of data stored or the amount of compute used, you don’t have to rewrite code. Many of the default limits can be easily raised for your subscription by contacting support. 
 
-**Recurso** | **Limite padrão** | **Comentários**
+**Resource** | **Default Limit** | **Comments**
 -------- | ------------- | -------------
-Número máximo de trabalhos simultâneos | 3 
-Paralelismo máximo por conta | 60 | Use qualquer combinação de até 60 unidades de paralelismo em três trabalhos.
+max concurrent jobs | 3 
+Max parallelism per account | 60 | Use any combination of up to a maximum of 60 units of parallelism across three jobs.
 
-<!---HONumber=AcomDC_0622_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

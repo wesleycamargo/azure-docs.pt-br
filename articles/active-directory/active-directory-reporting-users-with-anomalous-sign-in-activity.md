@@ -1,33 +1,38 @@
 <properties
-	pageTitle="Usuários com atividade de entrada anômala"
-	description="Um relatório que indica todas as contas de usuário para as quais uma atividade anômala de entrada foi identificada."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+    pageTitle="Users with anomalous sign in activity"
+    description="A report that indicates all user accounts for which anomalous sign in activity has been identified."
+    services="active-directory"
+    documentationCenter=""
+    authors="SSalahAhmed"
+    manager="gchander"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="03/04/2016"
+    ms.author="saah;kenhoff"/>
 
-# Usuários com atividade de entrada anômala
-Este é um relatório agregado que combina entradas suspeitas dos seguintes relatórios:
 
-<ul><li>Entradas de fontes desconhecidas</li>
-<li>Entradas após várias falhas</li>
-<li>Entradas de várias geografias</li>
-<li>Entradas de endereços IP com atividade suspeita</li>
-<li>Entradas de dispositivos possivelmente infectados</li>
-<li>Atividades de entrada irregulares</li>
+# <a name="users-with-anomalous-sign-in-activity"></a>Users with anomalous sign in activity
+This is an aggregate report that combines suspicious sign-ins from the following reports:
+
+<ul><li>Sign ins from unknown sources</li>
+<li>Sign-ins after multiple failures</li>
+<li>Sign-ins from multiple geographies</li>
+<li>Sign-ins from IP addresses with suspicious activity</li>
+<li>Sign-ins from possibly infected devices</li>
+<li>Irregular sign-in activity</li>
 </ul>
 
 
-![Usuários com atividade de entrada anômala](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
+![Users with anomalous sign in activity](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=AcomDC_0309_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

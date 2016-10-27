@@ -1,23 +1,28 @@
 <properties
-	pageTitle="Detectar, realizar triagem e diagnosticar aplicativos Web J2EE"
-	description="Analise as falhas, detecte e diagnostique problemas de desempenho em seus aplicativos Web Java"
-	authors="alancameronwills"
-	services="application-insights"
+    pageTitle="Detect, Triage, Diagnose J2EE web apps"
+    description="Analyse crashes and detect  and diagnose performance issues in your Java web applications"
+    authors="alancameronwills"
+    services="application-insights"
     documentationCenter=""
-	manager="douge"/>
+    manager="douge"/>
 
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="02/04/2016"
-	ms.author="awills"/>
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="article" 
+    ms.date="02/04/2016"
+    ms.author="awills"/>
 
-# Detectar, realizar triagem e diagnosticar aplicativos Web com o Application Insights
 
-Consulte o [artigo consolidado](app-insights-detect-triage-diagnose.md).
+# <a name="detect,-triage-and-diagnose-web-apps-with-application-insights"></a>Detect, Triage and Diagnose web apps with Application Insights
+
+Please see the [consolidated article](app-insights-detect-triage-diagnose.md).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

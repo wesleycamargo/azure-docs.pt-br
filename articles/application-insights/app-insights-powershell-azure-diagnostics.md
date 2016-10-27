@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Usando o PowerShell para enviar o Diagnóstico do Azure para o Application Insights | Microsoft Azure"
-    description="Automatize a configuração do Diagnóstico do Azure para redirecionar para o Application Insights."
+    pageTitle="Using PowerShell to send Azure Diagnostics to Application Insights | Microsoft Azure"
+    description="Automate configuring Azure Diagnostics to pipe to Application Insights."
     services="application-insights"
     documentationCenter=".net"
     authors="sbtron"
@@ -9,19 +9,20 @@
 <tags
     ms.service="application-insights"
     ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza" 
+    ms.tgt_pltfrm="ibiza" 
     ms.devlang="na"
     ms.topic="get-started-article"
-	ms.date="11/17/2015"
+    ms.date="11/17/2015"
     ms.author="awills"/>
 
-# Usando o PowerShell para enviar Diagnósticos do Azure para o Application Insights
 
-O [Microsoft Azure](https://azure.com) pode ser [configurado para enviar o Diagnóstico do Azure](app-insights-azure-diagnostics.md) para o [Visual Studio Application Insights](app-insights-overview.md). O diagnóstico está relacionado aos Serviços de Nuvem do Azure e às VMs do Azure. Eles complementam a telemetria que você envia de um aplicativo usando o SDK do Application Insights. Como parte do processo de automatização da criação de novos recursos no Azure, você poderá configurar o diagnóstico usando o PowerShell.
+# <a name="using-powershell-to-send-azure-diagnostics-to-application-insights"></a>Using PowerShell to send Azure Diagnostics to Application Insights
 
-## Habilitar a extensão de diagnóstico como parte da implantação de um Serviço de Nuvem
+[Microsoft Azure](https://azure.com) can be [configured to send Azure Diagnostics](app-insights-azure-diagnostics.md) to [Visual Studio Application Insights](app-insights-overview.md). The diagnostics relate to Azure Cloud Services and Azure VMs. They complement the telemetry that you send from within the app using the Application Insights SDK. As part of automating the process of creating new resources in Azure, you can configure diagnostics using PowerShell.
 
-O cmdlet `New-AzureDeployment` tem um parâmetro `ExtensionConfiguration`, que usa uma matriz de configurações de diagnóstico. Elas podem ser criadas com o cmdlet `New-AzureServiceDiagnosticsExtensionConfig`. Por exemplo:
+## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Enable diagnostics extension as part of deploying a Cloud Service
+
+The `New-AzureDeployment` cmdlet has a parameter `ExtensionConfiguration`, which takes an array of diagnostics configurations. These can be created using the `New-AzureServiceDiagnosticsExtensionConfig` cmdlet. For example:
 
 ```ps
 
@@ -56,9 +57,9 @@ O cmdlet `New-AzureDeployment` tem um parâmetro `ExtensionConfiguration`, que u
 
 ``` 
 
-## Habilitar extensão de diagnóstico em um Serviço de Nuvem existente
+## <a name="enable-diagnostics-extension-on-an-existing-cloud-service"></a>Enable diagnostics extension on an existing Cloud Service
 
-Em um serviço existente, use `Set-AzureServiceDiagnosticsExtension`.
+On an existing service, use `Set-AzureServiceDiagnosticsExtension`.
 
 ```ps
  
@@ -86,7 +87,7 @@ Em um serviço existente, use `Set-AzureServiceDiagnosticsExtension`.
         -Role "WorkerRole"
 ```
 
-## Obter a configuração de extensão de diagnóstico atual
+## <a name="get-current-diagnostics-extension-configuration"></a>Get current diagnostics extension configuration
 
 ```ps
 
@@ -94,16 +95,16 @@ Em um serviço existente, use `Set-AzureServiceDiagnosticsExtension`.
 ```
 
 
-## Remover extensão de diagnóstico
+## <a name="remove-diagnostics-extension"></a>Remove diagnostics extension
 
 ```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-Se você tiver habilitado a extensão de diagnóstico usando `Set-AzureServiceDiagnosticsExtension` ou `New-AzureServiceDiagnosticsExtensionConfig` sem o parâmetro Função, poderá remover a extensão usando `Remove-AzureServiceDiagnosticsExtension` sem o parâmetro Função. Se o parâmetro Função tiver sido usado ao habilitar a extensão, ele também deverá ser usado ao removê-la.
+If you enabled the diagnostics extension using either `Set-AzureServiceDiagnosticsExtension` or `New-AzureServiceDiagnosticsExtensionConfig` without the Role parameter, then you can remove the extension using `Remove-AzureServiceDiagnosticsExtension` without the Role parameter. If the Role parameter was used when enabling the extension then it must also be used when removing the extension.
 
-Para remover a extensão de diagnóstico de cada função individual:
+To remove the diagnostics extension from each individual role:
 
 ```ps
 
@@ -111,10 +112,15 @@ Para remover a extensão de diagnóstico de cada função individual:
 ```
 
 
-## Consulte também
+## <a name="see-also"></a>See also
 
-* [Monitorar aplicativos dos Serviços de Nuvem do Azure com o Application Insights](app-insights-cloudservices.md)
-* [Enviar o Diagnóstico do Azure para o Application Insights](app-insights-azure-diagnostics.md)
-* [Automatizar a configuração de alertas](app-insights-powershell-alerts.md)
+* [Monitor Azure Cloud Services apps with Application Insights](app-insights-cloudservices.md)
+* [Send Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md)
+* [Automate configuring alerts](app-insights-powershell-alerts.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

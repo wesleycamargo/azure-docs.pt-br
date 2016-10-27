@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Usar o Sqoop do Hadoop com Curl no HDInsight | Microsoft Azure"
-   description="Saiba como enviar remotamente trabalhos do Sqoop para o HDInsight usando o Curl."
+   pageTitle="Use Hadoop Sqoop with Curl in HDInsight | Microsoft Azure"
+   description="Learn how to remotely submit Sqoop jobs to HDInsight using Curl."
    services="hdinsight"
    documentationCenter=""
    authors="mumian"
    manager="jhubbard"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -17,113 +17,114 @@
    ms.date="07/25/2016"
    ms.author="jgao"/>
 
-#Executar trabalhos do Sqoop com Hadoop no HDInsight com Curl
+
+#<a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Run Sqoop jobs with Hadoop in HDInsight with Curl
 
 [AZURE.INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Neste documento, você aprenderá como usar o Curl para executar trabalhos do Sqoop em um Hadoop no cluster HDInsight do Azure.
+In this document, you will learn how to use Curl to run Sqoop jobs on a Hadoop on Azure HDInsight cluster.
 
-Curl é usado para demonstrar como você pode interagir com o HDInsight usando solicitações HTTP brutas para executar, monitorar e recuperar os resultados de trabalhos do Sqoop. Isso funciona usando a API REST do WebHCat (anteriormente conhecido como Templeton) fornecida pelo seu cluster HDInsight.
+Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run, monitor, and retrieve the results of Sqoop jobs. This works by using the WebHCat REST API (formerly known as Templeton) provided by your HDInsight cluster.
 
-> [AZURE.NOTE] Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas for iniciante no HDInsight, consulte [O que você precisa saber sobre o Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-linux-information.md).
+> [AZURE.NOTE] If you are already familiar with using Linux-based Hadoop servers, but are new to HDInsight, see [What you need to know about Hadoop on Linux-based HDInsight](hdinsight-hadoop-linux-information.md).
 
-##Pré-requisitos
+##<a name="prerequisites"></a>Prerequisites
 
-Para concluir as etapas neste artigo, você precisará do seguinte:
+To complete the steps in this article, you will need the following:
 
-* Um Hadoop no cluster HDInsight (baseado em Linux ou Windows)
+* A Hadoop on HDInsight cluster (Linux or Windows-based)
 
 * [Curl](http://curl.haxx.se/)
 
 * [jq](http://stedolan.github.io/jq/)
 
-##Enviar trabalhos do Sqoop usando o Curl
+##<a name="submit-sqoop-jobs-by-using-curl"></a>Submit Sqoop jobs by using Curl
 
-> [AZURE.NOTE] Ao usar o Curl ou qualquer outra comunicação do REST com WebHCat, você deve autenticar as solicitações, fornecendo o nome de usuário e a senha para o administrador do cluster HDInsight. Você também deve usar o nome do cluster como parte do URI (Uniform Resource Identifier) usado para enviar as solicitações ao servidor.
+> [AZURE.NOTE] When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server.
 >
-> Para os comandos nesta seção, substitua **USERNAME** pelo usuário para autenticar o cluster e substitua **PASSWORD** pela senha da conta de usuário. Substitua **CLUSTERNAME** pelo nome do cluster.
+> For the commands in this section, replace **USERNAME** with the user to authenticate to the cluster, and replace **PASSWORD** with the password for the user account. Replace **CLUSTERNAME** with the name of your cluster.
 >
-> A API REST é protegida por meio de [autenticação básica](http://en.wikipedia.org/wiki/Basic_access_authentication). Você deve sempre fazer solicitações usando HTTPS (HTTP seguro) para ajudar a garantir que suas credenciais sejam enviadas com segurança para o servidor.
+> The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
 
-1. De uma linha de comando, use o seguinte comando para verificar se você pode se conectar ao cluster HDInsight:
+1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
 
         curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
 
-    Você deve receber uma resposta com esta aparência:
+    You should receive a response similar to the following:
 
         {"status":"ok","version":"v1"}
 
-    Os parâmetros usados nesse comando são os seguintes:
+    The parameters used in this command are as follows:
 
-    * **-u** - o nome de usuário e a senha usada para autenticar a solicitação.
-    * **-G** - indica que se trata de uma solicitação GET.
+    * **-u** - The user name and password used to authenticate the request.
+    * **-G** - Indicates that this is a GET request.
 
-    O início da URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será o mesmo para todas as solicitações. O caminho, **/status**, indica que a solicitação é para retornar o status de WebHCat (também conhecido como Templeton) ao servidor.
+    The beginning of the URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, will be the same for all requests. The path, **/status**, indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. 
 
-2. Use o seguinte para enviar um trabalho do sqoop:
+2. Use the following to submit a sqoop job:
 
 
         curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.windows.net;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /tutorials/usesqoop/data --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasbs:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/sqoop
 
-    Os parâmetros usados nesse comando são os seguintes:
+    The parameters used in this command are as follows:
 
-    * **-d** - como `-G` não é usado, a solicitação resulta no método POST por padrão. `-d` especifica os valores de dados que são enviados com a solicitação.
+    * **-d** - Since `-G` is not used, the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
 
-        * **user.name** - o usuário que está executando o comando.
+        * **user.name** - The user that is running the command.
 
-        * **command** - o comando Sqoop a ser executado.
+        * **command** - The Sqoop command to execute.
 
-        * **statusdir** - o diretório no qual o status deste trabalho será gravado.
+        * **statusdir** - The directory that the status for this job will be written to.
 
-    Esse comando deve retornar uma ID de trabalho que pode ser usada para verificar o status do trabalho.
+    This command should return a job ID that can be used to check the status of the job.
 
         {"id":"job_1415651640909_0026"}
 
-3. Para verificar o status do trabalho, use o comando a seguir. Substitua **JOBID** pelo valor retornado na etapa anterior. Por exemplo, se o valor retornado for `{"id":"job_1415651640909_0026"}`, **JOBID** será `job_1415651640909_0026`.
+3. To check the status of the job, use the following command. Replace **JOBID** with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then **JOBID** would be `job_1415651640909_0026`.
 
         curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
 
-	Se o trabalho foi concluído, o estado será **SUCCEEDED**.
+    If the job has finished, the state will be **SUCCEEDED**.
 
-    > [AZURE.NOTE] Essa solicitação de Curl retorna um documento JSON (JavaScript Object Notation) com informações sobre o trabalho; jq é usado para recuperar o valor de estado.
+    > [AZURE.NOTE] This Curl request returns a JavaScript Object Notation (JSON) document with information about the job; jq is used to retrieve only the state value.
 
-4. Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho do Armazenamento de Blobs do Azure. O parâmetro `statusdir` transmitido com a consulta contém o local do arquivo de saída; nesse caso, **wasbs:///example/curl**. Esse endereço armazena a saída do trabalho no diretório **example/curl** do contêiner de armazenamento padrão usado pelo cluster HDInsight.
+4. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **wasbs:///example/curl**. This address stores the output of the job in the **example/curl** directory on the default storage container used by your HDInsight cluster.
 
-    Você pode listar e baixar esses arquivos usando a [CLI do Azure](../xplat-cli-install.md). Por exemplo, para listar arquivos em **example/curl**, use o seguinte comando:
+    You can list and download these files by using the [Azure CLI](../xplat-cli-install.md). For example, to list files in **example/curl**, use the following command:
 
-		azure storage blob list <container-name> example/curl
+        azure storage blob list <container-name> example/curl
 
-	Para baixar um arquivo, use o seguinte:
+    To download a file, use the following:
 
-		azure storage blob download <container-name> <blob-name> <destination-file>
+        azure storage blob download <container-name> <blob-name> <destination-file>
 
-	> [AZURE.NOTE] Você deve especificar o nome da conta de armazenamento que contém o blob usando os parâmetros `-a` e `-k` ou definir as variáveis de ambiente **AZURE\\_STORAGE\\_ACCOUNT** e **AZURE\\_STORAGE\\_ACCESS\\_KEY**. Consulte <a href="hdinsight-upload-data.md" target="\_blank"para obter mais informações.
+    > [AZURE.NOTE] You must either specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables. See <a href="hdinsight-upload-data.md" target="_blank" for more information.
 
-##Limitações
+##<a name="limitations"></a>Limitations
 
-* Exportação em massa — com HDInsight baseado em Linux, o conector Sqoop usado para exportar dados no Microsoft SQL Server ou no Banco de Dados SQL do Azure, atualmente, não permite inserções em massa.
+* Bulk export - With Linux-based HDInsight, the Sqoop connector used to export data to Microsoft SQL Server or Azure SQL Database does not currently support bulk inserts.
 
-* Envio em lote — com HDInsight baseado em Linux, ao usar o comutador `-batch` na execução de inserções, Sqoop executará várias inserções em vez de operações de inserção em lotes.
+* Batching - With Linux-based HDInsight, When using the `-batch` switch when performing inserts, Sqoop will perform multiple inserts instead of batching the insert operations.
 
-##Resumo
+##<a name="summary"></a>Summary
 
-Conforme demonstrado neste documento, você pode usar uma solicitação HTTP bruta para executar, monitorar e exibir os resultados de trabalhos do Sqoop no cluster HDInsight.
+As demonstrated in this document, you can use a raw HTTP request to run, monitor, and view the results of Sqoop jobs on your HDInsight cluster.
 
-Para saber mais sobre a interface REST usada neste artigo, confira o <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">Guia da API REST do Sqoop</a>.
+For more information on the REST interface used in this article, see the <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">Sqoop REST API guide</a>.
 
-##Próximas etapas
+##<a name="next-steps"></a>Next steps
 
-Para obter informações gerais sobre o Hive com HDInsight:
+For general information on Hive with HDInsight:
 
-* [Usar o Sqoop com o Hadoop no HDInsight](hdinsight-use-sqoop.md)
+* [Use Sqoop with Hadoop on HDInsight](hdinsight-use-sqoop.md)
 
-Para obter informações sobre outras maneiras que você pode trabalhar com Hadoop no HDInsight:
+For information on other ways you can work with Hadoop on HDInsight:
 
-* [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-* [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
-* [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
@@ -150,4 +151,10 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

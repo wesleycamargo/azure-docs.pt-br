@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Passando credenciais para o Azure usando a DSC | Microsoft Azure"
-   description="Visão geral sobre como passar com segurança as credenciais para máquinas virtuais do Azure usando a Configuração de Estado Desejado do PowerShell"
+   pageTitle="Passing credentials to Azure using DSC | Microsoft Azure"
+   description="Overview on securely passing credentials to Azure virtual machines using PowerShell Desired State Configuration"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="zjalexander"
@@ -18,21 +18,22 @@
    ms.date="09/15/2016"
    ms.author="zachal"/>
 
-# Passando credenciais para o manipulador de extensões DSC do Azure #
+
+# <a name="passing-credentials-to-the-azure-dsc-extension-handler"></a>Passing credentials to the Azure DSC extension handler #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Este artigo aborda a extensão Configuração de Estado Desejado do Azure. Uma visão geral do manipulador de extensões DSC pode ser encontrada em [Introduction to the Azure Desired State Configuration extension handler (Introdução ao manipulador de extensões Configuração de Estado Desejado do Azure)](virtual-machines-windows-extensions-dsc-overview.md).
+This article covers the Desired State Configuration extension for Azure. An overview of the DSC extension handler can be found at [Introduction to the Azure Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md). 
 
 
-## Passagem de credenciais
-Como parte do processo de configuração, talvez seja necessário configurar contas de usuário, acessar serviços ou instalar um programa em um contexto de usuário. Para fazer isso, você precisa fornecer credenciais.
+## <a name="passing-in-credentials"></a>Passing in credentials
+As a part of the configuration process, you may need to set up user accounts, access services, or install a program in a user context. To do these things, you need to provide credentials. 
 
-A DSC permite configurações parametrizadas nas quais as credenciais são passadas na configuração e seguramente armazenadas em arquivos MOF. O Manipulador de Extensões do Azure simplifica o gerenciamento de credenciais fornecendo gerenciamento automático de certificados.
+DSC allows for parameterized configurations in which credentials are passed into the configuration and securely stored in MOF files. The Azure Extension Handler simplifies credential management by providing automatic management of certificates. 
 
-Considere o seguinte script de configuração da DSC que cria uma conta de usuário local com a senha especificada:
+Consider the following DSC configuration script that creates a local user account with the specified password:
 
-*user\_configuration.ps1*
+*user_configuration.ps1*
 
 ```
 configuration Main
@@ -58,13 +59,13 @@ configuration Main
 } 
 ```
 
-É importante incluir *node localhost* como parte da configuração. Se essa instrução estiver ausente, as etapas a seguir não funcionarão, pois o manipulador de extensão procura especificamente a instrução de localhost do nó. Também é importante incluir a conversão de tipo *[PsCredential]*, pois esse tipo específico dispara a extensão para criptografar a credencial.
+It is important to include *node localhost* as part of the configuration. If this statement is missing, the following steps do not work as the extension handler specifically looks for the node localhost statement. It is also important to include the typecast *[PsCredential]*, as this specific type triggers the extension to encrypt the credential. 
 
-Publique esse script no armazenamento de blobs:
+Publish this script to blob storage:
 
 `Publish-AzureVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
 
-Defina a extensão DSC do Azure e forneça a credencial:
+Set the Azure DSC extension and provide the credential:
 
 ```
 $configurationName = "Main"
@@ -77,20 +78,24 @@ $vm = Set-AzureVMDSCExtension -VM $vm -ConfigurationArchive $configurationArchiv
  
 $vm | Update-AzureVM
 ```
-## Como as credenciais são protegidas
-Executar esse código solicita uma credencial. Assim que ela for fornecida, ela será armazenada na memória por pouco tempo. Quando publicada com o cmdlet `Set-AzureVmDscExtension`, ela é transmitida por HTTP à VM, onde o Azure a armazena criptografada no disco, usando o certificado da VM local. Em seguida, é brevemente descriptografada na memória e criptografada novamente para passá-la ao DSC.
+## <a name="how-credentials-are-secured"></a>How credentials are secured
+Running this code prompts for a credential. Once it is provided, it is stored in memory briefly. When it is published with `Set-AzureVmDscExtension` cmdlet, it is transmitted over HTTPS to the VM, where Azure stores it encrypted on disk, using the local VM certificate. Then it is briefly decrypted in memory and re-encrypted to pass it to DSC.
 
-Esse comportamento é diferente de [usar configurações seguras sem o manipulador de extensões](https://msdn.microsoft.com/powershell/dsc/securemof). O ambiente do Azure oferece uma forma de transmitir dados de configuração com segurança por meio de certificados. Ao usar o manipulador de extensão DSC, não é necessário fornecer $CertificatePath ou um $CertificateID / entrada $Thumbprint em ConfigurationData.
+This behavior is different than [using secure configurations without the extension handler](https://msdn.microsoft.com/powershell/dsc/securemof). The Azure environment gives a way to transmit configuration data securely via certificates. When using the DSC extension handler, there is no need to provide $CertificatePath or a $CertificateID / $Thumbprint entry in ConfigurationData.
 
 
-## Próximas etapas ##
+## <a name="next-steps"></a>Next steps ##
 
-Para saber mais sobre o manipulador de extensões DSC do Azure, confira [Introduction to the Azure Desired State Configuration extension handler (Introdução ao manipulador de extensões Configuração de Estado Desejado do Azure)](virtual-machines-windows-extensions-dsc-overview.md).
+For more information on the Azure DSC extension handler, see [Introduction to the Azure Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md). 
 
-Examine o [modelo do Azure Resource Manager para a extensão de DSC](virtual-machines-windows-extensions-dsc-template.md).
+Examine the [Azure Resource Manager template for the DSC extension](virtual-machines-windows-extensions-dsc-template.md).
 
-Para saber mais sobre a DSC do PowerShell, [visite o centro de documentação do PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+For more information about PowerShell DSC, [visit the PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 
 
-Para encontrar a funcionalidade adicional que você pode gerenciar com a DSC do PowerShell, [navegue na galeria do PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) para conhecer mais recursos da DSC.
+To find additional functionality you can manage with PowerShell DSC, [browse the PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) for more DSC resources.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

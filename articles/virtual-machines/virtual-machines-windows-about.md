@@ -1,46 +1,48 @@
 <properties
-	pageTitle="Sobre máquinas virtuais do Windows | Microsoft Azure"
-	description="Conheça os conceitos básicos das máquinas virtuais do Windows no Azure usando os dois modelos de implantação."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="About Windows Virtual Machines | Microsoft Azure"
+    description="Learn about the basics of Windows virtual machines in Azure using both deployment models."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/27/2016"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/27/2016"
+    ms.author="cynthn"/>
 
-#Sobre as máquinas virtuais do Windows no Azure
+
+#<a name="about-windows-virtual-machines-in-azure"></a>About Windows virtual machines in Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-Máquinas Virtuais do Azure é um dos vários tipos de recursos de computação sob demanda escalonáveis oferecidos pelo Azure. Normalmente, você escolhe uma máquina virtual quando precisa de mais controle sobre o ambiente de computação do que as outras opções oferecem.
+Azure Virtual Machines is one of several types of on-demand, scalable computing resources that Azure offers. Typically, you'll choose a virtual machine if you need more control over the computing environment than the other choices offer.
 
-Uma máquina virtual do Azure oferece a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que executa a máquina virtual. No entanto, você ainda precisa manter a máquina virtual – configurar, corrigir e manter o software executado nela. Você também pode aprender [sobre máquinas virtuais do Linux no Azure](virtual-machines-linux-about.md).
+An Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine. However, you still need to maintain the virtual machine -- configuring, patching, and maintaining the software that runs on the virtual machine. You can also learn [about Linux virtual machines in Azure](virtual-machines-linux-about.md).
 
-Esta tabela ajuda a comparar as opções oferecidas pelo Azure.
+This table helps you compare the choices offered by Azure.
 
 [AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Avalie uma máquina virtual criando uma máquina virtual simples rapidamente. Para obter instruções, confira [Criar uma máquina virtual executando o Windows no Portal do Azure](virtual-machines-windows-hero-tutorial.md).
+Try out a virtual machine by creating a simple virtual machine quickly. For instructions, see [Create a virtual machine running Windows in the Azure portal](virtual-machines-windows-hero-tutorial.md).
 
-Como o tutorial o ajuda a criar uma máquina virtual rapidamente, ele mostra apenas uma maneira de fazer isso, em vez de descrever as várias ferramentas que você pode usar para criar máquinas virtuais. Para obter um resumo dessas ferramentas e links para obter instruções, confira [Diferentes maneiras de criar uma máquina virtual do Windows](virtual-machines-windows-creation-choices.md).
+Because the tutorial helps you create a virtual machine quickly, it only shows you one way to do it instead of describing the various tools you can use to create virtual machines. For a summary of these tools and links to instructions, see [Different ways to create a Windows virtual machine](virtual-machines-windows-creation-choices.md).
 
-<!--links-->
-[Serviço de Aplicativo]: app-service-choose-me.md
-[Serviços de Nuvem]: cloud-services-choose-me.md
-[Máquinas virtuais]: #tellmevm
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

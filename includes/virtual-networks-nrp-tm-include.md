@@ -1,28 +1,28 @@
-## Perfil de Gerenciador de Tráfego
+## <a name="traffic-manager-profile"></a>Traffic Manager Profile
 
-O gerenciador de tráfego e seu recurso de ponto de extremidade filho habilitam o roteamento de DNS para pontos de extremidade no Azure e fora do Azure. Essa distribuição de tráfego é controlada por métodos de política de roteamento. O Gerenciador de Tráfego também permite que a integridade do ponto de extremidade seja monitorada e que o tráfego seja desviado adequadamente, com base na integridade de um ponto de extremidade.
+Traffic manager and its child endpoint resource enable DNS routing to endpoints in Azure and outside of Azure. Such traffic distribution is governed by routing  policy methods. Traffic manager also allows endpoint health to be monitored, and traffic diverted appropriately based on the health of an endpoint. 
 
-| Propriedade | Descrição |
+| Property | Description |
 |---|---|
-|**trafficRoutingMethod**| os valores possíveis são *Desempenho*, *Ponderado* e *Prioridade* | 
-| **dnsConfig** | FQDN para o perfil | 
-| **Protocolo** | protocolo de monitoramento, os valores possíveis são *HTTP* e *HTTPS*|
-| **Porta** | porta de monitoramento |  
-| **Caminho** | caminho de monitoramento |
-| **Pontos de extremidade** | contêiner para recursos de ponto de extremidade | 
+|**trafficRoutingMethod**| possible values are *Performance*, *Weighted*, and *Priority* | 
+| **dnsConfig** | FQDN for the profile | 
+| **Protocol** | monitoring protocol, possible values are *HTTP* and *HTTPS*|
+| **Port** | monitoring port |  
+| **Path** | monitoring path |
+| **Endpoints** |  container for endpoint resources | 
 
-### Ponto de extremidade 
+### <a name="endpoint"></a>Endpoint 
 
-Um ponto de extremidade é um recurso de filho de um perfil de Gerenciador de Tráfego. Representa um serviço ou ponto de extremidade Web para o qual o tráfego de usuário é distribuído com base na política configurada no recurso de Perfil de Gerenciador de Tráfego.
+An endpoint is a child resource of a Traffic Manager Profile. It represents a service or web endpoint to which user traffic is distributed based on the configured policy in the Traffic Manager Profile resource. 
 
-| Propriedade | Descrição | 
+| Property | Description | 
 |---|---| 
-| **Tipo** | o tipo do ponto de extremidade, os valores possíveis são *Ponto de Extremidade do Azure*, *Ponto de Extremidade Externo* e *Ponto de Extremidade Aninhado* | 
-| **targetResourceId** | endereço IP público de um ponto de extremidade de serviço ou da Web. Isso pode ser um ponto de extremidade do Azure ou externo. | 
-| **Peso** | peso de ponto de extremidade usado no gerenciamento de tráfego. | 
-| **Prioridade** | prioridade do ponto de extremidade, usada para definir uma ação de failover |
+| **Type** |  the type of the endpoint, possible values are *Azure End point*, *External Endpoint*, and  *Nested Endpoint* | 
+| **targetResourceId** |  public IP address of a service or web endpoint. This can be an Azure or external endpoint. | 
+| **Weight** | endpoint weight used in traffic management. | 
+| **Priority** | priority of the endpoint, used to define a failover action |
 
-Exemplo do Gerenciador de Tráfego no formato Json:
+Sample of Traffic Manager in Json format: 
 
 
         {
@@ -80,8 +80,11 @@ Exemplo do Gerenciador de Tráfego no formato Json:
         }
 
  
-## Recursos adicionais
+## <a name="additional-resources"></a>Additional resources
 
-Leia a [documentação da API REST para o Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/mt163664.aspx) para saber mais.
+Read [REST API documentation for Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) for more information.
 
-<!---HONumber=AcomDC_1223_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

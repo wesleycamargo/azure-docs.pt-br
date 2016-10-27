@@ -1,227 +1,241 @@
 <properties
-	pageTitle="Como escolher algoritmos de Aprendizado de Máquina | Microsoft Azure"
-	description="Como escolher algoritmos de Aprendizado de Máquina do Azure para aprendizado supervisionado e não supervisionado nos experimentos de agrupamento, classificação ou regressão."
-	services="machine-learning"
-	documentationCenter=""
-	authors="brohrer"
-	manager="jhubbard"
-	editor="cgronlun"
+    pageTitle="How to choose machine learning algorithms | Microsoft Azure"
+    description="How to choose Azure Machine Learning algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments."
+    services="machine-learning"
+    documentationCenter=""
+    authors="brohrer"
+    manager="jhubbard"
+    editor="cgronlun"
     tags=""/>
     
 <tags
-	ms.service="machine-learning"
+    ms.service="machine-learning"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
-	ms.workload="data-services"
-	ms.date="08/09/2016"
-	ms.author="brohrer;garye" />
+    ms.workload="data-services"
+    ms.date="08/09/2016"
+    ms.author="brohrer;garye" />
 
-# Como escolher algoritmos de Aprendizado de Máquina do Microsoft Azure
 
-A resposta à pergunta "Qual algoritmo de aprendizado de máquina devo usar?" sempre será "Depende". Depende do tamanho, da qualidade e da natureza dos dados. Depende do que você deseja fazer com a resposta. Depende de como o cálculo do algoritmo foi traduzido em instruções para o computador que você está usando. E depende de quanto tempo você tem. Até mesmo os cientistas de dados mais experientes não podem determinar qual algoritmo terá o melhor desempenho antes de experimentá-lo.
+# <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>How to choose algorithms for Microsoft Azure Machine Learning
 
-## Página de dicas úteis do algoritmo de Aprendizado de Máquina
+The answer to the question "What machine learning algorithm should I use?" is always "It depends." It depends on the size, quality, and nature of the data. It depends what you want to do with the answer. It depends on how the math of the algorithm was translated into instructions for the computer you are using. And it depends on how much time you have. Even the most experienced data scientists can't tell which algorithm will perform best before trying them.
 
-A **Página de dicas úteis do algoritmo para Aprendizado de Máquina** ajuda a escolher o melhor algoritmo de Aprendizado de Máquina para suas soluções de análise preditiva na biblioteca de algoritmos do Aprendizado de Máquina do Microsoft Azure. Este artigo orienta você a usá-lo.
+## <a name="the-machine-learning-algorithm-cheat-sheet"></a>The Machine Learning Algorithm Cheat Sheet
 
-> [AZURE.NOTE] Para baixar a página de dicas úteis e acompanhar este artigo, vá para [Página de dicas úteis de algoritmo de aprendizado de máquina para o Estúdio de Aprendizado de Máquina do Microsoft Azure ](machine-learning-algorithm-cheat-sheet.md).
+The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Microsoft Azure Machine Learning library of algorithms.
+This article walks you through how to use it.
 
-Essa página de dicas úteis tem uma audiência bem específica em mente: um cientista de dados iniciante com aprendizado de máquina de nível de graduação, tentando escolher um algoritmo para começar a usar o Estúdio de Aprendizado de Máquina do Azure. Isso significa que ela faz algumas generalizações e simplificações excessivas, mas apontará uma direção segura para você. Isso também significa que há muitos algoritmos não listados aqui. À medida que o Aprendizado de Máquina crescer para englobar um conjunto mais completo de métodos disponíveis, nós os adicionaremos.
+> [AZURE.NOTE] To download the cheat sheet and follow along with this article, go to [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md).
 
-Essas recomendações são comentários e dicas compilados de muitos cientistas de dados e especialistas em aprendizado de máquina. Não concordamos em tudo, mas eu tentei harmonizar nossas opiniões em um consenso aproximado. A maioria das instruções em que houve desentendimentos começa com "Depende..."
+This cheat sheet has a very specific audience in mind: a beginning data scientist with undergraduate-level machine learning, trying to choose an algorithm to start with in Azure Machine Learning Studio. That means that it makes some generalizations and oversimplifications, but it will point you in a safe direction. It also means that there are lots of algorithms not listed here. As Azure Machine Learning grows to encompass a more complete set of available methods, we'll add them.
 
-### Como usar a página de dicas úteis
+These recommendations are compiled feedback and tips from a lot of data scientists and machine learning experts. We didn't agree on everything, but I've tried to harmonize our opinions into a rough consensus. Most of the statements of disagreement begin with "It depends…"
 
-Leia os rótulos do caminho e do algoritmo no gráfico, como "Para *&lt;rótulodocaminho&gt;*, use *&lt;algoritmo&gt;*". Por exemplo, "Para*velocidade*, use *regressão logística de duas classes*". Às vezes, mais de uma ramificação se aplicará. Às vezes, nenhuma delas será a solução perfeita. Elas se destinam a serem recomendações gerais, portanto não se preocupe com a exatidão delas. Vários cientistas dados com quem conversei disseram que a única maneira de encontrar o melhor algoritmo é experimentar todos eles.
+### <a name="how-to-use-the-cheat-sheet"></a>How to use the cheat sheet
 
-Veja um exemplo da [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) de um teste que experimenta vários algoritmos nos mesmos dados e compara os resultados: [Comparar classificadores multiclasse: reconhecimento de letra](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Read the path and algorithm labels on the chart as "For *&lt;path label&gt;* use *&lt;algorithm&gt;*." For example, "For *speed* use *two class logistic regression*." Sometimes more than one branch will apply.
+Sometimes none of them will be a perfect fit. They're intended to be rule-of-thumb recommendations, so don't worry about it being exact.
+Several data scientists I talked with said that the only sure way to find the very best algorithm is to try all of them.
 
->[AZURE.TIP] Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
+Here's an example from the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) of an experiment that tries several algorithms against the same data and compares the results: [Compare Multi-class Classifiers: Letter recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
-## Tipos de aprendizado de máquina
+>[AZURE.TIP] To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
 
-### Supervisionado
+## <a name="flavors-of-machine-learning"></a>Flavors of machine learning
 
-Os algoritmos de aprendizado supervisionados fazem previsões com base em um conjunto de exemplos. Por exemplo, as cotações históricas podem ser usadas para arriscar palpites em preços futuros. Cada exemplo usado para treinamento é rotulado com o valor de seu interesse — neste caso, o preço da ação. Um algoritmo de aprendizado supervisionado procura por padrões nesses rótulos de valor. Ele pode usar qualquer informação que seja relevante — o dia da semana, a temporada, os dados financeiros da empresa, o tipo de setor, a presença de eventos geopolíticos perturbadores — e cada algoritmo procura tipos diferentes de padrões. Depois que o algoritmo tiver encontrado o melhor padrão possível, usará esse padrão para fazer previsões para dados de testes sem rótulos — os preços de amanhã.
+### <a name="supervised"></a>Supervised
 
-Este é um tipo popular e útil de aprendizado de máquina. Com uma exceção, todos os módulos do Aprendizado de Máquina do Azure são algoritmos de aprendizado supervisionados. Há vários tipos específicos de aprendizado supervisionado representados no Aprendizado de Máquina do Azure: classificação, regressão e detecção de anomalias.
+Supervised learning algorithms make predictions based on a set of examples. For instance, historical stock prices can be used to hazard guesses at future prices. Each example used for training is labeled with the value of interest—in this case the stock price. A supervised learning algorithm looks for patterns in those value labels. It can use any information that might be relevant—the day of the week, the season, the company's financial data, the type of industry, the presence of disruptive geopolicitical events—and each algorithm looks for different types of patterns. After the algorithm has found the best pattern it can, it uses that pattern to make predictions for unlabeled testing data—tomorrow's prices.
 
-* **Classificação**. Quando os dados estiverem sendo usados para prever uma categoria, o aprendizado supervisionado também será chamado de classificação. Esse é o caso ao atribuir uma imagem como uma foto de um ‘gato’ ou de um ‘cachorro’. Quando há apenas duas opções, isso é chamado de **classificação binomial** ou de **duas classes**. Quando houver mais categorias, como na previsão do vencedor do torneio NCAA March Madness, esse problema é conhecido como **classificação multiclasse**.
+This is a popular and useful type of machine learning. With one exception, all of the modules in Azure Machine Learning are supervised learning algorithms. There are several specific types of supervised learning that are represented within Azure Machine Learning: classification, regression, and anomaly detection.
 
-* **Regressão**. Quando um valor estiver sendo previsto, assim como acontece com preços de cotações, o aprendizado supervisionado será chamado de regressão.
+* **Classification**. When the data are being used to predict a category, supervised learning is also called classification. This is the case when assigning an image as a picture of either a 'cat' or a 'dog'. When there are only two choices, this is called **two-class** or **binomial classification**. When there are more categories, as when predicting the winner of the NCAA March Madness tournament, this problem is known as **multi-class classification**.
 
-* **Detecção de anomalias**. Às vezes, o objetivo é identificar os pontos de dados que são simplesmente incomuns. Na detecção de fraudes, por exemplo, quaisquer padrões incomuns de gasto em cartão de crédito são suspeitos. As variações possíveis são tão numerosas e os exemplos de treinamento tão poucos, que não é viável aprender como seria uma atividade fraudulenta. A abordagem que usa detecção de anomalias é simplesmente aprender como seria uma atividade normal (usando transações não fraudulentas históricas) e identificar tudo que seja significativamente diferente.
+* **Regression**. When a value is being predicted, as with stock prices, supervised learning is called regression.
 
-### Não supervisionado
+* **Anomaly detection**. Sometimes the goal is to identify data points that are simply unusual. In fraud detection, for example, any highly unusual credit card spending patterns are suspect. The possible variations are so numerous and the training examples so few, that it's not feasible to learn what fraudulent activity looks like. The approach that anomaly detection takes is to simply learn what normal activity looks like (using a history non-fraudulent transactions) and identify anything that is significantly different.
 
-No aprendizado não supervisionado, os pontos de dados não têm rótulos associados a eles. Em vez disso, a meta de um algoritmo de aprendizado sem supervisão é organizar os dados de alguma forma ou descrever sua estrutura. Isso pode significar agrupá-los em clusters ou encontrar diferentes maneiras de consultar dados complexos para que eles pareçam mais simples ou mais organizados.
+### <a name="unsupervised"></a>Unsupervised
 
-### Aprendizado de reforço
+In unsupervised learning, data points have no labels associated with them. Instead, the goal of an unsupervised learning algorithm is to organize the data in some way or to describe its structure. This can mean grouping it into clusters or finding different ways of looking at complex data so that it appears simpler or more organized.
 
-No aprendizado de reforço, o algoritmo escolhe uma ação em resposta a cada ponto de dados. O algoritmo de aprendizado também recebe um sinal de recompensa pouco tempo depois, indicando se a decisão foi boa. Com base nisso, o algoritmo modifica sua estratégia para alcançar a recompensa mais alta. Atualmente, não há nenhum módulo de algoritmo de reforço de aprendizado no Aprendizado de Máquina do Azure. O aprendizado de reforço é comum em robótica, em que o conjunto de leituras do sensor, em um ponto no tempo, é um ponto de dados e o algoritmo deve escolher a próxima ação do robô. Também é um ajuste natural para aplicativos da Internet das Coisas.
+### <a name="reinforcement-learning"></a>Reinforcement learning
 
-## Considerações ao escolher um algoritmo
+In reinforcement learning, the algorithm gets to choose an action in response to each data point. The learning algorithm also receives a reward signal a short time later, indicating how good the decision was.
+Based on this, the algorithm modifies its strategy in order to achieve the highest reward. Currently there are no reinforcement learning algorithm modules in Azure Machine Learning. Reinforcement learning is common in robotics, where the set of sensor readings at one point in time is a data point, and the algorithm must choose the robot's next action. It is also a natural fit for Internet of Things applications.
 
-### Precisão
+## <a name="considerations-when-choosing-an-algorithm"></a>Considerations when choosing an algorithm
 
-Obter a resposta mais precisa possível nem sempre será necessário. Às vezes uma aproximação será adequada, dependendo do uso que você quiser dar a ela. Se esse for o caso, talvez seja possível reduzir o tempo de processamento drasticamente usando métodos mais aproximados. Outra vantagem dos métodos mais aproximados é que eles naturalmente tendem a evitar o [superajuste](https://youtu.be/DQWI1kvmwRg).
+### <a name="accuracy"></a>Accuracy
 
-### Tempo de treinamento
+Getting the most accurate answer possible isn't always necessary.
+Sometimes an approximation is adequate, depending on what you want to use it for. If that's the case, you may be able to cut your processing time dramatically by sticking with more approximate methods. Another advantage of more approximate methods is that they naturally tend to avoid [overfitting](https://youtu.be/DQWI1kvmwRg).
 
-O número de minutos ou de horas necessários para treinar um modelo varia muito entre algoritmos. Em geral, o tempo de treinamento está intimamente vinculado à precisão — um normalmente acompanha o outro. Além disso, alguns algoritmos são mais sensíveis ao número de pontos de dados do que outros. Quando o tempo for limitado, ele poderá orientar a escolha do algoritmo, especialmente quando o conjunto de dados for grande.
+### <a name="training-time"></a>Training time
 
-### Linearidade
+The number of minutes or hours necessary to train a model varies a great deal between algorithms. Training time is often closely tied to accuracy—one typically accompanies the other. In addition, some algorithms are more sensitive to the number of data points than others.
+When time is limited it can drive the choice of algorithm, especially when the data set is large.
 
-Muitos algoritmos de aprendizado de máquina usam a linearidade. Os algoritmos de classificação linear supõem que as classes podem ser separadas por uma linha reta (ou seu análogo em dimensões maiores). Isso inclui a regressão logística e as máquinas de vetor de suporte (como implementado no Aprendizado de Máquina do Azure). Os algoritmos de regressão linear supõem que as tendências de dados seguem uma linha reta. Essas suposições não são ruins para alguns problemas, mas em outros elas podem reduzir a precisão.
+### <a name="linearity"></a>Linearity
 
-![Limite de classe não linear][1]
+Lots of machine learning algorithms make use of linearity. Linear classification algorithms assume that classes can be separated by a straight line (or its higher-dimensional analog). These include logistic regression and support vector machines (as implemented in Azure Machine Learning).
+Linear regression algorithms assume that data trends follow a straight line. These assumptions aren't bad for some problems, but on others they bring accuracy down.
 
-***Limite de classe não linear*** - *contar com um algoritmo de classificação linear resultaria em baixa precisão*
+![Non-linear class bounday][1]
 
-![Dados com uma tendência não linear][2]
+***Non-linear class boundary*** *- relying on a linear classification algorithm would result in low accuracy*
 
-***Dados com uma tendência não linear*** - *usar um método de regressão linear geraria erros muito maiores do que o necessário*
+![Data with a nonlinear trend][2]
 
-Apesar de seus riscos, os algoritmos lineares são muito populares como uma primeira linha de ataque. Eles tendem a ser algoritmicamente simples e rápidos de treinar.
+***Data with a nonlinear trend*** *- using a linear regression method would generate much larger errors than necessary*
 
-### Número de parâmetros
+Despite their dangers, linear algorithms are very popular as a first line of attack. They tend to be algorithmically simple and fast to train.
 
-Os parâmetros são os botões que o cientista de dados precisa girar ao configurar um algoritmo. Eles são números que afetam o comportamento do algoritmo, como tolerância a erros ou o número de iterações, ou opções entre variantes de como o algoritmo se comporta. O tempo de treinamento e a precisão do algoritmo às vezes podem ser muito importantes para obter apenas as configurações corretas. Em geral, os algoritmos com um grande número de parâmetros exigem mais tentativas e erros para a localização de uma boa combinação.
+### <a name="number-of-parameters"></a>Number of parameters
 
-Como alternativa, há um bloco de módulo de [limpeza de parâmetro](machine-learning-algorithm-parameters-optimize.md) no Aprendizado de Máquina do Azure que experimenta automaticamente todas as combinações de parâmetro em qualquer granularidade que você escolher. Embora essa seja uma excelente maneira de certificar-se de que você tenha estendido o espaço de parâmetro, o tempo necessário para treinar o modelo aumenta exponencialmente com o número de parâmetros.
+Parameters are the knobs a data scientist gets to turn when setting up an algorithm. They are numbers that affect the algorithm's behavior, such as error tolerance or number of iterations, or options between variants of how the algorithm behaves. The training time and accuracy of the algorithm can sometimes be quite sensitive to getting just the right settings. Typically, algorithms with large numbers parameters require the most trial and error to find a good combination.
 
-A vantagem é que ter muitos parâmetros geralmente indica que um algoritmo tem mais flexibilidade. Geralmente, isso pode significar uma precisão muito boa. Desde que você consiga encontrar a combinação certa de configurações de parâmetro.
+Alternatively, there is a [parameter sweeping](machine-learning-algorithm-parameters-optimize.md) module block in Azure Machine Learning that automatically tries all parameter combinations at whatever granularity you choose. While this is a great way to make sure you've spanned the parameter space, the time required to train a model increases exponentially with the number of parameters.
 
-### Número de recursos
+The upside is that having many parameters typically indicates that an algorithm has greater flexibility. It can often achieve very good accuracy. Provided you can find the right combination of parameter settings.
 
-Para determinados tipos de dados, o número de recursos pode ser muito grande em comparação ao número de pontos de dados. Geralmente, isso acontece com dados de genética ou de texto. O grande número de recursos pode reduzir alguns algoritmos de aprendizado, fazendo com que o tempo de treinamento seja impraticável. As Máquinas de Vetor de Suporte são particularmente adequadas para esse caso (veja abaixo).
+### <a name="number-of-features"></a>Number of features
 
-### Casos especiais
+For certain types of data, the number of features can be very large compared to the number of data points. This is often the case with genetics or textual data. The large number of features can bog down some learning algorithms, making training time unfeasibly long. Support Vector Machines are particularly well suited to this case (see below).
 
-Alguns algoritmos de aprendizado fazem suposições específicas sobre a estrutura de dados ou os resultados desejados. Se você conseguir encontrar um que atenda às suas necessidades, ele oferecerá resultados mais úteis, previsões mais exatas ou tempos de treinamento menores.
+### <a name="special-cases"></a>Special cases
 
-|**Algoritmo**|**Precisão**|**Tempo de treinamento**|**Linearidade**|**Parâmetros**|**Observações**|
+Some learning algorithms make particular assumptions about the structure of the data or the desired results. If you can find one that fits your needs, it can give you more useful results, more accurate predictions, or faster training times.
+
+|**Algorithm**|**Accuracy**|**Training time**|**Linearity**|**Parameters**|**Notes**|
 |---|:---:|:---:|:---:|:---:|---|
-|**Classificação de duas classes**| | | | | |
-|[regressão logística](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |●|●|5| |
-|[floresta de decisão](https://msdn.microsoft.com/library/azure/dn906008.aspx)|●|○| |6| |
-|[selva de decisão](https://msdn.microsoft.com/library/azure/dn905976.aspx)|●|○| |6|Volume de memória insuficiente|
-|[árvore de decisão aumentada](https://msdn.microsoft.com/library/azure/dn906025.aspx)|●|○| |6|Grande volume de memória|
-|[rede neural](https://msdn.microsoft.com/library/azure/dn905947.aspx)|●| | |9|[A personalização adicional é possível](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[perceptron médio](https://msdn.microsoft.com/library/azure/dn906036.aspx)|○|○|●|4| |
-|[máquina de vetor de suporte](https://msdn.microsoft.com/library/azure/dn905835.aspx)| |○|●|5|Bom para conjuntos de recursos grandes|
-|[máquina de vetor de suporte localmente profunda](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|Bom para conjuntos de recursos grandes|
-|[computador do ponto de Bayes](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
-|**Classificação multiclasse**| | | | | |
-|[regressão logística](https://msdn.microsoft.com/library/azure/dn905853.aspx)| |●|●|5| |
-|[floresta de decisão](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
-|[selva de decisão ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Volume de memória insuficiente|
-|[rede neural](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[A personalização adicional é possível](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[um contra todos](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Consulte as propriedades do método de duas classes selecionadas| 
-|**Regressão**| | | | | | 
+|**Two-class classification**| | | | | |
+|[logistic regression](https://msdn.microsoft.com/library/azure/dn905994.aspx)                    | |●|●|5| |
+|[decision forest](https://msdn.microsoft.com/library/azure/dn906008.aspx)|●|○| |6| |
+|[decision jungle](https://msdn.microsoft.com/library/azure/dn905976.aspx)|●|○| |6|Low memory footprint|
+|[boosted decision tree](https://msdn.microsoft.com/library/azure/dn906025.aspx)|●|○| |6|Large memory footprint|
+|[neural network](https://msdn.microsoft.com/library/azure/dn905947.aspx)|●| | |9|[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[averaged perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx)|○|○|●|4| |
+|[support vector machine](https://msdn.microsoft.com/library/azure/dn905835.aspx)| |○|●|5|Good for large feature sets|
+|[locally deep support vector machine](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|Good for large feature sets|
+|[Bayes’ point machine](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
+|**Multi-class classification**| | | | | |
+|[logistic regression](https://msdn.microsoft.com/library/azure/dn905853.aspx)| |●|●|5| |
+|[decision forest](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
+|[decision jungle ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Low memory footprint|
+|[neural network](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|See properties of the two-class method selected|
+|**Regression**| | | | | |
 |[linear ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
-|[Linear Bayesiano](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
-|[floresta de decisão](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
-|[árvore de decisão aumentada](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Grande volume de memória|
-|[quantil rápido de floresta](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuições em vez de previsões de ponto|
-|[rede neural](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[A personalização adicional é possível](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Tecnicamente linear em log. Para previsão de contagem|
-|[ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Para previsão de ordem de classificação|
-|**Detecção de anomalias**| | | | | |
-|[computador de vetor de suporte](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Especialmente bom para conjuntos de recursos grandes|
-|[Detecção de anomalias baseada em PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
-|[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Um algoritmo de clustering|
+|[Bayesian linear](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
+|[decision forest](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
+|[boosted decision tree](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Large memory footprint|
+|[fast forest quantile](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distributions rather than point predictions|
+|[neural network](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Technically log-linear. For predicting counts|
+|[ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|For predicting rank-ordering|
+|**Anomaly detection**| | | | | |
+|[support vector machine](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Especially good for large feature sets|
+|[PCA-based anomaly detection ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
+|[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|A clustering algorithm|
 
 
-**Propriedades do algoritmo:**
+**Algorithm properties:**
 
-**●** - mostra excelente precisão, tempos de treinamento pequenos e o uso de linearidade
+**●** - shows excellent accuracy, fast training times, and the use of linearity
 
-**○** - mostra boa precisão e tempos de treinamento moderados
+**○** - shows good accuracy and moderate training times
 
-## Anotações sobre algoritmo
+## <a name="algorithm-notes"></a>Algorithm notes
 
-### Regressão linear
+### <a name="linear-regression"></a>Linear regression
 
-Como mencionado anteriormente, a [regressão linear](https://msdn.microsoft.com/library/azure/dn905978.aspx) ajusta uma linha (ou plano ou hiperplano) ao conjunto de dados. Ela é uma força de trabalho, simples e rápida, mas pode ser muito simplista para alguns problemas. Veja aqui um [tutorial de regressão linear](machine-learning-linear-regression-in-azure.md).
+As mentioned previously, [linear regression](https://msdn.microsoft.com/library/azure/dn905978.aspx) fits a line (or plane, or hyperplane) to the data set. It's a workhorse, simple and fast, but it may be overly simplistic for some problems.
+Check here for a [linear regression tutorial](machine-learning-linear-regression-in-azure.md).
 
-![Dados com uma tendência linear][3]
+![Data with a linear trend][3]
 
-***Dados com uma tendência linear***
+***Data with a linear trend***
 
-### Regressão logística
+### <a name="logistic-regression"></a>Logistic regression
 
-Embora inclua erroneamente ‘regressão’ no nome, a regressão logística é, na verdade, uma poderosa ferramenta para a classificação de [duas classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) e [multiclasse](https://msdn.microsoft.com/library/azure/dn905853.aspx). É rápida e simples. O fato de que ela usa uma curva em forma de ‘S’ em vez de uma linha reta faz com que ela seja uma opção natural para a divisão de dados em grupos. A regressão logística oferece limites de classe lineares e, portanto, quando for usá-la, verifique se uma aproximação linear serve para você.
+Although it confusingly includes 'regression' in the name, logistic regression is actually a powerful tool for [two-class](https://msdn.microsoft.com/library/azure/dn905994.aspx) and [multiclass](https://msdn.microsoft.com/library/azure/dn905853.aspx) classification. It's fast and simple. The fact that it uses an 'S'-shaped curve instead of a straight line makes it a natural fit for dividing data into groups. Logistic regression gives linear class boundaries, so when you use it, make sure a linear approximation is something you can live with.
 
-![Regressão logística para dados de duas classes com apenas um recurso][4]
+![Logistic regression to two-class data with just one feature][4]
 
-***Uma regressão logística para dados de duas classes com apenas um recurso*** - *o limite de classe é o ponto no qual a curva logística é mais próxima de ambas as classes*
+***A logistic regression to two-class data with just one feature*** *- the class boundary is the point at which the logistic curve is just as close to both classes*
 
-### Árvores, florestas e selvas
+### <a name="trees,-forests,-and-jungles"></a>Trees, forests, and jungles
 
-Florestas de decisão ([regressão](https://msdn.microsoft.com/library/azure/dn905862.aspx)[duas classes](https://msdn.microsoft.com/library/azure/dn906008.aspx) e [multiclasse](https://msdn.microsoft.com/library/azure/dn906015.aspx)), selvas de decisão ([duas classes](https://msdn.microsoft.com/library/azure/dn905976.aspx) e [multiclasse](https://msdn.microsoft.com/library/azure/dn905963.aspx)) e árvores de decisão aumentadas ([regressão](https://msdn.microsoft.com/library/azure/dn905801.aspx) e [duas classes](https://msdn.microsoft.com/library/azure/dn906025.aspx)) são todos baseados em árvores de decisão, um conceito fundamental de aprendizado de máquina. Há muitas variantes de árvores de decisão, mas todas fazem a mesma coisa — subdividir o espaço de recursos em regiões com basicamente o mesmo rótulo. Elas podem ser regiões de categoria consistente ou de valor constante, dependendo se você estiver fazendo classificação ou regressão.
+Decision forests ([regression](https://msdn.microsoft.com/library/azure/dn905862.aspx), [two-class](https://msdn.microsoft.com/library/azure/dn906008.aspx), and [multiclass](https://msdn.microsoft.com/library/azure/dn906015.aspx)), decision jungles ([two-class](https://msdn.microsoft.com/library/azure/dn905976.aspx) and [multiclass](https://msdn.microsoft.com/library/azure/dn905963.aspx)), and boosted decision trees ([regression](https://msdn.microsoft.com/library/azure/dn905801.aspx) and [two-class](https://msdn.microsoft.com/library/azure/dn906025.aspx)) are all based on decision trees, a foundational machine learning concept. There are many variants of decision trees, but they all do the same thing—subdivide the feature space into regions with mostly the same label. These can be regions of consistent category or of constant value, depending on whether you are doing classification or regression.
 
-![A árvore de decisão subdivide um espaço de recurso][5]
+![Decision tree subdivides a feature space][5]
 
-***Uma árvore de decisão subdivide um espaço de recursos em regiões de valores aproximadamente uniformes***
+***A decision tree subdivides a feature space into regions of roughly uniform values***
 
-Como um espaço de recurso pode ser subdividido em pequenas regiões de forma arbitrária, fica fácil imaginar a divisão minuciosa o suficiente para ter um ponto de dados por região – um exemplo extremo de superajuste. Para evitar isso, um grande conjunto de árvores é criado com cuidado matemático especial para que as árvores não estejam correlacionadas. A média dessa "floresta de decisão" é uma árvore que evita o superajuste. As florestas de decisão podem usar muita memória. As selvas de decisão são uma variante que consome menos memória às custas de um tempo de treinamento um pouco mais longo.
+Because a feature space can be subdivided into arbitrarily small regions, it's easy to imagine dividing it finely enough to have one data point per region—an extreme example of overfitting. In order to avoid this, a large set of trees are constructed with special mathematical care taken that the trees are not correlated. The average of this "decision forest" is a tree that avoids overfitting. Decision forests can use a lot of memory. Decision jungles are a variant that consumes less memory at the expense of a slightly longer training time.
 
-As árvores de decisão aumentadas evitam o superajuste ao limitarem o número de vezes que podem se subdividir e como poucos pontos de dados são permitidos em cada região. O algoritmo constrói uma sequência de árvores, e cada uma delas aprende a compensar o erro deixado pela árvore anterior. O resultado é um aprendiz muito preciso que tende a usar muita memória. Para obter a descrição técnica completa, confira o [documento original de Friedman](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
+Boosted decision trees avoid overfitting by limiting how many times they can subdivide and how few data points are allowed in each region. The algorithm constructs a sequence of trees, each of which learns to compensate for the error left by the tree before. The result is a very accurate learner that tends to use a lot of memory. For the full technical description, check out [Friedman's original paper](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
 
-[Regressão rápida de quantil de floresta](https://msdn.microsoft.com/library/azure/dn913093.aspx) é uma variação de árvores de decisão para casos especiais onde você deseja conhecer não apenas o valor típico (médio) dos dados em uma região, mas também sua distribuição na forma de quantis.
+[Fast forest quantile regression](https://msdn.microsoft.com/library/azure/dn913093.aspx) is a variation of decision trees for the special case where you want to know not only the typical (median) value of the data within a region, but also its distribution in the form of quantiles.
 
-### Redes neurais e perceptrons
+### <a name="neural-networks-and-perceptrons"></a>Neural networks and perceptrons
 
-As redes neurais são algoritmos de aprendizado inspirados no cérebro que cobrem problemas [multiclasse](https://msdn.microsoft.com/library/azure/dn906030.aspx), de [duas classes](https://msdn.microsoft.com/library/azure/dn905947.aspx) e de [regressão](https://msdn.microsoft.com/library/azure/dn905924.aspx). Elas vêm em uma variedade infinita, mas as redes neurais do Aprendizado de Máquina do Azure estão todas na forma de gráficos acíclicos direcionados. Isso significa que os recursos de entrada são passados para a frente (nunca para trás) por meio de uma sequência de camadas transformadas em saídas. Em cada camada, as entradas são ponderadas em várias combinações, somadas e passadas para a próxima camada. Essa combinação de cálculos simples resulta na capacidade de aprender limites de classe e tendências de dados sofisticados, aparentemente mágicos. As redes de várias camadas desse tipo executam o “aprendizado profundo” que alimenta tantos relatórios técnicos e a ficção científica.
+Neural networks are brain-inspired learning algorithms covering [multiclass](https://msdn.microsoft.com/library/azure/dn906030.aspx), [two-class](https://msdn.microsoft.com/library/azure/dn905947.aspx), and [regression](https://msdn.microsoft.com/library/azure/dn905924.aspx) problems. They come in an infinite variety, but the neural networks within Azure Machine Learning are all of the form of directed acyclic graphs. That means that input features are passed forward (never backward) through a sequence of layers before being turned into outputs. In each layer, inputs are weighted in various combinations, summed, and passed on to the next layer. This combination of simple calculations results in the ability to learn sophisticated class boundaries and data trends, seemingly by magic. Many-layered networks of this sort perform the "deep learning" that fuels so much tech reporting and science fiction.
 
-No entanto, esse alto desempenho tem um preço. As redes neurais podem ter um treinamento muito longo, particularmente para grandes conjuntos de dados com muitos recursos. Elas também têm mais parâmetros do que a maioria dos algoritmos, o que significa que a limpeza de parâmetros aumenta muito o tempo de treinamento. E para as pessoas brilhantes que desejam [especificar sua própria estrutura de rede](http://go.microsoft.com/fwlink/?LinkId=402867), as possibilidades são inesgotáveis.
+This high performance doesn't come for free, though. Neural networks can take a long time to train, particularly for large data sets with lots of features. They also have more parameters than most algorithms, which means that parameter sweeping expands the training time a great deal.
+And for those overachievers who wish to [specify their own network structure](http://go.microsoft.com/fwlink/?LinkId=402867), the possibilities are inexhaustible.
 
-![Limites aprendidos por redes neurais][6]
+<a name="![boundaries-learned-by-neural-networks][6]"></a>![Boundaries learned by neural networks][6]
 ---------------------------
 
-***Os limites aprendidos por redes neurais podem ser complexos e irregulares***
+***The boundaries learned by neural networks can be complex and irregular***
 
-O [perceptron médio de duas classes](https://msdn.microsoft.com/library/azure/dn906036.aspx) é a resposta das redes neurais para os tempos de treinamento estratosféricos. Ele usa uma estrutura de rede que fornece os limites de classe linear. É quase primitivo pelos padrões de hoje, mas tem uma longa história de trabalho robusto e é pequeno o suficiente para aprender rapidamente.
+The [two-class averaged perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx) is neural networks' answer to skyrocketing training times. It uses a network structure that gives linear class boundaries. It is almost primitive by today's standards, but it has a long history of working robustly and is small enough to learn quickly.
 
-### SVMs
+### <a name="svms"></a>SVMs
 
-As máquinas de vetor de suporte (SVMs) encontram o limite que separa as classes pela maior margem possível. Quando as duas classes não puderem ser claramente separadas, os algoritmos encontrarão o melhor limite possível. Como escrito no Aprendizado de Máquina do Azure, a [SVM de duas classes](https://msdn.microsoft.com/library/azure/dn905835.aspx) faz isso com apenas uma linha reta. (No jargão da SVM, usa um kernel linear). Como ela faz essa aproximação linear, é capaz de ser executada de maneira consideravelmente rápida. Mas o seu verdadeiro ponto forte são os dados de uso intenso de recursos, como texto ou genoma. Nesses casos, as SVMs são capazes de separar classes mais rapidamente e com menos superajuste do que a maioria dos outros algoritmos, além de exigir apenas uma pequena quantidade de memória.
+Support vector machines (SVMs) find the boundary that separates classes by as wide a margin as possible. When the two classes can't be clearly separated, the algorithms find the best boundary they can. As written in Azure Machine Learning, the [two-class SVM](https://msdn.microsoft.com/library/azure/dn905835.aspx) does this with a straight line only. (In SVM-speak, it uses a linear kernel.) Because it makes this linear approximation, it is able to run fairly quickly. Where it really shines is with feature-intense data, like text or genomic. In these cases SVMs are able to separate classes more quickly and with less overfitting than most other algorithms, in addition to requiring only a modest amount of memory.
 
-![Limite de classe de computador de vetor de suporte][7]
+![Support vector machine class boundary][7]
 
-***Um limite de classe suporte de computador de vetor de suporte típico maximiza a margem que separa duas classes***
+***A typical support vector machine class boundary maximizes the margin separating two classes***
 
-Outro produto da Microsoft Research, a [SVM localmente profunda de duas classes](https://msdn.microsoft.com/library/azure/dn913070.aspx) é uma variante não linear de SVM que mantém a maior parte da eficiência de velocidade e de memória da versão linear. Ela é ideal para casos em que a abordagem linear não oferece respostas exatas o suficiente. Os desenvolvedores a mantiveram rápida ao dividir o problema em pequenos problemas lineares da SVM. Leia a [descrição completa](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) para obter detalhes sobre como eles realizaram esse truque.
+Another product of Microsoft Research, the [two-class locally deep SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) is a non-linear variant of SVM that retains most of the speed and memory efficiency of the linear version. It is ideal for cases where the linear approach doesn't give accurate enough answers. The developers kept it fast by breaking the problem down into a bunch of small linear SVM problems. Read the [full description](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) for the details on how they pulled off this trick.
 
-Usando uma extensão inteligente de SVMs não lineares, a [SVM de uma classe](https://msdn.microsoft.com/library/azure/dn913103.aspx) cria um limite que descreve totalmente o conjunto de dados inteiro. Ela é útil para a detecção de anomalias. Qualquer ponto de dados que ficar de fora desse limite será incomum o suficiente para ser notado.
+Using a clever extension of nonlinear SVMs, the [one-class SVM](https://msdn.microsoft.com/library/azure/dn913103.aspx) draws a boundary that tightly outlines the entire data set. It is useful for anomaly detection. Any new data points that fall far outside that boundary are unusual enough to be noteworthy.
 
-### Métodos Bayesianos
+### <a name="bayesian-methods"></a>Bayesian methods
 
-Os métodos Bayesianos possuem uma qualidade altamente desejável: eles evitam o superajuste. Eles fazem isso fazendo algumas suposições com antecedência sobre a distribuição provável da resposta. Outro subproduto dessa abordagem é que eles têm muito poucos parâmetros. O Aprendizado de Máquina do Azure tem dois algoritmos Bayesianos para classificação ([Computador do ponto de Bayes de duas classes](https://msdn.microsoft.com/library/azure/dn905930.aspx)) e regressão ([regressão linear Bayesiana](https://msdn.microsoft.com/library/azure/dn906022.aspx)). Observe que eles supõem que os dados podem ser divididos ou ajustados com uma linha reta.
+Bayesian methods have a highly desirable quality: they avoid overfitting. They do this by making some assumptions beforehand about the likely distribution of the answer. Another byproduct of this approach is that they have very few parameters. Azure Machine Learning has both Bayesian algorithms for both classification ([Two-class Bayes' point machine](https://msdn.microsoft.com/library/azure/dn905930.aspx)) and regression ([Bayesian linear regression](https://msdn.microsoft.com/library/azure/dn906022.aspx)).
+Note that these assume that the data can be split or fit with a straight line.
 
-Em uma nota histórica, os computadores de ponto de Bayes foram desenvolvidos na Microsoft Research. Eles têm algum trabalho teórico excepcionalmente belo por trás deles. O aluno interessado será direcionado para o [artigo original no JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) e para um [blog perspicaz de Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
+On an historical note, Bayes' point machines were developed at Microsoft Research. They have some exceptionally beautiful theoretical work behind them. The interested student is directed to the [original article in JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) and an [insightful blog by Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
-### Algoritmos especializados
+### <a name="specialized-algorithms"></a>Specialized algorithms
 
-Se você tiver um objetivo muito específico, este talvez seja o seu dia de sorte. Dentro da coleção do Aprendizado de Máquina do Azure, existem algoritmos especializados em previsão de classificação ([regressão ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)), previsão de contagem ([regressão Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)) e detecção de anomalias (com base na [análise dos principais componentes](https://msdn.microsoft.com/library/azure/dn913102.aspx) um baseado em [máquinas de vetor de suporte](https://msdn.microsoft.com/library/azure/dn913103.aspx)). E há também um algoritmo de clustering solitário ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)).
+If you have a very specific goal you may be in luck. Within the Azure Machine Learning collection there are algorithms that specialize in rank prediction ([ordinal regression](https://msdn.microsoft.com/library/azure/dn906029.aspx)), count prediction ([Poisson regression](https://msdn.microsoft.com/library/azure/dn905988.aspx)), and anomaly detection (one based on [principal components analysis](https://msdn.microsoft.com/library/azure/dn913102.aspx) and one based on [support vector machine](https://msdn.microsoft.com/library/azure/dn913103.aspx)s).
+And there is a lone clustering algorithm as well ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)).
 
-![Detecção de anomalias baseada em PCA][8]
+![PCA-based anomaly detection][8]
 
-***Detecção de anomalias baseada em PCA*** - *a grande maioria dos dados se encaixa em uma distribuição estereotipada; os pontos que desviarem drasticamente dessa distribuição são suspeitos*
+***PCA-based anomaly detection*** *- the vast majority of the data falls into a stereotypical distribution; points deviating dramatically from that distribution are suspect*
 
-![Conjunto de dados agrupados usando K-means][9]
+![Data set grouped using K-means][9]
 
-***Um conjunto de dados é agrupado em 5 clusters usando K-means***
+***A data set is grouped into 5 clusters using K-means***
 
-Há também um conjunto [classificador multiclasse um contra todos](https://msdn.microsoft.com/library/azure/dn905887.aspx), que divide o problema de classificação de classe N em dois problemas de classificação de classe N-1. A precisão, o tempo de treinamento e as propriedades de linearidade são determinados pelos classificadores de duas classes usados.
+There is also an ensemble [one-v-all multiclass classifier](https://msdn.microsoft.com/library/azure/dn905887.aspx), which breaks the N-class classification problem into N-1 two-class classification problems. The accuracy, training time, and linearity properties are determined by the two-class classifiers used.
 
-![Classificadores de duas classes combinados para formar um classificador de três classes][10]
+![Two-class classifiers combined to form a three-class classifier][10]
 
-***Um par de classificadores de duas classes combinados para formar um classificador de três classes***
+***A pair of two-class classifiers combine to form a three-class classifier***
 
-O Aprendizado de Máquina do Azure também inclui acesso a uma poderosa estrutura de aprendizado de máquina sob o título de [Vowpal Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf). O VW desafia a categorização aqui, já que pode aprender problemas de classificação e de regressão e pode até aprender de dados parcialmente sem rótulo. Você pode configurá-lo para usar qualquer um de vários algoritmos, funções de perda e algoritmos de otimização de aprendizado. Ele foi projetado desde o início para ser eficiente, paralelo e extremamente rápido. Ele lida com conjuntos de recursos absurdamente grandes com pouco esforço aparente. Iniciado e liderado pelo próprio John Langford, da Microsoft Research, o VW é uma entrada de Fórmula 1 em um campo de algoritmos de stock cars. Nem todo problema se ajustará ao VW, mas se ele se ajustar, poderá valer a pena seguir a curva de aprendizado em sua interface. Ele também está disponível como [código-fonte aberto autônomo](https://github.com/JohnLangford/vowpal_wabbit) em várias linguagens.
+Azure Machine Learning also includes access to a powerful machine learning framework under the title of [Vowpal Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf).
+VW defies categorization here, since it can learn both classification and regression problems and can even learn from partially unlabeled data. You can configure it to use any one of a number of learning algorithms, loss functions, and optimization algorithms. It was designed from the ground up to be efficient, parallel, and extremely fast. It handles ridiculously large feature sets with little apparent effort.
+Started and led by Microsoft Research's own John Langford, VW is a Formula One entry in a field of stock car algorithms. Not every problem fits VW, but if yours does, it may be worth your while to climb the learning curve on its interface. It's also available as [stand-alone open source code](https://github.com/JohnLangford/vowpal_wabbit) in several languages.
 
 
 <!-- Media -->
@@ -237,4 +251,8 @@ O Aprendizado de Máquina do Azure também inclui acesso a uma poderosa estrutur
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

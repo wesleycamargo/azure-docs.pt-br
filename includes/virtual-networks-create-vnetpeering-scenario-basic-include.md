@@ -1,9 +1,11 @@
-## VNets emparelhadas na mesma assinatura
+## <a name="peering-vnets-in-the-same-subscription"></a>Peering VNets in the same subscription
 
-Nesse cenário, você criará um emparelhamento entre duas VNets chamadas **VNet1** e **VNet2**, pertencentes à mesma assinatura.
+In this scenario you will create a peering between two VNets named **VNet1** and **VNet2** belonging to the same subscription. 
 
-![Cenário básico](./media/virtual-networks-create-vnetpeering-scenario-basic-include/figure01.PNG)
+![Basic scenario](./media/virtual-networks-create-vnetpeering-scenario-basic-include/figure01.PNG)
 
-O emparelhamento VNet permitirá conectividade total entre o espaço de endereço inteiro das redes virtuais emparelhadas.
+VNet peering will allow full connectivity between the entire address space of peered virtual networks.    
 
-<!---HONumber=AcomDC_0803_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

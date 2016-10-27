@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Diagnóstico de Reliable Services com estado | Microsoft Azure"
-   description="Funcionalidade de diagnóstico para Reliable Services com estado"
+   pageTitle="Stateful Reliable Services diagnostics | Microsoft Azure"
+   description="Diagnostic functionality for Stateful Reliable Services"
    services="service-fabric"
    documentationCenter=".net"
    authors="AlanWarwick"
@@ -16,32 +16,37 @@
    ms.date="05/17/2016"
    ms.author="alanwar"/>
 
-# Funcionalidade de diagnóstico para Reliable Services com estado
-A classe StatefulServiceBase de Reliable Services com estado emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) que podem ser usados para depurar o serviço, fornecer informações sobre como o tempo de execução está funcionando e ajudar a solucionar problemas.
 
-## Eventos EventSource
-O nome do EventSource da classe StatefulServiceBase de Reliable Services com estado é "Microsoft-ServiceFabric-Services". Os eventos dessa origem de eventos aparecem na janela [Eventos de Diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando o serviço está sendo [depurado no Visual Studio](service-fabric-debugging-your-application.md).
+# <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnostic functionality for Stateful Reliable Services
+The Stateful Reliable Services StatefulServiceBase class emits [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events that can be used to debug the service, provide insights into how the runtime is operating, and help with troubleshooting.
 
-Exemplos de ferramentas e tecnologias que ajudam a coletar e/ou visualizar eventos EventSource são [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnóstico do Microsoft Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) e [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+## <a name="eventsource-events"></a>EventSource events
+The EventSource name for the Stateful Reliable Services StatefulServiceBase class is "Microsoft-ServiceFabric-Services". Events from this event source appear in the [Diagnostics Events](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the service is being [debugged in Visual Studio](service-fabric-debugging-your-application.md).
 
-## Eventos
+Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Microsoft Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), and the [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
-|Nome do evento|ID do evento|Nível|Descrição do evento|
+## <a name="events"></a>Events
+
+|Event name|Event ID|Level|Event description|
 |----------|--------|-----|-----------------|
-|StatefulRunAsyncInvocation|1|Informativo|Emitido quando a tarefa RunAsync do serviço é iniciada|
-|StatefulRunAsyncCancellation|2|Informativo|Emitido quando a tarefa RunAsync do serviço é cancelada|
-|StatefulRunAsyncCompletion|3|Informativo|Emitido quando a tarefa RunAsync do serviço é concluída|
-|StatefulRunAsyncSlowCancellation|4|Aviso|Emitido quando a tarefa RunAsync do serviço leva muito tempo para concluir o cancelamento|
-|StatefulRunAsyncFailure|5|Erro|Emitido quando a tarefa RunAsync do serviço lança uma exceção|
+|StatefulRunAsyncInvocation|1|Informational|Emitted when service RunAsync task is started|
+|StatefulRunAsyncCancellation|2|Informational|Emitted when service RunAsync task is cancelled|
+|StatefulRunAsyncCompletion|3|Informational|Emitted when service RunAsync task is completed|
+|StatefulRunAsyncSlowCancellation|4|Warning|Emitted when service RunAsync task takes too long to complete cancellation|
+|StatefulRunAsyncFailure|5|Error|Emitted when service RunAsync task throws an exception|
 
-## Interpretar eventos
+## <a name="interpret-events"></a>Interpret events
 
-Os eventos StatefulRunAsyncInvocation, StatefulRunAsyncCompletion e StatefulRunAsyncCancellation são úteis para o gravador de serviço para entender o ciclo de vida de um serviço, bem como o tempo em que um serviço é iniciado, cancelado ou concluído. Isso pode ser útil ao depurar problemas de serviço ou entender o ciclo de vida do serviço.
+StatefulRunAsyncInvocation, StatefulRunAsyncCompletion, and StatefulRunAsyncCancellation events are useful to the service writer to understand the lifecycle of a service--as well as the timing for when a service is started, cancelled, or completed. This can be useful when debugging service issues or understanding the service lifecycle.
 
-Gravadores de serviço devem prestar muita atenção nos eventos StatefulRunAsyncSlowCancellation e StatefulRunAsyncFailure, pois eles indicam problemas com o serviço.
+Service writers should pay close attention to StatefulRunAsyncSlowCancellation and StatefulRunAsyncFailure events because they indicate issues with the service.
 
-StatefulRunAsyncFailure é emitido sempre que a tarefa RunAsync() do serviço lança uma exceção. Geralmente uma exceção lançada indica um erro ou um bug no serviço. Além disso, a exceção faz com que o serviço falhe e seja movido para um nó diferente. Essa pode ser uma operação dispendiosa e pode atrasar as solicitações recebidas enquanto o serviço é movido. Gravadores de serviço devem determinar a causa da exceção e atenuá-la se possível.
+StatefulRunAsyncFailure is emitted whenever the service RunAsync() task throws an exception. Typically, an exception thrown indicates an error or bug in the service. Additionally, the exception causes the service to fail, so it is moved to a different node. This can be an expensive operation and can delay incoming requests while the service is moved. Service writers should determine the cause of the exception and, if possible, mitigate it.
 
-StatefulRunAsyncSlowCancellation é emitido sempre que uma solicitação de cancelamento da tarefa RunAsync leva mais de quatro segundos. Quando um serviço leva muito tempo para concluir o cancelamento, ele afeta a capacidade de o serviço ser reiniciado rapidamente em outro nó. Isso pode afetar a disponibilidade geral do serviço.
+StatefulRunAsyncSlowCancellation is emitted whenever a cancellation request for the RunAsync task takes longer than four seconds. When a service takes too long to complete cancellation, it impacts the ability for the service to be quickly restarted on another node. This may impact the overall availability of the service.
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

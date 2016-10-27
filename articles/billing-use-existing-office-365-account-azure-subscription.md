@@ -1,154 +1,157 @@
 <properties
-	pageTitle="Compartilhar um único locatário do Azure AD entre assinaturas do Office 365 e do Azure | Microsoft Azure"
-	description="Aprenda a compartilhar seu locatário do Azure AD do Office 365 e seus usuários com sua assinatura do Azure ou vice-versa"
-	services=""
-	documentationCenter=""
-	authors="JiangChen79"
-	manager="mbaldwin"
-	editor=""
-	tags="billing,top-support-issue"/>
+    pageTitle="Compartilhar um único locatário do Azure AD entre assinaturas do Office 365 e do Azure | Microsoft Azure"
+    description="Aprenda a compartilhar seu locatário do Azure AD do Office 365 e seus usuários com sua assinatura do Azure ou vice-versa"
+    services=""
+    documentationCenter=""
+    authors="JiangChen79"
+    manager="mbaldwin"
+    editor=""
+    tags="billing,top-support-issue"/>
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="cjiang"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/17/2016"
+    ms.author="cjiang"/>
 
-# Use sua conta existente do Office 365 com sua assinatura do Azure ou vice-versa
-Cenário: se você já tem uma assinatura do Office 365 e estiver pronto para uma assinatura do Azure, mas deseja usar as contas de usuário existentes do Office 365 para sua assinatura do Azure. Outra opção seria se você é assinante do Azure e deseja obter uma assinatura do Office 365 para os usuários no Azure Active Directory existentes. Este artigo mostra como é fácil conseguir ambos.
 
-> [AZURE.NOTE] Este artigo não se aplica aos clientes do EA (Enterprise Agreement).
+# <a name="use-an-existing-office-365-account-with-your-azure-subscription-or-vice-versa"></a>Usar uma conta existente do Office 365 com sua assinatura do Azure ou vice-versa
+Cenário: se você já tiver uma assinatura do Office 365 e estiver pronto para uma assinatura do Azure, mas desejar usar as contas de usuário existentes do Office 365 em sua assinatura do Azure. Outra opção seria se você é assinante do Azure e deseja obter uma assinatura do Office 365 para os usuários no Azure Active Directory existentes. Este artigo mostra como é fácil conseguir ambos.
 
-> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+> [AZURE.NOTE] Este artigo não se aplica aos clientes do EA (Enterprise Agreement). Se você precisar de mais ajuda a qualquer momento neste artigo, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-## Guia rápido
 
-- Se você já tiver uma assinatura do Office 365 e desejar inscrever-se no Azure, use a opção **Entrar com sua conta organizacional** e prossiga com a inscrição no Azure com sua conta do Office 365. Consulte as [etapas detalhadas](#s1).
-- Se você já tiver uma assinatura do Azure e desejar obter uma assinatura do Office 365, entre no Office 365 com sua conta do Azure e prossiga com as etapas de inscrição. Depois de concluído, a assinatura do Office 365 é adicionada ao mesmo Azure Active Directory ao qual sua assinatura do Azure pertence. Consulte as [etapas detalhadas](#s2).
+## <a name="quick-guidance"></a>Guia rápido
 
->[AZURE.NOTE] Para obter uma assinatura do Office 365, a conta usada para entrar no sistema deve ser um membro da função de diretório de Administrador Global ou Administrador de Cobrança no seu locatário do Azure AD. [Saiba como conhecer a função do Azure Active Directory](#how-to-know-your-role-in-your-azure-active-directory)
+- Se você já tiver uma assinatura do Office 365 e desejar inscrever-se no Azure, use a opção **Entrar com sua conta organizacional**. Em seguida, continue o processo de inscrição no Azure com sua conta do Office 365. Veja as [etapas detalhadas posteriormente neste artigo](#s1).
 
-Para compreender como as coisas funcionam quando você adiciona uma assinatura a uma conta, consulte [Informações básicas](#background-information) mais adiante no artigo.
+- Se você já tiver uma assinatura do Azure e desejar obter uma assinatura do Office 365, entre no Office 365 com sua conta do Azure. Em seguida, prossiga com as etapas de inscrição. Depois que a inscrição é concluída, a assinatura do Office 365 é adicionada à mesma instância do Azure Active Directory à qual sua assinatura do Azure pertence. Para obter mais informações, veja a seção [etapas detalhadas posteriormente neste artigo](#s2).
 
-## Etapas detalhadas
+>[AZURE.NOTE] Para obter uma assinatura do Office 365, a conta usada para se inscrever deve ser um membro da função de diretório de Administrador Global ou Administrador de Cobrança no seu locatário do Azure Active Directory. [Saiba como determinar a função no Azure Active Directory](#how-to-know-your-role-in-your-azure-active-directory).
+
+Para compreender o que acontece quando você adiciona uma assinatura a uma conta, consulte [Informações básicas mais adiante no artigo](#background-information).
+
+## <a name="detailed-steps"></a>Etapas detalhadas
 <a id="s1"></a>
-### Cenário 1: usuários do Office 365 pretendem comprar o Azure
-Nesse cenário, supomos que Clara Barbosa é um usuário que tem uma assinatura do Office 365 e pretende assinar o Azure. Há dois usuários adicionais ativos, Jane e Tricia. A conta de Clara é admin@contoso.onmicrosoft.com.
+### <a name="scenario-1:-office-365-users-who-plan-to-buy-azure"></a>Cenário 1: usuários do Office 365 que pretendem comprar o Azure
+Nesse cenário, supomos que Clara Barbosa é um usuário que tem uma assinatura do Office 365 e pretende assinar o Azure. Há dois usuários adicionais ativos, Jane e Tricia. Conta de Clara é admin@contoso.onmicrosoft.com.
 
-![office365-users-admin-center.png](./media/billing-use-existing-office-365-account-azure-subscription/1-office365-users-admin-center.png)
+![Centro de administração de usuário do Office 365](./media/billing-use-existing-office-365-account-azure-subscription/1-office365-users-admin-center.png)
 
 Para inscrever-se no Azure, siga estas etapas:
 
-1. Inscreva-se no Azure em [Azure.com](https://azure.microsoft.com/). Clique em **Experimente gratuitamente**. Na página seguinte, clique em **Iniciar agora**.
+1. Inscreva-se no Azure em [Azure.com](https://azure.microsoft.com/). Clique em **Experimentar gratuitamente**. Na página seguinte, clique em **Iniciar agora**.
 
-	![azure-signup-try-free](./media/billing-use-existing-office-365-account-azure-subscription/2-azure-signup-try-free.png)
+    ![Experimentar o Azure gratuitamente.](./media/billing-use-existing-office-365-account-azure-subscription/2-azure-signup-try-free.png)
 
 2. Clique em **Entrar com sua conta institucional**.
 
-	![sign-in-to-azure](./media/billing-use-existing-office-365-account-azure-subscription/3-sign-in-to-azure.png)
+    ![Entre no Azure.](./media/billing-use-existing-office-365-account-azure-subscription/3-sign-in-to-azure.png)
 
 3. Entre com sua conta do Office 365. Nesse caso, é a conta do Office 365 é de Clara.
 
-	![sign-in-with-org-account](./media/billing-use-existing-office-365-account-azure-subscription/4-sign-in-with-org-account.png)
+    ![Entre com sua conta do Office 365.](./media/billing-use-existing-office-365-account-azure-subscription/4-sign-in-with-org-account.png)
 
 4. Preencha as informações e conclua o processo de inscrição.
 
-	![azure-sign-up-fill-information](./media/billing-use-existing-office-365-account-azure-subscription/5-azure-sign-up-fill-information.png)
+    ![Preencha as informações e conclua a inscrição.](./media/billing-use-existing-office-365-account-azure-subscription/5-azure-sign-up-fill-information.png)
 
-5. Clique em **Começar a gerenciar meu serviço** e você está pronto para começar.
+    ![Clique em Começar a gerenciar meu serviço.](./media/billing-use-existing-office-365-account-azure-subscription/6-azure-start-managing-my-service.png)
 
-	![azure-start-managing-my-service](./media/billing-use-existing-office-365-account-azure-subscription/6-azure-start-managing-my-service.png)
+Está tudo pronto para você. No Portal do Azure, você deve ver os mesmos usuários aparecendo. Para fazer isso, siga essas etapas:
 
-Agora você está pronto. No Portal do Azure, você verá os mesmos usuários aparecendo no mesmo diretório. Para fazer isso, siga essas etapas:
-
-1. Clique em **Começar a gerenciar meu serviço** na captura de tela acima.
+1. Clique em **Começar a gerenciar meu serviço** na captura de tela mostrada anteriormente.
 2. Clique em **Navegar** e em **Active Directory**.
 
-	![azure-portal-browse-ad](./media/billing-use-existing-office-365-account-azure-subscription/7-azure-portal-browse-ad.png)
+    ![Clique em Navegar e em Active Directory.](./media/billing-use-existing-office-365-account-azure-subscription/7-azure-portal-browse-ad.png)
 
 3. Clique em **USUÁRIOS**.
 
-	![azure-portal-ad-users-tab](./media/billing-use-existing-office-365-account-azure-subscription/8-azure-portal-ad-users-tab.png)
+    ![A guia Usuários](./media/billing-use-existing-office-365-account-azure-subscription/8-azure-portal-ad-users-tab.png)
 
 4. Todos os usuários, incluindo Clara, estão listados como esperado.
 
-	![azure-portal-ad-users](./media/billing-use-existing-office-365-account-azure-subscription/9-azure-portal-ad-users.png)
+    ![Lista de usuários](./media/billing-use-existing-office-365-account-azure-subscription/9-azure-portal-ad-users.png)
 
 <a id="s2"></a>
-### Cenário 2: usuários do Azure pretendem comprar o Office 365
+### <a name="scenario-2:-azure-users-who-plan-to-buy-office-365"></a>Cenário 2: usuários do Azure que pretendem comprar o Office 365
 
 Nesse cenário, Clara Barbosa é um usuário que tem uma assinatura do Azure na conta admin@contoso.onmicrosoft.com. Clara deseja assinar o Office 365 e usar o mesmo diretório que ela já tem com o Azure.
 
->[AZURE.NOTE] Para obter uma assinatura do Office 365, a conta usada para entrar no sistema deve ser um membro da função de diretório de Administrador Global ou Administrador de Cobrança no seu locatário do Azure AD. [Saiba como conhecer a função do Azure Active Directory](#how-to-know-your-role-in-your-azure-active-directory)
+>[AZURE.NOTE] Para obter uma assinatura do Office 365, a conta usada para entrar deve ser um membro da função de diretório de Administrador Global ou Administrador de Cobrança no seu locatário do Azure Active Directory. [Saiba como conhecer a função do Azure Active Directory](#how-to-know-your-role-in-your-azure-active-directory).
 
-![azure-portal-settings-subscription](./media/billing-use-existing-office-365-account-azure-subscription/10-azure-portal-settings-subscription.png)
+![Configurações de assinatura do portal do Azure](./media/billing-use-existing-office-365-account-azure-subscription/10-azure-portal-settings-subscription.png)
 
-![azure-portal-ads-users](./media/billing-use-existing-office-365-account-azure-subscription/11-azure-portal-ads-users.png)
+![Usuários do Portal do Azure Active Directory](./media/billing-use-existing-office-365-account-azure-subscription/11-azure-portal-ads-users.png)
 
 Para assinar o Office 365, siga estas etapas:
 
-1. Vá para o [página de produto do Office 365](https://products.office.com/business) e selecione um plano é adequado para você.
-2. Depois de selecionar o plano, a página a seguir é exibida. Não preencha o formulário. Clique em **Entrar** na parte superior direita da página.
+1. Vá para o [página de produto do Office 365](https://products.office.com/business)e selecione um plano é adequado para você.
+2. Depois de selecionar o plano, a página a seguir é exibida. Não preencha o formulário. Clique em **Entrar** no canto superior direito da página.
 
-	![office-365-trial-page](./media/billing-use-existing-office-365-account-azure-subscription/12-office-365-trial-page.png)
+    ![Página de avaliação do Office 365](./media/billing-use-existing-office-365-account-azure-subscription/12-office-365-trial-page.png)
 
-3. Entre com as credenciais da sua conta. Nesse caso, é a conta de Clara.
+3. Entre com as credenciais de sua conta. Neste exemplo, é a conta de Clara.
 
-	![office-365-sign-in](./media/billing-use-existing-office-365-account-azure-subscription/13-office-365-sign-in.png)
+    ![Entrar no Office 365](./media/billing-use-existing-office-365-account-azure-subscription/13-office-365-sign-in.png)
 
 4. Clique em **Experimentar agora**.
 
-	![office-365-confirm-your-order](./media/billing-use-existing-office-365-account-azure-subscription/14-office-365-confirm-your-order.png)
+    ![Confirme seu pedido do Office 365.](./media/billing-use-existing-office-365-account-azure-subscription/14-office-365-confirm-your-order.png)
 
 5. Na página de confirmação do pedido, clique em **Continuar**.
 
-	![office-365-order-receipt](./media/billing-use-existing-office-365-account-azure-subscription/15-office-365-order-receipt.png)
+    ![Confirmação de pedido do Office 365](./media/billing-use-existing-office-365-account-azure-subscription/15-office-365-order-receipt.png)
 
-Agora você está pronto. No centro de administração do Office 365, você verá os mesmos usuários do diretório Contoso aparecendo como usuários ativos. Para fazer isso, siga essas etapas:
+Está tudo pronto para você. No centro de administração do Office 365, você deverá ver os mesmos usuários do diretório Contoso aparecendo como usuários ativos. Para fazer isso, siga essas etapas:
 
 1. Abra o centro de administração do Office 365.
 2. Expanda **USUÁRIOS** e clique em **Usuários Ativos**.
 
-	![office-365-admin-center-users](./media/billing-use-existing-office-365-account-azure-subscription/16-office-365-admin-center-users.png)
+    ![Usuários do centro de administração do Office 365](./media/billing-use-existing-office-365-account-azure-subscription/16-office-365-admin-center-users.png)
 
-### Como conhecer sua função no Azure Active Directory
+### <a name="how-to-know-your-role-in-your-azure-active-directory"></a>Como conhecer sua função no Azure Active Directory
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Navegar** e em **Active Directory**.
 
-	![azure-portal-browse-ad](./media/billing-use-existing-office-365-account-azure-subscription/7-azure-portal-browse-ad.png)
+    ![Active Directory no Portal do Azure](./media/billing-use-existing-office-365-account-azure-subscription/7-azure-portal-browse-ad.png)
 
 3. Clique em **USUÁRIOS**.
 
-	![azure-portal-default-ad-users](./media/billing-use-existing-office-365-account-azure-subscription/17-azure-portal-default-ad-users.png)
+    ![Usuários do Active Directory padrão no Portal do Azure](./media/billing-use-existing-office-365-account-azure-subscription/17-azure-portal-default-ad-users.png)
 
-4. Clique no usuário. Neste exemplo, Clara Barbosa.
-5. Observe o campo de **FUNÇÃO ORGANIZACIONAL**.
+4. Clique no usuário. Neste exemplo, o usuário é Clara Barbosa.
 
-	![azure-portal-user-identity](./media/billing-use-existing-office-365-account-azure-subscription/18-azure-portal-user-identity.png)
+    Observe o campo de **FUNÇÃO ORGANIZACIONAL**.
 
-## Informações básicas
-O Office 365 e o Azure usam o serviço do AAD (Azure Active Directory) para gerenciar usuários e assinaturas. Considere um diretório do Azure como um contêiner para você, seu grupo de usuários e assinaturas. Para usar a mesma conta de usuário que suas assinaturas do Microsoft Azure e o Office 365, você precisa certificar-se de que as assinaturas sejam criadas no mesmo diretório.
+    ![Identidade de usuário do Portal do Azure](./media/billing-use-existing-office-365-account-azure-subscription/18-azure-portal-user-identity.png)
+
+## <a name="background-information-about-azure-and-office-365-subscriptions"></a>Informações sobre as assinaturas do Azure e do Office 365
+O Office 365 e o Azure usam o serviço do Azure Active Directory para gerenciar usuários e assinaturas. Considere um diretório do Azure como um contêiner em que você pode agrupar usuários e assinaturas. Para usar a mesma conta de usuário que suas assinaturas do Azure e do Office 365, você precisa certificar-se de que as assinaturas sejam criadas no mesmo diretório. Tenha em mente os seguintes pontos:
 
 - Uma assinatura é criada em um diretório, não o oposto.
 - Os usuários pertencem a diretórios, não o oposto.
-- Uma assinatura chega ao diretório do usuário que cria a assinatura. Desta forma, sua assinatura do Office 365 está ligada à mesma conta da sua assinatura do Azure quando você usa a conta para criar a assinatura do Office 365.
+- Uma assinatura chega ao diretório do usuário que cria a assinatura. Desta forma, sua assinatura do Office 365 está ligada à mesma conta que a sua assinatura do Azure quando você usa essa conta para criar a assinatura do Office 365.
 
-![background-information](./media/billing-use-existing-office-365-account-azure-subscription/19-background-information.png)
+![Informações básicas](./media/billing-use-existing-office-365-account-azure-subscription/19-background-information.png)
 
-Consulte [Como assinaturas do Azure são associadas ao Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md) para obter mais informações.
+Para saber mais sobre, confira [Como as assinaturas do Azure são associadas ao Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
 
-**Observações:**
+>[AZURE.NOTE] As assinaturas do Azure pertencem a usuários individuais no diretório.
 
-- As assinaturas do Azure pertencem a usuários individuais no diretório.
-- As assinaturas do Office 365 pertencem o próprio diretório. Os usuários dentro do diretório poderão operar nessas assinaturas se eles tiverem as permissões necessárias.
+>[AZURE.NOTE] As assinaturas do Office 365 pertencem o próprio diretório. Os usuários dentro do diretório poderão operar nessas assinaturas se eles tiverem as permissões necessárias.
 
-##Próximas etapas
-Este é um cenário relacionado no qual você adquiriu as assinaturas do Azure e do Office 365 separadamente no passado, e deseja poder acessar o locatário do Office 365 usando a assinatura do Azure. Para saber como realizar essa tarefa, confira [Associar um locatário do Office 365 a uma assinatura do Azure](billing-add-office-365-tenant-to-azure-subscription.md).
+## <a name="next-steps"></a>Próximas etapas
+Se você adquiriu as assinaturas do Azure e do Office 365 separadamente no passado e deseja acessar o locatário do Office 365 na assinatura do Azure, veja [Associar um locatário do Office 365 com uma assinatura do Azure](billing-add-office-365-tenant-to-azure-subscription.md).
 
-> [AZURE.NOTE] Se ainda tiver mais dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+> [AZURE.NOTE] Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

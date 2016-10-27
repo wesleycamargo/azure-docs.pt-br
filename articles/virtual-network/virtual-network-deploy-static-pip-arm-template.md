@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Implantar uma VM com um IP público estático usando um modelo no Gerenciador de Recursos | Microsoft Azure"
-   description="Saiba como implantar VMs com um IP público estático usando um modelo no Gerenciador de Recursos"
+   pageTitle="Deploy a VM with a static public IP using a template in Resource Manager | Microsoft Azure"
+   description="Learn how to deploy VMs with a static public IP using a template in Resource Manager"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,21 +17,22 @@
    ms.date="04/27/2016"
    ms.author="jdial" />
 
-# Implantar uma VM com um IP público estático usando um modelo
+
+# <a name="deploy-a-vm-with-a-static-public-ip-using-a-template"></a>Deploy a VM with a static public IP using a template
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-arm-selectors-include.md](../../includes/virtual-network-deploy-static-pip-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
-## Recursos de IP público em um arquivo de modelo
+## <a name="public-ip-resources-in-a-template-file"></a>Public IP resources in a template file
 
-Você pode exibir e baixar o [modelo de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json).
+You can view and download the [sample template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json).
 
-A seção a seguir mostra a definição de recurso de IP público, com base no cenário acima.
+The section below shows the definition of the public IP resource, based on the scenario above.
 
       {
         "apiVersion": "2015-06-15",
@@ -46,9 +47,9 @@ A seção a seguir mostra a definição de recurso de IP público, com base no c
         }
       },
 
-Observe a propriedade **publicIPAllocationMethod**, que está definida como *Estática*. Essa propriedade pode ser *Dinâmica* (valor padrão) ou *Estática*. Defini-la como estática assegura que o endereço IP público atribuído nunca será alterado.
+Notice the **publicIPAllocationMethod** property, which is set to *Static*. This property can be either *Dynamic* (default value) or *Static*. Setting it to static guarantees that the public IP address assigned will never change.
 
-A seção a seguir mostra a associação do endereço IP público com uma interface de rede.
+The section below shows the association of the public IP address with a network interface.
 
       {
         "apiVersion": "2015-06-15",
@@ -81,9 +82,9 @@ A seção a seguir mostra a associação do endereço IP público com uma interf
         }
       },
 
-Observe a propriedade **publicIPAddress** que aponta para a **Id** de um recurso chamado **variables('webVMSetting').pipName**. Esse é o nome do recurso de IP público mostrado acima.
+Notice the **publicIPAddress** property pointing to the **Id** of a resource named **variables('webVMSetting').pipName**. That is the name of the public IP resource shown above.
 
-Por fim, a interface de rede acima está listada na propriedade **networkProfile** da VM que está sendo criada.
+Finally, the network interface above is listed in the **networkProfile** property of the VM being created.
 
       "networkProfile": {
         "networkInterfaces": [
@@ -93,95 +94,99 @@ Por fim, a interface de rede acima está listada na propriedade **networkProfile
         ]
       }
 
-## Implantar o modelo usando o clique para implantar
+## <a name="deploy-the-template-by-using-click-to-deploy"></a>Deploy the template by using click to deploy
 
-O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando a implantação com um clique, clique em **Implantar no Azure** no arquivo Readme.md para o modelo [VM com PIP estático](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP). Substitua os valores do parâmetro padrão, se desejado, e insira valores para os parâmetros em branco. Siga as instruções no portal para criar uma máquina virtual com um endereço IP público estático.
+The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, click **Deploy to Azure** in the Readme.md file for the [VM with static PIP](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP) template. Replace the default parameter values if desired and enter values for the blank parameters.  Follow the instructions in the portal to create a virtual machine with a static public IP address.
 
-## Implantar o modelo usando o PowerShell
+## <a name="deploy-the-template-by-using-powershell"></a>Deploy the template by using PowerShell
 
-Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
+To deploy the template you downloaded by using PowerShell, follow the steps below.
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../powershell-install-configure.md) e siga as instruções nas etapas 1 a 3.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions in steps 1 to 3.
 
-2. Em um console do PowerShell, execute o cmdlet **New-AzureRmResourceGroup** para criar um novo grupo de recursos, se necessário. Se você já tiver criado um grupo de recursos, vá para a etapa 3.
+2. In a PowerShell console, run the **New-AzureRmResourceGroup** cmdlet to create a new resource group, if necessary. If you already have a resource group created, go to step 3.
 
-		New-AzureRmResourceGroup -Name PIPTEST -Location westus
+        New-AzureRmResourceGroup -Name PIPTEST -Location westus
 
-	Saída esperada:
+    Expected output:
 
-		ResourceGroupName : PIPTEST
-		Location          : westus
-		ProvisioningState : Succeeded
-		Tags              :
-		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/StaticPublicIP
+        ResourceGroupName : PIPTEST
+        Location          : westus
+        ProvisioningState : Succeeded
+        Tags              :
+        ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/StaticPublicIP
 
-3. Em um console do PowerShell, execute o cmdlet **New-AzureRmResourceGroupDeployment** para implantar o modelo.
+3. In a PowerShell console, run the **New-AzureRmResourceGroupDeployment** cmdlet to deploy the template.
 
-		New-AzureRmResourceGroupDeployment -Name DeployVM -ResourceGroupName PIPTEST `
-		    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json `
-		    -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json
+        New-AzureRmResourceGroupDeployment -Name DeployVM -ResourceGroupName PIPTEST `
+            -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json `
+            -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json
 
-	Saída esperada:
+    Expected output:
 
-		DeploymentName    : DeployVM
-		ResourceGroupName : PIPTEST
-		ProvisioningState : Succeeded
-		Timestamp         : <Deployment date> <Deployment time>
-		Mode              : Incremental
-		TemplateLink      :
-		                    Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/mas
-		                    ter/IaaS-Story/03-Static-public-IP/azuredeploy.json
-		                    ContentVersion : 1.0.0.0
+        DeploymentName    : DeployVM
+        ResourceGroupName : PIPTEST
+        ProvisioningState : Succeeded
+        Timestamp         : <Deployment date> <Deployment time>
+        Mode              : Incremental
+        TemplateLink      :
+                            Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/mas
+                            ter/IaaS-Story/03-Static-public-IP/azuredeploy.json
+                            ContentVersion : 1.0.0.0
 
-		Parameters        :
-		                    Name                      Type                       Value     
-		                    ========================  =========================  ==========
-		                    vnetName                  String                     WTestVNet
-		                    vnetPrefix                String                     192.168.0.0/16
-		                    frontEndSubnetName        String                     FrontEnd  
-		                    frontEndSubnetPrefix      String                     192.168.1.0/24
-		                    storageAccountNamePrefix  String                     iaasestd  
-		                    stdStorageType            String                     Standard_LRS
-		                    osType                    String                     Windows   
-		                    adminUsername             String                     adminUser
-		                    adminPassword             SecureString                         
+        Parameters        :
+                            Name                      Type                       Value     
+                            ========================  =========================  ==========
+                            vnetName                  String                     WTestVNet
+                            vnetPrefix                String                     192.168.0.0/16
+                            frontEndSubnetName        String                     FrontEnd  
+                            frontEndSubnetPrefix      String                     192.168.1.0/24
+                            storageAccountNamePrefix  String                     iaasestd  
+                            stdStorageType            String                     Standard_LRS
+                            osType                    String                     Windows   
+                            adminUsername             String                     adminUser
+                            adminPassword             SecureString                         
 
-		Outputs           :
+        Outputs           :
 
-## Implantar o modelo usando a CLI do Microsoft Azure
+## <a name="deploy-the-template-by-using-the-azure-cli"></a>Deploy the template by using the Azure CLI
 
-Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
+To deploy the template by using the Azure CLI, follow the steps below.
 
-1. Se você nunca usou a CLI do Azure, siga as etapas no artigo [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e, em seguida, as etapas para conectar a CLI à sua assinatura na seção "Usar o logon do Azure para autenticar interativamente" do artigo [Conectar-se a uma assinatura do Azure a partir da interface de linha de comando do Azure (CLI do Azure)](../xplat-cli-connect.md).
-2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
+1. If you have never used Azure CLI, follow the steps in the [Install and Configure the Azure CLI](../xplat-cli-install.md) article and then the steps to connect the CLI to your subscription in the "Use azure login to authenticate interactively" section of the [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) article.
+2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
-		azure config mode arm
+        azure config mode arm
 
-	Este é o resultado esperado para o comando descrito acima:
+    Here is the expected output for the command above:
 
-		info:    New mode is arm
+        info:    New mode is arm
 
-3. Abra o [arquivo de parâmetro](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), selecione o seu conteúdo e salve-o em um arquivo em seu computador. Neste exemplo, os parâmetros são salvos em um arquivo chamado *parameters.json*. Altere os valores de parâmetro dentro do arquivo, se desejado. No mínimo, é recomendável que você altere o valor do parâmetro adminPassword para uma senha exclusiva e complexa.
+3. Open the [parameter file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), select its content, and save it to a file in your computer. For this example, the parameters are saved to a file named *parameters.json*. Change the parameter values within the file if desired, but at a minimum, it's recommended that you change the value for the adminPassword parameter to a unique, complex password.
 
-4. Execute o cmdlet **azure group deployment create** para implantar a nova rede virtual usando o modelo e os arquivos de parâmetro que você baixou e modificou acima. No comando abaixo, substitua <path> pelo caminho no qual você salvou o arquivo.
+4. Run the **azure group deployment create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. In the command below, replace <path> with the path you saved the file to. 
 
-		azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e <path>\parameters.json
+        azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e <path>\parameters.json
 
-	Saída esperada (lista os valores de parâmetro usados):
+    Expected output (lists parameter values used):
 
-		info:    Executing command group create
-		+ Getting resource group PIPTEST2
-		+ Creating resource group PIPTEST2
-		info:    Created resource group PIPTEST2
-		+ Initializing template configurations and parameters
-		+ Creating a deployment
-		info:    Created template deployment "azuredeploy"
-		data:    Id:                  /subscriptions/<Subscription ID>/resourceGroups/PIPTEST2
-		data:    Name:                PIPTEST2
-		data:    Location:            westus
-		data:    Provisioning State:  Succeeded
-		data:    Tags: null
-		data:
-		info:    group create command OK
+        info:    Executing command group create
+        + Getting resource group PIPTEST2
+        + Creating resource group PIPTEST2
+        info:    Created resource group PIPTEST2
+        + Initializing template configurations and parameters
+        + Creating a deployment
+        info:    Created template deployment "azuredeploy"
+        data:    Id:                  /subscriptions/<Subscription ID>/resourceGroups/PIPTEST2
+        data:    Name:                PIPTEST2
+        data:    Location:            westus
+        data:    Provisioning State:  Succeeded
+        data:    Tags: null
+        data:
+        info:    group create command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

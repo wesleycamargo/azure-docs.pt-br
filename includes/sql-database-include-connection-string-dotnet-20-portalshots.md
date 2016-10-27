@@ -7,35 +7,35 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### Obter a cadeia de conexão no portal do Azure
+### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obtain the connection string from the Azure portal
 
 
-Obtenha no [portal do Azure](https://portal.azure.com/) a cadeia de conexão necessária para o seu programa cliente interagir com o Banco de Dados SQL do Azure:
+Use the [Azure portal](https://portal.azure.com/) to obtain the connection string necessary for your client program to interact with Azure SQL Database:
 
 
-1. Clique em **PROCURAR** > **bancos de dados SQL**.
+1. Click **BROWSE** > **SQL databases**.
 
-    ![Selecionar SQL][1-select-sql]
+    ![Select SQL][1-select-sql]
 
-2. Insira o nome do banco de dados na caixa de texto de filtro próximo ao canto superior esquerdo da folha dos **bancos de dados SQL**.
+2. Enter the name of your database into the filter text box near the upper-left of the **SQL databases** blade.
 
-    ![Selecionar um banco de dados][2-select-database]]
+    ![Select Database][2-select-database]]
 
-3. Clique na linha do banco de dados.
+3. Click the row for your database.
 
-4. Depois que a folha aparecer para o banco de dados, para conveniência visual, você pode clicar nos controles padrão de minimização para recolher as folhas usadas para navegação e filtragem do banco de dados.
+4. After the blade appears for your database, for visual convenience you can click the standard minimize controls to collapse the blades  you used for browsing and database filtering.
 
-5. Na folha do banco de dados, clique em **Mostrar cadeias de conexão de banco de dados**.
+5. On the blade for your database, click **Show database connection strings**.
 
-6. Se você pretende usar a biblioteca de conexão do ADO.NET, copie a cadeia de caracteres rotulada **ADO.NET**.
+6. If you intend to use the ADO.NET connection library, copy the string labeled **ADO.NET**.
 
-	![Copie a cadeia de conexão do ADO.NET do banco de dados][3-get-connection-string]
+    ![Copy the ADO.NET connection string for your database][3-get-connection-string]
 
-7. Cole as informações da cadeia de conexão no código do programa cliente. Você precisará substituir {your\_password\_here} pela sua senha real.
+7. Paste the connection string information into your client program code.  You will need to replace the {your_password_here} with your real password.
 
 
 
-Para obter mais informações, veja: [Cadeias de conexão e arquivos de configuração](http://msdn.microsoft.com/library/ms254494.aspx).
+For more information, see: [Connection Strings and Configuration Files](http://msdn.microsoft.com/library/ms254494.aspx).
 
 <!-- Image references. -->
 
@@ -55,4 +55,7 @@ includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
 
-<!---HONumber=AcomDC_0406_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

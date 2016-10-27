@@ -1,63 +1,64 @@
 <properties
-	pageTitle="Visão geral do dimensionamento do processamento de mídia | Microsoft Azure"
-	description="Este tópico é uma visão geral do dimensionamento de processamento de mídia com os Serviços de Mídia do Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Scaling Media Processing overview | Microsoft Azure"
+    description="This topic is an overview of scaling Media Processing with Azure Media Services."
+    services="media-services"
+    documentationCenter=""
+    authors="juliako"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/29/2016"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/29/2016"
+    ms.author="juliako"/>
 
 
-# Visão geral do dimensionamento do processamento de mídia
 
-Esta página fornece uma visão geral de como e por que dimensionar o processamento de mídia.
+# <a name="scaling-media-processing-overview"></a>Scaling Media Processing overview
 
-## Visão geral
+This page gives an overview of how and why to scale media processing. 
 
-Uma conta dos Serviços de Mídia está associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: **S1**, **S2** ou **S3**. Por exemplo, o mesmo trabalho de codificação é executado mais rapidamente quando você usa o tipo de unidade reservada **S2** em comparação ao tipo **S1**. Para obter mais informações, veja [Reserved Unit Types](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/) (Tipos de unidade reservada).
+## <a name="overview"></a>Overview
 
-Além de especificar o tipo de unidade reservada, você pode especificar o provisionamento da sua conta com unidades reservadas. O número de unidades reservadas provisionadas determina o número de tarefas de mídia que podem ser processadas simultaneamente em uma determinada conta. Por exemplo, se sua conta tiver cinco unidades reservadas, as cinco tarefas de mídia serão executadas simultaneamente enquanto houver tarefas a serem processadas. As tarefas restantes irão aguardar na fila e serão selecionadas para processamento sequencialmente quando uma tarefa em execução for concluída. Se uma conta não tiver nenhuma unidade reservada provisionada, as tarefas serão selecionadas sequencialmente. Nesse caso, o tempo de espera entre a conclusão de uma tarefa e o início da próxima dependerá da disponibilidade dos recursos do sistema.
+A Media Services account is associated with a Reserved Unit Type, which determines the speed with which your media processing tasks are processed. You can pick between the following reserved unit types: **S1**, **S2**, or **S3**. For example, the same encoding job runs faster when you use the **S2** reserved unit type compare to the **S1** type. For more information, see the [Reserved Unit Types](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
 
-## Escolha entre tipos diferentes de unidade reservada
+In addition to specifying the reserved unit type, you can specify to provision your account with reserved units. The number of provisioned reserved units determines the number of media tasks that can be processed concurrently in a given account. For example, if your account has five reserved units, then five media tasks will be running concurrently as long as there are tasks to be processed. The remaining tasks will wait in the queue and will get picked up for processing sequentially when a running task finishes. If an account does not have any reserved units provisioned, then tasks will be picked up sequentially. In this case, the wait time between one task finishing and the next one starting will depend on the availability of resources in the system.
 
-A tabela a seguir o ajudará a tomar uma decisão ao escolher entre diferentes velocidades de codificação. Também apresenta alguns casos de parâmetro de comparação e fornece as URLs de SAS para baixar os vídeos para executar seus próprios testes:
+## <a name="choosing-between-different-reserved-unit-types"></a>Choosing between different reserved unit types
 
-Cenários|**S1**|**S2**|**S3**|
+The following table helps you make decision when choosing between different encoding speeds. It also provides a few benchmark cases and provides SAS URLs that you can use to download videos on which you can perform your own tests:
+
+Scenarios|**S1**|**S2**|**S3**|
 ----------|------------|----------|------------
-Exemplo de uso indicado| Codificação de taxa de bits única. <br/>Arquivos com resoluções SD ou inferiores, não sensível ao tempo, de baixo custo.|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Uso normal para codificação SD e HD. |Codificação de taxa de bits única e taxa de bits múltipla.<br/>Vídeos com resolução Full HD e 4K. Codificação urgente com retorno mais rápido. 
-Parâmetro de comparação|[Arquivo de entrada: 5 minutos de duração, 640x360p a 29,97 quadros/segundo](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>A codificação para um arquivo MP4 de taxa de bits única com a mesma resolução leva aproximadamente 11 minutos.|[Arquivo de entrada: cinco minutos de duração, 1280x720p a 29,97 quadros/segundo](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)<br/><br/>A codificação com a predefinição "H264 Taxa de Bits Única 720p" levará, aproximadamente, cinco minutos.<br/><br/>A codificação com a predefinição "H264 Taxa de Bits Múltipla 720p" levará cerca de 11,5 minutos.|[Arquivo de entrada: 5 minutos de duração, 1920x1080p a 29,97 quadros/segundo](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D). <br/><br/>A codificação com a predefinição "H264 Taxa de Bits Única 1080p" leva aproximadamente 2,7 minutos.<br/><br/>A codificação com a predefinição "H264 Taxas de Bits Múltiplas 1080p" leva aproximadamente 5,7 minutos.
+Intended use case| Single bitrate encoding. <br/>Files at SD or below resolutions, not time sensitive, low cost.|Single bitrate and multiple bitrate encoding.<br/>Normal usage for both SD and HD encoding. |Single bitrate and multiple bitrate encoding.<br/>Full HD and 4K resolution videos. Time sensitive, faster turnaround encoding. 
+Benchmark|[Input file: 5 minutes long 640x360p at 29.97 frames/second](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>Encoding to a single bitrate MP4 file, at the same resolution, takes approximately 11 minutes.|[Input file: 5 minutes long 1280x720p at 29.97 frames/second](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)<br/><br/>Encoding with "H264 Single Bitrate 720p" preset takes approximately 5 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 720p" preset takes approximately 11.5 minutes.|[Input file: 5 minutes long 1920x1080p at 29.97 frames/second](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D). <br/><br/>Encoding with "H264 Single Bitrate 1080p" preset takes approximately 2.7 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 1080p" preset takes approximately 5.7 minutes.
 
-##Considerações
+##<a name="considerations"></a>Considerations
 
->[AZURE.IMPORTANT] Examine as considerações descritas nesta seção.
+>[AZURE.IMPORTANT] Review considerations described in this section.  
 
-- As Unidades Reservadas trabalham para paralelizar todo o processamento de mídia, incluindo trabalhos de indexação usando o Indexador de Mídia do Azure. No entanto, ao contrário da codificação, a indexação de trabalhos não será processada mais rapidamente com unidades reservadas mais rápidas.
+- Reserved Units work for parallelizing all media processing, including indexing jobs using Azure Media Indexer.  However, unlike encoding, indexing jobs do not get processed faster with faster reserved units.
 
-- Se estiver usando o pool compartilhado, ou seja, sem nenhuma unidade reservada, suas tarefas de codificação terão o mesmo desempenho do que com unidades reservadas S1. No entanto, não há nenhum limite superior para o tempo em suas tarefas podem gastar no estado na fila e, em qualquer momento específico, no máximo uma tarefa será executada.
+- If using the shared pool, that is, without any reserved units, then your encode tasks have the same performance as with S1 RUs. However, there is no upper bound to the time your Tasks can spend in queued state, and at any given time, at most one Task is be running.
 
-- Os seguintes data centers não oferecem o tipo de unidade reservada **S2**: Sul do Brasil, Índia Ocidental, Índia Central e Sul da Índia.
+- The following data centers do not offer the **S2** reserved unit type: Brazil South, India West, India Central, and India South.
 
-- Os seguintes data centers não oferecem o tipo de unidade reservada **S3**: Sul do Brasil, Índia Ocidental, Índia Central.
+- The following data centers do not offer the **S3** reserved unit type: Brazil South, India West, India Central.
 
-- O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo.
+- The highest number of units specified for the 24-hour period is used in calculating the cost.
 
 
-##Cotas e limitações
+##<a name="quotas-and-limitations"></a>Quotas and limitations
 
-Para saber mais sobre as cotas e limitações e sobre como abrir um tíquete de suporte, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).
+For information about quotas and limitations and how to open a support ticket, see [Quotas and limitations](media-services-quotas-and-limitations.md).
 
-##Próxima etapa
+##<a name="next-step"></a>Next step
 
-Realize a tarefa de dimensionamento de processamento da mídia com uma dessas tecnologias:
+Achieve the scaling media processing task with one of these technologies: 
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -66,12 +67,16 @@ Realize a tarefa de dimensionamento de processamento da mídia com uma dessas te
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 - [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
-##Roteiros de aprendizagem dos Serviços de Mídia
+##<a name="media-services-learning-paths"></a>Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fornecer comentários
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

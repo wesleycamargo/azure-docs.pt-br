@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Restaurar um Banco de Dados SQL do Azure para um determinado momento anterior (PowerShell) | Microsoft Azure"
-    description="Restaurar um Banco de Dados SQL do Azure para um determinado momento anterior"
+    pageTitle="Restore an Azure SQL Database to a previous point in time (PowerShell) | Microsoft Azure"
+    description="Restore an Azure SQL Database to a previous point in time"
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -16,44 +16,49 @@
     ms.date="07/17/2016"
     ms.author="sstein"/>
 
-# Restaurar um Banco de Dados SQL do Azure para um determinado momento anterior com o PowerShell
+
+# <a name="restore-an-azure-sql-database-to-a-previous-point-in-time-with-powershell"></a>Restore an Azure SQL Database to a previous point in time with PowerShell
 
 > [AZURE.SELECTOR]
-- [Visão geral](sql-database-recovery-using-backups.md)
-- [Restauração Pontual: Portal do Azure](sql-database-point-in-time-restore-portal.md)
+- [Overview](sql-database-recovery-using-backups.md)
+- [Point-In-Time Restore: Azure portal](sql-database-point-in-time-restore-portal.md)
 
-Este artigo mostra como restaurar seu banco de dados para um determinado momento anterior dos [backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md). Você pode fazer isso usando o PowerShell.
+This article shows you how to restore your database to an earlier point in time from [SQL Database automated backups](sql-database-automated-backups.md). You can do this by using PowerShell.
 
-[AZURE.INCLUDE [Iniciar sua sessão do PowerShell](../../includes/sql-database-powershell.md)]
+[AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
-## Restaurar o banco de dados para um determinado momento como um banco de dados autônomo
+## <a name="restore-your-database-to-a-point-in-time-as-a-standalone-database"></a>Restore your database to a point in time as a standalone database
 
-1. Obtenha o banco de dados que você deseja restaurar usando o cmdlet [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx).
+1. Get the database you want to restore by using the [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) cmdlet.
 
         $Database = Get-AzureRmSqlDatabase -ResourceGroupName "resourcegroup01" -ServerName "server01" -DatabaseName "database01"
 
-2. Restaure o banco de dados para um determinado momento usando o cmdlet [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx).
+2. Restore the database to a point in time by using the [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx) cmdlet.
 
         Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime UTCDateTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName "RestoredDatabase" –ResourceId $Database.ResourceID -Edition "Standard" -ServiceObjectiveName "S2"
 
 
-## Restaure o banco de dados para um determinado momento em um pool de banco de dados elástico
+## <a name="restore-your-database-to-a-point-in-time-into-an-elastic-database-pool"></a>Restore your database to a point in time into an elastic database pool
 
-1. Obtenha o banco de dados que você deseja restaurar usando o cmdlet [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx).
+1. Get the database you want to restore by using the [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) cmdlet.
 
         $Database = Get-AzureRmSqlDatabase -ResourceGroupName "resourcegroup01" -ServerName "server01" -DatabaseName "database01"
 
-2. Restaure o banco de dados para um determinado momento usando o cmdlet [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx).
+2. Restore the database to a point in time by using the [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx) cmdlet.
 
         Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime UTCDateTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName "RestoredDatabase" –ResourceId $Database.ResourceID –ElasticPoolName "elasticpool01"
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Para obter uma visão geral e os cenários de continuidade dos negócios, confira [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
-- Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
-- Para saber mais sobre como usar backups automatizados para recuperação, confira [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
-- Para saber mais sobre opções de recuperação mais rápidas, confira [Replicação geográfica ativa](sql-database-geo-replication-overview.md)
-- Para saber mais sobre como usar backups automatizados para arquivamento, consulte [cópia de banco de dados](sql-database-copy.md)
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

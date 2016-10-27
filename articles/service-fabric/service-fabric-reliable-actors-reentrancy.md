@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reentrância de Reliable Actors | Microsoft Azure"
-   description="Introdução à reentrância para Reliable Actors do Service Fabric"
+   pageTitle="Reliable Actors reentrancy | Microsoft Azure"
+   description="Introduction to reentrancy for Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,18 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/06/2016"
+   ms.date="10/19/2016"
    ms.author="vturecek"/>
 
 
-# Reentrância de Reliable Actors
-Por padrão, o tempo de execução do Reliable Actors permite a reentrância baseada no contexto da chamada lógica. Isso possibilita que os atores sejam reentrantes se estiverem na mesma cadeia de contexto de chamada. Por exemplo, se um Ator A envia a mensagem para o Ator B, que envia a mensagem para o Ator C. Como parte do processamento da mensagem no caso de o Ator C chamar o Ator A, a mensagem é reentrante e por isso será permitida. Todas as outras mensagens que fazem parte de um contexto de chamada diferente serão bloqueadas no Ator A até a conclusão do processamento.
+
+# <a name="reliable-actors-reentrancy"></a>Reliable Actors reentrancy
+The Reliable Actors runtime, by default, allows logical call context-based reentrancy. This allows for actors to be reentrant if they are in the same call context chain. For example, Actor A sends a message to Actor B, who sends a message to Actor C. As part of the message processing, if Actor C calls Actor A, the message is reentrant, so it will be allowed. Any other messages that are part of a different call context will be blocked on Actor A until it finishes processing.
 
 
-Há duas opções disponíveis para nova entrada de ator definida na enumeração `ActorReentrancyMode`:
+There are two options available for actor reentrancy defined in the `ActorReentrancyMode` enum:
 
- - `LogicalCallContext` (comportamento padrão)
- - `Disallowed` - desabilita a nova entrada
+ - `LogicalCallContext` (default behavior)
+ - `Disallowed` - disables reentrancy
 
 ```csharp
 public enum ActorReentrancyMode
@@ -34,9 +35,9 @@ public enum ActorReentrancyMode
 }
 ```
 
-A nova entrada pode ser definida nas configurações de `ActorService` durante o registro. A configuração se aplica a todas as instâncias de ator criadas no serviço de ator.
+Reentrancy can be configured in an `ActorService`'s settings during registration. The setting applies to all actor instances created in the actor service.
 
-O exemplo a seguir mostra um serviço de ator que define o modo de nova entrada como `ActorReentrancyMode.Disallowed`. Nesse caso, se um ator envia uma mensagem reentrante para outro ator, será lançada uma exceção do tipo `FabricException`.
+The following example shows an actor service that sets the reentrancy mode to `ActorReentrancyMode.Disallowed`. In this case, if an actor sends a reentrant message to another actor, an exception of type `FabricException` will be thrown.
 
 ```csharp
 static class Program
@@ -69,9 +70,13 @@ static class Program
 }
 ```
 
-## Próximas etapas
- - [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
- - [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Exemplo de código](https://github.com/Azure/servicefabric-samples)
+## <a name="next-steps"></a>Next steps
+ - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
+ - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Sample code](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

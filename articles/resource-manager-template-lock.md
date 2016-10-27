@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modelo de bloqueios de recursos do Gerenciador de Recursos | Microsoft Azure"
-   description="Mostra o esquema do Gerenciador de Recursos para a implantação de bloqueios de recursos por meio de um modelo."
+   pageTitle="Resource Manager template for resource locks | Microsoft Azure"
+   description="Shows the Resource Manager schema for deploying resource locks through a template."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,16 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/05/2016"
+   ms.date="10/03/2016"
    ms.author="tomfitz"/>
 
-# Esquema do modelo de bloqueios de recursos
 
-Cria um novo bloqueio em um recurso e em seus recursos filho.
+# <a name="resource-locks-template-schema"></a>Resource locks template schema
 
-## Formato de esquema
+Creates a lock on a resource and its child resources.
 
-Para criar um bloqueio, adicione o esquema a seguir à seção de recursos do seu modelo.
+## <a name="schema-format"></a>Schema format
+
+To create a lock, add the following schema to the resources section of your template.
     
     {
         "type": enum,
@@ -38,47 +39,46 @@ Para criar um bloqueio, adicione o esquema a seguir à seção de recursos do se
 
 
 
-## Valores
+## <a name="values"></a>Values
 
-As tabelas a seguir descrevem os valores necessários para definir no esquema.
+The following tables describe the values you need to set in the schema.
 
-| Nome | Valor |
-| ---- | ---- | 
-| type | Enum<br />Obrigatório<br />**{namespace}/{tipo}/providers/locks** - para recursos ou<br />**Microsoft.Authorization/locks** - para grupos de recursos<br /><br />O tipo de recurso a ser criado. |
-| apiVersion | Enum<br />Obrigatório<br />**2015-01-01**<br /><br />A versão da API a ser usada para criar o recurso. |  
-| name | Cadeia de caracteres<br />Obrigatório<br />**{recurso}/Microsoft.Authorization/{nome do bloqueio}** - para recursos ou<br />**{nome do bloqueio}** - para grupos de recursos<br />Até 64 caracteres, não pode conter <, >, %, &, ? ou caracteres de controle.<br /><br />Um valor que especifica o recurso a ser bloqueado e um nome para o bloqueio. |
-| dependsOn | Matriz<br />Opcional<br />Uma lista separada por vírgulas com os nomes ou os identificadores exclusivos de um recurso.<br /><br />A coleção de recursos de que esse bloqueio depende. Se o recurso que você está bloqueando estiver implantado no mesmo modelo, inclua o nome desse recurso neste elemento para garantir que o recurso seja implantado primeiro. | 
-| propriedades | Objeto<br />Obrigatório<br />[Objeto properties](#properties)<br /><br />Um objeto que identifica o tipo de bloqueio, bem como observações sobre o bloqueio. |  
+| Name | Required | Description |
+| ---- | -------- | ----------- |
+| type | Yes | The resource type to create.<br /><br />For resources:<br />**{namespace}/{type}/providers/locks**<br /><br/>For resource groups:<br />**Microsoft.Authorization/locks** |
+| apiVersion | Yes | The API version to use for creating the resource.<br /><br />Use:<br />**2015-01-01**<br /><br /> |
+| name | Yes | A value that specifies both the resource to lock and a name for the lock. Can be up to 64 characters, and cannot contain <, > %, &, ?, or any control characters.<br /><br />For resources:<br />**{resource}/Microsoft.Authorization/{lockname}**<br /><br />For resource groups:<br />**{lockname}** |
+| dependsOn | No | A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this lock depends on. If the resource you are locking is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. | 
+| properties | Yes | An object that identifies the type of lock, and notes about the lock.<br /><br />See [properties object](#properties-object). |  
 
-<a id="properties" />
-### properties object
+### <a name="properties-object"></a>properties object
 
-| Nome | Valor |
-| ------- | ---- |
-| level | Enum<br />Obrigatório<br />**CannotDelete**<br /><br />O tipo de bloqueio a ser aplicado ao escopo. CanNotDelete permite a modificação, mas impede a exclusão. |
-| HDInsight | Cadeia de caracteres<br />Opcional<br />Até 512 caracteres<br /><br />Descrição do bloqueio. |
+| Name | Required | Description |
+| ---- | -------- | ----------- |
+| level   | Yes | The type of lock to apply to the scope.<br /><br />**CannotDelete** - users can modify resource but not delete it.<br />**ReadOnly** - users can read from a resource, but they can't delete it or perform any actions on it. |
+| notes   | No | Description of the lock. Can be up to 512 characters. |
 
 
-## Como usar o recurso de bloqueio
+## <a name="how-to-use-the-lock-resource"></a>How to use the lock resource
 
-Esse recurso é adicionado ao seu modelo para impedir as ações especificadas em um recurso. O bloqueio se aplica a todos os usuários e grupos. Normalmente, você aplica um bloqueio apenas por um tempo limitado, como quando um processo está sendo executado e você deseja garantir que alguém em sua organização não modifique ou exclua um recurso inadvertidamente.
+You add this resource to your template to prevent specified actions on a resource. The lock applies to all users and groups.
 
-Para criar ou excluir bloqueios de gerenciamento, você deve ter acesso às ações **Microsoft.Authorization/*** ou **Microsoft.Authorization/locks/***. Das funções internas, somente **Proprietário** e **Administrador do Acesso de Usuário** recebem permissão para realizar essas ações. Para saber mais sobre o controle de acesso baseado em função, consulte [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md).
+To create or delete management locks, you must have access to **Microsoft.Authorization/*** or **Microsoft.Authorization/locks/*** actions. Of the built-in roles, only **Owner** and **User Access Administrator** are granted those actions. For information about role-based access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
 
-O bloqueio é aplicado ao recurso especificado e a todos os recursos filho.
+The lock is applied to the specified resource and any child resources.
 
-É possível remover um bloqueio com o comando **Remove-AzureRmResourceLock** do PowerShell ou com a [operação de exclusão](https://msdn.microsoft.com/library/azure/mt204562.aspx) da API REST.
+You can remove a lock with the PowerShell command **Remove-AzureRmResourceLock** or with the [delete operation](https://msdn.microsoft.com/library/azure/mt204562.aspx) of the REST API.
 
-## Exemplos
+## <a name="examples"></a>Examples
 
-O exemplo a seguir aplica um bloqueio contra exclusão a um aplicativo Web.
+The following example applies a cannot-delete lock to a web app.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "hostingPlanName": {
-      			"type": "string"
+                "type": "string"
             }
         },
         "variables": {
@@ -109,7 +109,7 @@ O exemplo a seguir aplica um bloqueio contra exclusão a um aplicativo Web.
         "outputs": {}
     }
 
-O próximo exemplo aplica um bloqueio contra exclusão ao grupo de recursos.
+The next example applies a cannot-delete lock to the resource group.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -131,9 +131,13 @@ O próximo exemplo aplica um bloqueio contra exclusão ao grupo de recursos.
         "outputs": {}
     }
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Para obter informações sobre a estrutura do modelo, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
-- Para obter mais informações sobre bloqueios, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
+- For information about the template structure, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+- For more information about locks, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

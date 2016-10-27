@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Adicionar o conector do OneDrive em seus Aplicativos Lógicos | Microsoft Azure"
-	description="Visão geral do conector do OneDrive com os parâmetros da API REST"
-	services="logic-apps"    
-	documentationCenter=""     
-	authors="MandiOhlinger"    
-	manager="erikre"    
-	editor=""
-	tags="connectors"/>
+    pageTitle="Add the OneDrive connector in your Logic Apps | Microsoft Azure"
+    description="Overview of the OneDrive connector with REST API parameters"
+    services="logic-apps"    
+    documentationCenter=""     
+    authors="MandiOhlinger"    
+    manager="anneta"    
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -14,404 +14,409 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/26/2016"
+   ms.date="10/18/2016"
    ms.author="mandia"/>
 
-# Introdução ao conector do OneDrive
 
-Conecte-se ao OneDrive para gerenciar seus arquivos, incluindo carregar, obter, excluir arquivos e muito mais.
+# <a name="get-started-with-the-onedrive-connector"></a>Get started with the OneDrive connector
 
-Com o OneDrive, você:
+Connect to OneDrive to manage your files, including upload, get, delete files, and more. 
 
-- Compile seu fluxo de trabalho armazenando os arquivos no OneDrive ou atualize os arquivos existentes no OneDrive.
-- Use gatilhos para iniciar o fluxo de trabalho quando um arquivo é criado ou atualizado em seu OneDrive.
-- Usar ações para criar um arquivo, excluir um arquivo e muito mais. Por exemplo, quando um novo email do Office 365 for recebido com um anexo (um gatilho), crie um novo arquivo no OneDrive (uma ação).
+With OneDrive, you: 
 
-Este tópico mostra como usar o conector do OneDrive em um aplicativo lógico e também lista os gatilhos e ações.
+- Build your workflow by storing files in OneDrive, or update existing files in OneDrive. 
+- Use triggers to start your workflow when a file is created or updated within your OneDrive.
+- Use actions to create a file, delete a file, and more. For example, when a new Office 365 email is received with an attachment (a trigger), create a new file in OneDrive (an action).
 
->[AZURE.NOTE] Esta versão do artigo se aplica à disponibilidade de Aplicativos Lógicos em geral (GA).
+This topic shows you how to use the OneDrive connector in a logic app, and also lists the triggers and actions.
 
-Para saber mais sobre Aplicativos Lógicos, confira [O que são aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md) e [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+>[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA). 
 
-## Conectar o OneDrive
+To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma conexão fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao OneDrive, primeiramente é necessária uma conexão do *OneDrive*. Para criar uma conexão, insira as credenciais que você normalmente usa para acessar o serviço ao qual deseja conectar-se. Assim, com o OneDrive, insira as credenciais de sua conta OneDrive para criar a conexão.
+## <a name="connect-to-onedrive"></a>Connect to OneDrive
 
-### Criar a conexão
+Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to OneDrive, you first need a OneDrive *connection*. To create a connection, enter the credentials you normally use to access the service you wish to connect to. So, with OneDrive, enter the credentials to your OneDrive account  to create the connection.
 
->[AZURE.INCLUDE [Etapas para criar uma conexão com o OneDrive](../../includes/connectors-create-api-onedrive.md)]
+### <a name="create-the-connection"></a>Create the connection
 
-## Usar um gatilho
+>[AZURE.INCLUDE [Steps to create a connection to OneDrive](../../includes/connectors-create-api-onedrive.md)]
 
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. Gatilhos "sondam" o serviço no intervalo e na frequência desejados. [Saiba mais sobre gatilhos](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+## <a name="use-a-trigger"></a>Use a trigger
 
-1. No aplicativo lógico, digite "onedrive" para obter uma lista de gatilhos:
+A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-	![](./media/connectors-create-api-onedrive/onedrive-1.png)
+1. In the logic app, type "onedrive" to get a list of the triggers:  
 
-2. Escolha **Quando um arquivo é modificado**. Se já existe uma conexão, escolha o botão Mostrar Seletor para selecionar uma pasta.
+    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
-	![](./media/connectors-create-api-onedrive/sample-folder.png)
+2. Select **When a file is modified**. If a connection already exists, then select the Show Picker button to select a folder.
 
-	Se você for solicitado a entrar, insira os detalhes do logon para criar a conexão. [Criar a conexão](connectors-create-api-onedrive.md#create-the-connection) neste tópico lista as etapas.
+    ![](./media/connectors-create-api-onedrive/sample-folder.png)
 
-	> [AZURE.NOTE] Neste exemplo, o aplicativo lógico é executado quando um arquivo na pasta escolhida é atualizado. Para ver os resultados deste gatilho, adicione outra ação que envia um email. Por exemplo, adicione a ação *Enviar um email* do Outlook do Office 365 que envia um email para você quando um arquivo é atualizado.
+    If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this topic lists the steps. 
 
-3. Escolha o botão **Editar** e defina os valores de **Frequência** e **Intervalo**. Por exemplo, se desejar que o gatilho faça uma sondagem a cada 15 minutos, defina a **Frequência** para **Minuto** e **Intervalo** para **15**.
+    > [AZURE.NOTE] In this example, the logic app runs when a file in the folder you choose is updated. To see the results of this trigger, add another action that sends you an email. For example, add the Office 365 Outlook *Send an email* action that emails you when a file is updated. 
 
-	![](./media/connectors-create-api-onedrive/trigger-properties.png)
+3. Select the **Edit** button and set the **Frequency** and **Interval** values. For example, if you want the trigger to poll every 15 minutes, then set the **Frequency** to **Minute**, and set the **Interval** to **15**. 
 
-4. **Salve** as alterações (canto superior esquerdo da barra de ferramentas). Seu aplicativo lógico é salvo e pode ser habilitado automaticamente.
+    ![](./media/connectors-create-api-onedrive/trigger-properties.png)
 
-
-## Usar uma ação
-
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
-
-1. Selecione o sinal de mais. Você tem várias opções: **Adicionar uma ação**, **Adicionar uma condição** ou uma das opções **Mais**.
-
-	![](./media/connectors-create-api-onedrive/add-action.png)
-
-2. Escolha **Adicionar uma ação**.
-
-3. Na caixa de texto, digite "onedrive" para obter uma lista de todas as ações disponíveis.
-
-	![](./media/connectors-create-api-onedrive/onedrive-actions.png)
-
-4. Em nosso exemplo, escolha **OneDrive – criar arquivo**. Se já existir uma conexão, escolha o **Caminho da Pasta** para colocar o arquivo, insira o **Nome do Arquivo** e escolha o **Conteúdo do Arquivo** desejado:
-
-	![](./media/connectors-create-api-onedrive/sample-action.png)
-
-	Se as informações de conexão forem solicitadas, insira os detalhes para criar a conexão. [Criar a conexão](connectors-create-api-onedrive.md#create-the-connection) neste tópico descreve estas propriedades.
-
-	> [AZURE.NOTE] Neste exemplo, podemos criar um novo arquivo em uma pasta do OneDrive. Você pode usar a saída de outro gatilho para criar o arquivo do OneDrive. Por exemplo, adicione o gatilho *Quando um novo email chegar* do Outlook do Office 365. Em seguida, adicione a ação *Criar arquivo* do OneDrive, que usa os campos Anexos e Tipo de Conteúdo em um ForEach para criar o novo arquivo no OneDrive.
-	> 
-	> ![](./media/connectors-create-api-onedrive/foreach-action.png)
-
-5. **Salve** as alterações (canto superior esquerdo da barra de ferramentas). Seu aplicativo lógico é salvo e pode ser habilitado automaticamente.
+4. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
 
 
-## Detalhes técnicos
+## <a name="use-an-action"></a>Use an action
 
-## Gatilhos
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-|Gatilho | Descrição|
+1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
+
+    ![](./media/connectors-create-api-onedrive/add-action.png)
+
+2. Choose **Add an action**.
+
+3. In the text box, type “onedrive” to get a list of all the available actions.
+
+    ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+
+4. In our example, choose **OneDrive - Create file**. If a connection already exists, then select the **Folder Path** to put the file, enter the **File Name**, and choose the **File Content** you want:  
+
+    ![](./media/connectors-create-api-onedrive/sample-action.png)
+
+    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-onedrive.md#create-the-connection) in this topic describes these properties. 
+
+    > [AZURE.NOTE] In this example, we create a new file in a OneDrive folder. You can use output from another trigger to create the OneDrive file. For example, add the Office 365 Outlook *When a new email arrives* trigger. Then add the OneDrive *Create file* action that uses the Attachments and Content-Type fields within a ForEach to create the new file in OneDrive. 
+    > 
+    > ![](./media/connectors-create-api-onedrive/foreach-action.png)
+
+5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+
+
+## <a name="technical-details"></a>Technical Details
+
+## <a name="triggers"></a>Triggers
+
+|Trigger | Description|
 |--- | ---|
-|[Quando um arquivo é criado](connectors-create-api-onedrive.md#when-a-file-is-created)|Esta operação dispara um fluxo quando um novo arquivo é criado em uma pasta.|
-|[Quando um arquivo é modificado](connectors-create-api-onedrive.md#when-a-file-is-modified)|Esta operação dispara um fluxo quando um arquivo é modificado em uma pasta.|
+|[When a file is created](connectors-create-api-onedrive.md#when-a-file-is-created)|This operation triggers a flow when a new file is created in a folder.|
+|[When a file is modified](connectors-create-api-onedrive.md#when-a-file-is-modified)|This operation triggers a flow when a file is modified in a folder.|
 
 
-## Ações
+## <a name="actions"></a>Actions
 
-|Ação|Descrição|
+|Action|Description|
 |--- | ---|
-|[Obter metadados do arquivo](connectors-create-api-onedrive.md#get-file-metadata)|Esta operação obtém os metadados de um arquivo.|
-|[Atualizar arquivo](connectors-create-api-onedrive.md#update-file)|Esta operação atualiza um arquivo.|
-|[Excluir arquivo](connectors-create-api-onedrive.md#delete-file)|Esta operação exclui um arquivo.|
-|[Obter metadados do arquivo usando o caminho](connectors-create-api-onedrive.md#get-file-metadata-using-path)|Esta operação obtém os metadados de um arquivo usando o caminho.|
-|[Obter o conteúdo do arquivo usando o caminho](connectors-create-api-onedrive.md#get-file-content-using-path)|Esta operação obtém o conteúdo de um arquivo usando o caminho.|
-|[Obter conteúdo do arquivo](connectors-create-api-onedrive.md#get-file-content)|Esta operação obtém o conteúdo de um arquivo.|
-|[Criar arquivo](connectors-create-api-onedrive.md#create-file)|Esta operação cria um arquivo.|
-|[Copiar arquivo](connectors-create-api-onedrive.md#copy-file)|Esta operação copia um arquivo para o OneDrive.|
-|[Lista de arquivos na pasta](connectors-create-api-onedrive.md#list-files-in-folder)|Esta operação obtém a lista de arquivos e subpastas em uma pasta.|
-|[Lista de arquivos na pasta-raiz](connectors-create-api-onedrive.md#list-files-in-root-folder)|Esta operação obtém a lista de arquivos e subpastas na pasta-raiz.|
-|[Extrair o arquivo morto para a pasta](connectors-create-api-onedrive.md#extract-archive-to-folder)|Essa operação extrai um arquivo para uma pasta (exemplo: .zip).|
+|[Get file metadata](connectors-create-api-onedrive.md#get-file-metadata)|This operation gets the metadata for a file.|
+|[Update file](connectors-create-api-onedrive.md#update-file)|This operation updates a file.|
+|[Delete file](connectors-create-api-onedrive.md#delete-file)|This operation deletes a file.|
+|[Get file metadata using path](connectors-create-api-onedrive.md#get-file-metadata-using-path)|This operation gets the metadata of a file using the path.|
+|[Get file content using path](connectors-create-api-onedrive.md#get-file-content-using-path)|This operation gets the content of a file using the path.|
+|[Get file content](connectors-create-api-onedrive.md#get-file-content)|This operation gets the content of a file.|
+|[Create file](connectors-create-api-onedrive.md#create-file)|This operation creates a file.|
+|[Copy file](connectors-create-api-onedrive.md#copy-file)|This operation copies a file to OneDrive.|
+|[List files in folder](connectors-create-api-onedrive.md#list-files-in-folder)|This operation gets the list of files and subfolders in a folder.|
+|[List files in root folder](connectors-create-api-onedrive.md#list-files-in-root-folder)|This operation gets the list of files and subfolders in the root folder.|
+|[Extract archive to folder](connectors-create-api-onedrive.md#extract-archive-to-folder)|This operation extracts an archive file into a folder (example: .zip).|
 
-### Detalhes da ação
+### <a name="action-details"></a>Action details
 
-Nesta seção, consulte os detalhes específicos sobre cada ação, incluindo todas as propriedades de entrada obrigatórias ou opcionais, assim como toda saída correspondente associada ao conector.
+In this section, see the specific details about each action, including any required or optional input properties, and any corresponding output associated with the connector.
 
 
-#### Obter metadados do arquivo
-Esta operação obtém os metadados de um arquivo.
+#### <a name="get-file-metadata"></a>Get file metadata
+This operation gets the metadata for a file. 
 
-|Nome da Propriedade| Nome de exibição|Descrição|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Arquivo|Selecionar um arquivo|
+|id*|File|Select a file|
 
-Um asterisco (*) significa que a propriedade é obrigatória.
+An asterisk (*) means the property is required.
 
-##### Detalhes da Saída
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Nome da Propriedade | Tipo de Dados |
+| Property Name | Data Type |
 |---|---|
-|ID|string|
-|Nome|string|
+|Id|string|
+|Name|string|
 |DisplayName|string|
-|Caminho|string|
+|Path|string|
 |LastModified|string|
-|Tamanho|inteiro|
+|Size|integer|
 |MediaType|string|
-|IsFolder|booleano|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### Atualizar arquivo
-Esta operação atualiza um arquivo.
+#### <a name="update-file"></a>Update file
+This operation updates a file. 
 
-|Nome da Propriedade| Nome de exibição|Descrição|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Arquivo|Selecionar um arquivo|
-|body*|Conteúdo do arquivo|O conteúdo do arquivo|
+|id*|File|Select a file|
+|body*|File content|Content of the file|
 
-Um asterisco (*) significa que a propriedade é obrigatória.
+An asterisk (*) means the property is required.
 
-##### Detalhes da Saída
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Nome da Propriedade | Tipo de Dados |
+| Property Name | Data Type |
 |---|---|
-|ID|string|
-|Nome|string|
+|Id|string|
+|Name|string|
 |DisplayName|string|
-|Caminho|string|
+|Path|string|
 |LastModified|string|
-|Tamanho|inteiro|
+|Size|integer|
 |MediaType|string|
-|IsFolder|booleano|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### Excluir arquivo
-Esta operação exclui um arquivo.
+#### <a name="delete-file"></a>Delete file
+This operation deletes a file. 
 
-|Nome da Propriedade| Nome de exibição|Descrição|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Arquivo|Selecionar um arquivo|
+|id*|File|Select a file|
 
-Um asterisco (*) significa que a propriedade é obrigatória.
+An asterisk (*) means the property is required.
 
-##### Detalhes da Saída
-Nenhum.
+##### <a name="output-details"></a>Output Details
+None.
 
-#### Obter metadados do arquivo usando o caminho
-Esta operação obtém os metadados de um arquivo usando o caminho.
+#### <a name="get-file-metadata-using-path"></a>Get file metadata using path
+This operation gets the metadata of a file using the path. 
 
-|Nome da Propriedade| Nome de exibição|Descrição|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|path*|Caminho do arquivo|Selecionar um arquivo|
+|path*|File path|Select a file|
 
-Um asterisco (*) significa que a propriedade é obrigatória.
+An asterisk (*) means the property is required.
 
-##### Detalhes da Saída
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Nome da Propriedade | Tipo de Dados |
+| Property Name | Data Type |
 |---|---|
-|ID|string|
-|Nome|string|
+|Id|string|
+|Name|string|
 |DisplayName|string|
-|Caminho|string|
+|Path|string|
 |LastModified|string|
-|Tamanho|inteiro|
+|Size|integer|
 |MediaType|string|
-|IsFolder|booleano|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### Obter o conteúdo do arquivo usando o caminho
-Esta operação obtém o conteúdo de um arquivo usando o caminho.
+#### <a name="get-file-content-using-path"></a>Get file content using path
+This operation gets the content of a file using the path. 
 
-|Nome da Propriedade| Nome de exibição|Descrição|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|path*|Caminho do arquivo|Selecionar um arquivo|
+|path*|File path|Select a file|
 
-Um asterisco (*) significa que a propriedade é obrigatória.
+An asterisk (*) means the property is required.
 
-##### Detalhes da Saída
-Nenhum.
+##### <a name="output-details"></a>Output Details
+None.
 
 
-#### Obter conteúdo do arquivo
-Esta operação obtém o conteúdo de um arquivo.
+#### <a name="get-file-content"></a>Get file content
+This operation gets the content of a file. 
 
-|Nome da Propriedade| Nome de exibição|Descrição|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Arquivo|Selecionar um arquivo|
+|id*|File|Select a file|
 
-Um asterisco (*) significa que a propriedade é obrigatória.
+An asterisk (*) means the property is required.
 
-##### Detalhes da Saída
-Nenhum.
+##### <a name="output-details"></a>Output Details
+None.
 
-#### Criar arquivo
-Esta operação cria um arquivo.
+#### <a name="create-file"></a>Create file
+This operation creates a file. 
 
-|Nome da Propriedade| Nome de exibição|Descrição|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderPath*|Caminho da pasta|Selecionar uma pasta|
-|name*|Nome do arquivo|Nome do arquivo|
-|body*|Conteúdo do arquivo|O conteúdo do arquivo|
+|folderPath*|Folder path|Select a folder|
+|name*|File name|Name of the file|
+|body*|File content|Content of the file|
 
-Um asterisco (*) significa que a propriedade é obrigatória.
+An asterisk (*) means the property is required.
 
-##### Detalhes da Saída
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Nome da Propriedade | Tipo de Dados |
+| Property Name | Data Type |
 |---|---|
-|ID|string|
-|Nome|string|
+|Id|string|
+|Name|string|
 |DisplayName|string|
-|Caminho|string|
+|Path|string|
 |LastModified|string|
-|Tamanho|inteiro|
+|Size|integer|
 |MediaType|string|
-|IsFolder|booleano|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### Copiar arquivo
-Esta operação copia um arquivo para o OneDrive.
+#### <a name="copy-file"></a>Copy file
+This operation copies a file to OneDrive. 
 
-|Nome da Propriedade| Nome de exibição|Descrição|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|source*|Url da origem|URL para o arquivo de origem|
-|destination*|Caminho do arquivo de destino|Caminho do arquivo de destino, incluindo o nome do arquivo de destino|
-|substituir|Substituir?|Substitui o arquivo de destino se estiver definido como "true"|
+|source*|Source url|Url to source file|
+|destination*|Destination file path|Destination file path, including target filename|
+|overwrite|Overwrite?|Overwrites the destination file if set to 'true'|
 
-Um asterisco (*) significa que a propriedade é obrigatória.
+An asterisk (*) means the property is required.
 
-##### Detalhes da Saída
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Nome da Propriedade | Tipo de Dados |
+| Property Name | Data Type |
 |---|---|
-|ID|string|
-|Nome|string|
+|Id|string|
+|Name|string|
 |DisplayName|string|
-|Caminho|string|
+|Path|string|
 |LastModified|string|
-|Tamanho|inteiro|
+|Size|integer|
 |MediaType|string|
-|IsFolder|booleano|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
 
-#### Quando um arquivo é criado
-Esta operação dispara um fluxo quando um novo arquivo é criado em uma pasta.
+#### <a name="when-a-file-is-created"></a>When a file is created
+This operation triggers a flow when a new file is created in a folder. 
 
-|Nome da Propriedade| Nome de exibição|Descrição|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderId*|Pasta|Selecionar uma pasta|
+|folderId*|Folder|Select a folder|
 
-Um asterisco (*) significa que a propriedade é obrigatória.
+An asterisk (*) means the property is required.
 
-##### Detalhes da Saída
-Nenhum.
+##### <a name="output-details"></a>Output Details
+None.
 
-#### Quando um arquivo é modificado
-Esta operação dispara um fluxo quando um arquivo é modificado em uma pasta.
+#### <a name="when-a-file-is-modified"></a>When a file is modified
+This operation triggers a flow when a file is modified in a folder. 
 
-|Nome da Propriedade| Nome de exibição|Descrição|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|folderId*|Pasta|Selecionar uma pasta|
+|folderId*|Folder|Select a folder|
 
-Um asterisco (*) significa que a propriedade é obrigatória.
+An asterisk (*) means the property is required.
 
-##### Detalhes da Saída
-Nenhum.
+##### <a name="output-details"></a>Output Details
+None.
 
-#### Lista de arquivos na pasta
-Esta operação obtém a lista de arquivos e subpastas em uma pasta.
+#### <a name="list-files-in-folder"></a>List files in folder
+This operation gets the list of files and subfolders in a folder.
 
-|Nome da Propriedade| Nome de exibição|Descrição|
+|Property Name| Display Name|Description|
 | ---|---|---|
-|id*|Pasta|Selecionar uma pasta|
+|id*|Folder|Select a folder|
 
-Um asterisco (*) significa que a propriedade é obrigatória.
+An asterisk (*) means the property is required.
 
-##### Detalhes da Saída
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Nome da Propriedade | Tipo de Dados |
+| Property Name | Data Type |
 |---|---|
-|ID|string|
-|Nome|string|
+|Id|string|
+|Name|string|
 |DisplayName|string|
-|Caminho|string|
+|Path|string|
 |LastModified|string|
-|Tamanho|inteiro|
+|Size|integer|
 |MediaType|string||
-|IsFolder|booleano|
-|ETag|string|
-|FileLocator|cadeia de caracteres|
-
-
-#### Lista de arquivos na pasta-raiz
-Esta operação obtém a lista de arquivos e subpastas na pasta-raiz.
-
-Não existem parâmetros para esta chamada.
-
-
-##### Detalhes da Saída
-BlobMetadata
-
-| Nome da Propriedade | Tipo de Dados |
-|---|---|
-|ID|string|
-|Nome|string|
-|DisplayName|string|
-|Caminho|string|
-|LastModified|string|
-|Tamanho|inteiro|
-|MediaType|string|
-|IsFolder|booleano|
+|IsFolder|boolean|
 |ETag|string|
 |FileLocator|string|
 
-#### Extrair o arquivo morto para a pasta
-Essa operação extrai um arquivo para uma pasta (exemplo: .zip).
 
-|Nome da Propriedade| Nome de exibição|Descrição|
-| ---|---|---|
-|source*|Caminho do arquivo de origem|Caminho para o arquivo morto|
-|destination*|Caminho da pasta de destino|Caminho para extrair o conteúdo do arquivo|
-|substituir|Substituir?|Substitui os arquivos de destino se estiver definido como "true"|
+#### <a name="list-files-in-root-folder"></a>List files in root folder
+This operation gets the list of files and subfolders in the root folder. 
 
-Um asterisco (*) significa que a propriedade é obrigatória.
+There are no parameters for this call.
 
-##### Detalhes da Saída
+
+##### <a name="output-details"></a>Output Details
 BlobMetadata
 
-| Nome da Propriedade | Tipo de Dados |
+| Property Name | Data Type |
 |---|---|
-|ID|string|
-|Nome|string|
+|Id|string|
+|Name|string|
 |DisplayName|string|
-|Caminho|string|
+|Path|string|
 |LastModified|string|
-|Tamanho|inteiro|
+|Size|integer|
 |MediaType|string|
-|IsFolder|booleano|
+|IsFolder|boolean|
 |ETag|string|
-|FileLocator|cadeia de caracteres|
+|FileLocator|string|
+
+#### <a name="extract-archive-to-folder"></a>Extract archive to folder
+This operation extracts an archive file into a folder (example: .zip). 
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|source*|Source archive file path|Path to the archive file|
+|destination*|Destination folder path|Path to extract the archive contents|
+|overwrite|Overwrite?|Overwrites the destination files if set to 'true'|
+
+An asterisk (*) means the property is required.
+
+##### <a name="output-details"></a>Output Details
+BlobMetadata
+
+| Property Name | Data Type |
+|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
-## Respostas HTTP
+## <a name="http-responses"></a>HTTP responses
 
-A tabela a seguir descreve as respostas para as ações e gatilhos, e as descrições da resposta:
+The following table outlines the responses to the actions and triggers, and the response descriptions:  
 
-|Nome|Descrição|
+|Name|Description|
 |---|---|
 |200|OK|
-|202|Aceita|
-|400|Solicitação incorreta|
-|401|Não Autorizado|
-|403|Proibido|
-|404|Não encontrado|
-|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
-|padrão|Falha na Operação.|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred|
+|default|Operation Failed.|
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next Steps
 
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

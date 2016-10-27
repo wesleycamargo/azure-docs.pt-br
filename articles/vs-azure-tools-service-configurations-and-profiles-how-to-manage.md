@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Como gerenciar perfis e configurações de serviço | Microsoft Azure"
-   description="Saiba como trabalhar com arquivos de configuração de perfis e configurações de serviço| que armazenam as configurações para os ambientes de implantação e configurações de publicação para os serviços de nuvem."
+   pageTitle="How to manage service configurations and profiles | Microsoft Azure"
+   description="Learn how to work with service configurations and profiles configuration files| which store settings for the deployment environments and publish settings for cloud services."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,120 +15,125 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Como gerenciar perfis e configurações de serviço
 
-## Visão geral
+# <a name="how-to-manage-service-configurations-and-profiles"></a>How to manage service configurations and profiles
 
-Quando você publica um serviço de nuvem, o Visual Studio armazena informações de configuração em dois tipos de arquivos de configuração: perfis e configurações de serviço. Configurações de serviço (arquivos .cscfg) armazenam configurações para os ambientes de implantação para um serviço de nuvem do Azure. O Azure usa esses arquivos de configuração ao gerenciar seus serviços de nuvem. Por outro lado, perfis (arquivos .azurePubxml) armazenam configurações de publicação para os serviços de nuvem. Essas configurações são um registro do que você escolhe quando utiliza o assistente de publicação e são usadas localmente pelo Visual Studio. Este tópico explica como trabalhar com ambos os tipos de arquivos de configuração.
+## <a name="overview"></a>Overview
 
-## Configurações de Serviço
+When you publish a cloud service, Visual Studio stores configuration information in two kinds of configuration files: service configurations and profiles. Service configurations (.cscfg files) store settings for the deployment environments for an Azure cloud service. Azure uses these configuration files when it manages your cloud services. On the other hand, profiles (.azurePubxml files) store publish settings for cloud services. These settings are a record of what you choose when you use the publish wizard, and are used locally by Visual Studio. This topic explains how to work with both types of configuration files.
 
-Você pode criar várias configurações de serviço a usar para cada um dos seus ambientes de implantação. Por exemplo, você pode criar uma configuração de serviço para o ambiente local que você usa para executar e testar um aplicativo do Azure e outra configuração de serviço para o seu ambiente de produção.
+## <a name="service-configurations"></a>Service Configurations
 
-Você pode adicionar, excluir, renomear e modificar essas configurações de serviço com base em suas necessidades. Você pode gerenciar essas configurações de serviço do Visual Studio, conforme mostrado na ilustração a seguir.
+You can create multiple service configurations to use for each of your deployment environments. For example, you might create a service configuration for the local environment that you use to run and test an Azure application and another service configuration for your production environment.
 
-![Gerenciar Configurações de Serviço](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/manage-service-config.png)
+You can add, delete, rename, and modify these service configurations based on your requirements. You can manage these service configurations from Visual Studio, as shown in the following illustration.
 
-Você também pode abrir a caixa de diálogo **Gerenciar Configurações** das páginas de propriedades da função. Para abrir as propriedades de uma função em seu projeto do Azure, abra o menu de atalho para essa função e, em seguida, escolha **Propriedades**. Na guia **Configurações**, expanda a lista **Configuração de Serviço** e selecione **Gerenciar** para abrir a caixa de diálogo **Gerenciar Configurações**.
+![Manage Service Configurations](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/manage-service-config.png)
 
-### Para adicionar uma configuração de serviço
+You can also open the **Manage Configurations** dialog box from the role’s property pages. To open the properties for a role in your Azure project, open the shortcut menu for that role, and then choose **Properties**. On the **Settings** tab, expand the **Service Configuration** list, and then select **Manage** to open the **Manage Configurations** dialog box.
 
-1. No Gerenciador de Soluções, abra o menu de atalho do projeto do Azure e selecione **Gerenciar Configurações**.
+### <a name="to-add-a-service-configuration"></a>To add a service configuration
 
-    A caixa de diálogo **Gerenciar Configurações de Serviço** é exibida.
+1. In Solution Explorer open the shortcut menu for the Azure project and then select **Manage Configurations**.
 
-1. Para adicionar uma configuração de serviço, você deve criar uma cópia de uma configuração existente. Para fazer isso, escolha a configuração que você deseja copiar na lista Nome e selecione **Criar cópia**.
+    The **Manage Service Configurations** dialog box appears.
 
-1. (Opcional) Para atribuir um nome diferente à configuração de serviço, escolha a nova configuração de serviço na lista Nome e selecione **Renomear**. Na caixa de texto **Nome**, digite o nome que você deseja usar para essa configuração de serviço e selecione **OK**.
+1. To add a service configuration, you must create a copy of an existing configuration. To do this, choose the configuration that you want to copy from the Name list and then select **Create copy**.
 
-    Um novo arquivo de configuração de serviço chamado ServiceConfiguration.[Novo nome].cscfg é adicionado ao projeto do Azure no Gerenciador de Soluções.
+1. (Optional) To give the service configuration a different name, choose the new service configuration from the Name list and then select **Rename**. In the **Name** text box, type the name that you want to use for this service configuration and then select **OK**.
 
-
-### Para excluir uma configuração de serviço
-
-1. No Gerenciador de Soluções, abra o menu de atalho do projeto do Azure e selecione **Gerenciar Configurações**.
-
-    A caixa de diálogo **Gerenciar Configurações de Serviço** é exibida.
-
-1. Para excluir uma configuração de serviço, escolha a configuração que você deseja excluir na lista **Nome** e selecione **Remover**. Aparece uma caixa de diálogo para confirmar que você deseja excluir esta configuração.
-
-1. Selecione **Excluir**.
-
-     O arquivo de configuração de serviço é removido do projeto do Azure no Gerenciador de Soluções.
+    A new service configuration file that is named ServiceConfiguration.[New Name].cscfg is added to the Azure project in Solution Explorer.
 
 
-### Para renomear uma configuração de serviço
+### <a name="to-delete-a-service-configuration"></a>To delete a service configuration
 
-1. No Gerenciador de Soluções, abra o menu de atalho do projeto do Azure e selecione **Gerenciar Configurações**.
+1. In Solution Explorer, open the shortcut menu for the Azure project and then select **Manage Configurations**.
 
-    A caixa de diálogo **Gerenciar Configurações de Serviço** é exibida.
+    The **Manage Service Configurations** dialog box appears.
 
-1. Para renomear uma configuração de serviço, escolha a nova configuração de serviço na lista **Nome** e selecione **Renomear**. Na caixa de texto **Nome**, digite o nome que você deseja usar para essa configuração de serviço e selecione **OK**.
+1. To delete a service configuration, choose the configuration that you want to delete from the **Name** list and then select **Remove**. A dialog box appears to verify that you want to delete this configuration.
 
-    O nome do arquivo de configuração de serviço é modificado no projeto do Azure no Gerenciador de Soluções.
+1. Select **Delete**.
 
-### Para alterar uma configuração de serviço
+     The service configuration file is removed from the Azure project in Solution Explorer.
 
-- Se você quiser alterar uma configuração de serviço, abra o menu de atalho da função específica que você deseja alterar no projeto do Azure e selecione **Propriedades**. Confira [Como configurar as funções para um Serviço de Nuvem do Azure com o Visual Studio](https://msdn.microsoft.com/library/azure/hh369931.aspx) para saber mais.
 
-## Fazer diferentes combinações de configurações usando perfis
+### <a name="to-rename-a-service-configuration"></a>To rename a service configuration
 
-Usando um perfil, você pode preencher automaticamente o **Assistente de Publicação** com diferentes combinações de configurações para diferentes finalidades. Por exemplo, você pode ter um perfil para depuração e outro para compilações de versão. Nesse caso, o perfil **Depurar** teria a opção **IntelliTrace** habilitada e a configuração **Depurar** selecionada; seu perfil **Versão** teria a opção **IntelliTrace** desabilitada e a configuração **Versão** selecionada. Você também pode usar perfis diferentes para implantar um serviço usando uma conta de armazenamento diferente.
+1. In Solution Explorer, open the shortcut menu for the Azure project, and then select **Manage Configurations**.
 
-Quando você executa o assistente pela primeira vez, um perfil padrão é criado. O Visual Studio armazena o perfil em um arquivo que tem uma extensão .azurePubXml, que é adicionada ao seu projeto do Azure na pasta **Perfis**. Se você especificar diferentes opções manualmente quando você executa o assistente mais tarde, o arquivo é atualizado automaticamente. Antes de executar o procedimento a seguir, você já deve ter publicado seu serviço de nuvem pelo menos uma vez.
+    The **Manage Service Configurations** dialog box appears.
 
-### Para adicionar um perfil
+1. To rename a service configuration, choose the new service configuration from the **Name** list, and then select **Rename**. In the **Name** text box, type the name that you want to use for this service configuration, and then select **OK**.
 
-1. Abra o menu de atalho do projeto do Azure e selecione **Publicar**.
+    The name of the service configuration file is changed in the Azure project in Solution Explorer.
 
-1. Ao lado da lista **Perfil de destino**, selecione o botão **Salvar Perfil**, como mostra a ilustração a seguir. Isso cria um perfil para você.
+### <a name="to-change-a-service-configuration"></a>To change a service configuration
 
-    ![Criar um novo perfil](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/create-new-profile.png)
+- If you want to change a service configuration, open the shortcut menu for the specific role you want to change in the Azure project, and then select **Properties**. See [How to: Configure the Roles for an Azure Cloud Service with Visual Studio](https://msdn.microsoft.com/library/azure/hh369931.aspx) for more information.
 
-1. Depois que o perfil for criado, selecione **<Gerenciar...>** na lista **Perfil de destino**.
+## <a name="make-different-setting-combinations-by-using-profiles"></a>Make different setting combinations by using profiles
 
-    A caixa de diálogo **Gerenciar perfis** é exibida, como mostra a ilustração a seguir.
+By using a profile, you can automatically fill in the **Publish Wizard** with different combinations of settings for different purposes. For example, you can have one profile for debugging and another for release builds. In that case, your **Debug** profile would have **IntelliTrace** enabled and the **Debug** configuration selected, and your **Release** profile would have **IntelliTrace** disabled and the **Release** configuration selected. You could also use different profiles to deploy a service using a different storage account.
 
-    ![Caixa de Diálogo Gerenciar Perfis](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/manage-profiles.png)
+When you run the wizard for the first time, a default profile is created. Visual Studio stores the profile in a file that has an .azurePubXml extension, which is added to your Azure project under the **Profiles** folder. If you manually specify different choices when you run the wizard later, the file automatically updates. Before you run the following procedure, you should have already published your cloud service at least once.
 
-1. Na lista **Nome**, escolha um perfil e selecione **Criar Cópia**.
+### <a name="to-add-a-profile"></a>To add a profile
 
-1. Escolha o botão **Fechar**.
+1. Open the shortcut menu for your Azure project, and then select **Publish**.
 
-    O novo perfil aparece na lista Perfil de destino.
+1. Next to the **Target profile** list, select the **Save Profile** button, as the following illustration shows. This creates a profile for you.
 
-1. Na lista **Perfil de destino**, selecione o perfil que você acabou de criar. As configurações do Assistente de Publicação são preenchidas com as opções do perfil selecionado.
+    ![Create an new profile](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/create-new-profile.png)
 
-1. Selecione os botões **Anterior** e **Próximo** para exibir cada página do Assistente de Publicação e personalize as configurações desse perfil. Confira [Assistente de Publicação de Aplicativo do Azure](http://go.microsoft.com/fwlink/p/?LinkID=623085).
+1. After the profile is created, select **<Manage…>** in the **Target profile** list.
 
-1. Depois de concluir a personalização das configurações, clique em **Próximo** para voltar para a página Configurações. O perfil é salvo quando você publica o serviço usando essas configurações ou se você seleciona **Salvar** ao lado da lista de perfis.
+    The **Manage Profiles** dialog box appears, as the following illustration shows.
 
-### Para renomear ou excluir um perfil
+    ![Manage Profiles Dialog](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/manage-profiles.png)
 
-1. Abra o menu de atalho do projeto do Azure e selecione **Publicar**.
+1. In the **Name** list, choose a profile, and then select **Create Copy**.
 
-1. Na lista **Perfil de destino**, selecione **Gerenciar**.
+1. Choose the **Close** button.
 
-1. Na caixa de diálogo **Gerenciar Perfis**, selecione o perfil que você deseja excluir e selecione **Remover**.
+    The new profile appears in the Target profile list.
 
-1. Na caixa de diálogo de confirmação que é exibida, selecione **OK**.
+1. In the **Target profile** list, select the profile that you just created. The Publish Wizard settings are filled in with the choices from the profile you selected.
 
-1. Selecione **Fechar**.
+1. Select the **Previous** and **Next** buttons to display each page of the Publish Wizard, and then customize the settings for this profile. See [Publish Azure Application Wizard](http://go.microsoft.com/fwlink/p/?LinkID=623085) for information.
 
-### Para alterar um perfil
+1. After you finish customizing the settings, select **Next** to go back to the Settings page. The profile is saved when you publish the service by using these settings or if you select **Save** next to the list of profiles.
 
-1. Abra o menu de atalho do projeto do Azure e selecione **Publicar**.
+### <a name="to-rename-or-delete-a-profile"></a>To rename or delete a profile
 
-1. Na lista **Perfil de destino**, selecione o perfil que você deseja alterar.
+1. Open the shortcut menu for your Azure project, and then select **Publish**.
 
-1. Selecione os botões **Anterior** e **Próximo** para exibir cada página do Assistente de Publicação e altere as configurações desejadas. Confira [Assistente de Publicação de Aplicativo do Azure](http://go.microsoft.com/fwlink/p/?LinkID=623085).
+1. In the **Target profile** list, select **Manage**.
 
-1. Depois de concluir a alteração das configurações, selecione **Próximo** para voltar para a página **Configurações**.
+1. In the **Manage Profiles** dialog box, select the profile that you want to delete, and then select **Remove**.
 
-1. (Opcional) Selecione **Publicar** para publicar o serviço de nuvem usando as novas configurações. Se você não deseja publicar seu serviço de nuvem no momento e você fecha o Assistente de Publicação, o Visual Studio pergunta se você deseja salvar as alterações feitas ao perfil.
+1. In the confirmation dialog box that appears, select **OK**.
 
-## Próximas etapas
+1. Select **Close**.
 
-Para obter informações sobre como configurar outras partes do seu projeto do Azure do Visual Studio, consulte [Configurando um projeto do Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
+### <a name="to-change-a-profile"></a>To change a profile
 
-<!---HONumber=AcomDC_0817_2016-->
+1. Open the shortcut menu for your Azure project, and then select **Publish**.
+
+1. In the **Target profile** list, select the profile that you want to change.
+
+1. Select the **Previous** and **Next** buttons to display each page of the Publish Wizard, and then change the settings you want. See [Publish Azure Application Wizard](http://go.microsoft.com/fwlink/p/?LinkID=623085) for information.
+
+1. After you finish changing the settings, select **Next** to go back to the **Settings** page.
+
+1. (Optional) select **Publish** to publish the cloud service using the new settings. If you don’t want to publish your cloud service at this time, and you close the Publish Wizard, Visual Studio asks you if you want to save the changes to the profile.
+
+## <a name="next-steps"></a>Next steps
+
+To learn about configuring other parts of your Azure project from Visual Studio, see [Configuring an Azure Project](http://go.microsoft.com/fwlink/p/?LinkID=623075)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

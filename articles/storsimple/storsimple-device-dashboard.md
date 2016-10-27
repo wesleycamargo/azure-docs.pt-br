@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use o painel do dispositivo StorSimple Manager | Microsoft Azure"
-   description="Descreve o painel do dispositivo do serviço StorSimple Manager e como usá-lo para exibir iniciadores conectados e métricas de armazenamento e localizar o número de série e o IQN."
+   pageTitle="Use the StorSimple Manager device dashboard | Microsoft Azure"
+   description="Describes the StorSimple Manager service device dashboard and how to use it to view storage metrics and connected initiators and find the serial number and IQN."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,89 +15,94 @@
    ms.date="09/21/2016"
    ms.author="alkohli" />
 
-# Usar o painel de dispositivo do StorSimple Manager
 
-## Visão geral
+# <a name="use-the-storsimple-manager-device-dashboard"></a>Use the StorSimple Manager device dashboard
 
-O painel de dispositivo do StorSimple Manager proporciona uma visão geral das informações de um dispositivo StorSimple específico, ao contrário do painel de serviço, que fornece informações sobre todos os dispositivos incluídos em sua solução Microsoft Azure StorSimple.
+## <a name="overview"></a>Overview
 
-![Página Painel de dispositivo](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
+The StorSimple Manager device dashboard gives you an overview of information for a specific  StorSimple device, in contrast to the service dashboard, which gives you information about all of the devices included in your Microsoft Azure StorSimple solution.
 
-O painel contém as seguintes informações:
+![Device dashboard page](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
 
-- **Área do gráfico**: você pode ver as métricas de armazenamento relevantes na área do gráfico, na parte superior do painel. Nesse gráfico, você pode exibir métricas para o armazenamento principal total (a quantidade de dados gravados pelos hosts no seu dispositivo) e o armazenamento em nuvem total consumido pelo dispositivo em um período.
+The dashboard contains the following information:
 
-     Nesse contexto, *armazenamento primário* refere-se à quantidade total de dados gravados pelo host e pode ser dividido por tipo de volume: o *armazenamento primário em camadas* inclui tanto dados armazenados localmente quanto dados em camadas na nuvem; o *armazenamento primário fixo localmente* inclui apenas os dados armazenados localmente. O *armazenamento em nuvem*, por outro lado, é uma medição do volume total de dados armazenados na nuvem. Isso inclui backups e dados em camadas. Observe que os dados armazenados na nuvem passam pela eliminação de duplicação e são compactados, enquanto o armazenamento principal indica a quantidade de armazenamento usada antes de os dados passarem pela eliminação de duplicação e serem compactados. (Você pode comparar esses dois números para ter uma ideia da taxa de compactação). Tanto para o armazenamento principal, quanto para o armazenamento em nuvem, os volumes mostrados serão baseados na frequência de rastreamento que você configura. Por exemplo, se você escolher a frequência de uma semana, o gráfico mostrará dados para cada dia da semana anterior.
+- **Chart area** – You can see the relevant storage metrics in the chart area at the top of the dashboard. In this chart, you can view metrics for the total primary storage (the amount of data written by hosts to your device) and the total cloud storage consumed by your device over a period of time.
 
-	 É possível configurar o gráfico como se segue:
+     In this context, *primary storage* refers to the total amount of data written by the host, and can be broken down by volume type: *primary tiered storage* includes both locally stored data and data tiered to the cloud; *primary locally pinned storage* includes just data stored locally. *Cloud storage*, on the other hand, is a measurement of the total amount of data stored in the cloud. This includes tiered data and backups. Note that data stored in the cloud is deduplicated and compressed, whereas primary storage indicates the amount of storage used before the data is deduplicated and compressed. (You can compare these two numbers to get an idea of the compression rate.) For both primary and cloud storage, the amounts shown will be based on the tracking frequency you configure. For example, if you choose a one week frequency, then the chart will show data for each day in the previous week.
 
-	 - Para ver o volume de armazenamento em nuvem consumido ao longo do tempo, selecione a opção **ARMAZENAMENTO EM NUVEM USADO**. Para ver o armazenamento total gravado pelo host, selecione as opções **ARMAZENAMENTO PRIMÁRIO EM CAMADAS USADO** e **ARMAZENAMENTO PRIMÁRIO FIXO LOCALMENTE USADO**. Na ilustração, ambas as opções são selecionadas. Portanto, o gráfico mostra volumes para armazenamento principal e em nuvem. Observe que qualquer armazenamento primário usado antes da instalação da Atualização 2 é representado pela linha **ARMAZENAMENTO PRIMÁRIO EM CAMADAS USADO**.
-	 - Use o menu suspenso no canto superior direito do gráfico para especificar um período de 1 semana, 1 mês, 3 meses ou 1 ano. Observe que o gráfico no nível superior é atualizado apenas uma vez por dia e, portanto, refletirá os totais do dia anterior.
+     You can configure the chart as follows:
 
-     Para obter mais informações, consulte [Use the StorSimple Manager service to monitor your StorSimple device (Usar o serviço StorSimple Manager para monitorar seu dispositivo StorSimple)](storsimple-monitor-device.md).
+     - To see the amount of cloud storage consumed over time, select the **CLOUD STORAGE USED** option. To see the total storage that has been written by the host, select the **PRIMARY TIERED STORAGE USED** and **PRIMARY LOCALLY PINNED STORAGE USED** options. In the illustration, both options are selected; therefore, the chart shows storage amounts for both cloud and primary storage. Note that any primary storage used prior to installing Update 2 is represented by the **PRIMARY TIERED STORAGE USED** line.
+     - Use the drop-down menu in the top-right corner of the chart to specify a 1-week, 1-month, 3-month, or 1-year time period. Note that the top-level chart is refreshed only one time per day, and therefore will reflect the previous day's totals.
 
-- **Visão geral de uso**: na área de **visão geral de uso**, você pode ver o volume de armazenamento principal usado, o volume do armazenamento provisionado e a capacidade máxima de armazenamento do seu dispositivo. Ao comparar esses números de uso com o volume máximo de armazenamento disponível, você pode ver instantaneamente se precisa de mais armazenamento. Observe que essa visão geral é atualizada a cada 15 minutos e, devido à diferença na frequência de atualização, ela pode mostrar diferentes números dos mostrados na área do gráfico acima, que é atualizada diariamente. Para obter mais informações, consulte [Use the StorSimple Manager service to monitor your StorSimple device (Usar o serviço StorSimple Manager para monitorar seu dispositivo StorSimple)](storsimple-monitor-device.md).
+     For more information, see [Use the StorSimple Manager service to monitor your StorSimple device](storsimple-monitor-device.md).
+
+- **Usage overview** – In the **usage overview** area, you can see the amount of primary storage used, the amount of provisioned storage, and the maximum storage capacity for your device. By comparing these usage numbers to the maximum amount of storage that is available, you can see at a glance if you need to obtain additional storage. Note that this overview is updated every 15 minutes and, because of the difference in update frequency, may show different numbers than those shown in the chart area above, which is updated daily. For more information, see [Use the StorSimple Manager service to monitor your StorSimple device](storsimple-monitor-device.md).
 
 
-- **Alertas**: a área de **alertas** inclui uma visão geral dos alertas de seu dispositivo. Os alertas são agrupados por severidade, e uma contagem do número de alertas é fornecida em cada nível de severidade. Clicar na severidade do alerta abre uma exibição da guia de alertas em escopo, mostrando apenas os alertas desse nível de severidade para esse dispositivo.
+- **Alerts** – The **alerts** area contains an overview of the alerts for your device. Alerts are grouped by severity, and a count is provided of the number of alerts at each severity level. Clicking the alert severity opens a scoped view of the alerts tab to show you only the alerts of that severity level for this device.
 
-- **Trabalhos**: a área de **trabalhos** mostra o resultado da atividade de trabalho recente. Isso pode assegurar que o sistema está funcionando conforme esperado ou pode informar que você precisa tomar uma medida corretiva. Para obter mais informações sobre trabalhos concluídos recentemente, clique em **Trabalhos bem-sucedidos nas últimas 24 horas**.
+- **Jobs** – The **jobs** area shows you the outcome of recent job activity. This can assure you that the system is operating as expected, or it can let you know that you need to take corrective action. To see more information about recently completed jobs, click **Jobs succeeded in the last 24 hours**.
 
-- A área **visão rápida** à direita do painel fornece informações úteis, como modelo do dispositivo, número de série, status, descrição e número de volumes.
+- The **quick glance** area on the right of the dashboard provides useful information such as device model, serial number, status, description, and number of volumes.
 
-Você também pode configurar o failover e exibir os iniciadores conectados no painel de dispositivo.
+You can also configure failover and view connected initiators from the device dashboard.
 
-As tarefas comuns que podem ser executadas nessa página são:
+The common tasks that can be performed on this page are:
 
-- Exibir iniciadores conectados
+- View connected initiators
 
-- Localizar o número de série do dispositivo
+- Find the device serial number
 
-- Localizar o IQN de destino do dispositivo
+- Find the device target IQN
 
-## Exibir iniciadores conectados
+## <a name="view-connected-initiators"></a>View connected initiators
 
-Você pode exibir os iniciadores iSCSI conectados ao seu dispositivo clicando no link **Exibir iniciadores conectados** fornecido na área **visão rápida** do painel do dispositivo. Essa página fornece uma listagem tabular dos iniciadores que se conectaram com êxito ao dispositivo. Para cada iniciador, você pode ver:
+You can view the iSCSI initiators that are connected to your device by clicking the **View connected initiators** link provided in the **quick glance** area of your device dashboard. This page provides a tabular listing of the initiators that have successfully connected to your device. For each initiator, you can see:
 
-- O IQN (Nome Qualificado iSCSI) do iniciador conectado.
+- The iSCSI Qualified Name (IQN) of the connected initiator.
 
-- O nome do ACR (registro de controle de acesso) que permite esse iniciador conectado.
+- The name of the access control record (ACR) that allows this connected initiator.
 
-- O endereço IP do iniciador conectado.
+- The IP address of the connected initiator.
 
-- As interfaces de rede às quais o iniciador está conectado no seu dispositivo de armazenamento. Isso pode variar de DATA 0 a DATA 5.
+- The network interfaces that the initiator is connected to on your storage device. These can range from DATA 0 to DATA 5.
 
-- Todos os volumes que o iniciador conectado tem permissão para acessar de acordo com a configuração ACR atual.
+- All the volumes that the connected initiator is allowed to access according to the current ACR configuration.
 
-Caso você veja iniciadores inesperados nessa lista ou não veja os esperados, revise a configuração ACR. Um máximo de 512 iniciadores pode se conectar ao dispositivo.
+If you see unexpected initiators in this list or do not see the expected ones, review your ACR configuration. A maximum of 512 initiators can connect to your device.
 
-## Localizar o número de série do dispositivo
+## <a name="find-the-device-serial-number"></a>Find the device serial number
 
-O número de série do dispositivo pode ser necessário quando você configura o MPIO (Microsoft Multipath I/O) no dispositivo. Execute as etapas a seguir para localizar o número de série do dispositivo.
+You may need the device serial number when you configure Microsoft Multipath I/O (MPIO) on the device. Perform the following steps to find the device serial number.
 
-#### Para localizar o número de série do dispositivo
+#### <a name="to-find-the-device-serial-number"></a>To find the device serial number
 
-1. Navegue até **Dispositivos** > **Painel**.
+1. Navigate to **Devices** > **Dashboard**.
 
-2. No painel à direita do painel, localize a área **visão rápida**.
+2. In the right pane of the dashboard, locate the **quick glance** area.
 
-3. Role para baixo e localize o número de série.
+3. Scroll down and locate the serial number.
 
-## Localizar o IQN de destino do dispositivo
+## <a name="find-the-device-target-iqn"></a>Find the device target IQN
 
-Talvez você precise do IQN de destino do dispositivo ao configurar o protocolo CHAP (Challenge Handshake Authentication Protocol) no seu dispositivo StorSimple. Execute as etapas a seguir para localizar o IQN de destino do dispositivo.
+You may need the device target IQN when you configure the Challenge Handshake Authentication Protocol (CHAP) on your StorSimple device. Perform the following steps to find the device target IQN.
 
-### Para localizar o IQN de destino do dispositivo
+### <a name="to-find-the-device-target-iqn"></a>To find the device target IQN
 
-1. Navegue até **Dispositivos** > **Painel**.
+1. Navigate to **Devices** > **Dashboard**.
 
-1. No painel à direita do painel, localize a área **visão rápida**.
+1. In the right pane of the dashboard, locate the **quick glance** area.
 
-1. Role para baixo e localize o IQN de destino.
+1. Scroll down and locate the target IQN.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Saiba mais sobre o [painel de serviços do StorSimple Manager](storsimple-service-dashboard.md).
-- Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Learn more about the [StorSimple Manager service dashboard](storsimple-service-dashboard.md).
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

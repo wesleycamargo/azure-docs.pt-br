@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integração do Active Directory do Azure com o Intacct | Microsoft Azure" 
-    description="Saiba como usar o Intacct com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    pageTitle="Tutorial: Azure Active Directory integration with Intacct | Microsoft Azure" 
+    description="Learn how to use Intacct with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,151 +11,159 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/09/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Tutorial: Integração do Active Directory do Azure com o Intacct
+
+#<a name="tutorial:-azure-active-directory-integration-with-intacct"></a>Tutorial: Azure Active Directory integration with Intacct
   
-O objetivo deste tutorial é mostrar a integração do Azure com o Intacct. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+The objective of this tutorial is to show the integration of Azure and Intacct.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Uma assinatura válida do Azure
--   Um locatário do Intacct
+-   A valid Azure subscription
+-   A Intacct tenant
   
-Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Intacct poderão fazer logon único no aplicativo em seu site de empresa do Intacct (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Intacct will be able to single sign into the application at your Intacct company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Habilitando a integração de aplicativos para o Intacct
-2.  Configurando o logon único
-3.  Configurando o provisionamento de usuários
-4.  Atribuindo usuários
+1.  Enabling the application integration for Intacct
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Cenário](./media/active-directory-saas-intacct-tutorial/IC790030.png "Cenário")
-##Habilitando a integração de aplicativos para o Intacct
+![Scenario](./media/active-directory-saas-intacct-tutorial/IC790030.png "Scenario")
+##<a name="enabling-the-application-integration-for-intacct"></a>Enabling the application integration for Intacct
   
-O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Intacct.
+The objective of this section is to outline how to enable the application integration for Intacct.
 
-###Para habilitar a integração de aplicativos com o Intacct, execute as seguintes etapas:
+###<a name="to-enable-the-application-integration-for-intacct,-perform-the-following-steps:"></a>To enable the application integration for Intacct, perform the following steps:
 
-1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-intacct-tutorial/IC700993.png "Active Directory")
 
-2.  Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicativos](./media/active-directory-saas-intacct-tutorial/IC700994.png "Aplicativos")
+    ![Applications](./media/active-directory-saas-intacct-tutorial/IC700994.png "Applications")
 
-4.  Clique em **Adicionar** na parte inferior da página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Adicionar aplicativo](./media/active-directory-saas-intacct-tutorial/IC749321.png "Adicionar aplicativo")
+    ![Add application](./media/active-directory-saas-intacct-tutorial/IC749321.png "Add application")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-intacct-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
+    ![Add an application from gallerry](./media/active-directory-saas-intacct-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Na **caixa de pesquisa**, digite **Intacct**.
+6.  In the **search box**, type **Intacct**.
 
-    ![Galeria de Aplicativos](./media/active-directory-saas-intacct-tutorial/IC790031.png "Galeria de aplicativos")
+    ![Application Gallery](./media/active-directory-saas-intacct-tutorial/IC790031.png "Application Gallery")
 
-7.  No painel de resultados, selecione **Intacct** e clique em **Concluir** para adicionar o aplicativo.
+7.  In the results pane, select **Intacct**, and then click **Complete** to add the application.
 
     ![Intacct](./media/active-directory-saas-intacct-tutorial/IC790032.png "Intacct")
-##Configurando o logon único
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Intacct com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+The objective of this section is to outline how to enable users to authenticate to Intacct with their account in Azure AD using federation based on the SAML protocol.  
+As part of this procedure, you are required to create a base-64 encoded certificate file.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-###Para configurar o logon único, execute as seguintes etapas:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  No portal clássico do Azure, na página de integração de aplicativos do **Intacct**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  In the Azure classic portal, on the **Intacct** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurar o logon único](./media/active-directory-saas-intacct-tutorial/IC790033.png "Configurar o logon único")
+    ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/IC790033.png "Configure Single Sign-On")
 
-2.  Na página **Como você deseja que os usuários façam logon no Intacct**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
+2.  On the **How would you like users to sign on to Intacct** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar o logon único](./media/active-directory-saas-intacct-tutorial/IC790034.png "Configurar o logon único")
+    ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/IC790034.png "Configure Single Sign-On")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Intacct**, digite a URL usando o padrão "*https://Intacct.com/company*" e clique em **Avançar**.
+3.  On the **Configure App URL** page, in the **Intacct Sign On URL** textbox, type your URL using the following pattern "*https://Intacct.com/company*", and then click **Next**.
 
-    ![Configurar a URL do Aplicativo](./media/active-directory-saas-intacct-tutorial/IC790035.png "Configurar a URL do Aplicativo")
+    ![Configure App URL](./media/active-directory-saas-intacct-tutorial/IC790035.png "Configure App URL")
 
-4.  Na página **Configurar logon único no Intacct**, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
+4.  On the **Configure single sign-on at Intacct** page, click **Download certificate**, and then save the certificate file on your computer.
 
-    ![Configurar o logon único](./media/active-directory-saas-intacct-tutorial/IC790036.png "Configurar o logon único")
+    ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/IC790036.png "Configure Single Sign-On")
 
-5.  Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Intacct como administrador.
+5.  In a different web browser window, log into your Intacct company site as an administrator.
 
-6.  Clique na guia **Empresa** e em **Informações da Empresa**.
+6.  Click the **Company** tab, and then click **Company Info**.
 
-    ![Empresa](./media/active-directory-saas-intacct-tutorial/IC790037.png "Empresa")
+    ![Company](./media/active-directory-saas-intacct-tutorial/IC790037.png "Company")
 
-7.  Clique na guia **Segurança** e em **Editar**.
+7.  Click the **Security** tab, and then click **Edit**.
 
-    ![Segurança](./media/active-directory-saas-intacct-tutorial/IC790038.png "Segurança")
+    ![Security](./media/active-directory-saas-intacct-tutorial/IC790038.png "Security")
 
-8.  Na seção **SSO (logon único)**, realize as seguintes etapas:
+8.  In the **Single sign on (SSO)** section, perform the following steps:
 
-    ![Logon Único](./media/active-directory-saas-intacct-tutorial/IC790039.png "Logon Único")
+    ![Single Sign On](./media/active-directory-saas-intacct-tutorial/IC790039.png "Single Sign On")
 
-    1.  Selecione **Habilitar logon único**.
-    2.  Para **Tipo de provedor de identidade**, selecione **SAML 2.0**.
-    3.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Intacct**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **URL do Emissor**.
-    4.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Intacct**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
-    5.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.
+    1.  Select **Enable single sign on**.
+    2.  As **Identity provider type**, select **SAML 2.0**.
+    3.  In the Azure classic portal, on the **Configure single sign-on at Intacct** dialog page, copy the **Issuer URL** value, and then paste it into the **Issuer URL** textbox.
+    4.  In the Azure classic portal, on the **Configure single sign-on at Intacct** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
+    5.  Create a **base-64 encoded** file from your downloaded certificate.
         
-		>[AZURE.TIP]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP]For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-    6.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado**
-    7.  Clique em **Salvar**.
+    6.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** textbox
+    7.  Click **Save**.
 
-9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurar o logon único](./media/active-directory-saas-intacct-tutorial/IC790040.png "Configurar o logon único")
-##Configurando o provisionamento de usuários
+    ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/IC790040.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Para permitir que os usuários do AD do Azure façam logon no Intacct, eles devem ser provisionados no Intacct. No caso do Intacct, o provisionamento é uma tarefa manual.
+In order to enable Azure AD users to log into Intacct, they must be provisioned into Intacct.  
+In the case of Intacct, provisioning is a manual task.
 
-###Para provisionar contas de usuário, execute as seguintes etapas:
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Faça logon em seu locatário do **Intacct**.
+1.  Log in to your **Intacct** tenant.
 
-2.  Clique na guia **Empresa** e em **Usuários**.
+2.  Click the **Company** tab, and then click **Users**.
 
-    ![Usuários](./media/active-directory-saas-intacct-tutorial/IC790041.png "Usuários")
+    ![Users](./media/active-directory-saas-intacct-tutorial/IC790041.png "Users")
 
-3.  Clique na guia **Adicionar**
+3.  Click the **Add** tab
 
-    ![Adicionar](./media/active-directory-saas-intacct-tutorial/IC790042.png "Adicionar")
+    ![Add](./media/active-directory-saas-intacct-tutorial/IC790042.png "Add")
 
-4.  Na seção **Informações do Usuário**, realize as seguintes etapas:
+4.  In the **User Information** section, perform the following steps:
 
-    ![Informações do usuário](./media/active-directory-saas-intacct-tutorial/IC790043.png "Informações do usuário")
+    ![User Information](./media/active-directory-saas-intacct-tutorial/IC790043.png "User Information")
 
-    1.  Digite a **ID de usuário**, **Sobrenome**, **Nome**, **Endereço de email**, **Título** e **Telefone** de uma conta do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
-    2.  Selecione **Privilégios de administrador** de uma conta do Azure AD que você deseja provisionar.
-    3.  Clique em **Salvar**.
+    1.  Type the **User ID**, the **Last name**, **First name**, the **Email address**, the **Title** and the **Phone** of an Azure AD account you want to provision into the related textboxes.
+    2.  Select the **Admin privileges** of an Azure AD account you want to provision.
+    3.  Click **Save**.
         
-		>[AZURE.NOTE] O titular da conta do AAD receberá um email e um link para confirmar sua conta antes de se tornar ativo.
+        >[AZURE.NOTE] The AAD account holder will receive an email and follow a link to confirm their account before it becomes active.
 
->[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Intacct ou APIs fornecidas pelo Intacct para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] You can use any other Intacct user account creation tools or APIs provided by Intacct to provision AAD user accounts.
 
-##Atribuindo usuários
+##<a name="assigning-users"></a>Assigning users
   
-Para testar sua configuração, é necessário conceder aos usuários do AD do Azure que você deseja que usem seu aplicativo acesso a ele.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para atribuir usuários ao Intacct, execute as seguintes etapas:
+###<a name="to-assign-users-to-intacct,-perform-the-following-steps:"></a>To assign users to Intacct, perform the following steps:
 
-1.  No Portal clássico do Azure, crie uma conta de teste.
+1.  In the Azure classic portal, create a test account.
 
-2.  Na página de integração de aplicativos do **Intacct**, clique em **Atribuir usuários**.
+2.  On the **Intacct **application integration page, click **Assign users**.
 
-    ![Atribuir usuários](./media/active-directory-saas-intacct-tutorial/IC790044.png "Atribuir Usuários")
+    ![Assign Users](./media/active-directory-saas-intacct-tutorial/IC790044.png "Assign Users")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sim](./media/active-directory-saas-intacct-tutorial/IC767830.png "Sim")
+    ![Yes](./media/active-directory-saas-intacct-tutorial/IC767830.png "Yes")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

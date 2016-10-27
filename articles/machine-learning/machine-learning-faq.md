@@ -1,31 +1,32 @@
 <properties
-	pageTitle="Perguntas Frequentes sobre o Aprendizado de Máquina do Azure | Microsoft Azure"
-	description="Introdução ao Aprendizado de Máquina do Azure: perguntas frequentes sobre cobrança, recursos e limitações de um serviço de nuvem para modelagem preditiva simplificada."
-	keywords="introdução ao aprendizado de máquina, modelagem preditiva, o que é aprendizado de máquina"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Perguntas Frequentes sobre o Aprendizado de Máquina do Azure | Microsoft Azure"
+    description="Introdução ao Aprendizado de Máquina do Azure: perguntas frequentes sobre cobrança, recursos e limitações de um serviço de nuvem para modelagem preditiva simplificada."
+    keywords="introdução ao aprendizado de máquina, modelagem preditiva, o que é aprendizado de máquina"
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="07/14/2016"
-	ms.author="garye"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="07/14/2016"
+    ms.author="garye"/>
 
-# Perguntas frequentes (FAQ) sobre o Aprendizado de Máquina do Azure: cobrança, suporte, recursos e limitações
+
+# <a name="azure-machine-learning-frequently-asked-questions-(faq):-billing,-capabilities,-limitations,-and-support"></a>Perguntas frequentes (FAQ) sobre o Aprendizado de Máquina do Azure: cobrança, suporte, recursos e limitações
 
 Essas perguntas frequentes são perguntas sobre o Aprendizado de Máquina do Azure, um serviço de nuvem para desenvolver modelos preditivos e soluções de operacionalização através de serviços Web. Estas perguntas frequentes abordam dúvidas sobre como usar o serviço, incluindo o modelo de cobrança, recursos, limitações e suporte.
 
-## Perguntas gerais
+## <a name="general-questions"></a>Perguntas gerais
 
 **O que é Aprendizado de Máquina do Azure?**
 
-O Aprendizado de Máquina do Azure é um serviço totalmente gerenciado que você pode usar para criar, testar, operar e gerenciar soluções analíticas preditivas na nuvem. Com apenas um navegador, agora você pode entrar, fazer upload de dados e iniciar imediatamente experimentos de aprendizado de máquina. Modelagem de previsão do tipo "arrastar e soltar", um grande palete de módulos e uma biblioteca de modelos de início tornam as tarefas comuns de Aprendizado de Máquina algo rápido e simples. Para saber mais, consulte [Visão geral do serviço de Aprendizado de Máquina do Azure](https://azure.microsoft.com/services/machine-learning/). Para obter uma introdução sobre o Aprendizado de Máquina que aborda conceitos e terminologia principal, consulte [Introdução ao Aprendizado de Máquina do Azure](machine-learning-what-is-machine-learning.md).
+O Aprendizado de Máquina do Azure é um serviço totalmente gerenciado que você pode usar para criar, testar, operar e gerenciar soluções analíticas preditivas na nuvem. Com apenas um navegador, agora você pode entrar, fazer upload de dados e iniciar imediatamente experimentos de aprendizado de máquina. Modelagem de previsão do tipo "arrastar e soltar", um grande palete de módulos e uma biblioteca de modelos de início tornam as tarefas comuns de Aprendizado de Máquina algo rápido e simples.  Para saber mais, consulte [Visão geral do serviço de Aprendizado de Máquina do Azure](https://azure.microsoft.com/services/machine-learning/). Para obter uma introdução sobre o Aprendizado de Máquina que aborda conceitos e terminologia principal, consulte [Introdução ao Aprendizado de Máquina do Azure](machine-learning-what-is-machine-learning.md).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -43,9 +44,9 @@ Para saber mais, consulte [Conectar a um serviço Web do Aprendizado de Máquina
 
 **Onde estão listados os meus serviços Web clássicos? Onde estão listados os meus novos serviços da Web do Azure Resource Manager?**
 
-Os serviços Web clássicos estão listados no [Estúdio de Aprendizado de Máquina](http://studio.azureml.net) na guia Serviços Web. Novos serviços Web baseados em Azure Resource Manager são listados no portal [Serviços Web do Microsoft Azure Machine Learning](https://services.azureml.net/). Não há listagem cruzada disponível.
+Os serviços Web clássicos estão listados no [Estúdio de Aprendizado de Máquina](http://studio.azureml.net) na guia Serviços Web. Novos serviços Web baseados em Azure Resource Manager são listados no portal [Serviços Web do Microsoft Azure Machine Learning](https://services.azureml.net/) . Não há listagem cruzada disponível.
 
-## Perguntas sobre o serviço Web de Aprendizado de Máquina do Microsoft Azure
+## <a name="microsoft-azure-machine-learning-web-service-questions"></a>Perguntas sobre o serviço Web de Aprendizado de Máquina do Microsoft Azure
 
 **O que são os Serviços Web de AM do Azure?**
 
@@ -66,32 +67,33 @@ Ou você pode usar a pasta de trabalho de exemplo do Microsoft Excel criada para
 
 Para saber mais sobre os novos Serviços Web do Machine Learning, confira a [documentação relacionada](machine-learning-whats-new.md).
 
-## Perguntas sobre o Estúdio de Aprendizado de Máquina
+## <a name="machine-learning-studio-questions"></a>Perguntas sobre o Estúdio de Aprendizado de Máquina
 
-### Criando um experimento
+### <a name="creating-an-experiment"></a>Criando um experimento
 
 **Há controle de versão ou integração Git para gráficos de experimento?**
 
-Não. No entanto, o Estúdio de Aprendizado de Máquina retém cada iteração de um teste que não pode ser modificada por outros usuários. Para saber mais, confira [Gerenciar iterações de teste no Estúdio de Aprendizado de Máquina](machine-learning-manage-experiment-iterations.md).
+Não. No entanto, o Estúdio de Aprendizado de Máquina retém cada iteração de um teste que não pode ser modificada por outros usuários.
+Para obter mais informações, consulte [Gerenciar iterações de teste no Machine Learning Studio](machine-learning-manage-experiment-iterations.md).
 
 
-### Implantando um teste
+### <a name="deploying-an-experiment"></a>Implantando um teste
 
 **Posso implantar um teste de previsão como um novo serviço Web (baseado no Azure Resource Manager) se eu já o tiver como um serviço Web clássico?**
 
 Não, não é possível implantar um teste que foi implantado anteriormente como um serviço Web clássico. Você deve criar um novo teste de previsão e implantá-lo.
 
 
-### Importando e exportando dados para o Aprendizado de Máquina
+### <a name="importing-and-exporting-data-for-machine-learning"></a>Importando e exportando dados para o Aprendizado de Máquina
 
 **Para quais fontes de dados o Aprendizado de Máquina dá suporte?**
 
 Dados podem ser carregados em um teste de Estúdio de Aprendizado de Máquina em uma destas três maneiras: carregando um arquivo local como um conjunto de dados, usando um módulo para importar dados de serviços de dados de nuvem ou importando um conjunto de dados salvo de outro teste. Para saber mais sobre formatos de arquivo com suporte, confira [Importar dados de treinamento para o Machine Learning Studio](machine-learning-data-science-import-data.md).
 
 
-#### <a id="ModuleLimit"></a>Que tamanho o conjunto de dados para os meus módulos pode ter?
+#### <a name="<a-id="modulelimit"></a>how-large-can-the-data-set-be-for-my-modules?"></a><a id="ModuleLimit"></a>Que tamanho o conjunto de dados para os meus módulos pode ter?
 
-Os módulos do Estúdio de Aprendizado de Máquina dão suporte a conjuntos de dados com até 10 GB de dados numéricos densos para casos de uso comuns. Se um módulo receber mais de uma entrada, os 10 GB são o total dos tamanhos das entradas. Você também pode criar amostras de conjuntos de dados maiores por meio de consultas ao Banco de Dados SQL do Hive ou Azure ou do pré-processamento do Aprendizado por contagens, antes da ingestão.
+Os módulos do Estúdio de Aprendizado de Máquina dão suporte a conjuntos de dados com até 10 GB de dados numéricos densos para casos de uso comuns. Se um módulo receber mais de uma entrada, os 10 GB são o total dos tamanhos das entradas. Você também pode criar amostras de conjuntos de dados maiores por meio de consultas ao Banco de Dados SQL do Hive ou Azure ou do pré-processamento do Aprendizado por contagens, antes da ingestão.  
 
 Os seguintes tipos de dados podem ser expandidos para conjuntos de dados maiores durante a normalização de recursos e são limitados a menos de 10 GB:
 
@@ -111,21 +113,21 @@ Os seguintes módulos são limitados a conjuntos de dados com menos de 10 GB:
 Para conjuntos com mais de alguns GB, você deve fazer upload de dados para o armazenamento do Azure ou Banco de Dados SQL do Azure ou usar o HDInsight, em vez de fazer upload diretamente do arquivo local.
 
 
-####<a id="UploadLimit"></a>Quais são os limites para o upload de dados?
+####<a name="<a-id="uploadlimit"></a>what-are-the-limits-for-data-upload?"></a><a id="UploadLimit"></a>Quais são os limites para o upload de dados?
 Para conjuntos com mais de 2 GB, faça upload dos dados para o armazenamento do Azure ou Banco de Dados SQL do Azure ou use o HDInsight em vez de fazer upload diretamente do arquivo local.
 
 **Eu posso ler dados da Amazon S3?**
 
-Para saber mais sobre como gerenciar os serviços Web implantados, veja [Gerenciar um espaço de trabalho do Aprendizado de Máquina do Azure][import-data]. Para uma quantidade maior de dados, transfira-os para o Armazenamento do Azure primeiro e use o módulo [Importar Dados][import-data] para colocá-los em seu teste.
+Se você tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, poderá usar o módulo [Importar Dados][import-data]. Para qualquer quantidade maior de dados para transferir para o Armazenamento do Azure primeiro use o módulo [Importar Dados][import-data] para colocá-los em seu teste.
 <!--
 <SEE CLOUD DS PROCESS>
 -->
 
 **Há uma funcionalidade interna de entrada de imagem?**
 
-Você pode aprender sobre a funcionalidade de entrada de imagem na referência [Importar imagens][image-reader].
+Você pode aprender sobre a funcionalidade de entrada da imagem na referência [Importar Imagens][image-reader].
 
-### Módulos
+### <a name="modules"></a>Módulos
 
 **O algoritmo, a fonte de dados, o formato de dados ou a operação de transformação de dados que estou procurando não está no Estúdio de Aprendizado de Máquina do Azure. Quais são minhas opções?**
 
@@ -134,18 +136,18 @@ Você pode visitar o [fórum de comentários dos usuários](http://go.microsoft.
 
 **Posso trazer meu código existente para o Estúdio de Aprendizado de Máquina?**
 
-Sim, é possível levar seus códigos existentes de R ou Python para o Estúdio de Aprendizado de Máquina, executá-los no mesmo teste com os aprendizes fornecidos pelo Aprendizado de Máquina do Azure e implantar a solução como um serviço Web por meio do Aprendizado de Máquina do Azure. Para saber mais, confira [Estender seu teste com R](machine-learning-extend-your-experiment-with-r.md) e [Executar scripts Python de aprendizado de máquina no Estúdio de Aprendizado de Máquina do Azure](machine-learning-execute-python-scripts.md).
+Sim, é possível levar seus códigos existentes de R ou Python para o Estúdio de Aprendizado de Máquina, executá-los no mesmo teste com os aprendizes fornecidos pelo Aprendizado de Máquina do Azure e implantar a solução como um serviço Web por meio do Aprendizado de Máquina do Azure. Para obter mais informações, consulte [Estender seu experimento com R](machine-learning-extend-your-experiment-with-r.md) e [Executar scripts Python de aprendizado de máquina no Azure Machine Learning Studio](machine-learning-execute-python-scripts.md).
 
-**É possível usar algo como um [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language) para definir um modelo?**
+**É possível usar algo como [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language) para definir um modelo?**
 
 Não, não há suporte para isso. No entanto, códigos personalizados em R e Python podem ser usados para definir um módulo.
 
-**Quantos módulos posso executar em paralelo em meu experimento?**
+**Quantos módulos posso executar em paralelo em meu experimento?**  
 
 Você pode executar até quatro módulos em paralelo em um experimento.
 
 
-### Processamento de dados
+### <a name="data-processing"></a>Processamento de dados
 
 **Há uma capacidade de visualizar dados (além de visualizações de R) interativamente dentro do experimento?**
 
@@ -155,7 +157,7 @@ Clicando na saída de um módulo, você pode visualizar os dados e obter estatí
 
 Como os dados são transmitidos ao navegador e podem ser grandes, o tamanho dos dados é limitado para evitar lentidão do Estúdio de Aprendizado de Máquina. Para visualizar todos os dados/resultados, é melhor baixar os dados e usar o Excel ou outra ferramenta.
 
-### Algoritmos
+### <a name="algorithms"></a>Algoritmos
 
 **Quais algoritmos existentes têm suporte no Estúdio de Aprendizado de Máquina?**
 
@@ -165,7 +167,8 @@ O Machine Learning Studio fornece algoritmos de última geração, como Árvores
 
 Não, mas há várias maneiras, no Machine Learning Studio, para comparar os resultados de cada algoritmo e determinar uma adequado para seu problema.
 
-**Vocês têm alguma orientação sobre a seleção de um algoritmo em vez de outro para os algoritmos fornecidos?** Consulte [Como escolher um algoritmo ](machine-learning-algorithm-choice.md).
+**Vocês têm alguma orientação sobre a seleção de um algoritmo em vez de outro para os algoritmos fornecidos?**
+Consulte [Como escolher um algoritmo](machine-learning-algorithm-choice.md).
 
 **Os algoritmos fornecidos são escritos em R ou Python?**
 
@@ -173,7 +176,7 @@ Não, esses algoritmos são escritos, em sua maioria, em linguagens compiladas p
 
 **São fornecidos detalhes dos algoritmos?**
 
-A documentação fornece algumas informações sobre os algoritmos, e os parâmetros fornecidos para ajuste são descritos para otimizar o algoritmo para seu uso.
+A documentação fornece algumas informações sobre os algoritmos, e os parâmetros fornecidos para ajuste são descritos para otimizar o algoritmo para seu uso.  
 
 **Há algum suporte para aprendizado online?**
 
@@ -187,11 +190,11 @@ Nº
 
 Atualmente, novos módulos personalizados podem ser criados apenas em R.
 
-### Módulo R
+### <a name="r-module"></a>Módulo R
 
 **Quais pacotes de R estão disponíveis no Estúdio de Aprendizado de Máquina?**
 
-O Estúdio de Aprendizado de Máquina dá suporte a mais de 400 pacotes CRAN R atualmente. Aqui está a [lista atual](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) de todos os pacotes incluídos. Confira também [Estender seu teste com R](machine-learning-extend-your-experiment-with-r.md) para saber como recuperar essa lista por conta própria. Se o pacote que desejar não estiver nesta lista, forneça o nome do pacote no [fórum de feedback do usuário](http://go.microsoft.com/fwlink/?LinkId=404231).
+O Machine Learning Studio dá suporte a mais de 400 pacotes CRAN R atualmente. Aqui está a [lista atual](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) de todos os pacotes incluídos. Consulte também [Estender seu experimento com R](machine-learning-extend-your-experiment-with-r.md) para saber como recuperar essa lista por conta própria. Se o pacote desejado não estiver nesta lista, forneça o nome do pacote no [fórum de comentários do usuário](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 **É possível criar um módulo personalizado em R?**
 
@@ -201,25 +204,25 @@ Sim, consulte [Criar módulos personalizados em R no Aprendizado de Máquina do 
 
 Não, não há um ambiente REPL para R no estúdio.
 
-### Módulo de Python
+### <a name="python-module"></a>Módulo de Python
 
 **É possível criar um módulo personalizado em Python?**
 
-Atualmente, não, mas você pode usar um ou mais módulos [Executar script Python][python] para obter o mesmo resultado.
+Atualmente não, mas você pode usar um ou mais módulos [Executar Script Python][python] para obter o mesmo resultado.
 
 **Há um ambiente REPL para Python?**
 
-Você pode usar os blocos de notas Jupyter no Estúdio de Aprendizado de Máquina. Para saber mais, confira [Introdução aos blocos de notas Jupyter no Estúdio de Aprendizado de Máquina do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx).
+Você pode usar os blocos de notas Jupyter no Estúdio de Aprendizado de Máquina. Para obter mais informações, consulte [Apresentando os Notebooks Jupyter no Azure Machine Learning Studio] (http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx).
 
-## Serviço Web
+## <a name="web-service"></a>Serviço Web
 
-###Readaptando modelos programaticamente
+###<a name="retraining-models-programmatically"></a>Readaptando modelos programaticamente
 
 **Como posso readaptar os modelos de Aprendizado de Máquina de forma programática?**
 
-Para saber mais, confira [Readaptar os modelos de Machine Learning de forma programática](machine-learning-retrain-models-programmatically.md). O exemplo de código também está disponível na [Demonstração de readaptação com o Microsoft Azure Machine Learning](https://azuremlretrain.codeplex.com/).
+Use as APIs de novos treinamentos. for more information, see [Treinar novamente os modelos de Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md). O exemplo de código também está disponível na [Demonstração de readaptação com o Microsoft Azure Machine Learning](https://azuremlretrain.codeplex.com/).
 
-### Criação
+### <a name="create"></a>Criação
 
 **Posso implantar o modelo localmente ou em um aplicativo sem conexão à Internet?**
 
@@ -230,7 +233,7 @@ Nº
 
 Consulte [Limites da assinatura do Azure](../azure-subscription-service-limits.md)
 
-### Uso
+### <a name="use"></a>Uso
 
 **Quando seria melhor executar meu modelo de previsão como um serviço de Execução em Lotes em vez de um serviço de Resposta da Solicitação?**
 
@@ -240,7 +243,8 @@ O Serviço de Solicitação-Resposta (RRS) é um serviço Web de baixa latência
 
 Atualizar um modelo preditivo para um serviço já implantado é tão simples quanto modificar e executar novamente o teste que você usou para criar e salvar o modelo adaptado. Uma vez que tiver uma nova versão do modelo adaptado disponível, o Machine Learning Studio perguntará se você deseja atualizar seu serviço Web. Para obter detalhes sobre como atualizar um serviço Web implantado, confira [Implantar um serviço Web do Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
-Você também pode usar as APIs de novos treinamentos. Para obter mais informações, consulte [Treinar novamente os modelos de Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md). O exemplo de código também está disponível na [Demonstração de readaptação com o Microsoft Azure Machine Learning](https://azuremlretrain.codeplex.com/).
+Você também pode usar as APIs de novos treinamentos.
+Para obter mais informações, consulte [Treinar novamente os modelos de Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md). O exemplo de código também está disponível na [Demonstração de readaptação com o Microsoft Azure Machine Learning](https://azuremlretrain.codeplex.com/).
 
 **Como posso monitorar meu serviço Web implantado na produção?**
 
@@ -248,7 +252,7 @@ Depois que um modelo de previsão for implantado, você poderá monitorá-lo no 
 
 **Existe um lugar onde posso ver a saída do meu RRS/BES?**
 
-Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode escrevê-lo no Armazenamento de Blobs do Azure. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou em uma tabela usando o módulo [Exportar Dados][export-data].
+Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode escrevê-lo no Armazenamento de Blobs do Azure. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo [Exportar Dados][export-data].
 
 **Posso criar serviços Web apenas de modelos criados no Estúdio de Aprendizado de Máquina?**
 
@@ -258,21 +262,21 @@ Não, você também pode criar serviços Web diretamente no bloco de anotações
 
 Confira [Códigos de erro do módulo de Aprendizado de Máquina](https://msdn.microsoft.com/library/azure/dn905910.aspx) para obter uma lista dos códigos de erro e descrições.
 
-## Escalabilidade
+## <a name="scalability"></a>Escalabilidade
 
 **Qual é a escalabilidade do serviço Web?**
 
-Atualmente, o ponto de extremidade padrão é provisionado com 20 solicitações RRS simultâneas por ponto de extremidade. Você pode dimensionar as solicitações simultâneas a 200 solicitações por ponto de extremidade e é possível dimensionar cada serviço Web em 10.000 pontos de extremidade, conforme descrito no artigo [pontos de extremidade de API de dimensionamento](machine-learning-scaling-endpoints.md). Para BES, cada ponto de extremidade permite processar 40 solicitações por vez e solicitações adicionais, além de 40 solicitações que são enfileiradas. Essas solicitações enfileiradas serão executadas automaticamente conforme a fila anda.
+Atualmente, o ponto de extremidade padrão é provisionado com 20 solicitações RRS simultâneas por ponto de extremidade. Você pode dimensioná-lo com até 200 solicitações simultâneas por ponto de extremidade e os serviços Web com até 10.000 pontos de extremidade por serviço Web, como descrito em [Dimensionando um serviço Web](machine-learning-scaling-webservice.md). Para BES, cada ponto de extremidade permite processar 40 solicitações por vez. Acima de 40 solicitações, as restantes são enfileiradas. Essas solicitações enfileiradas são executadas automaticamente conforme a fila anda.
 
 
 **Trabalhos em R são distribuídos entre nós?**
 
-Nº
+Nº  
 
 
 **Quantos dados posso usar para treinamento?**
 
-Os módulos do Estúdio de Aprendizado de Máquina dão suporte a conjuntos de dados com até 10 GB de dados numéricos densos para casos de uso comuns. Se um módulo tiver mais de uma entrada, o tamanho total de todas as entradas juntas será de 10 GB. Você também pode criar amostras de conjuntos de dados maiores por meio de consultas ao Banco de Dados SQL do Azure ou do Hive, ou fazer o pré-processamento com módulos [Aprendizado por contagens][counts] antes do uso.
+Os módulos do Estúdio de Aprendizado de Máquina dão suporte a conjuntos de dados com até 10 GB de dados numéricos densos para casos de uso comuns. Se um módulo tiver mais de uma entrada, o tamanho total de todas as entradas juntas será de 10 GB. Você também pode criar amostras de conjuntos de dados maiores por meio de consultas do Hive ou do Banco de Dados SQL do Azure, ou processamento previamente os módulos [Aprendizado com Contagens][counts] antes da ingestão.  
 
 Os seguintes tipos de dados podem ser expandidos para conjuntos de dados maiores durante a normalização de recursos e são limitados a menos de 10 GB:
 
@@ -298,9 +302,9 @@ Linhas e colunas são têm a limitação do .NET de Int Máximo: 2.147.483.647.
 
 **O tamanho da máquina virtual que está sendo usada para executar o serviço Web pode ser ajustado?**
 
-Nº
+Nº  
 
-## Segurança e disponibilidade
+## <a name="security-and-availability"></a>Segurança e disponibilidade
 
 **Quem tem acesso, por padrão, ao ponto de extremidade HTTP para o serviço Web? Como faço para restringir o acesso ao ponto de extremidade?**
 
@@ -318,18 +322,18 @@ Se você excluir acidentalmente a conta de armazenamento, recrie essa conta de a
 
 O Machine Learning Studio depende de uma conta de armazenamento do Azure fornecida pelo usuário para armazenar dados intermediários ao executar o fluxo de trabalho. Esta conta de armazenamento é fornecida ao Machine Learning Studio no momento em que um espaço de trabalho é criado e as Chaves de Acesso são associadas a ele. Se as Chaves de Acesso forem alteradas, depois que o espaço de trabalho for criado, ele não poderá mais acessar a conta de armazenamento. Ele deixará de funcionar e todos os testes no espaço de trabalho falharão.
 
-Se você tiver alterado as Chaves de Acesso da conta de armazenamento, sincronize novamente as Chaves de Acesso na configuração do espaço de trabalho no portal clássico do Azure.
+Se você tiver alterado as Chaves de Acesso da conta de armazenamento, sincronize novamente as Chaves de Acesso na configuração do espaço de trabalho no portal clássico do Azure.  
 
 
-## Azure Marketplace
+## <a name="azure-marketplace"></a>Azure Marketplace
 
 Confira as [Perguntas frequentes sobre a publicação e utilização de aplicativos no Marketplace do Aprendizado de Máquina](machine-learning-marketplace-faq.md).
 
-## Suporte e treinamento
+## <a name="support-and-training"></a>Suporte e treinamento
 
 **Onde posso obter treinamento para o Aprendizado de Máquina do Azure?**
 
-O [Centro de Documentação do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) hospeda tutoriais em vídeo e guias de instruções. Esses guias passo a passo fornecem uma introdução aos serviços e explicam o ciclo de vida de ciência dos dados da importação de dados, limpeza de dados, criação de modelos preditivos e implantação deles na produção com o Aprendizado de Máquina do Azure.
+[Centro de Documentação do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) hospeda tutoriais em vídeo e guias de instruções. Esses guias passo a passo fornecem uma introdução aos serviços e explicam o ciclo de vida de ciência dos dados da importação de dados, limpeza de dados, criação de modelos preditivos e implantação deles na produção com o Aprendizado de Máquina do Azure.
 
 Incluiremos novo material continuamente no Machine Learning Center. Você pode enviar solicitações de material de aprendizado adicional no Centro de Aprendizado de Máquina no [fórum de comentários dos usuários](https://windowsazure.uservoice.com/forums/257792-machine-learning).
 
@@ -341,13 +345,13 @@ Para obter suporte técnico para o Aprendizado de Máquina do Azure, vá para [S
 
 O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSDN, em que é possível fazer questões relacionadas ao Aprendizado de Máquina do Azure. O fórum é monitorado pela equipe do Aprendizado de Máquina do Azure. Visite o [Fórum do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
-## Perguntas sobre cobrança
+## <a name="billing-questions"></a>Perguntas sobre cobrança
 
 **Como a cobrança do Aprendizado de Máquina funciona?**
 
 Há dois componentes do serviço Aprendizado de Máquina do Azure. O Estúdio de Aprendizado de Máquina e os Serviços Web de Aprendizado de Máquina.
 
-Enquanto você estiver avaliando o Estúdio de Aprendizado de Máquina, poderá usar a camada de cobrança gratuita. A Camada gratuita também permite que você implante um serviço Web clássico com capacidade limitada.
+Enquanto você estiver avaliando o Estúdio de Aprendizado de Máquina, poderá usar a camada de cobrança gratuita.  A Camada gratuita também permite que você implante um serviço Web clássico com capacidade limitada.
 
 Depois de decidir que o Aprendizado de Máquina do Azure atende às suas necessidades, você poderá se inscrever na camada Standard. Para se inscrever, você precisa ter uma Assinatura do Microsoft Azure.
 
@@ -365,8 +369,8 @@ Para saber mais sobre preços e cobrança, confira [Preços do Aprendizado de M�
 
 **O Aprendizado de Máquina tem uma avaliação gratuita?**
 
- O Aprendizado de Máquina do Azure tem uma opção de assinatura gratuita (consulte [Preços do Aprendizado de Máquina](https://azure.microsoft.com/pricing/details/machine-learning/) para obter detalhes) e o Estúdio de Aprendizado de Máquina tem uma avaliação rápida de 8 horas disponível (faça logon no [Estúdio de Aprendizado de Máquina](https://studio.azureml.net/?selectAccess=true&o=2) para obter essa avaliação).
- 
+ O Azure Machine Learning tem uma opção de assinatura gratuita (consulte [Preços do Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) para obter detalhes) e o Machine Learning Studio tem uma avaliação rápida de 8 horas disponível (faça logon no [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2) para obter essa avaliação).
+
  Além disso, quando você se inscrever em uma avaliação gratuita do Azure, poderá experimentar qualquer serviço do Azure por um mês. Para saber mais sobre a avaliação gratuita do Azure, visite [Perguntas frequentes sobre a avaliação gratuita do Azure](/pricing/free-trial-faq/).
 
 **O que é uma transação?**
@@ -405,7 +409,7 @@ As horas de produção de chamada à API podem variar significativamente, oscila
 
 O serviço Machine Learning é um serviço multilocatário, cujos recursos reais de computação usados no back-end variam e são otimizados para oferecer desempenho e previsibilidade.
 
-### Gerenciamento de novos serviços Web 
+### <a name="management-of-new-web-services"></a>Gerenciamento de novos serviços Web
 
 **O que acontece se eu excluir meu plano?**
 
@@ -440,7 +444,7 @@ As quantidades estão incluídas em uma base rateada e podem levar até 24 horas
 A instância é removida de sua assinatura e você é cobrado pelo uso rateado.
 
 
-### Inscrevendo-se em planos de novos serviços Web
+### <a name="signing-up-for-new-web-services-plans"></a>Inscrevendo-se em planos de novos serviços Web
 
 **Como faço para assinar um plano?**
 
@@ -470,7 +474,7 @@ Os novos planos de cobrança estão disponíveis nas três regiões de produçã
 
 Sim. Os preços de planos variam para cada região. Ao implantar um serviço Web em outra região, você precisará atribuir a ele um plano específico dessa região.
 
-### Novos serviços Web - Excedentes
+### <a name="new-web-services---overages"></a>Novos serviços Web - Excedentes
 
 **Como verifico se o uso do serviço Web está excedente?**
 
@@ -486,17 +490,18 @@ Serviços que têm camadas de desenvolvimento e teste atribuídas a eles são in
 
 Para uma carga de trabalho RRS, você será cobrado por todas as chamadas de transação de API que fizer, além do tempo de cálculo associado a essas solicitações. Seus custos da transação de API de produção RRS são, portanto, calculados como o número total de chamadas de API que você faz multiplicado pelo preço por mil transações (rateado por transação individual). Seus custos de horas de computação da API de produção de API RRS são calculados como a quantia de tempo necessária para cada chamada à API ser executada, multiplicada pelo número total de transações de API multiplicado pelo preço por hora de computação da API de produção.
 
-Por exemplo, para excedente em Standard S1, um milhão de transações de API que demoram 0,72 segundo cada para execução resultariam em (1.000.000 * *US$ 0,50/1K de transações API) em US$ 500 em custos de transação de API de produção e (1,000,000 * 0,72 s * US$ 2/h) US$ 400 nas horas de computação da API de produção, para um total de US$ 900.
+Por exemplo, para excedente em Standard S1, um milhão de transações de API que demoram 0,72 segundo cada para execução resultariam em (1.000.000 * * US$ 0,50/1K de transações API) em US$ 500 em custos de transação de API de produção e (1,000,000 * 0,72 s * US$ 2/h) US$ 400 nas horas de computação da API de produção, para um total de US$ 900.
 
 Para uma carga de trabalho BES, você é cobrado do mesmo modo. No entanto, os custos de transação de API representam o número de trabalhos de lote que você enviou e os custos calculados representam o tempo calculado associado a esses trabalhos de lote. Seus custos da transação de API de produção BES são, portanto, calculados como o número total de trabalhos enviados multiplicado pelo preço por mil transações (rateado por transação individual). Seus custos de horas de computação de API de produção de API BES são calculados como a quantia de tempo necessária para cada linha em seu trabalho para execução multiplicada pelo número total de linhas em seu trabalho, multiplicado pelo número total de trabalhos, multiplicado pelo preço por hora de computação da API de produção. Ao usar a calculadora Aprendizado de Máquina, a métrica de transação representa o número de trabalhos que você planeja enviar e o tempo por campo de transação representa o tempo combinado necessário para execução de todas as linhas em cada trabalho.
 
-Por exemplo, para excedente na camada Standard S1, se você envia 100 trabalhos por dia que consistem de 500 linhas cada e que demoram 0,72 segundo cada, seus custos mensais são (100 trabalhos por dia = 3.100 trabalhos/mês * US$ 0,50/1K de transações de API) US$ 1,55 nos custos de transação de API de produção e (500 linhas * 0,72 s * 3.100 trabalhos * US$ 2/h) US$ 620 nas horas de computação da API de produção, para um total de US$ 621,55.
+Por exemplo, para excedente na camada Standard S1, se você envia 100 trabalhos por dia que consistem em 500 linhas cada e demoram 0,72 segundo cada, então, seus custos mensais são (100 trabalhos por dia = 3.100 trabalhos/mês * US$ 0,50/1K de transações de API) US$ 1,55 nos custos de Transação da API de Produção e (500 linhas * 0,72 s * 3.100 trabalhos * US$ 2/h) US$ 620 nas Horas de Computação da API de Produção, para um total de US$ 621,55.
 
-### Serviços Web clássicos de AM do Azure
+### <a name="azure-ml-classic-web-services"></a>Serviços Web clássicos de AM do Azure
 
-**O pré-pago ainda está disponível?** Sim, os serviços Web clássicos ainda estão disponíveis no Aprendizado de Máquina do Azure.
+**O pré-pago ainda está disponível?**
+ Sim, os serviços Web clássicos ainda estão disponíveis no Aprendizado de Máquina do Azure.  
 
-### Camadas Gratuita e Standard do Aprendizado de Máquina
+### <a name="azure-machine-learning-free-and-standard-tier"></a>Camadas Gratuita e Standard do Aprendizado de Máquina
 
 **O que está incluído na Camada gratuita do Aprendizado de Máquina do Azure?**
 
@@ -504,7 +509,7 @@ A camada Gratuita do Aprendizado de Máquina do Azure tem o objetivo de fornecer
 
 **O que está incluso na camada e nos planos Standard do Aprendizado de Máquina do Azure?**
 
-A camada Standard do Aprendizado de Máquina do Azure é uma versão paga do Estúdio de Aprendizado de Máquina do Azure. A taxa mensal do serviço Azure ML Studio é cobrada por estação, por mês e rateada em meses parciais. As horas de teste no Estúdio AM do Azure são cobradas por hora de computação para testes ativos. A cobrança é rateada em horas parciais.
+A camada Standard do Aprendizado de Máquina do Azure é uma versão paga do Estúdio de Aprendizado de Máquina do Azure. A taxa mensal do serviço Azure ML Studio é cobrada por estação, por mês e rateada em meses parciais. As horas de teste no Estúdio AM do Azure são cobradas por hora de computação para testes ativos. A cobrança é rateada em horas parciais.  
 
 O serviço API do AM do Azure é cobrado dependendo da sua natureza como serviço Web clássico ou novo serviço Web.
 
@@ -514,8 +519,8 @@ As cobranças a seguir são agregadas por espaço de trabalho para sua assinatur
 * Horas de Teste no Estúdio – esse medidor agrega todas as cobranças de computação vencidas ao executar testes no Estúdio AM e executar chamadas de API de produção no ambiente de preparo.
 * Dados de acesso por conexão com um servidor SQL local em seus modelos para treinamento e pontuação.
 * Para serviços Web clássicos:
-	* Horas de Computação da API de Produção – esse medidor inclui cobranças de computação vencidas por serviços Web em execução na produção.
-	* Transações de API de Produção (em milhares) – esse medidor inclui cobranças vencidas por chamada ao serviço Web de produção.
+    * Horas de Computação da API de Produção – esse medidor inclui cobranças de computação vencidas por serviços Web em execução na produção.
+    * Transações de API de Produção (em milhares) – esse medidor inclui cobranças vencidas por chamada ao serviço Web de produção.
 
 Além dos encargos mencionados, no caso de novos serviços Web, os encargos são agregados para o plano selecionado:
 
@@ -528,7 +533,7 @@ Além dos encargos mencionados, no caso de novos serviços Web, os encargos são
 
 **Como faço para me inscrever na Camada gratuita de Aprendizado de Máquina do Azure?**
 
-Tudo o que você precisa é de uma conta da Microsoft. Vá para o [início do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) e clique no botão **Iniciar agora**. Conecte-se com sua conta da Microsoft e um espaço de trabalho na camada Gratuita será criado para você. É possível começar a explorar e criar testes do Aprendizado de Máquina imediatamente.
+Tudo o que você precisa é de uma conta da Microsoft. Vá para o [início do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)e clique no botão **Iniciar agora**. Conecte-se com sua conta da Microsoft e um espaço de trabalho na camada Gratuita será criado para você. É possível começar a explorar e criar testes do Aprendizado de Máquina imediatamente.
 
 **Como faço para me inscrever na camada Standard de Aprendizado de Máquina do Azure?**
 
@@ -552,13 +557,14 @@ A [avaliação gratuita do Microsoft Azure](https://azure.microsoft.com/free/) o
 
 Para copiar seus testes da Camada gratuita para a camada Standard:
 
-1.	Conecte-se ao Estúdio de Aprendizado de Máquina do Azure e certifique-se de que esteja visualizando o espaço de trabalho Gratuito e a Standard no seletor na parte superior da varra de navegação.
-2.	Alterne para o espaço de trabalho Gratuito se estiver na Standard.
-3.	Na exibição de lista de testes, selecione um teste que você deseja copiar e clique no botão de comando Copiar.
-4.	Selecione o espaço de trabalho Standard na caixa de diálogo pop-up e clique no botão Copiar. Todos os conjuntos de dados associados, modelos treinados e afins são copiados com o teste no espaço de trabalho Standard.
-6.	Você precisa executar novamente o teste e republicá-lo no serviço Web no espaço de trabalho Standard.
+1.  Conecte-se ao Estúdio de Aprendizado de Máquina do Azure e certifique-se de que esteja visualizando o espaço de trabalho Gratuito e a Standard no seletor na parte superior da varra de navegação.
+2.  Alterne para o espaço de trabalho Gratuito se estiver na Standard.
+3.  Na exibição de lista de testes, selecione um teste que você deseja copiar e clique no botão de comando Copiar.
+4.  Selecione o espaço de trabalho Standard na caixa de diálogo pop-up e clique no botão Copiar.
+    Todos os conjuntos de dados associados, modelos treinados e afins são copiados com o teste no espaço de trabalho Standard.
+6.  Você precisa executar novamente o teste e republicá-lo no serviço Web no espaço de trabalho Standard.
 
-### Espaço de trabalho do Estúdio
+### <a name="studio-workspace"></a>Espaço de trabalho do Estúdio
 
 **Existem faturas diferentes para espaços de trabalho diferentes?**
 
@@ -568,11 +574,11 @@ As cobranças referentes a espaços de trabalho são divididas em separado para 
 
 O serviço Machine Learning é um serviço multilocatário, cujos recursos reais de computação usados no back-end variam e são otimizados para oferecer desempenho e previsibilidade.
 
-### Acesso de convidado
+### <a name="guest-access"></a>Acesso de convidado
 
 **O que é o acesso de convidado para o Estúdio de Aprendizado de Máquina Azure?**
 
-O Acesso de Convidado é uma experiência teste restrita que permite que você crie e execute testes no Estúdio de Aprendizado de Máquina Azure sem custos e sem autenticação. As sessões de convidado são não persistentes (não podem ser salvas) e limitadas a oito horas. Outras limitações incluem falta de suporte para R e Python, falta de APIs de preparo e capacidade de armazenamento e tamanho restritos do conjunto de dados. Por comparação, os usuários que escolhem se conectar com uma conta da Microsoft têm acesso completo à camada gratuita do Machine Learning Studio descrito acima, que inclui um espaço de trabalho persistente e recursos mais abrangentes. Escolha sua experiência gratuita do Machine Learning ao clicar no botão **Iniciar** em [https://studio.azureml.net](https://studio.azureml.net) e selecione Acesso de convidado ou entrar com uma conta da Microsoft.
+O Acesso de Convidado é uma experiência teste restrita que permite que você crie e execute testes no Estúdio de Aprendizado de Máquina Azure sem custos e sem autenticação. As sessões de convidado são não persistentes (não podem ser salvas) e limitadas a oito horas. Outras limitações incluem falta de suporte para R e Python, falta de APIs de preparo e capacidade de armazenamento e tamanho restritos do conjunto de dados. Por comparação, os usuários que escolhem se conectar com uma conta da Microsoft têm acesso completo à camada gratuita do Machine Learning Studio descrito acima, que inclui um espaço de trabalho persistente e recursos mais abrangentes. Escolha sua experiência gratuita do Machine Learning ao clicar no botão **Iniciar** em [https://studio.azureml.net](https://studio.azureml.net)e selecione Acesso de convidado ou entrar com uma conta da Microsoft.
 
 <!-- Module References -->
 [image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/
@@ -585,4 +591,8 @@ O Acesso de Convidado é uma experiência teste restrita que permite que você c
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

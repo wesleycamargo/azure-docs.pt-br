@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Criar clusters HDInsight com o Repositório Azure Data Lake usando PowerShell | Azure"
-   description="Usar o Azure PowerShell para criar e usar clusters HDInsight com o Azure Data Lake"
+   pageTitle="Create HDInsight clusters with Azure Data Lake Store using PowerShell | Azure"
+   description="Use Azure PowerShell to create and use HDInsight clusters with Azure Data Lake"
    services="data-lake-store,hdinsight" 
    documentationCenter=""
    authors="nitinme"
@@ -13,375 +13,350 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/01/2016"
+   ms.date="10/04/2016"
    ms.author="nitinme"/>
 
-# Criar um cluster HDInsight com o Repositório Data Lake usando o Azure PowerShell
+
+# <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-powershell"></a>Create an HDInsight cluster with Data Lake Store using Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [Usando o Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Usando o PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+- [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+- [Using Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
+Learn how to use Azure PowerShell to configure an HDInsight cluster (Hadoop, HBase, or Storm) with access to Azure Data Lake Store. Some important considerations for this release:
 
-Aprenda a usar o Azure PowerShell para configurar um cluster HDInsight (Hadoop, HBase ou Storm) com acesso ao Repositório Azure Data Lake. Algumas considerações importantes para esta versão:
+* **For Spark clusters (Linux), and Hadoop/Storm clusters (Windows and Linux)**, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
 
-* **Para clusters Spark (Linux) e Hadoop/Storm (Windows e Linux)**, o Repositório Data Lake só pode ser usado como uma conta de armazenamento adicional. A conta de armazenamento padrão para esses clusters ainda será o WASB (Blobs de Armazenamento do Azure).
+* **For HBase clusters (Windows and Linux)**, the Data Lake Store can be used as a default storage or additional storage.
 
-* **Para clusters HBase (Windows e Linux)**, o Repositório Data Lake pode ser usado como um armazenamento padrão ou armazenamento adicional.
-
-> [AZURE.NOTE] Alguns pontos importantes a serem considerados.
+> [AZURE.NOTE] Some important points to note. 
 > 
-> * A opção de criar clusters HDInsight com acesso ao Repositório Data Lake está disponível apenas para o HDInsight versões 3.2 e 3.4 (para clusters Hadoop, HBase e Storm no Windows e no Linux). Para clusters Spark no Linux, esta opção só está disponível em clusters HDInsight 3.4.
+> * Option to create HDInsight clusters with access to Data Lake Store is available only for HDInsight versions 3.2 and 3.4 (for Hadoop, HBase, and Storm clusters on Windows as well as Linux). For Spark clusters on Linux, this option is only available on HDInsight 3.4 clusters.
 >
-> * Conforme mencionado acima, o Repositório Data Lake está disponível como armazenamento padrão para alguns tipos de cluster (HBase) e como um armazenamento adicional para outros tipos de cluster (Hadoop, Spark, Storm). O uso do Repositório Data Lake como uma conta de armazenamento adicional não afeta o desempenho ou a capacidade de leitura/gravação no armazenamento do cluster. Em um cenário no qual o Repositório Data Lake é usado como um armazenamento adicional, os arquivos relacionados ao cluster (como logs etc.) são gravados no armazenamento padrão (Blobs do Azure), enquanto os dados que você deseja processar podem ser armazenados em uma conta do Repositório Data Lake.
+> * As mentioned above, Data Lake Store is available as default storage for some cluster types (HBase) and additional storage for other cluster types (Hadoop, Spark, Storm). Using Data Lake Store as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster. In a scenario where Data Lake Store is used as additional storage, cluster-related files (such as logs, etc.) are written to the default storage (Azure Blobs), while the data that you want to process can be stored in a Data Lake Store account.
 
 
-Neste artigo, provisionaremos um cluster Hadoop com o Repositório Data Lake como armazenamento adicional.
+In this article, we provision a Hadoop cluster with Data Lake Store as additional storage.
 
-A configuração do HDInsight para trabalhar com o Repositório Data Lake usando o PowerShell envolve as seguintes etapas:
+Configuring HDInsight to work with Data Lake Store using PowerShell involves the following steps:
 
-* Criar um Repositório Azure Data Lake
-* Configurar a autenticação para acesso baseado em dados ao Repositório Data Lake
-* Criar o cluster HDInsight com a autenticação para o Repositório Data Lake
-* Executar um trabalho de teste no cluster
+* Create an Azure Data Lake Store
+* Set up authentication for role-based access to Data Lake Store
+* Create HDInsight cluster with authentication to Data Lake Store
+* Run a test job on the cluster
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-Antes de começar este tutorial, você deve ter o seguinte:
+Before you begin this tutorial, you must have the following:
 
-- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Habilite sua assinatura do Azure** para a visualização pública do Data Lake Store. Veja [instruções](data-lake-store-get-started-portal.md#signup).
-- **SDK do Windows**. Você pode instalá-lo clicando [aqui](https://dev.windows.com/pt-BR/downloads). Use isso para criar um certificado de segurança.
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
+- **Azure PowerShell 1.0 or greater**. See [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-##Instalar o Azure PowerShell 1.0 e superior
-
-Para começar, você deve desinstalar as versões 0.9x do Azure PowerShell. Para verificar a versão do PowerShell instalado, execute o seguinte comando em uma janela do PowerShell:
-
-	Get-Module *azure*
-
-Para desinstalar a versão mais antiga, execute **Programas e Recursos** no painel de controle e remove a versão instalada se ela for anterior ao PowerShell 1.0.
-
-Há duas opções principais para a instalação do Azure PowerShell.
-
-- [Galeria do PowerShell](https://www.powershellgallery.com/). Execute os seguintes comandos no PowerShell ISE elevado ou no console Windows PowerShell elevado:
-
-		# Install the Azure Resource Manager modules from PowerShell Gallery
-		Install-Module AzureRM
-		Install-AzureRM
-
-		# Install the Azure Service Management module from PowerShell Gallery
-		Install-Module Azure
-
-		# Import AzureRM modules for the given version manifest in the AzureRM module
-		Import-AzureRM
-
-		# Import Azure Service Management module
-		Import-Module Azure
-
-	Para obter mais informações, veja [Galeria do PowerShell](https://www.powershellgallery.com/).
-
-- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). Se você tem o Azure PowerShell 0.9.x instalado, será solicitado a desinstalar o 0.9.x. Se tiver instalado os módulos do Azure PowerShell na Galeria do PowerShell, o instalador exigirá que os módulos sejam removidos antes da instalação para assegurar a consistência do Ambiente do Azure PowerShell. Para obter instruções, veja [Instalar o Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
-
-A WebPI receberá atualizações mensais. A Galeria do PowerShell receberá atualizações continuamente. Se você estiver familiarizado com a instalação a partir da Galeria do PowerShell, esse será o primeiro canal para os melhores e mais recentes recursos do Azure PowerShell.
+- **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate.
 
 
-## Criar um Repositório Azure Data Lake
+## <a name="create-an-azure-data-lake-store"></a>Create an Azure Data Lake Store
 
-Execute estas etapas para criar um Repositório Data Lake.
+Follow these steps to create a Data Lake Store.
 
-1. Na área de trabalho, abra uma nova janela do Azure PowerShell e insira o trecho a seguir. Quando solicitado a fazer logon, lembre-se de fazer logon como o proprietário ou um dos administradores da assinatura:
+1. From your desktop, open a new Azure PowerShell window, and enter the following snippet. When prompted to log in, make sure you log in as one of the subscription admininistrators/owner:
 
         # Log in to your Azure account
-		Login-AzureRmAccount
+        Login-AzureRmAccount
 
-		# List all the subscriptions associated to your account
-		Get-AzureRmSubscription
+        # List all the subscriptions associated to your account
+        Get-AzureRmSubscription
 
-		# Select a subscription
-		Set-AzureRmContext -SubscriptionId <subscription ID>
+        # Select a subscription
+        Set-AzureRmContext -SubscriptionId <subscription ID>
 
-		# Register for Data Lake Store
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+        # Register for Data Lake Store
+        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
-	>[AZURE.NOTE] Se você receber um erro semelhante a `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` ao registrar o provedor de recursos do Repositório Data Late, é possível que sua assinatura não esteja na lista branca do Repositório Azure Data Lake. Verifique se você habilitou sua assinatura do Azure para a visualização pública do Data Lake Store seguindo estas [instruções](data-lake-store-get-started-portal.md#signup).
+    >[AZURE.NOTE] If you receive an error similar to `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` when registering the Data Lake Store resource provider, it is possible that your subsrcription is not whitelisted for Azure Data Lake Store. Make sure you enable your Azure subscription for Data Lake Store public preview by following these [instructions](data-lake-store-get-started-portal.md#signup).
 
-3. Uma conta do Repositório Azure Data Lake está associada a um Grupo de Recursos do Azure. Comece criando um Grupo de Recursos do Azure.
+3. An Azure Data Lake Store account is associated with an Azure Resource Group. Start by creating an Azure Resource Group.
 
-		$resourceGroupName = "<your new resource group name>"
-    	New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
+        $resourceGroupName = "<your new resource group name>"
+        New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-	![Criar um grupo de recursos do Azure](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Criar um grupo de recursos do Azure")
+    ![Create an Azure Resource Group](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Create an Azure Resource Group")
 
-2. Crie uma conta do Repositório Azure Data Lake. O nome especificado para a conta deve conter apenas letras minúsculas e números.
+2. Create an Azure Data Lake Store account. The account name you specify must only contain lowercase letters and numbers.
 
-		$dataLakeStoreName = "<your new Data Lake Store name>"
-    	New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
+        $dataLakeStoreName = "<your new Data Lake Store name>"
+        New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
 
-	![Criar uma conta do Azure Data Lake](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateADLAcc.png "Criar uma conta do Azure Data Lake")
+    ![Create an Azure Data Lake account](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateADLAcc.png "Create an Azure Data Lake account")
 
-3. Verifique se a conta foi criada com êxito.
+3. Verify that the account is successfully created.
 
-		Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
+        Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
-	A saída para isso deve ser **True**.
+    The output for this should be **True**.
 
-4. Carregue alguns exemplos de dados no Azure Data Lake. Usaremos isso posteriormente neste artigo para verificar se os dados podem ser acessados a partir de um cluster HDInsight. Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
+4. Upload some sample data to Azure Data Lake. We'll use this later in this article to verify that the data is accessible from an HDInsight cluster. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 
-		$myrootdir = "/"
-		Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
+        $myrootdir = "/"
+        Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
 
 
-## Configurar a autenticação para acesso baseado em dados ao Repositório Data Lake
+## <a name="set-up-authentication-for-role-based-access-to-data-lake-store"></a>Set up authentication for role-based access to Data Lake Store
 
-Cada assinatura do Azure está associada com um Azure Active Directory. Os usuários e serviços que acessam os recursos da assinatura usando o Portal Clássico do Azure ou a API do Azure Resource Manager primeiro precisam realizar a autenticação com o Azure Active Directory. O acesso é concedido às assinaturas e serviços do Azure atribuindo a função apropriada para eles em um recurso do Azure. Para serviços, uma entidade de serviço identifica o serviço no Active Directory do Azure (AAD). Esta seção ilustra como conceder a um serviço de aplicativo, como o HDInsight, acesso a um recurso do Azure (a conta do Repositório Azure Data Lake criada anteriormente), criando uma entidade de serviço para o aplicativo e atribuindo funções a ela por meio do Azure PowerShell.
+Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Azure Classic Portal or Azure Resource Manager API must first authenticate with that Azure Active Directory. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource.  For services, a service principal identifies the service in the Azure Active Directory (AAD). This section illustrates how to grant an application service, like HDInsight, access to an Azure resource (the Azure Data Lake Store account you created earlier) by creating a service principal for the application and assigning roles to that via Azure PowerShell.
 
-Para configurar a autenticação do Active Directory para o Azure Data Lake, você deve executar as seguintes tarefas.
+To set up Active Directory authentication for Azure Data Lake, you must perform the following tasks.
 
-* Crie um certificado autoassinado
-* Criar um aplicativo no Active Directory do Azure e uma entidade de serviço
+* Create a self-signed certificate
+* Create an application in Azure Active Directory and a Service Principal
 
-### Crie um certificado autoassinado
+### <a name="create-a-self-signed-certificate"></a>Create a self-signed certificate
 
-Verifique se o [SDK do Windows](https://dev.windows.com/pt-BR/downloads) está instalado antes de continuar com as etapas nesta seção. Você também deve ter criado um diretório, como **C:\\mycertdir**, no qual o certificado será criado.
+Make sure you have [Windows SDK](https://dev.windows.com/en-us/downloads) installed before proceeding with the steps in this section. You must have also created a directory, such as **C:\mycertdir**, where the certificate will be created.
 
-1. Na janela do PowerShell, navegue até o local onde você instalou o SDK do Windows (normalmente, `C:\Program Files (x86)\Windows Kits\10\bin\x86` e use o utilitário [MakeCert][makecert] para criar um certificado autoassinado e uma chave privada. Use os seguintes comandos.
+1. From the PowerShell window, navigate to the location where you installed Windows SDK (typically, `C:\Program Files (x86)\Windows Kits\10\bin\x86` and use the [MakeCert][makecert] utility to create a self-signed certificate and a private key. Use the following commands.
 
-		$certificateFileDir = "<my certificate directory>"
-		cd $certificateFileDir
-		$startDate = (Get-Date).ToString('MM/dd/yyyy')
-		$endDate = (Get-Date).AddDays(365).ToString('MM/dd/yyyy')
+        $certificateFileDir = "<my certificate directory>"
+        cd $certificateFileDir
+        $startDate = (Get-Date).ToString('MM/dd/yyyy')
+        $endDate = (Get-Date).AddDays(365).ToString('MM/dd/yyyy')
 
-		makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -b $startDate -e $endDate -r -len 2048
+        makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -b $startDate -e $endDate -r -len 2048
 
-	Você receberá uma solicitação para inserir a senha da chave privada. Após a execução bem-sucedida do comando, você verá um **CertFile.cer** e **mykey.pvk** no diretório de certificado especificado.
+    You will be prompted to enter the private key password. After the command successfully executes, you should see a **CertFile.cer** and **mykey.pvk** in the certificate directory you specified.
 
-4. Use o utilitário [Pvk2Pfx][pvk2pfx] para converter os arquivos .pvk e .cer criados pelo MakeCert em um arquivo .pfx. Execute o comando a seguir.
+4. Use the [Pvk2Pfx][pvk2pfx] utility to convert the .pvk and .cer files that MakeCert created to a .pfx file. Run the following command.
 
-		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
+        pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
-	Quando receber a solicitação, digite a senha da chave privada especificada anteriormente. O valor especificado para o parâmetro **-po** é a senha que está associada ao arquivo .pfx. Após a conclusão bem-sucedida do comando, você também verá um arquivo CertFile.pfx no diretório de certificado especificado.
+    When prompted enter the private key password you specified earlier. The value you specify for the **-po** parameter is the password that is associated with the .pfx file. After the command successfully completes, you should also see a CertFile.pfx in the certificate directory you specified.
 
-###  Criar um Active Directory do Azure e uma entidade de serviço
+###  <a name="create-an-azure-active-directory-and-a-service-principal"></a>Create an Azure Active Directory and a service principal
 
-Nesta seção, você executará as etapas para criar uma entidade de serviço para um aplicativo do Active Directory do Azure, atribuir uma função à entidade de serviço e autenticar como a entidade de serviço ao fornecer um certificado. Execute os seguintes comandos para criar um aplicativo no Active Directory do Azure.
+In this section, you perform the steps to create a service principal for an Azure Active Directory application, assign a role to the service principal, and authenticate as the service principal by providing a certificate. Run the following commands to create an application in Azure Active Directory.
 
-1. Cole os seguintes cmdlets na janela do console do PowerShell. Verifique se o valor especificado para a propriedade **-DisplayName** é exclusivo. Além disso, os valores para **-HomePage** e **-IdentiferUris** são valores de espaço reservado e não são verificados.
+1. Paste the following cmdlets in the PowerShell console window. Make sure the value you specify for the **-DisplayName** property is unique. Also, the values for **-HomePage** and **-IdentiferUris** are placeholder values and are not verified.
 
-		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
+        $certificateFilePath = "$certificateFileDir\CertFile.pfx"
 
-		$password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
+        $password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
 
-		$certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
+        $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 
-		$rawCertificateData = $certificatePFX.GetRawCertData()
+        $rawCertificateData = $certificatePFX.GetRawCertData()
 
-		$credential = [System.Convert]::ToBase64String($rawCertificateData)
+        $credential = [System.Convert]::ToBase64String($rawCertificateData)
 
-		$application = New-AzureRmADApplication `
-					-DisplayName "HDIADL" `
-					-HomePage "https://contoso.com" `
-					-IdentifierUris "https://mycontoso.com" `
-					-KeyValue $credential  `
-					-KeyType "AsymmetricX509Cert"  `
-					-KeyUsage "Verify"  `
-					-StartDate $startDate  `
-					-EndDate $endDate
+        $application = New-AzureRmADApplication `
+                    -DisplayName "HDIADL" `
+                    -HomePage "https://contoso.com" `
+                    -IdentifierUris "https://mycontoso.com" `
+                    -KeyValue $credential  `
+                    -KeyType "AsymmetricX509Cert"  `
+                    -KeyUsage "Verify"  `
+                    -StartDate $startDate  `
+                    -EndDate $endDate
 
-		$applicationId = $application.ApplicationId
+        $applicationId = $application.ApplicationId
 
-2. Crie uma entidade de serviço usando a ID do aplicativo.
+2. Create a service principal using the application ID.
 
-		$servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
+        $servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
 
-		$objectId = $servicePrincipal.Id
+        $objectId = $servicePrincipal.Id
 
-3. Conceda acesso à entidade de serviço ao Repositório Data Lake que você criou anteriormente.
+3. Grant the service principal access to the Data Lake Store file/folder that you will access from the HDInsight cluster. The snippet below provides access to the root of the Data Lake Store account.
 
-		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
+        Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
 
-	No prompt, insira **Y** para confirmar.
+    At the prompt, enter **Y** to confirm.
 
-## Criar um cluster HDInsight com a autenticação para o Repositório Data Lake
+## <a name="create-an-hdinsight-cluster-with-authentication-to-data-lake-store"></a>Create an HDInsight cluster with authentication to Data Lake Store
 
-Nesta seção, criaremos um cluster HDInsight Hadoop. Para esta versão, o cluster HDInsight e o Repositório Data Lake devem estar no mesmo local (Leste dos EUA 2).
+In this section, we create an HDInsight Hadoop cluster. For this release, the HDInsight cluster and the Data Lake Store must be in the same location (East US 2).
 
-1. Comece recuperando a ID do locatário da assinatura. Você precisará disso posteriormente.
+1. Start with retrieving the subscription tenant ID. You will need that later.
 
-		$tenantID = (Get-AzureRmContext).Tenant.TenantId
+        $tenantID = (Get-AzureRmContext).Tenant.TenantId
 
-2. Para esta versão, para um cluster Hadoop, o Repositório Data Lake pode ser usado apenas como um armazenamento adicional para o cluster. O armazenamento padrão ainda será nos blobs de armazenamento do Azure (WASB). Portanto, vamos criar primeiro a conta de armazenamento e os contêineres de armazenamento exigidos para o cluster.
+2. For this release, for a Hadoop cluster, Data Lake Store can only be used as an additional storage for the cluster. The default storage will still be the Azure storage blobs (WASB). So, we'll first create the storage account and storage containers required for the cluster.
 
-		# Create an Azure storage account
-		$location = "East US 2"
-		$storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
+        # Create an Azure storage account
+        $location = "East US 2"
+        $storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
 
-		New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
+        New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
 
-		# Create an Azure Blob Storage container
-		$containerName = "<ContainerName>"              # Provide a container name
-		$storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
-		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-		New-AzureStorageContainer -Name $containerName -Context $destContext
+        # Create an Azure Blob Storage container
+        $containerName = "<ContainerName>"              # Provide a container name
+        $storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
+        $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+        New-AzureStorageContainer -Name $containerName -Context $destContext
 
-3. Crie o cluster HDInsight. Use os seguintes cmdlets.
+3. Create the HDInsight cluster. Use the following cmdlets.
 
-		# Set these variables
-		$clusterName = $containerName                   # As a best practice, have the same name for the cluster and container
-		$clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
-		$httpCredentials = Get-Credential
-		$rdpCredentials = Get-Credential
+        # Set these variables
+        $clusterName = $containerName                   # As a best practice, have the same name for the cluster and container
+        $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
+        $httpCredentials = Get-Credential
+        $rdpCredentials = Get-Credential
 
-		New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.2" -RdpCredential $rdpCredentials -RdpAccessExpiry (Get-Date).AddDays(14) -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
+        New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.2" -RdpCredential $rdpCredentials -RdpAccessExpiry (Get-Date).AddDays(14) -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
 
-	Após a conclusão do cmdlet, você verá uma saída como esta:
+    After the cmdlet successfully completes, you should see an output like this:
 
-		Name                      : hdiadlcluster
-		Id                        : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/hdiadlgroup/providers/Mi
-		                            crosoft.HDInsight/clusters/hdiadlcluster
-		Location                  : East US 2
-		ClusterVersion            : 3.2.7.707
-		OperatingSystemType       : Windows
-		ClusterState              : Running
-		ClusterType               : Hadoop
-		CoresUsed                 : 16
-		HttpEndpoint              : hdiadlcluster.azurehdinsight.net
-		Error                     :
-		DefaultStorageAccount     :
-		DefaultStorageContainer   :
-		ResourceGroup             : hdiadlgroup
-		AdditionalStorageAccounts :
+        Name                      : hdiadlcluster
+        Id                        : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/hdiadlgroup/providers/Mi
+                                    crosoft.HDInsight/clusters/hdiadlcluster
+        Location                  : East US 2
+        ClusterVersion            : 3.2.7.707
+        OperatingSystemType       : Windows
+        ClusterState              : Running
+        ClusterType               : Hadoop
+        CoresUsed                 : 16
+        HttpEndpoint              : hdiadlcluster.azurehdinsight.net
+        Error                     :
+        DefaultStorageAccount     :
+        DefaultStorageContainer   :
+        ResourceGroup             : hdiadlgroup
+        AdditionalStorageAccounts :
 
-## Executar trabalhos de teste no cluster HDInsight para usar o Repositório Data Lake
+## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-store"></a>Run test jobs on the HDInsight cluster to use the Data Lake Store
 
-Após a configuração de um cluster HDInsight, você poderá executar trabalhos de teste no cluster a fim de testar se o cluster HDInsight pode acessar o Repositório Data Lake. Para fazer isso, executaremos um exemplo de trabalho do Hive que cria uma tabela usando os exemplos de dados que você carregou anteriormente em seu Repositório Data Lake.
+After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access Data Lake Store. To do so, we will run a sample Hive job that creates a table using the sample data that you uploaded earlier to your Data Lake Store.
 
-### Para um cluster do Linux
+### <a name="for-a-linux-cluster"></a>For a Linux cluster
 
-Nesta seção, você acessará o cluster por SSH e executará uma consulta Hive de exemplo. O Windows não fornece um cliente SSH integrado. É recomendável usar o **PuTTY**, que pode ser baixado de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+In this section you will SSH into the cluster and run the a sample Hive query. Windows does not provide a built-in SSH client. We recommend using **PuTTY**, which can be downloaded from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop baseado em Linux no HDInsight no Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
-1. Uma vez conectado, inicie a CLI do Hive usando o seguinte comando:
+1. Once connected, start the Hive CLI by using the following command:
 
-    	hive
+        hive
 
-2. Usando a CLI, insira as instruções a seguir para criar uma nova tabela chamada **vehicles** usando os dados de exemplo no Repositório Data Lake:
+2. Using the CLI, enter the following statements to create a new table named **vehicles** by using the sample data in the Data Lake Store:
 
-		DROP TABLE vehicles;
-		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
-		SELECT * FROM vehicles LIMIT 10;
+        DROP TABLE vehicles;
+        CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
+        SELECT * FROM vehicles LIMIT 10;
 
-	Você deverá ver um resultado semelhante ao seguinte:
+    You should see an output similar to the following:
 
-		1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
-		1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
-		1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
-		1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
-		1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
-		1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
-		1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
-		1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
-		1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
-		1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
+        1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
+        1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
+        1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
+        1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
+        1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
+        1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
+        1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
+        1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
+        1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
+        1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
 
 
-### Para um cluster do Windows
+### <a name="for-a-windows-cluster"></a>For a Windows cluster
 
-Use os seguintes cmdlets para executar a consulta do Hive. Nessa consulta criamos uma tabela a partir dos dados no Repositório Data Lake e executamos uma consulta seleção na tabela criada.
+Use the following cmdlets to run the Hive query. In this query we create a table from the data in the Data Lake Store and then run a select query on the created table.
 
-	$queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
+    $queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
 
-	$hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
+    $hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
 
-	$hiveJob = Start-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $httpCredentials
+    $hiveJob = Start-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $httpCredentials
 
-	Wait-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $httpCredentials
+    Wait-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $httpCredentials
 
-Esta será a saída. **ExitValue** com valor 0 na saída sugere que o trabalho foi concluído com êxito.
+This will have the following output. **ExitValue** of 0 in the output suggests that the job completed successfully.
 
-	Cluster         : hdiadlcluster.
-	HttpEndpoint    : hdiadlcluster.azurehdinsight.net
-	State           : SUCCEEDED
-	JobId           : job_1445386885331_0012
-	ParentId        :
-	PercentComplete :
-	ExitValue       : 0
-	User            : admin
-	Callback        :
-	Completed       : done
+    Cluster         : hdiadlcluster.
+    HttpEndpoint    : hdiadlcluster.azurehdinsight.net
+    State           : SUCCEEDED
+    JobId           : job_1445386885331_0012
+    ParentId        :
+    PercentComplete :
+    ExitValue       : 0
+    User            : admin
+    Callback        :
+    Completed       : done
 
-Recupere a saída do trabalho usando o seguinte cmdlet:
+Retrieve the output from the job by using the following cmdlet:
 
-	Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $hiveJob.JobId -DefaultContainer $containerName -DefaultStorageAccountName $storageAccountName -DefaultStorageAccountKey $storageAccountKey -ClusterCredential $httpCredentials
+    Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $hiveJob.JobId -DefaultContainer $containerName -DefaultStorageAccountName $storageAccountName -DefaultStorageAccountKey $storageAccountKey -ClusterCredential $httpCredentials
 
-A saída é semelhante ao seguinte:
+The job output resembles the following:
 
-	1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
-	1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
-	1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
-	1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
-	1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
-	1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
-	1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
-	1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
-	1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
-	1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
+    1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
+    1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
+    1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
+    1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
+    1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
+    1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
+    1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
+    1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
+    1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
+    1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
 
 
-## Repositório Data Lake usando comandos do HDFS
+## <a name="access-data-lake-store-using-hdfs-commands"></a>Access Data Lake Store using HDFS commands
 
-Após a configuração do cluster HDInsight para usar o Repositório Data Lake, você poderá usar os comandos do shell HDFS para acessar o armazenamento.
+Once you have configured the HDInsight cluster to use Data Lake Store, you can use the HDFS shell commands to access the store.
 
-### Para um cluster do Linux
+### <a name="for-a-linux-cluster"></a>For a Linux cluster
 
-Nesta seção, você acessará o cluster por SSH e executará os comandos HDFS. O Windows não fornece um cliente SSH integrado. É recomendável usar o **PuTTY**, que pode ser baixado de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+In this section you will SSH into the cluster and run the HDFS commands. Windows does not provide a built-in SSH client. We recommend using **PuTTY**, which can be downloaded from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop baseado em Linux no HDInsight no Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
-Uma vez conectado, use o comando do sistema de arquivos HDFS a seguir para listar os arquivos no Repositório Data Lake.
+Once connected, use the following HDFS filesystem command to list the files in the Data Lake Store.
 
-	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
+    hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
 
-Isso deve listar o arquivo carregado anteriormente no Repositório Data Lake.
+This should list the file that you uploaded earlier to the Data Lake Store.
 
-	15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
-	Found 1 items
-	-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
+    15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
+    Found 1 items
+    -rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
 
-Você também pode usar o comando `hdfs dfs -put` para carregar alguns arquivos no Repositório Data Lake e usar `hdfs dfs -ls` para verificar se os arquivos foram carregados com êxito.
+You can also use the `hdfs dfs -put` command to upload some files to the Data Lake Store, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
 
 
-### Para um cluster do Windows
+### <a name="for-a-windows-cluster"></a>For a Windows cluster
 
-1. Entre no novo [Portal do Azure](https://portal.azure.com).
+1. Sign on to the new [Azure Portal](https://portal.azure.com).
 
-2. Clique em **Procurar**, em **Clusters HDInsight** e clique no cluster HDInsight que você criou.
+2. Click **Browse**, click **HDInsight clusters**, and then click the HDInsight cluster that you created.
 
-3. Na folha do cluster, clique em **Área de Trabalho Remota** e na folha **Área de Trabalho Remota**, clique em **Conectar**.
+3. In the cluster blade, click **Remote Desktop**, and then in the **Remote Desktop** blade, click **Connect**.
 
-	![Remoto em cluster HDI](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Criar um grupo de recursos do Azure")
+    ![Remote into HDI cluster](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Create an Azure Resource Group")
 
-	Quando receber a solicitação, insira as credenciais fornecidas para o usuário da área de trabalho remota.
+    When prompted, enter the credentials you provided for the remote desktop user.
 
-4. Na sessão remota, inicie o Windows PowerShell e use os comandos do sistema de arquivos HDFS para listar os arquivos no Repositório Data Lake do Azure.
+4. In the remote session, start Windows PowerShell, and use the HDFS filesystem commands to list the files in the Azure Data Lake Store.
 
-	 	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
+        hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
 
-	Isso deve listar o arquivo carregado anteriormente no Repositório Data Lake.
+    This should list the file that you uploaded earlier to the Data Lake Store.
 
-		15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
-		Found 1 items
-		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
+        15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
+        Found 1 items
+        -rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
 
-	Você também pode usar o comando `hdfs dfs -put` para carregar alguns arquivos no Repositório Data Lake e usar `hdfs dfs -ls` para verificar se os arquivos foram carregados com êxito.
+    You can also use the `hdfs dfs -put` command to upload some files to the Data Lake Store, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
 
-## Consulte também
+## <a name="see-also"></a>See Also
 
-* [Portal: criar um cluster HDInsight para usar o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Portal: Create an HDInsight cluster to use Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

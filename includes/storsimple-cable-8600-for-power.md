@@ -1,46 +1,49 @@
 <!--author=alkohli last changed: 9/16/15-->
 
 
-#### Para conectar seu dispositivo à alimentação
+#### <a name="to-cable-your-device-for-power"></a>To cable your device for power
 
->[AZURE.NOTE]Ambos os compartimentos no seu dispositivo StorSimple incluem PCMs redundantes. Para cada compartimento, os PCMs devem ser instalados e conectados a diferentes fontes de energia para garantia de alta disponibilidade.
+>[AZURE.NOTE] Both enclosures on your StorSimple device include redundant PCMs. For each enclosure, the PCMs must be installed and connected to different power sources to ensure high availability.
 
-1. Verifique se os comutadores de energia em todos os PCMs estão na posição DESLIGADO.
+1. Make sure that the power switches on all the PCMs are in the OFF position.
 
-2. No compartimento principal, conecte os cabos de energia a ambos os PCMs. Os cabos de energia são identificados em vermelho no diagrama de fiação de energia abaixo.
+2. On the primary enclosure, connect the power cords to both PCMs. The power cords are identified in red in the power cabling diagram, below.
 
-3. Verifique se os dois PCMs do compartimento principal usam fontes de energia separadas.
+3. Make sure that the two PCMs on the primary enclosure use separate power sources.
 
-4. Conecte os cabos de energia às unidades de distribuição de energia do rack, conforme mostrado no diagrama de fiação a seguir.
+4. Attach the power cords to the power on the rack distribution units as shown in the power cabling diagram.
 
-5. Repita as etapas de 2 a 4 para o compartimento EBOD.
+5. Repeat steps 2 through 4 for the EBOD enclosure.
 
-6. Ligue o compartimento EBOD invertendo o comutador de energia em cada PCM para a posição de LIGADO.
+6. Turn on the EBOD enclosure by flipping the power switch on each PCM to the ON position.
 
-7. Verifique se o compartimento EBOD está ligado observando se os LEDs de cor verde na parte posterior do controlador do EBOD ACENDERAM.
+7. Verify that the EBOD enclosure is turned on by checking that the green LEDs on the back of the EBOD controller are turned ON.
 
-8. Ligue o compartimento principal invertendo cada comutador do PCM para a posição de LIGADO.
+8. Turn on the primary enclosure by flipping each PCM switch to the ON position.
 
-9. Verifique se o sistema está ligado garantindo que os LEDs do controlador do dispositivo ACENDERAM.
+9. Verify that the system is on by ensuring the device controller LEDs have turned ON.
 
-10. Verifique se a conexão entre o controlador do EBOD e o controlador do dispositivo está ativa observando que os quatro LEDs do lado da porta do SAS, no controlador do EBOD esteja verde.
+10. Make sure that the connection between the EBOD controller and the device controller is active by verifying that the four LEDs next to the SAS port on the EBOD controller are green.
 
-    >[AZURE.IMPORTANT]Para garantir a alta disponibilidade do seu sistema, recomendamos que siga fielmente o esquema de cabeamento de energia mostrado no diagrama que segue.
+    >[AZURE.IMPORTANT] To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram.
 
-    ![Cabeamento do dispositivo 4U para alimentação](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
+    ![Cable your 4U device for power](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
 
-    **Cabeamento de energia**
+    **Power cabling**
 
-    |Rótulo|Descrição|
+    |Label|Description|
     |:----|:----------|
-    |1|Compartimento principal|
+    |1|Primary enclosure|
     |2|PCM 0|
     |3|PCM 1|
-    |4|Controlador 0|
-    |5|Controlador 1|
-    |6|Controlador 0 do EBOD|
-    |7|Controlador 1 do EBOD|
-    |8|Compartimento EBOD|
+    |4|Controller 0|
+    |5|Controller 1|
+    |6|EBOD controller 0|
+    |7|EBOD controller 1|
+    |8|EBOD enclosure|
     |9|PDUs|
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

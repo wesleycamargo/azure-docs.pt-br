@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Corrigir as vulnerabilidades do sistema operacional na Central de Segurança do Azure | Microsoft Azure"
-   description="Este documento mostra como implementar a recomendação da Central de Segurança do Azure para **Corrigir as vulnerabilidades do sistema operacional**."
+   pageTitle="Remediate OS vulnerabilities in Azure Security Center | Microsoft Azure"
+   description="This document shows you how to implement the Azure Security Center recommendation **Remediate OS vulnerabilities**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,66 +16,72 @@
    ms.date="07/20/2016"
    ms.author="terrylan"/>
 
-# Corrigir as vulnerabilidades do sistema operacional na Central de Segurança do Azure
 
-Diariamente, a Central de Segurança do Azure analisa as configurações do sistema operacional (SO) da sua máquina virtual (VM) que podem tornar a VM mais vulnerável a ataques e recomenda as alterações de configuração para corrigir essas vulnerabilidades. Consulte a [lista de regras de configuração recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para obter mais informações sobre as configurações específicas que estão sendo monitoradas. A Central de Segurança recomenda que você resolva as vulnerabilidades quando a configuração do SO da VM não seguir as regras de configuração recomendadas.
+# <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Remediate OS vulnerabilities in Azure Security Center
 
-> [AZURE.NOTE] Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
+Azure Security Center analyzes daily your virtual machine (VM) operating system (OS) for configurations that could make the VM more vulnerable to attack and recommends configuration changes to address these vulnerabilities. See the [list of recommended configuration rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for more information on the specific configurations being monitored. Security Center will recommend that you resolve vulnerabilities when your VM’s OS configuration does not match the recommended configuration rules.
 
-## Implementar a recomendação
+> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
-1. Na folha **Recomendações**, selecione **Solucionar vulnerabilidades do SO**. Isso abre a folha **Corrigir vulnerabilidades do SO**. ![Corrigir as vulnerabilidades do sistema operacional][1]
+## <a name="implement-the-recommendation"></a>Implement the recommendation
 
-2. A folha **Corrigir vulnerabilidades do SO** lista as VMs que tenham configurações de SO que não seguem as regras de configuração recomendadas. Para cada VM, a folha identifica:
+1. In the **Recommendations** blade, select **Remediate OS vulnerabilities**. This opens the **Remediate OS vulnerabilities** blade.
+![Remediate OS vulnerabilities][1]
 
- - **REGRAS COM FALHAS** -- o número de regras de configuração que o SO da VM não segue.
- - **HORA DA ÚLTIMA VERIFICAÇÃO** -- a data e a hora em que a Central de Segurança verificou pela última vez a configuração do SO da VM.
- - **ESTADO** --- o estado atual da vulnerabilidade:
+2. The **Remediate OS vulnerabilities** blade lists your VMs with OS configurations that do not match the recommended configuration rules.  For each VM, the blade identifies:
 
-      - Aberta: a vulnerabilidade ainda não foi corrigida
-      - Em andamento: a vulnerabilidade está sendo corrigida; não é exigido que você realize nenhuma ação
-      - Resolvida: a vulnerabilidade já foi corrigida (quando o problema for resolvido, a entrada será esmaecida)
- - **GRAVIDADE** -- Todas as vulnerabilidades são definidas com uma gravidade Baixa, o que significa que a vulnerabilidade deve ser corrigida, mas não exige atenção imediata.
+ - **FAILED RULES** -- The number of rules that the VM's OS configuration failed.
+ - **LAST SCAN TIME** -- The date and time that Security Center last scanned the VM’s OS configuration.
+ - **STATE** -- The current state of the vulnerability:
 
-   Selecione uma VM. Isso abre a folha **Corrigir vulnerabilidades do SO** dessa VM e exibe as regras que não foram seguidas.
+      - Open: The vulnerability has not been addressed yet
+      - In Progress: The vulnerability is currently being applied, no action is required by you
+      - Resolved: The vulnerability was already addressed (when the issue has been resolved, the entry is grayed out)
+ - **SEVERITY** -- All vulnerabilities are set to a severity of Low, meaning a vulnerability should be addressed but does not require immediate attention.
 
-   ![Regras de configuração que falharam][2]
+   Select a VM. This opens the **Remediate OS vulnerabilities** blade for that VM and displays the rules that have failed.
 
-Selecione uma regra. Neste exemplo, você pode selecionar **A senha deve atender a requisitos de complexidade**. Uma folha será aberta descrevendo a regra com falha e o impacto. Confira os detalhes e considere como as configurações do sistema operacional serão aplicadas.
+   ![Configuration rules that have failed][2]
 
-  ![Descrição da regra com falha][3]
+Select a rule. In this example, lets select **Password must meet complexity requirements**. A blade opens describing the failed rule and the impact. Review the details and consider how operating system configurations will be applied.
 
-  A Central de Segurança usa a Common Configuration Enumeration (CCE) para atribuir identificadores exclusivos para as regras de configuração. As informações a seguir são fornecidas nessa folha:
+  ![Description for the failed rule][3]
 
-  - NOME -- o nome da regra
-  - GRAVIDADE -- valor de gravidade da CCE de crítico, importante ou aviso
-  - CCIED -- identificador exclusivo da CCE para a regra
-  - DESCRIÇÃO -- a descrição da regra
-  - VULNERABILIDADE -- explicação da vulnerabilidade ou do risco se a regra não for aplicada
-  - IMPACTO -- o impacto nos negócios quando a regra é aplicada
-  - VALOR ESPERADO -- o valor esperado quando a Central de Segurança analisa a configuração do SO da VM em relação à regra
-  - OPERAÇÃO DA REGRA -- a operação da regra usada pela Central de Segurança durante a análise da configuração do SO da VM em relação à regra
-  - VALOR REAL -- o valor retornado após a análise da configuração do SO da VM em relação à regra
-  - RESULTADO DA AVALIAÇÃO -- o resultado da análise: Aprovado, Falha
+  Security Center uses Common Configuration Enumeration (CCE) to assign unique identifiers for configuration rules. The following information is provided on this blade:
+
+  - NAME -- Name of rule
+  - SEVERITY -- CCE severity value of critical, important, or warning
+  - CCIED -- CCE unique identifier for the rule
+  - DESCRIPTION -- Description of rule
+  - VULNERABILITY -- Explanation of vulnerability or risk if rule is not applied
+  - IMPACT -- Business impact when rule is applied
+  - EXPECTED VALUE -- Value expected when Security Center analyzes your VM OS configuration against the rule
+  - RULE OPERATION -- Rule operation used by Security Center during analysis of your VM OS configuration against the rule
+  - ACTUAL VALUE -- Value returned after analysis of your VM OS configuration against the rule
+  - EVALUATION RESULT –- Result of analysis: Pass, Fail
 
 
-## Consulte também
+## <a name="see-also"></a>See also
 
-Este artigo mostrou como implementar a recomendação da Central de Segurança para "Corrigir vulnerabilidades do sistema operacional". Você pode conferir o conjunto de regras de configuração [aqui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). A Central de Segurança usa a Common Configuration Enumeration (CCE) para atribuir identificadores exclusivos para as regras de configuração. Visite o site da [CCE](http://cce.mitre.org) para obter mais informações.
+This article showed you how to implement the Security Center recommendation "Remediate OS vulnerabilities." You can review the set of configuration rules [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center uses CCE (Common Configuration Enumeration) to assign unique identifiers for configuration rules. Visit the [CCE](http://cce.mitre.org) site for more information.
 
-Para saber mais sobre a Central de Segurança, confira o seguinte:
+To learn more about Security Center, see the following:
 
-- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-- [Gerenciando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
-- [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
-- [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e a responder a alertas de segurança.
-- [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) -- saiba como monitorar o status de integridade de suas soluções de parceiros.
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
-- [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
+- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/recommendation.png
-[2]: ./media/security-center-remediate-os-vulnerabilities/vm-remediate-os-vulnerabilities.png
+[2]:./media/security-center-remediate-os-vulnerabilities/vm-remediate-os-vulnerabilities.png
 [3]: ./media/security-center-remediate-os-vulnerabilities/vulnerability-details.png
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

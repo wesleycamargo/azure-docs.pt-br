@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Habilitar o acesso público a um aplicativo ACS | Microsoft Azure"
-   description="Como habilitar o acesso público a um Serviço de Contêiner do Azure."
+   pageTitle="Enable Public Access to an ACS app | Microsoft Azure"
+   description="How to enable public access to an Azure Container Service."
    services="container-service"
    documentationCenter=""
    authors="Thraka"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Contêineres, Microsserviços, Mesos, Azure"/>
+   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -16,83 +16,87 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/26/2016"
-   ms.author="adegeo"/>
+   ms.author="timlt"/>
 
-# Habilitar acesso público a um aplicativo do Serviço de Contêiner do Azure
 
-Todos os contêineres DC/OS no [pool de agentes públicos](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) do ACS são automaticamente expostos à Internet. Por padrão, as portas **80**, **443**, **8080** estão abertas, e qualquer contêiner (público) que esteja ouvindo nessas portas estará acessível. Este artigo mostra como abrir mais portas para seus aplicativos no Serviço de Contêiner do Azure.
+# <a name="enable-public-access-to-an-azure-container-service-application"></a>Enable public access to an Azure Container Service application
 
-## Abrir uma porta (portal) 
+Any DC/OS container in the ACS [public agent pool](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) is automatically exposed to the internet. By default, ports **80**, **443**, **8080** are opened, and any (public) container listening on those ports are accessible. This article shows you how to open more ports for your applications in Azure Container Service.
 
-Primeiro, é necessário abrir a porta que queremos.
+## <a name="open-a-port-(portal)"></a>Open a port (portal) 
 
-1. Faça logon no portal.
-2. Localize o grupo de recursos em que você implantou o Serviço de Contêiner do Azure.
-3. Selecione o balanceador de carga do agente (que tem um nome semelhante a **XXXX-agent-lb-XXXX**).
+First, we need to open the port we want.
 
-    ![Balanceador de carga do serviço de contêiner do Azure](media/container-service-dcos-agents/agent-load-balancer.png)
+1. Log in to the portal.
+2. Find the resource group that you deployed the Azure Container Service to.
+3. Select the agent load balancer (which is named similar to **XXXX-agent-lb-XXXX**).
 
-4. Clique em **Investigações** e então em **Adicionar**.
+    ![Azure container service load balancer](media/container-service-dcos-agents/agent-load-balancer.png)
 
-    ![Investigações do balanceador de carga do serviço de contêiner do Azure](media/container-service-dcos-agents/add-probe.png)
+4. Click **Probes** and then **Add**.
 
-5. Preencha o formulário de investigação e clique em **OK**.
+    ![Azure container service load balancer probes](media/container-service-dcos-agents/add-probe.png)
 
-    | Campo | Descrição |
-    | ----- | ----------- |
-    | Nome | Um nome descritivo da investigação. |
-    | Port | A porta do contêiner a ser testado. |
-    | Caminho | (Quando em modo HTTP) O caminho relativo do site para investigação. Não há suporte para HTTPS. |
-    | Intervalo | O tempo entre as tentativas de investigação, em segundos. |
-    | Limite não íntegro | Número de tentativas consecutivas de investigação antes de considerar o contêiner não íntegro. | 
+5. Fill out the probe form and click **OK**.
+
+  	| Field | Description |
+  	| ----- | ----------- |
+  	| Name  | A descriptive name of the probe. |
+  	| Port  | The port of the container to test. |
+  	| Path  | (When in HTTP mode) The relative website path to probe. HTTPS not supported. |
+  	| Interval | The amount of time between probe attempts, in seconds. |
+  	| Unhealthy threshold | Number of consecutive probe attempts before considering the container unhealthy. | 
     
 
-6. De volta às propriedades do balanceador de carga do agente, clique em **Regras de balanceamento de carga** e em **Adicionar**.
+6. Back at the properties of the agent load balancer, click **Load balancing rules** and then **Add**.
 
-    ![Regras do balanceador de carga do serviço de contêiner do Azure](media/container-service-dcos-agents/add-balancer-rule.png)
+    ![Azure container service load balancer rules](media/container-service-dcos-agents/add-balancer-rule.png)
 
-7. Preencha o formulário do balanceador de carga e clique em **OK**.
+7. Fill out the load balancer form and click **OK**.
 
-    | Campo | Descrição |
-    | ----- | ----------- |
-    | Nome | Um nome descritivo do balanceador de carga. |
-    | Port | A porta de entrada pública. |
-    | Porta de back-end | A porta pública interna do contêiner para o qual o tráfego será roteado. |
-    | Pool de back-end | Os contêineres nesse pool serão o destino para este balanceador de carga. |
-    | Investigação | A investigação usada para determinar se um destino no **Pool de back-end** está íntegro. |
-    | Persistência de sessão | Determina como o tráfego de um cliente deve ser tratado durante a sessão.<br><br>**Nenhum**: as solicitações sucessivas do mesmo cliente podem ser tratadas por qualquer contêiner.<br>**IP do cliente**: as solicitações sucessivas do mesmo IP do cliente são manipuladas pelo mesmo contêiner.<br>**IP do cliente e o protocolo**: as solicitações sucessivas da mesma combinação de IP e o protocolo de cliente são manipuladas pelo mesmo contêiner. |
-    | Tempo limite de ociosidade | (Somente TCP) Em minutos, o tempo para manter um cliente TCP/HTTP aberto sem depender de mensagens *keep-alive*. |
+  	| Field | Description |
+  	| ----- | ----------- |
+  	| Name  | A descriptive name of the load balancer. |
+  	| Port  | The public incoming port. |
+  	| Backend port | The internal-public port of the container to route traffic to. |
+  	| Backend pool | The containers in this pool will be the target for this load balancer. |
+  	| Probe | The probe used to determine if a target in the **Backend pool** is healthy. |
+  	| Session persistence | Determines how traffic from a client should be handled for the duration of the session.<br><br>**None**: Successive requests from the same client can be handled by any container.<br>**Client IP**: Successive requests from the same client IP are handled by the same container.<br>**Client IP and protocol**: Successive requests from the same client IP and protocol combination are handled by the same container. |
+  	| Idle timeout | (TCP only) In minutes, the time to keep a TCP/HTTP client open without relying on *keep-alive* messages. |
 
-## Adicionar uma regra de segurança (portal)
+## <a name="add-a-security-rule-(portal)"></a>Add a security rule (portal)
 
-Em seguida, precisamos adicionar uma regra de segurança que encaminhe o tráfego da nossa porta aberta por meio do firewall.
+Next, we need to add a security rule that routes traffic from our opened port through the firewall.
 
-1. Faça logon no portal.
-2. Localize o grupo de recursos em que você implantou o Serviço de Contêiner do Azure.
-3. Selecione o grupo de segurança de rede de agente **público** (que tem um nome semelhante a **XXXX-agent-public-nsg-XXXX**).
+1. Log in to the portal.
+2. Find the resource group that you deployed the Azure Container Service to.
+3. Select the **public** agent network security group (which is named similar to **XXXX-agent-public-nsg-XXXX**).
 
-    ![Grupo de segurança de rede do serviço de contêiner do Azure](media/container-service-dcos-agents/agent-nsg.png)
+    ![Azure container service network security group](media/container-service-dcos-agents/agent-nsg.png)
 
-4. Selecione **Regras de segurança de entrada** e **Adicionar**.
+4. Select **Inbound security rules** and then **Add**.
 
-    ![Regras do grupo de segurança de rede do serviço de contêiner do Azure](media/container-service-dcos-agents/add-firewall-rule.png)
+    ![Azure container service network security group rules](media/container-service-dcos-agents/add-firewall-rule.png)
 
-5. Preencha a regra de firewall para permitir sua porta pública e clique em **OK**.
+5. Fill out the firewall rule to allow your public port and click **OK**.
 
-    | Campo | Descrição |
-    | ----- | ----------- |
-    | Nome | Um nome descritivo da regra do firewall. |
-    | Prioridade | Classificação de prioridade para a regra. Quanto menor o número, maior a prioridade. |
-    | Fonte | Restrinja o intervalo de endereços IP de entrada a ser permitido ou negado por essa regra. Use **Qualquer** para não especificar uma restrição. |
-    | O Barramento de | Selecione um conjunto de serviços predefinidos para os quais foi definida essa regra de segurança. Caso contrário, use **Personalizada** para criar suas próprias. |
-    | Protocolo | Restrinja o tráfego baseado em **TCP** ou **UDP**. Use **Qualquer** para não especificar uma restrição. |
-    | Intervalo de portas | Quando **Serviço** for **Personalizado**, especifica o intervalo de portas afetadas por essa regra. Você pode usar uma única porta, como **80**, ou um intervalo, como **1024-1500**. |
-    | Ação | Permita ou negue o tráfego que atenda aos critérios. |
+  	| Field | Description |
+  	| ----- | ----------- |
+  	| Name  | A descriptive name of the firewall rule. |
+  	| Priority | Priority rank for the rule. The lower the number the higher the priority. |
+  	| Source | Restrict the incoming IP address range to be allowed or denied by this rule. Use **Any** to not specify a restriction. |
+  	| Service | Select a set of predefined services this security rule is for. Otherwise use **Custom** to create your own. |
+  	| Protocol | Restrict traffic based on **TCP** or **UDP**. Use **Any** to not specify a restriction. |
+  	| Port range | When **Service** is **Custom**, specifies the range of ports that this rule affects. You can use a single port, such as **80**, or a range like **1024-1500**. |
+  	| Action | Allow or deny traffic that meets the criteria. |
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Saiba mais sobre a diferença entre [agentes DC/OS públicos e privados](container-service-dcos-agents.md).
+Learn about the difference between [public and private DC/OS agents](container-service-dcos-agents.md).
 
-Leia mais informações sobre [como gerenciar seus contêineres de DC/OS](container-service-mesos-marathon-ui.md).
+Read more information about [managing your DC/OS containers](container-service-mesos-marathon-ui.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

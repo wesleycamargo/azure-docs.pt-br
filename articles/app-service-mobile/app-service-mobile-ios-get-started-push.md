@@ -1,59 +1,60 @@
 <properties
-	pageTitle="Adicionar notificações por push ao aplicativo iOS com aplicativos móveis do Azure"
-	description="Saiba como usar aplicativos móveis do Azure para enviar notificações por push para seu aplicativo iOS."
-	services="app-service\mobile"
-	documentationCenter="ios"
-	manager="dwrede"
-	editor=""
-	authors="krisragh"/>
+    pageTitle="Add Push Notifications to iOS App with Azure  Mobile Apps"
+    description="Learn how to use Azure Mobile Apps to send push notifications to your iOS app."
+    services="app-service\mobile"
+    documentationCenter="ios"
+    manager="yochayk"
+    editor=""
+    authors="yuaxu"/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="06/28/2016"
-	ms.author="krisragh"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="yuaxu"/>
 
 
-# Adicionar as notificações por push ao seu aplicativo iOS
+
+# <a name="add-push-notifications-to-your-ios-app"></a>Add Push Notifications to your iOS App
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-## Visão geral
-Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do iOS] para que, sempre que um registro for inserido, uma notificação por push seja enviada. Este tutorial baseia-se no tutorial de [início rápido do iOS], que você deve concluir primeiro. Se você não usar o projeto baixado de início rápido do servidor, deve adicionar o pacote de extensão de notificação por push ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+## <a name="overview"></a>Overview
+In this tutorial, you add push notifications to the [iOS quick start] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [iOS quick start] tutorial, which you must complete first. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-O [simulador de iOS não dá suporte às notificações por push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), portanto, para este tutorial, você precisa de um dispositivo iOS físico e uma [associação ao Programa de Desenvolvedores da Apple](https://developer.apple.com/programs/ios/).
+The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), so for this tutorial, you need a physical iOS device and an [Apple Developer Program membership](https://developer.apple.com/programs/ios/).
 
-##<a name="create-hub"></a>Criar um Hub de notificação
+##<a name="<a-name="create-hub"></a>create-a-notification-hub"></a><a name="create-hub"></a>Create a Notification Hub
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
-## <a id="register"></a>Registre o aplicativo para obter notificações por push
+## <a name="<a-id="register"></a>register-app-for-push-notifications"></a><a id="register"></a>Register app for push notifications
 
-[AZURE.INCLUDE [Habilitar Notificações por push da Apple](../../includes/enable-apple-push-notifications.md)]
+[AZURE.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
-## Configurar o Azure para enviar notificações por push
+## <a name="configure-azure-to-send-push-notifications"></a>Configure Azure to send push notifications
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-##<a id="update-server"></a>Atualizar projeto de servidor para enviar notificações por push
+##<a name="<a-id="update-server"></a>update-server-project-to-send-push-notifications"></a><a id="update-server"></a>Update server project to send push notifications
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-## <a id="add-push"></a>Adicionar notificações por push ao aplicativo
+## <a name="<a-id="add-push"></a>add-push-notifications-to-app"></a><a id="add-push"></a>Add push notifications to app
 
 [AZURE.INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
 
-## <a id="test"></a>Testar notificações por push no aplicativo
+## <a name="<a-id="test"></a>test-push-notifications-in-app"></a><a id="test"></a>Test push notifications in app
 
-[AZURE.INCLUDE [Testar notificações por push no aplicativo](../../includes/test-push-notifications-in-app.md)]
+[AZURE.INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
 
-##<a id="more"></a>Mais
+##<a name="<a-id="more"></a>more"></a><a id="more"></a>More
 
-* Os modelos fornecem a flexibilidade para enviar pushes de plataforma cruzada e pushes localizados. [Como usar a biblioteca de cliente do iOS para aplicativos móveis do Azure](app-service-mobile-ios-how-to-use-client-library.md#templates) mostra como registrar os modelos.
-* As marcas permitem que você tenha como alvo clientes segmentados com pushes. [Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) mostra como adicionar marcas à instalação de um dispositivo.
+* Templates give you flexibility to send cross-platform pushes and localized pushes. [How to Use iOS Client Library for Azure Mobile Apps](app-service-mobile-ios-how-to-use-client-library.md#templates) shows you how to register templates.
+* Tags allow you to target segmented customers with pushes. [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) shows you how to add tags to a device installation.
 
 <!-- Anchors.  -->
 [Generate iOS certificate signing request]: #certificates
@@ -68,6 +69,10 @@ O [simulador de iOS não dá suporte às notificações por push](https://develo
 <!-- Images. -->
 
 <!-- URLs. -->
-[início rápido do iOS]: app-service-mobile-ios-get-started.md
+[iOS quick start]: app-service-mobile-ios-get-started.md
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

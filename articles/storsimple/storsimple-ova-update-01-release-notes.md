@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Notas de versão das Atualizações do StorSimple Virtual Array | Microsoft Azure"
-   description="Descreve os problemas em aberto críticos e resoluções para o StorSimple Virtual Array que executa as Atualizações 0.1 e 0.2."
+   pageTitle="StorSimple Virtual Array Updates release notes| Microsoft Azure"
+   description="Describes critical open issues and resolutions for the StorSimple Virtual Array running Update 0.2 and 0.1."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,81 +15,86 @@
    ms.date="06/16/2016"
    ms.author="alkohli" />
 
-# Notas de versão as Atualizações 0.1 e 0.2 do StorSimple Virtual Array
 
-## Visão geral
+# <a name="storsimple-virtual-array-update-0.2-and-0.1-release-notes"></a>StorSimple Virtual Array Update 0.2 and 0.1 release notes
 
-As notas de versão a seguir identificam as questões críticas em aberto e os problemas resolvidos para as atualizações do Microsoft Azure StorSimple Virtual Array. (A Microsoft Azure StorSimple Virtual Array também é conhecida como dispositivo virtual local StorSimple ou dispositivo virtual StorSimple.)
+## <a name="overview"></a>Overview
 
-As notas de versão são continuamente atualizadas e, à medida que são descobertas questões críticas que exijam uma solução alternativa, elas são adicionadas. Examine cuidadosamente as informações contidas nas notas de versão antes de implantar seu dispositivo virtual StorSimple.
+The following release notes identify the critical open issues and the resolved issues for Microsoft Azure StorSimple Virtual Array updates. (Microsoft Azure StorSimple Virtual Array is also known as the StorSimple on-premises virtual device or the StorSimple virtual device.) 
 
-A Atualização 0.2 corresponde à versão de software **10.0.10280.0** e a Atualização 0.1 corresponde à versão **10.0.10279.0**. As seções a seguir listam as alterações em cada atualização.
+The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes.
 
-> [AZURE.NOTE] As atualizações causam interrupção e reiniciarão seu dispositivo. Se processos de E/S estiverem em andamento, o dispositivo sofrerá tempo de inatividade.
+Update 0.2 corresponds to the software version **10.0.10280.0**; Update 0.1 is version **10.0.10279.0**. The sections below list the changes for each update. 
 
-## Problemas resolvidos na Atualização 0.2
-A Atualização 0.2 inclui todas as alterações da Atualização 0.1, além da correção descrita na tabela a seguir:
+> [AZURE.NOTE] Updates are disruptive and will restart your device. If I/O are in progress, the device will incur downtime.
 
-Recurso | Problema |
+## <a name="issues-fixed-in-the-update-0.2"></a>Issues fixed in the Update 0.2
+Update 0.2 includes all changes from Update 0.1 in addition to the fix described in the following table:
+
+Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
 --------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-Atualizações | Na última versão, as atualizações não eram detectadas automaticamente no portal clássico do Azure, de modo que era necessário usar a IU da Web local para instalar atualizações. Esse problema foi corrigido nesta versão. Depois de instalar a Atualização 0.2, você pode instalar atualizações futuras usando o portal clássico do Azure.                       
+Updates                                 | In the last release, updates weren't detected automatically in the Azure classic portal, so you had to use the local Web UI to install updates. This issue is fixed in this release. After installing Update 0.2, you can install future updates using the Azure classic portal.                       
 
-## Novidades na Atualização 0.1
+## <a name="what's-new-in-the-update-0.1"></a>What's new in the Update 0.1
 
-A Atualização 0.1 contém as seguintes correções de bug e aprimoramentos.
+Update 0.1 contains the following bug fixes and improvements. 
 
-- **Resiliência aprimorada contra interrupções de nuvem**: esta versão tem várias correções de bug voltadas para recuperação de desastres, backup, restauração e camadas no caso de uma interrupção da conectividade da nuvem. 
+- **Improved resiliency for cloud outages**: This release has several bug fixes around disaster recovery, backup, restore, and tiering in the event of a cloud connectivity disruption. 
 
-- **Melhor desempenho de restauração**: esta versão tem correções de bug que reduziram significativamente o tempo de conclusão dos trabalhos de restauração.
+- **Improved restore performance**: This release has bug fixes that have significantly cut down the completion time of the restore jobs.
 
-- **Otimização de reclamação de espaço automatizada**: quando os dados são excluídos em volumes com provisionamento dinâmico, os blocos de armazenamento não utilizados deverão ser recuperados. Esta versão aprimorou o processo de recuperação de espaço da nuvem, o que resultou na disponibilização mais rápida do espaço não utilizado, em comparação com versões anteriores.
+- **Automated space reclamation optimization**: When data is deleted on thinly provisioned volumes, the unused storage blocks need to be reclaimed. This release has improved the space reclamation process from the cloud resulting in the unused space becoming available faster as compared to the previous versions.
 
-- **Novas imagens de disco virtual**: os novos VHD e VHDX e VMDK agora estão disponíveis por meio do portal clássico do Azure. Você pode baixar essas imagens para provisionar novos dispositivos da Atualização 0.1.
+- **New virtual disk images**: New VHD, VHDX, and VMDK are now available via the Azure classic portal. You can download these images to provision new Update 0.1 devices.
 
-- **Melhoria da precisão de status de trabalhos no portal**: na versão anterior do software, os relatórios de status de trabalhos no portal não eram granulares. Esse problema foi corrigido nesta versão.
+- **Improving the accuracy of jobs status in the portal**: In the earlier version of software, job status reporting in the portal was not granular. This issue is resolved in this release.
 
-- **Experiência de ingresso no domínio**: correções de bugs relacionadas à junção de domínios e renomeação do dispositivo.
+- **Domain join experience**: Bug fixes related to domain-joining and renaming of the device.
 
 
-## Problemas resolvidos na Atualização 0.1
+## <a name="issues-fixed-in-the-update-0.1"></a>Issues fixed in the Update 0.1
 
-A tabela a seguir fornece um resumo dos problemas corrigidos nesta versão.
+The following table provides a summary of issues fixed in this release.
 
-| Nº | Recurso | Problema |
+| No.  | Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
 |------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1 | VMDK | Em algumas versões do VMware, o disco do sistema operacional era visto como esparso, causando alertas e interrompendo as operações normais. Isso foi corrigido nesta versão. |
-| 2 | Servidor iSCSI | Na última versão, o usuário foi solicitado a especificar um gateway para cada interface de rede habilitada do seu dispositivo virtual StorSimple. Esse comportamento mudou nesta versão para que o usuário tenha que configurar pelo menos um gateway para todas as interfaces de rede habilitadas. |
-| 3 | Pacote de suporte | Na versão anterior do software, a coleção de pacotes de suporte falhou quando os tamanhos dos pacote foram maiores que 1 GB. Esse problema foi corrigido nesta versão. |
-| 4 | Acesso à nuvem | Na última versão, se a StorSimple Virtual Array não tivesse conectividade de rede e fosse reiniciada, a interface do usuário local teria problemas de conectividade. Esse problema foi corrigido nesta versão. |
-| 5 | Gráficos de monitoramento | Na versão anterior, após um failover de dispositivo, os gráficos de utilização de capacidade da nuvem exibiam valores incorretos no portal clássico do Azure. Isso foi corrigido na versão atual. |
+| 1    | VMDK                                 | In some VMware versions, the OS disk was seen as sparse causing alerts and disrupting normal operations. This was fixed in this release.                                                                                                                                                                                    |
+| 2    | iSCSI server                         | In the last release, the user was required to specify a gateway for each enabled network interface of your StorSimple virtual device. This behavior is changed in this release so that the user has to configure at least one gateway for all the enabled network interfaces.                                                                              |
+| 3    | Support package                      | In the earlier version of software, Support package collection failed when the package sizes were larger than 1 GB. This issue is fixed in this release.                                                                                                                                                                               |
+| 4    | Cloud access                         |  In the last release, if the StorSimple Virtual Array did not have network connectivity and was restarted, the local UI would have connectivity issues. This problem is fixed in this release.                                                                                                                            |
+| 5    | Monitoring charts                    | In the previous release, following a device failover, the cloud capacity utilization charts displayed incorrect values in the Azure classic portal. This is fixed in the current release.                                                                                                                          |
 
 
 
-## Problemas conhecidos na Atualização 0.1
+## <a name="known-issues-in-the-update-0.1"></a>Known issues in the Update 0.1
 
-A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple Virtual Array e inclui os problemas observados das versões anteriores. **Os problemas observados nesta versão estão marcados com um asterisco. Quase todos os problemas nesta lista foram herdados da versão da StorSimple Virtual Array.**
+The following table provides a summary of known issues for the StorSimple Virtual Array and includes the issues release-noted from the previous releases. **The issues release noted in this release are marked with an asterisk. Almost all the issues in this list have carried over from the GA release of StorSimple Virtual Array.**
 
 
-| Nº | Recurso | Problema | Solução alternativa/comentários |
+| No. | Feature | Issue | Workaround/comments |
 |-----|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **1.** | Atualizações | Os dispositivos virtuais criados na versão de visualização não podem ser atualizados para uma versão de Disponibilidade Geral com suporte. | Esses dispositivos virtuais devem fazer failover para a versão de Disponibilidade Geral usando um fluxo de trabalho de DR (Recuperação de Desastre). |
-| **2.** | Disco de dados provisionado | Após você ter provisionado um disco de dados de um determinado tamanho especificado e criado o dispositivo virtual StorSimple correspondente, você não deve expandir nem reduzir o disco de dados. A tentativa de fazer isso resultará na perda de todos os dados nas camadas locais do dispositivo. | |
-| **3.** | Política de grupo | Quando um dispositivo é associado a um domínio, a aplicação de uma política de grupo pode afetar a operação do dispositivo. | Certifique-se de que a matriz virtual esteja em sua própria OU (unidade organizacional) do Active Directory e que nenhum GPO (objeto de política de grupo) seja aplicado a ela.|
-| **4.** | Interface do Usuário da Web local | Se os recursos de segurança aprimorados estão habilitados no Internet Explorer (IE ESC), algumas páginas da interface do usuário da Web local, como Solução de Problemas ou Manutenção, podem não funcionar corretamente. Os botões nessas páginas também podem não funcionar. | Desligue os recursos de segurança reforçada do Internet Explorer.|
-| **5.** | Interface do Usuário da Web local | Em uma máquina virtual de Hyper-V, as interfaces de rede na interface do usuário da Web são exibidas como interfaces de 10 Gbps. | Esse comportamento é um reflexo do Hyper-V. O Hyper-V sempre mostra 10 Gbps para adaptadores de rede virtual. |
-| **6.** | Compartilhamentos ou volumes em camadas | Não há suporte para bloqueio de intervalo de bytes para aplicativos que funcionam com os volumes em camadas do StorSimple. Se o bloqueio de intervalo de bytes estiver habilitado, a disposição em camadas do StorSimple não funcionará. | As medidas recomendadas incluem: <br></br>Desabilitar o bloqueio de intervalo de bytes na lógica do aplicativo.<br></br>Optar por inserir dados para este aplicativo em volumes fixos localmente em vez de volumes em camadas.<br></br>*Ressalva*: se estiver usando volumes fixados localmente e o bloqueio de intervalo de bytes estiver habilitado, esteja ciente de que o volume fixo local pode ficar online antes mesmo da restauração ser concluída. Nesses casos, se uma restauração está em andamento, você deve aguardar a restauração ser concluída. |
-| **7.** | Compartilhamentos em camadas | Trabalhar com arquivos grandes pode resultar em uma divisão em camadas lenta. | Ao trabalhar com arquivos grandes, recomendamos que o maior arquivo seja inferior a 3% do tamanho do compartilhamento. |
-| **8.** | Capacidade utilizada para compartilhamentos | Você pode ver o consumo de compartilhamento na ausência de quaisquer dados no compartilhamento. Isso ocorre porque a capacidade utilizada para compartilhamentos inclui metadados. | |
-| **9.** | Recuperação de desastre | Você só pode executar a recuperação de desastres de um servidor de arquivos no mesmo domínio que o dispositivo de origem. Não há suporte nesta versão para a recuperação de desastres para um dispositivo de destino em outro domínio. | Isso será implementado em uma versão posterior. |
-| **10.** | Azure PowerShell | Os dispositivos virtuais StorSimple não podem ser gerenciados por meio do Azure PowerShell nesta versão. | Todo o gerenciamento dos dispositivos virtuais deve ser feito por meio do portal clássico do Azure e da interface do usuário da Web local. |
-| **11.** | Alteração de senha | O console do dispositivo de matriz virtual só aceita a entrada no formato de teclado pt-BR. | |
-| **12.** | CHAP | Não é possível remover as credenciais CHAP depois de criadas. Além disso, se você modificar as credenciais CHAP, precisará colocar os volumes offline e colocá-los novamente online para que a alteração tenha efeito. | Isso será corrigido em uma versão futura. |
-| **13.** | Servidor iSCSI | O 'Armazenamento usado' exibido para um volume iSCSI pode ser diferente no serviço StorSimple Manager e no host iSCSI. | O host iSCSI tem o modo de exibição do sistema de arquivos.<br></br>O dispositivo detecta os blocos atribuídos quando o volume está no tamanho máximo.|
-| **14.** | Servidor de arquivos* | Se um arquivo em uma pasta tiver um Fluxo de Dados Alternativo (ADS) associado a ele, o ADS não será copiado ou restaurado por meio da recuperação de desastres, clonagem e Recuperação no Nível do Item.| |
+| **1.** | Updates | The virtual devices created in the preview release cannot be updated to a supported General Availability version. | These virtual devices must be failed over for the General Availability release using a disaster recovery (DR) workflow. |
+| **2.** | Provisioned data disk | Once you have provisioned a data disk of a certain specified size and created the corresponding StorSimple virtual device, you must not expand or shrink the data disk. Attempting to do so will result in a  loss of all the data in the local tiers of the device. |   |
+| **3.** | Group policy | When a device is domain-joined, applying a group policy can adversely affect the device operation. | Ensure that your virtual array is in its own organizational unit (OU) for Active Directory and no group policy objects (GPO) are applied to it.|
+| **4.** | Local web UI | If enhanced security features are enabled in Internet Explorer (IE ESC), some local web UI pages such as Troubleshooting or Maintenance may not work properly. Buttons on these pages may also not work. | Turn off enhanced security features in Internet Explorer.|
+| **5.** | Local web UI | In a Hyper-V virtual machine, the network interfaces in the web UI are displayed as 10 Gbps interfaces. | This behavior is a reflection of Hyper-V. Hyper-V always shows 10 Gbps for virtual network adapters. |
+| **6.** | Tiered volumes or shares | Byte range locking for applications that work with the StorSimple tiered volumes is not supported. If byte range locking is enabled, StorSimple tiering will not work. | Recommended measures include: <br></br>Turn off byte range locking in your application logic.<br></br>Choose to put data for this application in locally pinned volumes as opposed to tiered volumes.<br></br>*Caveat*: If using locally pinned volumes and byte range locking is enabled, be aware that the locally pinned volume can be online even before the restore is complete. In such instances, if a restore is in progress, then you must wait for the restore to complete. |
+| **7.** | Tiered shares | Working with large files could result in slow tier out. | When working with large files, we recommend that the largest file is smaller than 3% of the share size. |
+| **8.** | Used capacity for shares | You may see share consumption in the absence of any data on the share. This is because the used capacity for shares includes metadata. |   |
+| **9.** | Disaster recovery | You can only perform the disaster recovery of a file server to the same domain as that of the source device. Disaster recovery to a target device in another domain is not supported in this release. | This will be implemented in a later release. |
+| **10.** | Azure PowerShell | The StorSimple virtual devices cannot be managed through the Azure PowerShell in this release. | All the management of the virtual devices should be done through the Azure classic portal and the local web UI. |
+| **11.** | Password change | The virtual array device console only accepts input in en-US keyboard format. |   |
+| **12.** | CHAP | CHAP credentials once created cannot be removed. Additionally, if you modify the CHAP credentials, you will need to take the volumes offline and then bring them online for the change to take effect. | These will be addressed in a later release. |
+| **13.** | iSCSI server  | The 'Used storage' displayed for an iSCSI volume may be different in the StorSimple Manager service and the iSCSI host. | The iSCSI host has the filesystem  view.<br></br>The device sees the blocks allocated when the volume was at the maximum size.|
+| **14.** | File server*  | If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery.| |
 
 
-## Próxima etapa
+## <a name="next-step"></a>Next step
 
-[Instale as Atualizações](storsimple-ova-install-update-01.md) em seu StorSimple Virtual Array.
+[Install Updates](storsimple-ova-install-update-01.md) on your StorSimple Virtual Array.
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,3 +1,6 @@
-O Emparelhamento VNet é um mecanismo para conectar duas Redes Virtuais na mesma região por meio da rede de backbone do Azure. Uma vez emparelhadas, as duas Redes Virtuais aparecerão como uma única Rede Virtual para todas as finalidades de conectividade. Leia a [Visão geral do emparelhamento VNet](../articles/virtual-network/virtual-network-peering-overview.md) se você não estiver familiarizado com o Emparelhamento VNet.
+VNet Peering is a mechanism to connect two Virtual Networks in the same region through the Azure backbone network. Once peered, the two Virtual Networks will appear like a single Virtual Network for all connectivity purposes. Read the [VNet Peering overview](../articles/virtual-network/virtual-network-peering-overview.md) if you are not familiar with VNet Peering.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

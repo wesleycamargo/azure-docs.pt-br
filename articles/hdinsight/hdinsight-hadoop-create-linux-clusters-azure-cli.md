@@ -1,124 +1,134 @@
 <properties
-   	pageTitle="Criar clusters Hadoop, HBase ou Storm no Linux em HDInsight usando o Azure CLI entre plataformas| Microsoft Azure"
-   	description="Aprenda a criar clusters HDInsight baseados em Linux usando o Azure CLI entre plataformas, modelos do Gerenciador de Recursos do Azure e a API REST do Azure. Você pode especificar o tipo de cluster (Hadoop, HBase ou Storm) ou usar scripts para instalar componentes personalizados."
-   	services="hdinsight"
-   	documentationCenter=""
-   	authors="Blackmist"
-   	manager="jhubbard"
-   	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight using the cross-platform Azure CLI | Microsoft Azure"
+    description="Learn how to create Linux-based HDInsight clusters using the cross-platform Azure CLI, Azure Resource Manager templates, and the Azure REST API. You can specify the cluster type (Hadoop, HBase, or Storm,) or use scripts to install custom components.."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="jhubbard"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
-   	ms.service="hdinsight"
-   	ms.devlang="na"
-   	ms.topic="article"
-   	ms.tgt_pltfrm="na"
-   	ms.workload="big-data"
-   	ms.date="09/20/2016"
-   	ms.author="larryfr"/>
+    ms.service="hdinsight"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="09/20/2016"
+    ms.author="larryfr"/>
 
-#Criar clusters baseados em Linux no HDInsight usando o Azure CLI
 
-[AZURE.INCLUDE [seletor](../../includes/hdinsight-selector-create-clusters.md)]
+#<a name="create-linux-based-clusters-in-hdinsight-using-the-azure-cli"></a>Create Linux-based clusters in HDInsight using the Azure CLI
 
-A CLI do Azure é um utilitário de linha de comando entre plataformas que permite o gerenciamento dos Serviços do Azure. Ela pode ser usada, juntamente com os modelos de gerenciamento de recursos do Azure, para criar um cluster HDInsight, junto com as contas de armazenamento associadas e outros serviços.
+[AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Os modelos de Gerenciamento de Recursos do Azure são documentos JSON que descrevem um __grupo de recursos__ e todos os recursos que ele contém (por exemplo, HDInsight). Essa abordagem baseada em modelo permite que você defina todos os recursos necessários para o HDInsight em um modelo. Também permite que você gerencie alterações no grupo como um todo por meio de __implantações__, que aplicam alterações em todo o grupo.
+The Azure CLI is a cross-platform command-line utility that allows you to manage Azure Services. It can be used, along with Azure Resource management templates, to create an HDInsight cluster, along with associated storage accounts and other services.
 
-As etapas neste documento fornecem orientação durante o processo de criação de um novo cluster HDInsight usando a CLI do Azure e um modelo.
+Azure Resource Management templates are JSON documents that describe a __resource group__ and all resources in it (such as HDInsight.) This template-based approach allows you to define all the resources that you need for HDInsight in one template. It also lets you manage changes to the group as a whole through __deployments__, which apply changes to the entire group.
 
-> [AZURE.IMPORTANT] As etapas neste documento usam o número padrão de nós de trabalho (4) para um cluster HDInsight. Se você planeja ter mais de 32 nós de trabalho (durante a criação do cluster ou pelo dimensionamento do cluster), será necessário selecionar um tamanho de nó de cabeçalho com pelo menos 8 núcleos e 14 GB de RAM.
+The steps in this document walk through the process of creating a new HDInsight cluster using the Azure CLI and a template.
+
+> [AZURE.IMPORTANT] The steps in this document use the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes (during cluster creation or by scaling the cluster,) then you must select a head node size with at least 8 cores and 14 GB ram.
 >
-> Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+> For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-##Pré-requisitos
+##<a name="prerequisites"></a>Prerequisites
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- __CLI do Azure__. As etapas neste documento foram testadas pela última vez com a versão 0.10.1 da CLI do Azure.
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- __Azure CLI__. The steps in this document were last tested with Azure CLI version 0.10.1.
 
-    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
-##Entre na sua assinatura do Azure
 
-Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da CLI do Azure (Interface de Linha de Comando do Azure)](../xplat-cli-connect.md) e conecte à sua assinatura usando o método de __logon__.
+### <a name="access-control-requirements"></a>Access control requirements
 
-##Criar um cluster
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-As etapas a seguir devem ser executadas de um prompt de comando, shell ou a sessão terminal após instalar e configurar o CLI do Azure.
+##<a name="log-in-to-your-azure-subscription"></a>Log in to your Azure subscription
 
-1. Use o seguinte comando para fazer logon em sua assinatura do Azure:
+Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the __login__ method.
+
+##<a name="create-a-cluster"></a>Create a cluster
+
+The following steps should be performed from a command-prompt, shell, or terminal session after installing and configuring the Azure CLI.
+
+1. Use the following command to authenticate to your Azure subscription:
 
         azure login
 
-    Você receberá uma solicitação para fornecer seu nome e senha. Se você tiver várias assinaturas do Azure, use `azure account set <subscriptionname>` para definir a assinatura que será usada pelos comandos da CLI do Azure.
+    You are prompted to provide your name and password. If you have multiple Azure subscriptions, use `azure account set <subscriptionname>` to set the subscription that the Azure CLI commands use.
 
-3. Alterne para modo Gerenciador de Recursos do Azure usando o seguinte comando:
+3. Switch to Azure Resource Manager mode using the following command:
 
         azure config mode arm
 
-4. Crie um grupos de recursos. Esse grupo de recursos conterá o cluster HDInsight e a conta de armazenamento associada.
+4. Create a resource group. This resource group will contain the HDInsight cluster and associated storage account.
 
         azure group create groupname location
         
-    * Substitua __groupname__ por um nome exclusivo para o grupo.
-    * Substitua __local__ pela região geográfica em que você deseja criar um grupo.
+    * Replace __groupname__ with a unique name for the group. 
+    * Replace __location__ with the geographic region that you want to create the group in. 
     
-        Para obter uma lista de locais válidos, use o comando `azure location list` e use um dos locais da coluna __Nome__.
+        For a list of valid locations, use the `azure location list` command, and then use one of the locations from the __Name__ column.
 
-5. Criar uma conta de armazenamento. Essa conta de armazenamento será usada como o armazenamento padrão do cluster HDInsight.
+5. Create a storage account. This storage account will be used as the default storage for the HDInsight cluster.
 
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
         
-     * Substitua __groupname__ pelo nome do grupo criado na etapa anterior:
-     * Substitua __location__ pelo mesmo local usado na etapa anterior.
-     * Substitua __storagename__ por um nome exclusivo da conta de armazenamento.
+     * Replace __groupname__ with the name of the group created in the previous step.
+     * Replace __location__ with the same location used in the previous step. 
+     * Replace __storagename__ with a unique name for the storage account.
      
-     > [AZURE.NOTE] Para saber mais sobre os parâmetros usados nesse comando, use `azure storage account create -h` para exibir a ajuda deste comando.
+     > [AZURE.NOTE] For more information on the parameters used in this command, use `azure storage account create -h` to view help for this command.
 
-5. Recupere a chave usada para acessar a conta de armazenamento.
+5. Retrieve the key used to access the storage account.
 
         azure storage account keys list -g groupname storagename
         
-    * Substitua __groupname__ pelo nome do grupo de recursos.
-    * Substitua __storagename__ pelo nome da conta de armazenamento.
+    * Replace __groupname__ with the resource group name.
+    * Replace __storagename__ with the name of the storage account.
     
-    Nos dados retornados, salve o valor __key__ para __key1__.
+    In the data that is returned, save the __key__ value for __key1__.
 
-6. Criar um cluster HDInsight.
+6. Create an HDInsight cluster.
 
         azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
-    * Substitua __groupname__ pelo nome do grupo de recursos.
-    * Substitua __location__ pelo mesmo local usado nas etapas anteriores.
-    * Substitua __storagename__ pelo nome da conta de armazenamento:
-    * Substitua __storagekey__ pela chave obtida na etapa anterior.
-    * Como parâmetro `--defaultStorageContainer`, use o mesmo nome que você está usando para o cluster.
-    * Substitua __admin__ e __httppassword__ pelo nome e pela senha que você deseja usar quando acessar o cluster por meio de HTTPS.
-    * Substitua __sshuser__ e __sshuserpassword__ pelo nome de usuário e pela senha que deseja usar quando acessar o cluster usando SSH
+    * Replace __groupname__ with the resource group name.
+    * Replace __location__ with the same location used in previous steps.
+    * Replace __storagename__ with the storage account name.
+    * Replace __storagekey__ with the key obtained in the previous step. 
+    * For the `--defaultStorageContainer` parameter, use the same name as you are using for the cluster.
+    * Replace __admin__ and __httppassword__ with the name and password you wish to use when accessing the cluster through HTTPS.
+    * Replace __sshuser__ and __sshuserpassword__ with the username and password you wish to use when accessing the cluster using SSH
 
-    Pode levar vários minutos para que o processo de criação de cluster seja concluído. Geralmente, cerca de 15 minutos.
+    It may take several minutes for the cluster creation process to finish. Usually around 15.
 
-##Próximas etapas
+##<a name="next-steps"></a>Next steps
 
-Agora que você criou com êxito um cluster HDInsight usando a CLI do Azure, use o seguinte para aprender a trabalhar com o seu cluster:
+Now that you have successfully created an HDInsight cluster using the Azure CLI, use the following to learn how to work with your cluster:
 
-###Clusters do Hadoop
+###<a name="hadoop-clusters"></a>Hadoop clusters
 
-* [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
-* [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
-* [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
-###Clusters do HBase
+###<a name="hbase-clusters"></a>HBase clusters
 
-* [Introdução ao HBase no HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Desenvolvimento de aplicativos Java para HBase no HDInsight](hdinsight-hbase-build-java-maven-linux.md)
+* [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
+* [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
-###Clusters Storm
+###<a name="storm-clusters"></a>Storm clusters
 
-* [Desenvolver topologias Java para Storm no HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python-topology.md)
-* [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Develop Java topologies for Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
+* [Use Python components in Storm on HDInsight](hdinsight-storm-develop-python-topology.md)
+* [Deploy and monitor topologies with Storm on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

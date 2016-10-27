@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Restaurar um volume do StorSimple de um conjunto de backup | Microsoft Azure"
-   description="Explica como usar a página Catálogo de Backup do serviço StorSimple Manager para restaurar um volume do StorSimple de um conjunto de backup."
+   pageTitle="Restore a StorSimple volume from backup | Microsoft Azure"
+   description="Explains how to use the StorSimple Manager service Backup Catalog page to restore a StorSimple volume from a backup set."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,104 +15,109 @@
    ms.date="04/26/2016"
    ms.author="v-sharos" />
 
-# Restaurar um volume do StorSimple de um conjunto de backup (Atualização 2)
+
+# <a name="restore-a-storsimple-volume-from-a-backup-set-(update-2)"></a>Restore a StorSimple volume from a backup set (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
-## Visão geral
+## <a name="overview"></a>Overview
 
-A página **Catálogo de Backup** exibe todos os conjuntos de backup criados após a realização de backups manuais ou automatizados. Você pode usar esta página para listar todos os backups para uma política de backup ou volume, selecionar ou excluir os backups, ou usar um backup para restaurar ou clonar um volume.
+The **Backup Catalog** page displays all the backup sets that are created when manual or automated backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
 
- ![Página Catálogo de Backup](./media/storsimple-restore-from-backup-set-u2/restore.png)
+ ![Backup Catalog page](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
-Este tutorial explica como usar a página **Catálogo de Backup** para restaurar seu dispositivo a partir de um conjunto de backup.
+This tutorial explains how to use the **Backup Catalog** page to restore your device from a backup set.
 
-Você pode restaurar um volume de um backup local ou na nuvem. Em ambos os casos, a operação de restauração coloca o volume online imediatamente, enquanto dados são baixados em segundo plano.
+You can restore a volume from a local or cloud backup. In either case, the restore operation brings the volume online immediately while data is downloaded in the background. 
 
-Antes de iniciar uma operação de restauração, você deve estar ciente do seguinte:
+Before you initiate a restore operation, you should be aware of the following:
 
-- **É necessário colocar o volume offline** – Coloque o volume offline no host e no dispositivo antes de iniciar a operação de restauração. Embora a operação de restauração coloque automaticamente o volume online no dispositivo, você deve colocar o dispositivo online manualmente no host. Você pode colocar o volume online no host, assim que o volume estiver online no dispositivo. (Não é necessário aguardar até que a operação de restauração seja concluída.) Para obter os procedimentos, acesse [Colocar um volume offline](storsimple-manage-volumes-u2.md#take-a-volume-offline)
+- **You must take the volume offline** – Take the volume offline on both the host and the device before you initiate the restore operation. Although the restore operation automatically brings the volume online on the device, you must manually bring the device online on the host. You can bring the volume online on the host as soon as the volume is online on the device. (You do not need to wait until the restore operation is finished.) For procedures, go to [Take a volume offline](storsimple-manage-volumes-u2.md#take-a-volume-offline).
 
-- **Tipo de volume após a restauração** – Os volumes excluídos são restaurados com base no tipo do instantâneo; ou seja, volumes que foram fixados localmente são restaurados como volumes fixados localmente e volumes que estavam organizados em camadas são restaurados como volumes em camadas.
+- **Volume type after restore** – Deleted volumes are restored based on the type in the snapshot; that is, volumes that were locally pinned are restored as locally pinned volumes and volumes that were tiered are restored as tiered volumes.
 
-    Para os volumes existentes, o tipo de uso atual do volume substitui o tipo que é armazenado no instantâneo. Por exemplo, se você restaurar um volume de um instantâneo tirado quando o tipo de volume estava em camadas e esse tipo de volume agora está fixado localmente (devido a uma operação de conversão realizada), o volume será restaurado como um volume fixado localmente. Da mesma forma, se um volume fixado localmente existente foi expandido e, mais tarde, restaurado de um instantâneo mais antigo tirado quando o volume era menor, o volume restaurado manterá o tamanho expandido atual.
+    For existing volumes, the current usage type of the volume overrides the type that is stored in the snapshot. For example, if you restore a volume from a snapshot that was taken when the volume type was tiered and that volume type is now locally pinned (due to a conversion operation that was performed), then the volume will be restored as a locally pinned volume. Similarly, if an existing locally pinned volume was expanded and subsequently restored from an older snapshot taken when the volume was smaller, the restored volume will retain the current expanded size.
 
-    Não é possível converter um volume de um volume em camadas para um volume fixado localmente ou de um volume fixado localmente para um volume em camadas enquanto o volume está sendo restaurado. Aguarde até que a operação de restauração seja concluída para poder converter o volume em outro tipo. Para obter informações sobre como converter um volume, vá para [Alterar o tipo de volume](storsimple-manage-volumes-u2.md#change-the-volume-type).
+    You cannot convert a volume from a tiered volume to a locally pinned volume or from a locally pinned volume to a tiered volume while the volume is being restored. Wait until the restore operation is finished, and then you can convert the volume to another type. For information about converting a volume, go to [Change the volume type](storsimple-manage-volumes-u2.md#change-the-volume-type). 
 
-- **O tamanho do volume será refletido no volume restaurado** – Essa é uma consideração importante se estiver restaurando um volume fixado localmente que foi excluído (já que os volumes localmente fixados são totalmente provisionados). Certifique-se de que você tem espaço suficiente antes de tentar restaurar um volume fixado localmente que foi excluído antes.
+- **The volume size will be reflected in the restored volume** – This is an important consideration if you are restoring a locally pinned volume that has been deleted (because locally pinned volumes are fully provisioned). Make sure that you have sufficient space before you attempt to restore a locally pinned volume that was previously deleted. 
 
-- **Não é possível expandir um volume enquanto ele está sendo restaurado** – Aguarde até que a operação de restauração seja concluída antes de tentar expandir o volume. Para obter informações sobre como expandir um volume, vá para [Modificar um volume](storsimple-manage-volumes-u2.md#modify-a-volume).
+- **You cannot expand a volume while it is being restored** – Wait until the restore operation is finished before you attempt to expand the volume. For information about expanding a volume, go to [Modify a volume](storsimple-manage-volumes-u2.md#modify-a-volume).
 
-- **Você pode executar um backup enquanto estiver restaurando um volume local** – Para obter os procedimentos, vá para [Usar o serviço do StorSimple Manager para gerenciar políticas de backup](storsimple-manage-backup-policies.md).
+- **You can perform a backup while you are restoring a local volume** – For procedures go to [Use the StorSimple Manager service to manage backup policies](storsimple-manage-backup-policies.md).
 
-- **Você pode cancelar uma operação de restauração** – Se você cancelar o trabalho de restauração, o volume será revertido para seu estado anterior à operação de restauração. Para obter os procedimentos, vá para [Cancelar um trabalho](storsimple-manage-jobs-u2.md#cancel-a-job).
+- **You can cancel a restore operation** – If you cancel the restore job, then the volume will be rolled back to the state that it was in before you initiated the restore operation. For procedures, go to [Cancel a job](storsimple-manage-jobs-u2.md#cancel-a-job).
 
-## Como usar o catálogo de backup
+## <a name="how-to-use-the-backup-catalog"></a>How to use the backup catalog
 
-A página **Catálogo de Backup** oferece uma consulta que ajuda a restringir sua seleção de conjuntos de backup. Você pode filtrar os conjuntos de backup recuperados com base nos seguintes parâmetros:
+The **Backup Catalog** page provides a query that helps you to narrow your backup set selection. You can filter the backup sets that are retrieved based on the following parameters:
 
-- **Dispositivo** – O dispositivo no qual o conjunto de backup foi criado.
-- **Política de backup** ou **volume** – A política de backup ou volume associado a este conjunto de backup.
-- **De** e **Para** – O intervalo de data e hora quando o conjunto de backup foi criado.
+- **Device** – The device on which the backup set was created.
+- **Backup policy** or **volume** – The backup policy or volume associated with this backup set.
+- **From** and **To** – The date and time range when the backup set was created.
 
-Os conjuntos de backup filtrados são então tabulados com base nos seguintes atributos:
+The filtered backup sets are then tabulated based on the following attributes:
 
-- **Nome** – O nome da política de backup ou do volume associada a este conjunto de backup.
-- **Tamanho** – O tamanho real do conjunto de backup.
-- **Criado em** – O intervalo de data e hora quando os backups foram criados. 
-- **Tipo** – Conjuntos de Backup podem ser instantâneos locais ou instantâneos de nuvem. Um instantâneo local é um backup de todos os dados do volume armazenadas localmente no dispositivo, enquanto um instantâneo de nuvem refere-se ao backup dos dados do volume que residem na nuvem. Instantâneos locais fornecem acesso mais rápido, enquanto os instantâneos de nuvem são escolhidos para resiliência de dados.
-- **Iniciada por** – Os backups podem ser iniciados de forma automática, de acordo com uma agenda, ou de forma manual por um usuário. (Você pode usar uma política de backup para agendar backups. Como alternativa, você pode usar a opção **Fazer backup** para fazer um backup interativo).
+- **Name** – The name of the backup policy or volume associated with the backup set.
+- **Size** – The actual size of the backup set.
+- **Created on** – The date and time when the backups were created. 
+- **Type** – Backup sets can be local snapshots or cloud snapshots. A local snapshot is a backup of all your volume data stored locally on the device, whereas a cloud snapshot refers to the backup of volume data residing in the cloud. Local snapshots provide faster access, whereas cloud snapshots are chosen for data resiliency.
+- **Initiated by** – The backups can be initiated automatically according to a schedule or manually by a user. (You can use a backup policy to schedule backups. Alternatively, you can use the **Take backup** option to take an interactive backup.)
 
-## Como restaurar o volume StorSimple de um backup
+## <a name="how-to-restore-your-storsimple-volume-from-a-backup"></a>How to restore your StorSimple volume from a backup
 
-É possível usar a página **Catálogo de Backup** para restaurar o volume do StorSimple de um backup específico. No entanto, tenha em mente que a restauração de um volume reverterá o volume ao estado em que ele estava quando o backup foi feito. Todos os dados adicionados após a operação de backup serão perdidos.
+You can use the **Backup Catalog** page to restore your StorSimple volume from a specific backup. Keep in mind, however, that restoring a volume will revert the volume to the state it was in when the backup was taken. Any data that was added after the backup operation will be lost.
 
-> [AZURE.WARNING] A restauração de um backup substituirá os volumes existentes do backup. Isso pode causar a perda de todos os dados gravados depois que o backup tiver sido feito.
+> [AZURE.WARNING] Restoring from a backup will replace the existing volumes from the backup. This may cause the loss of any data that was written after the backup was taken.
 
-### Para restaurar seu volume
+### <a name="to-restore-your-volume"></a>To restore your volume
 
-1. Na página do serviço Gerenciador do StorSimple, clique na guia **Catálogo de backup**.
+1. On the StorSimple Manager service page, click the **Backup catalog** tab.
 
-    ![Catálogo de backup](./media/storsimple-restore-from-backup-set-u2/restore.png)
+    ![Backup catalog](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
-2. Selecione um conjunto de backup desta maneira:
-  1. Selecione o dispositivo adequado.
-  2. Na lista suspensa, escolha o volume ou a política de backup para o backup que você deseja selecionar.
-  3. Especifique o intervalo de tempo.
-  4. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-restore-from-backup-set-u2/HCS_CheckIcon.png) para executar esta consulta.
+2. Select a backup set as follows:
+  1. Select the appropriate device.
+  2. In the drop-down list, choose the volume or backup policy for the backup that you wish to select.
+  3. Specify the time range.
+  4. Click the check icon ![check icon](./media/storsimple-restore-from-backup-set-u2/HCS_CheckIcon.png) to execute this query.
  
-    Os backups associados ao volume ou à política de backup selecionada devem aparecer na lista de conjuntos de backup.
+    The backups associated with the selected volume or backup policy should appear in the list of backup sets.
 
-3. Expanda o conjunto de backup para exibir os volumes associados. Esses volumes devem ficar offline no host e no dispositivo antes que você possa restaurá-los. Acesse os volumes na página **Contêineres de Volume** e, em seguida, siga as etapas em [Colocar um volume offline](storsimple-manage-volumes-u2.md#take-a-volume-offline) para colocá-los offline.
+3. Expand the backup set to view the associated volumes. These volumes must be taken offline on the host and device before you can restore them. Access the volumes on the **Volume Containers** page, and then follow the steps in [Take a volume offline](storsimple-manage-volumes-u2.md#take-a-volume-offline) to take them offline.
 
-    > [AZURE.IMPORTANT] Verifique se você colocou os volumes offline primeiro no host antes de colocar os volumes offline no dispositivo. Se você não colocar os volumes offline no host, poderá ocorrer corrupção nos dados.
+    > [AZURE.IMPORTANT] Make sure that you have taken the volumes offline on the host first, before you take the volumes offline on the device. If you do not take the volumes offline on the host, it could potentially lead to data corruption.
 
-4. Navegue de volta para a guia **Catálogo de Backup** e selecione um conjunto de backup.
+4. Navigate back to the **Backup Catalog** tab and select a backup set.
 
-5. Clique em **Restaurar** na parte inferior da página.
+5. Click **Restore** at the bottom of the page.
 
-6. Será solicitada a sua confirmação. Examine as informações de restauração e marque a caixa de seleção de confirmação.
+6. You will be prompted for confirmation. Review the restore information, and then select the confirmation check box.
 
-    ![Página de confirmação](./media/storsimple-restore-from-backup-set-u2/ConfirmRestore.png)
+    ![Confirmation page](./media/storsimple-restore-from-backup-set-u2/ConfirmRestore.png)
 
-7. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-restore-from-backup-set-u2/HCS_CheckIcon.png). Isso iniciará um trabalho de restauração que poderá ser exibido por meio do acesso à página **Trabalhos**.
+7. Click the check icon ![check icon](./media/storsimple-restore-from-backup-set-u2/HCS_CheckIcon.png). This will initiate a restore job that you can view by accessing the **Jobs** page. 
 
-8. Após a conclusão da restauração, você poderá verificar se o conteúdo de seus volumes foi substituído pelos volumes do backup.
+8. After the restore is complete, you can verify that the contents of your volumes are replaced by volumes from the backup.
 
-![Vídeo disponível](./media/storsimple-restore-from-backup-set-u2/Video_icon.png) **Vídeo disponível**
+![Video available](./media/storsimple-restore-from-backup-set-u2/Video_icon.png) **Video available**
 
-Para assistir a um vídeo que demonstra como você pode usar os recursos de clonagem e restauração no StorSimple para recuperar arquivos excluídos, clique [aqui](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+To watch a video that demonstrates how you can use the clone and restore features in StorSimple to recover deleted files, click [here](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
-## Se a restauração falhar
+## <a name="if-the-restore-fails"></a>If the restore fails
 
-Você receberá um alerta se a operação de restauração falhar por qualquer motivo. Atualize a lista de backup para verificar se o backup ainda é válido. Se o backup for válido e você estiver restaurando da nuvem, problemas de conectividade podem estar causando o problema.
+You will receive an alert if the restore operation fails for any reason. If this occurs, refresh the backup list to verify that the backup is still valid. If the backup is valid and you are restoring from the cloud, then connectivity issues might be causing the problem. 
 
-Para concluir a operação de restauração, coloque o volume offline no host e repita a operação de restauração. Observe que quaisquer modificações no volume de dados executadas durante o processo de restauração serão perdidas.
+To complete the restore operation, take the volume offline on the host and retry the restore operation. Note that any modifications to the volume data that were performed during the restore process will be lost.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Saiba como [Gerenciar volumes do StorSimple](storsimple-manage-volumes-u2.md).
+- Learn how to [Manage StorSimple volumes](storsimple-manage-volumes-u2.md).
 
-- Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

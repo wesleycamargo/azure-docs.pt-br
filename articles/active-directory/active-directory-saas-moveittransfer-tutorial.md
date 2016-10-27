@@ -1,302 +1,303 @@
 <properties
-	pageTitle="Tutorial: integração do Azure Active Directory ao MOVEit Transfer | Microsoft Azure"
-	description="Saiba como configurar o logon único entre o Azure Active Directory e o MOVEit Transfer."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with MOVEit Transfer | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and MOVEit Transfer."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/18/2016"
+    ms.author="jeedes"/>
 
 
-# Tutorial: integração do Azure Active Directory ao MOVEit Transfer
 
-O objetivo deste tutorial é mostrar como integrar o MOVEit Transfer ao Azure AD (Azure Active Directory).
+# <a name="tutorial:-azure-active-directory-integration-with-moveit-transfer"></a>Tutorial: Azure Active Directory integration with MOVEit Transfer
 
-A integração do MOVEit Transfer ao Azure AD oferece os seguintes benefícios:
+The objective of this tutorial is to show you how to integrate MOVEit Transfer with Azure Active Directory (Azure AD).
 
-- Você pode controlar no Azure AD quem tem acesso ao MOVEit Transfer
-- Você pode permitir que seus usuários faça logon automaticamente no MOVEit Transfer (logon único) com suas contas do Azure AD
-- Gerenciar suas contas em um único local: o Portal clássico do Azure
+Integrating MOVEit Transfer with Azure AD provides you with the following benefits:
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
+- You can control in Azure AD who has access to MOVEit Transfer
+- You can enable your users to automatically get signed-on to MOVEit Transfer (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-## Pré-requisitos
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Para configurar a integração do Azure AD ao MOVEit Transfer, você precisa dos seguintes itens:
+## <a name="prerequisites"></a>Prerequisites
 
-- Uma assinatura do AD do Azure
-- Uma assinatura do MOVEit Transfer habilitada para logon único
+To configure Azure AD integration with MOVEit Transfer, you need the following items:
 
-
-> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+- An Azure AD subscription
+- A MOVEit Transfer single-sign on enabled subscription
 
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.
+To test the steps in this tutorial, you should follow these recommendations:
 
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
-
-1. Adicionando MOVEit Transfer da galeria
-2. Configurar e testar o logon único do AD do Azure
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## Adicionando MOVEit Transfer da galeria
-Para configurar a integração do MOVEit Transfer ao Azure AD, você precisa adicionar o MOVEit Transfer da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="scenario-description"></a>Scenario description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.
 
-**Para adicionar o MOVEit Transfer da galeria, execute as seguintes etapas:**
+The scenario outlined in this tutorial consists of two main building blocks:
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. Adding MOVEit Transfer from the gallery
+2. Configuring and testing Azure AD single sign-on
 
-	![Active Directory][1]
 
-2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+## <a name="adding-moveit-transfer-from-the-gallery"></a>Adding MOVEit Transfer from the gallery
+To configure the integration of MOVEit Transfer into Azure AD, you need to add MOVEit Transfer from the gallery to your list of managed SaaS apps.
 
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
-	
-	![Aplicativos][2]
+**To add MOVEit Transfer from the gallery, perform the following steps:**
 
-4. Clique em **Adicionar** na parte inferior da página.
-	
-	![Aplicativos][3]
+1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**. 
 
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+    ![Active Directory][1]
 
-	![Aplicativos][4]
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-6. Na caixa de pesquisa, digite **MOVEit Transfer**.
-
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_01.png)
-
-7. No painel de resultados, selecione **MOVEit Transfer** e clique em **Concluir** para adicionar o aplicativo.
-
-	![Seleção do aplicativo na galeria](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_0001.png)
-
-##  Configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o MOVEit Transfer, com base em um usuário de teste chamado “Brenda Fernandes”.
-
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do MOVEit Transfer é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no MOVEit Transfer.
-
-Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no Azure AD como sendo o valor de **Nome de Usuário** no MOVEit Transfer.
-
-Para configurar e testar o logon único do Azure AD com o MOVEit Transfer, você precisa concluir os seguintes blocos de construção:
-
-1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criar um usuário de teste do MOVEit Transfer](#creating-a-moveit-transfer-test-user)** para ter um equivalente de Brenda Fernandes no MOVEit Transfer que seja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
-
-### Configuração do logon único do Azure AD
-
-Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único em seu aplicativo do MOVEit Transfer.
-
-**Para configurar o logon único do Azure AD com o MOVEit Transfer, execute as seguintes etapas:**
-
-1. No portal clássico, na página de integração de aplicativos do **MOVEit Transfer**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
-	 
-	![Configurar o logon único][6]
-
-2. Na página **Como você deseja que os usuários façam logon no MOVEit Transfer**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
     
-	![Configurar o logon único](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_03.png)
+    ![Applications][2]
 
-3. Na página de caixa de diálogo **Definir Configurações do Aplicativo**, execute as seguintes etapas e clique em **Avançar**:
-
-    ![Configurar o logon único](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_04.png)
-
-	a. Na caixa de texto **URL de logon**, digite a URL de logon com seu próprio domínio.
-
-    b. Na caixa de texto **Identificador**, digite uma URL de ID de entidade.
-
-    c. Na caixa de texto **URL de resposta**, digite uma URL de Interface do Consumidor de Declaração habilitada.
-
-	d. Clique em **Próximo**.
-
-	> [AZURE.NOTE] Observe que você precisa atualizar esses valores com a URL de Logon e o Identificador reais. Para obter esses valores, confira a etapa 8 para ver mais detalhes ou entre em contato com o [MOVEit Transfer](https://www.ipswitch.com/support/technical-support).
-
-4. Na página **Configurar logon único no MOVEit Transfer**, execute as seguintes etapas e clique em **Avançar**:
-
-	![Configurar o logon único](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_05.png)
-
-    a. Clique em **Baixar metadados** e salve o arquivo no computador.
-
-    b. Clique em **Avançar**.
-
-5. Faça logon em seu locatário do MOVEit Transfer como administrador.
-
-6. No painel de navegação esquerdo, clique em **Configurações**.
-
-	![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_000.png)
-
-7. Clique no link **Logon Único** que está em **Políticas de Segurança -> Autenticação de Usuário**.
-
-	![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_001.png)
-
-8. Clique no link de URL de Metadados para baixar o documento de metadados.
-
-	![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_002.png)
-
-	- Verifique se **entityID** corresponde ao **Identificador** na etapa 3.
-	
-	- Verifique se a URL de local **AssertionConsumerService** corresponde à **URL de resposta** na etapa 3.
-
-	![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_007.png)
-
-9. Clique no botão **Adicionar Provedor de Identidade** para adicionar um novo Provedor de Identidade Federada.
-
-	![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_003.png)
-
-10. Clique em **Procurar...** para selecionar o arquivo de metadados que você baixou na etapa 4 e clique em **Adicionar Provedor de Identidade** para carregar o arquivo baixado.
-
-	![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_004.png)
-
-11. Selecione "**Sim**" como **Habilitado** na página **Editar Provedor de Identidade Federado...** e clique em **Salvar**.
-
-	 ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_005.png)
-
-12. Na página **Editar Configurações de usuário de Provedor de Identidade Federado**, realize as ações a seguir e clique em **Salvar**.
-
-	a. Selecione **SAML NameID** como **Nome de logon**.
-
-	b. Selecione **Outros** como **Nome completo** e, na caixa de texto **Nome do atributo**, insira o valor: http://schemas.microsoft.com/identity/claims/displayname.
-
-	c. Selecione **Outros** como **Email** e, na caixa de texto **Nome do atributo**, insira o valor: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress.
-
-	d. Selecione **Sim** como **Criação automática de conta no momento da conexão**.
-
-	e. Clique no botão **Salvar**.
-
-	![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_006.png)
-
-13. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+4. Click **Add** at the bottom of the page.
     
-	![Logon único do AD do Azure][10]
+    ![Applications][3]
 
-14. Na página **Confirmação de logon único**, clique em **Concluir**.
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Applications][4]
+
+6. In the search box, type **MOVEit Transfer**.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_01.png)
+
+7. In the results panel, select **MOVEit Transfer**, and then click **Complete** to add the application.
+
+    ![Selecting the app in the gallery](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_0001.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with MOVEit Transfer based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in MOVEit Transfer to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in MOVEit Transfer needs to be established.
+
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in MOVEit Transfer.
+
+To configure and test Azure AD single sign-on with MOVEit Transfer, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a MOVEit Transfer test user](#creating-a-moveit-transfer-test-user)** - to have a counterpart of Britta Simon in MOVEit Transfer that is linked to the Azure AD representation of her.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
+
+In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your MOVEit Transfer application.
+
+**To configure Azure AD single sign-on with MOVEit Transfer, perform the following steps:**
+
+1. In the classic portal, on the **MOVEit Transfer** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+     
+    ![Configure Single Sign-On][6] 
+
+2. On the **How would you like users to sign on to MOVEit Transfer** page, select **Azure AD Single Sign-On**, and then click **Next**.
     
-	![Logon único do AD do Azure][11]
+    ![Configure Single Sign-On](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_03.png)
 
+3. On the **Configure App Settings** dialog page, perform the following steps and click **Next**:
 
+    ![Configure Single Sign-On](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_04.png)
 
-### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
+    a. In the **Sign On URL** textbox, type sign in URL with your own domain.
 
-![Criar um usuário do AD do Azure][20]
+    b. In the **Identifier** textbox, type a entity ID URL.
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+    c. In the **REPLY URL** textbox, type a enebled Assertion Consumer Interface URL.
 
-1. No **Portal Clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+    d. Click **Next**
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_09.png)
+    > [AZURE.NOTE] Please note that you have to update these values with the actual Sign On URL and Identifier. To get these values, you can refer step 8 for more details or contact [MOVEit Transfer](https://www.ipswitch.com/support/technical-support).
 
-2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+4. On the **Configure single sign-on at MOVEit Transfer** page, perform the following steps and click **Next**:
 
-3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
+    ![Configure Single Sign-On](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_05.png)
+
+    a. Click **Download metadata**, and then save the file on your computer.
+
+    b. Click **Next**.
+
+5. Sign-on to your MOVEit Transfer tenant as an administrator.
+
+6. On the left navigation pane, click **Settings**.
+
+    ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_000.png)
+
+7. Click **Single Signon** link which is under **Security Policies -> User Auth**.
+
+    ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_001.png)
+
+8. Click the Metadata URL link to download the metadata document.
+
+    ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_002.png)
+
+    - Verify **entityID** matches **Identifier** in step3.
     
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_03.png)
+    - Verify **AssertionConsumerService** Location URL matches **REPLY URL** in step3.
 
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+    ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_04.png)
+9. Click **Add Identity Provider** button to add a new Federated Identity Provider.
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+    ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_003.png)
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_05.png)
+10. Click **Browse...** to select the metadata file which you downloaded in step 4,then click **Add Identity Provider** to upload the downloaded file. 
 
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
+    ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_004.png)
 
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+11. Select "**Yes**" as **Enabled** in the **Edit Federated Identity Provider Settings...** page and click **Save**.
 
-    c. Clique em **Avançar**.
+     ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_005.png)
 
-6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+12. In the **Edit Federated Identity Provider User Settings** page perform the following actions and click **Save**.
+
+    a. Select **SAML NameID** as **Login name**.
+
+    b. Select **Other** as **Full name** and in the **Attribute name** textbox put the value: http://schemas.microsoft.com/identity/claims/displayname.
+
+    c. Select **Other** as **Email** and in the **Attribute name** textbox put the value: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress.
+
+    d. Select **Yes** as **Auto-create account on signon**.
+
+    e. Click **Save** button.
+
+    ![Configure Single Sign-On On App side](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_006.png)
+
+13. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
     
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_06.png)
+    ![Azure AD Single Sign-On][10]
 
-    a. Na caixa de texto **Nome**, digite **Brenda**.
-
-    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-
-    c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
-
-    d. Na lista **Função**, selecione **Usuário**.
-
-    e. Clique em **Avançar**.
-
-7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
+14. On the **Single sign-on confirmation** page, click **Complete**.  
     
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_07.png)
+    ![Azure AD Single Sign-On][11]
 
-8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
+
+
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the classic portal called Britta Simon.
+
+![Create Azure AD User][20]
+
+**To create a test user in Azure AD, perform the following steps:**
+
+1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_09.png)
+
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To display the list of users, in the menu on the top, click **Users**.
     
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_03.png)
 
-    a. Anote o valor da **Nova Senha**.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-    b. Clique em **Concluído**.
+    ![Creating an Azure AD test user](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_04.png)
 
+5. On the **Tell us about this user** dialog page, perform the following steps:
 
+    ![Creating an Azure AD test user](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_05.png)
 
-### Criar um usuário de teste do MOVEit Transfer
+    a. As Type Of User, select New user in your organization.
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no MOVEit Transfer. O MOVEit Transfer dá suporte ao provisionamento just-in-time, que você habilitou.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o MOVEit Transfer, caso ele ainda não exista.
+    c. Click **Next**.
 
-> [AZURE.NOTE] Se precisar criar um usuário manualmente, você precisará contatar a equipe de suporte do MOVEit Transfer.
-
-
-### Atribuição do usuário de teste do AD do Azure
-
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao MOVEit Transfer.
-	
-![Atribuir usuário][200]
-
-**Para atribuir Brenda Fernandes ao MOVEit Transfer, execute as seguintes etapas:**
-
-1. No portal clássico, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
+6.  On the **User Profile** dialog page, perform the following steps:
     
-	![Atribuir usuário][201]
+    ![Creating an Azure AD test user](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_06.png)
 
-2. Na lista de aplicativos, selecione **MOVEit Transfer**.
+    a. In the **First Name** textbox, type **Britta**.  
+
+    b. In the **Last Name** textbox, type, **Simon**.
+
+    c. In the **Display Name** textbox, type **Britta Simon**.
+
+    d. In the **Role** list, select **User**.
+
+    e. Click **Next**.
+
+7. On the **Get temporary password** dialog page, click **create**.
     
-	![Configurar o logon único](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_50.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_07.png)
 
-3. No menu na parte superior, clique em **Usuários**.
+8. On the **Get temporary password** dialog page, perform the following steps:
     
-	![Atribuir usuário][203]
+    ![Creating an Azure AD test user](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_08.png)
 
-4. Na lista de usuários, selecione **Brenda Fernandes**.
+    a. Write down the value of the **New Password**.
 
-5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
+    b. Click **Complete**.   
+
+
+
+### <a name="creating-a-moveit-transfer-test-user"></a>Creating a MOVEit Transfer test user
+
+The objective of this section is to create a user called Britta Simon in MOVEit Transfer. MOVEit Transfer supports just-in-time provisioning, which you have enabled.
+
+There is no action item for you in this section. A new user will be created during an attempt to access MOVEit Transfer if it doesn't exist yet.
+
+> [AZURE.NOTE] If you need to create an user manually, you need to contact the MOVEit Transfer support team.
+
+
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to MOVEit Transfer.
     
-	![Atribuir usuário][205]
+![Assign User][200]
 
-### Teste do logon único
+**To assign Britta Simon to MOVEit Transfer, perform the following steps:**
 
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+    
+    ![Assign User][201]
+
+2. In the applications list, select **MOVEit Transfer**.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_50.png)
+
+3. In the menu on the top, click **Users**.
+    
+    ![Assign User][203]
+
+4. In the Users list, select **Britta Simon**.
+
+5. In the toolbar on the bottom, click **Assign**.
+    
+    ![Assign User][205]
+
+### <a name="testing-single-sign-on"></a>Testing single sign-on
+
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
  
-Ao clicar no bloco do MOVEit Transfer no painel de acesso, você deverá ser conectado automaticamente ao aplicativo do MOVEit Transfer.
+When you click the MOVEit Transfer tile in the Access Panel, you should get automatically signed-on to your MOVEit Transfer application.
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Additional resources
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 
@@ -318,4 +319,8 @@ Ao clicar no bloco do MOVEit Transfer no painel de acesso, você deverá ser con
 [204]: ./media/active-directory-saas-moveittransfer-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-moveittransfer-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

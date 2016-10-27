@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Segredo do Cofre de Chaves com o modelo do Resource Manager | Microsoft Azure"
-   description="Mostra como transmitir um segredo de um cofre da chave como um parâmetro durante a implantação."
+   pageTitle="Key Vault secret with Resource Manager template | Microsoft Azure"
+   description="Shows how to pass a secret from a key vault as a parameter during deployment."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,19 +16,20 @@
    ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
-# Transmitir valores seguros durante a implantação
 
-Quando você precisa transmitir um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível armazenar esse valor como um segredo em um [Cofre da Chave do Azure](./key-vault/key-vault-whatis.md) e fazer referência ao valor em outros modelos do Gerenciador de Recursos. Você inclui apenas uma referência ao segredo em seu modelo, para que o segredo nunca seja exposto, e você não precisa inserir manualmente o valor do segredo sempre que implantar os recursos. Você especifica quais usuários ou entidades de serviço podem acessar o segredo.
+# <a name="pass-secure-values-during-deployment"></a>Pass secure values during deployment
 
-## Implantar um cofre da chave e segredo
+When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an [Azure Key Vault](./key-vault/key-vault-whatis.md) and reference the value in other Resource Manager templates. You include only a reference to the secret in your template so the secret is never exposed, and you do not need to manually enter the value for the secret each time you deploy the resources. You specify which users or service principals can access the secret.  
 
-Para criar o cofre da chave que pode ser referenciado de outros modelos do Gerenciador de Recursos, é necessário definir a propriedade **enabledForTemplateDeployment** como **true** e conceder acesso ao usuário ou à entidade de serviço que executará a implantação que faz referência ao segredo.
+## <a name="deploy-a-key-vault-and-secret"></a>Deploy a key vault and secret
 
-Para saber mais sobre a implantação de um cofre da chave e um segredo, veja [Esquema do cofre da chave](resource-manager-template-keyvault.md) e [Esquema do segredo do cofre da chave](resource-manager-template-keyvault-secret.md).
+To create key vault that can be referenced from other Resource Manager templates, you must set the **enabledForTemplateDeployment** property to **true**, and you must grant access to the user or service principal that will execute the deployment which references the secret.
 
-## Fazer referência a um segredo com ID estática
+To learn about deploying a key vault and secret, see [Key vault schema](resource-manager-template-keyvault.md) and [Key vault secret schema](resource-manager-template-keyvault-secret.md).
 
-Você faz referência ao segredo em um arquivo de parâmetros que transmite valores para seu modelo. Você faz referência ao segredo transmitindo o identificador de recurso do cofre de chave e o nome do segredo. Neste exemplo, o segredo do cofre da chave já deve existir, e você já deve estar usando um valor estático para sua id de recurso.
+## <a name="reference-a-secret-with-static-id"></a>Reference a secret with static id
+
+You reference the secret from within a parameters file which passes values to your template. You reference the secret by passing the resource identifier of the key vault and the name of the secret. In this example, the key vault secret must already exist, and you are using a static value for it resource id.
 
     "parameters": {
       "adminPassword": {
@@ -41,7 +42,7 @@ Você faz referência ao segredo em um arquivo de parâmetros que transmite valo
       }
     }
 
-Um arquivo de parâmetro inteiro pode ter essa aparência:
+An entire parameter file might look like:
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -61,7 +62,7 @@ Um arquivo de parâmetro inteiro pode ter essa aparência:
       }
     }
 
-O parâmetro que aceita o segredo deve ser um **securestring**. O exemplo a seguir mostra as seções relevantes de um modelo que implanta um SQL Server que exige uma senha de administrador.
+The parameter that accepts the secret should be a **securestring**. The following example shows the relevant sections of a template that deploys a SQL server that requires an administrator password.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -94,11 +95,11 @@ O parâmetro que aceita o segredo deve ser um **securestring**. O exemplo a segu
         "outputs": { }
     }
 
-## Fazer referência a um segredo com ID dinâmica
+## <a name="reference-a-secret-with-dynamic-id"></a>Reference a secret with dynamic id
 
-A seção anterior mostrou como passar uma id de recurso estático para o segredo do cofre da chave. No entanto, em alguns cenários, você precisa fazer referência a um segredo de cofre da chave que varia com base na implantação atual. Nesse caso, não é possível codificar a id de recurso no arquivo de parâmetros. Infelizmente, você não pode gerar dinamicamente a id do recurso no arquivo de parâmetros, pois não há permissão para expressões de modelo no arquivo de parâmetros.
+The previous section showed how to pass a static resource id for the key vault secret. However, in some scenarios, you need to reference a key vault secret that varies based on the current deployment. In that case, you cannot hard-code the resource id in the parameters file. Unfortunately, you cannot dynamically generate the resource id in the parameters file because template expressions are not permitted in the parameters file.
 
-Para gerar dinamicamente a id de recurso para um segredo de cofre de chave, você deve mover o recurso que precisa do segredo em um modelo aninhado. No modelo mestre, adicione o modelo aninhado e passe um parâmetro que contém a id de recurso gerada dinamicamente.
+To dynamically generate the resource id for a key vault secret, you must move the resource that needs the secret into a nested template. In your master template, you add the nested template and pass in a parameter that contains the dynamically generated resource id.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -139,10 +140,15 @@ Para gerar dinamicamente a id de recurso para um segredo de cofre de chave, voc�
     }
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Para obter informações gerais sobre cofres de chave, veja [Introdução ao Cofre da Chave do Azure](./key-vault/key-vault-get-started.md).
-- Para obter informações sobre como usar um cofre de chave com uma máquina virtual, consulte [Considerações de segurança para o Azure Resource Manager](best-practices-resource-manager-security.md).
-- Para obter exemplos completos de referência de segredos de chave, veja [Exemplos do cofre da chave](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
+- For information about using a key vault with a Virtual Machine, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md).
+- For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

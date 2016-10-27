@@ -1,6 +1,6 @@
 <properties
- pageTitle="Métricas de diagnóstico do Hub IoT"
- description="Uma visão geral das métricas do Hub IoT do Azure, permitindo que os usuários avaliem a integridade geral dos recursos"
+ pageTitle="IoT Hub diagnostic metrics"
+ description="An overview of Azure IoT Hub metrics, enabling users to assess the overall health of their resource"
  services="iot-hub"
  documentationCenter=""
  authors="nberdy"
@@ -16,55 +16,53 @@
  ms.date="08/11/2016"
  ms.author="nberdy"/>
 
-# Introdução às métricas de diagnóstico
 
-As métricas de diagnóstico fornecem melhores dados sobre o estado dos recursos do Azure na sua assinatura. As métricas permitem a você avaliar a integridade geral do serviço e dos dispositivos conectados a ele. As estatísticas voltadas para o usuário são importantes porque elas ajudam você a ver o que está acontecendo com o Hub IoT e com os problemas de causa raiz sem precisar contatar o suporte do Azure.
+# <a name="introduction-to-diagnostic-metrics"></a>Introduction to diagnostic metrics
 
-Você pode habilitar as métricas de diagnóstico no portal do Azure.
+Diagnostic metrics give you better data about the state of the Azure resources in your subscription. Metrics enable you to assess the overall health of the service and the devices connected to it. User-facing statistics are important because they help you see what is going on with your IoT hub and help root-cause issues without needing to contact Azure support.
 
-## Como habilitar as métricas de diagnóstico
+You can enable diagnostic metrics from the Azure portal.
 
-1. Crie um Hub IoT. Você pode encontrar instruções sobre como criar um Hub IoT no guia de [Introdução][lnk-get-started].
+## <a name="how-to-enable-diagnostic-metrics"></a>How to enable diagnostic metrics
 
-2. Abra a folha do seu Hub IoT. Nela, clique em **Diagnóstico**.
+1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Get Started][lnk-get-started] guide.
+
+2. Open the blade of your IoT hub. From there, click **Diagnostics**.
 
     ![][1]
 
-3. Configure o diagnóstico definindo o status para **Ativado** e escolhendo uma conta de armazenamento para armazenar os dados de diagnóstico. Verifique **Métricas** e pressione **Salvar**. Observe que a conta de armazenamento deve ser criada antecipadamente e que você será cobrado separadamente pelo armazenamento. Você pode optar por enviar os dados de diagnóstico para um ponto de extremidade de Hubs de eventos.
+3. Configure your diagnostics by setting the status to **On** and selecting a storage account to store the diagnostics data. Check **Metrics**, and then press **Save**. Note that the storage account must be created ahead of time and that you are charged separately for storage. You can also choose to send your diagnostics data to an Event Hubs endpoint.
 
     ![][2]
 
-4. Depois de configurar o diagnóstico, retorne para a folha do Hub IoT **Visão geral**. As informações sobre métricas são preenchidas na seção **Monitoramento** da folha. Clicar no gráfico abre o painel de métricas, no qual você pode exibir um resumo das informações das métricas do seu Hub IoT e editar a seleção das métricas mostradas no gráfico. Também é possível configurar alertas com base nos valores de métrica.
+4. After you have set up the diagnostics, return to the **Overview** IoT hub blade. Metrics information is populated in the **Monitoring** section of the blade. Clicking the chart opens the metrics pane where you can view a summary of the metrics information for your IoT hub and edit the selection of metrics shown in the chart. You can also configure alerts based on metric values.
 
     ![][3]
 
-## Métricas e como usá-las
+## <a name="metrics-and-how-to-use-them"></a>Metrics and how to use them
 
-O Hub IoT fornece várias métricas que dão uma visão geral da integridade do hub e o número total de dispositivos conectados a ele. É possível combinar informações de várias métricas para ter uma ideia mais ampla do estado do Hub IoT. A tabela a seguir descreve as métricas que cada Hub IoT rastreia e como cada métrica se relaciona com o status geral do Hub IoT.
+IoT Hub provides several metrics to give you an overview of the health of your hub and the total number of devices connected to it. You can combine information from multiple metrics to paint a bigger picture of the state of the IoT hub. The following table describes the metrics each IoT hub tracks, and how each metric relates to the overall status of the IoT hub.
 
-| Métrica | Descrição da métrica | Para que a métrica é usada |
+| Metric | Metric description | What the metric is used for |
 | ---- | ---- | ---- |
-| d2c.telemetry.ingress.allProtocol | A contagem de mensagens enviadas em todos os dispositivos | Dados gerais sobre envios de mensagem |
-| d2c.telemetry.ingress.success | A contagem de todas as mensagens bem-sucedidas no hub | Visão geral da entrada de mensagem bem-sucedida no hub |
-| c2d.commands.egress.complete.success | A contagem de todas as mensagens de comando concluídas pelo dispositivo de recebimento em todos os dispositivos | Com as métricas sobre abandono e rejeição, dá uma visão geral da taxa geral de sucesso do comando C2D |
-| c2d.commands.egress.abandon.success | A contagem de todas as mensagens abandonadas com êxito pelo dispositivo de recebimento em todos os dispositivos | Realça os possíveis problemas se as mensagens estiverem sendo abandonadas com mais frequência que o esperado |
-| c2d.commands.egress.reject.success | A contagem de todas as mensagens rejeitadas com êxito pelo dispositivo de recebimento em todos os dispositivos | Realça os possíveis problemas se as mensagens estiverem sendo rejeitadas com mais frequência que o esperado |
-| devices.totalDevices | A média, o mínimo e o máximo de número de dispositivos registrados para o Hub IoT | O número de dispositivos registrados para o hub |
-| devices.connectedDevices.allProtocol | A média, o mínimo e o máximo de números de dispositivos conectados simultaneamente | Visão geral do número de dispositivos conectados ao hub |
+| d2c.telemetry.ingress.allProtocol | The count of messages sent across all devices | Overview data on message sends |
+| d2c.telemetry.ingress.success | The count of all successful messages into the hub | Overview of successful message ingress into the hub |
+| c2d.commands.egress.complete.success | The count of all command messages completed by the receiving device across all devices | Together with the metrics on abandon and reject, gives an overview of overall C2D command success rate |
+| c2d.commands.egress.abandon.success | The count of all messages successfully abandoned by the receiving device across all devices | Highlights potential issues if messages are getting abandoned more often than expected |
+| c2d.commands.egress.reject.success | The count of all messages successfully rejected by the receiving device across all devices | Highlights potential issues if messages are getting rejected more often than expected |
+| devices.totalDevices | The average, min, and max of the number of devices registered to the IoT hub | The number of devices registered to the hub |
+| devices.connectedDevices.allProtocol | The average, min, and max of the number of simultaneous connected devices | Overview of the number of devices connected to the hub |
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Depois da visão geral das métricas de diagnóstico, siga estes links para saber mais sobre o gerenciamento do Hub IoT do Azure:
+Now that you’ve seen an overview of diagnostic metrics, follow this link to learn more about managing Azure IoT Hub:
 
-- [Monitoramento de operações][lnk-monitor]
-- [Gerenciar o acesso ao Hub IoT][lnk-itpro]
+- [Operations monitoring][lnk-monitor]
 
-Para explorar melhor as funcionalidades do Hub IoT, consulte:
+To further explore the capabilities of IoT Hub, see:
 
-- [Projetar sua solução][lnk-design]
-- [Guia do desenvolvedor][lnk-devguide]
-- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
-- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
+- [Developer guide][lnk-devguide]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-metrics/enable-metrics-1.png
@@ -77,11 +75,12 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-dr]: iot-hub-ha-dr.md
 
 [lnk-monitor]: iot-hub-operations-monitoring.md
-[lnk-itpro]: iot-hub-itpro-info.md
 
-[lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,53 +1,52 @@
 <properties
-	pageTitle="Considerações de segurança para o Gerenciador de Recursos | Microsoft Azure"
-	description="Mostra abordagens recomendadas no Gerenciador de Recursos do Azure para proteger recursos com chaves e segredos, controle de acesso baseado em função e grupos de segurança de rede."
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="george-moore"
-	manager="georgem"
-	editor="tysonn"/>
+    pageTitle="Security considerations for Resource Manager | Microsoft Azure"
+    description="Shows recommended approaches in Azure Resource Manager for securing resources with keys and secrets, role-based access control and network security groups."
+    services="azure-resource-manager"
+    documentationCenter=""
+    authors="george-moore"
+    manager="georgem"
+    editor="tysonn"/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/01/2016"
-	ms.author="georgem;tomfitz"/>
+    ms.service="azure-resource-manager"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/01/2016"
+    ms.author="georgem;tomfitz"/>
 
 
-# Considerações de segurança do Gerenciador de Recursos do Azure
 
-Ao examinar os aspectos de segurança dos modelos do Gerenciador de Recursos do Azure, existem várias áreas a considerar: chaves e segredos, controle de acesso baseado em função e grupos de segurança de rede.
+# <a name="security-considerations-for-azure-resource-manager"></a>Security considerations for Azure Resource Manager
 
-Este tópico pressupõe que você esteja familiarizado com o RBAC (controle de acesso baseado em função) no Gerenciador de Recursos do Azure. Para saber mais, consulte [Controle de acesso baseado em função no Azure](./active-directory/role-based-access-control-configure.md).
+When looking at aspects of security for your Azure Resource Manager templates, there are several areas to consider – keys and secrets, role-based access control, and network security groups.
 
-Este tópico faz parte de um whitepaper mais amplo. Para ler o documento completo, baixe [Considerações e práticas comprovadas de modelos ARM de nível mundial](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+This topic assumes you are familiar with Role-Based Access Control (RBAC) in Azure Resource Manager. For more information, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
 
-## Segredos e certificados
+This topic is part of a larger whitepaper. To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
-As Máquinas Virtuais do Azure, o Gerenciador de Recursos do Azure e o Cofre da Chave do Azure são totalmente integrados para dar suporte ao processamento seguro dos certificados que devem ser implantados na VM. Usar o Cofre da Chave do Azure com o Gerenciador de Recursos para orquestrar e armazenar certificados e segredos de VM é uma prática recomendada e fornece as seguintes vantagens:
+## <a name="secrets-and-certificates"></a>Secrets and certificates
 
-- Os modelos contêm somente as referências de URI aos segredos, o que significa que os segredos reais não estão nos repositórios de códigos, de configurações ou de códigos-fonte. Isso impede grandes ataques de phishing em repositórios internos ou externos, como de harvest-bots no GitHub.
-- Os segredos armazenados no Cofre da Chave estão sob controle RBAC total de um operador confiável. Se o operador confiável deixa a empresa ou é transferido para um novo grupo na empresa, ele deixa de ter acesso às chaves que criou no Cofre.
-- Compartimentalização completa de todos os ativos:
-      - os modelos para implantar as chaves
-      - os modelos para implantar uma VM com referências às chaves
-      - os materiais de chave reais no Cofre. Cada modelo (e ação) pode estar em diferentes funções RBAC para separação total das tarefas.
-- O carregamento de segredos em uma VM no momento da implantação ocorre por meio do canal direto entre a Malha do Azure e o Cofre da Chave nos limites do datacenter da Microsoft. Depois que as chaves estiverem no Cofre da Chave, elas nunca mais verão a "luz do sol" em um canal não confiável fora do datacenter.
-- Os Cofres das Chaves são sempre regionais, de modo que os segredos mantêm sempre a localidade (e a soberania) em relação às máquinas virtuais. Não há nenhum Cofre da Chave global.
+Azure Virtual Machines, Azure Resource Manager and Azure Key Vault are fully integrated to provide support for the secure handling of certificates which are to be deployed in the VM.  Utilizing Azure Key Vault with Resource Manager to orchestrate and store VM secrets and certificates is a best practice and provides the following advantages:
 
-### Separação das chaves de implantações
+- The templates only contain URI references to the secrets, which means the actual secrets are not in code, configuration or source code repositories. This prevents key phishing attacks on internal or external repos, such as harvest-bots in GitHub.
+- Secrets stored in the Key Vault are under full RBAC control of a trusted operator.  If the trusted operator leaves the company or transfers within the company to a new group, they no longer have access to the keys they created in the Vault.
+- Full compartmentalization of all assets: - the templates to deploy the keys - the templates to deploy a VM with references to the keys - the actual key materials in the Vault.  
+  Each template (and action) can be under different RBAC roles for full separation of duties.
+- The loading of secrets into a VM at deployment time occurs via direct channel between the Azure Fabric and the Key Vault within the confines of the Microsoft datacenter.  Once the keys are in the Key Vault, they never see 'daylight' over an untrusted channel outside of the datacenter.  
+- Key Vaults are always regional, so the secrets always have locality (and sovereignty) with the VMs. There are no global Key Vaults.
 
-Uma prática recomendada é manter modelos separados para:
+### <a name="separation-of-keys-from-deployments"></a>Separation of keys from deployments
 
-1.	Criação de cofres (que conterão o material de chave)
-2.	Implantação de VMs (com referências de URI às chaves contidas nos cofres)
+A best practice is to maintain separate templates for:
 
-Um cenário corporativo típico é ter um pequeno grupo de operadores confiáveis que têm acesso aos segredos críticos nas cargas de trabalho implantadas, juntamente com um grupo mais amplo de desenvolvedores/operadores que podem criar ou atualizar implantações de VM. Veja abaixo um modelo de exemplo do ARM que cria e configura um novo cofre no contexto da identidade do usuário atualmente autenticada no Active Directory do Azure. Esse usuário teria permissão padrão para criar, excluir, listar, atualizar, fazer backup, restaurar e obter a metade pública das chaves no novo cofre da chave.
+1.  Creation of vaults (which will contain the key material)
+2.  Deployment of the VMs (with URI references to the keys contained in the vaults)
 
-Embora a maioria dos campos desse modelo seja autoexplicativa, a configuração **enableVaultForDeployment** merece mais explicações: os cofres não têm acesso permanente padrão por meio de nenhum outro componente da infraestrutura do Azure. Ao definir esse valor, ele permite que os componentes da infraestrutura de Computação do Azure tenham acesso somente leitura a esse cofre nomeado específico. Portanto, uma prática recomendada adicional é não misturar dados corporativos confidenciais no mesmo cofre como segredos de máquina virtual.
+A typical enterprise scenario is to have a small group of Trusted Operators who have access to critical secrets within the deployed workloads, with a broader group of dev/ops personnel who can create or update VM deployments.  Below is an example ARM template which creates and configures a new vault in the context of the currently authenticated user's identity in Azure Active Directory.  This user would have the default permission to create, delete, list, update, backup, restore, and get the public half of keys in this new key vault.
+
+While most of the fields in this template should be self-explanatory, the **enableVaultForDeployment** setting deserves more background: vaults do not have any default standing access by any other Azure infrastructure component. By setting this value, it allows the Azure Compute infrastructure components read-only access to this specific named vault. Therefore, a further best practice is to not comingle corporate sensitive data in the same vault as virtual machine secrets.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -117,9 +116,9 @@ Embora a maioria dos campos desse modelo seja autoexplicativa, a configuração 
         }]
     }
 
-Depois de criar o cofre, a próxima etapa é referenciar esse cofre no modelo de implantação de uma nova VM. Conforme mencionado acima, uma prática recomendada é fazer com que um grupo diferente de desenvolvedores/operadores gerencie implantações de VM, sendo que esse grupo não terá acesso direto às chaves como armazenadas no cofre.
+Once the vault is created, the next step is to reference that vault in the deployment template of a new VM.  As mentioned above, a best practice is to have a different dev/ops group manage VM deployments, with that group having no direct access to the keys as stored in the vault.
 
-O fragmento do modelo abaixo deveria ser composto em construções de implantação de ordem superior, cada uma das quais referenciando com segurança segredos altamente confidenciais que não estão sob o controle direto do operador.
+The below template fragment would be composed into higher order deployment constructs, each safely and securely referencing highly-sensitive secrets which are not under the direct control of the operator.
 
     "vaultName": {
         "type": "string",
@@ -147,196 +146,205 @@ O fragmento do modelo abaixo deveria ser composto em construções de implantaç
         }
     }
 
-Para passar um valor de um cofre de chave como um parâmetro durante a implantação de um modelo, consulte [Passar valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
+To pass a value from a key vault as a parameter during deployment of a template, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
 
-## Entidades de serviço para interações entre assinaturas
+## <a name="service-principals-for-cross-subscription-interactions"></a>Service principals for cross-subscription interactions
 
-As identidades de serviço são representadas por entidades de serviço no Active Directory. As entidades de serviço estarão no centro de cenários de habilitação de chave para organizações de TI corporativas, SI (integradores de sistemas) e CSV (fornecedores de serviços de nuvem). Especificamente, haverá casos de uso em que uma dessas organizações precisará interagir com a assinatura de um de seus clientes.
+Service identities are represented by service principals in Active Directory. Service principals will be at the center of enabling key scenarios for Enterprise IT organizations, System Integrators (SI), and Cloud Service Vendors (CSV). Specifically, there will be use cases where one of these organizations will need to interact with the subscription of one of their customers.  
 
-Sua organização pode fornecer uma oferta que monitorará uma solução implantada no ambiente e na assinatura de seus clientes. Nesse caso, você precisará obter acesso aos logs e a outros dados em uma conta de clientes para que você possa usá-la em sua solução de monitoramento. Se você for uma organização de TI corporativa ou um integrador de sistemas, poderá fornecer uma oferta a um cliente na qual implantará e gerenciará uma funcionalidade, como uma plataforma de análise de dados, com a oferta residindo na própria assinatura dos clientes.
+Your organization could provide an offering that will monitor a solution deployed in your customers environment and subscription. In this case, you will need to get access to logs and other data within a customers account so that you can utilize it in your monitoring solution. If you're a corporate IT organization, a systems integrator, you may provide an offering to a customer where you will deploy and manage a capability for them, such as a data analytics platform, where the offering resides in the customers own subscription.
 
-Nesses casos de uso, sua organização requer uma identidade que pode permitir acesso para executar essas ações no contexto de uma assinatura de cliente.
+In these use cases, your organization would require an identity that could be given access to perform these actions within the context of a customer subscription.  
 
-Estes cenários apresentam um determinado conjunto de considerações para o cliente:
+These scenarios bring with them a certain set of considerations for your customer:
 
--	Por motivos de segurança, o acesso talvez precise ter um escopo para determinados tipos de ações, por exemplo, acesso somente leitura.
--	Como os recursos implantados são fornecidos a um custo, pode haver restrições semelhantes no acesso necessário por razões financeiras.
--	Por motivos de segurança, o acesso talvez precise ter um escopo somente para um recurso específico (contas de armazenamento) ou recursos (grupo de recursos que contém um ambiente ou uma solução)
--	Uma vez que a relação com um fornecedor pode mudar, o cliente desejará poder habilitar/desabilitar o acesso para o integrador de sistemas ou para o fornecedor de serviços de nuvem
--	Como ações contra essa conta podem ter implicações de cobrança, o cliente deseja ter suporte para auditoria e responsabilidade para cobrança.
--	De uma perspectiva de conformidade, o cliente desejará poder auditar seu comportamento no ambiente dele
+-   For security reasons, access may need to be scoped to certain types of actions, e.g. read only access.
+-   As deployed resources are provided at a cost, there may be similar constraints on access required for financial reasons.
+-   For security reasons, access may need to be scoped only to a specific resource (storage accounts) or resources (resource group containing an environment or solution)
+-   As a relationship with a vendor may change, the customer will want to have the ability to enable/disable access to SI or CSV
+-   As actions against this account having billing implications, the customer desires support for auditability and accountability for billing.
+-   From a compliance perspective, the customer will want to be able to audit your behavior within their environment
 
-Uma combinação de uma entidade de serviço e o RBAC pode ser usada para atender a esses requisitos.
+A combination of a service principal and RBAC can be used to address these requirements.
 
-## Grupos de segurança de rede
+## <a name="network-security-groups"></a>Network security groups
 
-Muitos cenários terão requisitos que especificam como o tráfego para uma ou mais instâncias de VM em sua rede virtual é controlado. Você pode usar um NSG (grupo de segurança de rede) para fazer isso como parte de uma implantação de modelo do ARM.
+Many scenarios will have requirements that specify how traffic to one or more VM instances in your virtual network is controlled. You can use a Network Security Group (NSG) to do this as part of an ARM template deployment.
 
-Um grupo de segurança de rede é um objeto de nível superior associado à sua assinatura. Um NSG contém regras de controle de acesso que permitem ou negam o tráfego para as instâncias de VM. As regras de um NSG podem ser alteradas a qualquer momento e as alterações se aplicam a todas as instâncias associadas. Para usar um NSG, você deve ter uma rede virtual associada a uma região (local). Os NSGs não são compatíveis com as redes virtuais associadas a um grupo de afinidades. Se você não tiver uma rede virtual regional e quiser controlar o tráfego dos pontos de extremidade, consulte [Sobre as ACLs (Listas de Controle de Acesso) de rede](./virtual-network/virtual-networks-acl.md).
+A network security group is a top-level object that is associated with your subscription. An NSG contains access control rules that allow or deny traffic to VM instances. The rules of an NSG can be changed at any time, and changes are applied to all associated instances. To use an NSG, you must have a virtual network that is associated with a region (location). NSGs are not compatible with virtual networks that are associated with an affinity group. If you don’t have a regional virtual network and you want to control traffic to your endpoints, please see [About Network Access Control Lists (ACLs)](./virtual-network/virtual-networks-acl.md).
 
-Você pode associar um NSG a uma VM ou a uma sub-rede em uma rede virtual. Quando associado a uma máquina virtual, o NSG se aplica a todo o tráfego que é enviado e recebido pela instância de VM. Quando aplicado a uma sub-rede na rede virtual, ele se aplica a todo o tráfego que é enviado e recebido por todas as instâncias de VM na sub-rede. Uma VM ou sub-rede pode ser associada a apenas um NSG, no entanto, cada NSG pode conter até 200 regras. Você pode ter 100 NSGs por assinatura.
+You can associate an NSG with a VM, or to a subnet within a virtual network. When associated with a VM, the NSG applies to all the traffic that is sent and received by the VM instance. When applied to a subnet within your virtual network, it applies to all the traffic that is sent and received by all the VM instances in the subnet. A VM or subnet can be associated with only 1 NSG, but each NSG can contain up to 200 rules. You can have 100 NSGs per subscription.
 
->[AZURE.NOTE]  Não há suporte para grupos de segurança de rede e ACLs baseadas em ponto de extremidade na mesma instância de VM. Se você quiser usar um NSG e já tiver uma ACL de ponto de extremidade à disposição, primeiro remova a ACL de ponto de extremidade. Para saber mais sobre como fazer isso, confira [Gerenciando listas de controle de acesso (ACLs) para pontos de extremidade usando o PowerShell](./virtual-network/virtual-networks-acl-powershell.md).
+>[AZURE.NOTE]  Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](./virtual-network/virtual-networks-acl-powershell.md).
 
-### Como funcionam os grupos de segurança de rede
+### <a name="how-network-security-groups-work"></a>How network security groups work
 
-Os grupos de segurança de rede são diferentes das ACLs baseadas em ponto de extremidade. As ACLs de ponto de extremidade funcionam apenas na porta pública que fica exposta por meio do ponto de extremidade de entrada. Um NSG funciona em uma ou mais instâncias de VM e controla todo o tráfego de entrada e saída na VM.
+Network security groups are different than endpoint-based ACLs. Endpoint ACLs work only on the public port that is exposed through the Input endpoint. An NSG works on one or more VM instances and controls all the traffic that is inbound and outbound on the VM.
 
-Um grupo de segurança de rede tem um *Nome*, está associado a uma *Região* (um dos locais do Azure com suporte) e tem um rótulo descritivo. Ele contém dois tipos de regras: Entrada e Saída. As Regras de entrada são aplicadas aos pacotes de entrada de uma máquina virtual e as Regras de saída são aplicadas a pacotes de saída de uma VM. As regras são aplicadas no computador do servidor no qual a VM está localizada. Um pacote de entrada ou de saída deve corresponder a uma regra de permissão a ser permitida; caso contrário, ele é descartado.
+A network security group has a *Name*, is associated with a *Region* (one of the supported Azure locations), and has a descriptive label. It contains two types of rules, Inbound and Outbound. The Inbound rules are applied on the incoming packets to a VM and the Outbound rules are applied to the outgoing packets from the VM.
+The rules are applied at the server machine where the VM is located. An incoming or outgoing packet must match an Allow rule to be permitted; otherwise, it’s dropped.
 
-As regras são processadas na ordem de prioridade. Por exemplo, uma regra com um número de prioridade mais baixo, como 100, é processada antes das regras com números de prioridade mais altos, como 200. Quando uma correspondência é encontrada, nenhuma outra regra é processada.
+Rules are processed in the order of priority. For example, a rule with a lower priority number such as 100 is processed before rules with a higher priority numbers such as 200. Once a match is found, no more rules are processed.
 
-Uma regra especifica o seguinte:
+A rule specifies the following:
 
--	Nome: um identificador exclusivo da regra
--	Tipo: Entrada/Saída
--	Prioridade: Um inteiro entre 100 e 4096 (regras processadas do mais baixo para o mais alto)
--	Endereço IP de origem: CIDR do intervalo de IP de origem
--	Intervalo de porta de origem: um inteiro ou um intervalo entre 0 e 65536
--	Intervalo de IP de destino: CIDR do intervalo de IP de destino
--	Intervalo de porta de destino: um inteiro ou um intervalo entre 0 e 65536
--	Protocolo: TCP, UDP ou ‘*’
--	Acesso: Permitir/Negar
+-   Name: A unique identifier for the rule
+-   Type: Inbound/Outbound
+-   Priority: An integer between 100 and 4096 (rules processed from low to high)
+-   Source IP Address: CIDR of source IP range
+-   Source Port Range: An integer or range between 0 and 65536
+-   Destination IP Range: CIDR of the destination IP Range
+-   Destination Port Range: An integer or range between 0 and 65536
+-   Protocol: TCP, UDP or ‘\*’
+-   Access: Allow/Deny
 
-### Regras padrão
+### <a name="default-rules"></a>Default rules
 
-Um NSG contém regras padrão. As regras padrão não podem ser excluídas, mas como recebem a prioridade mais baixa, elas podem ser substituídas pelas regras que você criar. As regras padrão descrevem as configurações padrão recomendadas pela plataforma. Como ilustrado pelas regras padrão abaixo, o tráfego que começa e termina em uma rede virtual é permitido tanto na Entrada quanto na Saída.
+An NSG contains default rules. The default rules can't be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. The default rules describe the default settings recommended by the platform. As illustrated by the default rules below, traffic originating and ending in a virtual network is allowed both in Inbound and Outbound directions.
 
-Enquanto a conectividade com a Internet é permitida na saída, ela é por padrão bloqueada na entrada. Uma regra padrão permite que o balanceador de carga do Azure investigue a integridade de uma VM. Você pode substituir essa regra se a VM ou o conjunto de VMs no NSG não participar do conjunto de balanceamento de carga.
+While connectivity to the Internet is allowed for outbound direction, it is by default blocked for inbound direction. A default rule allows the Azure load balancer to probe the health of a VM. You can override this rule if the VM or set of VMs under the NSG does not participate in the load balanced set.
 
-As regras padrão são mostradas nas tabelas abaixo.
+The default rules are shown in the tables below.
 
-**Regras de entrada padrão**
+**Inbound default rules**
 
-Nome |	Prioridade |	IP de origem |	Porta de origem |	IP de destino |	Porta de destino |	Protocolo |	Access
+Name |  Priority |  Source IP | Source Port |   Destination IP |    Destination Port |  Protocol |  Access
 --- | --- | --- | --- | --- | --- | --- | ---
-PERMITIR A ENTRADA DA VNET | 65000 | REDE\_VIRTUAL |	* |	REDE\_VIRTUAL | * |	* | PERMITIR
-PERMITIR A ENTRADA DO BALANCEADOR DE CARGA DO AZURE | 65001 | BALANCEADORDECARGA\_AZURE | * | * | * | * | PERMITIR
-NEGAR TODAS AS ENTRADAS | 65500 | * | * | * | * | * | NEGAR
+ALLOW VNET INBOUND  | 65000 | VIRTUAL_NETWORK | \* |    VIRTUAL_NETWORK | \* |  \*  | ALLOW
+ALLOW AZURE LOAD BALANCER INBOUND   | 65001 | AZURE_LOADBALANCER    | \*    | \*    | \*    | \*    | ALLOW
+DENY ALL INBOUND    | 65500 | \*    | \*    | \*    | \*    | \*    | DENY
 
-**Regras de saída padrão**
+**Outbound default rules**
 
-Nome |	Prioridade |	IP de origem |	Porta de origem |	IP de destino |	Porta de destino |	Protocolo |	Access
+Name |  Priority |  Source IP | Source Port |   Destination IP |    Destination Port |  Protocol |  Access
 --- | --- | --- | --- | --- | --- | --- | ---
-PERMITIR SAÍDA DA VNET | 65000 | REDE\_VIRTUAL | * | REDE\_VIRTUAL | * | * | PERMITIR
-PERMITIR SAÍDA DA INTERNET | 65001 | * | * | INTERNET | * | * | PERMITIR
-NEGAR TODAS AS SAÍDAS | 65500 | * | * | * | * | * | NEGAR
+ALLOW VNET OUTBOUND | 65000 | VIRTUAL_NETWORK   | \*    | VIRTUAL_NETWORK   | \*    | \*    | ALLOW
+ALLOW INTERNET OUTBOUND | 65001 | \*    | \*    | INTERNET  | \*    | \*    | ALLOW
+DENY ALL OUTBOUND   | 65500 | \*    | \*    | \*    | \*    | \*    | DENY
 
-### Regras especiais de infraestrutura
+### <a name="special-infrastructure-rules"></a>Special infrastructure rules
 
-As regras NSG são explícitas. Nenhum tráfego é permitido ou negado além do que é especificado nas regras de NSG. No entanto, dois tipos de tráfego são sempre permitidos, independentemente da especificação do grupo de segurança de rede. Estes provisionamentos são feitos para dar suporte à infraestrutura:
+NSG rules are explicit. No traffic is allowed or denied beyond what is specified in the NSG rules. However, two types of traffic are always allowed regardless of the Network Security group specification. These provisions are made to support the infrastructure:
 
-- **IP virtual do nó do host**: serviços básicos de infraestrutura, como DHCP, DNS e integridade de monitoramento, são fornecidos pelo endereço IP virtualizado host 168.63.129.16. Este endereço IP público pertence à Microsoft e será o único endereço IP virtualizado usado em todas as regiões para essa finalidade. Esse endereço IP é mapeado para o endereço IP físico do computador do servidor (nó do host) que hospeda a VM. O nó do host atua como a retransmissão DHCP, o solucionador de DNS recursivo e a fonte de sonda para a investigação de integridade do balanceador de carga e a investigação de integridade da máquina. A comunicação com esse endereço IP não deve ser considerada como um ataque.
-- **Licenciamento (Serviço de Gerenciamento de Chaves)**: as imagens do Windows em execução nas VMs devem ser licenciadas. Para fazer isso, uma solicitação de licenciamento é enviada para os servidores de host do serviço de gerenciamento de chaves que lidar com essas consultas. Isso sempre será na porta de saída 1688.
+- **Virtual IP of the Host Node**: Basic infrastructure services such as DHCP, DNS, and Health monitoring are provided through the virtualized host IP address 168.63.129.16. This public IP address belongs to Microsoft and will be the only virtualized IP address used in all regions for this purpose. This IP address maps to the physical IP address of the server machine (host node) hosting the VM. The host node acts as the DHCP relay, the DNS recursive resolver, and the probe source for the load balancer health probe and the machine health probe. Communication to this IP address should not be considered as an attack.
+- **Licensing (Key Management Service)**: Windows images running in the VMs should be licensed. To do this, a licensing request is sent to the Key Management Service host servers that handle such queries. This will always be on outbound port 1688.
 
-### Marcas padrão
+### <a name="default-tags"></a>Default tags
 
-Marcas padrão são identificadores fornecidos pelo sistema para atender a uma categoria de endereços IP. As marcas padrão podem ser especificadas nas regras definidas pelo cliente.
+Default tags are system-provided identifiers to address a category of IP addresses. Default tags can be specified in user-defined rules.
 
-**Marcas padrão para NSGs**
+**Default tags for NSGs**
 
-Marca |	Descrição
+Tag |   Description
 --- | ---
-REDE\_VIRTUAL |	Indica todo o espaço de endereço de rede. Ela inclui o espaço de endereço da rede virtual (CIDR de IP no Azure), bem como todo o espaço de endereço local conectado (redes locais). Isso também inclui espaços de endereço de rede virtual a rede virtual.
-BALANCEADORDECARGA\_AZURE | Indica o balanceador de carga da infraestrutura do Azure e será convertido em um IP de datacenter do Azure do qual se originarão as investigações de integridade do Azure. Ele somente é necessário se a VM ou um conjunto de máquinas virtuais associado ao NSG estiver participando de um conjunto de balanceamento de carga.
-INTERNET | Indica o espaço de endereço IP que está fora da rede virtual e que pode ser acessado por Internet pública. Esse intervalo também inclui o espaço de IP público de propriedade do Azure.
+VIRTUAL_NETWORK |   Denotes all of your network address space. It includes the virtual network address space (IP CIDR in Azure) as well as all connected on-premises address space (Local Networks). This also includes virtual network-to-virtual network address spaces.
+AZURE_LOADBALANCER | Denotes the Azure Infrastructure load balancer and will translate to an Azure datacenter IP where Azure’s health probes will originate. This is needed only if the VM or set of VMs associated with the NSG is participating in a load balanced set.
+INTERNET | Denotes the IP address space that is outside the virtual network and can be reached by public Internet. This range includes Azure-owned public IP space as well.
 
-### Portas e intervalos de portas
+### <a name="ports-and-port-ranges"></a>Ports and port ranges
 
-As regras de NSG podem ser especificadas em uma porta de origem ou de destino única ou em um intervalo de portas. Essa abordagem é especialmente útil quando você deseja abrir uma grande variedade de portas para um aplicativo, como FTP. O intervalo deve ser sequencial e não pode ser combinado com especificações de portas individuais. Para especificar um intervalo de portas, use o caractere hífen (–). Por exemplo, **100-500**.
+NSG rules can be specified on a single source or destination port, or on a port range. This approach is particularly useful when you want to open a wide range of ports for an application, such as FTP. The range must be sequential and can't be mixed with individual port specifications.
+To specify a range of ports, use the hyphen (–) character. For example, **100-500**.
 
-### Tráfego ICMP
+### <a name="icmp-traffic"></a>ICMP traffic
 
-Com as regras NSG atuais, você pode especificar TCP ou UDP como protocolos, mas não o ICMP. No entanto, o tráfego com ICMP é permitido em uma rede virtual por padrão por meio das regras de entrada que dão suporte ao tráfego de e para qualquer porta e protocolo (*) na rede virtual.
+With the current NSG rules, you can specify TCP or UDP as protocols but not ICMP. However, ICMP traffic is allowed within a virtual network by default through the Inbound rules that support traffic from and to any port and protocol (\*) within the virtual network.
 
-### Associando um NSG a uma VM
+### <a name="associating-an-nsg-with-a-vm"></a>Associating an NSG with a VM
 
-Quando um NSG está diretamente associado a uma VM, as regras de acesso de rede no NSG são aplicadas diretamente a todo o tráfego destinado à VM. Sempre que o NSG é atualizado por conta de alterações de regra, a manipulação do tráfego reflete as atualizações em questão de minutos. Quando o NSG é desassociado da VM, o estado é revertido à sua condição pré-NSG, isto é, os padrões do sistema antes do NSG ser introduzido.
+When an NSG is directly associated with a VM, the network access rules in the NSG are directly applied to all traffic that is destined to the VM. Whenever the NSG is updated for rule changes, the traffic handling reflects the updates within minutes. When the NSG is disassociated from the VM, the state reverts to its pre-NSG condition—that is, to the system defaults before the NSG was introduced.
 
-### Associando um NSG a uma sub-rede
+### <a name="associating-an-nsg-with-a-subnet"></a>Associating an NSG with a subnet
 
-Quando um NSG é associado a uma sub-rede, as regras de acesso de rede no NSG são aplicadas a todas as VMs na sub-rede. Sempre que as regras de acesso no NSG são atualizadas, as alterações são aplicadas a todas as VMs na sub-rede em questão de minutos.
+When an NSG is associated with a subnet, the network access rules in the NSG are applied to all the VMs in the subnet. Whenever the access rules in the NSG are updated, the changes are applied to all VMs in the subnet within minutes.
 
-### Associando um NSG a uma sub-rede e a uma VM
+### <a name="associating-an-nsg-with-a-subnet-and-a-vm"></a>Associating an NSG with a subnet and a VM
 
-Você pode associar um NSG a uma VM e a outro NSG com a sub-rede na qual a VM reside. Há suporte nesse cenário para fornecer duas camadas de proteção à VM. No tráfego de entrada, o pacote segue as regras de acesso especificadas na sub-rede, seguido pelas regras na VM. Na saída, o pacote segue as regras especificadas na VM primeiro e, em seguida, as regras especificadas na sub-rede conforme mostrado abaixo.
+You can associate one NSG with a VM and another NSG with the subnet where the VM resides. This scenario is supported to provide the VM with two layers of protection.
+On the inbound traffic, the packet follows the access rules specified in the subnet, followed by rules in the VM. When outbound, the packet follows the rules specified in the VM first, then follows the rules specified in the subnet as shown below.
 
-![Associando um NSG a uma sub-rede e a uma VM](./media/best-practices-resource-manager-security/nsg-subnet-vm.png)
+![Associating an NSG to a subnet and a VM](./media/best-practices-resource-manager-security/nsg-subnet-vm.png)
 
-Quando um NSG está associado a uma VM ou sub-rede, as regras de controle de acesso de rede se tornam bastante explícitas. A plataforma não irá inserir regras implícitas para permitir o tráfego em uma porta específica. Nesse caso, se criar um ponto de extremidade na VM, você também deverá criar uma regra para permitir o tráfego da Internet. Se você não fizer isso, *VIP:{Port}* não poderá ser acessado de fora.
+When an NSG is associated with a VM or subnet, the network access control rules become very explicit. The platform will not insert any implicit rule to allow traffic to a particular port. In this case, if you create an endpoint in the VM, you must also create a rule to allow traffic from the Internet. If you don't do this, the *VIP:{Port}* can't be accessed from outside.
 
-Por exemplo, você cria uma nova VM e um novo NSG. Você associa o NSG à VM. A VM pode se comunicar com outras VMs na rede virtual por meio da regra PERMITIR A ENTRADA DA VNET. A VM também pode fazer conexões de saída com a Internet usando a regra PERMITIR SAÍDA DA INTERNET. Posteriormente, você cria um ponto de extremidade na porta 80 para receber o tráfego para o site em execução na VM. Os pacotes destinados à porta 80 no VIP (endereço IP virtual público) da Internet não chegarão à VM até que você adicione uma regra semelhante à tabela a seguir para o NSG.
+For example, you can create a new VM and a new NSG. You associate the NSG with the VM. The VM can communicate with other VMs in the virtual network through the ALLOW VNET INBOUND rule. The VM can also make outbound connections to the Internet using the ALLOW INTERNET OUTBOUND rule. Later, you create an endpoint on port 80 to receive traffic to your website running in the VM. Packets destined to port 80 on the VIP (public Virtual IP address) from the Internet will not reach the VM until you add a rule similar to the following table to the NSG.
 
-**Regra explícita que permite o tráfego para uma porta específica**
+**Explicit rule allowing traffic to a particular port**
 
-Nome |	Prioridade |	IP de origem |	Porta de origem |	IP de destino |	Porta de destino |	Protocolo |	Access
+Name |  Priority |  Source IP | Source Port |   Destination IP |    Destination Port |  Protocol |  Access
 --- | --- | --- | --- | --- | --- | --- | ---
-WEB | 100 | INTERNET | * | * | 80 | TCP | PERMITIR
+WEB | 100   | INTERNET | *  | * | 80    | TCP   | ALLOW
 
-## Rotas definidas pelo usuário
+## <a name="user-defined-routes"></a>User-defined routes
 
-O Azure usa uma tabela de rotas para decidir como encaminhar o tráfego IP com base no destino de cada pacote. Embora o Azure forneça uma tabela de rotas padrão com base em suas configurações de rede virtual, talvez seja necessário adicionar rotas personalizadas a essa tabela.
+Azure uses a route table to decide how to forward IP traffic based on the destination of each packet. Although Azure provides a default route table based on your virtual network settings, you may need to add custom routes to that table.
 
-A necessidade mais comum para uma entrada personalizada na tabela de rotas é o uso de um dispositivo virtual em seu ambiente do Azure. Leve em consideração o cenário mostrado na figura abaixo. Suponha que você queira garantir que todo o tráfego direcionado para a camada intermediária e sub-redes com suporte iniciado da sub-rede de front-end passe por um dispositivo de firewall virtual. Apenas adicionar o dispositivo à sua rede virtual e conectá-lo a diferentes sub-redes não fornecerá essa funcionalidade. Você também deve alterar a tabela de roteamento aplicada à sua sub-rede para garantir que os pacotes sejam encaminhados ao dispositivo de firewall virtual.
+The most common need for a custom entry in the route table is the use of a virtual appliance in your Azure environment. Take into account the scenario shown in the Figure below. Suppose you want to ensure that all traffic directed to the mid-tier and backed subnets initiated from the front end subnet go through a virtual firewall appliance. Simply adding the appliance to your virtual network and connecting it to the different subnets will not provide this functionality.
+You must also change the routing table applied to your subnet to ensure packets are forwarded to the virtual firewall appliance.
 
-O mesmo ocorreria se você implementasse um dispositivo NAT virtual para controlar o tráfego entre sua rede virtual do Azure e a Internet. Para garantir que o dispositivo virtual seja usado, você precisa criar uma rota especificando que todo o tráfego destinado à Internet seja encaminhado ao dispositivo virtual.
+The same would be true if you implemented a virtual NAT appliance to control traffic between your Azure virtual network and the Internet. To ensure the virtual appliance is used you have to create a route specifying that all traffic destined to the Internet must be forwarded to the virtual appliance.
 
-### Roteamento
+### <a name="routing"></a>Routing
 
-Os pacotes são roteados através de uma rede TCP/IP com base em uma tabela de rotas definida em cada nó na rede física. Uma tabela de rotas é uma coleção de rotas individuais usadas para decidir para onde encaminhar pacotes com base no endereço IP de destino. Uma rota consiste no seguinte:
+Packets are routed over a TCP/IP network based on a route table defined at each node on the physical network. A route table is a collection of individual routes used to decide where to forward packets based on the destination IP address. A route consists of the following:
 
-- Prefixo de endereço. O CIDR de destino ao qual a rota se aplica, como 10.1.0.0/16.
-- Tipo do próximo salto. O tipo de salto do Azure ao qual o pacote deve ser enviado. Os valores possíveis são:
-  - Local. Representa a rede virtual local. Por exemplo, se você tiver duas sub-redes, 10.1.0.0/16 e 10.2.0.0/16, na mesma rede virtual, a rota para cada sub-rede na tabela de rotas terá um valor de próximo salto de Local.
-  - Gateway de VPN. Representa um Gateway de VPN S2S do Azure.
-  - Internet. Representa o gateway de Internet padrão fornecido pela Infraestrutura do Azure
-  - Dispositivo virtual. Representa um dispositivo virtual que você adicionou à sua rede virtual do Azure.
-  - NULO. Representa um buraco negro. Pacotes encaminhados a um buraco negro não serão encaminhados.
--	Valor de próximo salto. O valor de próximo salto contém o endereço IP para o qual os pacotes devem ser encaminhados. Os valores de próximas salto são permitidos apenas em rotas em que o próximo salto é um *Dispositivo Virtual*. O próximo salto deve estar na sub-rede (a interface local do dispositivo virtual de acordo com a identificação de rede), não em uma sub-rede remota.
+- Address Prefix. The destination CIDR to which the route applies, such as 10.1.0.0/16.
+- Next hop type. The type of Azure hop the packet should be sent to. Possible values are:
+  - Local. Represents the local virtual network. For instance, if you have two subnets, 10.1.0.0/16 and 10.2.0.0/16 in the same virtual network, the route for each subnet in the route table will have a next hop value of Local.
+  - VPN Gateway. Represents an Azure S2S VPN Gateway.
+  - Internet. Represents the default Internet gateway provided by the Azure Infrastructure
+  - Virtual Appliance. Represents a virtual appliance you added to your Azure virtual network.
+  - NULL. Represents a black hole. Packets forwarded to a black hole will not be forwarded at all.
+-   Nexthop Value. The next hop value contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is *Virtual Appliance*. The next hop needs to be on the subnet (the local interface of the virtual appliance according to the network ID), not a remote subnet.
 
-![Roteamento](./media/best-practices-resource-manager-security/routing.png)
+![Routing](./media/best-practices-resource-manager-security/routing.png)
 
-### Rotas padrão
+### <a name="default-routes"></a>Default routes
 
-Cada sub-rede criada em uma rede virtual é associada automaticamente a uma tabela de rota que contém as seguintes regras de rota padrão:
+Every subnet created in a virtual network is automatically associated with a route table that contains the following default route rules:
 
-- Regra VNet local: essa regra é criada automaticamente para todas as sub-redes em uma rede virtual. Ela especifica que há um link direto entre as VMs na VNet e não há nenhum próximo salto intermediário. Isso permite que as VMs na mesma sub-rede, independentemente da identificação de rede na qual as máquinas virtuais existem, se comuniquem umas com as outras sem a necessidade de um endereço de gateway padrão.
-- Regra local: essa regra se aplica a todo o tráfego destinado ao intervalo de endereços local e usa o gateway de VPN como o destino do próximo salto.
-- Regra de Internet: essa regra processa todo o tráfego destinado à Internet pública e usa o gateway de Internet de infraestrutura como o próximo salto para todo o tráfego destinado à Internet.
+- Local VNet Rule: This rule is automatically created for every subnet in a virtual network. It specifies that there is a direct link between the VMs in the VNet and there is no intermediate next hop. This enables the VMs on the same subnet, regardless of the network ID that the VMs exist in, to communicate with each other without requiring a default gateway address.
+- On-premises Rule: This rule applies to all traffic destined to the on-premises address range and uses VPN gateway as the next hop destination.
+- Internet Rule: This rule handles all traffic destined to the public Internet and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.
 
-### Rotas BGP
+### <a name="bgp-routes"></a>BGP routes
 
-No momento em que este artigo foi escrito, a [Rota Expressa](./expressroute/expressroute-introduction.md) ainda não tinha suporte no [Provedor de Recursos de Rede](./virtual-network/resource-groups-networking.md) para o Gerenciador de Recursos do Azure. Se houver uma conexão de Rota Expressa entre sua rede local e o Azure, você poderá habilitar o BGP para propagar rotas da rede local para o Azure assim que o provedor de recursos de rede der suporte à Rota Expressa. Essas rotas BGP são usadas da mesma maneira que as rotas padrão e as rotas definidas pelo usuário em cada sub-rede do Azure. Para obter mais informações, consulte [Introdução ao ExpressRoute](./expressroute/expressroute-introduction.md).
+At the time of this writing, [ExpressRoute](./expressroute/expressroute-introduction.md) is not yet supported in the [Network Resource Provider](./virtual-network/resource-groups-networking.md) for Azure Resource Manager.  If you have an ExpressRoute connection between your on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure once ExpressRoute is supported in the NRP. These BGP routes are used in the same way as default routes and user defined routes in each Azure subnet. For more information see [ExpressRoute Introduction](./expressroute/expressroute-introduction.md).
 
->[AZURE.NOTE] Quando o NRP der suporte à Rota Expressa, você poderá configurar seu ambiente do Azure para usar um túnel à força por meio de sua rede local, criando uma rota definida pelo usuário para a sub-rede 0.0.0.0/0 que usa o gateway de VPN como o próximo salto. No entanto, isso só funcionará se você estiver usando um gateway de VPN, não o ExpressRoute. Para o ExpressRoute, o túnel à força é configurado por meio do BGP.
+>[AZURE.NOTE] When ExpressRoute on NRP is supported, you will be able to configure your Azure environment to use forced tunneling through your on-premises network by creating a user defined route for subnet 0.0.0.0/0 that uses the VPN gateway as the next hop. However, this only works if you are using a VPN gateway, not ExpressRoute. For ExpressRoute, forced tunneling is configured through BGP.
 
-### Rotas definidas pelo usuário
+### <a name="user-defined-routes"></a>User-defined routes
 
-Não é possível exibir as rotas padrão especificadas acima em seu ambiente do Azure e, para a maioria dos ambientes, essas são as únicas rotas de que você precisará. No entanto, talvez seja necessário criar uma tabela de rotas e adicionar uma ou mais rotas em casos específicos, como:
+You cannot view the default routes specified above in your Azure environment, and for most environments, those are the only routes you will need.
+However, you may need to create a route table and add one or more routes in specific cases, such as:
 
--	Túnel à força para a Internet através de sua rede local.
--	Uso de dispositivos virtuais em seu ambiente do Azure.
+-   Forced tunneling to the Internet via your on-premises network.
+-   Use of virtual appliances in your Azure environment.
 
-Nos cenários acima, você precisará criar uma tabela de rotas e adicionar rotas definidas pelo usuário a ela. Você pode ter várias tabelas de rotas, e a mesma tabela de rotas pode ser associada a uma ou mais sub-redes. Cada sub-rede só pode ser associada a uma única tabela de rotas. Todas as VMs e serviços em nuvem em uma sub-rede usam a tabela de rotas associada a essa sub-rede.
+In the scenarios above, you will have to create a route table and add user defined routes to it. You can have multiple route tables, and the same route table can be associated to one or more subnets. And each subnet can only be associated to a single route table. All VMs and cloud services in a subnet use the route table associated to that subnet.
 
-As sub-redes contam com rotas padrão até que uma tabela de rotas seja associada à sub-rede. Quando houver uma associação, o roteamento será feito com base em [LPM (Correspondência de Prefixo mais Longo)](https://en.wikipedia.org/wiki/Longest_prefix_match) entre as rotas definidas pelo usuário e as rotas padrão. Se houver mais de uma rota com a mesma correspondência LPM, uma rota será selecionada com base em sua origem na seguinte ordem:
+Subnets rely on default routes until a route table is associated to the subnet. Once an association exists, routing is done based on [Longest Prefix Match (LPM)](https://en.wikipedia.org/wiki/Longest_prefix_match) among both user defined routes and default routes. If there is more than one route with the same LPM match then a route is selected based on its origin in the following order:
 
-1.	Rota definida pelo usuário
-2.	Rota BGP (quando o ExpressRoute é usado)
-3.	Rota padrão
+1.  User defined route
+2.  BGP route (when ExpressRoute is used)
+3.  Default route
 
->[AZURE.NOTE] As rotas definidas pelo usuário são aplicadas apenas a VMs do Azure e a serviços de nuvem. Por exemplo, se desejar adicionar um dispositivo virtual de firewall entre sua rede local e o Azure, você terá que criar uma rota definida pelo usuário para as tabelas de rotas do Azure que encaminham todo o tráfego direcionado ao espaço de endereço local para o dispositivo virtual. No entanto, o tráfego de entrada do espaço de endereço local fluirá através de seu gateway de VPN ou circuito do ExpressRoute diretamente para o ambiente do Azure, ignorando o dispositivo virtual.
+>[AZURE.NOTE] User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forwards all traffic going to the on-premises address space to the virtual appliance. However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.
 
-### Encaminhamento IP
+### <a name="ip-forwarding"></a>IP forwarding
 
-Conforme descrito acima, uma das principais razões para criar uma rota definida pelo usuário é encaminhar o tráfego para um dispositivo virtual. Um dispositivo virtual é nada mais do que uma VM que executa um aplicativo usado para lidar com o tráfego de rede de alguma forma, como um firewall ou um dispositivo NAT.
+As described above, one of the main reasons to create a user defined route is to forward traffic to a virtual appliance. A virtual appliance is nothing more than a VM that runs an application used to handle network traffic in some way, such as a firewall or a NAT device.
 
-Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada não endereçado a si mesma. Para permitir que uma VM receba o tráfego endereçado a outros destinos, você deve habilitar o Encaminhamento IP na VM.
+This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself. To allow a VM to receive traffic addressed to other destinations, you must enable IP Forwarding in the VM.
 
-## Próximas etapas
-- Para entender como configurar as entidades de segurança com o acesso correto para funcionar com os recursos em sua organização, consulte [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md)
-- Se precisar bloquear o acesso a um recurso, você pode usar bloqueios de gerenciamento. Consulte [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md)
-- Para configurar o roteamento e o encaminhamento de IP, consulte [Criar UDRs (Rotas Definidas pelo Usuário) no Resource Manager usando um modelo](./virtual-network/virtual-network-create-udr-arm-template.md)
-- Para obter uma visão geral do controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](./active-directory/role-based-access-control-configure.md)
+## <a name="next-steps"></a>Next steps
+- To understand how to set up security principals with the correct access to work with resources in your organization, see [Authenticating a Service Principal with Azure Resource Manager](resource-group-authenticate-service-principal.md)
+- If you need to lock access to a resource, you can use management locks. See [Lock Resources with Azure Resource Manager](resource-group-lock-resources.md)
+- To configure routing and IP forwarding, see [Create User Defined Routes (UDR) in Resource Manager by using a template](./virtual-network/virtual-network-create-udr-arm-template.md)
+- For an overview of role-based access control, see [Role-based access control in the Microsoft Azure portal](./active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

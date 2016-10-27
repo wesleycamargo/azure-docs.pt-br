@@ -1,124 +1,142 @@
 <properties
-	pageTitle="Conectar a um Serviço Web de Aprendizado de Máquina | Microsoft Azure"
-	description="Com C# ou Python, conecte a um serviço Web de Aprendizado de Máquina do Azure usando uma chave de autorização."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun" />
+    pageTitle="Connect to a Machine Learning Web Service | Microsoft Azure"
+    description="With C# or Python, connect to an Azure Machine Learning Web service using an authorization key."
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="jhubbard"
+    editor="cgronlun" />
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/06/2016" 
-	ms.author="garye" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016" 
+    ms.author="garye" />
 
 
-# Conectar a um Serviço Web de Aprendizado de Máquina do Azure
-A experiência do desenvolvedor de Aprendizado de Máquina do Azure é uma API de serviço Web para fazer previsões de dados de entrada em tempo real ou em modo de lote. Você pode usar o Estúdio de Aprendizado de Máquina do Azure para criar previsões e implantar um serviço Web do Aprendizado de Máquina do Azure.
+
+# <a name="connect-to-an-azure-machine-learning-web-service"></a>Connect to an Azure Machine Learning Web Service
+
+The Azure Machine Learning developer experience is a Web service API to make predictions from input data in real time or in batch mode. You use Azure Machine Learning Studio to create predictions and deploy an Azure Machine Learning Web service.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Para saber como criar e implantar um serviço Web do Aprendizado de Máquina usando o Estúdio de Aprendizado de Máquina:
+To learn about how to create and deploy a Machine Learning Web service using Machine Learning Studio:
 
-- Para obter um tutorial sobre como criar um teste no Estúdio de Aprendizado de Máquina, confira a seção [Crie seu primeiro experimento](machine-learning-create-experiment.md).
-- Para obter detalhes sobre como implantar um serviço Web, confira a seção [Implantar um serviço Web de Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md).
-- Para obter mais informações sobre o Aprendizado de Máquina em geral, visite o [Centro de Documentação do Aprendizado de Máquina do Azure](https://azure.microsoft.com/documentation/services/machine-learning/).
+- For a tutorial on how to create an experiment in Machine Learning Studio, see [Create your first experiment](machine-learning-create-experiment.md).
+- For details on how to deploy a Web service, see [Deploy a Machine Learning Web service](machine-learning-publish-a-machine-learning-web-service.md).
+- For more information about Machine Learning in general, visit the [Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-## Serviço Web de Aprendizado de Máquina do Azure ##
+## <a name="azure-machine-learning-web-service"></a>Azure Machine Learning Web service ##
 
-Com o serviço Web de Aprendizado de Máquina do Azure, um aplicativo externo se comunica com um modelo de pontuação do fluxo de trabalho de Aprendizado de Máquina em tempo real. Uma chamada do serviço Web de Aprendizado de Máquina retorna resultados de previsão para um aplicativo externo. Para fazer uma chamada de serviço Web de Aprendizado de Máquina, transmita uma chave de API que é criada quando você implanta uma previsão. O serviço Web de Aprendizado de Máquina baseia-se em REST, uma opção popular de arquitetura para projetos de programação da Web.
+With the Azure Machine Learning Web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning Web service call returns prediction results to an external application. To make a Machine Learning Web service call, you pass an API key that is created when you deploy a prediction. The Machine Learning Web service is based on REST, a popular architecture choice for web programming projects.
 
-O Aprendizado de Máquina do Azure tem dois tipos de serviços:
+Azure Machine Learning has two types of services:
 
-- Serviço de Solicitação-Resposta (RRS) – Um serviço de baixa latência e altamente escalonável que fornece uma interface para os modelos sem monitoração de estado criados e implantados no Estúdio de Aprendizado de Máquina.
-- Serviço de Execução de Lote (BES) – Um serviço assíncrono que pontua um lote de registros de dados.
+- Request-Response Service (RRS) – A low latency, highly scalable service that provides an interface to the stateless models created and deployed from the Machine Learning Studio.
+- Batch Execution Service (BES) – An asynchronous service that scores a batch for data records.
 
-Para obter mais informações sobre os serviços Web de Aprendizado de Máquina, confira a seção [Implantar um serviço Web de Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md).
+For more information about Machine Learning Web services, see [Deploy a Machine Learning Web service](machine-learning-publish-a-machine-learning-web-service.md).
 
-## Obtenha uma chave de autorização de Aprendizado de Máquina do Azure ##
+## <a name="get-an-azure-machine-learning-authorization-key"></a>Get an Azure Machine Learning authorization key ##
 
-Quando você implanta seu experimento, as chaves de API são geradas para o serviço Web. Onde você recupera as chaves depende de como o experimento foi implantado — como um novo serviço Web ou um serviço Web clássico.
+When you deploy your experiment, API keys are generated for the Web service. You can retrieve the keys from several locations.
 
-## Serviço Web Clássico ##
+## <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>From the Microsoft Azure Machine Learning Web Services portal
 
- Você pode recuperar uma chave no Estúdio de Aprendizado de Máquina ou portal do Azure.
+Sign in to the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net) portal.
 
-### Estúdio de Aprendizado de Máquina ###
+To retrieve the API key for a New Machine Learning Web service:
 
-1. No Estúdio de Aprendizado de Máquina, clique em **SERVIÇOS WEB** à esquerda.
-2. Clique em um serviço Web. A **chave de API** está na guia **PAINEL**.
-
-### Portal do Azure ###
-
-1. Clique em **APRENDIZADO DE MÁQUINA** à esquerda.
-2. Clique em um espaço de trabalho.
-3. Clique em **SERVIÇOS WEB**.
-4. Clique em um serviço Web.
-5. Clique em um ponto de extremidade. A “CHAVE DE API” está mais abaixo na parte inferior direita.
+1. In the Azure Machine Learning Web Services portal, click **Web Services** the top menu.
+2. Click the Web service for which you want to retrieve the key.
+3. On the top menu, click **Consume**.
+4. Copy and save the **Primary Key**.
 
 
-## Novo serviço Web 
+To retrieve the API key for a Classic Machine Learning Web service:
 
-Para recuperar a chave de API, para um novo serviço Web de Aprendizado de Máquina, você deve entrar no portal dos [Serviços Web de Aprendizado de Máquina do Microsoft Azure](https://services.azureml.net/quickstart).
+1. In the Azure Machine Learning Web Services portal, click **Classic Web Services** the top menu.
+2. Click the Web service with which you are working.
+3. Click the endpoint for which you want to retrieve the key.
+3. On the top menu, click **Consume**.
+4. Copy and save the **Primary Key**.
 
-1. No portal de Serviços Web de Aprendizado de Máquina do Azure, clique em **SERVIÇOS Web** no menu superior.
-2. Clique no serviço Web para o qual deseja recuperar a chave.
-3. No menu superior, clique em **Consumir**.
-4. Copie e salve a **Chave Primária**.
+## <a name="classic-web-service"></a>Classic Web service ##
 
-## <a id="connect"></a>Conectar-se a um serviço Web de Aprendizado de Máquina
+ You can also retrieve a key for a Classic Web service from Machine Learning Studio or the Azure portal.
 
-Você pode se conectar a um serviço Web de Aprendizado de Máquina usando qualquer linguagem de programação que dá suporte à resposta e solicitação HTTP. Você pode exibir exemplos em C#, Python e R de uma página de Ajuda do serviço Web de Aprendizado de Máquina.
+### <a name="machine-learning-studio"></a>Machine Learning Studio ###
 
-**Ajuda da API do Aprendizado de Máquina** Uma ajuda de API do Aprendizado de Máquina é criada quando você implanta um serviço Web. Confira [Passo a passo do Aprendizado de Máquina do Azure – Implantar serviço Web](machine-learning-walkthrough-5-publish-web-service.md). A ajuda da API do Aprendizado de Máquina contém detalhes sobre um serviço Web de previsão.
+1. In Machine Learning Studio, click **WEB SERVICES** on the left.
+2. Click a Web service. The **API key** is on the **DASHBOARD** tab.
 
-**Para exibir a ajuda da API do Aprendizado de Máquina para um serviço Web clássico** No Estúdio de Aprendizado de Máquina:
+### <a name="azure-portal"></a>Azure portal ###
 
-1. Clique em **SERVIÇOS WEB**.
-2. Clique em um serviço Web.
-3. Clique em **Página de ajuda da API** - **SOLICITAÇÃO/RESPOSTA** ou **EXECUÇÃO EM LOTES**
+1. Click **MACHINE LEARNING** on the left.
+2. Click the workspace in which your Web service is located.
+3. Click **WEB SERVICES**.
+4. Click a Web service.
+5. Click an endpoint. The “API KEY” is down at the lower-right.
 
-**Para exibir a Ajuda da API do Aprendizado de Máquina para um novo serviço Web** No Portal dos Serviços Web de Aprendizado de Máquina do Azure:
+## <a name="<a-id="connect"></a>connect-to-a-machine-learning-web-service"></a><a id="connect"></a>Connect to a Machine Learning Web service
 
-1. Clique em **SERVIÇOS WEB** no menu superior.
-2. Clique no serviço Web para o qual deseja recuperar a chave.
+You can connect to a Machine Learning Web service using any programming language that supports HTTP request and response. You can view examples in C#, Python, and R from a Machine Learning Web service help page.
 
-Clique em **Consumir** para obter os URIs dos serviços de Solicitação-Resposta e Execução em Lotes, bem como o código de exemplo em C#, R e Python.
+**Machine Learning API help** Machine Learning API help is created when you deploy a Web service. See [Azure Machine Learning Walkthrough- Deploy Web Service](machine-learning-walkthrough-5-publish-web-service.md).
+The Machine Learning API help contains details about a prediction Web service.
 
-Clique em **API do Swagger** para obter a documentação baseada no Swagger para as APIs chamadas dos URIs fornecidos.
+2. Click the Web service with which you are working.
+3. Click the endpoint for which you want to view the API Help Page.
+3. On the top menu, click **Consume**.
+3. Click **API help page** under either the Request-Response or Batch Execution endpoints.
 
-### Exemplo de C# ###
+**To view Machine Learning API help for a New Web service**
 
-Para se conectar a um serviço Web de Aprendizado de Máquina, use um **HttpClient** passando ScoreData. ScoreData contém um FeatureVector, um vetor com n dimensões de recursos numéricos que representa o ScoreData. Autentique no serviço de Aprendizado de Máquina com uma chave de API.
+In the Azure Machine Learning Web Services Portal:
 
-Para se conectar a um serviço Web de Aprendizado de Máquina, o pacote Nuget **Microsoft.AspNet.WebApi.Client** deve ser instalado.
+1. Click **WEB SERVICES** on the top menu.
+2. Click the Web service for which you want to retrieve the key.
 
-**Instalar o Nuget Microsoft.AspNet.WebApi.Client no Visual Studio**
+Click **Consume** to get the URIs for the Request-Reposonse and Batch Execution Services and Sample code in C#, R, and Python.
 
-1. Publique “Baixe o conjunto de dados de Download de UCI: Serviço Web do conjunto de dados da classe Adulto 2”.
-2. Clique em **Ferramentas** > **Gerenciador de Pacotes do NuGet** > **Console do Gerenciador de Pacotes**.
-2. Escolha **Install-Package Microsoft.AspNet.WebApi.Client**.
+Click **Swagger API** to get Swagger based documentation for the APIs called from the supplied URIs.
 
-**Para executar o exemplo de código**
+### <a name="c#-sample"></a>C# Sample ###
 
-1. Publique o experimento “Exemplo 1: Baixe o conjunto de dados de UCI: conjunto de dados da classe Adulto 2”, parte da coleção de exemplos de Aprendizado de Máquina.
-2. Atribua apiKey com a chave de um serviço Web. Confira a seção acima **Obter uma chave de autorização de Aprendizado de Máquina do Azure**.
-3. Atribua serviceUri com o URI de solicitação.
+To connect to a Machine Learning Web service, use an **HttpClient** passing ScoreData. ScoreData contains a FeatureVector, an n-dimensional vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
+
+To connect to a Machine Learning Web service, the **Microsoft.AspNet.WebApi.Client** NuGet package must be installed.
+
+**Install Microsoft.AspNet.WebApi.Client NuGet in Visual Studio**
+
+1. Publish the Download dataset from UCI: Adult 2 class dataset Web Service.
+2. Click **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+2. Choose **Install-Package Microsoft.AspNet.WebApi.Client**.
+
+**To run the code sample**
+
+1. Publish "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Machine Learning sample collection.
+2. Assign apiKey with the key from a Web service. See **Get an Azure Machine Learning authorization key** above.
+3. Assign serviceUri with the Request URI.
 
 
-### Exemplo de Python ###
+### <a name="python-sample"></a>Python Sample ###
 
-Para se conectar a um serviço Web de Aprendizado de Máquina, use a biblioteca **urllib2** passando ScoreData. ScoreData contém um FeatureVector, um vetor com n dimensões de recursos numéricos que representa o ScoreData. Autentique no serviço de Aprendizado de Máquina com uma chave de API.
+To connect to a Machine Learning Web service, use the **urllib2** library passing ScoreData. ScoreData contains a FeatureVector, an n-dimensional  vector of numerical features that represents the ScoreData. You authenticate to the Machine Learning service with an API key.
 
 
-**Para executar o exemplo de código**
+**To run the code sample**
 
-1. Implante o experimento "Exemplo 1: Baixe o conjunto de dados de UCI: conjunto de dados da classe Adulto 2", parte da coleção de exemplos de Aprendizado de Máquina.
-2. Atribua apiKey com a chave de um serviço Web. Confira a seção acima **Obter uma chave de autorização de Aprendizado de Máquina do Azure**.
-3. Atribua serviceUri com o URI de solicitação.
+1. Deploy "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Machine Learning sample collection.
+2. Assign apiKey with the key from a Web service. See the **Get an Azure Machine Learning authorization key** section near the beginning of this article.
+3. Assign serviceUri with the Request URI.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

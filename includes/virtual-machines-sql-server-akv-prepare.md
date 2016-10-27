@@ -1,33 +1,38 @@
-## Preparar-se para a integração de AKV
-Para usar a integração do Cofre da Chave do Azure e configurar a VM do SQL Server, há vários pré-requisitos:
+## <a name="prepare-for-akv-integration"></a>Prepare for AKV Integration
+To use Azure Key Vault Integration to configure your SQL Server VM, there are several prerequisites: 
 
-1.	[Instalar o Azure Powershell](#install-azure-powershell)
-2.	[Criar um Active Directory do Azure](#create-an-azure-active-directory)
-3.	[Criar um cofre de chave](#create-a-key-vault)
+1.  [Install Azure Powershell](#install-azure-powershell)
+2.  [Create an Azure Active Directory](#create-an-azure-active-directory)
+3.  [Create a key vault](#create-a-key-vault)
 
-As seções a seguir descrevem esses pré-requisitos e as informações que você precisa coletar para executar posteriormente os cmdlets do PowerShell.
+The following sections describe these prerequisites and the information you need to collect to later run the PowerShell cmdlets.
 
-### Instale o Azure PowerShell
-Verifique se você instalou o SDK mais recente do Azure PowerShell. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](../articles/powershell-install-configure.md):
+### <a name="install-azure-powershell"></a>Install Azure PowerShell
+Make sure you have installed the latest Azure PowerShell SDK. For more information, see [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md).
 
-### Criar um Active Directory do Azure
-Primeiro, você precisa ter um [Active Directory do Azure](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) em sua assinatura. Entre os diversos benefícios, isso permite que você conceda permissão de acesso ao seu cofre de chave para determinados usuários e aplicativos.
+### <a name="create-an-azure-active-directory"></a>Create an Azure Active Directory
+First, you need to have an [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) in your subscription. Among many benefits, this allows you to grant permission to your key vault for certain users and applications.
 
-Em seguida, registre um aplicativo com o AAD Isso lhe dará uma conta de Entidade de Serviço com acesso ao cofre de chave de que sua máquina virtual precisará. No artigo Cofre da Chave do Azure, você poderá encontrar estas etapas na seção [Registrar um aplicativo com o Active Directory do Azure](../articles/key-vault/key-vault-get-started.md#register) ou poderá ver as etapas com capturas de tela na seção **Obter uma identidade para o aplicativo** ou [esta postagem de blog](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Antes de concluir essas etapas, observe que você precisa coletar as seguintes informações durante esse registro e que serão necessárias mais tarde, quando você habilitar a integração da Chave do Cofre do Azure em sua VM do SQL.
+Next, register an application with AAD. This will give you a Service Principal account that has access to your key vault which your VM will need. In the Azure Key Vault article, you can find these steps in the [Register an application with Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register) section, or you can see the steps with screen shots in the **Get an identity for the application section** of [this blog post](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Before completing these steps, note that you need to collect the following information during this registration that is needed later when you enable Azure Key Vault Integration on your SQL VM.
 
-- Após a adição do aplicativo, encontre a **ID do CLIENTE** na guia **CONFIGURAR**. ![ID de cliente do Active Directory do Azure](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
-	
-	A ID do cliente é atribuída posteriormente ao parâmetro **$spName** (nome da Entidade de Serviço) no script do PowerShell a fim de habilitar a integração do Cofre da Chave do Azure. 
-- Além disso, durante essas etapas, ao criar a chave, copie o segredo de sua chave conforme mostra a seguinte captura de tela. Esse segredo é atribuído posteriormente ao parâmetro **$spSecret** (segredo da Entidade de serviço) no script do PowerShell. ![Segredo do Active Directory do Azure](./media/virtual-machines-sql-server-akv-prepare/aad-sp-secret.png)
-- Você deve autorizar essa nova ID de cliente para ter as seguintes permissões de acesso: **encrypt**, **decrypt**, **wrapKey**, **unwrapKey**, **sign** e **verify**. Isso é feito com o cmdlet [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx). Para saber mais, consulte [Autorizar o aplicativo a usar a chave ou o segredo](../articles/key-vault/key-vault-get-started.md#authorize).
+- After the application is added, find the **CLIENT ID**  on the **CONFIGURE** tab. 
+    ![Azure Active Directory Client ID](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
+    
+    The client ID is assigned later to the **$spName** (Service Principal name) parameter in the PowerShell script to enable Azure Key Vault Integration. 
+- Also, during these steps when you create your key, copy the secret for your key as is shown in the following screenshot. This key secret is assigned later to the **$spSecret** (Service Principal secret) parameter in the PowerShell script.  
+    ![Azure Active Directory Secret](./media/virtual-machines-sql-server-akv-prepare/aad-sp-secret.png)
+- You must authorize this new client ID to have the following access permissions: **encrypt**, **decrypt**, **wrapKey**, **unwrapKey**, **sign**, and **verify**. This is done with the [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx) cmdlet. For more information see [Authorize the application to use the key or secret](../articles/key-vault/key-vault-get-started.md#authorize).
 
-### Criar um cofre de chave
-Para usar o Cofre da Chave do Azure a fim de armazenar as chaves que você usará para criptografia em sua VM, você precisa ter acesso em um cofre de chave. Se você ainda não tiver configurado seu cofre de chave, crie um usando as etapas no tópico [Introdução ao Cofre da Chave do Azure](../articles/key-vault/key-vault-get-started.md). Antes de concluir essas etapas, você precisa coletar algumas informações durante esse configuração que serão necessárias mais tarde quando você habilitar a integração do Cofre da Chave do Azure em sua VM do SQL.
+### <a name="create-a-key-vault"></a>Create a key vault
+In order to use Azure Key Vault to store the keys you will use for encryption in your VM, you need access to a key vault. If you have not already set up your key vault, create one by following the steps in the [Getting Started with Azure Key Vault](../articles/key-vault/key-vault-get-started.md) topic. Before completing these steps, note that there is some information you need to collect during this set up that is needed later when you enable Azure Key Vault Integration on your SQL VM.
 
-Quando você chega à etapa Criar um cofre de chave, observe a propriedade **vaultUri** retornada, que é a URL do cofre de chave. No exemplo fornecido nesta etapa, mostrado abaixo, o nome do cofre de chave é ContosoKeyVault, portanto a URL do cofre de chave seria https://contosokeyvault.vault.azure.net/.
+When you get to the Create a key vault step, note the returned **vaultUri** property, which is the key vault URL. In the example provided in that step, shown below, the key vault name is ContosoKeyVault, therefore the key vault URL would be https://contosokeyvault.vault.azure.net/.
 
-	New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
+    New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
-A URL do cofre de chave será atribuída posteriormente ao parâmetro **$akvURL** no script do PowerShell a fim de habilitar a integração do Cofre da Chave do Azure.
+The key vault URL is assigned later to the **$akvURL** parameter in the PowerShell script to enable Azure Key Vault Integration.
 
-<!---HONumber=AcomDC_1223_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Enviar logs do Diagnóstico do Azure ao Application Insights"
-    description="Configure os detalhes dos logs de diagnóstico dos Serviços de Nuvem do Azure que são enviados ao portal do Application Insights."
+    pageTitle="Send Azure Diagnostic logs to Application Insights"
+    description="Configure the details of the Azure Cloud Services diagnostic logs that are sent to the Application Insights portal."
     services="application-insights"
     documentationCenter=".net"
     authors="sbtron"
@@ -9,48 +9,49 @@
 <tags
     ms.service="application-insights"
     ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
+    ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="11/17/2015"
+    ms.date="11/17/2015"
     ms.author="awills"/>
 
-# Configurar o registro em log do Diagnóstico do Azure no Application Insights
 
-Quando você configura um projeto de Serviços de Nuvem ou uma máquina virtual no Microsoft Azure, [o Azure pode gerar um log de diagnóstico](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). Você pode enviar esse log ao Application Insights para que possa analisá-lo junto com a telemetria de diagnóstico e de uso enviada do aplicativo pelo SDK do Application Insights. O log do Azure inclui eventos do gerenciamento do aplicativo, por exemplo, iniciar, parar, falhas e contadores de desempenho. O log também inclui chamadas no aplicativo para System.Diagnostics.Trace.
+# <a name="configure-azure-diagnostic-logging-to-application-insights"></a>Configure Azure Diagnostic logging to Application Insights
 
-Este artigo descreve detalhadamente a configuração da captura do diagnóstico.
+When you set up a Cloud Services project or a Virtual Machine in Microsoft Azure, [Azure can generate a diagnostic log](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). You can have this sent on to Application Insights so that you can analyze it along with diagnostic and usage telemetry sent from within the app by the Application Insights SDK. The Azure log includes events in the management of the app such as start, stop, crashes, as well as performance counters. The log also includes calls in the app to System.Diagnostics.Trace.
 
-Você precisa do SDK 2.8 do Azure instalado no Visual Studio.
+This article describes configuration of the diagnostic capture in detail.
 
-## Obter um recurso do Application Insights
+You need Azure SDK 2.8 installed in Visual Studio.
 
-Para obter a melhor experiência, [adicione o SDK do Application Insights para cada função de seu aplicativo de Serviços de Nuvem](app-insights-cloudservices.md), ou [para qualquer aplicativo que será executado em sua VM](app-insights-overview.md). Você pode enviar os dados de diagnóstico para análise e exibição ao mesmo recurso do Application Insights.
+## <a name="get-an-application-insights-resource"></a>Get an Application Insights resource
 
-Como alternativa, se você não quiser usar o SDK, por exemplo, se o aplicativo já estiver funcionando, você pode simplesmente [criar um novo recurso do Application Insights](app-insights-create-new-resource.md) no Portal do Azure. Escolha **Diagnóstico do Azure** como o tipo de aplicativo.
+For the best experience, [add the Application Insights SDK to each role of your Cloud Services app](app-insights-cloudservices.md), or [to whatever app you will run in your VM](app-insights-overview.md). You can then send the diagnostic data to be  analyzed and displayed the same Application Insights resource.
+
+Alternatively, if you don't want to use the SDK - for example, if the app is already live - you can just [create a new Application Insights resource](app-insights-create-new-resource.md) in the Azure portal. Choose **Azure Diagnostics** as the application type.
 
 
-## Enviar o diagnóstico do Azure ao Application Insights
+## <a name="send-azure-diagnostics-to-application-insights"></a>Send Azure diagnostics to Application Insights
 
-Se você conseguir atualizar seu projeto de aplicativo, selecione, no Visual Studio, cada função, escolha suas propriedades e na guia Configuração, selecione **Enviar diagnósticos ao Application Insights**.
+If you are able to update your app project, then in Visual Studio select each role, choose its Properties, and in the Configuration tab, select **Send diagnostics to Application Insights**.
 
-Se o seu aplicativo já estiver funcionando, use o Gerenciador de Servidores do Visual Studio ou os Serviços de Nuvem para abrir as propriedades do aplicativo. Selecione **Enviar diagnósticos ao Application Insights**.
+If your app is already live, use Visual Studio's Server Explorer or Cloud Services explorer to open the properties of the app. Select **Send diagnostics to Application Insights**.
 
-Em cada caso, você receberá uma solicitação pelos detalhes do recurso do Application Insights que você criou.
+In each case you'll be asked for the details of the Application Insights resource you created.
 
-[Saiba mais sobre como configurar o Application Insights para um aplicativo de Serviços de Nuvem](app-insights-cloudservices.md).
+[Learn more about setting up Application Insights for a Cloud Services app](app-insights-cloudservices.md).
 
-## Configurando o adaptador de diagnóstico do Azure
+## <a name="configuring-the-azure-diagnostics-adapter"></a>Configuring the Azure diagnostics adapter
 
-Continue a leitura somente se você quiser selecionar as partes do log que envia ao Application Insights. Por padrão, tudo é enviado, incluindo: eventos do Microsoft Azure; contadores de desempenho; chamadas de rastreamento do aplicativo para System.Diagnostics.Trace.
+Read on only if you want to select the parts of the log that you send to Application Insights. By default, everything is sent, including: Microsoft Azure events; performance counters; trace calls from the app to System.Diagnostics.Trace.
 
-O Diagnóstico do Azure armazena dados em tabelas do Armazenamento do Azure. No entanto, você pode redirecionar todos ou um subconjunto dos dados para o Application Insights configurando "coletores" e "canais" durante o uso da extensão do Diagnóstico do Azure 1.5 ou posterior.
+Azure diagnostics stores data to Azure Storage tables. However, you can also pipe all or a subset of the data to Application Insights by configuring "sinks" and "channels" in your configuration when using Azure Diagnostics extension 1.5 or later.
 
-### Configurando o Application Insights como um coletor
+### <a name="configure-application-insights-as-a-sink"></a>Configure Application Insights as a Sink
 
-Quando você usa as propriedades de função para definir "Enviar dados ao Application Insights", o SDK do Azure (2.8 ou posterior) adiciona um elemento `<SinksConfig>` ao [arquivo de configuração público do Diagnóstico do Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx) da função.
+When you use the role properties to set "Send data to Application Insights", the Azure SDK (2.8 or later) adds a `<SinksConfig>` element to the public [Azure Diagnostics configuration file](https://msdn.microsoft.com/library/azure/dn782207.aspx) of the role.
 
-`<SinksConfig>` define o coletor adicional no qual os dados do diagnóstico do Azure podem ser enviados. Um `SinksConfig` de exemplo tem esta aparência:
+`<SinksConfig>` defines the additional sink where the Azure diagnostics data can be sent.  An example `SinksConfig` looks like this:
 
 ```xml
 
@@ -66,40 +67,40 @@ Quando você usa as propriedades de função para definir "Enviar dados ao Appli
 
 ```
 
-O elemento `ApplicationInsights` especifica a chave de instrumentação que identifica o recurso do Application Insights para onde os dados do Diagnóstico do Azure serão enviados. Quando você seleciona o recurso, ele é automaticamente preenchido com base na configuração do serviço do `APPINSIGHTS_INSTRUMENTATIONKEY`. (Se você quiser defini-lo manualmente, obtenha a chave na lista suspensa Essentials do recurso.)
+The `ApplicationInsights` element specifies the instrumentation key which identifies the Application Insights resource to which the Azure diagnostics data will be sent. When you select the resource, it is automatically populated based on the `APPINSIGHTS_INSTRUMENTATIONKEY` service configuration. (If you want to set it manually, get the key from the Essentials drop-down of the resource.)
 
-`Channels` define os dados que serão enviados ao coletor. O canal funciona como um filtro. O atributo `loglevel` permite que você especifique o nível de log que o canal enviará. Os valores disponíveis são: `{Verbose, Information, Warning, Error, Critical}`.
+`Channels` define the data that will be sent to the sink. The channel acts like a filter. The `loglevel` attribute lets you specify the log level that the channel will send. The available values are: `{Verbose, Information, Warning, Error, Critical}`.
 
-### Enviar dados ao coletor
+### <a name="send-data-to-the-sink"></a>Send data to the sink
 
-Enviar dados ao coletor do Application Insights adicionando o atributo sinks ao nó DiagnosticMonitorConfiguration. A adição do elemento sinks a cada nó especifica que você deseja que os dados coletados daquele nó e de seus subnós sejam enviados ao coletor especificado.
+Send data to the Application Insights sink by adding the sinks attribute under the DiagnosticMonitorConfiguration node. Adding the sinks element to each node specifies that you want data collected from that node and any node under it to be sent to the sink specified.
 
-Por exemplo, o padrão criado pelo SDK do Azure é enviar todos os dados de diagnóstico do Azure:
+For example, the default created by the Azure SDK is to send all the Azure diagnostic data:
 
 ```xml
 
     <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights">
 ```
 
-Mas se você quiser enviar apenas os logs de erro, qualifique o nome do coletor com um nome de canal:
+But if you want to send only error logs, qualify the sink name with a channel name:
 
 ```xml
 
     <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights.MyTopDiagdata">
 ```
 
-Observe que estamos usando o nome do Coletor que definimos, junto com o nome de um canal definido acima.
+Notice that we're using the name of the Sink that we defined, together with the name of a channel that we defined above.
 
-Se você quisesse somente enviar logs detalhados de aplicativo para o Application Insights, deveria adicionar o atributo sinks ao nó `Logs`.
+If you only wanted to send Verbose application logs to Application Insights then you would add the sinks attribute to the `Logs` node.
 
 ```xml
 
     <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
 ```
 
-Você também pode incluir vários coletores na configuração em diferentes níveis na hierarquia. Nesse caso, o coletor especificado no nível superior da hierarquia atua como uma configuração global e o especificado no elemento individual atua como uma substituição daquela configuração global.
+You can also include multiple sinks in the configuration at different levels in the hierarchy. In that case the sink specified at the top level of the hierarchy acts as a global setting and the one specified at the individual element element acts like an override to that global setting.
 
-Este é um exemplo completo do arquivo de configuração pública que envia todos os erros ao Application Insights (especificado no nó `DiagnosticMonitorConfiguration`) e também logs de nível detalhado aos logs de aplicativo (especificados no nó `Logs`).
+Here is a complete example of the public configuration file that sends all errors to Application Insights (specified at the `DiagnosticMonitorConfiguration` node) and in addition Verbose level logs for the Application Logs (specified at the `Logs` node).
 
 ```xml
 
@@ -134,16 +135,20 @@ Este é um exemplo completo do arquivo de configuração pública que envia todo
 
 ![](./media/app-insights-azure-diagnostics/diagnostics-publicconfig.png)
 
-É preciso ter atenção a algumas limitações dessa funcionalidade
+There are some limitations to be aware of with this functionality:
 
-* Os canais devem funcionar somente com o tipo de log, e não com os contadores de desempenho. Se você especificar um canal com um elemento contador de desempenho, ele será ignorado.
-* O nível de log para um canal não pode exceder o nível de log do que está sendo coletado pelo Diagnóstico do Azure. Por exemplo: você não pode coletar erros no log de aplicativo no elemento Logs e tentar enviar logs detalhados para a sincronização do Application Insights. O atributo scheduledTransferLogLevelFilter sempre deve coletar uma quantidade igual ou maior de logs que a quantidade de logs que você está tentando enviar para um coletor.
-* Você não pode enviar dados de blob coletados pela extensão do Diagnóstico do Azure ao Application Insights. Por exemplo, nada especificado sob o nó Directories. No caso de despejos de memória, o despejo de memória real ainda será enviado para o armazenamento de blobs e somente uma notificação da geração do despejo será enviada ao Application Insights.
+* Channels are only meant to work with log type and not performance counters. If you specify a channel with a performance counter element it will be ignored.
+* The log level for a channel cannot exceed the log level for what is being collected by Azure diagnostics. For example: you cannot collect Application Log errors in the Logs element and try to send Verbose logs to the Application Insight sync. The scheduledTransferLogLevelFilter attribute must always collect equal or more logs than the logs you are trying to send to a sink.
+* You cannot send any blob data collected by Azure diagnostics extension to Application Insights. For example anything specified under the Directories node. For Crash Dumps the actual crash dump will still be sent to blob storage and only a notification that the crash dump was generated will be sent to Application Insights.
 
-## Tópicos relacionados
+## <a name="related-topics"></a>Related topics
 
-* [Monitorar os Serviços de Nuvem do Azure com o Application Insights](app-insights-cloudservices.md)
-* [Usando o PowerShell para enviar diagnósticos do Azure ao Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [Arquivo de configuração de Diagnóstico do Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx)
+* [Monitoring Azure Cloud Services with Application Insights](app-insights-cloudservices.md)
+* [Using PowerShell to send Azure diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Azure Diagnostics Configuration file](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

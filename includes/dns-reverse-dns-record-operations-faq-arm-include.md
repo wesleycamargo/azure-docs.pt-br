@@ -1,26 +1,29 @@
-<BR>
-## Perguntas frequentes 
-### Qual é o custo dos registros DNS reversos?
-Eles são gratuitos! Não há nenhum custo adicional para registros DNS reversos ou consultas.
-### Meus registros DNS reversos serão resolvidos na Internet?
-Sim. Depois de definir a propriedade de DNS reverso para seu Endereço IP Público, o Azure gerenciará todas as delegações de DNS e as zonas de DNS necessárias para garantir que o registro DNS reverso seja resolvido para todos os usuários da Internet.
-### Um registro DNS reverso padrão será criado para meus Endereços IP Públicos?
-Não. O DNS reverso é um recurso opcional. Nenhum registro DNS reverso padrão é criado se você optar por não configurar um.
-### Qual é o formato do FQDN (nome de domínio totalmente qualificado)?
-Os FQDNs são especificados em ordem crescente e devem terminar com um ponto (por exemplo, “app1.contoso.com.”).
-### O que acontecerá se ocorrer uma falha nas verificações de validação do DNS reverso especificado?
-Quando ocorrer uma falha nas verificações de validação do DNS reverso, também ocorrerá uma falha na operação de gerenciamento de serviço. Corrija o valor DNS reverso conforme necessário e tente novamente.
-### Posso gerenciar o DNS reverso para meu Site do Azure?
-Não há suporte para o DNS reverso em Sites do Azure. Há suporte para o DNS reverso em Máquinas Virtuais do Azure.
-### Posso configurar vários registros DNS reversos para meus Endereços IP Públicos?
-Não. O Azure dá suporte a um único registro DNS reverso por Endereço IP Público. No entanto, cada Endereço IP Público pode ter seu próprio registro DNS reverso.
-### Posso configurar um registro DNS reverso para meu Endereço IP Público sem ter um DomainNameLabel especificado?
-Não. Para aproveitar os registros DNS reversos para Endereços IP Públicos, você deve especificar a propriedade DomainNameLabel.
-### Posso hospedar as zonas ARPA para meu IPs atribuídos pelo Azure no DNS do Azure em minha própria assinatura ou em meus próprios servidores DNS autoritativos?
-Não. O Azure não dá suporte à delegação progressiva de zonas ARPA. O Azure hospeda as zonas ARPA para todos os IPs disponíveis e permite aos clientes criar registros DNS reversos nessas zonas ARPA.
-### Posso hospedar zonas ARPA para meus blocos IP atribuídos pelo ISP no DNS do Azure?
-Não. Atualmente, o DNS do Azure não dá suporte a registros DNS reversos em zonas DNS de clientes.
-### Posso enviar emails a domínios externos de meus Serviços de Computação do Azure?
-Não. De acordo com [estas informações](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/), os Serviços de Computação do Azure não oferecem suporte ao envio de emails a domínios externos.
+<BR> 
+## <a name="faq"></a>FAQ 
+### <a name="how-much-do-reverse-dns-records-cost?"></a>How much do reverse DNS records cost?
+They’re free!  There is no additional cost for reverse DNS records or queries.
+### <a name="will-my-reverse-dns-records-resolve-from-the-internet?"></a>Will my reverse DNS records resolve from the internet?
+Yes. Once you set the reverse DNS property for your Public IP Address, Azure manages all the DNS delegations and DNS zones required to ensure that reverse DNS record resolves for all internet users.
+### <a name="will-a-default-reverse-dns-record-be-created-for-my-public-ip-addresses?"></a>Will a default reverse DNS record be created for my Public IP Addresses?
+No. Reverse DNS is an opt-in feature. No default reverse DNS records are created if you choose not to configure them.
+### <a name="what-is-the-format-for-the-fully-qualified-domain-name-(fqdn)?"></a>What is the format for the fully-qualified domain name (FQDN)?
+FQDNs are specified in forward order, and must be terminated by a dot (e.g., “app1.contoso.com.”).
+### <a name="what-happens-if-the-validation-checks-for-the-reverse-dns-i’ve-specified-fail?"></a>What happens if the validation checks for the reverse DNS I’ve specified fail?
+Where the validation for reverse DNS checks fail, the service management operation will fail. Please correct the reverse DNS value as required, and retry.
+### <a name="can-i-manage-reverse-dns-for-my-azure-website?"></a>Can I manage reverse DNS for my Azure Website?
+Reverse DNS is not supported for Azure Websites. Reverse DNS is supported for Azure Virtual Machines.
+### <a name="can-i-configure-multiple-reverse-dns-records-for-my-public-ip-address?"></a>Can I configure multiple reverse DNS records for my Public IP Address?
+No. Azure supports a single reverse DNS record for each Public IP Address. Each Public IP Address however can have their own reverse DNS record.
+### <a name="can-i-configure-a-reverse-dns-record-for-my-public-ip-address-without-having-a-domainnamelabel-specified?"></a>Can I configure a reverse DNS record for my Public IP Address without having a DomainNameLabel specified?
+No. To leverage reverse DNS records for your Public IP Addresses, you must specify the DomainNameLabel property.
+### <a name="can-i-host-the-arpa-zones-for-my-azure-assigned-ips-on-azure-dns-within-my-own-subscription,-or-on-my-own-authoritative-dns-servers?"></a>Can I host the ARPA zones for my Azure-assigned IPs on Azure DNS within my own subscription, or on my own authoritative DNS servers?
+No. Azure does not support the onward delegation of ARPA zones. Azure hosts the ARPA zones for all available IPs, and enables customers to create reverse DNS records within these ARPA zones.
+### <a name="can-i-host-arpa-zones-for-my-isp-assigned-ip-blocks-on-azure-dns?"></a>Can I host ARPA zones for my ISP-assigned IP blocks on Azure DNS?
+No. Azure DNS does not currently support reverse DNS records in customers DNS zones.
+### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services?"></a>Can I send emails to external domains from my Azure Compute services?
+No. As per [here](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/), Azure Compute services do not support sending emails to external domains.
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Implantar recursos com o PowerShell e o modelo | Microsoft Azure"
-   description="Use o Azure Resource Manager e o Azure PowerShell para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager."
+   pageTitle="Deploy resources with PowerShell and template | Microsoft Azure"
+   description="Use Azure Resource Manager and Azure PowerShell to deploy a resources to Azure. The resources are defined in a Resource Manager template."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,57 +16,58 @@
    ms.date="08/15/2016"
    ms.author="tomfitz"/>
 
-# Implantar recursos com modelos do Resource Manager e o Azure PowerShell
+
+# <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Deploy resources with Resource Manager templates and Azure PowerShell
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-template-deploy.md)
-- [CLI do Azure](resource-group-template-deploy-cli.md)
+- [Azure CLI](resource-group-template-deploy-cli.md)
 - [Portal](resource-group-template-deploy-portal.md)
-- [API REST](resource-group-template-deploy-rest.md)
+- [REST API](resource-group-template-deploy-rest.md)
 
-Este tópico explica como usar o Azure PowerShell com modelos do Resource Manager para implantar seus recursos no Azure.
+This topic explains how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure.  
 
-> [AZURE.TIP] Para obter ajuda com a depuração de erros durante a implantação, consulte:
+> [AZURE.TIP] For help with debugging an error during deployment, see:
 >
-> - [Exibir operações de implantação com o Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) para saber sobre como obter informações que o ajudarão a solucionar o erro
-> - [Solucionar erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md) para saber como resolver os erros comuns da implantação
+> - [View deployment operations with Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) to learn about getting information that helps you troubleshoot your error
+> - [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors
 
-Seu modelo pode ser um arquivo local ou um arquivo externo que está disponível por meio de um URI. Quando seu modelo reside em uma conta de armazenamento, você pode restringir o acesso a ele e fornecer um token de SAS (Assinatura de Acesso Compartilhado) durante a implantação.
+Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
 
-## Etapas rápidas para implantação
+## <a name="quick-steps-to-deployment"></a>Quick steps to deployment
 
-Este artigo descreve todas as diferentes opções disponíveis para você durante a implantação. No entanto, normalmente você somente precisará de dois comandos simples. Para começar a implantação de forma rápida, use os seguintes comandos:
+This article describes all the different options available to you during deployment. However, often you only need two simple commands. To quickly get started with deployment, use the following commands:
 
     New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
     New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterFile <PathToParameterFile>
 
-Para saber mais sobre opções de implantação que podem ser mais adequado para seu cenário, continue lendo este artigo.
+To learn more about options for deployment that might be better suited to your scenario, continue reading this article.
 
 [AZURE.INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 
-## Implantação com o PowerShell
+## <a name="deploy-with-powershell"></a>Deploy with PowerShell
 
-1. Faça logon na sua conta do Azure.
+1. Log in to your Azure account.
 
         Add-AzureRmAccount
 
-     Um resumo da sua conta é retornado.
+     A summary of your account is returned.
 
         Environment : AzureCloud
         Account     : someone@example.com
         ...
 
-2. Se você tiver várias assinaturas, forneça a ID da assinatura que deseja usar para a implantação com o comando **Set-AzureRmContext**.
+2. If you have multiple subscriptions, provide the subscription ID you wish to use for deployment with the **Set-AzureRmContext** command. 
 
         Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
-3. Normalmente, ao implantar um novo modelo, convém criar um novo grupo de recursos para conter os recursos. Se tiver um grupo de recursos existente no qual deseja implantar, você poderá ignorar esta etapa e usar esse grupo de recursos.
+3. Typically, when deploying a new template, you want to create a resource group to contain the resources. If you have an existing resource group that you wish to deploy to, you can skip this step and use that resource group. 
 
-     Para criar um grupo de recursos, forneça um nome e localização para esse grupo. Você precisa fornecer um local para o grupo de recursos pois o grupo de recursos armazena metadados sobre os recursos. Por motivos de conformidade, talvez você queira especificar onde os metadados são armazenados. Em geral, é recomendável que você especifique um local em que a maioria de seus recursos residirá. Usar o mesmo local pode simplificar seu modelo.
+     To create a resource group, provide a name and location for your resource group. You need to provide a location for the resource group because the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
 
         New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
-     Um resumo do novo grupo de recursos é retornado.
+     A summary of the new resource group is returned.
    
         ResourceGroupName : ExampleResourceGroup
         Location          : westus
@@ -78,42 +79,42 @@ Para saber mais sobre opções de implantação que podem ser mais adequado para
              *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-4. Antes de executar a implantação, você pode validar as configurações da implantação. O cmdlet **Test-AzureRmResourceGroupDeployment** permite encontrar os problemas antes de criar os recursos reais. O exemplo a seguir mostra como validar uma implantação.
+4. Before executing your deployment, you can validate your deployment settings. The **Test-AzureRmResourceGroupDeployment** cmdlet enables you to find problems before creating actual resources. The following example shows how to validate a deployment.
 
         Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate>
 
-5. Para implantar recursos em seu grupo de recursos, execute o comando **New-AzureRmResourceGroupDeployment** e forneça os parâmetros necessários. Os parâmetros incluem um nome para sua implantação, o nome do seu grupo de recursos, o caminho ou a URL para o modelo criado e qualquer outro parâmetro necessário para seu cenário. Caso o parâmetro **Mode** não esteja especificado, o valor padrão **Incremental** será usado. Para executar uma implantação completa, defina **Mode** como **Complete**. Tenha cuidado ao usar o modo completo, pois você pode excluir acidentalmente recursos que não estão em seu modelo.
+5. To deploy resources to your resource group, run the **New-AzureRmResourceGroupDeployment** command and provide the necessary parameters. The parameters include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario. If the **Mode** parameter is not specified, the default value of **Incremental** is used. To run a complete deployment, set **Mode** to **Complete**. Be careful when using the complete mode as you can inadvertently delete resources that are not in your template.
 
-     Para implantar um modelo local, use o parâmetro **TemplateFile**:
+     To deploy a local template, use the **TemplateFile** parameter:
 
         New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate>
 
-     Para implantar um modelo externo, use o parâmetro **TemplateUri**:
+     To deploy an external template, use **TemplateUri** parameter:
 
         New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri <LinkToTemplate>
    
-     Você tem as seguintes opções para fornecer valores de parâmetro:
+     You have the following options for providing parameter values: 
    
-     1. Use parâmetros embutidos.
+     1. Use inline parameters.
 
             New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -myParameterName "parameterValue"
 
-     2. Use um objeto de parâmetro.
+     2. Use a parameter object.
 
             $parameters = @{"<ParameterName>"="<Parameter Value>"}
             New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterObject $parameters
 
-     3. Use um arquivo de parâmetro local. Para obter informações sobre o arquivo de modelo, consulte [Arquivo de parâmetro](#parameter-file).
+     3. Use a local parameter file. For information about the template file, see [Parameter file](#parameter-file).
 
             New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterFile <PathToParameterFile>
 
-     4. Use um arquivo de parâmetro externo. Para obter informações sobre o arquivo de modelo, consulte [Arquivo de parâmetro](#parameter-file).
+     4. Use an external parameter file. For information about the template file, see [Parameter file](#parameter-file). 
 
             New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri <LinkToTemplate> -TemplateParameterUri <LinkToParameterFile>
 
-        Quando você usa um arquivo de parâmetro externo, não é possível passar outros valores embutidos ou de um arquivo local. Para saber mais, confira [Precedência de parâmetro](#parameter-precendence).
+        When you use an external parameter file, you cannot pass other values either inline or from a local file. For more information, see [Parameter precedence](#parameter-precendence).
 
-     Após os recursos terem sido implantados, você verá um resumo da implantação.
+     After the resources have been deployed, you will see a summary of the deployment.
 
         DeploymentName    : ExampleDeployment
         ResourceGroupName : ExampleResourceGroup
@@ -122,75 +123,80 @@ Para saber mais sobre opções de implantação que podem ser mais adequado para
         Mode              : Incremental
         ...
 
-     Se o modelo incluir um parâmetro com o mesmo nome que um dos parâmetros no comando do PowerShell, você receberá uma solicitação para fornecer um valor para esse parâmetro. O parâmetro do modelo incluirá o sufixo **FromTemplate**. Por exemplo, um parâmetro chamado **ResourceGroupName** em seu modelo entra em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx). Você recebe uma solicitação para fornecer um valor para **ResourceGroupNameFromTemplate**. Em geral, você deve evitar essa confusão não dando aos parâmetros o mesmo nome dos parâmetros usados para operações de implantação.
+     If your template includes a parameter with the same name as one of the parameters in the PowerShell command, you are prompted to provide a value for that parameter. The parameter from your template will include the postfix **FromTemplate**. For example, a parameter named **ResourceGroupName** in your template conflicts with the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet. You are prompted to provide a value for **ResourceGroupNameFromTemplate**. In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
 
-6. Se você quiser registrar informações adicionais sobre a implantação que podem ajudar a solucionar quaisquer erros de implantação, use o parâmetro **DeploymentDebugLogLevel**. Você pode especificar que o conteúdo da solicitação, o conteúdo da resposta ou ambos sejam registrados com a operação de implantação.
+6. If you want to log additional information about the deployment that may help you troubleshoot any deployment errors, use the **DeploymentDebugLogLevel** parameter. You can specify that request content, response content, or both be logged with the deployment operation.
 
         New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate>
         
-     Para obter mais informações sobre como usar este conteúdo de depuração para solucionar os problemas da implantação, consulte [Solucionando problemas de implantações do grupo de recursos com o Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
+     For more information about using this debugging content to troubleshoot deployments, see [Troubleshooting resource group deployments with Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
 
-## Implantar o modelo do armazenamento com um token SAS
+## <a name="deploy-template-from-storage-with-sas-token"></a>Deploy template from storage with SAS token
 
-Você pode adicionar seus modelos a uma conta de armazenamento e vinculá-los durante a implantação com um token SAS.
+You can add your templates to a storage account and link to them during deployment with a SAS token.
 
-> [AZURE.IMPORTANT] Seguindo as etapas abaixo, o blob que contém o modelo fica acessível somente para o proprietário da conta. No entanto, quando você cria um token SAS para o blob, o blob fica acessível para qualquer pessoa com o URI. Se outro usuário interceptar o URI, esse usuário será capaz de acessar o modelo. Usar um token SAS é uma boa maneira de limitar o acesso aos seus modelos, mas você não deve incluir dados confidenciais como senhas diretamente no modelo.
+> [AZURE.IMPORTANT] By following the steps below, the blob containing the template is accessible to only the account owner. However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI. If another user intercepts the URI, that user is able to access the template. Using a SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
 
-### Adicionar modelo privado à conta de armazenamento
+### <a name="add-private-template-to-storage-account"></a>Add private template to storage account
 
-As etapas a seguir configuram uma conta de armazenamento para os modelos:
+The following steps set up a storage account for templates:
 
-1. Crie um grupos de recursos.
+1. Create a resource group.
 
         New-AzureRmResourceGroup -Name ManageGroup -Location "West US"
 
-2. Criar uma conta de armazenamento. O nome da conta de armazenamento deve ser exclusivo no Azure, então forneça seu próprio nome para a conta.
+2. Create a storage account. The storage account name must be unique across Azure, so provide your own name for the account.
 
         New-AzureRmStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates -Type Standard_LRS -Location "West US"
 
-3. Definir a conta de armazenamento atual.
+3. Set the current storage account.
 
         Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 
-4. Criar um contêiner. A permissão é definida como **Desativada**, o que significa que o contêiner está acessível apenas para o proprietário.
+4. Create a container. The permission is set to **Off** which means the container is only accessible to the owner.
 
         New-AzureStorageContainer -Name templates -Permission Off
         
-5. Adicionar seu modelo ao contêiner.
+5. Add your template to the container.
 
         Set-AzureStorageBlobContent -Container templates -File c:\Azure\Templates\azuredeploy.json
         
-### Forneça um token SAS durante a implantação
+### <a name="provide-sas-token-during-deployment"></a>Provide SAS token during deployment
 
-Para implantar um modelo privado em uma conta de armazenamento, recupere um token SAS e inclua-o no URI para o modelo.
+To deploy a private template in a storage account, retrieve a SAS token and include it in the URI for the template.
 
-1. Se você tiver alterado a conta de armazenamento atual, defina a conta de armazenamento atual como aquela que contém os modelos.
+1. If you have changed the current storage account, set the current storage account to the one containing your templates.
 
         Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 
-2. Crie um token SAS com permissões de leitura e uma hora de vencimento para limitar o acesso. Recupere o URI completo do modelo, incluindo o token SAS.
+2. Create a SAS token with read permissions and an expiry time to limit access. Retrieve the full URI of the template including the SAS token.
 
         $templateuri = New-AzureStorageBlobSASToken -Container templates -Blob azuredeploy.json -Permission r -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
 
-3. Implante o modelo fornecendo o URI que inclui o token SAS.
+3. Deploy the template by providing the URI that includes the SAS token.
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri $templateuri
 
-Para ver um exemplo de como usar um token SAS com modelos vinculados, consulte [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
+For an example of using a SAS token with linked templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 
-## Precedência de parâmetro
+## <a name="parameter-precedence"></a>Parameter precedence
 
-Você pode usar parâmetros embutidos e um arquivo de parâmetro local na mesma operação de implantação. Por exemplo, você pode especificar alguns valores no arquivo de parâmetro local e adicionar outros valores embutidos durante a implantação. Se você fornecer valores para um parâmetro no arquivo de parâmetros local e embutido, o valor embutido terá precedência.
+You can use inline parameters and a local parameter file in the same deployment operation. For example, you can specify some values in the local parameter file and add other values inline during deployment. If you provide values for a parameter in both the local parameter file and inline, the inline value takes precedence.
 
-No entanto, você não pode usar parâmetros embutidos com um arquivo de parâmetro externo. Quando você especificar um arquivo de parâmetro no parâmetro **TemplateParameterUri**, todos os parâmetros embutidos serão ignorados. Você deve fornecer todos os valores de parâmetro no arquivo externo. Se o seu modelo incluir um valor confidencial que não podem ser incluído no arquivo de parâmetros, adicione esse valor em um cofre de chaves e faça referência ao cofre de chaves em seu arquivo de parâmetro externo, ou forneça dinamicamente todos os valores de parâmetro embutidos.
+However, you cannot use inline parameters with an external parameter file. When you specify a parameter file in the **TemplateParameterUri** parameter, all inline parameters are ignored. You must provide all parameter values in the external file. If your template includes a sensitive value that you cannot include in the parameter file, either add that value to a key vault and reference the key vault in your external parameter file, or dynamically provide all parameter values inline.
 
-Para ver os detalhes sobre como usar uma referência do KeyVault para transmitir valores seguros, consulte [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
+For details about using a KeyVault reference to pass secure values, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
 
-## Próximas etapas
-- Para ver um exemplo de como implantar recursos por meio da biblioteca de clientes .NET, consulte [Implantar recursos usando bibliotecas .NET e um modelo](virtual-machines/virtual-machines-windows-csharp-template.md).
-- Para definir os parâmetros no modelo, consulte [Criando modelos](resource-group-authoring-templates.md#parameters).
-- Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
+## <a name="next-steps"></a>Next steps
+- For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](virtual-machines/virtual-machines-windows-csharp-template.md).
+- To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
+- For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

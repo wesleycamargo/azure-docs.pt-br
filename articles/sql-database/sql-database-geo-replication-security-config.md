@@ -1,98 +1,104 @@
 <properties
-	pageTitle="Como gerenciar a segurança após a restauração de um banco de dados para um novo servidor ou fazer failover de um banco de dados para uma cópia de banco de dados secundária | Microsoft Azure"
-	description="Este tópico explica considerações de segurança para gerenciar a segurança após uma restauração ou failover de um banco de dados."
-	services="sql-database"
-	documentationCenter="na"
-	authors="CarlRabeler"
-	manager="jhubbard"
-	editor="monicar" />
+    pageTitle="How to manage security after restoring a database to a new server or failing over a database to a secondary database copy | Microsoft Azure"
+    description="This topic explains security considerations for managing security after a database restore or a failover."
+    services="sql-database"
+    documentationCenter="na"
+    authors="CarlRabeler"
+    manager="jhubbard"
+    editor="monicar" />
 
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="07/16/2016"
-	ms.author="carlrab" />
+    ms.service="sql-database"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="data-management"
+    ms.date="10/13/2016"
+    ms.author="carlrab" />
 
-# Como gerenciar a segurança do Banco de Dados SQL do Azure após a recuperação de desastre
 
->[AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) agora está disponível para todos os bancos de dados em todas as camadas de serviço.
+# <a name="how-to-manage-azure-sql-database-security-after-disaster-recovery"></a>How to manage Azure SQL Database security after disaster recovery
 
-## Visão geral dos requisitos de autenticação para a recuperação de desastre
+>[AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) is now available for all databases in all service tiers.
 
-Este tópico descreve os requisitos de autenticação para configurar e controlar a [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) e as etapas necessárias para configurar o acesso de usuário ao banco de dados secundário. Ele também descreve como habilitar o acesso ao banco de dados recuperado depois de usar a [restauração geográfica](sql-database-recovery-using-backups.md#geo-restore). Para obter mais informações sobre as opções de recuperação, confira [Visão geral de continuidade dos negócios](sql-database-business-continuity.md).
+## <a name="overview-of-authentication-requirements-for-disaster-recovery"></a>Overview of authentication requirements for disaster recovery
 
-## Recuperação de desastre com usuários independentes
+This topic describes the authentication requirements to configure and control [Active Geo-Replication](sql-database-geo-replication-overview.md) and the steps required to set up user access to the secondary database. It also describes how enable access to the recovered database after using [geo-restore](sql-database-recovery-using-backups.md#geo-restore). For more information on recovery options, see [Business Continuity Overview](sql-database-business-continuity.md).
 
-Ao contrário de usuários tradicionais, que devem ser mapeados para logons no banco de dados mestre, um usuário independente é totalmente gerenciado pelo próprio banco de dados. Isso oferece dois benefícios. No cenário de recuperação de desastre, os usuários podem continuar a conectar ao novo banco de dados primário recuperado usando restauração geográfica sem qualquer configuração adicional, pois o banco de dados gerencia os usuários. Também há possíveis benefícios de desempenho e escalabilidade com esta configuração de uma perspectiva de logon. Para obter mais informações, consulte [Usuários do banco de dados independente - Tornando o banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+## <a name="disaster-recovery-with-contained-users"></a>Disaster recovery with contained users
 
-A principal desvantagem é que gerenciar o processo de recuperação de desastre em grande escala é mais desafiador. Quando você tiver vários bancos de dados que usam o mesmo logon, manter as credenciais usando usuários independentes em vários banco de dados pode invalidar os benefícios de usuários independentes. Por exemplo, a política de rotação de senha requer que alterações ocorram consistentemente em vários bancos de dados em vez de alterar a senha do logon apenas uma vez no banco de dados mestre. Por esse motivo, se você tiver vários bancos de dados que usam o mesmo nome de usuário e senha, a utilização de usuários independentes não será recomendada.
+Unlike traditional users, which must be mapped to logins in the master database, a contained user is managed completely by the database itself. This has two benefits. In the disaster recovery scenario, the users can continue to connect to the new primary database or the database recovered using geo-restore without any additional configuration, because the database manages the users. There are also potential scalability and performance benefits from this configuration from a login perspective. For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx). 
 
-## Como configurar logons e usuários
+The main trade-off is that managing the disaster recovery process at scale is more challenging. When you have multiple databases that use the same login, maintaining the credentials using contained users in multiple database may negate the benefits of contained users. For example, the password rotation policy requires that changes be made consistently in multiple databases rather than changing the password for the login once in the master database. For this reason, if you have multiple databases that use the same user name and password, using contained users is not recommended. 
 
-Se estiver usando logons e usuários (em vez de usuários independentes), será necessário realizar etapas extras para garantir que os mesmos logons existam no banco de dados mestre. As seções a seguir descrevem as etapas envolvidas e considerações adicionais.
+## <a name="how-to-configure-logins-and-users"></a>How to configure logins and users
 
-### Configurar o acesso do usuário a um banco de dados secundário ou recuperado
+If you are using logins and users (rather than contained users), you must make take extra steps to insure that the same logins exist in the master database. The following sections outline the steps involved and additional considerations.
 
-Para o banco de dados secundário poder ser usado como banco de dados secundário somente leitura e para garantir o acesso apropriado ao novo banco de dados primário ou o banco de dados recuperado usando a restauração geográfica, o banco de dados mestre do servidor de destino deve ter a configuração de segurança apropriadas em vigor antes da recuperação.
+### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Set up user access to a secondary or recovered database
 
-As permissões específicas para cada etapa são descritas posteriormente neste tópico.
+In order for the secondary database to be usable as a read-only secondary database, and to ensure proper access to the new primary database or the database recovered using geo-restore, the master database of the target server must have the appropriate security configuration in place before the recovery.
 
-A preparação do acesso do usuário a uma replicação geográfica secundária deve ser realizada como parte da configuração da Replicação Geográfica. A preparação do acesso do usuário aos bancos de dados restaurados geograficamente pode ser realizada a qualquer momento em que o servidor original estiver online (ex.: como parte do teste de DR).
+The specific permissions for each step are described later in this topic.
 
->[AZURE.NOTE] Se o failover ou a restauração geográfica for para um servidor que não tem acesso de logons configurado corretamente, eles ficarão limitados à conta de administrador do servidor.
+Preparing user access to a Geo-Replication secondary should be performed as part configuring Geo-Replication. Preparing user access to the geo-restored databases should be performed at any time when the original server is online (e.g. as part of the DR drill).
 
-Configurar logons no servidor de destino envolve três etapas descritas abaixo:
+>[AZURE.NOTE] If you failover or geo-restore to a server that does not have properly configured logins access to it will be limited to the server admin account.
 
-#### 1\. Determine os logons com acesso ao banco de dados primário:
-A primeira etapa do processo é determinar quais logons devem ser duplicados no servidor de destino. Isso é feito com um par de instruções SELECT, uma no banco de dados mestre lógico no servidor de origem e outra no próprio banco de dados primário.
+Setting up logins on the target server involves three steps outlined below:
 
-Somente o administrador de servidores ou um membro da função de servidor **LoginManager** pode determinar os logons no servidor de origem com a instrução SELECT a seguir.
+#### <a name="1.-determine-logins-with-access-to-the-primary-database:"></a>1. Determine logins with access to the primary database:
+The first step of the process is to determine which logins must be duplicated on the target server. This is accomplished with a pair of SELECT statements, one in the logical master database on the source server and one in the primary database itself.
 
-	SELECT [name], [sid] 
-	FROM [sys].[sql_logins] 
-	WHERE [type_desc] = 'SQL_Login'
+Only the server admin or a member of the **LoginManager** server role can determine the logins on the source server with the following SELECT statement. 
 
-Somente um membro da função de banco de dados db\_owner, o usuário dbo ou o administrador de servidores pode determinar todas as entidades de usuário do banco de dados no banco de dados primário.
+    SELECT [name], [sid] 
+    FROM [sys].[sql_logins] 
+    WHERE [type_desc] = 'SQL_Login'
 
-	SELECT [name], [sid]
-	FROM [sys].[database_principals]
-	WHERE [type_desc] = 'SQL_USER'
+Only a member of the db_owner database role, the dbo user, or server admin, can determine all of the database user principals in the primary database.
 
-#### 2\. Localize o SID dos logons identificados na etapa 1:
-Ao comparar a saída das consultas da seção anterior e fazer a correspondência dos SIDs, é possível mapear o logon do servidor para o usuário do banco de dados. Logons que têm um usuário de banco de dados com um SID correspondente têm acesso de usuário a esse banco de dados como essa entidade de usuário de banco de dados.
+    SELECT [name], [sid]
+    FROM [sys].[database_principals]
+    WHERE [type_desc] = 'SQL_USER'
 
-A consulta a seguir pode ser usada para ver todas as entidades de usuário e seus SIDs em um banco de dados. Somente um membro da função de banco de dados db\_owner ou o administrador de servidores pode executar essa consulta.
+#### <a name="2.-find-the-sid-for-the-logins-identified-in-step-1:"></a>2. Find the SID for the logins identified in step 1:
+By comparing the output of the queries from the previous section and matching the SIDs, you can map the server login to database user. Logins that have a database user with a matching SID have user access to that database as that database user principal. 
 
-	SELECT [name], [sid]
-	FROM [sys].[database_principals]
-	WHERE [type_desc] = 'SQL_USER'
+The following query can be used to see all of the user principals and their SIDs in a database. Only a member of the db_owner database role or server admin can run this query.
 
->[AZURE.NOTE] Os usuários **INFORMATION\_SCHEMA** e **sys** têm SIDs *NULL* e o SID **Convidado** é **0x00**. O SID **dbo** pode começar com *0x01060000000001648000000000048454* se o criador do banco de dados foi o administrador do servidor, em vez de um membro do **DbManager**.
+    SELECT [name], [sid]
+    FROM [sys].[database_principals]
+    WHERE [type_desc] = 'SQL_USER'
 
-#### 3\. Crie os logons no servidor de destino:
-A última etapa é acessar o servidor de destino, ou servidores, e gerar os logons com os SIDs apropriados. A sintaxe básica é mostrada a seguir.
+>[AZURE.NOTE] The **INFORMATION_SCHEMA** and **sys** users have *NULL* SIDs, and the **guest** SID is **0x00**. The **dbo** SID may start with *0x01060000000001648000000000048454*, if the database creator was the server admin instead of a member of **DbManager**.
 
-	CREATE LOGIN [<login name>]
-	WITH PASSWORD = <login password>,
-	SID = <desired login SID>
+#### <a name="3.-create-the-logins-on-the-target-server:"></a>3. Create the logins on the target server:
+The last step is to go to the target server, or servers, and generate the logins with the appropriate SIDs. The basic syntax is as follows.
 
->[AZURE.NOTE] Se desejar conceder ao usuário o acesso ao secundário, mas não ao primário, você poderá fazer isso alterando o logon do usuário no servidor primário usando a sintaxe a seguir.
+    CREATE LOGIN [<login name>]
+    WITH PASSWORD = <login password>,
+    SID = <desired login SID>
+
+>[AZURE.NOTE] If you want to grant user access to the secondary, but not to the primary, you can do that by altering the user login on the primary server by using the following syntax.
 >
->ALTER LOGIN <nome de login> DISABLE
+>ALTER LOGIN <login name> DISABLE
 >
->DISABLE não altera a senha, portanto você sempre poderá habilitá-la se necessário.
+>DISABLE doesn’t change the password, so you can always enable it if needed.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Para saber mais sobre como gerenciar o acesso ao banco de dados e os logons, veja [Segurança do Banco de Dados SQL: gerenciar a segurança de acesso e de logon do banco de dados](sql-database-manage-logins.md).
-- Para saber mais sobre usuários de bancos de dados independentes, confira [Usuários de bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
-- Para saber como usar e configurar a replicação geográfica ativa, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
-- Para obter informações sobre como usar a restauração geográfica, confira [Restauração Geográfica](sql-database-recovery-using-backups.md#geo-restore)
+- For more information on managing database access and logins, see [SQL Database security: Manage database access and login security](sql-database-manage-logins.md).
+- For more information on contained database users, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
+- For information about using and configuring Active Geo-Replication, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
+- For informatin about using Geo-Restore, see [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore)
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Additional resources
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

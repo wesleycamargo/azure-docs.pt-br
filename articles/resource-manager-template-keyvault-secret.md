@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modelo do Gerenciador de Recursos para um segredo em um cofre da chave | Microsoft Azure"
-   description="Mostra o esquema do Gerenciador de Recursos para a implantação de segredos de cofre da chave por meio de um modelo."
+   pageTitle="Resource Manager template for a secret in a key vault | Microsoft Azure"
+   description="Shows the Resource Manager schema for deploying key vault secrets through a template."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,13 +16,14 @@
    ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
-# Esquema de modelo do segredo do cofre da chave
 
-Cria um segredo que é armazenado em um cofre da chave. Esse tipo de recurso é implantado com frequência como um recurso filho do [cofre da chave](resource-manager-template-keyvault.md).
+# <a name="key-vault-secret-template-schema"></a>Key vault secret template schema
 
-## Formato de esquema
+Creates a secret that is stored in a key vault. This resource type is frequently deployed as a child resource of [key vault](resource-manager-template-keyvault.md).
 
-Para criar um segredo do cofre da chave, adicione o seguinte esquema ao modelo. O segredo pode ser definido como um recurso filho de um cofre da chave ou como um recurso de nível superior. Você pode defini-lo como um recurso filho quando o cofre de chaves é implantado no mesmo modelo. Você precisará definir o segredo como um recurso de nível superior quando a chave do cofre não estiver implantada no mesmo modelo, ou quando você precisar criar vários segredos fazendo um loop no tipo de recurso.
+## <a name="schema-format"></a>Schema format
+
+To create a key vault secret, add the following schema to your template. The secret can be defined as either a child resource of a key vault or as top-level resource. You can define it as a child resource when the key vault is deployed in the same template. You will need to define the secret as a top-level resource when the key vault is not deployed in the same template, or when you need to create multiple secrets by looping on the resource type. 
 
     {
         "type": enum,
@@ -34,29 +35,29 @@ Para criar um segredo do cofre da chave, adicione o seguinte esquema ao modelo. 
         "dependsOn": [ array values ]
     }
 
-## Valores
+## <a name="values"></a>Values
 
-As tabelas a seguir descrevem os valores necessários para definir no esquema.
+The following tables describe the values you need to set in the schema.
 
-| Nome | Valor |
+| Name | Value |
 | ---- | ---- | 
-| type | Enum<br />Obrigatório<br />**secrets** (quando implantado como um recurso filho do cofre da chave) ou<br /> **Microsoft.KeyVault/vaults/secrets** (quando implantado como um recurso de nível superior)<br /><br />O tipo de recurso a ser criado. |
-| apiVersion | Enum<br />Obrigatório<br />**2015-06-01** ou **2014-12-19-preview**<br /><br />A versão da API a ser usada para criar o recurso. | 
-| name | String<br />Obrigatório<br />Uma única palavra quando implantado como um recurso filho de um cofre da chave ou no formato **{nome-do-cofre-da-chave}/{nome-do-segredo}** quando implantado como um recurso de nível superior a ser adicionado a uma chave existente.<br /><br />O nome do segredo a ser criado. |
-| propriedades | Object<br />Obrigatório<br />[properties object](#properties)<br /><br />Um objeto que especifica o valor do segredo a ser criado. |
-| dependsOn | Array<br />Opcional<br />Uma lista separada por vírgulas com os nomes ou os identificadores exclusivos de um recurso.<br /><br />A coleção de recursos de que esse link depende. Se a chave do cofre do segredo for implantada no mesmo modelo, inclua o nome do cofre da chave neste elemento para garantir que ele é implantado primeiro. |
+| type | Enum<br />Required<br />**secrets** (when deployed as a child resource of key vault) or<br /> **Microsoft.KeyVault/vaults/secrets** (when deployed as a top-level resource)<br /><br />The resource type to create. |
+| apiVersion | Enum<br />Required<br />**2015-06-01** or **2014-12-19-preview**<br /><br />The API version to use for creating the resource. | 
+| name | String<br />Required<br />A single word when deployed as a child resource of a key vault, or in the format **{key-vault-name}/{secret-name}** when deployed as a top-level resource to be added to an existing key vault.<br /><br />The name of the secret to create. |
+| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that specifies the value of the secret to create. |
+| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this link depends on. If the key vault for the secret is deployed in the same template, include the name of the key vault in this element to ensure it is deployed first. |
 
 <a id="properties" />
-### properties object
+### <a name="properties-object"></a>properties object
 
-| Nome | Valor |
+| Name | Value |
 | ---- | ---- | 
-| value | String<br />Obrigatório<br /><br />O valor do segredo a ser armazenado no cofre da chave. Ao transmitir um valor para essa propriedade, use um parâmetro do tipo **securestring**. |
+| value | String<br />Required<br /><br />The secret value to store in the key vault. When passing in a value for this property, use a parameter of type **securestring**.  |
 
-	
-## Exemplos
+    
+## <a name="examples"></a>Examples
 
-O primeiro exemplo implanta um segredo como um recurso filho de um cofre da chave.
+The first example deploys a secret as a child resource of a key vault.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -182,7 +183,7 @@ O primeiro exemplo implanta um segredo como um recurso filho de um cofre da chav
         }]
     }
 
-O segundo exemplo implanta o segredo como um recurso de nível superior que é armazenado em um cofre da chave existente.
+The second example deploys the secret as a top-level resource that is stored in an existing key vault.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -222,9 +223,15 @@ O segundo exemplo implanta o segredo como um recurso de nível superior que é a
     }
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Para obter informações gerais sobre cofres de chave, veja [Introdução ao Cofre da Chave do Azure](./key-vault/key-vault-get-started.md).
-- Para obter um exemplo de como fazer referência a um segredo do cofre da chave durante a implantação de modelos, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
+- For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
+- For an example of referencing a key vault secret when deploying templates, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

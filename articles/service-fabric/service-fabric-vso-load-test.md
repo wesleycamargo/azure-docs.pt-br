@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Executar teste de carga em seu aplicativo usando o Visual Studio Team Services | Microsoft Azure"
-    description="Saiba como testar o estresse de seus aplicativos do Azure Service Fabric usando o Visual Studio Team Services."
+    pageTitle="Load test your application by using Visual Studio Team Services | Microsoft Azure"
+    description="Learn how to stress test your Azure Service Fabric applications by using Visual Studio Team Services."
     services="service-fabric"
     documentationCenter="na"
     authors="cawams"
@@ -16,119 +16,120 @@
     ms.date="07/29/2016"
     ms.author="cawa" />
 
-# Executar teste de carga em seu aplicativo usando o Visual Studio Team Services
 
-Este artigo mostra como usar os recursos de teste de carga do Microsoft Visual Studio para realizar teste de estresse em um aplicativo. Ele usa um back-end de serviço com estado e um front-end da Web de serviço sem estado do Service Fabric do Azure. O exemplo de aplicativo usado aqui é um simulador de localização de avião. Você fornece uma ID de avião, um horário de partida e um destino. O back-end do aplicativo processa as solicitações e o front-end exibe em um mapa o avião que corresponde aos critérios.
+# <a name="load-test-your-application-by-using-visual-studio-team-services"></a>Load test your application by using Visual Studio Team Services
 
-O diagrama a seguir ilustra o aplicativo do Service Fabric que você testará.
+This article shows how to use Microsoft Visual Studio load test features to stress test an application. It uses an Azure Service Fabric stateful service back end and a stateless service web front end. The example application used here is an airplane location simulator. You provide an airplane ID, departure time, and destination. The application’s back end processes the requests, and the front end displays on a map the airplane that matches the criteria.
 
-![Diagrama do aplicativo de exemplo de localização de avião][0]
+The following diagram illustrates the Service Fabric application that you'll be testing.
 
-## Pré-requisitos
-Antes de começar, você precisa fazer o seguinte:
+![Diagram of the example airplane location application][0]
 
-- Obtenha uma conta do Visual Studio Team Services. É possível obter uma gratuitamente no site do [Visual Studio Team Services](https://www.visualstudio.com).
-- Obtenha e instale o Visual Studio 2013 ou o Visual Studio 2015. Este artigo usa o Visual Studio 2015 Enterprise, mas o Visual Studio 2013 e outras edições devem funcionar da mesma forma.
-- Implante seu aplicativo em um ambiente de preparo. Confira [Como implantar aplicativos em um cluster remoto usando o Visual Studio](service-fabric-publish-app-remote-cluster.md) para saber mais sobre isso.
-- Entenda o padrão de uso do aplicativo. Estas informações são usadas para simular o padrão de carga.
-- Compreenda o objetivo do teste de carga. Isso ajuda você a interpretar e analisar os resultados de teste de carga.
+## <a name="prerequisites"></a>Prerequisites
+Before getting started, you need to do the following:
 
-## Criar e executar o projeto de Teste de Carga e Desempenho na Web
+- Get a Visual Studio Team Services account. You can get one for free at [Visual Studio Team Services](https://www.visualstudio.com).
+- Get and install Visual Studio 2013 or Visual Studio 2015. This article uses Visual Studio 2015 Enterprise edition, but Visual Studio 2013 and other editions should work similarly.
+- Deploy your application to a staging environment. See [How to deploy applications to a remote cluster using Visual Studio](service-fabric-publish-app-remote-cluster.md) for information about this.
+- Understand your application’s usage pattern. This information is used to simulate the load pattern.
+- Understand the goal for your load testing. This helps you interpret and analyze the load test results.
 
-### Criar um projeto de Teste de Carga e de Desempenho na Web
+## <a name="create-and-run-the-web-performance-and-load-test-project"></a>Create and run the Web Performance and Load Test project
 
-1. Abra o Visual Studio 2015. Escolha **Arquivo** > **Novo** > **Projeto** na barra de menus para abrir a caixa de diálogo **Novo Projeto**.
+### <a name="create-a-web-performance-and-load-test-project"></a>Create a Web Performance and Load Test project
 
-2. Expanda o nó **Visual C#** e escolha **Teste** > **Projeto de Teste de Carga e Desempenho na Web**. Dê um nome ao projeto e escolha o botão **OK**.
+1. Open Visual Studio 2015. Choose **File** > **New** > **Project** on the menu bar to open the **New Project** dialog box.
 
-    ![Captura de tela da caixa de diálogo Novo Projeto][1]
+2. Expand the **Visual C#** node and choose **Test** > **Web Performance and Load Test project**. Give the project a name and then choose the **OK** button.
 
-    Você deverá ver, no Gerenciador de Soluções, um novo projeto de Teste de Carga e de Desempenho na Web.
+    ![Screen shot of the New Project dialog box][1]
 
-    ![Captura de tela do Gerenciador de Soluções mostrando o novo projeto][2]
+    You should see a new Web Performance and Load Test project in Solution Explorer.
 
-### Registrar um teste de desempenho Web
+    ![Screen shot of Solution Explorer showing the new project][2]
 
-1. Abra o projeto .webtest.
+### <a name="record-a-web-performance-test"></a>Record a web performance test
 
-2. Escolha o ícone **Adicionar Gravação** para iniciar uma sessão de gravação em seu navegador.
+1. Open the .webtest project.
 
-    ![Captura de tela do ícone Adicionar Gravação em um navegador][3]
+2. Choose the **Add Recording** icon to start a recording session in your browser.
 
-    ![Captura de tela do ícone Gravar em um navegador][4]
+    ![Screen shot of the Add Recording icon in a browser][3]
 
-3. Procure o aplicativo do Service Fabric. O painel de gravação deve mostrar as solicitações da Web.
+    ![Screen shot of the Record button in a browser][4]
 
-    ![Captura de tela de solicitações da Web no painel de gravação][5]
+3. Browse to the Service Fabric application. The recording panel should show the web requests.
 
-4. Execute uma sequência de ações que você espera que os usuários executem. Essas ações serão usadas como um padrão para gerar a carga.
+    ![Screen shot of web requests in the recording panel][5]
 
-5. Quando terminar, escolha o botão **Parar** para interromper a gravação.
+4. Perform a sequence of actions that you expect the users to perform. These actions are used as a pattern to generate the load.
 
-    ![Captura de tela do botão Parar][6]
+5. When you're done, choose the **Stop** button to stop recording.
 
-    O projeto .webtest no Visual Studio deve ter capturado uma série de solicitações. Os parâmetros dinâmicos são substituídos automaticamente. Neste ponto, você pode excluir qualquer solicitação de dependência extra e repetida que não faça parte do seu cenário de teste.
+    ![Screen shot of the Stop button][6]
 
-6. Salve o projeto e escolha o comando **Executar Teste** para executar o teste de desempenho na Web localmente e verificar se tudo funcionou corretamente.
+    The .webtest project in Visual Studio should have captured a series of requests. Dynamic parameters are replaced automatically. At this point, you can delete any extra, repeated dependency requests that are not part of your test scenario.
 
-    ![Captura de tela do comando Executar Teste][7]
+6. Save the project and then choose the **Run Test** command to run the web performance test locally and make sure everything works correctly.
 
-### Parametrizar o teste de desempenho Web
+    ![Screen shot of the Run Test command][7]
 
-É possível parametrizar o teste de desempenho Web convertendo-o em um teste de desempenho na Web codificado e depois editando o código. Como alternativa, você pode associar o teste de desempenho na Web a uma lista de dados, para que o teste realize a iteração por meio dos dados. Consulte [Gerar e executar um teste de desempenho na Web codificado](https://msdn.microsoft.com/library/ms182552.aspx) para obter detalhes sobre como converter o teste de desempenho Web em um teste codificado. Consulte [Adicionar uma fonte de dados a um teste de desempenho na Web](https://msdn.microsoft.com/library/ms243142.aspx) para obter informações sobre como associar dados a um teste de desempenho Web.
+### <a name="parameterize-the-web-performance-test"></a>Parameterize the web performance test
 
-Para este exemplo, converteremos o teste de desempenho Web em um teste codificado para substituir a ID do avião por um GUID gerado, e adicionar mais solicitações para enviar voos a locais diferentes.
+You can parameterize the web performance test by converting it to a coded web performance test and then editing the code. As an alternative, you can bind the web performance test to a data list so that the test iterates through the data. See [Generate and run a coded web performance test](https://msdn.microsoft.com/library/ms182552.aspx) for details about how to convert the web performance test to a coded test. See [Add a data source to a web performance test](https://msdn.microsoft.com/library/ms243142.aspx) for information about how to bind data to a web performance test.
 
-### Criar um projeto de teste de carga
+For this example, we'll convert the web performance test to a coded test so you can replace the airplane ID with a generated GUID and add more requests to send flights to different locations.
 
-Um projeto de teste de carga é composto por um ou mais cenários descritos pelo teste de unidade e pelo teste de desempenho Web, juntamente com as configurações de teste de carga adicionais especificadas. As etapas a seguir mostram como criar um projeto de teste de carga:
+### <a name="create-a-load-test-project"></a>Create a load test project
 
-1. No menu de atalho de seu projeto de teste de Carga e Desempenho na Web, escolha **Adicionar** > **Teste de Carga**. No assistente do **Teste de Carga**, escolha o botão **Próximo** para definir as configurações do teste.
+A load test project is composed of one or more scenarios described by the web performance test and unit test, along with additional specified load test settings. The following steps show how to create a load test project:
 
-2. Na seção **Padrão de Carga**, escolha se deseja que uma carga de usuário constante ou uma carga por etapa, que começa com alguns usuários e aumenta a quantidade de usuários com o tempo.
+1. On the shortcut menu of your Web Performance and Load Test project, choose **Add** > **Load Test**. In the **Load Test** wizard, choose the **Next** button to configure the test settings.
 
-    Se você tiver uma boa estimativa da quantidade de carga de usuário e quiser ver o desempenho do sistema atual, escolha **Carga Constante**. Se a sua meta for saber se o sistema apresenta um desempenho consistente sob cargas diversas, escolha **Carga por Etapas**.
+2. In the **Load Pattern** section, choose whether you want a constant user load or a step load, which starts with a few users and increases the users over time.
 
-3. Na seção **Combinação de Testes**, escolha o botão **Adicionar** e selecione o teste que você deseja incluir no teste de carga. Você pode usar a coluna **Distribuição** para especificar a porcentagem total de execuções do teste de cada teste.
+    If you have a good estimate of the amount of user load and want to see how the current system performs, choose **Constant Load**. If your goal is to learn whether the system performs consistently under various loads, choose **Step Load**.
 
-4. Na seção **Configurações de Execução**, especifique a duração do teste de carga.
+3. In the **Test Mix** section, choose the **Add** button and then select the test that you want to include in the load test. You can use the **Distribution** column to specify the percentage of total tests run for each test.
 
-    >[AZURE.NOTE] A opção **Iterações de Teste** só estará disponível quando você executar um teste de carga localmente usando o Visual Studio.
+4. In the **Run Settings** section, specify the load test duration.
 
-5. Na seção **Local** de **Configurações de Execução**, especifique o local onde as solicitações de teste de carga são geradas. O assistente pode solicitar o logon em sua conta do Team Services. Faça logon e, em seguida, escolha um local geográfico. Quando terminar, escolha o botão **Concluir**.
+    >[AZURE.NOTE] The **Test Iterations** option is available only when you run a load test locally using Visual Studio.
 
-6. Após a criação do teste de carga, abra o projeto .loadtest e escolha a configuração de execução atual, por exemplo, **Configurações de Execução** > **Configurações de Execução1 [Ativa]**. Isso abre as configurações de execução na janela **Propriedades**.
+5. In the **Location** section of **Run Settings**, specify the location where load test requests are generated. The wizard may prompt you to log in to your Team Services account. Log in and then choose a geographic location. When you're done, choose the **Finish** button.
 
-7. Na seção **Resultados** da janela de propriedades **Configurações de Execução**, a configuração **Armazenamento de Detalhes de Medição de Tempo** deve ter **Nenhum** como seu valor padrão. Altere este valor para **Todos os Detalhes Individuais** para obter mais informações sobre os resultados de teste de carga. Confira [Teste de carga](https://www.visualstudio.com/load-testing.aspx) para saber mais sobre como conectar-se ao Visual Studio Team Services e executar um teste de carga.
+6. After the load test is created, open the .loadtest project and choose the current run setting, such as **Run Settings** > **Run Settings1 [Active]**. This opens the run settings in the **Properties** window.
 
-### Executar o teste de carga usando o Visual Studio Team Services
+7. In the **Results** section of the **Run Settings** properties window, the **Timing Details Storage** setting should have **None** as its default value. Change this value to **All Individual Details** to get more information on the load test results. See [Load Testing](https://www.visualstudio.com/load-testing.aspx) for more information on how to connect to Visual Studio Team Services and run a load test.
 
-Escolha o comando **Executar Teste de Carga** para iniciar a execução do teste.
+### <a name="run-the-load-test-by-using-visual-studio-team-services"></a>Run the load test by using Visual Studio Team Services
 
-![Captura de tela do comando Executar Teste de Carga][8]
+Choose the **Run Load Test** command to start the test run.
 
-## Exibir e analisar os resultados de teste de carga
+![Screen shot of the Run Load Test command][8]
 
-À medida que o teste de carga progredir, as informações de desempenho serão incluídas em um gráfico. Você deverá ver algo semelhante ao gráfico a seguir.
+## <a name="view-and-analyze-the-load-test-results"></a>View and analyze the load test results
 
-![Captura de tela do gráfico de desempenho para resultados de testes de carga][9]
+As the load test progresses, the performance information is graphed. You should see something similar to the following graph.
 
-1. Escolha o link **Baixar relatório** próximo à parte superior da página. Após o download do relatório, escolha o botão **Exibir relatório**.
+![Screen shot of performance graph for load test results][9]
 
-    Na guia **Gráfico**, você pode ver gráficos para vários contadores de desempenho. Na guia **Resumo**, os resultados gerais do teste são exibidos. A guia **Tabelas** mostra o número total de testes de carga aprovados e reprovados.
+1. Choose the **Download report** link near the top of the page. After the report is downloaded, choose the **View report** button.
 
-2. Escolha os links de números nas colunas **Teste** > **Falha** e **Erros** > **Contagem** para ver os detalhes dos erros.
+    On the **Graph** tab you can see graphs for various performance counters. On the **Summary** tab, the overall test results appear. The **Tables** tab shows the total number of passed and failed load tests.
 
-    A guia **Detalhes** mostra informações virtuais de cenário de teste e de usuário para solicitações com falha. Esses dados podem ser úteis se o teste de carga incluir vários cenários.
+2. Choose the number links on the **Test** > **Failed** and the **Errors** > **Count** columns to see error details.
 
-Confira [Analisando os resultados de teste de carga no modo de exibição de gráficos do Analisador de Teste de Carga](https://www.visualstudio.com/load-testing.aspx) para obter mais informações sobre a exibição dos resultados de teste de carga.
+    The **Detail** tab shows virtual user and test scenario information for failed requests. This data can be useful if the load test includes multiple scenarios.
 
-## Automatizar o teste de carga
+See [Analyzing Load Test Results in the Graphs View of the Load Test Analyzer](https://www.visualstudio.com/load-testing.aspx) for more information on viewing load test results.
 
-O teste de carga do Visual Studio Team Services fornece APIs para ajudá-lo a gerenciar testes de carga e a analisar os resultados em uma conta do Team Services. Confira [APIs Rest do teste de carga de nuvem](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx) para saber mais.
+## <a name="automate-your-load-test"></a>Automate your load test
 
-## Próximas etapas
-- [Monitorando e diagnosticando serviços em uma configuração de desenvolvimento do computador local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+Visual Studio Team Services Load Test provides APIs to help you manage load tests and analyze results in a Team Services account. See [Cloud Load Testing Rest APIs](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx) for more information.
+
+## <a name="next-steps"></a>Next steps
+- [Monitoring and diagnosing services in a local machine development setup](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [0]: ./media/service-fabric-vso-load-test/OverviewDiagram.png
 [1]: ./media/service-fabric-vso-load-test/NewProjectDialog.png
@@ -141,4 +142,8 @@ O teste de carga do Visual Studio Team Services fornece APIs para ajudá-lo a ge
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

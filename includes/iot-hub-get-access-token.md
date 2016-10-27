@@ -1,8 +1,8 @@
-## Obter um token do Gerenciador de Recursos
+## <a name="obtain-a-resource-manager-token"></a>Obtain a Resource Manager token
 
-O Active Directory do Azure deve autenticar todas as tarefas que podem ser executadas nos recursos usando o Gerenciador de Recursos do Azure. O exemplo mostrado aqui usa a autenticação de senha; para ver outras abordagens, veja [Autenticando solicitações do Gerenciador de Recursos do Azure][lnk-authenticate-arm].
+Azure Active Directory must authenticate all the tasks that you perform on resources using the Azure Resource Manager. The example shown here uses password authentication, for other approaches see [Authenticating Azure Resource Manager requests][lnk-authenticate-arm].
 
-1. Adicione o seguinte código ao método **Main** em Program.cs para recuperar um token do Azure AD usando a ID e senha do aplicativo.
+1. Add the following code to the **Main** method in Program.cs to retrieve a token from Azure AD using the application id and password.
 
     ```
     var authContext = new AuthenticationContext(string.Format  
@@ -18,7 +18,7 @@ O Active Directory do Azure deve autenticar todas as tarefas que podem ser execu
     }
     ```
 
-2. Crie um objeto **ResourceManagementClient** que usa o token adicionando o seguinte código ao final do método **Main**:
+2. Create a **ResourceManagementClient** object that uses the token by adding the following code to the end of the **Main** method:
 
     ```
     var creds = new TokenCredentials(token.AccessToken);
@@ -26,7 +26,7 @@ O Active Directory do Azure deve autenticar todas as tarefas que podem ser execu
     client.SubscriptionId = subscriptionId;
     ```
 
-3. Crie ou obtenha uma referência para o grupo de recursos que você está usando:
+3. Create, or obtain a reference to, the resource group you are using:
 
     ```
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,
@@ -40,4 +40,6 @@ O Active Directory do Azure deve autenticar todas as tarefas que podem ser execu
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

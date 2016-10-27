@@ -1,9 +1,12 @@
-#### Para desligar um dispositivo virtual
+#### <a name="to-shut-down-a-virtual-device"></a>To shut down a virtual device
 
-1. Entre no Portal de Gerenciamento.
+1. Sign in to the Management Portal.
 
-2. Clique em **Máquinas Virtuais** e então selecione o dispositivo virtual.
+2. Click **Virtual Machines**, and then select the virtual device.
 
-3. Clique em **Desligar**.
+3. Click **Shutdown**.
 
-<!---HONumber=AcomDC_1217_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

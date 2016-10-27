@@ -1,8 +1,10 @@
-Recurso| Limite padrão
+Resource| Default limit
 ---|---
-Perfis por assinatura | 100 <sup>1</sup>
-Pontos de extremidade por perfil| 200
+Profiles per subscription | 100 <sup>1</sup>
+Endpoints per profile| 200
 
-<sup>1</sup>Contate o suporte caso precise aumentar esses limites.
+<sup>1</sup>Contact support in case you need to increase these limits.
 
-<!---HONumber=Nov15_HO1-->
+<!--HONumber=Oct16_HO2-->
+
+

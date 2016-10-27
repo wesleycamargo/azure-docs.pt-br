@@ -1,15 +1,18 @@
 <!--author=SharS last changed: 03/17/2016-->
 
-#### Para instalar a Atualização 1.2 do portal clássico do Azure
+#### <a name="to-install-update-1.2-from-the-azure-classic-portal"></a>To install Update 1.2 from the Azure classic portal
 
-1. No portal clássico do Azure, vá até a página **Dispositivos** e selecione seu dispositivo.
+1. In the Azure classic portal, go to the **Devices** page and select your device.
 
-2. Navegue até **Dispositivos** > **Configurar**.
+2. Navigate to **Devices** > **Configure**.
 
-3. Em **Interfaces de Rede**, verifique primeiro se você tem pelo menos uma interface de rede que esteja habilitada para iSCSI. Depois localize a interface de rede (diferente de DATA 0) que tem um gateway atribuído.
+3. Under **Network Interfaces**, first verify that you have at least one network interface that is iSCSI-enabled. Then locate the network interface (other than DATA 0) that has a gateway assigned.
 
-4. Desabilite a interface de rede que contém um gateway atribuído e salve a configuração modificada. Lembre-se de que as configurações de interface de rede são mantidas e, portanto, quando você reabilitar essa interface de rede mais tarde, o portal será revertido para as configurações originais.
+4. Disable the network interface that has an assigned gateway and save the modified configuration. Note the network interface settings are retained and so when you re-enable this network interface later, the portal will revert to the original settings.
 
-7. Agora você pode [usar o portal clássico do Azure para instalar a Atualização 1.2](#install-update-12-via-the-azure-classic-portal). Siga as instruções a partir da etapa 3 deste procedimento. Depois de instalar todas as atualizações, você pode reabilitar a interface de rede que você desabilitou.
+7. You can now [use the Azure classic portal to install Update 1.2](#install-update-12-via-the-azure-classic-portal). Follow the instructions starting from step 3 of this procedure. After you have installed all the updates, you can re-enable the network interface that you disabled.
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,62 +1,66 @@
 <properties
-	pageTitle="Mover uma VM Linux | Microsoft Azure"
-	description="Mova uma VM Linux para outro grupo de recursos ou outra assinatura do Azure no modelo de implantação do Resource Manager."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Move a Linux VM | Microsoft Azure"
+    description="Move a Linux VM to another Azure subscription or resource group in the Resource Manager deployment model."
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/08/2016"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/08/2016"
+    ms.author="cynthn"/>
 
-	
-
-
-# Mover uma VM Linux para outro grupo de recursos ou outra assinatura
-
-Este artigo explica como mover uma VM Linux entre grupos de recursos ou assinaturas. Mover uma VM entre assinaturas poderá ser útil se você tiver criado uma VM em uma assinatura pessoal e agora quiser movê-la para a assinatura da sua empresa.
-
-> [AZURE.NOTE] Novas IDs de recurso são criadas como parte da mudança. Após a mudança da VM, você precisa atualizar ferramentas e scripts para usar as novas IDs de recurso.
+    
 
 
-## Usar a CLI do Azure para mover uma VM 
 
-Para mover uma VM com êxito, você precisa mover a VM e todos os seus recursos de suporte. Use o comando **azure group show** para listar todos os recursos em um grupo de recursos e suas IDs. Ele ajuda a direcionar a saída desse comando para um arquivo de modo que seja possível copiar e colar as IDs em comandos posteriores.
+# <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Move a Linux VM to another subscription or resource group
 
-	azure group show <resourceGroupName>
+This article walks you through how to move a Linux VM between resource groups or subscriptions. Moving a VM between subscriptions can be handy if you created a VM in a personal subscription and now want to move it to your company's subscription.
 
-Para mover uma VM e seus recursos para outro grupo de recursos, use o comando da CLI **azure resource move**. O exemplo a seguir mostra como mover uma VM e os recursos mais comuns que ela exige. Usamos o parâmetro **-i** e o passamos em uma lista de IDs separadas por vírgulas (sem espaços) para os recursos a serem movidos.
+> [AZURE.NOTE] New resource IDs are created as part of the move. Once the VM has been moved, you need to update your tools and scripts to use the new resource IDs. 
 
-	
+
+## <a name="use-the-azure-cli-to-move-a-vm"></a>Use the Azure CLI to move a VM 
+
+To successfully move a VM, you need to move the VM and all its supporting resources. Use the **azure group show** command to list all the resources in a resource group and their IDs. It helps to pipe the output of this command to a file so you can copy and paste the IDs into later commands.
+
+    azure group show <resourceGroupName>
+
+To move a VM and its resources to another resource group, use the **azure resource move** CLI command. The following example shows how to move a VM and the most common resources it requires. We use the **-i** parameter and pass in a comma-separated list (without spaces) of IDs for the resources to move.
+
+    
     vm=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Compute/virtualMachines/<vmName>
-	nic=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkInterfaces/<nicName>
-	nsg=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkSecurityGroups/<nsgName>
-	pip=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/publicIPAddresses/<publicIPName>
-	vnet=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/virtualNetworks/<vnetName>
-	diag=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<diagnosticStorageAccountName>
-	storage=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<storageAcountName>  	
-	
-	azure resource move --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag -d "<destinationResourceGroup>"
-	
-Se quiser mover a VM e seus recursos para outra assinatura, adicione o parâmetro **--destination-subscriptionId &#60;destinationSubscriptionID&#62;** para especificar a assinatura de destino.
+    nic=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkInterfaces/<nicName>
+    nsg=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkSecurityGroups/<nsgName>
+    pip=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/publicIPAddresses/<publicIPName>
+    vnet=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/virtualNetworks/<vnetName>
+    diag=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<diagnosticStorageAccountName>
+    storage=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<storageAcountName>      
+    
+    azure resource move --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag -d "<destinationResourceGroup>"
+    
+If you want to move the VM and its resources to a different subscription, add the **--destination-subscriptionId &#60;destinationSubscriptionID&#62;** parameter to specify the destination subscription.
 
-Se estiver trabalhando no Prompt de Comando em um computador Windows, você precisará adicionar um **$** na frente dos nomes de variável quando os declarar. Isso não é necessário no Linux.
+If you are working from the Command Prompt on a Windows computer, you need to add a **$** in front of the variable names when you declare them. This isn't needed in Linux.
 
-Será solicitado que você confirme que deseja mover o recurso especificado. Digite **Y** para confirmar que deseja mover os recursos.
-	
+You are asked to confirm that you want to move the specified resource. Type **Y** to confirm that you want to move the resources.
+    
 
 [AZURE.INCLUDE [virtual-machines-common-move-vm](../../includes/virtual-machines-common-move-vm.md)]
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](../resource-group-move-resources.md).
+You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to new resource group or subscription](../resource-group-move-resources.md).    
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

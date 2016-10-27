@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Cenário de aplicativo lógico: crie um gatilho do Barramento de Serviço do Azure Functions | Microsoft Azure"
-   description="Saiba como usar as Azure Functions como um gatilho do Barramento de Serviço para um aplicativo lógico"
+   pageTitle="Logic app scenario: Create an Azure Functions Service Bus trigger | Microsoft Azure"
+   description="Use Azure Functions to create a Service Bus trigger for a logic app"
    services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -16,30 +16,32 @@
    ms.date="05/23/2016"
    ms.author="jehollan"/>
 
-# Cenário de aplicativo lógico: crie um gatilho do Barramento de Serviço do Azure usando as Azure Functions
 
-Você pode usar as Azure Functions para criar um gatilho para um aplicativo lógico quando você precisa implantar um ouvinte ou uma tarefa de execução longa. Por exemplo, você pode criar uma função que escutaria em uma fila e acionaria imediatamente um aplicativo lógico como um gatilho de envio.
+# <a name="logic-app-scenario:-create-an-azure-service-bus-trigger-by-using-azure-functions"></a>Logic app scenario: Create an Azure Service Bus trigger by using Azure Functions
 
-## Compilar o aplicativo lógico
+You can use Azure Functions to create a trigger for a logic app when you need to deploy a long-running listener or task. For example, you can create a function that will listen in on a queue and then immediately fire a logic app as a push trigger.
 
-Neste exemplo, você terá uma função em execução para cada aplicativo lógico que precisa ser disparado. Primeiro, crie um aplicativo lógico com um gatilho de solicitação HTTP. A função chama esse ponto de extremidade sempre que uma mensagem da fila é recebida.
+## <a name="build-the-logic-app"></a>Build the logic app
 
-1. Abra um novo aplicativo lógico e selecione o gatilho **Manual - Quando uma Solicitação HTTP for Recebida**. Opcionalmente, você pode especificar um esquema JSON para usar com a mensagem da fila usando uma ferramenta como [jsonschema.net](http://jsonschema.net). Cole o esquema no gatilho. Isso permitirá que o designer compreenda a forma dos dados e movimente as propriedades com mais facilidade pelo fluxo de trabalho.
-1. Adicione as etapas adicionais que você deseja que ocorram após uma mensagem da fila ser recebida. Por exemplo, envie um email por meio do Office 365.
-1. Salve o aplicativo lógico para gerar a URL de retorno de chamada do gatilho para esse aplicativo lógico. A URL aparecerá no cartão do gatilho.
+In this example, you have a function running for each logic app that needs to be triggered. First, create a logic app that has an HTTP request trigger. The function calls that endpoint whenever a queue message is received.  
 
-![A URL de retorno de chamada aparece no cartão do gatilho][1]
+1. Create a new logic app; select the **Manual - When an HTTP Request is Received** trigger.  
+   Optionally, you can specify a JSON schema to use with the queue message by using a tool like [jsonschema.net](http://jsonschema.net). Paste the schema in the trigger. This helps the designer understand the shape of the data and more easily flow properties through the workflow.
+1. Add any additional steps that you want to occur after a queue message is received. For example, send an email via Office 365.  
+1. Save the logic app to generate the callback URL for the trigger to this logic app. The URL appears on the trigger card.
 
-## Compilar a função
+![The callback URL appears on the trigger card][1]
 
-Em seguida, você precisa criar uma função que atuará como o gatilho e ouvirá a fila.
+## <a name="build-the-function"></a>Build the function
 
-1. Abra o [portal das Azure Functions](https://functions.azure.com/signin) e escolha **Nova Função**, então selecione o modelo **ServiceBusQueueTrigger - C#**.
+Next, you need to create a function that will act as the trigger and listen to the queue.
 
-    ![Portal do Azure Functions][2]
+1. In the [Azure Functions portal](https://functions.azure.com/signin), select **New Function**, and then select the **ServiceBusQueueTrigger - C#** template.
 
-2. Configure a conexão com a fila do Barramento de Serviço (que usará o ouvinte de `OnMessageReceive()` do SDK do Barramento de Serviço).
-3. Grave uma função simples para chamar o ponto de extremidade do aplicativo lógico (criado anteriormente) usando a mensagem da fila como gatilho. Aqui está um exemplo completo de uma função. O exemplo usa um tipo de conteúdo de mensagem `application/json`, mas você pode alterar isso se necessário.
+    ![Azure Functions portal][2]
+
+2. Configure the connection to the Service Bus queue (which will use the Azure Service Bus SDK `OnMessageReceive()` listener).
+3. Write a simple function to call the logic app endpoint (created earlier) by using the queue message as a trigger. Here's a full example of a function. The example uses an `application/json` message content type, but you can change this if needed.
 
    ```
    using System;
@@ -60,10 +62,14 @@ Em seguida, você precisa criar uma função que atuará como o gatilho e ouvir�
    }
    ```
 
-Para testar, adicionar uma mensagem na fila por meio de uma ferramenta como o [Explorer do Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer). Veja o aplicativo lógico disparar imediatamente após a função receber a mensagem.
+To test, add a queue message via a tool like [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer). See the logic app fire immediately after the function receives the message.
 
 <!-- Image References -->
 [1]: ./media/app-service-logic-scenario-function-sb-trigger/manualTrigger.PNG
 [2]: ./media/app-service-logic-scenario-function-sb-trigger/newQueueTriggerFunction.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

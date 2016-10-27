@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Solucionar problemas de implantação do StorSimple | Microsoft Azure"
-   description="Descreve como diagnosticar e corrigir os erros que ocorrem quando você implanta o StorSimple pela primeira vez."
+   pageTitle="Troubleshoot StorSimple deployment issues | Microsoft Azure"
+   description="Describes how to diagnose and fix errors that occur when you first deploy StorSimple."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,217 +15,218 @@
    ms.date="08/18/2016"
    ms.author="alkohli" />
 
-# Solucionar problemas de implantação do dispositivo StorSimple
 
-## Visão geral
+# <a name="troubleshoot-storsimple-device-deployment-issues"></a>Troubleshoot StorSimple device deployment issues
 
-Este artigo oferece orientações úteis de solução de problemas para sua implantação do Microsoft Azure StorSimple. Descreve problemas comuns, possíveis causas e etapas recomendadas para ajudar você a resolver problemas que podem ocorrer durante a execução do StorSimple. Essas informações se aplicam ao dispositivo físico local StorSimple e ao dispositivo virtual StorSimple.
+## <a name="overview"></a>Overview
 
-> [AZURE.NOTE] Problemas relacionados com a configuração de dispositivo que você pode enfrentar podem ocorrer na primeira implantação do dispositivo ou podem ocorrer mais tarde, quando o dispositivo estiver funcionando. Este artigo se concentra na solução de problemas da primeira implantação. Para solucionar problemas de um dispositivo operacional, vá para [Solucionar problemas de dispositivo operacional](storsimple-troubleshoot-operational-device.md).
+This article provides helpful troubleshooting guidance for your Microsoft Azure StorSimple deployment. It describes common issues, possible causes, and recommended steps to help you resolve problems that you might experience when you configure StorSimple. This information applies to both the StorSimple on-premises physical device and the StorSimple virtual device.
 
-Este artigo também descreve as ferramentas para solucionar problemas de implantações do StorSimple e fornece um exemplo passo a passo de solução de problemas.
+> [AZURE.NOTE] Device configuration-related issues that you may face can occur when you deploy the device for the first time, or they can occur later, when the device is operational. This article focuses on troubleshooting first-time deployment issues. To troubleshoot an operational device, go to [Troubleshoot operational device issues](storsimple-troubleshoot-operational-device.md).
 
-## Problemas da primeira implantação
+This article also describes the tools for troubleshooting StorSimple deployments and provides a step-by-step troubleshooting example.
 
-Se você tiver um problema ao implantar seu dispositivo pela primeira vez, considere o seguinte:
+## <a name="first-time-deployment-issues"></a>First-time deployment issues
 
-- Se você estiver solucionando problemas de um dispositivo físico, certifique-se de que o hardware tenha sido instalado e configurado conforme descrito em [Instalar seu dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) ou [Instalar seu dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
-- Verifique os pré-requisitos da implantação. Certifique-se de ter todas as informações descritas na [lista de verificação de configuração de implantação](storsimple-deployment-walkthrough.md#deployment-configuration-checklist).
-- Examine as notas de versão do StorSimple para ver se o problema é descrito. As notas de versão incluem soluções alternativas para problemas de instalação conhecidos.
+If you run into an issue when deploying your device for the first time, consider the following:
 
-Durante a implantação do dispositivo, os problemas mais comuns enfrentados pelos usuários ocorrem quando eles executam o assistente de instalação e quando registram o dispositivo via Windows PowerShell para StorSimple. (Você usa o Windows PowerShell para StorSimple para registrar e configurar seu dispositivo StorSimple. Para obter mais informações sobre o registro de dispositivos, consulte [Etapa 3: configurar e registrar seu dispositivo por meio do Windows PowerShell para StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)).
+- If you are troubleshooting a physical device, make sure that the hardware has been installed and configured as described in [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md) or [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
+- Check prerequisites for deployment. Make sure that you have all the information described in the [deployment configuration checklist](storsimple-deployment-walkthrough.md#deployment-configuration-checklist).
+- Review the StorSimple Release Notes to see if the problem is described. The release notes include workarounds for known installation problems. 
 
-As seções a seguir podem ajudar você a resolver problemas encontrados ao configurar o dispositivo StorSimple pela primeira vez.
+During device deployment, the most common issues that users face occur when they run the setup wizard and when they register the device via Windows PowerShell for StorSimple. (You use Windows PowerShell for StorSimple to register and configure your StorSimple device. For more information on device registration, see [Step 3: Configure and register your device through Windows PowerShell for StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)).
 
-## Processo do assistente de instalação inicial
+The following sections can help you resolve issues that you encounter when you configure the StorSimple device for the first time.
 
-As etapas a seguir resumem o processo do assistente de instalação. Para obter informações detalhadas sobre instalação, consulte [Implantar o dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+## <a name="first-time-setup-wizard-process"></a>First-time setup wizard process
 
-1. Execute o cmdlet [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) para iniciar o assistente de instalação, que orientará você pelo resto das etapas.
-2. Configure a rede: o assistente de instalação permite definir configurações de rede para a interface de rede DADOS 0 em seu dispositivo StorSimple. Essas configurações incluem o seguinte:
-  - IP Virtual (VIP), máscara de sub-rede e gateway – o cmdlet [Set-HcsNetInterface](https://technet.microsoft.com/library/dn688161.aspx) é executado em segundo plano. Ele configura o endereço IP, a máscara de sub-rede e o gateway para a interface de rede DADOS 0 em seu dispositivo StorSimple.
-  - Servidor DNS primário – o cmdlet [Set-HcsDnsClientServerAddress](https://technet.microsoft.com/library/dn688172.aspx) é executado em segundo plano. Ele define as configurações de DNS para sua solução StorSimple.
-  - Servidor NTP – o cmdlet [Set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) é executado em segundo plano. Ele define as configurações do servidor NTP para sua solução StorSimple.
-  - Proxy da Web opcional – o cmdlet [Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) é executado em segundo plano. Ele define e habilita a configuração do proxy da Web para sua solução StorSimple.
-3. Configure as senhas: a próxima etapa será configurar o administrador do dispositivo e as senhas do Gerenciador de Instantâneos StorSimple. Se você estiver executando a Atualização 1, não será solicitado a configurar a senha do gerenciador de instantâneos do StorSimple.
-  - A senha do administrador do dispositivo é usada para fazer logon no seu dispositivo. A senha do dispositivo padrão é **Senha1**.
-  - A senha do Gerenciador de Instantâneos StorSimple é necessária quando você configura um dispositivo para usar o Gerenciador de Instantâneos StorSimple. Primeiro você precisa definir a senha no assistente de instalação e então pode defini-la e alterá-la do serviço Gerenciador do StorSimple. Essa senha autentica o dispositivo no Gerenciador de Instantâneos StorSimple.
+The following steps summarize the setup wizard process. For detailed setup information, see [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
+
+1. Run the [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) cmdlet to start the setup wizard that will guide you through the remaining steps. 
+2. Configure the network: the setup wizard lets you configure network settings for the DATA 0 network interface on your StorSimple device. These settings include the following:
+  - Virtual IP (VIP), subnet mask, and gateway – The [Set-HcsNetInterface](https://technet.microsoft.com/library/dn688161.aspx) cmdlet is executed in the background. It configures the IP address, subnet mask, and gateway for the DATA 0 network interface on your StorSimple device.
+  - Primary DNS server – The [Set-HcsDnsClientServerAddress](https://technet.microsoft.com/library/dn688172.aspx) cmdlet is executed in the background. It configures the DNS settings for your StorSimple solution.
+  - NTP server – The [Set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet is executed in the background. It configures the NTP server settings for your StorSimple solution.
+  - Optional web proxy – The [Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) cmdlet is executed in the background. It sets and enables the web proxy configuration for your StorSimple solution.
+3. Set up the passwords: the next step is to set up device administrator and StorSimple Snapshot Manager passwords. If you are running Update 1, then you will not be required to set up the StorSimple Snapshot Manager password.
+  - The device administrator password is used to log on to your device. The default device password is **Password1**.
+  - The StorSimple Snapshot Manager password is required when you configure a device to use StorSimple Snapshot Manager. You need to first set the password in the setup wizard, and then you can set and change it from the StorSimple Manager service. This password authenticates the device with StorSimple Snapshot Manager.
  
-    > [AZURE.IMPORTANT] As senhas são coletadas antes do registro, mas aplicadas somente depois que você registra com êxito o dispositivo. Se houver uma falha ao aplicar uma senha, você deverá fornecer a senha novamente até que as senhas necessárias (que atendem aos requisitos de complexidade) sejam coletadas.
+    > [AZURE.IMPORTANT] Passwords are collected before registration, but applied only after you successfully register the device. If there is a failure to apply a password, you will be prompted to supply the password again until the required passwords (that meet the complexity requirements) are collected.
 
-4. Registre o dispositivo: a etapa final é registrar o dispositivo no serviço Gerenciador do StorSimple em execução no Microsoft Azure. O registro exige que você [obtenha a chave de registro de serviço](storsimple-manage-service.md#get-the-service-registration-key) do Portal clássico do Azure e a forneça no assistente de instalação. Depois que o dispositivo for registrado com êxito, uma chave de criptografia de dados de serviço será fornecida para você. Mantenha essa chave de criptografia em um local seguro, pois ela será necessária para registrar todos os dispositivos subsequentes no serviço.
+4. Register the device: the final step is to register the device with the StorSimple Manager service running in Microsoft Azure. The registration requires you to [get the service registration key](storsimple-manage-service.md#get-the-service-registration-key) from the Azure classic portal, and provide it in the setup wizard. After the device is successfully registered, a service data encryption key is provided to you. Be sure to keep this encryption key in a safe location because it will be required to register all subsequent devices with the service.
 
-## Erros comuns durante a implantação de dispositivo
+## <a name="common-errors-during-device-deployment"></a>Common errors during device deployment
 
-As tabelas a seguir listam os erros comuns que podem ser encontrados quando você:
+The following tables list the common errors that you might encounter when you:
 
-- Define as configurações de rede necessárias.
-- Defina as configurações de proxy da Web opcional.
-- Configure o administrador do dispositivo e as senhas do Gerenciador de Instantâneos StorSimple.
-- Registre o dispositivo.
+- Configure the required network settings.
+- Configure the optional web proxy settings.
+- Set up the device administrator and StorSimple Snapshot Manager passwords. 
+- Register the device. 
 
-## Erros durante as configurações de rede necessárias
+## <a name="errors-during-the-required-network-settings"></a>Errors during the required network settings
 
-| Nº| Mensagem de erro | Possíveis causas | Ação recomendada |
+| No.| Error message | Possible causes | Recommended action |
 | ---| ------------- | --------------- | ------------------ |
-| 1 | Invoke-HcsSetupWizard: esse comando só pode ser executado no controlador ativo. | A configuração estava sendo executada no controlador passivo.| Execute esse comando do controlador ativo. Para saber mais, consulte [Identificar um controlador ativo em seu dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).|
-| 2 | Invoke-HcsSetupWizard: o dispositivo não está pronto. | Há problemas com a conectividade de rede em DADOS 0.| Verifique a conectividade de rede física em DADOS 0.|
-| 3 | Invoke-HcsSetupWizard: há um conflito de um endereço IP com outro sistema na rede (exceção de HRESULT: 0x80070263). | O IP fornecido para DADOS 0 já estava sendo usado por outro sistema. | Forneça um novo IP que não esteja em uso.|
-| 4 | Invoke-HcsSetupWizard: falha em um recurso de cluster. (Exceção de HRESULT: 0x800713AE). | Duplique o VIP. O IP fornecido já está em uso.| Forneça um novo IP que não esteja em uso.|
-| 5 | Invoke-HcsSetupWizard: endereço IPv4 inválido. | O endereço IP foi fornecido em um formato incorreto.| Verifique o formato e forneça seu endereço IP novamente. Para saber mais, consulte [Endereçamento Ipv4][1]. |
-| 6 | Invoke-HcsSetupWizard: endereço IPv6 inválido. | O endereço IP foi fornecido em um formato incorreto.| Verifique o formato e forneça seu endereço IP novamente. Para saber mais, consulte [Endereçamento Ipv6][2].|
-| 7 | Invoke-HcsSetupWizard: não há mais pontos de extremidade disponíveis do mapeador de pontos de extremidade. (Exceção de HRESULT: 0x800706D9) | A funcionalidade de cluster não está funcionando. | [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para as próximas etapas.
+| 1  | Invoke-HcsSetupWizard: This command can only be run on the active controller. | Configuration was being performed on the passive controller.| Run this command from the active controller. For more information, see [Identify an active controller on your device](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).|
+| 2 | Invoke-HcsSetupWizard: Device not ready. | There are issues with the network connectivity on DATA 0.| Check the physical network connectivity on DATA 0.|
+| 3 | Invoke-HcsSetupWizard: There is an IP address conflict with another system on the network (Exception from HRESULT: 0x80070263). | The IP supplied for DATA 0 was already in use by another system. | Provide a new IP that is not in use.|
+| 4 | Invoke-HcsSetupWizard: A cluster resource failed. (Exception from HRESULT: 0x800713AE). | Duplicate VIP. The supplied IP is already in use.| Provide a new IP that is not in use.|
+| 5 | Invoke-HcsSetupWizard: Invalid IPv4 address. | The IP address is provided in an incorrect format.| Check the format and supply your IP address again. For more information, see [Ipv4 Addressing][1]. |
+| 6 | Invoke-HcsSetupWizard: Invalid IPv6 address. | The IP address is provided in an incorrect format.| Check the format and supply your IP address again. For more information, see [Ipv6 Addressing][2].|
+| 7 | Invoke-HcsSetupWizard: There are no more endpoints available from the endpoint mapper. (Exception from HRESULT: 0x800706D9) | The cluster functionality is not working. | [Contact Microsoft Support](storsimple-contact-microsoft-support.md) for next steps.
 
-## Erros durante as configurações de proxy da Web opcional
+## <a name="errors-during-the-optional-web-proxy-settings"></a>Errors during the optional web proxy settings
 
-| Nº| Mensagem de erro | Possíveis causas | Ação recomendada |
+| No.| Error message | Possible causes | Recommended action |
 | ---| ------------- | --------------- | ------------------ |
-| 1 | Invoke-HcsSetupWizard: parâmetro inválido (exceção de HRESULT: 0x80070057) | Um dos parâmetros fornecidos para as configurações do proxy não é válido.| O URI não foi fornecido no formato correto. Use o seguinte formato: http://*<endereço IP ou FQDN do servidor proxy da web>*:*<número da porta TCP>* |
-| 2 | Invoke-HcsSetupWizard: servidor RPC não disponível (exceção de HRESULT: 0x800706ba) | A causa raiz é uma das seguintes:<ol><li>o cluster não está ativo.</li><li>O controlador passivo não consegue se comunicar com o controlador ativo e o comando é executado no controlador passivo.</li></ol> | Dependendo da causa raiz:<ol><li>[contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para certificar-se de que o cluster esteja ativo</li><li>Execute o comando do controlador ativo. Se você quiser executar o comando do controlador passivo, você precisará garantir que o controlador passivo pode se comunicar com o controlador ativo. Você precisará [contatar o Suporte do Microsoft](storsimple-contact-microsoft-support.md) se essa conectividade for interrompida.</li></ol> |
-| 3 | Invoke-HcsSetupWizard: falha na chamada RPC (exceção de HRESULT: 0x800706be) | O cluster está inoperante. | [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para certificar-se de que o cluster esteja ativo.|
-| 4 | Invoke-HcsSetupWizard: recurso de cluster não encontrado (exceção de HRESULT: 0x8007138f) | O recurso de cluster não foi encontrado. Isso poderá acontecer quando a instalação não tiver sido correta. | Talvez seja necessário redefinir o dispositivo para as configurações padrão de fábrica. [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para criar um recurso de cluster.|
-| 5 | Invoke-HcsSetupWizard: Cluster recurso não online (exceção de HRESULT: 0x8007138c)| Os recursos de cluster não estão online. | [Contate o Suporte da Microsoft Support](storsimple-contact-microsoft-support.md) para as próximas etapas.|
+| 1  | Invoke-HcsSetupWizard: Invalid parameter (Exception from HRESULT: 0x80070057) | One of the parameters provided for the proxy settings is not valid.| The URI is not provided in the correct format. Use the following format: http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
+| 2 | Invoke-HcsSetupWizard: RPC server not available (Exception from HRESULT: 0x800706ba) | The root cause is one of the following:<ol><li>The cluster is not up.</li><li>The passive controller cannot communicate with the active controller, and the command is run from passive controller.</li></ol> | Depending on the root cause:<ol><li>[Contact Microsoft Support](storsimple-contact-microsoft-support.md) to make sure that the cluster is up.</li><li>Run the command from the active controller. If you want to run the command from the passive controller, you will need to ensure that the passive controller can communicate with the active controller. You will need to [contact Microsoft Support](storsimple-contact-microsoft-support.md) if this connectivity is broken.</li></ol> |
+| 3 | Invoke-HcsSetupWizard: RPC call failed (Exception from HRESULT: 0x800706be) | Cluster is down. | [Contact Microsoft Support](storsimple-contact-microsoft-support.md) to make sure that the cluster is up.|
+| 4 | Invoke-HcsSetupWizard: Cluster resource not found (Exception from HRESULT: 0x8007138f) | The cluster resource is not found. This can happen when the installation was not correct. | You may need to reset the device to the factory default settings. [Contact Microsoft Support](storsimple-contact-microsoft-support.md) to create a cluster resource.|
+| 5 | Invoke-HcsSetupWizard: Cluster resource not online (Exception from HRESULT: 0x8007138c)| Cluster resources are not online. | [Contact Microsoft Support](storsimple-contact-microsoft-support.md) for next steps.|
 
-## Erros relacionados ao administrador do dispositivo e às senhas do StorSimple Snapshot Manager
+## <a name="errors-related-to-device-administrator-and-storsimple-snapshot-manager-passwords"></a>Errors related to device administrator and StorSimple Snapshot Manager passwords
 
-A senha do administrador do dispositivo padrão é **Senha1**. Essa senha expira após o primeiro logon; portanto, você precisará usar o assistente de instalação para alterá-la. Você deve fornecer uma nova senha do administrador do dispositivo ao registrar o dispositivo pela primeira vez.
+The default device administrator password is **Password1**. This password expires after the first logon; therefore, you will need to use the setup wizard to change it. You must provide a new device administrator password when you register the device for the first time. 
 
-Se você usar o software Gerenciador de Instantâneos StorSimple em execução no host do Windows Server para gerenciar o dispositivo, também deverá fornecer uma senha do Gerenciador de Instantâneos StorSimple durante o registro inicial.
+If you use the StorSimple Snapshot Manager software running on the Windows Server host to manage the device, then you must also provide a StorSimple Snapshot Manager password during first-time registration. 
 
-Verifique se suas senhas atendem aos seguintes requisitos:
+Make sure that your passwords meet the following requirements:
 
-- Sua senha do administrador do dispositivo deve ter entre 8 e 15 caracteres.
-- Sua senha do Gerenciador de Instantâneos StorSimple deve ter 14 ou 15 caracteres.
-- As senhas precisam conter 3 destes 4 tipos de caracteres: minúsculos, maiúsculos, numéricos e especiais.
-- Sua senha não pode ser igual às 24 últimas senhas.
+- Your device administrator password should be between 8 and 15 characters long.
+- Your StorSimple Snapshot Manager password should be 14 or 15 characters long.
+- Passwords should contain 3 of the following 4 character types: lowercase, uppercase, numeric, and special. 
+- Your password cannot be the same as the last 24 passwords.
 
-Além disso, tenha em mente que as senhas expiram a cada ano e só poderão ser alteradas depois que você registrar com êxito o dispositivo. Se o registro falhar por algum motivo, as senhas não serão alteradas. Para obter mais informações sobre as senhas do administrador do dispositivo e do StorSimple Snapshot Manager, acesse [Usar o serviço do StorSimple Manager para alterar suas senhas do StorSimple](storsimple-change-passwords.md).
+In addition, keep in mind that passwords expire every year, and can be changed only after you successfully register the device. If the registration fails for any reason, the passwords will not be changed. For more information on device administrator and StorSimple Snapshot Manager passwords, go to [Use the StorSimple Manager service to change your StorSimple passwords](storsimple-change-passwords.md).
 
-Você pode encontrar um ou mais dos seguintes erros ao configurar as senhas do administrador do dispositivo e do Gerenciador de Instantâneos StorSimple.
+You may encounter one or more of the following errors when setting up the device administrator and StorSimple Snapshot Manager passwords.
 
-| Nº| Mensagem de erro | Ação recomendada |
+| No.| Error message | Recommended action |
 | ---| ------------- | ------------------ | 
-| 1 | A senha excede o comprimento máximo. |Use uma senha que atenda a estes requisitos:<ul><li>sua senha do administrador do dispositivo deve ter entre 8 e 15 caracteres.</li><li>Sua senha do Gerenciador de Instantâneos StorSimple deve ter 14 ou 15 caracteres.</li></ul> | 
-| 2 | A senha não atende ao comprimento necessário. | Use uma senha que atenda a estes requisitos:<ul><li>Sua senha do administrador do dispositivo deve ter entre 8 e 15 caracteres.</li><li>Sua senha do Snapshot Manager do StorSimple deve ter 14 ou 15 caracteres.</lu></ul> |
-| 3 | A senha deve conter caracteres minúsculos. | As senhas devem conter 3 destes 4 tipos de caracteres: minúsculos, maiúsculos, numéricos e especiais. Certifique-se de que sua senha atende a esses requisitos. |
-| 4 | A senha deve conter caracteres numéricos. | As senhas devem conter 3 destes 4 tipos de caracteres: minúsculos, maiúsculos, numéricos e especiais. Certifique-se de que sua senha atende a esses requisitos. |
-| 5 | A senha deve conter caracteres especiais. | As senhas devem conter 3 destes 4 tipos de caracteres: minúsculos, maiúsculos, numéricos e especiais. Certifique-se de que sua senha atende a esses requisitos. |
-| 6 | As senhas devem conter 3 destes 4 tipos de caracteres: maiúsculos, minúsculos, numéricos e especiais. | Sua senha não contém os tipos de caracteres necessários. Certifique-se de que sua senha atende a esses requisitos. |
-| 7 | O parâmetro não corresponde à confirmação. | Certifique-se de que sua senha atende a todos os requisitos e de que ela tenha sido inserida corretamente. |
-| 8 | Sua senha não pode corresponder ao padrão. | A senha padrão é *Senha1*. Será necessário alterar essa senha depois de fazer logon pela primeira vez. |
-| 9 | A senha que você inseriu não corresponde à senha do dispositivo. Redigite a senha. | Verifique a senha e digite-a novamente. |
+| 1  | The password exceeds the maximum length. |Use a password that meets these requirements:<ul><li>Your device administrator password must be between 8 and 15 characters long.</li><li>Your StorSimple Snapshot Manager password must be 14 or 15 characters long.</li></ul> | 
+| 2 | The password does not meet the required length. | Use a password that meets these requirements:<ul><li>Your device administrator password must be between 8 and 15 characters long.</li><li>Your StorSimple Snapshot Manager password must be 14 or 15 characters long.</lu></ul> |
+| 3 | The password must contain lowercase characters. | Passwords must contain 3 of the following 4 character types: lowercase, uppercase, numeric, and special. Make sure that your password meets these requirements. |
+| 4 | The password must contain numeric characters. | Passwords must contain 3 of the following 4 character types: lowercase, uppercase, numeric, and special. Make sure that your password meets these requirements. |
+| 5 | The password must contain special characters. | Passwords must contain 3 of the following 4 character types: lowercase, uppercase, numeric, and special. Make sure that your password meets these requirements. |
+| 6 | The password must contain 3 of the following 4 character types: uppercase, lowercase, numeric, and special. | Your password does not contain the required types of characters. Make sure that your password meets these requirements. |
+| 7 | Parameter does not match confirmation. | Make sure that your password meets all requirements and that you entered it correctly. |
+| 8 | Your password cannot match the default. | The default password is *Password1*. You need to change this password after you log on for the first time. |
+| 9 | The password you have entered does not match the device password. Please retype the password. | Check the password and type it again. |
 
-As senhas são coletadas antes do registro do dispositivo, mas são aplicadas somente após o registro com êxito. O fluxo de trabalho de recuperação de senha requer que o dispositivo esteja registrado.
+Passwords are collected before the device is registered, but are applied only after successful registration. The password recovery workflow requires the device to be registered. 
 
-> [AZURE.IMPORTANT] Em geral, se uma tentativa de aplicar uma senha falhar, o software tentará coletar repetidamente a senha até obter êxito. Em casos raros, a senha não pode ser aplicada. Nessa situação, você pode registrar o dispositivo e continuar, mas as senhas não serão alteradas. Você não receberá nenhuma indicação de que a senha não foi alterada — a senha do administrador do dispositivo ou a senha do Gerenciador de Instantâneos StorSimple. Se essa situação ocorrer, recomendamos que você altere as duas senhas.
+> [AZURE.IMPORTANT] In general, if an attempt to apply a password fails, then the software repeatedly attempts to collect the password until it is successful. In rare instances, the password cannot be applied. In this situation, you can register the device and proceed, however the passwords will not be changed. You will receive no indication as to which password was not changed — the device administrator password or the StorSimple Snapshot Manager password. If this situation occurs, we recommend that you change both passwords.
 
-Você pode redefinir as senhas no portal clássico do Azure por meio do serviço StorSimple Manager. Para obter mais informações, consulte:
+You can reset the passwords in the Azure classic portal via the StorSimple Manager service. For more information, go to: 
 
-- [Alterar a senha de administrador do dispositivo](storsimple-change-passwords.md#change-the-device-administrator-password).
-- [Altere a senha do StorSimple Snapshot Manager](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
+- [Change the device administrator password](storsimple-change-passwords.md#change-the-device-administrator-password).
+- [Change the StorSimple Snapshot Manager password](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
 
-## Erros durante o registro de dispositivo
+## <a name="errors-during-device-registration"></a>Errors during device registration
 
-Use o serviço Gerenciador do StorSimple em execução no Microsoft Azure para registrar o dispositivo. Você pode encontrar um ou mais dos problemas a seguir durante o registro do dispositivo.
+You use the StorSimple Manager service running in Microsoft Azure to register the device. You could encounter one or more of the following issues during device registration.
 
-| Nº| Mensagem de erro | Possíveis causas | Ação recomendada |
+| No.| Error message | Possible causes | Recommended action |
 | ---| ------------- | --------------- | ------------------ |
-| 1 | Erro 350027: falha ao registrar o dispositivo no Gerenciador do StorSimple. | | Aguarde alguns minutos e repita a operação. Se o problema persistir, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).|
-| 2 | Erro 350013: ocorreu um erro no registro do dispositivo. Isso pode ser causado por uma chave de registro do serviço incorreta. | | Registre o dispositivo novamente com a chave de registro do serviço correta. Para obter mais informações, consulte [Obter a chave de registro do serviço.](storsimple-manage-service.md#get-the-service-registration-key) |
-| 3 | Erro 350063: a autenticação no serviço Gerenciador do StorSimple passou, mas o registro falhou. Repita a operação após algum tempo. | Esse erro indica que a autenticação no ACS passou, mas a chamada de registro feita ao serviço falhou. Isso pode ser resultado de uma falha de rede esporádica. | Se o problema persistir, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md). |
-| 4 | Erro 350049: o serviço não pôde ser acessado durante o registro. | Quando é feita a chamada ao serviço, uma exceção de Web é recebida. Em alguns casos, isso pode ser corrigido repetindo a operação mais tarde. | Verifique o endereço IP e o nome DNS e repita a operação. Se o problema persistir, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md). | 
-| 5 | Erro 350031: o dispositivo já foi registrado. | | Nenhuma ação é necessária. |
-| 6 | Erro 350016: falha no registro do dispositivo. | |Verifique se a chave de registro está correta. |
-| 7 | Invoke-HcsSetupWizard: ocorreu um erro ao registrar seu dispositivo; isso pode ter acontecido devido a endereço IP ou nome DNS incorreto. Verifique suas configurações de rede e tente novamente. Se o problema persistir, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md). (Erro 350050) | Verifique se o dispositivo pode executar ping na rede externa. Se você não tiver conectividade com a rede externa, o registro poderá falhar com esse erro. Esse erro pode ser uma combinação de um ou mais dos seguintes:<ul><li>IP incorreto</li><li>Sub-rede incorreta</li><li>Gateway incorreto</li><li>Configurações de DNS incorretas</li></ul> | Consulte as etapas no [Exemplo passo a passo de solução de problemas](#step-by-step-storsimple-troubleshooting-example). |
-| 8 | Invoke-HcsSetupWizard: a operação atual falhou devido a um erro de serviço interno [0x1FBE2]. Repita a operação após algum tempo. Se o problema persistir, contate o Suporte da Microsoft. | Esse é um erro genérico lançado para todos os erros de usuário invisíveis do serviço ou agente. O motivo mais comum pode a falha na autenticação do ACS. Uma possível causa da falha é que há problemas com a configuração do servidor NTP e hora do dispositivo não está definida corretamente. | Corrija a hora (se houver problemas) e, em seguida, repita a operação de registro. Se você usar o comando Set-HcsSystem -Timezone para ajustar o fuso horário, coloque em maiúscula a primeira letra de todas as palavras no fuso horário (por exemplo, "Hora Padrão do Pacífico"). Se o problema persistir, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para as próximas etapas. |
-| 9 | Aviso: não foi possível ativar o dispositivo. As senhas do administrador do dispositivo e do Gerenciador de Instantâneos StorSimple não foram alteradas. | Se o registro falhar, as senhas do administrador do dispositivo e do Gerenciador de Instantâneos StorSimple não serão alteradas. |
+| 1  | Error 350027: Failed to register the device with the StorSimple Manager. |  | Wait for a few minutes and then try the operation again. If the issue persists, [contact Microsoft Support](storsimple-contact-microsoft-support.md).|
+| 2  | Error 350013: An error has occurred in registering the device. This could be due to incorrect service registration key. | | Please register the device again with the correct service registration key. For more information, see [Get the service registration key.](storsimple-manage-service.md#get-the-service-registration-key) |
+| 3 | Error 350063: Authentication to StorSimple Manager service passed but registration failed. Please retry the operation after some time. | This error indicates that authentication with ACS has passed but the register call made to the service has failed. This could be a result of a sporadic network glitch. | If the issue persists, please [contact Microsoft Support](storsimple-contact-microsoft-support.md). |
+| 4 | Error 350049: The service could not be reached during registration. | When the call is made to the service, a web exception is received. In some cases, this may get fixed with retrying the operation later. | Please check your IP address and DNS name and then retry the operation. If the problem persists, [contact Microsoft Support.](storsimple-contact-microsoft-support.md) | 
+| 5 | Error 350031: The device has already been registered. | | No action necessary. |
+| 6 | Error 350016: Device Registration failed. | |Please make sure the registration key is correct. |
+| 7 | Invoke-HcsSetupWizard: An error has occurred while registering your device; this could be due to incorrect IP address or DNS name. Please check your network settings and try again. If the problem persists, [contact Microsoft Support](storsimple-contact-microsoft-support.md). (Error 350050) | Ensure that your device can ping the outside network. If you do not have connectivity to outside network, the registration may fail with this error. This error may be a combination of one or more of the following:<ul><li>Incorrect IP</li><li>Incorrect subnet</li><li>Incorrect gateway</li><li>Incorrect DNS settings</li></ul> | See the steps in the [Step-by-step troubleshooting example](#step-by-step-storsimple-troubleshooting-example). |
+| 8 | Invoke-HcsSetupWizard: The current operation failed due to an internal service error [0x1FBE2]. Please retry the operation after sometime. If the issue persists, please contact Microsoft Support. | This is a generic error thrown for all user invisible errors from service or agent. The most common reason may be that the ACS authentication has failed. A possible cause for the failure is that there are issues with the NTP server configuration and time on the device is not set correctly. | Correct the time (if there are issues) and then retry the registration operation. If you use the Set-HcsSystem -Timezone command to adjust the time zone, capitalize each word in the time zone (for example "Pacific Standard Time").  If this issue persists, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for next steps. |
+| 9 | Warning: Could not activate the device. Your device administrator and StorSimple Snapshot Manager passwords have not been changed. | If the registration fails, the device administrator and StorSimple Snapshot Manager passwords are not changed. |
 
-## Ferramentas para solucionar problemas em implantações do StorSimple
+## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Tools for troubleshooting StorSimple deployments
 
-O StorSimple inclui várias ferramentas que você pode usar para solucionar problemas de sua solução StorSimple. Estão incluídos:
+StorSimple includes several tools that you can use to troubleshoot your StorSimple solution. These include:
 
-- Pacotes de suporte e logs de dispositivo
-- Cmdlets projetados especificamente para a solução de problemas
+- Support packages and device logs 
+- Cmdlets specifically designed for troubleshooting 
 
-## Pacotes de suporte e logs de dispositivo disponíveis para solução de problemas
+## <a name="support-packages-and-device-logs-available-for-troubleshooting"></a>Support packages and device logs available for troubleshooting
 
-Um pacote de suporte contém todos os logs relevantes que podem ajudar a equipe do Suporte da Microsoft na solução de problemas do dispositivo. Você pode usar o Windows PowerShell para StorSimple para gerar um pacote de suporte criptografado que pode ser compartilhado com o pessoal de suporte.
+A support package contains all the relevant logs that can assist the Microsoft Support team with troubleshooting device issues. You can use Windows PowerShell for StorSimple to generate an encrypted support package that you can then share with support personnel.
 
-### Para exibir os logs ou o conteúdo do pacote de suporte
+### <a name="to-view-the-logs-or-the-contents-of-the-support-package"></a>To view the logs or the contents of the support package
 
-1. Use o Windows PowerShell para StorSimple para gerar um pacote de suporte, conforme descrito em [Criar e gerenciar um pacote de suporte](storsimple-create-manage-support-package.md).
+1. Use Windows PowerShell for StorSimple to generate a support package as described in [Create and manage a support package](storsimple-create-manage-support-package.md).
 
-2. Baixe o [script de descriptografia](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localmente no computador cliente.
+2. Download the [decryption script](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) locally on your client computer.
 
-3. Use este [procedimento passo a passo](storsimple-create-manage-support-package.md#edit-a-support-package) para abrir e descriptografar o pacote de suporte.
+3. Use this [step-by-step procedure](storsimple-create-manage-support-package.md#edit-a-support-package) to open and decrypt the support package.
 
-4. Os logs do pacote de suporte descriptografado estão no formato etw/etvx. Você pode executar as etapas a seguir para exibir esses arquivos no Visualizador de Eventos do Windows:
-  1. Execute o comando **eventvwr** no cliente Windows. Isso iniciará o Visualizador de Eventos.
-  2. No painel **Ações**, clique em **Abrir Log Salvo** e aponte para os arquivos de log no formato de etvx/etw (o pacote de suporte). Agora você pode exibir o arquivo. Depois de abrir o arquivo, você poderá clicar com o botão direito do mouse e salvar o arquivo como texto.
+4. The decrypted support package logs are in etw/etvx format. You can perform the following steps to view these files in Windows Event Viewer:
+  1. Run the **eventvwr** command on your Windows client. This will start the Event Viewer.
+  2. In the **Actions** pane, click **Open Saved Log** and point to the log files in etvx/etw format (the support package). You can now view the file. After you open the file, you can right-click and save the file as text.
    
-    > [AZURE.IMPORTANT] Você também pode usar o cmdlet **Get-WinEvent** para abrir esses arquivos no Windows PowerShell. Para obter mais informações, consulte [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) na documentação de referência do cmdlet do Windows PowerShell.
+    > [AZURE.IMPORTANT] You can also use the **Get-WinEvent** cmdlet to open these files in Windows PowerShell. For more information, see [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) in the Windows PowerShell cmdlet reference documentation.
 
-5. Ao abrir os logs no Visualizador de Eventos, procure os seguintes logs que contêm problemas relacionados à configuração do dispositivo:
+5. When the logs open in Event Viewer, look for the following logs that contain issues related to the device configuration:
 
-  - hcs\_pfconfig/Operational Log
-  - hcs\_pfconfig/Config
+  - hcs_pfconfig/Operational Log
+  - hcs_pfconfig/Config
 
-6. Nos arquivos de log, procure cadeias de caracteres relacionadas aos cmdlets chamados pelo assistente de instalação. Consulte [Processo do assistente de instalação inicial](#first-time-setup-wizard-process) para obter uma lista desses cmdlets.
+6. In the log files, search for strings related to the cmdlets called by the setup wizard. See [First-time setup wizard process](#first-time-setup-wizard-process) for a list of these cmdlets. 
 
-7. Se você não conseguir descobrir a causa do problema, poderá [contatar o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para as próximas etapas. Use as etapas em [Criar uma solicitação de suporte](storsimple-contact-microsoft-support.md#create-a-support-request) quando você contatar o Suporte da Microsoft para obter assistência.
+7. If you are not able to figure out the cause of the problem, you can [contact Microsoft Support](storsimple-contact-microsoft-support.md) for next steps. Use the steps in [Create a support request](storsimple-contact-microsoft-support.md#create-a-support-request) when you contact Microsoft Support for assistance.
 
-## Cmdlets disponíveis para solução de problemas
+## <a name="cmdlets-available-for-troubleshooting"></a>Cmdlets available for troubleshooting
 
-Use os seguintes cmdlets do Windows PowerShell para detectar erros de conectividade.
+Use the following Windows PowerShell cmdlets to detect connectivity errors.
 
-- `Get-NetAdapter`: Use este cmdlet para detectar a integridade das interfaces de rede.
+- `Get-NetAdapter`: Use this cmdlet to detect the health of network interfaces. 
 
-- `Test-Connection`: use esse cmdlet para verificar a conectividade de rede dentro e fora da rede.
+- `Test-Connection`: Use this cmdlet to check the network connectivity inside and outside of the network.
 
-- `Test-HcsmConnection`: use este cmdlet para verificar a conectividade de um dispositivo registrado com êxito.
+- `Test-HcsmConnection`: Use this cmdlet to check the connectivity of a successfully registered device.
 
-Se você estiver executando a Atualização 1 do dispositivo StorSimple, os cmdlets de diagnóstico a seguir também estão disponíveis.
+If you are running Update 1 on your StorSimple device, the following diagnostic cmdlets are also available.
 
-- `Sync-HcsTime`: use este cmdlet para exibir a hora do dispositivo e forçar uma sincronização de horário com o servidor NTP.
+- `Sync-HcsTime`: Use this cmdlet to display device time and force a time sync with the NTP server.
 
-- `Enable-HcsPing` e `Disable-HcsPing`: use esses cmdlets para permitir que os hosts façam ping em interfaces de rede em seu dispositivo StorSimple. Por padrão, as interfaces de rede do StorSimple não respondem às solicitações de ping.
+- `Enable-HcsPing` and `Disable-HcsPing`: Use these cmdlets to allow the hosts to ping the network interfaces on your StorSimple device. By default, the StorSimple network interfaces do not respond to ping requests.
 
-- `Trace-HcsRoute`: Use este cmdlet como uma ferramenta de rastreamento de rota. Ele envia pacotes para cada roteador no caminho para um destino final durante um período e depois calcula os resultados com base nos pacotes retornados de cada salto. Como o `Trace-HcsRoute` indica o grau de perda de pacotes em um determinado roteador ou link, é possível identificar quais roteadores ou links podem estar provocando problemas na rede.
+- `Trace-HcsRoute`: Use this cmdlet as a route tracing tool. It sends packets to each router on the way to a final destination over a period of time, and then computes results based on the packets returned from each hop. Since `Trace-HcsRoute` shows the degree of packet loss at any given router or link, you can pinpoint which routers or links might be causing network problems. 
 
-- `Get-HcsRoutingTable`: Use este cmdlet para exibir a tabela de roteamento de IP local.
+- `Get-HcsRoutingTable`: Use this cmdlet to display the local IP routing table.
 
-## Solucionar problemas com o cmdlet Get-NetAdapter
+## <a name="troubleshoot-with-the-get-netadapter-cmdlet"></a>Troubleshoot with the Get-NetAdapter cmdlet
 
-Quando você configura interfaces de rede para uma implantação no dispositivo pela primeira vez, o status do hardware não está disponível na interface do usuário do serviço Gerenciador do StorSimple porque o dispositivo ainda não está registrado no serviço. Além disso, a página Status de Hardware nem sempre pode refletir o estado do dispositivo, especialmente se houver problemas que afetem a sincronização do serviço. Nessas situações, você pode usar o cmdlet `Get-NetAdapter` para determinar a integridade e o status das suas interfaces de rede.
+When you configure network interfaces for a first-time device deployment, the hardware status is not available in the StorSimple Manager service UI because the device is not yet registered with the service. Additionally, the Hardware Status page may not always correctly reflect the state of the device, especially if there are issues that affect service synchronization. In these situations, you can use the `Get-NetAdapter` cmdlet to determine the health and status of your network interfaces.
 
-### Para ver uma lista de todos os adaptadores de rede no seu dispositivo
+### <a name="to-see-a-list-of-all-the-network-adapters-on-your-device"></a>To see a list of all the network adapters on your device
 
-1. Inicie o Windows PowerShell para StorSimple e digite `Get-NetAdapter`.
+1. Start Windows PowerShell for StorSimple, and then type `Get-NetAdapter`. 
 
-2. Use a saída do cmdlet `Get-NetAdapter` e as diretrizes a seguir para entender o status da sua interface de rede.
-  - Se a interface estiver íntegra e habilitada, o status **ifIndex** será mostrado como **Ativa**.
-  - Se a interface estiver íntegra, mas não estiver conectada fisicamente (por um cabo de rede), **ifIndex** será mostrado como **Desabilitado**.
-  - Se a interface estiver íntegra e mas não habilitada, o status **ifIndex** será mostrado como **NãoPresente**.
-  - Se a interface não existir, ele não aparecerá na lista. O serviço Gerenciador do StorSimple da interface do usuário ainda mostrará essa interface em estado de falha.
+2. Use the output of the `Get-NetAdapter` cmdlet and the following guidelines to understand the status of your network interface.
+  - If the interface is healthy and enabled, the **ifIndex** status is shown as **Up**.
+  - If the interface is healthy but is not physically connected (by a network cable), the **ifIndex** is shown as **Disabled**.
+  - If the interface is healthy but not enabled, the **ifIndex** status is shown as **NotPresent**.
+  - If the interface does not exist, it does not appear in this list. The StorSimple Manager service UI will still show this interface in a failed state.
 
-Para obter mais informações sobre como usar esse cmdlet, vá até [GetNetAdapter](https://technet.microsoft.com/library/jj130867.aspx) na referência do cmdlet do Windows PowerShell.
+For more information on how to use this cmdlet, go to [GetNetAdapter](https://technet.microsoft.com/library/jj130867.aspx) in the Windows PowerShell cmdlet reference. 
 
-As seções a seguir mostram exemplos de saída do cmdlet `Get-NetAdapter`.
+The following sections show samples of output from the `Get-NetAdapter` cmdlet. 
 
- Nesses exemplos, controlador 0 foi o controlador passivo e foi configurado da seguinte maneira:
+ In these samples, controller 0 was the passive controller, and was configured as follows:
 
-- As interfaces de rede DADOS 0, DADOS 1, DADOS 2 e DADOS 3 existiam no dispositivo.
-- As placas de interface de rede DADOS 4 e DADOS 5 não estavam presentes; portanto, não está listadas na saída.
-- DADOS 0 estava habilitada.
+- DATA 0, DATA 1, DATA 2, and DATA 3 network interfaces existed on the device.
+- DATA 4 and DATA 5 network interface cards were not present; therefore, they are not listed in the output.
+- DATA 0 was enabled.
 
-O controlador 1 foi o controlador ativo e foi configurado da seguinte maneira:
+Controller 1 was the active controller, and was configured as follows:
 
-- As interfaces de rede DADOS 0, DADOS 1, DADOS 2, DADOS 3, DADOS 4 e DADOS 5 existiam no dispositivo.
-- DADOS 0 estava habilitada.
+- DATA 0, DATA 1, DATA 2, DATA 3, DATA 4, and DATA 5 network interfaces existed on the device.
+- DATA 0 was enabled.
 
-**Saída de exemplo – controlador 0**
+**Sample output – controller 0**
 
-A seguir, a saída do controlador 0 (o controlador passivo). DADOS 1, DADOS 2 e DADOS 3 não estão conectadas. DADOS 4 e DADOS 5 não estão listadas porque não estão presentes no dispositivo.
+The following is the output from controller 0 (the passive controller). DATA 1, DATA 2, and DATA 3 are not connected. DATA 4 and DATA 5 are not listed because they are not present on the device. 
 
      Controller0>Get-NetAdapter
      Name                 InterfaceDescription                        ifIndex  Status
@@ -237,9 +238,9 @@ A seguir, a saída do controlador 0 (o controlador passivo). DADOS 1, DADOS 2 e 
      DATA0                Intel(R) 82574L Gigabit Network Conn...     15       Up
 
 
-**Saída de exemplo – controlador 1**
+**Sample output – controller 1**
 
-A seguir, a saída do controlador 1 (o controlador ativo). Somente a interface DADOS 0 no dispositivo está configurada e funcionando.
+The following is the output from controller 1 (the active controller). Only the DATA 0 network interface on the device is configured and working.
 
      Controller1>Get-NetAdapter
      Name                 InterfaceDescription                        ifIndex  Status
@@ -253,88 +254,88 @@ A seguir, a saída do controlador 1 (o controlador ativo). Somente a interface D
      DATA4                Intel(R) Gigabit ET Dual Port Serv...#2     17       NotPresent
 
  
-## Solucionar problemas com o cmdlet Test-Connection
+## <a name="troubleshoot-with-the-test-connection-cmdlet"></a>Troubleshoot with the Test-Connection cmdlet
 
-Você pode usar o cmdlet `Test-Connection` para determinar se o seu dispositivo StorSimple pode se conectar à rede externa. Se todos os parâmetros de rede, incluindo o DNS, estiverem configurados corretamente no assistente de instalação, você poderá usar o cmdlet `Test-Connection` para executar o ping em um endereço conhecido fora da rede, como outlook.com.
+You can use the `Test-Connection` cmdlet to determine whether your StorSimple device can connect to the outside network. If all the networking parameters, including the DNS, are configured correctly in the setup wizard, you can use the `Test-Connection` cmdlet to ping a known address outside of the network, such as outlook.com. 
 
-Você deve habilitar o ping para solucionar problemas de conectividade com esse cmdlet, se o ping estiver desabilitado.
+You should enable ping to troubleshoot connectivity issues with this cmdlet if ping is disabled.
 
-Consulte os seguintes exemplos de saída do cmdlet `Test-Connection`.
+See the following samples of output from the `Test-Connection` cmdlet. 
 
-> [AZURE.NOTE] No primeiro exemplo, o dispositivo está configurado com um DNS incorreto. No segundo exemplo, o DNS está correto.
+> [AZURE.NOTE] In the first sample, the device is configured with an incorrect DNS. In the second sample, the DNS is correct.
  
-**Saída de exemplo – DNS incorreto**
+**Sample output – incorrect DNS**
 
-No exemplo a seguir, não há nenhuma saída para os endereços IPV4 e IPV6, o que indica que o DNS não foi resolvido. Isso significa que não há conectividade com a rede externa e um DNS correto precisa ser fornecido.
-
-     Source        Destination     IPV4Address      IPV6Address
-     ------        -----------     -----------      -----------
-     HCSNODE0      outlook.com
-     HCSNODE0      outlook.com
-     HCSNODE0      outlook.com
-     HCSNODE0      outlook.com
-
-**Saída de exemplo – DNS correto**
-
-No exemplo a seguir, o DNS retorna o endereço IPV4, o que indica se o DNS está configurado corretamente. Isso confirma que há conectividade com a rede externa.
+In the following sample, there is no output for the IPV4 and IPV6 addresses, which indicates that the DNS is not resolved. This means that there is no connectivity to the outside network and a correct DNS needs to be supplied. 
 
      Source        Destination     IPV4Address      IPV6Address
      ------        -----------     -----------      -----------
+     HCSNODE0      outlook.com
+     HCSNODE0      outlook.com
+     HCSNODE0      outlook.com
+     HCSNODE0      outlook.com
+
+**Sample output – correct DNS**
+
+In the following sample, the DNS returns the IPV4 address, indicating that the DNS is configured correctly. This confirms that there is connectivity to the outside network. 
+
+     Source        Destination     IPV4Address      IPV6Address
+     ------        -----------     -----------      -----------
      HCSNODE0      outlook.com     132.245.92.194
      HCSNODE0      outlook.com     132.245.92.194
      HCSNODE0      outlook.com     132.245.92.194
      HCSNODE0      outlook.com     132.245.92.194
 
-## Solucionar problemas com o cmdlet Test-HcsmConnection
+## <a name="troubleshoot-with-the-test-hcsmconnection-cmdlet"></a>Troubleshoot with the Test-HcsmConnection cmdlet
 
-Use o cmdlet `Test-HcsmConnection` para um dispositivo que já está conectado e registrado no serviço do StorSimple Manager. Esse cmdlet ajuda a verificar a conectividade entre um dispositivo registrado e o serviço Gerenciador do StorSimple correspondente. Você pode executar esse comando no Windows PowerShell para StorSimple.
+Use the `Test-HcsmConnection` cmdlet for a device that is already connected to and registered with your StorSimple Manager service. This cmdlet helps you verify the connectivity between a registered device and the corresponding StorSimple Manager service. You can run this command on Windows PowerShell for StorSimple. 
 
-### Para executar o cmdlet Test-HcsmConnection
+### <a name="to-run-the-test-hcsmconnection-cmdlet"></a>To run the Test-HcsmConnection cmdlet
 
-1. Certifique-se de que o dispositivo esteja registrado.
+1. Make sure that the device is registered.
 
-2. Verifique o status do dispositivo. Se o dispositivo estiver desativado, no modo de manutenção ou offline, você poderá ver os seguintes erros:
+2. Check the device status. If the device is deactivated, in maintenance mode, or offline, you might see the following errors: 
 
-   - ErrorCode.CiSDeviceDecommissioned – indica que o dispositivo está desativado.
-   - ErrorCode.DeviceNotReady – indica que o dispositivo está no modo de manutenção.
-   - ErrorCode.DeviceNotReady – indica que o dispositivo não está online.
+   - ErrorCode.CiSDeviceDecommissioned – this indicates that the device is deactivated.
+   - ErrorCode.DeviceNotReady – this indicates that the device is in maintenance mode.
+   - ErrorCode.DeviceNotReady – this indicates that the device is not online.
 
-3. Verifique se o serviço Gerenciador do StorSimple está em execução (use o cmdlet [Get-ClusterResource](https://technet.microsoft.com/library/ee461004.aspx)). Se o serviço não estiver em execução, talvez você veja os seguintes erros:
+3. Verify that the StorSimple Manager service is running (use the [Get-ClusterResource](https://technet.microsoft.com/library/ee461004.aspx) cmdlet). If the service is not running, you might see the following errors:
 
    - ErrorCode.CiSApplianceAgentNotOnline
-   - ErrorCode.CisPowershellScriptHcsError – indica que houve uma exceção ao executar Get-ClusterResource.
+   - ErrorCode.CisPowershellScriptHcsError – this indicates that there was an exception when you ran Get-ClusterResource.
 
-4. Verifique o token do ACS (Serviço de Controle de Acesso). Se ele lançar uma exceção da Web, isso poderá ser o resultado de um problema de gateway, de uma autenticação de proxy ausente, de um DNS incorreto ou de uma falha de autenticação. Você pode ver os seguintes erros:
+4. Check the Access Control Service (ACS) token. If it throws a web exception, it might be the result of a gateway problem, a missing proxy authentication, an incorrect DNS, or an authentication failure. You might see the following errors:
 
-   - ErrorCode.CiSApplianceGateway – indica uma exceção HttpStatusCode.BadGateway: o serviço de resolução de nome não conseguiu resolver o nome do host.
-   - ErrorCode.CiSApplianceProxy – indica uma exceção HttpStatusCode.ProxyAuthenticationRequired (código de status HTTP 407): o cliente não pôde autenticar com o servidor proxy.
-   - ErrorCode.CiSApplianceDNSError – indica uma exceção WebExceptionStatus.NameResolutionFailure: o serviço de resolução de nome não conseguiu resolver o nome do host.
-   - ErrorCode.CiSApplianceACSError – indica que o serviço retornou um erro de autenticação, mas há conectividade.
+   - ErrorCode.CiSApplianceGateway – this indicates an HttpStatusCode.BadGateway exception: the name resolver service could not resolve the host name. 
+   - ErrorCode.CiSApplianceProxy – this indicates an HttpStatusCode.ProxyAuthenticationRequired exception (HTTP status code 407): the client could not authenticate with the proxy server. 
+   - ErrorCode.CiSApplianceDNSError – this indicates a WebExceptionStatus.NameResolutionFailure exception: the name resolver service could not resolve the host name.
+   - ErrorCode.CiSApplianceACSError – this indicates that the service returned an authentication error, but there is connectivity.
    
-    Se isso não lançar uma exceção da Web, procure um ErrorCode.CiSApplianceFailure. Isso indica que o dispositivo falhou.
+    If it does not throw a web exception, check for ErrorCode.CiSApplianceFailure. This indicates that the appliance failed.
 
-5. Verifique a conectividade do serviço de nuvem. Se o serviço lançar uma exceção da Web, talvez você veja os seguintes erros:
+5. Check the cloud service connectivity. If the service throws a web exception, you might see the following errors:
 
-  - ErrorCode.CiSApplianceGateway – indica uma exceção HttpStatusCode.BadGateway: um servidor proxy intermediário recebeu uma solicitação incorreta de outro proxy ou do servidor original.
-  - ErrorCode.CiSApplianceProxy – indica uma exceção HttpStatusCode.ProxyAuthenticationRequired (código de status HTTP 407): o cliente não pôde autenticar com o servidor proxy.
-  - ErrorCode.CiSApplianceDNSError – indica uma exceção WebExceptionStatus.NameResolutionFailure: o serviço de resolução de nome não conseguiu resolver o nome do host.
-  - ErrorCode.CiSApplianceACSError – indica que o serviço retornou um erro de autenticação, mas há conectividade.
+  - ErrorCode.CiSApplianceGateway – this indicates an HttpStatusCode.BadGateway exception: an intermediate proxy server received a bad request from another proxy or from the original server.
+  - ErrorCode.CiSApplianceProxy – this indicates an HttpStatusCode.ProxyAuthenticationRequired exception (HTTP status code 407): the client could not authenticate with the proxy server. 
+  - ErrorCode.CiSApplianceDNSError – this indicates a WebExceptionStatus.NameResolutionFailure exception: the name resolver service could not resolve the host name.
+  - ErrorCode.CiSApplianceACSError – this indicates that the service returned an authentication error, but there is connectivity.
   
-    Se isso não lançar uma exceção da Web, procure um ErrorCode.CiSApplianceSaasServiceErro. Isso indica um problema com o serviço de gerenciador do StorSimple.
+    If it does not throw a web exception, check for ErrorCode.CiSApplianceSaasServiceError. This indicates a problem with the StorSimple Manager service.
  
-6. Verifique a conectividade do Barramento de Serviço do Azure. ErrorCode.CiSApplianceServiceBusError indica que o dispositivo não pode se conectar ao Barramento de Serviço.
+6. Check Azure Service Bus connectivity. ErrorCode.CiSApplianceServiceBusError indicates that the device cannot connect to the Service Bus.
  
-Os arquivos de log CiSCommandletLog0Curr.errlog e CiSAgentsvc0Curr.errlog terão mais informações, como os detalhes da exceção.
+The log files CiSCommandletLog0Curr.errlog and CiSAgentsvc0Curr.errlog will have more information, such as exception details. 
 
-Para saber mais sobre como usar o cmdlet, acesse [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) na documentação de referência do Windows PowerShell.
+For more information about how to use the cmdlet, go to [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) in the Windows PowerShell reference documentation.
 
-> [AZURE.IMPORTANT] Você pode executar esse cmdlet para o controlador passivo e o ativo.
+> [AZURE.IMPORTANT] You can run this cmdlet for both the active and the passive controller. 
  
-Consulte os seguintes exemplos de saída do cmdlet `Test-HcsmConnection`.
+See the following samples of output from the `Test-HcsmConnection` cmdlet. 
 
-**Exemplo de saída – dispositivo registrado com êxito, executando a versão do StorSimple (julho de 2014)**
+**Sample output – successfully registered device running StorSimple Release (July 2014)**
 
-O primeiro exemplo é de um dispositivo registrado com êxito no serviço Gerenciador do StorSimple e que não tem nenhum problema de conectividade.
+The first sample is from a device that is successfully registered with the StorSimple Manager service and has no connectivity issues. 
 
      Controller1>Test-HcsmConnection -verbose
      Checking device state  ... Success.
@@ -346,9 +347,9 @@ O primeiro exemplo é de um dispositivo registrado com êxito no serviço Gerenc
      Checking connectivity from StorSimple Manager service to StorSimple device. .... Success.
      Controller1>
 
-**Exemplo de saída – Dispositivo que executa o StorSimple Atualização 1 registrado com êxito**
+**Sample output – successfully registered device running StorSimple Update 1**
 
-Se você estiver executando a Atualização 1 do dispositivo StorSimple, não será necessário executá-la com a opção detalhada.
+If you are running Update 1 on your StorSimple device, you will not need to run it with the verbose switch.
 
       Controller1>Test-HcsmConnection
        
@@ -378,21 +379,21 @@ Se você estiver executando a Atualização 1 do dispositivo StorSimple, não se
       Checking connectivity to Microsoft Update servers  ... Success
       Controller1>
 
-**Exemplo de saída – dispositivo offline, executando a versão do StorSimple (julho de 2014)**
+**Sample output – offline device running StorSimple Release (July 2014)**
 
-Esse exemplo é de um dispositivo com o status **offline** no Portal Clássico do Azure.
+This sample is from a device that has a status of **Offline** in the Azure classic portal.
 
      Checking device state: Success 
      Device is registered successfully 
      Checking connectivity from device to SaaS.. Failure
 
-O dispositivo não pôde se conectar usando a configuração de proxy da Web atual. Isso pode ser um problema com a configuração de proxy da Web ou um problema de conectividade de rede. Nesse caso, certifique-se de que as configurações de proxy da web estejam corretas e de que seus servidores de proxy da Web estão online e acessíveis.
+The device could not connect using the current web proxy configuration. This could be an issue with the web proxy configuration or a network connectivity problem. In this case, you should make sure that your web proxy settings are correct and your web proxy servers are online and reachable. 
 
-## Solucionar problemas com o cmdlet Sync-HcsTime
+## <a name="troubleshoot-with-the-sync-hcstime-cmdlet"></a>Troubleshoot with the Sync-HcsTime cmdlet
 
-Use este cmdlet para exibir a hora do dispositivo. Se a hora do dispositivo tiver um deslocamento com o servidor NTP, você poderá usar esse cmdlet para forçar a sincronização da hora com o servidor NTP. Se o deslocamento entre o dispositivo e o servidor NTP for maior do que 5 minutos, você verá um aviso. Se o deslocamento exceder 15 minutos, o dispositivo ficará offline. Você ainda pode usar este cmdlet para forçar uma sincronização de hora. No entanto, se o deslocamento exceder 15 horas, isso não será possível e uma mensagem de erro será exibida.
+Use this cmdlet to display the device time. If the device time has an offset with the NTP server, you can then use this cmdlet to force-synchronize the time with your NTP server. If the offset between the device and NTP server is greater than 5 minutes, you will see a warning. If the offset exceeds 15 minutes, then the device will go offline. You can still use this cmdlet to force a time sync. However, if the offset exceeds 15 hours, then you will not be able to force-sync the time and an error message will be shown.
 
-**Exemplo de saída – sincronização de tempo forçada usando o Sync-HcsTime**
+**Sample output – forced time sync using Sync-HcsTime**
  
      Controller0>Sync-HcsTime
      The current device time is 4/24/2015 4:05:40 PM UTC.
@@ -401,11 +402,11 @@ Use este cmdlet para exibir a hora do dispositivo. Se a hora do dispositivo tive
      [Y] Yes [N] No (Default is "Y"): Y
      Controller0>
 
-## Solucionar problemas com os cmdlets Enable-HcsPing e Disable-HcsPing
+## <a name="troubleshoot-with-the-enable-hcsping-and-disable-hcsping-cmdlets"></a>Troubleshoot with the Enable-HcsPing and Disable-HcsPing cmdlets
 
-Use esses cmdlets para assegurar que as interfaces de rede em seu dispositivo respondam às solicitações de ping ICMP. Por padrão, as interfaces de rede do StorSimple não respondem a solicitações de ping. O uso desse cmdlet é a maneira mais fácil de saber se seu dispositivo está online e acessível.
+Use these cmdlets to ensure that the network interfaces on your device respond to ICMP ping requests. By default the StorSimple network interfaces do not respond to ping requests. Using this cmdlet is the easiest way to know if your device is online and reachable.  
 
-**Exemplo de saída – Enable-HcsPing e Disable-HcsPing**
+**Sample output – Enable-HcsPing and Disable-HcsPing**
 
      Controller0>
      Controller0>Enable-HcsPing
@@ -416,11 +417,11 @@ Use esses cmdlets para assegurar que as interfaces de rede em seu dispositivo re
      Successfully disabled ping.
      Controller0>
 
-## Solucionar problemas com o cmdlet Trace-HcsRoute
+## <a name="troubleshoot-with-the-trace-hcsroute-cmdlet"></a>Troubleshoot with the Trace-HcsRoute cmdlet
 
-Use este cmdlet como uma ferramenta de rastreamento de rota. Ele envia pacotes para cada roteador no caminho para um destino final durante um período e depois calcula os resultados com base nos pacotes retornados de cada salto. Como o cmdlet indica o grau de perda de pacotes em determinado roteador ou link, você pode identificar quais roteadores ou links podem estar provocando problemas na rede.
+Use this cmdlet as a route tracing tool. It sends packets to each router on the way to a final destination over a period of time, and then computes results based on the packets returned from each hop. Because the cmdlet shows the degree of packet loss at any given router or link, you can pinpoint which routers or links might be causing network problems.
 
-**Saída de exemplo mostrando como rastrear a rota de um pacote com Trace-HcsRoute**
+**Sample output showing how to trace the route of a packet with Trace-HcsRoute**
 
      Controller0>Trace-HcsRoute -Target 10.126.174.25
      
@@ -439,17 +440,17 @@ Use este cmdlet como uma ferramenta de rastreamento de rota. Ele envia pacotes p
       
      Trace complete.
 
-## Solucionar problemas com o cmdlet Get-HcsRoutingTable
+## <a name="troubleshoot-with-the-get-hcsroutingtable-cmdlet"></a>Troubleshoot with the Get-HcsRoutingTable cmdlet
 
-Use este cmdlet para exibir a tabela de roteamento do seu dispositivo StorSimple. Uma tabela de roteamento é um conjunto de regras que pode ajudar a determinar para onde os pacotes de dados transmitidos em uma rede IP (protocolo IP) serão direcionados.
+Use this cmdlet to view the routing table for your StorSimple device. A routing table is a set of rules that can help determine where data packets traveling over an Internet Protocol (IP) network will be directed. 
 
-A tabela de roteamento mostra as interfaces e o gateway que roteia os dados para redes especificadas. Ela também fornece a métrica de roteamento que é o tomador de decisões para o caminho tomado para alcançar um destino específico. Quanto menor a métrica de roteamento, maior será a preferência.
+The routing table shows the interfaces and the gateway that routes the data to the specified networks. It also gives the routing metric which is the decision maker for the path taken to reach a particular destination. The lower the routing metric, the higher the preference. 
 
-Por exemplo, se você tiver 2 interfaces de rede, DATA 2 e DATA 3 conectados à Internet. Se a métrica de roteamento for DATA 2 e DATA 3 for 15 e 261 respectivamente, então DATA 2 com a menor métrica de roteamento será a interface preferida usada para acessar a Internet.
+For example, if you have 2 network interfaces, DATA 2 and DATA 3, connected to the Internet. If the routing metrics for DATA 2 and DATA 3 are 15 and 261 respectively, then DATA 2 with the lower routing metric is the preferred interface used to reach the Internet.
 
-Se você estiver executando a Atualização 1 do dispositivo StorSimple, sua interface de rede DATA 0 terá a preferência mais alta para o tráfego de nuvem. Isso significa que mesmo se houver outras interfaces habilitadas para a nuvem, o tráfego de nuvem será encaminhado através do DATA 0.
+If you are running Update 1 on your StorSimple device, your DATA 0 network interface has the highest preference for the cloud traffic. This implies that even if there are other cloud-enabled interfaces, the cloud traffic would be routed through DATA 0. 
 
-Se você executar o cmdlet `Get-HcsRoutingTable` sem especificar nenhum parâmetro (como mostra o exemplo a seguir), o cmdlet produzirá tabelas de roteamento IPv4 e IPv6. Como alternativa, você pode especificar `Get-HcsRoutingTable -IPv4` ou `Get-HcsRoutingTable -IPv6` para obter uma tabela de roteamento relevante.
+If you run the `Get-HcsRoutingTable` cmdlet without specifying any parameters (as the following example shows), the cmdlet will output both IPv4 and IPv6 routing tables. Alternatively, you can specify `Get-HcsRoutingTable -IPv4` or `Get-HcsRoutingTable -IPv6`  to get a relevant routing table.
 
       Controller0>
       Controller0>Get-HcsRoutingTable
@@ -515,66 +516,71 @@ Se você executar o cmdlet `Get-HcsRoutingTable` sem especificar nenhum parâmet
        
       Controller0>
  
-## Exemplo passo a passo de solução de problemas do StorSimple
+## <a name="step-by-step-storsimple-troubleshooting-example"></a>Step-by-step StorSimple troubleshooting example
 
-O exemplo a seguir mostra o passo a passo da solução de problemas de uma implantação do StorSimple. No cenário de exemplo, o registro de dispositivo falha com uma mensagem de erro indicando que as configurações de rede ou o nome DNS estão incorretas.
+The following example shows step-by-step troubleshooting of a StorSimple deployment. In the example scenario, device registration fails with an error message indicating that the network settings or the DNS name is incorrect.
 
-A mensagem de erro retornada é:
+The error message returned is:
 
      Invoke-HcsSetupWizard: An error has occurred while registering the device. This could be due to incorrect IP address or DNS name. Please check your network settings and try again. If the problems persist, contact Microsoft Support.
      +CategoryInfo: Not specified
      +FullyQualifiedErrorID: CiSClientCommunicationErros, Microsoft.HCS.Management.PowerShell.Cmdlets.InvokeHcsSetupWizardCommand
 
-O erro pode ter sido causado por qualquer uma das seguintes opções:
+The error could be caused by any of the following:
 
-- Instalação de hardware incorreto
-- Interfaces de rede com defeito
-- Endereço IP, máscara de sub-rede, gateway, servidor DNS primário ou proxy da Web incorreto
-- Chave de registro incorreta
-- Configurações de firewall incorretas
+- Incorrect hardware installation
+- Faulty network interface(s)
+- Incorrect IP address, subnet mask, gateway, primary DNS server, or web proxy
+- Incorrect registration key
+- Incorrect firewall settings
 
-### Para localizar e corrigir o problema de registro do dispositivo
+### <a name="to-locate-and-fix-the-device-registration-problem"></a>To locate and fix the device registration problem
 
-1. Verifique a configuração do dispositivo: no controlador ativo, execute `Invoke-HcsSetupWizard`.
+1. Check your device configuration: on the active controller, run `Invoke-HcsSetupWizard`.
 
-     > [AZURE.NOTE] O assistente de instalação deve ser executado no controlador ativo. Para verificar se você está conectado ao controlador ativo, examine a faixa apresentada no console serial. A faixa indica se você está conectado ao controlador 0 ou 1, e se o controlador está ativo ou passivo. Para obter mais informações, consulte [Identificar um controlador ativo em seu dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
+     > [AZURE.NOTE] The setup wizard must run on the active controller. To verify that you are connected to the active controller, look at the banner presented in the serial console. The banner indicates whether you are connected to controller 0 or controller 1, and whether the controller is active or passive. For more information, go to [Identify an active controller on your device](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
  
-2. Certifique-se de que o dispositivo esteja conectado corretamente: verifique a cabeamento de rede no backplane do dispositivo. O cabeamento é específico para o modelo do dispositivo. Para saber mais, acesse [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) ou [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
+2. Make sure that the device is cabled correctly: check the network cabling on the device back plane. The cabling is specific to the device model. For more information, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md) or [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
 
-     > [AZURE.NOTE] Se você estiver usando portas de rede 10 GbE, precisará usar os adaptadores de QSFP-SFP e os cabos SFP fornecidos. Para obter mais informações, consulte a [lista de cabos, comutadores e transceptores recomendados pelo fornecedor OEM para portas Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
+     > [AZURE.NOTE] If you are using 10 GbE network ports, you will need to use the provided QSFP-SFP adapters and SFP cables. For more information, see the [list of cables, switches, and transceivers recommended by the OEM supplier for Mellanox ports](http://www.mellanox.com/page/cables?mtag=cable_overview).
  
-3. Verifique a integridade da interface de rede:
+3. Verify the health of the network interface:
 
-   - Use o cmdlet Get-NetAdapter para detectar a integridade das interfaces de rede para DADOS 0.
-   - Se o link não estiver funcionando, o status **ifindex** indicará que a interface está inativa. Dessa forma, você precisará verificar a conexão de rede da porta para o dispositivo e o comutador. Você também precisará eliminar os cabos com defeito.
-   - Se você suspeitar que a porta DADOS 0 no controlador ativo tenha falhado, poderá confirmar isso conectando-se à porta DADOS 0 no controlador 1. Para confirmar isso, desconecte o cabo de rede da parte traseira do dispositivo do controlador 0, conecte o cabo ao controlador 1 e, em seguida, execute o cmdlet Get-NetAdapter novamente. Se a porta DADOS 0 de um controlador falhar, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para as próximas etapas. Talvez seja necessário substituir o controlador em seu sistema.
+   - Use the Get-NetAdapter cmdlet to detect the health of the network interfaces for DATA 0. 
+   - If the link isn't functioning, the **ifindex** status will indicate that the interface is down. You will then need to check the network connection of the port to the appliance and to the switch. You will also need to rule out bad cables. 
+   - If you suspect that the DATA 0 port on the active controller has failed, you can confirm this by connecting to the DATA 0 port on controller 1. To confirm this, disconnect the network cable from the back of the device from controller 0, connect the cable to controller 1, and then run the Get-NetAdapter cmdlet again. 
+   If the DATA 0 port on a controller fails, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for next steps. You might need to replace the controller on your system.
  
-4. Verifique a conectividade com o comutador:
-   - Certifique-se de que as interfaces de rede DADOS 0 no controlador 0 e no controlador 1 em seu compartimento primário estejam na mesma sub-rede.
-   - Verifique o hub ou o roteador. Normalmente, você deve conectar os dois controladores no mesmo hub ou roteador.
-   - Certifique-se de que os comutadores usados para a conexão tenham DADOS 0 para os dois controladores na mesma vLAN.
+4. Verify the connectivity to the switch:
+   - Make sure that DATA 0 network interfaces on controller 0 and controller 1 in your primary enclosure are on the same subnet. 
+   - Check the hub or router. Typically, you should connect both controllers to the same hub or router. 
+   - Make sure that the switches you use for the connection have DATA 0 for both controllers in the same vLAN.
    
-5. Elimine erros de usuário:
+5. Eliminate any user errors:
 
-  - Execute novamente o assistente de instalação (execute **Invoke-HcsSetupWizard**) e insira os valores novamente para garantir que não haja erros.
-  - Verifique a chave de registro usada. A mesma chave de registro pode ser usada para conectar vários dispositivos a um serviço Gerenciador do StorSimple. Use o procedimento em [Obter a chave de registro de serviço](storsimple-manage-service.md#get-the-service-registration-key) para garantir que você esteja usando a chave de registro correta.
+  - Run the setup wizard again (run **Invoke-HcsSetupWizard**), and enter the values again to make sure that there are no errors. 
+  - Verify the registration key used. The same registration key can be used to connect multiple devices to a StorSimple Manager service. Use the procedure in [Get the service registration key](storsimple-manage-service.md#get-the-service-registration-key) to ensure that you are using the correct registration key.
 
-    > [AZURE.IMPORTANT] Se você tiver vários serviços em execução, precisará garantir que a chave de registro para o serviço adequado seja usada para registrar o dispositivo. Se você tiver registrado um dispositivo com o serviço Gerenciador do StorSimple errado, precisará [contatar o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para as próximas etapas. Você precisa executar uma redefinição de fábrica do dispositivo (o que pode resultar na perda de dados) para então conectá-lo ao serviço pretendido.
+    > [AZURE.IMPORTANT] If you have multiple services running, you will need to ensure that the registration key for the appropriate service is used to register the device. If you have registered a device with the wrong StorSimple Manager service, you will need to [contact Microsoft Support](storsimple-contact-microsoft-support.md) for next steps. You may have to perform a factory reset of the device (which could result in data loss) to then connect it to the intended service.
 
-6. Use o cmdlet Test-Connection para verificar se há conectividade com a rede externa. Para obter mais informações, vá até [Solucionar problemas com o cmdlet Test-Connection](#troubleshoot-with-the-test-connection-cmdlet).
+6. Use the Test-Connection cmdlet to verify that you have connectivity to the outside network. For more information, go to [Troubleshoot with the Test-Connection cmdlet](#troubleshoot-with-the-test-connection-cmdlet).
 
-7. Verifique se há interferência de firewall. Se você tiver verificado que as configurações de IP Virtual (VIP), sub-rede, gateway e DNS estão todos corretas e ainda assim ter problemas de conectividade, é possível que seu firewall esteja bloqueando a comunicação entre o dispositivo e a rede externa. Você precisa garantir que as portas 80 e 443 estejam disponíveis no seu dispositivo StorSimple para comunicação de saída. Para obter mais informações, consulte os [Requisitos de rede do dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
+7. Check for firewall interference. If you have verified that the virtual IP (VIP), subnet, gateway, and DNS settings are all correct, and you still see connectivity issues, then it is possible that your firewall is blocking communication between your device and the outside network. You need to ensure that ports 80 and 443 are available on your StorSimple device for outbound communication. For more information, see [Networking requirements for your StorSimple device](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-8. Examine os logs. Acesse [Pacotes de suporte e logs do dispositivo disponíveis para solução de problemas](#support-packages-and-device-logs-available-for-troubleshooting).
+8. Look at the logs. Go to [Support packages and device logs available for troubleshooting](#support-packages-and-device-logs-available-for-troubleshooting).
 
-9. Se as etapas anteriores não resolverem o problema, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para obter assistência.
+9. If the preceding steps do not solve the problem, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance.
 
-## Próximas etapas
-[Saiba como solucionar problemas de um dispositivo operacional](storsimple-troubleshoot-operational-device.md).
+## <a name="next-steps"></a>Next steps
+[Learn how to troubleshoot an operational device](storsimple-troubleshoot-operational-device.md).
 
 <!--Link references-->
 
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
-[2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
+[2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

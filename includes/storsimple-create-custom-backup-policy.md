@@ -1,43 +1,48 @@
 <!--author=SharS last changed: 9/15/15-->
 
-#### Para criar uma política de backup personalizada
+#### <a name="to-create-a-custom-backup-policy"></a>To create a custom backup policy
 
-1. Na página **Dispositivos**, clique em **Políticas de Backup** e, em seguida, clique em **Adicionar**.
+1. On the **Devices** page, click **Backup Policies** and then click **Add**.
 
-2. Na caixa de diálogo **Adicionar uma política de backup**, em **Definir sua política de backup**:
+2. In the **Add a backup policy** dialog box, under **Define your backup policy**:
 
-    1. Especifique o nome da política de backup.
+    1. Specify a backup policy name.
 
-    2. Selecione os volumes a serem adicionados a essa política. Você pode optar por adicionar vários volumes selecionando-os na lista suspensa.
+    2. Select the volumes to be added to this policy. You can choose to add multiple volumes by selecting them from the drop-down list.
 
-    3. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png).
+    3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png).
 
-     Você será notificado depois que a política tiver sido criada com êxito. A página de políticas de backup também será atualizada para mostrar a política recém-criada.
+     You will be notified after the policy is created successfully. The backup policies page will also be updated to show the newly created policy.
 
-4. Clique no nome da política (primeira coluna) para fazer o detalhamento da política que você acabou de criar.
+4. Click the policy name (first column) to drill down into details of the policy you just created.
 
-5. Clique em **Gerenciar agendas**.
+5. Click **manage schedules**.
 
-6. Na caixa de diálogo **Gerenciar agendas**:
+6. In the **Manage Schedules** dialog box:
 
-    1. Selecione **Criar novo** para adicionar outro agendamento.
+    1. Select **Create new** to add another schedule.
 
-    2. Na lista suspensa, escolha o tipo de backup como instantâneo **local** ou **de nuvem**.
+    2. From the drop-down list, choose the backup type as **local** or **cloud** snapshot.
 
-    3. Especifique a frequência de backup em minutos, em horas, em dias ou em semanas.
+    3. Specify the backup frequency in minutes, hours, days, or weeks.
 
-    4. Selecione uma retenção. As opções de retenção dependem da frequência do backup.
+    4. Select a retention. The retention choices depend on the backup frequency.
  
-    5. Selecione a hora e a data de início da política.
+    5. Select the starting time and date for the policy.
 
-    6. Marque a caixa de seleção para habilitar a política.
+    6. Select the check box to enable the policy.
 
-7. Clique no ícone de seleção ![ícone de verificação](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) para concluir.
+7. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to finish.
 
-8. Você será retornado para os detalhes da política. Clique em **Salvar** para salvar as alterações feitas nessa política. Você será notificado quando a política tiver sido salva.
+8. You will return to the policy details. Click **Save** to save the changes you made to this policy. You will be notified when the policy has been saved.
 
-9. Retorne para a página **Políticas de Backup**. A listagem tabular de políticas de backup será atualizada para exibir a política modificada.
+9. Navigate back to the **Backup Policies** page. The tabular listing of the backup policies will be updated to display the modified policy.
 
-    ![Política de backup personalizada](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
+    ![Custom backup policy](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
+
+
+
+
+<!--HONumber=Oct16_HO2-->
 
 

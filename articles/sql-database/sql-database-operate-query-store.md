@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Operando o Repositório de Consultas no Banco de Dados SQL do Azure"
-   description="Saiba como operar o Repositório de Consultas no Banco de Dados SQL do Azure"
+   pageTitle="Operating Query Store in Azure SQL Database"
+   description="Learn how to operate the Query Store in Azure SQL Database"
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -17,46 +17,51 @@
    ms.date="08/16/2016"
    ms.author="carlrab"/>
 
-# Operando o Repositório de Consultas no Banco de Dados SQL do Azure 
 
-O Repositório de Consultas no Azure é um recurso de banco de dados totalmente gerenciado que continuamente coleta e apresenta informações históricas sobre todas as consultas. Você pode pensar sobre Repositório de Consultas de forma semelhante à caixa-preta de bordo do avião que simplifica significativamente o desempenho da consulta de solução de problemas para a nuvem e os clientes locais. Este artigo explica os aspectos específicos da operação de Repositório de Consultas no Azure. Usando esta consulta de dados previamente coletados, você pode diagnosticar e resolver problemas de desempenho rapidamente e, portanto, gastar mais tempo concentrando-se em seus negócios.
+# <a name="operating-the-query-store-in-azure-sql-database"></a>Operating the Query Store in Azure SQL Database 
 
-O Repositório de Consultas ficou [disponível globalmente](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) no Banco de Dados SQL do Azure desde novembro de 2015. O Repositório de Consulta é a base para a análise de desempenho e ajuste de recursos, tais como o [Painel do Orientador e Desempenho do Banco de Dados SQL](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). No momento da publicação deste artigo, o Repositório de Consultas está sendo executado em mais de 200.000 bancos de dados do usuário no Azure, coletando informações relacionadas a consultas por vários meses, sem interrupção.
+Query Store in Azure is a fully managed database feature that continuously collects and presents detailed historic information about all queries. You can think about Query Store as similar to an airplane's flight data recorder that significantly simplifies query performance troubleshooting both for cloud and on-premises customers. This article explains specific aspects of operating Query Store in Azure. Using this pre-collected query data, you can quickly diagnose and resolve performance problems and thus spend more time focusing on their business. 
 
-> [AZURE.IMPORTANT] A Microsoft está em processo de ativação do Repositório de Consultas para todos os bancos de dados SQL do Azure (novos e existentes).
+Query Store has been [globally available](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) in Azure SQL Database since November, 2015. Query Store is the foundation for performance analysis and tuning features, such as [SQL Database Advisor and Performance Dashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). At the moment of publishing this article, Query Store is running in more than 200,000 user databases in Azure, collecting query-related information for several months, without interruption.
 
-## Configuração do Repositório de Consulta ideais
+> [AZURE.IMPORTANT] Microsoft is in the process of activating Query Store for all Azure SQL databases (existing and new). 
 
-Esta seção descreve os padrões de configuração ideais que são projetados para garantir a operação confiável do Repositório de Consultas, bem como recursos dependentes como o [Painel de Orientador e Desempenho do Banco de Dados SQL](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). A configuração padrão é otimizada para coleta de dados contínua, ou seja, tempo mínimo gasto nos estados OFF/READ\_ONLY.
+## <a name="optimal-query-store-configuration"></a>Optimal Query Store Configuration
 
-| Configuração | Descrição | Padrão | Comentário |
+This section describes optimal configuration defaults that are designed to ensure reliable operation of the Query Store and dependent features, such as [SQL Database Advisor and Performance Dashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Default configuration is optimized for continuous data collection, that is minimal time spent in OFF/READ_ONLY states.
+
+| Configuration | Description | Default | Comment |
 | ------------- | ----------- | ------- | ------- |
-| MAX\_STORAGE\_SIZE\_MB | Especifica o limite para o espaço de dados que o Repositório de Consultas ocupará no banco de dados do cliente | 100 | Imposto para novos bancos de dados |
-| INTERVAL\_LENGTH\_MINUTES | Define o tamanho da janela de tempo durante o qual as estatísticas de tempo de execução coletadas para planos de consulta são agregadas e persistidas. Cada plano de consulta ativa tem no máximo uma linha por um período de tempo definido com esta configuração | 60 | Imposto para novos bancos de dados |
-| STALE\_QUERY\_THRESHOLD\_DAYS | Política de limpeza com base em tempo que controla o período de retenção de estatísticas de tempo de execução persistidas e consultas inativas | 30 | Imposto para novos bancos de dados e bancos de dados padrão anteriores (367) |
-| SIZE\_BASED\_CLEANUP\_MODE | Especifica se a limpeza automática de dados ocorrerá quando o tamanho dos dados do Repositório de Consultas aproximar-se do limite | AUTO | Imposto para todos os bancos de dados |
-| QUERY\_CAPTURE\_MODE | Especifica se todas as consultas ou apenas um subconjunto de consultas será controlado | AUTO | Imposto para todos os bancos de dados |
-| FLUSH\_INTERVAL\_SECONDS | Especifica o período máximo durante o qual as estatísticas de tempo de execução coletadas são mantidas na memória antes de liberar para disco | 900 | Imposto para novos bancos de dados |
+| MAX_STORAGE_SIZE_MB | Specifies the limit for the data space that Query Store can take inside z customer database | 100 | Enforced for new databases |
+| INTERVAL_LENGTH_MINUTES | Defines size of time window during which collected runtime statistics for query plans are aggregated and persisted. Every active query plan has at most one row for a period of time defined with this configuration | 60   | Enforced for new databases |
+| STALE_QUERY_THRESHOLD_DAYS | Time-based cleanup policy that controls the retention period of persisted runtime statistics and inactive queries | 30 | Enforced for new databases and databases with previous default (367) |
+| SIZE_BASED_CLEANUP_MODE | Specifies whether automatic data cleanup takes place when Query Store data size approaches the limit | AUTO | Enforced for all databases |
+| QUERY_CAPTURE_MODE | Specifies whether all queries or only a subset of queries are tracked | AUTO | Enforced for all databases |
+| FLUSH_INTERVAL_SECONDS | Specifies maximum period during which captured runtime statistics are kept in memory, before flushing to disk | 900 | Enforced for new databases |
 ||||||
 
-> [AZURE.IMPORTANT] Esses padrões são aplicados automaticamente no estágio final da ativação do Repositório de Consultas em todos os bancos de dados SQL do Azure (veja a importante observação anterior). Após essa iluminação, o Banco de Dados SQL do Azure não alterará os valores de configuração definidos por clientes, a menos que afete negativamente as operações confiáveis de armazenamento de consulta ou carga de trabalho principal no Repositório de Consultas.
+> [AZURE.IMPORTANT] These defaults are automatically applied in the final stage of Query Store activation in all Azure SQL databases (see preceding important note). After this light up, Azure SQL Database won’t be changing configuration values set by customers, unless they negatively impact primary workload or reliable operations of the Query Store.
 
-Se você quiser manter suas configurações personalizadas, use [ALTER DATABASE com opções de Repositório de Consultas](https://msdn.microsoft.com/library/bb522682.aspx) para reverter a configuração ao estado anterior. Confira as [Práticas recomendadas com o Repositório de Consultas](https://msdn.microsoft.com/library/mt604821.aspx) para saber como escolher os parâmetros de configuração ideais.
+If you want to stay with your custom settings, use [ALTER DATABASE with Query Store options](https://msdn.microsoft.com/library/bb522682.aspx) to revert configuration to the previous state. Check out [Best Practices with the Query Store](https://msdn.microsoft.com/library/mt604821.aspx) in order to learn how top chose optimal configuration parameters.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-[Análise de Desempenho de Banco de Dados SQL](sql-database-performance.md)
+[SQL Database Performance Insight](sql-database-performance.md)
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Additional resources
 
-Para obter mais informações, confira os seguintes artigos:
+For more information check out the following articles:
 
-- [Uma caixa-preta de bordo para seu banco de dados](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database)
+- [A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
 
-- [Monitorando o desempenho usando o Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
+- [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 
-- [Cenários de Uso do Repositório de Consultas](https://msdn.microsoft.com/library/mt614796.aspx)
+- [Query Store Usage Scenarios](https://msdn.microsoft.com/library/mt614796.aspx)
 
-- [Monitorando o desempenho usando o Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
+- [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx) 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

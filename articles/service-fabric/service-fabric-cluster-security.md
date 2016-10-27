@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Proteger um cluster do Service Fabric | Microsoft Azure"
-   description="Descreve os cenários de segurança para um cluster do Service Fabric e as diferentes tecnologias usadas para implementar esses cenários."
+   pageTitle="Secure a Service Fabric cluster | Microsoft Azure"
+   description="Describes the security scenarios for a Service Fabric cluster and the different technologies used to implement those scenarios."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -16,100 +16,105 @@
    ms.date="08/19/2016"
    ms.author="chackdan"/>
 
-# Cenários de segurança do cluster do Service Fabric
 
-Um cluster do Service Fabric é um recurso que pertence a você. Os clusters sempre devem ser protegidos para evitar que usuários não autorizados se conectem ao cluster, especialmente quando ele tiver cargas de trabalho de produção em execução. Embora seja possível criar um cluster não seguro, fazer isso permitirá que qualquer usuário anônimo se conecte a ele se ele expuser pontos de extremidade de gerenciamento na Internet pública.
+# <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric cluster security scenarios
 
-Este artigo fornece uma visão geral dos cenários de segurança para clusters em execução no Azure ou autônomos e as diversas tecnologias usadas para implementar esses cenários. Os cenários de segurança do cluster são:
+A Service Fabric cluster is a resource that you own. Clusters should always be secured to prevent unauthorized users from connecting to your cluster, especially when it has production workloads running on it. Although it is possible to create an unsecured cluster, doing so will allow any anonymous user to connect to it if it exposes management endpoints to the public Internet. 
 
-- Segurança de nó para nó
-- Segurança de cliente para nó
-- RBAC (Controle de Acesso Baseado em Função)
+This article provides an overview of the security scenarios for clusters running on Azure or standalone and the various technologies used to implement those scenarios. The cluster security scenarios are:
 
-## Segurança de nó para nó
-Protege a comunicação entre as VMs ou os computadores no cluster. Isso faz com que somente os computadores autorizados a ingressar no cluster possam hospedar aplicativos e serviços no cluster.
+- Node-to-node security
+- Client-to-node security
+- Role-based access control (RBAC)
 
-![Diagrama de comunicação de nó para nó][Node-to-Node]
+## <a name="node-to-node-security"></a>Node-to-node security
+Secures communication between the VMs or machines in the cluster. This ensures that only computers that are authorized to join the cluster can participate in hosting applications and services in the cluster.
 
-Os clusters em execução no Azure ou clusters autônomos em execução no Windows podem usar a [Segurança de Certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou então o a [Segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx) para computadores do Windows Server.
-### Segurança de certificado de nó para nó
-O Service Fabric usa os certificados do servidor X.509 que você especifica como parte das configurações de tipo de nó ao criar um cluster. Confira no final deste artigo uma visão geral rápida do que são esses certificados e como você pode adquirir ou criá-los.
+![Diagram of node-to-node communication][Node-to-Node]
 
-A segurança de certificado é configurada durante a criação do cluster por meio do portal do Azure, dos modelos do Azure Resource Manager ou de um modelo JSON autônomo. É possível especificar um certificado primário e um certificado secundário opcional que é usado para substituições de certificado. Os certificados primários e secundários que você especificar devem ser diferentes do que os certificados de cliente administrador e certificados cliente somente leitura especificados para a [Segurança de cliente para nó](#client-to-node-security).
+Clusters running on Azure or standalone clusters running on Windows can use either [Certificate Security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows Security](https://msdn.microsoft.com/library/ff649396.aspx) for Windows Server machines.
+### <a name="node-to-node-certificate-security"></a>Node-to-node certificate security
+Service Fabric uses X.509 server certificates that you specify as a part of the node-type configurations when you create a cluster. A quick overview of what these certificates are and how you can acquire or create them is provided at the end of this article.
 
-Para o Azure, leia [Configurar um cluster usando um modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para saber como configurar a segurança de certificado em um cluster.
+Certificate security is configured while creating the cluster either through the Azure portal, Azure Resource Manager templates, or a standalone JSON template. You can specify a primary certificate and an optional secondary certificate that is used for certificate rollovers. The primary and secondary certificates you specify should be different than the admin client and read-only client certificates you specify for [Client-to-node security](#client-to-node-security).
 
-Para Windows Server autônomo, leia [Proteger um cluster autônomo no Windows usando certificados X.509 ](service-fabric-windows-cluster-x509-security.md)
+For Azure read [Set up a cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) to learn how to configure certificate security in a cluster.
 
-### Segurança do Windows de nó para nó
-Para Windows Server autônomo, leia [Proteger um cluster autônomo no Windows usando a segurança do Windows](service-fabric-windows-cluster-windows-security.md)
+For standalone Windows Server read [Secure a standalone cluster on Windows using X.509 certificates ](service-fabric-windows-cluster-x509-security.md)
 
-## Segurança de cliente para nó
-Autentica clientes e protege a comunicação entre um cliente e nós individuais no cluster. Esse tipo de segurança autentica e protege as comunicações do cliente, o que garante que somente usuários autorizados possam acessar o cluster e os aplicativos implantados no cluster. Os clientes são identificados exclusivamente por meio de suas credenciais de segurança do Windows ou pelas credenciais de segurança do certificado deles.
+### <a name="node-to-node-windows-security"></a>Node-to-node windows security
+For standalone Windows Server read [Secure a standalone cluster on Windows using Windows security](service-fabric-windows-cluster-windows-security.md)
 
-![Diagrama de comunicação de cliente para nó][Client-to-Node]
+## <a name="client-to-node-security"></a>Client-to-node security
+Authenticates clients and secures communication between a client and individual nodes in the cluster. This type of security authenticates and secures client communications, which ensures that only authorized users can access the cluster and the applications deployed on the cluster. Clients are uniquely identified through either their Windows Security credentials or their certificate security credentials.
 
-Os clusters em execução no Azure ou clusters autônomos em execução no Windows podem usar a [Segurança de Certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou então o a [Segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx).
+![Diagram of client-to-node communication][Client-to-Node]
 
-### Segurança de certificado de cliente para nó
- A segurança de certificado de cliente para nó é configurada durante a criação do cluster por meio do portal do Azure, dos modelos do Resource Manager ou de um modelo JSON autônomo, especificando um certificado de cliente do administrador e/ou um certificado de cliente do usuário. Os certificados de cliente administrador e certificados de cliente de usuário que você especificar devem ser diferentes dos certificados primários e secundários que você especifica para a [Segurança de nó para nó](#node-to-node-security).
+Clusters running on Azure or standalone clusters running on Windows can use either [Certificate Security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows Security](https://msdn.microsoft.com/library/ff649396.aspx).
 
-Clientes que se conectam ao cluster usando o certificado de administrador têm acesso completo aos recursos de gerenciamento. Clientes que se conectam ao cluster usando o certificado de cliente de usuário somente leitura somente acesso de leitura aos recursos de gerenciamento. Em outras palavras, esses certificados são usados para o RBAC (controle de acesso baseado em função) descrito adiante neste artigo.
+### <a name="client-to-node-certificate-security"></a>Client-to-node certificate security
+ Client-to-node certificate security is configured while creating the cluster either through the Azure portal, Resource Manager templates or a standalone JSON template by specifying an admin client certificate and/or a user client certificate.  The admin client and user client certificates you specify should be different than the primary and secondary certificates you specify for [Node-to-node security](#node-to-node-security).
 
-Para o Azure, leia [Configurar um cluster usando um modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para saber como configurar a segurança de certificado em um cluster.
+Clients connecting to the cluster using the admin certificate have full access to management capabilities.  Clients connecting to the cluster using the read-only user client certificate have only read access to management capabilities. In other words these certificates are used for the role bases access control (RBAC) described later in this article.
 
-Para Windows Server autônomo, leia [Proteger um cluster autônomo no Windows usando certificados X.509 ](service-fabric-windows-cluster-x509-security.md)
+For Azure read [Set up a cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) to learn how to configure certificate security in a cluster.
 
-### Segurança do AAD (Azure Active Directory) de cliente para nó no Azure
-Clusters em execução no Azure também podem proteger o acesso aos pontos de extremidade de gerenciamento usando o AAD (Azure Active Directory). Consulte [Configurar um cluster usando um modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter informações sobre como criar os artefatos AAD necessários, como preenchê-los durante a criação do cluster e como se conectar-se a esses clusters posteriormente.
+For standalone Windows Server read [Secure a standalone cluster on Windows using X.509 certificates ](service-fabric-windows-cluster-x509-security.md)
 
-## Recomendações de Segurança
-Para clusters do Azure, é recomendável usar a segurança do AAD para autenticar clientes e certificados para a segurança de nó para nó.
+### <a name="client-to-node-azure-active-directory-(aad)-security-on-azure"></a>Client-to-node Azure Active Directory (AAD) security on Azure
+Clusters running on Azure can also secure access to the management endpoints using Azure Active Directory (AAD). See [Set up a cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) for information on how to create the necessary AAD artifacts, how to populate them during cluster creation, and how to connect to those clusters afterwards.
 
-Para clusters do Windows Server autônomos, será recomendável usar a segurança do Windows com GMA (contas gerenciadas de grupo) se você tiver o Windows Server 2012 R2 e o Active Directory. Caso contrário, ainda use a segurança do Windows com contas do Windows.
+## <a name="security-recommendations"></a>Security Recommendations
+For Azure clusters, it is recommended that you use AAD security to authenticate clients and certificates for node-to-node security.
 
-## RBAC (Controle de Acesso Baseado em Função)
-O controle de acesso permite que o administrador de cluster limite o acesso a determinadas operações de cluster para diferentes grupos de usuários, tornando o cluster mais seguro. Dois tipos de controle de acesso diferentes têm suporte para clientes que se conectam a um cluster: funções de Administrador e de Usuário.
+For standalone Windows Server clusters it is recommended that you use Windows security with group managed accounts (GMA) if you have Windows Server 2012 R2 and Active Directory. Otherwise still use Windows security with Windows accounts.
 
-Os administradores têm acesso completo aos recursos de gerenciamento (incluindo recursos de leitura/gravação). Os usuários, por padrão, têm apenas acesso de leitura aos recursos de gerenciamento (por exemplo, recursos de consulta) e a capacidade de resolver serviços e aplicativos.
+## <a name="role-based-access-control-(rbac)"></a>Role based access control (RBAC)
+Access control allows the cluster administrator to limit access to certain cluster operations for different groups of users, making the cluster more secure. Two different access control types are supported for clients connecting to a cluster: Administrator role and User role.
 
-Especifique as funções de cliente do administrador e do usuário durante a criação do cluster, fornecendo identidades separadas (certificados, AAD, etc.) para cada uma. Para obter mais informações sobre as configurações de controle de acesso padrão e de como alterar as configurações padrão, confira [Controle de acesso com base em funções para clientes do Service Fabric](service-fabric-cluster-security-roles.md).
+Administrators have full access to management capabilities (including read/write capabilities). Users, by default, have only read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services.
+
+You specify the administrator and user client roles at the time of cluster creation by providing separate identities (certificates, AAD etc.) for each. For more information on the default access control settings and how to change the default settings, see [Role based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).
 
 
-## Certificados X.509 e Service Fabric
-Os certificados digitais X.509 são usados normalmente para autenticar clientes e servidores, criptografar e assinar mensagens digitalmente. Para obter mais detalhes sobre esses certificados, vá para [Trabalhando com certificados](http://msdn.microsoft.com/library/ms731899.aspx).
+## <a name="x.509-certificates-and-service-fabric"></a>X.509 certificates and Service Fabric
+X.509 digital certificates are commonly used to authenticate clients and servers and to encrypt and digitally sign messages. For more details on these certificates, go to [Working with certificates](http://msdn.microsoft.com/library/ms731899.aspx).
 
-Algumas coisas importantes a considerar:
+Some important things to consider:
 
-- Os certificados usados em clusters que executam cargas de trabalho de produção devem ser criados por meio de um serviço de certificado do Windows Server configurado corretamente ou obtidos por meio de uma [AC (Autoridade de Certificação)](https://en.wikipedia.org/wiki/Certificate_authority) aprovada.
-- Nunca use nenhum certificado temporário ou de teste em produção criado com ferramentas como MakeCert.exe.
-- Você pode usar um certificado autoassinado, mas deve fazer isso somente para clusters de teste e não em produção.
+- Certificates used in clusters running production workloads should be created by using a correctly configured Windows Server certificate service or obtained from an approved [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
+- Never use any temporary or test certificates in production that are created with tools such as MakeCert.exe.
+- You can use a self-signed certificate, but should only do so for test clusters and not in production.
 
-### Certificados X.509 do servidor
+### <a name="server-x.509-certificates"></a>Server X.509 certificates
 
-Os certificados de servidor têm a tarefa principal de autenticar o servidor (nó) para clientes ou autenticar um servidor (nó) para um servidor (nó). Uma das verificações iniciais quando um cliente ou um nó autentica um nó é verificar o valor do nome comum no campo Entidade. Esse nome comum ou um dos nomes alternativos do assunto dos certificados deve estar presente na lista de nomes comuns permitidos.
+Server certificates have the primary task of authenticating a server (node) to clients, or authenticating a server (node) to a server (node). One of the initial checks when a client or node authenticates a node is to check the value of the common name in the Subject field. Either this common name or one of the certificates' subject alternative names must be present in the list of allowed common names.
 
-O artigo a seguir descreve como gerar certificados com SAN (nomes alternativos da entidade): [Como adicionar um nome alternativo da entidade a um certificado LDAP seguro](http://support.microsoft.com/kb/931351).
+The following article describes how to generate certificates with subject alternative names (SAN): [How to add a subject alternative name to a secure LDAP certificate](http://support.microsoft.com/kb/931351).
 
-O campo Entidade pode conter vários valores, cada um prefixado com iniciais para indicar o tipo de valor. Geralmente, a inicialização é "CN" para o nome comum, por exemplo, "CN = www.contoso.com". Também é possível deixar o campo Assunto em branco. Se o campo opcional Nome alternativo da entidade estiver preenchido, ele deverá conter o nome comum do certificado e uma entrada por nome alternativo da entidade. Eles são inseridos como valores de Nome DNS.
+The Subject field can contain several values, each prefixed with an initialization to indicate the value type. Most commonly, the initialization is "CN" for common name; for example, "CN = www.contoso.com". It is also possible for the Subject field to be blank. If the optional Subject Alternative Name field is populated, it must contain both the common name of the certificate and one entry per subject alternative name. These are entered as DNS Name values.
 
-O valor do campo Finalidades pretendidas do certificado deve incluir um valor apropriado, como "Autenticação do servidor" ou "Autenticação do cliente".
+The value of the Intended Purposes field of the certificate should include an appropriate value, such as "Server Authentication" or "Client Authentication".
 
-### Certificados X.509 do cliente
+### <a name="client-x.509-certificates"></a>Client X.509 certificates
 
-Normalmente, os certificados de cliente não são emitidos por uma autoridade de certificação de terceiros. Em vez disso, o repositório Pessoal do local atual do usuário geralmente contém os certificados colocados lá por uma autoridade raiz, com uma finalidade de "Autenticação do cliente". O cliente pode usar esse certificado quando a autenticação mútua é necessária.
+Client certificates are not typically issued by a third-party certificate authority. Instead, the Personal store of the current user location typically contains client certificates placed there by a root authority, with an intended purpose of "Client Authentication". The client can use such a certificate when mutual authentication is required.
 
->[AZURE.NOTE] Todas as operações de gerenciamento no cluster do Service Fabric exigem certificados de servidor. Certificados de cliente não podem ser usados para gerenciamento.
+>[AZURE.NOTE] All management operations on a Service Fabric cluster require server certificates. Client certificates cannot be used for management.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Este artigo fornece informações conceituais sobre a segurança de cluster. Em seguida, [crie um cluster no Azure usando um modelo do Resource Manager](service-fabric-cluster-creation-via-arm.md) ou por meio de [Portal do Azure](service-fabric-cluster-creation-via-portal.md).
+This article provides conceptual information about cluster security. Next, [create a cluster in Azure using a Resource Manager template](service-fabric-cluster-creation-via-arm.md) or through the [Azure portal](service-fabric-cluster-creation-via-portal.md).
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

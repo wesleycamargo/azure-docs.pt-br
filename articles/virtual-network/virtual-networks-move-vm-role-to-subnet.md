@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Como mover uma VM ou instância de função para uma sub-rede diferente."
-   description="Saiba como mover VMs e instâncias de função para uma sub-rede diferente"
+   pageTitle="How to move a VM or role instance to a different subnet"
+   description="Learn how to move VMs and role instances to a different subnet"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,42 +15,47 @@
    ms.date="03/22/2016"
    ms.author="jdial" />
 
-# Como mover uma VM ou instância de função para uma sub-rede diferente.
 
-Você pode usar o PowerShell para mover suas VMs de uma sub-rede para outra na mesma rede virtual (VNet). As instâncias de função podem ser movidas editando o CSCFG em vez de usar o PowerShell.
+# <a name="how-to-move-a-vm-or-role-instance-to-a-different-subnet"></a>How to move a VM or role instance to a different subnet
 
->[AZURE.NOTE] Este artigo contém informações referentes apenas a implantações clássicas do Azure.
+You can use PowerShell to move your VMs from one subnet to another in the same virtual network (VNet). Role instances can be moved by editing the CSCFG, rather than using PowerShell.
 
-Por que transferir VMs para outra sub-rede? A migração de sub-rede é útil quando a sub-rede antiga é muito pequena e não pode ser expandida devido às VMs existentes em execução nessa sub-rede. Nesse caso, você pode criar uma nova sub-rede maior e migrar as máquinas virtuais para a nova sub-rede. Após a conclusão da migração, você pode excluir a sub-rede antiga vazia.
+>[AZURE.NOTE] This article contains information that is relative to Azure classic deployments only.
 
-## Como mover uma VM para outra sub-rede
+Why move VMs to another subnet? Subnet migration is useful when the older subnet is too small and cannot be expanded due to existing running VMs in that subnet. In that case, you can create a new, larger subnet and migrate the VMs to the new subnet, then after migration is complete, you can delete the old empty subnet.
 
-Para mover uma VM, execute o cmdlet Set-AzureSubnet PowerShell usando o exemplo abaixo como um modelo. No exemplo a seguir, transferimos TestVM da sub-rede atual para Subnet-2. Não deixe de editar o exemplo para refletir o seu ambiente. Observe que sempre que você executar o cmdlet Update-AzureVM como parte de um procedimento, ele reiniciará a sua VM como parte do processo de atualização.
+## <a name="how-to-move-a-vm-to-another-subnet"></a>How to move a VM to another subnet
 
-	Get-AzureVM –ServiceName TestVMCloud –Name TestVM `
-	| Set-AzureSubnet –SubnetNames Subnet-2 `
-	| Update-AzureVM
+To move a VM, run the Set-AzureSubnet PowerShell cmdlet, using the example below as a template. In the example below, we are moving TestVM from its present subnet, to Subnet-2. Be sure to edit the example to reflect your environment. Note that whenever you run the Update-AzureVM cmdlet as part of a procedure, it will restart your VM as part of the update process.
 
-Se você especificou um IP privado interno estático para a sua VM, terá que desmarcar essa configuração antes de poder mover a máquina virtual para uma nova sub-rede. Nesse caso, use o seguinte:
+    Get-AzureVM –ServiceName TestVMCloud –Name TestVM `
+  	| Set-AzureSubnet –SubnetNames Subnet-2 `
+  	| Update-AzureVM
 
-	Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
-	| Remove-AzureStaticVNetIP `
-	| Update-AzureVM
-	Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
-	| Set-AzureSubnet -SubnetNames Subnet-2 `
-	| Update-AzureVM
+If you specified a static internal private IP for your VM, you'll have to clear that setting before you can move the VM to a new subnet. In that case, use the following:
 
-## Para mover uma instância de função para outra sub-rede
+    Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
+  	| Remove-AzureStaticVNetIP `
+  	| Update-AzureVM
+    Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
+  	| Set-AzureSubnet -SubnetNames Subnet-2 `
+  	| Update-AzureVM
 
-Para mover uma instância de função, edite o arquivo CSCFG. No exemplo a seguir, transferimos "Role0" na rede virtual *VNETName* da sub-rede atual para *Subnet-2*. Como a instância de função já foi implantada, você só alterará o nome da sub-rede = Subnet-2. Não deixe de editar o exemplo para refletir o seu ambiente.
+## <a name="to-move-a-role-instance-to-another-subnet"></a>To move a role instance to another subnet
 
-	<NetworkConfiguration>
-	    <VirtualNetworkSite name="VNETName" />
-	    <AddressAssignments>
-	       <InstanceAddress roleName="Role0">
-	            <Subnets><Subnet name="Subnet-2" /></Subnets>
-	       </InstanceAddress>
-	    </AddressAssignments>
-	</NetworkConfiguration> 
+To move a role instance, edit the CSCFG file. In the example below, we are moving "Role0" in virtual network *VNETName* from its present subnet to *Subnet-2*. Because the role instance was already deployed, you'll just change the Subnet name = Subnet-2. Be sure to edit the example to reflect your environment.
 
-<!---HONumber=AcomDC_0810_2016-->
+    <NetworkConfiguration>
+        <VirtualNetworkSite name="VNETName" />
+        <AddressAssignments>
+           <InstanceAddress roleName="Role0">
+                <Subnets><Subnet name="Subnet-2" /></Subnets>
+           </InstanceAddress>
+        </AddressAssignments>
+    </NetworkConfiguration> 
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

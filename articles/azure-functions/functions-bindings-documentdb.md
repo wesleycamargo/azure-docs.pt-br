@@ -1,244 +1,249 @@
 <properties
-	pageTitle="Associações do Banco de Dados de Documentos do Azure Functions | Microsoft Azure"
-	description="Entenda como usar associações do Banco de Dados de Documentos do Azure no Azure Functions."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"/>
+    pageTitle="Azure Functions DocumentDB bindings | Microsoft Azure"
+    description="Understand how to use Azure DocumentDB bindings in Azure Functions."
+    services="functions"
+    documentationCenter="na"
+    authors="christopheranderson"
+    manager="erikre"
+    editor=""
+    tags=""
+    keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
 
 <tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/22/2016"
-	ms.author="chrande; glenga"/>
+    ms.service="functions"
+    ms.devlang="multiple"
+    ms.topic="reference"
+    ms.tgt_pltfrm="multiple"
+    ms.workload="na"
+    ms.date="08/22/2016"
+    ms.author="chrande; glenga"/>
 
-# Associações do Banco de Dados de Documentos do Azure Functions
+
+# <a name="azure-functions-documentdb-bindings"></a>Azure Functions DocumentDB bindings
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e codificar associações do Banco de Dados de Documentos do Azure no Azure Functions.
+This article explains how to configure and code Azure DocumentDB bindings in Azure Functions. 
 
-[AZURE.INCLUDE [introdução](../../includes/functions-bindings-intro.md)]
+[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-## <a id="docdbinput"></a> Associação de entrada do Banco de Dados de Documentos do Azure
+## <a name="<a-id="docdbinput"></a>-azure-documentdb-input-binding"></a><a id="docdbinput"></a> Azure DocumentDB input binding
 
-As associações de entrada podem carregar um documento de uma coleção do Banco de Dados de Documentos e passá-lo diretamente para sua associação. A identificação do documento pode ser determinada com base no gatilho que invocou a função. Em uma função do C#, quaisquer alterações feitas no registro serão enviadas automaticamente para a coleção quando a função sair com êxito.
+Input bindings can load a document from a DocumentDB collection and pass it directly to your binding. The document id can be determined based on the trigger that invoked the function. In a C# function, any changes made to the record will be automatically sent back to the collection when the function exits successfully.
 
-#### function.json para associação de entrada do Banco de Dados de Documentos
+#### <a name="function.json-for-documentdb-input-binding"></a>function.json for DocumentDB input binding
 
-O arquivo *function.json* fornece as seguintes propriedades:
+The *function.json* file provides the following properties:
 
-- `name`: nome da variável usada no código de função para o documento.
-- `type`: deve ser definido como "documentdb".
-- `databaseName`: o banco de dados que contém o documento.
-- `collectionName`: a coleção que contém o documento.
-- `id`: a ID do documento a ser recuperado. Essa propriedade oferece suporte a associações semelhantes a "{queueTrigger}", que usará o valor da cadeia de caracteres da mensagem de fila como a identificação do documento.
-- `connection`: essa cadeia de caracteres deve ser uma Configuração de Aplicativo definida como o ponto de extremidade para sua conta do Banco de Dados de Documentos. Se você escolher a conta na guia Integrar, a configuração do novo Aplicativo será criada para você com um nome que terá este formato: suaConta\_DOCUMENTDB. Se você precisar criar manualmente a configuração do aplicativo, a cadeia de conexão real deverá ter o seguinte formato: AccountEndpoint = <ponto de extremidade da sua conta>; AccountKey = <chave de acesso primária>;.
-- `direction: deve ser definida como *"in"*.
+- `name` : Variable name used in function code for the document.
+- `type` : must be set to "documentdb".
+- `databaseName` : The database containing the document.
+- `collectionName` : The collection containing the document.
+- `id` : The Id of the document to retrieve. This property supports bindings similar to "{queueTrigger}", which will use the string value of the queue message as the document Id.
+- `connection` : This string must be an Application Setting set to the endpoint for your DocumentDB account. If you choose your account from the Integrate tab, a new App setting will be created for you with a name that takes the following form, yourAccount_DOCUMENTDB. If you need to manually create the App setting, the actual connection string must take the following form, AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;.
+- `direction  : must be set to *"in"*.
 
-*function.json* de exemplo:
+Example *function.json*:
  
-	{
-	  "bindings": [
-	    {
-	      "name": "document",
-	      "type": "documentdb",
-	      "databaseName": "MyDatabase",
-	      "collectionName": "MyCollection",
-	      "id" : "{queueTrigger}",
-	      "connection": "MyAccount_DOCUMENTDB",     
-	      "direction": "in"
-	    }
-	  ],
-	  "disabled": false
-	}
+    {
+      "bindings": [
+        {
+          "name": "document",
+          "type": "documentdb",
+          "databaseName": "MyDatabase",
+          "collectionName": "MyCollection",
+          "id" : "{queueTrigger}",
+          "connection": "MyAccount_DOCUMENTDB",     
+          "direction": "in"
+        }
+      ],
+      "disabled": false
+    }
 
-#### Exemplo de código de entrada do Banco de Dados de Documentos do Azure para um gatilho de fila do C#
+#### <a name="azure-documentdb-input-code-example-for-a-c#-queue-trigger"></a>Azure DocumentDB input code example for a C# queue trigger
  
-Usando o function.json de exemplo acima, a associação de entrada do Banco de Dados de Documentos irá recuperar o documento com a identificação que corresponda à cadeia de mensagem de fila e a passará para o parâmetro 'document'. Se esse documento não for encontrado, o parâmetro 'document' será nulo. O documento será então atualizado com o novo valor de texto quando a função sair.
+Using the example function.json above, the DocumentDB input binding will retrieve the document with the id that matches the queue message string and pass it to the 'document' parameter. If that document is not found, the 'document' parameter will be null. The document is then updated with the new text value when the function exits.
  
-	public static void Run(string myQueueItem, dynamic document)
-	{   
-	    document.text = "This has changed.";
-	}
+    public static void Run(string myQueueItem, dynamic document)
+    {   
+        document.text = "This has changed.";
+    }
 
-#### Exemplo de código de entrada do Azure DocumentDB para um gatilho de fila do F#
+#### <a name="azure-documentdb-input-code-example-for-an-f#-queue-trigger"></a>Azure DocumentDB input code example for an F# queue trigger
 
-Usando o function.json de exemplo acima, a associação de entrada do Banco de Dados de Documentos irá recuperar o documento com a identificação que corresponda à cadeia de mensagem de fila e a passará para o parâmetro 'document'. Se esse documento não for encontrado, o parâmetro 'document' será nulo. O documento será então atualizado com o novo valor de texto quando a função sair.
+Using the example function.json above, the DocumentDB input binding will retrieve the document with the id that matches the queue message string and pass it to the 'document' parameter. If that document is not found, the 'document' parameter will be null. The document is then updated with the new text value when the function exits.
 
-	open FSharp.Interop.Dynamic
-	let Run(myQueueItem: string, document: obj) =
-	    document?text <- "This has changed."
+    open FSharp.Interop.Dynamic
+    let Run(myQueueItem: string, document: obj) =
+        document?text <- "This has changed."
 
-Você precisará de um arquivo `project.json` que usa o NuGet para especificar os pacotes `FSharp.Interop.Dynamic` e `Dynamitey` como dependências do pacote, da seguinte forma:
+You will need a `project.json` file that uses NuGet to specify the `FSharp.Interop.Dynamic` and `Dynamitey` packages as package dependencies, like this:
 
-	{
-	  "frameworks": {
-	    "net46": {
-	      "dependencies": {
-	        "Dynamitey": "1.0.2",
-	        "FSharp.Interop.Dynamic": "3.0.0"
-	      }
-	    }
-	  }
-	}
+    {
+      "frameworks": {
+        "net46": {
+          "dependencies": {
+            "Dynamitey": "1.0.2",
+            "FSharp.Interop.Dynamic": "3.0.0"
+          }
+        }
+      }
+    }
 
-Isso usará o NuGet para buscar suas dependências e fará referência a elas em seu script.
+This will use NuGet to fetch your dependencies and will reference them in your script.
 
-#### Exemplo de código de entrada do Banco de Dados de Documentos do Azure para um gatilho de fila do Node.js
+#### <a name="azure-documentdb-input-code-example-for-a-node.js-queue-trigger"></a>Azure DocumentDB input code example for a Node.js queue trigger
  
-Usando o function.json de exemplo acima, a associação de entrada do Banco de Dados de Documentos vai recuperar o documento com a identificação que corresponda à cadeia de mensagem de fila e a passará para a propriedade de associação `documentIn`. Em funções do Node.js, os documentos atualizados não são enviados de volta à coleção. No entanto, você pode passar a associação de entrada diretamente para uma associação de saída do Banco de Dados de Documentos chamada `documentOut` para dar suporte a atualizações. Este exemplo de código atualiza a propriedade de texto do documento de entrada e o define como o documento de saída.
+Using the example function.json above, the DocumentDB input binding will retrieve the document with the id that matches the queue message string and pass it to the `documentIn` binding property. In Node.js functions, updated documents are not sent back to the collection. However, you can pass the input binding directly to a DocumentDB output binding named `documentOut` to support updates. This code example updates the text property of the input document and sets it as the output document.
  
-	module.exports = function (context, input) {   
-	    context.bindings.documentOut = context.bindings.documentIn;
-	    context.bindings.documentOut.text = "This was updated!";
-	    context.done();
-	};
+    module.exports = function (context, input) {   
+        context.bindings.documentOut = context.bindings.documentIn;
+        context.bindings.documentOut.text = "This was updated!";
+        context.done();
+    };
 
-## <a id="docdboutput"></a> Associações de saída do Banco de Dados de Documentos do Azure
+## <a name="<a-id="docdboutput"></a>-azure-documentdb-output-bindings"></a><a id="docdboutput"></a> Azure DocumentDB output bindings
 
-Suas funções podem gravar documentos JSON em um Banco de Dados de Documentos do Azure usando a associação de saída **Documento do Banco de Dados de Documentos do Azure**. Para saber mais sobre o Banco de Dados de Documentos do Azure, examine a [Introdução ao Banco de Dados de Documentos](../documentdb/documentdb-introduction.md) e o [Tutorial de Introdução](../documentdb/documentdb-get-started.md).
+Your functions can write JSON documents to an Azure DocumentDB database using the **Azure DocumentDB Document** output binding. For more information on Azure DocumentDB review the [Introduction to DocumentDB](../documentdb/documentdb-introduction.md) and the [Getting Started tutorial](../documentdb/documentdb-get-started.md).
 
-#### function.json para associação de saída do Banco de Dados de Documentos
+#### <a name="function.json-for-documentdb-output-binding"></a>function.json for DocumentDB output binding
 
-O arquivo function.json fornece as seguintes propriedades:
+The function.json file provides the following properties:
 
-- `name`: nome da variável usada no código de função para o novo documento.
-- `type`: deve ser definido como *"documentdb"*.
-- `databaseName`: o banco de dados que contém a coleção na qual o novo documento será criado.
-- `collectionName`: a coleção na qual o novo documento será criado.
-- `createIfNotExists`: é um valor booliano para indicar se a coleção será criada se ela não existir. O padrão é *false*. O motivo para isso é que as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para obter mais detalhes, visite a [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection`: essa cadeia de caracteres deve ser uma **Configuração de Aplicativo** definida como o ponto de extremidade para sua conta do Banco de Dados de Documentos. Se você escolher sua conta na guia **Integrar**, a configuração do novo Aplicativo será criada para você com um nome que terá este formato: `yourAccount_DOCUMENTDB`. Se você precisar criar manualmente a configuração do Aplicativo, a cadeia de conexão real deverá ter este formato: `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`.
-- `direction`: deve ser definido como *out*.
+- `name` : Variable name used in function code for the new document.
+- `type` : must be set to *"documentdb"*.
+- `databaseName` : The database containing the collection where the new document will be created.
+- `collectionName` : The collection where the new document will be created.
+- `createIfNotExists` : This is a boolean value to indicate whether the collection will be created if it does not exist. The default is *false*. The reason for this is new collections are created with reserved throughput, which has pricing implications. For more details, please visit the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
+- `connection` : This string must be an **Application Setting** set to the endpoint for your DocumentDB account. If you choose your account from the **Integrate** tab, a new App setting will be created for you with a name that takes the following form, `yourAccount_DOCUMENTDB`. If you need to manually create the App setting, the actual connection string must take the following form, `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
+- `direction` : must be set to *"out"*. 
  
-function.json de exemplo:
+Example function.json:
 
-	{
-	  "bindings": [
-	    {
-	      "name": "document",
-	      "type": "documentdb",
-	      "databaseName": "MyDatabase",
-	      "collectionName": "MyCollection",
-	      "createIfNotExists": false,
-	      "connection": "MyAccount_DOCUMENTDB",
-	      "direction": "out"
-	    }
-	  ],
-	  "disabled": false
-	}
+    {
+      "bindings": [
+        {
+          "name": "document",
+          "type": "documentdb",
+          "databaseName": "MyDatabase",
+          "collectionName": "MyCollection",
+          "createIfNotExists": false,
+          "connection": "MyAccount_DOCUMENTDB",
+          "direction": "out"
+        }
+      ],
+      "disabled": false
+    }
 
 
-#### Exemplo de código de saída do Banco de Dados de Documentos do Azure para um gatilho de fila do Node.js
+#### <a name="azure-documentdb-output-code-example-for-a-node.js-queue-trigger"></a>Azure DocumentDB output code example for a Node.js queue trigger
 
-	module.exports = function (context, input) {
-	   
-	    context.bindings.document = {
-	        text : "I'm running in a Node function! Data: '" + input + "'"
-	    }   
-	 
-	    context.done();
-	};
+    module.exports = function (context, input) {
+       
+        context.bindings.document = {
+            text : "I'm running in a Node function! Data: '" + input + "'"
+        }   
+     
+        context.done();
+    };
 
-O documento de saída:
+The output document:
 
-	{
-	  "text": "I'm running in a Node function! Data: 'example queue data'",
-	  "id": "01a817fe-f582-4839-b30c-fb32574ff13f"
-	}
+    {
+      "text": "I'm running in a Node function! Data: 'example queue data'",
+      "id": "01a817fe-f582-4839-b30c-fb32574ff13f"
+    }
  
 
-#### Exemplo de código de saída do Azure DocumentDB para um gatilho de fila do F#
+#### <a name="azure-documentdb-output-code-example-for-an-f#-queue-trigger"></a>Azure DocumentDB output code example for an F# queue trigger
 
-	open FSharp.Interop.Dynamic
-	let Run(myQueueItem: string, document: obj) =
-	    document?text <- (sprintf "I'm running in an F# function! %s" myQueueItem)
+    open FSharp.Interop.Dynamic
+    let Run(myQueueItem: string, document: obj) =
+        document?text <- (sprintf "I'm running in an F# function! %s" myQueueItem)
 
-#### Exemplo de código de saída do Banco de Dados de Documentos do Azure para um gatilho de fila do C#
-
-
-	using System;
-
-	public static void Run(string myQueueItem, out object document, TraceWriter log)
-	{
-	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-	   
-	    document = new {
-	        text = $"I'm running in a C# function! {myQueueItem}"
-	    };
-	}
+#### <a name="azure-documentdb-output-code-example-for-a-c#-queue-trigger"></a>Azure DocumentDB output code example for a C# queue trigger
 
 
-#### Exemplo de código de saída do Banco de Dados de Documentos que configura um nome do arquivo
+    using System;
 
-Se você deseja definir o nome do documento na função, basta definir o valor `id`. Por exemplo, se o conteúdo JSON de um funcionário tiver sido removido para a fila semelhante à seguinte:
+    public static void Run(string myQueueItem, out object document, TraceWriter log)
+    {
+        log.Info($"C# Queue trigger function processed: {myQueueItem}");
+       
+        document = new {
+            text = $"I'm running in a C# function! {myQueueItem}"
+        };
+    }
 
-	{
-	  "name" : "John Henry",
+
+#### <a name="azure-documentdb-output-code-example-setting-file-name"></a>Azure DocumentDB output code example setting file name
+
+If you want to set the name of the document in the function, just set the `id` value.  For example, if JSON content for an employee was being dropped into the queue similar to the following:
+
+    {
+      "name" : "John Henry",
       "employeeId" : "123456",
-	  "address" : "A town nearby"
-	}
+      "address" : "A town nearby"
+    }
 
-Você poderia usar o seguinte código C# em uma função de gatilho de fila:
-	
-	#r "Newtonsoft.Json"
-	
-	using System;
-	using Newtonsoft.Json;
-	using Newtonsoft.Json.Linq;
-	
-	public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
-	{
-	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-	    
-	    dynamic employee = JObject.Parse(myQueueItem);
-	    
-	    employeeDocument = new {
-	        id = employee.name + "-" + employee.employeeId,
-	        name = employee.name,
-	        employeeId = employee.employeeId,
-	        address = employee.address
-	    };
-	}
+You could use the following C# code in a queue trigger function: 
+    
+    #r "Newtonsoft.Json"
+    
+    using System;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    
+    public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
+    {
+        log.Info($"C# Queue trigger function processed: {myQueueItem}");
+        
+        dynamic employee = JObject.Parse(myQueueItem);
+        
+        employeeDocument = new {
+            id = employee.name + "-" + employee.employeeId,
+            name = employee.name,
+            employeeId = employee.employeeId,
+            address = employee.address
+        };
+    }
 
-Ou o código equivalente em F#:
+Or the equivalent F# code:
 
-	open FSharp.Interop.Dynamic
-	open Newtonsoft.Json
+    open FSharp.Interop.Dynamic
+    open Newtonsoft.Json
 
-	type Employee = {
-	    id: string
-	    name: string
-	    employeeId: string
-	    address: string
-	}
+    type Employee = {
+        id: string
+        name: string
+        employeeId: string
+        address: string
+    }
 
-	let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
-	    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
-	    let employee = JObject.Parse(myQueueItem)
-	    employeeDocument <-
-	        { id = sprintf "%s-%s" employee?name employee?employeeId
-	          name = employee?name
-	          employeeId = employee?id
-	          address = employee?address }
+    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
+        log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+        let employee = JObject.Parse(myQueueItem)
+        employeeDocument <-
+            { id = sprintf "%s-%s" employee?name employee?employeeId
+              name = employee?name
+              employeeId = employee?id
+              address = employee?address }
 
-Saída de exemplo:
+Example output:
 
-	{
-	  "id": "John Henry-123456",
-	  "name": "John Henry",
-	  "employeeId": "123456",
-	  "address": "A town nearby"
-	}
+    {
+      "id": "John Henry-123456",
+      "name": "John Henry",
+      "employeeId": "123456",
+      "address": "A town nearby"
+    }
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-[AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
+[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

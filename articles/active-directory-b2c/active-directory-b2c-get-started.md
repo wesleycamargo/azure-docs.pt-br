@@ -1,82 +1,87 @@
 <properties
-	pageTitle="Azure Active Directory B2C: criar um locatário do Azure Active Directory B2C | Microsoft Azure"
-	description="Um tópico sobre como criar um locatário zure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+    pageTitle="Azure Active Directory B2C: Create an Azure Active Directory B2C tenant | Microsoft Azure"
+    description="A topic on how to create an Azure Active Directory B2C tenant"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="mbaldwin"
+    editor="bryanla"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.topic="article"
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.topic="article"
     ms.devlang="na"
-	ms.date="08/30/2016"
-	ms.author="swkrish"/>
+    ms.date="08/30/2016"
+    ms.author="swkrish"/>
 
-# Azure Active Directory B2C: criar um locatário do Azure AD B2C
 
-Para começar a usar o Azure AD (Microsoft Azure Active Directory) B2C, siga as três etapas descritas neste artigo.
+# <a name="azure-active-directory-b2c:-create-an-azure-ad-b2c-tenant"></a>Azure Active Directory B2C: Create an Azure AD B2C tenant
 
-## Etapa 1: inscrever-se para uma assinatura do Azure
+To start using Microsoft Azure Active Directory (Azure AD) B2C, follow the three steps outlined in this article.
 
-Se você já tiver uma assinatura do Azure, ignore esta etapa. Se não tiver, inscreva-se para obter uma [assinatura do Azure](../active-directory/sign-up-organization.md) e receber acesso ao Azure AD B2C.
+## <a name="step-1:-sign-up-for-an-azure-subscription"></a>Step 1: Sign up for an Azure subscription
 
-## Etapa 2: criar um locatário do Azure AD B2C
+If you already have an Azure subscription, skip this step. If not, sign up for an [Azure subscription](../active-directory/sign-up-organization.md) and get access to Azure AD B2C.
 
-Use as seguintes etapas para criar um novo locatário B2C do AD do Azure. Atualmente, os recursos de B2C não podem ser ativados em seus locatários existentes.
+## <a name="step-2:-create-an-azure-ad-b2c-tenant"></a>Step 2: Create an Azure AD B2C tenant
 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com/) como o Administrador da Assinatura. Essa é a mesma conta corporativa, de estudante ou da Microsoft que você usou para se inscrever no Azure.
-2. Clique em **Novo** > **Serviços de Aplicativos** > **Active Directory** > **Diretório** > **Criação Personalizada**.
+Use the following steps to create a new Azure AD B2C tenant. Currently B2C features can't be turned on in your existing tenants.
 
-    ![Captura de tela do início da criação de um locatário](./media/active-directory-b2c-get-started/new-directory.png)
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. This is the same work or school account or the same Microsoft account that you used to sign up for Azure.
+2. Click **New** > **App Services** > **Active Directory** > **Directory** > **Custom Create**.
 
-3. Escolha o **Nome**, **Nome de Domínio** e **País ou Região** para seu locatário.
-4. Marque a opção que indica **Este é um diretório B2C**.
-5. Clique na marca de seleção para concluir a ação.
+    ![Screen shot of starting to create a tenant](./media/active-directory-b2c-get-started/new-directory.png)
 
-    ![Captura de tela da marca de seleção para criar um diretório do B2C](./media/active-directory-b2c-get-started/create-b2c-directory.png)
+3. Choose the **Name**, **Domain Name** and **Country or Region** for your tenant.
+4. Check the option that says **This is a B2C directory**.
+5. Click the check mark to complete the action.
 
-6. O locatário foi criado e aparecerá na extensão do Active Directory. Um Administrador Global do locatário também pode ser criado. Você pode adicionar outros Administradores Globais conforme necessário.
+    ![Screen shot of the check mark to create a B2C directory](./media/active-directory-b2c-get-started/create-b2c-directory.png)
 
-    > [AZURE.IMPORTANT]
-	Se você está planejando usar um locatário B2C para um aplicativo de produção, leia o artigo sobre [escala de produção versus locatários de visualização do B2C](active-directory-b2c-reference-tenant-type.md). Observe que há problemas conhecidos quando você exclui um locatário B2C existente e o recria com o mesmo nome de domínio. Você precisa criar um locatário B2C com um nome de domínio diferente.
-
-## Etapa 3: navegar até a folha de Recursos do B2C no Portal do Azure
-
-1. Navegue até a extensão do Active Directory na barra de navegação do lado esquerdo.
-2. Localize o locatário na guia **Diretório** e clique nele.
-3. Clique na guia **Configurar**.
-4. Clique no link **Gerenciar configurações de B2C** na seção **Administração de B2C**.
-
-    ![Captura de tela da configuração do diretório do B2C](./media/active-directory-b2c-get-started/b2c-directory-configure-tab.png)
-
-5. O Portal do Azure mostrando a folha de recursos do B2C será aberto em uma nova janela ou guia do navegador.
+6. Your tenant is now created and will appear in the Active Directory extension. You are also made a Global Administrator of the tenant. You can add other Global Administrators as required.
 
     > [AZURE.IMPORTANT]
-    Pode levar de dois a três minutos para que o locatário fique acessível no portal do Azure. Se você repetir essas etapas, após algum tempo isso será corrigido. Caso contrário, contate o suporte.
+    If you are planning to use a B2C tenant for a production app, read the article on [production-scale vs. preview B2C tenants](active-directory-b2c-reference-tenant-type.md). Note that there are known issues when you delete an existing B2C tenant and re-create it with the same domain name. You have to create a B2C tenant with a different domain name.
 
-6. Fixe essa folha no seu Quadro inicial para facilitar o acesso. (A ferramenta Fixar é marcada em vermelho no canto superior direito da folha de recursos).
+## <a name="step-3:-navigate-to-the-b2c-features-blade-on-the-azure-portal"></a>Step 3: Navigate to the B2C features blade on the Azure portal
 
-    ![Captura de tela da folha de recursos do B2C](./media/active-directory-b2c-get-started/b2c-features-blade.png)
+1. Navigate to the Active Directory extension on the navigation bar on the left side.
+2. Find your tenant under the **Directory** tab and click it.
+3. Click the **Configure** tab.
+4. Click the **Manage B2C settings** link in the **B2C administration** section.
+
+    ![Screen shot of directory configuration for B2C](./media/active-directory-b2c-get-started/b2c-directory-configure-tab.png)
+
+5. The Azure portal with the B2C features blade showing will open in a new browser tab or window.
+
+    > [AZURE.IMPORTANT]
+    It can take up to 2-3 minutes for your tenant to be accessible on the Azure portal. Retrying these steps after some time will fix this. If not, please contact Support.
+
+6. Pin this blade to your Startboard for easy access. (The Pin tool is marked in red at the upper-right corner of the features blade.)
+
+    ![Screen shot of the B2C features blade](./media/active-directory-b2c-get-started/b2c-features-blade.png)
 
     > [AZURE.NOTE]
-    Você pode gerenciar usuários e grupos, autoatendimento para configuração de redefinição de senha e recursos de identidade visual da empresa do locatário no [Portal Clássico do Azure](https://manage.windowsazure.com/).
+    You can manage users and groups, self-service password reset configuration, and company branding features of your tenant on the [Azure classic portal](https://manage.windowsazure.com/).
 
-## Acesso fácil à folha de recursos do B2C no portal do Azure
+## <a name="easy-access-to-the-b2c-features-blade-on-the-azure-portal"></a>Easy access to the B2C features blade on the Azure portal
 
-Para melhorar a capacidade de descoberta, adicionamos um atalho para a folha de recursos do B2C no portal do Azure.
+To improve discoverability, we've added a shortcut to the B2C features blade on the Azure portal.
 
-1. Entre no portal do Azure como Administrador Global de seu locatário do B2C. Se você já entrou em um locatário diferente, alterne os locatários (no canto superior direito).
-2. Clique em **Procurar** na barra de navegação à esquerda.
-3. Clique em **Azure AD B2C** para acessar a folha de recursos do B2C.
+1. Sign into the Azure portal as the Global Administrator of your B2C tenant. If you are already signed into a different tenant, switch tenants (on the top-right corner).
+2. Click **Browse** on the left hand navigation.
+3. Click **Azure AD B2C** to access the B2C features blade.
 
-    ![Captura de tela de Navegar para a folha de recursos do B2C](./media/active-directory-b2c-get-started/b2c-browse.png)
+    ![Screen shot of Browse to B2C features blade](./media/active-directory-b2c-get-started/b2c-browse.png)
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Saiba como registrar um aplicativo com o Azure AD B2C e compilar um aplicativo de Início Rápido lendo [Azure Active Directory B2C: registrar seu aplicativo](active-directory-b2c-app-registration.md).
+Learn how to register an application with Azure AD B2C and to build a Quick Start application by reading [Azure Active Directory B2C: Register your application](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introdução aos modelos privados | Microsoft Azure"
-   description="Adicione, gerencie e compartilhe seus modelos privados usando o portal do Azure, a CLI do Azure ou o PowerShell."
+   pageTitle="Get started with private Templates | Microsoft Azure"
+   description="Add, manage and share your private templates using the Azure portal, the Azure CLI, or PowerShell."
    services="marketplace-customer"
    documentationCenter=""
    authors="VybavaRamadoss"
@@ -18,118 +18,125 @@
    ms.date="05/18/2016"
    ms.author="vybavar"/>
 
-# Introdução aos modelos privados no Portal do Azure
 
-Um modelo do [Azure Resource Manager](../resource-group-authoring-templates.md) é um modelo declarativo usado para definir a sua implantação. Você define os recursos a serem implantados em uma solução e especifica os parâmetros e variáveis que lhe permitem inserir valores para diferentes ambientes. O modelo consiste em JSON e expressões que podem ser usados na construção de valores para sua implantação.
+# <a name="get-started-with-private-templates-on-the-azure-portal"></a>Get started with private Templates on the Azure Portal
 
-Você pode usar o novo recurso **Modelos** no [Portal do Azure](https://portal.azure.com) juntamente com o provedor de recursos **Microsoft.Gallery** como uma extensão do [Azure Marketplace](https://azure.microsoft.com/marketplace/) para permitir aos usuários criar, gerenciar e implantar modelos privados de uma biblioteca pessoal.
+An [Azure Resource Manager](../resource-group-authoring-templates.md) template is a declarative template used to define your deployment. You can define the resources to deploy for a solution, and specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
 
-Este documento explica como adicionar, gerenciar e compartilhar um **Modelo** privado usando o Portal do Azure.
+You can use the new **Templates** capability in the [Azure Portal](https://portal.azure.com) along with the **Microsoft.Gallery** resource provider as an extension of the [Azure Marketplace](https://azure.microsoft.com/marketplace/) to enable users to create, manage and deploy private templates from a personal library.
 
-## Diretrizes
+This document walks you through adding, managing and sharing a private **Template** using the Azure Portal.
 
-As sugestões a seguir ajudarão você a aproveitar os **Modelos** ao máximo quando estiver trabalhando com suas soluções.
+## <a name="guidance"></a>Guidance
 
-- Um **modelo** é um recurso de encapsulamento que contém um modelo do Resource Manager e metadados adicionais. Ele se comporta de maneira muito semelhante a um item no Marketplace. A principal diferença é que se trata de um item privado, e não itens públicos do Marketplace.
-- A biblioteca **Modelos** funciona bem com usuários que precisam personalizar suas implantações.
-- Os **Modelos** funcionam bem com usuários que precisam de um repositório simples no Azure.
-- Comece com um modelo existente do Resource Manager. Encontre modelos no [github](https://github.com/Azure/azure-quickstart-templates) ou [exporte o modelo](../resource-manager-export-template.md) de um grupo de recursos existente.
-- Os **Modelos** ficam vinculados ao usuário que os publicar. O nome do publicador fica visível para qualquer pessoa que tenha acesso de leitura.
-- Os **Modelos** são recursos do Resource Manager e não podem ser renomeados depois de publicados.
+The following suggestions will help you take full advantage of **Templates** when working with your solutions:
 
-## Adicionar um recurso de modelo
+- A **Template** is an encapsulating resource that contains an Resource Manager template and additional metadata. It behaves very similarly to an item in the Marketplace. The key difference is that it is a private item as opposed to the public Marketplace items.
+- The **Templates** library works well for users who need to customize their deployments.
+- **Templates** work well for users who need a simple repository within Azure.
+- Start with an existing Resource Manager template. Find templates in [github](https://github.com/Azure/azure-quickstart-templates) or [Export template](../resource-manager-export-template.md) from an existing resource group.
+- **Templates** are tied to the user who publishes them. The publisher name is visible to everyone who has read access to it.
+- **Templates** are Resource Manager resources and cannot be renamed once published.
 
-Há duas maneiras de criar um recurso de **modelo** no portal do Azure.
+## <a name="add-a-template-resource"></a>Add a Template resource
 
-### Método 1: criar um novo recurso de modelo de um grupo de recursos em execução
+There are two ways to create a **Template** resource in the Azure portal.
 
-1. Navegue até um grupo de recursos existente no Portal do Azure. Selecione **Exportar modelo** em **Configurações**.
-2. Depois que o modelo do Resource Manager é exportado, use o botão **Salvar Modelo** para salvá-lo no repositório**Modelos**. Encontre todos os detalhes sobre a exportação de modelos [aqui](../resource-manager-export-template.md). <br /><br /> ![Exportação do grupo de recursos](media/rg-export-portal1.PNG) <br />
+### <a name="method-1-:-create-a-new-template-resource-from-a-running-resource-group"></a>Method 1 : Create a new Template resource from a running resource group
 
-3. Selecione o botão de comando **Salvar no Modelo**. <br /><br />
+1. Navigate to an existing resource group on the Azure Portal. Select **Export template** in **Settings**.
+2. Once the Resource Manager template is exported, use the **Save Template** button to save it to the **Templates** repository. Find complete details for Export template [here](../resource-manager-export-template.md).
+<br /><br />
+![Resource group export](media/rg-export-portal1.PNG)  <br />
 
-4. Insira as seguintes informações:
+3. Select the **Save to Template** command button.
+<br /><br />
 
-    - Nome – nome do objeto de modelo (OBSERVAÇÃO: esse é um nome baseado no Azure Resource Manager. Todas as restrições de nomenclatura são aplicáveis e ele não pode ser alterado depois de criado).
-    - Descrição – resumo rápido do modelo.
+4. Enter the following information:
 
-    ![Salvar Modelo](media/save-template-portal1.PNG) <br />
+    - Name – Name of the template object (NOTE: This is an Azure Resource Manager based name. All naming restrictions apply and it cannot be changed once created).
+    - Description – Quick summary about the template.
 
-5. Clique em **Salvar**.
+    ![Save Template](media/save-template-portal1.PNG)  <br />
 
-    > [AZURE.NOTE] A folha Exportar modelo mostra notificações quando o modelo do Resource Manager exportado tem erros, mas você ainda poderá salvar esse modelo do Resource Manager em Modelos. Verifique e corrija problemas no modelo do Resource Manager antes de reimplantar o modelo do Resource Manager exportado.
+5. Click **Save**.
 
-### B. Método 2: adicionar um novo recurso de modelo por meio de navegação
+    > [AZURE.NOTE] The Export template blade shows notifications when the exported Resource Manager template has errors, but you will still be able to save this Resource Manager template to the Templates. Ensure that you check and fix any Resource Manager template issues before redeploying the exported Resource Manager template.
 
-Você também pode adicionar um novo **Modelo** do zero usando o botão de comando +Adicionar em **Procurar > Modelos**. Você precisará fornecer um nome, uma descrição e o JSON do modelo do Resource Manager.
+### <a name="b.-method-2-:-add-a-new-template-resource-from-browse"></a>B. Method 2 : Add a new Template resource from browse
 
-![Adicionar Modelo](media/add-template-portal1.PNG) <br />
+You can also add a new **Template** from scratch using the +Add command button in **Browse > Templates**. You will need to provide a Name, Description and the Resource Manager template JSON.
 
-> [AZURE.NOTE] Microsoft.Gallery é um provedor de recursos do Azure baseado em locatário. O recurso de modelo está vinculado ao usuário que o criou. Ele não está associado a nenhuma assinatura específica.  
-A assinatura só precisa ser escolhida quando o modelo for implantado.
+![Add Template](media/add-template-portal1.PNG)  <br />
 
-## Exibir recursos de modelo
+> [AZURE.NOTE] Microsoft.Gallery is a Tenant based Azure resource provider. The Template resource is tied to the user who created it. It is not tied to any specific subscription. A subscription needs to be chosen only when deploying a Template.
 
-Todos os **modelos** disponíveis podem ser exibidos em **Procurar > Modelos**. Isso inclui **modelos** que você criou e os que foram compartilhados com você com vários níveis de permissões. Mais detalhes na seção [controle de acesso](#access-control-for-a-tenant-resource-provider) abaixo.
+## <a name="view-template-resources"></a>View Template resources
 
-![Exibir Modelo](media/view-template-portal1.PNG) <br />
+All **Templates** available to you can be seen at **Browse > Templates**. This includes **Templates** you have created as well as ones that have been shared with you with varying levels of permissions. More details in the [access control](#access-control-for-a-tenant-resource-provider) section below.
 
-Você pode exibir os detalhes de um **modelo** clicando em um item na lista.
+![View Template](media/view-template-portal1.PNG)  <br />
 
-![Exibir Modelo](media/view-template-portal2c.png) <br />
+You can view the details of a **Template** by clicking into an item in the list.
 
-## Editar um recurso de modelo
+![View Template](media/view-template-portal2c.png)  <br />
 
-Inicie o fluxo de edição de um **modelo** clicando no item com o botão direito do mouse na lista Procurar ou escolhendo o botão de comando Editar.
+## <a name="edit-a-template-resource"></a>Edit a Template resource
 
-![Editar modelo](media/edit-template-portal1a.PNG) <br />
+You can initiate the edit flow for a **Template** by right clicking the item on the Browse list or by choosing the Edit command button.
 
-Edite a descrição ou o texto do modelo do Resource Manager. Você não pode editar o nome, já que ele é um nome de recurso do Resource Manager. Quando você editar o JSON do modelo do Resource Manager, faremos o teste de validação para garantir que ele é um JSON válido. Escolha **OK** e **Salvar** para salvar o modelo atualizado.
+![Edit Template](media/edit-template-portal1a.PNG)  <br />
 
-![Editar modelo](media/edit-template-portal2a.PNG) <br />
+You can edit the description or Resource Manager template text. You cannot edit the name since it is an Resource Manager resource name. When you edit the Resource Manager template JSON we will validate to ensure that it is valid JSON. Choose **OK** and then **Save** to save your updated template.
 
-Depois que o **modelo** for salvo, você verá uma notificação de confirmação.
+![Edit Template](media/edit-template-portal2a.PNG)  <br />
 
-![Editar modelo](media/edit-template-portal3b.png) <br />
+Once the **Template** is saved you will see a confirmation notification.
 
-## Implantar um recurso de modelo
+![Edit Template](media/edit-template-portal3b.png)  <br />
 
-Você pode implantar qualquer **modelo** para o qual tiver permissões de **leitura**. O fluxo de implantação inicia a folha de implantação padrão de modelo do Azure. Preencha os valores dos parâmetros de modelo do Resource Manager para prosseguir com a implantação.
+## <a name="deploy-a-template-resource"></a>Deploy a Template resource
 
-![Implantar o modelo](media/deploy-template-portal1b.png) <br />
+You can deploy any **Template** that you have **Read** permissions on. The deployment flow launches the standard Azure Template deployment blade. Fill out the values for the Resource Manager template parameters to proceed with the deployment.
 
-## Compartilhar um recurso de modelo
+![Deploy Template](media/deploy-template-portal1b.png)  <br />
 
-Um recurso de **modelo** pode ser compartilhados com seus colegas. O compartilhamento se comporta da mesma forma que a [atribuição de função de qualquer recurso no Azure](../active-directory/role-based-access-control-configure.md). O proprietário do **modelo** fornece permissões para outros usuários que podem interagir com um recurso de modelo. A pessoa ou grupo de pessoas com quem você compartilhar o **modelo** será capaz de ver o modelo do Resource Manager e suas propriedades de galeria.
+## <a name="share-a-template-resource"></a>Share a Template resource
 
-### Controle de acesso aos recursos da Microsoft.Gallery
+A **Template** resource can be shared with your peers. Sharing behaves similarly to [role assignment for any resource on Azure](../active-directory/role-based-access-control-configure.md). The **Template** owner provides permissions to other users who can interact with a Template resource. The person or group of people you share the **Template** with will be able to see the Resource Manager template and its gallery properties.
 
-Função | Permissões
+### <a name="access-control-for-the-microsoft.gallery-resources"></a>Access control for the Microsoft.Gallery resources
+
+Role | Permissions
 ---|----
-Proprietário | Permite o controle total sobre o recurso de modelo, incluindo compartilhamento
-Leitor | Permite leitura e execução (Implantação) no recurso de modelo
-Colaborador | Concede permissão de edição e exclusão no recurso de modelo. O usuário não pode compartilhar o modelo com outras pessoas
+Owner | Allows full control on the Template resource including Share
+Reader | Allows Read and Execute(Deploy) on the Template resource
+Contributor | Allows Edit and Delete permission on the Template resource. User cannot Share the Template with others
 
-Selecione **Compartilhar** no item de navegação clicando com o botão direito do mouse ou na folha do modo de exibição de um item específico. Isso inicia uma experiência de compartilhamento.
+Select **Share** on the browse item by right clicking or on the view blade of a specific item. This launches a Share experience.
 
-![Compartilhar modelo](media/share-template-portal1a.png) <br />
+![Share Template](media/share-template-portal1a.png)  <br />
 
- Agora você pode escolher uma função e um usuário ou grupo para fornecer acesso a determinado **modelo**. As funções disponíveis são Proprietário, Leitor e Colaborador. Mais detalhes na seção [controle de acesso](#access-control-for-a-tenant-resource-provider) acima.
+ You can now choose a role and a user or group to provide access to a particular **Template**. The available roles are Owner, Reader and Contributor. More details in the [access control](#access-control-for-a-tenant-resource-provider) section above.
 
-![Compartilhar modelo](media/share-template-portal2b.png) <br />
+![Share Template](media/share-template-portal2b.png)  <br />
 
-![Compartilhar modelo](media/share-template-portal3b.png) <br />
+![Share Template](media/share-template-portal3b.png)  <br />
 
-Clique em **Selecionar** e **OK**. Agora você pode ver os usuários ou grupos adicionados ao recurso.
+Click **Select** and **Ok**. You can now see the users or groups you added to the resource.
 
-![Compartilhar modelo](media/share-template-portal4b.png) <br />
+![Share Template](media/share-template-portal4b.png)  <br />
 
-> [AZURE.NOTE] Um modelo só pode ser compartilhado com usuários e grupos no mesmo locatário do Azure Active Directory. Se você compartilhar um modelo com um endereço de email que não está em seu locatário, um convite será enviado com um pedido ao usuário para ingressar no locatário como convidado.
+> [AZURE.NOTE] A Template can only be shared with users and groups in the same Azure Active Directory tenant. If you share a Template with an email address that is not in your tenant, an invitation will be sent asking the user to join the tenant as a guest.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Para saber mais sobre a criação de modelos do Resource Manager, confira [Criando modelos](../resource-group-authoring-templates.md).
-- Para conhecer as funções que podem ser usadas em um modelo do Resource Manager, veja [Funções do modelo](../resource-group-template-functions.md).
-- Para obter diretrizes sobre como criar os modelos, confira [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](../best-practices-resource-manager-design-templates.md)
+- To learn about creating Resource Manager templates, see [Authoring templates](../resource-group-authoring-templates.md)
+- To understand the functions you can use in an Resource Manager template, see [Template functions](../resource-group-template-functions.md)
+- For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](../best-practices-resource-manager-design-templates.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

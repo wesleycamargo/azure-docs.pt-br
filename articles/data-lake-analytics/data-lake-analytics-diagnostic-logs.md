@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Exibindo logs de diagnóstico para o Azure Data Lake Analytics | Microsoft Azure" 
-   description="Entenda como configurar e acessar os logs de diagnóstico do Azure Data Lake Analytics " 
+   pageTitle="Viewing diagnostic logs for Azure Data Lake Analytics | Microsoft Azure" 
+   description="Understand how to setup and access diagnostic logs for Azure Data Lake analytics " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="Blackmist" 
@@ -16,71 +16,72 @@
    ms.date="08/11/2016"
    ms.author="larryfr"/>
 
-# Acessando os logs de diagnóstico do Azure Data Lake Analytics
 
-Saiba mais sobre como habilitar o log de diagnóstico em sua conta do Data Lake Analytics e como exibir os logs coletados em sua conta.
+# <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accessing diagnostic logs for Azure Data Lake Analytics
 
-As organizações podem habilitar o log de diagnóstico para sua conta do Azure Data Lake Analytics coletar trilhas de auditoria de acesso de dados. Esses logs fornecem informações como:
+Learn about how to enable diagnostic logging for your Data Lake Analytics account and how to view the logs collected for your account.
 
-* Uma lista de usuários que acessaram os dados.
-* Com que frequência os dados são acessados.
-* Quantos dados são armazenados na conta.
+Organizations can enable diagnostic logging for their Azure Data Lake Analytics account to collect data access audit trails. These logs provide information such as:
 
-## Pré-requisitos
+* A list of users that accessed the data.
+* How frequently the data is accessed.
+* How much data is stored in the account.
 
-- **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Habilitar sua assinatura do Azure** para a visualização pública do Data Lake Analytics. Veja [instruções](data-lake-analytics-get-started-portal.md#signup).
-- **Conta do Azure Data Lake Analytics**. Siga as instruções em [Introdução ao Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-get-started-portal.md).
+## <a name="prerequisites"></a>Prerequisites
 
-## Habilitar o registro em log
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+- **Enable your Azure subscription** for Data Lake Analytics Public Preview. See [instructions](data-lake-analytics-get-started-portal.md#signup).
+- **Azure Data Lake Analytics account**. Follow the instructions at [Get started with Azure Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md).
 
-1. Inscreva-se no novo [portal do Azure](https://portal.azure.com).
+## <a name="enable-logging"></a>Enable logging
 
-2. Abra sua conta do Data Lake Analytics e, da folha da conta do Data Lake Analytics, clique em **Configurações** e, em seguida, em **Configurações de Diagnóstico**.
+1. Sign on to the new [Azure portal](https://portal.azure.com).
 
-3. Na folha **Diagnóstico**, faça as seguintes alterações para configurar o log de diagnóstico.
+2. Open your Data Lake Analytics account, and from your Data Lake Analytics account blade, click **Settings**, and then click **Diagnostic Settings**.
 
-	![Habilitar registro em log de diagnóstico](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Habilitar logs de diagnóstico")
+3. In the **Diagnostic** blade, make the following changes to configure diagnostic logging.
 
-	* Defina o **Status** para **Ativado** para habilitar o log de diagnóstico.
-	* Você pode optar por armazenar/processar os dados de duas maneiras diferentes.
-		* Selecione **Exportar para o Hub de Eventos** para transmitir os dados de log para um Hub de Eventos do Azure. Use esta opção se tiver um pipeline de processamento de downstream para analisar os logs de entrada em tempo real. Se escolher esta opção, você deverá fornecer os detalhes no Hub de Eventos do Azure que deseja usar.
-		* Selecione **Exportar para a Conta de Armazenamento** para armazenar os logs em uma conta de armazenamento do Azure. Use esta opção se quiser arquivar os dados. Se escolher esta opção, você deverá fornecer uma conta de armazenamento do Azure para salvar os logs.
-	* Especifique se deseja obter os logs de auditoria, os logs de solicitação ou ambos.
-	* Especifique o número de dias que os dados devem ser mantidos.
-	* Clique em **Salvar**.
+    ![Enable diagnostic logging](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
 
-Depois de habilitar as configurações de diagnóstico, você poderá observar os logs na guia **Logs de Diagnóstico**.
+    * Set **Status** to **On** to enable diagnostic logging.
+    * You can choose to store/process the data in two different ways.
+        * Select **Export to Event Hub** to stream log data to an Azure Event Hub. Use this option if you have a downstream processing pipeline to analyze incoming logs in real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
+        * Select **Export to Storage Account** to store logs to an Azure Storage account. Use this option if you want to archive the data. If you select this option, you must provide an Azure Storage account to save the logs to.
+    * Specify whether you want to get audit logs or request logs or both.
+    * Specify the number of days for which the data must be retained.
+    * Click **Save**.
 
-## Exibir logs
+Once you have enabled diagnostic settings, you can watch the logs in the **Diagnostic Logs** tab.
 
-Há duas maneiras de exibir os dados do log da sua conta no Data Lake Analytics.
+## <a name="view-logs"></a>View logs
 
-* Das configurações da conta do Data Lake Analytics
-* Na conta de Armazenamento do Azure onde os dados são armazenados
+There are two ways to view the log data for your Data Lake Analytics account.
 
-### Usando a exibição de configurações do Data Lake Analytics
+* From the Data Lake Analytics account settings
+* From the Azure Storage account where the data is stored
 
-1. Na folha **Configurações** da sua conta do Data Lake Analytics, clique em **Logs de Diagnóstico**.
+### <a name="using-the-data-lake-analytics-settings-view"></a>Using the Data Lake Analytics Settings view
 
-	![Exibir o log de diagnósticos](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Exibir os logs de diagnóstico")
+1. From your Data Lake Analytics account **Settings** blade, click **Diagnostic Logs**.
 
-2. Na folha **Logs de Diagnóstico**, você deverá ver os logs categorizados por **Logs de Auditoria** e por **Logs de Solicitação**.
-	* Os Logs de Solicitação capturam todas as solicitações de API feitas na conta do Data Lake Analytics.
-	* Os Logs de Auditoria são semelhantes aos Logs de Solicitação, mas fornecem uma análise mais detalhada das operações que estão sendo executadas na conta do Data Lake Analytics. Por exemplo, uma única chamada à API de upload nos logs de solicitação poderá resultar em várias operações do tipo "Anexar" nos logs de auditoria.
+    ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
 
-3. Clique no link **Download** em cada entrada de log para baixar os logs.
+2. In the **Diagnostic Logs** blade, you should see the logs categorized by **Audit Logs** and **Request Logs**.
+    * Request logs capture every API request made on the Data Lake Analytics account.
+    * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Analytics account. For example, a single upload API call in request logs might result in multiple "Append" operations in the audit logs.
 
-### Na conta de Armazenamento do Azure que contém dados de log
+3. Click the **Download** link for a log entry to download the logs.
 
-1. Abra a folha Conta de armazenamento do Azure associada ao Data Lake Analytics para registro em log e clique em Blobs. A folha **serviço Blob** lista dois contêineres.
+### <a name="from-the-azure-storage-account-that-contains-log-data"></a>From the Azure Storage account that contains log data
 
-	![Exibir o log de diagnósticos](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Exibir os logs de diagnóstico")
+1. Open the Azure Storage account blade associated with Data Lake Analytics for logging, and then click Blobs. The **Blob service** blade lists two containers.
 
-	* O contêiner **insights-logs-audit** contém os logs de auditoria.
-	* O contêiner **insights-logs-requests** contém os logs de solicitação.
+    ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
 
-2. Dentro desses contêineres, os logs são armazenados na estrutura a seguir.
+    * The container **insights-logs-audit** contains the audit logs.
+    * The container **insights-logs-requests** contains the request logs.
+
+2. Within these containers, the logs are stored under the following structure.
 
         resourceId=/
           SUBSCRIPTIONS/
@@ -98,39 +99,39 @@ Há duas maneiras de exibir os dados do log da sua conta no Data Lake Analytics.
                                   m=00/
                                     PT1H.json
     
-    > [AZURE.NOTE] As entradas do `##` no caminho contêm o ano, o mês, o dia e a hora em que o log foi criado. O Data Lake Analytics cria um arquivo a cada hora e, portanto, o `m=` sempre conterá um valor `00`.
+    > [AZURE.NOTE] The `##` entries in the path contain the year, month, day, and hour in which the log was created. Data Lake Analytics creates one file every hour, so `m=` always contains a value of `00`.
 
-	Como um exemplo, o caminho completo para um log de auditoria poderia ser:
+    As an example, the complete path to an audit log could be:
     
         https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=04/m=00/PT1H.json
 
-	De modo semelhante, o caminho completo para um log de solicitação poderia ser:
+    Similarly, the complete path to a request log could be:
     
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
-## Estrutura de log
+## <a name="log-structure"></a>Log structure
 
-Os logs de auditoria e solicitação estão em formato JSON. Nesta seção, examinaremos a estrutura do JSON nos logs de solicitação e auditoria.
+The audit and request logs are in a JSON format. In this section, we look at the structure of JSON for request and audit logs.
 
-### Logs de solicitação
+### <a name="request-logs"></a>Request logs
 
-Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada blob tem um objeto-raiz chamado **registros** que contém uma matriz de objetos do log.
+Here's a sample entry in the JSON-formatted request log. Each blob has one root object called **records** that contains an array of log objects.
 
-	{
-	"records": 
-	  [		
-		. . . .
-		,
-		{
-			 "time": "2016-07-07T21:02:53.456Z",
-			 "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_analytics_account_name>",
-			 "category": "Requests",
-			 "operationName": "GetAggregatedJobHistory",
-			 "resultType": "200",
-			 "callerIpAddress": "::ffff:1.1.1.1",
-			 "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
-			 "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
-			 "properties": {
+    {
+    "records": 
+      [     
+        . . . .
+        ,
+        {
+             "time": "2016-07-07T21:02:53.456Z",
+             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_analytics_account_name>",
+             "category": "Requests",
+             "operationName": "GetAggregatedJobHistory",
+             "resultType": "200",
+             "callerIpAddress": "::ffff:1.1.1.1",
+             "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
+             "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
+             "properties": {
                  "HttpMethod":"POST",
                  "Path":"/JobAggregatedHistory",
                  "RequestContentLength":122,
@@ -138,100 +139,106 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
                  "StartTime":"2016-07-07T21:02:52.472Z",
                  "EndTime":"2016-07-07T21:02:53.456Z"
                  }
-		}
-		,
-		. . . .
-	  ]
-	}
+        }
+        ,
+        . . . .
+      ]
+    }
 
-#### Esquema do log de solicitação
+#### <a name="request-log-schema"></a>Request log schema
 
-| Name | Tipo | Descrição |
+| Name            | Type   | Description                                                                    |
 |-----------------|--------|--------------------------------------------------------------------------------|
-| tempo real | Cadeia de caracteres | O carimbo de data/hora (em UTC) do log |
-| resourceId | Cadeia de caracteres | A ID do recurso em que a operação ocorreu |
-| categoria | Cadeia de caracteres | A categoria do log. Por exemplo, **Solicitações**. |
-| operationName | Cadeia de caracteres | Nome da operação que está registrada. Por exemplo, GetAggregatedJobHistory. |
-| resultType | Cadeia de caracteres | O status da operação, por exemplo, 200. |
-| callerIpAddress | Cadeia de caracteres | O endereço IP do cliente que está fazendo a solicitação |
-| correlationId | Cadeia de caracteres | A id do log. Esse valor pode ser usado para agrupar um conjunto de entradas de log relacionadas |
-| identidade | Objeto | A identidade que gerou o log |
-| propriedades | JSON | Veja a próxima seção (Esquema de propriedades do log de solicitação) para obter detalhes |
+| time            | String | The timestamp (in UTC) of the log                                              |
+| resourceId      | String | The ID of the resource that operation took place on                            |
+| category        | String | The log category. For example, **Requests**.                                   |
+| operationName   | String | Name of the operation that is logged. For example, GetAggregatedJobHistory.              |
+| resultType      | String | The status of the operation, For example, 200.                                 |
+| callerIpAddress | String | The IP address of the client making the request                                |
+| correlationId   | String | The id of the log. This value can be used to group a set of related log entries |
+| identity        | Object | The identity that generated the log                                            |
+| properties      | JSON   | See the next section (Request log properties schema) for details |
 
-#### Esquema de propriedades do log de solicitação
+#### <a name="request-log-properties-schema"></a>Request log properties schema
 
-| Name | Tipo | Descrição |
+| Name                 | Type   | Description                                               |
 |----------------------|--------|-----------------------------------------------------------|
-| HttpMethod | Cadeia de caracteres | O método HTTP usado para a operação. Por exemplo, GET. |
-| Caminho | Cadeia de caracteres | O caminho em que a operação foi executada |
-| RequestContentLength | int | O comprimento do conteúdo da solicitação HTTP |
-| ClientRequestId | Cadeia de caracteres | A ID que identifica esta solicitação exclusivamente |
-| StartTime | Cadeia de caracteres | A hora em que o servidor recebeu a solicitação |
-| EndTime | Cadeia de caracteres | A hora em que o servidor enviou uma resposta |
+| HttpMethod           | String | The HTTP Method used for the operation. For example, GET. |
+| Path                 | String | The path the operation was performed on                   |
+| RequestContentLength | int    | The content length of the HTTP request                    |
+| ClientRequestId      | String | The Id that uniquely identifies this request              |
+| StartTime            | String | The time at which the server received the request         |
+| EndTime              | String | The time at which the server sent a response              |
 
-### Logs de auditoria
+### <a name="audit-logs"></a>Audit logs
 
-Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blob tem um objeto-raiz chamado **registros** que contém uma matriz de objetos do log
+Here's a sample entry in the JSON-formatted audit log. Each blob has one root object called **records** that contains an array of log objects
 
-	{
-	"records": 
-	  [		
-		. . . .
-		,
-		{
-			 "time": "2016-07-28T19:15:16.245Z",
-			 "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_ANALYTICS_account_name>",
-			 "category": "Audit",
-			 "operationName": "JobSubmitted",
-			 "identity": "user@somewhere.com",
-			 "properties": {
+    {
+    "records": 
+      [     
+        . . . .
+        ,
+        {
+             "time": "2016-07-28T19:15:16.245Z",
+             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_ANALYTICS_account_name>",
+             "category": "Audit",
+             "operationName": "JobSubmitted",
+             "identity": "user@somewhere.com",
+             "properties": {
                  "JobId":"D74B928F-5194-4E6C-971F-C27026C290E6",
                  "JobName": "New Job", 
                  "JobRuntimeName": "default",
                  "SubmitTime": "7/28/2016 7:14:57 PM"
                  }
-		}
-		,
-		. . . .
-	  ]
-	}
+        }
+        ,
+        . . . .
+      ]
+    }
 
-#### Esquema do log de auditoria
+#### <a name="audit-log-schema"></a>Audit log schema
 
-| Name | Tipo | Descrição |
+| Name            | Type   | Description                                                                    |
 |-----------------|--------|--------------------------------------------------------------------------------|
-| tempo real | Cadeia de caracteres | O carimbo de data/hora (em UTC) do log |
-| resourceId | Cadeia de caracteres | A ID do recurso em que a operação ocorreu |
-| categoria | Cadeia de caracteres | A categoria do log. Por exemplo, **Auditoria**. |
-| operationName | Cadeia de caracteres | Nome da operação que está registrada. Por exemplo, JobSubmitted. |
-| resultType | Cadeia de caracteres | Um substatus para o status do trabalho (operationName). |
-| resultSignature | Cadeia de caracteres | Detalhes adicionais sobre o status do trabalho (operationName). |
-| identidade | Cadeia de caracteres | O usuário que solicitou a operação. Por exemplo: susan@contoso.com. |
-| propriedades | JSON | Veja a próxima seção (Esquema de propriedades do log de auditoria) para obter detalhes |
+| time            | String | The timestamp (in UTC) of the log                                              |
+| resourceId      | String | The ID of the resource that operation took place on                            |
+| category        | String | The log category. For example, **Audit**.                                      |
+| operationName   | String | Name of the operation that is logged. For example, JobSubmitted.              |
+| resultType | String | A substatus for the job status (operationName). |
+| resultSignature | String | Additional details on the job status (operationName). |
+| identity      | String | The user that requested the operation. For example, susan@contoso.com.                                 |
+| properties      | JSON   | See the next section (Audit log properties schema) for details |
 
-> [AZURE.NOTE] __resultType__ e __resultSignature__ fornecem informações sobre o resultado de uma operação e conter apenas um valor caso uma operação tenha sido concluída. Por exemplo, eles contêm um valor quando __operationName__ contém um valor __JobStarted__ ou __JobEnded__.
+> [AZURE.NOTE] __resultType__ and __resultSignature__ provide information on the result of an operation, and only contain a value if an operation has completed. For example, they contain a value when __operationName__ contains a value of __JobStarted__ or __JobEnded__.
 
-#### Esquema de propriedades do log de auditoria
+#### <a name="audit-log-properties-schema"></a>Audit log properties schema
 
-| Name | Tipo | Descrição |
+| Name       | Type   | Description                              |
 |------------|--------|------------------------------------------|
-| JobId | Cadeia de caracteres | A ID atribuída ao trabalho |
-| JobName | Cadeia de caracteres | O nome fornecido para o trabalho |
-| JobRunTime | Cadeia de caracteres | O tempo de execução usado para processar o trabalho |
-| SubmitTime | Cadeia de caracteres | A hora (em UTC) em que o trabalho foi enviado |
-| StartTime | Cadeia de caracteres | A hora em que o trabalho começou a ser executado após o envio (em UTC). |
-| EndTime | Cadeia de caracteres | A hora em que o trabalho foi concluído. |
-| Paralelismo | Cadeia de caracteres | O número de unidades do Data Lake Analytics solicitadas para esse trabalho durante o envio. |
+| JobId | String | The ID assigned to the job  |
+| JobName | String | The name that was provided for the job |
+| JobRunTime | String | The runtime used to process the job |
+| SubmitTime | String | The time (in UTC) that the job was submitted |
+| StartTime | String | The time the job started running after submission (in UTC). |
+| EndTime | String | The time the job ended. |
+| Parallelism | String | The number of Data Lake Analytics units requested for this job during submission. |
 
-> [AZURE.NOTE] __SubmitTime__, __StartTime__, __EndTime__ e __Paralelism__ fornecem informações sobre uma operação e só conterão um valor se uma operação tiver sido iniciada ou concluída. Por exemplo, __SubmitTime__ conterá um valor depois que __operationName__ indicar __JobSubmitted__.
+> [AZURE.NOTE] __SubmitTime__, __StartTime__, __EndTime__ and __Parallelism__ provide information on an operation, and only contain a value if an operation has started or completed. For example, __SubmitTime__ contains a value after __operationName__ indicates __JobSubmitted__.
 
-## Processar os dados de log
+## <a name="process-the-log-data"></a>Process the log data
 
-O Azure Data Lake Analytics fornece um exemplo sobre como processar e analisar os dados do log. Você pode encontrar o exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+Azure Data Lake Analytics provides a sample on how to process and analyze the log data. You can find the sample at [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- [Visão geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
+- [Overview of Azure Data Lake Analytics](data-lake-analytics-overview.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,8 +1,8 @@
 <properties
-   pageTitle="Protocolos de Autenticação do Active Directory do Azure | Microsoft Azure"
-   description="Uma visão geral dos protocolos de autenticação suportados pelo Azure Active Directory (AD)"
+   pageTitle="Azure Active Directory Authentication Protocols | Microsoft Azure"
+   description="An overview of the authentication protocols supported by Azure Active Directory (AD)"
    documentationCenter="dev-center-name"
-   authors="msmbaldwin"
+   authors="bryanla"
    services="active-directory"
    manager="mbaldwin"
    editor=""/>
@@ -16,43 +16,48 @@
    ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
-# Protocolos de autenticação do Azure Active Directory
 
-O Azure Active Directory (AD do Azure) oferece suporte a vários dos protocolos de autenticação e autorização mais usados. Os tópicos nesta seção descrevem os protocolos suportados e sua implementação no Azure AD. Os tópicos incluem uma revisão dos tipos de declarações com suporte, uma introdução ao uso de metadados de federação, documentação detalhada de referência dos protocolos OAuth 2.0. e SAML 2.0 e uma seção de solução de problemas.
+# <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory Authentication Protocols
 
-## Artigos e referência dos protocolos de autenticação
+Azure Active Directory (Azure AD) supports several of the most widely used authentication and authorization protocols. The topics in this section describe the supported protocols and their implementation in Azure AD. The topics included a review of supported claim types, an introduction to the use of federation metadata, detailed OAuth 2.0. and SAML 2.0 protocol reference documentation, and a troubleshooting section.
 
-- [Informações importantes sobre substituição de chave de assinatura no Azure AD](active-directory-signing-key-rollover.md) – Saiba mais sobre a cadência de substituição de chave de assinatura no Azure AD, as alterações que você pode fazer para atualizar a chave automaticamente e discussões sobre como atualizar os cenários mais comuns do aplicativo.
+## <a name="authentication-protocols-articles-and-reference"></a>Authentication Protocols Articles and Reference
 
-
-- [Token e tipos de declaração suportados](active-directory-token-and-claims.md) - Saiba mais sobre as declarações nos tokens que o Azure AD emite.
+- [Important Information About Signing Key Rollover in Azure AD](active-directory-signing-key-rollover.md) – Learn about Azure AD’s signing key rollover cadence, changes you can make to update the key automatically, and discussion for how to update the most common application scenarios.
 
 
-- [Metadados de federação](https://msdn.microsoft.com/library/azure/dn195592.aspx) - Saiba como localizar e interpretar os documentos de metadados que o Azure AD gera.
+- [Supported Token and Claim Types](active-directory-token-and-claims.md) - Learn about the claims in the tokens that Azure AD issue.
 
 
-- [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx) - Saiba mais sobre a implementação do OAuth 2.0 no Azure AD.
+- [Federation Metadata](https://msdn.microsoft.com/library/azure/dn195592.aspx) - Learn how to find and interpret the metadata documents that Azure AD generates.
 
 
-- [OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx) - Saiba como usar o OAuth 2.0, um protocolo de autorização para autenticação.
+- [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx) - Learn about the implementation of OAuth 2.0 in Azure AD.
 
 
-- [Referência de protocolo SAML](https://msdn.microsoft.com/library/azure/dn195591.aspx) - Saiba mais sobre os perfis de logon único e logout único SAML do Azure AD.
+- [OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx) - Learn how to use OAuth 2.0, an authorization protocol, for authentication.
 
 
-- [WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx) - Aprenda sobre WS-Federation 1.2 no Azure AD.
+- [SAML Protocol Reference](https://msdn.microsoft.com/library/azure/dn195591.aspx) - Learn about the Single Sign-On and Single Sign-out SAML profiles of Azure AD.
 
 
-- [Solucionando problemas de protocolos de autenticação](https://msdn.microsoft.com/library/azure/dn195584.aspx) - Saiba como evitar problemas e interpretar e resolver erros ao usar o Azure AD.
+- [WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx) - Learn about WS-Federation 1.2 in Azure AD.
+
+
+- [Troubleshooting Authentication Protocols](https://msdn.microsoft.com/library/azure/dn195584.aspx) - Learn how to prevent problems and interpret and resolve errors when using Azure AD.
 
 
 
-## Consulte também
+## <a name="see-also"></a>See Also
 
-[Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
+[Azure Active Directory Developer's Guide](active-directory-developers-guide.md)
 
-[Usando o Azure AD para autenticação](../app-service-web/web-sites-authentication-authorization.md)
+[Using Azure AD for Authentication](../app-service-web/web-sites-authentication-authorization.md)
 
-[Exemplos de código do Active Directory](active-directory-code-samples.md)
+[Active Directory Code Samples](active-directory-code-samples.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

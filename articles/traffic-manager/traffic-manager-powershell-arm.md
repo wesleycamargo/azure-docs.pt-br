@@ -1,312 +1,329 @@
 <properties
-   pageTitle="Suporte do Azure Resource Manager para o Gerenciador de Tráfego | Microsoft Azure "
-   description="Usando o Powershell para o Gerenciador de Tráfego com o ARM (Azure Resource Manager)"
-   services="traffic-manager"
-   documentationCenter="na"
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
+    pageTitle="Azure Resource Manager support for Traffic Manager | Microsoft Azure "
+    description="Using PowerShell for Traffic Manager with Azure Resource Manager"
+    services="traffic-manager"
+    documentationCenter="na"
+    authors="sdwheeler"
+    manager="carmonm"
+    editor=""
+/>
 <tags
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
-   ms.author="sewhee" />
+    ms.service="traffic-manager"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="10/11/2016"
+    ms.author="sewhee"
+/>
 
-# Suporte do Azure Resource Manager para o Gerenciador de Tráfego do Azure
-O ARM (Gerenciador de Recursos do Azure) é a nova estrutura de gerenciamento de serviços do Azure. Os perfis do Gerenciador de Tráfego do Azure agora podem ser gerenciados usando ferramentas e APIs baseadas no Gerenciador de Recursos do Azure.
 
-## Modelo de recursos
+# <a name="azure-resource-manager-support-for-azure-traffic-manager"></a>Azure Resource Manager support for Azure Traffic Manager
 
-O Gerenciador de Tráfego do Azure é configurado usando um conjunto de configurações chamado de perfil do Gerenciador de Tráfego. Esse perfil contém as configurações de DNS, as configurações de roteamento de tráfego, as configurações de monitoramento de ponto de extremidade e a lista de pontos de extremidade de serviço para os quais o tráfego será roteado.
+Azure Resource Manager is the preferred management interface for services in Azure. Azure Traffic Manager profiles can be managed using Azure Resource Manager-based APIs and tools.
 
-No ARM, cada perfil do Gerenciador de Tráfego é representado por um recurso do ARM, do tipo “TrafficManagerProfiles”, gerenciado pelo provedor de recursos “Microsoft.Network”. No nível da API REST, o URI para cada perfil é:
+## <a name="resource-model"></a>Resource model
 
-	https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
+Azure Traffic Manager is configured using a collection of settings called a Traffic Manager profile. This profile contains DNS settings, traffic routing settings, endpoint monitoring settings, and a list of service endpoints to which traffic is routed.
 
-## Comparação com a API de Gerenciamento do Serviço do Gerenciador de Tráfego do Azure
+Each Traffic Manager profile is represented by a resource of type 'TrafficManagerProfiles'. At the REST API level, the URI for each profile is as follows:
 
-Usar o ARM para configurar perfis do Gerenciador de Tráfego fornece acesso para o mesmo conjunto de recursos do Gerenciador de Tráfego, como a API de Gerenciamento de Serviço do Azure (ASM), exceto as Limitações de Visualização abaixo.
+    https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
 
-No entanto, embora os recursos permanecem os mesmos, alguns termos foram alterados:
+## <a name="comparison-with-the-azure-traffic-manager-classic-api"></a>Comparison with the Azure Traffic Manager classic API
 
-- O “método de balanceamento de carga”, que determina como o Gerenciador de Tráfego escolhe para qual ponto de extremidade rotear o tráfego ao responder a uma determinada solicitação de DNS, foi renomeado como “método de roteamento de tráfego”.
+The Azure Resource Manager support for Traffic Manager uses different terminology than the classic deployment model. The following table shows the differences between the Resource Manager and Classic terms:
 
-- O método de roteamento de tráfego “round robin” foi renomeado como “ponderado”.
+| Resource Manager term | Classic term |
+|-----------------------|--------------|
+| Traffic-routing method | Load-balancing method |
+| Priority method | Failover method |
+| Weighted method | Round-robin method |
+| Performance method | Performance method |
 
-- O método de roteamento de tráfego “failover” foi renomeado como “prioridade”.
+Based on customer feedback, we changed the terminology to improve clarity and reduce common misunderstandings. There is no difference in functionality.
 
-## Limitações
-Atualmente, há algumas limitações no suporte do ARM para o Gerenciador de Tráfego do Azure:
+## <a name="limitations"></a>Limitations
 
-- Os perfis do Gerenciador de Tráfego criados usando a API de Gerenciamento de Serviço do azure (ASM) (não ARM), as ferramentas e o portal ‘clássico’ não estão disponíveis por meio do ARM e vice-versa. A migração de perfis do ASM para APIs do ARM não tem suporte no momento, somente a exclusão e a recriação do perfil.
+When referencing an endpoint of type 'AzureEndpoints' for a Web App, Traffic Manager endpoints can only reference the default (production) [Web App slot](../app-service-web/web-sites-staged-publishing.md). Custom slots are not supported. As a workaround, custom slots can be configured using the 'ExternalEndpoints' type.
 
-- Os pontos de extremidade do Gerenciador de Tráfego do tipo “AzureEndpoints”, ao fazer referência a um aplicativo Web, podem fazer referência apenas ao [slot do Aplicativo Web](../app-service-web/web-sites-staged-publishing.md) padrão (produção). Os slots personalizados ainda não são permitidos. Como alternativa, os slots personalizados podem ser configurados usando o tipo 'ExternalEndpoints'.
+## <a name="setting-up-azure-powershell"></a>Setting up Azure PowerShell
 
-## Configurando o PowerShell do Azure
+These instructions use Microsoft Azure PowerShell. The following article explains how to install and configure Azure PowerShell.
 
-Estas instruções usam o PowerShell do Microsoft Azure, que precisa ser configurado usando as etapas a seguir.
+- [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 
-Para usuários que não sejam do PowerShell ou do Windows, operações análogas poderão ser executadas por meio da CLI do Azure. Todas as operações, com exceção do gerenciamento de perfis do Gerenciador de Tráfego ‘aninhado’, também estão disponíveis por meio do Portal do Azure.
+The examples in this article assume that you have an existing resource group. You can create a resource group using the following command:
 
-### Etapa 1
-Instale a última versão do PowerShell do Azure, disponível na página de downloads do Azure.
+```powershell
+    New-AzureRmResourceGroup -Name MyRG -Location "West US"
+```
 
-### Etapa 2
-Faça logon na sua conta do Azure.
+>[AZURE.NOTE] Azure Resource Manager requires that all resource groups have a location. This location is used as the default for resources created in that resource group. However, since Traffic Manager profile resources are global, not regional, the choice of resource group location has no impact on Azure Traffic Manager.
 
-	PS C:\> Login-AzureRmAccount
+## <a name="create-a-traffic-manager-profile"></a>Create a Traffic Manager Profile
 
-Você deverá se autenticar com suas credenciais.
+To create a Traffic Manager profile, use the New-AzureRmTrafficManagerProfile cmdlet:
 
-### Etapa 3
-Escolha quais das suas assinaturas do Azure deseja usar.
+```powershell
+    $profile = New-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+```
 
-	PS C:\> Set-AzureRmContext -SubscriptionName "MySubscription"
+The following table describes the parameters:
 
-Para ver uma lista das assinaturas disponíveis, use o cmdlet ‘Get-AzureRmSubscription’.
+| Parameter | Description |
+|-----------|-------------|
+| Name | The resource name for the Traffic Manager profile resource. Profiles in the same resource group must have unique names. This name is separate from the DNS name used for DNS queries.|
+| ResourceGroupName | The name of the resource group containing the profile resource.|
+| TrafficRoutingMethod | Specifies the traffic-routing method used to determine which endpoint is returned in response a DNS query. Possible values are 'Performance', 'Weighted' or 'Priority'.|
+| RelativeDnsName | Specifies the hostname portion of the DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully qualified domain name (FQDN) of the profile. For example, setting the value of 'contoso' becomes 'contoso.trafficmanager.net.'|
+| TTL | Specifies the DNS Time-to-Live (TTL), in seconds. This TTL informs the Local DNS resolvers and DNS clients how long to cache DNS responses for this Traffic Manager profile.|
+| MonitorProtocol | Specifies the protocol to use to monitor endpoint health. Possible values are 'HTTP' and 'HTTPS'.|
+| MonitorPort | Specifies the TCP port used to monitor endpoint health.|
+| MonitorPath | Specifies the path relative to the endpoint domain name used to probe for endpoint health.|
 
-### Etapa 4
+The cmdlet creates a Traffic Manager profile in Azure and returns a corresponding profile object to PowerShell. At this point, the profile does not contain any endpoints. For more information about adding endpoints to a Traffic Manager profile, see [Adding Traffic Manager Endpoints](#adding-traffic-manager-endpoints).
 
-O serviço do Gerenciador de Tráfego é gerenciado pelo provedor de recursos Microsoft.Network. Sua assinatura do Azure precisa ser registrada para usar esse provedor de recursos antes de poder usar o Gerenciador de Tráfego pelo ARM. Essa operação deve ser executada apenas uma vez para cada assinatura.
+## <a name="get-a-traffic-manager-profile"></a>Get a Traffic Manager Profile
 
-	PS C:\> Register-AzureRmResourceProvider –ProviderNamespace Microsoft.Network
+To retrieve an existing Traffic Manager profile object, use the Get-AzureRmTrafficManagerProfle cmdlet:
 
-### Etapa 5
-Crie um grupo de recursos (pule esta etapa se você estiver usando um grupo de recursos existente)
+```powershell
+    $profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+```
 
-	PS C:\> New-AzureRmResourceGroup -Name MyRG -Location "West US"
+This cmdlet returns a Traffic Manager profile object.
 
-O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. No entanto, como todos os recursos de perfil do Gerenciador de Tráfego são globais, não regionais, a escolha do local do grupo de recursos não afeta o Gerenciador de Tráfego do Azure.
+## <a name="update-a-traffic-manager-profile"></a>Update a Traffic Manager Profile
 
-## Criar um perfil do Gerenciador de Tráfego
+Modifying Traffic Manager profiles follows a 3-step process:
 
-Para criar um perfil do Gerenciador de Tráfego, use o cmdlet New-AzureRmTrafficManagerProfile:
+1. Retrieve the profile using Get-AzureRmTrafficManagerProfile or use the profile returned by New-AzureRmTrafficManagerProfile.
+2. Modify the profile. You can add and remove endpoints or change endpoint or profile parameters. These changes are off-line operations. You are only changing the local object in memory that represents the profile.
+3. Commit your changes using the Set-AzureRmTrafficManagerProfile cmdlet.
 
-	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+All profile properties can be changed except the profile's RelativeDnsName. To change the RelativeDnsName, you must delete profile and a new profile with a new name.
 
-Os parâmetros são os seguintes:
+The following example demonstrates how to change the profile's TTL:
 
-- Name: o nome de recurso ARM para o recurso do perfil do Gerenciador de Tráfego. Perfis no mesmo grupo de recursos devem ter nomes exclusivos. Esse nome é diferente do nome DNS usado para consultas de DNS.
+```powershell
+    $profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+    $profile.Ttl = 300
+    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+```
 
-- ResourceGroupName: o nome do grupo de recursos do ARM que contém o recurso de perfil.
+There are three types of Traffic Manager endpoints:
 
-- TrafficRoutingMethod: especifica o método de roteamento de tráfego, usado para determinar qual ponto de extremidade é retornado na resposta a consultas de DNS de entrada. Os valores possíveis são “Desempenho”, “Ponderado” ou “Prioridade”.
+1. **Azure endpoints** are services hosted in Azure
+2. **External endpoints** are services hosted outside of Azure
+3. **Nested endpoints** are used to construct nested hierarchies of Traffic Manager profiles. Nested endpoints enable advanced traffic-routing configurations for complex applications.
 
-- RelativeDnsName: especifica o nome DNS relativo fornecido por esse perfil do Gerenciador de Tráfego. Esse valor é combinado ao nome de domínio DNS usado pelo Gerenciador de Tráfego do Azure para formar o nome de domínio totalmente qualificado (FQDN) do perfil. Por exemplo, o valor ‘contoso’ fornecerá a um perfil do Gerenciador de Tráfego o nome totalmente qualificado ‘contoso.trafficmanager.net’.
+In all three cases, endpoints can be added in two ways:
 
-- TLL: especifica a vida útil (TLL) do DNS em segundos. Isso informa os resolvedores DNS locais e os clientes DNS o tempo necessário para armazenar em cache as respostas DNS fornecidas por esse perfil do Gerenciador de Tráfego.
+1. Using a 3-step process described previously. The advantage of this method is that several endpoint changes can be made in a single update.
+2. Using the New-AzureRmTrafficManagerEndpoint cmdlet. This cmdlet adds an endpoint to an existing Traffic Manager profile in a single operation.
 
-- MonitorProtocol: especifica o protocolo a ser usado para monitorar a integridade do ponto de extremidade. Os valores possíveis são “HTTP” e “HTTPS”.
+## <a name="adding-azure-endpoints"></a>Adding Azure Endpoints
 
-- MonitorPort: especifica a porta TCP usada para monitorar a integridade do ponto de extremidade.
+Azure endpoints reference services hosted in Azure. Three types of Azure endpoints are supported:
 
-- MonitorPath: especifica o caminho relativo ao nome de domínio de ponto de extremidade usado para testar a integridade do ponto de extremidade.
+1. Azure Web Apps
+2. 'Classic' cloud services (which can contain either a PaaS service or IaaS virtual machines)
+3. Azure PublicIpAddress resources (which can be attached to a load-balancer or a virtual machine NIC). The PublicIpAddress must have a DNS name assigned to be used in Traffic Manager.
 
-O cmdlet cria um perfil do Gerenciador de Tráfego do Azure e retorna um objeto de perfil correspondente. Neste momento, o perfil não contém pontos de extremidade. Confira [Adicionando pontos de extremidade do Gerenciador de Tráfego](#adding-traffic-manager-endpoints) para obter detalhes sobre como adicionar pontos de extremidade a um perfil do Gerenciador de Tráfego.
+In each case:
 
-## Obter um perfil do Gerenciador de Tráfego
+- The service is specified using the 'targetResourceId' parameter of Add-AzureRmTrafficManagerEndpointConfig or New-AzureRmTrafficManagerEndpoint.
+- The 'Target' and 'EndpointLocation' are implied by the TargetResourceId.
+- Specifying the 'Weight' is optional. Weights are only used if the profile is configured to use the 'Weighted' traffic-routing method. Otherwise, they are ignored. If specified, the value must be a number between 1 and 1000. The default value is '1'.
+- Specifying the 'Priority' is optional. Priorities are only used if the profile is configured to use the 'Priority' traffic-routing method. Otherwise, they are ignored. Valid values are from 1 to 1000 with lower values indicating a higher priority. If specified for one endpoint, they must be specified for all endpoints. If omitted, default values starting from '1' are applied in the order that the endpoints are listed.
 
-Para recuperar um objeto existente de perfil do Gerenciador de Tráfego, use o cmdlet Get-AzureRmTrafficManagerProfle:
+### <a name="example-1:-adding-web-app-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>Example 1: Adding Web App endpoints using Add-AzureRmTrafficManagerEndpointConfig
 
-	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
+In this example, we create a Traffic Manager profile and add two Web App endpoints using the Add-AzureRmTrafficManagerEndpointConfig cmdlet.
 
-Esse cmdlet retorna um objeto de perfil do Gerenciador de Tráfego.
+```powershell
+    $profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+    $webapp1 = Get-AzureRMWebApp -Name webapp1
+    Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp1ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp1.Id -EndpointStatus Enabled
+    $webapp2 = Get-AzureRMWebApp -Name webapp2
+    Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
+    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+```
 
-## Atualizar um perfil do Gerenciador de Tráfego [](#update-traffic-manager-profile)
+### <a name="example-2:-adding-a-'classic'-cloud-service-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Example 2: Adding a 'classic' cloud service endpoint using New-AzureRmTrafficManagerEndpoint
 
-A modificação de perfis do Gerenciador de Tráfego, por exemplo, para adicionar ou remover pontos de extremidade ou modificar configurações de perfil, segue um processo de três etapas:
+In this example, a 'classic' Cloud Service endpoint is added to a Traffic Manager profile. In this example, we specified the profile using the profile and resource group names, rather than passing a profile object. Both approaches are supported.
 
-1.	Recupere o perfil usando Get-AzureRmTrafficManagerProfile (ou use o perfil retornado por New-AzureRmTrafficManagerProfile).
+    $cloudService = Get-AzureRmResource -ResourceName MyCloudService -ResourceType "Microsoft.ClassicCompute/domainNames" -ResourceGroupName MyCloudService
+    New-AzureRmTrafficManagerEndpoint -Name MyCloudServiceEndpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type AzureEndpoints -TargetResourceId $cloudService.Id -EndpointStatus Enabled
 
-2.	Modifique o perfil adicionando pontos de extremidade, removendo pontos de extremidade, alterando os parâmetros de ponto de extremidade ou alterando os parâmetros de perfil. Essas alterações são operações offline, ou seja, apenas o objeto local que representa o perfil é alterado.
+### <a name="example-3:-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Example 3: Adding a publicIpAddress endpoint using New-AzureRmTrafficManagerEndpoint
 
-3.	Confirme as alterações usando o cmdlet Set-AzureRmTrafficManagerProfile. Isso substitui o perfil existente no Gerenciador de Tráfego do Azure pelo perfil fornecido.
+In this example, a public IP address resource is added to the Traffic Manager profile. The public IP address must have a DNS name configured, and can be bound either to the NIC of a VM or to a load balancer.
 
-Todas as propriedades de perfil podem ser alteradas, exceto RelativeDnsName do perfil, que não poderá ser alterado depois que o perfil for criado (para alterar esse valor, exclua e recrie o perfil).
+    $ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG
+    New-AzureRmTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
 
-Por exemplo, para alterar a TTL do perfil:
+## <a name="adding-external-endpoints"></a>Adding External Endpoints
 
-	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
-	PS C:\> $profile.Ttl = 300
-	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile
+Traffic Manager uses external endpoints to direct traffic to services hosted outside of Azure. As with Azure endpoints, external endpoints can be added either using Add-AzureRmTrafficManagerEndpointConfig followed by Set-AzureRmTrafficManagerProfile, or New-AzureRMTrafficManagerEndpoint.
 
-## Adicionar Pontos de Extremidade do Gerenciador de Tráfego
-Há três tipos de pontos de extremidade do Gerenciador de Tráfego:
+When specifying external endpoints:
 
-1. Pontos de Extremidade do Azure: representam os serviços hospedados no Azure.<BR>
-2. Pontos de Extremidade Externos: representam os serviços hospedados fora do Azure.<BR>
-3. Pontos de extremidade aninhados: são usados para construir hierarquias aninhadas de perfis do Gerenciador de Tráfego, para habilitar as configurações avançadas de roteamento de tráfego para aplicativos mais complexos. Ainda não há suporte para eles por meio da API do ARM.<BR>
+- The endpoint domain name must be specified using the 'Target' parameter
+- If the 'Performance' traffic-routing method is used, the 'EndpointLocation' is required. Otherwise it is optional. The value must be a [valid Azure region name](https://azure.microsoft.com/regions/).
+- The 'Weight' and 'Priority' are optional.
 
-Em todos os três casos, os pontos de extremidade podem ser adicionados de duas maneiras:<BR>
+### <a name="example-1:-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Example 1: Adding external endpoints using Add-AzureRmTrafficManagerEndpointConfig and Set-AzureRmTrafficManagerProfile
 
-1. Usando um processo de três etapas semelhante ao descrito em [Atualizar um perfil do Gerenciador de Tráfego](#update-traffic-manager-profile): obtenha o objeto de perfil usando Get-AzureRmTrafficManagerProfile; atualize-o offline para adicionar um ponto de extremidade usando Add-AzureRmTrafficManagerEndpointConfig; carregue as alterações no Gerenciador de Tráfego do Azure usando Set-AzureRmTrafficManagerProfile. A vantagem desse método é que uma série de alterações do ponto de extremidade pode ser feita em uma única atualização.<BR>
+In this example, we create a Traffic Manager profile, add two external endpoints, and commit the changes.
 
-2. Usando o cmdlet New-AzureRmTrafficManagerEndpoint. Isso adiciona um ponto de extremidade a um perfil existente do Gerenciador de Tráfego em uma única operação.
+    $profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+    Add-AzureRmTrafficManagerEndpointConfig -EndpointName eu-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointStatus Enabled
+    Add-AzureRmTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-us.contoso.com -EndpointStatus Enabled
+    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 
-### Adicionando pontos de extremidade do Azure
+### <a name="example-2:-adding-external-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Example 2: Adding external endpoints using New-AzureRmTrafficManagerEndpoint
 
-Os pontos de extremidade do Azure fazem referência a outros serviços hospedados no Azure. Atualmente, há suporte para três tipos de pontos de extremidade do Azure:<BR>
-1. Aplicativos Web do Azure <BR>
-2. Serviços de Nuvem ‘clássicos’ (que podem conter um serviço PaaS ou máquinas virtuais IaaS)<BR>
-3. Recursos Microsoft.Network/publicIpAddress ARM (que podem ser anexados ao balanceador de carga ou a uma NIC de máquina virtual). Observe que o publicIpAddress deve ter um nome DNS atribuído para poder ser usado no Gerenciador de Tráfego.
+In this example, we add an external endpoint to an existing profile. The profile is specified using the profile and resource group names.
 
-Em cada caso:
- - O serviço é especificado com o parâmetro ‘targetResourceId’ de Add-AzureRmTrafficManagerEndpointConfig ou New-AzureRmTrafficManagerEndpoint.<BR>
- - ‘Target’ e ‘EndpointLocation’ não devem ser especificados; eles são deduzidos por TargetResourceId especificado acima<BR>
- - A especificação de “Weight” é opcional. Os pesos só serão usados se o perfil for configurado para usar o método de roteamento de tráfego ‘Weighted’; caso contrário, eles serão ignorados. Se especificado, ele deverá estar no intervalo de 1...1000. O valor padrão é '1'.<BR>
- - A especificação de “Priority” é opcional. As prioridades só serão usadas se o perfil for configurado para usar o método de roteamento de tráfego ‘Priority’; caso contrário, elas serão ignoradas. Os valores válidos vão de 1 a 1000 (valores mais baixos têm prioridade mais alta). Se especificados para um ponto de extremidade, deverão ser especificados para todos os pontos de extremidade. Se omitidos, os valores padrão começando por 1, 2, 3 etc. serão aplicados na ordem em que os pontos de extremidade forem fornecidos.
+    New-AzureRmTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointStatus Enabled
 
-#### Exemplo 1: Adicionando pontos de extremidade do Aplicativo Web usando Add-AzureRmTrafficManagerEndpointConfig
-Neste exemplo, criaremos um novo perfil do Gerenciador de Tráfego e adicionaremos dois pontos de extremidade de Aplicativo Web usando o cmdlet Add-AzureRmTrafficManagerEndpointConfig, depois confirmaremos o perfil atualizado no Gerenciador de Tráfego usando Set-AzureRmTrafficManagerProfile.
+## <a name="adding-'nested'-endpoints"></a>Adding 'Nested' endpoints
 
-	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-	PS C:\> $webapp1 = Get-AzureRMWebApp -Name webapp1
-	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName webapp1ep –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled
-	PS C:\> $webapp2 = Get-AzureRMWebApp -Name webapp2
-	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName webapp2ep –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled
-	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile  
+Each Traffic Manager profile specifies a single traffic-routing method. However, there are scenarios that require more sophisticated traffic routing than the routing provided by a single Traffic Manager profile. You can nest Traffic Manager profiles to combine the benefits of more than one traffic-routing method. Nested profiles allow you to override the default Traffic Manager behavior to support larger and more complex application deployments. For more detailed examples, see [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
 
-#### Exemplo 2: Adicionando um ponto de extremidade de serviço de nuvem 'clássico' usando New-AzureRmTrafficManagerEndpoint
-Neste exemplo, um ponto de extremidade de Serviço de Nuvem 'clássico' é adicionado a um perfil do Gerenciador de Tráfego. Observe que, neste caso, optamos por especificar o perfil usando o nome do perfil e o nome do grupo de recursos em vez de passarmos um objeto de perfil (ambas as abordagens têm suporte).
+Nested endpoints are configured at the parent profile, using a specific endpoint type, 'NestedEndpoints'. When specifying nested endpoints:
 
-	PS C:\> $cloudService = Get-AzureRmResource -ResourceName MyCloudService -ResourceType "Microsoft.ClassicCompute/domainNames" -ResourceGroupName MyCloudService
-	PS C:\> New-AzureRmTrafficManagerEndpoint –Name MyCloudServiceEndpoint –ProfileName MyProfile -ResourceGroupName MyRG –Type AzureEndpoints -TargetResourceId $cloudService.Id –EndpointStatus Enabled
+- The endpoint must be specified using the 'targetResourceId' parameter
+- If the 'Performance' traffic-routing method is used, the 'EndpointLocation' is required. Otherwise it is optional. The value must be a [valid Azure region name](http://azure.microsoft.com/regions/).
+- The 'Weight' and 'Priority' are optional, as for Azure endpoints.
+- The 'MinChildEndpoints' parameter is optional. The default value is '1'. If the number of available endpoints falls below this threshold, the parent profile considers the child profile 'degraded' and diverts traffic to the other endpoints in the parent profile.
 
-#### Exemplo 3: Adicionando um ponto de extremidade de publicIpAddress usando New-AzureRmTrafficManagerEndpoint
-Neste exemplo, um recurso de endereço IP público ARM é adicionado ao perfil do Gerenciador de Tráfego. O endereço IP público deve ter um nome DNS configurado e pode ser vinculado à NIC de uma VM ou a um balanceador de carga.
+### <a name="example-1:-adding-nested-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Example 1: Adding nested endpoints using Add-AzureRmTrafficManagerEndpointConfig and Set-AzureRmTrafficManagerProfile
 
-	PS C:\> $ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG
-	PS C:\> New-AzureRmTrafficManagerEndpoint –Name MyIpEndpoint –ProfileName MyProfile -ResourceGroupName MyRG –Type AzureEndpoints -TargetResourceId $ip.Id –EndpointStatus Enabled
+In this example, we create new Traffic Manager child and parent profiles, add the child as a nested endpoint to the parent, and commit the changes.
 
-### Adicionando pontos de extremidade externos
-O Gerenciador de Tráfego usa pontos de extremidade externos para direcionar o tráfego para serviços hospedados fora do Azure. Assim como acontece com os pontos de extremidade do Azure, os pontos de extremidade externos podem ser adicionados usando Add-AzureRmTrafficManagerEndpointConfig seguido por AzureRmTrafficManagerProfile Set ou por New-AzureRMTrafficManagerEndpoint.
+    $child = New-AzureRmTrafficManagerProfile -Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+    $parent = New-AzureRmTrafficManagerProfile -Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+    Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint -TrafficManagerProfile $parent -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 
-Ao especificar pontos de extremidade externos:
- - O nome de domínio do ponto de extremidade deve ser especificado usando o parâmetro ‘Target’<BR>
- - “EndpointLocation” será necessário se o método de roteamento de tráfego “Desempenho” for usado; caso contrário, ele será opcional. O valor deve ser um [nome válido da região do Azure](https://azure.microsoft.com/regions/).<BR>
- - 'Weight' e 'Priority' são opcionais, como os Pontos de Extremidade do Azure.<BR>
- 
+For brevity in this example, we did not add any other endpoints to the child or parent profiles.
 
-#### Exemplo 1: Adicionando pontos de extremidade externos usando Add-AzureRmTrafficManagerEndpointConfig e Set-AzureRmTrafficManagerProfile
-Neste exemplo, podemos criar um novo perfil do Gerenciador de Tráfego, adicionar dois pontos de extremidade externos e confirmar as alterações.
+### <a name="example-2:-adding-nested-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Example 2: Adding nested endpoints using New-AzureRmTrafficManagerEndpoint
 
-	PS C:\> $profile = New-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName eu-endpoint –TrafficManagerProfile $profile –Type ExternalEndpoints -Target app-eu.contoso.com –EndpointStatus Enabled
-	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName us-endpoint –TrafficManagerProfile $profile –Type ExternalEndpoints -Target app-us.contoso.com –EndpointStatus Enabled
-	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile  
+In this example, we add an existing child profile as a nested endpoint to an existing parent profile. The profile is specified using the profile and resource group names.
 
-#### Exemplo 2: Adicionando pontos de extremidade externos usando New-AzureRmTrafficManagerEndpoint
-Neste exemplo, adicionamos um ponto de extremidade externo a um perfil existente e especificado usando o nome do perfil e o nome do grupo de recursos.
+    $child = Get-AzureRmTrafficManagerEndpoint -Name child -ResourceGroupName MyRG
+    New-AzureRmTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceGroupName MyRG -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
 
-	PS C:\> New-AzureRmTrafficManagerEndpoint –Name eu-endpoint –ProfileName MyProfile -ResourceGroupName MyRG –Type ExternalEndpoints -Target app-eu.contoso.com –EndpointStatus Enabled
+## <a name="update-a-traffic-manager-endpoint"></a>Update a Traffic Manager Endpoint
 
-### Adicionando pontos de extremidade ‘aninhados’
+There are two ways to update an existing Traffic Manager endpoint:
 
-O Gerenciador de Tráfego permite que você configure um perfil do Gerenciador de Tráfego (que chamaremos de perfil ‘filho’) como um ponto de extremidade em outro perfil do Gerenciador de Tráfego (que chamaremos de perfil ‘pai’).
+1. Get the Traffic Manager profile using Get-AzureRmTrafficManagerProfile, update the endpoint properties within the profile, and commit the changes using Set-AzureRmTrafficManagerProfile. This method has the advantage of being able to update more than one endpoint in a single operation.
+2. Get the Traffic Manager endpoint using Get-AzureRmTrafficManagerEndpoint, update the endpoint properties, and commit the changes using Set-AzureRmTrafficManagerEndpoint. This method is simpler, since it does not require indexing into the Endpoints array in the profile.
 
-O aninhamento do Gerenciador de Tráfego permite que você crie roteamento de tráfego e esquemas de failover mais flexíveis e poderosos para dar suporte às necessidades de implantações maiores e mais complexas. [Esta postagem de blog](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/) fornece vários exemplos.
+### <a name="example-1:-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>Example 1: Updating endpoints using Get-AzureRmTrafficManagerProfile and Set-AzureRmTrafficManagerProfile
 
-Os pontos de extremidade aninhados são configurados no perfil pai, usando um tipo de ponto de extremidade específico, o ‘NestedEndpoints’. Ao especificar pontos de extremidade aninhados:
- - O ponto de extremidade (ou seja, o perfil filho) deve ser especificado usando o parâmetro 'targetResourceId'<BR>
- - “EndpointLocation” será necessário se o método de roteamento de tráfego “Desempenho” for usado; caso contrário, ele será opcional. O valor deve ser um [nome válido da região do Azure](http://azure.microsoft.com/regions/).<BR>
- - 'Weight' e 'Priority' são opcionais, como os Pontos de Extremidade do Azure.<BR>
- - O parâmetro “MinChildEndpoints” é opcional, e o padrão é “1”. Caso o número de pontos de extremidade disponíveis no perfil filho fique abaixo desse limite, o perfil pai considerará o perfil filho como ‘prejudicado’ e desviará o tráfego para os outros pontos de extremidade do perfil pai.<BR>
+In this example, we modify the priority on two endpoints within an existing profile.
 
+    $profile = Get-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG
+    $profile.Endpoints[0].Priority = 2
+    $profile.Endpoints[1].Priority = 1
+    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 
-#### Exemplo 1: Adicionando pontos de extremidade aninhados usando Add-AzureRmTrafficManagerEndpointConfig e Set-AzureRmTrafficManagerProfile
+### <a name="example-2:-updating-an-endpoint-using-get-azurermtrafficmanagerendpoint-and-set-azurermtrafficmanagerendpoint"></a>Example 2: Updating an endpoint using Get-AzureRmTrafficManagerEndpoint and Set-AzureRmTrafficManagerEndpoint
 
-Neste exemplo, podemos criar novos perfis pai e filho do Gerenciador de Tráfego, adicionar o filho como um ponto de extremidade aninhado no pai e confirmar as alterações. (Para resumir, não adicionaremos outros pontos de extremidade ao perfil filho ou ao perfil pai, embora normalmente eles também seriam necessários.)<BR>
+In this example, we modify the weight of a single endpoint in an existing profile.
 
-	PS C:\> $child = New-AzureRmTrafficManagerProfile –Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-	PS C:\> $parent = New-AzureRmTrafficManagerProfile –Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-	PS C:\> Add-AzureRmTrafficManagerEndpointConfig –EndpointName child-endpoint –TrafficManagerProfile $parent –Type NestedEndpoints -TargetResourceId $child.Id –EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
-	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile
+    $endpoint = Get-AzureRmTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName MyRG -Type ExternalEndpoints
+    $endpoint.Weight = 20
+    Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
 
-#### Exemplo 2: Adicionando pontos de extremidade aninhados usando New-AzureRmTrafficManagerEndpoint
+## <a name="enabling-and-disabling-endpoints-and-profiles"></a>Enabling and Disabling Endpoints and Profiles
 
-Neste exemplo, adicionamos um perfil filho existente como um ponto de extremidade aninhado a um perfil pai existente, especificado usando o nome do perfil e o nome do grupo de recursos.
+Traffic Manager allows individual endpoints to be enabled and disabled, as well as allowing enabling and disabling of entire profiles.
+These changes can be made by getting/updating/setting the endpoint or profile resources. To streamline these common operations, they are also supported via dedicated cmdlets.
 
-	PS C:\> $child = Get-AzureRmTrafficManagerEndpoint –Name child -ResourceGroupName MyRG
-	PS C:\> New-AzureRmTrafficManagerEndpoint –Name child-endpoint –ProfileName parent -ResourceGroupName MyRG –Type NestedEndpoints -TargetResourceId $child.Id –EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+### <a name="example-1:-enabling-and-disabling-a-traffic-manager-profile"></a>Example 1: Enabling and disabling a Traffic Manager profile
 
+To enable a Traffic Manager profile, use Enable-AzureRmTrafficManagerProfile. The profile can be specified using a profile object. The profile object can be passed via the pipeline or by using the '-TrafficManagerProfile' parameter. In this example, we specify the profile by the profile and resource group name.
 
-## Atualizar um Ponto de Extremidade do Gerenciador de Tráfego
-Há duas maneiras de atualizar um ponto de extremidade existente do Gerenciador de Tráfego:<BR>
+```powershell
+    Enable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+```
 
-1. Obtenha o perfil do Gerenciador de Tráfego usando Get-AzureRmTrafficManagerProfile, atualize as propriedades do ponto de extremidade no perfil e confirme as alterações usando Set-AzureRmTrafficManagerProfile. Esse método apresenta a vantagem de poder atualizar mais de um ponto de extremidade em uma única operação.<BR>
-2. Obtenha o ponto de extremidade do Gerenciador de Tráfego usando Get-AzureRmTrafficManagerEndpoint, atualize as propriedades do ponto de extremidade e confirme as alterações usando Set-AzureRmTrafficManagerEndpoint. Esse método é mais simples, pois não exige a indexação na matriz dos Pontos de Extremidade no perfil.<BR>
+To disable a Traffic Manager profile:
 
-#### Exemplo 1: Atualizando pontos de extremidade usando Get-AzureRmTrafficManagerProfile e Set-AzureRmTrafficManagerProfile
-Neste exemplo, modificaremos a prioridade em dois pontos de extremidade em um perfil existente.
+```powershell
+    Disable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+```
 
-	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name myprofile -ResourceGroupName MyRG
-	PS C:\> $profile.Endpoints[0].Priority = 2
-	PS C:\> $profile.Endpoints[1].Priority = 1
-	PS C:\> Set-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile
+The Disable-AzureRmTrafficManagerProfile cmdlet prompts for confirmation. This prompt can be suppressed using the '-Force' parameter.
 
-#### Exemplo 2: Atualizando um ponto de extremidade usando Get-AzureRmTrafficManagerEndpoint e Set-AzureRmTrafficManagerEndpoint
-Neste exemplo, modificaremos o peso de um ponto de extremidade simples em um perfil existente.
+### <a name="example-2:-enabling-and-disabling-a-traffic-manager-endpoint"></a>Example 2: Enabling and disabling a Traffic Manager endpoint
 
-	PS C:\> $endpoint = Get-AzureRmTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName MyRG -Type ExternalEndpoints
-	PS C:\> $endpoint.Weight = 20
-	PS C:\> Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
+To enable a Traffic Manager endpoint, use Enable-AzureRmTrafficManagerEndpoint. There are two ways to specify the endpoint
 
-## Habilitando e desabilitando pontos de extremidade e perfis
-O Gerenciador de Tráfego permite que os pontos de extremidade individuais sejam habilitados e desabilitados, além de permitir a habilitação e a desabilitação de perfis inteiros. Faça essas alterações ao obter/atualizar/definir os recursos de ponto de extremidade ou de perfil. Para simplificar essas operações comuns, eles também têm suporte por meio de cmdlets dedicados.
+1. Using a TrafficManagerEndpoint object passed via the pipeline or using the '-TrafficManagerEndpoint' parameter
+2. Using the endpoint name, endpoint type, profile name, and resource group name:
 
-#### Exemplo 1: Habilitando e desabilitando um perfil do Gerenciador de Tráfego
-Para habilitar um perfil do Gerenciador de Tráfego, use Enable-AzureRmTrafficManagerProfile. O perfil pode ser especificado usando um objeto de perfil (passado por meio do pipeline ou usando o parâmetro '-TrafficManagerProfile') ou especificando o nome do perfil e o nome do grupo de recursos diretamente, como neste exemplo.
+```powershell
+    Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
+```
 
-	PS C:\> Enable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+Similarly, to disable a Traffic Manager endpoint:
 
-Da mesma forma, para desabilitar um perfil do Gerenciador de Tráfego:
+```powershell
+     Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
+```
 
-	PS C:\> Disable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+As with Disable-AzureRmTrafficManagerProfile, the Disable-AzureRmTrafficManagerEndpoint cmdlet prompts for confirmation. This prompt can be suppressed using the '-Force' parameter.
 
-O cmdlet Disable-AzureRmTrafficManagerProfile solicitará confirmação, e isso poderá ser suprimido usando o parâmetro '-Force'.
+## <a name="delete-a-traffic-manager-endpoint"></a>Delete a Traffic Manager Endpoint
 
-#### Exemplo 2: Habilitando e desabilitando um ponto de extremidade do Gerenciador de Tráfego
-Para habilitar um ponto de extremidade do Gerenciador de Tráfego, use Enable-AzureRmTrafficManagerEndpoint. O ponto de extremidade pode ser especificado usando um objeto TrafficManagerEndpoint (passado por meio do pipeline ou usando o parâmetro '-TrafficManagerEndpoint'), ou usando o nome do ponto de extremidade, o tipo de ponto de extremidade, o nome do perfil e o nome do grupo de recursos:
+To remove individual endpoints, use the Remove-AzureRmTrafficManagerEndpoint cmdlet:
 
-	PS C:\> Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
+```powershell
+    Remove-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
+```
 
-Da mesma forma, para desabilitar um ponto de extremidade do Gerenciador de Tráfego:
+This cmdlet prompts for confirmation. This prompt can be suppressed using the '-Force' parameter.
 
- 	PS C:\> Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
+## <a name="delete-a-traffic-manager-profile"></a>Delete a Traffic Manager Profile
 
-Assim como Disable-AzureRmTrafficManagerProfile, o cmdlet Disable-AzureRmTrafficManagerEndpoint inclui uma solicitação de confirmação que poderá ser suprimida com o parâmetro '-Force'.
+To delete a Traffic Manager profile, use the Remove-AzureRmTrafficManagerProfile cmdlet, specifying the profile and resource group names:
 
-## Excluir um Ponto de Extremidade do Gerenciador de Tráfego
-Uma maneira de excluir um ponto de extremidade do Gerenciador de Tráfego é recuperar o objeto de perfil (usando Get-AzureRmTrafficManagerProfile), atualizar a lista de pontos de extremidade no objeto de perfil local e confirmar suas alterações (usando Set-AzureRmTrafficManagerProfile). Esse método permite que várias alterações de ponto de extremidade sejam confirmadas em conjunto.
+```powershell
+    Remove-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG [-Force]
+```
 
-Outra maneira de remover pontos de extremidade individuais é usar o cmdlet Remove-AzureRmTrafficManagerEndpoint:
+This cmdlet prompts for confirmation. This prompt can be suppressed using the '-Force' parameter.
 
-	PS C:\> Remove-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
-	
-Esse cmdlet solicitará confirmação, a menos que o parâmetro '-Force' seja usado para suprimir a solicitação.
+The profile to be deleted can also be specified using a profile object:
 
-## Excluir um perfil do Gerenciador de Tráfego
-Para excluir um perfil do Gerenciador de Tráfego, use o cmdlet Remove-AzureRmTrafficManagerProfile, especificando o nome do perfil e o nome do grupo de recursos:
+```powershell
+    $profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+    Remove-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile [-Force]
+```
 
-	PS C:\> Remove-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG [-Force]
+This sequence can also be piped:
 
-Esse cmdlet solicitará uma confirmação. A opção '-Force' pode ser usada para suprimir essa solicitação. O perfil a ser excluído também pode ser especificado usando um objeto de perfil:
+```powershell
+    Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzureRmTrafficManagerProfile [-Force]
+```
 
-	PS C:\> $profile = Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG
-	PS C:\> Remove-AzureRmTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
+## <a name="next-steps"></a>Next steps
 
-Essa sequência também pode ser transferida:
+[Traffic Manager monitoring](traffic-manager-monitoring.md)
 
-	PS C:\> Get-AzureRmTrafficManagerProfile –Name MyProfile -ResourceGroupName MyRG | Remove-AzureRmTrafficManagerProfile [-Force]
+[Traffic Manager performance considerations](traffic-manager-performance-considerations.md)
 
-## Próximas etapas
 
-[Monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md)
 
-[Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
- 
+<!--HONumber=Oct16_HO2-->
 
-<!---HONumber=AcomDC_0824_2016-->
+

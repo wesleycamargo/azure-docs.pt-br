@@ -1,114 +1,115 @@
 <properties 
-	pageTitle="Gerenciamento de mapas de fragmentos | Microsoft Azure" 
-	description="Como usar o ShardMapManager, a biblioteca de cliente do banco de dados elástico" 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jhubbard" 
-	authors="ddove" 
-	editor=""/>
+    pageTitle="Shard map management | Microsoft Azure" 
+    description="How to use the ShardMapManager, elastic database client library" 
+    services="sql-database" 
+    documentationCenter="" 
+    manager="jhubbard" 
+    authors="ddove" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/25/2016" 
-	ms.author="ddove"/>
-
-# Escale horizontalmente os bancos de dados com o gerenciador do mapa de fragmentos
-
-Para escalar horizontalmente os bancos de dados no SQL Azure, use um gerenciador do mapa de fragmentos. O gerenciador do mapa de fragmentos é um banco de dados especial que mantém informações de mapeamento global sobre todos os fragmentos (bancos de dados) em um conjunto de fragmentos. Os metadados permitem que um aplicativo se conecte ao banco de dados correto com base no valor da **chave de fragmentação**. Além disso, cada fragmento no conjunto contém mapas que acompanham os dados de fragmento local (conhecido como **shardlets**).
-
-![Gerenciamento de mapa de fragmentos](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
-
-Entender como esses mapas são construídos é essencial para o gerenciamento de mapa de fragmentos. Isso é feito usando a [classe ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), localizada na [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md) para gerenciar mapas de fragmentos.
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="05/25/2016" 
+    ms.author="ddove"/>
 
 
-## Mapas de fragmentos e mapeamentos de fragmentos
+# <a name="scale-out-databases-with-the-shard-map-manager"></a>Scale out databases with the shard map manager
 
-Para cada fragmento, você deve selecionar o tipo do mapa de fragmentos a ser criado. A escolha depende da arquitetura do banco de dados:
+To easily scale out databases on SQL Azure, use a shard map manager. The shard map manager is a special database that maintains global mapping information about all shards (databases) in a shard set. The metadata allows an application to connect to the correct database based upon the value of the **sharding key**. In addition, every shard in the set contains maps that track the local shard data (known as **shardlets**). 
 
-1. Um locatário único por banco de dados  
-2. Vários locatários por banco de dados (dois tipos):
-	3. Mapeamento de lista
-	4. Mapeamento de intervalo
+![Shard map management](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
+
+Understanding how these maps are constructed is essential to shard map management. This is done using the [ShardMapManager class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), found in the [Elastic Database client library](sql-database-elastic-database-client-library.md) to manage shard maps.  
+
+
+## <a name="shard-maps-and-shard-mappings"></a>Shard maps and shard mappings
+
+For each shard, you must select the type of shard map to create. The choice depends on the database architecture: 
+
+1. Single tenant per database  
+2. Multiple tenants per database (two types):
+    3. List mapping
+    4. Range mapping
  
-Para um modelo de locatário único, crie um mapa de fragmentos de **mapeamento de lista**. O modelo de locatário único atribui um banco de dados por locatário. Esse é um modelo eficaz para desenvolvedores de SaaS, pois simplifica o gerenciamento.
+For a single-tenant model, create a **list mapping** shard map. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies management.
 
-![Mapeamento de lista][1]
+![List mapping][1]
 
-O modelo multilocatário atribui vários locatários a um banco de dados individual (e você pode distribuir grupos de locatários entre vários bancos de dados). Use esse modelo quando você esperar que cada locatário tenha necessidades de dados pequenas. Nesse modelo, atribuímos um intervalo de locatários a um banco de dados usando **mapeamento de intervalo**.
+The multi-tenant model assigns several tenants to a single database (and you can distribute groups of tenants across multiple databases). Use this model when you expect each tenant to have small data needs. In this model, we assign a range of tenants to a database using **range mapping**. 
  
 
-![Mapeamento de intervalo][2]
+![Range mapping][2]
 
-Ou então, você pode implementar um modelo de banco de dados multilocatário usando um *mapeamento de lista* para atribuir vários locatários a um banco de dados individual. Por exemplo, DB1 é usado para armazenar informações sobre os locatários com IDs 1 e 5, e DB2 armazena dados dos locatários 7 e 10.
+Or you can implement a multi-tenant database model using a *list mapping* to assign multiple tenants to a single database. For example, DB1 is used to store information about tenant id 1 and 5, and DB2 stores data for tenant 7 and tenant 10. 
 
-![Vários locatários em um banco de dados individual][3]
+![Muliple tenants on single DB][3] 
  
-### Tipos .Net com suporte para chaves de fragmentação
+### <a name="supported-.net-types-for-sharding-keys"></a>Supported .Net types for sharding keys
 
-A Escala Elástica dá suporte aos seguintes tipos de .Net Framework como chaves de fragmentação:
+Elastic Scale support the following .Net Framework types as sharding keys:
 
-* inteiro
-* longo
+* integer
+* long
 * guid
-* byte  
+* byte[]  
 * datetime
 * timespan
 * datetimeoffset
 
-### Mapas de fragmentos de lista e intervalo
-Mapas de fragmentos podem ser construídos usando **listas de valores de chave de fragmentação individuais** ou **intervalos de valores de chave de fragmentação**.
+### <a name="list-and-range-shard-maps"></a>List and range shard maps
+Shard maps can be constructed using **lists of individual sharding key values**, or they can be constructed using **ranges of sharding key values**. 
 
-###Mapas de fragmentos de lista
-**Fragmentos** contêm **shardlets** e o mapeamento de shardlets para fragmentos é mantido por um mapa de fragmentos. Uma **lista de mapas de fragmento** é uma associação entre os valores de chave individuais, que identificam os shardlets e os bancos de dados que servem como fragmentos. **Mapeamentos de lista** são valores de chaves explícitos e diferentes que podem ser mapeados para o mesmo banco de dados. Por exemplo, a chave 1 é mapeada para o banco de dados A e os valores 3 e 6 fazem referência ao banco de dados B.
+###<a name="list-shard-maps"></a>List shard maps
+**Shards** contain **shardlets** and the mapping of shardlets to shards is maintained by a shard map. A **list shard map** is an association between the individual key values that identify the shardlets and the databases that serve as shards.  **List mappings** are explicit and different key values can be mapped to the same database. For example, key 1 maps to Database A, and key values 3 and 6 both reference Database B.
 
-| Chave | Local de fragmento |
+| Key | Shard Location |
 |-----|----------------|
-| 1 | Database\_A |
-| 3 | Database\_B |
-| 4 | Database\_C |
-| 6 | Database\_B |
-| ... | ... |
+| 1   | Database_A     |
+| 3   | Database_B     |
+| 4   | Database_C     |
+| 6   | Database_B     |
+| ... | ...            |
  
 
-### Mapas de fragmentos de intervalo 
-Em um **intervalo de mapas de fragmentos**, o intervalo de chaves é descrito por um par **[Valor baixo, Valor alto)**, em que o *Valor baixo* é a chave mínima no intervalo e o *Valor alto* é o primeiro valor maior que o intervalo.
+### <a name="range-shard-maps"></a>Range shard maps 
+In a **range shard map**, the key range is described by a pair **[Low Value, High Value)** where the *Low Value* is the minimum key in the range, and the *High Value* is the first value higher than the range. 
 
-Por exemplo, **(0, 100)** inclui todos os números inteiros iguais ou maiores que 0 e menores que 100. Observe que vários intervalos podem apontar para o mesmo banco de dados e intervalos separados tem suporte (por exemplo, ambos [100,200) e [400,600) apontam para o banco de dados C no exemplo abaixo.)
+For example, **[0, 100)** includes all integers greater than or equal 0 and less than 100. Note that multiple ranges can point to the same database, and disjoint ranges are supported (e.g., [100,200) and [400,600) both point to Database C in the example below.)
 
-| Chave | Local de fragmento |
+| Key       | Shard Location |
 |-----------|----------------|
-| [1,50) | Database\_A |
-| [50,100) | Database\_B |
-| [100,200) | Database\_C |
-| [400,600) | Database\_C |
-| ... | ...            
+| [1,50)    | Database_A     |
+| [50,100)  | Database_B     |
+| [100,200) | Database_C     |
+| [400,600) | Database_C     |
+| ...       | ...            
 
-Cada uma das tabelas mostradas acima é um exemplo conceitual de um objeto **ShardMap**. Cada linha é um exemplo simplificado de um objeto de **RangeMapping** (para o mapa do fragmento de intervalo) ou **PointMapping individual** (para o mapa do fragmento de lista).
+Each of the tables shown above is a conceptual example of a **ShardMap** object. Each row is a simplified example of an individual **PointMapping** (for the list shard map) or **RangeMapping** (for the range shard map) object.
 
-## Gerenciador de mapa de fragmentos 
+## <a name="shard-map-manager"></a>Shard map manager 
 
-Na biblioteca do cliente, o gerenciador de mapa de fragmentos é uma coleção de mapas de fragmentos. Os dados gerenciados por uma instância **ShardMapManager** são mantidos em três locais:
+In the client library, the shard map  manager is a collection of shard maps. The data managed by a **ShardMapManager** instance is kept in three places: 
 
-1. **GSM (Mapa de Fragmentos Global)**: você especifica um banco de dados para servir como o repositório para todos os seus mapas de fragmento e mapeamentos. Procedimentos armazenados e tabelas especiais são criados automaticamente para gerenciar as informações. Geralmente trata-se de um banco de dados pequeno e pouco acessado, que não deve ser usado para outras necessidades do aplicativo. As tabelas estão em um esquema especial chamado **\_\_ShardManagement**.
+1. **Global Shard Map (GSM)**: You specify a database to serve as the repository for all of its shard maps and mappings. Special tables and stored procedures are automatically created to manage the information. This is typically a small database and lightly accessed, and it should not be used for other needs of the application. The tables are in a special schema named **__ShardManagement**. 
 
-2. **LSM (Mapa de Fragmentos Local)**: cada banco de dados que você especificar para ser um fragmento é modificado para conter várias pequenas tabelas e procedimentos especiais armazenados que contêm e gerenciem informações de mapa de fragmentos específicas a esse fragmento. Essas informações são redundantes com as informações de GSM e permitem que o aplicativo validar informações de mapa do fragmento em cache sem colocar nenhuma carga no GSM. O aplicativo usa o LSM para determinar se um mapeamento em cache ainda é válido. As tabelas correspondentes ao LSM em cada fragmento também estão no esquema **\_\_ShardManagement**.
+2. **Local Shard Map (LSM)**: Every database that you specify to be a shard is modified to contain several small tables and special stored procedures that contain and manage shard map information specific to that shard. This information is redundant with the information in the GSM, and it allows the application to validate cached shard map information without placing any load on the GSM; the application uses the LSM to determine if a cached mapping is still valid. The tables corresponding to the LSM on each shard are also in the schema **__ShardManagement**.
 
-3. **Cache do aplicativo**: cada instância do aplicativo que acessa um objeto **ShardMapManager** mantém um cache na memória local dos seus mapeamentos. Ele armazena informações de roteamento que recentemente foi recuperadas.
+3. **Application cache**: Each application instance accessing a **ShardMapManager** object maintains a local in-memory cache of its mappings. It stores routing information that has recently been retrieved. 
 
-## Construindo um ShardMapManager
+## <a name="constructing-a-shardmapmanager"></a>Constructing a ShardMapManager
 
-Um objeto **ShardMapManager** é construído usando um padrão [factory](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). O método **[ShardMapManagerFactory.GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)** usa credenciais (incluindo o nome do servidor e o nome do banco de dados que contém o GSM) na forma de uma **ConnectionString** e retorna uma instância de um **ShardMapManager**.
+A **ShardMapManager** object is constructed using a [factory](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx) pattern. The **[ShardMapManagerFactory.GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)** method takes credentials (including the server name and database name holding the GSM) in the form of a **ConnectionString** and returns an instance of a **ShardMapManager**.  
 
-**Observação:** o **ShardMapManager** deve ser instanciado apenas uma vez por domínio de aplicativo, dentro do código de inicialização de um aplicativo. A criação de instâncias adicionais de ShardMapManager no mesmo domínio de aplicativo resultará em uma maior utilização de memória e CPU do aplicativo. Um **ShardMapManager** pode conter diversos mapas de fragmento. Enquanto um mapa do fragmento único pode ser suficiente para muitos aplicativos, há vezes quando conjuntos diferentes de bancos de dados são usados para esquemas diferentes ou para fins exclusivos e, nesses casos, vários mapas de fragmentação podem ser preferíveis.
+**Please Note:** The **ShardMapManager** should be instantiated only once per app domain, within the initialization code for an application. Creation of additional instances of ShardMapManager in the same appdomain, will result in increased memory and CPU utilization of the application. A **ShardMapManager** can contain any number of shard maps. While a single shard map may be sufficient for many applications, there are times when different sets of databases are used for different schema or for unique purposes; in those cases multiple shard maps may be preferable. 
 
-Nesse código, um aplicativo tenta abrir um **ShardMapManager** existente com o [método TryGetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx). Se os objetos que representam um **ShardMapManager** Global (GSM) ainda não existirem no banco de dados, a biblioteca de cliente os criará no local usando o [método CreateSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx).
+In this code, an application tries to open an existing **ShardMapManager** with the [TryGetSqlShardMapManager method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx).  If objects representing a Global **ShardMapManager** (GSM) do not yet exist inside the database, the client library creates them there using the [CreateSqlShardMapManager method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx).
 
     // Try to get a reference to the Shard Map Manager 
- 	// via the Shard Map Manager database.  
+    // via the Shard Map Manager database.  
     // If it doesn't already exist, then create it. 
     ShardMapManager shardMapManager; 
     bool shardMapManagerExists = ShardMapManagerFactory.TryGetSqlShardMapManager(
@@ -134,13 +135,13 @@ Nesse código, um aplicativo tenta abrir um **ShardMapManager** existente com o 
         // for privileges on both the GSM and the shards themselves.
     } 
  
-Como alternativa, é possível usar o Powershell para criar um novo Gerenciador de Mapa de Fragmentos. Um exemplo está disponível [aqui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+As an alternative, you can use Powershell to create a new Shard Map Manager. An example is available [here](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-## Obter um RangeShardMap ou ListShardMap
+## <a name="get-a-rangeshardmap-or-listshardmap"></a>Get a RangeShardMap or ListShardMap
 
-Após criar um gerenciador de mapa de fragmentos, você pode obter o [RangeShardMap](https://msdn.microsoft.com/library/azure/dn807318.aspx) ou [ListShardMap](https://msdn.microsoft.com/library/azure/dn807370.aspx) usando o método [TryGetRangeShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [TryGetListShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx) ou [GetShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx).
+After creating a shard map manager, you can get the [RangeShardMap](https://msdn.microsoft.com/library/azure/dn807318.aspx) or [ListShardMap](https://msdn.microsoft.com/library/azure/dn807370.aspx) using the [TryGetRangeShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), the [TryGetListShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx), or the [GetShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx) method.
 
-	/// <summary>
+    /// <summary>
     /// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
     /// </summary>
     public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shardMapManager, string shardMapName)
@@ -163,27 +164,27 @@ Após criar um gerenciador de mapa de fragmentos, você pode obter o [RangeShard
         return shardMap;
     } 
 
-### Credenciais de administração de mapa de fragmentos
+### <a name="shard-map-administration-credentials"></a>Shard map administration credentials
 
-Os aplicativos que administram e manipulam mapas de fragmentos são diferentes daqueles que utilizam os mapas de fragmentos para encaminhar conexões.
+Applications that administer and manipulate shard maps are different from those that use the shard maps to route connections. 
 
-Para administrar mapas de fragmentos (adicionar ou alterar fragmentos, mapas de fragmentos, mapeamentos de fragmentos etc.), é necessário criar uma instância do **ShardMapManager** usando as **credenciais que têm privilégios de leitura/gravação no banco de dados do GSM e em cada banco de dados que atua como um fragmento**. As credenciais devem permitir gravações nas tabelas no GSM e LSM como informações de mapa do fragmento são inseridas ou alteradas, bem como para criar tabelas LSM em novos fragmentos.
+To administer shard maps (add or change shards, shard maps, shard mappings, etc.) you must instantiate the **ShardMapManager** using **credentials that have read/write privileges on both the GSM database and on each database that serves as a shard**. The credentials must allow for writes against the tables in both the GSM and LSM as shard map information is entered or changed, as well as for creating LSM tables on new shards.  
 
-Veja [Credenciais usadas para acessar a biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-scale-manage-credentials.md).
+See [Credentials used to access the Elastic Database client library](sql-database-elastic-scale-manage-credentials.md).
 
-### Apenas os metadados afetados 
+### <a name="only-metadata-affected"></a>Only metadata affected 
 
-Os métodos usados para preencher ou alterar os dados de **ShardMapManager** não alteram os dados de usuário armazenados nos próprios fragmentos. Por exemplo, métodos como **CreateShard**, **DeleteShard**, **UpdateMapping** etc., afetam apenas os metadados do mapa de fragmentos. Não remova, adicione ou altere dados de usuário contidos nos fragmentos. Em vez disso, esses métodos destinam-se a ser usado em conjunto com operações separadas, que você pode executar para criar ou remover bancos de dados real ou que move linhas de um fragmento para outro para reequilibrar um ambiente fragmentado. (A ferramenta de **divisão/mesclagem** incluída com as ferramentas de banco de dados elástico usa essas APIs, além de orquestrar a movimentação de dados real entre fragmentos.) Veja [Escalando com a ferramenta de divisão e mesclagem de Banco de Dados Elástico](sql-database-elastic-scale-overview-split-and-merge.md).
+Methods used for populating or changing the **ShardMapManager** data do not alter the user data stored in the shards themselves. For example, methods such as **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. affect the shard map metadata only. They do not remove, add, or alter user data contained in the shards. Instead, these methods are designed to be used in conjunction with separate operations you perform to create or remove actual databases, or that move rows from one shard to another to rebalance a sharded environment.  (The **split-merge** tool included with elastic database tools makes use of these APIs along with orchestrating actual data movement between shards.) See [Scaling using the Elastic Database split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md).
 
-## Popular um mapa de fragmentos: exemplo
+## <a name="populating-a-shard-map-example"></a>Populating a shard map example
  
-Uma sequência de operações para preencher um mapa de fragmento específicos exemplo é mostrada abaixo. O código executa estas etapas:
+An example sequence of operations to populate a specific shard map is shown below. The code performs these steps: 
 
-1. Um novo mapa de fragmento é criado dentro de um Gerenciador de mapa do fragmento. 
-2. Os metadados para dois fragmentos diferentes é adicionado ao mapa de fragmento. 
-3. Uma variedade de mapeamentos de intervalo de chave são adicionados e o conteúdo geral do mapa do fragmento é exibido. 
+1. A new shard map is created within a shard map manager. 
+2. The metadata for two different shards is added to the shard map. 
+3. A variety of key range mappings are added, and the overall contents of the shard map are displayed. 
 
-O código é escrito para que o método possa ser executado novamente caso ocorra um erro. Cada solicitação testa se um fragmento ou mapeamento já existe antes de tentar criá-lo. O código pressupõe que bancos de dados chamados **sample\_shard\_0**, **sample\_shard\_1** e **sample\_shard\_2** já foram criados no servidor referenciado pela cadeia de caracteres **shardServer**.
+The code is written so that the method can be rerun if an error occurs. Each request tests whether a shard or mapping already exists, before attempting to create it. The code assumes that databases named **sample_shard_0**, **sample_shard_1** and **sample_shard_2** have already been created in the server referenced by string **shardServer**. 
 
     public void CreatePopulatedRangeMap(ShardMapManager smm, string mapName) 
         {            
@@ -199,23 +200,23 @@ O código é escrito para que o método possa ser executado novamente caso ocorr
             // Check if shard exists and if not, 
             // create it (Idempotent / tolerant of re-execute) 
             if (!sm.TryGetShard(new ShardLocation(
-	                                 shardServer, 
-	                                 "sample_shard_0"), 
-	                                 out shard0)) 
+                                     shardServer, 
+                                     "sample_shard_0"), 
+                                     out shard0)) 
             { 
                 Shard0 = sm.CreateShard(new ShardLocation(
-	                                        shardServer, 
-	                                        "sample_shard_0")); 
+                                            shardServer, 
+                                            "sample_shard_0")); 
             } 
 
             if (!sm.TryGetShard(new ShardLocation(
-	                                shardServer, 
-	                                "sample_shard_1"), 
-	                                out shard1)) 
+                                    shardServer, 
+                                    "sample_shard_1"), 
+                                    out shard1)) 
             { 
                 Shard1 = sm.CreateShard(new ShardLocation(
-	                                         shardServer, 
-	                                        "sample_shard_1"));  
+                                             shardServer, 
+                                            "sample_shard_1"));  
             } 
 
             RangeMapping<long> rmpg=null; 
@@ -225,46 +226,46 @@ O código é escrito para que o método possa ser executado novamente caso ocorr
             if (!sm.TryGetMappingForKey(0, out rmpg)) 
             { 
                 sm.CreateRangeMapping(
-	                      new RangeMappingCreationInfo<long>
-	                      (new Range<long>(0, 50), 
-	                      shard0, 
-	                      MappingStatus.Online)); 
+                          new RangeMappingCreationInfo<long>
+                          (new Range<long>(0, 50), 
+                          shard0, 
+                          MappingStatus.Online)); 
             } 
 
             if (!sm.TryGetMappingForKey(50, out rmpg)) 
             { 
                 sm.CreateRangeMapping(
-	                     new RangeMappingCreationInfo<long> 
+                         new RangeMappingCreationInfo<long> 
                          (new Range<long>(50, 100), 
-	                     shard1, 
-	                     MappingStatus.Online)); 
+                         shard1, 
+                         MappingStatus.Online)); 
             } 
 
             if (!sm.TryGetMappingForKey(100, out rmpg)) 
             { 
                 sm.CreateRangeMapping(
-	                     new RangeMappingCreationInfo<long>
+                         new RangeMappingCreationInfo<long>
                          (new Range<long>(100, 150), 
-	                     shard0, 
-	                     MappingStatus.Online)); 
+                         shard0, 
+                         MappingStatus.Online)); 
             } 
 
             if (!sm.TryGetMappingForKey(150, out rmpg)) 
             { 
                 sm.CreateRangeMapping(
-	                     new RangeMappingCreationInfo<long> 
+                         new RangeMappingCreationInfo<long> 
                          (new Range<long>(150, 200), 
-	                     shard1, 
-	                     MappingStatus.Online)); 
+                         shard1, 
+                         MappingStatus.Online)); 
             } 
 
             if (!sm.TryGetMappingForKey(200, out rmpg)) 
             { 
                sm.CreateRangeMapping(
-	                     new RangeMappingCreationInfo<long> 
+                         new RangeMappingCreationInfo<long> 
                          (new Range<long>(200, 300), 
-	                     shard0, 
-	                     MappingStatus.Online)); 
+                         shard0, 
+                         MappingStatus.Online)); 
             } 
 
             // List the shards and mappings 
@@ -282,55 +283,55 @@ O código é escrito para que o método possa ser executado novamente caso ocorr
             } 
         } 
  
-Como alternativa, você pode usar scripts do PowerShell para alcançar o mesmo resultado. Alguns dos exemplos do PowerShell de exemplo estão disponíveis [aqui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+As an alternative you can use PowerShell scripts to achieve the same result. Some of the sample PowerShell examples are available [here](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).     
 
-Depois de mapas de fragmento são preenchidos, aplicativos de acesso de dados podem ser criados ou adaptados para funcionar com os mapas. Não será necessário preencher ou manipular os mapas novamente até que o **layout do mapa** precise ser alterado.
+Once shard maps have been populated, data access applications can be created or adapted to work with the maps. Populating or manipulating the maps need not occur again until **map layout** needs to change.  
 
-## Roteamento dependente de dados 
+## <a name="data-dependent-routing"></a>Data dependent routing 
 
-O gerenciador de mapa de fragmento será mais usado em aplicativos que exigem conexões de banco de dados para executar as operações de dados específicos do aplicativo. Essas conexões devem estar associadas ao banco de dados correto. Isso é conhecido como **Roteamento Dependente de Dados**. Para esses aplicativos, instancie um objeto do Gerenciador do mapa de fragmento de fábrica usando as credenciais que têm acesso somente leitura no banco de dados GSM. As solicitações individuais para conexões posteriores fornecerão credenciais necessárias para conectar-se ao banco de dados apropriado do fragmento.
+The shard map manager will be most used in applications that require database connections to perform the app-specific data operations. Those connections must be associated with the correct database. This is known as **Data Dependent Routing**. For these applications, instantiate a shard map manager object from the factory using credentials that have read-only access on the GSM database. Individual requests for later connections supply credentials necessary for connecting to the appropriate shard database.
 
-Observe que esses aplicativos (usando o **ShardMapManager** aberto com as credenciais somente leitura) não poderão alterar os mapas ou mapeamentos. Para essas necessidades, crie aplicativos administrativos específicos ou scripts do PowerShell que fornecem credenciais de privilégios mais altos, conforme discutido anteriormente. Veja [Credenciais usadas para acessar a biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-scale-manage-credentials.md).
+Note that these applications (using **ShardMapManager** opened with read-only credentials) cannot make changes to the maps or mappings. For those needs, create administrative-specific applications or PowerShell scripts that supply higher-privileged credentials as discussed earlier. See [Credentials used to access the Elastic Database client library](sql-database-elastic-scale-manage-credentials.md).
 
-Para obter mais detalhes, consulte [Roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md).
+For more details, see [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md). 
 
-## Modificar um mapa de fragmentos 
+## <a name="modifying-a-shard-map"></a>Modifying a shard map 
 
-Um mapa do fragmento pode ser alterado de diferentes maneiras. Todos os seguintes métodos de modificar os metadados que descrevem os fragmentos e seus mapeamentos, mas eles não modificam dados dentro de fragmentos fisicamente, nem que criar ou excluir os bancos de dados reais. Algumas das operações no mapa de fragmento descrito abaixo talvez precisem ser coordenada com ações administrativas que mover fisicamente os dados ou que adicionar e remover bancos de dados que serve como fragmentos.
+A shard map can be changed in different ways. All of the following methods modify the metadata describing the shards and their mappings, but they do not physically modify data within the shards, nor do they create or delete the actual databases.  Some of the operations on the shard map described below may need to be coordinated with administrative actions that physically move data or that add and remove databases serving as shards.
 
-Esses métodos funcionam juntos como blocos de construção disponíveis para modificar a distribuição global de dados em seu ambiente de banco de dados fragmentado.
+These methods work together as the building blocks available for modifying the overall distribution of data in your sharded database environment.  
 
-* Para adicionar ou remover fragmentos: use **[CreateShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx)** e **[DeleteShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard.aspx)** da [classe Shardmap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.aspx). 
+* To add or remove shards: use **[CreateShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx)** and **[DeleteShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard.aspx)** of the [Shardmap class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.aspx). 
     
-    O servidor e o banco de dados que representa o fragmento de destino já devem existir para executar essas operações. Esses métodos não têm qualquer impacto nos bancos de dados, apenas nos metadados no mapa do fragmento.
+    The server and database representing the target shard must already exist for these operations to execute. These methods do not have any impact on the databases themselves, only on metadata in the shard map.
 
-* Para criar ou remover pontos ou intervalos mapeados para os fragmentos: use **[CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn841993.aspx)**, **[DeleteMapping](https://msdn.microsoft.com/library/azure/dn824200.aspx)** da [classe RangeShardMapping](https://msdn.microsoft.com/library/azure/dn807318.aspx) e **[CreatePointMapping](https://msdn.microsoft.com/library/azure/dn807218.aspx)** de [ListShardMap](https://msdn.microsoft.com/library/azure/dn842123.aspx)
+* To create or remove points or ranges that are mapped to the shards: use **[CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn841993.aspx)**, **[DeleteMapping](https://msdn.microsoft.com/library/azure/dn824200.aspx)** of the [RangeShardMapping class](https://msdn.microsoft.com/library/azure/dn807318.aspx), and **[CreatePointMapping](https://msdn.microsoft.com/library/azure/dn807218.aspx)** of the [ListShardMap](https://msdn.microsoft.com/library/azure/dn842123.aspx)
     
-    Vários pontos diferentes ou intervalos podem ser mapeados para o mesmo fragmento. Esses métodos afetam somente metadados – elas não afetam todos os dados que podem já estar presentes em fragmentos. Se for necessário remover os dados do banco de dados para que eles sejam consistentes com as operações **DeleteMapping**, você precisará realizar essas operações separadamente, mas em conjunto com esses métodos.
+    Many different points or ranges can be mapped to the same shard. These methods only affect metadata – they do not affect any data that may already be present in shards. If data needs to be removed from the database in order to be consistent with **DeleteMapping** operations, you will need to perform those operations separately but in conjunction with using these methods.  
 
-* Para dividir intervalos existentes em dois ou mesclar intervalos adjacentes em um: use **[SplitMapping](https://msdn.microsoft.com/library/azure/dn824205.aspx)** e **[MergeMappings](https://msdn.microsoft.com/library/azure/dn824201.aspx)**.
+* To split existing ranges into two, or merge adjacent ranges into one: use **[SplitMapping](https://msdn.microsoft.com/library/azure/dn824205.aspx)** and **[MergeMappings](https://msdn.microsoft.com/library/azure/dn824201.aspx)**.  
 
-    Observe que as operações de divisão e mesclagem **não alteram o fragmento para o qual os valores de chave são mapeados**. Uma divisão divide um intervalo existente em duas partes, mas deixa ambos como mapeada para o mesmo fragmento. Uma mesclagem opera em dois intervalos adjacentes que já são mapeados para o mesmo fragmento, juntando-os em um único intervalo. A movimentação dos próprios pontos ou intervalos entre fragmentos precisa ser coordenada com **UpdateMapping** em conjunto com a movimentação real de dados. É possível usar o serviço de **Divisão/Mesclagem** que faz parte das ferramentas de banco de dados elástico para coordenar as alterações de mapa de fragmentos com a movimentação de dados, quando a movimentação for necessária.
+    Note that split and merge operations **do not change the shard to which key values are mapped**. A split breaks an existing range into two parts, but leaves both as mapped to the same shard. A merge operates on two adjacent ranges that are already mapped to the same shard, coalescing them into a single range.  The movement of points or ranges themselves between shards needs to be coordinated by using **UpdateMapping** in conjunction with actual data movement.  You can use the **Split/Merge** service that is part of elastic database tools to coordinate shard map changes with data movement, when movement is needed. 
 
-* Para remapear (ou mover) pontos ou intervalos individuais para fragmentos diferentes: use **[UpdateMapping](https://msdn.microsoft.com/library/azure/dn824207.aspx)**.
+* To re-map (or move) individual points or ranges to different shards: use **[UpdateMapping](https://msdn.microsoft.com/library/azure/dn824207.aspx)**.  
 
-    Já que pode ser necessário mover os dados de um fragmento para outro para que eles sejam consistentes com as operações **UpdateMapping**, você precisará executar essa movimentação separadamente, mas em conjunto com esses métodos.
+    Since data may need to be moved from one shard to another in order to be consistent with **UpdateMapping** operations, you will need to perform that movement separately but in conjunction with using these methods.
 
-* Para deixar mapeamentos online e offline: use **[MarkMappingOffline](https://msdn.microsoft.com/library/azure/dn824202.aspx)** e **[MarkMappingOnline](https://msdn.microsoft.com/library/azure/dn807225.aspx)** para controlar o estado online de um mapeamento.
+* To take mappings online and offline: use **[MarkMappingOffline](https://msdn.microsoft.com/library/azure/dn824202.aspx)** and **[MarkMappingOnline](https://msdn.microsoft.com/library/azure/dn807225.aspx)** to control the online state of a mapping. 
 
-    Algumas operações nos mapeamentos de fragmentos são permitidas apenas quando um mapeamento está em um estado “offline”, incluindo **UpdateMapping** e **DeleteMapping**. Quando um mapeamento estiver offline, uma solicitação dependente de dados com base em uma chave incluída nesse mapeamento retornará um erro. Além disso, quando um intervalo primeiro fica offline, todas as conexões para o fragmento afetado serão eliminadas automaticamente para evitar resultados inconsistentes ou incompletos para consultas direcionadas com intervalos que está sendo alterados.
+    Certain operations on shard mappings are only allowed when a mapping is in an “offline” state, including **UpdateMapping** and **DeleteMapping**. When a mapping is offline, a data-dependent request based on a key included in that mapping will return an error. In addition, when a range is first taken offline, all connections to the affected shard are automatically killed in order to prevent inconsistent or incomplete results for queries directed against ranges being changed. 
 
-Mapeamentos são objetos imutáveis no .Net. Todos os métodos acima que alteram mapeamentos também invalidam todas as referências a eles em seu código. Para facilitar a execução de sequências de operações que alteram o estado do mapeamento, todos os métodos que alteram um mapeamento retornam uma nova referência de mapeamento, para que as operações possam ser encadeadas. Por exemplo, para excluir um mapeamento existente em sm shardmap que contém a chave 25, você pode executar o seguinte:
+Mappings are immutable objects in .Net.  All of the methods above that change mappings also invalidate any references to them in your code. To make it easier to perform sequences of operations that change a mapping’s state, all of the methods that change a mapping return a new mapping reference, so operations can be chained. For example, to delete an existing mapping in shardmap sm that contains the key 25, you can execute the following: 
 
         sm.DeleteMapping(sm.MarkMappingOffline(sm.GetMappingForKey(25)));
 
-## Adicionar um fragmento 
+## <a name="adding-a-shard"></a>Adding a shard 
 
-Geralmente, os aplicativos precisam simplesmente adicionar novos fragmentos para lidar com dados que são esperados de novas chaves ou intervalos de chaves para um mapa do fragmento que já existe. Por exemplo, um aplicativo fragmentado por ID de locatário talvez tenha provisionar um novo fragmento para um novo locatário ou dados mensalmente fragmentados talvez precisem de um novo fragmento provisionado antes do início de cada novo mês.
+Applications often need to simply add new shards to handle data that is expected from new keys or key ranges, for a shard map that already exists. For example, an application sharded by Tenant ID may need to provision a new shard for a new tenant, or data sharded monthly may need a new shard provisioned before the start of each new month. 
 
-Se o novo intervalo de valores de chave já não é parte de um mapeamento existente e nenhuma movimentação de dados é necessária, é muito simples adicionar o novo fragmento e associar a nova chave ou o intervalo para esse fragmento. Para obter detalhes sobre como adicionar novos fragmentos, veja [Adicionar um novo fragmento](sql-database-elastic-scale-add-a-shard.md).
+If the new range of key values is not already part of an existing mapping and no data movement is necessary, it is very simple to add the new shard and associate the new key or range to that shard. For details on adding new shards, see [Adding a new shard](sql-database-elastic-scale-add-a-shard.md).
 
-Para cenários que exigem a movimentação de dados, no entanto, a ferramenta de divisão/mesclagem é necessária para orquestrar a movimentação dos dados entre os fragmentos em conjunto com as atualizações necessárias do mapa de fragmentos. Para obter detalhes sobre como usar a ferramenta de divisão/mesclagem, confira [Visão geral de divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md)
+For scenarios that require data movement, however, the split-merge tool is needed to orchestrate the data movement between shards in combination with the necessary shard map updates. For details on using the split-merge yool, see [Overview of split-merge](sql-database-elastic-scale-overview-split-and-merge.md) 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
@@ -339,4 +340,7 @@ Para cenários que exigem a movimentação de dados, no entanto, a ferramenta de
 [2]: ./media/sql-database-elastic-scale-shard-map-management/rangemapping.png
 [3]: ./media/sql-database-elastic-scale-shard-map-management/multipleonsingledb.png
 
-<!---HONumber=AcomDC_0525_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

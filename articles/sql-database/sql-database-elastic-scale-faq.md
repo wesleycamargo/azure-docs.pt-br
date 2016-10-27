@@ -1,59 +1,63 @@
 <properties 
-	pageTitle="Perguntas frequentes sobre a Escala Elástica SQL do Azure | Microsoft Azure" 
-	description="Perguntas frequentes sobre a Escala Elástico do banco de dados SQL do Azure." 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jhubbard" 
-	authors="ddove" 
-	editor=""/>
+    pageTitle="Azure SQL Elastic Scale FAQ | Microsoft Azure" 
+    description="Frequently Asked Questions about Azure SQL Database Elastic Scale." 
+    services="sql-database" 
+    documentationCenter="" 
+    manager="jhubbard" 
+    authors="ddove" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/03/2016" 
-	ms.author="ddove"/>
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="05/03/2016" 
+    ms.author="ddove"/>
 
-# Pergunta Frequentes das ferramentas de banco de dados elástico 
 
-#### Se eu tiver um único locatário por fragmento e nenhuma chave de fragmentação, como preencher a chave de fragmentação para as informações do esquema?
+# <a name="elastic-database-tools-faq"></a>Elastic database tools FAQ 
 
-O objeto de informações de esquema só é usado para dividir os cenários de mesclagem. Se um aplicativo for basicamente o único locatário, ele não exige a ferramenta de divisão e mesclagem e, portanto, não é necessário para preencher o objeto de informações de esquema.
+#### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key,-how-do-i-populate-the-sharding-key-for-the-schema-info?"></a>If I have a single-tenant per shard and no sharding key, how do I populate the sharding key for the schema info?
 
-#### Eu provisionei um banco de dados e já tenho um Gerenciador de mapa de fragmento, como registro o novo banco de dados como um fragmento?
+The schema info object is only used to split merge scenarios. If an application is inherently single-tenant, then it does not require the Split Merge tool and thus there is no need to populate the schema info object.
 
-Consulte **[Adicionar um fragmento de um aplicativo usando a biblioteca de cliente do banco de dados elástico](sql-database-elastic-scale-add-a-shard.md)**.
+#### <a name="i’ve-provisioned-a-database-and-i-already-have-a-shard-map-manager,-how-do-i-register-this-new-database-as-a-shard?"></a>I’ve provisioned a database and I already have a Shard Map Manager, how do I register this new database as a shard?
 
-#### Quanto custam as ferramentas de banco de dados elástico?
+Please see **[Adding a shard to an application using the elastic database client library](sql-database-elastic-scale-add-a-shard.md)**. 
 
-Usar a biblioteca de cliente do banco de dados elástico não incorrerá em todos os custos. Custos se acumulam apenas para os bancos de dados do SQL Azure que você usa para fragmentos e o Gerenciador de mapa de fragmento, bem como as funções web/de trabalho configuradas para a ferramenta de divisão e mesclagem.
+#### <a name="how-much-do-elastic-database-tools-cost?"></a>How much do elastic database tools cost?
 
-#### Por que minhas credenciais não funcionam quando eu adiciono um fragmento de um servidor diferente?
-Não use credenciais na forma de “Usuário ID=username@servername”, em vez disso, basta usar “User ID = username”. Além disso, certifique-se de que o logon “username” tem permissões no fragmento.
+Using the elastic database client library does not incur any costs. Costs accrue only for the Azure SQL databases that you use for shards and the Shard Map Manager, as well as the web/worker roles you provision for the Split Merge tool.
 
-#### É necessário criar um Gerenciador de mapa de fragmento e preencher os fragmentos sempre que iniciar meus aplicativos?
+#### <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server?"></a>Why are my credentials not working when I add a shard from a different server?
+Do not use credentials in the form of “User ID=username@servername”, instead simply use “User ID = username”.  Also, be sure that the “username” login has permissions on the shard.
 
-Não, a criação do Gerenciador de mapa de fragmento (por exemplo, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) é uma operação única. Seu aplicativo deve usar a chamada **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** em tempo de inicialização do aplicativo. Deve existir apenas uma chamada por domínio de aplicativo.
+#### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications?"></a>Do I need to create a Shard Map Manager and populate shards every time I start my applications?
 
-#### Tenho dúvidas sobre o uso das ferramentas de banco de dados elástico, como obter respostas para elas? 
+No—the creation of the Shard Map Manager (for example, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) is a one-time operation.  Your application should use the call **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** at application start-up time.  There should only one such call per application domain.
 
-Vá ao [Fórum do banco de dados SQL do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
+#### <a name="i-have-questions-about-using-elastic-database-tools,-how-do-i-get-them-answered?"></a>I have questions about using elastic database tools, how do I get them answered? 
 
-#### Quando recebo uma conexão de banco de dados usando uma chave de fragmentação, ainda posso consultar dados para outras chaves de fragmentação no mesmo fragmento. Isso é proposital?
+Please reach out to us on the [Azure SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
 
-As API de escala elástica oferecem uma conexão com o banco de dados correto para sua chave de fragmentação, mas não fornece filtragem de chave de fragmentação. Adicione cláusulas **WHERE** à sua consulta para restringir o escopo para a chave de fragmentação fornecidos, se necessário.
+#### <a name="when-i-get-a-database-connection-using-a-sharding-key,-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard.-is-this-by-design?"></a>When I get a database connection using a sharding key, I can still query data for other sharding keys on the same shard.  Is this by design?
 
-#### Posso usar uma edição diferente do banco de dados do Azure para cada fragmento no meu conjunto de fragmentos?
+The Elastic Scale APIs give you a connection to the correct database for your sharding key, but do not provide sharding key filtering.  Add **WHERE** clauses to your query to restrict the scope to the provided sharding key, if necessary.
 
-Sim, um fragmento é um banco de dados individual e, portanto, um fragmento poderia ser uma edição Premium e o outro ser uma edição Standard. Além disso, a edição de um fragmento pode aumentar ou diminuir várias vezes durante o tempo de vida do fragmento.
+#### <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set?"></a>Can I use a different Azure Database edition for each shard in my shard set?
 
-#### O ferramenta de divisão e mesclagem provisiona (ou exclui) um banco de dados durante uma operação de divisão ou mesclagem? 
+Yes, a shard is an individual database, and thus one shard could be a Premium edition while another be a Standard edition. Further, the edition of a shard can scale up or down multiple times during the lifetime of the shard.
 
-Não. Para operações de **divisão**, o banco de dados de destino deve existir com o esquema apropriado e ser registrado com o Gerenciador de mapa do fragmento. Para operações de **mesclagem**, você deve excluir o fragmento do Gerenciador do mapa de fragmento e, em seguida, excluir o banco de dados.
+#### <a name="does-the-split-merge-tool-provision-(or-delete)-a-database-during-a-split-or-merge-operation?"></a>Does the Split Merge tool provision (or delete) a database during a split or merge operation? 
+
+No. For **split** operations, the target database must exist with the appropriate schema and be registered with the Shard Map Manager.  For **merge** operations, you must delete the shard from the shard map manager and then delete the database.
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0601_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

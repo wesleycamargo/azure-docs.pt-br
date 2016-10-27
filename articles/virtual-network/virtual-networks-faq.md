@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Perguntas frequentes sobre rede virtual"
-   description="Perguntas frequentes sobre rede virtual do Azure (VNet)"
+   pageTitle="Virtual Network FAQ"
+   description="Azure virtual network (VNet) FAQ"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,12 +15,17 @@
    ms.date="03/15/2016"
    ms.author="jdial" />
 
-# Perguntas frequentes sobre rede virtual
+
+# <a name="virtual-network-faq"></a>Virtual Network FAQ
 
 [AZURE.INCLUDE [virtual-networks-vnet-faq-include](../../includes/virtual-networks-vnet-faq-include.md)]
 
-## Conectividade entre locais de rede virtual (VPNs)
+## <a name="virtual-network-cross-premises-connectivity-(vpns)"></a>Virtual Network Cross-premises Connectivity (VPNs)
 
-Para ver as perguntas frequentes mais recentes sobre VPNs de rede virtual, consulte as [Perguntas frequentes sobre o Gateway de VPN](../vpn-gateway/vpn-gateway-vpn-faq.md).
+For the latest FAQ on virtual network VPNs, see the [VPN Gateway FAQ](../vpn-gateway/vpn-gateway-vpn-faq.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

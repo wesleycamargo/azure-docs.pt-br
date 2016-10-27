@@ -1,81 +1,86 @@
 <properties 
-	pageTitle="Como adicionar unidades de codificação" 
-	description="Saiba como adicionar unidades de codificação com o .NET"  
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="How to add encoding units" 
+    description="Learn how to how to add encoding units with .NET"  
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
- 	ms.date="09/01/2016"
-	ms.author="juliako;milangada;gtrifonov"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/01/2016"
+    ms.author="juliako;milangada;gtrifonov"/>
 
 
-#Como dimensionar a codificação com o SDK do .NET
+
+#<a name="how-to-scale-encoding-with-.net-sdk"></a>How to scale encoding with .NET SDK
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-scale-media-processing.md)
+- [Portal](media-services-portal-scale-media-processing.md )
 - [.NET](media-services-dotnet-encoding-units.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 - [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
-##Visão geral
+##<a name="overview"></a>Overview
 
->[AZURE.IMPORTANT] Lembre-se de examinar o tópico [Visão geral](media-services-scale-media-processing-overview.md) para obter mais informações sobre o tópico de dimensionamento de processamento de mídia.
+>[AZURE.IMPORTANT] Make sure to review the [overview](media-services-scale-media-processing-overview.md) topic to get more information about scaling media processing topic.
  
-Para alterar o tipo de unidade reservada e o número de unidades reservadas para codificação usando o SDK do .NET, faça o seguinte:
+To change the reserved unit type and the number of encoding reserved units using .NET SDK, do the following:
 
-	IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
-	encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
-	encodingS1ReservedUnit.Update();
-	Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
-	
-	encodingS1ReservedUnit.CurrentReservedUnits = 2;
-	encodingS1ReservedUnit.Update();
-	
-	Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
+    IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
+    encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
+    encodingS1ReservedUnit.Update();
+    Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
+    
+    encodingS1ReservedUnit.CurrentReservedUnits = 2;
+    encodingS1ReservedUnit.Update();
+    
+    Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
-##Abrindo um tíquete de suporte
+##<a name="opening-a-support-ticket"></a>Opening a Support Ticket
 
-Por padrão, todas as contas dos Serviços de Mídia podem ser dimensionadas para até 25 Unidades Reservadas para Codificação e cinco para Streaming por Demanda. Você pode solicitar um limite mais alto abrindo um tíquete de suporte.
+By default every Media Services account can scale to up to 25 Encoding and 5 On-Demand Streaming Reserved Units. You can request a higher limit by opening a support ticket.
 
-###Abra um tíquete de suporte
+###<a name="open-a-support-ticket"></a>Open a support ticket
 
-Para abrir um tíquete de suporte, faça o seguinte:
+To open a support ticket do the following:
 
-1. Clique em [Obter suporte](https://manage.windowsazure.com/?getsupport=true). Se você não estiver conectado, você será solicitado a inserir suas credenciais.
+1. Click [Get Support](https://manage.windowsazure.com/?getsupport=true). If you are not logged in, you will be prompted to enter your credentials.
 
-1. Selecione sua assinatura.
+1. Select your subscription.
 
-1. Em tipo de suporte, selecione "Técnico".
+1. Under support type, select "Technical".
 
-1. Clique em "Criar Tíquete".
+1. Click on "Create Ticket".
 
-1. Selecione "Serviços de Mídia do Azure" na lista de produtos apresentados na próxima página.
+1. Select "Azure Media Services" in the product list presented on the next page.
 
-1. Selecione um "tipo de problema" que é apropriado para o seu problema.
+1. Select a "Problem type" that is appropriate for your issue.
 
-1. Clique em Continuar.
+1. Click Continue.
 
-1. Siga as instruções na próxima página e, em seguida, insira os detalhes sobre o problema.
+1. Follow instructions on next page and then enter details about your issue.
 
-1. Clique em Enviar para abrir o tíquete.
+1. Click submit to open the ticket.
 
 
 
-##Roteiros de aprendizagem dos Serviços de Mídia
+##<a name="media-services-learning-paths"></a>Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fornecer comentários
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

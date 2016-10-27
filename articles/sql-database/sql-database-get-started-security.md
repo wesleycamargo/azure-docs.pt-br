@@ -1,53 +1,60 @@
 <properties
-	pageTitle="Tutorial do Banco de Dados SQL: Introdução à segurança"
-	description="Saiba como criar contas de usuário para acessar e gerenciar um banco de dados."
-	keywords=""
-	services="sql-database"
-	documentationCenter=""
-	authors="CarlRabeler"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="SQL Database tutorial: Getting Started with Security"
+    description="Learn how to create user accounts to access and to manage a database."
+    keywords=""
+    services="sql-database"
+    documentationCenter=""
+    authors="CarlRabeler"
+    manager="jhubbard"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="08/17/2016"
-	ms.author="carlrab"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="08/17/2016"
+    ms.author="carlrab"/>
 
-# Tutorial do Banco de Dados SQL: Criar contas de usuário do Banco de Dados SQL para acessar e gerenciar um banco de dados
+
+# <a name="sql-database-tutorial:-create-sql-database-user-accounts-to-access-and-manage-a-database"></a>SQL Database tutorial: Create SQL database user accounts to access and manage a database
 
 
 > [AZURE.SELECTOR]
-- [Tutorial de introdução](sql-database-get-started-security.md)
-- [Conceder acesso](sql-database-manage-logins.md)
+- [Get started tutorial](sql-database-get-started-security.md)
+- [Grant access](sql-database-manage-logins.md)
 
-Neste tutorial, você aprenderá a usar o SQL Server Management Studio (SSMS) para:
+In this tutorial, you learn how to use SQL Server Management Studio (SSMS) to:
 
-- Faça logon no Banco de Dados SQL usando um logon de entidade no nível do servidor.
-- Criar uma conta de usuário do Banco de Dados SQL.
-- Conceda [permissões de db\_owner](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0) a um novo usuário de banco de dados SQL.
-- Conecte-se a um Banco de Dados SQL com uma conta de usuário que não é uma entidade de nível de servidor.
+- Log in to SQL Database using a server-level principal login.
+- Create a SQL Database user account.
+- Grant a SQL Database user [db_owner permissions](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0).
+- Connect to a SQL database with a user account that is not a server-level principal.
 
-[AZURE.INCLUDE [Logon](../../includes/azure-getting-started-portal-login.md)]
-
-
-[AZURE.INCLUDE [Criar um servidor lógico do Banco de Dados SQL](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
+[AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
 
-[AZURE.INCLUDE [Criar Banco de Dados SQL](../../includes/sql-database-create-new-database-user.md)]
+[AZURE.INCLUDE [Create SQL Database logical server](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
 
-[AZURE.INCLUDE [Criar Banco de Dados SQL](../../includes/sql-database-grant-database-user-dbo-permissions.md)]
+[AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-create-new-database-user.md)]
 
 
-[AZURE.INCLUDE [Criar Banco de Dados SQL](../../includes/sql-database-sql-server-management-studio-connect-user.md)]
+[AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-grant-database-user-dbo-permissions.md)]
 
 
-## Próximas etapas
-Agora que você concluiu este tutorial do Banco de Dados SQL, criou uma conta de usuário e atribuiu permissões dbo a ela, está pronto para saber mais sobre a [Segurança do Banco de Dados SQL](sql-database-manage-logins.md).
+[AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-sql-server-management-studio-connect-user.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+## <a name="next-steps"></a>Next steps
+Now that you've completed this SQL Database tutorial and created a user account and granted the user account dbo permissions, you are ready to learn more about [SQL Database security](sql-database-manage-logins.md).
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,36 +1,39 @@
-O emulador de armazenamento dá suporte a uma única conta fixa e uma chave de autenticação conhecida para a autenticação da Chave Compartilhada. Essa conta e a chave são as únicas credenciais de Chave Compartilhada permitidas para uso com o emulador de armazenamento. Eles são:
+The storage emulator supports a single fixed account and a well-known authentication key for Shared Key authentication. This account and key are the only Shared Key credentials permitted for use with the storage emulator. They are:
 
     Account name: devstoreaccount1
     Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
     
-> [AZURE.NOTE]A chave de autenticação suportada pelo emulador de armazenamento destina-se somente para testar a funcionalidade do seu código de autenticação de cliente. Ela não serve para fins de segurança. Você não pode usar sua conta de armazenamento de produção e a chave com o emulador de armazenamento. Observe também que você não deve usar a conta de desenvolvimento com dados de produção.
+> [AZURE.NOTE] The authentication key supported by the storage emulator is intended only for testing the functionality of your client authentication code. It does not serve any security purpose. You cannot use your production storage account and key with the storage emulator. Also note that you should not use the development account with production data.
 >
-> Observe que o emulador de armazenamento oferece suporte apenas à conexão por HTTP. No entanto, o HTTPS é o protocolo recomendado para acessar recursos em uma conta de armazenamento de produção do Azure.
+> Note that the storage emulator supports connection via HTTP only. However, HTTPS is the recommended protocol for accessing resources in an Azure production storage account.
  
-#### Conectar-se à conta do emulador usando um atalho
+#### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>Connect to the emulator account using a shortcut
 
-A maneira mais fácil de conectar o emulador de armazenamento do seu aplicativo é configurar uma cadeia de conexão de dentro do arquivo de configuração do aplicativo que faz referência ao atalho `UseDevelopmentStorage=true`. Segue um exemplo de uma cadeia de conexão para o emulador de armazenamento em um arquivo app.config:
+The easiest way to connect to the storage emulator from your application is to configure a connection string from within your application's configuration file that references the shortcut `UseDevelopmentStorage=true`. Here's an example of a connection string to the storage emulator in an app.config file: 
 
     <appSettings>
       <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
     </appSettings>
 
-#### Conectar-se à conta do emulador usando o nome de conta e a chave conhecidos
+#### <a name="connect-to-the-emulator-account-using-the-well-known-account-name-and-key"></a>Connect to the emulator account using the well-known account name and key
 
-Para criar uma cadeia de conexão que referencia o nome da conta do emulador e a chave, observe que você deve especificar os pontos de extremidade para cada um dos serviços do emulador na cadeia de conexão que você deseja usar. Isso é necessário para que a cadeia de conexão faça referência aos pontos de extremidade do emulador, que são diferentes daqueles para uma conta de armazenamento de produção. Por exemplo, o valor da sua cadeia de conexão terá esta aparência:
+To create a connection string that references the emulator account name and key, note that you must specify the endpoints for each of the services that you wish to use from the emulator in the connection string. This is necessary so that the connection string will reference the emulator endpoints, which are different than those for a production storage account. For example, the value of your connection string will look like this:
 
-	DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
-	AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;
+    DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
+    AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;
     BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
     TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;
     QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1; 
 
-Esse valor é idêntico ao atalho mostrado acima, `UseDevelopmentStorage=true`.
+This value is identical to the shortcut shown above, `UseDevelopmentStorage=true`.
 
-#### Especificar um proxy HTTP
+#### <a name="specify-an-http-proxy"></a>Specify an HTTP proxy
 
-Você também pode especificar um proxy HTTP para usar quando estiver testando seu serviço no emulador de armazenamento. Isso pode ser útil para observar solicitações e respostas HTTP enquanto você estiver depurando operações nos serviços de armazenamento. Para especificar um proxy, adicione a opção `DevelopmentStorageProxyUri` à cadeia de conexão e defina o seu valor para o URI de proxy. Por exemplo, aqui está uma cadeia de conexão que aponta para o emulador de armazenamento e configura um proxy HTTP:
+You can also specify an HTTP proxy to use when you're testing your service against the storage emulator. This can be useful for observing HTTP requests and responses while you're debugging operations against the storage services. To specify a proxy, add the `DevelopmentStorageProxyUri` option to the connection string, and set its value to the proxy URI. For example, here is a connection string that points to the storage emulator and configures an HTTP proxy:
 
     UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

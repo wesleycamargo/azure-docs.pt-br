@@ -1,4 +1,7 @@
 
-> [AZURE.NOTE]Comece a trabalhar com mais agilidade: use o NOVO [guia passo a passo do Azure](http://support.microsoft.com/kb/2990804)! Ele acelera a associação de um nome de domínio personalizado E a proteção da comunicação (SSL) com os Serviços de Nuvem do Azure ou Aplicativos Web do Serviço de Aplicativo do Azure.
+> [AZURE.NOTE]
+> Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure App Service Web Apps a snap.
 
-<!---HONumber=Oct15_HO3-->
+<!--HONumber=Oct16_HO2-->
+
+

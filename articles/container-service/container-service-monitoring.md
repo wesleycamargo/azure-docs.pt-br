@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Monitorar um cluster do Serviço de Contêiner do Azure com Datadog | Microsoft Azure"
-   description="Monitore um cluster do Serviço de Contêiner do Azure com o Datadog. Use a interface do usuário da Web do DC/OS para implantar os agentes Datadog para seu cluster."
+   pageTitle="Monitor an Azure Container Service cluster with Datadog| Microsoft Azure"
+   description="Monitor an Azure Container Service cluster with Datadog. Use the DC/OS web UI to deploy the Datadog agents to your cluster."
    services="container-service"
    documentationCenter=""
    authors="rbitia"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Contêineres, DC/OS, Docker Swarm, Azure"/>
+   keywords="Containers, DC/OS, Docker Swarm, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -18,36 +18,41 @@
    ms.date="07/28/2016"
    ms.author="t-ribhat"/>
 
-# Monitorar um cluster do Serviço de Contêiner do Azure com o Datadog
 
-Neste artigo, implantaremos agentes do Datadog em todos os nós de agente em seu cluster do Serviço de Contêiner do Azure. Você precisará de uma conta no Datadog para fazer esta configuração.
+# <a name="monitor-an-azure-container-service-cluster-with-datadog"></a>Monitor an Azure Container Service cluster with Datadog
 
-## Pré-requisitos 
+In this article we will deploy Datadog agents to all the agent nodes in your Azure Container Service cluster. You will need an account with Datadog for this configuration. 
 
-[Implantar](container-service-deployment.md) e [conectar](container-service-connect.md) um cluster configurado pelo Serviço de Contêiner do Azure. Explorar a [interface do usuário do Marathon](container-service-mesos-marathon-ui.md). Vá para [http://datadoghq.com](http://datadoghq.com) para configurar uma conta do Datadog.
+## <a name="prerequisites"></a>Prerequisites 
 
-## Datadog 
+[Deploy](container-service-deployment.md) and [connect](container-service-connect.md) a cluster configured by Azure Container Service. Explore the [Marathon UI](container-service-mesos-marathon-ui.md). Go to [http://datadoghq.com](http://datadoghq.com) to set up a Datadog account. 
 
-O Datadog é um serviço de monitoramento que reúne dados de monitoramento de seus contêineres em seu cluster do Serviço de Contêiner do Azure. O Datadog tem um Painel de Integração do Docker, onde você pode ver as métricas específicas em seus contêineres. As métricas obtidas de seus contêineres são organizadas por CPU, Memória, Rede e E/S. O Datadog divide as métricas em contêineres e em imagens. A seguir, um exemplo da aparência da interface do usuário de uso da CPU.
+## <a name="datadog"></a>Datadog 
 
-![Interface do usuário do Datadog](./media/container-service-monitoring/datadog4.png)
+Datadog is a monitoring service that gathers monitoring data from your containers within your Azure Container Service cluster. Datadog has a Docker Integration Dashboard where you can see specific metrics within your containers. Metrics gathered from your containers are organized by CPU, Memory, Network and I/O. Datadog splits metrics into containers and images. An example of what the UI looks like for CPU usage is below.
 
-## Configurar uma implantação do Datadog com Marathon
+![Datadog UI](./media/container-service-monitoring/datadog4.png)
 
-Estas etapas mostram como configurar e implantar aplicativos do Datadog no cluster com Marathon.
+## <a name="configure-a-datadog-deployment-with-marathon"></a>Configure a Datadog deployment with Marathon
 
-Acesse a interface do usuário do DC/OS via [http://localhost:80/](http://localhost:80/). Na interface do usuário do DC/OS, navegue até o “Universo”, que é o canto inferior esquerdo, procure "Datadog" e clique em "Instalar".
+These steps will show you how to configure and deploy Datadog applications to your cluster with Marathon. 
 
-![Pacote do Datadog no Universo DC/OS](./media/container-service-monitoring/datadog1.png)
+Access your DC/OS UI via [http://localhost:80/](http://localhost:80/). Once in the DC/OS UI navigate to the "Universe" which is on the bottom left and then search for "Datadog" and click "Install."
 
-Agora, para concluir a configuração, será necessária uma conta do Datadog ou de uma conta de avaliação gratuita. Depois de fazer logon no site do Datadog, olhe à sua esquerda e vá para Integrations -> API’s.
+![Datadog package within the DC/OS Universe](./media/container-service-monitoring/datadog1.png)
 
-![Chave de API do Datadog](./media/container-service-monitoring/datadog2.png)
+Now to complete the configuration you will need a Datadog account or a free trial account. Once you're logged in to the Datadog website look to the left and go to Integrations -> then API's. 
 
-Em seguida, insira sua chave de API na configuração do Datadog no Universo do DC/OS.
+![Datadog API key](./media/container-service-monitoring/datadog2.png)
 
-![Configuração do Datadog no Universo DC/OS](./media/container-service-monitoring/datadog3.png)
+Next enter your API key into the Datadog configuration within the DC/OS Universe. 
 
-Nas configuração acima, as instâncias são configuradas como 10000000 para que sempre que um novo nó for adicionado ao cluster, o Datadog implante automaticamente um agente para o novo nó. Essa é uma solução temporária. Depois de instalar o pacote, você deverá navegar de volta para o site do Datadog e localizar "Dashboards". A partir daí, você verá os painéis Custom e Integration. O painel de integração Docker terá todas as métricas de contêiner de que você precisa para monitorar seu cluster.
+![Datadog configuration in the DC/OS Universe](./media/container-service-monitoring/datadog3.png) 
 
-<!---HONumber=AcomDC_0810_2016-->
+In the above configuration instances are set to 10000000 so whenever a new node is added to the cluster Datadog will automatically deploy an agent to that node. This is an interim solution. Once you've installed the package you should navigate back to the Datadog website and find "Dashboards." From there you will see Custom and Integration Dashboards. The Docker Integration Dashboard will have all the container metrics you need for monitoring your cluster. 
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

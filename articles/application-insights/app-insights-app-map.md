@@ -1,113 +1,120 @@
 <properties 
-	pageTitle="Mapa de aplicativos no Application Insights | Microsoft Azure" 
-	description="Uma apresentação visual das dependências entre componentes do aplicativo, rotuladas com alertas e KPIs." 
-	services="application-insights" 
+    pageTitle="Application Map in Application Insights | Microsoft Azure" 
+    description="A visual presentation of the dependencies between app components, labeled with KPIs and alerts." 
+    services="application-insights" 
     documentationCenter=""
-	authors="SoubhagyaDash" 
-	manager="douge"/>
+    authors="SoubhagyaDash" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/15/2016" 
-	ms.author="awills"/>
- 
-# Mapa de Aplicativos no Application Insights
-
-No [Application Insights do Visual Studio](app-insights-overview.md), o Mapa de Aplicativos é um layout visual das relações de dependência dos componentes de seu aplicativo. Cada componente mostra KPIs, como carga, desempenho, falhas e alertas, para ajudá-lo a descobrir possíveis componentes que estejam causando uma falha ou um problema de desempenho. Você pode clicar em qualquer componente para ver um diagnóstico mais detalhado, tanto do Application Insights quanto, se seu aplicativo usa os serviços do Azure, do Diagnóstico do Azure, como, por exemplo as recomendações do Advisor do Banco de dados SQL.
-
-Assim como outros gráficos, você pode fixar um mapa de aplicativos no painel do Azure, onde ele fica totalmente funcional.
-
-## Abrir o mapa de aplicativos
-
-Abra o mapa na folha de visão geral do seu aplicativo:
-
-![abrir mapa de aplicativos](./media/app-insights-app-map/01.png)
-
-![mapa de aplicativos](./media/app-insights-app-map/02.png)
-
-O mapa mostra:
-
-* Testes de disponibilidade
-* Componente do lado do cliente (monitorado com o SDK do JavaScript)
-* Componente do lado do servidor
-* Dependências dos componentes do cliente e do servidor
-
-Você pode expandir e recolher grupos de link de dependência:
-
-![recolher](./media/app-insights-app-map/03.png)
- 
-Se você tiver um grande número de dependências de um tipo (SQL, HTTP, etc.), elas podem aparecer agrupadas.
-
-
-![dependências agrupadas](./media/app-insights-app-map/03-2.png)
- 
- 
-## Identificar problemas
-
-Cada nó possui indicadores de desempenho relevantes, como as taxas de carga, de desempenho e de falha do componente.
-
-Ícones de aviso destacam possíveis problemas. Um aviso laranja significa que existem falhas em solicitações, exibições de página ou chamadas de dependência. Vermelho significa uma taxa de falha acima de 5%.
-
-
-![ícones de falha](./media/app-insights-app-map/04.png)
-
- 
-Alertas ativos também aparecem:
-
-
-![alertas ativos](./media/app-insights-app-map/05.png)
- 
-Se você usa o SQL Azure, há um ícone que mostra quando há recomendações sobre como melhorar o desempenho.
-
-
-![Recomendações do Azure](./media/app-insights-app-map/06.png)
-
-Clique em um ícone para obter mais detalhes:
-
-
-![recomendações do azure](./media/app-insights-app-map/07.png)
- 
- 
-## Clique para Diagnóstico
-
-Cada um dos nós no mapa oferece cliques direcionados para diagnóstico. As opções variam dependendo do tipo de nó.
-
-![opções de servidor](./media/app-insights-app-map/09.png)
-
- 
-Para componentes que são hospedados no Azure, as opções incluem links diretos para eles.
-
-
-## Filtros e o intervalo de tempo
-
-Por padrão, o mapa resume todos os dados disponíveis para o intervalo de tempo escolhido. Mas você pode filtrá-lo para incluir apenas nomes de operação ou dependências específicas.
-
-* Nome da operação: isso inclui tipos de solicitação do lado servidor e visualizações de página. Com essa opção, o mapa mostra o KPI no nó do lado do servidor e do cliente somente para operações selecionadas. Ele mostra as dependências chamadas no contexto dessas operações específicas.
-* Nome de base de dependência: isso inclui as dependências de lado do navegador do AJAX e dependências do lado do servidor. Se você relatar telemetria de dependência personalizada com a API TrackDependency, elas também serão exibidas aqui. Você pode selecionar quais dependências mostrar no mapa. Observe que, neste momento, isso não filtrará as solicitações do lado do servidor ou os modos de exibição de página no lado do cliente.
-
-
-![Definir filtros](./media/app-insights-app-map/11.png)
-
- 
- 
-## Salvar filtros
-
-Para salvar os filtros que você aplicou, fixe na exibição filtrada em um [painel](app-insights-dashboards.md).
-
-
-![Fixar no painel](./media/app-insights-app-map/12.png)
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="06/15/2016" 
+    ms.author="awills"/>
  
 
+# <a name="application-map-in-application-insights"></a>Application Map in Application Insights
 
-## Comentários
+In [Visual Studio Application Insights](app-insights-overview.md), Application Map is a visual layout of the dependency relationships of your application components. Each component shows KPIs such as load, performance, failures, and alerts, to help you discover any component causing a performance issue or failure. You can click through from any component to more detailed diagnostics, both from Application Insights, and - if your app uses Azure services - Azure diagnostics, such as the SQL Database Advisor recommendations.
 
-Por favor, [faça comentários por meio da opção Comentários no portal](app-insights-get-dev-support.md).
+Like other charts, you can pin an application map to the Azure dashboard, where it is fully functional. 
+
+## <a name="open-the-application-map"></a>Open the application map
+
+Open the map from the overview blade for your application:
+
+![open app map](./media/app-insights-app-map/01.png)
+
+![app map](./media/app-insights-app-map/02.png)
+
+The map shows:
+
+* Availability tests
+* Client side component (monitored with the JavaScript SDK)
+* Server side component
+* Dependencies of the client and server components
+
+You can expand and collapse dependency link groups:
+
+![collapse](./media/app-insights-app-map/03.png)
+ 
+If you have a large number of dependencies of one type (SQL, HTTP etc.), they may appear grouped. 
 
 
-![Imagem de MapLink-1](./media/app-insights-app-map/13.png)
+![grouped dependencies](./media/app-insights-app-map/03-2.png)
+ 
+ 
+## <a name="spot-problems"></a>Spot problems
 
-<!---HONumber=AcomDC_0622_2016-->
+Each node has relevant performance indicators, such as the load, performance and failure rates for that component. 
+
+Warning icons highlight possible problems. An orange warning means there are failures in requests, page views or dependency calls. Red means a failure rate above 5%.
+
+
+![failure icons](./media/app-insights-app-map/04.png)
+
+ 
+Active alerts also show up: 
+
+
+![active alerts](./media/app-insights-app-map/05.png)
+ 
+If you use SQL Azure, there's an icon that shows when there are recommendations on how you can improve performance. 
+
+
+![Azure recommendation](./media/app-insights-app-map/06.png)
+
+Click any icon to get more details:
+
+
+![azure recommendation](./media/app-insights-app-map/07.png)
+ 
+ 
+## <a name="diagnostic-click-through"></a>Diagnostic click through
+
+Each of the nodes on the map offers targeted click through for diagnostics. The options vary depending on the type of the node.
+
+![server options](./media/app-insights-app-map/09.png)
+
+ 
+For components that are hosted in Azure, the options include direct links to them.
+
+
+## <a name="filters-and-time-range"></a>Filters and time range
+
+By default, the map summarizes all the data available for the chosen time range. But you can filter it to include only specific operation names or dependencies.
+
+* Operation name: This includes both page views and server side request types. With this option, the map shows the KPI on the server/client side node for the selected operations only. It shows the dependencies called in the context of those specific operations.
+* Dependency base name: This includes the AJAX browser side dependencies and server side dependencies. If you report custom dependency telemetry with the TrackDependency API, they will also show here. You can select the dependencies to show on the map. Please note that at this time, this will not filter the server side requests, or the client side page views.
+
+
+![Set filters](./media/app-insights-app-map/11.png)
+
+ 
+ 
+## <a name="save-filters"></a>Save filters
+
+To save the filters you have applied, pin the filtered view onto a [dashboard](app-insights-dashboards.md).
+
+
+![Pin to dashboard](./media/app-insights-app-map/12.png)
+ 
+
+
+## <a name="feedback"></a>Feedback
+
+Please [provide feedback through the portal feedback option](app-insights-get-dev-support.md).
+
+
+![MapLink-1 image](./media/app-insights-app-map/13.png)
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

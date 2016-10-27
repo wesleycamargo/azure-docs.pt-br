@@ -1,22 +1,22 @@
-Verifique se você já criou um namespace do Barramento de Serviço, como mostrado [aqui][namespace-how-to].
+Please ensure that you have already created a Service Bus namespace, as shown [here][namespace-how-to].
 
-1. Faça logon no [portal do Azure][azure-portal].
+1. Log on to the [Azure portal][azure-portal].
 
-2. No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
+2. In the left navigation pane of the portal, click **Service Bus**.
 
-3. Selecione o namespace no qual você gostaria de criar a fila. Nesse caso, é **nstest1**.
+3. Select the namespace that you would like to create the queue in. In this case, it is **nstest1**.
 
-    ![Criar uma fila][createqueue1]
+    ![Create a queue][createqueue1]
 
-4. Na folha**namespace do Barramento de Serviço**, selecione **Filas** e clique em **Adicionar fila**.
+4. In the **Service Bus namespace** blade, select **Queues**, then click **Add queue**.
 
-    ![Selecionar Filas][createqueue2]
+    ![Select Queues][createqueue2]
 
-5. Insira o **Nome da Fila** e deixe os outros valores com os padrões.
+5. Enter the **Queue Name** and leave the other values with their defaults.
 
-    ![Selecionar Nova][createqueue3]
+    ![Select New][createqueue3]
 
-7. Na parte inferior da folha, clique em **Criar**.
+7. At the bottom of the blade, click **Create**.
 
 [createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
 [createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
@@ -25,4 +25,6 @@ Verifique se você já criou um namespace do Barramento de Serviço, como mostra
 [namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
 [azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,56 +1,57 @@
 <properties
-	pageTitle="Como usar os tópicos de Barramento de Serviço (Ruby) | Microsoft Azure"
-	description="Aprenda a usar assinaturas e tópicos do Barramento de Serviço no Azure. Exemplos de código são escritos para aplicativos Ruby."
-	services="service-bus-messaging"
-	documentationCenter="ruby"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Como usar os tópicos de Barramento de Serviço (Ruby) | Microsoft Azure"
+    description="Aprenda a usar assinaturas e tópicos do Barramento de Serviço no Azure. Exemplos de código são escritos para aplicativos Ruby."
+    services="service-bus"
+    documentationCenter="ruby"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ruby"
-	ms.topic="article"
-	ms.date="03/09/2016"
-	ms.author="sethm"/>
+    ms.service="service-bus"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="ruby"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="sethm"/>
 
-# Como usar os tópicos/assinaturas do Barramento de Serviço
+
+# <a name="how-to-use-service-bus-topics/subscriptions"></a>Como usar os tópicos/assinaturas do Barramento de Serviço
 
 [AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Este guia descreve como usar tópicos do Barramento de Serviço e assinaturas de aplicativos Ruby. Os cenários abordados incluem a **criação de tópicos e assinaturas, a criação de filtros de assinatura, o envio de mensagens** para um tópico, o **recebimento de mensagens de uma assinatura** e a **exclusão de tópicos e assinaturas**. Para obter mais informações sobre tópicos e assinaturas, consulte a seção [Próximas etapas](#next-steps).
+Este artigo descreve como usar tópicos do Barramento de Serviço e assinaturas de aplicativos Ruby. Os cenários abordados incluem a **criação de tópicos e assinaturas, a criação de filtros de assinatura, o envio de mensagens** para um tópico, o **recebimento de mensagens de uma assinatura** e a **exclusão de tópicos e assinaturas**. Para obter mais informações sobre tópicos e assinaturas, consulte a seção [Próximas etapas](#next-steps).
 
-## Tópicos e assinaturas do Barramento de Serviço
+## <a name="service-bus-topics-and-subscriptions"></a>Tópicos e assinaturas do Barramento de Serviço
 
-Os tópicos e assinaturas do Barramento de Serviço oferecem suporte a um modelo de **comunicação de mensagens de publicação/assinatura**. Durante o uso de tópicos e assinaturas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, eles trocam mensagens por meio de um tópico, que atua como um intermediário.
+Os tópicos e assinaturas do Barramento de Serviço dão suporte a um modelo de comunicação de mensagens de *publicação/assinatura* . Durante o uso de tópicos e assinaturas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, eles trocam mensagens por meio de um tópico, que atua como um intermediário.
 
 ![Conceitos de tópico](./media/service-bus-ruby-how-to-use-topics-subscriptions/sb-topics-01.png)
 
-Em contraste com filas do Barramento de serviço, em que cada mensagem é processada por um único consumidor, tópicos e assinaturas fornecem uma forma de comunicação de **um para muitos** usando um padrão de publicação/assinatura. É possível registrar várias assinaturas em um tópico. Quando uma mensagem é enviada a um tópico, ela é disponibilizada para cada assinatura para ser manipulada/processada de forma independente.
+Em contraste com filas do Barramento de Serviço, em que cada mensagem é processada por um único consumidor, tópicos e assinaturas fornecem uma forma de comunicação de **um para muitos** usando um padrão de publicação/assinatura. É possível registrar várias assinaturas para um tópico. Quando uma mensagem é enviada a um tópico, é disponibilizada para cada assinatura para ser manipulada/processada de forma independente.
 
 Uma assinatura de tópico é semelhante a uma fila virtual que recebe cópias das mensagens enviadas para o tópico. Outra opção é registrar regras de filtro para um tópico por assinatura, o que permite que você filtre/restrinja quais mensagens para um tópico são recebidas por quais assinaturas de tópico.
 
-As assinaturas e os tópicos do Barramento de Serviço permitem o dimensionamento para processar um grande número de mensagens em muitos usuários e aplicativos.
+As assinaturas e os tópicos do Barramento de Serviço permitem o dimensionamento para processar um grande número de mensagens entre muitos usuários e aplicativos.
 
-## Criar um namespace de serviço
+## <a name="create-a-namespace"></a>Criar um namespace
 
-Para começar a usar filas do Barramento de Serviço no Azure, primeiro crie um namespace de serviço. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo. Você deve criar o namespace através da interface de linha de comando porque o [Portal clássico do Azure][] não cria o namespace com uma conexão do ACS.
+Para começar a usar as filas do Barramento de Serviço no Azure, primeiro é necessário criar um namespace. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo. Você deve criar o namespace através da interface de linha de comando porque o [Portal do Azure][] não cria o namespace com uma conexão do ACS.
 
 Para criar um namespace:
 
-1. Abra uma janela de console do PowerShell do Azure.
+1. Abra uma janela de console do Azure PowerShell.
 
 2. Digite o comando a seguir para criar um namespace. Forneça seu próprio valor de namespace e especifique a mesma região que a do seu aplicativo.
 
-	```
-	New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
-	```
+    ```
+    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
+    ```
 
-	![Criar um Namespace](./media/service-bus-ruby-how-to-use-topics-subscriptions/showcmdcreate.png)
+    ![Criar um Namespace](./media/service-bus-ruby-how-to-use-topics-subscriptions/showcmdcreate.png)
 
-## Obter credenciais de gerenciamento padrão para o namespace
+## <a name="obtain-default-management-credentials-for-the-namespace"></a>Obter credenciais de gerenciamento padrão para o namespace
 
 A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, obtenha as credenciais de gerenciamento para o namespace.
 
@@ -59,23 +60,23 @@ O cmdlet do PowerShell que você executou para criar o namespace do Barramento d
 ![Copiar chave](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
 > [AZURE.NOTE]
-Você também poderá encontrar essa chave se efetuar logon no [Portal clássico do Azure][] e navegar até as informações de conexão para seu namespace.
+> Você também poderá encontrar essa chave se fazer logon no [Portal do Azure][] e navegar até as informações de conexão para seu namespace.
 
-## Criar um aplicativo Ruby
+## <a name="create-a-ruby-application"></a>Criar um aplicativo Ruby
 
-Para obter instruções, consulte [Criar um aplicativo Ruby no Azure (a página pode estar em inglês)](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Para obter instruções, confira [Criar um aplicativo Ruby no Azure (a página pode estar em inglês)](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
-## Configurar seu aplicativo para usar o Barramento de Serviço
+## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de Serviço
 
 Para usar o Barramento de Serviço, baixe e use o pacote do Azure do Ruby, que inclui um conjunto de bibliotecas convenientes que se comunicam com os serviços REST de armazenamento.
 
-### Usar RubyGems para obter o pacote
+### <a name="use-rubygems-to-obtain-the-package"></a>Usar RubyGems para obter o pacote
 
-1. Use uma interface da linha de comando como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
+1. Use uma interface de linha de comando como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
 
 2. Digite "gem install azure" na janela de comandos para instalar a gema e as dependências.
 
-### Importar o pacote
+### <a name="import-the-package"></a>Importar o pacote
 
 Usando seu editor de texto favorito, adicione o seguinte na parte superior do arquivo do Ruby no qual você pretende usar o armazenamento:
 
@@ -83,7 +84,7 @@ Usando seu editor de texto favorito, adicione o seguinte na parte superior do ar
 require "azure"
 ```
 
-## Configurar uma conexão do Barramento de Serviço
+## <a name="set-up-a-service-bus-connection"></a>Configurar uma conexão do Barramento de Serviço
 
 O módulo Azure lê as variáveis de ambiente **AZURE\_SERVICEBUS\_NAMESPACE** e **AZURE\_SERVICEBUS\_ACCESS\_KEY** para obter as informações necessárias para se conectar ao namespace. Se essas variáveis de ambiente não forem definidas, você deverá especificar as informações do namespace antes de usar **Azure::ServiceBusService** com o seguinte código:
 
@@ -92,9 +93,9 @@ Azure.config.sb_namespace = "<your azure service bus namespace>"
 Azure.config.sb_access_key = "<your azure service bus access key>"
 ```
 
-Defina o valor do namespace para o valor que você criou, em vez de toda a URL. Por exemplo, use **"yourexamplenamespace"**, não "yourexamplenamespace.servicebus.windows.net".
+Defina o valor do namespace para o valor que você criou, em vez de toda a URL. Por exemplo, use **"seunamespacedeexemplo"**, não "seunamespacedeexemplo.servicebus.windows.net".
 
-## Criar um tópico
+## <a name="create-a-topic"></a>Criar um tópico
 
 O objeto **Azure::ServiceBusService** permite que você trabalhe com tópicos. O código a seguir cria um objeto **Azure::ServiceBusService**. Para criar um tópico, use o método **create\_topic()**. O exemplo a seguir cria um tópico ou imprime os erros, caso haja algum.
 
@@ -117,13 +118,13 @@ topic.default_message_time_to_live = "PT1M"
 topic = azure_service_bus_service.create_topic(topic)
 ```
 
-## Criar assinaturas
+## <a name="create-subscriptions"></a>Criar assinaturas
 
 As assinaturas do tópico também são criadas com o objeto **Azure::ServiceBusService**. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens entregues à fila virtual da assinatura.
 
 As assinaturas são persistentes e continuarão existindo até que elas ou o tópico ao qual estão associadas sejam excluídos. Se seu aplicativo contiver a lógica para criar uma assinatura, ele deve primeiro verificar se a assinatura já existe usando o método getSubscription.
 
-### Criar uma assinatura com o filtro padrão (MatchAll)
+### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
 
 O filtro **MatchAll** será o padrão usado se nenhum filtro for especificado quando uma nova assinatura for criada. Quando o filtro **MatchAll** é usado, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada "all-messages" e usa o filtro padrão **MatchAll**.
 
@@ -131,15 +132,15 @@ O filtro **MatchAll** será o padrão usado se nenhum filtro for especificado qu
 subscription = azure_service_bus_service.create_subscription("test-topic", "all-messages")
 ```
 
-### Criar assinaturas com os filtros
+### <a name="create-subscriptions-with-filters"></a>Criar assinaturas com os filtros
 
 Você também pode definir filtros que permitem especificar quais mensagens enviadas a um tópico devem aparecer dentro de uma assinatura específica.
 
-O tipo de filtro mais flexível compatível com assinaturas é o **Azure::ServiceBus::SqlFilter**, que implementa um subconjunto de SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para obter mais detalhes sobre as expressões que podem ser usadas com um filtro SQL, examine a sintaxe [SqlFilter.SqlExpression](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
+O tipo de filtro mais flexível com suporte pelas assinaturas é o **Azure::ServiceBus::SqlFilter**, que implementa um subconjunto de SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para obter mais detalhes sobre as expressões que podem ser usadas com um filtro SQL, examine a sintaxe [SqlFilter.SqlExpression](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
 
 É possível adicionar filtros a uma assinatura usando o método **create\_rule()** do objeto **Azure::ServiceBusService**. Este método permite que você adicione novos filtros a uma assinatura existente.
 
-Como o filtro padrão é aplicado automaticamente em todas as assinaturas novas, você deve primeiro remover o filtro padrão, ou o filtro **MatchAll** substituirá todos os outros filtros que você possa especificar. Você pode remover a regra padrão usando o método **delete\_rule ()** do objeto **Azure::ServiceBusService**.
+Como o filtro padrão é aplicado automaticamente em todas as assinaturas novas, você deve primeiro remover o filtro padrão, ou o filtro **MatchAll** substituirá todos os outros filtros que você possa especificar. Você pode remover a regra padrão usando o método **delete\_rule()** do objeto **Azure::ServiceBusService**.
 
 O exemplo a seguir cria uma assinatura chamada "high-messages" com um **Azure::ServiceBus::SqlFilter** que seleciona apenas mensagens que têm uma propriedade **message\_number** personalizada maior que 3:
 
@@ -155,7 +156,7 @@ rule.filter = Azure::ServiceBus::SqlFilter.new({
 rule = azure_service_bus_service.create_rule(rule)
 ```
 
-Da mesma forma, o seguinte exemplo cria uma assinatura chamada "low-messages" com um **Azure::ServiceBus::SqlFilter** que seleciona apenas mensagens que têm uma propriedade **message\_number** menor que ou igual a 3:
+Da mesma forma, o seguinte exemplo cria uma assinatura chamada "low-messages" com um **Azure::ServiceBus::SqlFilter** que seleciona apenas mensagens que têm uma propriedade **message_number** menor que ou igual a 3:
 
 ```
 subscription = azure_service_bus_service.create_subscription("test-topic", "low-messages")
@@ -171,11 +172,11 @@ rule = azure_service_bus_service.create_rule(rule)
 
 Quando uma mensagem é enviada para "test-topic", ela é sempre fornecida aos destinatários inscritos na assinatura do tópico "all-messages" e fornecida de forma seletiva para os destinatários inscritos nas assinaturas dos tópicos "high-messages" e "low-messages" (dependendo do conteúdo de mensagem).
 
-## Enviar mensagens para um tópico
+## <a name="send-messages-to-a-topic"></a>Enviar mensagens para um tópico
 
-Para enviar uma mensagem a um tópico do Barramento de Serviço, o aplicativo deve usar o método **send\_topic\_message()** do objeto **Azure::ServiceBusService**. As mensagens enviadas aos tópicos do Barramento de Serviço são instâncias dos objetos **Azure::ServiceBus::BrokeredMessage**. Os objetos **Azure::ServiceBus::BrokeredMessage** têm um conjunto de propriedades padrão (como **rótulo** e **time\_to\_live**), um dicionário que é usado para manter propriedades personalizadas específicas ao aplicativo e um corpo de dados da cadeia. Um aplicativo pode definir o corpo da mensagem transmitindo um valor da cadeia ao método **send\_topic\_message()** e todas as propriedades padrão exigidas serão preenchidas por valores padrão.
+Para enviar uma mensagem a um tópico do Barramento de Serviço, o aplicativo deve usar o método **send\_topic\_message()** do objeto **Azure::ServiceBusService**. As mensagens enviadas aos tópicos do Barramento de Serviço são instâncias dos objetos **Azure::ServiceBus::BrokeredMessage**. Os objetos **Azure::ServiceBus::BrokeredMessage** têm um conjunto de propriedades padrão (como **label** e **time\_to\_live**), um dicionário que é usado para manter propriedades personalizadas específicas ao aplicativo e um corpo de dados da cadeia. Um aplicativo pode definir o corpo da mensagem transmitindo um valor da cadeia ao método **send\_topic\_message()** e todas as propriedades padrão exigidas serão preenchidas por valores padrão.
 
-O exemplo a seguir demonstra como enviar cinco mensagens de teste para "test-topic". Observe que o valor da propriedade personalizada **message\_number** de cada mensagem varia de acordo com a iteração do loop (isso determina qual assinatura o recebe):
+O exemplo a seguir demonstra como enviar cinco mensagens de teste para "test-topic". Observe que o valor da propriedade personalizada **message_number** de cada mensagem varia de acordo com a iteração do loop (isso determina qual assinatura o recebe):
 
 ```
 5.times do |i|
@@ -187,15 +188,15 @@ end
 
 Os tópicos do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em um tópico, mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB.
 
-## Receber mensagens de uma assinatura
+## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma assinatura
 
-As mensagens são recebidas de uma assinatura com o método de **receive\_subscription\_message()** no objeto **Azure::ServiceBusService**. Por padrão, as mensagens são lidas (pico) e bloqueadas sem excluí-las da assinatura. Você pode ler e excluir a mensagem da assinatura definindo a opção **peek\_lock** para **false**.
+As mensagens são recebidas de uma assinatura usando o método **receive\_subscription\_message()** no objeto **Azure::ServiceBusService**. Por padrão, as mensagens são lidas (pico) e bloqueadas sem excluí-las da assinatura. Você pode ler e excluir a mensagem da assinatura definindo a opção **peek\_lock** como **false**.
 
 O comportamento padrão faz com que a leitura e a exclusão se dividam em uma operação de dois estágios, o que também torna possível o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma segura para um processamento futuro), ele conclui o segundo estágio processo de recebimento chamando o método **delete\_subscription\_message()** e fornecendo a mensagem a ser excluída como um parâmetro. O método **delete\_subscription\_message()** marcará a mensagem como consumida e a removerá da assinatura.
 
-Se o parâmetro **:peek\_lock** estiver definido como **false**, a leitura e a exclusão da mensagem se tornam o modelo mais simples e funcionam melhor em cenários nos quais o aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
+Se o parâmetro **:peek\_lock** estiver definido como **false**, a leitura e a exclusão da mensagem se tornarão o modelo mais simples e funcionarão melhor em cenários nos quais o aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
-O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando **receive\_subscription\_message()**. O exemplo primeiro recebe e exclui uma mensagem da assinatura "low-messages" usando **: peek\_lock** definido para **false**, em seguida, ele recebe outra mensagem de "high-messages" e exclui a mensagem usando **delete\_queue\_message()**:
+O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando **receive\_subscription\_message()**. O exemplo primeiro recebe e exclui uma mensagem da assinatura "low-messages" usando **:peek\_lock** definido para **false**, em seguida, ele recebe outra mensagem de "high-messages" e exclui a mensagem usando **delete\_subscription\_message()**:
 
 ```
 message = azure_service_bus_service.receive_subscription_message(
@@ -205,17 +206,17 @@ message = azure_service_bus_service.receive_subscription_message(
 azure_service_bus_service.delete_subscription_message(message)
 ```
 
-## Tratar falhas do aplicativo e mensagens ilegíveis
+## <a name="handle-application-crashes-and-unreadable-messages"></a>Tratar falhas do aplicativo e mensagens ilegíveis
 
 O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não puder processar a mensagem por algum motivo, ele chamará o método **unlock\_subscription\_message()** no objeto **Azure::ServiceBusService**. Isso fará com que o Barramento de Serviço desbloqueie a mensagem na assinatura e disponibilize-a para ser recebida novamente, pelo mesmo aplicativo de consumo ou por outro.
 
 Também há um tempo limite associado a uma mensagem bloqueada na assinatura, e se o aplicativo falhar em processar a mensagem antes da expiração do tempo limite do bloqueio (por exemplo, se o aplicativo falhar), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
 
-Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método **delete\_subscription\_message()** seja chamado, a mensagem será fornecida novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Essa lógica geralmente é obtida com a propriedade **message\_id** da mensagem, que permanecerá constante nas tentativas da entrega.
+Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método **delete\_subscription\_message()** seja chamado, a mensagem será fornecida novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade **message\_id** da mensagem, que permanecerá constante nas tentativas da entrega.
 
-## Excluir tópicos e assinaturas
+## <a name="delete-topics-and-subscriptions"></a>Excluir tópicos e assinaturas
 
-Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do [portal clássico do Azure](https://manage.windowsazure.com) ou de forma programática. O exemplo a seguir demonstra como excluir o tópico denominado "test-topic".
+Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do [Portal do Azure][] ou de forma programática. O exemplo a seguir demonstra como excluir o tópico denominado "test-topic".
 
 ```
 azure_service_bus_service.delete_topic("test-topic")
@@ -227,14 +228,18 @@ A exclusão de um tópico também exclui todas as assinaturas registradas com o 
 azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, acesse estes links para saber mais.
 
-- Consulte [Filas, tópicos e assinaturas](service-bus-queues-topics-subscriptions.md).
+- Confira [Filas, tópicos e assinaturas](service-bus-queues-topics-subscriptions.md).
 - Referência da API para [SqlFilter](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx).
-- Visite o repositório do [SDK do Azure para Ruby](https://github.com/Azure/azure-sdk-for-ruby) no GitHub.
+- Visite o repositório [SDK do Azure para o Ruby](https://github.com/Azure/azure-sdk-for-ruby) no GitHub.
  
-[Portal clássico do Azure]: http://manage.windowsazure.com
+[Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

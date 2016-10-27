@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modelo de vinculação de recursos do Gerenciador de Recursos | Microsoft Azure"
-   description="Mostra o esquema do Gerenciador de Recursos para implantar vínculos entre os recursos relacionados por meio de um modelo."
+   pageTitle="Resource Manager template for linking resources | Microsoft Azure"
+   description="Shows the Resource Manager schema for deploying links between related resources through a template."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,13 +16,14 @@
    ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
-# Vínculos de recursos - esquema do modelo
 
-Cria um vínculo entre dois recursos. O vínculo é aplicado a um recurso conhecido como o recurso de origem. O segundo recurso no vínculo é conhecido como o recurso de destino.
+# <a name="resource-links-template-schema"></a>Resource links template schema
 
-## Formato de esquema
+Creates a link between two resources. The link is applied to a resource known as the source resource. The second resource in the link is known as the target resource.
 
-Para criar um vínculo, adicione o esquema a seguir à seção de recursos do seu modelo.
+## <a name="schema-format"></a>Schema format
+
+To create a link, add the following schema to the resources section of your template.
     
     {
         "type": enum,
@@ -38,41 +39,42 @@ Para criar um vínculo, adicione o esquema a seguir à seção de recursos do se
 
 
 
-## Valores
+## <a name="values"></a>Values
 
-As tabelas a seguir descrevem os valores necessários para definir no esquema.
+The following tables describe the values you need to set in the schema.
 
-| Nome | Valor |
+| Name | Value |
 | ---- | ---- |
-| type | Enum<br />Obrigatório<br />**{namespace}/{tipo}/providers/links**<br /><br />O tipo de recurso a ser criado. Os valores {namespace} e {tipo} referem-se ao tipo de recurso e ao namespace do provedor do recurso de origem. |
-| apiVersion | Enum<br />Obrigatório<br />**2015-01-01**<br /><br />A versão da API a ser usada para criar o recurso. |  
-| name | Cadeia de caracteres<br />Obrigatório<br />**{recurso}/Microsoft.Resources/{nome do link}**<br /> Até 64 caracteres, não pode conter <, >, %, &,? ou caracteres de controle.<br /><br />Um valor que especifica o nome do recurso de origem e um nome para o link. | 
-| dependsOn | Matriz<br />Opcional<br />Uma lista separada por vírgulas com os nomes ou identificadores exclusivos de um recurso.<br /><br />A coleção de recursos de que este link depende. Se os recursos que você estiver vinculando estiverem implantados no mesmo modelo, inclua o nome desses recursos neste elemento para garantir que eles sejam implantados primeiro. | 
-| properties | Objeto<br />Obrigatório<br />[Objeto properties](#properties)<br /><br />Um objeto que identifica o recurso a ser vinculado e observações sobre o link. | 
+| type | Enum<br />Required<br />**{namespace}/{type}/providers/links**<br /><br />The resource type to create. The {namespace} and {type} values refer to the provider namespace and resource type of the source resource. |
+| apiVersion | Enum<br />Required<br />**2015-01-01**<br /><br />The API version to use for creating the resource. |  
+| name | String<br />Required<br />**{resouce}/Microsoft.Resources/{linkname}**<br /> up to 64 characters, and cannot contain <, > %, &, ?, or any control characters.<br /><br />A value that specifes both the name of source resource and a name for the link. |
+| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this link depends on. If the resources you are linking are deployed in the same template, include those resource names in this element to ensure they are deployed first. | 
+| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that identifies the resource to link to, and notes about the link. |  
 
 <a id="properties" />
-### properties object
+### <a name="properties-object"></a>properties object
 
-| Nome | Valor |
+| Name | Value |
 | ------- | ---- |
-| targetId | Cadeia de caracteres<br />Obrigatório<br />**{id do recurso}**<br /><br />O identificador do recurso alvo a ser vinculado. | | notes | Cadeia de caracteres<br />Opcional<br />Até 512 caracteres<br /><br />Descrição do bloqueio. |
+| targetId | String<br />Required<br />**{resource id}**<br /><br />The identifier of the target resource to link to. |
+| notes | String<br />Optional<br />up to 512 characters<br /><br />Description of the lock. |
 
 
-## Como usar o recurso de lin
+## <a name="how-to-use-the-link-resource"></a>How to use the link resource
 
-Aplique um vínculo entre dois recursos quando os recursos tiverem uma dependência que continua após a implantação. Por exemplo, um aplicativo pode se conectar a um banco de dados em outro grupo de recursos. Você pode definir essa dependência criando um vínculo do aplicativo para o banco de dados. Os vínculos permitem que você documente a relação entre dois recursos. Posteriormente, você ou outra pessoa em sua organização pode consultar um recurso para obter vínculos para descobrir como o recurso funciona com outros recursos.
+You apply a link between two resources when the resources have a dependency that continues after deployment. For example, an app may connect to a database in a different resource group. You can define that dependency by creating a link from the app to the database. Links enable you to document the relationship between two resources. Later, you or someone else in your organization can query a resource for links to discover how the resource works with other resources.
 
-Todos os recursos vinculados devem pertencer à mesma assinatura. Cada recurso pode ser vinculado a 50 outros recursos. Se um dos recursos vinculados for excluído ou movido, o proprietário do vínculo deverá remover o vínculo restante.
+All linked resources must belong to the same subscription. Each resource can be linked to 50 other resources. If any of the linked resources are deleted or moved, the link owner must clean up the remaining link.
 
-Para trabalhar com vínculos por meio da REST, veja [Recursos vinculados](https://msdn.microsoft.com/library/azure/mt238499.aspx).
+To work with links through REST, see [Linked Resources](https://msdn.microsoft.com/library/azure/mt238499.aspx).
 
-Use o comando do Azure PowerShell a seguir para ver todos os vínculos em sua assinatura. É possível fornecer outros parâmetros para limitar os resultados.
+Use the following Azure PowerShell command to see all of the links in your subscription. You can provide other parameters to limit the results.
 
     Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -ResourceGroupName <YourResourceGroupName>
 
-## Exemplos
+## <a name="examples"></a>Examples
 
-O exemplo a seguir aplica um bloqueio somente leitura a um aplicativo Web.
+The following example applies a read-only lock to a web app.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -119,25 +121,29 @@ O exemplo a seguir aplica um bloqueio somente leitura a um aplicativo Web.
                     "targetId": "[resourceId('Microsoft.Storage/storageAccounts','storagecontoso')]",
                     "notes": "This web site uses the storage account to store user information."
                 }
-    	    }
+            }
         ],
         "outputs": {}
     }
 
-## Modelos de início rápido
+## <a name="quickstart-templates"></a>Quickstart templates
 
-Os seguintes modelos de início rápido implantam recursos com um link.
+The following quickstart templates deploy resources with a link.
 
-- [Alerta de fila com Aplicativo lógico](https://azure.microsoft.com/documentation/templates/201-alert-to-queue-with-logic-app)
-- [Alerta de Margem de atraso com Aplicativo lógico](https://azure.microsoft.com/documentation/templates/201-alert-to-slack-with-logic-app)
-- [Provisionar um aplicativo de API com um gateway existente](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-existing)
-- [Provisionar um aplicativo de API com um novo gateway](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-new)
-- [Crie um Aplicativo Lógico mais um aplicativo de API usando um modelo](https://azure.microsoft.com/documentation/templates/201-logic-app-api-app-create)
-- [Aplicativo lógico que envia uma mensagem de texto quando um alerta é acionado](https://azure.microsoft.com/documentation/templates/201-alert-to-text-message-with-logic-app)
+- [Alert to queue with Logic app](https://azure.microsoft.com/documentation/templates/201-alert-to-queue-with-logic-app)
+- [Alert to Slack with Logic app](https://azure.microsoft.com/documentation/templates/201-alert-to-slack-with-logic-app)
+- [Provision an API app with an existing gateway](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-existing)
+- [Provision an API app with a new gateway](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-new)
+- [Create a Logic App plus API app using a template](https://azure.microsoft.com/documentation/templates/201-logic-app-api-app-create)
+- [Logic app that sends a text message when an alert fires](https://azure.microsoft.com/documentation/templates/201-alert-to-text-message-with-logic-app)
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Para obter informações sobre a estrutura do modelo, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
+- For information about the template structure, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

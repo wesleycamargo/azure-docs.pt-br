@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Cenários de dados envolvendo o Repositório Data Lake | Microsoft Azure" 
-   description="Entenda os diferentes cenários e as ferramentas usando quais dados podem ser ingeridos, processados, baixados e visualizados em um Repositório Data Lake" 
+   pageTitle="Data scenarios involving Data Lake Store | Microsoft Azure" 
+   description="Understand the different scenarios and tools using which data can ingested, processed, downloaded, and visualized in a Data Lake Store" 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -16,133 +16,138 @@
    ms.date="09/06/2016"
    ms.author="nitinme"/>
 
-# Como usar o Repositório Data Lake do Azure para exigências de big data
 
-Há quatro estágios principais no processamento de big data:
+# <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Using Azure Data Lake Store for big data requirements
 
-* Ingestão de grandes quantidades de dados em um repositório de dados, em tempo real ou em lotes
-* Processamento dos dados
-* Download dos dados
-* Visualização dos dados
+There are four key stages in big data processing:
 
-Neste artigo, analisamos esses estágios com relação ao Repositório Azure Data Lake para entender as opções e as ferramentas disponíveis para atender às suas necessidades de big data.
+* Ingesting large amounts of data into a data store, at real-time or in batches
+* Processing the data
+* Downloading the data
+* Visualizing the data
 
-## Ingerir dados no Repositório Data Lake
+In this article, we look at these stages with respect to Azure Data Lake Store to understand the options and tools available to meet your big data needs.
 
-Esta seção destaca as diferentes fontes de dados e as diferentes maneiras que os dados podem ser ingeridos em uma conta do Repositório Data Lake.
+## <a name="ingest-data-into-data-lake-store"></a>Ingest data into Data Lake Store
 
-![Ingerir dados no Repositório Data Lake](./media/data-lake-store-data-scenarios/ingest-data.png "Ingerir dados no Repositório Data Lake")
+This section highlights the different sources of data and the different ways in which that data can be ingested into a Data Lake Store account.
 
-### Dados ad hoc
+![Ingest data into Data Lake Store](./media/data-lake-store-data-scenarios/ingest-data.png "Ingest data into Data Lake Store")
 
-Representam conjuntos de dados menores que são usados para criar protótipos de um aplicativo de big data. Há diferentes maneiras de ingerir dados ad hoc, dependendo da fonte dos dados.
+### <a name="ad-hoc-data"></a>Ad hoc data
 
-| Fonte de dados | Ingeri-la usando |
+This represents smaller data sets that are used for prototyping a big data application. There are different ways of ingesting ad hoc data depending on the source of the data.
+
+| Data Source        | Ingest it using                                                                        |
 |--------------------|----------------------------------------------------------------------------------------|
-| Computador local | <ul> <li>[Portal do Azure](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[CLI entre plataformas do Azure](data-lake-store-get-started-cli.md)</li> <li>[Usando as Ferramentas do Data Lake para o Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md#upload-source-data-files) </li></ul> |
-| Blob de Armazenamento do Azure | <ul> <li>[Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store)</li> <li>[Ferramenta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp em execução no cluster HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
+| Local computer     | <ul> <li>[Azure Portal](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure Cross-platform CLI](data-lake-store-get-started-cli.md)</li> <li>[Using Data Lake Tools for Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md#upload-source-data-files) </li></ul> |
+| Azure Storage Blob | <ul> <li>[Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store)</li> <li>[AdlCopy tool](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp running on HDInsight cluster](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
  
-### Dados transmitidos
+### <a name="streamed-data"></a>Streamed data
 
-Representam os dados que podem ser gerados por várias fontes, como aplicativos, dispositivos, sensores, etc. Esses dados podem ser ingeridos em um Repositório Data Lake por uma variedade de ferramentas. Essas ferramentas geralmente capturam e processam os dados em um evento em tempo real e gravam os eventos em lotes no Repositório Data Lake para que depois eles possam ser processados.
+This represents data that can be generated by various sources such as applications, devices, sensors, etc. This data can be ingested into a Data Lake Store by variety tools. These tools will usually capture and process the data on an event-by-event basis in real-time, and then write the events in batches into Data Lake Store so that they can be further processed. 
 
-Veja as ferramentas que você pode usar:
+Following are tools that you can use:
  
-* [Stream Analytics do Azure](../stream-analytics-data-lake-output): eventos ingeridos nos Hubs de Eventos podem ser gravados no Azure Data Lake usando uma saída do Azure Data Lake Store.
-* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md): é possível gravar dados diretamente do cluster Storm no Data Lake Store.
-* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost): é possível receber eventos dos Hubs de Eventos e gravá-los no Data Lake Store usando o [SDK para .NET do Data Lake Store](data-lake-store-get-started-net-sdk.md).
+* [Azure Stream Analytics] (../stream-analytics-data-lake-output) - Events ingested into Event Hubs can be written to Azure Data Lake using an Azure Data Lake Store output.
+* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) - You can write data directly to Data Lake Store from the Storm cluster.
+* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) – You can receive events from Event Hubs and then write it to Data Lake Store using the [Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md).
 
-### Dados relacionais
+### <a name="relational-data"></a>Relational data
 
-Você também pode originar dados nos bancos de dados relacionais. Durante um período, os bancos de dados relacionais coletam grandes volumes de dados que podem fornecer informações importantes se processados por meio de um pipeline de big data. É possível usar as ferramentas a seguir para mover tais dados para o Repositório Data Lake.
+You can also source data from relational databases. Over a period of time, relational databases collect huge amounts of data which can provide key insights if processed through a big data pipeline. You can use the following tools to move such data into Data Lake Store.
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 * [Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)
 
-### Dados de log do servidor Web (carregar usando aplicativos personalizados)
+### <a name="web-server-log-data-(upload-using-custom-applications)"></a>Web server log data (upload using custom applications)
 
-Esse tipo de conjunto de dados é especificamente chamado porque a análise dos dados do log do servidor Web é um caso de uso comum para aplicativos de big data e requer que grandes volumes de arquivos de log sejam carregados no Repositório Data Lake. Você pode usar qualquer uma das ferramentas a seguir para escrever seus próprios scripts ou aplicativos para carregar esses dados.
+This type of dataset is specifically called out because analysis of web server log data is a common use case for big data applications and requires large volumes of log files to be uploaded to the Data Lake Store. You can use any of the following tools to write your own scripts or applications to upload such data.
 
-* [CLI entre plataformas do Azure](data-lake-store-get-started-cli.md)
-* [PowerShell do Azure](data-lake-store-get-started-powershell.md)
-* [SDK .NET do Repositório Azure Data Lake](data-lake-store-get-started-net-sdk.md)
+* [Azure Cross-platform CLI](data-lake-store-get-started-cli.md)
+* [Azure PowerShell](data-lake-store-get-started-powershell.md)
+* [Azure Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)
 
-Para carregar dados de log do servidor Web, e também para carregar outros tipos de dados (por exemplo, dados de sentimentos sociais), é uma boa abordagem escrever seus próprios scripts/aplicativos personalizados, pois eles proporcionam a flexibilidade para incluir seus dados carregando o componente como parte do aplicativo maior de big data. Em alguns casos, esse código pode assumir a forma de um script ou um utilitário simples de linha de comando. Em outros casos, o código pode ser usado para integrar o processamento de big data em um aplicativo ou uma solução de negócios.
+For uploading web server log data, and also for uploading other kinds of data (e.g. social sentiments data), it is a good approach to write your own custom scripts/applications because it gives you the flexibility to include your data uploading component as part of your larger big data application. In some cases this code may take the form of a script or simple command line utility. In other cases, the code may be used to integrate big data processing into a business application or solution.
 
 
-### Dados associados aos clusters Azure HDInsight
+### <a name="data-associated-with-azure-hdinsight-clusters"></a>Data associated with Azure HDInsight clusters
 
-A maioria dos tipos de cluster HDInsight (Hadoop, HBase, Storm) é compatível com o Repositório Data Lake como um repositório de armazenamento de dados. Os clusters HDInsight acessam dados dos WASB (Blobs de Armazenamento do Azure). Para obter melhor desempenho, você pode copiar os dados do WASB em uma conta do Repositório Data Lake associada ao cluster. Você pode usar as ferramentas a seguir para copiar os dados.
+Most HDInsight cluster types (Hadoop, HBase, Storm) support Data Lake Store as a data storage repository. HDInsight clusters access data from Azure Storage Blobs (WASB). For better performance, you can copy the data from WASB into a Data Lake Store account associated with the cluster. You can use the following tools to copy the data.
 
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
-* [Serviço AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
+* [AdlCopy Service](data-lake-store-copy-data-azure-storage-blob.md)
 * [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store)
 
-### Dados armazenados em clusters locais ou Hadoop IaaS
+### <a name="data-stored-in-on-premise-or-iaas-hadoop-clusters"></a>Data stored in on-premise or IaaS Hadoop clusters
 
-É possível armazenar grandes quantidades de dados em clusters de Hadoop existentes, localmente em computadores que usam o HDFS. Os clusters Hadoop podem estar em uma implantação local ou podem estar em um cluster IaaS no Azure. Pode haver requisitos para copiar esses dados no Repositório Data Lake do Azure para uma abordagem única ou de forma recorrente. Há várias opções que podem ser usadas para conseguir isso. Veja abaixo uma lista de alternativas e as compensações associadas.
+Large amounts of data may be stored in existing Hadoop clusters, locally on machines using HDFS. The Hadoop clusters may be in an on-premise deployment or may be within an IaaS cluster on Azure. There could be requirements to copy such data to Azure Data Lake Store for a one-off approach or in a recurring fashion. There are various options that you can use to achieve this. Below is a list of alternatives and the associated trade-offs.
 
-| Abordagem | Detalhes | Vantagens | Considerações |
+| Approach  | Details | Advantages   | Considerations  |
 |-----------|---------|--------------|-----------------|
-| Usar o ADF (Azure Data Factory) para copiar dados diretamente de clusters Hadoop para o Repositório Data Lake do Azure | [O ADF oferece suporte ao HDFS como uma fonte de dados](../data-factory/data-factory-hdfs-connector.md) | O ADF fornece suporte nativo para HDFS e gerenciamento e monitoramento de primeira classe completo | Exige a implantação de um gateway de gerenciamento de dados no local ou no cluster IaaS |
-| Exporte os dados do Hadoop como arquivos. Em seguida, copie os arquivos no Repositório Data Lake do Azure Store usando o mecanismo apropriado. | Você pode copiar os arquivos no Azure Data Lake Store usando: <ul><li>[Azure PowerShell para o sistema operacional Windows](data-lake-store-get-started-powershell.md)</li><li>[CLI de plataforma cruzada do Azure para sistemas operacionais diferentes do Windows](data-lake-store-get-started-cli.md)</li><li>Aplicativo personalizado usando o SDK do Data Lake Store</li></ul> | Início rápido. Pode realizar carregamentos personalizados | Processo de várias etapas que envolve várias tecnologias. O monitoramento e o gerenciamento aumentarão a serão um desafio ao longo do tempo devido à natureza personalizada das ferramentas |
-| Use Distcp para copiar dados do Hadoop para o Armazenamento do Azure. Em seguida, copie os dados no Armazenamento do Azure para o Repositório Data Lake usando o mecanismo apropriado. | Você pode copiar dados do Armazenamento do Azure para o Data Lake Store usando: <ul><li>[Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)</li><li>[Ferramenta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp Apache em execução em clusters HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li></ul>| Você pode usar ferramentas de software livre. | Processo de várias etapas que envolve várias tecnologias |
+| Use Azure Data Factory (ADF) to copy data directly from Hadoop clusters to Azure Data Lake Store | [ADF supports HDFS as a data source](../data-factory/data-factory-hdfs-connector.md) | ADF provides out-of-the-box support for HDFS and first class end-to-end management and monitoring | Requires Data Management Gateway to be deployed on-premise or in the IaaS cluster |
+| Export data from Hadoop as files. Then copy the files to Azure Data Lake Store using appropriate mechanism.                                   | You can copy files to Azure Data Lake Store using: <ul><li>[Azure PowerShell for Windows OS](data-lake-store-get-started-powershell.md)</li><li>[Azure Cross-platform CLI for non-Windows OS](data-lake-store-get-started-cli.md)</li><li>Custom app using any Data Lake Store SDK</li></ul> | Quick to get started. Can do customized uploads                                                   | Multi-step process that involves multiple technologies. Management and monitoring will grow to be a challenge over time given the customized nature of the tools |
+| Use Distcp to copy data from Hadoop to Azure Storage. Then copy data from Azure Storage to Data Lake Store using appropriate mechanism. | You can copy data from Azure Storage to Data Lake Store using: <ul><li>[Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)</li><li>[AdlCopy tool](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Apache DistCp running on HDInsight clusters](data-lake-store-copy-data-wasb-distcp.md)</li></ul>| You can use open-source tools. | Multi-step process that involves multiple technologies |
 
-### Conjuntos de dados realmente grandes
+### <a name="really-large-datasets"></a>Really large datasets
 
-Carregar conjuntos de dados que incluem vários terabytes usando os métodos descritos acima, às vezes, pode ser uma tarefa lenta e onerosa. Nesses casos, você pode usar as opções a seguir.
+For uploading datasets that range in several terabytes, using the methods described above can sometimes be slow and costly. In such cases, you can use the options below.
 
-* **Usando o ExpressRoute do Azure**. A Rota Expressa do Azure permite criar conexões privadas entre os datacenters do Azure e a infraestrutura presente em seu local. Isso proporciona uma opção confiável para transferir grandes quantidades de dados. Para obter mais informações, confira a [documentação do ExpressRoute do Azure](../expressroute/expressroute-introduction.md).
-
-
-* **Carregamento de dados "offline"**. Se o uso do ExpressRoute do Azure não for possível por qualquer motivo, você poderá usar o [serviço de Importação/Exportação do Azure](../storage/storage-import-export-service.md) para enviar unidades de disco rígido com seus dados para um datacenter do Azure. Seus dados são carregados pela primeira vez nos Blobs de Armazenamento do Azure. Em seguida, é possível usar o [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) ou a [ferramenta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) para copiar dados dos Blobs de Armazenamento do Azure para o Data Lake Store.
-
-	>[AZURE.NOTE] Ao usar o serviço Importar/Exportar, os tamanhos dos arquivos nos discos que você envia ao datacenter do Azure não devem ultrapassar 200 GB.
+* **Using Azure ExpressRoute**. Azure ExpressRoute lets you create private connections between Azure datacenters and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. For more information, see [Azure ExpressRoute documentation](../expressroute/expressroute-introduction.md).
 
 
-## Processar dados armazenados no Repositório Data Lake
+* **"Offline" upload of data**. If using Azure ExpressRoute is not feasible for any reason, you can use [Azure Import/Export service](../storage/storage-import-export-service.md) to ship hard disk drives with your data to an Azure data center. Your data is first uploaded to Azure Storage Blobs. You can then use [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) or [AdlCopy tool](data-lake-store-copy-data-azure-storage-blob.md) to copy data from Azure Storage Blobs to Data Lake Store.
 
-Depois que os dados estiverem disponíveis no Repositório Data Lake, você poderá fazer uma análise nesses dados usando os aplicativos de big data compatíveis. Atualmente, é possível usar o Azure HDInsight e a Análise do Azure Data Lake para executar trabalhos de análise de dados nos dados armazenados em um Repositório Data Lake.
-
-![Analisar dados no Repositório Data Lake](./media/data-lake-store-data-scenarios/analyze-data.png "Analisar dados no Repositório Data Lake")
-
-Você pode analisar os exemplos a seguir.
-
-* [Criar um cluster HDInsight com o Repositório Data Lake como armazenamento](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+    >[AZURE.NOTE] While using the Import/Export service, the file sizes on the disks that you ship to Azure data center should not be greater than 200 GB.
 
 
+## <a name="process-data-stored-in-data-lake-store"></a>Process data stored in Data Lake Store
 
-## Baixar dados do Repositório Data Lake
+Once the data is available in Data Lake Store you can run analysis on that data using the supported big data applications. Currently, you can use Azure HDInsight and Azure Data Lake Analytics to run data analysis jobs on the data stored in Data Lake Store. 
 
-Você também pode querer baixar ou mover dados do Repositório Azure Data Lake para cenários como:
+![Analyze data in Data Lake Store](./media/data-lake-store-data-scenarios/analyze-data.png "Analyze data in Data Lake Store")
 
-* Mover dados para outros repositórios para fazer interface com os pipelines de processamento de dados existentes. Por exemplo, você pode querer mover os dados do Repositório Data Lake para o Banco de Dados SQL do Azure ou SQL Server local.
-* Baixar dados no computador local para processamento em ambientes IDE durante a criação de protótipos de aplicativo.
+You can look at the following examples.
 
-![Gerar dados do Repositório Data Lake](./media/data-lake-store-data-scenarios/egress-data.png "Gerar dados do Repositório Data Lake")
+* [Create an HDInsight cluster with Data Lake Store as storage](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
-Nesses casos, você pode usar qualquer uma das opções a seguir:
+
+
+## <a name="download-data-from-data-lake-store"></a>Download data from Data Lake Store
+
+You might also want to download or move data from Azure Data Lake Store for scenarios such as:
+
+* Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Store to Azure SQL Database or on-premises SQL Server.
+* Download data to your local computer for processing in IDE environments while building application prototypes.
+
+![Egress data from Data Lake Store](./media/data-lake-store-data-scenarios/egress-data.png "Egress data from Data Lake Store")
+
+In such cases, you can use any of the following options:
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 * [Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 
-Você também pode usar os métodos a seguir para escrever seu próprio script/aplicativo e baixar dados do Repositório Data Lake.
+You can also use the following methods to write your own script/application to download data from Data Lake Store.
 
-* [CLI entre plataformas do Azure](data-lake-store-get-started-cli.md)
-* [PowerShell do Azure](data-lake-store-get-started-powershell.md)
-* [SDK .NET do Repositório Azure Data Lake](data-lake-store-get-started-net-sdk.md)
+* [Azure Cross-platform CLI](data-lake-store-get-started-cli.md)
+* [Azure PowerShell](data-lake-store-get-started-powershell.md)
+* [Azure Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md)
 
-## Visualizar dados no Repositório Data Lake
+## <a name="visualize-data-in-data-lake-store"></a>Visualize data in Data Lake Store
 
-Você pode usar uma combinação de serviços para criar representações visuais de dados armazenados no Repositório Data Lake.
+You can use a mix of services to create visual representations of data stored in Data Lake Store.
 
-![Visualizar dados no Repositório Data Lake](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizar dados no Repositório Data Lake")
+![Visualize data in Data Lake Store](./media/data-lake-store-data-scenarios/visualize-data.png "Visualize data in Data Lake Store")
 
-* É possível começar usando o [Azure Data Factory para mover dados do Data Lake Store para um SQL Data Warehouse do Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)
-* Depois disso, você pode [integrar o Power BI ao SQL Data Warehouse do Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) para criar a representação visual dos dados.
+* You can start by using [Azure Data Factory to move data from Data Lake Store to Azure SQL Data Warehouse](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)
+* After that, you can [integrate Power BI with Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) to create visual representation of the data.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

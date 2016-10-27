@@ -1,156 +1,161 @@
 <properties
-	pageTitle="Alta Disponibilidade e Recuperação de Desastres para SQL Server | Microsoft Azure"
-	description="Uma discussão sobre os diversos tipos de estratégias HADR do SQL Server em execução em máquinas virtuais do Azure."
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="MikeRayMSFT"
-	manager="jhubbard"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="High Availability and Disaster Recovery for SQL Server | Microsoft Azure"
+    description="A discussion of the various types of HADR strategies for SQL Server running in Azure Virtual Machines."
+    services="virtual-machines-windows"
+    documentationCenter="na"
+    authors="MikeRayMSFT"
+    manager="jhubbard"
+    editor=""
+    tags="azure-service-management"/>
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="07/12/2016"
-	ms.author="MikeRayMSFT" />
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="07/12/2016"
+    ms.author="MikeRayMSFT" />
 
-# Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure
 
-## Visão geral
+# <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>High availability and disaster recovery for SQL Server in Azure Virtual Machines
 
-VMs (Máquinas virtuais) do Microsoft Azure com SQL Server podem ajudar a reduzir o custo de uma solução de banco de dados HADR (Alta Disponibilidade e Recuperação de Desastre). A maioria das soluções HADR do SQL Server tem suporte em máquinas virtuais do Azure, tanto como somente Azure ou como soluções híbridas. Em uma solução somente Azure, todo o sistema HADR é executado no Azure. Em uma configuração híbrida, parte da solução é executada no Azure e a outra parte é executada localmente em sua organização. A flexibilidade do ambiente do Azure permite que você se mova parcial ou completamente para o Azure para atender aos requisitos de orçamento e HADR de seus sistemas de banco de dados do SQL Server.
+## <a name="overview"></a>Overview
+
+Microsoft Azure virtual machines (VMs) with SQL Server can help lower the cost of a high availability and disaster recovery (HADR) database solution. Most SQL Server HADR solutions are supported in Azure virtual machines, both as Azure-only and as hybrid solutions. In an Azure-only solution, the entire HADR system runs in Azure. In a hybrid configuration, part of the solution runs in Azure and the other part runs on-premises in your organization. The flexibility of the Azure environment enables you to move partially or completely to Azure to satisfy the budget and HADR requirements of your SQL Server database systems.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-## Compreendendo a necessidade de uma solução HADR
+## <a name="understanding-the-need-for-an-hadr-solution"></a>Understanding the need for an HADR solution
 
-Cabe a você garantir que seu sistema de banco de dados possua os recursos HADR que o SLA (Contrato de Nível de Serviço) exige. O fato de que o Azure fornece mecanismos de alta disponibilidade, como recuperação de serviço para serviços de nuvem e detecção de recuperação de falhas para máquinas virtuais, não é garantia de que você possa atender ao SLA desejado. Esses mecanismos protegem a alta disponibilidade das VMs, mas não a alta disponibilidade do SQL Server em execução nas VMs. É possível que a instância do SQL Server falhe enquanto a VM estiver online e íntegra. Além disso, até mesmo os mecanismos de alta disponibilidade fornecidos pelo Azure permitem tempo de inatividade das VMs em razão de eventos como recuperação de software ou falhas de hardware e atualizações do sistema operacional.
+It is up to you to ensure that your database system possesses the HADR capabilities that the service-level agreement (SLA) requires. The fact that Azure provides high availability mechanisms, such as service healing for cloud services and failure recovery detection for the Virtual Machines, does not itself guarantee you can meet the desired SLA.  These mechanisms protect the high availability of the VMs but not the high availability of SQL Server running inside the VMs. It is possible for the SQL Server instance to fail while the VM is online and healthy. Moreover, even the high availability mechanisms provided by Azure allow for  downtime of the VMs due to events such as recovery from software or hardware failures and operating system upgrades.
 
-Além disso, o GRS (Armazenamento com Redundância Geográfica) no Azure, que é implementado com um recurso chamado replicação geográfica, pode não ser uma solução de recuperação de desastres adequada para seus bancos de dados. Como a replicação geográfica envia dados de forma assíncrona, atualizações recentes podem ser perdidas no caso de desastre. Mais informações sobre limitações de replicação geográfica são abordadas na seção [Replicação geográfica sem suporte para arquivos de dados e log em discos separados](#geo-replication-support).
+In addition, Geo Redundant Storage (GRS) in Azure, which is implemented with a feature called geo-replication, may not be an adequate disaster recovery solution for your databases. Because geo-replication sends data asynchronously, recent updates can be lost in the event of disaster.  More information regarding geo-replication limitations are covered in the [Geo-replication not supported for data and log files on separate disks](#geo-replication-support) section.
 
-## Arquiteturas de implantação de HADR
+## <a name="hadr-deployment-architectures"></a>HADR deployment architectures
 
-As tecnologias HADR do SQL Server que têm suporte no Azure incluem:
+SQL Server HADR technologies that are supported in Azure include:
 
-- [Grupos de disponibilidade AlwaysOn](https://technet.microsoft.com/library/hh510230.aspx)
-- [Espelhamento de banco de dados](https://technet.microsoft.com/library/ms189852.aspx)
-- [Envio de logs](https://technet.microsoft.com/library/ms187103.aspx)
-- [Backup e restauração com o Serviço de armazenamento de blob do Azure](https://msdn.microsoft.com/library/jj919148.aspx)
-- [Instâncias do cluster de failover AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx)
+- [Always On Availability Groups](https://technet.microsoft.com/library/hh510230.aspx)
+- [Database Mirroring](https://technet.microsoft.com/library/ms189852.aspx)
+- [Log Shipping](https://technet.microsoft.com/library/ms187103.aspx)
+- [Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148.aspx)
+- [Always On Failover Cluster Instances](https://technet.microsoft.com/library/ms189134.aspx)
 
-É possível combinar as tecnologias para implementar uma solução SQL Server com alta disponibilidade e recursos de recuperação de desastre. Dependendo da tecnologia usada, uma implantação híbrida pode exigir um túnel VPN com a rede virtual do Azure. As seções a seguir mostram algumas das arquiteturas de implantação de exemplo.
+It is possible to combine the technologies together to implement a SQL Server solution that has both high availability and disaster recovery capabilities.  Depending on the technology you use, a hybrid deployment may require a VPN tunnel with the Azure virtual network. The sections below show you some of the example deployment architectures.
 
-## Somente Azure: soluções de alta disponibilidade
+## <a name="azure-only:-high-availability-solutions"></a>Azure-only: High availability solutions
 
-Você pode ter uma solução de alta disponibilidade para seus bancos de dados do SQL Server no Azure usando grupos de disponibilidade AlwaysOn ou espelhamento de banco de dados.
+You can have a high availability solution for your SQL Server databases in Azure using Always On Availability Groups or database mirroring.
 
-|Tecnologia|Arquiteturas de exemplo|
+|Technology|Example Architectures|
 |---|---|
-|**Grupos de disponibilidade AlwaysOn**|Todas as réplicas de disponibilidade executadas em VMs do Azure para alta disponibilidade na mesma região. Você precisa configurar uma VM de controlador de domínio, porque o WSFC (Windows Server Failover Clustering) requer um domínio do Active Directory.<br/> ![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>Para obter mais informações, consulte [Configure Always On Availability Groups in Azure (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md) (Configurar grupos de disponibilidade AlwaysOn no Azure (GUI)).|**Espelhamento de banco de dados**|Os servidores principal, de espelho e testemunha, todos em execução no mesmo data center do Azure para alta disponibilidade. Você pode implantar usando um controlador de domínio.<br/>![Espelhamento de banco de dados](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_dbmirroring1.gif)<br/>Você também pode implantar a mesma configuração de espelhamento de banco de dados sem um controlador de domínio, usando certificados do servidor.<br/>![Espelhamento de banco de dados](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_dbmirroring2.gif)|
-|**Instâncias do cluster de failover AlwaysOn**|FCI (Instâncias de Cluster de Failover), que exigem armazenamento compartilhado, podem ser criadas de duas maneiras diferentes.<br/><br/>1. Uma FCI em um WSFC de dois nós em execução nas VMs do Azure com armazenamento que dá suporte a uma solução de cluster de terceiros. Para obter um exemplo específico que usa o SIOS DataKeeper, veja [Alta disponibilidade para um compartilhamento de arquivos usando o WSFC e o software de terceiros SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>2. Uma FCI em um WSFC de dois nós em execução em VMs do Azure com armazenamento em um bloco compartilhado de destino iSCSI por meio da Rota Expressa. Por exemplo, o NPS (Armazenamento Privado do NetApp) expõe um destino iSCSI por meio da Rota Expressa com o Equinix para VMs do Azure.<br/><br/>Para obter soluções de armazenamento compartilhado e replicação de dados de terceiros, entre em contato com o fornecedor para tratar problemas relacionados ao acesso a dados no failover.<br/><br/>Observe que ainda não há suporte para o uso do FCI no [Armazenamento de arquivos do Azure](https://azure.microsoft.com/services/storage/files/), pois esta solução não utiliza o Armazenamento Premium. Estamos trabalhando para dar suporte a isso em breve.|
+|**Always On Availability Groups**|All availability replicas running in Azure VMs for high availability within the same region. You need to configure a domain controller VM, because Windows Server Failover Clustering (WSFC) requires an Active Directory domain.<br/> ![Always On Availability Groups](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>For more information, see [Configure Always On Availability Groups in Azure (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md).|**Database Mirroring**|Principal, mirror, and witness servers all running in the same Azure datacenter for high availability. You can deploy using a domain controller.<br/>![Database Mirroring](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_dbmirroring1.gif)<br/>You can also deploy the same database mirroring configuration without a domain controller by using server certificates instead.<br/>![Database Mirroring](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_dbmirroring2.gif)|
+|**Always On Failover Cluster Instances**|Failover Cluster Instances (FCI), which require shared storage, can be created in 2 different ways.<br/><br/>1. An FCI on a two-node WSFC running in Azure VMs with storage supported by a third-party clustering solution. For a specific example that uses SIOS DataKeeper, see [High availability for a file share using WSFC and 3rd party software SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>2. An FCI on a two-node WSFC running in Azure VMs with remote iSCSI Target shared block storage via ExpressRoute. For example, NetApp Private Storage (NPS) exposes an iSCSI target via ExpressRoute with Equinix to Azure VMs.<br/><br/>For third-party shared storage and data replication solutions, you should contact the vendor for any issues related to accessing data on failover.<br/><br/>Note that using FCI on top of [Azure File storage](https://azure.microsoft.com/services/storage/files/) is not supported yet, because this solution does not utilize Premium Storage. We are working to support this soon.|
 
-## Somente Azure: soluções de recuperação de desastre
+## <a name="azure-only:-disaster-recovery-solutions"></a>Azure-only: Disaster recovery solutions
 
-Você pode ter uma solução de recuperação de desastre para seus bancos de dados do SQL Server no Azure usando grupos de disponibilidade AlwaysOn, espelhamento de banco de dados ou backup e restauração com blobs de armazenamento.
+You can have a disaster recovery solution for your SQL Server databases in Azure using Always On Availability Groups, database mirroring, or backup and restore with storage blobs.
 
-|Tecnologia|Arquiteturas de exemplo|
+|Technology|Example Architectures|
 |---|---|
-|**Grupos de disponibilidade AlwaysOn**|Réplicas de disponibilidade executadas em vários datacenters em VMs do Azure para recuperação de desastres. Essa solução de regiões cruzadas protege contra interrupção completa de site. <br/> ![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Dentro de uma região, todas as réplicas devem estar dentro do mesmo serviço de nuvem e na mesma VNet. Como cada região terá uma VNet separada, essas soluções necessitam de VNet para conectividade VNet. Para obter mais informações, consulte [Configurar uma VPN site a site no portal clássico do Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).|
-|**Espelhamento de banco de dados**|Servidores principal e de espelho em execução em diferentes datacenters para recuperação de desastres. Você deve implantar usando certificados de servidor, pois um domínio do Active Directory não pode abranger vários datacenters.<br/>![Espelhamento de banco de dados](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif)|
-|**Backup e restauração com o Serviço de armazenamento de blob do Azure**|Bancos de dados de produção com backup direto no armazenamento de blob em um datacenter diferente para recuperação de desastre.<br/>![Backup e restauração](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>Para obter mais informações, consulte [Backup e Restauração para SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md).|
+|**Always On Availability Groups**|Availability replicas running across multiple datacenters in Azure VMs for disaster recovery.  This cross-region solution protects against complete site outage. <br/> ![Always On Availability Groups](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Within a region, all replicas should be within the same cloud service and the same VNet. Because each region will have a separate VNet, these solutions require VNet to VNet connectivity. For more information, see [Configure a Site-to-Site VPN in the Azure classic portal](../vpn-gateway/vpn-gateway-site-to-site-create.md).|
+|**Database Mirroring**|Principal and mirror and servers running in different  datacenters for disaster recovery. You must deploy using server certificates because an active directory domain cannot span multiple  datacenters.<br/>![Database Mirroring](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif)|
+|**Backup and Restore with Azure Blob Storage Service**|Production databases backed up directly to blob storage in a different  datacenter for disaster recovery.<br/>![Backup and Restore](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>For more information, see [Backup and Restore  for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).|
 
-## TI híbrida: soluções de recuperação de desastre
+## <a name="hybrid-it:-disaster-recovery-solutions"></a>Hybrid IT: Disaster recovery solutions
 
-Você pode ter uma solução de recuperação de desastre para seus bancos de dados do SQL Server em um ambiente de TI híbrida usando grupos de disponibilidade AlwaysOn, espelhamento de banco de dados, envio de log e backup e restauração com o armazenamento de blobs do Azure.
+You can have a disaster recovery solution for your SQL Server databases in a hybrid-IT environment using Always On Availability Groups, database mirroring, log shipping, and backup and restore with Azure blog storage.
 
-|Tecnologia|Arquiteturas de exemplo|
+|Technology|Example Architectures|
 |---|---|
-|**Grupos de disponibilidade AlwaysOn**|Algumas réplicas de disponibilidade executadas em VMs do Azure e outras réplicas executadas localmente para recuperação de desastres intersite. O site de produção pode ser local ou em um datacenter do Azure.<br/>![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_alwayson.gif)<br/>Como todas as réplicas de disponibilidade devem estar no mesmo cluster WSFC, o cluster WSFC deve abranger as duas redes (um cluster WSFC de várias sub-redes). Essa configuração requer uma conexão VPN entre o Azure e a rede local.<br/><br/>Para a recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no site de recuperação de desastres.<br/><br/>É possível usar o Assistente de Adição de Réplica no SSMS para adicionar uma réplica do Azure a um grupo de disponibilidade AlwaysOn existente. Para obter mais informações, consulte o Tutorial: estender seu grupo de disponibilidade AlwaysOn para o Azure.|
-|**Espelhamento de banco de dados**|Um parceiro executado em uma VM do Azure e o outro executado localmente para recuperação de desastres intersite usando certificados de servidor. Os parceiros não precisam estar no mesmo domínio do Active Directory e nenhuma conexão VPN é necessária.<br/>![Espelhamento de banco de dados](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Outro cenário que o espelhamento de banco de dados envolve é um parceiro em execução em uma VM do Azure e o outro em execução localmente no mesmo domínio do Active Directory para recuperação de desastres intersite. É necessária uma [conexão VPN entre a rede virtual do Azure e a rede local](../vpn-gateway/vpn-gateway-site-to-site-create.md).<br/><br/>Para recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no local da recuperação de desastres.|
-|**Envio de logs**|Um servidor em execução em uma VM do Azure e outro em execução local para recuperação de desastre intersite. O envio de log depende do compartilhamento de arquivos do Windows, assim, uma conexão VPN entre a rede virtual do Azure e a rede local é necessária.<br/>![Envio de logs](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_log_shipping.gif)<br/>Para recuperação de desastre bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no site de recuperação de desastres.|
-|**Backup e restauração com o Serviço de armazenamento de blob do Azure**|Bancos de dados de produção local com backup diretamente no armazenamento de blob do Azure para recuperação de desastres.<br/>![Backup e restauração](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_backup_restore.gif)<br/>Para obter mais informações, consulte [Backup e Restauração do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md).|
+|**Always On Availability Groups**|Some availability replicas running in Azure VMs and other replicas running on-premises for cross-site disaster recovery. The production site can be either on-premises or in an Azure datacenter.<br/>![Always On Availability Groups](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_alwayson.gif)<br/>Because all availability replicas must be in the same WSFC cluster, the WSFC cluster must span both networks (a multi-subnet WSFC cluster). This configuration requires a VPN connection between Azure and the on-premises network.<br/><br/>For successful disaster recovery of your databases, you should also install a replica domain controller at the disaster recovery site.<br/><br/>It is possible to use the Add Replica Wizard in SSMS to add an Azure replica to an existing Always On Availability Group. For more information, see Tutorial: Extend your Always On Availability Group to Azure.|
+|**Database Mirroring**|One partner running in an Azure VM and the other running on-premises for cross-site disaster recovery using server certificates. Partners do not need to be in the same Active Directory domain, and no VPN connection is required.<br/>![Database Mirroring](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Another database mirroring sceanario involves one partner running in an Azure VM and the other running on-premises in the same Active Directory domain for cross-site disaster recovery. A [VPN connection between the Azure virtual network and the on-premises network](../vpn-gateway/vpn-gateway-site-to-site-create.md) is required.<br/><br/>For successful disaster recovery of your databases, you should also install a replica domain controller at the disaster recovery site.|
+|**Log Shipping**|One server running in an Azure VM and the other running on-premises for cross-site disaster recovery. Log shipping depends on Windows file sharing, so a VPN connection between the Azure virtual network and the on-premises network is required.<br/>![Log Shipping](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_log_shipping.gif)<br/>For successful disaster recovery of your databases, you should also install a replica domain controller at the disaster recovery site.|
+|**Backup and Restore with Azure Blob Storage Service**|On-premises production databases backed up directly to Azure blob storage for disaster recovery.<br/>![Backup and Restore](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_backup_restore.gif)<br/>For more information, see [Backup and Restore  for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).|
 
-## Considerações importantes para HADR do SQL Server no Azure
+## <a name="important-considerations-for-sql-server-hadr-in-azure"></a>Important considerations for SQL Server HADR in Azure
 
-VMs do Azure, armazenamento e rede têm características operacionais diferentes da infraestrutura de TI local, não virtualizada. Uma implementação bem-sucedida de uma solução HADR SQL Server no Azure requer que você compreenda essas diferenças e crie sua solução para acomodá-las.
+Azure VMs, storage, and networking have different operational characteristics than an on-premises, non-virtualized IT infrastructure. A successful implementation of a HADR SQL Server solution in Azure requires that you understand these differences and design your solution to accommodate them.
 
-### Nós de alta disponibilidade em um conjunto de disponibilidade
+### <a name="high-availability-nodes-in-an-availability-set"></a>High availability nodes in an availability set
 
-Conjuntos de disponibilidade no Azure permitem que você coloque os nós de alta disponibilidade em FDs (Domínios de Falha) e UDs (Domínios de Atualização) separados. Para que VMs do Azure sejam colocadas no mesmo conjunto de disponibilidade, você deve implantá-las no mesmo serviço de nuvem. Somente nós no mesmo serviço de nuvem podem participar do mesmo conjunto de disponibilidade. Para obter mais informações, consulte [Gerenciar a Disponibilidade de Máquinas Virtuais](virtual-machines-windows-manage-availability.md).
+Availability sets in Azure enable you to place the high availability nodes into separate Fault Domains (FDs) and Update Domains (UDs). For Azure VMs to be placed in the same availability set, you must deploy them in the same cloud service. Only nodes in the same cloud service can participate in the same availability set. For more information, see [Manage the Availability of Virtual Machines](virtual-machines-windows-manage-availability.md).
 
-### Comportamento do cluster WSFC no sistema de rede do Azure
+### <a name="wsfc-cluster-behavior-in-azure-networking"></a>WSFC cluster behavior in Azure networking
 
-O serviço DHCP não compatível com RFC no Azure pode causar falha na criação de certas configurações do cluster WSFC porque um endereço IP duplicado está sendo atribuído ao nome da rede de cluster, assim como o mesmo endereço IP de um dos nós do cluster. Isso é um problema quando você implementa grupos de disponibilidade AlwaysOn que dependem do recurso WSFC.
+The non-RFC-compliant DHCP service in Azure can cause the creation of certain WSFC cluster configurations to fail, due to the cluster network name being assigned a duplicate IP address, such as the same IP address as one of the cluster nodes. This is an issue when you implement Always On Availability Groups, which depends on the WSFC feature.
 
-Considere o cenário onde um cluster de dois nós é criado e colocado online:
+Consider the scenario when a two-node cluster is created and brought online:
 
-1. O cluster fica online e NODE1 solicita um endereço IP atribuído dinamicamente ao nome de rede de cluster.
+1. The cluster comes online, then NODE1 requests a dynamically assigned IP address for the cluster network name.
 
-1. Nenhum endereço IP que não seja o próprio endereço IP do NODE1 é fornecido pelo serviço DHCP, já que o serviço DHCP reconhece que a solicitação vem do próprio NODE1.
+1. No IP address other than NODE1’s own IP address is given by the DHCP service, since the DHCP service recognizes that the request comes from NODE1 itself.
 
-1. O Windows detecta que um endereço duplicado é atribuído a NODE1 e ao nome da rede de cluster, e o grupo de clusters padrão não fica online.
+1. Windows detects that a duplicate address is assigned both to NODE1 and to the cluster network name, and the default cluster group fails to come online.
 
-1. O grupo de clusters padrão é movido para o NODE2, que trata o endereço IP do NODE1 como o endereço IP do cluster e coloca o grupo de clusters padrão online.
+1. The default cluster group moves to NODE2, which treats NODE1’s IP address as the cluster IP address and brings the default cluster group online.
 
-1. Quando NODE2 tenta estabelecer conectividade com NODE1, pacotes direcionados ao NODE1 nunca deixam o NODE2, pois ele resolve o endereço IP do NODE1 para si mesmo. O NODE2 não pode estabelecer conectividade com NODE1, perde quorum e fecha o cluster.
+1. When NODE2 attempts to establish connectivity with NODE1, packets directed at NODE1 never leave NODE2 because it resolves NODE1’s IP address to itself. NODE2 cannot establish connectivity with NODE1, then loses quorum and shuts down the cluster.
 
-1. Enquanto isso, o NODE1 pode enviar pacotes para o NODE2, mas NODE2 não pode responder. O NODE1 perde quorum e fecha o cluster.
+1. In the meantime, NODE1 can send packets to NODE2, but NODE2 cannot reply. NODE1 loses quorum and shuts down the cluster.
 
-Esse cenário pode ser evitado atribuindo um estático endereço IP não usado, como um endereço IP de link local como 169.254.1.1, ao nome da rede de cluster para colocar o nome de rede do cluster online. Para simplificar esse processo, consulte [Configurando o cluster de failover do Windows no Azure para grupos de disponibilidade AlwaysOn](http://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
+This scenario can be avoided by assigning an unused static IP address, such as a link-local IP address like 169.254.1.1, to the cluster network name in order to bring the cluster network name online. To simplify this process, see [Configuring Windows Failover Cluster in Azure for Always On Availability Groups](http://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
 
-Para obter mais informações, consulte [Configure Always On Availability Groups in Azure (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md) (Configurar grupos de disponibilidade AlwaysOn no Azure (GUI)).
+For more information, see [Configure Always On Availability Groups in Azure (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md).
 
-### Suporte do ouvinte do grupo de disponibilidade
+### <a name="availability-group-listener-support"></a>Availability group listener support
 
-Ouvintes do grupo de disponibilidade têm suporte em VMs do Azure que executam o Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. Esse suporte é possibilitado pelo uso de pontos de extremidade habilitados em VMs do Azure, que são nós do grupo de disponibilidade. Você deve seguir etapas especiais de configuração para que os ouvintes trabalhem para ambos os aplicativos clientes que estão em execução no Azure, bem como os que estão em execução local.
+Availability group listeners are supported on Azure VMs running Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2. This support is made possible by the use of load-balanced endpoints enabled on the Azure VMs that are availability group nodes. You must follow special configuration steps for the listeners to work for both client applications that are running in Azure as well as those running on-premises.
 
-Há duas opções principais para configurar o ouvinte: externo (público) ou interno. O ouvinte (público) externo é associado a um IP Virtual público (VIP) que seja acessível pela Internet. Com um ouvinte externo, você deve habilitar o retorno de servidor direto, o que significa que você deve se conectar ao ouvinte de um computador que não está no mesmo serviço de nuvem que os nós do grupo de disponibilidade AlwaysOn. A outra opção é um ouvinte interno que usa o balanceador de carga interno (ILB). Um ouvinte interno só oferece suporte a clientes na mesma rede virtual.
+There are two main options for setting up your listener: external (public) or internal. The external (public) listener is associated with a public Virtual IP (VIP) that is accessible over the internet. With an external listener, you must enable Direct Server Return, which means that you must connect to the listener from a machine that is not in the same cloud service as the Always On Availability Group nodes. The other option is an internal listener that uses the Internal Load Balancer (ILB). An internal listener only support clients within the same Virtual Network.
 
-Se o Grupo de disponibilidade abranger várias sub-redes do Azure (como uma implantação que cruza regiões do Azure), a cadeia de conexão do cliente deve incluir "**MultisubnetFailover=True**". Isso resulta em tentativas de conexão em paralelo às réplicas nas diferentes sub-redes. Para obter instruções sobre como configurar um ouvinte, consulte
+If the Availability Group spans multiple Azure subnets (such as a deployment that crosses Azure regions), the client connection string must include "**MultisubnetFailover=True**". This results in parallel connection attempts to the replicas in the different subnets. For instructions on setting up a listener, see
 
-- [Configurar um ouvinte de ILB para grupos de disponibilidade AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
-- [Configurar um ouvinte externo para grupos de disponibilidade AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
+- [Configure an ILB listener for Always On Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+- [Configure an external listener for Always On Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
 
-Você pode ainda se conectar a cada réplica de disponibilidade separadamente conectando-se diretamente à instância do serviço. Além disso, como os grupos de disponibilidade AlwaysOn são compatíveis com versões anteriores com clientes de espelhamento de banco de dados, você pode se conectar a réplicas de disponibilidade, como parceiros de espelhamento, desde que as réplicas sejam configuradas de forma semelhante ao espelhamento do banco de dados:
+You can still connect to each availability replica separately by connecting directly to the service instance. Also, since Always On Availability Groups are backward compatible with database mirroring clients, you can connect to the availability replicas like database mirroring partners as long as the replicas are configured similar to database mirroring:
 
-- Uma réplica primária e uma réplica secundária
+- One primary replica and one secondary replica
 
-- A réplica secundária é configurada como ilegível (**opção Secundária Legível** definida como **Não**)
+- The secondary replica is configured as non-readable (**Readable Secondary** option set to **No**)
 
-Um exemplo de cadeia de conexão de cliente que corresponde à configuração deste espelhamento de banco de dados usando ADO.NET ou o SQL Server Native Client é ilustrado abaixo:
+An example client connection string that corresponds to this database mirroring-like configuration using ADO.NET or SQL Server Native Client is below:
 
-	Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=AvailabilityDatabase;
+    Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=AvailabilityDatabase;
 
-Para obter mais informações sobre conectividade de cliente, consulte:
+For more information on client connectivity, see:
 
-- [Usando palavras-chave da cadeia de conexão com o SQL Server Native Client](https://msdn.microsoft.com/library/ms130822.aspx)
-- [Conectar clientes a uma sessão de espelhamento de banco de dados (SQL Server) ](https://technet.microsoft.com/library/ms175484.aspx)
-- [Conectando-se ao ouvinte do grupo de disponibilidade em TI híbrida](http://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx)
-- [Ouvintes de grupo de disponibilidade, conectividade de cliente e failover de aplicativo (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
-- [Usando cadeias de conexão de espelhamento de banco de dados com grupos de disponibilidade](https://technet.microsoft.com/library/hh213417.aspx)
+- [Using Connection String Keywords with SQL Server Native Client](https://msdn.microsoft.com/library/ms130822.aspx)
+- [Connect Clients to a Database Mirroring Session (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
+- [Connecting to Availability Group Listener in Hybrid IT](http://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx)
+- [Availability Group Listeners, Client Connectivity, and Application Failover (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
+- [Using Database-Mirroring Connection Strings with Availability Groups](https://technet.microsoft.com/library/hh213417.aspx)
 
-### Latência de rede em TI híbrida
+### <a name="network-latency-in-hybrid-it"></a>Network latency in hybrid IT
 
-Você deve implantar sua solução HADR com a suposição de que pode haver períodos com alta latência da rede entre sua rede local e o Azure. Ao implantar réplicas do Azure, você deve usar confirmação assíncrona, em vez de confirmação síncrona, para o modo de sincronização. Ao implantar servidores de espelhamento de banco de dados localmente e no Azure, use o modo de alto desempenho, em vez do modo de alta segurança.
+You should deploy your HADR solution with the assumption that there may be periods of time with high network latency between your on-premises network and Azure. When deploying replicas to Azure, you should use asynchronous commit instead of synchronous commit for the synchronization mode. When deploying database mirroring servers both on-premises and in Azure, use the high performance mode instead of the high safety mode.
 
-### Suporte para replicação geográfica
+### <a name="geo-replication-support"></a>Geo-replication support
 
-A replicação geográfica em discos do Azure não dá suporte ao arquivo de dados e ao arquivo de log do mesmo banco de dados a ser armazenado em discos separados. GRS replica as alterações em cada disco, de forma independente e assíncrona. Esse mecanismo garante a ordem de gravação em um único disco na cópia replicada geograficamente, mas não em cópias replicadas geograficamente de vários discos. Se você configurar um banco de dados para armazenar arquivo de dados e arquivo de log em discos separados, os discos recuperados após um desastre poderão conter uma cópia mais recente do arquivo de dados do que o arquivo de log, interrompendo o log write-ahead no SQL Server e as propriedades ACID das transações. Se você não tiver a opção de desabilitar a replicação geográfica na conta de armazenamento, deverá manter todos os dados e arquivos de log em determinado banco de dados no mesmo disco. Se você precisar usar mais de um disco devido ao tamanho do banco de dados, terá de implantar uma das soluções de recuperação de desastres listadas anteriormente para garantir a redundância dos dados.
+Geo-replication in Azure disks does not support the data file and log file of the same database to be stored on separate disks. GRS replicates changes on each disk independently and asynchronously. This mechanism guarantees the write order within a single disk on the geo-replicated copy, but not across geo-replicated copies of multiple disks. If you configure a database to store its data file and its log file on separate disks, the recovered disks after a disaster may contain a more up-to-date copy of the data file than the log file, which breaks the write-ahead log in SQL Server and the ACID properties of transactions. If you do not have the option to disable geo-replication on the storage account, you should keep all data and log files for a given database on the same disk. If you must use more than one disk due to the size of the database, you need to deploy one of the disaster recovery solutions listed above to ensure data redundancy.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Se você precisar criar uma máquina virtual do Azure com SQL Server, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md).
+If you need to create an Azure virtual machine with SQL Server, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-Para obter o melhor desempenho do SQL Server em execução em uma VM do Azure, consulte as diretrizes em [Práticas Recomentadas para o Desempenho do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-performance.md).
+To get the best performance from SQL Server running on an Azure VM, see the guidance in [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
-Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
-### Outros recursos
+### <a name="other-resources"></a>Other resources
 
-- [Instalar uma nova floresta do Active Directory no Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
-- [Create WSFC Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Criar cluster WSFC para grupos de disponibilidade AlwaysOn em uma VM do Azure)
+- [Install a new Active Directory forest in Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
+- [Create WSFC Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

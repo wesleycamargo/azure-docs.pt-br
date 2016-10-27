@@ -1,292 +1,293 @@
 <properties 
-	pageTitle="Criar um aplicativo Web PHP-SQL e implantá-lo no Serviço de Aplicativo do Azure usando Git" 
-	description="Um tutorial que demonstra como criar um aplicativo Web do PHP que armazena dados no Banco de Dados SQL do Azure e usa a implantação do Git para o Serviço de Aplicativo do Azure." 
-	services="app-service\web, sql-database" 
-	documentationCenter="php" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Create a PHP-SQL web app and deploy to Azure App Service using Git" 
+    description="A tutorial that demonstrates how to create a PHP web app that stores data in Azure SQL Database and use Git deployment to Azure App Service." 
+    services="app-service\web, sql-database" 
+    documentationCenter="php" 
+    authors="rmcmurray" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="08/11/2016" 
-	ms.author="robmcm"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="PHP" 
+    ms.topic="article" 
+    ms.date="08/11/2016" 
+    ms.author="robmcm"/>
 
-# Criar um aplicativo Web PHP-SQL e implantá-lo no Serviço de Aplicativo do Azure usando Git
 
-Este tutorial mostra como criar um aplicativo web do PHP no [serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) que se conecta ao banco de dados SQL do Azure e como implantá-lo usando o Git. Este tutorial presume que você tenha [PHP][install-php], [SQL Server Express][install-SQLExpress], o [Drivers da Microsoft para SQL Server para PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) e [Git][install-git] instalado no seu computador. Após a conclusão deste guia, você terá um aplicativo Web PHP/SQL em execução no Azure.
+# <a name="create-a-php-sql-web-app-and-deploy-to-azure-app-service-using-git"></a>Create a PHP-SQL web app and deploy to Azure App Service using Git
+
+This tutorial shows you how to create a PHP web app in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) that connects to Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL web app running in Azure.
 
 > [AZURE.NOTE]
-É possível instalar e configurar PHP, SQL Server Express, os Drivers da Microsoft para SQL Server para PHP usando o [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+> You can install and configure PHP, SQL Server Express, and the Microsoft Drivers for SQL Server for PHP using the [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 
-Você aprenderá:
+You will learn:
 
-* Como criar um aplicativo Web do Azure e um banco de dados SQL usando o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Já que o PHP está habilitado nos Aplicativos Web do Serviço de Aplicativo por padrão, não é necessário nada de especial para executar seu código PHP.
-* Como publicar e publicar novamente o aplicativo no Azure usando o Git.
+* How to create an Azure web app and a SQL Database using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). Because PHP is enabled in App Service Web Apps by default, nothing special is required to run your PHP code.
+* How to publish and re-publish your application to Azure using Git.
  
-Seguindo este tutorial, você irá criar um aplicativo da web de registro simples no PHP. O aplicativo será hospedado em um Site do Azure. Abaixo, uma captura de tela do aplicativo concluído:
+By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in an Azure Website. A screenshot of the completed application is below:
 
-![Site PHP do Azure](./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png)
+![Azure PHP Web Site](./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png)
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-##Criar um aplicativo Web do Azure e configurar a publicação Git
+##<a name="create-an-azure-web-app-and-set-up-git-publishing"></a>Create an Azure web app and set up Git publishing
 
-Siga estas etapas para criar um aplicativo Web do Azure e um banco de dados SQL:
+Follow these steps to create an Azure web app and a SQL Database:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+1. Log in to the [Azure Portal](https://portal.azure.com/).
 
-2. Abra o Azure Marketplace clicando no ícone **Novo** no lado superior esquerdo do painel, clique em **Selecionar Tudo** próximo a Marketplace e selecione **Web + Móvel**.
-	
-3. No Marketplace, selecione **Web + Móvel**.
+2. Open the Azure Marketplace by clicking the **New** icon on the top left of the dashboard, click on **Select All** next to Marketplace and selecting **Web + Mobile**.
+    
+3. In the Marketplace, select **Web + Mobile**.
 
-4. Clique no ícone **Aplicativo Web + SQL**.
+4. Click the **Web app + SQL** icon.
 
-5. Depois de ler a descrição do aplicativo Web + aplicativo SQL, selecione **Criar**.
+5. After reading the description of the Web app + SQL app, select **Create**.
 
-6. Clique em cada parte (**Grupo de Recursos**, **Aplicativo Web**, **Banco de Dados** e **Assinatura**) e insira ou selecione valores para os campos obrigatórios:
-	
-	- Insira um nome de URL de sua escolha
-	- Configurar credenciais de servidor de banco de dados
-	- Selecione a região mais próxima de você
+6. Click on each part (**Resource Group**, **Web App**, **Database**, and **Subscription**) and enter or select values for the required fields:
+    
+    - Enter a URL name of your choice   
+    - Configure database server credentials
+    - Select the region closest to you
 
-	![configurar o aplicativo](./media/web-sites-php-sql-database-deploy-use-git/configure-db-settings.png)
+    ![configure your app](./media/web-sites-php-sql-database-deploy-use-git/configure-db-settings.png)
 
-7. Quando terminar de definir o aplicativo Web, clique em **Criar**.
+7. When finished defining the web app, click **Create**.
 
-	Quando o aplicativo Web tiver sido criado, o botão **Notificações** piscará **SUCESSO** em verde e abrirá a folha do grupo de recursos para exibir o aplicativo Web e o banco de dados SQL no grupo.
+    When the web app has been created, the **Notifications** button will flash a green **SUCCESS** and the resource group blade open to show both the web app and the SQL database in the group.
 
-4. Clique no ícone do aplicativo Web na folha do grupo de recursos para abrir a folha do aplicativo Web.
+4. Click the web app's icon in the resource group blade to open the web app's blade.
 
-	![grupo de recursos do aplicativo Web](./media/web-sites-php-sql-database-deploy-use-git/resource-group-blade.png)
+    ![web app's resource group](./media/web-sites-php-sql-database-deploy-use-git/resource-group-blade.png)
 
-5. Em **Configurações**, clique em **Implantação contínua** > **Definir configurações necessárias**. Selecione **Repositório Git local** e clique em **OK**.
+5. In **Settings** click **Continuous deployment** > **Configure required settings**. Select **Local Git Repository** and click **OK**.
 
-	![onde está o código-fonte](./media/web-sites-php-sql-database-deploy-use-git/setup-local-git.png)
+    ![where is your source code](./media/web-sites-php-sql-database-deploy-use-git/setup-local-git.png)
 
-	Se não tiver configurado um repositório Git antes, você deverá fornecer um nome de usuário e senha. Para fazer isso, clique em **Configurações** > **Credenciais de implantação** na folha do aplicativo Web.
+    If you have not set up a Git repository before, you must provide a user name and password. To do this, click **Settings** > **Deployment credentials** in the web app's blade.
 
-	![](./media/web-sites-php-sql-database-deploy-use-git/deployment-credentials.png)
+    ![](./media/web-sites-php-sql-database-deploy-use-git/deployment-credentials.png)
 
-6. Em **Configurações**, clique em **Propriedades** para ver a URL remota do Git que você precisa usar para implantar seu aplicativo PHP posteriormente.
+6. In **Settings** click on **Properties** to see the Git remote URL you need to use to deploy your PHP app later.
 
-##Obter informações da conexão do Banco de Dados SQL
+##<a name="get-sql-database-connection-information"></a>Get SQL Database connection information
 
-Para se conectar à instância do banco de dados SQL que está vinculada a seu aplicativo Web, você precisa das informações de conexão, que especificou ao criar o banco de dados. Para obter informações sobre a conexão do Banco de Dados SQL, siga estas etapas:
+To connect to the SQL Database instance that is linked to your web app, your will need the connection information, which you specified when you created the database. To get the SQL Database connection information, follow these steps:
 
-1. Na folha do grupo de recursos, clique no ícone do banco de dados SQL.
+1. Back in the resource group's blade, click the SQL database's icon.
 
-2. Na folha do banco de dados SQL, clique em **Configurações** > **Propriedades** e clique em **Mostrar cadeias de conexão do banco de dados**.
+2. In the SQL database's blade, click **Settings** > **Properties**, then click **Show database connection strings**. 
 
-	![Exibir propriedades do banco de dados](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
-	
-3. Na seção **PHP** da caixa de diálogo resultante, anote os valores de `Server`, `SQL Database` e `User Name`. Você usará posteriormente esses valores ao publicar seu aplicativo Web do PHP para o Serviço de Aplicativo do Azure.
+    ![View database properties](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
+    
+3. From the **PHP** section of the resulting dialog, make note of the values for `Server`, `SQL Database`, and `User Name`. You will use these values later when publishing your PHP web app to Azure App Service.
 
-##Criar e testar o aplicativo localmente
+##<a name="build-and-test-your-application-locally"></a>Build and test your application locally
 
-O aplicativo Registro é um aplicativo simples do PHP que permite que você se registre em um evento fornecendo seu nome e endereço de email. As informações sobre inscritos anteriores são exibidas em uma tabela. As informações de registro são armazenadas em uma instância do Banco de Dados SQL. O aplicativo consiste em dois arquivos (copie/cole o código disponível abaixo):
+The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a SQL Database instance. The application consists of two files (copy/paste code available below):
 
-* **index.php**: exibe um formulário de registro e uma tabela contendo informações sobre o inscrito.
-* **createtable.php**: cria a tabela de Banco de Dados SQL para o aplicativo. Este arquivo será usado apenas uma vez.
+* **index.php**: Displays a form for registration and a table containing registrant information.
+* **createtable.php**: Creates the SQL Database table for the application. This file will only be used once.
 
-Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas pressupõem que você tem PHP e SQL Server Express definidos em sua máquina local, e que você habilitou a [Extensão PDO para SQL Server][pdo-sqlsrv].
+To run the application locally, follow the steps below. Note that these steps assume you have PHP and SQL Server Express set up on your local machine, and that you have enabled the [PDO extension for SQL Server][pdo-sqlsrv].
 
-1. Crie um Banco de Dados SQL chamado `registration`. Você pode fazer isso a partir do comando `sqlcmd` com estes comandos:
+1. Create a SQL Server database called `registration`. You can do this from the `sqlcmd` command prompt with these commands:
 
-		>sqlcmd -S localhost\sqlexpress -U <local user name> -P <local password>
-		1> create database registration
-		2> GO	
-
-
-2. No diretório raiz de seu aplicativo, crie dois arquivos: um chamado `createtable.php` e outro chamado `index.php`.
-
-3. Abra o arquivo `createtable.php` em um editor de texto ou IDE e adicione o código abaixo. Esse código será usado para criar a tabela `registration_tbl` no banco de dados `registration`.
-
-		<?php
-		// DB connection info
-		$host = "localhost\sqlexpress";
-		$user = "user name";
-		$pwd = "password";
-		$db = "registration";
-		try{
-			$conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
-			$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-			$sql = "CREATE TABLE registration_tbl(
-			id INT NOT NULL IDENTITY(1,1) 
-			PRIMARY KEY(id),
-			name VARCHAR(30),
-			email VARCHAR(30),
-			date DATE)";
-			$conn->query($sql);
-		}
-		catch(Exception $e){
-			die(print_r($e));
-		}
-		echo "<h3>Table created.</h3>";
-		?>
-
-	Observe que você precisará atualizar os valores de <code>$user</code> e <code>$pwd</code> com o nome de usuário e a senha do servidor SQL local.
-
-4. Em um terminal no diretório raiz do aplicativo, digite o seguinte comando:
-
-		php -S localhost:8000
-
-4. Abra um navegador da Web e navegue até **http://localhost:8000/createtable.php**. Isso criará a tabela `registration_tbl` no banco de dados.
-
-5. Abra o arquivo **index.php** em um editor de texto ou IDE e adicione o código básico de HTML e CSS para a página (o código PHP será adicionado em várias etapas).
-
-		<html>
-		<head>
-		<Title>Registration Form</Title>
-		<style type="text/css">
-			body { background-color: #fff; border-top: solid 10px #000;
-			    color: #333; font-size: .85em; margin: 20; padding: 20;
-			    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-			}
-			h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
-			h1 { font-size: 2em; }
-			h2 { font-size: 1.75em; }
-			h3 { font-size: 1.2em; }
-			table { margin-top: 0.75em; }
-			th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
-			td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
-		</style>
-		</head>
-		<body>
-		<h1>Register here!</h1>
-		<p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
-		<form method="post" action="index.php" enctype="multipart/form-data" >
-		      Name  <input type="text" name="name" id="name"/></br>
-		      Email <input type="text" name="email" id="email"/></br>
-		      <input type="submit" name="submit" value="Submit" />
-		</form>
-		<?php
-
-		?>
-		</body>
-		</html>
-
-6. Nas marcas de PHP, adicione o código PHP para conectar ao banco de dados.
-
-		// DB connection info
-		$host = "localhost\sqlexpress";
-		$user = "user name";
-		$pwd = "password";
-		$db = "registration";
-		// Connect to database.
-		try {
-			$conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
-			$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-		}
-		catch(Exception $e){
-			die(var_dump($e));
-		}
-
-    Novamente, você precisará atualizar os valores de <code>$user</code> e <code>$pwd</code> com o nome de usuário e a senha do MySQL local.
-
-7. Após o código de conexão do banco de dados, adicione código para inserir informações de registro no banco de dados.
-
-		if(!empty($_POST)) {
-		try {
-			$name = $_POST['name'];
-			$email = $_POST['email'];
-			$date = date("Y-m-d");
-			// Insert data
-			$sql_insert = "INSERT INTO registration_tbl (name, email, date) 
-						   VALUES (?,?,?)";
-			$stmt = $conn->prepare($sql_insert);
-			$stmt->bindValue(1, $name);
-			$stmt->bindValue(2, $email);
-			$stmt->bindValue(3, $date);
-			$stmt->execute();
-		}
-		catch(Exception $e) {
-			die(var_dump($e));
-		}
-		echo "<h3>Your're registered!</h3>";
-		}
-
-8. Finalmente, após o código acima, adicione código para recuperar dados do banco de dados.
-
-		$sql_select = "SELECT * FROM registration_tbl";
-		$stmt = $conn->query($sql_select);
-		$registrants = $stmt->fetchAll(); 
-		if(count($registrants) > 0) {
-			echo "<h2>People who are registered:</h2>";
-			echo "<table>";
-			echo "<tr><th>Name</th>";
-			echo "<th>Email</th>";
-			echo "<th>Date</th></tr>";
-			foreach($registrants as $registrant) {
-				echo "<tr><td>".$registrant['name']."</td>";
-				echo "<td>".$registrant['email']."</td>";
-				echo "<td>".$registrant['date']."</td></tr>";
-		    }
-		 	echo "</table>";
-		} else {
-			echo "<h3>No one is currently registered.</h3>";
-		}
-
-Agora você pode navegar até **http://localhost:8000/index.php** para testar o aplicativo.
-
-##Publicar seu aplicativo
-
-Depois de testar o aplicativo localmente, você poderá publicá-lo nos Aplicativos Web do Serviço de Aplicativo do Azure usando o Git. Entretanto, você precisará atualizar a conexão do banco de dados no aplicativo. Usando as informações de conexão do banco de dados obtidas previamente (na seção **Obter informações de conexão do banco de dados SQL**), atualize as seguintes informações nos **dois** arquivos `createdatabase.php` e `index.php` com os valores apropriados:
-
-	// DB connection info
-	$host = "tcp:<value of Server>";
-	$user = "<value of User Name>";
-	$pwd = "<your password>";
-	$db = "<value of SQL Database>";
-
-> [AZURE.NOTE]
-Em <code>$host</code>, o valor do servidor deve ser precedido por <code>tcp:</code>.
+        >sqlcmd -S localhost\sqlexpress -U <local user name> -P <local password>
+        1> create database registration
+        2> GO   
 
 
-Agora, você está pronto para configurar a publicação Git e publicar o aplicativo.
+2. In your application root directory, create two files in it - one called `createtable.php` and one called `index.php`.
+
+3. Open the `createtable.php` file in a text editor or IDE and add the code below. This code will be used to create the `registration_tbl` table in the `registration` database.
+
+        <?php
+        // DB connection info
+        $host = "localhost\sqlexpress";
+        $user = "user name";
+        $pwd = "password";
+        $db = "registration";
+        try{
+            $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
+            $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+            $sql = "CREATE TABLE registration_tbl(
+            id INT NOT NULL IDENTITY(1,1) 
+            PRIMARY KEY(id),
+            name VARCHAR(30),
+            email VARCHAR(30),
+            date DATE)";
+            $conn->query($sql);
+        }
+        catch(Exception $e){
+            die(print_r($e));
+        }
+        echo "<h3>Table created.</h3>";
+        ?>
+
+    Note that you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local SQL Server user name and password.
+
+4. In a terminal at the root directory of the application type the following command:
+
+        php -S localhost:8000
+
+4. Open a web browser and browse to **http://localhost:8000/createtable.php**. This will create the `registration_tbl` table in the database.
+
+5. Open the **index.php** file in a text editor or IDE and add the basic HTML and CSS code for the page (the PHP code will be added in later steps).
+
+        <html>
+        <head>
+        <Title>Registration Form</Title>
+        <style type="text/css">
+            body { background-color: #fff; border-top: solid 10px #000;
+                color: #333; font-size: .85em; margin: 20; padding: 20;
+                font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+            }
+            h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.75em; }
+            h3 { font-size: 1.2em; }
+            table { margin-top: 0.75em; }
+            th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
+            td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
+        </style>
+        </head>
+        <body>
+        <h1>Register here!</h1>
+        <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
+        <form method="post" action="index.php" enctype="multipart/form-data" >
+              Name  <input type="text" name="name" id="name"/></br>
+              Email <input type="text" name="email" id="email"/></br>
+              <input type="submit" name="submit" value="Submit" />
+        </form>
+        <?php
+
+        ?>
+        </body>
+        </html>
+
+6. Within the PHP tags, add PHP code for connecting to the database.
+
+        // DB connection info
+        $host = "localhost\sqlexpress";
+        $user = "user name";
+        $pwd = "password";
+        $db = "registration";
+        // Connect to database.
+        try {
+            $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
+            $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+        }
+        catch(Exception $e){
+            die(var_dump($e));
+        }
+
+    Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
+
+7. Following the database connection code, add code for inserting registration information into the database.
+
+        if(!empty($_POST)) {
+        try {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $date = date("Y-m-d");
+            // Insert data
+            $sql_insert = "INSERT INTO registration_tbl (name, email, date) 
+                           VALUES (?,?,?)";
+            $stmt = $conn->prepare($sql_insert);
+            $stmt->bindValue(1, $name);
+            $stmt->bindValue(2, $email);
+            $stmt->bindValue(3, $date);
+            $stmt->execute();
+        }
+        catch(Exception $e) {
+            die(var_dump($e));
+        }
+        echo "<h3>Your're registered!</h3>";
+        }
+
+8. Finally, following the code above, add code for retrieving data from the database.
+
+        $sql_select = "SELECT * FROM registration_tbl";
+        $stmt = $conn->query($sql_select);
+        $registrants = $stmt->fetchAll(); 
+        if(count($registrants) > 0) {
+            echo "<h2>People who are registered:</h2>";
+            echo "<table>";
+            echo "<tr><th>Name</th>";
+            echo "<th>Email</th>";
+            echo "<th>Date</th></tr>";
+            foreach($registrants as $registrant) {
+                echo "<tr><td>".$registrant['name']."</td>";
+                echo "<td>".$registrant['email']."</td>";
+                echo "<td>".$registrant['date']."</td></tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "<h3>No one is currently registered.</h3>";
+        }
+
+You can now browse to **http://localhost:8000/index.php** to test the application.
+
+##<a name="publish-your-application"></a>Publish your application
+
+After you have tested your application locally, you can publish it to App Service Web Apps using Git. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get SQL Database connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
+
+    // DB connection info
+    $host = "tcp:<value of Server>";
+    $user = "<value of User Name>";
+    $pwd = "<your password>";
+    $db = "<value of SQL Database>";
 
 > [AZURE.NOTE]
-Essas são as mesmas etapas indicadas no final da seção **Criar um aplicativo web do Azure e configurar a publicação do Git**, acima.
+> In the <code>$host</code>, the value of Server must be prepended with <code>tcp:</code>.
 
 
-1. Abra GitBash (ou um terminal, se o Git estiver em seu `PATH`), altere os diretórios para o diretório raiz de seu aplicativo (o diretório de **registro**) e execute os seguintes comandos:
+Now, you are ready to set up Git publishing and publish the application.
 
-		git init
-		git add .
-		git commit -m "initial commit"
-		git remote add azure [URL for remote repository]
-		git push azure master
+> [AZURE.NOTE]
+> These are the same steps noted at the end of the **Create an Azure web app and set up Git publishing** section above.
 
-	Será solicitada a senha que você criou anteriormente.
 
-2. Navegue até **http://[webapp name].azurewebsites.net/createtable.php** para criar a tabela do banco de dados SQL para o aplicativo.
-3. Navegue **http://[webapp name].azurewebsites.net/index.php** até para começar a usar o aplicativo.
+1. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application (the **registration** directory), and run the following commands:
 
-Depois de ter publicado seu aplicativo, você pode começar a fazer alterações nele e usar o Git para publicá-lo.
+        git init
+        git add .
+        git commit -m "initial commit"
+        git remote add azure [URL for remote repository]
+        git push azure master
 
-##Publicar alterações em seu aplicativo
+    You will be prompted for the password you created earlier.
 
-Para publicar alterações no aplicativo, siga estas etapas:
+2. Browse to **http://[web app name].azurewebsites.net/createtable.php** to create the SQL database table for the application.
+3. Browse to **http://[web app name].azurewebsites.net/index.php** to begin using the application.
 
-1. Faça alterações em seu aplicativo localmente.
-2. Abra GitBash (ou um terminal, se o Git estiver em seu `PATH`), altere os diretórios para o diretório raiz de seu aplicativo e execute os seguintes comandos:
+After you have published your application, you can begin making changes to it and use Git to publish them. 
 
-		git add .
-		git commit -m "comment describing changes"
-		git push azure master
+##<a name="publish-changes-to-your-application"></a>Publish changes to your application
 
-	Será solicitada a senha que você criou anteriormente.
+To publish changes to application, follow these steps:
 
-3. Navegue até **http://[webapp name].azurewebsites.net/index.php** para ver suas alterações.
+1. Make changes to your application locally.
+2. Open GitBash (or a terminal, it Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
 
-## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+        git add .
+        git commit -m "comment describing changes"
+        git push azure master
+
+    You will be prompted for the password you created earlier.
+
+3. Browse to **http://[web app name].azurewebsites.net/index.php** to see your changes.
+
+## <a name="what's-changed"></a>What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
 
@@ -298,4 +299,8 @@ Para publicar alterações no aplicativo, siga estas etapas:
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

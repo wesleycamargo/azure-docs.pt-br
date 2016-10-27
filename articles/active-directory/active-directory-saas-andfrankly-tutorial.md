@@ -1,263 +1,264 @@
 <properties
-	pageTitle="Tutorial: integração do Azure Active Directory ao &amp;frankly | Microsoft Azure"
-	description="Saiba como configurar o logon único entre o Azure Active Directory e o &amp;frankly."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with &frankly | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and &frankly."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/12/2016"
+    ms.author="jeedes"/>
 
 
-# Tutorial: integração do Azure Active Directory ao &frankly
 
-O objetivo deste tutorial é mostrar como integrar o &frankly ao Azure AD (Azure Active Directory).
+# <a name="tutorial:-azure-active-directory-integration-with-&frankly"></a>Tutorial: Azure Active Directory integration with &frankly
 
-A integração do &frankly ao Azure AD oferece os seguintes benefícios:
+The objective of this tutorial is to show you how to integrate &frankly with Azure Active Directory (Azure AD).
 
-- No Azure AD, é possível controlar quem tem acesso ao &frankly
-- Você pode permitir que seus usuários façam logon automaticamente no &frankly (Logon único) com as contas do Azure AD
-- Gerenciar suas contas em um único local: o Portal clássico do Azure
+Integrating &frankly with Azure AD provides you with the following benefits:
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
+- You can control in Azure AD who has access to &frankly
+- You can enable your users to automatically get signed-on to &frankly (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-## Pré-requisitos
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Para configurar a integração do Azure AD ao &frankly, você precisará dos seguintes itens:
+## <a name="prerequisites"></a>Prerequisites
 
-- Uma assinatura do AD do Azure
-- Uma assinatura do &frankly habilitada para logon único
+To configure Azure AD integration with &frankly, you need the following items:
 
-
-> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+- An Azure AD subscription
+- A &frankly single-sign on enabled subscription
 
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.
+To test the steps in this tutorial, you should follow these recommendations:
 
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
-
-1. Adicionando &frankly da galeria
-2. configurar e testar o logon único do AD do Azure
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## Adicionando &frankly da galeria
-Para configurar a integração do &frankly ao Azure AD, você precisa adicionar o &frankly da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="scenario-description"></a>Scenario description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.
 
-**Para adicionar o &frankly da galeria, execute as seguintes etapas:**
+The scenario outlined in this tutorial consists of two main building blocks:
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. Adding &frankly from the gallery
+2. Configuring and testing Azure AD single sign-on
 
-	![Active Directory][1]
 
-2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+## <a name="adding-&frankly-from-the-gallery"></a>Adding &frankly from the gallery
+To configure the integration of &frankly into Azure AD, you need to add &frankly from the gallery to your list of managed SaaS apps.
 
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
-	
-	![Aplicativos][2]
+**To add &frankly from the gallery, perform the following steps:**
 
-4. Clique em **Adicionar** na parte inferior da página.
-	
-	![Aplicativos][3]
+1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**. 
 
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+    ![Active Directory][1]
 
-	![Aplicativos][4]
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-6. Na caixa de pesquisa, digite **&frankly**.
-
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_01.png)
-
-7. No painel de resultados, selecione **&frankly** e clique em **Concluir** para adicionar o aplicativo.
-
-	![Seleção do aplicativo na galeria](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_0001.png)
-
-##  Configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o &frankly, com base em um usuário de teste chamado “Brenda Fernandes”.
-
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do &frankly é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do &frankly.
-
-Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no Azure AD como o valor de **Nome de usuário** no &frankly.
-
-Para configurar e testar o logon único do Azure AD com o &frankly, você precisa concluir os seguintes blocos de construção:
-
-1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criação de um usuário de teste do &frankly](#creating-a-&frankly-test-user)** - para ter um equivalente de Brenda Fernandes no &frankly que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
-
-### Configuração do logon único do Azure AD
-
-Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único em seu aplicativo &frankly.
-
-**Para configurar o logon único do Azure AD com o Namely, execute as seguintes etapas:**
-
-1. No portal clássico, na página de integração do aplicativo **&frankly**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
-	 
-	![Configurar o logon único][6]
-
-2. Na página **Como você deseja que os usuários façam logon no &frankly**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
     
-	![Configurar o logon único](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_03.png)
+    ![Applications][2]
 
-3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, se quiser configurar o aplicativo em **modo iniciado pelo IDP**, execute as seguintes etapas e clique em **Avançar**:
-
-    ![Configurar o logon único](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_04.png)
-
-	a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
-
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`
-
-	c. Clique em **Próximo**.
-
-4. Se quiser configurar o aplicativo no **modo iniciado pelo SP**, na página de caixa de diálogo **Definir Configurações do Aplicativo**, clique em **"Mostrar configurações avançadas (opcional)"**, insira a **URL de Entrada** e clique em **Avançar**.
-
-	![Configurar o logon único](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_05.png)
-
-	a. Na caixa de texto **URL de Entrada**, digite uma URL usando o seguinte padrão: `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
-
-	b. Clique em **Próximo**.
-
-	> [AZURE.NOTE] Observe que esses não são os valores reais. Você precisa atualizar esses valores com a URL de Entrada, o Identificador e a URL de Resposta reais. Entre em contato com [help@andfrankly.com](emailTo:help@andfrankly.com) para obter esses valores.
-
-5. Na página **Configurar logon único no &frankly**, execute as seguintes etapas e clique em **Avançar**:
-
-	![Configurar o logon único](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_06.png)
-
-    a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
-
-    b. Clique em **Avançar**.
-
-6. Para obter o SSO configurado para seu aplicativo, entre em contato com a equipe de suporte do &frankly por meio de [help@andfrankly.com](emailTo:help@andfrankly.com). Anexe o arquivo de metadados baixado e compartilhe-o com a equipe do &frankly para configurar o SSO no lado dela.
-
-7. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+4. Click **Add** at the bottom of the page.
     
-	![Logon único do AD do Azure][10]
+    ![Applications][3]
 
-8. Na página **Confirmação de logon único**, clique em **Concluir**.
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Applications][4]
+
+6. In the search box, type **&frankly**.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_01.png)
+
+7. In the results panel, select **&frankly**, and then click **Complete** to add the application.
+
+    ![Selecting the app in the gallery](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_0001.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with &frankly based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in &frankly to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in &frankly needs to be established.
+
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in &frankly.
+
+To configure and test Azure AD single sign-on with &frankly, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+3. **[Creating a &frankly test user](#creating-a-&frankly-test-user)** - to have a counterpart of Britta Simon in &frankly that is linked to the Azure AD representation of her.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
+
+In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your &frankly application.
+
+**To configure Azure AD single sign-on with &frankly, perform the following steps:**
+
+1. In the classic portal, on the **&frankly** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+     
+    ![Configure Single Sign-On][6] 
+
+2. On the **How would you like users to sign on to &frankly** page, select **Azure AD Single Sign-On**, and then click **Next**.
     
-	![Logon único do AD do Azure][11]
+    ![Configure Single Sign-On](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_03.png)
 
+3. On the **Configure App Settings** dialog page, If you wish to configure the application in **IDP initiated mode**, perform the following steps and click **Next**:
 
+    ![Configure Single Sign-On](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_04.png)
 
-### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
+    a. In the **Identifier** textbox, type a URL using the following pattern: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
 
-![Criar um usuário do AD do Azure][20]
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+    c. Click **Next**
 
-1. No **Portal Clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+4. If you wish to configure the application in **SP initiated mode** on the **Configure App Settings** dialog page, then click on the **“Show advanced settings (optional)”** and then enter the **Sign On URL** and click **Next**.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_09.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_05.png)
 
-2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+    a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
 
-3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
+    b. Click **Next**
+
+    > [AZURE.NOTE] Please note that these are not the real values. You have to update these values with the actual Sign On URL, Identifier and Reply URL.Contact [help@andfrankly.com](emailTo:help@andfrankly.com) to get these values.
+
+5. On the **Configure single sign-on at &frankly** page, perform the following steps and click **Next**:
+
+    ![Configure Single Sign-On](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_06.png)
+
+    a. Click **Download certificate**, and then save the file on your computer.
+
+    b. Click **Next**.
+
+6. To get SSO configured for your application, contact your &frankly support team via [help@andfrankly.com](emailTo:help@andfrankly.com). Attach the downloaded metadata file and share it with &frankly team to set up SSO on their side.
+
+7. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
     
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_03.png)
+    ![Azure AD Single Sign-On][10]
 
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
-
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_04.png)
-
-5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
-
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_05.png)
-
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
-
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-
-    c. Clique em **Avançar**.
-
-6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+8. On the **Single sign-on confirmation** page, click **Complete**.  
     
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_06.png)
+    ![Azure AD Single Sign-On][11]
 
-    a. Na caixa de texto **Nome**, digite **Brenda**.
 
-    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
 
-    c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the classic portal called Britta Simon.
 
-    d. Na lista **Função**, selecione **Usuário**.
+![Create Azure AD User][20]
 
-    e. Clique em **Avançar**.
+**To create a test user in Azure AD, perform the following steps:**
 
-7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
+1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_09.png)
+
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To display the list of users, in the menu on the top, click **Users**.
     
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_03.png)
 
-8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_04.png)
+
+5. On the **Tell us about this user** dialog page, perform the following steps:
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_05.png)
+
+    a. As Type Of User, select New user in your organization.
+
+    b. In the User Name **textbox**, type **BrittaSimon**.
+
+    c. Click **Next**.
+
+6.  On the **User Profile** dialog page, perform the following steps:
     
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_06.png)
 
-    a. Anote o valor da **Nova Senha**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. Clique em **Concluído**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
+    d. In the **Role** list, select **User**.
 
-### Criar um usuário de teste do &frankly
+    e. Click **Next**.
 
-Nesta seção, você criará uma usuária chamado Brenda Fernandes no &frankly. Trabalhe com a equipe de suporte do &frankly por meio de [help@andfrankly.com](emailTo:help@andfrankly.com) para adicionar os usuários à plataforma &frankly.
-
-
-### Atribuição do usuário de teste do AD do Azure
-
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao &frankly.
-	
-![Atribuir usuário][200]
-
-**Para atribuir Brenda Fernandes ao &frankly, execute as seguintes etapas:**
-
-1. No portal clássico, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
+7. On the **Get temporary password** dialog page, click **create**.
     
-	![Atribuir usuário][201]
+    ![Creating an Azure AD test user](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_07.png)
 
-2. Na lista de aplicativos, escolha **&frankly**.
+8. On the **Get temporary password** dialog page, perform the following steps:
     
-	![Configurar o logon único](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_50.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_08.png)
 
-1. No menu na parte superior, clique em **Usuários**.
+    a. Write down the value of the **New Password**.
+
+    b. Click **Complete**.   
+
+
+
+### <a name="creating-a-&frankly-test-user"></a>Creating a &frankly test user
+
+In this section, you create a user called Britta Simon in &frankly. Please work with &frankly support team via [help@andfrankly.com](emailTo:help@andfrankly.com) to add the users in the &frankly platform.
+
+
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to &frankly.
     
-	![Atribuir usuário][203]
+![Assign User][200]
 
-1. Na lista de usuários, selecione **Brenda Fernandes**.
+**To assign Britta Simon to &frankly, perform the following steps:**
 
-2. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
+1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
     
-	![Atribuir usuário][205]
+    ![Assign User][201]
+
+2. In the applications list, select **&frankly**.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_50.png)
+
+1. In the menu on the top, click **Users**.
+    
+    ![Assign User][203]
+
+1. In the Users list, select **Britta Simon**.
+
+2. In the toolbar on the bottom, click **Assign**.
+    
+    ![Assign User][205]
 
 
 
-### Teste do logon único
+### <a name="testing-single-sign-on"></a>Testing single sign-on
 
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
  
-Quando você clicar no bloco &frankly no Painel de Acesso, deverá ser automaticamente conectado ao seu aplicativo &frankly.
+When you click the &frankly tile in the Access Panel, you should get automatically signed-on to your &frankly application.
 
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Additional resources
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 
@@ -279,4 +280,8 @@ Quando você clicar no bloco &frankly no Painel de Acesso, deverá ser automatic
 [204]: ./media/active-directory-saas-andfrankly-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-andfrankly-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

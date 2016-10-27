@@ -1,29 +1,32 @@
-**Discos de máquina virtual: limites por conta**
+**Virtual machine disks: per account limits**
 
-Recurso|Limite padrão
+Resource|Default Limit
 ---|---
-Capacidade total do disco por conta|35 TB
-Capacidade total de instantâneos por conta|10 TB
-Largura de banda máxima por conta (entrada + saída<sup>1</sup>)|<=50 Gbps
+Total disk capacity per account|35 TB
+Total snapshot capacity per account|10 TB
+Max bandwidth per account (ingress + egress<sup>1</sup>)|<=50 Gbps
 
-<sup>1</sup>*Entrada* refere-se a todos os dados (solicitações) que estão sendo enviados a uma conta de armazenamento. *Saída* refere-se a todos os dados (respostas) que estão sendo recebidos de uma conta de armazenamento.
+<sup>1</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.
 
-**Discos de máquina virtual: limites por disco**
+**Virtual machine disks: per disk limits**
 
-Tipo de disco de armazenamento Premium | P10 | P20 | P30
+Premium Storage Disk Type | P10 | P20 | P30
 ---|---|---|---
-Tamanho do disco | 128 GiB | 512 GiB | 1024 GiB (1 TB)
-IOPS máxima por disco | 500 | 2\.300 | 5\.000
-Taxa de transferência máxima por disco | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo
-Número máximo de discos por conta de armazenamento | 280 | 70 | 35
+Disk size | 128 GiB | 512 GiB | 1024 GiB (1 TB)
+Max IOPS per disk | 500 | 2300 | 5000
+Max throughput per disk | 100 MB per second | 150 MB per second | 200 MB per second
+Max number of disks per storage account | 280 | 70 | 35
 
-**Discos de máquina virtual: limites por VM**
+**Virtual machine disks: per VM limits**
 
-Recurso|Limite padrão
+Resource|Default Limit
 ---|---
-IOPS máxima por VM|80\.000 IOPS com VM GS5<sup>1</sup>
-Taxa de transferência máxima por VM|2\.000 MB/s com VM GS5<sup>1</sup>
+Max IOPS Per VM|80,000 IOPS with GS5 VM<sup>1</sup>
+Max throughput per VM|2,000 MB/s with GS5 VM<sup>1</sup>
 
-<sup>1</sup>Veja [Tamanho da VM](../articles/virtual-machines/virtual-machines-linux-sizes.md) para obter os limites de outros tamanhos de VM.
+<sup>1</sup>Refer to [VM Size](../articles/virtual-machines/virtual-machines-linux-sizes.md) for limits on other VM sizes. 
 
-<!---HONumber=AcomDC_0615_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

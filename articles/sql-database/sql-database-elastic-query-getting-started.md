@@ -1,138 +1,139 @@
 <properties
-	pageTitle="Relatórios em bancos de dados expandidos na nuvem (particionamento horizontal) | Microsoft Azure"
-	description="como usar consultas de banco de dados entre bancos de dados"
-	services="sql-database"
-	documentationCenter=""  
-	manager="jhubbard"
-	authors="SilviaDoomra"/>
+    pageTitle="Report across scaled-out cloud databases (horizontal partitioning) | Microsoft Azure"
+    description="how to use cross database database queries"
+    services="sql-database"
+    documentationCenter=""  
+    manager="jhubbard"
+    authors="SilviaDoomra"/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="sql-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="SilviaDoomra" />
-
-# Relatórios entre bancos de dados expandidos na nuvem (preview)
-
-Você pode criar relatórios de vários bancos de dados do SQL Azure de um ponto de conexão única usando uma [consulta elástica](sql-database-elastic-query-overview.md). Os bancos de dados devem ser particionados horizontalmente (também conhecido como "fragmentados").
-
-Se você tiver um banco de dados existente, consulte [Migrando bancos de dados existentes para bancos de dados expandidos](sql-database-elastic-convert-to-use-elastic-tools.md).
-
-Para compreender os objetos SQL necessários para a consulta, veja [Consultar bancos de dados particionados horizontalmente](sql-database-elastic-query-horizontal-partitioning.md).
-
-## Pré-requisitos
-
-Baixe e execute a [exemplo da Introdução às ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
-
-## Criar um gerenciador de mapa de fragmentos usando o aplicativo de exemplo
-
-Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários fragmentos, seguido pela inserção de dados nos fragmentos. Se você já tem fragmentos configurados com dados fragmentados, poderá ignorar as etapas a seguir e mover para a próxima seção.
-
-1. Compile e execute o aplicativo de exemplo da **Introdução às ferramentas de Banco de Dados Elástico**. Siga as etapas até a etapa 7 na seção [Baixe e execute o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). No final da etapa 7, você verá o seguinte prompt de comando:
-
-	![prompt de comando][1]
-
-2.  Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita a ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
-3.  O [portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor v12:
-
-	![Confirmação do Visual Studio][2]
-
-	Neste ponto, consultas entre bancos de dados têm suporte por meio de bibliotecas de cliente do Banco de Dados Elástico. Por exemplo, use a opção 4 na janela Comando. Os resultados de uma consulta de vários fragmento são sempre um **UNION ALL** dos resultados de todos os fragmentos.
-
-	Na próxima seção, criaremos um ponto de extremidade de banco de dados de exemplo que dá suporte a consultas mais avançadas de dados entre fragmentos.
-
-## Criar um banco de dados de consulta elástico
-
-1. Abra o [Portal do Azure](https://portal.azure.com) e faça logon.
-2. Crie um novo Banco de Dados SQL do Azure no mesmo servidor que a instalação do fragmento. Nomeie o banco de dados como "ElasticDBQuery".
-
-	![Portal do Azure e camada de preços][3]
-
-	Observação: você pode usar um banco de dados existente. Se fizer isso, ele não deve ser um dos fragmentos aonde você deseja executar suas consultas. Esse banco de dados será usado para criar os objetos de metadados para uma consulta de Banco de Dados Elástico.
+    ms.service="sql-database"
+    ms.workload="sql-database"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="05/23/2016"
+    ms.author="SilviaDoomra" />
 
 
-## Criar objetos de banco de dados
+# <a name="report-across-scaled-out-cloud-databases-(preview)"></a>Report across scaled-out cloud databases (preview)
 
-### Chave mestra do escopo do banco de dados e credenciais
+You can create reports from multiple Azure SQL databases from a single connection point using an [elastic query](sql-database-elastic-query-overview.md). The databases must be horizontally partitioned (also known as "sharded"). 
 
-Eles são usados para conectar ao gerenciador de mapa de fragmentos e aos fragmentos:
+If you have an existing database, see [Migrating existing databases to scaled-out databases](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-1. Abra o SQL Server Management Studio ou o SQL Server Data Tools no Visual Studio.
-2. Conecte-se ao banco de dados ElasticDBQuery e execute os seguintes comandos T-SQL:
+To understand the SQL objects needed to query, see [Query across horizontally partitioned databases](sql-database-elastic-query-horizontal-partitioning.md).
 
-		CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
+## <a name="prerequisites"></a>Prerequisites
 
-		CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
-		WITH IDENTITY = '<username>',
-		SECRET = '<password>';
+Download and run the [Getting started with Elastic Database tools sample](sql-database-elastic-scale-get-started.md).
 
-	"username" e "password" devem ser o mesmo que as informações de logon usadas na etapa 6 do [Baixar e executar o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools) na [Introdução às ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md).
+## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Create a shard map manager using the sample app
 
-### Fontes de dados externas
+Here you will create a shard map manager along with several shards, followed by insertion of data into the shards. If you happen to already have shards setup with sharded data in them, you can skip the following steps and move to the next section.
 
-Para criar uma fonte de dados externa, execute o seguinte comando no banco de dados ElasticDBQuery:
+1. Build and run the **Getting started with Elastic Database tools** sample application. Follow the steps until step 7 in the section [Download and run the sample app](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). At the end of Step 7, you will see the following command prompt:
 
-	CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
+    ![command prompt][1]
+
+2.  In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat the action four times. This inserts sample data rows in your shards.
+3.  The [Azure Portal](https://portal.azure.com) should show three new databases in your v12 server:
+
+    ![Visual Studio confirmation][2]
+
+    At this point, cross-database queries are supported through the Elastic Database client libraries. For example, use option 4 in the command window. The results from a multi-shard query are always a **UNION ALL** of the results from all shards.
+
+    In the next section, we create a sample database endpoint that supports richer querying of the data across shards.
+
+## <a name="create-an-elastic-query-database"></a>Create an elastic query database
+
+1. Open the [Azure Portal](https://portal.azure.com) and log in.
+2. Create a new Azure SQL database in the same server as your shard setup. Name the database "ElasticDBQuery."
+
+    ![Azure portal and pricing tier][3]
+
+    Note: you can use an existing database. If you can do so, it must not be one of the shards that you would like to execute your queries on. This database will be used for creating the metadata objects for an elastic database query.
+
+
+## <a name="create-database-objects"></a>Create database objects
+
+### <a name="database-scoped-master-key-and-credentials"></a>Database-scoped master key and credentials
+
+These are used to connect to the shard map manager and the shards:
+
+1. Open SQL Server Management Studio or SQL Server Data Tools in Visual Studio.
+2. Connect to ElasticDBQuery database and execute the following T-SQL commands:
+
+        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
+
+        CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
+        WITH IDENTITY = '<username>',
+        SECRET = '<password>';
+
+    "username" and "password" should be the same as login information used in step 6 of [Download and run the sample app](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools) in [Getting started with elastic database tools](sql-database-elastic-scale-get-started.md).
+
+### <a name="external-data-sources"></a>External data sources
+
+To create an external data source, execute the following command on the ElasticDBQuery database:
+
+    CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
       (TYPE = SHARD_MAP_MANAGER,
       LOCATION = '<server_name>.database.windows.net',
       DATABASE_NAME = 'ElasticScaleStarterKit_ShardMapManagerDb',
-	  CREDENTIAL = ElasticDBQueryCred,
- 	  SHARD_MAP_NAME = 'CustomerIDShardMap'
+      CREDENTIAL = ElasticDBQueryCred,
+      SHARD_MAP_NAME = 'CustomerIDShardMap'
     ) ;
 
- "CustomerIDShardMap" é o nome do mapa de fragmentos, se você tiver criado um mapa de fragmentos e o gerenciador de mapa de fragmentos usando as ferramentas de banco de dados de exemplo. No entanto, se você usou a configuração personalizada para este exemplo, ele deve ter o nome do mapa de fragmento escolhido no seu aplicativo.
+ "CustomerIDShardMap" is the name of the shard map, if you created the shard map and shard map manager using the elastic database tools sample. However, if you used your custom setup for this sample, then it should be the shard map name you chose in your application.
 
-### Tabelas externas
+### <a name="external-tables"></a>External tables
 
-Crie uma tabela externa que corresponda à tabela de Clientes nos fragmentos executando o comando a seguir no banco de dados ElasticDBQuery:
+Create an external table that matches the Customers table on the shards by executing the following command on ElasticDBQuery database:
 
-	CREATE EXTERNAL TABLE [dbo].[Customers]
-	( [CustomerId] [int] NOT NULL,
-	  [Name] [nvarchar](256) NOT NULL,
-	  [RegionId] [int] NOT NULL)
-	WITH
-	( DATA_SOURCE = MyElasticDBQueryDataSrc,
+    CREATE EXTERNAL TABLE [dbo].[Customers]
+    ( [CustomerId] [int] NOT NULL,
+      [Name] [nvarchar](256) NOT NULL,
+      [RegionId] [int] NOT NULL)
+    WITH
+    ( DATA_SOURCE = MyElasticDBQueryDataSrc,
       DISTRIBUTION = SHARDED([CustomerId])
-	) ;
+    ) ;
 
-## Executar uma consulta T-SQL no banco de dados elástico de exemplo
+## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Execute a sample elastic database T-SQL query
 
-Depois que tiver definido sua fonte de dados e tabelas externas, agora você poderá usar o T-SQL completo nas tabelas externas.
+Once you have defined your external data source and your external tables you can now use full T-SQL over your external tables.
 
-Execute esta consulta no banco de dados ElasticDBQuery:
+Execute this query on the ElasticDBQuery database:
 
-	select count(CustomerId) from [dbo].[Customers]
+    select count(CustomerId) from [dbo].[Customers]
 
-Você observará que a consulta agrega os resultados de todos os fragmentos e fornece a seguinte saída:
+You will notice that the query aggregates results from all the shards and gives the following output:
 
-![Detalhes de saída][4]
+![Output details][4]
 
-## Importar resultados de consulta de banco de dados elástico para o Excel
+## <a name="import-elastic-database-query-results-to-excel"></a>Import elastic database query results to Excel
 
- Você pode importar os resultados de uma consulta para um arquivo do Excel.
+ You can import the results from of a query to an Excel file.
 
-1. Inicie o Excel 2013.
-2. 	Navegue até a faixa de opções **Dados**.
-3. 	Clique em **De Outras Fontes** e em **Do SQL Server**.
+1. Launch Excel 2013.
+2.  Navigate to the **Data** ribbon.
+3.  Click **From Other Sources** and click **From SQL Server**.
 
-	![Importação de outras fontes para o Excel][5]
-4. 	No **Assistente para conexão de dados**, digite as credenciais de logon e nome do servidor. Em seguida, clique em **Próximo**.
-5. 	Na caixa de diálogo **Selecione o banco de dados que contém os dados que você deseja**, selecione o banco de dados **ElasticDBQuery**.
-6. 	Selecione a tabela **Clientes** na exibição de lista e clique em **Avançar**. Em seguida, clique em **Concluir**.
-7. 	No formulário **Importar dados** em **Selecione como deseja exibir esses dados na sua pasta de trabalho**, selecione **Tabela** e clique em **OK**.
+    ![Excel import from other sources][5]
+4.  In the **Data Connection Wizard** type the server name and login credentials. Then click **Next**.
+5.  In the dialog box **Select the database that contains the data you want**, select the **ElasticDBQuery** database.
+6.  Select the **Customers** table in the list view and click **Next**. Then click **Finish**.
+7.  In the **Import Data** form, under **Select how you want to view this data in your workbook**, select **Table** and click **OK**.
 
-Todas as linhas da tabela **Clientes**, armazenada em fragmentos diferentes, populam a planilha do Excel.
+All the rows from **Customers** table, stored in different shards populate the Excel sheet.
 
-## Próximas etapas
-Agora você pode usar funções avançadas de visualização de dados do Excel. Você pode usar a cadeia de conexão com o nome do servidor, nome do banco de dados e credenciais para conectar suas ferramentas de integração de dados e BI ao banco de dados de consulta elástico. Certifique-se de que o SQL Server tem suporte como uma fonte de dados para a ferramenta. Você pode consultar o banco de dados de consulta elástico e tabelas externas como qualquer outro banco de dados e tabela do SQL Server que se conectariam à sua ferramenta.
+## <a name="next-steps"></a>Next steps
+You can now use Excel’s powerful data visualization functions. You can use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database. Make sure that SQL Server is supported as a data source for your tool. You can refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.
 
-### Custo
-Não há nenhum custo adicional para usar o recurso de consulta de Banco de Dados Elástico.
+### <a name="cost"></a>Cost
+There is no additional charge for using the Elastic Database Query feature.
 
-Para obter informações sobre os preços, consulte [Detalhes de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+For pricing information see [SQL Database Pricing Details](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -145,4 +146,8 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,121 +1,126 @@
 <properties
-	pageTitle="Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs | Microsoft Azure"
-	description="Compare e contraste os serviços de integração na nuvem da Microsoft e decida quais deles você deve usar."
-	services="functions,app-service\logic"
-	documentationCenter="na"
-	authors="cephalin"
-	manager="wpickett"
-	tags=""
-	keywords="microsoft flow, flow, aplicativos lógicos, azure functions, functions, azure webjobs, webjobs, processamento de eventos, computação dinâmica, arquitetura sem servidor"/>
+    pageTitle="Choose between Flow, Logic Apps, Functions, and WebJobs | Microsoft Azure"
+    description="Compare and contrast the for cloud integration services from Microsoft and decide which service(s) you should use."
+    services="functions,app-service\logic"
+    documentationCenter="na"
+    authors="cephalin"
+    manager="wpickett"
+    tags=""
+    keywords="microsoft flow, flow, logic apps, azure functions, functions, azure webjobs, webjobs, event processing, dynamic compute, serverless architecture"/>
 
 <tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="09/08/2016"
-	ms.author="chrande; glenga"/>
+    ms.service="functions"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="multiple"
+    ms.workload="na"
+    ms.date="09/08/2016"
+    ms.author="chrande; glenga"/>
 
-# Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs
 
-Este artigo compara e contrasta os seguintes serviços na nuvem da Microsoft, que podem todos solucionar problemas de integração e automação de processos de negócios:
+# <a name="choose-between-flow,-logic-apps,-functions,-and-webjobs"></a>Choose between Flow, Logic Apps, Functions, and WebJobs
+
+This article compares and contrasts the following services in the Microsoft cloud, which can all solve integration problems and automation of business processes:
 
 - [Microsoft Flow](https://flow.microsoft.com/)
-- [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps/)
-- [Funções do Azure](https://azure.microsoft.com/services/functions/)
-- [WebJobs no Serviço de Aplicativo do Azure](../app-service-web/web-sites-create-web-jobs.md)
+- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
+- [Azure Functions](https://azure.microsoft.com/services/functions/)
+- [Azure App Service WebJobs](../app-service-web/web-sites-create-web-jobs.md)
 
-Todos esses serviços são úteis para "unir" sistemas diferentes. Todos eles definem entrada e saída, condições e ações. Você pode executar cada um em um cronograma ou gatilho. No entanto, cada serviço adiciona um conjunto exclusivo de valores, e compará-los não é uma questão de "qual serviço é o melhor?", mas de "qual serviço é o mais adequado para essa situação?" Geralmente, uma combinação desses serviços é a melhor maneira de criar rapidamente uma solução escalonável de integração completa.
+All these services are useful when "gluing" together disparate systems. They can all define input, actions, conditions, and output. You can run each of them on a schedule or trigger. However, each service adds a unique set of value, and comparing them is not a question of "Which service is the best?" but one of "Which service is best suited for this situation?" Often, a combination of these services is the best way to rapidly build a scalable, full featured integration solution.
 
 <a name="flow"></a>
-## Flow vs. Aplicativos Lógicos
+## <a name="flow-vs.-logic-apps"></a>Flow vs. Logic Apps
 
-Podemos discutir o Microsoft Flow e os Aplicativos Lógicos do Azure porque são ambos integrações de *configuração prioritária*, o que facilita a criação de processos e fluxos de trabalho e se integram a diversos aplicativos SaaS e corporativos.
+We can discuss Microsoft Flow and Azure Logic Apps together because they are both *configuration-first* integration services, which makes it easy to build processes and workflows and integrate with various SaaS and enterprise applications. 
 
-- O Flow é criado em cima de Aplicativos Lógicos
-- Eles têm o mesmo designer de fluxo de trabalho
-- [Conectores](../connectors/apis-list.md) que funcionam em um também podem funcionar no outro
+- Flow is built on top of Logic Apps
+- They have the same workflow designer
+- [Connectors](../connectors/apis-list.md) that work in one can also work in the other
 
-O Flow permite que qualquer funcionário possa fazer integrações simples (por exemplo, obter SMS para emails importantes) sem passar por desenvolvedores ou pelo departamento de TI. Por outro lado, os Aplicativos Lógicos podem habilitar integrações avançadas ou essenciais (por exemplo, processos de B2B) onde há a necessidade de práticas de segurança e DevOps de nível empresarial. É comum que um fluxo de trabalho de negócios aumente de complexidade ao longo do tempo. Da mesma forma, você pode começar com um fluxo e convertê-lo em um aplicativo lógico conforme a necessidade.
+Flows empowers any office worker to perform simple integrations (e.g. get SMS for important emails) without going through developers or IT. On the other hand, Logic Apps can enable advanced or mission-critical integrations (e.g. B2B processes) where enterprise-level DevOps and security practices are required. It is typical for a business workflow to grow in complexity overtime. Accordingly, you can start with a flow at first, then convert it to a logic app as needed.
 
-A tabela a seguir ajuda a determinar o que é melhor para determinada integração, o Flow ou os Aplicativos Lógicos.
+The following table helps you determine whether Flow or Logic Apps is best for a given integration.
 
-| | Flow | Aplicativos Lógicos |
+|               | Flow                                                                             | Logic Apps                                                                                          |
 |---------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| Público-alvo | funcionários do escritório, usuários de negócios | profissionais de TI, desenvolvedores |
-| Cenários | Autoatendimento | Essenciais |
-| Ferramenta de design | No navegador, somente interface do usuário | No navegador e no [Visual Studio](../app-service/logic/app-service-logic-deploy-from-vs.md), [Exibição de código](../app-service-logic/app-service-logic-author-definitions.md) disponível |
-| DevOps | Ad-hoc, desenvolver em produção | controle de origem, teste, suporte, automação e capacidade de gerenciamento no [Azure Resource Manager](../app-service-logic/app-service-logic-arm-provision.md)|
-| Experiência de administrador| [https://flow.microsoft.com](https://flow.microsoft.com) | [https://portal.azure.com](https://portal.azure.com) |
-| Segurança | Práticas padrão: [soberania de dados](https://wikipedia.org/wiki/Technological_Sovereignty), [criptografia em repouso](https://wikipedia.org/wiki/Data_at_rest#Encryption) para dados confidenciais, etc. | Garantia de segurança do Azure: [segurança do Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Central de Segurança](https://azure.microsoft.com/services/security-center/), [logs de auditoria](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) e muito mais. |
+| Audience      | office workers, business users                                                   | IT pros, developers                                                                                 |
+| Scenarios     | Self-service                                                                     | Mission-critical                                                                                    |
+| Design Tool   | In-browser, UI only                                                              | In-browser and [Visual Studio](../app-service/logic/app-service-logic-deploy-from-vs.md), [Code view](../app-service-logic/app-service-logic-author-definitions.md) available |
+| DevOps        | Ad-hoc, develop in production                                                    | source control, testing, support, and automation and manageability in [Azure Resource Management](../app-service-logic/app-service-logic-arm-provision.md)|
+| Admin Experience| [https://flow.microsoft.com](https://flow.microsoft.com)                       | [https://portal.azure.com](https://portal.azure.com)                                                |
+| Security      | Standard practices: [data sovereignty](https://wikipedia.org/wiki/Technological_Sovereignty), [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data, etc. | Security assurance of Azure: [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), and more. |
 
 <a name="function"></a>
-## Functions vs. Trabalhos Web
+## <a name="functions-vs.-webjobs"></a>Functions vs. WebJobs
 
-Podemos discutir o Azure Functions e os WebJobs do Serviço de Aplicativo do Azure juntos porque eles são serviços de integração de *código prioritário* e projetados para desenvolvedores. Eles permitem que você execute um script ou um trecho de código em resposta a vários eventos, como [novos blobs de armazenamento](functions-bindings-storage.md) ou [uma solicitação WebHook](functions-bindings-http-webhook.md). Eis as semelhanças:
+We can discuss Azure Functions and Azure App Service WebJobs together because they are both *code-first* integration services and designed for developers. They enable you to run a script or a piece of code in response to various events, such as [new Storage Blobs](functions-bindings-storage.md) or [a WebHook request](functions-bindings-http-webhook.md). Here are their similarities: 
 
-- Ambos são criados no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) e têm recursos como [controle de origem](../app-service-web/app-service-continuous-deployment.md), [autenticação](../app-service/app-service-authentication-overview.md) e [monitoramento](../app-service-web/web-sites-monitor.md).
-- Ambos são serviços voltados para desenvolvedores.
-- Ambos dão suporte a scripts e linguagens de programação padrão.
-- Ambos têm suporte NuGet e NPM.
+- Both are built on [Azure App Service](../app-service/app-service-value-prop-what-is.md) and enjoy features such as [source control](../app-service-web/app-service-continuous-deployment.md), [authentication](../app-service/app-service-authentication-overview.md), and [monitoring](../app-service-web/web-sites-monitor.md).
+- Both are developer-focused services.
+- Both support standard scripting and programming languages.
+- Both have NuGet and NPM support.
 
-O Functions é a evolução natural do WebJobs no sentido de ter o melhor do WebJob, só que aprimorado. As melhorias incluem:
+Functions is the natural evolution of WebJobs in that it takes the best things about WebJobs and improves upon them. The improvements include: 
 
-- Desenvolvimento simplificado, teste e execução de código diretamente no navegador.
-- Integração interna com outros serviços do Azure e serviços de terceiros como o [GitHub WebHooks](https://developer.github.com/webhooks/creating/).
-- Pagamento por uso. Não é preciso pagar um [Plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-- Automático, [dimensionamento dinâmico](functions-scale.md).
-- Para os clientes existentes do Serviço de Aplicativo, a execução no Plano do Serviço de Aplicativo ainda possível (para tirar proveito dos recursos subutilizados).
-- Integração com os Aplicativos Lógicos.
+- Streamlined dev, test, and run of code, directly in the browser.
+- Built-in integration with more Azure services and 3rd-party services like [GitHub WebHooks](https://developer.github.com/webhooks/creating/).
+- Pay-per-use, no need to pay for an [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+- Automatic, [dynamic scaling](functions-scale.md).
+- For existing customers of App Service, running on App Service plan still possible (to take advantage of under-utilized resources).
+- Integration with Logic Apps.
 
-A tabela a seguir resume as diferenças entre o Functions e o WebJobs:
+The following table summarizes the differences between Functions and WebJobs:
 
-| | Funções | Trabalhos Web |
+|                        | Functions                                                                                                                                                                | WebJobs                            |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|
-| Dimensionamento | Dimensionamento sem configuração | dimensionar com Plano do Serviço de Aplicativo |
-| Preços | Pagamento por uso ou parte de Plano do Serviço de Aplicativo | Parte do Plano do Serviço de Aplicativo |
-| Executar-tipo | disparado, agendado (pelo gatilho de temporizador) | acionado, contínuo, agendado |
-| Eventos de gatilho | [temporizador](functions-bindings-timer.md), [Azure DocumentDB](functions-bindings-documentdb.md), [Hubs de Eventos do Azure](functions-bindings-event-hubs), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Aplicativos Móveis do Serviço de Aplicativo do Azure](functions-bindings-mobile-apps.md), [Hubs de Notificação do Azure](functions-bindings-notification-hubs.md), [Barramento de Serviço do Azure](functions-bindings-service-bus.md), [Armazenamento do Azure](articles/functions-bindings-storage.md) | [Armazenamento do Azure](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Barramento de Serviço do Azure](websites-dotnet-webjobs-sdk-service-bus.md) |
-| Desenvolvimento no navegador | x | |
-| Script de janela | experimental | x |
-| PowerShell | experimental | x |
-| C# | x | x |
-| F# | x | |
-| Bash | experimental | x |
-| PHP | experimental | x |
-| Python | experimental | x |
-| JavaScript | x | x |
-| Java | experimental | x |
+| Scaling                | Configurationless scaling                                                                                                                                                | scale with App Service plan        |
+| Pricing                | Pay-per-use or part of App Service plan                                                                                                                                  | Part of App Service plan           |
+| Run-type               | triggered, scheduled (by timer trigger)                                                                                                                                  | triggered, continuous, scheduled   |
+| Trigger events         | [timer](functions-bindings-timer.md), [Azure DocumentDB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](articles/functions-bindings-storage.md) | [Azure Storage](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Azure Service Bus](websites-dotnet-webjobs-sdk-service-bus.md)         |
+| In-browser development | x                                                                                                                                                                        |                                    |
+| Window scripting       | experimental                                                                                                                                                             | x                                  |
+| PowerShell             | experimental                                                                                                                                                             | x                                  |
+| C#                     | x                                                                                                                                                                        | x                                  |
+| F#                     | x                                                                                                                                                                        |                                    |
+| Bash                   | experimental                                                                                                                                                             | x                                  |
+| PHP                    | experimental                                                                                                                                                             | x                                  |
+| Python                 | experimental                                                                                                                                                             | x                                  |
+| JavaScript             | x                                                                                                                                                                        | x                                  |
+| Java                   | experimental                                                                                                                                                             | x                                  |
 
-O uso do Functions ou do WebJobs depende do que você já está fazendo com o Serviço de Aplicativo. Se você tiver um aplicativo do Serviço de Aplicativo para o qual deseja executar trechos de código e quiser gerenciá-los juntos no mesmo ambiente DevOps, deverá usar o WebJobs. Se você desejar executar trechos de código para outros serviços ou aplicativos de terceiros, ou se quiser gerenciar trechos de código de integração separadamente dos aplicativos do Serviço de Aplicativo, ou se desejar chamar trechos de código em um Aplicativo lógico, aproveite todas as melhorias do Functions.
+Whether to use Functions or WebJobs ultimately depends on what you're already doing with App Service. If you have an App Service app for which you want to run code snippets, and you want to manage them together in the same DevOps environment, you should use WebJobs. If you want to run code snippets for other Azure services or even 3rd-party apps, or if you want to manage your integration code snippets separately from your App Service apps, or if you want to call your code snippets from a Logic app, you should take advantage of all the improvements in Functions.  
 
 <a name="together"></a>
-## Flow, Aplicativos Lógicos e Functions juntos
+## <a name="flow,-logic-apps,-and-functions-together"></a>Flow, Logic Apps, and Functions together
 
-Conforme mencionado anteriormente, o serviço mais adequado para você depende da situação.
+As previously mentioned, which service is best suited to you depends on your situation. 
 
-- Para a otimização de negócios simples, use o Flow.
-- Se seu cenário de integração é muito avançado para o Flow, ou se você precisa de recursos de DevOps e conformidades de segurança, use os Aplicativos Lógicos.
-- Se uma etapa no seu cenário de integração requer transformação altamente personalizada ou código especializado, crie um aplicativo de funções e dispare uma função como ação em seu aplicativo lógico.
+- For simple business optimization, then use Flow.
+- If your integration scenario is too advanced for Flow, or you need DevOps capabilities and security compliances, then use Logic Apps.
+- If a step in your integration scenario requires highly custom transformation or specialized code, then write a function app, and then trigger a function as an action in your logic app.
 
-Você pode chamar um aplicativo lógico em um fluxo. Você também pode chamar uma função em um aplicativo lógico e um aplicativo lógico em uma função. A integração entre o Flow, os Aplicativos Lógicos e o Functions vai melhorando a cada dia. Você pode criar algo em um serviço e usá-lo em outros serviços. Portanto, todo o investimento feito nessas três tecnologias vale a pena.
+You can call a logic app in a flow. You can also call a function in a logic app, and a logic app in a funciton. The integration between Flow, Logic Apps, and Functions continue to improve overtime. You can build something in one service and use it in the other services. Therefore, any investment you make in these three technologies is worthwhile.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next Steps
 
-Comece a usar cada um dos serviços criando seu primeiro fluxo, aplicativo lógico, aplicativo de funções ou trabalho Web. Clique em um dos links abaixo:
+Get started with each of the services by creating your first flow, logic app, function app, or WebJob. Click any of the following links:
 
-- [Introdução ao Microsoft Flow](https://flow.microsoft.com/pt-BR/documentation/getting-started/)
-- [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
-- [Criar sua primeira Função do Azure](../azure-functions/functions-create-first-azure-function.md)
-- [Implantar Trabalhos Web usando o Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md)
+- [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
+- [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+- [Create your first Azure Function](../azure-functions/functions-create-first-azure-function.md)
+- [Deploy WebJobs using Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md)
 
-Ou saiba mais sobre esses serviços de integração com os links abaixo:
+Or, get more information on these integration services with the following links:
 
-- [Aproveitando o Azure Functions e o Serviço de Aplicativo do Azure em cenários de integração, por Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
-- [Integração simplificada, por Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
-- [Webcast ao vivo de Aplicativos Lógicos](http://aka.ms/logicappslive)
-- [Perguntas frequentes sobre o Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
-- [Recursos de documentação do Azure Webjobs](../app-service-web/websites-webjobs-resources.md)
+- [Leveraging Azure Functions & Azure App Service for integration scenarios by Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
+- [Integrations Made Simple by Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
+- [Logic Apps Live Webcast](http://aka.ms/logicappslive)
+- [Microsoft Flow Frequently asked questions](https://flow.microsoft.com/documentation/frequently-asked-questions/)
+- [Azure WebJobs documentation resources](../app-service-web/websites-webjobs-resources.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

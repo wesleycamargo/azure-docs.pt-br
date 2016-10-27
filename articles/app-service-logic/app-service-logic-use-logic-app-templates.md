@@ -1,6 +1,6 @@
 <properties
- pageTitle="Modelos de Aplicativo Lógico | Microsoft Azure"
- description="Saiba como usar modelos de Aplicativo lógico pré-criados a fim de obter ajuda para começar"
+ pageTitle="Logic App templates | Microsoft Azure"
+ description="Learn how to use pre-created Logic app templates to help you get started"
  authors="kevinlam1"
  manager="dwrede"
  editor=""
@@ -8,59 +8,69 @@
  documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="klam"/>
+    ms.service="app-service-logic"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/24/2016"
+    ms.author="klam"/>
 
-# Modelos de Aplicativo Lógico
 
-## O que são modelos de aplicativo lógico
+# <a name="logic-app-templates"></a>Logic App templates
 
-Um modelo de aplicativo lógico é um aplicativo lógico predefinido que você pode usar para começar a criar rapidamente seu próprio fluxo de trabalho.
+## <a name="what-are-logic-app-templates"></a>What are logic app templates
 
-Esses modelos são uma boa maneira de descobrir vários padrões que podem ser criados usando aplicativos lógicos. Você pode usá-los como estão ou modificá-los para ajustá-los a seu cenário.
+A logic app template is a pre-built logic app that you can use to quickly get started creating your own workflow. 
 
-## Visão geral dos modelos disponíveis
+These templates are a good way to discover various patterns that can be built using logic apps. You can either use these templates as-is or modify them to fit your scenario.
 
-Existem vários modelos disponíveis atualmente publicados na plataforma de aplicativos lógicos. Algumas categorias de exemplo, bem como os tipos de conectores usados por elas, são listadas abaixo.
+## <a name="overview-of-available-templates"></a>Overview of available templates
 
-### Modelos de nuvem empresarial
-Os modelos que integram o Dynamics CRM, o Salesforce, o Box, o Blob do Azure e outros conectores para suas necessidades de nuvem empresarial. Alguns exemplos do que pode ser feito com esses modelos incluem a organização dos clientes potenciais e fazer backup de dados de arquivos corporativos.
+There are many available templates currently published in the logic app platform. Some example categories, as well as the type of connectors used in them, are listed below.
 
-### Modelos de pacote de integração empresarial
-Configurações de pipelines VETER (validar, extrair, transformar, enriquecer, rotear), recebendo um documento EDI X12 via AS2 e transformando-o em XML, bem como o tratamento de mensagens X12 e AS2.
+### <a name="enterprise-cloud-templates"></a>Enterprise cloud templates
+Templates that integrate Dynamics CRM, Salesforce, Box, Azure Blob, and other connectors for your enterprise cloud needs. Some examples of what can be done with these templates include organizing your leads and backing up your corporate file data.
 
-### Modelos de padrão de protocolo
-Esses modelos consistem em aplicativos lógicos que contêm os padrões de protocolo como solicitação-resposta sobre HTTP, bem como integrações por meio de FTP e SFTP. Use-os como estão ou como base para a criação de padrões mais complexos de protocolo.
+### <a name="enterprise-integration-pack-templates"></a>Enterprise integration pack templates
+Configurations of VETER (validate, extract, transform, enrich, route) pipelines, receiving an X12 EDI document over AS2 and transforming it to XML, as well as X12 and AS2 message handling.
 
-### Modelos de produtividade pessoal
-Os padrões para ajudar a melhorar a produtividade pessoal incluem modelos que definem lembretes diários, transformam os itens de trabalho importantes em listas de tarefas e automatizam tarefas demoradas até uma etapa de aprovação de usuário único.
+### <a name="protocol-pattern-templates"></a>Protocol pattern templates
+These templates consist of logic apps that contain protocol patterns such as request-response over HTTP as well as integrations across FTP and SFTP. Use these as they exist, or as a basis for creating more complex protocol patterns.  
 
-### Modelos de nuvem do consumidor
-Os modelos simples que se integram com os serviços de mídia social, como o Twitter, o Slack e o email, basicamente capaz de reforçar as iniciativas de marketing de mídia social. Eles também incluem modelos como a cópia em nuvem, que podem ajudar a aumentar a produtividade, economizando o tempo gasto em tarefas tradicionalmente repetitivas.
+### <a name="personal-productivity-templates"></a>Personal productivity templates
+Patterns to help improve personal productivity include templates that set daily reminders, turn important work items into to-do lists, and automate lengthy tasks down to a single user approval step.
 
-## Como criar um aplicativo lógico usando um modelo 
+### <a name="consumer-cloud-templates"></a>Consumer cloud templates
+Simple templates that integrate with social media services such as Twitter, Slack, and email, ultimately capable of strengthening social media marketing initiatives. These also include templates such as cloudy copying, which can help increase productivity by saving time spent on traditionally repetitive tasks. 
 
-Para começar a usar um modelo de aplicativo lógico, vá para o designer de aplicativos lógicos. Se você estiver inserindo o designer ao abrir um aplicativo lógico existente, o aplicativo lógico será carregado automaticamente no modo de exibição de designer. Porém, se você estiver criando um novo aplicativo lógico, verá a tela abaixo. ![](../../includes/media/app-service-logic-templates/template7.png)
+## <a name="how-to-create-a-logic-app-using-a-template"></a>How to create a logic app using a template 
 
-Nesta tela, você pode optar por começar com um aplicativo lógico em branco ou com um modelo criado previamente. Se você selecionar um dos modelos, serão fornecidas informações adicionais. Neste exemplo, usamos o modelo *Quando um novo arquivo for criado no Dropbox, copie-o para o OneDrive*. ![](../../includes/media/app-service-logic-templates/template2.png)
+To get started using a logic app template, go into the logic app designer. If you're entering the designer by opening an existing logic app, the logic app automatically loads in your designer view. However, if you're creating a new logic app, you see the screen below.  
+ ![](../../includes/media/app-service-logic-templates/template7.png)  
 
-Se você optar por usar o modelo, basta selecionar o botão *usar este modelo*. Você precisará entrar em suas contas com base em quais conectores são utilizados pelo modelo. Ou, se você tiver estabelecido uma conexão com esses conectores anteriormente, poderá selecionar continuar conforme mostrado abaixo. ![](../../includes/media/app-service-logic-templates/template3.png)
+From this screen, you can either choose to start with a blank logic app or a pre-built template. If you select one of the templates, you are provided with additional information. In this example, we use the *When a new file is created in Dropbox, copy it to OneDrive* template.  
+ ![](../../includes/media/app-service-logic-templates/template2.png)  
 
-Depois de estabelecer a conexão e selecionar *continuar*, o aplicativo lógico é aberto no modo de exibição de designer. ![](../../includes/media/app-service-logic-templates/template4.png)
+If you choose to use the template, just select the *use this template* button. You'll be asked to sign in to your accounts based on which connectors the template utilizes. Or, if you've previously established a connection with these connectors, you can select continue as seen below.  
+ ![](../../includes/media/app-service-logic-templates/template3.png)  
 
-No exemplo acima, como é o caso com muitos modelos, alguns dos campos de propriedade obrigatória podem ser preenchido em conectores; no entanto, alguns ainda podem exigir um valor antes de poder implantar corretamente o aplicativo lógico. Se você tentar implantar sem inserir alguns dos campos ausentes, será notificado com uma mensagem de erro.
+After establishing the connection and selecting *continue*, the logic app opens in designer view.  
+ ![](../../includes/media/app-service-logic-templates/template4.png)  
 
-Se você quiser voltar ao visualizador de modelos, selecione o botão *Modelos* na barra de navegação superior. Alternando para o visualizador do modelo, você perderá qualquer progresso não salvo. Antes de alternar novamente para o visualizador de modelos, você verá uma mensagem de aviso informando isso. ![](../../includes/media/app-service-logic-templates/template5.png)
+In the example above, as is the case with many templates, some of the mandatory property fields may be filled out within the connectors; however, some might still require a value before being able to properly deploy the logic app. If you try to deploy without entering some of the missing fields, you'll be notified with an error message.
 
-## Como implantar um aplicativo lógico criado de um modelo
+If you wish to return to the template viewer, select the *Templates* button in the top navigation bar. By switching back to the template viewer, you lose any unsaved progress. Prior to switching back into template viewer, you'll see a warning message notifying you of this.  
+ ![](../../includes/media/app-service-logic-templates/template5.png)  
 
-Depois de carregar o modelo e de fazer as alterações desejadas, selecione o botão salvar no canto superior esquerdo. Isso salva e publica seu aplicativo lógico. ![](../../includes/media/app-service-logic-templates/template6.png)
+## <a name="how-to-deploy-a-logic-app-created-from-a-template"></a>How to deploy a logic app created from a template
 
-Se você quiser mais informações sobre como adicionar mais etapas a um modelo de aplicativo lógico existente ou fazer edições em geral, leia mais em [Criar um aplicativo lógico](app-service-logic-create-a-logic-app.md).
+Once you have loaded your template and made any desired changes, select the save button in the upper left corner. This saves and publishes your logic app.  
+ ![](../../includes/media/app-service-logic-templates/template6.png)  
 
-<!---HONumber=AcomDC_0831_2016-->
+If you would like more information on how to add more steps into an existing logic app template, or make edits in general, read more at [Create a logic app](app-service-logic-create-a-logic-app.md).
+
+
+<!--HONumber=Oct16_HO2-->
+
+

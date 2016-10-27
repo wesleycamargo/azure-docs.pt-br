@@ -1,49 +1,50 @@
 <properties 
-	pageTitle="Passo a passo: monitorar o Microsoft Dynamics CRM com o Application Insights" 
-	description="Obtenha a telemetria do Microsoft Dynamics CRM Online usando o Application Insights. Passo a passo da instalação, obtenção de dados, visualização e exportação." 
-	services="application-insights" 
+    pageTitle="Walkthrough: Monitor Microsoft Dynamics CRM with Application Insights" 
+    description="Get telemetry from Microsoft Dynamics CRM Online using Application Insights. Walkthrough of setup, getting data, visualization and export." 
+    services="application-insights" 
     documentationCenter=""
-	authors="mazharmicrosoft" 
-	manager="douge"/>
+    authors="mazharmicrosoft" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/17/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/17/2015" 
+    ms.author="awills"/>
  
-# Passo a passo: Ativar a telemetria para o Microsoft Dynamics CRM Online usando o Application Insights
 
-Este artigo mostra como obter dados de telemetria do [Microsoft Dhynamics CRM Online](https://www.dynamics.com/) usando o [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/). Percorreremos o processo completo de adição de um script do Application Insights ao seu aplicativo, captura de dados e visualização de dados.
+# <a name="walkthrough:-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Walkthrough: Enabling Telemetry for Microsoft Dynamics CRM Online using Application Insights
+
+This article shows you how to get telemetry data from [Microsoft Dynamics CRM Online](https://www.dynamics.com/) using [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/). We’ll walk through the complete process of adding Application Insights script to your application, capturing data, and data visualization.
 
 >[AZURE.NOTE] [Browse the sample solution](https://dynamicsandappinsights.codeplex.com/).
 
-## Adicionar o Application Insights a uma instância nova ou existente do CRM Online 
+## <a name="add-application-insights-to-new-or-existing-crm-online-instance"></a>Add Application Insights to new or existing CRM Online instance 
 
-Para monitorar seu aplicativo, você adiciona um SDK do Application Insights a ele. O SDK envia a telemetria para o [Portal do Application Insights](https://portal.azure.com), no qual você pode usar nossas potentes ferramentas de análise e diagnóstico ou exportar os dados para o armazenamento.
+To monitor your application, you add an Application Insights SDK to your application. The SDK sends telemetry to the [Application Insights portal](https://portal.azure.com), where you can use our powerful analysis and diagnostic tools, or export the data to storage.
 
-### Criar um recurso do Application Insights no Azure
+### <a name="create-an-application-insights-resource-in-azure"></a>Create an Application Insights resource in Azure
 
-1. Obtenha [uma conta no Microsoft Azure](http://azure.com/pricing). 
-2. Entre no [Portal do Azure](https://portal.azure.com) e adicione um novo recurso do Application Insights. Este é o local em que os dados serão processados e exibidos.
+1. Get [an account in Microsoft Azure](http://azure.com/pricing). 
+2. Sign into the [Azure portal](https://portal.azure.com) and add a new Application Insights resource. This is where your data will be processed and displayed.
 
-    ![Clique em +, Serviços de Desenvolvedor, Application Insights.](./media/app-insights-sample-mscrm/01.png)
+    ![Click +, Developer Services, Application Insights.](./media/app-insights-sample-mscrm/01.png)
 
-    Escolha ASP.NET como o tipo de aplicativo.
+    Choose ASP.NET as the application type.
 
-3. Abra a guia Início Rápido e abra o script de código.
+3. Open the Quick Start tab and open the code script.
 
     ![](./media/app-insights-sample-mscrm/03.png)
 
-**Mantenha a página de código aberta** enquanto realiza a próxima etapa na outra janela do navegador. Você precisará do código em breve.
+**Keep the code page open** while you do the next step in another browser window. You'll need the code soon. 
 
-### Criar um recurso da Web em JavaScript no Microsoft Dynamics CRM
+### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Create a JavaScript web resource in Microsoft Dynamics CRM
 
-1. Abra sua instância do CRM Online e faça logon com privilégios de administrador.
-2. Abra o Microsoft Dynamics CRM Configurações, Personalizações, Personalizar o Sistema
+1. Open your CRM Online instance and login with administrator privileges.
+2. Open Microsoft Dynamics CRM Settings, Customizations, Customize the System
 
     ![](./media/app-insights-sample-mscrm/04.png)
     
@@ -52,64 +53,64 @@ Para monitorar seu aplicativo, você adiciona um SDK do Application Insights a e
 
     ![](./media/app-insights-sample-mscrm/06.png)
 
-3. Crie um recurso de JavaScript.
+3. Create a JavaScript resource.
 
     ![](./media/app-insights-sample-mscrm/07.png)
 
-    Atribua um nome, selecione **Script (JScript)** e abra o editor de texto.
+    Give it a name, select **Script (JScript)** and open the text editor.
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. Copie o código do Application Insights. Ao copiar, certifique-se de ignorar marcas de script. Consulte a captura de tela abaixo:
+4. Copy the code from Application Insights. While copying make sure to ignore script tags. Refer below screenshot:
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
-    O código inclui a chave de instrumentação que identifica seu recurso do Application insights.
+    The code includes the instrumentation key that identifies your Application insights resource.
 
-5. Salve e publique.
+5. Save and publish.
 
     ![](./media/app-insights-sample-mscrm/10.png)
 
-### Formulários de instrumento
+### <a name="instrument-forms"></a>Instrument Forms
 
-1. No Microsoft CRM Online, abra o formulário Conta
+1. In Microsoft CRM Online, open the Account form
 
     ![](./media/app-insights-sample-mscrm/11.png)
 
-2. Abra as propriedades do formulário
+2. Open the form Properties
 
     ![](./media/app-insights-sample-mscrm/12.png)
 
-3. Adicione o recurso da Web de JavaScript que você criou
+3. Add the JavaScript web resource that you created
 
     ![](./media/app-insights-sample-mscrm/13.png)
 
     ![](./media/app-insights-sample-mscrm/14.png)
 
-4. Salve e publique as personalizações do formulário.
+4. Save and publish your form customizations.
 
 
-## Métricas capturadas
+## <a name="metrics-captured"></a>Metrics captured
 
-Agora você configurou a captura de telemetria do formulário. Sempre que ele for usado, os dados serão enviados ao recurso do Application Insights.
+You have now set up telemetry capture for the form. Whenever it is used, data will be sent to your Application Insights resource.
 
-Aqui estão exemplos dos dados que você verá.
+Here are samples of the data that you'll see.
 
-#### Integridade do aplicativo
+#### <a name="application-health"></a>Application health
 
 ![](./media/app-insights-sample-mscrm/15.png)
 
 ![](./media/app-insights-sample-mscrm/16.png)
 
-Exceções de navegador:
+Browser exceptions:
 
 ![](./media/app-insights-sample-mscrm/17.png)
 
-Clique no gráfico para obter mais detalhes:
+Click the chart to get more detail:
 
 ![](./media/app-insights-sample-mscrm/18.png)
 
-#### Uso
+#### <a name="usage"></a>Usage
 
 ![](./media/app-insights-sample-mscrm/19.png)
 
@@ -117,19 +118,19 @@ Clique no gráfico para obter mais detalhes:
 
 ![](./media/app-insights-sample-mscrm/21.png)
 
-#### Navegadores
+#### <a name="browsers"></a>Browsers
 
 ![](./media/app-insights-sample-mscrm/22.png)
 
 ![](./media/app-insights-sample-mscrm/23.png)
 
-#### Geolocalização
+#### <a name="geolocation"></a>Geolocation
 
 ![](./media/app-insights-sample-mscrm/24.png)
 
 ![](./media/app-insights-sample-mscrm/25.png)
 
-#### Solicitação de exibição de página interna
+#### <a name="inside-page-view-request"></a>Inside page view request
 
 ![](./media/app-insights-sample-mscrm/26.png)
 
@@ -141,24 +142,28 @@ Clique no gráfico para obter mais detalhes:
 
 ![](./media/app-insights-sample-mscrm/30.png)
 
-## Exemplo de código
+## <a name="sample-code"></a>Sample code
 
-[Procurar no código de amostra](https://dynamicsandappinsights.codeplex.com/).
+[Browse the sample code](https://dynamicsandappinsights.codeplex.com/).
 
-## Power BI
+## <a name="power-bi"></a>Power BI
 
-Você pode fazer análises ainda mais profundas se [exportar os dados para o Microsoft Power BI](app-insights-export-power-bi.md).
+You can do even deeper analysis if you [export the data to Microsoft Power BI](app-insights-export-power-bi.md).
 
-## Exemplo de Solução para o Microsoft Dynamics CRM
+## <a name="sample-microsoft-dynamics-crm-solution"></a>Sample Microsoft Dynamics CRM Solution
 
-[Veja a solução do exemplo implementada no Microsoft Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
+[Here is the sample solution implemented in Microsoft Dynamics CRM] (https://dynamicsandappinsights.codeplex.com/).
 
-## Saiba mais
+## <a name="learn-more"></a>Learn more
 
-* [O que é o Application Insights?](app-insights-overview.md)
-* [Application Insights para páginas da Web](app-insights-javascript.md)
-* [Mais exemplos e explicações passo a passo](app-insights-code-samples.md)
+* [What is Application Insights?](app-insights-overview.md)
+* [Application Insights for web pages](app-insights-javascript.md)
+* [More samples and walkthroughs](app-insights-code-samples.md)
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

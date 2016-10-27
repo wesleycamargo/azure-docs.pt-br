@@ -1,14 +1,16 @@
-No Azure, você abre uma porta, ou cria um ponto de extremidade, para uma VM (máquina virtual) criando um filtro de rede ou uma sub-rede ou interface de rede de VM. Coloque os filtros, que controlam o tráfego de entrada e saída, em um Grupo de Segurança de Rede anexado ao recurso que recebe o tráfego.
+You open a port, or create an endpoint, to a virtual machine (VM) in Azure by creating a network filter on a subnet or VM network interface. You place these filters, which control both inbound and outbound traffic, on a Network Security Group attached to the resource that receives the traffic.
 
-Vamos usar um exemplo comum de tráfego da Web na porta 80. Quando você tiver uma VM configurada para atender a solicitações da Web na porta TCP 80 padrão (lembre-se de iniciar os serviços apropriados e abrir quaisquer regras de firewall de SO na VM), você:
+Let's use a common example of web traffic on port 80. Once you have a VM that is configured to serve web requests on the standard TCP port 80 (remember to start the appropriate services and open any OS firewall rules on the VM as well), you:
 
-1. Criará um Grupo de Segurança de Rede.
-2. Criará uma regra de entrada permitindo o tráfego com:
-  - o intervalo de porta de destino de "80"
-  - intervalo de porta de origem "*" (permitindo qualquer porta de origem)
-  - um valor de prioridade inferior a 65.500 (para que a prioridade seja maior do que a regra de negação de entrada padrão catch-all)
-3. Associe o Grupo de Segurança de Rede à interface de rede da VM ou sub-rede.
+1. Create a Network Security Group.
+2. Create an inbound rule allowing traffic with:
+  - the destination port range of "80"
+  - the source port range of "*" (allowing any source port)
+  - a priority value of less 65,500 (to be higher in priority than the default catch-all deny inbound rule)
+3. Associate the Network Security Group with the VM network interface or subnet.
     
-Você pode criar configurações de rede complexas para proteger seu ambiente usando regras e Grupos de Segurança de Rede. Nosso exemplo usa apenas uma ou duas regras que permitem o tráfego HTTP ou gerenciamento remoto. Para saber mais, confira a seção ["Mais informações"](#more-information-on-network-security-groups) abaixo ou [O que é um Grupo de Segurança de Rede?](../articles/virtual-network/virtual-networks-nsg.md)
+You can create complex network configurations to secure your environment using Network Security Groups and rules. Our example uses only one or two rules that allow HTTP traffic or remote management. For more information, see the following ['More Information'](#more-information-on-network-security-groups) section or [What is a Network Security Group?](../articles/virtual-network/virtual-networks-nsg.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

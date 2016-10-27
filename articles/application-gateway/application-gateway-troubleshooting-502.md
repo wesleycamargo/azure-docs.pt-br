@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Solucionar problemas de erros de gateway inválido (502) do Application Gateway | Microsoft Azure"
-   description="Saiba como solucionar problemas de erros 502 do Application Gateway"
+   pageTitle="Troubleshoot Application Gateway Bad Gateway (502) errors | Microsoft Azure"
+   description="Learn how to troubleshoot Application Gateway 502 errors"
    services="application-gateway"
    documentationCenter="na"
    authors="amitsriva"
@@ -17,131 +17,136 @@
    ms.date="09/02/2016"
    ms.author="amitsriva" />
 
-# Solução de problemas de erros de gateway incorreto no Application Gateway
 
-## Visão geral
+# <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Troubleshooting bad gateway errors in Application Gateway
 
-Após a configuração de um Application Gateway do Azure, um dos erros que os usuários podem encontrar é "Erro de Servidor: 502 - o servidor Web recebeu uma resposta inválida ao atuar como gateway ou proxy de servidor". Isso pode ocorrer pelos seguintes motivos principais:
+## <a name="overview"></a>Overview
 
-- O pool de back-end do Gateway de Aplicativo do Azure não está configurado ou está vazio.
-- Nenhuma das VMs ou instâncias no Conjunto de Escala de VM está íntegra.
-- VMs de back-end ou instâncias do Conjunto de Escala de VM não estão respondendo à investigação de integridade padrão.
-- Configuração inválida ou incorreta de investigações de integridade personalizadas.
-- Tempo limite de solicitação ou problemas de conectividade com solicitações de usuário.
+After configuring an Azure Application Gateway, one of the errors which users may encounter is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This may happen due to the following main reasons:
 
-## BackendAddressPool vazio
+- Azure Application Gateway's back-end pool is not configured or empty.
+- None of the VMs or instances in VM Scale Set are healthy.
+- Back-end VMs or instances of VM Scale Set are not responding to the default health probe.
+- Invalid or improper configuration of custom health probes.
+- Request time out or connectivity issues with user requests.
 
-### Causa
+## <a name="empty-backendaddresspool"></a>Empty BackendAddressPool
 
-Se o Application Gateway não tiver VMs ou o Conjunto de Escala de VM configurados no pool de endereços de back-end, não poderá encaminhar solicitações de clientes e gerará um erro de gateway incorreto.
+### <a name="cause"></a>Cause
 
-### Solução
+If the Application Gateway has no VMs or VM Scale Set configured in the back-end address pool, it cannot route any customer request and throws a bad gateway error.
 
-Verifique se o pool de endereços de back-end não está vazio. Isso pode ser feito por meio do PowerShell, da CLI ou do portal.
+### <a name="solution"></a>Solution
 
-	Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+Ensure that the back-end address pool is not empty. This can be done either via PowerShell, CLI, or portal.
 
-A saída do cmdlet anterior deve conter o pool de endereços de back-end não vazio. A seguir há um exemplo em que são retornados dois pools que estão configurados com endereços FQDN ou IP para VMs de back-end. O estado de provisionamento de BackendAddressPool deve ser 'Bem-sucedido'.
-	
-	BackendAddressPoolsText: 
-			[{
-				"BackendAddresses": [{
-					"ipAddress": "10.0.0.10",
-					"ipAddress": "10.0.0.11"
-				}],
-				"BackendIpConfigurations": [],
-				"ProvisioningState": "Succeeded",
-				"Name": "Pool01",
-				"Etag": "W/"00000000-0000-0000-0000-000000000000"",
-				"Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
-			}, {
-				"BackendAddresses": [{
-					"Fqdn": "xyx.cloudapp.net",
-					"Fqdn": "abc.cloudapp.net"
-				}],
-				"BackendIpConfigurations": [],
-				"ProvisioningState": "Succeeded",
-				"Name": "Pool02",
-				"Etag": "W/"00000000-0000-0000-0000-000000000000"",
-				"Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
-			}]
+    Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 
-
-## Instâncias não íntegras em BackendAddressPool
-
-### Causa
-
-Se todas as instâncias do BackendAddressPool estiverem não íntegras, o Application Gateway não terá um back-end para o qual rotear a solicitação do usuário. Esse também pode ser o caso quando instâncias de back-end estão íntegras, mas não têm o aplicativo necessário implantado.
-
-### Solução
-
-Verifique se as instâncias estão íntegras e se o aplicativo está configurado corretamente. Verifique se as instâncias de back-end podem responder a um ping de outra VM na mesma VNet. Se a configuração tiver sido feita com um ponto de extremidade público, verifique se uma solicitação do navegador ao aplicativo Web é operacional.
-
-## Problemas com a investigação de integridade padrão
-
-### Causa
-
-Os erros 502 também podem ser indicadores frequentes de que a investigação de integridade padrão não consegue acessar VMs de back-end. Quando uma instância do Application Gateway é provisionada, configura automaticamente um teste de integridade padrão para cada BackendAddressPool usando as propriedades de BackendHttpSetting. Nenhuma entrada do usuário é necessária para definir essa investigação. Especificamente, quando uma regra de balanceamento de carga é configurada, é feita uma associação entre BackendHttpSetting e BackendAddressPool. Uma investigação padrão é configurada para cada um dessas associações, e o Application Gateway inicia uma conexão de verificação de integridade periódica para cada instância em BackendAddressPool na porta especificada no elemento BackendHttpSetting. A tabela a seguir lista os valores associados à investigação de integridade padrão.
+The output from the preceding cmdlet should contain non-empty back-end address pool. Following is an example where two pools are returned which are configured with FQDN or IP addresses for backend VMs. The provisioning state of the BackendAddressPool must be 'Succeeded'.
+    
+    BackendAddressPoolsText: 
+            [{
+                "BackendAddresses": [{
+                    "ipAddress": "10.0.0.10",
+                    "ipAddress": "10.0.0.11"
+                }],
+                "BackendIpConfigurations": [],
+                "ProvisioningState": "Succeeded",
+                "Name": "Pool01",
+                "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+                "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
+            }, {
+                "BackendAddresses": [{
+                    "Fqdn": "xyx.cloudapp.net",
+                    "Fqdn": "abc.cloudapp.net"
+                }],
+                "BackendIpConfigurations": [],
+                "ProvisioningState": "Succeeded",
+                "Name": "Pool02",
+                "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+                "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
+            }]
 
 
-|Propriedades da investigação | Valor | Descrição|
+## <a name="unhealthy-instances-in-backendaddresspool"></a>Unhealthy instances in BackendAddressPool
+
+### <a name="cause"></a>Cause
+
+If all the instances of BackendAddressPool are unhealthy, then Application Gateway would not have any back-end to route user request to. This could also be the case when back-end instances are healthy but do not have the required application deployed.
+
+### <a name="solution"></a>Solution
+
+Ensure that the instances are healthy and the application is properly configured. Check if the back-end instances are able to respond to a ping from another VM in the same VNet. If configured with a public end point, ensure that a browser request to the web application is serviceable.
+
+## <a name="problems-with-default-health-probe"></a>Problems with default health probe
+
+### <a name="cause"></a>Cause
+
+502 errors can also be frequent indicators that the default health probe is not able to reach back-end VMs. When an Application Gateway instance is provisioned, it automatically configures a default health probe to each BackendAddressPool using properties of the BackendHttpSetting. No user input is required to set this probe. Specifically, when a load balancing rule is configured, an association is made between a BackendHttpSetting and BackendAddressPool. A default probe is configured for each of these associations and Application Gateway initiates a periodic health check connection to each instance in the BackendAddressPool at the port specified in the BackendHttpSetting element. Following table lists the values associated with the default health probe.
+
+
+|Probe property | Value | Description|
 |---|---|---|
-| URL de investigação| http://127.0.0.1/ | Caminho da URL |
-| Intervalo | 30 | Intervalo da investigação em segundos |
-| Tempo limite | 30 | Tempo limite da investigação em segundos |
-| Limite não íntegro | 3 | Contagem de repetições da investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite de não íntegro. |
+| Probe URL| http://127.0.0.1/ | URL path |
+| Interval | 30 | Probe interval in seconds |
+| Time-out  | 30 | Probe time-out in seconds |
+| Unhealthy threshold | 3 | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
-### Solução
+### <a name="solution"></a>Solution
 
-- Verifique se um site padrão está configurado e está escutando em 127.0.0.1.
-- Se BackendHttpSetting especificar uma porta diferente de 80, o site padrão deverá ser configurado para escutar nessa porta.
-- A chamada para http://127.0.0.1:port deve retornar um código de resultado HTTP 200. Ele deve ser retornado dentro do período de tempo limite de 30 segundos.
-- Verifique se a porta configurada está aberta e se não há regras de firewall ou Grupos de Segurança de Rede do Azure que bloqueiam o tráfego de entrada ou de saída na porta configurada.
-- Se VMs clássicas do Azure ou o Serviço de Nuvem forem usados com FQDN ou IP Público, verifique se o [ponto de extremidade](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) correspondente está aberto.
-- Se a VM for configurada por meio do Azure Resource Manager e estiver fora da rede virtual em que o Application Gateway está implantado, o [Grupo de Segurança de Rede](../virtual-network/virtual-networks-nsg.md) deverá ser configurado para permitir o acesso na porta desejada.
+- Ensure that a default site is configured and is listening at 127.0.0.1.
+- If BackendHttpSetting specifies a port other than 80, the default site should be configured to listen at that port.
+- The call to http://127.0.0.1:port should return an HTTP result code of 200. This should be returned within the 30 sec time-out period.
+- Ensure that port configured is open and that there are no firewall rules or Azure Network Security Groups, which block incoming or outgoing traffic on the port configured.
+- If Azure classic VMs or Cloud Service is used with FQDN or Public IP, ensure that the corresponding [endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) is opened.
+- If the VM is configured via Azure Resource Manager and is outside the VNet where Application Gateway is deployed, [Network Security Group](../virtual-network/virtual-networks-nsg.md) must be configured to allow access on the desired port.
 
 
-## Problemas com a investigação de integridade personalizada
+## <a name="problems-with-custom-health-probe"></a>Problems with custom health probe
 
-### Causa
+### <a name="cause"></a>Cause
 
-Investigações de integridade personalizadas oferecem flexibilidade adicional para o comportamento de investigação padrão. Ao usar investigações personalizadas, os usuários podem configurar o intervalo de investigação, a URL e o caminho a testar e quantas respostas com falha devem ser aceitas antes de marcar a instância do pool de back-end como não íntegra. As propriedades adicionais a seguir são adicionadas.
+Custom health probes allow additional flexibility to the default probing behavior. When using custom probes, users can configure the probe interval, the URL, and path to test, and how many failed responses to accept before marking the back-end pool instance as unhealthy. The following additional properties are added.
 
-|Propriedades da investigação| Descrição|
+|Probe property| Description|
 |---|---|
-| Name | O nome da investigação. Este é o nome usado para se referir à investigação nas configurações de HTTP de back-end. |
-| Protocolo | O protocolo usado para enviar a investigação. HTTP é o único protocolo válido. |
-| Host | O nome do host para enviar a investigação. Aplicável somente quando vários sites são configurados no Application Gateway. Isso é diferente do nome de host de VM. |
-| Caminho | O caminho relativo da investigação. Um caminho válido começa com '/'. A investigação é enviada a <protocolo>://<host>:<porta><caminho> |
-| Intervalo | Intervalo de investigação em segundos. Este é o intervalo de tempo entre duas investigações consecutivas.|
-| Tempo limite | Tempo limite da investigação em segundos. A investigação é marcada como com falha se não for recebida uma resposta válida dentro desse período de tempo limite. |
-| Limite não íntegro | Contagem de repetições da investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite de não íntegro. |
+| Name | Name of the probe. This name is used to refer to the probe in back-end HTTP settings. |
+| Protocol | Protocol used to send the probe. HTTP is the only valid protocol. |
+| Host |  Host name to send the probe. Applicable only when multi-site is configured on Application Gateway. This is different from VM host name.  |
+| Path | Relative path of the probe. The valid path starts from '/'. The probe is sent to \<protocol\>://\<host\>:\<port\>\<path\> |
+| Interval | Probe interval in seconds. This is the time interval between two consecutive probes.|
+| Time-out | Probe time-out in seconds. The probe is marked as failed if a valid response is not received within this time-out period. |
+| Unhealthy threshold | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
 
-### Solução
+### <a name="solution"></a>Solution
 
-Valide se a Investigação de Integridade Personalizada está configurada corretamente conforme a tabela anterior. Além das etapas de solução de problemas anteriores, também verifique o seguinte:
+Validate that the Custom Health Probe is configured correctly as the preceding table. In addition to the preceding troubleshooting steps, also ensure the following:
 
-- Verifique se o Protocolo está definido apenas como HTTP. Atualmente, não há suporte a HTTPS.
-- Verifique se a investigação foi especificada corretamente, conforme o [guia](application-gateway-create-probe-ps.md).
-- Se o Application Gateway estiver configurado para um único site, por padrão, o nome do Host deverá ser especificado como '127.0.0.1', a menos que seja configurado de outra forma na investigação personalizada.
-- Verifique se uma chamada a http://\<host>:<porta><caminho> retorna um código de resultado HTTP 200.
-- Verifique se Interval, Time-out e UnhealtyThreshold estão dentro dos intervalos aceitáveis.
+- Ensure that the Protocol is set to HTTP only. HTTPS is not currently supported.
+- Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md).
+- If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
+- Ensure that a call to http://\<host\>:\<port\>\<path\> returns an HTTP result code of 200.
+- Ensure that Interval, Time-out and UnhealtyThreshold are within the acceptable ranges.
 
-## Tempo limite de solicitação
+## <a name="request-time-out"></a>Request time out
 
-### Causa
+### <a name="cause"></a>Cause
 
-Quando é recebida uma solicitação de usuário, o Application Gateway aplica as regras configuradas para a solicitação e a roteia para uma instância de pool de back-end. Ele aguarda por um intervalo de tempo configurável para receber uma resposta da instância de back-end. Por padrão, o intervalo é de **30 segundos**. Se o Application Gateway não receber uma resposta do aplicativo de back-end nesse intervalo, a solicitação de usuário obterá um erro 502.
+When a user request is received, Application Gateway applies the configured rules to the request and routes it to a back-end pool instance. It waits for a configurable interval of time for a response from the back-end instance. By default, this interval is **30 seconds**. If Application Gateway does not receive a response from back-end application in this interval, user request would see a 502 error.
 
-### Solução
+### <a name="solution"></a>Solution
 
-O Application Gateway permite aos usuários definir essa configuração por meio de BackendHttpSetting, que pode então ser aplicado a diferentes pools. Os pools de back-end diferentes podem ter BackendHttpSetting diferentes e, assim, um tempo limite de solicitação diferente configurado.
+Application Gateway allows users to configure this setting via BackendHttpSetting, which can be then applied to different pools. Different back-end pools can have different BackendHttpSetting and hence different request time out configured.
 
-	New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+    New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Se as etapas anteriores não resolverem o problema, abra um [tíquete de suporte](https://azure.microsoft.com/support/options/).
+If the preceding steps do not resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

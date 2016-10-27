@@ -1,15 +1,18 @@
 
-1. No [Portal do Azure](https://azure.portal.com/), clique em **Procurar** > **Serviços de Aplicativos**, localize e clique em seu back-end do Aplicativo Móvel > **Todas as configurações** e, em **Móvel** clique em **Push**.
+1. In the [Azure Portal]( https://azure.portal.com/), click **Browse** > **App Services**, locate and click your Mobile App backend > **All settings**, then under **Mobile** click **Push**.
 
-2. Nos serviços da Notificação por push, clique em **Google (GCM)**, insira o valor de **Chave de API** obtido do GCM no procedimento anterior e clique em **Salvar**.
+2. In Push notification services, click **Google (GCM)**, enter the **API Key** value that you obtained from GCM in the previous procedure, then click **Save**.
 
-    ![Defina a chave de API do GCM no portal](./media/app-service-mobile-android-configure-push/mobile-push-api-key.png)
+    ![Set the GCM API key in the portal](./media/app-service-mobile-android-configure-push/mobile-push-api-key.png)
 
-O back-end do Aplicativo Móvel agora está configurado para usar o GCM para enviar notificações por push para o seu aplicativo em execução em um dispositivo com Android usando o hub de notificação.
+The Mobile App backend is now configured to use GCM to send push notifications to your app running on an Android device using the notification hub.
 
 <!-- URLs. -->
 
 
 <!-- images -->
 
-<!---HONumber=AcomDC_1203_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

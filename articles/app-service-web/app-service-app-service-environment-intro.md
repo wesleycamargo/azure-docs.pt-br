@@ -1,82 +1,85 @@
 <properties 
-	pageTitle="Introdução ao ambiente de Serviço de Aplicativo" 
-	description="Saiba mais sobre o recurso de ambiente de serviço de aplicativo que fornece unidades de escala seguras, dedicadas e unidas por VNet para executar todos os seus aplicativos." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Introduction to App Service Environment" 
+    description="Learn about the App Service Environment feature that provides secure, VNet-joined, dedicated scale units for running all of your apps." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="stefsch" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/11/2016"
-	ms.author="stefsch"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/04/2016"
+    ms.author="stefsch"/>
 
-# Introdução ao ambiente de Serviço de Aplicativo
 
-## Visão geral ##
-Um Ambiente de Serviço de Aplicativo é uma opção de plano de serviço [Premium][PremiumTier] do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado para executar com segurança todos os seus aplicativos do Serviço de Aplicativo do Azure em alta escala, incluindo [Aplicativos Web][WebApps], [Aplicativos Móveis][MobileApps] e [Aplicativos de API][APIApps].
+# <a name="introduction-to-app-service-environment"></a>Introduction to App Service Environment
 
-Os Ambientes de Serviço de Aplicativo são ideais para cargas de trabalho de aplicativos que exigem:
+## <a name="overview"></a>Overview ##
+An App Service Environment is a [Premium][PremiumTier] service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps at high scale, including [Web Apps][WebApps], [Mobile Apps][MobileApps], and [API Apps][APIApps].  
 
-- Escala muito alta
-- Isolamento e acesso seguro à rede
+App Service Environments are ideal for application workloads requiring:
 
-Os clientes podem criar vários Ambientes de Serviço de Aplicativo dentro de uma única região do Azure, bem como entre várias regiões do Azure. Isso faz dos Ambientes de Serviço de Aplicativo ideais para dimensionar horizontalmente camadas de aplicativo sem estado para dar suporte a cargas de trabalho RPS altas.
+- Very high scale
+- Isolation and secure network access
 
-Ambientes de Serviço de Aplicativo são isolados para executar somente aplicativos de um único cliente, e sempre são implantados em uma rede virtual. Os clientes têm um controle refinado sobre o tráfego de entrada e saída da rede de aplicativos, e os aplicativos podem estabelecer conexões seguras de alta velocidade por meio de redes virtuais com recursos corporativos locais.
+Customers can create multiple App Service Environments within a single Azure region, as well as across multiple Azure regions.  This makes App Service Environments ideal for horizontally scaling state-less application tiers in support of high RPS workloads.
 
-Todos os artigos e instruções sobre os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
+App Service Environments are isolated to running only a single customer's applications, and are always deployed into a virtual network.  Customers have fine-grained control over both inbound and outbound application network traffic, and applications can establish high-speed secure connections over virtual networks to on-premises corporate resources.
 
-Para obter uma visão geral sobre como os Ambientes de Serviço de Aplicativo permitem expansão e acesso seguro à rede, consulte [Aprofundamento no AzureCon][AzureConDeepDive] em Ambientes de Serviço de Aplicativo!
+All articles and How-To's about App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
-Para uma análise aprofundada sobre a expansão horizontal usando vários Ambientes de Serviço de Aplicativo, consulte o artigo sobre como configurar uma [Pegada de aplicativo distribuído geograficamente][GeodistributedAppFootprint].
+For an overview of how App Service Environments enable high scale and secure network access, see the [AzureCon Deep Dive][AzureConDeepDive] on App Service Environments!
 
-Para ver como a arquitetura de segurança exibida no AzureCon Deep Dive foi configurada, consulte o artigo sobre a implementação de uma [arquitetura de segurança em camadas](app-service-app-service-environment-layered-security.md) com os Ambientes do Serviço de Aplicativo.
+For a deep-dive on horizontally scaling using multiple App Service Environments see the article on how to setup a [geo-distributed app footprint][GeodistributedAppFootprint].
 
-Os aplicativos executados nos Ambientes do Serviço de Aplicativo podem ter seu acesso restrito por dispositivos upstream como WAF (firewalls do aplicativo Web). O artigo sobre como [configurar um WAF para Ambientes do Serviço de Aplicativo](app-service-app-service-environment-web-application-firewall.md) aborda esse cenário.
+To see how the security architecture shown in the AzureCon Deep Dive was configured, see the article on implementing a [layered security architecture](app-service-app-service-environment-layered-security.md) with App Service Environments.
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+Apps running on App Service Environments can have their access gated by upstream devices such as web application firewalls (WAF).  The article on [configuring a WAF for App Service Environments](app-service-app-service-environment-web-application-firewall.md) covers this scenario. 
 
-## Recursos de computação dedicados ##
-Todos os recursos de computação em um Ambiente de Serviço de Aplicativo são dedicados exclusivamente a uma única assinatura, e um Ambiente de Serviço de Aplicativo pode ser configurado com até 50 (cinquenta) recursos de computação para uso exclusivo por um único aplicativo.
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
-Um Ambiente de Serviço de Aplicativo é composto de um pool de recursos de computação de front-end, bem como um a três pools de recursos de computação de trabalho.
+## <a name="dedicated-compute-resources"></a>Dedicated Compute Resources ##
+All of the compute resources in an App Service Environment are dedicated exclusively to a single subscription, and an App Service Environment can be configured with up to fifty (50) compute resources for exclusive use by a single application.
 
-O pool de front-end contém recursos de computação responsáveis pela terminação SSL, bem como balanceamento automático de carga de solicitações do aplicativo em um ambiente de serviço de aplicativo.
+An App Service Environment is composed of a front-end compute resource pool, as well as one to three worker compute resource pools. 
 
-Cada pool de trabalho contém recursos de computação alocados para [planos de serviço do aplicativo][AppServicePlan], que por sua vez contêm um ou mais aplicativos de serviço de aplicativo do Azure. Como pode haver até três pools de trabalho diferentes em um ambiente de serviço de aplicativo, você tem a flexibilidade de escolher os recursos de computação diferentes para cada pool de trabalho.
+The front-end pool contains compute resources responsible for SSL termination as well automatic load balancing of app requests within an App Service Environment. 
 
-Por exemplo, isso permite a criação de um pool de trabalho com menos recursos de computação poderosos para Plano do Serviço de Aplicativo destinados a aplicativos de desenvolvimento ou teste. Um segundo (ou até mesmo terceiro) pool de trabalho de pode usar recursos de computação mais poderosos para planos de serviço de aplicativo executando aplicativos de produção.
+Each worker pool contains compute resources allocated to [App Service Plans][AppServicePlan], which in turn contain one or more Azure App Service apps.  Since there can be up to three different worker pools in an App Service Environment, you have the flexibility to choose different compute resources for each worker pool.  
 
-Para obter mais detalhes sobre a quantidade de recursos de computação disponíveis para os pools de front-end e de trabalho, consulte [Como configurar um ambiente de serviço de aplicativo][HowToConfigureanAppServiceEnvironment].
+For example, this allows you to create one worker pool with less powerful compute resources for App Service Plans intended for development or test apps.  A second (or even third) worker pool could use more powerful compute resources intended for App Service Plans running production apps.
 
-Para obter detalhes sobre os tamanhos de recursos de computação disponíveis com suporte em um determinado ambiente de serviço de aplicativo, consulte a página [Preços de serviços de aplicativo][AppServicePricing] e revise as opções disponíveis para ambientes de serviço de aplicativo na camada de preços Premium.
+For more details on the quantity of compute resources available to the front-end and worker pools, see [How To Configure an App Service Environment][HowToConfigureanAppServiceEnvironment].  
 
-## Suporte a Rede Virtual ##
-Um Ambiente de Serviço de Aplicativo pode ser criado em uma rede virtual do Azure Resource Manager **ou** uma rede virtual de modelo de implantação clássico ([mais informações sobre redes virtuais][MoreInfoOnVirtualNetworks]). Como um Ambiente de Serviço de Aplicativo sempre existe em uma rede virtual, mais precisamente em uma sub-rede de uma rede virtual, você pode aproveitar os recursos de segurança de redes virtuais para controlar tanto a comunicação de rede de entrada quanto a de saída.
+For details on the available compute resource sizes supported in an App Service Environment, consult the [App Service Pricing][AppServicePricing] page and review the available options for App Service Environments in the Premium pricing tier.
 
-Você pode usar [grupos de segurança de rede][NetworkSecurityGroups] para restringir a comunicação de rede de entrada à sub-rede na qual reside um ambiente de serviço de aplicativo. Isso permite que você execute aplicativos por trás de dispositivos e serviços upstream, como firewalls de aplicativo Web e provedores SaaS de rede.
+## <a name="virtual-network-support"></a>Virtual Network Support ##
+An App Service Environment can be created in **either** an Azure Resource Manager virtual network, **or** a classic deployment model virtual network ([more info on virtual networks][MoreInfoOnVirtualNetworks]).  Since an App Service Environment always exists in a virtual network, and more precisely within a subnet of a virtual network, you can leverage the security features of virtual networks to control both inbound and outbound network communications.  
 
-Aplicativos frequentemente precisam acessar recursos corporativos, como bancos de dados internos e serviços da Web. Uma abordagem comum é disponibilizar esses pontos de extremidade apenas ao tráfego de rede interno que flui dentro de uma rede virtual do Azure. Depois que um ambiente de serviço de aplicativo é combinado à mesma rede virtual que os serviços internos, os aplicativos que são executados no ambiente podem acessá-los, incluindo pontos de extremidade acessíveis via conexões [Site a Site][SiteToSite] e [Rota Expressa do Azure][ExpressRoute].
+An App Service Environment can be either Internet facing with a public IP address, or internal facing with only an Azure Internal Load Balancer (ILB) address.
 
-Para obter mais detalhes sobre como os Ambientes do Serviço de Aplicativo funcionam com redes virtuais e redes locais, confira os artigos a seguir sobre [Arquitetura de rede][NetworkArchitectureOverview], [Controle do tráfego de entrada][ControllingInboundTraffic] e [Conexão segura a back-ends][SecurelyConnectingToBackends].
+You can use [network security groups][NetworkSecurityGroups] to restrict inbound network communications to the subnet where an App Service Environment resides.  This allows you to run apps behind upstream devices and services such as web application firewalls, and network SaaS providers.
 
-## Introdução
+Apps also frequently need to access corporate resources such as internal databases and web services.  A common approach is to make these endpoints available only to internal network traffic flowing within an Azure virtual network.  Once an App Service Environment is joined to the same virtual network as the internal services, apps running in the environment can access them, including endpoints reachable via [Site-to-Site][SiteToSite] and [Azure ExpressRoute][ExpressRoute] connections.
 
-Para se familiarizar com os Ambientes de Serviços de Aplicativo, consulte [Como criar um Ambiente de Serviço de Aplicativo][HowToCreateAnAppServiceEnvironment]
+For more details on how App Service Environments work with virtual networks and on-premises networks consult the following articles on [Network Architecture][NetworkArchitectureOverview], [Controlling Inbound Traffic][ControllingInboundTraffic], and [Securely Connecting to Backends][SecurelyConnectingToBackends]. 
 
-Todos os artigos e instruções sobre os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
+## <a name="getting-started"></a>Getting started
 
-Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][AzureAppService].
+To get started with App Service Environments, see [How To Create An App Service Environment][HowToCreateAnAppServiceEnvironment]
 
-Para obter uma visão geral da arquitetura de rede do Ambiente do Serviço de Aplicativo, veja o artigo [Visão geral da arquitetura de rede][NetworkArchitectureOverview].
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
-Para obter detalhes sobre como usar um Ambiente do Serviço de Aplicativo com a Rota Expressa, confira o artigo a seguir sobre a [Rota Expressa e os Ambientes do Serviço de Aplicativo][NetworkConfigDetailsForExpressRoute].
+For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
+
+For an overview of the App Service Environment network architecture, see the [Network Architecture Overview][NetworkArchitectureOverview] article.
+
+For details on using an App Service Environment with ExpressRoute, see the following article on [Express Route and App Service Environments][NetworkConfigDetailsForExpressRoute].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -92,20 +95,24 @@ Para obter detalhes sobre como usar um Ambiente do Serviço de Aplicativo com a 
 [MobileApps]: http://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop-preview/
 [APIApps]: http://azure.microsoft.com/documentation/articles/app-service-api-apps-why-best-platform/
 [LogicApps]: http://azure.microsoft.com/documentation/articles/app-service-logic-what-are-logic-apps/
-[AzureConDeepDive]: https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
-[GeodistributedAppFootprint]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/
+[AzureConDeepDive]:  https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
+[GeodistributedAppFootprint]:  https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
-[HowToConfigureanAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
-[ControllingInboundTraffic]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
-[SecurelyConnectingToBackends]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-securely-connecting-to-backend-resources/
-[NetworkArchitectureOverview]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-architecture-overview/
-[NetworkConfigDetailsForExpressRoute]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
+[HowToConfigureanAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
+[ControllingInboundTraffic]:  https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
+[SecurelyConnectingToBackends]:  https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-securely-connecting-to-backend-resources/
+[NetworkArchitectureOverview]:  https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-architecture-overview/
+[NetworkConfigDetailsForExpressRoute]:  https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
+[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
 
 <!-- IMAGES -->
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

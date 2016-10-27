@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Gerenciar sua conta de armazenamento do StorSimple | Microsoft Azure"
-   description="Explica como você pode usar a página Configurar do StorSimple Manager para adicionar, editar, excluir ou alternar entre as chaves de segurança para uma conta de armazenamento."
+   pageTitle="Manage your StorSimple storage account | Microsoft Azure"
+   description="Explains how you can use the StorSimple Manager Configure page to add, edit, delete, or rotate the security keys for a storage account."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,143 +15,148 @@
    ms.date="04/29/2016"
    ms.author="v-sharos" />
 
-# Usar o serviço StorSimple Manager para gerenciar sua conta de armazenamento
 
-## Visão geral
+# <a name="use-the-storsimple-manager-service-to-manage-your-storage-account"></a>Use the StorSimple Manager service to manage your storage account
 
-A página **Configurar** página apresenta todos os parâmetros de serviços globais que podem ser criados no serviço StorSimple Manager. Esses parâmetros podem ser aplicados a todos os dispositivos conectados ao serviço e incluem:
+## <a name="overview"></a>Overview
 
-- Contas de armazenamento 
-- Modelos de largura de banda 
-- Registros de controle de acesso 
+The **Configure** page presents all the global service parameters that can be created in the StorSimple Manager service. These parameters can be applied to all the devices connected to the service, and include:
 
-Este tutorial explica como você pode usar a página **Configurar** para adicionar, editar ou excluir contas de armazenamento ou alternar entre as chaves de segurança para uma conta de armazenamento.
+- Storage accounts 
+- Bandwidth templates 
+- Access control records 
 
- ![Configurar página](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)
+This tutorial explains how you can use the **Configure** page to add, edit, or delete storage accounts, or rotate the security keys for a storage account.
 
-As contas de armazenamento contém as credenciais que o dispositivo usa para acessar sua conta de armazenamento com seu provedor de serviços de nuvem. Para contas de armazenamento do Microsoft Azure, essas credenciais podem ser o nome da conta e a chave de acesso primário, por exemplo.
+ ![Configure page](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)  
 
-Na página **Configurar**, todas as contas de armazenamento que são criadas para a assinatura de cobrança são exibidas em formato de tabela contendo as seguintes informações:
+Storage accounts contain the credentials that the device uses to access your storage account with your cloud service provider. For Microsoft Azure storage accounts, these are credentials such as the account name and the primary access key. 
 
-- **Nome** – O nome exclusivo atribuído à conta quando a mesma foi criada.
-- **SSL habilitado** – Se o SSL está ativado e a comunicação do dispositivo para a nuvem é feita pelo canal seguro.
-- **Usado pelo** – O número de volumes usando a conta de armazenamento.
+On the **Configure** page, all storage accounts that are created for the billing subscription are displayed in a tabular format containing the following information:
 
-As tarefas mais comuns relacionadas a contas de armazenamento que podem ser executadas na página **Configurar** são:
+- **Name** – The unique name assigned to the account when it was created.
+- **SSL enabled** – Whether the SSL is enabled and device-to-cloud communication is over the secure channel.
+- **Used by** – The number of volumes using the storage account.
 
-- Adicionar uma conta de armazenamento 
-- Editar uma conta de armazenamento 
-- Excluir uma conta de armazenamento 
-- Rotação de chave de contas de armazenamento 
+The most common tasks related to storage accounts that can be performed on the **Configure** page are:
 
-## Tipos de contas de armazenamento
+- Add a storage account 
+- Edit a storage account 
+- Delete a storage account 
+- Key rotation of storage accounts 
 
-Há três tipos de contas de armazenamento que podem ser usadas com o dispositivo StorSimple.
+## <a name="types-of-storage-accounts"></a>Types of storage accounts
 
-- **Contas de armazenamento geradas automaticamente** – Como o nome sugere, esse tipo de conta de armazenamento é gerada automaticamente quando o serviço é criado pela primeira vez. Para saber mais sobre como essa conta de armazenamento é criada, consulte a [Etapa 1: Criar um novo serviço](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) em [Implantar seu dispositivo StorSimple no local](storsimple-deployment-walkthrough.md). 
-- **Contas de armazenamento na assinatura do serviço** – Essas são as contas de armazenamento do Azure que estão associadas com a mesma assinatura que o serviço. Para saber mais sobre como essas contas de armazenamento são criadas, consulte [Sobre Contas de Armazenamento do Azure](../storage/storage-create-storage-account.md). 
-- **Contas de armazenamento fora do serviço de assinatura** – Essas são as contas de armazenamento do Azure que não estão associadas ao seu serviço e que provavelmente existiam antes da criação do serviço.
+There are three types of storage accounts that can be used with your StorSimple device.
 
-## Adicionar uma conta de armazenamento
+- **Auto-generated storage accounts** – As the name suggests, this type of storage account is automatically generated when the service is first created. To learn more about how this storage account is created, see [Step 1: Create a new service](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md). 
+- **Storage accounts in the service subscription** – These are the Azure storage accounts that are associated with the same subscription as that of the service. To learn more about how these storage accounts are created, see [About Azure Storage Accounts](../storage/storage-create-storage-account.md). 
+- **Storage accounts outside of the service subscription** – These are the Azure storage accounts that are not associated with your service and likely existed before the service was created.
 
-Você pode adicionar uma conta de armazenamento, fornecendo um nome amigável exclusivo e credenciais de acesso vinculadas à conta de armazenamento (com o provedor de serviços de nuvem especificado). Você também tem a opção de habilitar o modo secure sockets layer (SSL) para criar um canal seguro para comunicação de rede entre o dispositivo e a nuvem.
+## <a name="add-a-storage-account"></a>Add a storage account
 
-Você pode criar várias contas para um provedor de serviços de nuvem específico. Lembre-se, no entanto, que após a criação de uma conta de armazenamento, você não pode alterar o provedor de serviços de nuvem.
+You can add a storage account by providing a unique friendly name and access credentials that are linked to the storage account (with the specified cloud service provider). You also have the option of enabling the secure sockets layer (SSL) mode to create a secure channel for network communication between your device and the cloud.
 
-Enquanto a conta de armazenamento está sendo salvo, o serviço tenta se comunicar com o seu provedor de serviços de nuvem. As credenciais e o material de acesso que você forneceu serão autenticados neste momento. Uma conta de armazenamento será criada somente se a autenticação for bem-sucedida. Se a autenticação falhar, será exibida uma mensagem de erro apropriada.
+You can create multiple accounts for a given cloud service provider. Be aware, however, that after a storage account is created, you cannot change the cloud service provider.
 
-Contas de armazenamento do Gerenciador de Recursos criadas no portal do Azure também são compatíveis com o StorSimple. As contas de armazenamento do Gerenciador de Recursos não aparecerão na lista suspensa para seleção quando tentar criar um contêiner de volume. Apenas as contas de armazenamento criadas no Portal Clássico do Azure serão exibidas. As contas de armazenamento do Gerenciador de Recursos precisarão ser adicionadas usando o procedimento para adicionar uma conta de armazenamento descrita abaixo.
+While the storage account is being saved, the service attempts to communicate with your cloud service provider. The credentials and the access material that you supplied will be authenticated at this time. A storage account is created only if the authentication succeeds. If the authentication fails, then an appropriate error message will be displayed.
 
-> [AZURE.NOTE] O procedimento para adicionar uma conta de armazenamento varia de acordo com a versão do software StorSimple que você está usando. Certifique-se de seguir o procedimento correto para a sua versão do StorSimple.
+Resource Manager storage accounts created in Azure portal are also supported with StorSimple. The Resource Manager storage accounts will not show up in the drop-down list for selection when trying to create a volume container, only the storage accounts created in the Azure classic portal will be displayed. Resource Manager storage accounts will need to be added using the procedure to add a storage account described below.
+
+> [AZURE.NOTE] The procedure for adding a storage account differs based on the StorSimple software version you are using. Be sure to follow the correct procedure for your StorSimple version.
 
 
 [AZURE.INCLUDE [add-a-storage-account-update1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
 [AZURE.INCLUDE [add-a-storage-account](../../includes/storsimple-configure-new-storage-account.md)]
 
-## Editar uma conta de armazenamento
+## <a name="edit-a-storage-account"></a>Edit a storage account
 
-Você pode editar uma conta de armazenamento usada por um contêiner de volume. Se você editar uma conta de armazenamento que está sendo usada, o único campo disponível para modificar é a chave de acesso da conta de armazenamento. Você pode fornecer a nova chave de acesso de armazenamento e salvar as configurações atualizadas.
+You can edit a storage account that is used by a volume container. If you edit a storage account that is currently in use, the only field available to modify is the access key for the storage account. You can supply the new storage access key and save the updated settings.
 
-#### Para editar uma conta de armazenamento
+#### <a name="to-edit-a-storage-account"></a>To edit a storage account
 
-1. Na página inicial do serviço, selecione o seu serviço, clique duas vezes no nome do serviço e, em seguida, clique em **Configurar**.
+1. On the service landing page, select your service, double-click the service name, and then click **Configure**.
 
-2. Clique em **Adicionar/Editar Contas de Armazenamento**.
+2. Click **Add/Edit Storage Accounts**.
 
-3. Na caixa de diálogo **Adicionar/Editar conta de armazenamento**:
+3. In the **Add/Edit Storage Accounts** dialog box:
 
-  1. Na lista suspensa de **Contas de Armazenamento**, escolha uma conta existente que você deseja modificar. Isso também pode incluir contas de armazenamento que foram geradas automaticamente quando o serviço foi criado.
-  2. Se necessário, você poderá modificar a seleção em **Habilitar modo SSL**.
-  3. Você pode escolher alternar as chaves de acesso da conta de armazenamento. Consulte [Rotação de chaves das contas de armazenamento](#key-rotation-of-storage-accounts) para obter mais informações sobre como executar a rotação de chaves.
-  4. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png) para salvar as configurações. As configurações serão atualizadas na página **Configurar**. Clique em **Salvar** para salvar as novas configurações atualizadas.
+  1. In the drop-down list of **Storage Accounts**, choose an existing account that you would like to modify. This could also include the storage accounts that were automatically generated when the service was first created.
+  2. If necessary, you can modify the **Enable SSL Mode** selection.
+  3. You can choose to rotate your storage account access keys. See [Key rotation of storage accounts](#key-rotation-of-storage-accounts) for more information about how to perform key rotation.
+  4. Click the check icon ![check icon](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png) to save the settings. The settings will be updated on the **Configure** page. Click **Save** to save the newly updated settings.
 
-     ![Editar uma conta de armazenamento](./media/storsimple-manage-storage-accounts/HCs_AddEditStorageAccount.png)
+     ![Edit a storage account](./media/storsimple-manage-storage-accounts/HCs_AddEditStorageAccount.png)
   
-## Excluir uma conta de armazenamento
+## <a name="delete-a-storage-account"></a>Delete a storage account
 
-> [AZURE.IMPORTANT] Você pode excluir uma conta de armazenamento somente se ela não for usada por um contêiner de volume. Se uma conta de armazenamento está sendo usada por um contêiner de volume, exclua primeiro o contêiner de volume e, em seguida, exclua a conta de armazenamento associada.
+> [AZURE.IMPORTANT] You can delete a storage account only if it is not used by a volume container. If a storage account is being used by a volume container, first delete the volume container and then delete the associated storage account.
 
-#### Para excluir uma conta de armazenamento
+#### <a name="to-delete-a-storage-account"></a>To delete a storage account
 
-1. Na página inicial do serviço StorSimple Manager, selecione o seu serviço, clique duas vezes no nome do serviço e, em seguida, clique em **Configurar**.
+1. On the StorSimple Manager service landing page, select your service, double-click the service name, and then click **Configure**.
 
-2. Na lista de contas de armazenamento em formato de tabela, passe o mouse sobre a conta que você deseja excluir.
+2. In the tabular list of storage accounts, hover over the account that you wish to delete.
 
-3. Um ícone de exclusão (**x**) será exibido na coluna mais à direita para essa conta de armazenamento. Clique no ícone **x** para excluir as credenciais.
+3. A delete icon (**x**) will appear in the extreme right column for that storage account. Click the **x** icon to delete the credentials.
 
-4. Quando solicitado a confirmar, clique em **Sim** para continuar com a exclusão. A listagem de tabela será atualizada para refletir as alterações.
+4. When prompted for confirmation, click **Yes** to continue with the deletion. The tabular listing will be updated to reflect the changes.
 
-## Rotação de chave de contas de armazenamento
+## <a name="key-rotation-of-storage-accounts"></a>Key rotation of storage accounts
 
-Por motivos de segurança, a rotação de chaves é normalmente um requisito em datacenters.
+For security reasons, key rotation is often a requirement in data centers. 
 
-> [AZURE.NOTE] As seguintes informações de rotação de chaves e o procedimento de rotação aplicam-se apenas a contas de Armazenamento do Microsoft Azure. Se você estiver usando outro provedor de serviços de nuvem, poderá gerenciar chaves de conta de armazenamento por meio do painel de controle do provedor.
+> [AZURE.NOTE] The following key rotation information and the rotation procedure apply to Microsoft Azure storage accounts only. If you are using another cloud service provider, you can manage storage account keys through that provider's dashboard.
  
-Cada assinatura do Microsoft Azure pode ter uma ou mais contas de armazenamento associadas. O acesso a essas contas é controlado pelas chaves de assinatura e acesso para cada conta de armazenamento.
+Each Microsoft Azure subscription can have one or more associated storage accounts. The access to these accounts is controlled by the subscription and access keys for each storage account. 
 
-Quando você cria uma conta de armazenamento, o Microsoft Azure gera duas chaves de acesso de armazenamento de 512 bits, que são usadas para autenticação quando a conta de armazenamento é acessada. Ter duas chaves de acesso de armazenamento permite que você regenere chaves sem interrupção do serviço de armazenamento ou do acesso a esse serviço. A chave que está sendo usada é a chave *primária* e a chave de backup é conhecida como o chave *secundária*. Uma dessas duas chaves deve ser fornecida quando o dispositivo Microsoft Azure StorSimple acessa o provedor de serviços de armazenamento de nuvem.
+When you create a storage account, Microsoft Azure generates two 512-bit storage access keys that are used for authentication when the storage account is accessed. Having two storage access keys allows you to regenerate the keys with no interruption to your storage service or access to that service. The key that is currently in use is the *primary* key and the backup key is referred to as the *secondary* key. One of these two keys must be supplied when your Microsoft Azure StorSimple device accesses your cloud storage service provider.
 
-## O que é a rotação de chaves?
+## <a name="what-is-key-rotation?"></a>What is key rotation?
 
-Normalmente, os aplicativos usam apenas uma das chaves para acessar seus dados. Após um determinado período de tempo, você pode fazer com que seus aplicativos passem a usar a segunda chave. Após os seus aplicativos terem trocado para a chave secundária, você pode desativar a primeira chave e, em seguida, gerar uma nova chave. Usar as duas chaves dessa maneira permite que seus aplicativos acessem os dados sem incorrer em nenhum tempo de inatividade.
+Typically, applications use only one of the keys to access your data. After a certain period of time, you can have your applications switch over to using the second key. After you have switched your applications to the secondary key, you can retire the first key and then generate a new key. Using the two keys this way allows your applications access to the data without incurring any downtime.
 
-As chaves da conta de armazenamento são sempre armazenadas no serviço de forma criptografada. No entanto, elas podem ser redefinidas por meio do serviço StorSimple Manager. O serviço pode obter a chave primária e secundária para todas as contas de armazenamento na mesma assinatura, incluindo contas criadas no serviço de armazenamento, bem como as contas de armazenamento padrões geradas quando o serviço StorSimple Manager foi inicialmente criado. O serviço StorSimple Manager sempre receberá essas chaves do portal clássico do Azure, em seguida, as armazenará de forma criptografada.
+The storage account keys are always stored in the service in an encrypted form. However, these can be reset via the StorSimple Manager service. The service can get the primary key and secondary key for all the storage accounts in the same subscription, including accounts created in the Storage service as well as the default storage accounts generated when the StorSimple Manager service service was first created. The StorSimple Manager service service will always get these keys from the Azure classic portal and then store them in an encrypted manner.
 
-## Fluxo de trabalho de rotação
+## <a name="rotation-workflow"></a>Rotation workflow
 
-Um administrador do Microsoft Azure pode gerar novamente ou alterar a chave primária ou secundária, acessando diretamente a conta de armazenamento (por meio do serviço Microsoft Azure Storage). O serviço StorSimple Manager não verá essa alteração automaticamente.
+A Microsoft Azure administrator can regenerate or change the primary or secondary key by directly accessing the storage account (via the Microsoft Azure Storage service). The StorSimple Manager service does not see this change automatically.
 
-Para informar o serviço StorSimple Manager da alteração, será necessário acessar o serviço StorSimple Manager, acessar a conta de armazenamento e, em seguida, sincronizar a chave primária ou secundária (dependendo de qual chave foi alterada). Em seguida, o serviço obtém a chave mais recente, criptografa as chaves e envia a chave criptografada para o dispositivo.
+To inform the StorSimple Manager service of the change, you will need to access the StorSimple Manager service, access the storage account, and then synchronize the primary or secondary key (depending on which one was changed). The service then gets the latest key, encrypts the keys, and sends the encrypted key to the device.
 
-#### Para sincronizar chaves para contas de armazenamento na mesma assinatura que o serviço (somente Azure)
+#### <a name="to-synchronize-keys-for-storage-accounts-in-the-same-subscription-as-the-service-(azure-only)"></a>To synchronize keys for storage accounts in the same subscription as the service (Azure only)
 
-1. Na página **Serviços** clique na guia **Configurar**.
+1. On the **Services** page, click the **Configure** tab.
 
-2. Clique em **Adicionar/Editar Contas de Armazenamento**.
+2. Click **Add/Edit Storage Accounts**.
 
-3. Na caixa de diálogo, faça o seguinte:
+3. In the dialog box, do the following:
 
-  1. Selecione a conta de armazenamento com a chave que você deseja sincronizar. As chaves são criptografadas quando são exibidas.
-  2. No serviço StorSimple Manager, você precisa atualizar a chave que foi alterada anteriormente no serviço Microsoft Azure Storage. Se a chave de acesso primária tiver sido alterada (gerada novamente), clique em **sincronizar chave primária**. Se a chave secundária tiver sido alterada, clique em **sincronizar chave secundária**.
+  1. Select the storage account with the key that you want to synchronize. The storage account keys are encrypted when they are displayed.
+  2. In the StorSimple Manager service, you need to update the key that was previously changed in the Microsoft Azure Storage service. If the primary access key was changed (regenerated), click **synchronize primary key**. If the secondary key was changed, click **synchronize secondary key**.
 
-    ![sincronizar chaves](./media/storsimple-manage-storage-accounts/HCS_KeyRotationStorageAccountSameSubscriptionAsService.png)
+    ![synchronize keys](./media/storsimple-manage-storage-accounts/HCS_KeyRotationStorageAccountSameSubscriptionAsService.png)
 
-#### Para sincronizar as chaves para contas de armazenamento fora da assinatura do serviço
+#### <a name="to-synchronize-keys-for-storage-accounts-outside-of-the-service-subscription"></a>To synchronize keys for storage accounts outside of the service subscription
 
-1. Na página **Serviços** clique na guia **Configurar**.
+1. On the **Services** page, click the **Configure** tab.
 
-2. Clique em **Adicionar/Editar Contas de Armazenamento**.
+2. Click **Add/Edit Storage Accounts**.
 
-3. Na caixa de diálogo, faça o seguinte:
+3. In the dialog box, do the following:
 
-  1. Selecione a conta de armazenamento com a chave que você deseja atualizar.
-  2. Você precisará atualizar a chave de acesso de armazenamento no serviço StorSimple Manager. Nesse caso, você pode ver a chave de acesso de armazenamento. Insira a nova chave na caixa **Chave de Acesso da Conta de Armazenamento**. 
-  3. Salve suas alterações. Sua chave de acesso da conta de armazenamento deve estar atualizada.
+  1. Select the storage account with the access key that you want to update.
+  2. You will need to update the storage access key in the StorSimple Manager service. In this case, you can see the storage access key. Enter the new key in the **Storage Account Access Key**y box. 
+  3. Save your changes. Your storage account access key should now be updated.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Saiba mais sobre a [segurança do StorSimple](storsimple-security.md).
-- Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+- Learn more about [StorSimple security](storsimple-security.md).
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,387 +1,394 @@
 <properties
-	pageTitle="Manual do Modelo de Solução do Cortana Intelligence para a previsão de demanda de energia | Microsoft Azure"
-	description="Um Modelo de Solução com o Microsoft Cortana Intelligence que ajuda a prever a demanda para uma concessionária de energia elétrica."
-	services="cortana-analytics"
-	documentationCenter=""
-	authors="ilanr9"
-	manager="ilanr9"
-	editor="yijichen"/>
+    pageTitle="Cortana Intelligence Solution Template Playbook for demand forecasting of energy | Microsoft Azure"
+    description="A Solution Template with Microsoft Cortana Intelligence that helps forecast demand for an energy utility company."
+    services="cortana-analytics"
+    documentationCenter=""
+    authors="ilanr9"
+    manager="ilanr9"
+    editor="yijichen"/>
 
 <tags
-	ms.service="cortana-analytics"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/24/2016"
-	ms.author="ilanr9;yijichen;garye"/>
+    ms.service="cortana-analytics"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/24/2016"
+    ms.author="ilanr9;yijichen;garye"/>
 
-# Manual do Modelo de Solução do Cortana Intelligence para a previsão de demanda de energia  
 
-## Resumo executivo  
+# <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Cortana Intelligence Solution Template Playbook for Demand Forecasting of Energy  
 
-Nos últimos anos, a Internet das Coisas (IoT), fontes de energia alternativas e Big Data foram mesclados para criar grandes oportunidades no domínio de serviços e de energia. Ao mesmo tempo, o setor de energia e o setor de serviços têm visto a estagnação do consumo, com os clientes exigindo maneiras melhores de controlar o uso da energia. Portanto, as empresas de rede inteligente e de serviços têm grande necessidade de inovar e de renovar a si mesmos. Além disso, muitas redes de energia e de serviços estão ficando desatualizadas e muito caras de manter e de gerenciar. No ano passado, a equipe trabalhou em vários compromissos no domínio da energia. Durante esses compromissos, encontramos muitos casos em que os ISVs (fornecedores independentes de software) ou as empresas de serviços procuravam previsões sobre a futura demanda de energia. Essas previsões desempenham um papel importante nos negócios atuais e futuros e tornaram-se a base para vários casos de uso. Elas incluem, a curto e a longo prazos, a previsão, comércio, balanceamento de carga e otimização da rede da carga de energia, entre outras. Os métodos de big data e de Análise Avançada (AA), como o Aprendizado de Máquina, são os principais motivadores para a produção de previsões precisas e confiáveis.
+## <a name="executive-summary"></a>Executive Summary  
 
-Neste manual, reunimos as diretrizes de negócios e analíticas necessárias para o desenvolvimento e a implantação bem-sucedidos de uma solução de previsão de demanda de energia. Essas diretrizes propostas podem ajudar empresas de serviços, cientistas de dados e engenheiros de dados no estabelecimento de soluções totalmente operacionalizadas, baseadas em nuvem, de previsão de demanda. Para as empresas que estejam começando sua jornada de big data e de análise avançada, essa solução poderá representar a semente da estratégia de rede inteligente a longo prazo.
+In the past few years, Internet of Things (IoT), alternative energy sources, and big data have merged to create vast opportunities in the utility and energy domain. At the same time, the utility and the entire energy sector have seen consumption flattening out with consumers demanding better ways to control their use of energy. Hence, the utility and smart grid companies are in great need to innovate and renew themselves. Furthermore, many power and utility grids are becoming outdated and very costly to maintain and manage. During the last year, the team has been working on a number of engagements within the energy domain. During these engagements, we have encountered many cases in which the utilities or ISVs (Independent Software Vendors) have been looking into forecasting for future energy demand. These forecasts play an important role in their current and future business and have become the foundation for various use cases. These include short and long-term power load forecast, trading, load balancing, grid optimization etc. Big data and Advanced Analytics (AA) methods such as Machine Learning (ML) are the key enablers for producing accurate and reliable forecasts.  
 
->[AZURE.TIP] Para baixar um diagrama que fornece uma visão geral da arquitetura do modelo, consulte [Arquitetura do Modelo de Solução do Cortana Intelligence para previsão de demanda de energia](cortana-analytics-architecture-demand-forecasting-energy.md).
+In this playbook, we put together the business and analytical guidelines needed for a successful development and deployment of energy demand forecast solution. These proposed guidelines can help utilities, data scientists, and data engineers in establishing fully operationalized, cloud-based, demand-forecasting solutions. For companies who are just starting their big data and advanced analytics journey, such a solution can represent the initial seed in their long-term smart grid strategy.
 
-## Visão geral  
+>[AZURE.TIP] To download a diagram that provides an architectural overview of this template, see [Cortana Intelligence Solution Template architecture for demand forecasting of energy](cortana-analytics-architecture-demand-forecasting-energy.md).  
 
-Este documento aborda os negócios, os dados e os aspectos técnicos do uso do Cortana Intelligence e, especialmente, o AML (Aprendizado de Máquina do Azure) para a implementação e implantação de Soluções de Previsão de Energia. O documento consiste em três partes principais:
+## <a name="overview"></a>Overview  
 
-1. Noções básicas sobre negócios
-2. Noções básicas sobre dados
-3. Implementação técnica
+This document covers the business, data, and technical aspects of using Cortana Intelligence and in particular Azure Machine Learning (AML) for the implementation and deployment of Energy Forecasting Solutions. The document consists of three main parts:  
 
-A parte **Noções Básicas sobre Negócios** descreve o aspecto comercial que você precisa compreender e considerar antes de tomar uma decisão de investimento. Ela explica como qualificar o problema comercial existente para garantir que a análise preditiva e o aprendizado de máquina sejam realmente eficazes e aplicáveis. O documento explica ainda mais as noções básicas sobre o aprendizado de máquina e como ele é usado para resolver os problemas de previsão de energia. Descreve os pré-requisitos e os critérios de qualificação de um caso de uso. Alguns casos de uso e cenários de caso de uso de exemplo também são fornecidos.
+1. Business understanding  
+2. Data understanding  
+3. Technical implementation
 
-Os dados são o principal ingrediente para qualquer solução de aprendizado de máquina. A parte **Noções Básicas de Dados** deste documento aborda alguns aspectos importantes dos dados. Ela descreve o tipo de dados necessário para a previsão de energia, requisitos de qualidade de dados e quais fontes de dados normalmente existem. Nós também explicamos como os dados brutos são usados para preparar recursos de dados que, na verdade, orientam a parte de modelagem.
+The **Business Understanding** part outlines the business aspect one needs to understand and consider prior to making an investment decision. It explains how to qualify the business problem at hand to ensure that predictive analytics and machine learning are indeed effective and applicable. The document further explains the basics of machine learning and how it is used to address energy-forecasting problems. It outlines the prerequisites and the qualification criteria of a use case. Some sample use cases and business case scenarios are also provided.
 
-A terceira parte do documento aborda o aspecto **Implementação Técnica** de uma solução. A engenharia e a modelagem de recursos são a essência do processo de ciência de dados e, portanto, serão discutidos em detalhes. Ela aborda o conceito de serviços Web, que são um importante veículo para a implantação de soluções de análise preditiva na nuvem. Nós também descrevemos uma arquitetura típica de uma solução operacionalizada completa.
+Data is the main ingredient for any machine learning solution. The **Data Understanding** part of this document covers some important aspects of the data. It outlines the kind of data that is needed for energy forecasting, data quality requirements, and what data sources typically exist. We also explain how the raw data is used to prepare data features that actually drive the modeling part.
 
-Além disso, o documento inclui material de referência que você pode usar para obter mais conhecimentos sobre o domínio e a tecnologia.
+The third part of the document covers the **Technical Implementation** aspect of a solution. Feature engineering and modeling are at the core of the data science process and are therefore being discussed in some detail. It covers the concept of web services, which are an important vehicle for cloud deployment of predictive analytics solutions. We also outline a typical architecture of an end-to-end operationalized solution.
 
-É importante observar que, neste documento, não pretendemos abordar o processo de ciência de dados mais profundo, seus aspectos técnicos e matemáticos. Esses detalhes podem ser encontrados na [documentação do AM do Azure](http://azure.microsoft.com/services/machine-learning/) e em [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
+In addition, the document includes reference material that you can use to gain further understanding of the domain and technology.
 
-### Público-alvo   
-O público-alvo deste documento é o pessoal comercial e técnico que deseja obter conhecimento e compreensão das soluções baseadas em Aprendizado de Máquina e como elas estão sendo usadas especificamente no domínio da previsão de energia.
+It is important to note that we do not intend to cover in this document the deeper data science process, its mathematical and technical aspects. These details can be found in [Azure ML documentation](http://azure.microsoft.com/services/machine-learning/) and [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
-Os cientistas de dados também podem se beneficiar da leitura deste documento para obter uma melhor compreensão do processo de alto nível que orienta a implantação de uma solução de previsão de energia. Neste contexto, ele também pode ser usado para estabelecer uma boa linha de base e um ponto de partida para um material mais detalhado e mais avançado.
+### <a name="target-audience"></a>Target Audience   
+The target audience for this document is both business and technical personnel who would like to gain knowledge and understanding of Machine Learning based solutions and how these are being used specifically within the energy-forecasting domain.
 
-### Tendências do Setor  
-Nos últimos anos, a IoT, fontes de energia alternativas e Big Data foram mesclados para criar grandes oportunidades no espaço dos serviços e de energia. Ao mesmo tempo, os setores de energia e de serviços têm visto o nivelamento de consumo, com os clientes exigindo maneiras melhores de controlar o uso de energia.
+Data scientists can also benefit from reading this document to gain a better understanding of the high level process that drives the deployment of an energy forecasting solution. In this context it can also be used to establish a good baseline and starting point for more detailed and advanced material.
 
-Muitas empresas de serviços e de energia inteligente têm sido pioneiras na [rede inteligente](https://en.wikipedia.org/wiki/Smart_grid) ao implantar vários casos de uso que utilizam os dados gerados pela rede. Muitos casos de uso giram em torno de características inerentes da produção de eletricidade: ela não pode ser acumulada nem armazenada separadamente como um estoque. Portanto, o que é produzido deve ser usado. As empresas de serviços que quiserem se tornar mais eficientes precisam prever o consumo de energia simplesmente porque isso dará a elas maior capacidade de **equilibrar o fornecimento e a demanda**, impedindo o desperdício de energia, **reduzir a emissão de gases de efeito estufa** e controlar os custos.
+### <a name="industry-trends"></a>Industry Trends  
+In the past few years, IoT, alternative energy sources, and big data have merged to create vast opportunities in the utility and energy space. At the same time, the utility and the entire energy sectors have seen consumption flattening out with consumers demanding better ways to control their use of energy.
 
-Quando falamos de custos, há outro aspecto importante, o preço. As novas capacidades de negociar a energia entre empresas de serviços geraram uma grande necessidade de **prever a demanda futura e o preço futuro da eletricidade**. Isso pode ajudar as empresas a determinar seus volumes de produção.
+Many utility and smart energy companies have been pioneering the [smart grid](https://en.wikipedia.org/wiki/Smart_grid) by deploying a number of use cases that make use of the data generated by the grid. Many use cases revolve around the inherent characteristics of electricity production: it cannot be accumulated nor stored aside as inventory. So, what is produced must be used. Utilities that want to become more efficient need to forecast power consumption simply because that will give them greater ability to **balance supply and demand**, thus preventing energy wastage, **reduce greenhouse gas emission**, and control cost.
 
-Quando usamos a palavra “inteligente”, na verdade, nos referimos a uma rede que pode aprender e então fazer previsões. Ela pode prever alterações sazonais no consumo, bem como **prever situações de sobrecarga temporária e ajustar-se automaticamente a elas**. Ao regular remotamente o consumo (com a ajuda desses medidores inteligentes), as situações de sobrecarga localizada poderão ser tratadas. **Ao prever primeiro e então agir**, a rede fica mais inteligente ao longo do tempo.
+When talking of costs, there is another important aspect, which is price. New abilities to trade power between utilities have brought in a great need to **forecast future demand and future price of electricity**. This can help companies determine their production volumes.
 
-No restante deste documento, nos concentraremos em uma família específica de casos de uso que abrangem a previsão da demanda de energia futura, a curto e a longo prazos. Temos trabalhado nessas áreas há alguns meses e obtivemos conhecimentos e habilidades que nos permitem produzir resultados na rede do setor. Outros casos de uso também serão abordados no documento em um futuro próximo.
+When we use the word 'smart', we actually refer to a grid that can learn and then make predictions. It can anticipate seasonal changes in consumption as well as **foresee temporary overload situations and automatically adjust for it**. By remotely regulating consumption (with the help of these smart meters), localized overload situations can be handled. **By first predicting and then acting**, the grid makes itself smarter over time.
 
-## Noções básicas sobre negócios
+For the rest of this document we will focus on a specific family of use cases that cover forecasting of future, short term, and long-term energy demand. We have been working in these areas for a few months and have gained some knowledge and skill that allow us to produce industry grade results. Other use cases will be covered as well in the document in the near future.
 
-### Metas de Negócios
-A meta **Demonstração de Energia** serve para demonstrar uma análise preditiva e uma solução de aprendizado de máquina típica que podem ser implantadas em um período muito curto. Especificamente, nosso foco atual é habilitar as soluções de previsão de demanda de energia para que seu valor de negócios possa ser percebido e aproveitado com rapidez. As informações contidas neste manual podem ajudar o cliente cumprir as seguintes metas:
--   Pouco tempo para avaliar a solução baseada em aprendizado de máquina
--   Capacidade de expandir um caso de uso piloto para outros casos de uso ou para ampliar o escopo com base na necessidade de negócios
--   Obter rapidamente o conhecimento sobre o produto Cortana Intelligence Suite
+## <a name="business-understanding"></a>Business Understanding
 
-Com essas metas em mente, este manual tem como objetivo fornecer o conhecimento comercial e técnico que ajudará você a atingir essas metas.
+### <a name="business-goals"></a>Business Goals
+The **Energy Demo** goal is to demonstrate a typical predictive analytics and machine learning solution that can be deployed in a very short time frame. Specifically, our current focus is on enabling energy demand forecast solutions so that its business value can be quickly realized and leveraged upon. The information in this playbook can help the customer accomplishing the following goals:
+-   Short time to value of machine learning based solution
+-   Ability to expand a pilot use case to other use cases or to a broader scope based on their business need
+-   Quickly gain Cortana Intelligence Suite product knowledge
 
-### Carga de Energia e Previsão de Demanda
-No setor de energia, pode haver muitas maneiras nas quais a previsão de demanda pode ajudar a resolver problemas críticos de negócios. Na verdade, a previsão de demanda pode ser considerada a base para muitos dos principais casos de uso do setor. Em geral, consideramos dois tipos de previsões de demanda de energia: a curto prazo e a longo prazo. Cada um pode servir a uma finalidade diferente e utilizar uma abordagem diferente. A principal diferença entre os dois é o horizonte de previsão, que significa o intervalo de tempo no futuro para o qual podemos prever.
+With these goals in mind, this playbook aims at delivering the business and technical knowledge that will assist in achieving these goals.
 
-#### Previsão de Carga a Curto Prazo
-No contexto de demanda de energia, a Previsão de Carga a Curto Prazo (STLF) é definida como a carga agregada que é prevista em um futuro próximo em várias partes da rede (ou a rede como um todo). Nesse contexto, a curto prazo é definido como o horizonte de tempo no intervalo de uma hora a 24 horas. Em alguns casos, um limite de 48 horas também é possível. Portanto, a STLF é muito comum em casos de uso operacional da rede. Veja alguns exemplos de casos de uso orientados pela STLF:
--   Equilíbrio do fornecimento e da demanda
--   Suporte à comercialização de energia
--   Tomada de mercado (definição do preço da energia)
--   Otimização operacional da rede
--   [Resposta da demanda](https://en.wikipedia.org/wiki/Demand_response)
--   Previsão da demanda de pico
--   Gerenciamento do lado da demanda
--   Balanceamento de carga e prevenção de sobrecarga
--   Previsão de Carga a Longo Prazo
--   Detecção de anomalias e de falhas
--   Redução/nivelamento do pico
+### <a name="power-load-and-demand-forecasting"></a>Power Load and Demand Forecasting
+Within the energy sector, there could be many ways in which demand forecasting can help solve critical business problems. In fact, demand forecasting can be considered the foundation for many core use cases in the industry. In general, we consider two types of energy demand forecasts: short term and long term. Each one may serve a different purpose and utilize a different approach. The main difference between the two is the forecasting horizon, meaning the range of time into the future for which we would forecast.
 
-O modelo STLF baseia-se principalmente no consumo de dados no passado próximo (último dia ou semana) e na temperatura prevista de uso como um indicador importante. A obtenção da previsão de temperatura precisa para a próxima hora e para até 24 horas tem se tornado menos desafiadora nos dias de hoje. Esses modelos são menos sensíveis aos padrões sazonais ou às tendências de consumo a longo prazo.
+#### <a name="short-term-load-forecasting"></a>Short Term Load Forecasting
+Within the context of energy demand, Short Term Load Forecasting (STLF) is defined as the aggregated load that is forecasted in the near future on various parts of the grid (or the grid as a whole). In this context, short term is defined to be time horizon within the range of 1 hour to 24 hours. In some cases, a horizon of 48 hours is also possible. Therefore, STLF is very common in an operational use case of the grid. Here are some examples of STLF driven use cases:
+-   Supply and demand balancing
+-   Power trading support
+-   Market making (setting power price)
+-   Grid operational optimization
+-   [Demand response](https://en.wikipedia.org/wiki/Demand_response)
+-   Peak demand forecasting
+-   Demand side management
+-   Load balancing and overload prevention
+-   Long Term Load Forecasting
+-   Fault and anomaly detection
+-   Peak curtailment/leveling 
 
-As soluções SLTF também têm a probabilidade de gerar um alto volume de chamadas de previsão (solicitações de serviço), já que estão sendo invocadas por hora e, em alguns casos, até com uma frequência maior. Também é muito comum ver a implantação onde cada subestação ou transformador individual representa um modelo autônomo. Sendo assim, o volume de solicitações de previsão é ainda maior.
+STLF model are mostly based on the near past (last day or week) consumption data and use forecasted temperature as an important predictor. Obtaining accurate temperature forecast for the next hour and up to 24 hours is becoming less of a challenge now days. These models are less sensitive to seasonal patterns or long-term consumption trends.
 
-#### Previsão de Carga a Longo Prazo
-A meta Previsão de Carga a Longo Prazo (LTLF) serve para prever a demanda de energia com um prazo que varia de uma semana a vários meses (e, em alguns casos, alguns anos). Esse intervalo de horizonte é aplicável principalmente aos casos de uso de planejamento e de investimento.
+SLTF solutions are also likely to generate high volume of prediction calls (service requests) since they are being invoked on an hourly basis and in some cases even with higher frequency. It is also very common to see implantation where each individual substation or transformer is represented as a standalone model and therefore the volume of prediction requests are even greater.
 
-Para cenários a longo prazo, é importante ter dados de alta qualidade que cubram um intervalo de vários anos (três anos, no mínimo). Esses modelos normalmente extrairão padrões de periodicidade dos dados históricos e usarão previsões externas, como padrões de tempo e de clima.
+#### <a name="long-term-load-forecasting"></a>Long Term Load Forecasting
+The goal of Long Term Load Forecasting (LTLF) is to forecast power demand with a time horizon ranging from 1 week to multiple months (and in some cases for a number of years). This range of horizon is mostly applicable for planning and investment use cases.
 
-É importante esclarecer que quanto mais distante estiver o horizonte de previsão, menos precisa será a previsão. Portanto, é importante produzir alguns intervalos de confiança com a previsão real que permitam que os seres humanos considerem a variação possível no processo de planejamento.
+For long-term scenarios, it is important to have high quality data that covers a span of multiple years (minimum 3 years). These models will typically extract seasonality patterns from the historical data and make use of external predicators such as weather and climate patterns.
 
-Uma vez que o cenário de consumo para a LTLF é composto principalmente de planejamento, podemos esperar volumes de previsão muito menores (em comparação à STLF). Geralmente, veríamos essas previsões inseridas em ferramentas de visualização como o Excel ou o PowerBI e invocadas manualmente pelo usuário.
+It is important to clarify that the longer the forecasting horizon is, the less accurate the forecast may be. It is therefore important to produce some confidence intervals along with the actual forecast that would allow humans to factor the possible variation into their planning process.
 
-### Previsão a Curto Prazo versus a Longo Prazo
-A tabela a seguir compara a STLF e a LTLF em relação aos atributos mais importantes:
+Since the consumption scenario for LTLF is mostly planning, we can expect much lower prediction volumes (as compared to STLF). We would typically see these predictions embedded into visualization tools such as Excel or PowerBI and be invoked manually by the user.
 
-|Atributo|Previsão de Carga a Curto Prazo|Previsão de Carga a Longo Prazo|
+### <a name="short-term-vs.-long-term-prediction"></a>Short Term vs. Long Term Prediction
+The following table compares STLF and LTLF in respect to the most important attributes:
+
+|Attribute|Short Term Load Forecast|Long Term Load Forecast|
 |---|---|---|
-|Horizonte de Previsão|De uma hora a 48 horas|De 1 a 6 meses ou mais|
-|Granularidade de dados|Por hora|Por hora ou por dia|
-|Casos de uso típicos|<ul><li>Equilíbrio de demanda/fornecimento</li><li>Previsão de horário de pico</li><li>Resposta à demanda</li></ul>|<ul><li>Planejamento a longo prazo</li><li>Planejamento de ativos da rede</li><li>Planejamento de recursos</li></ul>|
-|Indicadores típicos|<ul><li>Dia ou semana</li><li>Hora do dia</li><li>Temperatura por hora</li></ul>|<ul><li>Mês do ano</li><li>Dia do mês</li><li>Temperatura e clima a longo prazo</li></ul>|
-|Intervalo de dados históricos|Dois a três anos de dados|Cinco a dez anos de dados|
-|Precisão típica|MAPE* de 5% ou menos|MAPE* de 25% ou menos|
-|Frequência de previsão|Produzida a cada hora ou a cada 24 horas|Produzida uma vez por mês, trimestre ou ano|
-*[MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) – Erro Percentual Médio
+|Forecast Horizon|From 1 hour to 48 hours|From 1 to 6 months or more|
+|Data granularity|Hourly|Hourly or daily|
+|Typical use cases|<ul><li>Demand/Supply balancing</li><li>Pick hour forecasting</li><li>Demand response</li></ul>|<ul><li>Long term planning</li><li>Grid assets planning</li><li>Resource planning</li></ul>|
+|Typical predictors|<ul><li>Day or week</li><li>Hour of day</li><li>Hourly temperature</li></ul>|<ul><li>Month of year</li><li>Day of month</li><li>Long term temperature and climate</li></ul>|
+|Historical data range|Two to three years' worth of data|Five to 10 years' worth of data|
+|Typical accuracy|MAPE* of 5% or lower|MAPE* of 25% or lower|
+|Forecast frequency|Produced every hour or every 24 hours|Produced once monthly, quarterly or yearly|
+\*[MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) – Mean Average Percent Error
 
-Como pode ser visto nesta tabela, é muito importante distinguir entre os cenários de previsão a curto e a longo prazo, já que eles representam necessidades comerciais diferentes e podem ter padrões de implantação e de consumo diferentes.
+As can be seen from this table, it is quite important to distinguish between the short and the long term forecasting scenarios as these represent different business needs and may have different deployment and consumption patterns.
 
-### Caso de Uso do Exemplo 1: Sistemas eSmart – otimização de sobrecarga
-Uma função importante de uma [rede inteligente](https://en.wikipedia.org/wiki/Smart_grid) é otimizar e ajustar de forma dinâmica e constante de acordo com os padrões de consumo à medida que eles são alterados. O consumo de energia pode ser afetado por alterações a curto prazo causadas principalmente por flutuações de temperatura (*por exemplo*, mais energia é usada em sistemas de ar condicionado ou de aquecimento). Ao mesmo tempo, o consumo de energia também é influenciado pelas tendências a longo prazo. Elas podem incluir efeitos de periodicidade, feriados nacionais, crescimento do consumo a longo prazo e até fatores econômicos como o índice do consumidor, o preço do petróleo e o PIB.
+### <a name="example-use-case-1:-esmart-systems-–-overload-optimization"></a>Example Use Case 1: eSmart Systems – Overload optimization
+An important role of a [smart grid](https://en.wikipedia.org/wiki/Smart_grid) is to dynamically and constantly optimize and adjust for the changing consumption patterns. Power consumption can be impacted by short-term changes that are mainly caused by temperature fluctuations (*e.g.*, more power is used for air condition or heating). At the same time, power consumption is also influenced by long-term trends. These may include seasonality effects, national holidays, long-term consumption growth, and even economic factors such as consumer index, oil price, and GDP.
 
-Neste caso de uso, o [eSmart](http://www.esmartsystems.com/) queria implantar uma solução baseada em nuvem que permitia prever a propensão a uma situação de sobrecarga em uma determinada subestação da rede. Em particular, o eSmart queria identificar as subestações que provavelmente seriam sobrecarregadas na hora seguinte, para que uma ação imediata pudesse ser tomada para evitar ou resolver a situação.
+In this use case, [eSmart](http://www.esmartsystems.com/) wanted to deploy a cloud-based solution that enables predicting the propensity of an overload situation on any given substation of the grid. In particular, eSmart wanted to identify substations that are likely to overload within the next hour, so an immediate action could be taken to avoid or resolve that situation.
 
-Uma previsão de execução precisa e rápida exige a implementação de três modelos de previsão:
--   O modelo a longo prazo que permite a previsão do consumo de energia em cada subestação durante as próximas semanas ou meses
--   O modelo a curto prazo que permite a previsão de uma situação de sobrecarga em uma determinada subestação durante a próxima hora
--   O modelo de temperatura que fornece a previsão de temperatura futura em vários cenários
+An accurate and fast performing prediction requires implementation of three predictive models:
+-   Long term model that enables forecasting of power consumption on each substation during the next few weeks or months
+-   Short term model that enables prediction of overload situation on a given substation during the next hour
+-   Temperature model that provides forecasting of future temperature over multiple scenarios
 
-O objetivo do modelo a longo prazo é classificar as subestações por sua propensão à sobrecarga (dada a capacidade de transmissão de energia delas) durante a semana ou o próximo mês. Isso permite a criação de uma pequena lista de subestações que serviria como uma entrada para a previsão a curto prazo. Como a temperatura é um importante indicador para o modelo a longo prazo, não há necessidade de produzir constantemente previsões de temperatura de vários cenários e adicioná-las como entradas no modelo a longo prazo. A previsão a curto prazo é então invocada para prever qual subestação provavelmente será sobrecarregada na próxima hora.
+The objective of the long-term model is to rank the substations by their propensity to overload (given their power transmission capacity) during the next week or month. This allows the creation of a short list of substations that would serve as an input for the short-term prediction. As temperature is an important predictor for the long-term model, there is a need to constantly produce multi-scenario temperature forecasts and feed them as input into to the long-term model. The short term forecast is then invoked to predict which substation is likely to overload over the next hour.
 
-Os modelos a curto e a longo prazo são implantados individualmente por cada subestação. Portanto, a execução prática desses modelos requer uma orquestração abrangente. Para obter uma maior precisão da previsão a curto prazo, um modelo mais granular é dedicado a cada hora do dia. Todos esses modelos são executados a cada hora e sua execução é concluída em alguns minutos, para permitir que haja tempo suficiente para responder e tomar ações preventivas, se necessário. Essa coleção de modelos é mantida atualizada por meio da readaptação periódica com os dados mais recentes.
+The short-term and long-term models are deployed individually per each substation. Therefore, the practical execution of these models requires extensive orchestration. To gain higher prediction accuracy in the short term, a more granular model is dedicated for each hour of the day. All these models are executed every hour and finish execution within a few minutes to allow sufficient time to respond and take preventive actions if needed. This collection of models is kept up-to-date by periodical retraining using the most recent data.
 
-Mais informações sobre este caso de uso podem ser encontradas [aqui](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18945).
+More information about this use case can be found [here](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18945).
 
-#### Usar Critérios de Qualificação de Caso – Pré-requisitos
-A principal força do Cortana Intelligence está em sua poderosa capacidade de implantar e escalar soluções centradas no aprendizado de máquina. Ele foi projetado para dar suporte a milhares de previsões executadas simultaneamente. Ele pode ser dimensionado automaticamente para atender a uma alteração no padrão de consumo. Portanto, o foco da solução é a precisão e o desempenho computacional. Por exemplo, uma empresa está interessada em produzir uma previsão precisa da demanda de energia para a próxima hora e para cada hora do dia. Por outro lado, estamos menos interessados em responder à pergunta sobre o motivo da demanda ser prevista dessa forma (o próprio modelo cuidará disso).
+#### <a name="use-case-qualification-criteria-–-prerequisites"></a>Use Case Qualification Criteria – Prerequisites
+The main strength of Cortana Intelligence is in its powerful ability to deploy and scale machine learning centric solutions. It is designed to support thousands of predictions that are executed concurrently. It can automatically scale to meet a changing consumption pattern. A solution's focus therefore, is on accuracy and computational performance. For example, a utility company is interested in producing accurate energy demand forecast for the next hour, and for each hour of the day. On the other hand, we are less interested in answering the question of why the demand is predicted to be as it is (the model itself will take care of that).
 
-Portanto, é importante perceber que nem todos os casos de uso e os problemas de negócios podem ser efetivamente solucionados usando o aprendizado de máquina.
+It is therefore important to realize that not all use cases and business problems can be effectively solved using machine learning.
 
-O Cortana Intelligence e o aprendizado de máquina podem ser altamente eficazes na resolução de um determinado problema de negócios quando os critérios a seguir forem atendidos:
--   O problema de negócios em questão é **previsível** por natureza. Um exemplo de caso de uso previsível é o de uma empresa de serviços que gostaria de prever a carga de energia em uma determinada subestação durante a próxima hora. Por outro lado, a análise e a classificação de acionadores de demanda histórica seriam **descritivas** por natureza e, portanto, menos aplicáveis.
--   Há um claro **caminho da ação** a ser tomado assim que a previsão estiver disponível. Por exemplo, prever uma sobrecarga em uma subestação durante a próxima hora pode disparar uma ação proativa de redução da carga associada à subestação, potencialmente impedindo uma sobrecarga.
--   O caso de uso representa um **tipo de problema típico** de modo que, quando resolvido, pode preparar o caminho para solucionar outros casos de uso semelhantes.
--   O cliente pode definir **metas quantitativas e qualitativas** para demonstrar a implementação de uma solução bem-sucedida. Por exemplo, uma boa meta quantitativa para a previsão da demanda de energia seria o limite de precisão necessária (*por exemplo*, um erro de até 5% é permitido) ou na previsão da sobrecarga da subestação, a precisão (taxa de verdadeiros positivos) e a recuperação (extensão de verdadeiros positivos) deveriam ficar acima de um determinado limite. Essas metas devem ser derivadas de metas de negócios do cliente.
--   Há um claro **cenário de integração** com o fluxo de trabalho de negócios da empresa. Por exemplo, a previsão de carga da subestação pode ser integrada à central de controle da rede para permitir atividades de prevenção de sobrecarga.
--   O cliente tem **dados com qualidade suficiente** prontos para uso para dar suporte ao caso de uso (veja mais na próxima seção, **Qualidade de Dados**, neste manual).
--   O cliente adota a arquitetura de dados centrada na nuvem ou o **aprendizado de máquina baseado em nuvem**, incluindo o AM do Azure e outros componentes do Cortana Intelligence Suite.
--   O cliente está disposto a estabelecer **um fluxo de dados completo** que facilite a entrega de dados na nuvem de forma contínua e está disposto a **operacionalizar** a solução.
--   O cliente está pronto para **dedicar recursos** que serão ativamente envolvidos durante a implementação piloto inicial para que o conhecimento e a propriedade da solução possam ser transferidos para o cliente após a conclusão bem-sucedida.
--   O recurso do cliente deve ser um **profissional de dados experiente**, preferencialmente um cientista de dados.
+Cortana Intelligence and machine learning could be highly effective in solving a given business problem when the following criteria are met:
+-   The business problem in hand is **predictive** in nature. A predictive use case example is a utility company that would like to predict power load on a given substation during the next hour. On the other hand, analyzing and ranking drivers of historical demand would be **descriptive** in nature and therefore less applicable.
+-   There is a clear **path of action** to be taken once the prediction is available. For example, predicting an overload on a substation during the next hour can trigger a proactive action of reducing load that is associated with that substation and thus potentially preventing an overload.
+-   The use case represents a **typical type of problem** such that when solved it can pave the way to solving other similar use cases.
+-   The customer can set **quantitative and qualitative goals** to demonstrate a successful solution implementation. For example, a good quantitative goal for energy demand forecast would be the required accuracy threshold (*e.g.*, up to 5% error is allowed) or when predicting substation overload then the precision (rate of true positives) and recall (extent of true positives) should be above a given threshold. These goals should be derived from the customer's business goals.
+-   There is a clear **integration scenario** with the company's business workflow. For example, the substation load forecast can be integrated into the grid control center to allow overload prevention activities.
+-   The customer has ready to use **data with sufficient quality** to support the use case (see more in the next section, **Data Quality**, of this playbook).
+-   The customer embraces cloud centric data architecture or **cloud-based machine learning**, including Azure ML and other Cortana Intelligence Suite components.
+-   The customer is willing to establish **an end to end data flow** that facilities the delivery of data into the cloud on an ongoing basis, and is willing to **operationalize** the solution.
+-   The customer is ready to **dedicate resources** who will be actively engaged during the initial pilot implementation so that knowledge and ownership of the solution can be transferred to the customer upon successful completion.
+-   The customer resource should be a **skilled data professional**, preferably a data scientist.
 
-A qualificação de um caso de uso baseado nos critérios acima pode melhorar significativamente as taxas de êxito de um caso de uso e estabelecer uma boa base para a implementação de casos de uso futuros.
+Qualification of a use case based on the above criteria can greatly improve the success rates of a use case and establish a good beachhead for the implementation of future use cases.
 
-### Soluções Baseadas em Nuvem
-O Cortana Intelligence Suite no Azure é um ambiente integrado que reside na nuvem. A implantação de uma solução de análise avançada em um ambiente de nuvem contém benefícios substanciais para as empresas e, ao mesmo tempo, pode significar uma grande mudança para as empresas que ainda usam soluções de TI no local. No setor de energia, há uma clara tendência de migração gradual de operações para a nuvem. Essa tendência anda de mãos dadas com o desenvolvimento da rede inteligente, como discutido acima, em **Tendências do Setor**. Como este manual se concentra em uma solução baseada em nuvem no domínio de energia, é importante explicar os benefícios e outras considerações de implantação de uma solução baseada em nuvem.
+### <a name="cloud-based-solutions"></a>Cloud-Based Solutions
+Cortana Intelligence Suite on Azure is an integrated environment that resides in the cloud. The deployment of an advanced analytics solution in a cloud environment holds substantial benefits for businesses and at the same time may mean big change for companies that still use on-premise IT solutions. Within the energy sector, there is a clear trend of gradual migration of operations into the cloud. This trend goes hand in hand along with the development of the smart grid as discussed above, in **Industry Trends**. As this playbook is focused on a cloud-based solution in the energy domain, it is important to explain the benefits and other considerations of deploying a cloud-based solution.
 
-Talvez a maior vantagem de uma solução baseada em nuvem seja o custo. Como as soluções utilizam componentes implantados na nuvem, não há custos iniciais ou COGS (Custo dos Bens Vendidos) associados a elas. Isso significa que não é necessário investir em hardware, software e na manutenção de TI e, portanto, há uma redução substancial dos riscos para o negócio.
+Perhaps the biggest advantage of a cloud-based solution is the cost. As a solution makes use of cloud-deployed components, there is no upfront costs or COGS (Cost of Goods Sold) component costs associated with it. That means that there is no need to invest in hardware, software, and IT maintenance, and therefore there is a substantial reduction in business risk.
 
-Outra vantagem importante é a estrutura de custo pré-pago das soluções baseadas em nuvem. Os servidores baseados em nuvem para computação ou armazenamento podem ser implantados e dimensionados conforme o necessário. Isso representa a vantagem da eficiência de custo de uma solução baseada em nuvem.
+Another important advantage is the pay-as-you-go cost structure of cloud-based solutions. Cloud-based servers for computing or storage can be deployed and scaled on a just-as-needed basis. This represents the cost efficiency advantage of a cloud-based solution.
 
-Por fim, não há necessidade de investir em manutenção de TI ou em desenvolvimento de infraestrutura futura, já que tudo isso faz parte da oferta baseada em nuvem. Nesta medida, o Cortana Intelligence Suite inclui os melhores serviços e seu roteiro se mantém em evolução. Novos recursos e componentes são constantemente introduzidos e evoluem.
+Finally, there is no need for investing in IT maintenance or future infrastructure development as all this is part of the cloud-based offering. To that extent, Cortana Intelligence Suite includes the best in class services and its road map keeps evolving. New features, components, and capabilities are constantly being introduced and evolve.
 
-Para uma empresa que esteja iniciando sua transição para a nuvem, é altamente recomendável adotar uma abordagem gradual ao implementar um roteiro de migração na nuvem. Acreditamos que, para empresas de serviços e para as empresas no domínio de energia, os casos de uso abordados neste manual representam uma excelente oportunidade para a criação de pilotos de soluções de análise preditiva na nuvem.
+For a company that is just starting its transition into the cloud, we are highly recommending to take a gradual approach by implementing a cloud migration road map. We believe that for utilities and companies in the energy domain, the use cases that are discussed in this playbook represent an excellent opportunity for piloting predictive analytics solutions in the cloud.
 
-#### Considerações sobre a Justificativa de Casos de Negócios
-Em muitos casos, o cliente pode estar interessado em criar uma justificativa de negócios para um determinado caso de uso em que uma solução baseada em nuvem e o aprendizado de máquina são componentes importantes. Ao contrário de uma solução local, no caso de uma solução baseada em nuvem, o componente de custo inicial é mínimo e a maioria dos elementos de custo está associada ao uso real. Quando se trata de implantar uma solução de previsão de energia no Cortana Intelligence Suite, vários serviços podem ser integrados a uma única estrutura de custo comum. Por exemplo, os bancos de dados (*por exemplo*, o SQL Azure) podem ser usados para armazenar os dados brutos e, para as previsões reais, o AM do Azure será usado para hospedar os serviços de previsão. Neste exemplo, a estrutura de custo poderia incluir componentes transacionais e de armazenamento.
+#### <a name="business-case-justification-considerations"></a>Business Case Justification Considerations
+In many cases, the customer may be interested in making a business justification for a given use case in which a cloud-based solution and Machine Learning are important components. Unlike an on-premise solution, in the case of a cloud-based solution, the upfront cost component is minimal and most of the cost elements are associated with actual usage. When it comes to deploying an energy forecasting solution on Cortana Intelligence Suite, multiple services can be integrated with a single common cost structure. For example, databases (*e.g.*, SQL Azure) can be used to store the raw data and then for the actual forecasts Azure ML is used to host the forecasting services. In this example, the cost structure could include storage and transactional components.
 
-Por outro lado, você deve ter uma boa compreensão do valor de negócio da operação de uma previsão de demanda de energia (a curto ou a longo prazo). Na verdade, é importante perceber o valor de negócio de cada operação de previsão. Por exemplo, prever uma carga de energia para as próximas 24 horas com precisão pode impedir a produção em excesso ou pode ajudar a impedir sobrecargas na rede, Isso pode ser quantificado em termos de economia financeira diariamente.
+On the other hand, one should have a good understanding of the business value of operating an energy demand forecasting (short or long term). In fact, it is important to realize the business value of each forecast operation. For example, accurately forecasting power load for the next 24 hours can prevent overproduction or can help prevent overloads on the grid and this can be quantified in terms of financial savings on a daily basis.
 
-Uma fórmula básica para calcular as vantagens financeiras da solução de previsão de demanda seria: ![Uma fórmula básica para calcular as vantagens financeiras da solução de previsão de demanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+A basic formula for calculating the financial benefit of demand forecast solution would be: ![Basic formula for calculating the financial benefit of demand forecast solution](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
-Como o Cortana Intelligence Suite fornece um modelo de preços pré-pagos, não é necessário incorrer em um componente de custo fixo para essa fórmula. Esta fórmula pode ser calculada de forma diária, mensal ou anual.
+Since Cortana Intelligence Suite provides a pay-as-you-go pricing model, there is no need for incurring a fixed cost component to this formula. This formula can be calculated on a daily, monthly, or annual basis.
 
-Os planos de preços atuais do Cortana Intelligence Suite e do AM do Azure podem ser encontrados [aqui](http://azure.microsoft.com/pricing/details/machine-learning/).
+Current Cortana Intelligence Suite and Azure ML pricing plans can be found [here](http://azure.microsoft.com/pricing/details/machine-learning/).
 
-### Processo de Desenvolvimento da Solução
-O ciclo de desenvolvimento de uma solução de previsão de demanda de energia geralmente envolve quatro fases, em que usamos as tecnologias e os serviços baseados em nuvem do Cortana Intelligence Suite.
+### <a name="solution-development-process"></a>Solution Development Process
+The development cycle of an energy demand forecasting solution typically involves 4 phases, in all of which we make use of cloud-based technologies and services within the Cortana Intelligence Suite.
 
-Isso é ilustrado no diagrama a seguir:
+This is illustrated in the following diagram:
 
-![Ciclo de Rede Inteligente](media/cortana-analytics-playbook-demand-forecasting-energy/smart-grid-cycle.png)
+![Smart Grid Cycle](media/cortana-analytics-playbook-demand-forecasting-energy/smart-grid-cycle.png)
 
-O parágrafo a seguir descreve esse processo da 4 etapas:
+The following paragraph describes this 4 step process:
 
-1.  **Coleta de Dados** – qualquer solução baseada em análise avançada baseia-se em dados (veja **Noções básicas sobre Dados**). Especificamente, quando se trata de análise preditiva e de previsão, nos baseamos em um fluxo de dados dinâmico e contínuo. No caso da previsão de demanda de energia, esses dados podem ser obtidos diretamente dos medidores inteligentes ou já podem estar agregados a um banco de dados local. Nós também utilizamos fontes de dados externas, como o clima e a temperatura. Esse fluxo contínuo de dados deve ser organizado, agendado e armazenado. O [Data Factory do Azure](http://azure.microsoft.com/services/data-factory/) (ADF) é a nossa força de trabalho principal para realizar essa tarefa.
-2.  **Modelagem** – para previsões de energia precisas e confiáveis, você deve desenvolver (treinar) e manter um excelente modelo que use os dados históricos e extraia os padrões significativos e de previsão dos dados. A área do Aprendizado de Máquina (AM) tem crescido rapidamente com algoritmos mais avançados, desenvolvidos de forma rotineira. O Estúdio AM do Azure fornece uma excelente experiência de usuário que ajuda a utilizar os algoritmos de AM mais avançados em um fluxo de trabalho completo. Esse fluxo de trabalho é ilustrado em um diagrama de fluxo intuitivo e inclui a preparação de dados, extração de recursos, modelagem e avaliação de modelos. O usuário pode reunir centenas de modelos variados que estão incluídos nesse ambiente. Até o final dessa fase, um cientista de dados terá um modelo de trabalho completamente avaliado e pronto para implantação.
+1.  **Data Collection** – Any advanced analytics based solution relies on data (see **Data Understanding**). Specifically, when it comes to predictive analytics and forecasting, we rely on ongoing, dynamic flow of data. In the case of energy demand forecasting, this data can be sourced directly from smart meters, or be already aggregated on an on-prem database. We also rely on other external sources of data such as weather and temperature. This ongoing flow of data must be orchestrated, scheduled, and stored. [Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF) is our main workhorse for accomplishing this task.
+2.  **Modeling** – For accurate and reliable energy forecasts, one must develop (train) and maintain a great model that makes use of the historical data and extracts the meaningful and predictive patterns in the data. The area of Machine Learning (ML) has been growing rapidly with more advanced algorithms being routinely developed. Azure ML Studio provides a great user experience that helps utilize the most advanced ML algorithms within a complete work flow. That workflow is illustrated in an intuitive flow diagram and includes the data preparation, feature extraction, modeling, and model evaluation. The user can pull in hundreds of various models that are included in this environment. By the end of this phase a data scientist will have a working model that is fully evaluated and ready for deployment.
 
-	O diagrama a seguir é uma ilustração de um fluxo de trabalho típico:
+    The following diagram is an illustration of a typical workflow:
 
-	![Fluxo de Trabalho de Modelagem](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
+    ![Modeling Workflow](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
 
-3.  **Implantação** – com um modelo de trabalho em mãos, a próxima etapa será a implantação. Aqui, o modelo é convertido em um serviço Web que expõe uma API RESTful que pode ser invocada simultaneamente pela Internet a partir de vários clientes de consumo. O AM do Azure fornece uma maneira simples de implantar um modelo diretamente do Estúdio AM do Azure com um único clique de botão. Todo o processo de implantação acontece nos bastidores. Essa solução pode ser automaticamente dimensionada para atingir o consumo necessário.
+3.  **Deployment** – With a working model in hand, the next step is deployment. Here the model is converted into a web service that exposes a RESTful API that can be concurrently invoked over the     Internet from various consumption clients. Azure ML provides a simple way of deploying a model directly from the Azure ML Studio with a single click of a button. The entire deployment process happens under the hood. This solution can automatically scale to meet the required consumption.
 
-4.  **Consumo** – nesta fase, podemos realmente usar o modelo de previsão para produzir previsões. O consumo pode ser gerado por um aplicativo do usuário (*por exemplo*, um painel) ou diretamente de um sistema operacional como um sistema de equilíbrio de demanda/fornecimento ou de uma solução de otimização de rede. Vários casos de uso podem ser obtidos de um único modelo.
+4.  **Consumption** – In this phase, we actually make use of the forecasting model to produce predictions. The consumption can be driven from a user application (*e.g.*, dashboard) or directly from an operational system such as demand/supply balancing system or a grid optimization solution. Multiple use cases can be driven from a single model.
 
-## Noções básicas sobre dados
-Depois de abordar as considerações de negócios (veja **Noções Básicas sobre Negócios**) de uma solução de previsão de demanda de energia, agora estamos prontos para discutir a parte de dados. Qualquer solução de análise preditiva se baseia em dados confiáveis. Para a previsão de demanda de energia, podemos contar com dados históricos de consumo com vários níveis de granularidade. Esses dados históricos são usados como matéria-prima. Eles passarão por uma análise cuidadosa na qual o cientista de dados identificará indicadores (também conhecidos como recursos) que poderão ser colocados em um modelo que, eventualmente, gerará as previsões necessárias.
+## <a name="data-understanding"></a>Data Understanding
+After covering the business considerations (see **Business Understanding**) of an energy demand forecasting solution, we are now ready to discuss the data part. Any predictive analytics solution relies on reliable data. For energy demand forecasting, we rely on historical consumption data with various levels of granularity. That historical data is used as the raw material. It will undergo a careful analysis in which the data scientist will identify predictors (also referred to as features) that can be put into a model which will eventually generate the required forecasts.
 
-No restante desta seção, descreveremos as diversas etapas e considerações para entender os dados e como colocá-los em um formato utilizável.
+In the rest of this section, we will describe the various steps and considerations for understanding the data and how to bring it to a usable form.
 
-### O Ciclo de Desenvolvimento do Modelo
-A produção de bons modelos requer uma preparação e um planejamento cuidadosos. A divisão do processo de modelagem em várias etapas e a concentração em uma etapa por vez pode aprimorar drasticamente o resultado de todo o processo.
+### <a name="the-model-development-cycle"></a>The Model Development Cycle
+Producing good forecasting models requires some careful preparation and planning. Breaking down the modeling process into multiple steps and focusing on one step at a time could dramatically improve the outcome of the entire process.
 
-O diagrama a seguir ilustra como o processo de modelagem pode ser dividido em várias etapas:
+The following diagram illustrates how the modeling process could be broken down into multiple steps:
 
-![Ciclo de desenvolvimento do modelo](media/cortana-analytics-playbook-demand-forecasting-energy/model-development-cycle.png)
+![Model Development Cycle](media/cortana-analytics-playbook-demand-forecasting-energy/model-development-cycle.png)
 
-Como se pode ver, o ciclo consiste em seis etapas:
--   Formulação do problema
--   Ingestão de dados e exploração de dados
--   Preparação de dados e engenharia de recursos
--   Modelagem
--   Avaliação do modelo
--   Desenvolvimento
+As can be seen the cycle consists of six steps:
+-   Problem formulation
+-   Data ingestion and data exploration
+-   Data preparation and feature engineering
+-   Modeling
+-   Model evaluation
+-   Development
 
-No restante desta seção, descreveremos as etapas individuais e os itens a serem considerados em cada etapa.
+In the rest of this section we will describe the individual steps and items to consider at each step.
 
-### Formulação do Problema
-Podemos considerar a formulação do problema como a etapa mais crítica pela qual alguém precisa passar antes de implementar qualquer solução de análise preditiva. Aqui, transformaríamos o problema de negócios e o decomporíamos em elementos específicos, que poderiam ser solucionados com os dados e as técnicas de modelagem. É uma boa prática formular o problema como um conjunto de perguntas que gostaríamos de responder. Veja algumas perguntas possíveis que podem ser aplicáveis ao escopo de previsão da demanda de energia:
--   Qual é a carga esperada em uma subestação individual na próxima hora ou no próximo dia?
--   A que hora do dia minha rede sofrerá a demanda de pico?
--   Qual é a probabilidade da minha rede manter a carga de pico esperada?
--   Quanta energia a estação de energia deverá gerar durante cada hora do dia?
+### <a name="problem-formulation"></a>Problem Formulation
+We can consider the problem formulation as the most critical step one needs to take prior to implementing any predictive analytics solution. Here we would transform the business problem and decompose it to specific elements which can be solved by using data and modeling techniques. It is a good practice to formulate the problem as a set of questions we would like to answer. Here are some possible questions that might be applicable within the scope of energy demand forecasting:
+-   What is the expected load on an individual substation in the next hour or day?
+-   At what time of the day will my grid experience peak demand?
+-   How likely is my grid to sustain the expected peak load?
+-   How much power should the power station generate during each hour of the day?
 
-A formulação dessas perguntas permite que nos concentremos na obtenção dos dados corretos e na implementação de uma solução totalmente alinhada aos problemas de negócios em questão. Além disso, poderemos assim definir algumas métricas chave que nos permitirão avaliar o desempenho do modelo. Por exemplo, que grau de exatidão a previsão deverá ter e qual é o intervalo de erros que ainda seria aceitável para a empresa?
+Formulating these questions allows us to focus on getting the right data and implementing a solution that is fully aligned with the business problem at hand. Furthermore, we can then set some key metrics that allow us to evaluate the performance of the model. For example, how accurate should the forecast be and what is the range of error that would still be acceptable by the business?
 
-### Fontes de dados
-A rede inteligente moderna coleta dados de várias partes e componentes da rede. Esses dados representam vários aspectos da operação e da utilização da rede de energia. No escopo da previsão da demanda de energia, estamos limitando a discussão a fontes de dados que reflitam o consumo de demanda real. Uma fonte do consumo de energia importante é composta pelos medidores inteligentes. As empresas de serviços em todo o mundo têm implantado medidores inteligentes para seus consumidores. Os medidores inteligentes registram o consumo de energia real e retransmitem constantemente esses dados à empresa de serviço. Os dados são coletados e enviados de volta em um intervalo fixo, desde a cada cinco minutos até a cada hora. Medidores inteligentes mais avançados podem ser programados remotamente para controlar e equilibrar o consumo real em uma casa. Os dados dos medidores inteligentes são relativamente confiáveis e incluem um carimbo de data/hora. Dessa maneira, é um ingrediente importante para a previsão da demanda. Os dados do medidor podem ser agregados (somados) em vários níveis na topologia da rede: transformador, subestação, região, *etc*. Podemos então escolher o nível de agregação necessária para criar um modelo de previsão para ele. Por exemplo, se a empresa de serviço quiser prever a carga futura em cada uma das subestações da rede, então todos os dados dos medidores poderão ser agregados para cada subestação individual e usados como uma entrada para o modelo de previsão. Podemos nos referir aos medidores inteligentes como uma fonte de dados interna.
+### <a name="data-sources"></a>Data Sources
+The modern smart grid collects data from various parts and components of the grid. This data represents various aspects of the operation and the utilization of the power grid. Within the scope of the energy demand forecast, we are limiting the discussion on data sources that reflect the actual demand consumption. One important source of energy consumption are smart meters. Utilities around the globe are rapidly deploying smart meters for their consumers. Smart meters record the actual power consumption and constantly relay this data back to the utility company. Data is collected and sent back at a fixed interval, ranging from every 5 minutes to 1 hour. More advanced smart meters can be programmed remotely to control and balance the actual consumption within a household. Smart meter data is relatively reliable and includes a time stamp. That makes it an important ingredient for demand forecast. Meter data can be aggregated (summed up) at various levels within the grid topology: transformer, substation, region, *etc*. We can then pick the required aggregation level to build a forecasting model for it. For example, if the utility company would like to forecast future load on each of its grid substations then all meters' data can be aggregated for each individual substation and used as an input for the forecasting model. We refer to smart meters as an internal data source.
 
-Uma previsão de demanda de energia confiável também se baseará em outras fontes de dados externas. Um importante fator que afeta o consumo de energia é o clima ou, mais precisamente, a temperatura. Os dados históricos mostram uma forte correlação entre a temperatura externa e o consumo de energia. Nos dias quentes de verão, os consumidores usarão seus aparelhos de ar-condicionado e, durante o inverno, usarão os sistemas de energia ou de aquecimento. Portanto, uma fonte confiável de temperaturas históricas no local da rede é fundamental. Além disso, também contamos com a previsão exata da temperatura como um indicador do consumo de energia.
+A reliable energy demand forecast will also rely on other external data sources. One important factor that affects power consumption is the weather, or more precisely the temperature. Historical data shows strong correlation between outside temperature and power consumption. During hot summer days, consumers make use of their air conditioners and during the winter power on heating systems. A reliable source of historical temperatures at the grid location is therefore key. Furthermore, we also rely on accurate forecast of temperature as a predictor of power consumption.
 
-Outras fontes de dados externas também podem ajudar na criação de modelos de previsão de demanda de energia. Elas podem incluir alterações de clima a longo prazo, índices econômicos (*por exemplo*, o PIB), entre outros. Neste documento, não incluiremos essas fontes de dados.
+Other external data sources can also help in building energy demand forecast models. These may include long term climate changes, economical indexes (*e.g.*, GDP), and others. In this document we will not include these other data sources.
 
-### Estrutura de Dados
-Depois de identificar as fontes de dados necessárias, gostaríamos de garantir que os dados brutos coletados incluíssem os recursos de dados corretos. Para criar um modelo de previsão de demanda confiável, teríamos que garantir que os dados coletados incluíssem elementos de dados que poderiam ajudar a prever a demanda futura. Veja alguns requisitos básicos sobre a estrutura de dados (esquema) dos dados brutos.
+### <a name="data-structure"></a>Data Structure
+After identifying the required data sources, we would like to ensure that raw data that has been collected includes the correct data features. To build a reliable demand forecast model, we would need to ensure that the data collected includes data elements that can help predict the future demand. Here are some basic requirements concerning the data structure (schema) of the raw data.
 
-Os dados brutos consistem em linhas e colunas. Cada medição é representada como uma única linha de dados. Cada linha de dados inclui várias colunas (também conhecidas como campos ou recursos).
+The raw data consists of rows and columns. Each measurement is represented as a single row of data. Each row of data includes multiple columns (also referred to as features or fields).
 
-1.  **Carimbo de data/hora** – o campo de carimbo de data/hora representa a hora real em que a medição foi registrada. Ele deve ser compatível com um dos formatos de data/hora comuns. Ambas as partes de data e de hora devem ser incluídas. Na maioria dos casos, não é preciso que a hora seja registrada até o segundo nível de granularidade. É importante especificar o fuso horário no qual os dados são registrados.
-2.  **ID do medidor** - esse campo identifica o medidor ou o dispositivo de medição. É uma variável categórica e pode ser uma combinação de caracteres e de dígitos.
-3.  **Valor de consumo** – é o consumo real em uma determinada data/hora. O consumo pode ser medido em kWh (kilowatt-hora) ou em qualquer outra unidade de sua preferência. É importante observar que a unidade de medição deve permanecer consistente em todas as medições nos dados. Em alguns casos, o consumo pode ser fornecido em mais de três fases de energia. Nesse caso, será necessário coletar todas as fases independentes do consumo.
-4.  **Temperatura** – a temperatura normalmente é coletada de uma fonte independente. No entanto, ela deve ser compatível com os dados de consumo. Ela deve incluir um carimbo de data/hora conforme descrito acima, que permitirá sua sincronização com os dados de consumo real. O valor da temperatura pode ser especificado em graus Celsius ou Fahrenheit, mas deve permanecer consistente em todas as medições.
-5.  **Local –** o campo de local está geralmente associado ao local onde os dados de temperatura foram coletados. Ele pode ser representado em forma de um número de código postal ou no formato de latitude/longitude (lat/long).
+1.  **Time stamp** – the timestamp field represents the actual time when the measurement was recorded. It should comply with one of the common date/time formats. Both date and time parts should be included. In most cases, there is no need for the time to be recorded till the second level of granularity. It is important to specify the time zone in which the data is recorded.
+2.  **Meter ID** - This field identifies the meter or the measurement device. It is a categorical variable and can be a combination of digits and characters.
+3.  **Consumption value** – This is the actual consumption at a given date/time. The consumption can be measured in kWh (kilowatt-hour) or any other preferred units. It is important to note that the measurement unit must stay consistent across all measurements in the data. In some cases, consumption can be supplied over 3 power phases. In that case we would need to collect all the independent consumption phases.
+4.  **Temperature** – the temperature is typically collected from an independent source. However, it should be compatible with the consumption data. It should include a timestamp as described above that will allow it to be synchronized with the actual consumption data. The temperature value can be specified in degrees Celsius or Fahrenheit but should stay consistent across all measurements.
+5.  **Location –** The location field is typically associated with the place where the temperature data has been collected. It can be represented as a zip-code number or in latitude/longitude (lat/long) format.
 
-As tabelas a seguir mostram exemplos de um bom formato de dados de consumo e de temperatura:
+The following tables shows examples of a good consumption and temperature data format:
 
-|**Data**|**Hora**|**ID de medidor**|**Fase 1**|**Fase 2**|**Fase 3**|
+|**Date**|**Time**|**Meter ID**|**Phase 1**|**Phase 2**|**Phase 3**|
 |--------|--------|------------|-----------|-----------|-----------|
-|1/7/2015|10:00:00|ABC1234 |7\.0 |2,1 |5,3 |
-|1/7/2015|10:00:01|ABC1234 |7\.1 |2\.2 |4\.3 |
-|1/7/2015|10:00:02|ABC1234 |6,0 |2,1 |4,0 |
+|7/1/2015|10:00:00|ABC1234     |7.0        |2.1        |5.3        |
+|7/1/2015|10:00:01|ABC1234     |7.1        |2.2        |4.3        |
+|7/1/2015|10:00:02|ABC1234     |6.0        |2.1        |4.0        |
 
-|**Data**|**Hora**|**Localidade**|**Temperatura**|
+|**Date**|**Time**|**Location**|**Temperature**|
 |--------|--------|-------------|---------------|
-|1/7/2015|10:00:00|11242 |24,4 |
-|1/7/2015|10:00:01|11242 |24,4 |
-|1/7/2015|10:00:02|11242 |24,5 |
+|7/1/2015|10:00:00|11242        |24.4           |
+|7/1/2015|10:00:01|11242        |24.4           |
+|7/1/2015|10:00:02|11242        |24.5           |
 
-Como pode ser visto acima, este exemplo inclui três valores diferentes para o consumo associado a três fases de energia. Além disso, observe que os campos de data e de hora estão separados, mas também podem ser combinados em uma única coluna. Nesse caso, a coluna de local é representada em formato de código postal de cinco dígitos e a temperatura em formato de graus Celsius.
+As can be seen above, this example includes 3 different values for consumption associated with 3 power phases. Also, note that the date and time fields are separated, however they can also be combined into a single column. In this case the location column is represented in a 5-digit zip-code format and the temperature in a degree Celsius format.
 
-### Formato de Dados
-O Cortana Intelligence Suite pode dar suporte à maioria dos formatos de dados comuns, como CSV, TSV, JSON *etc*. É importante que o formato de dados permaneça consistente durante todo o ciclo de vida do projeto.
+### <a name="data-format"></a>Data Format
+Cortana Intelligence Suite can support the most common data formats like CSV, TSV, JSON, *etc*. It is important that the data format stays consistent for the entire life cycle of the project.
 
-### Ingestão de dados
-Como a previsão da demanda de energia é prevista com constância e com frequência, devemos garantir que os dados brutos estejam fluindo por meio de um processo de ingestão de dados sólido e confiável. O processo de ingestão deve garantir que os dados brutos estejam disponíveis para o processo de previsão no tempo necessário. Isso significa que a frequência da ingestão de dados deve ser maior do que a frequência de previsão.
+### <a name="data-ingestion"></a>Data Ingestion
+Since energy demand forecast is constantly and frequently predicted, we must ensure that the raw data is flowing by means of a solid and reliable data ingestion process. The ingestion process must guarantee that the raw data is available for the forecasting process at the required time. That implies that the data ingestion frequency should be greater than the forecasting frequency.
 
-Por exemplo: se nossa solução de previsão de demanda gerasse uma nova previsão às 8:00 diariamente, precisaríamos garantir que todos os dados coletados durante as últimas 24 horas tivessem sido totalmente ingeridos até esse ponto e tivessem incluído até a última hora de dados.
+For example: If our demand forecasting solution would generate a new forecast at 8:00AM on a daily basis then we need to ensure that all the data that has been collected during the last 24 hours has been fully ingested till that point and has to even include the last hour of data.
 
-Para fazer isso, o Cortana Intelligence Suite oferece várias maneiras de dar suporte a um processo de ingestão de dados confiável. Isso será discutido em mais detalhes na seção **Implantação** deste documento.
+In order to accomplish this, Cortana Intelligence Suite offers various ways to support a reliable data ingestion process. This will be further discussed in the **Deployment** section of this document.
 
-### Qualidade de Dados
-A fonte de dados brutos necessária para executar a previsão de demanda precisa e confiável deve atender a alguns critérios básicos de qualidade de dados. Embora métodos estatísticos avançados possam ser usados para compensar algum problema de qualidade de dados possível, ainda será necessário garantir que estejamos cruzando algum limite de qualidade de dados de base ao ingerirmos novos dados. Veja algumas considerações em relação à qualidade dos dados brutos:
--   **Valor ausente** – refere-se à situação quando a medição específica não foi coletada. O requisito básico aqui é que a taxa de valor ausente não deve ser maior do que 10% para qualquer período de tempo determinado. No caso em que um único valor esteja ausente, ele deverá ser indicado usando um valor predefinido (por exemplo: “9999”) e não “0”, que pode ser uma medição válida.
--   **Precisão da medição** – o valor real de consumo ou de temperatura deve ser registrado com precisão. Medição imprecisas produzirão previsões imprecisas. Normalmente, o erro de medição deve ser inferior a 1% em relação ao valor verdadeiro.
--   **Hora da medição** – é necessário que o carimbo de data/hora real dos dados coletados não desviem por mais de 10 segundos em relação ao horário da medição real.
--   **Sincronização** – quando várias fontes de dados são usadas (*por exemplo*, temperatura e consumo), devemos garantir que não haja problemas de sincronização de horas entre elas. Isso significa que a diferença de tempo entre o carimbo de data/hora coletado de cada duas fontes de dados independentes não exceda 10 segundos.
--   **Latência** - como discutido acima, em **Ingestão de Dados**, dependemos de um fluxo de dados e de um processo de ingestão confiáveis. Para controlarmos isso, devemos garantir que a latência de dados esteja sob controle. Isso é especificado como a diferença de tempo entre a hora em que a medição real foi feita e a hora na qual ela foi carregada no armazenamento do Cortana Intelligence Suite e está pronta para uso. Para a previsão de carga a longo prazo, a latência total não deverá ser maior do que 30 minutos. Para a previsão de carga a longo prazo, a latência total não deverá ser maior do que um dia.
+### <a name="data-quality"></a>Data Quality
+The raw data source that is required for performing reliable and accurate demand forecasting must meet some basic data quality criteria. Although advanced statistical methods can be used to compensate for some possible data quality issue, we still need to ensure that we are crossing some base data quality threshold when ingesting new data. Here are a few considerations concerning raw data quality:
+-   **Missing value** – this refers to the situation when specific measurement was not collected. The basic requirement here is that the missing value rate should not be greater than 10% for any given time period. In case that a single value is missing it should be indicated by using a pre-defined value (for example: '9999') and not '0' which could be a valid measurement.
+-   **Measurement accuracy** – the actual value of consumption or temperature should be accurately recorded. Inaccurate measurements will produce inaccurate forecasts. Typically, the measurement error should be lower than 1% relative to the true value.
+-   **Time of measurement** – it is required that the actual timestamp of the data collected will not deviate by more than 10 seconds relative to the true time of the actual measurement.
+-   **Synchronization** – When multiple data sources are being used (*e.g.*, consumption and temperature) we must ensure that there are no time synchronization issues between them. This means that the time difference between the collected timestamp from any two independent data sources should not exceed more than 10 seconds.
+-   **Latency** - As discussed above, in **Data Ingestion**, we are dependent on a reliable data flow and ingestion process. To control that we must ensure that we control the data latency. This is specified as the time difference between the time that the actual measurement was taken and the time at which it has been loaded into the Cortana Intelligence Suite storage and is ready for use. For short term load forecasting the total latency should not be greater than 30 minutes. For long term load forecasting the total latency should not be greater than 1 day.
 
-### Preparação de Dados e Engenharia de Recursos
-Depois que os dados brutos tiverem sido ingeridos (veja **Ingestão de Dados**) e tiverem sido armazenados de forma segura, estarão prontos para o processamento. A fase de preparação de dados consiste basicamente em pegar os dados brutos e convertê-los (transformá-los, dar nova forma a eles) em um formulário para a fase de modelagem. Isso pode incluir operações simples, como o uso da coluna de dados brutos como ela está com seu valor medido real, valores padronizados, operações mais complexas como o [retardo de tempo](https://en.wikipedia.org/wiki/Lag_operator), entre outros. As colunas de dados recém-criadas são conhecidas como recursos de dados e o processo de gerá-las é chamado de engenharia de recursos. No final desse processo, teríamos um novo conjunto de dados derivado dos dados brutos que pode ser usado para modelagem. Além disso, a fase de preparação de dados precisa cuidar dos valores ausentes (veja **Qualidade de Dados**) e compensá-los. Em alguns casos, também seria preciso normalizar os dados para garantir que todos os valores fossem representados na mesma escala.
+### <a name="data-preparation-and-feature-engineering"></a>Data Preparation and Feature Engineering
+Once the raw data has been ingested (see **Data Ingestion**) and has been securely stored, it is ready to be processed. The data preparation phase is basically taking the raw data and converting (transforming, reshaping) it into a form for the modeling phase. That may include simple operations such as using the raw data column as is with its actual measured value, standardized values,  more complex operations such as [time lagging](https://en.wikipedia.org/wiki/Lag_operator), and others. The newly created data columns are referred to as data features and the process of generating these is referred to as feature engineering. By the end of this process we would have a new data set that has been derived from the raw data and can be used for modeling. In addition, the data preparation phase needs to take care of missing values (see **Data Quality**) and compensate for them. In some cases, we would also need to normalize the data to ensure that all values are represented in the same scale.
 
-Nesta seção, listamos alguns dos recursos de dados comuns incluídos nos modelos de previsão de demanda de energia.
+In this section we list some of the common data features that are included in the energy demand forecast models.
 
-**Recursos controlados pelo tempo:** esses recursos são derivados dos dados de carimbo de data/hora. Eles são extraídos e convertidos em recursos categóricos como:
--   Hora do dia – é a hora do dia que recebe valores de 0 a 23
--   Dia da semana – representa o dia da semana e recebe valores de 1 (domingo) a 7 (sábado)
--   Dia do mês – representa a data real e pode receber valores de 1 a 31
--   Mês do ano – representa o mês e recebe valores de 1 (janeiro) a 12 (dezembro)
--   Fim de semana – é um recurso de valor binário que recebe os valores 0 para dias da semana ou 1 para o fim de semana
--   Feriado – é um recurso de valor binário que recebe os valores 0 para um dia comum ou 1 para um feriado
--   Termos de Fourier – os termos de Fourier são pesos que derivam do carimbo de data/hora e são usados para capturar a periodicidade (ciclos) nos dados. Como podemos ter várias estações em nossos dados, talvez sejam necessários vários termos de Fourier. Por exemplo, os valores da demanda podem ter estações/ciclos anuais, semanais e diários, o que resultará em três termos de Fourier.
+**Time driven features:** These features are derived from the date/timestamp data. These are extracted and converted into categorical features like:
+-   Time of day – This is the hour of the day which takes values from 0 to 23
+-   Day of week – This represents the day of the week and takes values from 1 (Sunday) to 7 (Saturday)
+-   Day of month – This represents the actual date and can take values from 1 to 31
+-   Month of year – This represents the month and takes values from 1 (January) to 12 (December)
+-   Weekend – This is a binary value feature that takes the values of 0 for weekdays or 1 for weekend
+-   Holiday - This is a binary value feature that takes the values of 0 for a regular day or 1 for a holiday
+-   Fourier terms – The Fourier terms are weights that are derived from the timestamp and are used to capture the seasonality (cycles) in the data. Since we may have multiple seasons in our data we may need multiple Fourier terms. For example, demand values may have yearly, weekly, and daily seasons/cycles which will result in 3 Fourier terms.
 
-**Recursos de medição independentes:** os recursos independentes incluem todos os elementos de dados que gostaríamos de usar como indicadores em nosso modelo. Aqui, podemos excluir o recurso dependente que precisamos prever.
--   Recurso de retardo – são valores de tempo deslocados da demanda real. Por exemplo, os recursos de retardo 1 conterão o valor de demanda na hora anterior (supondo que sejam os dados por hora) relativo ao carimbo de data/hora atual. Da mesma forma, podemos adicionar o retardo 2, o retardo 3, *etc*. A combinação real dos recursos de retardo usados é determinada durante a fase de modelagem por meio da avaliação dos resultados do modelo.
--   Tendências a longo prazo – esse recurso representa o crescimento linear em demanda entre os anos.
+**Independent measurement features:** The independent features include all the data elements that we would like to use as predictors in our model. Here we exclude the dependent feature which we would need to predict.
+-   Lag feature – these are time shifted values of the actual demand. For example, lag 1 features will hold the demand value in the previous hour (assuming hourly data) relative to the current timestamp. Similarly, we can add lag 2, lag 3, *etc*. The actual combination of lag features that are used are determined during the modeling phase by evaluation of the model results.
+-   Long term trending – this feature represents the linear growth in demand between years.
 
-**Recurso dependente:** recurso dependente é a coluna de dados que gostaríamos que nosso modelo previsse. Com o [aprendizado de máquina supervisionado](https://en.wikipedia.org/wiki/Supervised_learning), primeiro precisamos treinar o modelo usando os recursos dependentes (também conhecidos como rótulos). Isso permite que o modelo aprenda os padrões nos dados associados ao recurso dependente. Na previsão da demanda de energia, geralmente desejamos prever a demanda real e, portanto, poderíamos usá-la como o recurso dependente.
+**Dependent feature:** The dependent feature is the data column which we would like our model to predict. With [supervised machine learning](https://en.wikipedia.org/wiki/Supervised_learning), we need to first train the model using the dependent features (which is also referred to as labels). This allows the model to learn the patterns in the data associated with the dependent feature. In energy demand forecast we typically want to predict the actual demand and therefore we would use it as the dependent feature.
 
-**Tratamento de valores ausentes:** durante a fase de preparação de dados, seria preciso determinar a melhor estratégia para lidar com os valores ausentes. Isso é feito principalmente usando as diversas estatísticas [métodos de imputação de dados](https://en.wikipedia.org/wiki/Imputation_(statistics)). No caso da previsão da demanda de energia, nós geralmente imputamos valores ausentes usando a média da movimentação de pontos de dados disponíveis anteriores.
+**Handling of missing values:** During the data preparation phase, we would need to determine the best strategy to handle missing values. This is mostly done by using the various statistical [data imputation methods](https://en.wikipedia.org/wiki/Imputation_(statistics)). In the case of energy demand forecasting, we typically impute missing values by using moving average from previous available data points.
 
-**Normalização de Dados:** a normalização dos dados é outro tipo de transformação usado para colocar todos os dados numéricos, como a previsão de demanda, em uma escala semelhante. Normalmente, isso ajuda a melhorar a exatidão e a precisão do modelo. Geralmente, faríamos isso dividindo o valor real pelo intervalo dos dados. Isso dimensionará o valor original para um intervalo menor, normalmente entre -1 e 1.
+**Data Normalization:** Data normalization is another type of transformation which is used to bring all numeric data such as demand forecast into a similar scale. This typically helps improve the model accuracy and precision. We would typically do this by dividing the actual value by the range of the data.
+This will scale the original value down into a smaller range, typically between -1 and 1.
 
-## Modelagem
-A fase de modelagem é onde ocorre a conversão de dados em um modelo. No centro desse processo, estão os algoritmos avançados que examinam os dados históricos (dados de treinamento), que extraem os padrões e que criam um modelo. Posteriormente, esse modelo poderá ser usado para prever novos dados que não tenham sido usados para criar o modelo.
+## <a name="modeling"></a>Modeling
+The modeling phase is where the conversion of the data into a model takes place. In the core of this process there are advanced algorithms that scan the historical data (training data), extract patterns, and build a model. That model can be later used to predict on new data that has not been used to build the model.
 
-Assim que tivermos um modelo confiável funcional, poderemos então usá-lo para pontuar novos dados estruturados para incluir os recursos necessários (X). O processo de pontuação usará o modelo persistente (objeto da fase de treinamento) e preverá a variável de destino indicada por Ŷ.
+Once we have a working reliable model we can then use it to score new data that is structured to include the required features (X). The scoring process will make use of the persisted model (object from the training phase) and predict the target variable that is denoted by Ŷ.
 
-### Técnicas de Modelagem da Previsão da Demanda
-No caso da previsão da demanda, usamos os dados históricos ordenados por hora. Geralmente, nos referimos aos dados que incluem a dimensão de tempo como [série temporal](https://en.wikipedia.org/wiki/Time_series). A meta na modelagem da série temporal é encontrar tendências relacionadas ao tempo, a periodicidade, a correlação automática (correlação ao longo do tempo) e formular tudo em um modelo.
+### <a name="demand-forecasting-modeling-techniques"></a>Demand Forecasting Modeling Techniques
+In the case of demand forecasting we make use of historical data which is ordered by time. We generally refer to data that includes the time dimension as [time series](https://en.wikipedia.org/wiki/Time_series). The goal in time series modeling is to find time related trends, seasonality, auto-correlation (correlation over time), and formulate those into a model.
 
-Nos últimos anos, algoritmos avançados foram desenvolvidos para acomodar a previsão da série temporal e aumentar a precisão da previsão. Discutiremos brevemente alguns deles aqui.
+In recent years advanced algorithms have been developed to accommodate time series forecasting and to improve forecasting accuracy. We briefly discuss a few of them here.
 
-> [AZURE.NOTE] Esta seção não destina-se a ser usada como uma visão geral do aprendizado de máquina e da previsão, mas como uma pesquisa rápida de técnicas de modelagem comumente usadas para a previsão da demanda. Para saber mais e para obter material educativo sobre a previsão da série temporal, é altamente recomendável ler o livro online [Forecasting: principles and practice (Previsão: princípios e prática)](https://www.otexts.org/book/fpp).
+> [AZURE.NOTE] This section is not intended to be used as a machine learning and forecasting overview but rather as a short survey of modeling techniques that are commonly used for demand forecasting. For more information and educational material about time series forecasting, we highly recommend the online book [Forecasting: principles and practice](https://www.otexts.org/book/fpp).
 
-#### [**MA (Média de Movimentação)**](https://www.otexts.org/fpp/6/2)
-A média de movimentação é uma das primeiras técnicas analíticas que foram usadas para a previsão da série temporal e ainda hoje é uma das técnicas mais comumente usadas. Também é a base para técnicas de previsão mais avançadas. Com a média de movimentação, estamos prevendo o próximo ponto de dados ao calcular a média nos pontos K mais recentes, onde K indica a ordem da média de movimentação.
+#### <a name="[**ma-(moving-average)**](https://www.otexts.org/fpp/6/2)"></a>[**MA (Moving Average)**](https://www.otexts.org/fpp/6/2)
+Moving average is one of the first analytical techniques that has been used for time series forecasting and it is still one of the most commonly used techniques as of today. It is also the foundation for more advanced forecasting techniques. With moving average we are forecasting the next data point by averaging over the K most recent points, where K denotes the order of the moving average.
 
-A técnica da média de movimentação tem o efeito de suavização da previsão e, portanto, não pode manipular bem a grande volatilidade nos dados.
+The moving average technique has the effect of smoothing the forecast and therefore may not handle well large volatility in the data.
 
-#### [**ETS (Suavização Exponencial)**](https://www.otexts.org/fpp/7/5)
-A Suavização Exponencial (ETS) é uma família de vários métodos que usam a média ponderada de pontos de dados recentes para prever o próximo ponto de dados. A ideia é atribuir pesos mais altos a valores mais recentes e diminuir gradualmente esse peso para valores medidos mais antigos. Há vários métodos diferentes nessa família, alguns deles incluem o tratamento da periodicidade dos dados como o [Método Sazonal Holt-Winters](https://www.otexts.org/fpp/7/5).
+#### <a name="[**ets-(exponential-smoothing)**](https://www.otexts.org/fpp/7/5)"></a>[**ETS (Exponential Smoothing)**](https://www.otexts.org/fpp/7/5)
+Exponential Smoothing (ETS) is a family of various methods which use weighted average of recent data points in order to predict the next data point. The idea is to assign higher weights to more recent values and gradually decrease this weight for older measured values. There are a number of different methods with this family, some of them include handling of seasonality in the data such as [Holt-Winters Seasonal Method](https://www.otexts.org/fpp/7/5).
 
-Alguns desses métodos também consideram a periodicidade dos dados.
+Some of these methods also factor in the seasonality of the data.
 
-#### [**ARIMA (Média de Movimentação Integrada de Regressão Automática)**](https://www.otexts.org/fpp/8)
-A Média de Movimentação Integrada de Regressão Automática (ARIMA) é outra família de métodos que é normalmente usada na previsão da série temporal. Ela praticamente combina métodos de regressão automática à média de movimentação. Os métodos de regressão automática usam modelos de regressão ao receberem valores anteriores da série temporal para calcular o próximo ponto de data. Os métodos ARIMA também se aplicam a métodos de diferenciação, que incluem o cálculo da diferença entre os pontos de dados e o uso deles em vez do valor original medido. Por fim, a ARIMA também usa as técnicas de média de movimentação discutidas acima. A combinação de todos esses métodos de várias maneiras é o que constrói a família dos métodos ARIMA.
+#### <a name="[**arima-(auto-regression-integrated-moving-average)**](https://www.otexts.org/fpp/8)"></a>[**ARIMA (Auto Regression Integrated Moving Average)**](https://www.otexts.org/fpp/8)
+Auto Regression Integrated Moving Average (ARIMA) is another family of methods which is commonly used for time series forecasting. It practically combines auto-regression methods with moving average. Auto-regression methods use regression models by taking previous time series values in order to compute the next date point. ARIMA methods also apply differencing methods that include calculating the difference between data points and using those instead of the original measured value. Finally, ARIMA also makes use of the moving average techniques that are discussed above. The combination of all of these methods in various ways is what constructs the family of ARIMA methods.
 
-Atualmente, os métodos ETS e ARIMA são amplamente usados na previsão da demanda de energia e em muitos outros problemas de previsão. Em muitos casos, eles são combinados para oferecer resultados muito precisos.
+ETS and ARIMA are widely used today for energy demand forecasting and many other forecasting problems. In many cases these are combined together to deliver very accurate results.
 
-**Regressão Múltipla Geral** os modelos de regressão podem ser a abordagem de modelagem mais importante no domínio de aprendizado de máquina e de estatísticas. No contexto de série temporal, usamos a regressão para prever os valores futuros (*por exemplo*, de demanda). Na regressão, pegamos uma combinação linear das previsões e aprendemos os pesos (também conhecidos como coeficientes) desses indicadores durante o processo de treinamento. A meta é produzir uma linha de regressão que preveja nosso valor previsto. Os métodos de regressão serão adequados quando a variável de destino for numérica e, portanto, também se adapte à previsão de série temporal. Há uma grande variedade de métodos de regressão, incluindo modelos de regressão muito simples, como a [Regressão Linear](https://en.wikipedia.org/wiki/Linear_regression), e mais avançados, como as árvores de decisão, as [Florestas Aleatórias](https://en.wikipedia.org/wiki/Random_forest), as [Redes Neurais](https://en.wikipedia.org/wiki/Artificial_neural_network) e as Árvores de Decisão Aumentadas.
+**General Multiple Regression** Regression models could be the most important modeling approach within the domain of machine learning and statistics. In the context of time series we use regression to predict the future values (*e.g.*, of demand). In regression we take a linear combination of the predictors and learn the weights (also referred to as coefficients) of those predictors during the training process. The goal is to produce a regression line that will forecast our predicted value. Regression methods are suitable when the target variable is numeric and therefore also fits time series forecasting. There is a wide range of regression methods including very simple regression models such as [Linear Regression](https://en.wikipedia.org/wiki/Linear_regression) and more advanced ones such as decision trees, [Random Forests](https://en.wikipedia.org/wiki/Random_forest), [Neural Networks](https://en.wikipedia.org/wiki/Artificial_neural_network), and Boosted Decision Trees.
 
-A construção da previsão de demanda de energia como um problema de regressão nos dá muita flexibilidade para a seleção de nossos recursos de dados, que podem ser combinados a partir dos dados reais de série temporal e dos fatores externos, como a temperatura. Para saber mais sobre os recursos selecionados, confira a seção Engenharia de Recursos (confira **Preparação de Dados e Engenharia de Recursos**) deste manual.
+Constructing energy demand forecasting as a regression problem gives us a lot of flexibility in selecting our data features which can be combined from the actual demand time series data and external factors such as temperature. More information about the selected features are discussed in the Feature Engineering (see **Data Preparation and Feature Engineering**) section of this playbook.
 
-Em nossa experiência com a implementação e a implantação do piloto de previsões de demanda de energia, descobrimos que os modelos de regressão avançados disponíveis no AM do Azure tendem a produzir os melhores resultados e por isso nós os utilizamos.
+From our experience with implementation and deployment of energy demand forecasts pilot, we have found that the advanced regression models that are available in Azure ML tend to produce the best results and we make use of them.
 
-## Avaliação do Modelo
-A avaliação do modelo tem um papel fundamental no **Ciclo de Desenvolvimento do Modelo**. Nesta etapa, examinamos a validação do modelo e seu desempenho com dados reais. Durante a etapa de modelagem, usamos uma parte dos dados disponíveis para treinar o modelo. Durante a fase de avaliação, pegamos o restante dos dados para testar o modelo. Praticamente, isso significa que estamos alimentando o modelo com dados novos que foram restruturados e que contêm os mesmos recursos do conjunto de dados de treinamento. No entanto, durante o processo de validação, usamos o modelo para prever a variável de destino em vez de fornecer a variável de destino disponível. Normalmente, nos referimos a esse processo como pontuação de modelo. Usaríamos, então, os valores de destino verdadeiros e os compararíamos aos previstos. A meta aqui é medir e minimizar o erro de previsão, que significa a diferença entre as previsões e o valor verdadeiro. A quantificação da medição do erro é fundamental já que gostaríamos de ajustar o modelo e validar se o erro está realmente diminuindo. O ajuste do modelo pode ser feito por meio da modificação dos parâmetros do modelo que controlam o processo de aprendizagem ou por meio da adição ou da remoção dos recursos de dados (conhecido como [varredura de parâmetros](https://channel9.msdn.com/Blogs/Windows-Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). Praticamente, isso significa que talvez seja necessário iterar entre as fases de engenharia de recursos, de modelagem e de avaliação do modelo várias vezes até podermos reduzir o erro até o nível exigido.
+## <a name="model-evaluation"></a>Model Evaluation
+Model evaluation has a critical role within the **Model Development Cycle**. At this step we look into validating the model and its performance with real life data. During the modeling step we use a part of the available data for training the model. During the evaluation phase we take the remainder of the data to test the model. Practically it means that we are feeding the model new data that has been restructured and contains the same features as the training dataset. However, during the validation process, we use the model to predict the target variable rather than provide the available target variable. We often refer to this process as model scoring. We would then use the true target values and compare them with the predicted ones. The goal here is to measure and minimize the prediction error, meaning the difference between the predictions and the true value. Quantifying the error measurement is key since we would like to fine-tune the model and validate whether the error is actually decreasing. Fine-tuning the model can be done by modifying model parameters that control the learning process, or by adding or removing data features (referred to as [parameters sweep](https://channel9.msdn.com/Blogs/Windows-Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). Practically that means that we may need to iterate between the feature engineering, modeling, and model evaluation phases multiple times until we are able to reduce the error to the required level.
 
-É importante enfatizar que o erro de previsão nunca será zero, já que nunca haverá um modelo que possa prever com perfeição todos os resultados. No entanto, há uma determinada magnitude de erro que é aceitável para os negócios. Durante o processo de validação, queremos garantir que nosso erro do modelo de previsão seja igual ou que seja melhor do que o nível da tolerância do negócio. Portanto, é importante definir o nível de erro tolerável no início do ciclo durante a fase **Formulação do Problema**.
+It is important to emphasis that the prediction error will never be zero as there is never a model that can perfectly predict every outcome. However, there is a certain magnitude of error that is acceptable by the business. During the validation process, we would like to ensure that our model prediction error is at the level or better than the business tolerance level. It is therefore important to set the level of the tolerable error at the beginning of the cycle during the **Problem Formulation** phase.
 
-### Técnicas de Avaliação Típicas
-Há várias maneiras nas quais o erro de previsão pode ser medido e quantificado. Nesta seção, nos concentraremos na discussão sobre as técnicas de avaliação relevantes à série temporal e, especificamente, para a previsão da demanda de energia.
+### <a name="typical-evaluation-techniques"></a>Typical Evaluation Techniques
+There are various ways in which prediction error can be measured and quantified. In this section we will focus the discussion on evaluation techniques relevant to time series and in specific for energy demand forecast.
 
-#### [**MAPE**](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error)
-MAPE significa Erro Médio de Porcentagem Absoluta. Com o MAPE, estamos calculando a diferença entre cada ponto previsto e o valor real desse ponto. Em seguida, quantificamos o erro por ponto ao calcularmos a proporção da diferença em relação ao valor real. Na última etapa, fazemos a média desses valores. A fórmula matemática usada para o MAPE é a seguinte:
+#### <a name="[**mape**](https://en.wikipedia.org/wiki/mean_absolute_percentage_error)"></a>[**MAPE**](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error)
+MAPE stands for Mean Absolute Percentage Error. With MAPE we are computing the difference between each forecasted point and the actual value of that point. We then quantify the error per point by calculating the proportion of the difference relative to the actual value. At the last step we average these values. The mathematical formula used for MAPE is the following:
 
-![Fórmula MAPE](media/cortana-analytics-playbook-demand-forecasting-energy/mape-formula.png) *Onde A<sub>t</sub> é o valor real, F<sub>t</sub> é o valor previsto e n é o horizonte de previsão.*
+![MAPE Formula](media/cortana-analytics-playbook-demand-forecasting-energy/mape-formula.png)
+*Where A<sub>t</sub> is the actual value, F<sub>t</sub> is the predicted value, and n is the forecast horizon.*
 
-## Implantação
-Depois de concluirmos a fase de modelagem e de validarmos o desempenho do modelo, estaremos prontos para a fase de implantação. Nesse contexto, implantar significa permitir que o cliente consuma o modelo ao executar previsões reais nele em larga escala. O conceito de implantação é fundamental no AM do Azure, já que nossa meta principal é invocar constantemente as previsões, em vez de apenas obter as informações dos dados. A fase de implantação é a parte onde permitimos que o modelo seja consumido em larga escala.
+## <a name="deployment"></a>Deployment
+Once we have nailed down the modeling phase and validated the model performance we are ready to go into the deployment phase. In this context, deployment means enabling the customer to consume the model by running actual predictions on it at large scale. The concept of deployment is key in Azure ML since our main goal is to constantly invoke predictions as opposed to just obtaining the insight from the data. The deployment phase is the part where we enable the model to be consumed at large scale.
 
-No contexto da previsão da demanda de energia, nosso objetivo é invocar previsões periódicas e contínuas, garantindo que os dados atualizados estejam disponíveis para o modelo e que os dados previstos sejam enviados para o cliente consumidor.
+Within the context of energy demand forecast, our aim is to invoke continuous and periodic forecasts while ensuring that fresh data is available for the model and that the forecasted data is sent back to the consuming client.
 
-### Implantação de Serviços Web
-O principal bloco de construção implantável no AM do Azure é o serviço Web. Essa é a maneira mais eficiente de habilitar o consumo de um modelo preditivo na nuvem. O serviço Web encapsula o modelo e o encerra com uma API (Application Programming Interface, Interface de Programação de Aplicativo) [RESTful](http://www.restapitutorial.com/). A API pode ser usada como parte de qualquer código de cliente, como ilustrado no diagrama a seguir.
+### <a name="web-services-deployment"></a>Web Services Deployment
+The main deployable building block in Azure ML is the web service. This is the most effective way to enable consumption of a predictive model in the cloud. The Web service encapsulates the model and wraps it up with a [RESTful](http://www.restapitutorial.com/) API (Application Programming Interface). The API can be used as part of any client code as illustrated in the diagram below.
 
-![Implantação e Consumo do Serviço Web](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
+![We Service Deployment and Consumption](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 
-Como se pode ver, o serviço Web é implantado na nuvem do Cortana Intelligence Suite e pode ser invocado em seu ponto de extremidade de API REST exposto. Tipos diferentes de clientes em vários domínios podem invocar o serviço por meio da API Web de forma simultânea. O serviço Web também pode ser dimensionado para dar suporte a milhares de chamadas simultâneas.
+As can be seen, the web service is deployed in the Cortana Intelligence Suite cloud and can be invoked over its exposed REST API endpoint. Different type of clients across various domains can invoke the service through the Web API simultaneously. The web service can also scale to support thousands of concurrent calls.
 
-### Uma Arquitetura de Solução Típica
-Ao implantarmos uma solução de previsão de demanda de energia, estamos interessados na implantação de uma solução completa que vá além do serviço Web de previsão e que facilite todo o fluxo de dados. No momento que invocamos uma nova previsão, precisamos garantir que o modelo seja alimentado com os recursos de dados atualizados. Isso implica em que os dados brutos recém-coletados sejam constantemente ingeridos, processados e transformados no conjunto de recursos necessário no qual o modelo foi criado. Ao mesmo tempo, gostaríamos de disponibilizar os dados previstos para os clientes consumidores finais. Um exemplo de ciclo de fluxo de dados (ou de pipeline de dados) é ilustrado no diagrama a seguir:
+### <a name="a-typical-solution-architecture"></a>A Typical Solution Architecture
+When deploying an energy demand forecasting solution, we are interested in deploying an end to end solution that goes beyond the prediction web service and facilitates the entire data flow. At the time we invoke a new forecast, we would need to make sure that the model is fed with the up-to-date data features. That implies that the newly collected raw data is constantly ingested, processed, and transformed into the required feature set on which the model was built. At the same time, we would like to make the forecasted data available for the end consuming clients. An example data flow cycle (or data pipeline) is illustrated in the diagram below:
 
-![Fluxo de Dados Completo de Previsão da Demanda de Energia](media/cortana-analytics-playbook-demand-forecasting-energy/energy-demand-forecase-end-data-flow.png)
+![Energy Demand Forecast End to End Data Flow](media/cortana-analytics-playbook-demand-forecasting-energy/energy-demand-forecase-end-data-flow.png)
 
-Estas são as etapas que ocorrem como parte do ciclo de previsão da demanda de energia:
-1.  Milhões de medidores de dados implantados estão constantemente gerando dados de consumo de energia em tempo real.
-2.  Esses dados estão sendo coletados e carregados em um repositório da nuvem (*por exemplo*, o Blob do Azure).
-3.  Antes de serem processados, os dados brutos são agregados no nível da subestação ou no nível regional, conforme definido pela empresa.
-4.  O processamento de recursos (confira **Preparação de Dados e Processamento de Recursos**) ocorre e produz os dados necessários para o treinamento ou para a pontuação do modelo. Os dados do conjunto de recursos são armazenados em um banco de dados (*por exemplo*, o SQL Azure).
-5.  O serviço de readaptação é invocado para readaptar o modelo de previsão. A versão atualizada do modelo é mantida para que ele possa ser usado pelo serviço Web de pontuação.
-6.  O serviço Web de pontuação é invocado em uma agenda que se ajuste à frequência de previsão necessária.
-7.  Os dados previstos são armazenados em um banco de dados que pode ser acessado pelo cliente consumidor final.
-8.  O cliente consumidor recupera as previsões, as aplica novamente na rede e as consome de acordo com o caso de uso exigido.
+These are the steps that take place as part of the energy demand forecast cycle:
+1.  Millions of deployed data meters are constantly generating power consumption data in real time.
+2.  This data is being collected and uploaded into a cloud repository (*e.g.*, Azure Blob).
+3.  Before being processed, the raw data is aggregated to a substation or regional level as defined by the business.
+4.  The feature processing (see **Data Preparation and Feature Processing**) then takes place and produces the data that is required for model training or scoring – the feature set data is stored in a database (*e.g.*, SQL Azure).
+5.  The re-training service is invoked to re-train the forecasting model – that updated version of the model is persisted so that it can be used by the scoring web service.
+6.  The scoring web service is invoked on a schedule that fits the required forecast frequency.
+7.  The forecasted data is stored in a database that can be accessed by the end consumption client.
+8.  The consumption client retrieves the forecasts, applies it back into the grid, and consumes it in accordance with the required use case.
 
-É importante observar que todo esse ciclo é totalmente automatizado e executado em uma agenda. Toda a orquestração desse ciclo de dados pode ser concluída usando ferramentas como o [Data Factory do Azure](http://azure.microsoft.com/services/data-factory/).
+It is important to note that this entire cycle is fully automated and runs on a schedule. The entire orchestration of this data cycle can be done by using tools such as [Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
 
-### Arquitetura de Implantação Completa
-Para implantar de maneira prática uma solução de previsão de demanda de energia no Cortana Intelligence, precisamos garantir que os componentes necessários sejam estabelecidos e configurados corretamente.
+### <a name="end-to-end-deployment-architecture"></a>End to End Deployment Architecture
+In order to practically deploy an energy demand forecast solution on Cortana Intelligence, we need to ensure that the required components are established and configured correctly.
 
-O diagrama a seguir ilustra uma arquitetura típica do Cortana Intelligence que implementa e gerencia o ciclo de fluxo de dados descrito acima:
+The following diagram illustrates a typical Cortana Intelligence based architecture that implements and orchestrates the data flow cycle that is described above:
 
-![Arquitetura de Implantação Completa](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
+![End to End Deployment Architecture](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
-Para saber mais sobre cada um dos componentes e sobre a arquitetura inteira, veja o Modelo de Solução de Energia.
+For more information about each of the components and the entire architecture please refer to the Energy Solution Template.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

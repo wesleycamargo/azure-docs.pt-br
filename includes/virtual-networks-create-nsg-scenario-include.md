@@ -1,19 +1,22 @@
-## Cenário
+## <a name="scenario"></a>Scenario
 
-Para ilustrar melhor como se cria NSGs, este documento usará o cenário a seguir.
+To better illustrate how to create NSGs, this document will use the scenario below.
 
-![Cenário de Rede Virtual](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
+![VNet scenario](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
 
-Nesse cenário, você criará um NSG para cada sub-rede na rede virtual **TestVNet**, conforme descrito abaixo:
+In this scenario you will create an NSG for each subnet in the **TestVNet** virtual network, as described below: 
 
-- **NSG-FrontEnd**. O front-end de NSG será aplicado à sub-rede *FrontEnd* contém duas regras:	
-	- **rdp-rule**. Essa regra permitirá tráfego RDP para a sub-rede *FrontEnd*.
-	- **web-rule**. Essa regra permitirá tráfego HTTP para a sub-rede *FrontEnd*.
-- **NSG-BackEnd**. O frontend de NSG será aplicado à sub-rede *BackEnd* e contém duas regras:	
-	- **sql-rule**. Essa regra permite o tráfego SQL somente da sub-rede *FrontEnd*.
-	- **web-rule**. Esta regra nega todo o tráfego limitado da Internet da sub-rede *BackEnd*.
+- **NSG-FrontEnd**. The front end NSG will be applied to the *FrontEnd* subnet, and contain two rules:  
+    - **rdp-rule**. This rule will allow RDP traffic to the *FrontEnd* subnet.
+    - **web-rule**. This rule will allow HTTP traffic to the *FrontEnd* subnet.
+- **NSG-BackEnd**. The back end NSG will be applied to the *BackEnd* subnet, and contain two rules: 
+    - **sql-rule**. This rule allows SQL traffic only from the *FrontEnd* subnet.
+    - **web-rule**. This rule denies all internet bound traffic from the *BackEnd* subnet.
 
-A combinação dessas regras cria um cenário de DMZ, em que a sub-rede de back-end só pode receber tráfego de entrada para SQL da sub-rede front-end e não tem acesso à Internet, enquanto a sub-rede de front-end pode se comunicar com a Internet e receber somente solicitações HTTP de entrada.
+The combination of these rules create a DMZ-like scenario, where the back end subnet can only receive incoming traffic for SQL from the front end subnet, and has no access to the Internet, while the front end subnet can communicate with the Internet, and receive incoming HTTP requests only.
  
 
-<!---HONumber=AcomDC_0525_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

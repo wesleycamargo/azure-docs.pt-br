@@ -1,44 +1,49 @@
 <properties
-	pageTitle="Azure Active Directory B2C: redefinição de senha por autoatendimento | Microsoft Azure"
-	description="Um tópico que demonstra como configurar a redefinição de senha por autoatendimento para seus consumidores no Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory B2C: Self-service password reset | Microsoft Azure"
+    description="A topic demonstrating how to set up self-service password reset for your consumers in Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="mbaldwin"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/24/2016"
+    ms.author="swkrish"/>
 
 
-# Azure Active Directory B2C: configurar a redefinição de senha por autoatendimento para seus consumidores
 
-Com o recurso de redefinição de senha por autoatendimento, seus consumidores (que tenham se registrado com contas locais) poderão redefinir as respectivas senhas por conta própria. Isso reduz significativamente a sobrecarga da equipe de suporte, principalmente se milhões de consumidores usarem seu aplicativo regularmente. Atualmente, só há suporte para usar um endereço de email verificado como um método de recuperação. Vamos incluir mais métodos de recuperação (número de telefone verificado, perguntas de segurança, etc.) futuramente.
+# <a name="azure-active-directory-b2c:-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C: Set up self-service password reset for your consumers
 
-> [AZURE.NOTE]
-Este artigo se aplica ao autoatendimento de redefinição de senha usado no contexto de uma política de entrada. Se precisar de políticas de redefinição de senha totalmente personalizáveis invocadas por meio de seu aplicativo, veja [este artigo](./active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
-
-Por padrão, o diretório não terá a redefinição de senha por autoatendimento ativada. Use as etapas a seguir para ativá-la:
-
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com/) como o Administrador da Assinatura. Essa é a mesma conta corporativa, de estudante ou da Microsoft que você usou para criar o diretório.
-2. Navegue até a extensão do Active Directory na barra de navegação do lado esquerdo.
-3. Localize o diretório na guia **Diretório** e clique nele.
-4. Clique na guia **Configurar**.
-5. Role para baixo até a seção **Política de redefinição de senha do usuário** e alterne a opção **Usuários habilitados para redefinição de senha** para **SIM**. Observe que a opção **Endereço de Email Alternativo** está marcada; deixe-a como está.
-
-    ![Redefinição de senha de autoatendimento](./media/active-directory-b2c-reference-sspr/sspr.png)
-
-6. Na parte inferior da página, clique em **Salvar**. Pronto!
-
-Para testar, use o recurso "Executar agora" em qualquer política de entrada que tenha contas locais como um provedor de identidade. Na página de entrada da conta local (na qual você insere um endereço de email e a senha ou um nome de usuário e a senha), clique em **Não consegue acessar sua conta?** para verificar a experiência do consumidor.
+With the self-service password reset feature, your consumers (who have signed up for local accounts) can reset their passwords on their own. This significantly reduces the burden on your support staff, especially if your application has millions of consumers using it on a regular basis. Currently, we only support using a verified email address as a recovery method. We will add additional recovery methods (verified phone number, security questions, etc.) in the future.
 
 > [AZURE.NOTE]
-As páginas do autoatendimento de redefinição de senha podem ser personalizadas usando o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md).
+This article applies to self-service password reset used in the context of a sign-in policy. If you need fully customizable password reset policies invoked from your app, see [this article](./active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
 
-<!---HONumber=AcomDC_0727_2016-->
+By default, your directory will not have self-service password reset turned on. Use the following steps to turn it on:
+
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. This is the same work or school account or the same Microsoft account that you used to create your directory.
+2. Navigate to the Active Directory extension on the navigation bar on the left side.
+3. Find your directory under the **Directory** tab and click it.
+4. Click the **Configure** tab.
+5. Scroll down to the **User password reset policy** section and toggle the **Users enabled for password reset** option to **YES**. Notice that the **Alternate Email Address** option is checked; leave it as it is.
+
+    ![Self-service password reset](./media/active-directory-b2c-reference-sspr/sspr.png)
+
+6. Click **Save** at the bottom of the page. You're done!
+
+To test, use the "Run now" feature on any sign-in policy that has local accounts as an identity provider. On the local account sign-in page (where you enter an email address and password, or a username and password), click **Can't access your account?** to verify the consumer experience.
+
+> [AZURE.NOTE]
+The self-service password reset pages can be customized by using the [company branding feature](../active-directory/active-directory-add-company-branding.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,346 +1,355 @@
 <properties
-	pageTitle="Tutorial: Integração do Active Directory do Azure ao Litmos | Microsoft Azure"
-	description="Saiba como configurar o logon único entre o Active Directory do Azure e o Litmos."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Litmos | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Litmos."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/08/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/29/2016"
+    ms.author="jeedes"/>
 
 
-# Tutorial: Integração do Active Directory do Azure ao Litmos
 
-O objetivo deste tutorial é mostrar como integrar o Litmos ao Azure AD (Azure Active Directory). A integração do Litmos ao Azure AD proporciona os seguintes benefícios:
+# <a name="tutorial:-azure-active-directory-integration-with-litmos"></a>Tutorial: Azure Active Directory integration with Litmos
 
-- No AD do Azure, você pode controlar quem tem acesso ao Litmos
-- Você pode permitir que usuários façam logon automaticamente no Litmos (logon único) com as respectivas contas do AD do Azure
-- Você pode gerenciar suas contas em um único local: o Active Directory do Azure
+The objective of this tutorial is to show you how to integrate Litmos with Azure Active Directory (Azure AD).  
+Integrating Litmos with Azure AD provides you with the following benefits: 
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
+- You can control in Azure AD who has access to Litmos 
+- You can enable your users to automatically get signed-on to Litmos (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure Active Directory 
 
-## Pré-requisitos 
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Para configurar a integração do AD do Azure ao Litmos, você precisa dos seguintes itens:
+## <a name="prerequisites"></a>Prerequisites 
 
-- Uma assinatura do AD do Azure
-- Uma assinatura habilitada para logon único do Litmos
+To configure Azure AD integration with Litmos, you need the following items:
+
+- An Azure AD subscription
+- A Litmos single-sign on enabled subscription
 
 
-> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+To test the steps in this tutorial, you should follow these recommendations:
 
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/). 
 
  
-## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em três blocos de construção principais:
+## <a name="scenario-description"></a>Scenario Description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
+The scenario outlined in this tutorial consists of three main building blocks:
 
-1. Adicionando o Litmos da galeria
-2. Configurar e testar o logon único do AD do Azure
-
-
-## Adicionando o Litmos da galeria
-Para configurar a integração do Litmos ao AD do Azure, você precisará adicionar o Litmos da galeria à sua lista de aplicativos SaaS gerenciados.
-
-**Para adicionar o Litmos da galeria, execute as seguintes etapas:**
-
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
-
-	![Active Directory][1]
-
-2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
-
-	![Aplicativos][2]
-
-4. Clique em **Adicionar** na parte inferior da página.
-
-	![Aplicativos][3]
-
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
-
-	![Aplicativos][4]
-
-6. Na caixa de pesquisa, digite **Litmos**.
-
-	![Aplicativos][5]
-
-7. No painel de resultados, escolha **Litmos** e clique em **Concluir** para adicionar o aplicativo.
-
-	![Aplicativos][500]
+1. Adding Litmos from the gallery 
+2. Configuring and testing Azure AD single sign-on
 
 
-##  Configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o Litmos, com base em um usuário de teste chamado "Brenda Fernandes".
+## <a name="adding-litmos-from-the-gallery"></a>Adding Litmos from the gallery
+To configure the integration of Litmos into Azure AD, you need to add Litmos from the gallery to your list of managed SaaS apps.
 
-Para que o logon único funcione, o AD do Azure precisa saber qual usuário do Litmos é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Litmos. Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no AD do Azure como o valor de **nome de usuário** no Litmos.
+**To add Litmos from the gallery, perform the following steps:**
+
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+
+    ![Active Directory][1]
+
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Applications][2]
+
+4. Click **Add** at the bottom of the page.
+
+    ![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Applications][4]
+
+6. In the search box, type **Litmos**.
+
+    ![Applications][5]
+
+7. In the results pane, select **Litmos**, and then click **Complete** to add the application.
+
+    ![Applications][500]
+
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with Litmos based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in Litmos to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Litmos needs to be established.  
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Litmos.
  
-Para configurar e testar o logon único do AD do Azure com o Litmos, você precisa concluir os seguintes blocos de construção:
+To configure and test Azure AD single sign-on with Litmos, you need to complete the following building blocks:
 
-1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
-4. **[Criar um usuário de teste do Litmos](#creating-a-halogen-software-test-user)**: para ter um equivalente de Brenda Fernandes no Litmos que esteja vinculado à representação dela no AD do Azure.
-5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Creating a Litmos test user](#creating-a-halogen-software-test-user)** - to have a counterpart of Britta Simon in Litmos that is linked to the Azure AD representation of her.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuração do logon único do AD do Azure
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
 
-O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure AD e configurar o logon único em seu aplicativo Litmos. Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+The objective of this section is to enable Azure AD single sign-on in the Azure AD classic portal and to configure single sign-on in your Litmos application.  
+As part of this procedure, you are required to create a base-64 encoded certificate file.  
+If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-Como parte da configuração, você precisa personalizar os **Atributos de Token SAML** para seu aplicativo Litmos.
+As part of the configuration, you need to customize the **SAML Token Attributes** for your Litmos application.  
 
-![Logon único do AD do Azure][17]
+![Azure AD Single Sign-On][17] 
 
-**Para configurar o logon único do AD do Azure com o Litmos, execute as seguintes etapas:**
+**To configure Azure AD single sign-on with Litmos, perform the following steps:**
 
-1. No portal clássico do Azure AD, na página de integração de aplicativos do **Litmos**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1. In the Azure AD classic portal, on the **Litmos** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 
-	![Configurar o logon único][6]
+    ![Configure Single Sign-On][6] 
 
-2. Na página **Como você deseja que os usuários façam logon no Litmos**, escolha **Logon Único do Azure AD** e clique em **Avançar**.
+2. On the **How would you like users to sign on to Litmos** page, select **Azure AD Single Sign-On**, and then click **Next**.
  
-	![Logon único do AD do Azure][7]
+    ![Azure AD Single Sign-On][7] 
 
 
-1. Faça logon no site da sua empresa no Litmos (por exemplo: *https://azureapptest.litmos.com/account/Login*) como administrador.
+1. Sign-on to your Litmos company site (e.g.: *https://azureapptest.litmos.com/account/Login*) as an administrator.
 
-	![Logon único do AD do Azure][21]
-
-
-1. Na barra de navegação à esquerda, clique em **Contas**.
-
-	![Logon único do AD do Azure][22]
+    ![Azure AD Single Sign-On][21] 
 
 
-1. Clique na guia **Integrações**.
+1. In the navigation bar on the left side, click **Accounts**.
 
-	![Logon único do AD do Azure][23]
-
-
-1. Na guia **Integrações**, role para baixo até **Integrações de Terceiros** e clique na guia **SAML 2.0**.
-
-	![Logon único do AD do Azure][24]
-
-1. Copie o valor em **O ponto de extremidade SAML para litmos é:**.
-
-	![Logon único do AD do Azure][26]
+    ![Azure AD Single Sign-On][22] 
 
 
-3. No portal clássico do Azure, na página de diálogo **Definir Configurações do Aplicativo**, execute as seguintes etapas:
+1. Click the **Integrations** tab.
 
-	![Logon único do AD do Azure][8]
+    ![Azure AD Single Sign-On][23] 
+
+
+1. On the **Integrations** tab, scroll down to **3rd Party Integrations**, and then click **SAML 2.0** tab.
+
+    ![Azure AD Single Sign-On][24] 
+
+1. Copy the value under **The SAML endoiint for litmos is:**.
+
+    ![Azure AD Single Sign-On][26] 
+
+
+3. In the Azure classic portal, on the **Configure App Settings** dialog page, perform the following steps:
+
+    ![Azure AD Single Sign-On][8] 
  
-    a. Na caixa de texto **Identificador**, digite a URL usada pelos usuários para fazer logon no aplicativo Litmos (por ex.: *https://azureapptest.litmos.com/account/Login*).
+    a. In the **Identifier** textbox, type the URL used by your users to sign-on to your Litmos application (e.g.: *https://azureapptest.litmos.com/account/Login*).
      
-    b. Na caixa de texto **URL de resposta**, cole o valor que você copiou do aplicativo Litmos na etapa anterior.
+    b. In the **Reply URL** textbox, paste the value you have copied from the Litmos application in the previous step.
 
-    c. Clique em **Próximo**.
+    c. Click **Next**.
  
-4. Na página **Configurar logon único no Litmos**, execute as seguintes etapas:
+4. On the **Configure single sign-on at Litmos** page, perform the following steps:
 
-	![Logon único do AD do Azure][2]
+    ![Azure AD Single Sign-On][2] 
 
-    a. Clique em Baixar certificado e salve o certificado localmente no computador.
-
-
-1. No seu aplicativo **Litmos**, execute as seguintes etapas:
-
-	![Logon único do AD do Azure][25]
-
-    a. Clique em **Habilitar SAML**.
-
-    b. Crie um arquivo **codificado em base 64** usando o certificado baixado.
-
-    >[AZURE.TIP] Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
-
-    c. Abra seu certificado codificado em base 64 no bloco de notas, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Certificado SAML X.509**.
-
-    d. Clique em **Salvar Alterações**.
+    a. Click Download certificate, and then save the file on your computer.
 
 
-6. No portal clássico do Azure AD, selecione a confirmação de configuração do logon único e clique em **Avançar**.
+1. In your **Litmos** application, perform the following steps:
 
-	![Logon único do AD do Azure][10]
+    ![Azure AD Single Sign-On][25] 
 
-7. Na página **Confirmação de logon único**, clique em **Concluir**.
+    a. Click **Enable SAML**.
+
+    b. Create a **base-64 encoded** file from your downloaded certificate.  
+
+    >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+
+    c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **SAML X.509 Certificate** textbox.
+
+    d. Click **Save Changes**.
+
+
+6. On the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Next**. 
+
+    ![Azure AD Single Sign-On][10]
+
+7. On the **Single sign-on confirmation** page, click **Complete**.  
   
-	![Logon único do AD do Azure][11]
+    ![Azure AD Single Sign-On][11]
 
 
-20. Na parte superior do menu, clique em **Atributos** para abrir o diálogo **Atributos de Token SAML**.
+20. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog. 
 
-	![Configurar o logon único][12]
+    ![Configure Single Sign-On][12]
 
 
-24. No diálogo **Adicionar Atributo de Usuário**, execute as seguintes etapas:
+24. On the **Add User Attribute** dialog, perform the following steps: 
 
-	![Configurar o logon único][14]
+    ![Configure Single Sign-On][14]
 
-    | Nome do atributo | Valor do atributo |
-    | ---            | ---             |
-    | Email | user.mail |
-    | Nome | user.givenname |
-    | Sobrenome | user.surname |
+  	| Attribute Name | Attribute Value |
+  	| ---            | ---             |
+  	| Email          | user.mail       |
+  	| FirstName      | user.givenname  |
+  	| Lastname       | user.surname    |
 
-    Para cada linha de dados na tabela acima, execute as seguintes etapas:
+    For each data row in the table above, perform the following steps:
    
-    a. Clique em **adicionar atributo de usuário**.
+    a. Click **add user attribute**. 
 
-	![Configurar o logon único][15]
-
-
-    a. Na caixa de texto **Nome do Atributo**, digite o **Nome do Atributo** mostrado para a linha.
-
-    b. Selecione o **Valor do Atributo** mostrado para a linha.
-
-    c. Clique em **Concluir** para fechar a caixa de diálogo **Adicionar atributo de usuário**.
+    ![Configure Single Sign-On][15]
 
 
-25. Clique em **Aplicar alterações**.
+    a. In the **Attribute Name** textbox, type the **Attribute Name** shown for that row.
 
-	![Configurar o logon único][16]
+    b. Select the **Attribute Value** shown for that row.
+
+    c. Click **Complete** to close the **Add User Attribute** dialog.
+
+
+25. Click **Apply Changes**. 
+
+    ![Configure Single Sign-On][16]
 
 
 
 
-### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.  
 
-![Criar um usuário do AD do Azure][20]
+![Create Azure AD User][20]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. No **portal clássico do Azure**, no painel de navegação esquerdo, clique em **Active Directory**.
+1. In the **Azure clasic portal**, on the left navigation pane, click **Active Directory**.
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-litmos-tutorial/create_aaduser_09.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-litmos-tutorial/create_aaduser_09.png)  
 
-2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
+3. To display the list of users, in the menu on the top, click **Users**.
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-litmos-tutorial/create_aaduser_03.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-litmos-tutorial/create_aaduser_03.png) 
  
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. 
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-litmos-tutorial/create_aaduser_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-litmos-tutorial/create_aaduser_04.png) 
 
-5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+5. On the **Tell us about this user** dialog page, perform the following steps: 
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-litmos-tutorial/create_aaduser_05.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-litmos-tutorial/create_aaduser_05.png)  
 
-    a. Em **Tipo de Usuário**, selecione **Novo usuário na organização**.
+    a. As **Type Of User**, select **New user in your organization**.
 
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-    c. Clique em **Próximo**.
+    c. Click **Next**.
 
-6.  Na página de caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+6.  On the **User Profile** dialog page, perform the following steps: 
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-litmos-tutorial/create_aaduser_06.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-litmos-tutorial/create_aaduser_06.png) 
  
-    a. Na caixa de texto **Nome**, digite **Brenda**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    d. Na lista **Função**, selecione **Usuário**. e. Clique em **Avançar**.
+    d. In the **Role** list, select **User**.
+    e. Click **Next**.
 
-7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-litmos-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-litmos-tutorial/create_aaduser_07.png) 
  
-8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-litmos-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-litmos-tutorial/create_aaduser_08.png) 
   
-    a. Anote o valor da **Nova Senha**.
+    a. Write down the value of the **New Password**.
 
-    b. Clique em **Concluído**.
+    b. Click **Complete**.   
 
   
  
-### Criando um usuário de teste do Litmos
+### <a name="creating-a-litmos-test-user"></a>Creating a Litmos test user
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Litmos. O aplicativo Litmos oferece suporte ao provisionamento Just-in-Time. Isso significa que, se for necessário, uma conta de usuário será criada automaticamente durante uma tentativa de acessar o aplicativo usando o Painel de Acesso.
+The objective of this section is to create a user called Britta Simon in Litmos.  
+The Litmos application supports Just-in-Time provisioning. This means, a user account is automatically created if necessary during an attempt to access the application using the Access Panel.
 
-**Para criar um usuário chamado Brenda Fernandes no Litmos, execute as seguintes etapas:**
-
-
-1. Faça logon no site da sua empresa no Litmos (por exemplo: *https://azureapptest.litmos.com/account/Login*) como administrador.
-
-	![Logon único do AD do Azure][21]
+**To create a user called Britta Simon in Litmos, perform the following steps:**
 
 
-1. Na barra de navegação à esquerda, clique em **Contas**.
+1. Sign-on to your Litmos company site (e.g.: *https://azureapptest.litmos.com/account/Login*) as an administrator.
 
-	![Logon único do AD do Azure][22]
-
-
-1. Clique na guia **Integrações**.
-
-	![Logon único do AD do Azure][23]
+    ![Azure AD Single Sign-On][21] 
 
 
-1. Na guia **Integrações**, role para baixo até **Integrações de Terceiros** e clique na guia **SAML 2.0**.
+1. In the navigation bar on the left side, click **Accounts**.
 
-	![Logon único do AD do Azure][24]
-
-1. Escolha **Gerar Usuários Automaticamente:**.
-
-	![Logon único do AD do Azure][27]
+    ![Azure AD Single Sign-On][22] 
 
 
-### Atribuição do usuário de teste do AD do Azure
+1. Click the **Integrations** tab.
 
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Litmos.
-
-![Atribuir usuário][200]
-
-**Para atribuir Brenda Fernandes ao Litmos, execute as seguintes etapas:**
-
-1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
-
-	![Atribuir usuário][201]
-
-2. Na lista de aplicativos, escolha **Litmos**.
-
-	![Atribuir usuário][202]
-
-1. No menu na parte superior, clique em **Usuários**.
-
-	![Atribuir usuário][203]
-
-1. Na lista de usuários, selecione **Brenda Fernandes**.
-
-2. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
-
-	![Atribuir usuário][205]
+    ![Azure AD Single Sign-On][23] 
 
 
+1. On the **Integrations** tab, scroll down to **3rd Party Integrations**, and then click **SAML 2.0** tab.
 
-### Teste do logon único
+    ![Azure AD Single Sign-On][24] 
 
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso. Ao clicar no bloco Litmos no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Litmos.
+1. Select **Autogenerate Users:**.
+
+    ![Azure AD Single Sign-On][27] 
 
 
-## Recursos adicionais
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Litmos.
+
+![Assign User][200] 
+
+**To assign Britta Simon to Litmos, perform the following steps:**
+
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Assign User][201] 
+
+2. In the applications list, select **Litmos**.
+
+    ![Assign User][202] 
+
+1. In the menu on the top, click **Users**.
+
+    ![Assign User][203] 
+
+1. In the Users list, select **Britta Simon**.
+
+2. In the toolbar on the bottom, click **Assign**.
+
+    ![Assign User][205]
+
+
+
+### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
+When you click the Litmos tile in the Access Panel, you should get automatically signed-on to your Litmos application.
+
+
+## <a name="additional-resources"></a>Additional Resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 
@@ -386,4 +395,13 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [401]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_401.png
 [402]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_402.png
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

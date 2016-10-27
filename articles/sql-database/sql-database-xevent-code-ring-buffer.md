@@ -1,76 +1,77 @@
 <properties 
-	pageTitle="Código do Buffer de Anel de XEvent para o Banco de Dados SQL | Microsoft Azure" 
-	description="Fornece um exemplo de código Transact-SQL que se torna fácil e rápido por meio do uso do destino do Buffer de Anéis, no Banco de Dados SQL do Azure." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jhubbard" 
-	editor="" 
-	tags=""/>
+    pageTitle="XEvent Ring Buffer code for SQL Database | Microsoft Azure" 
+    description="Provides a Transact-SQL code sample that is made easy and quick by use of the Ring Buffer target, in Azure SQL Database." 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="MightyPen" 
+    manager="jhubbard" 
+    editor="" 
+    tags=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/23/2016" 
-	ms.author="genemi"/>
+    ms.service="sql-database" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/23/2016" 
+    ms.author="genemi"/>
 
 
-# Código de destino do Buffer de Anéis para eventos estendidos no Banco de Dados SQL
+
+# <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Ring Buffer target code for extended events in SQL Database
 
 [AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Você deseja um exemplo de código completo da maneira mais fácil e rápida de capturar e relatar informações para um evento estendido durante um teste. O destino mais fácil para os dados do evento estendido é o [destino do Buffer de Anéis](http://msdn.microsoft.com/library/ff878182.aspx).
+You want a complete code sample for the easiest quick way to capture and report information for an extended event during a test. The easiest target for extended event data is the [Ring Buffer target](http://msdn.microsoft.com/library/ff878182.aspx).
 
 
-Este tópico apresenta um exemplo de código Transact-SQL que:
+This topic presents a Transact-SQL code sample that:
 
 
-1. Cria uma tabela com dados para demonstração.
+1. Creates a table with data to demonstrate with.
 
-2. Cria uma sessão para um evento estendido existente, ou seja, **sqlserver.sql\_statement\_starting**.
-	- O evento é limitado a instruções SQL que contêm uma determinada cadeia de caracteres de Atualização: **statement LIKE '%UPDATE tabEmployee%'**.
-	- Escolhe enviar a saída do evento para um destino do tipo Buffer de Anéis, ou seja, **package0.ring\_buffer**.
+2. Creates a session for an existing extended event, namely **sqlserver.sql_statement_starting**.
+    - The event is limited to SQL statements that contain a particular Update string: **statement LIKE '%UPDATE tabEmployee%'**.
+    - Chooses to send the output of the event to a target of type Ring Buffer, namely  **package0.ring_buffer**.
 
-3. Inicia a sessão de evento.
+3. Starts the event session.
 
-4. Emite algumas instruções SQL UPDATE simples.
+4. Issues a couple of simple SQL UPDATE statements.
 
-5. Emite uma instrução SQL SELECT para recuperar a saída de evento do Buffer de Anéis.
-	- **sys.dm\_xe\_database\_session\_targets** e outras exibições de gerenciamento dinâmico (DMVs) são ingressadas.
+5. Issues an SQL SELECT to retrieve event output from the Ring Buffer.
+    - **sys.dm_xe_database_session_targets** and other dynamic management views (DMVs) are joined.
 
-6. Interrompe a sessão de evento.
+6. Stops the event session.
 
-7. Descarta o destino do Buffer de Anéis, para liberar seus recursos.
+7. Drops the Ring Buffer target, to release its resources.
 
-8. Descarta a sessão de evento e a tabela de demonstração.
-
-
-## Pré-requisitos
+8. Drops the event session and the demo table.
 
 
-- Uma conta e uma assinatura do Azure. Você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+## <a name="prerequisites"></a>Prerequisites
 
 
-- Qualquer banco de dados no qual você possa criar uma tabela.
- - Como alternativa, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](sql-database-get-started.md) em alguns minutos.
+- An Azure account and subscription. You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 
-- O SQL Server Management Studio (ssms.exe), idealmente na sua versão de atualização mensal mais recente. Você pode baixar o ssms.exe mais recente de:
- - Tópico [Baixar o SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
- - [Um link direto para o download.](http://go.microsoft.com/fwlink/?linkid=616025)
+- Any database you can create a table in.
+ - Optionally you can [create an **AdventureWorksLT** demonstration database](sql-database-get-started.md) in minutes.
 
 
-## Exemplo de código
+- SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. You can download the latest ssms.exe from:
+ - Topic titled [Download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
+ - [A direct link to the download.](http://go.microsoft.com/fwlink/?linkid=616025)
 
 
-Com modificações mínimas, o exemplo de código do Buffer de Anéis a seguir pode ser executado no Banco de Dados SQL do Azure ou no Microsoft SQL Server. A diferença é a presença do nó “\_database” no nome de algumas exibições de gerenciamento dinâmico (DMVs) na cláusula FROM na Etapa 5. Por exemplo:
+## <a name="code-sample"></a>Code sample
 
-- sys.dm\_xe**\_database**\_session\_targets
-- sys.dm\_xe\_session\_targets
+
+With very minor modification, the following Ring Buffer code sample can be run on either Azure SQL Database or Microsoft SQL Server. The difference is the presence of the node '_database' in the name of some dynamic management views (DMVs), used in the FROM clause in Step 5. For example:
+
+- sys.dm_xe**_database**_session_targets
+- sys.dm_xe_session_targets
 
 
 &nbsp;
@@ -86,63 +87,63 @@ GO
 
 
 IF EXISTS
-	(SELECT * FROM sys.objects
-		WHERE type = 'U' and name = 'tabEmployee')
+    (SELECT * FROM sys.objects
+        WHERE type = 'U' and name = 'tabEmployee')
 BEGIN
-	DROP TABLE tabEmployee;
+    DROP TABLE tabEmployee;
 END
 GO
 
 
 CREATE TABLE tabEmployee
 (
-	EmployeeGuid         uniqueIdentifier   not null  default newid()  primary key,
-	EmployeeId           int                not null  identity(1,1),
-	EmployeeKudosCount   int                not null  default 0,
-	EmployeeDescr        nvarchar(256)          null
+    EmployeeGuid         uniqueIdentifier   not null  default newid()  primary key,
+    EmployeeId           int                not null  identity(1,1),
+    EmployeeKudosCount   int                not null  default 0,
+    EmployeeDescr        nvarchar(256)          null
 );
 GO
 
 
 INSERT INTO tabEmployee ( EmployeeDescr )
-	VALUES ( 'Jane Doe' );
+    VALUES ( 'Jane Doe' );
 GO
 
 ---- Step set 2.
 
 
 IF EXISTS
-	(SELECT * from sys.database_event_sessions
-		WHERE name = 'eventsession_gm_azuresqldb51')
+    (SELECT * from sys.database_event_sessions
+        WHERE name = 'eventsession_gm_azuresqldb51')
 BEGIN
-	DROP EVENT SESSION eventsession_gm_azuresqldb51
-		ON DATABASE;
+    DROP EVENT SESSION eventsession_gm_azuresqldb51
+        ON DATABASE;
 END
 GO
 
 
 CREATE
-	EVENT SESSION eventsession_gm_azuresqldb51
-	ON DATABASE
-	ADD EVENT
-		sqlserver.sql_statement_starting
-			(
-			ACTION (sqlserver.sql_text)
-			WHERE statement LIKE '%UPDATE tabEmployee%'
-			)
-	ADD TARGET
-		package0.ring_buffer
-			(SET
-				max_memory = 500   -- Units of KB.
-			);
+    EVENT SESSION eventsession_gm_azuresqldb51
+    ON DATABASE
+    ADD EVENT
+        sqlserver.sql_statement_starting
+            (
+            ACTION (sqlserver.sql_text)
+            WHERE statement LIKE '%UPDATE tabEmployee%'
+            )
+    ADD TARGET
+        package0.ring_buffer
+            (SET
+                max_memory = 500   -- Units of KB.
+            );
 GO
 
 ---- Step set 3.
 
 
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
-	ON DATABASE
-	STATE = START;
+    ON DATABASE
+    STATE = START;
 GO
 
 ---- Step set 4.
@@ -151,10 +152,10 @@ GO
 SELECT 'BEFORE_Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 UPDATE tabEmployee
-	SET EmployeeKudosCount = EmployeeKudosCount + 102;
+    SET EmployeeKudosCount = EmployeeKudosCount + 102;
 
 UPDATE tabEmployee
-	SET EmployeeKudosCount = EmployeeKudosCount + 1015;
+    SET EmployeeKudosCount = EmployeeKudosCount + 1015;
 
 SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 GO
@@ -203,23 +204,23 @@ GO
 
 
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
-	ON DATABASE
-	STATE = STOP;
+    ON DATABASE
+    STATE = STOP;
 GO
 
 ---- Step set 7.
 
 
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
-	ON DATABASE
-	DROP TARGET package0.ring_buffer;
+    ON DATABASE
+    DROP TARGET package0.ring_buffer;
 GO
 
 ---- Step set 8.
 
 
 DROP EVENT SESSION eventsession_gm_azuresqldb51
-	ON DATABASE;
+    ON DATABASE;
 GO
 
 DROP TABLE tabEmployee;
@@ -230,18 +231,18 @@ GO
 &nbsp;
 
 
-## Conteúdo do Buffer de Anéis
+## <a name="ring-buffer-contents"></a>Ring Buffer contents
 
 
-Nós usamos o ssms.exe para executar o exemplo de código.
+We used ssms.exe to run the code sample.
 
 
-Para exibir os resultados, clicamos na célula no título de coluna **target\_data\_XML**.
+To view the results, we clicked the cell under the column header **target_data_XML**.
 
-Em seguida, no painel de resultados, clicamos na célula no título de coluna **target\_data\_XML**. Esse clique criou outra guia de arquivo no ssms.exe, onde o conteúdo da célula de resultado foi exibido como XML.
+Then in the results pane we clicked the cell under the column header **target_data_XML**. This click created another file tab in ssms.exe in which the content of the result cell was displayed, as XML.
 
 
-A saída é mostrada no bloco a seguir. Parece longo, mas são apenas dois elementos **<event>**.
+The output is shown in the following block. It looks long, but it is just two **<event>** elements.
 
 
 &nbsp;
@@ -335,47 +336,47 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 ```
 
 
-#### Liberar os recursos mantidos pelo seu Buffer de Anéis
+#### <a name="release-resources-held-by-your-ring-buffer"></a>Release resources held by your Ring Buffer
 
 
-Quando concluir o Buffer de Anéis, é possível removê-lo e liberar seus próprios recursos emitindo um comando **ALTER** semelhante ao seguinte:
+When you are done with your Ring Buffer, you can remove it and release its resources issuing an **ALTER** like the following:
 
 
 ```
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
-	ON DATABASE
-	DROP TARGET package0.ring_buffer;
+    ON DATABASE
+    DROP TARGET package0.ring_buffer;
 GO
 ```
 
 
-A definição de sua sessão de evento é atualizada, mas não descartada. Mais tarde, é possível adicionar outra instância do Buffer de Anéis à sessão de evento:
+The definition of your event session is updated, but not dropped. Later you can add another instance of the Ring Buffer to your event session:
 
 
 ```
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
-	ON DATABASE
-	ADD TARGET
-		package0.ring_buffer
-			(SET
-				max_memory = 500   -- Units of KB.
-			);
+    ON DATABASE
+    ADD TARGET
+        package0.ring_buffer
+            (SET
+                max_memory = 500   -- Units of KB.
+            );
 ```
 
 
-## Mais informações
+## <a name="more-information"></a>More information
 
 
-O tópico principal para eventos estendidos no Banco de Dados SQL do Azure é:
+The primary topic for extended events on Azure SQL Database is:
 
 
-- [Considerações sobre eventos estendidos no Banco de Dados SQL](sql-database-xevent-db-diff-from-svr.md), que é diferente em alguns aspectos dos eventos estendidos que diferem entre o Banco de Dados SQL do Azure e o Microsoft SQL Server.
+- [Extended event considerations in SQL Database](sql-database-xevent-db-diff-from-svr.md), which contrasts some aspects of extended events that differ between Azure SQL Database versus Microsoft SQL Server.
 
 
-Outros tópicos com exemplos de código para eventos estendidos estão disponíveis nos links a seguir. No entanto, você deve verificar regularmente os exemplos para ver se eles se destinam ao Microsoft SQL Server ou ao Banco de Dados SQL do Azure. Em seguida, você pode decidir se alterações mínimas são necessárias para realizar o exemplo.
+Other code sample topics for extended events are available at the following links. However, you must routinely check any sample to see whether the sample targets Microsoft SQL Server versus Azure SQL Database. Then you can decide whether minor changes are needed to run the sample.
 
 
-- Exemplo de código do Banco de Dados SQL do Azure: [código de destino do Arquivo de Evento para eventos estendidos no Banco de Dados SQL](sql-database-xevent-code-event-file.md)
+- Code sample for Azure SQL Database: [Event File target code for extended events in SQL Database](sql-database-xevent-code-event-file.md)
 
 
 <!--
@@ -385,4 +386,8 @@ Outros tópicos com exemplos de código para eventos estendidos estão disponív
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

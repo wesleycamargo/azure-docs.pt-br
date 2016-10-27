@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Exibir operações de implantação com o PowerShell | Microsoft Azure"
-   description="Descreve como usar o Azure PowerShell para detectar e corrigir problemas de implantação do Resource Manager."
+   pageTitle="View deployment operations with PowerShell | Microsoft Azure"
+   description="Describes how to use the Azure PowerShell to detect issues from Resource Manager deployment."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -17,27 +17,28 @@
    ms.date="06/14/2016"
    ms.author="tomfitz"/>
 
-# Exibir operações de implantação com o Azure PowerShell
+
+# <a name="view-deployment-operations-with-azure-powershell"></a>View deployment operations with Azure PowerShell
 
 > [AZURE.SELECTOR]
 - [Portal](resource-manager-troubleshoot-deployments-portal.md)
 - [PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-- [CLI do Azure](resource-manager-troubleshoot-deployments-cli.md)
-- [API REST](resource-manager-troubleshoot-deployments-rest.md)
+- [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
+- [REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-Você pode exibir as operações para uma implantação por meio do Azure PowerShell. Você pode estar mais interessado em ver as operações quando recebeu um erro durante a implantação para que este artigo foque em exibir as operações que falharam. O PowerShell fornece cmdlets que permitem encontrar facilmente os erros e determinar as possíveis correções.
+You can view the operations for a deployment through the Azure PowerShell. You may be most interested in viewing the operations when you have received an error during deployment so this article focuses on viewing operations that have failed. PowerShell provides cmdlets that enable you to easily find the errors and determine potential fixes.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
-É possível evitar alguns erros validando o modelo e a infraestrutura antes da implantação. Você também pode registrar informações adicionais sobre solicitações e respostas durante a implantação que podem ser úteis mais tarde para a solução de problemas. Para obter informações sobre como validar e registrar informações de solicitação e resposta, consulte [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md) (Implantar um grupo de recursos com modelos do Azure Resource Manager).
+You can avoid some errors by validating your template and infrastructure prior to deployment. You can also log additional request and response information during deployment that may be helpful later for troubleshooting. To learn about validating, and logging request and response information, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
 
-## Usar operações de implantação para solucionar problemas
+## <a name="use-deployment-operations-to-troubleshoot"></a>Use deployment operations to troubleshoot
 
-1. Para obter o status geral de uma implantação, use e comando **Get-AzureRmResourceGroupDeployment**. É possível filtrar os resultados para exibir apenas as implantações que falharam.
+1. To get the overall status of a deployment, use the **Get-AzureRmResourceGroupDeployment** command. You can filter the results for only those deployments that have failed.
 
         Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
         
-    O que retorna as implantações com falha no seguinte formato:
+    Which returns the failed deployments in the following format:
         
         DeploymentName          : Microsoft.Template
         ResourceGroupName       : ExampleGroup
@@ -65,11 +66,11 @@ Você pode exibir as operações para uma implantação por meio do Azure PowerS
         Outputs                 :
         DeploymentDebugLogLevel :
 
-2. Geralmente, cada implantação é composta por várias operações, e cada operação representa uma etapa no processo de implantação. Para descobrir o que deu errado com uma implantação, geralmente você precisa ver os detalhes sobre as operações de implantação. É possível ver o status das operações com **Get-AzureRmResourceGroupDeploymentOperation**.
+2. Each deployment is usually made up of multiple operations, with each operation representing a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzureRmResourceGroupDeploymentOperation**.
 
         Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName Microsoft.Template
         
-    Que retorna várias operações com cada uma no seguinte formato:
+    Which returns multiple operations with each one in the following format:
         
         Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
         OperationId    : A3EB2DA598E0A780
@@ -79,11 +80,11 @@ Você pode exibir as operações para uma implantação por meio do Azure PowerS
         PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
                          serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
 
-3. Para obter mais detalhes sobre as operações com falha, recupere as propriedades das operações com o estado **Falha**.
+3. To get more details about failed operations, retrieve the properties for operations with **Failed** state.
 
         (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
         
-    Que retorna todas as operações com falha com cada uma no seguinte formato:
+    Which returns all of the failed operations with each one in the following format:
         
         provisioningOperation : Create
         provisioningState     : Failed
@@ -97,41 +98,42 @@ Você pode exibir as operações para uma implantação por meio do Azure PowerS
                                 Microsoft.Network/publicIPAddresses/myPublicIP;
                                 resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
 
-    Observe a ID de rastreamento da operação. Você usará isso na próxima etapa para focar em uma determinada operação.
+    Note the tracking ID for the operation. You will use that in the next step to focus on a particular operation.
 
-4. Para obter a mensagem de status de uma determinada operação com falha, use o seguinte comando:
+4. To get the status message of a particular failed operation, use the following command:
 
         ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
         
-    Que retorna:
+    Which returns:
         
         code           message                                                                        details
         ----           -------                                                                        -------
         DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 
-## Usar os logs de auditoria para solucionar problemas
+## <a name="use-audit-logs-to-troubleshoot"></a>Use audit logs to troubleshoot
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
-Para ver os erros de uma implantação, use as seguintes etapas:
+To see errors for a deployment, use the following steps:
 
-1. Para recuperar as entradas de log, execute o comando **Get-AzureRmLog**. É possível usar os parâmetros **ResourceGroup** e **Status** para retornar apenas os eventos que falharam para um único grupo de recursos. Caso você não especifique uma hora de início e término, serão retornadas as entradas da última hora. Por exemplo, para recuperar as operações com falha na última hora de execução:
+1. To retrieve log entries, run the **Get-AzureRmLog** command. You can use the **ResourceGroup** and **Status** parameters to return only events that failed for a single resource group. If you do not specify a start and end time, entries for the last hour are returned.
+For example, to retrieve the failed operations for the past hour run:
 
         Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
 
-    É possível especificar um timespan específico. No próximo exemplo, buscaremos as ações com falha do último dia.
+    You can specify a particular timespan. In the next example, we'll look for failed actions for the last day. 
 
         Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-1) -Status Failed
       
-    Caso contrário, é possível definir uma hora exata de início e término para as ações com falha:
+    Or, you can set an exact start and end time for failed actions:
 
         Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00 -Status Failed
 
-2. Se esse comando retornar entradas e propriedades demais, você poderá focar seus esforços de auditoria recuperando a propriedade **Properties**. Também incluiremos o parâmetro **DetailedOutput** para ver as mensagens de erro.
+2. If this command returns too many entries and properties, you can focus your auditing efforts by retrieving the **Properties** property. We'll also include the **DetailedOutput** parameter to see the error messages.
 
         (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-1) -DetailedOutput).Properties
         
-    O que retorna as propriedades das entradas de log no seguinte formato:
+    Which returns properties of the log entries in the following format:
         
         Content
         -------
@@ -139,11 +141,11 @@ Para ver os erros de uma implantação, use as seguintes etapas:
         {[statusCode, BadRequest], [statusMessage, {"error":{"code":"DnsRecordInUse","message":"DNS record dns.westus.clouda...
         {[statusCode, BadRequest], [serviceRequestId, a426f689-5d5a-448d-a2f0-9784d14c900a], [statusMessage, {"error":{"code...
 
-3. Com base nesses resultados, focaremos no segundo elemento. Além disso, você pode refinar ainda mais os resultados examinando a mensagem de status dessa entrada.
+3. Based on these results, let's focus on the second element. You can further refine the results by looking at the status message for that entry.
 
         ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput -StartTime (Get-Date).AddDays(-1)).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
         
-    Que retorna:
+    Which returns:
         
         code           message                                                                        details
         ----           -------                                                                        -------
@@ -151,10 +153,15 @@ Para ver os erros de uma implantação, use as seguintes etapas:
 
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Para obter ajuda com a resolução de determinados erros de implantação, consulte [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- Para saber mais sobre como usar os logs de auditoria para monitorar outros tipos de ações, consulte [Operações de auditoria com o Gerenciador de Recursos](resource-group-audit.md).
-- Para validar sua implantação antes de executá-la, consulte [Implantar um grupo de recursos com um modelo do Azure Resource Manager](resource-group-template-deploy.md).
+- For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- To learn about using the audit logs to monitor other types of actions, see [Audit operations with Resource Manager](resource-group-audit.md).
+- To validate your deployment prior to executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

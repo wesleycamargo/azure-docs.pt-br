@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ambientes de desenvolvimento e teste | Microsoft Azure"
-   description="Saiba como usar modelos do Gerenciador de Recursos do Azure para criar e excluir com rapidez e consistência ambientes de desenvolvimento e teste."
+   pageTitle="Development and test environments | Microsoft Azure"
+   description="Learn how to use Azure Resource Manager templates to quickly and consistently create and delete development and test environments."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,349 +16,362 @@
    ms.date="01/22/2016"
    ms.author="tomfitz"/>
 
-# Ambientes de desenvolvimento e teste no Microsoft Azure
 
-Aplicativos personalizados normalmente são implantados para vários ambientes de desenvolvimento e testes antes da implantação para produção. Quando ambientes são criados no local, recursos de computação são adquiridos ou alocados para cada ambiente para cada aplicativo. Os ambientes geralmente incluem vários máquinas físicas ou virtuais com configurações específicas que são implantadas manualmente ou com scripts de automação complexos. As implantações frequentemente levam horas e resultam em configurações inconsistentes entre ambientes.
+# <a name="development-and-test-environments-in-microsoft-azure"></a>Development and test environments in Microsoft Azure
 
-## Cenário ##
+Custom applications are typically deployed to multiple development and testing environments before deployment to production. When environments are created on premises, computing resources are either procured or allocated for each environment for each application. The environments often include several physical or virtual machines with specific configurations that are deployed manually or with complex automation scripts. Deployments often take hours and  result in inconsistent configurations across environments.
 
-Ao provisionar ambientes de desenvolvimento e teste no Microsoft Azure, você paga apenas pelos recursos que utiliza. Este artigo explica como você pode criar, manter e excluir com rapidez e consistência os ambientes de desenvolvimento e teste usando os modelos e arquivos de parâmetros do Gerenciador de Recursos do Azure, conforme ilustrado abaixo.
+## <a name="scenario"></a>Scenario ##
 
-![Cenário](./media/solution-dev-test-environments/scenario.png)
+When you provision development and test environments in Microsoft Azure, you only pay for the resources you use.  This article explains how quickly and consistently you can create, maintain, and delete development and test environments using Azure Resource Manager templates and parameter files, as illustrated below.
 
-Três ambientes de desenvolvimento e testes são mostrados acima. Cada um tem recursos de aplicativo Web e de Banco de Dados SQL que são especificados em um arquivo de modelo. Os nomes do aplicativo e do banco de dados em cada ambiente são diferentes e são especificados em arquivos de parâmetro exclusivos para cada ambiente.
+![Scenario](./media/solution-dev-test-environments/scenario.png)
 
-Se você não estiver familiarizado com os conceitos do Gerenciador de Recursos do Azure, é recomendável que leia o artigo [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md) antes de ler este artigo.
+Three development and testing environments are shown above.  Each has web application and SQL database resources, which are specified in a template file.  The names of the application and database in each environment are different, and are specified in unique parameter files for each environment.  
 
-Convém percorrer primeiro as etapas deste artigo, conforme listado, sem ler qualquer um dos artigos referenciados, para obter rapidamente experiência com o uso de modelos do Gerenciador de Recursos do Azure. Após percorrer as etapas uma vez, você poderá obter respostas para a maioria das perguntas que surgiram continuando a experimentar as etapas e lendo os artigos citados.
+If you're not familiar with Azure Resource Manager concepts, it's recommended that you read the [Azure Resource Manager Overview](resource-group-overview.md) article before reading this article.
 
-## Planejar o uso de recursos do Azure
-Quando tiver um design de alto nível para seu aplicativo, você poderá definir:
+You may want to first go through the steps in this article as listed without reading any of the referenced articles to quickly gain some experience using Azure Resource Manager templates. After you've been through the steps once, you'll be able to get answers to most of the questions that arose your first time through by experimenting further with the steps and by reading the referenced articles.
 
-- Quais recursos do Azure seu aplicativo incluirá. Você pode criar seu aplicativo e implantá-lo como um aplicativo Web do Azure com um banco de dados SQL do Azure. Você pode criar seu aplicativo em máquinas virtuais usando PHP e MySQL ou IIS e SQL Server ou outros componentes. O artigo [Comparação do Serviço de Aplicativo do Azure, serviços de nuvem e máquinas virtuais](app-service-web/choose-web-site-cloud-service-vm.md) o ajuda a decidir quais recursos do Azure pode desejar usar para seu aplicativo.
-- A quais requisitos de nível de serviço, como disponibilidade, segurança e escala, seu aplicativo atenderá.
+## <a name="plan-azure-resource-use"></a>Plan Azure resource use
+Once you have a high level design for your application, you can define:
 
-## Baixar um modelo existente
-Um modelo do Gerenciador de Recursos do Azure define todos os recursos do Azure que seu aplicativo utiliza. Já existem vários modelos que você pode implantar diretamente no Portal do Azure ou baixar, modificar e salvar em um sistema de controle de origem com o código do aplicativo. Conclua as etapas abaixo para baixar um modelo existente.
+- Which Azure resources your application will include. You might build your application and deploy it as an Azure Web App with an Azure SQL Database.  You might build your application in virtual machines using PHP and MySQL or IIS and SQL Server, or other components. The [Azure App Service, Cloud Services, and Virtual Machines comparison]( app-service-web/choose-web-site-cloud-service-vm.md) article helps you decide which Azure resources you might want to utilize for your application.
+- What service level requirements such as availability, security, and scale that your application will meet.
 
-1. Pesquise nos modelos existentes em [Modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/) no repositório GitHub. Na lista, você verá uma pasta "[201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)". Como muitos aplicativos personalizados incluem um aplicativo Web e o banco de dados SQL, esse modelo é usado como um exemplo no restante deste artigo para ajudá-lo a entender como usar modelos. Está fora do escopo deste artigo explicar tudo o que esse modelo cria e configura, mas se você planeja usá-lo para criar ambientes reais em sua organização, convém entendê-lo plenamente lendo o artigo [Provisionar um aplicativo Web com um banco de dados SQL](app-service-web/app-service-web-arm-with-sql-database-provision.md). Observação: este artigo foi escrito para a versão de dezembro de 2015 do modelo [201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database). Os links a seguir que apontam para o modelo e arquivos de parâmetro são para essa versão do modelo.
-2. Clique no arquivo [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/tree/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database/azuredeploy.json) na pasta 201-web-app-sql-database para exibir seu conteúdo. Esse é o arquivo de modelo do Gerenciador de Recursos do Azure.
-3. No modo de exibição, clique no botão "[Bruto](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database/azuredeploy.json)".
-4. Com o mouse, selecione o conteúdo deste arquivo e salve-o no computador como um arquivo chamado "TestApp1-Template.json".
-5. Examine o conteúdo do modelo e observe o seguinte:
- - Seção **Recursos**: esta seção define os tipos de recursos do Azure criados por este modelo. Entre outros tipos de recursos, o modelo cria recursos de [Aplicativo Web do Azure](app-service-web/app-service-web-overview.md) e [Banco de Dados SQL do Azure](sql-database/sql-database-technical-overview.md). Se você preferir executar e gerenciar servidores Web e SQL em máquinas virtuais, poderá usar os modelos "[iis-2vm-sql-1vm](https://github.com/Azure/azure-quickstart-templates/tree/master/iis-2vm-sql-1vm)"ou"[lamp-app](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app)", mas as instruções neste artigo se baseiam no modelo [201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database).
- - Seção **Parâmetros**: esta seção define os parâmetros com os quais cada recurso pode ser configurado. Alguns dos parâmetros especificados no modelo têm propriedades "defaultValue", enquanto outros não as têm. Ao implantar os recursos do Azure com um modelo, você deve fornecer valores para todos os parâmetros que não têm as propriedades defaultValue especificadas no modelo. Se você não fornecer valores para parâmetros com propriedades defaultValue, será usado o valor especificado para o parâmetro defaultValue no modelo.
+## <a name="download-an-existing-template"></a>Download an existing template
+An Azure Resource Manager template defines all of the Azure resources that your application utilizes. Several templates already exist that you can deploy directly in the Azure portal, or download, modify, and save in a source control system with your application code.  Complete the steps below to download an existing template.
 
-Um modelo define quais recursos do Azure são criados e os parâmetros com os quais cada recurso pode ser configurado. Você pode saber mais sobre modelos e como criar seus próprios lendo o artigo [Práticas recomendadas criar modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md).
+1. Browse existing templates in the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/) GitHub repository. In the list you'll see a "[201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)" folder. Since many custom applications include a web application and SQL database, this template is used as an example in the remainder of this article to help you understand how to use templates. It's beyond the scope of this article to fully explain everything this template creates and configures, but if you plan to use it to create actual environments in your organization, you'll want to fully understand it by reading the [Provision a web app with a SQL Database](app-service-web/app-service-web-arm-with-sql-database-provision.md) article.
+Note: this article was written for the December 2015 version of the [201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database) template. The links below that point to template and parameter files are to that version of the template.
+2. Click on the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/tree/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database/azuredeploy.json) file in the 201-web-app-sql-database folder to view its contents. This is the Azure Resource Manager template file. 
+3. In the view mode, click the "[Raw](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database/azuredeploy.json)" button. 
+4. With your mouse, select the contents of this file and save them to your computer as a file named "TestApp1-Template.json." 
+5. Examine the template contents and notice the following:
+ - **Resources** section:  This section defines the types of Azure resources created by this template. Among other resource types, this template creates [Azure Web App](app-service-web/app-service-web-overview.md) and [Azure SQL Database](sql-database/sql-database-technical-overview.md) resources. If you prefer to run and manage web and SQL servers in virtual machines, you can use the "[iis-2vm-sql-1vm](https://github.com/Azure/azure-quickstart-templates/tree/master/iis-2vm-sql-1vm)" or "[lamp-app](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app)" templates, but the instructions in this article are based on the [201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database) template.
+ - **Parameters** section: This section defines the parameters that each resource can be configured with. Some of the parameters specified in the template have "defaultValue" properties, while others do not. When deploying Azure resources with a template, you must provide values for all parameters that do not have defaultValue properties specified in the template.  If you do not provide values for parameters with defaultValue properties, then the value specified for the defaultValue parameter in the template is used.
 
-## Baixar e personalizar um arquivo de parâmetro existente
+A template defines which Azure resources are created and the parameters each resource can be configured with. You can learn more about templates and how to design your own by reading the [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md) article.
 
-Apesar de você provavelmente querer ter os *mesmos* recursos do Azure criados em cada ambiente, é possível que também queira que a configuração dos recursos seja *diferente* em cada ambiente. É aí que entram os arquivos de parâmetros. Crie arquivos de parâmetro contendo valores exclusivos em cada ambiente usando as etapas abaixo.
+## <a name="download-and-customize-an-existing-parameter-file"></a>Download and customize an existing parameter file
 
-1. Veja o conteúdo do arquivo [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/tree/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database/azuredeploy.parameters.json) na pasta 201-web-app-sql-database. Esse é o arquivo de parâmetros para o arquivo de modelo que você salvou na etapa anterior.
-2. No modo de exibição, clique no botão "[Bruto](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database/azuredeploy.parameters.json)".
-3. Com o mouse, selecione o conteúdo deste arquivo e salve-o em três arquivos separados no computador, com os seguintes nomes:
+Though you'll probably want the *same* Azure resources created in each environment, you'll likely want the configuration of the resources to be *different* in each environment.  This is where parameter files come in. Create parameter files that contain unique values in each environment by completing the steps below.   
+
+1. View the contents of the [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/tree/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database/azuredeploy.parameters.json) file in the 201-web-app-sql-database folder. This is the parameter file for the template file you saved in the previous section. 
+2. In the view mode, click the "[Raw](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database/azuredeploy.parameters.json)" button. 
+3. With your mouse, select the contents of this file and save them to three separate files on your computer with the following names:
  - TestApp1-Parameters-Development.json
  - TestApp1-Parameters-Test.json
  - TestApp1-Parameters-Pre-Production.json
 
-3. Usando qualquer editor de texto ou JSON, edite o arquivo de parâmetros do ambiente de Desenvolvimento criado na Etapa 3, substituindo os valores listados à direita dos valores de parâmetro no arquivo pelos *valores* listados à direita dos **parâmetros** abaixo:
+3. Using any text or JSON editor, edit the Development environment parameter file you created in Step 3, replacing the values listed to the right of the parameter values in the file with the *values* listed to the right of the **parameters** below: 
  - **siteName**: *TestApp1DevApp*
  - **hostingPlanName**: *TestApp1DevPlan*
  - **siteLocation**: *Central US*
  - **serverName**: *testapp1devsrv*
  - **serverLocation**: *Central US*
  - **administratorLogin**: *testapp1Admin*
- - **administratorLoginPassword**: *substitua pela sua senha*
+ - **administratorLoginPassword**: *replace with your password*
  - **databaseName**: *testapp1devdb*
 
-4. Usando qualquer editor de texto ou JSON, edite o arquivo de parâmetros do ambiente de Teste criado na Etapa 3, substituindo os valores listados à direita dos valores de parâmetro no arquivo pelos *valores* listados à direita dos **parâmetros** abaixo:
+4. Using any text or JSON editor, edit the Test environment parameter file you created in Step 3, replacing the the values listed to the right of the parameter values in the file with the *values* listed to the right of the **parameters** below:
  - **siteName**: *TestApp1TestApp*
  - **hostingPlanName**: *TestApp1TestPla*n
  - **siteLocation**: *Central US*
  - **serverName**: *testapp1testsrv*
  - **serverLocation**: *Central US*
  - **administratorLogin**: *testapp1Admin*
- - **administratorLoginPassword**: *substitua pela sua senha*
+ - **administratorLoginPassword**: *replace with your password*
  - **databaseName**: *testapp1testdb*
 
-5. Usando qualquer editor de texto ou JSON, edite o arquivo de parâmetro de Pré-produção que você criou na Etapa 3. Substitua todo o conteúdo do arquivo pelos itens abaixo:
+5. Using any text or JSON editor, edit the Pre-Production parameter file you created in Step 3.  Replace the entire contents of the file with what's below:
 
-	    {
-    	  "$schema" : "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    	  "contentVersion" : "1.0.0.0",
-    	  "parameters" : {
-    	"administratorLogin" : {
-    	  "value" : "testApp1Admin"
-    	},
-    	"administratorLoginPassword" : {
-    	  "value" : "replace with your password"
-    	},
-    	"databaseName" : {
-    	  "value" : "testapp1preproddb"
-    	},
-    	"hostingPlanName" : {
-    	  "value" : "TestApp1PreProdPlan"
-    	},
-    	"serverLocation" : {
-    	  "value" : "Central US"
-    	},
-    	"serverName" : {
-    	  "value" : "testapp1preprodsrv"
-    	},
-    	"siteLocation" : {
-    	  "value" : "Central US"
-    	},
-    	"siteName" : {
-    	  "value" : "TestApp1PreProdApp"
-    	},
-    	"sku" : {
-    	  "value" : "Standard"
-    	},
-    		"requestedServiceObjectiveName" : {
-    		  "value" : "S1"
-    	}
-    	  }
-    	}
+        {
+          "$schema" : "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+          "contentVersion" : "1.0.0.0",
+          "parameters" : {
+        "administratorLogin" : {
+          "value" : "testApp1Admin"
+        },
+        "administratorLoginPassword" : {
+          "value" : "replace with your password"
+        },
+        "databaseName" : {
+          "value" : "testapp1preproddb"
+        },
+        "hostingPlanName" : {
+          "value" : "TestApp1PreProdPlan"
+        },
+        "serverLocation" : {
+          "value" : "Central US"
+        },
+        "serverName" : {
+          "value" : "testapp1preprodsrv"
+        },
+        "siteLocation" : {
+          "value" : "Central US"
+        },
+        "siteName" : {
+          "value" : "TestApp1PreProdApp"
+        },
+        "sku" : {
+          "value" : "Standard"
+        },
+            "requestedServiceObjectiveName" : {
+              "value" : "S1"
+        }
+          }
+        }
 
-No arquivo de parâmetros de pré-produção acima, os parâmetros **sku** e **requestedServiceObjectiveName** foram *adicionados*, enquanto não foram adicionados nos arquivos de parâmetros de desenvolvimento e testes. Isso ocorre porque há valores padrão especificados para esses parâmetros no modelo e, em ambientes de desenvolvimento e testes, os valores padrão são usados, mas no ambiente de pré-produção, são usados valores não padrão para esses parâmetros.
+In the Pre-Production parameters file above, the **sku** and **requestedServiceObjectiveName** parameters were *added*, whereas they weren't added in the Development and Test parameters files. This is because there are default values specified for these parameters in the template, and in the Development and Test environments, the default values are used, but in the Pre-Production environment non-default values for these parameters are used.
 
-O motivo pelo qual valores não padrão são usados para esses parâmetros no ambiente de Pré-produção é testar valores para esses parâmetros que talvez você prefira para seu ambiente de Produção, para que eles também possam ser testados. Esses parâmetros se relacionam aos [planos de hospedagem de aplicativos Web](https://azure.microsoft.com/pricing/details/app-service/) do Azure, à **sku** e ao [banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) do Azure ou ao **requestedServiceObjectiveName** que são usados pelo aplicativo. Skus e nomes de objetivo de serviço diferentes têm custos e recursos diferentes e dão suporte a métricas de nível de serviço diferentes.
+The reason non-default values are used for these parameters in the Pre-Production environment is to test values for these parameters that you might prefer for your Production environment so they can also be tested.  These parameters all relate to the Azure [Web App hosting plans](https://azure.microsoft.com/pricing/details/app-service/), or **sku** and Azure [SQL Database](https://azure.microsoft.com/pricing/details/sql-database/), or **requestedServiceObjectiveName** that are used by the application.  Different skus and service objective names have different costs and features and support different service level metrics.
 
-A tabela a seguir lista os valores padrão para os parâmetros especificados no modelo e os valores que são usados em vez dos valores padrão no arquivo de parâmetros de pré-produção.
+The table below lists the default values for these parameters specified in the template and the values that are used instead of the default values in the Pre-Production parameters file.
 
-| Parâmetro | Valor padrão | Valor do arquivo de parâmetros |
+| Parameter | Default value | Parameter file value |
 |---|---|---|
-| **sku** | Grátis | Standard |
+| **sku** | Free | Standard |
 | **requestedServiceObjectiveName** | S0 | S1 |
 
-## Criar ambientes
-Todos os recursos do Azure devem ser criados em um [grupo de recursos do Azure](resource-group-overview.md). Grupos de recursos o habilitam a agrupar recursos do Azure para que eles possam ser gerenciados coletivamente. [Permissões](./active-directory/role-based-access-built-in-roles.md) podem ser atribuídas a grupos de recursos, para que pessoas específicas em sua organização possam criar, modificar, excluir ou exibi-los, juntamente com os recursos neles. Os alertas e as informações de cobrança dos recursos no Grupo de Recursos podem ser exibidos no [Portal do Azure](https://portal.azure.com). Os grupos de recursos são criados em uma [região](https://azure.microsoft.com/regions/) do Azure. Neste artigo, todos os recursos são criados na região EUA Central. Ao começar a criar ambientes reais, você poderá escolher a região que melhor atende às suas necessidades.
+## <a name="create-environments"></a>Create environments
+All Azure resources must be created within an [Azure Resource Group](resource-group-overview.md). Resource groups enable you to group Azure resources so they can be managed collectively.  [Permissions](./active-directory/role-based-access-built-in-roles.md) can be assigned to resource groups such that specific people within your organization can create, modify, delete, or view them and the resources within them.  Alerts and billing information for resources in the Resource Group can be viewed in the [Azure Portal](https://portal.azure.com). Resource groups are created in an Azure [region](https://azure.microsoft.com/regions/).  In this article, all resources are created in the Central US region. When you start creating actual environments, you'll choose the region that best meets your requirements. 
 
-Crie grupos de recursos para cada ambiente usando qualquer um dos métodos abaixo. Todos os métodos obterão o mesmo resultado.
+Create resource groups for each environment using any of the methods below.  All methods will achieve the same outcome.
 
-###CLI (Interface de Linha de Comando) do Azure.
+###<a name="azure-command-line-interface-(cli)"></a>Azure Command Line Interface (CLI)
 
-Verifique se você tem a CLI [instalada](xplat-cli-install.md) em um computador com Windows, OS X ou Linux e se [conectou](xplat-cli-connect.md) sua [conta do Azure AD](./active-directory/active-directory-how-subscriptions-associated-directory.md) (também chamada de conta corporativa ou de estudante) à sua assinatura do Azure. Na linha de comando da CLI, digite o comando a seguir para criar o grupo de recursos para o ambiente de desenvolvimento.
+Ensure that you have the CLI [installed](xplat-cli-install.md) on either a Windows, OS X, or Linux computer, and that you've [connected](xplat-cli-connect.md) your [Azure AD account](./active-directory/active-directory-how-subscriptions-associated-directory.md) (also called a work or school account) to your Azure subscription. From the CLI command line, type the command below to create the resource group for the Development environment.
 
-	azure group create "TestApp1-Development" "Central US"
+    azure group create "TestApp1-Development" "Central US"
 
-O comando retornará o seguinte se tiver êxito:
+The command will return the following if it succeeds:
 
-	info:    Executing command group create
-	+ Getting resource group TestApp1-Development
-	+ Creating resource group TestApp1-Development
-	info:    Created resource group TestApp1-Development
-	data:    Id:                  /subscriptions/uuuuuuuu-vvvv-wwww-xxxx-yyyy-zzzzzzzzzzzz/resourceGroups/TestApp1-Development
-	data:    Name:                TestApp1-Development
-	data:    Location:            centralus
-	data:    Provisioning State:  Succeeded
-	data:    Tags: null
-	data:
-	info:    group create command OK
+    info:    Executing command group create
+    + Getting resource group TestApp1-Development
+    + Creating resource group TestApp1-Development
+    info:    Created resource group TestApp1-Development
+    data:    Id:                  /subscriptions/uuuuuuuu-vvvv-wwww-xxxx-yyyy-zzzzzzzzzzzz/resourceGroups/TestApp1-Development
+    data:    Name:                TestApp1-Development
+    data:    Location:            centralus
+    data:    Provisioning State:  Succeeded
+    data:    Tags: null
+    data:
+    info:    group create command OK
 
-Para criar o grupo de recursos para o ambiente de testes, digite o seguinte comando:
+To create the resource group for the Test environment, type the command below:
 
-	azure group create "TestApp1-Test" "Central US"
+    azure group create "TestApp1-Test" "Central US"
 
-Para criar o grupo de recursos para o ambiente de pré-produção, digite o seguinte comando:
+To create the resource group for the Pre-Production environment, type the command below:
 
-	azure group create "TestApp1-Pre-Production" "Central US"
+    azure group create "TestApp1-Pre-Production" "Central US"
 
-###PowerShell
+###<a name="powershell"></a>PowerShell
 
-Verifique se você tem o Azure PowerShell 1.01 ou superior instalado em um computador com Windows e se conectou sua [conta do Azure AD](./active-directory/active-directory-how-subscriptions-associated-directory.md) (também chamada de conta corporativa ou de estudante) à sua assinatura, como detalhado no artigo [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md). Em um prompt de comando do PowerShell, digite o comando a seguir para criar o grupo de recursos no ambiente de desenvolvimento.
+Ensure that you have Azure PowerShell 1.01 or higher installed on a Windows computer and have connected your [Azure AD account](./active-directory/active-directory-how-subscriptions-associated-directory.md) (also called a work or school account) to your subscription as detailed in the [How to install and configure Azure PowerShell](powershell-install-configure.md) article. From a PowerShell command prompt, type the command below to create the resource group for the Development environment.
 
-	New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
+    New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 
-O comando retornará o seguinte se tiver êxito:
+The command will return the following if it succeeds:
 
-	ResourceGroupName : TestApp1-Development
-	Location          : centralus
-	ProvisioningState : Succeeded
-	Tags              :
-	ResourceId        : /subscriptions/uuuuuuuu-vvvv-wwww-xxxx-yyyy-zzzzzzzzzzzz/resourceGroups/TestApp1-Development
+    ResourceGroupName : TestApp1-Development
+    Location          : centralus
+    ProvisioningState : Succeeded
+    Tags              :
+    ResourceId        : /subscriptions/uuuuuuuu-vvvv-wwww-xxxx-yyyy-zzzzzzzzzzzz/resourceGroups/TestApp1-Development
 
-Para criar o grupo de recursos para o ambiente de testes, digite o seguinte comando:
+To create the resource group for the Test environment, type the command below:
 
-	New-AzureRmResourceGroup -Name TestApp1-Test -Location "Central US"
+    New-AzureRmResourceGroup -Name TestApp1-Test -Location "Central US"
 
-Para criar o grupo de recursos para o ambiente de pré-produção, digite o seguinte comando:
+To create the resource group for the Pre-Production environment, type the command below:
 
-	New-AzureRmResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
+    New-AzureRmResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
 
-###Portal do Azure
+###<a name="azure-portal"></a>Azure portal
 
-1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta do [Azure AD](./active-directory/active-directory-how-subscriptions-associated-directory.md) (também chamada de corporativa ou de estudante). Clique em Novo-->Gerenciamento--> Grupo de recursos e insira "TestApp1-Development" na caixa Nome de grupo de recursos, escolha sua assinatura e selecione "EUA Central" na caixa Localização do grupo de recursos, como mostrado na imagem abaixo.![Portal](./media/solution-dev-test-environments/rgcreate.png)
-2. Clique no botão Criar para criar o grupo de recursos.
-3. Clique em Procurar, role a lista para baixo até Grupos de recursos e clique em Grupos de recursos, como mostrado abaixo. ![Portal](./media/solution-dev-test-environments/rgbrowse.png)
-4. Depois de clicar em Grupos de recursos, você verá a folha Grupos de recursos com seu novo grupo de recursos. ![Portal](./media/solution-dev-test-environments/rgview.png)
-5. Crie os grupos de recursos TestApp1-Test e TestApp1-Pre-Production da mesma maneira que criou o grupo de recursos TestApp1-Development acima.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an [Azure AD](./active-directory/active-directory-how-subscriptions-associated-directory.md) (also called a work or school) account. Click New-->Management-->Resource group and enter "TestApp1-Development" in the Resource group name box, select your subscription, and select "Central US" in the Resource group location box as shown in the picture below.
+   ![Portal](./media/solution-dev-test-environments/rgcreate.png)
+2. Click the Create button to create the resource group.
+3. Click Browse, scroll down the list to Resource groups and click on Resource groups as shown below.
+   ![Portal](./media/solution-dev-test-environments/rgbrowse.png) 
+4. After clicking on Resource groups you'll see the Resource groups blade with your new resource group.
+   ![Portal](./media/solution-dev-test-environments/rgview.png)
+5. Create the TestApp1-Test and TestApp1-Pre-Production resource groups the same way you created the TestApp1-Development resource group above.
 
-##Implantar recursos nos ambientes
+##<a name="deploy-resources-to-environments"></a>Deploy resources to environments
 
-Implante os recursos do Azure nos grupos de recursos de cada ambiente usando o arquivo de modelo da solução e dos arquivos de parâmetro de cada ambiente usando um dos métodos a seguir. Os dois métodos obterão o mesmo resultado.
+Deploy Azure resources to the resource groups for each environment using the template file for the solution and the parameter files for each environment using either of the methods below.  Both methods will achieve the same outcome.
 
-###CLI (Interface de Linha de Comando) do Azure.
+###<a name="azure-command-line-interface-(cli)"></a>Azure Command Line Interface (CLI)
 
-Na linha de comando da CLI, digite o comando a seguir para implantar recursos no grupo de recursos criado para o ambiente de desenvolvimento, substituindo [path] pelo caminho para os arquivos que você salvou nas etapas anteriores.
+From the CLI command line, type the command below to deploy resources to the resource group you created for the Development environment, replacing [path] with the path to the files you saved in previous steps.
 
-	azure group deployment create -g TestApp1-Development -n Deployment1 -f [path]TestApp1-Template.json -e [path]TestApp1-Parameters-Development.json 
+    azure group deployment create -g TestApp1-Development -n Deployment1 -f [path]TestApp1-Template.json -e [path]TestApp1-Parameters-Development.json 
 
-Após ver uma mensagem de "Aguardando conclusão da implantação" por alguns minutos, o comando retornará o seguinte se tiver êxito:
+After seeing a "Waiting for deployment to complete" message for a few minutes, the command will return the following if it succeeds:
 
-	info:    Executing command group deployment create
-	+ Initializing template configurations and parameters
-	+ Creating a deployment
-	info:    Created template deployment "Deployment1"
-	+ Waiting for deployment to complete
-	data:    DeploymentName     : Deployment1
-	data:    ResourceGroupName  : TestApp1-Development
-	data:    ProvisioningState  : Succeeded
-	data:    Timestamp          : XXXX-XX-XXT20:20:23.5202316Z
-	data:    Mode               : Incremental
-	data:    Name                           Type          Value
-	data:    -----------------------------  ------------  ----------------------------
-	data:    siteName                       String        TestApp1DevApp
-	data:    hostingPlanName                String        TestApp1DevPlan
-	data:    siteLocation                   String        Central US
-	data:    sku                            String        Free
-	data:    workerSize                     String        0
-	data:    serverName                     String        testapp1devsrv
-	data:    serverLocation                 String        Central US
-	data:    administratorLogin             String        testapp1Admin
-	data:    administratorLoginPassword     SecureString  undefined
-	data:    databaseName                   String        testapp1devdb
-	data:    collation                      String        SQL_Latin1_General_CP1_CI_AS
-	data:    edition                        String        Standard
-	data:    maxSizeBytes                   String        1073741824
-	data:    requestedServiceObjectiveName  String        S0
-	info:    group deployment create command OKx
+    info:    Executing command group deployment create
+    + Initializing template configurations and parameters
+    + Creating a deployment
+    info:    Created template deployment "Deployment1"
+    + Waiting for deployment to complete
+    data:    DeploymentName     : Deployment1
+    data:    ResourceGroupName  : TestApp1-Development
+    data:    ProvisioningState  : Succeeded
+    data:    Timestamp          : XXXX-XX-XXT20:20:23.5202316Z
+    data:    Mode               : Incremental
+    data:    Name                           Type          Value
+    data:    -----------------------------  ------------  ----------------------------
+    data:    siteName                       String        TestApp1DevApp
+    data:    hostingPlanName                String        TestApp1DevPlan
+    data:    siteLocation                   String        Central US
+    data:    sku                            String        Free
+    data:    workerSize                     String        0
+    data:    serverName                     String        testapp1devsrv
+    data:    serverLocation                 String        Central US
+    data:    administratorLogin             String        testapp1Admin
+    data:    administratorLoginPassword     SecureString  undefined
+    data:    databaseName                   String        testapp1devdb
+    data:    collation                      String        SQL_Latin1_General_CP1_CI_AS
+    data:    edition                        String        Standard
+    data:    maxSizeBytes                   String        1073741824
+    data:    requestedServiceObjectiveName  String        S0
+    info:    group deployment create command OKx
 
-Se o comando não for bem-sucedido, resolva as mensagens de erro e tente novamente. Problemas comuns são o uso de valores de parâmetros que não obedecem às restrições de nomenclatura de recursos do Azure. Outras dicas de solução de problemas podem ser encontradas no artigo [Solucionando problemas de implantações de grupos de recursos no Azure](./resource-manager-troubleshoot-deployments-cli.md).
+If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](./resource-manager-troubleshoot-deployments-cli.md) article.
 
-Na linha de comando da CLI, digite o comando a seguir para implantar recursos no grupo de recursos criado para o ambiente de testes, substituindo [path] pelo caminho para os arquivos que você salvou nas etapas anteriores.
+From the CLI command line, type the command below to deploy resources to the resource group you created for the Test environment, replacing [path] with the path to the files you saved in previous steps.
 
-	azure group deployment create -g TestApp1-Test -n Deployment1 -f [path]TestApp1-Template.json -e [path]TestApp1-Parameters-Test.json
+    azure group deployment create -g TestApp1-Test -n Deployment1 -f [path]TestApp1-Template.json -e [path]TestApp1-Parameters-Test.json
 
-Na linha de comando da CLI, digite o comando a seguir para implantar recursos no grupo de recursos criado para o ambiente de pré-produção, substituindo [path] pelo caminho para os arquivos que você salvou nas etapas anteriores.
+From the CLI command line, type the command below to deploy resources to the resource group you created for the Pre-Production environment, replacing [path] with the path to the files you saved in previous steps.
 
-	azure group deployment create -g TestApp1-Pre-Production -n Deployment1 -f [path]TestApp1-Template.json -e [path]TestApp1-Parameters-Pre-Production.json
+    azure group deployment create -g TestApp1-Pre-Production -n Deployment1 -f [path]TestApp1-Template.json -e [path]TestApp1-Parameters-Pre-Production.json
   
-###PowerShell
+###<a name="powershell"></a>PowerShell
 
-Em um prompt de comando do Azure PowerShell (versão 1.01 ou superior), digite o comando a seguir para implantar recursos no grupo de recursos criado para o ambiente de Desenvolvimento, substituindo [path] pelo caminho até os arquivos que você salvou nas etapas anteriores.
+From an Azure PowerShell (version 1.01 or higher) command prompt, type the command below to deploy resources to the resource group you created for the Development environment, replacing [path] with the path to the files you saved in previous steps.
 
-	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
+    New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
 
-Após ver um cursor piscando por alguns minutos, o comando retornará o seguinte, se tiver êxito:
+After seeing a blinking cursor for a few minutes, the command will return the following if it succeeds:
 
-	DeploymentName    : Deployment1
-	ResourceGroupName : TestApp1-Development
-	ProvisioningState : Succeeded
-	Timestamp         : XX/XX/XXXX 2:44:48 PM
-	Mode              : Incremental
-	TemplateLink      : 
-	Parameters        : 
-	                    Name             Type                       Value     
-	                    ===============  =========================  ==========
-	                    siteName         String                     TestApp1DevApp
-	                    hostingPlanName  String                     TestApp1DevPlan
-	                    siteLocation     String                     Central US
-	                    sku              String                     Free      
-	                    workerSize       String                     0         
-	                    serverName       String                     testapp1devsrv
-	                    serverLocation   String                     Central US
-	                    administratorLogin  String                     testapp1Admin
-	                    administratorLoginPassword  SecureString                         
-	                    databaseName     String                     testapp1devdb
-	                    collation        String                     SQL_Latin1_General_CP1_CI_AS
-	                    edition          String                     Standard  
-	                    maxSizeBytes     String                     1073741824
-	                    requestedServiceObjectiveName  String                     S0        
-	                    
-	Outputs           :
+    DeploymentName    : Deployment1
+    ResourceGroupName : TestApp1-Development
+    ProvisioningState : Succeeded
+    Timestamp         : XX/XX/XXXX 2:44:48 PM
+    Mode              : Incremental
+    TemplateLink      : 
+    Parameters        : 
+                        Name             Type                       Value     
+                        ===============  =========================  ==========
+                        siteName         String                     TestApp1DevApp
+                        hostingPlanName  String                     TestApp1DevPlan
+                        siteLocation     String                     Central US
+                        sku              String                     Free      
+                        workerSize       String                     0         
+                        serverName       String                     testapp1devsrv
+                        serverLocation   String                     Central US
+                        administratorLogin  String                     testapp1Admin
+                        administratorLoginPassword  SecureString                         
+                        databaseName     String                     testapp1devdb
+                        collation        String                     SQL_Latin1_General_CP1_CI_AS
+                        edition          String                     Standard  
+                        maxSizeBytes     String                     1073741824
+                        requestedServiceObjectiveName  String                     S0        
+                        
+    Outputs           :
 
-  Se o comando não for bem-sucedido, resolva as mensagens de erro e tente novamente. Problemas comuns são o uso de valores de parâmetros que não obedecem às restrições de nomenclatura de recursos do Azure. Outras dicas de solução de problemas podem ser encontradas no artigo [Solucionando problemas de implantações de grupos de recursos no Azure](./resource-manager-troubleshoot-deployments-powershell.md).
+  If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](./resource-manager-troubleshoot-deployments-powershell.md) article.
 
-  Em um prompt de comando do PowerShell, digite o comando a seguir para implantar recursos no grupo de recursos criado para o ambiente de testes, substituindo [path] pelo caminho para os arquivos que você salvou nas etapas anteriores.
+  From a PowerShell command prompt, type the command below to deploy resources to the resource group you created for the Test environment, replacing [path] with the path to the files you saved in previous steps.
 
-	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
+    New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
 
-  Em um prompt de comando do PowerShell, digite o comando a seguir para implantar recursos no grupo de recursos criado para o ambiente de pré-produção, substituindo [path] pelo caminho para os arquivos que você salvou nas etapas anteriores.
+  From a PowerShell command prompt, type the command below to deploy resources to the resource group you created for the Pre-Production environment, replacing [path] with the path to the files you saved in previous steps.
 
-	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
+    New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
 
-Os arquivos de modelos e parâmetros podem ter o controle de versão e ser mantidos com o código do aplicativo e em um sistema de controle de origem. Você também pode salvar os comandos anteriores em arquivos de script e salvá-los com seu código.
+The template and parameter files can be versioned and maintained with your application code in a source control system.  You could also save the commands above to script files and save them with your code as well.
 
-> [AZURE.NOTE] Você pode implantar o modelo no Azure diretamente clicando no botão "Implantar no Azure" no artigo [Provisionar um aplicativo Web com um banco de dados SQL](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/). Esse procedimento poderá ser útil para saber mais sobre modelos, mas ele não permitirá que você edite, controle a versão e salve os valores de parâmetro e modelo com o código do aplicativo. Não há mais detalhes sobre esse método neste artigo.
+> [AZURE.NOTE] You can deploy the template to Azure directly by clicking the "Deploy to Azure" button on the [Provision a Web App with a SQL Database](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/) article.  You might find this helpful to learn about templates, but doing so does not enable you to edit, version, and save your template and parameter values with your application code, so further detail about this method is not covered in this article.
 
-## Manter ambientes
-Durante o desenvolvimento, a configuração dos recursos do Azure em diferentes ambientes pode ser alterada inconsistentemente de forma intencional ou acidental. Isso pode causar problemas desnecessários e resolução de problemas durante o ciclo de desenvolvimento do aplicativo.
+## <a name="maintain-environments"></a>Maintain environments
+Throughout development, configuration of the Azure resources in the different environments may be inconsistently changed intentionally or accidentally.  This can cause unnecessary troubleshooting and problem resolution during the application development cycle.
 
-1. Altere os ambientes abrindo o [Portal do Azure](https://portal.azure.com).
-2. Entre nele com a mesma conta que você usou para concluir as etapas acima.
-3. Conforme mostrado na imagem abaixo, clique em Procurar --> Grupos de recursos (talvez seja necessário rolar para baixo para ver os Grupos de recursos).![Portal](./media/solution-dev-test-environments/rgbrowse.png)
-4. Depois de clicar nos Grupos de recursos na imagem acima, você verá a folha Grupos de recursos e os três grupos de recursos que você criou em uma etapa anterior, conforme mostra a imagem abaixo. Clique no grupo de recursos TestApp1-Desenvolvimento e você verá a folha que lista os recursos criados pelo modelo na implantação de grupo de recursos TestApp1-Desenvolvimento concluída em uma etapa anterior. Exclua o recurso do Aplicativo Web TestApp1DevApp clicando em TestApp1DevApp na folha Grupo de recursos do TestApp1-Development e, em seguida, clicando em Excluir na folha do aplicativo Web TestApp1DevApp. ![Portal](./media/solution-dev-test-environments/portal2.png)
-5. Clique em "Sim" quando o portal exibir uma mensagem perguntando se você tem certeza de que deseja excluir o recurso. Fechar a folha do Grupo de recursos TestApp1-Development e abri-la novamente faz com que o aplicativo Web que acabou de ser excluído não apareça mais. O conteúdo do grupo de recursos agora é diferente do que deveria ser. Além disso, você pode experimentar excluir vários recursos de vários grupos de recursos ou até mesmo alterar definições de configuração para alguns dos recursos. Em vez de usar o Portal do Azure para excluir um recurso de um grupo de recursos, você pode usar o comando [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) do PowerShell ou o comando “azure resource delete” da CLI para realizar a mesma tarefa.
-6. Para colocar todos os recursos e configuração que devem estar nos grupos de recursos de volta ao estado normal, implante novamente os ambientes nos grupos de recursos usando os mesmos comandos utilizados na seção [Implantar recursos nos ambientes](#deploy-resources-to-environments), mas substitua "Deployment1" por "Deployment2."
-7.  Conforme mostra a seção Resumo da folha TestApp1-Development na imagem mostrada na Etapa 4, você verá que o aplicativo Web excluído no portal na etapa anterior existe novamente, assim como quaisquer outros recursos que você decidiu excluir. Se você alterou a configuração de qualquer um dos recursos, também perceberá que foram reconfigurados para os valores normais nos arquivos de parâmetro. Uma das vantagens da implantação de seus ambientes com modelos do Gerenciador de Recursos do Azure é que você pode facilmente reimplantar os ambientes de volta para um estado conhecido a qualquer momento.
-8. Se clicar no texto em "Última implantação" na imagem abaixo, você verá uma folha que mostra o histórico de implantação para o grupo de recursos. Como usou o nome "Deployment1" para a primeira implantação e "Deployment2" para a segunda, você terá duas entradas. Clicar em uma implantação exibirá uma folha que mostra os resultados de cada implantação.![Portal](./media/solution-dev-test-environments/portal3.png)
+1. Change the environments by opening the [Azure portal](https://portal.azure.com). 
+2. Sign into it with the same account you used to complete the steps above. 
+3. As shown in the picture below, click Browse-->Resource groups (you may need to scroll down to see Resource groups).
+   ![Portal](./media/solution-dev-test-environments/rgbrowse.png)
+4. After clicking on Resource groups in the picture above, you'll see the Resource groups blade and the three resource groups you created in a previous step as shown in the picture below. Click on the TestApp1-Development resource group and you'll see the blade that lists the resources created by the template in the TestApp1-Development resource group deployment you completed in a previous step.  Delete the TestApp1DevApp Web App resource by clicking TestApp1DevApp in the TestApp1-Development Resource group blade, and then clicking Delete in the TestApp1DevApp Web app blade.
+   ![Portal](./media/solution-dev-test-environments/portal2.png)
+5. Click "Yes" when the portal prompts you as to whether you're sure you want to delete the resource. Closing the TestApp1-Development Resource group blade and re-opening it will now show it without the Web app you just deleted.  The contents of the resource group are now different than they should be. You can further experiment by deleting multiple resources from multiple resource groups or even changing configuration settings for some of the resources. Instead of using the Azure portal to delete a resource from a resource group, you could use the PowerShell [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) command or the or "azure resource delete" command from the CLI to accomplish the same task.
+6. To get all of the resources and configuration that are supposed to be in the resource groups back to the state they should be in, re-deploy the environments to the resource groups using the same commands you used in the [Deploy resources to environments](#deploy-resources-to-environments) section, but replace "Deployment1" with "Deployment2."
+7.  As shown in the Summary section of the TestApp1-Development blade in the picture shown in step 4, you'll see that the Web app you deleted in the portal in the previous step exists again, as do any other resources you may have chosen to delete. If you changed the configuration of any of the resources, you can also verify that they've been set back to the values in the parameter files too. One of the advantages of deploying your environments with Azure Resource Manager templates is that you can easily re-deploy the environments back to a known state at any time.
+8. If you click on the text under "Last deployment" in the picture below, you'll see a blade that shows the deployment history for the resource group.  Since you used the name "Deployment1" for the first deployment and "Deployment2" for the second deployment, you'll have two entries.  Clicking on a deployment will display a blade that shows the results for each deployment.
+  ![Portal](./media/solution-dev-test-environments/portal3.png)
 
 
 
-## Excluir ambientes
-Quando tiver concluído o uso de um ambiente, convém excluí-lo para não incorrer em cobranças de uso de recursos do Azure que você não está usando. Excluir ambientes é ainda mais fácil do que criá-los. Nas etapas anteriores, foram criados Grupos de recursos individuais do Azure para cada ambiente e, em seguida, os recursos foram implantados em grupos de recursos.
+## <a name="delete-environments"></a>Delete environments
+Once you're finished using an environment, you'll want to delete it so you don't incur usage charges for Azure resources you're no longer using.  Deleting environments is even easier than creating them.  In previous steps, individual Azure Resource Groups were created for each environment and then resources were deployed into the resource groups. 
 
-Exclua os ambientes usando um dos métodos abaixo. Todos os métodos obterão o mesmo resultado.
+Delete the environments using any of the methods below.  All methods will achieve the same outcome.
 
-### CLI do Azure
+### <a name="azure-cli"></a>Azure CLI
 
-Em um prompt da CLI, digite o seguinte:
+From a CLI prompt, type the following:
 
-	azure group delete "TestApp1-Development"
+    azure group delete "TestApp1-Development"
 
-Quando receber a solicitação, digite y e pressione enter para remover o ambiente de Desenvolvimento e todos os seus recursos. Após alguns minutos, o comando retornará o seguinte:
+When prompted, enter y and then press enter to remove the Development environment and all of its resources. After a few minutes, the command will return the following:
 
-	info:    group delete command OK
+    info:    group delete command OK
 
-Em um prompt da CLI, digite o seguinte para excluir os ambientes restantes:
+From a CLI prompt, type the following to delete the remaining environments:
 
-	azure group delete "TestApp1-Test"
-	azure group delete "TestApp1-Pre-Production"
+    azure group delete "TestApp1-Test"
+    azure group delete "TestApp1-Pre-Production"
   
-### PowerShell
+### <a name="powershell"></a>PowerShell
 
-Em um prompt de comando do Azure PowerShell (versão 1.01 ou superior), digite o comando abaixo para excluir o grupo de recursos e todo o seu conteúdo.
+From an Azure PowerShell (version 1.01 or higher) command prompt, type the command below to delete the resource group and all its contents.    
 
-	Remove-AzureRmResourceGroup -Name TestApp1-Development
+    Remove-AzureRmResourceGroup -Name TestApp1-Development
 
-Quando receber a solicitação, se você tiver certeza de que deseja remover o grupo de recursos, digite y e pressione enter.
+When prompted if you're sure you want to remove the resource group, enter y, followed by the enter key.
 
-Digite o seguinte para excluir os ambientes restantes:
+Type the following to delete the remaining environments:
 
-	Remove-AzureRmResourceGroup -Name TestApp1-Test
-	Remove-AzureRmResourceGroup -Name TestApp1-Pre-Production
+    Remove-AzureRmResourceGroup -Name TestApp1-Test
+    Remove-AzureRmResourceGroup -Name TestApp1-Pre-Production
 
-### Portal do Azure
+### <a name="azure-portal"></a>Azure portal
 
-1. No Portal do Azure, navegue até Grupos de recursos, como você fez nas etapas anteriores.
-2. Selecione o grupo de recursos TestApp1-Development e, em seguida, clique em Excluir na folha do grupo de recursos TestApp1-Development. Uma nova folha será exibida. Insira o nome do grupo de recursos e clique no botão Excluir. ![Portal](./media/solution-dev-test-environments/rgdelete.png)
-3. Exclua os grupos de recursos TestApp1-Teste e TestApp1-Pré-produção da mesma maneira que excluiu o grupo de recursos TestApp1-Desenvolvimento.
+1. In the Azure portal, browse to Resource groups as you did in previous steps. 
+2. Select the TestApp1-Development resource group and then click Delete in the TestApp1-Development Resource group blade. A new blade will appear. Enter the resource group name and click the Delete button.
+![Portal](./media/solution-dev-test-environments/rgdelete.png)
+3. Delete the TestApp1-Test and TestApp1-Pre-Production resource groups the same way you deleted the TestApp1-Development resource group.
 
-Independentemente do método usado, os grupos de recursos e todos os recursos que eles continham deixarão de existir, e você não incorrerá em despesas de cobrança para os recursos.
+Regardless of the method you use, the resource groups and all of the resources they contained will no longer exist, and you'll no longer incur billing expenses for the resources.  
 
-Para minimizar as despesas de utilização de recursos do Azure incorridas durante o desenvolvimento de aplicativos, você pode usar a [Automação do Azure](automation/automation-intro.md) para agendar trabalhos que:
+To minimize the Azure resource utilization expenses you incur during application development you can use [Azure Automation](automation/automation-intro.md) to schedule jobs that:
 
-- Param máquinas virtuais ao fim de cada dia e as reiniciam no início de cada dia.
-- Excluir ambientes inteiros ao fim de cada dia e recriá-los no início de cada dia.
+- Stop virtual machines at the end of each day and restart them at the start of each day.
+- Delete whole environments at the end of each day and re-create them at the start of each day.
  
-Agora que viu como é fácil criar, manter e excluir os ambientes de desenvolvimento e teste, você pode aprender mais sobre o que acabou de fazer experimentando as etapas acima e lendo as referências contidas neste artigo.
+Now that you've experienced how easy it is to create, maintain, and delete development and test environments, you can learn more about what you just did by further experimenting with the steps above and reading the references contained in this article.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- [Delegar controle administrativo](./active-directory/role-based-access-control-configure.md) para recursos diferentes em cada ambiente atribuindo usuários ou grupos do AD do Microsoft Azure a funções específicas que têm a capacidade de executar um subconjunto de operações nos recursos do Azure.
-- [Atribua marcas](resource-group-using-tags.md) aos grupos de recursos de cada ambiente e/ou aos recursos individuais. Você pode adicionar uma marca de "Ambiente" aos grupos de recursos e definir seu valor para corresponder aos nomes de seu ambiente. As marcas podem ser particularmente úteis quando você precisar organizar os recursos de gerenciamento ou de cobrança.
-- Monitore os alertas e a cobrança dos recursos do grupo de recursos no [Portal do Azure](https://portal.azure.com).
+- [Delegate administrative control](./active-directory/role-based-access-control-configure.md) to different resources in each environment by assigning Microsoft Azure AD groups or users to specific roles that have the ability to perform a subset of operations on Azure resources.
+- [Assign tags](resource-group-using-tags.md) to the resource groups for each environment and/or the individual resources. You might add an "Environment" tag to your resource groups and set its value to correspond to your environment names. Tags can be particularly helpful when you need to organize resources for billing or management.
+- Monitor alerts and billing for resource group resources in the [Azure portal](https://portal.azure.com).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
- pageTitle="Soluções pré-configuradas do Azure IoT | Microsoft Azure"
- description="Uma descrição das soluções pré-configuradas IoT Azure e sua arquitetura com links para recursos adicionais."
+ pageTitle="Azure IoT preconfigured solutions | Microsoft Azure"
+ description="A description of the Azure IoT preconfigured solutions and their architecture with links to additional resources."
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,107 +17,108 @@
  ms.date="08/09/2016"
  ms.author="dobett"/>
 
-# Quais são as soluções pré-configuradas do Pacote do Azure IoT?
 
-As soluções pré-configuradas do Azure IoT Suite são implementações de padrões de solução IoT comuns que você pode implantar no Azure usando a sua assinatura. Você pode usar as soluções pré-configuradas:
+# <a name="what-are-the-azure-iot-suite-preconfigured-solutions?"></a>What are the Azure IoT Suite preconfigured solutions?
 
-- Como ponto de partida para suas próprias soluções de IoT.
-- Para saber mais sobre os padrões comuns no desenvolvimento e no design da solução de IoT.
+The Azure IoT Suite preconfigured solutions are implementations of common IoT solution patterns that you can deploy to Azure using your subscription. You can use the preconfigured solutions:
 
-Cada solução pré-configurada é uma implementação completa de ponta a ponta que usa dispositivos simulados para gerar telemetria.
+- As a starting point for your own IoT solutions.
+- To learn about common patterns in IoT solution design and development.
 
-Além de implantar e de executar as soluções no Azure, você pode baixar o código-fonte completo, personalizar e estender a solução para atender às suas necessidades específicas de IoT.
+Each preconfigured solution is a complete, end-to-end implementation that uses simulated devices to generate telemetry.
 
-> [AZURE.NOTE] Para implantar uma das soluções pré-configuradas, acesse o [Microsoft Azure IoT Suite][lnk-azureiotsuite]. O artigo [Introdução às soluções IoT pré-configuradas][lnk-getstarted-preconfigured] fornece mais informações sobre como implantar e executar uma das soluções.
+In addition to deploying and running the solutions in Azure, you can download the complete source code and then customize and extend the solution to meet your specific IoT requirements.
 
-A tabela a seguir mostra como essas soluções são mapeadas para recursos específicos de IoT:
+> [AZURE.NOTE] To deploy one of the preconfigured solutions, visit [Microsoft Azure IoT Suite][lnk-azureiotsuite]. The article [Get started with the IoT preconfigured solutions][lnk-getstarted-preconfigured] provides more information about how to deploy and run one of the solutions.
 
-| Solução | Ingestão de dados | Identidade do dispositivo | Comando e controle | Regras e ações | Análise preditiva |
+The following table shows how the solutions map to specific IoT features:
+
+| Solution | Data Ingestion | Device Identity | Command and Control | Rules and Actions | Predictive Analytics |
 |------------------------|-----|-----|-----|-----|-----|
-| [Monitoramento remoto][lnk-getstarted-preconfigured] | Sim | Sim | Sim | Sim | - |
-| [Manutenção preditiva][lnk-predictive-maintenance] | Sim | Sim | Sim | Sim | Sim |
+| [Remote monitoring][lnk-getstarted-preconfigured] | Yes | Yes | Yes | Yes | -   |
+| [Predictive maintenance][lnk-predictive-maintenance] | Yes | Yes | Yes | Yes | Yes |
 
-- *Ingestão de dados*: entrada de dados em escala para a nuvem.
-- *Identidade do dispositivo*: gerenciar identidades exclusivas de cada dispositivo conectado.
-- *Comando e controle*: enviar mensagens para um dispositivo a partir da nuvem para fazer com que o dispositivo execute uma ação.
-- *Regras e ações*: o back-end da solução usa regras para atuar em dados específicos do dispositivo para a nuvem.
-- *Análise preditiva*: o back-end da solução analisa dados de dispositivo para a nuvem para prever quando ações específicas devem ocorrer. Por exemplo, analisar a telemetria de motores de aeronave para determinar quando deve ser realizada a manutenção do motor.
+- *Data ingestion*: Ingress of data at scale to the cloud.
+- *Device identity*: Manage unique identities of every connected device.
+- *Command and control*: Send messages to a device from the cloud to cause the device to take some action.
+- *Rules and actions*: The solution back end uses rules to act on specific device-to-cloud data.
+- *Predictive analytics*: The solution back end applies analyzes device-to-cloud data to predict when specific actions should take place. For example, analyzing aircraft engine telemetry to determine when engine maintenance is due.
 
-## Visão geral da solução pré-configurada de Monitoramento Remoto
+## <a name="remote-monitoring-preconfigured-solution-overview"></a>Remote Monitoring preconfigured solution overview
 
-Optamos por abordar a solução pré-configurada de monitoramento remoto neste artigo porque ela ilustra vários elementos comuns de design compartilhados pelas outras soluções.
+We have chosen to discuss the remote monitoring preconfigured solution in this article because it illustrates many common design elements that the other solutions share.
 
-O diagrama a seguir ilustra os principais elementos da solução de monitoramento remoto. As seções abaixo fornecem mais informações sobre esses elementos.
+The following diagram illustrates the key elements of the remote monitoring solution. The sections below provide more information about these elements.
 
-![Arquitetura da solução pré-configurada de monitoramento remoto][img-remote-monitoring-arch]
+![Remote Monitoring preconfigured solution architecture][img-remote-monitoring-arch]
 
-## Dispositivos
+## <a name="devices"></a>Devices
 
-Quando você implanta a solução pré-configurada de monitoramento remoto, quatro dispositivos simulados são previamente provisionados na solução que simula um dispositivo de resfriamento. Esses dispositivos simulados têm um modelo interno de temperatura interna e de umidade que emite a telemetria. Esses dispositivos simulados são incluídos para ilustrar o fluxo de dados de ponta a ponta por meio da solução e fornecer uma fonte conveniente de telemetria e um destino para os comandos se você for um desenvolvedor de back-end usando a solução como um ponto de partida para uma implementação personalizada.
+When you deploy the remote monitoring preconfigured solution, four simulated devices are pre-provisioned in the solution that simulate a cooling device. These simulated devices have a built-in temperature and humidity model that emits telemetry. These simulated devices are included to illustrate the end-to-end flow of data through the solution, and to provide a convenient source of telemetry and a target for commands if you are a back-end developer using the solution as a starting point for a custom implementation.
 
-Quando um dispositivo primeiro se conecta ao Hub IoT na solução pré-configurada de monitoramento remoto, a mensagem de informações do dispositivo enviada para o hub IoT enumera a lista de comandos aos quais o dispositivo pode responder. Na solução pré-configurada de monitoramento remoto, os comandos são:
+When a device first connects to IoT Hub in the remote monitoring preconfigured solution, the device information message sent to the IoT hub enumerates the list of commands that the device can respond to. In the remote monitoring preconfigured solution, the commands are: 
 
-- *Executar Ping*: o dispositivo responde a esse comando com uma confirmação. Isso é útil para verificar se o dispositivo ainda está ativo e ouvindo.
-- *Iniciar Telemetria*: instrui o dispositivo a iniciar o envio de telemetria.
-- *Parar Telemetria*: instrui o dispositivo a parar o envio de telemetria.
-- *Alterar Ponto de Definição da Temperatura*: controla os valores de telemetria de temperatura simulados enviados pelo dispositivo. Isso é útil para testar a lógica de back-end:
-- *Diagnosticar Telemetria*: controla se o dispositivo deve enviar a temperatura externa como telemetria.
-- *Alterar Estado do Dispositivo*: define a propriedade de metadados do estado do dispositivo relatado pelo dispositivo. Isso é útil para testar a lógica de back-end:
+- *Ping Device*: The device responds to this command with an acknowledgement. This is useful for checking that the device is still active and listening.
+- *Start Telemetry*: Instructs the device to start sending telemetry.
+- *Stop Telemetry*: Instructs the device to stop sending telemetry.
+- *Change Set Point Temperature*: Controls the simulated temperature telemetry values the device sends. This is useful for testing back-end logic.
+- *Diagnostic Telemetry*: Controls if the device should send the external temperature as telemetry.
+- *Change Device State*.: Sets the device state metadata property that the device reports. This is useful for testing back-end logic.
 
-Você pode adicionar mais dispositivos simulados à solução que emite a mesma telemetria e responde aos mesmos comandos.
+You can add more simulated devices to the solution that emit the same telemetry and respond to the same commands. 
 
-## Hub IoT
+## <a name="iot-hub"></a>IoT Hub
 
-Nesta solução pré-configurada, a instância do Hub IoT corresponde ao *Gateway de Nuvem* em uma [arquitetura da solução de IoT][lnk-what-is-azure-iot] típica.
+In this preconfigured solution, the IoT Hub instance corresponds to the *Cloud Gateway* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
-Um Hub IoT recebe telemetria dos dispositivos em um único ponto de extremidade. Um hub IoT também mantém os pontos de extremidade específicos do dispositivo onde cada dispositivo pode recuperar os comandos enviados a ele.
+An IoT hub receives telemetry from the devices at a single endpoint. An IoT hub also maintains device specific endpoints where each devices can retrieve the commands that are sent to it.
 
-O Hub IoT disponibiliza a telemetria recebida por meio do ponto de extremidade de leitura de telemetria no lado do serviço.
+The IoT hub makes the received telemetry available through the service-side telemetry read endpoint.
 
-## Stream Analytics do Azure
+## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-A solução pré-configurada usa três trabalhos do ASA ([Stream Analytics do Azure][lnk-asa]) para filtrar o fluxo de telemetria dos dispositivos:
+The preconfigured solution uses three [Azure Stream Analytics][lnk-asa] (ASA) jobs to filter the telemetry stream from the devices:
 
 
-- *Trabalho de DeviceInfo* – envia dados para um Hub de Eventos que roteia mensagens específicas de registro de dispositivos, enviadas quando um dispositivo se conecta pela primeira vez ou em resposta a um comando **Alterar estado do dispositivo**, para o registro do dispositivo da solução ( um banco de dados do Banco de Dados de Documentos).
-- *Trabalho de telemetria* – envia toda a telemetria bruta para o armazenamento de blobs do Azure para armazenamento frio e calcula as agregações de telemetria exibidas no painel de solução.
-- *Trabalho de regras* – filtra o fluxo de telemetria para os valores que excedem os limites de regras e retornam os dados para um Hub de Eventos. Quando uma regra é acionada, a exibição de painel do portal da solução mostra esse evento como uma nova linha na tabela de histórico do alarme e dispara uma ação com base nas configurações definidas nas exibições Regras e Ações no portal da solução.
+- *DeviceInfo job* - outputs data to an Event hub that routes device registration specific messages, sent when a device first connects or in response to a **Change device state** command, to the solution device registry (a DocumentDB database). 
+- *Telemetry job* - sends all raw telemetry to Azure blob storage for cold storage and calculates telemetry aggregations that display in the solution dashboard.
+- *Rules job* - filters the telemetry stream for values that exceed any rule thresholds and outputs the data to an Event hub. When a rule fires, the solution portal dashboard view displays this event as a new row in the alarm history table and triggers an action based on the settings defined on the Rules and Actions views in the solution portal.
 
-Nesta solução pré-configurada, os trabalhos ASA fazem parte do **back-end da solução IoT** em uma [arquitetura de solução IoT][lnk-what-is-azure-iot] típica.
+In this preconfigured solution, the ASA jobs form part of to the **IoT solution back end** in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
-## Processador de eventos
+## <a name="event-processor"></a>Event processor
 
-Nesta solução pré-configurada, o processador de eventos faz parte do **back-end da solução IoT** em uma [arquitetura de solução IoT][lnk-what-is-azure-iot] típica.
+In this preconfigured solution, the event processor forms part of the **IoT solution back end** in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
-Os trabalhos ASA **DeviceInfo** e **Regras** enviam suas saídas para os Hubs de Eventos para entrega em outros serviços de back-end. A solução usa uma instância de [EventPocessorHost][lnk-event-processor], em execução em um [WebJob][lnk-web-job], para ler as mensagens desses Hubs de Eventos. O **EventProcessorHost** usa os dados de **DeviceInfo** para atualizar os dados do dispositivo no banco de dados do Banco de Dados de Documentos e usa os dados de **Regras** para invocar o aplicativo lógico e atualizar os alertas exibidos no portal de solução.
+The **DeviceInfo** and **Rules** ASA jobs send their output to Event hubs for delivery to other back end services. The solution uses an [EventPocessorHost][lnk-event-processor] instance, running in a [WebJob][lnk-web-job], to read the messages from these Event hubs. The **EventProcessorHost** uses the **DeviceInfo** data to update the device data in the DocumentDB database, and uses the **Rules** data to invoke the Logic app and update the alerts display in the solution portal.
 
-## Registro de identidade do dispositivo e Banco de Dados de Documentos
+## <a name="device-identity-registry-and-documentdb"></a>Device identity registry and DocumentDB
 
-Cada Hub IoT inclui um [registro de identidade do dispositivo][lnk-identity-registry] que armazena as chaves do dispositivo. O Hub IoT usa esses dispositivos de autenticação de informação – um dispositivo deve ser registrado e ter uma chave válida para poder ser conectado ao Hub.
+Every IoT hub includes a [device identity registry][lnk-identity-registry] that stores device keys. IoT Hub uses this information authenticate devices - a device must be registered and have a valid key before it can connect to the hub.
 
-Essa solução armazena informações adicionais sobre dispositivos como seu estado, os comandos a que eles dão suporte e outros metadados. A solução usa um banco de dados do Banco de Dados de Documentos para armazenar esses dados de dispositivos específicos da solução e o portal de solução recupera dados desse banco de dados do Banco de Dados de Documentos para exibição e edição.
+This solution stores additional information about devices such as their state, the commands they support, and other metadata. The solution uses a DocumentDB database to store this solution-specific device data and the solution portal retrieves data from this DocumentDB database for display and editing.
 
-A solução também deverá manter as informações no registro de identidade do dispositivo sincronizadas com os conteúdos do banco de dados do Banco de Dados de Documentos. O **EventProcessorHost** usa os dados do trabalho de análise de fluxo de **DeviceInfo** para gerenciar a sincronização.
+The solution must also keep the information in the device identity registry synchronized with the contents of the DocumentDB database. The **EventProcessorHost** uses the data from **DeviceInfo** stream analytics job to manage the synchronization.
 
-## Portal de solução
+## <a name="solution-portal"></a>Solution portal
 
-![Painel da solução][img-dashboard]
+![Solution dashboard][img-dashboard]
 
-O portal da solução é uma interface de usuário baseada na Web implantado na nuvem como parte da solução pré-configurada. Ele permite que você:
+The solution portal is a web-based UI that is deployed to the cloud as part of the preconfigured solution. It enables you to:
 
-- Exiba o histórico de telemetria e de alarmes em um painel.
-- Provisione novos dispositivos.
-- Gerencie e monitore dispositivos.
-- Envie comandos para dispositivos específicos.
-- Gerencie regras e ações.
+- View telemetry and alarm history in a dashboard.
+- Provision new devices.
+- Manage and monitor devices.
+- Send commands to specific devices.
+- Manage rules and actions.
 
-Nesta solução pré-configurada, o portal de solução faz parte do **back-end de solução IoT** e parte da **Conectividade de processamento e de negócios** na [arquitetura de solução IoT][lnk-what-is-azure-iot] típica.
+In this preconfigured solution, the solution portal forms part of the **IoT solution back end** and part of the **Processing and business connectivity** in the typical [IoT solution architecture][lnk-what-is-azure-iot].
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Para obter mais informações sobre as arquiteturas de solução de IoT, confira [Serviços de IoT do Microsoft Azure: arquitetura de referência][lnk-refarch].
+For more information about IoT solution architectures, see [Microsoft Azure IoT services: Reference Architecture][lnk-refarch].
 
-Agora você sabe o que é uma solução pré-configurada, poderá começar pela implantação da solução pré-configurada de *monitoramento remoto*: [Introdução às soluções pré-configuradas][lnk-getstarted-preconfigured].
+Now you know what a preconfigured solution is, you can get started by deploying the *remote monitoring* preconfigured solution: [Get started with the preconfigured solutions][lnk-getstarted-preconfigured].
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
@@ -131,4 +132,7 @@ Agora você sabe o que é uma solução pré-configurada, poderá começar pela 
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
-<!----HONumber=AcomDC_1005_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,60 +1,65 @@
 <properties
-	pageTitle="Configurar a integração do Cofre da Chave do Azure para SQL Server em VMs do Azure (Gerenciador de Recursos)"
-	description="Saiba como automatizar a configuração da criptografia do SQL Server para uso com o cofre de chave do Azure. Este tópico explica como usar a integração do Cofre da Chave do Azure com máquinas virtuais do SQL Server criadas com o Gerenciador de Recursos."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="rothja"
-	manager="jhubbard"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Configure Azure Key Vault Integration for SQL Server on Azure VMs (Resource Manager)"
+    description="Learn how to automate the configuration of SQL Server encryption for use with Azure Key Vault. This topic explains how to use Azure Key Vault Integration with SQL Server virtual machines created with Resource Manager."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="rothja"
+    manager="jhubbard"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="07/14/2016"
-	ms.author="jroth"/>
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="07/14/2016"
+    ms.author="jroth"/>
 
-# Configurar a integração do Cofre da Chave do Azure para SQL Server em VMs do Azure (Gerenciador de Recursos)
+
+# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-(resource-manager)"></a>Configure Azure Key Vault Integration for SQL Server on Azure VMs (Resource Manager)
 
 > [AZURE.SELECTOR]
-- [Gerenciador de Recursos](virtual-machines-windows-ps-sql-keyvault.md)
-- [Clássico](virtual-machines-windows-classic-ps-sql-keyvault.md)
+- [Resource Manager](virtual-machines-windows-ps-sql-keyvault.md)
+- [Classic](virtual-machines-windows-classic-ps-sql-keyvault.md)
 
-## Visão geral
-Há vários recursos de criptografia SQL Server, como [transparent data encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [criptografia de nível de coluna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx), e [criptografia de backup](https://msdn.microsoft.com/library/dn449489.aspx). Essas formas de criptografia exigem o gerenciamento e armazenamento de chaves criptográficas usadas para a criptografia. O serviço Cofre da Chave do Azure (AKV) foi criado para melhorar a segurança e o gerenciamento dessas chaves em um local seguro e altamente disponível. O [SQL Server Connector](http://www.microsoft.com/download/details.aspx?id=45344) permite que o SQL Server use essas chaves do Cofre da Chave do Azure.
+## <a name="overview"></a>Overview
+There are multiple SQL Server encryption features, such as [transparent data encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [column level encryption (CLE)](https://msdn.microsoft.com/library/ms173744.aspx), and [backup encryption](https://msdn.microsoft.com/library/dn449489.aspx). These forms of encryption require you to manage and store the cryptographic keys you use for encryption. The Azure Key Vault (AKV) service is designed to improve the security and management of these keys in a secure and highly available location. The [SQL Server Connector](http://www.microsoft.com/download/details.aspx?id=45344) enables SQL Server to use these keys from Azure Key Vault.
 
-Se você estiver executando o SQL Server em máquinas locais, há [etapas para acessar o Cofre da Chave do Azure da máquina local com SQL Server](https://msdn.microsoft.com/library/dn198405.aspx). Mas, para o SQL Server em VMs do Azure, você pode economizar tempo usando o recurso *Integração do Cofre da Chave do Azure*.
+If you running SQL Server with on-premises machines, there are [steps you can follow to access Azure Key Vault from your on-premises SQL Server machine](https://msdn.microsoft.com/library/dn198405.aspx). But for SQL Server in Azure VMs, you can save time by using the *Azure Key Vault Integration* feature.
 
-Quando esse recurso está habilitado, ele instala automaticamente o SQL Server Connector, configura o provedor de EKM a fim de acessar o Cofre da Chave do Azure e cria a credencial para permitir que você acesse seu cofre. Ao examinar as etapas da documentação local mencionada anteriormente, é possível ver que esse recurso automatiza as etapas 2 e 3. A única coisa que você ainda precisará fazer manualmente é criar o cofre da chave e as chaves. A partir daí, toda a configuração de sua VM do SQL será automatizada. Quando esse recurso concluir a configuração, você poderá executar instruções T-SQL para começar a criptografar seus bancos de dados ou backups como faria normalmente.
+When this feature is enabled, it automatically installs the SQL Server Connector, configures the EKM provider to access Azure Key Vault, and creates the credential to allow you to access your vault. If you looked at the steps in the previously mentioned on-premises documentation, you can see that this feature automates steps 2 and 3. The only thing you would still need to do manually is to create the key vault and keys. From there, the entire setup of your SQL VM is automated. Once this feature has completed this setup, you can execute T-SQL statements to begin encrypting your databases or backups as you normally would.
 
-[AZURE.INCLUDE [Preparação para a integração de AKV](../../includes/virtual-machines-sql-server-akv-prepare.md)]
+[AZURE.INCLUDE [AKV Integration Prepare](../../includes/virtual-machines-sql-server-akv-prepare.md)]
 
-## Habilitando e configurando a integração de AKV
-Você pode habilitar a integração de AKV durante o provisionamento ou configurá-la para VMs existentes.
+## <a name="enabling-and-configuring-akv-integration"></a>Enabling and configuring AKV integration
+You can enable AKV integration during provisioning or configure it for existing VMs.
 
-### Novas VMs
-Se você estiver provisionando uma nova máquina de virtual do SQL Server com o Gerenciador de Recursos, o Portal do Azure fornecerá uma etapa para habilitar a integração do Cofre de Chaves do Azure.
+### <a name="new-vms"></a>New VMs
+If you are provisioning a new SQL Server virtual machine with Resource Manager, the Azure portal provides a step to enable Azure Key Vault integration.
 
-![Integração do Cofre da Chave do SQL Azure](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
+![SQL Azure Key Vault Integration](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 
-Para obter uma explicação detalhada sobre o provisionamento, confira [Provisionar uma máquina virtual do SQL Server no Portal do Azure](virtual-machines-windows-portal-sql-server-provision.md).
+For a detailed walkthrough of provisioning, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
 
-### VMs existentes
-Para máquinas virtuais existentes do SQL Server, selecione sua máquina virtual do SQL Server. Selecione a seção **Configuração do SQL Server** da folha **Configurações**.
+### <a name="existing-vms"></a>Existing VMs
+For existing SQL Server virtual machines, select your SQL Server virtual machine. Then select the **SQL Server configuration** section of the **Settings** blade.
 
-![Integração de AKV do SQL para VMs existentes](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-existing-vms.png)
+![SQL AKV Integration for existing VMs](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-existing-vms.png)
 
-Na folha **Configuração do SQL Server**, clique no botão **Editar** na seção de integração do Cofre de Chaves Automatizado.
+In the **SQL Server configuration** blade, click the **Edit** button in the Automated Key Vault integration section.
 
-![Configurar uma Integração de AKV do SQL para VMs existentes](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-configuration.png)
+![Configure SQL AKV Integration for existing VMs](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-configuration.png)
 
-Quando terminar, clique no botão **OK** na parte inferior da folha **Configuração do SQL Server** para salvar suas alterações.
+When finished, click the **OK** button on the bottom of the **SQL Server configuration** blade to save your changes.
 
->[AZURE.NOTE] Você também pode configurar a integração de AKV usando um modelo. Para saber mais, confira [Azure quickstart template for Azure Key Vault integration (Modelo de início rápido do Azure para integração com o Cofre de Chaves do Azure)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update).
+>[AZURE.NOTE] You can also configure AKV integration using a template. For more information, see [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update).
 
-[AZURE.INCLUDE [Próximas Etapas da Integração de AKV](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
+[AZURE.INCLUDE [AKV Integration Next Steps](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

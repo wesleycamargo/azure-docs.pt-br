@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Executar Tarefas de Inicialização nos Serviços de Nuvem do Azure | Microsoft Azure" 
-description="As tarefas de inicialização ajudam a preparar o ambiente de serviço de nuvem para seu aplicativo. Isso mostra o funcionamento das tarefas de inicialização e como criá-las" 
+pageTitle="Run Startup Tasks in Azure Cloud Services | Microsoft Azure" 
+description="Startup tasks help prepare your cloud service environment for your app. This teaches you how startup tasks work and how to make them" 
 services="cloud-services" 
 documentationCenter="" 
 authors="Thraka" 
@@ -17,51 +17,52 @@ ms.author="adegeo"/>
 
 
 
-# Como configurar e executar tarefas de inicialização para um serviço de nuvem
 
-Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do Registro ou o início de um processo de longa duração.
+# <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>How to configure and run startup tasks for a cloud service
 
->[AZURE.NOTE] As tarefas de inicialização não são aplicáveis às Máquinas Virtuais, apenas às funções Web e de Trabalho do Serviço de Nuvem.
+You can use startup tasks to perform operations before a role starts. Operations that you might want to perform include installing a component, registering COM components, setting registry keys, or starting a long running process.
 
-## Como funcionam as tarefas de inicialização
+>[AZURE.NOTE] Startup tasks are not applicable to Virtual Machines, only to Cloud Service Web and Worker roles.
 
-As tarefas de inicialização são ações executadas antes do início de suas funções e são definidas no arquivo [ServiceDefinition.csdef] usando o elemento [Task] dentro do elemento [Startup]. Com frequência, as tarefas de inicialização são arquivos em lotes, mas elas também podem ser aplicativos de console ou arquivos em lotes que iniciam scripts do PowerShell.
+## <a name="how-startup-tasks-work"></a>How startup tasks work
 
-As variáveis de ambiente passam informações para uma tarefa de inicialização e o armazenamento local pode ser usado para transmitir informações para fora de uma tarefa de inicialização. Por exemplo, uma variável de ambiente pode especificar o caminho para um programa que você deseja instalar e arquivos podem ser gravados no armazenamento local que poderá então ser lido posteriormente por suas funções.
+Startup tasks are actions that are taken before your roles begin and are defined in the [ServiceDefinition.csdef] file by using the [Task] element within the [Startup] element. Frequently startup tasks are batch files, but they can also be console applications, or batch files that start PowerShell scripts.
 
-Sua tarefa de inicialização pode registrar informações e erros no diretório especificado pela variável de ambiente **TEMP**. Durante a tarefa de inicialização, a variável de ambiente **TEMP** é resolvida para o diretório *C:\\Resources\\temp\\[guid].[nomedafunção]\\RoleTemp* durante a execução na nuvem.
+Environment variables pass information into a startup task, and local storage can be used to pass information out of a startup task. For example, an environment variable can specify the path to a program you want to install, and files can be written to local storage that can then be read later by your roles.
 
-As tarefas de inicialização também podem ser executadas várias vezes entre as reinicializações. Por exemplo, a tarefa de inicialização será executada sempre que a função for reciclada, e as reciclagens de função nem sempre incluirão uma reinicialização. As tarefas de inicialização devem ser gravadas de uma maneira que permita que sejam executadas diversas vezes sem problemas.
+Your startup task can log information and errors to the directory specified by the **TEMP** environment variable. During the startup task, the **TEMP** environment variable resolves to the *C:\\Resources\\temp\\[guid].[rolename]\\RoleTemp* directory when running on the cloud.
 
-As tarefas de inicialização devem terminar com um **errorlevel** (ou código de saída) zero para que o processo de inicialização seja concluído. Se uma tarefa de inicialização terminar com um **errorlevel** diferente de zero, a função não será iniciada.
+Startup tasks can also be executed several times between reboots. For example, the startup task will be run each time the role recycles, and role recycles may not always include a reboot. Startup tasks should be written in a way that allows them to run several times without problems.
+
+Startup tasks must end with an **errorlevel** (or exit code) of zero for the startup process to complete. If a startup task ends with a non-zero **errorlevel**, the role will not start.
 
 
-## Ordem de inicialização de função
+## <a name="role-startup-order"></a>Role startup order
 
-A seguir, o procedimento de inicialização da função no Azure:
+The following lists the role startup procedure in Azure:
 
-1. A instância está marcada como **Iniciando** e não recebe o tráfego.
+1. The instance is marked as **Starting** and does not receive traffic.
 
-2. Todas as tarefas de inicialização são executadas de acordo com o atributo **taskType**.
-    - As tarefas **simples** são executadas de forma síncrona, uma de cada vez.
-    - As tarefas em **segundo plano** e em **primeiro plano** são iniciadas de forma assíncrona, em paralelo à tarefa de inicialização.
+2. All startup tasks are executed according to their **taskType** attribute.
+    - The **simple** tasks are executed synchronously, one at a time.
+    - The **background** and **foreground** tasks are started asynchronously, parallel to the startup task.  
        
-    > [AZURE.WARNING] O IIS pode não estar totalmente configurado durante a fase de tarefas de inicialização no processo de inicialização e, portanto, os dados específicos da função podem não estar disponíveis. As tarefas de inicialização que exigem dados específicos da função devem usar [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
+    > [AZURE.WARNING] IIS may not be fully configured during the startup task stage in the startup process, so role-specific data may not be available. Startup tasks that require role-specific data should use [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
 
-3. O processo de host da função é iniciado e o site é criado no IIS.
+3. The role host process is started and the site is created in IIS.
 
-4. O método [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) é chamado.
+4. The [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) method is called.
 
-5. A instância é marcada como **Pronta** e o tráfego é roteado para a instância.
+5. The instance is marked as **Ready** and traffic is routed to the instance.
 
-6. O método [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) é chamado.
+6. The [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) method is called.
 
 
-## Exemplo de uma tarefa de inicialização
+## <a name="example-of-a-startup-task"></a>Example of a startup task
 
-As tarefas de inicialização são definidas no arquivo [ServiceDefinition.csdef], no elemento **Tarefa**. O atributo **commandLine** especifica o nome e os parâmetros do arquivo em lotes ou o comando de console de inicialização, o atributo **executionContext** especifica o nível de privilégio da tarefa de inicialização e o atributo **taskType** especifica como a tarefa será executada.
+Startup tasks are defined in the [ServiceDefinition.csdef] file, in the **Task** element. The **commandLine** attribute specifies the name and parameters of the startup batch file or console command, the **executionContext** attribute specifies the privilege level of the startup task, and the **taskType** attribute specifies how the task will be executed.
 
-Neste exemplo, uma variável de ambiente, **MyVersionNumber**, é criada para a tarefa de inicialização e definida como o valor "**1.0.0.0**".
+In this example, an environment variable, **MyVersionNumber**, is created for the startup task and set to the value "**1.0.0.0**".
 
 **ServiceDefinition.csdef**:
 
@@ -75,59 +76,64 @@ Neste exemplo, uma variável de ambiente, **MyVersionNumber**, é criada para a 
 </Startup>
 ```
 
-No exemplo a seguir, o arquivo em lotes **Startup.cmd** grava a linha "A versão atual é 1.0.0.0" no arquivo StartupLog.txt no diretório especificado pela variável de ambiente TEMP. A linha `EXIT /B 0` garante que a tarefa de inicialização termine com um **errorlevel** zero.
+In the following example, the **Startup.cmd** batch file writes the line "The current version is 1.0.0.0" to the StartupLog.txt file in the directory specified by the TEMP environment variable. The `EXIT /B 0` line ensures that the startup task ends with an **errorlevel** of zero.
 
 ```cmd
 ECHO The current version is %MyVersionNumber% >> "%TEMP%\StartupLog.txt" 2>&1
 EXIT /B 0
 ```
 
-> [AZURE.NOTE] No Visual Studio, a propriedade **Copiar para Diretório de Saída** do seu arquivo em lotes de inicialização deve ser definida como **Sempre Copiar** para garantir que seu arquivo em lotes de inicialização seja adequadamente implantada em seu projeto no Azure (**approot\\bin** para funções Web e **approot** para funções de trabalho).
+> [AZURE.NOTE] In Visual Studio, the **Copy to Output Directory** property for your startup batch file should be set to **Copy Always** to be sure that your startup batch file is properly deployed to your project on Azure (**approot\\bin** for Web roles, and **approot** for worker roles).
 
-## Descrição dos atributos da tarefa
+## <a name="description-of-task-attributes"></a>Description of task attributes
 
-A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDefinition.csdef]\:
+The following describes the attributes of the **Task** element in the [ServiceDefinition.csdef] file:
 
-**commandLine** - especifica a linha de comando para a tarefa de inicialização:
+**commandLine** - Specifies the command line for the startup task:
 
-- O comando, com parâmetros de linha de comando opcionais, que inicia a tarefa de inicialização.
-- Geralmente, esse é o nome do arquivo de um arquivo em lotes .cmd ou .bat.
-- A tarefa é relativa à pasta AppRoot\\Bin para a implantação. As variáveis de ambiente não são expandidas para a determinação do caminho e do arquivo da tarefa. Se a expansão de ambiente for necessária, você poderá criar um script .cmd pequeno que chame sua tarefa de inicialização.
-- Pode ser um aplicativo de console ou um arquivo em lotes que inicie um [script do PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task).
+- The command, with optional command line parameters, which begins the startup task.
+- Frequently this is the filename of a .cmd or .bat batch file.
+- The task is relative to the AppRoot\\Bin folder for the deployment. Environment variables are not expanded in determining the path and file of the task. If environment expansion is required, you can create a small .cmd script that calls your startup task.
+- Can be a console application or a batch file that starts a [PowerShell script](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task).
 
-**executionContext** - especifica o nível de privilégio para a tarefa de inicialização. O nível de privilégio pode ser limitado ou elevado:
+**executionContext** - Specifies the privilege level for the startup task. The privilege level can be limited or elevated:
 
-- **limitado** A tarefa de inicialização é executada com os mesmos privilégios da função. Quando o atributo **executionContext** do elemento [Runtime] também for **limitado**, os privilégios de usuário serão usados.
+- **limited**  
+The startup task runs with the same privileges as the role. When the **executionContext** attribute for the [Runtime] element is also **limited**, then user privileges are used.
 
-- **elevado** A tarefa de inicialização é executada com privilégios de administrador. Isso permite que as tarefas de inicialização instalem programas, façam alterações de configuração no IIS, executem alterações no Registro e outras tarefas no nível de administrador sem aumentar o nível de privilégio da própria função.
+- **elevated**  
+The startup task runs with administrator privileges. This allows startup tasks to install programs, make IIS configuration changes, perform registry changes, and other administrator level tasks, without increasing the privilege level of the role itself.  
 
-> [AZURE.NOTE] O nível de privilégio de uma tarefa de inicialização não precisa ser igual ao da própria função.
+> [AZURE.NOTE] The privilege level of a startup task does not need to be the same as the role itself.
 
-**taskType** - especifica a maneira como uma tarefa de inicialização é executada.
+**taskType** - Specifies the way a startup task is executed.
 
-- **simples** As tarefas são executadas de forma síncrona, uma de cada vez, na ordem especificada no arquivo [ServiceDefinition.csdef]. Quando uma tarefa de inicialização **simples** terminar com um **errorlevel** zero, a próxima tarefa de inicialização **simples** será executada. Se não houver nenhum mais tarefas de inicialização **simples** a serem executadas, então a função será iniciada.
+- **simple**  
+Tasks are executed synchronously, one at a time, in the order specified in the [ServiceDefinition.csdef] file. When one **simple** startup task ends with an **errorlevel** of zero, the next **simple** startup task is executed. If there are no more **simple** startup tasks to execute, then the role itself will be started.   
 
-    > [AZURE.NOTE] Se a tarefa **simples** terminar com um **errorlevel** diferente de zero, a instância será bloqueada. As tarefas de inicialização **simples** subsequentes , e a própria função, não serão iniciadas.
+    > [AZURE.NOTE] If the **simple** task ends with a non-zero **errorlevel**, the instance will be blocked. Subsequent **simple** startup tasks, and the role itself, will not start.
 
-    Para garantir que o arquivo em lotes termine com um **errorlevel** zero, execute o comando `EXIT /B 0` no final do processo do seu arquivo em lotes.
+    To ensure that your batch file ends with an **errorlevel** of zero, execute the command `EXIT /B 0` at the end of your batch file process.
 
-- **segundo plano** As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função.
+- **background**  
+Tasks are executed asynchronously, in parallel with the startup of the role.
 
-- **primeiro plano** As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função. A principal diferença entre uma tarefa em **primeiro plano** e uma em **segundo plano** é que uma tarefa em **primeiro plano** impede que a função seja reciclada ou desligada até que seja encerrada. As tarefas em **segundo plano** não têm essa restrição.
+- **foreground**  
+Tasks are executed asynchronously, in parallel with the startup of the role. The key difference between a **foreground** and a **background** task is that a **foreground** task prevents the role from recycling or shutting down until the task has ended. The **background** tasks do not have this restriction.
 
-## Variáveis de ambiente
+## <a name="environment-variables"></a>Environment variables
 
-As variáveis de ambiente são uma maneira de passar informações para uma tarefa de inicialização. Por exemplo, você pode colocar o caminho para um blob que contenha um programa a ser instalado, ou números de porta que sua função usará, ou configurações para controlar recursos de sua tarefa de inicialização.
+Environment variables are a way to pass information to a startup task. For example, you can put the path to a blob that contains a program to install, or port numbers that your role will use, or settings to control features of your startup task.
 
-Há dois tipos de variáveis de ambiente para tarefas de inicialização; variáveis de ambiente estáticas e variáveis de ambiente baseadas nos membros da classe [RoleEnvironment]. Ambas estão na seção [Environment] do arquivo [ServiceDefinition.csdef] e ambas usam o elemento [Variable] e o atributo **name**.
+There are two kinds of environment variables for startup tasks; static environment variables and environment variables based on members of the [RoleEnvironment] class. Both are in the [Environment] section of the [ServiceDefinition.csdef] file, and both use the [Variable] element and **name** attribute.
 
-As variáveis de ambiente estáticas usam o atributo **value** do elemento [Variable]. O exemplo acima cria a variável de ambiente **MyVersionNumber** que tem um valor estático "**1.0.0.0**". Outro exemplo seria criar uma variável de ambiente **StagingOrProduction**, que você pode definir manualmente com os valores "**staging**" ou "**production**" para executar ações de inicialização diferentes com base no valor da variável de ambiente **StagingOrProduction**.
+Static environment variables uses the **value** attribute of the [Variable] element. The example above creates the environment variable **MyVersionNumber** which has a static value of "**1.0.0.0**". Another example would be to create a **StagingOrProduction** environment variable which you can manually set to values of "**staging**" or "**production**" to perform different startup actions based on the value of the **StagingOrProduction** environment variable.
 
-As variáveis de ambiente baseadas nos membros da classe RoleEnvironment não usam o atributo **value** do elemento [Variable]. Em vez disso, o elemento filho [RoleInstanceValue], com o valor do atributo **XPath** adequado, é usado para criar uma variável de ambiente baseada em um membro específico da classe [RoleEnvironment]. Os valores do atributo **XPath** para acessar diversos valores de [RoleEnvironment] podem ser encontrados [aqui](cloud-services-role-config-xpath.md).
+Environment variables based on members of the RoleEnvironment class do not use the **value** attribute of the [Variable] element. Instead, the [RoleInstanceValue] child element, with the appropriate **XPath** attribute value, are used to create an environment variable based on a specific member of the [RoleEnvironment] class. Values for the **XPath** attribute to access various [RoleEnvironment] values can be found [here](cloud-services-role-config-xpath.md).
 
 
 
-Por exemplo, para criar uma variável de ambiente que seja "**true**" quando a instância estiver em execução no emulador de computação e "**false**" quando em execução na nuvem, use os seguintes elementos [Variable] e [RoleInstanceValue]\:
+For example, to create an environment variable that is "**true**" when the instance is running in the compute emulator, and "**false**" when running in the cloud, use the following [Variable] and [RoleInstanceValue] elements:
 
 ```xml
 <Startup>
@@ -148,10 +154,10 @@ Por exemplo, para criar uma variável de ambiente que seja "**true**" quando a i
 </Startup>
 ```
 
-## Próximas etapas
-Saiba como executar algumas [tarefas de inicialização comuns](cloud-services-startup-tasks-common.md) com seu Serviço de Nuvem.
+## <a name="next-steps"></a>Next steps
+Learn how to perform some [common startup tasks](cloud-services-startup-tasks-common.md) with your Cloud Service.
 
-[Empacote](cloud-services-model-and-package.md) seu Serviço de Nuvem.
+[Package](cloud-services-model-and-package.md) your Cloud Service.  
 
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
@@ -163,4 +169,7 @@ Saiba como executar algumas [tarefas de inicialização comuns](cloud-services-s
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

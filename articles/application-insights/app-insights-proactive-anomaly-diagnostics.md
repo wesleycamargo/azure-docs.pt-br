@@ -1,150 +1,156 @@
 <properties 
-	pageTitle="Application Insights: Diagnóstico proativo de anomalias | Microsoft Azure" 
-	description="O Application Insights executa uma análise profunda de telemetria do seu aplicativo e o avisará sobre possíveis problemas de desempenho." 
-	services="application-insights" 
+    pageTitle="Application Insights: Proactive anomaly diagnostics | Microsoft Azure" 
+    description="Application Insights performs deep analysis of your app telemetry and warns you of potential problems." 
+    services="application-insights" 
     documentationCenter="windows"
-	authors="antonfrMSFT" 
-	manager="douge"/>
+    authors="antonfrMSFT" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/31/2016" 
-	ms.author="awills"/>
-
-#  Diagnóstico proativo de anomalias
-
-*O Application Insights está em modo de visualização.*
-
-O [Visual Studio Application Insights](app-insights-overview.md) executa uma análise profunda de telemetria do seu aplicativo e o avisará sobre possíveis problemas de desempenho. Provavelmente você está lendo este artigo porque recebeu um dos nossas alertas proativos por email.
-
-Esse recurso não exige configuração e fica ativo automaticamente quando seu aplicativo gera dados de telemetria suficientes.
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/31/2016" 
+    ms.author="awills"/>
 
 
-## O que é a detecção proativa de anomalias?
+#  <a name="proactive-anomaly-diagnostics"></a>Proactive anomaly diagnostics
 
-A detecção proativa de anomalias detecta padrões incomuns de desempenho em seu aplicativo analisando a telemetria que ele envia ao Application Insights.
+*Application Insights is in preview.*
 
-Em particular, ele encontra problemas de desempenho que afetam apenas alguns dos seus usuários, ou só afetam os usuários em alguns casos.
+[Visual Studio Application Insights](app-insights-overview.md) performs deep analysis of your app telemetry, and can warn you about potential performance problems. You're probably reading this because you received one of our proactive alerts by email. 
 
-Por exemplo, ele pode notificá-lo se suas páginas do aplicativo carregarem muito mais lentamente em um tipo de navegador do que em outros, ou se solicitações forem atendidas de modo mais lento de um servidor específico. Ela também pode descobrir problemas associados com combinações de propriedades, como carregamentos de página lentos em uma área geográfica em determinados horários do dia.
-
-Anomalias como essas são muito difíceis de detectar apenas inspecionando os dados, mas são mais comuns do que você imagina. Elas geralmente só surgem quando seus clientes reclamam. Nesse momento, é tarde demais: os usuários afetados já estão mudando para a concorrência!
-
-Atualmente, nossos algoritmos Examinam os tempos de carregamento de página, tempos de resposta de solicitação no servidor e os tempos de resposta de dependência.
-
-Você não precisa definir nenhum limite nem configurar regras. Aprendizado de máquina e algoritmos de mineração de dados são usados para detectar padrões anormais.
-
-Estamos ansiosos para receber seus comentários. Diga-nos como ele te ajuda, como podemos aprimorar a detecção proativa e quais recursos adicionais você deseja ver adicionados. Você pode fornecer comentários em Enviar um sorriso/rosto triste no portal ou enviar um email para AppInsightsML@microsoft.com.
-
-## Sobre o alerta proativo
-
-* *Por que eu recebei esse email?*
- * A detecção proativa analisou a telemetria que seu aplicativo enviou ao Application Insights e detectou um problema de desempenho em seu aplicativo.
-* *A notificação significa que, definitivamente, tenho um problema?*
- * Não. É simplesmente uma sugestão sobre algo que talvez você queira examinar mais detalhadamente.
-* *O que devo fazer?*
- * [Examine os dados apresentados](#responding-to-an-alert). Use o Metrics Explorer para examinar o desempenho ao longo do tempo e analisar as métricas adicionais. Use a Pesquisa para filtrar eventos específicos que ajudam você a identificar a causa raiz.
-* *Então, vocês examinam os meus dados?*
- * Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](app-insights-data-retention-privacy.md).
+This feature requires no setup, and is automatically active when your app generates enough telemetry.
 
 
-## O processo de detecção
+## <a name="what-is-proactive-anomaly-detection?"></a>What is proactive anomaly detection?
 
-* *Quais tipos de anomalias são detectadas?*
- * Padrões que você acharia demorado verificar por conta própria. Por exemplo, um baixo desempenho em uma combinação específica de local, hora do dia e plataforma.
-* *Todos os dados coletados pelo Application Insights são analisados?*
- * Não no momento. Atualmente, analisamos o tempo de resposta de solicitação, o tempo de resposta da dependência e o tempo de carregamento da página. As análises de métricas adicionais estarão disponíveis em breve.
-* *Posso criar minhas próprias regras de detecção de anomalias?*
- * Ainda não. Mas você pode:
- * [Configurar alertas](app-insights-alerts.md) que informam quando uma métrica excede um limite).
- * [Exportar telemetria](app-insights-export-telemetry.md) para um [banco de dados](app-insights-code-sample-export-sql-stream-analytics.md), [para o PowerBI](app-insights-export-power-bi.md) ou para [outras](app-insights-code-sample-export-telemetry-sql-database.md) ferramentas, em que será possível analisá-la por conta própria.
-* *Com que frequência a análise é executada?*
- * As análises são executadas todos os dias a partir da telemetria do dia anterior.
-* *Então isso substitui os [alertas de métrica](app-insights-alerts.md)?
- * Não. Nosso compromisso não é detectar todos os comportamentos que você pode considerar como anormais.
+Proactive anomaly detection discovers unusual patterns of performance in your app, by analyzing the telemetry it sends to Application Insights. 
 
-## Como investigar problemas gerados pela Detecção Proativa
+In particular, it finds performance issues that only affect some of your users, or only affect users in some cases.
 
-Abra o relatório de anomalias no email ou na lista de anomalias.
+For example, it can notify you if your app pages load much more slowly on one type of browser than others, or if requests are served more slowly from a particular server. It can also discover problems associated with combinations of properties, such as slow page loads in one geographical area at particular times of day.
 
-![No alerta de email, clique no link para abrir o relatório de anomalias no Azure](./media/app-insights-proactive-anomaly-diagnostics/03.png)
+Anomalies like these are very hard to detect just by inspecting the data, but are more common than you might think. Often they only surface when your customers complain. By that time, it’s too late: the affected users are already switching to your competitors!
 
+Currently, our algorithms look at page load times, request response times at the server, and dependency response times.  
 
-* **Quando** mostra a hora em que o problema foi detectado.
-* **O que** descreve
- * O problema que foi detectado;
- * As características do conjunto de eventos que encontramos que apresentaram o comportamento do problema.
-* A tabela compara o conjunto com desempenho insatisfatório com o comportamento médio de todos os outros eventos.
+You don't have to set any thresholds or configure rules. Machine learning and data mining algorithms are used to detect abnormal patterns. 
 
-Clique nos links para abrir o Metrics Explorer e a Pesquisa de relatórios relevantes, filtrados com base na hora e propriedades do conjunto de desempenho lento.
+We’re very eager to have your feedback. Please let us know how it helps you, how we can improve Proactive detection and what additional capabilities you want us to add. You can provide feedback through Send a smile/frown in the portal or email us to AppInsightsML@microsoft.com. 
 
-Modifique o intervalo de tempo e os filtros para explorar a telemetria.
+## <a name="about-the-proactive-alert"></a>About the proactive alert
 
-## Como posso melhorar o desempenho?
-
-As respostas lentas e com falha são uma das maiores frustrações para os usuários do site, como você já deve saber por experiência própria. Então é importante resolver os problemas.
-
-### Triagem
-
-Primeiro, isto é importante? Se uma página sempre for carregada lentamente, mas apenas 1% dos usuários do site tiverem de vê-la, talvez haja coisas mais importantes a considerar. Por outro lado, se apenas 1% dos usuários abrir essa página, mas ela lançar exceções todas as vezes, talvez valha a pena investigar.
-
-Use a instrução de impacto no email como um guia geral, mas lembre-se de que isso não é tudo. Obtenha outras evidências para confirmar.
-
-Considere os parâmetros do problema. Se for dependente da geografia, configure os [testes de disponibilidade](app-insights-monitor-web-app-availability.md) incluindo a região; talvez a área esteja simplesmente enfrentando problemas de rede.
-
-### Diagnosticar carregamentos lentos de página 
-
-Onde está o problema? O servidor responde lentamente, a página é muito longa ou o navegador precisa trabalhar muito para exibi-la?
-
-Abra a folha Métrica de navegadores. A [exibição segmentada do tempo de carregamento da página do navegador](app-insights-javascript.md#explore-your-data) mostra onde o tempo está sendo gasto.
-
-* Se o **Tempo de Envio da Solicitação** for alto, o servidor estará respondendo lentamente ou a solicitação será uma publicação com uma grande quantidade de dados. Examine as [métricas de desempenho](app-insights-web-monitor-performance.md#metrics) para investigar os tempos de resposta.
-* Configure o [rastreamento de dependências](app-insights-dependencies.md) para verificar se a lentidão ocorre devido a serviços externos ou ao seu banco de dados.
-* Se **Recebendo Resposta** for predominante, sua página e seus componentes dependentes, JavaScript, CSS, imagens e assim por diante (mas não os dados carregados de forma assíncrona) serão longos. Configure um [teste de disponibilidade](app-insights-monitor-web-app-availability.md) e não se esqueça de definir a opção para carregar os componentes dependentes. Ao obter alguns resultados, abra os detalhes de um resultado e amplie-os para ver os tempos de carregamento de arquivos diferentes.
-* Um **Tempo de Processamento do Cliente** alto sugere que os scripts estão sendo executados lentamente. Se o motivo não for óbvio, considere a adição de um código de tempo e envie os tempos em chamadas trackMetric.
-
-### Aprimorar páginas lentas
-
-Há muitos conselhos na Web sobre como melhorar os tempos de resposta de seu servidor e de carregamento da página, portanto não os repetiremos aqui. Veja algumas dicas as quais você provavelmente já conhece, apenas para ajudá-lo a pensar:
-
-* Carregamento lento devido a arquivos grandes: carregue os scripts e outros componentes de forma assíncrona. Use o agrupamento de script. Divida a página principal em widgets que carregam os dados separadamente. Não envie o antigo HTML simples para tabelas longas: use um script para solicitar os dados como JSON ou outro formato compacto e preencha a tabela. Há estruturas excelentes para ajudar você com tudo isso. (Que também envolvem scripts grandes, é claro).
-* Diminuir as dependências do servidor: considere os locais geográficos de seus componentes. Por exemplo, se você estiver usando o Azure, verifique se o servidor Web e o banco de dados estão na mesma região. As consultas recuperam mais informações do que o necessário? O armazenamento em cache ou o envio em lote ajudaria?
-* Problemas de capacidade: examine as métricas do servidor relacionadas aos tempos de resposta e contagens de solicitação. Se os tempos de resposta apresentarem picos desproporcionais, com picos nas contagens de solicitação, é provável que seus servidores estejam alongados.
+* *Why have I received this email?*
+ * Proactive detection analyzed the telemetry your application sent to Application Insights and detected a performance issue in your application. 
+* *Does the notification mean I definitely have a problem?*
+ * No. It's simply a suggestion about something you might want to look at more closely. 
+* *What should I do?*
+ * [Look at the data presented](#responding-to-an-alert). Use Metrics Explorer to review the performance over time and drill in to additional metrics. Use Search to filter out specific events that help you identify the root cause. 
+* *So, you guys look at my data?*
+ * No. The service is entirely automatic. Only you get the notifications. Your data is [private](app-insights-data-retention-privacy.md).
 
 
-## Emails de notificação
+## <a name="the-detection-process"></a>The detection process
 
-* *É necessário assinar este serviço para receber notificações?*
- * Não. Nosso bot periodicamente pesquisa os dados de todos os usuários do Application Insights e envia notificações se detectar problemas.
-* *Posso cancelar a assinatura ou ter as notificações enviadas para meus colegas em vez disso?*
- * Clique no link de cancelar assinatura que está no alerta ou no email.
+* *What kinds of anomalies are detected?*
+ * Patterns that you would find it time-consuming to check for yourself. For example, poor performance in a specific combination of location, time of day and platform.
+* *Do you analyze all the data collected by Application Insights?*
+ * Not at present. Currently, we analyze request response time, dependency response time and page load time. Analysis of additional metrics is coming soon. 
+* *Can I create my own anomaly detection rules?*
+ * Not yet. But you can:
+ * [Set up alerts](app-insights-alerts.md) that tell you when a metric crosses a threshold.)
+ * [Export telemetry](app-insights-export-telemetry.md) to a [database](app-insights-code-sample-export-sql-stream-analytics.md) or [to PowerBI](app-insights-export-power-bi.md) or [other](app-insights-code-sample-export-telemetry-sql-database.md) tools, where you can analyze it yourself.
+* *How often is the analysis performed?*
+ * We run the analysis daily on the telemetry from the previous day.
+* *So does this replace [metric alerts](app-insights-alerts.md)?
+ * No.  We don't commit to detect every behaviour that you might consider abnormal.
+
+## <a name="how-to-investigate-issues-raised-by-proactive-detection"></a>How to investigate issues raised by Proactive Detection
+
+Open the anomaly report either from the email or from the anomalies list.
+
+![From the email alert, click the link to open the anomaly report in Azure](./media/app-insights-proactive-anomaly-diagnostics/03.png)
+
+
+* **When** shows the time the issue was detected.
+* **What** describes
+ * The problem that was detected;
+ * The characteristics of the set of events that we found displayed the problem behavior.
+* The table compares the poorly-performing set with the average behavior of all other events.
+
+Click the links to open Metric Explorer and Search on relevant reports, filtered on the time and properties of the slow performing set.
+
+Modify the time range and filters to explore the telemetry.
+
+## <a name="how-can-i-improve-performance?"></a>How can I improve performance?
+
+Slow and failed responses are one of the biggest frustrations for web site users, as you know from your own experience. So it's important to address the issues.
+
+### <a name="triage"></a>Triage
+
+First, does it matter? If a page is always slow to load, but only 1% of your site's users ever have to look at it, maybe you have more important things to think about. On the other hand, if only 1% of users open it, but it throws exceptions every time, that might be worth investigating.
+
+Use the impact statement in the email as a general guide, but be aware that it isn't the whole story. Gather other evidence to confirm.
+
+Consider the parameters of the issue. If it's geography-dependent, set up [availability tests](app-insights-monitor-web-app-availability.md) including that region: there might simply be network issues in that area. 
+
+### <a name="diagnose-slow-page-loads"></a>Diagnose slow page loads 
+
+Where is the problem? Is the server slow to respond, is the page very long, or does the browser have to do a lot of work to display it?
+
+Open the Browsers metric blade. The [segmented display of browser page load time](app-insights-javascript.md#explore-your-data) shows where the time is going. 
+
+* If **Send Request Time** is high, either the server is responding slowly, or the request is a post with a lot of data. Look at the [performance metrics](app-insights-web-monitor-performance.md#metrics) to investigate response times. 
+* Set up [dependency tracking](app-insights-dependencies.md) to see whether the slowness is due to external services or your database.
+* If **Receiving Response** is predominant, your page and its dependent parts - JavaScript, CSS, images and so on (but not asynchronously loaded data) are long. Set up an [availability test](app-insights-monitor-web-app-availability.md), and be sure to set the option to load dependent parts. When you get some results, open the detail of a result and expand it to see the load times of different files.
+* High **Client Processing time** suggests scripts are running slowly. If the reason isn't obvious, consider adding some timing code and send the times in trackMetric calls.
+
+### <a name="improve-slow-pages"></a>Improve slow pages
+
+There's a web full of advice on improving your server responses and page load times, so we won't try to repeat it all here. Here are a few tips that you probably already know about, just to get you thinking:
+
+* Slow loading because of big files: Load the scripts and other parts asynchronously. Use script bundling. Break the main page into widgets that load their data separately. Don't send plain old HTML for long tables: use a script to request the data as JSON or other compact format, then fill the table in place. There are great frameworks to help with all this. (They also entail big scripts, of course.)
+* Slow server dependencies: Consider the geographical locations of your components. For example, if you're using Azure, make sure the web server and the database are in the same region. Do queries retrieve more information than they need? Would caching or batching help?
+* Capacity issues: Look at the server metrics of response times and request counts. If response times peak disproportionately with peaks in request counts, it's likely that your servers are stretched. 
+
+
+## <a name="notification-emails"></a>Notification emails
+
+* *Do I have to subscribe to this service in order to receive notifications?*
+ * No. Our bot periodically surveys the data from all Application Insights users, and sends notifications if it detects problems.
+* *Can I unsubscribe or get the notifications sent to my colleagues instead?*
+ * Click the unsubscribe link in the alert or email. 
  
-    No momento, elas são enviadas para aqueles com [acesso de gravação ao recurso Application Insights](app-insights-resources-roles-access-control.md).
+    Currently they're sent to those who have [write access to the Application Insights resource](app-insights-resources-roles-access-control.md).
 
-    Você também pode editar as configurações da lista de destinatários na folha de Detecção Proativa.
-* *Não quero ser inundado com essas mensagens.*
- * Elas são limitadas a uma por dia com o problema mais relevante que ainda não relatamos. Você não receberá nenhuma mensagem repetida.
-* *Se eu não fizer nada, posso receber um lembrete?*
- * Não, você receberá uma mensagem sobre cada problema apenas uma vez.
-* *Perdi o email. Onde posso encontrar as notificações no portal?*
- * Na visão geral do Application Insights do seu aplicativo, clique no bloco **Detecção Proativa**. Lá, você poderá encontrar todas as notificações de backup de até sete dias anteriores.
+    You can also edit the recipients list Settings in the Proactive Detection blade.
+* *I don't want to be flooded with these messages.*
+ * They are limited to one per day with the most relevant issue that we haven't reported about yet. You won't get repeats of any message.
+* *If I don't do anything, will I get a reminder?*
+ * No, you get a message about each issue only once. 
+* *I lost the email. Where can I find the notifications in the portal?*
+ * In the Application Insights overview of your app, click the **Proactive Detection** tile. There you'll be able to find all notifications up to 7 days back.
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu aplicativo:
+These diagnostic tools help you inspect the telemetry from your app:
 
-* [Metrics explorer](app-insights-metrics-explorer.md)
-* [Gerenciador de pesquisas](app-insights-diagnostic-search.md)
-* [Analytics - linguagem de consulta poderosa](app-insights-analytics-tour.md)
+* [Metric explorer](app-insights-metrics-explorer.md)
+* [Search explorer](app-insights-diagnostic-search.md)
+* [Analytics - powerful query language](app-insights-analytics-tour.md)
 
-As detecções proativas são totalmente automáticas. Mas talvez você queira configurar alguns outros alertas?
+Proactive detections are completely automatic. But maybe you'd like to set up some more alerts?
 
-* [Alertas de métrica configurados manualmente](app-insights-alerts.md)
-* [Testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md)
+* [Manually configured metric alerts](app-insights-alerts.md)
+* [Availability web tests](app-insights-monitor-web-app-availability.md) 
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

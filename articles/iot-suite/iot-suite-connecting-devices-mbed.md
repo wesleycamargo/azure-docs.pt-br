@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Conectar um dispositivo usando C no mbed | Microsoft Azure"
-   description="Descreve como conectar um dispositivo à solução pré-configurada de monitoramento remoto do Azure IoT Suite usando um aplicativo escrito em C em um dispositivo mbed."
+   pageTitle="Connect a device using C on mbed | Microsoft Azure"
+   description="Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on an mbed device."
    services=""
    suite="iot-suite"
    documentationCenter="na"
@@ -14,45 +14,46 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2016"
+   ms.date="10/05/2016"
    ms.author="dobett"/>
 
 
-# Conectar seu dispositivo à solução pré-configurada de monitoramento remoto (mbed)
+
+# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-(mbed)"></a>Connect your device to the remote monitoring preconfigured solution (mbed)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## Criar e executar a solução de exemplo do C
+## <a name="build-and-run-the-c-sample-solution"></a>Build and run the C sample solution
 
-As instruções a seguir descrevem as etapas para conectar um dispositivo [Freescale FRDM-K64F habilitado para mbed][lnk-mbed-home] para a solução de monitoramento remoto.
+The following instructions describe the steps for connecting an [mbed-enabled Freescale FRDM-K64F][lnk-mbed-home] device to the remote monitoring solution.
 
-### Conectar o dispositivo mbed ao computador desktop e à rede
+### <a name="connect-the-mbed-device-to-your-network-and-desktop-machine"></a>Connect the mbed device to your network and desktop machine
 
-1. Conecte o dispositivo mbed à sua rede usando um cabo Ethernet. Essa etapa é necessária porque o aplicativo de exemplo requer acesso à internet.
+1. Connect the mbed device to your network using an Ethernet cable. This step is necessary because the sample application requires internet access.
 
-2. Consulte [Introdução ao mbed][lnk-mbed-getstarted] para conectar o dispositivo mbed ao seu computador.
+2. See [Getting Started with mbed][lnk-mbed-getstarted] to connect your mbed device to your desktop PC.
 
-3. Se o seu computador executar o Windows, consulte [Configuração de PC][lnk-mbed-pcconnect] para configurar o acesso de porta serial ao dispositivo mbed.
+3. If your desktop PC is running Windows, see [PC Configuration][lnk-mbed-pcconnect] to configure serial port access to your mbed device.
 
-### Crie um projeto mbed e importe o código de exemplo
+### <a name="create-an-mbed-project-and-import-the-sample-code"></a>Create an mbed project and import the sample code
 
-1. No navegador da Web, vá até o [site de desenvolvedor](https://developer.mbed.org/) mbed.org. Caso ainda não tenha se inscrito, você verá uma opção para criar uma nova conta (é gratuita). Caso contrário, faça logon com suas credenciais de conta. Em seguida, clique em **Compilador** no canto superior direito da página. Essa ação exibe a interface do *Espaço de trabalho*.
+1. In your web browser, go to the mbed.org [developer site](https://developer.mbed.org/). If you haven't signed up, you see an option to create an account (it's free). Otherwise, log in with your account credentials. Then click **Compiler** in the upper right-hand corner of the page. This action brings you to the *Workspace* interface.
 
-2. Verifique se a plataforma de hardware que você está usando é exibida no canto superior direito da janela ou clique no ícone no canto superior direito para selecionar a plataforma de hardware.
+2. Make sure the hardware platform you're using appears in the upper right-hand corner of the window, or click the icon in the right-hand corner to select your hardware platform.
 
-3. Clique em **Importar** no menu principal. Clique em **Clique aqui** para importar do link de URL ao lado do logotipo de globo mbed.
+3. Click **Import** on the main menu. Then click **Click here** to import from URL link next to the mbed globe logo.
 
     ![][6]
 
-4. Na janela pop-up, insira o link para o código de exemplo https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/ e clique em **Importar**.
+4. In the pop-up window, enter the link for the sample code https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/ then click **Import**.
 
     ![][7]
 
-5. Você pode ver na janela do compilador mbed que a importação desse projeto também importa várias bibliotecas. Algumas são fornecidas e mantidas pela equipe do Azure IoT ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure\_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), enquanto outras são bibliotecas de terceiros disponíveis no catálogo de bibliotecas mbed.
+5. You can see in the mbed compiler window that importing this project also imports various libraries. Some are provided and maintained by the Azure IoT team ([azureiot_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub_amqp_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), while others are third-party libraries available in the mbed libraries catalog.
 
     ![][8]
 
-6. Abra o arquivo remote\_monitoring\\remote\_monitoring.c e localize o seguinte código no arquivo:
+6. Open the remote_monitoring\remote_monitoring.c file and locate the following code in the file:
 
     ```
     static const char* deviceId = "[Device Id]";
@@ -61,7 +62,7 @@ As instruções a seguir descrevem as etapas para conectar um dispositivo [Frees
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
 
-7. Substitua [Device Id] e [Device Key] pelos dados do dispositivo para permitir que o programa de exemplo se conecte ao seu hub IoT. Use o Nome de host do Hub IoT para substituir os espaços reservados [Nome do Hub IoT] e [Sufixo do Hub IoT, ou seja, azure-devices.net]. Por exemplo, se seu nome de host do Hub IoT for **contoso.azure-devices.net**, **contoso** será o **hubName** e tudo depois dele será o **hubSuffix**:
+7. Replace [Device Id] and [Device Key], with your device data to enable the sample program to connect to your IoT hub. Use the IoT Hub Hostname to replace the [IoTHub Name] and [IoTHub Suffix, i.e. azure-devices.net] placeholders. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, **contoso** is the **hubName** and everything after it is the **hubSuffix**:
 
     ```
     static const char* deviceId = "mydevice";
@@ -72,13 +73,13 @@ As instruções a seguir descrevem as etapas para conectar um dispositivo [Frees
 
     ![][9]
 
-### Explorar o código
+### <a name="walk-through-the-code"></a>Walk through the code
 
-Se você estiver interessado em como funciona o programa, esta seção descreve algumas das partes principais do código de exemplo. Se você quiser executar o código, pule para [Compilar e executar o programa](#buildandrun).
+If you are interested in how the program works, this section describes some key parts of the sample code. If you just want to run the code, skip ahead to [Build and run the program](#buildandrun).
 
-#### Definindo o modelo
+#### <a name="defining-the-model"></a>Defining the model
 
-Este exemplo usa a biblioteca do [serializador][lnk-serializer] para definir um modelo que especifica as mensagens que o dispositivo pode enviar ao Hub IoT e receber do Hub IoT. Neste exemplo, o namespace **Contoso** define um modelo **Therrmostat** que especifica os dados de telemetria **Temperature**, **ExternalTemperature** e **Humidity** com metadados, como a id do dispositivo, as propriedades do dispositivo e os comandos aos quais o dispositivo responde:
+This sample uses the [serializer][lnk-serializer] library to define a model that specifies the messages the device can send to IoT Hub and receive from IoT Hub. In this sample, the **Contoso** namespace defines a **Thermostat** model that specifies the **Temperature**, **ExternalTemperature**, and **Humidity** telemetry data along with metadata such as the device id, device properties, and the commands that the device responds to:
 
 ```
 BEGIN_NAMESPACE(Contoso);
@@ -116,7 +117,7 @@ DECLARE_MODEL(Thermostat,
 END_NAMESPACE(Contoso);
 ```
 
-À definição do modelo estão relacionadas as definições para os comandos **SetTemperature** e **SetHumidity** às quais o dispositivo responde:
+Related to the model definition are the definitions for the **SetTemperature** and **SetHumidity** commands that the device responds to:
 
 ```
 EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
@@ -134,25 +135,25 @@ EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
 }
 ```
 
-#### Conectando o modelo à biblioteca
+#### <a name="connecting-the-model-to-the-library"></a>Connecting the model to the library
 
-As funções **sendMessage** e **IoTHubMessage** são o código clichê para enviar telemetria do dispositivo e conectar as mensagens do Hub IoT aos manipuladores de comando.
+The functions **sendMessage** and **IoTHubMessage** are boilerplate code for sending telemetry from the device and connecting messages from IoT Hub to the command handlers.
 
-#### A função remote\_monitoring\_run
+#### <a name="the-remote_monitoring_run-function"></a>The remote_monitoring_run function
 
-A função **main** do programa invoca a função **remote\_monitoring\_run** quando o aplicativo começa a executar o comportamento do dispositivo como um cliente do dispositivo Hub IoT. Essa função **remote\_monitoring\_run** é fundamentalmente formada por pares aninhados de funções:
+The program's **main** function invokes the **remote_monitoring_run** function when the application starts to execute the device's behavior as an IoT Hub device client. This **remote_monitoring_run** function mostly consists of nested pairs of functions:
 
-- **platform\_init** e **platform\_deinit** executam operações de inicialização e desligamento específicas da plataforma.
-- **serializer\_init** e **serializer\_deinit** inicializam e desligam a biblioteca do serializador.
-- **IoTHubClient\_Create** e **IoTHubClient\_Destroy** criam um identificador de cliente, **iotHubClientHandle**, usando as credenciais do dispositivo para se conectar ao Hub IoT.
+- **platform\_init** and **platform\_deinit** perform platform-specific initialization and shutdown operations.
+- **serializer\_init** and **serializer\_deinit** initialize and de-initialize the serializer library.
+- **IoTHubClient\_Create** and **IoTHubClient\_Destroy** create a client handle, **iotHubClientHandle**, using the device credentials for connecting to your IoT hub.
 
-Na principal seção da função **remote\_monitoring\_run**, o programa executa as seguintes operações usando o identificador **iotHubClientHandle**:
+In the main section of the **remote_monitoring_run** function, the program performs the following operations using the **iotHubClientHandle** handle:
 
-- Cria uma instância do modelo de termostato da Contoso e configura os retornos de chamada de mensagem para os dois comandos.
-- Envia informações sobre o dispositivo, incluindo os comandos para os quais ele tem suporte, para o Hub IoT usando a biblioteca do serializador. Quando o hub recebe essa mensagem, ele altera o status do dispositivo no painel de **Pendente** para **Em Execução**.
-- Inicia um loop **while** que envia os valores de umidade, temperatura externa e temperatura ao Hub IoT a cada segundo.
+- Creates an instance of the Contoso thermostat model and sets up the message callbacks for the two commands.
+- Sends information about the device itself, including the commands it supports, to your IoT hub using the serializer library. When the hub receives this message, it changes the device status in the dashboard from **Pending** to **Running**.
+- Starts a **while** loop that sends temperature, external temperature, and humidity values to IoT Hub every second.
 
-Para referência, veja um exemplo de mensagem de **DeviceInfo** enviada ao Hub IoT na inicialização:
+For reference, here is a sample **DeviceInfo** message sent to IoT Hub at startup:
 
 ```
 {
@@ -171,13 +172,13 @@ Para referência, veja um exemplo de mensagem de **DeviceInfo** enviada ao Hub I
 }
 ```
 
-Para referência, veja um exemplo de mensagem de **Telemetria** enviada ao Hub IoT:
+For reference, here is a sample **Telemetry** message sent to IoT Hub:
 
 ```
 {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
 ```
 
-Para referência, veja um exemplo de **Comando** recebido do Hub IoT:
+For reference, here is a sample **Command** received from IoT Hub:
 
 ```
 {
@@ -189,19 +190,19 @@ Para referência, veja um exemplo de **Comando** recebido do Hub IoT:
 ```
 
 <a id="buildandrun"/>
-### Compile e execute o programa
+### <a name="build-and-run-the-program"></a>Build and run the program
 
-1. Clique em **Compilar** para criar o programa. Você pode ignorar os avisos com segurança, mas se a compilação gerar erros, corrija-os antes de continuar.
+1. Click **Compile** to build the program. You can safely ignore any warnings, but if the build generates errors, fix them before proceeding.
 
-2. Se o build for bem-sucedido, o site do compilador mbed gerará um arquivo .bin com o nome do seu projeto e o baixa para o computador local. Copie o arquivo .bin para o dispositivo. Salvar o arquivo .bin no dispositivo faz com que o dispositivo reinicie e execute o programa contido no arquivo .bin. Você pode reiniciar manualmente o programa a qualquer momento pressionando o botão de reinicialização no dispositivo mbed.
+2. If the build is successful, the mbed compiler website generates a .bin file with the name of your project and downloads it to your local machine. Copy the .bin file to the device. Saving the .bin file to the device causes the device to restart and run the program contained in the .bin file. You can manually restart the program at any time by pressing the reset button on the mbed device.
 
-3. Conecte-se ao dispositivo usando um aplicativo de cliente SSH, como o PuTTY. Você pode determinar a porta serial que o dispositivo usa verificando o Gerenciador de Dispositivos do Windows.
+3. Connect to the device using an SSH client application, such as PuTTY. You can determine the serial port your device uses by checking Windows Device Manager.
 
     ![][11]
 
-4. Em PuTTY, clique no tipo de conexão **Serial**. Normalmente, o dispositivo se conecta a 9600 bauds, portanto, insira 9600 na caixa **Velocidade**. Em seguida, clique em **Abrir**.
+4. In PuTTY, click the **Serial** connection type. The device typically connects at 9600 baud, so enter 9600 in the **Speed** box. Then click **Open**.
 
-5. O programa inicia a execução. Talvez seja necessário redefinir a placa (pressione CTRL+Break ou pressione o botão de redefinição da placa) se o programa não iniciar automaticamente quando você se conectar.
+5. The program starts executing. You may have to reset the board (press CTRL+Break or press the board's reset button) if the program does not start automatically when you connect.
 
     ![][10]
 
@@ -220,4 +221,8 @@ Para referência, veja um exemplo de **Comando** recebido do Hub IoT:
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 [lnk-serializer]: https://azure.microsoft.com/documentation/articles/iot-hub-device-sdk-c-intro/#serializer
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

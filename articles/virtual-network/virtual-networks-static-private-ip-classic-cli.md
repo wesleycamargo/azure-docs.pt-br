@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Como definir um endereço IP estático e privado no modo clássico usando o CLI| Microsoft Azure"
-   description="Noções básicas sobre IPs privados e estáticos (DIPs) e como gerenciá-los no modo clássico usando o CLI"
+   pageTitle="How to set a static private IP in classic mode ausing the CLI| Microsoft Azure"
+   description="Understanding static private IPs (DIPs) and how to manage them in classic mode using the CLI"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,102 +17,107 @@
    ms.date="03/15/2016"
    ms.author="jdial" />
 
-# Como definir um endereço IP privado estático (clássico) no CLI do Azure
+
+# <a name="how-to-set-a-static-private-ip-address-(classic)-in-azure-cli"></a>How to set a static private IP address (classic) in Azure CLI
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artigo aborda o modelo de implantação clássico. Você também pode [gerenciar um endereço IP privado estático no modelo de implantação do Gerenciador de Recursos](virtual-networks-static-private-ip-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the classic deployment model. You can also [manage a static private IP address in the Resource Manager deployment model](virtual-networks-static-private-ip-arm-cli.md).
 
-Os exemplos de comando abaixo do CLI do Azure esperam um ambiente simples já criado. Se você quiser executar os comandos da forma como eles aparecem neste documento, primeiro crie o ambiente de teste descrito em [criar uma vnet](virtual-networks-create-vnet-classic-cli.md).
+The sample Azure CLI commands below expect a simple environment already created. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-classic-cli.md).
 
-## Como especificar um endereço IP privado estático ao criar uma VM
-Para criar uma nova VM denominada *DNS01* em um novo serviço de nuvem chamado *TestService* com base no cenário acima, execute estas etapas:
+## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>How to specify a static private IP address when creating a VM
+To create a new VM named *DNS01* in a new cloud service named *TestService* based on the scenario above, follow these steps:
 
-1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
-1. Execute o comando **azure service create** para criar o serviço de nuvem.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. Run the **azure service create** command to create the cloud service.
 
-		azure service create TestService --location uscentral
+        azure service create TestService --location uscentral
 
-	Saída esperada:
+    Expected output:
 
-		info:    Executing command service create
-		info:    Creating cloud service
-		data:    Cloud service name TestService
-		info:    service create command OK
-	
-2. Execute o comando **azure create vm** para criar a VM. Observe o valor para um endereço IP privado estático. A lista exibida após a saída explicar os parâmetros usados.
+        info:    Executing command service create
+        info:    Creating cloud service
+        data:    Cloud service name TestService
+        info:    service create command OK
+    
+2. Run the **azure create vm** command to create the VM. Notice the value for a static private IP address. The list shown after the output explains the parameters used.
 
-		azure vm create -l centralus -n DNS01 -w TestVNet -S "192.168.1.101" TestService bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2 adminuser AdminP@ssw0rd
+        azure vm create -l centralus -n DNS01 -w TestVNet -S "192.168.1.101" TestService bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2 adminuser AdminP@ssw0rd
 
-	Saída esperada:
+    Expected output:
 
-		info:    Executing command vm create
-		warn:    --vm-size has not been specified. Defaulting to "Small".
-		info:    Looking up image bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2
-		info:    Looking up virtual network
-		info:    Looking up cloud service
-		warn:    --location option will be ignored
-		info:    Getting cloud service properties
-		info:    Looking up deployment
-		info:    Retrieving storage accounts
-		info:    Creating VM
-		info:    OK
-		info:    vm create command OK
+        info:    Executing command vm create
+        warn:    --vm-size has not been specified. Defaulting to "Small".
+        info:    Looking up image bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2
+        info:    Looking up virtual network
+        info:    Looking up cloud service
+        warn:    --location option will be ignored
+        info:    Getting cloud service properties
+        info:    Looking up deployment
+        info:    Retrieving storage accounts
+        info:    Creating VM
+        info:    OK
+        info:    vm create command OK
 
-	- **-l (ou --location)**. Região do Azure na qual a VM será criada. Para o nosso cenário, *centralus*.
-	- **-n (ou --vm-name)**. Nome da VM a ser criada.
-	- **-w (ou --virtual-network-name)**. Nome da Rede Virtual na qual a sub-rede será criada.
-	- **-S (ou --static-ip)**. Endereço IP privado estático da VM.
-	- **TestService**. Nome do serviço de nuvem no qual a VM será criada.
-	- **bd507d3a70934695bc2128e3e5a255ba\_\_RightImage-Windows-2012R2-x64-v14.2**. Imagem usada para criar a VM.
-	- **adminuser**. Administrador local da VM do Windows.
-	- **AdminP@ssw0rd**. Senha do administrador local da VM do Windows.
+    - **-l (or --location)**. Azure region where the VM will be created. For our scenario, *centralus*.
+    - **-n (or --vm-name)**. Name of the VM to be created.
+    - **-w (or --virtual-network-name)**. Name of the VNet where the VM will be created. 
+    - **-S (or --static-ip)**. Static private IP address for the VM.
+    - **TestService**. Name of the cloud service where the VM will be created.
+    - **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. Image used to create the VM.
+    - **adminuser**. Local administrator for the Windows VM.
+    - **AdminP@ssw0rd**. Local administrator password for the Windows VM.
 
-## Como recuperar informações do endereço IP privado estático de uma VM
-Para exibir as informações do endereço IP privado estático da VM criada com o script acima, execute o seguinte comando do CLI do Azure e observe o valor de *Network StaticIP*:
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>How to retrieve static private IP address information for a VM
+To view the static private IP address information for the VM created with the script above, run the following Azure CLI command and observe the value for *Network StaticIP*:
 
-	azure vm static-ip show DNS01
+    azure vm static-ip show DNS01
 
-Saída esperada:
+Expected output:
 
-	info:    Executing command vm static-ip show
-	info:    Getting virtual machines
-	data:    Network StaticIP "192.168.1.101"
-	info:    vm static-ip show command OK
+    info:    Executing command vm static-ip show
+    info:    Getting virtual machines
+    data:    Network StaticIP "192.168.1.101"
+    info:    vm static-ip show command OK
 
-## Como remover o endereço IP privado estático de uma VM
-Para remover o endereço IP estático e privado adicionado à VM no script acima, execute o seguinte comando do CLI do Azure:
-	
-	azure vm static-ip remove DNS01
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>How to remove a static private IP address from a VM
+To remove the static private IP address added to the VM in the script above, run the following Azure CLI command:
+    
+    azure vm static-ip remove DNS01
 
-Saída esperada:
+Expected output:
 
-	info:    Executing command vm static-ip remove
-	info:    Getting virtual machines
-	info:    Reading network configuration
-	info:    Updating network configuration
-	info:    vm static-ip remove command OK
+    info:    Executing command vm static-ip remove
+    info:    Getting virtual machines
+    info:    Reading network configuration
+    info:    Updating network configuration
+    info:    vm static-ip remove command OK
 
-## Como adicionar um IP privado estático a uma VM existente
-Para adicionar um IP privado estático à VM criada com o script acima, execute o comando a seguir:
+## <a name="how-to-add-a-static-private-ip-to-an-existing-vm"></a>How to add a static private IP to an existing VM
+To add a static private IP address to the VM created using the script above, runt he following command:
 
-	azure vm static-ip set DNS01 192.168.1.101
+    azure vm static-ip set DNS01 192.168.1.101
 
-Saída esperada:
+Expected output:
 
-	info:    Executing command vm static-ip set
-	info:    Getting virtual machines
-	info:    Looking up virtual network
-	info:    Reading network configuration
-	info:    Updating network configuration
-	info:    vm static-ip set command OK
+    info:    Executing command vm static-ip set
+    info:    Getting virtual machines
+    info:    Looking up virtual network
+    info:    Reading network configuration
+    info:    Updating network configuration
+    info:    vm static-ip set command OK
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Saiba mais sobre endereços [IP públicos reservados](virtual-networks-reserved-public-ip.md).
-- Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](virtual-networks-instance-level-public-ip.md).
-- Consulte as [APIs REST de IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+- Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
+- Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
+- Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Como concluir uma análise de acesso | Microsoft Azure"
-   description="Depois de iniciar uma análise de acesso no Azure AD Privileged Identity Management, saiba como concluí-la e exibir os resultados"
+   pageTitle="How to complete an access review | Microsoft Azure"
+   description="After you started an access review in Azure AD Privileged Identity Management, learn how to complete it and view the results"
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -16,48 +16,49 @@
    ms.date="06/30/2016"
    ms.author="kgremban"/>
 
-# Como concluir uma análise de acesso no Azure AD Privileged Identity Management
+
+# <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>How to complete an access review in Azure AD Privileged Identity Management
 
 
-os administradores de função com privilégios podem examinar o acesso privilegiado após uma [revisão de segurança ter sido iniciada](active-directory-privileged-identity-management-how-to-start-security-review.md). O Azure AD PIM (Privileged Identity Management) automaticamente enviará um email solicitando que os usuários revisem seu acesso. Se um usuário não recebeu um email, você pode enviar para ele as instruções em [Como executar uma análise de segurança](active-directory-privileged-identity-management-how-to-perform-security-review.md).
+Privileged role administrators can review privileged access once a [security review has been started](active-directory-privileged-identity-management-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) will automatically send an email prompting users to review their access. If a user did not get an email, you can send them the instructions in [how to perform a security review](active-directory-privileged-identity-management-how-to-perform-security-review.md).
 
-Depois do período de revisão de segurança, ou todos os usuários terminarem a autorrevisão, siga as etapas neste artigo para gerenciar a revisão e ver os resultados.
+After the security review period is over, or all the users have finished their self-review, follow the steps in this article to manage the review and see the results.
 
-## Gerenciar revisões de segurança
+## <a name="manage-security-reviews"></a>Manage security reviews
 
-1. Acesse o [portal do Azure](https://portal.azure.com/) e selecione o aplicativo **Azure AD Privileged Identity Management** no painel.
-2. Clique na seção **Revisões de acesso** do painel.
-3. Selecione a análise de acesso que você deseja gerenciar.
+1. Go to the [Azure portal](https://portal.azure.com/) and select the **Azure AD Privileged Identity Management** application on your dashboard.
+2. Select the **Access reviews** section of the dashboard.
+3. Select the access review that you want to manage.
 
-Na folha de detalhes da análise de acesso, há uma série de opções para o gerenciamento da análise.
+On the access review's detail blade there are a number options for managing that review.
 
-![Botões de análise de acesso do PIM - captura de tela][1]
+![PIM access review buttons - screenshot][1]
 
-### Lembrar
+### <a name="remind"></a>Remind
 
-Se uma análise de acesso é configurada para que os usuários examinem a si mesmos, o botão **Lembrar** envia uma notificação.
+If an access review is set up so that the users review themselves, the **Remind** button sends out a notification. 
 
-### Parar
+### <a name="stop"></a>Stop
 
-Todas as revisões de acesso têm uma data de término, mas você pode usar o botão **Parar** para concluí-las mais cedo. Se quaisquer usuários ainda não tiverem sido examinados até este momento, eles não poderão ser após você parar a análise. Não é possível reiniciar uma análise após ela ter sido interrompida.
+All access reviews have an end date, but you can use the **Stop** button to finish it early. If any users haven't been reviewed by this time, they won't be able to after you stop the review. You cannot restart a review after it's been stopped.
 
-### Aplicar
+### <a name="apply"></a>Apply
 
-Após uma análise de acesso ser concluída, seja porque você atingiu a data de término ou a interrompeu manualmente, o botão **Aplicar** implementa o resultado da análise. Se o acesso de um usuário foi negado na análise, esta é a etapa que removerá sua atribuição de função.
+After an access review is completed, either because you reached the end date or stopped it manually, the **Apply** button implements the outcome of the review. If a user's access was denied in the review, this is the step that will remove their role assignment.  
 
-### Exportação
+### <a name="export"></a>Export
 
-Se você desejar aplicar os resultados da revisão de segurança manualmente, poderá exportar a revisão. O botão **Exportar** começará a baixar um arquivo CSV. Você pode gerenciar os resultados no Excel ou em outros programas que abrem arquivos CSV.
+If you want to apply the results of the security review manually, you can export the review. The **Export** button will start downloading a CSV file. You can manage the results in Excel or other programs that open CSV files.
 
-### Excluir
+### <a name="delete"></a>Delete
 
-Se você não estiver mais interessado na revisão, exclua-a. O botão **Excluir** remove a análise do aplicativo PIM.
+If you are not interested in the review any further, delete it. The **Delete** button removes the review from the PIM application.
 
-> [AZURE.IMPORTANT] Você não receberá nenhum aviso antes da exclusão, portanto, certifique-se de que deseja excluir a revisão.
+> [AZURE.IMPORTANT] You will not get a warning before deletion occurs, so be sure that you want to delete that review.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 
@@ -65,4 +66,8 @@ Se você não estiver mais interessado na revisão, exclua-a. O botão **Excluir
 
 [1]: ./media/active-directory-privileged-identity-management-how-to-complete-review/PIM_review_buttons.png
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

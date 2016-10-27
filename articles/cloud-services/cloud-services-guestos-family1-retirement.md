@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Aviso de desativação da família 1 de SOs convidados | Microsoft Azure"
-   description="Fornece informações sobre quando ocorreu a desativação da família 1 sistemas operacionais convidados do Azure e determinar se você foi afetado"
+   pageTitle="Guest OS family 1 retirement notice | Microsoft Azure"
+   description="Provides information about when the Azure Guest OS Family 1 retirement happened and how to determine if you are affected"
    services="cloud-services"
    documentationCenter="na"
-   authors="yuemlu"
+   authors="raiye"
    manager="timlt"
    editor=""/>
 
@@ -13,33 +13,34 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/10/2016"
-   ms.author="yuemlu"/>
-
-
-
-# Aviso de desativação da família 1 de SO convidados
-
-A desativação da família 1 do sistema operacional foi anunciada em 1º de junho de 2013.
-
-**2 de setembro de 2014** A família 1.x do sistema operacional convidado do Azure (SO convidado), que se baseia no sistema operacional Windows Server 2008, foi oficialmente desativada. Todas as tentativas para implantar novos serviços ou atualizar serviços existentes usando a família 1 falharão com uma mensagem de erro informando que a família 1 dos sistemas operacionais convidados foi desativada.
-
-**3 de novembro de 2014** O suporte estendido para a família 1 dos sistemas operacionais convidados terminou e está totalmente desativado. Todos os serviços que ainda estão na família 1 serão afetados. Podemos interromper esses serviços a qualquer momento. Não há nenhuma garantia de que seus serviços continuarão sendo executados, a menos que você os atualize manualmente por conta própria.
-
-Se você tiver outras dúvidas, visite os [Fóruns dos Serviços de Nuvem](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) ou [entre em contato com o suporte do Azure](https://azure.microsoft.com/support/options/).
+   ms.date="10/24/2016"
+   ms.author="raiye"/>
 
 
 
 
-## Você foi afetado?
+# <a name="guest-os-family-1-retirement-notice"></a>Guest OS Family 1 retirement notice
 
-Os Serviços de Nuvem são afetados se qualquer uma das opções a seguir se aplicar:
+The retirement of OS Family 1 was first announced on June 1, 2013.
 
-1. Você tem um valor de "osFamily = "1" explicitamente especificado no arquivo ServiceConfiguration.cscfg para seu serviço de nuvem.
-2. Você não tem um valor para osFamily especificado explicitamente no arquivo ServiceConfiguration.cscfg para seu serviço de nuvem. Atualmente, o sistema usa o valor padrão de "1" nesse caso.
-3. O portal clássico do Azure lista o valor da família do Sistema Operacional Convidado como "Windows Server 2008".
+**Sept 2, 2014** The Azure Guest operating system (Guest OS) Family 1.x, which is based on the Windows Server 2008 operating system, was officially retired. All attempts to deploy new services or upgrade existing services using Family 1 will fail with an error message informing you that the Guest OS Family 1 has been retired.
 
-Para definir quais dos serviços de nuvem estão executando qual família de SO, execute o script abaixo no PowerShell do Azure, embora você deva [configurar o PowerShell do Azure](../powershell-install-configure.md) primeiro. Para obter detalhes adicionais sobre o script, consulte [Fim da vida útil da família 1 dos sistemas operacionais convidados do Azure: junho de 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
+**November 3, 2014** Extended support for Guest OS Family 1 ended and it is fully retired. All services still on Family 1 will be impacted. We may stop those services at any time. There is no guarantee your services will continue to run unless you manually upgrade them yourself.
+
+If you have additional questions, please visit the [Cloud Services Forums](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) or [contact Azure support](https://azure.microsoft.com/support/options/).
+
+
+
+
+## <a name="are-you-affected?"></a>Are you affected?
+
+Your Cloud Services are affected if any one of the following applies:
+
+1. You have a value of "osFamily = "1" explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service.
+2. You do not have a value for osFamily explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service. Currently, the system uses the default value of "1" in this case.
+3. The Azure classic portal lists your Guest Operating System family value as "Windows Server 2008".
+
+To find which of your cloud services are running which OS Family, you can run the script below in Azure PowerShell, though you must [set up Azure PowerShell](../powershell-install-configure.md) first. For additional details on the script, see [Azure Guest OS Family 1 End of Life: June 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx). 
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -51,34 +52,38 @@ foreach($subscription in Get-AzureSubscription) {
 }
 ```
 
-Os serviços de nuvem serão afetados pela desativação da família 1 do sistema operacional se a coluna osFamily na saída do script estiver vazia ou contiver um "1".
+Your cloud services will be impacted by OS Family 1 retirement if the osFamily column in the script output is empty or contains a "1".
 
-## Recomendações se você for afetado
+## <a name="recommendations-if-you-are-affected"></a>Recommendations if you are affected
 
-Recomendamos que você migre suas funções de serviço de nuvem para uma das famílias dos sistemas operacionais convidados com suporte:
+We recommend you migrate your Cloud Service roles to one of the supported Guest OS Families:
 
-**Família 4.x dos SOs convidados** - Windows Server 2012 R2 *(recomendado)*
+**Guest OS family 4.x** - Windows Server 2012 R2 *(recommended)*
 
-1. Certifique-se de que seu aplicativo esteja usando o SDK 2.1 ou posterior com o .NET Framework 4.0, 4.5 ou 4.5.1.
-2. Defina o atributo osFamily para "4" no arquivo ServiceConfiguration.cscfg e reimplante o serviço de nuvem.
-
-
-**Família 3.x dos SOs convidados** - Windows Server 2012
-
-1. Certifique-se de que seu aplicativo esteja usando o SDK 1.8 ou posterior com o .NET Framework 4.0 ou 4.5.
-2. Defina o atributo osFamily como "3" no arquivo ServiceConfiguration.cscfg e reimplante o serviço de nuvem.
+1. Ensure that your application is using SDK 2.1 or later with .NET framework 4.0, 4.5 or 4.5.1.
+2. Set the osFamily attribute to “4” in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
 
 
-**Família 2.x dos SOs convidados** - Windows Server 2008 R2
+**Guest OS family 3.x** - Windows Server 2012
 
-1. Certifique-se de que seu aplicativo esteja usando o SDK 1.3 e posterior com o .NET Framework 3.5 ou 4.0.
-2. Defina o atributo osFamily para "2" no arquivo ServiceConfiguration.cscfg e reimplante o serviço de nuvem.
+1. Ensure that your application is using SDK 1.8 or later with .NET framework 4.0 or 4.5.
+2. Set the osFamily attribute to “3” in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
 
 
-## O suporte estendido para a Família 1 dos sistemas operacionais convidados terminou em 3 de novembro de 2014
-Não há mais suporte para serviços de nuvem na família 1 dos sistemas operacionais convidados. Migre da família 1 assim que possível para evitar a interrupção do serviço.
+**Guest OS family 2.x** - Windows Server 2008 R2
 
-## Próximas etapas
-Examine as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
+1. Ensure that your application is using SDK 1.3 and above with .NET framework 3.5 or 4.0.
+2. Set the osFamily attribute to "2" in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
 
-<!---HONumber=AcomDC_0615_2016-->
+
+## <a name="extended-support-for-guest-os-family-1-ended-nov-3,-2014"></a>Extended Support for Guest OS Family 1 ended Nov 3, 2014
+Cloud services on Guest OS family 1 are no longer supported. Please migrate off family 1 as soon as possible to avoid service disruption.  
+
+## <a name="next-steps"></a>Next steps
+Review the latest [Guest OS releases](cloud-services-guestos-update-matrix.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

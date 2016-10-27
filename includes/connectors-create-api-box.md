@@ -1,20 +1,23 @@
-### Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
-- Uma conta [box](http://box.com)  
+- A [box](http://box.com) account  
 
 
-Antes de usar a conta box em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta box. Felizmente, você pode fazer isso facilmente dentro do seu aplicativo lógico no Portal do Azure.
+Before you can use your box account in a Logic app, you must authorize the Logic app to connect to your box account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
 
-Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta box:
-1. Para criar uma conexão com o box, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa, em seguida, digite *box* na caixa de pesquisa. Selecione o gatilho ou ação que gostaria de usar:  
-![etapa de criação de conexão com o box](./media/connectors-create-api-box/box-1.png)  
-2. Se você não tiver criado nenhuma conexão com o box antes, suas credenciais do box serão solicitadas. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta do box e usá-los:  
-![etapa de criação de conexão com o box](./media/connectors-create-api-box/box-2.png)  
-3. Forneça seu nome de usuário do box e a senha para autorizar seu aplicativo lógico:  
-![etapa de criação de conexão com o box](./media/connectors-create-api-box/box-3.png)  
-4. Permitir que nós nos conectemos ao box:  
-![etapa de criação de conexão com o box](./media/connectors-create-api-box/box-4.png)  
-5. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico:  
-![etapa de criação de conexão com o box](./media/connectors-create-api-box/box-5.png)  
+Here are the steps to authorize your Logic app to connect to your box account:  
+1. To create a connection to box, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *box* in the search box. Select the trigger or action you'll like to use:  
+![box connection creation step](./media/connectors-create-api-box/box-1.png)  
+2. If you haven't created any connections to box before, you'll get prompted to provide your box credentials. These credentials will be used to authorize your Logic app to connect to, and access your box account's data:  
+![box connection creation step](./media/connectors-create-api-box/box-2.png)  
+3. Provide your box user name and password to authorize your Logic app:  
+ ![box connection creation step](./media/connectors-create-api-box/box-3.png)  
+4. Allow us to connect to box:  
+![box connection creation step](./media/connectors-create-api-box/box-4.png)  
+5. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
+![box connection creation step](./media/connectors-create-api-box/box-5.png)  
 
-<!---HONumber=AcomDC_0525_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

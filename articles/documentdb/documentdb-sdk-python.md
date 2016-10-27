@@ -1,22 +1,23 @@
 <properties 
-	pageTitle="SDK e API do Python para o Banco de Dados de Documentos | Microsoft Azure" 
-	description="Saiba tudo sobre o SDK e a API do Python, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do Python para o Banco de Dados de Documentos." 
-	services="documentdb" 
-	documentationCenter="python" 
-	authors="rnagpal" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+    pageTitle="DocumentDB Python API & SDK | Microsoft Azure" 
+    description="Learn all about the Python API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Python SDK." 
+    services="documentdb" 
+    documentationCenter="python" 
+    authors="rnagpal" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="rnagpal"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="python" 
+    ms.topic="article" 
+    ms.date="09/29/2016" 
+    ms.author="rnagpal"/>
 
-# SDKs e APIs de Banco de Dados de Documentos
+
+# <a name="documentdb-apis-and-sdks"></a>DocumentDB APIs and SDKs
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-sdk-dotnet.md)
@@ -26,96 +27,108 @@
 - [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
 - [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-## SDK e API do Python para o Banco de Dados de Documentos
+## <a name="documentdb-python-api-and-sdk"></a>DocumentDB Python API and SDK
 
 <table>
-<tr><td>***Baixe o SDK***</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
-<tr><td>**Documentação da API**</td><td>[Documentação de referência de API do Python](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html)</td></tr>
-<tr><td>**Instruções de instalação do SDK**</td><td>[Instruções de instalação do SDK do Python](http://azure.github.io/azure-documentdb-python/)</td></tr>
-<tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
-<tr><td>**Introdução**</td><td>[Introdução ao SDK do Python](documentdb-python-application.md)</td></tr>
-<tr><td>**Plataforma atual com suporte**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr>
+<tr><td>**Download SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**API documentation**</td><td>[Python API reference documentation](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html)</td></tr>
+<tr><td>**SDK installation instructions**</td><td>[Python SDK installation instructions](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the Python SDK](documentdb-python-application.md)</td></tr>
+<tr><td>**Current supported platform**</td><td>[Python 2.7](https://www.python.org/downloads/) and [Python 3.5](https://www.python.org/downloads/)</td></tr>
 </table></br>
 
-## Notas de versão
+## <a name="release-notes"></a>Release notes
 
-### <a name="1.9.0"/>[1\.9.0](https://pypi.python.org/pypi/pydocumentdb/1.9.0)
-- Suporte à política de repetições para solicitações limitadas adicionado. (As solicitações limitadas recebem uma exceção muito grande de taxa de solicitação, código de erro 429.) Por padrão, o Banco de Dados de Documentos tenta cada solicitação novamente nove vezes quando o código de erro 429 é encontrado, respeitando o tempo retryAfter no cabeçalho de resposta. Um intervalo de repetição fixo agora poderá ser definido como parte da propriedade RetryOptions no objeto ConnectionPolicy, se você quiser ignorar o tempo retryAfter retornado pelo servidor entre as repetições. O Banco de Dados de Documentos agora aguarda um período máximo de 30 segundos para cada solicitação que está sendo limitada (independentemente da contagem de repetições) e retorna a resposta com o código de erro 429. Este tempo também pode ser substituído na propriedade RetryOptions, no objeto ConnectionPolicy.
+### <a name="<a-name="2.0.0"/>[2.0.0](https://pypi.python.org/pypi/pydocumentdb/2.0.0)"></a><a name="2.0.0"/>[2.0.0](https://pypi.python.org/pypi/pydocumentdb/2.0.0)
+- Added support for Python 3.5.
+- Added support for connection pooling using a requests module.
+- Added support for session consistency.
+- Added support for TOP/ORDERBY queries for partitioned collections.
 
-- O Banco de Dados de Documentos agora retorna x-ms-throttle-retry-count e x-ms-throttle-retry-wait-time-ms como os cabeçalhos de resposta em cada solicitação para denotar a contagem de repetições limitadas e o tempo cumulativo que a solicitação aguardou entre as tentativas.
 
-- A classe RetryPolicy foi removida e a propriedade correspondente (retry\_policy) foi exposta na classe document\_client. Como alternativa, foi introduzida uma classe RetryOptions, expondo a propriedade RetryOptions na classe ConnectionPolicy, que pode ser usada para substituir algumas das opções de repetição padrão.
+### <a name="<a-name="1.9.0"/>[1.9.0](https://pypi.python.org/pypi/pydocumentdb/1.9.0)"></a><a name="1.9.0"/>[1.9.0](https://pypi.python.org/pypi/pydocumentdb/1.9.0)
+- Added retry policy support for throttled requests. (Throttled requests receive a request rate too large exception, error code 429.) By default, DocumentDB retries nine times for each request when error code 429 is encountered, honoring the retryAfter time in the response header. A fixed retry interval time can now be set as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. DocumentDB now waits for a maximum of 30 seconds for each request that is being throttled (irrespective of retry count) and returns the response with error code 429. This time can also be overriden in the RetryOptions property on ConnectionPolicy object.
 
-### <a name="1.8.0"/>[1\.8.0](https://pypi.python.org/pypi/pydocumentdb/1.8.0)
-  - Suporte adicionado para contas de banco de dados de várias regiões.
+- DocumentDB now returns x-ms-throttle-retry-count and x-ms-throttle-retry-wait-time-ms as the response headers in every request to denote the throttle retry count and the cummulative time the request waited between the retries.
 
-### <a name="1.7.0"/>[1\.7.0](https://pypi.python.org/pypi/pydocumentdb/1.7.0)
-- Adicionado o suporte para o recurso TTL (vida útil) para documentos.
+- Removed the RetryPolicy class and the corresponding property (retry_policy) exposed on the document_client class and instead introduced a RetryOptions class exposing the RetryOptions property on ConnectionPolicy class that can be used to override some of the default retry options.
 
-### <a name="1.6.1"/>[1\.6.1](https://pypi.python.org/pypi/pydocumentdb/1.6.1)
-- Correções de bugs relacionadas ao particionamento no lado do servidor a fim de permitir caracteres especiais no caminho de partitionkey.
+### <a name="<a-name="1.8.0"/>[1.8.0](https://pypi.python.org/pypi/pydocumentdb/1.8.0)"></a><a name="1.8.0"/>[1.8.0](https://pypi.python.org/pypi/pydocumentdb/1.8.0)
+  - Added the support for multi-region database accounts.
 
-### <a name="1.6.0"/>[1\.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
-- Implementação de [coleções particionadas](documentdb-partition-data.md) e [níveis de desempenho definidos pelo usuário](documentdb-performance-levels.md).
+### <a name="<a-name="1.7.0"/>[1.7.0](https://pypi.python.org/pypi/pydocumentdb/1.7.0)"></a><a name="1.7.0"/>[1.7.0](https://pypi.python.org/pypi/pydocumentdb/1.7.0)
+- Added the support for Time To Live(TTL) feature for documents.
 
-### <a name="1.5.0"/>[1\.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
-- Adicionar resolvedores de hash e intervalo para ajudar com a fragmentação de arquivos em várias partições.
+### <a name="<a-name="1.6.1"/>[1.6.1](https://pypi.python.org/pypi/pydocumentdb/1.6.1)"></a><a name="1.6.1"/>[1.6.1](https://pypi.python.org/pypi/pydocumentdb/1.6.1)
+- Bug fixes related to server side partitioning to allow special characters in partitionkey path.
 
-### <a name="1.4.2"/>[1\.4.2](https://pypi.python.org/pypi/pydocumentdb/1.4.2)
-- Implementar o Upsert. Novos métodos UpsertXXX adicionados para dar suporte ao recurso Upsert.
-- Implementar o roteamento com base em ID. Nenhuma alteração pública de API, todas as alterações são internas.
+### <a name="<a-name="1.6.0"/>[1.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)"></a><a name="1.6.0"/>[1.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
+- Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
 
-### <a name="1.2.0"/>[1\.2.0](https://pypi.python.org/pypi/pydocumentdb/1.2.0)
-- Oferece suporte ao índice Geoespacial.
-- Valida a propriedade de ID de todos os recursos. As IDs de recursos não podem conter caracteres ?, /, #, \\ ou terminar com um espaço.
-- Adiciona o novo cabeçalho "andamento de transformação do índice" ao ResourceResponse.
+### <a name="<a-name="1.5.0"/>[1.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)"></a><a name="1.5.0"/>[1.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
+- Add Hash & Range partition resolvers to assist with sharding applications across multiple partitions.
 
-### <a name="1.1.0"/>[1\.1.0](https://pypi.python.org/pypi/pydocumentdb/1.1.0)
-- Implementa a política de indexação V2.
+### <a name="<a-name="1.4.2"/>[1.4.2](https://pypi.python.org/pypi/pydocumentdb/1.4.2)"></a><a name="1.4.2"/>[1.4.2](https://pypi.python.org/pypi/pydocumentdb/1.4.2)
+- Implement Upsert. New UpsertXXX methods added to support Upsert feature.
+- Implement ID Based Routing. No public API changes, all changes internal.
 
-### <a name="1.0.1"/>[1\.0.1](https://pypi.python.org/pypi/pydocumentdb/1.0.1)
-- Oferece suporte à conexão de proxy.
+### <a name="<a-name="1.2.0"/>[1.2.0](https://pypi.python.org/pypi/pydocumentdb/1.2.0)"></a><a name="1.2.0"/>[1.2.0](https://pypi.python.org/pypi/pydocumentdb/1.2.0)
+- Supports GeoSpatial index.
+- Validates id property for all resources. Ids for resources cannot contain ?, /, #, \, characters or end with a space.
+- Adds new header "index transformation progress" to ResourceResponse.
 
-### <a name="1.0.0"/>[1\.0.0](https://pypi.python.org/pypi/pydocumentdb/1.0.0)
-- SDK DO GA.
+### <a name="<a-name="1.1.0"/>[1.1.0](https://pypi.python.org/pypi/pydocumentdb/1.1.0)"></a><a name="1.1.0"/>[1.1.0](https://pypi.python.org/pypi/pydocumentdb/1.1.0)
+- Implements V2 indexing policy.
 
-## Datas de lançamento e de baixa
-A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte.
+### <a name="<a-name="1.0.1"/>[1.0.1](https://pypi.python.org/pypi/pydocumentdb/1.0.1)"></a><a name="1.0.1"/>[1.0.1](https://pypi.python.org/pypi/pydocumentdb/1.0.1)
+- Supports proxy connection.
 
-Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente.
+### <a name="<a-name="1.0.0"/>[1.0.0](https://pypi.python.org/pypi/pydocumentdb/1.0.0)"></a><a name="1.0.0"/>[1.0.0](https://pypi.python.org/pypi/pydocumentdb/1.0.0)
+- GA SDK.
 
-Qualquer solicitação feita ao Banco de Dados de Documentos usando um SDK obsoleto será rejeitada pelo serviço.
+## <a name="release-&-retirement-dates"></a>Release & retirement dates
+Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
+
+New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible. 
+
+Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 > [AZURE.WARNING]
-Todas as versões do SDK do Banco de Dados de Documentos do Azure para Python anteriores à versão **1.0.0** serão desativadas em **29 de fevereiro de 2016**.
+All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** will be retired on **February 29, 2016**. 
 
 <br/>
 
-| Versão | Data do lançamento | Data de desativação 
-| ---	  | ---	         | ---
-| [1.9.0](#1.9.0) | 07 de julho de 2016 |---
-| [1.8.0](#1.8.0) | 14 de julho de 2016 |---
-| [1.7.0](#1.7.0) | 26 de abril de 2016 |---
-| [1.6.1](#1.6.1) | 08 de abril de 2016 |---
-| [1.6.0](#1.6.0) | 29 de março de 2016 |---
-| [1.5.0](#1.5.0) | 03 de janeiro de 2016 |---
-| [1\.4.2](#1.4.2) | 06 de outubro de 2015 |---
-| [1\.4.1](#1.4.1) | 06 de outubro de 2015 |---
-| [1\.2.0](#1.2.0) | 06 de agosto de 2015 |---
-| [1\.1.0](#1.1.0) | 09 de julho de 2015 |---
-| [1\.0.1](#1.0.1) | 25 de maio de 2015 |---
-| [1\.0.0](#1.0.0) | 07 de abril de 2015 |---
-| 0.9.4-prelease | 14 de janeiro de 2015 | 29 de fevereiro de 2016
-| 0.9.3-prelease | 09 de dezembro de 2014 | 29 de fevereiro de 2016
-| 0.9.2-prelease | 25 de novembro de 2014 | 29 de fevereiro de 2016
-| 0.9.1-prelease | 23 de setembro de 2014 | 29 de fevereiro de 2016
-| 0.9.0-prelease | 21 de agosto de 2014 | 29 de fevereiro de 2016
+| Version | Release Date | Retirement Date 
+| ---     | ---          | ---
+| [2.0.0](#2.0.0) | September 29, 2016 |---
+| [1.9.0](#1.9.0) | July 07, 2016 |---
+| [1.8.0](#1.8.0) | June 14, 2016 |---
+| [1.7.0](#1.7.0) | April 26, 2016 |---
+| [1.6.1](#1.6.1) | April 08, 2016 |---
+| [1.6.0](#1.6.0) | March 29, 2016 |---
+| [1.5.0](#1.5.0) | January 03, 2016 |---
+| [1.4.2](#1.4.2) | October 06, 2015 |---
+| [1.4.1](#1.4.1) | October 06, 2015 |---
+| [1.2.0](#1.2.0) | August 06, 2015 |---
+| [1.1.0](#1.1.0) | July 09, 2015 |---
+| [1.0.1](#1.0.1) | May 25, 2015 |---
+| [1.0.0](#1.0.0) | April 07, 2015 |---
+| 0.9.4-prelease | January 14, 2015 | February 29, 2016
+| 0.9.3-prelease | December 09, 2014 | February 29, 2016
+| 0.9.2-prelease | November 25, 2014 | February 29, 2016
+| 0.9.1-prelease | September 23, 2014 | February 29, 2016
+| 0.9.0-prelease | August 21, 2014 | February 29, 2016
 
-## Perguntas frequentes
+## <a name="faq"></a>FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## Confira também
+## <a name="see-also"></a>See also
 
-Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
+To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

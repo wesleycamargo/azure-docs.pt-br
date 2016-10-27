@@ -1,9 +1,15 @@
-## O que são registros DNS reversos?
+## <a name="what-are-reverse-dns-records?"></a>What are reverse DNS records?
 
-Registros DNS reversos são usados em uma variedade de situações. Entre elas estão a validação do servidor e a autenticação de solicitações do servidor. Por exemplo, registros DNS reversos são amplamente usados no combate de email de spam pela verificação do remetente de uma mensagem de email, verificação do registro DNS reverso e também se o host foi reconhecido como autorizado para enviar emails do domínio de origem. Observe que os Serviços de Computação não oferecem suporte ao envio de emails a domínios externos de acordo com [estas informações](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/). <BR>Registros DNS reversos, ou registros PTR, são tipos de registro DNS que permitem a conversão de um endereço IP roteável publicamente de volta para um nome. No DNS, nomes como app1.contoso.com, são resolvidos em endereços IP, em um processo chamado resolução de encaminhamento. Com o DNS reverso, esse processo é revertido para permitir a resolução do nome dado ao seu endereço IP.<BR> Para saber mais sobre Registros DNS reversos, clique [aqui](http://en.wikipedia.org/wiki/Reverse_DNS_lookup)<BR>
+Reverse DNS records are used in a variety of situations. Server validation and authenticating server requests among them. For example, reverse DNS records are widely used in combating e-mail spam by verifying the sender of an e-mail message by verifying its reverse DNS record, and also, if that host was recognized as authorized to send e-mail from the originating domain. Please note that Azure Compute services do not support sending emails to external domains as per [here](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/). <BR>
+Reverse DNS records, or PTR records, are DNS record types that enable the translation of a publically routable IP address back to a name. In DNS, names such as app1.contoso.com, are resolved to IP addresses in a process that is called forward resolution. With reverse DNS, this process is reversed to enable the resolution of the name given its IP address.<BR>
+For more information on Reverse DNS records, please see [here](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).<BR>
 
-## Como o Azure dá suporte a registros DNS reversos para os serviços do Azure?
+## <a name="how-does-azure-support-reverse-dns-records-for-your-azure-services?"></a>How does Azure support reverse DNS records for your Azure services?
 
-A Microsoft trabalha com diversos de registros para obter um suprimento adequado de blocos IP roteáveis publicamente. Em seguida, cada um desses blocos é delegado a servidores DNS autoritativos operados e pertencentes à Microsoft. A Microsoft hospeda zonas DNS reversas para todos os blocos IP roteáveis publicamente atribuídos a ela. <BR> O Azure permite especificar um FQDN (nome de domínio totalmente qualificado personalizado) para IPs roteáveis públicos atribuídos a suas implantações. Esses FQDNs personalizados serão retornados para pesquisas de DNS reversas para esses IPs.<BR> O Azure dá suporte ao DNS reverso para todos IPs roteáveis publicamente sem custo adicional e aos serviços implantados com os modelos de implantação clássica e do ARM.
+Microsoft works with a number of registries to secure an adequate supply of publically routable IP blocks. Each of these blocks is then delegated to Microsoft-owned and operated authoritative DNS servers. Microsoft hosts the reverse DNS zones for all publically routable IP blocks assigned to it. <BR>
+Azure enables you to specify a custom fully-qualified domain name (FQDN) for public routable IPs assigned to your deployments. These custom FQDNs will then be returned for reverse DNS lookups for those IPs.<BR> Azure provides reverse DNS support for all publically routable IPs at no additional cost, and for services deployed using the classic and ARM deployment models.
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

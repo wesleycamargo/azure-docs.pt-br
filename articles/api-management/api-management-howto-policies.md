@@ -1,147 +1,147 @@
 <properties 
-	pageTitle="Políticas no Gerenciamento de API do Azure | Microsoft Azure" 
-	description="Aprenda a criar, editar e configurar políticas de Gerenciamento de API." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Policies in Azure API Management | Microsoft Azure" 
+    description="Learn how to create, edit, and configure policies in API Management." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/25/2016" 
+    ms.author="sdanie"/>
 
 
-#Políticas do Gerenciamento de API do Azure
 
-No Gerenciamento de API do Azure, as políticas são uma poderosa funcionalidade do sistema que permite ao editor alterar o comportamento da API por meio da configuração. As políticas são um conjunto de instruções executadas em sequência, no momento da solicitação ou da resposta de uma API. Instruções populares incluem a conversão do formato de XML para JSON e limite de taxa de chamada para restringir a quantidade de chamadas recebidas de um desenvolvedor. Muitas políticas estão disponíveis pré-configuradas.
+#<a name="policies-in-azure-api-management"></a>Policies in Azure API Management
 
-Consulte a [Referência de Política][] para ver uma lista completa das instruções de política e suas configurações.
+In Azure API Management, policies are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of Statements that are executed sequentially on the request or response of an API. Popular Statements include format conversion from XML to JSON and call rate limiting to restrict the amount of incoming calls from a developer. Many more policies are available out of the box.
 
-As políticas são aplicadas dentro do gateway que fica entre o consumidor da API e a API gerenciada. O gateway recebe todas as solicitações e normalmente as encaminha inalteradas à API subjacente. No entanto, uma política também pode aplicar mudanças à solicitação de entrada e à resposta de saída.
+See the [Policy Reference][] for a full list of policy statements and their settings.
 
-Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][] e [Definir variável][] se baseiam em expressões de políticas. Para obter mais informações, consulte [Políticas avançadas][] e [Expressões de política][].
+Policies are applied inside the gateway which sits between the API consumer and the managed API. The gateway receives all requests and usually forwards them unaltered to the underlying API. However a policy can apply changes to both the inbound request and outbound response.
 
-## <a name="scopes"> </a>Como configurar políticas
-As políticas podem ser configuradas globalmente ou no escopo de um [Produto][], [API][] ou [Operação][]. Para configurar uma política, navegue até o Editor de políticas no Portal do Editor.
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow][] and [Set variable][] policies are based on policy expressions. For more information, see [Advanced policies][] and [Policy expressions][].
 
-![Menu de políticas][policies-menu]
+## <a name="<a-name="scopes">-</a>how-to-configure-policies"></a><a name="scopes"> </a>How to configure policies
+Policies can be configured globally or at the scope of a [Product][], [API][] or [Operation][]. To configure a policy, navigate to the Policies editor in the publisher portal.
 
-O editor de políticas consiste em três seções principais: o escopo de política (superior), definição de política, em que as políticas são editadas (à esquerda) e a lista de instruções (à direita):
+![Policies menu][policies-menu]
 
-![Editor de políticas][policies-editor]
+The policies editor consists of three main sections: the policy scope (top), the policy definition where policies are edited (left) and the statements list (right):
 
-Para começar a configurar uma política, você precisa antes selecionar o escopo ao qual ela deverá se aplicar. Na captura de tela abaixo, foi selecionado o produto **Inicial.** Observe que o símbolo de quadrado ao lado do nome da política indica que ela já está aplicada a este nível.
+![Policies editor][policies-editor]
 
-![Escopo][policies-scope]
+To begin configuring a policy you must first select the scope at which the policy should apply. In the screenshot below the **Starter** product is selected. Note that the square symbol next to the policy name indicates that a policy is already applied at this level.
 
-Uma vez que a política já foi aplicada, a configuração é mostrada na exibição de definição.
+![Scope][policies-scope]
 
-![Configurar][policies-configure]
+Since a policy has already been applied, the configuration is shown in the definition view.
 
-Primeiro, a política é exibida em formato somente leitura. Para editar a definição, clique na ação **Configurar Política**.
+![Configure][policies-configure]
 
-![Editar][policies-edit]
+The policy is displayed read-only at first. In order to edit the definition click the **Configure Policy** action.
 
-A definição da política é um documento XML simples que descreve uma sequência de instruções de entrada e de saída. O XML pode ser editado diretamente na janela de definição. Uma lista de instruções é fornecida à direita e as declarações aplicáveis ao escopo atual ficam habilitadas e destacadas, conforme demonstrado pela instrução **Limit Call Rate** (Taxa limite de chamadas) na captura de tela acima.
+![Edit][policies-edit]
 
-Clicar em uma instrução habilitada adicionará o XML adequado ao local onde estiver o cursor na exibição de definição.
+The policy definition is a simple XML document that describes a sequence of inbound and outbound statements. The XML can be edited directly in the definition window. A list of statements is provided to the right and statements applicable to the current scope are enabled and highlighted; as demonstrated by the **Limit Call Rate** statement in the screenshot above.
 
->[AZURE.NOTE] Se a política que deseja adicionar não estiver habilitada, verifique se você está no escopo correto para essa política. Cada declaração de política é projetada para uso em determinados escopos e seções de política. Para examinar as seções da política e os escopos de uma política, verifique a seção **Uso** dessa política na [Referência à política][].
+Clicking an enabled statement will add the appropriate XML at the location of the cursor in the definition view. 
 
-Uma lista completa de instruções de políticas e suas configurações está disponível na [Referência de política][].
+>[AZURE.NOTE] If the policy that you want to add is not enabled, ensure that you are in the correct scope for that policy. Each policy statement is designed for use in certain scopes and policy sections. To review the policy sections and scopes for a policy, check the **Usage** section for that policy in the [Policy Reference][].
 
-Por exemplo, para adicionar uma nova instrução para restringir as solicitações de entrada a endereços IP especificados, posicione o cursor dentro do conteúdo do elemento XML `inbound` e clique na instrução **Restringir IPs de chamada**.
+A full list of policy statements and their settings are available in the [Policy Reference][].
 
-![Políticas de restrição][policies-restrict]
+For example, to add a new statement to restrict incoming requests to specified IP addresses, place the cursor just inside the content of the `inbound` XML element and click the **Restrict caller IPs** statement.
 
-Isto adicionará um trecho XML ao elemento `inbound` que fornecerá diretrizes de como configurar a instrução.
+![Restriction policies][policies-restrict]
 
-	<ip-filter action="allow | forbid">
-		<address>address</address>
-		<address-range from="address" to="address"/>
-	</ip-filter>
+This will add an XML snippet to the `inbound` element that provides guidance on how to configure the statement.
 
-Para limitar as solicitações de entrada e aceitar somente as provenientes de um endereço IP 1.2.3.4, modifique o XML da seguinte forma:
+    <ip-filter action="allow | forbid">
+        <address>address</address>
+        <address-range from="address" to="address"/>
+    </ip-filter>
 
-	<ip-filter action="allow">
-		<address>1.2.3.4</address>
-	</ip-filter>
+To limit inbound requests and accept only those from an IP address of 1.2.3.4 modify the XML as follows:
 
-![Salvar][policies-save]
+    <ip-filter action="allow">
+        <address>1.2.3.4</address>
+    </ip-filter>
 
-Quando concluir a configuração das instruções da política, clique em **Salvar** para que as alterações sejam propagadas para o gateway de Gerenciamento de API imediatamente.
+![Save][policies-save]
 
-##<a name="sections"> </a>Compreendendo configuração de políticas
+When complete configuring the statements for the policy, click **Save** and the changes will be propagated to the API Management gateway immediately.
 
-Uma política é uma série de instruções que são executadas para uma solicitação e uma resposta. A configuração é dividida adequadamente entre as seções `inbound`, `backend`, `outbound` e `on-error`, conforme demonstrado na configuração seguinte.
+##<a name="<a-name="sections">-</a>understanding-policy-configuration"></a><a name="sections"> </a>Understanding policy configuration
 
-	<policies>
-	  <inbound>
-	    <!-- statements to be applied to the request go here -->
-	  </inbound>
-	  <backend>
-	    <!-- statements to be applied before the request is forwarded to 
-	         the backend service go here -->
-	  </backend>
-	  <outbound>
-	    <!-- statements to be applied to the response go here -->
-	  </outbound>
-	  <on-error>
-	    <!-- statements to be applied if there is an error condition go here -->
-	  </on-error>
-	</policies> 
+A policy is a series of statements that execute in order for a request and a response. The configuration is divided appropriately into `inbound`, `backend`, `outbound`, and `on-error` sections as shown in the following configuration.
 
-Se houver um erro durante o processamento de uma solicitação, quaisquer etapas restantes nas seções `inbound`, `backend` ou `outbound` serão ignoradas e a execução saltará para as instruções na seção `on-error`. Ao colocar instruções de políticas na seção `on-error`, você pode revisar o erro usando a propriedade `context.LastError`, inspecionar e personalizar a resposta de erro usando a política `set-body` e configurar o que acontece se ocorrer um erro. Há códigos de erro para obter as etapas internas e erros que podem ocorrer durante o processamento de instruções de política. Para obter mais informações, consulte [Tratamento de erros em políticas de gerenciamento de API](https://msdn.microsoft.com/library/azure/mt629506.aspx).
+    <policies>
+      <inbound>
+        <!-- statements to be applied to the request go here -->
+      </inbound>
+      <backend>
+        <!-- statements to be applied before the request is forwarded to 
+             the backend service go here -->
+      </backend>
+      <outbound>
+        <!-- statements to be applied to the response go here -->
+      </outbound>
+      <on-error>
+        <!-- statements to be applied if there is an error condition go here -->
+      </on-error>
+    </policies> 
 
-Uma vez que as políticas podem ser especificadas em diferentes níveis (global, de produto, API e operação), a configuração oferece uma forma de especifica a ordem na qual as instruções dessa definição são executadas com relação à política pai.
+If there is an error during the processing of a request, any remaining steps in the `inbound`, `backend`, or `outbound` sections are skipped and execution jumps to the statements in the `on-error` section. By placing policy statements in the `on-error` section you can review the error by using the `context.LastError` property, inspect and customize the error response using the `set-body` policy, and configure what happens if an error occurs. There are error codes for built-in steps and for errors that may occur during the processing of policy statements. For more information, see [Error handling in API Management policies](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
-Os escopos de política são avaliados na ordem a seguir.
+Since policies can be specified at different levels (global, product, api and operation) the configuration provides a way for you to specify the order in which the policy definition's statements execute with respect to the parent policy. 
 
-1. Escopo global
-2. Escopo do produto
-3. Escopo de API
-4. Escopo de operação
+Policy scopes are evaluated in the following order.
 
-As declarações dentro deles são avaliadas de acordo com o posicionamento do elemento `base`, se ele estiver presente.
+1. Global scope
+2. Product scope
+3. API scope
+4. Operation scope
 
-Por exemplo, se você tiver uma política a nível global e uma política configurada para uma API, então, sempre que essa API em particular for usado, ambas as políticas serão aplicadas. O Gerenciamento de API permite uma ordenação determinista de instruções de política combinadas por meio do elemento base.
+The statements within them are evaluated according to the placement of the `base` element, if it is present.
 
-	<policies>
-    	<inbound>
-        	<cross-domain />
-        	<base />
-        	<find-and-replace from="xyz" to="abc" />
-    	</inbound>
-	</policies>
+For example, if you have a policy at the global level and a policy configured for an API, then whenever that particular API is used both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the base element. 
 
-No exemplo de definição de política acima, a instrução `cross-domain` seria executada antes de quaisquer políticas maiores que, por sua vez, seriam seguidas da política `find-and-replace`.
+    <policies>
+        <inbound>
+            <cross-domain />
+            <base />
+            <find-and-replace from="xyz" to="abc" />
+        </inbound>
+    </policies>
 
-Se a mesma política aparece duas vezes na declaração de política, a política avaliada mais recentemente é aplicada. Você pode usar isso para substituir políticas que são definidas em um escopo maior. Para ver as políticas no escopo atual no editor de política, clique em **Recalcular a política efetiva para o escopo selecionado**.
+In the example policy definition above, the `cross-domain` statement would execute before any higher policies which would in turn, be followed by the `find-and-replace` policy.
 
-Observe que uma política global não tem nenhuma política pai e que usar o elemento `<base>` nela não tem nenhum efeito.
+If the same policy appears twice in the policy statement, the most recently evaluated policy is applied. You can use this to override policies that are defined at a higher scope. To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**.
 
-## Próximas etapas
+Note that global policy has no parent policy and using the `<base>` element in it has no effect. 
 
-Confira o vídeo a seguir sobre expressões de política.
+## <a name="next-steps"></a>Next steps
+
+Check out following video on policy expressions.
 
 > [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
-[Referência de Política]: api-management-policy-reference.md
-[Referência à política]: api-management-policy-reference.md
-[Produto]: api-management-howto-add-products.md
-[API]: api-management-howto-add-products.md#add-apis
-[Operação]: api-management-howto-add-operations.md
+[Policy Reference]: api-management-policy-reference.md
+[Product]: api-management-howto-add-products.md
+[API]: api-management-howto-add-products.md#add-apis 
+[Operation]: api-management-howto-add-operations.md
 
-[Políticas avançadas]: https://msdn.microsoft.com/library/azure/dn894085.aspx
-[Controlar fluxo]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
-[Definir variável]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
-[Expressões de política]: https://msdn.microsoft.com/library/azure/dn910913.aspx
+[Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
+[Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
+[Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
+[Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 
 [policies-menu]: ./media/api-management-howto-policies/api-management-policies-menu.png
 [policies-editor]: ./media/api-management-howto-policies/api-management-policies-editor.png
@@ -151,4 +151,8 @@ Confira o vídeo a seguir sobre expressões de política.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

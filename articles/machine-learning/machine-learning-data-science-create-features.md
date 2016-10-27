@@ -1,100 +1,105 @@
 <properties
-	pageTitle="Engenharia de recursos no Processo de Análise do Cortana | Microsoft Azure" 
-	description="Explica a finalidade da seleção de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Feature engineering in the Cortana Analytics Process | Microsoft Azure" 
+    description="Explains the purposes of feature engineering and provides examples of its role in the data enhancement process of machine learning."
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/19/2016"
-	ms.author="zhangya;bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/19/2016"
+    ms.author="zhangya;bradsev" />
 
 
-# Engenharia de recurso no Processo de Análise da Cortana 
 
-Este tópico explica a finalidade da criação de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina. Os exemplos usados para ilustrar esse processo são extraídos do Estúdio de Aprendizado de Máquina do Azure.
+# <a name="feature-engineering-in-the-cortana-analytics-process"></a>Feature engineering in the Cortana Analytics Process 
+
+This topic explains the purposes of feature engineering and provides examples of its role in the data enhancement process of machine learning. The examples used to illustrate this process are drawn from Azure Machine Learning Studio. 
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
-Este **menu** leva você até os tópicos que descrevem como criar recursos para dados em vários ambientes. Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-A engenharia de recurso tenta aumentar a capacidade de previsão dos algoritmos de aprendizado criando recursos de dados brutos que facilitam o processo de aprendizado de recursos. A engenharia e a seleção de recursos é uma parte do processo de TDSP descrito em [What is the Team Data Science Process? (O que é o Processo de Ciência de Dados de Equipe?)](data-science-process-overview.md) A engenharia e a seleção de recursos fazem parte da etapa **Desenvolver recursos** do TDSP.
+Feature engineering attempts to increase the predictive power of learning algorithms by creating features from raw data that help facilitate the learning process. The engineering and selection of features is one part of the TDSP outlined in the [What is the Team Data Science Process?](data-science-process-overview.md) Feature engineering and selection are parts of the **Develop features** step of the TDSP. 
 
-* **engenharia de recursos**: esse processo tenta criar outros recursos relevantes com base nos recursos brutos existentes nos dados e aumentar a capacidade de previsão do algoritmo de aprendizado.
+* **feature engineering**: This process attempts to create additional relevant features from the existing raw features in the data, and to increase the predictive power of the learning algorithm.
 
-* **seleção de recursos**: este processo seleciona o subconjunto principal de recursos de dados originais para tentar reduzir a dimensionalidade do problema de treinamento.
+* **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem.
 
-Normalmente, a **engenharia de recursos** é aplicada primeiro para gerar recursos adicionais e, em seguida, a etapa de **seleção do recurso** é feita para eliminar recursos redundantes, altamente correlacionados ou irrelevantes.
+Normally **feature engineering** is applied first to generate additional features, and then the **feature selection** step is performed to eliminate irrelevant, redundant, or highly correlated features.
 
-Os dados de treinamento usados no aprendizado de máquina frequentemente podem ser aprimorados pela extração de recursos dos dados brutos coletados. Um exemplo de recurso de engenharia no contexto de aprender a classificar imagens de caracteres manuscritos é a criação de um mapa de densidade de bits construído por meio dos dados brutos de distribuição de bits. Este mapa pode ajudar a localizar as bordas dos caracteres da forma mais eficiente do que simplesmente usar a distribuição bruta diretamente.
+The training data used in machine learning can often be enhanced by extraction of features from the raw data collected. An example of an engineered feature in the context of learning how to classify the images of handwritten characters is creation of a bit density map constructed from the raw bit distribution data. This map can help locate the edges of the characters more efficiently than simply using the raw distribution directly.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 
-## Criando recursos por meio de seus dados - Engenharia de recursos
+## <a name="creating-features-from-your-data---feature-engineering"></a>Creating Features from Your Data - Feature Engineering
 
-Os dados de treinamento consistem de uma matriz composta de exemplos (registros ou observações armazenadas em linhas), cada um deles dos quais tem um conjunto de recursos (variáveis ou campos armazenados em colunas). Espera-se que os recursos especificados no design experimental caracterizem os padrões nos dados. Embora muitos dos campos de dados brutos possam ser incluídos diretamente no conjunto de recursos selecionado para treinar um modelo, frequentemente é necessário que recursos adicionais (engenharia) precisem ser construídos por meio dos recursos nos dados brutos para gerar um conjunto de dados de treinamento aperfeiçoado.
+The training data consists of a matrix composed of examples (records or observations stored in rows), each of which has a set of features (variables or fields stored in columns). The features specified in the experimental design are expected to characterize the patterns in the data. Although many of the raw data fields can be directly included in the selected feature set used to train a model, it is often the case that additional (engineered) features need to be constructed from the features in the raw data to generate an enhanced training dataset.
 
-Que tipos de recursos devem ser criados para aperfeiçoar o conjunto de dados ao treinar um modelo? Recursos de engenharia que aprimoram o treinamento fornecem informações que diferenciam melhor os padrões nos dados. Esperamos que os novos recursos forneçam informações adicionais que não são capturadas claramente ou que não ficam aparentes com facilidade no conjunto de recursos original ou existente. Mas esse processo tem algo de artístico. Decisões sensatas e produtivas frequentemente exigem alguma experiência de domínio.
+What kind of features should be created to enhance the dataset when training a model? Engineered features that enhance the training provide information that better differentiates the patterns in the data. We expect the new features to provide additional information that is not clearly captured or easily apparent in the original or existing feature set. But this process is something of an art. Sound and productive decisions often require some domain expertise.
 
-Ao começar a usar o Aprendizado de Máquina do Azure, é mais fácil entender esse processo concretamente usando exemplos fornecidos no Studio. Dois exemplos são apresentados aqui:
+When starting with Azure Machine Learning, it is easiest to grasp this process concretely using samples provided in the Studio. Two examples are presented here:
 
-* Um exemplo de regressão, [Previsão do número de locações de bicicletas](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4), em um experimento supervisionado em que os valores de destino são conhecidos
-* Um exemplo de classificação de mineração de texto usando [Hash de recursos](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
+* A regression example [Prediction of the number of bike rentals](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) in a supervised experiment where the target values are known
+* A text mining classification example using [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
-### Exemplo 1: adicionando recursos temporais para o modelo de regressão ###
+### <a name="example-1:-adding-temporal-features-for-regression-model"></a>Example 1: Adding Temporal Features for Regression Model ###
 
-Vamos usar o experimento "Previsão de demanda de bicicletas" no Estúdio de Aprendizado de Máquina do Azure para demonstrar como fazer a engenharia de recursos para uma tarefa de regressão. O objetivo do experimento é prever a demanda de bicicletas, ou seja, o número de locações de bicicletas dentro de um mês/dia/hora específica. O “Conjunto de dados de UCI de locação de bicicletas” é usado como os dados brutos de entrada. Esse conjunto de dados baseia-se em dados reais da empresa Capital Bikeshare, que mantém uma rede de aluguel de bicicletas em Washington, D.C. nos Estados Unidos. O conjunto de dados representa o número de locações de bicicletas em uma hora específica de um dia nos anos 2011 e 2012 e contém 17379 linhas e 17 colunas. O conjunto de recursos brutos contém condições climáticas (temperatura/umidade/velocidade do vento) e o tipo de dia (feriado/dia da semana). O campo a ser previsto é "cnt", uma contagem que representa os aluguéis de bicicleta em uma hora específica e que varia de 1 a 977.
+Let's use the experiment "Demand forecasting of bikes" in Azure Machine Learning Studio to demonstrate how to engineer features for a regression task. The objective of this experiment is to predict the demand for the bikes, that is, the number of bike rentals within a specific month/day/hour. The dataset "Bike Rental UCI dataset" is used as the raw input data. This dataset is based on real data from the Capital Bikeshare company that maintains a bike rental network in Washington DC in the United States. The dataset represents the number of bike rentals within a specific hour of a day in the years 2011 and year 2012 and contains 17379 rows and 17 columns. The raw feature set contains weather conditions (temperature/humidity/wind speed) and the type of the day (holiday/weekday). The field to predict is "cnt", a count which represents the bike rentals within a specific hour and which ranges ranges from 1 to 977.
 
-Com o objetivo de construir recursos efetivos nos dados de treinamento, quatro modelos de regressão são criados usando o mesmo algoritmo, mas com quatro conjuntos de dados de treinamento diferentes. Os quatro conjuntos de dados representam os mesmos dados de entrada brutos, mas com um número crescente de características definido. Os recursos são agrupados em quatro categorias:
+With the goal of constructing effective features in the training data, four regression models are built using the same algorithm but with four different training datasets. The four datasets represent the same raw input data, but with an increasing number of features set. These features are grouped into four categories:
 
-1. A = características de clima + feriado + dia da semana + final de semana para o dia previsto
-2. B = número de bicicletas que foram alugadas em cada uma das últimas 12 horas
-3. C = número de bicicletas que foram alugadas em cada um dos últimos 12 dias, na mesma hora
-4. D = número de bicicletas que foram alugadas em cada uma das últimas 12 semanas, na mesma hora e mesmo dia
+1. A = weather + holiday + weekday + weekend features for the predicted day
+2. B = number of bikes that were rented in each of the previous 12 hours
+3. C = number of bikes that were rented in each of the previous 12 days at the same hour
+4. D = number of bikes that were rented in each of the previous 12 weeks at the same hour and the same day
 
-Além do conjunto de recursos A, que já existe nos dados brutos originais, três outros conjuntos de recursos são criados por meio do processo de engenharia de recursos. O conjunto de recursos B captura a demanda recente pelas bicicletas. O conjunto de recursos C captura a demanda por bicicletas em uma hora específica. O conjunto de recursos D captura a demanda por bicicletas em uma hora específica de um dia específico da semana. Os quatro conjuntos de dados de treinamento incluem os conjuntos de recursos A, A + B, A + B + C e A + B + C + D, respectivamente.
+Besides feature set A, which already exist in the original raw data, the other three sets of features are created through the feature engineering process. Feature set B captures very recent demand for the bikes. Feature set C captures the demand for bikes at a particular hour. Feature set D captures demand for bikes at particular hour and particular day of the week. The four training datasets each includes feature set A, A+B, A+B+C, and A+B+C+D, respectively.
 
-No experimento do Aprendizado de Máquina do Azure, esses quatro conjuntos de dados de treinamento são formados por meio de quatro ramificações do conjunto de dados de entrada pré-processado. Exceto pela ramificação mais à esquerda, cada uma dessas ramificações contém um módulo [Executar Script R](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/), no qual um conjunto de recursos derivados (conjuntos de recursos B, C e D) são construídos e acrescentados ao conjunto de dados importado. A figura a seguir demonstra o script R sendo usado para criar o conjunto de recursos B na segunda ramificação à esquerda.
+In the Azure Machine Learning experiment, these four training datasets are formed via four branches from the pre-processed input dataset. Except the left most branch, each of these branches contains an [Execute R Script](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) module, in which a set of derived features (feature set B, C, and D) are respectively constructed and appended to the imported dataset. The following figure demonstrates the R script used to create feature set B in the second left branch.
 
-![criar recursos](./media/machine-learning-data-science-create-features/addFeature-Rscripts.png)
+![create features](./media/machine-learning-data-science-create-features/addFeature-Rscripts.png)
 
-A comparação dos resultados de desempenho dos quatro modelos é resumida na tabela a seguir. Os melhores resultados são mostrados pelos recursos A + B + C. Observe que a taxa de erro diminui quando o conjunto de recursos adicional é incluído nos dados de treinamento. Isso confirma nossa suposição de que o conjunto de recursos B, C fornece informações adicionais relevantes para a tarefa de regressão. Mas adicionar o recurso D não parece fornecer qualquer redução adicional da taxa de erro.
+The comparison of the performance results of the four models are summarized in the following table. The best results are shown by features A+B+C. Note that the error rate decreases when additional feature set are included in the training data. It verifies our presumption that the feature set B, C provide additional relevant information for the regression task. But adding the D feature does not seem to provide any additional reduction in the error rate.
 
-![comparação de resultados](./media/machine-learning-data-science-create-features/result1.png)
+![result comparison](./media/machine-learning-data-science-create-features/result1.png)
 
-### <a name="example2"></a> Exemplo 2: Criando recursos com mineração de texto  
+### <a name="<a-name="example2"></a>-example-2:-creating-features-in-text-mining"></a><a name="example2"></a> Example 2: Creating Features in Text Mining  
 
-A engenharia de recursos é amplamente aplicada a tarefas relacionadas à mineração de texto, como classificação de documentos e análise de sentimento. Por exemplo, quando queremos classificar documentos em várias categorias, um pressuposto típico é que as palavras/expressões incluídas em uma categoria de documentos têm menor probabilidade de ocorrer em outra categoria de documentos. Em outras palavras, a frequência da distribuição de palavras/expressões é capaz de caracterizar diferentes categorias de documentos. Para aplicações associadas à mineração de texto, como trechos individuais do conteúdo de texto normalmente funcionam como dados de entrada, o processo de engenharia de recurso é necessário para criar os recursos que envolvem frequências de palavra/expressão.
+Feature engineering is widely applied in tasks related to text mining, such as document classification and sentiment analysis. For example, when we want to classify documents into several categories, a typical assumption is that the word/phrases included in one doc category are less likely to occur in another doc category. In another words, the frequency of the words/phrases distribution is able to characterize different document categories. In text mining applications, because individual pieces of text-contents usually serve as the input data, the feature engineering process is needed to create the features involving word/phrase frequencies.
 
-Para realizar essa tarefa, uma técnica chamada **hash de recursos** é aplicada para transformar de maneira eficiente recursos de texto arbitrários em índices. Em vez de associar cada recurso de texto (palavras/expressões) a um índice em particular, este método funciona aplicando uma função de hash aos recursos e usando seus valores de hash como índices diretamente.
+To achieve this task, a technique called **feature hashing** is applied to efficiently turn arbitrary text features into indices. Instead of associating each text feature (words/phrases) to a particular index, this method functions by applying a hash function to the features and using their hash values as indices directly.
 
-No Aprendizado de Máquina do Azure, há um módulo [Hash de Recursos](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) que cria esses recursos de palavra/expressão de maneira conveniente. A figura a seguir mostra um exemplo de uso deste módulo. O conjunto de dados de entrada contém duas colunas: a classificação do livro, que varia de 1 a 5, e o conteúdo real da resenha. O objetivo desse módulo de [Hash de Recursos](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) é recuperar um monte de novos recursos que mostram a frequência de ocorrência das palavras/expressões correspondentes dentro de uma resenha de livro. Para usar este módulo, precisamos concluir as seguintes etapas:
+In Azure Machine Learning, there is a [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) module that creates these word/phrase features conveniently. Following figure shows an example of using this module. The input dataset contains two columns: the book rating ranging from 1 to 5, and the actual review content. The goal of this [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) module is to retrieve a bunch of new features that show the occurrence frequency of the corresponding word(s)/phrase(s) within the particular book review. To use this module, we need to complete the following steps:
 
-* Primeiro, selecione a coluna que contém o texto de entrada ("Col2" neste exemplo).
-* Em segundo lugar, defina "Bitsize de hashing" como 8, o que significa que 2^8 = 256 recursos serão criados. A palavra/expressão em todo o texto será colocada em hash, em 256 índices. O parâmetro "Bitsize de hashing" varia de 1 a 31. As palavras/expressões têm menos probabilidades de serem colocadas em hash no mesmo índice se a configuração for para um número maior.
-* Em terceiro lugar, defina o parâmetro “N-grams” como 2. Isso obtém a frequência de ocorrência de unigrams (um recurso para cada palavra) e bigrams (um recurso para cada par de palavras adjacentes) do texto de entrada. O parâmetro "N-grams" vai de 0 a 10, o que indica o número máximo de palavras sequenciais a serem incluídas em um recurso.
+* First, select the column that contains the input text ("Col2" in this example).
+* Second, set the "Hashing bitsize" to 8, which means 2^8=256 features will be created. The word/phase in all the text will be hashed to 256 indices. The parameter "Hashing bitsize" ranges from 1 to 31. The word(s)/phrase(s) are less likely to be hashed into the same index if setting it to be a larger number.
+* Third, set the parameter "N-grams" to 2. This gets the occurrence frequency of unigrams (a feature for every single word) and bigrams (a feature for every pair of adjacent words) from the input text. The parameter "N-grams" ranges from 0 to 10, which indicates the maximum number of sequential words to be included in a feature.  
 
-![Módulo "Hash de Recursos"](./media/machine-learning-data-science-create-features/feature-Hashing1.png)
+!["Feature Hashing" module](./media/machine-learning-data-science-create-features/feature-Hashing1.png)
 
-A figura a seguir mostra como ficariam esses novos recursos.
+The following figure shows what the these new feature look like.
 
-![Exemplo de "Hash de Recursos"](./media/machine-learning-data-science-create-features/feature-Hashing2.png)
+!["Feature Hashing" example](./media/machine-learning-data-science-create-features/feature-Hashing2.png)
 
 
-## Conclusão
+## <a name="conclusion"></a>Conclusion
 
-Recursos de engenharia e selecionados aumentam a eficiência do processo de treinamento, que tenta extrair as informações importantes contidas nos dados. Eles também melhoram a capacidade desses modelos de classificar os dados de entrada com precisão e prever resultados de interesse com mais robustez. Também é possível combinar seleção e engenharia de recursos para que o aprendizado seja mais tratável por computação. Ele faz isso aperfeiçoando e, em seguida, reduzindo o número de recursos necessários para calibrar ou treinar um modelo. Matematicamente, os recursos selecionados para treinar o modelo são um conjunto mínimo de variáveis independentes que explicam os padrões dos dados e preveem os resultados com êxito.
+Engineered and selected features increase the efficiency of the training process which attempts to extract the key information contained in the data. They also improve the power of these models to classify the input data accurately and to predict outcomes of interest more robustly. Feature engineering and selection can also combine to make the learning more computationally tractable. It does so by enhancing and then reducing the number of features needed to calibrate or train a model. Mathematically speaking, the features selected to train the model are a minimal set of independent variables that explain the patterns in the data and then predict outcomes successfully.
 
-Observe que nem sempre é necessário realizar a engenharia ou a seleção de recursos. Essa necessidade depende dos dados que temos ou coletamos, do algoritmo que escolhemos e do objetivo do experimento.
+Note that it is not always necessarily to perform feature engineering or feature selection. Whether it is needed or not depends on the data we have or collect, the algorithm we pick, and the objective of the experiment.
  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

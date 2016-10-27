@@ -1,153 +1,151 @@
-<properties 
-   pageTitle="Perfil Aninhados do Gerenciador de Tráfego | Microsoft Azure"
-   description="Este artigo explica o recurso “Perfis Aninhados” do Gerenciador de Tráfego do Azure"
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/25/2016"
-   ms.author="sewhee" />
+<properties
+    pageTitle="Nested Traffic Manager Profiles | Microsoft Azure"
+    description="This article explains the 'Nested Profiles' feature of Azure Traffic Manager"
+    services="traffic-manager"
+    documentationCenter=""
+    authors="sdwheeler"
+    manager="carmonm"
+    editor=""
+/>
+<tags
+    ms.service="traffic-manager"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="10/11/2016"
+    ms.author="sewhee"
+/>
 
-# Perfis aninhados do Gerenciador de Tráfego
 
-O Gerenciador de Tráfego inclui uma variedade de métodos de roteamento de tráfego, permitindo que você controle como ele escolhe qual ponto de extremidade deve receber tráfego de cada usuário final. Eles estão descritos nos [Métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md) e permitem que este atenda aos requisitos mais comuns de roteamento de tráfego.
+# <a name="nested-traffic-manager-profiles"></a>Nested Traffic Manager profiles
 
-Cada perfil do Gerenciador de Tráfego especifica um único método de roteamento de tráfego. No entanto, há ocasiões em que os aplicativos mais complexos requerem roteamento de tráfego mais sofisticado do que pode ser fornecido por um único perfil do Gerenciador de Tráfego.
+Traffic Manager includes a range of traffic-routing methods that allow you to control how Traffic Manager chooses which endpoint should receive traffic from each end user. For more information, see [Traffic Manager traffic-routing methods](traffic-manager-routing-methods.md).
 
-Para dar suporte a esses aplicativos complexos, o Gerenciador de Tráfego permite que perfis do Gerenciador de Tráfego sejam combinados, ou *aninhados*, permitindo que os benefícios de mais de um método de roteamento de tráfego seja usado por um único aplicativo. Perfis aninhados permitem criar esquemas de roteamento de tráfego mais flexíveis e poderosos para dar suporte às necessidades de implantações maiores e mais complexas.
+Each Traffic Manager profile specifies a single traffic-routing method. However, there are scenarios that require more sophisticated traffic routing than the routing provided by a single Traffic Manager profile. You can nest Traffic Manager profiles to combine the benefits of more than one traffic-routing method. Nested profiles allow you to override the default Traffic Manager behavior to support larger and more complex application deployments.
 
-Além disso, perfis aninhados permitem substituir o comportamento padrão do Gerenciador de Tráfego em determinados casos, como no roteamento de tráfego dentro de uma região ou durante o failover ao usar o roteamento de tráfego de Desempenho.
+The following examples illustrate how to use nested Traffic Manager profiles in various scenarios.
 
-O restante desta página explica, por meio de uma sequência de exemplos, como perfis aninhados do Gerenciador de Tráfego podem ser usados em uma variedade de cenários. Concluímos com algumas perguntas frequentes sobre perfis aninhados
+## <a name="example-1:-combining-'performance'-and-'weighted'-traffic-routing"></a>Example 1: Combining 'Performance' and 'Weighted' traffic routing
 
-## Exemplo 1: combinando roteamento de tráfego de “Desempenho” e “Ponderado”
+Suppose that you deployed an application in the following Azure regions: West US, West Europe, and East Asia. You use Traffic Manager's 'Performance' traffic-routing method to distribute traffic to the region closest to the user.
 
-Suponha que seu aplicativo está implantado em várias regiões do Azure: Oeste dos EUA, Europa Ocidental e Ásia Oriental. Você usa o método de roteamento de tráfego de “Desempenho” do Gerenciador de Tráfego para distribuir o tráfego para a região mais próxima do usuário.
+![Single Traffic Manager profile][1]
 
-![Perfil único do Gerenciador de Tráfego][1]
+Now, suppose you wish to test an update to your service before rolling it out more widely. You want to use the 'weighted' traffic-routing method to direct a small percentage of traffic to your test deployment. You set up the test deployment alongside the existing production deployment in West Europe.
 
-Agora, suponha que você deseja avaliar uma atualização do serviço com alguns poucos usuários antes de distribuí-lo de forma mais abrangente. Para tal, é recomendável usar o método roteamento de tráfego "ponderado", que pode direcionar um pequeno percentual do tráfego para a implantação de avaliação. Com um único perfil, não é possível combinar roteamentos de tráfego “Ponderado” e de “Desempenho”. Com os perfis aninhados, você pode fazer ambos.
+You cannot combine both 'Weighted' and 'Performance traffic-routing in a single profile. To support this scenario, you create a Traffic Manager profile using the two West Europe endpoints and the 'Weighted' traffic-routing method. Next, you add this 'child' profile as an endpoint to the 'parent' profile. The parent profile still uses the Performance traffic-routing method and contains the other global deployments as endpoints.
 
-Desta forma: suponha que você queira avaliar a nova implantação na Europa Ocidental. Você configura a implantação de avaliação junto com a implantação de produção existente e cria um perfil do Gerenciador de Tráfego usando apenas esses dois pontos de extremidade e o método de roteamento de tráfego "Ponderado". Em seguida, você adiciona esse perfil “filho” como um ponto de extremidade para o perfil “pai”, que ainda usa o método de roteamento de tráfego de Desempenho e também contém as outras implantações globais como pontos de extremidade.
+The following diagram illustrates this example:
 
-O diagrama a seguir ilustra esse exemplo:
+![Nested Traffic Manager profiles][2]
 
-![Perfis aninhados do Gerenciador de Tráfego][2]
+In this configuration, traffic directed via the parent profile distributes traffic across regions normally. Within West Europe, the nested profile distributes traffic to the production and test endpoints according to the weights assigned.
 
-Com essa organização, o tráfego direcionado por meio do perfil pai será distribuído entre regiões como normal. Na Europa Ocidental, o tráfego será direcionado entre as implantações de produção e avaliação de acordo com os pesos atribuídos.
+When the parent profile uses the 'Performance' traffic-routing method, each endpoint must be assigned a location. The location is assigned when you configure the endpoint. Choose the Azure region closest to your deployment. The Azure regions are the location values supported by the Internet Latency Table. For more information, see [Traffic Manager 'Performance' traffic-routing method](traffic-manager-routing-methods.md#performance-traffic-routing-method).
 
-Observe que, quando o perfil pai usa o método de roteamento de tráfego de "Desempenho", é necessário conhecer a localização de cada ponto de extremidade. Para pontos de extremidade aninhados, como pontos de extremidade externos, essa localização deve ser especificada como parte da configuração do ponto de extremidade. Escolha a região do Azure mais próxima da sua implantação; as opções disponíveis são as regiões do Azure, pois esses são os locais com suporte na Tabela de Latência de Internet. Para obter mais detalhes, consulte [Método de roteamento de tráfego de “Desempenho” do Gerenciador de Tráfego](traffic-manager-routing-methods.md#performance-traffic-routing-method).
+## <a name="example-2:-endpoint-monitoring-in-nested-profiles"></a>Example 2: Endpoint monitoring in Nested Profiles
 
-## Exemplo 2: monitoramento de ponto de extremidade em Perfis Aninhados
+Traffic Manager actively monitors the health of each service endpoint. If an endpoint is unhealthy, Traffic Manager directs users to alternative endpoints to preserve the availability of your service. This endpoint monitoring and failover behavior applies to all traffic-routing methods. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). Endpoint monitoring works differently for nested profiles. With nested profiles, the parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints is used to calculate the overall health of the child profile. This health information is propagated up the nested profile hierarchy. The parent profile this aggregated health to determine whether to direct traffic to the child profile. See the [FAQ](#faq) section of this article for full details on health monitoring of nested profiles.
 
-O Gerenciador de Tráfego monitora ativamente a integridade de cada ponto de extremidade de serviço. Se um ponto de extremidade for considerado não íntegro, o Gerenciador de Tráfego direcionará os usuários para pontos de extremidade alternativos, preservando a disponibilidade geral do seu serviço. Esse comportamento de failover e monitoramento do ponto de extremidade se aplica a todos os métodos de roteamento de tráfego. Consulte [Monitoramento do Ponto de Extremidade do Gerenciador de Tráfego](traffic-manager-monitoring.md) para obter mais detalhes.
+Returning to the previous example, suppose the production deployment in West Europe fails. By default, the 'child' profile directs all traffic to the test deployment. If the test deployment also fails, the parent profile determines that the child profile should not receive traffic since all child endpoints are unhealthy. Then, the parent profile distributes traffic to the other regions.
 
-Para perfis aninhados, aplicam-se algumas regras especiais de monitoramento de ponto de extremidade. Quando um perfil pai estiver configurado com um perfil filho como um ponto de extremidade aninhado, o pai não realiza verificações de integridade no filho diretamente. Em vez disso, a integridade de pontos de extremidade do perfil filho é usada para calcular a integridade geral do perfil filho, e essas informações são propagadas para a hierarquia do perfil aninhado para determinar a integridade do ponto de extremidade aninhado dentro do perfil pai. Isso determina se o perfil pai direcionará o tráfego para o filho. Os detalhes completos da maneira exata de como a integridade do ponto de extremidade aninhado no perfil pai é calculada por meio da integridade do perfil filho são mostrados [abaixo](#faq).
+![Nested Profile failover (default behavior)][3]
 
-Retornando ao Exemplo 1, suponha que a implantação de produção na Europa Ocidental falhe. Por padrão, o perfil “filho” vai direcionar todo o tráfego para a implantação de avaliação. Se isso também falhar, o perfil pai determinará que, como nenhum ponto de extremidade filho está íntegro, o perfil filho não deverá receber tráfego e ocorrerá o failover todo o tráfego da Europa Ocidental para outras regiões.
+You might be happy with this arrangement. Or you might be concerned that all traffic for West Europe is now going to the test deployment instead of a limited subset traffic. Regardless of the health of the test deployment, you want to fail over to the other regions when the production deployment in West Europe fails. To enable this failover, you can specify the 'MinChildEndpoints' parameter when configuring the child profile as an endpoint in the parent profile. The parameter determines the minimum number of available endpoints in the child profile. The default value is '1'. For this scenario, you set the MinChildEndpoints value to 2. Below this threshold, the parent profile considers the entire child profile to be unavailable and directs traffic to the other endpoints.
 
-![Failover de perfil aninhado (comportamento padrão)][3]
+The following figure illustrates this configuration:
 
-Você pode ficar satisfeito com essa medida ou preocupado, pois a implantação de Avaliação não deveria ser usada como um failover para todo o tráfego da Europa Ocidental, preferindo o failover para as outras regiões caso a implantação de produção na Europa Ocidental falhe, *independentemente* da integridade da implantação de avaliação. Ao configurar o perfil filho como um ponto de extremidade no perfil pai, também é possível especificar o parâmetro “MinChildEndpoints”, que determina o número mínimo de pontos de extremidade devem estar disponíveis no perfil filho. Abaixo desse limite (cujo padrão é 1), o perfil pai considerará todo o perfil filho como indisponível e direcionará o tráfego para os outros pontos de extremidade do perfil pai.
+![Nested Profile failover with 'MinChildEndpoints' = 2][4]
 
-O exemplo a seguir ilustra: com MinChildEndpoints definido como 2, se alguma das implantações da Europa Ocidental falhar, o perfil pai determinará que o perfil filho não deverá receber tráfego e os usuários serão direcionados para as outras regiões.
+>[AZURE.NOTE]
+>The 'Priority' traffic-routing method distributes all traffic to a single endpoint. Thus there is little purpose in a MinChildEndpoints setting other than '1' for a child profile.
 
-![Failover de perfil com “MinChildEndpoints” = 2][4]
+## <a name="example-3:-prioritized-failover-regions-in-'performance'-traffic-routing"></a>Example 3: Prioritized failover regions in 'Performance' traffic routing
 
-Observe que, quando o perfil filho usa o método de roteamento de tráfego de “Prioridade”, todo o tráfego enviado para esse filho é recebido por um único ponto de extremidade. Portanto, não há muita vantagem em definir MinChildEndpoints como algo diferente de “1” neste caso.
+The default behavior for the 'Performance' traffic-routing method is designed to avoid over-loading the next nearest endpoint and causing a cascading series of failures. When an endpoint fails, all traffic that would have been directed to that endpoint is evenly distributed to the other endpoints across all regions.
 
-## Exemplo 3: regiões de failover priorizadas no roteamento de tráfego de "Desempenho"
+!['Performance' traffic routing with default failover][5]
 
-Com um único perfil usando o roteamento de tráfego de "Desempenho", se um ponto de extremidade (por exemplo, da Europa Ocidental) falhar, todo o tráfego que seria direcionado para este ponto de extremidade será distribuído entre os outros pontos de extremidade em todas as regiões. Esse é o comportamento padrão para o método de roteamento de tráfego de “Desempenho”, projetado para evitar o carregamento excessivo do ponto de extremidade mais próximo, causando a propagação de uma série de falhas.
+However, suppose you prefer the West Europe traffic failover to West US, and only direct traffic to other regions when both endpoints are unavailable. You can create this solution using a child profile with the 'Priority' traffic-routing method.
 
-![Tráfego de roteamento de “Desempenho” com failover padrão][5]
+!['Performance' traffic routing with preferential failover][6]
 
-No entanto, suponha que você prefira que o failover do tráfego da Europa Ocidental vá para o Oeste dos EUA preferencialmente, sendo direcionado para outro local apenas se ambos os pontos de extremidade estiverem indisponíveis. É possível fazer isso criando um perfil filho que usa o método de roteamento de tráfego de “Prioridade”, conforme mostrado:
+Since the West Europe endpoint has higher priority than the West US endpoint, all traffic is sent to the West Europe endpoint when both endpoints are online. If West Europe fails, its traffic is directed to West US. With the nested profile, traffic is directed to East Asia only when both West Europe and West US fail.
 
-![Tráfego de roteamento de “Desempenho” com failover preferencial][6]
+You can repeat this pattern for all regions. Replace all three endpoints in the parent profile with three child profiles, each providing a prioritized failover sequence.
 
-Como o ponto de extremidade da Europa Ocidental tem prioridade maior que o ponto de extremidade do Oeste dos EUA, todo o tráfego será enviado para o ponto de extremidade da Europa Ocidental quando ambos estiverem online. Se a Europa Ocidental falhar, seu tráfego será direcionado para o Oeste dos EUA. O tráfego da Europa Ocidental seria direcionado para a Ásia Oriental somente se o Oeste dos EUA também falhasse.
+## <a name="example-4:-controlling-'performance'-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Example 4: Controlling 'Performance' traffic routing between multiple endpoints in the same region
 
-Você pode repetir esse padrão para todas as regiões, substituindo todos os três pontos de extremidade no perfil pai por três perfis filho, cada um deles oferecendo uma sequência de failover priorizada.
+Suppose the 'Performance' traffic-routing method is used in a profile that has more than one endpoint in a particular region. By default, traffic directed to that region is distributed evenly across all available endpoints in that region.
 
-## Exemplo 4: controlando o roteamento de tráfego de “Desempenho” entre vários pontos de extremidade na mesma região
+!['Performance' traffic routing in-region traffic distribution (default behavior)][7]
 
-Suponha que o método de roteamento de tráfego de “Desempenho” seja usado em um perfil com mais de um ponto de extremidade em uma determinada região, como o Oeste dos EUA. Por padrão, o tráfego direcionado para essa região será distribuído uniformemente entre todos os pontos de extremidade disponíveis nessa região.
+Instead of adding multiple endpoints in West Europe, those endpoints are enclosed in a separate child profile. The child profile is added to the parent as the only endpoint in West Europe. The settings on the child profile can control the traffic distribution with West Europe by enabling priority-based or weighted traffic routing within that region.
 
-![Tráfego de roteamento de “Desempenho” com distribuição de tráfego na região (comportamento padrão)][7]
+!['Performance' traffic routing with custom in-region traffic distribution][8]
 
-Esse padrão pode ser alterado usando perfis aninhados do Gerenciador de Tráfego. Em vez de adicionar vários pontos de extremidade ao Oeste dos EUA, esses pontos de extremidade podem ser colocados em um perfil filho separado, e o perfil filho é adicionado ao pai como o único ponto de extremidade no Oeste dos EUA. As configurações no perfil filho podem então ser usadas para controlar a distribuição de tráfego com o Oeste dos EUA, habilitando, por exemplo, o roteamento de tráfego ponderado ou baseado em prioridade dentro dessa região.
+## <a name="example-5:-per-endpoint-monitoring-settings"></a>Example 5: Per-endpoint monitoring settings
 
-![Tráfego de roteamento de “Desempenho” com distribuição de tráfego na região personalizado][8]
+Suppose you are using Traffic Manager to smoothly migrate traffic from a legacy on-premises web site to a new Cloud-based version hosted in Azure. For the legacy site, you want to use the home page URI to monitor site health. But for the new Cloud-based version, you are implementing a custom monitoring page (path '/monitor.aspx') that includes additional checks.
 
-## Exemplo 5: configurações de monitoramento por ponto de extremidade
+![Traffic Manager endpoint monitoring (default behavior)][9]
 
-Suponha que você está usando o Gerenciador de Tráfego para migrar o tráfego entre um site da Web local herdado e uma nova versão baseada em nuvem hospedada no Azure. Para o site herdado, é recomendável usar a página inicial (caminho “/”) para monitorar a integridade do site, porém, para a nova versão baseada em nuvem, você está implementando uma página de monitoramento personalizada que inclui verificações adicionais (caminho “/monitor.aspx”).
+The monitoring settings in a Traffic Manager profile apply to all endpoints within a single profile. With nested profiles, you use a different child profile per site to define different monitoring settings.
 
-![Monitoramento do ponto de extremidade do Gerenciador de Tráfego (comportamento padrão)][9]
+![Traffic Manager endpoint monitoring with per-endpoint settings][10]
 
-As configurações de monitoramento em um perfil do Gerenciador de Tráfego se aplicam a todos os pontos de extremidade no perfil, o que significa que você precisaria ter usado anteriormente o mesmo caminho em ambos os sites. Com os perfis aninhados do Gerenciador de Tráfego, agora você pode usar um perfil filho por site para definir as diferentes configurações de monitoramento por site:
+## <a name="faq"></a>FAQ
 
-![Monitoramento do ponto de extremidade do Gerenciador de Tráfego com definições por ponto de extremidade][10]
+### <a name="how-do-i-configure-nested-profiles?"></a>How do I configure nested profiles?
 
-## Perguntas frequentes
+Nested Traffic Manager profiles can be configured using both the Azure Resource Manager and the classic Azure REST APIs, Azure PowerShell cmdlets and cross-platform Azure CLI commands. They are also supported via the new Azure portal. They are not supported in the classic portal.
 
-### Como posso configurar perfis aninhados?
+### <a name="how-many-layers-of-nesting-does-traffic-manger-support?"></a>How many layers of nesting does Traffic Manger support?
 
-Perfis aninhados do Gerenciador de Tráfego podem ser configurados usando ARM (Azure Resource Manager) e APIs REST do ASM (Azure Service Management), cmdlets do PowerShell e comandos da CLI do Azure de plataforma cruzada. Também há suporte por meio do Portal do Azure, no entanto, não há suporte para eles no Portal “Clássico”.
+You can nest profiles up to 10 levels deep. 'Loops' are not permitted.
 
-### A quantas camadas de aninhamento o Gerenciador de Tráfego dá suporte?
-Você pode aninhar perfis em até 10 níveis de profundidade. “Loops” não são permitidos.
+### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles,-in-the-same-traffic-manager-profile?"></a>Can I mix other endpoint types with nested child profiles, in the same Traffic Manager profile?
 
-### Posso combinar outros tipos de ponto de extremidade com perfis filho aninhados no mesmo perfil do Gerenciador de Tráfego?
+Yes. There are no restrictions on how you combine endpoints of different types within a profile.
 
-Sim. Não há nenhuma restrição sobre como combinar os pontos de extremidade de diferentes tipos em um perfil.
+### <a name="how-does-the-billing-model-apply-for-nested-profiles?"></a>How does the billing model apply for Nested profiles?
 
-### Como o modelo de cobrança se aplica a perfis aninhados?
+There is no negative pricing impact of using nested profiles.
 
-Há não impacto negativo sobre os preços ao usar perfis aninhados.
+Traffic Manager billing has two components: endpoint health checks and millions of DNS queries
 
-A cobrança do Gerenciador de Tráfego tem dois componentes: verificações de integridade do ponto de extremidade e milhões de consultas DNS (para obter detalhes completos, consulte nossa [página de preço](https://azure.microsoft.com/pricing/details/traffic-manager/)). Veja aqui como isso se aplica a perfis aninhados:
+- Endpoint health checks: There is no charge for a child profile when configured as an endpoint in a parent profile. Monitoring of the endpoints in the child profile are billed in the usual way.
+- DNS queries: Each query is only counted once. A query against a parent profile that returns an endpoint from a child profile is counted against the parent profile only.
 
-- Verificações de integridade de ponto de extremidade: não há nenhum encargo para um perfil filho quando configurado como um ponto de extremidade em um perfil pai. Pontos de extremidade no perfil filho que estão monitorando os serviços subjacentes são cobrados normalmente.
+For full details, see the [Traffic Manager pricing page](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
-- Consultas DNS: cada consulta é contada apenas uma vez. Uma consulta em um perfil pai que retorna um ponto de extremidade de um perfil filho é cobrada apenas no perfil pai.
+### <a name="is-there-a-performance-impact-for-nested-profiles?"></a>Is there a performance impact for nested profiles?
 
-### Há impacto no desempenho para perfis aninhados?
+No. There is no performance impact incurred when using nested profiles.
 
-Não há nenhum impacto no desempenho ao usar perfis aninhados.
+The Traffic Manager name servers traverse the profile hierarchy internally when processing each DNS query. A DNS query to a parent profile can receive a DNS response with an endpoint from a child profile. A single CNAME record is used whether you are using a single profile or nested profiles. There is no need to create a CNAME record for each profile in the hierarchy.
 
-Os servidores de nome do Gerenciador de Tráfego atravessa a hierarquia de perfil internamente durante o processamento de cada consulta DNS, para que uma consulta DNS para um perfil pai possa receber uma resposta DNS com um ponto de extremidade de um perfil filho.
+### <a name="how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile?"></a>How does Traffic Manager compute the health of a nested endpoint in a parent profile?
 
-Portanto, um único registro CNAME é usado, o mesmo usado em um único perfil do Gerenciador de Tráfego. **Não** é necessário ter uma cadeia de registros CNAME para cada perfil na hierarquia, portanto, não ocorre nenhum penalidade no desempenho.
+The parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints are used to calculate the overall health of the child profile. This information is propagated up the nested profile hierarchy to determine the health of the nested endpoint. The parent profile uses this aggregated health to determine whether the traffic can be directed to the child.
 
-### Como o Gerenciador de Tráfego computa a integridade de um ponto de extremidade aninhado em um perfil pai com base na integridade do perfil filho?
+The following table describes the behavior of Traffic Manager health checks for a nested endpoint.
 
-Quando um perfil pai estiver configurado com um perfil filho como um ponto de extremidade aninhado, o pai não realiza verificações de integridade no filho diretamente. Em vez disso, a integridade de pontos de extremidade do perfil filho é usada para calcular a integridade geral do perfil filho, e essas informações são propagadas para a hierarquia do perfil aninhado para determinar a integridade do ponto de extremidade aninhado dentro do perfil pai. Isso determina se o perfil pai direcionará o tráfego para o filho.
-
-A tabela a seguir descreve o comportamento de verificações de integridade do Gerenciador de Tráfego para um ponto de extremidade aninhado em um perfil pai que aponta para um perfil filho.
-
-|Status do Monitor de perfil filho|Status do monitor de ponto de extremidade pai|Observações|
+|Child Profile Monitor status|Parent Endpoint Monitor status|Notes|
 |---|---|---|
-|Desabilitado. O perfil filho foi desabilitado pelo usuário.|Parada|O estado do ponto de extremidade pai é Parado, não Desabilitado. O estado Desabilitado é reservado para indicar que você desabilitou o ponto de extremidade no perfil pai.|
-|Degradado. Pelo menos um ponto de extremidade do perfil filho está no estado Degradado.|Online: o número de pontos de extremidade Online no perfil filho é pelo menos o valor de MinChildEndpoints. CheckingEndpoint: o número de pontos de extremidade Online mais CheckingEndpoint no perfil filho é pelo menos o valor de MinChildEndpoints. Degradado: caso contrário.|O tráfego é roteado para um ponto de extremidade do status CheckingEndpoint. Se MinChildEndpoints estiver definido como muito alto, o ponto de extremidade sempre será degradado.|
-|Online. Pelo menos um ponto de extremidade de perfil filho está no estado Online e nenhum está no estado Degradado.|Veja acima.||
-|CheckingEndpoints. Pelo menos um ponto de extremidade de perfil filho é “CheckingEndpoint”; nenhum é “Online” nem “Degradado”|Mesmo que acima.||
-|Inativo. Todos os pontos de extremidade de perfil filho estão com status Desabilitado ou Parado, ou então esse é um perfil sem nenhum ponto de extremidade|Parada||
+|Disabled. The child profile has been disabled.|Stopped|The parent endpoint state is Stopped, not Disabled. The Disabled state is reserved for indicating that you have disabled the endpoint in the parent profile.|
+|Degraded. At least one child profile endpoint is in a Degraded state.| Online: the number of Online endpoints in the child profile is at least the value of MinChildEndpoints.<BR>CheckingEndpoint: the number of Online plus CheckingEndpoint endpoints in the child profile is at least the value of MinChildEndpoints.<BR>Degraded: otherwise.|Traffic is routed to an endpoint of status CheckingEndpoint. If MinChildEndpoints is set too high, the endpoint is always degraded.|
+|Online. At least one child profile endpoint is an Online state. No endpoint is in the Degraded state.|See above.||
+|CheckingEndpoints. At least one child profile endpoint is 'CheckingEndpoint'. No endpoints are 'Online' or 'Degraded'|Same as above.||
+|Inactive. All child profile endpoints are either Disabled or Stopped, or this profile has no endpoints.|Stopped||
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Saiba mais sobre [como o Gerenciador de Tráfego funciona](traffic-manager-how-traffic-manager-works.md)
+Learn more about [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md)
 
-Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-manage-profiles.md)
+Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png
@@ -161,4 +159,9 @@ Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-manage-pr
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

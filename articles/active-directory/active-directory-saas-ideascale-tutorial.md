@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: integração do Active Directory do Azure ao IdeaScale | Microsoft Azure" 
-    description="Saiba como usar o IdeaScale com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    pageTitle="Tutorial: Azure Active Directory integration with IdeaScale | Microsoft Azure" 
+    description="Learn how to use IdeaScale with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,150 +11,158 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/09/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Tutorial: integração do Active Directory do Azure ao IdeaScale
+
+#<a name="tutorial:-azure-active-directory-integration-with-ideascale"></a>Tutorial: Azure Active Directory integration with IdeaScale
   
-O objetivo deste tutorial é mostrar a integração do Azure ao IdeaScale. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+The objective of this tutorial is to show the integration of Azure and IdeaScale.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Uma assinatura válida do Azure
--   Uma assinatura habilitada para logon único do IdeaScale
+-   A valid Azure subscription
+-   A IdeaScale single sign-on enabled subscription
   
-Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao IdeaScale poderão fazer logon único no aplicativo usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to IdeaScale will be able to single sign into the application using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Habilitando a integração de aplicativos para o IdeaScale
-2.  Configurando o logon único
-3.  Configurando o provisionamento de usuários
-4.  Atribuindo usuários
+1.  Enabling the application integration for IdeaScale
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Cenário](./media/active-directory-saas-ideascale-tutorial/IC790838.png "Cenário")
-##Habilitando a integração de aplicativos para o IdeaScale
+![Scenario](./media/active-directory-saas-ideascale-tutorial/IC790838.png "Scenario")
+##<a name="enabling-the-application-integration-for-ideascale"></a>Enabling the application integration for IdeaScale
   
-O objetivo desta seção é descrever como habilitar a integração de aplicativos para o IdeaScale.
+The objective of this section is to outline how to enable the application integration for IdeaScale.
 
-###Para habilitar a integração de aplicativos para o IdeaScale, execute as seguintes etapas:
+###<a name="to-enable-the-application-integration-for-ideascale,-perform-the-following-steps:"></a>To enable the application integration for IdeaScale, perform the following steps:
 
-1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-ideascale-tutorial/IC700993.png "Active Directory")
 
-2.  Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicativos](./media/active-directory-saas-ideascale-tutorial/IC700994.png "Aplicativos")
+    ![Applications](./media/active-directory-saas-ideascale-tutorial/IC700994.png "Applications")
 
-4.  Clique em **Adicionar** na parte inferior da página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Adicionar aplicativo](./media/active-directory-saas-ideascale-tutorial/IC749321.png "Adicionar aplicativo")
+    ![Add application](./media/active-directory-saas-ideascale-tutorial/IC749321.png "Add application")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-ideascale-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
+    ![Add an application from gallerry](./media/active-directory-saas-ideascale-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Na **caixa de pesquisa**, digite **IdeaScale**.
+6.  In the **search box**, type **IdeaScale**.
 
-    ![Galeria de Aplicativos](./media/active-directory-saas-ideascale-tutorial/IC790841.png "Galeria de Aplicativos")
+    ![Application Gallery](./media/active-directory-saas-ideascale-tutorial/IC790841.png "Application Gallery")
 
-7.  No painel de resultados, selecione **IdeaScale** e clique em **Concluir** para adicionar o aplicativo.
+7.  In the results pane, select **IdeaScale**, and then click **Complete** to add the application.
 
     ![IdeaScale](./media/active-directory-saas-ideascale-tutorial/IC790842.png "IdeaScale")
-##Configurando o logon único
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no IdeaScale com a própria conta do Azure AD usando a federação baseada no protocolo SAML. Configurar o logon único para o IdeaScale exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com este procedimento, consulte [Como recuperar o valor de impressão digital do certificado](http://youtu.be/YKQF266SAxI).
+The objective of this section is to outline how to enable users to authenticate to IdeaScale with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for IdeaScale requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-###Para configurar o logon único, execute as seguintes etapas:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  No portal clássico do Azure, na página de integração de aplicativos do **IdeaScale**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  In the Azure classic portal, on the **IdeaScale** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurar o logon único](./media/active-directory-saas-ideascale-tutorial/IC790843.png "Configurar o logon único")
+    ![Configure Single Sign-On](./media/active-directory-saas-ideascale-tutorial/IC790843.png "Configure Single Sign-On")
 
-2.  Na página **Como você deseja que os usuários façam logon no IdeaScale**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
+2.  On the **How would you like users to sign on to IdeaScale** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar o logon único](./media/active-directory-saas-ideascale-tutorial/IC790844.png "Configurar o logon único")
+    ![Configure Single Sign-On](./media/active-directory-saas-ideascale-tutorial/IC790844.png "Configure Single Sign-On")
 
-3.  Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Entrada do IdeaScale**, digite a URL usada pelos usuários para fazer logon no aplicativo IdeaScale (por exemplo: "*https://company.IdeaScale.com*") e clique em **Avançar**.
+3.  On the **Configure App URL** page, in the **IdeaScale Sign On URL** textbox, type the URL used by your users to sign on to your IdeaScale application (e.g.: "*https://company.IdeaScale.com*"), and then click **Next**.
 
-    ![Configurar a URL do Aplicativo](./media/active-directory-saas-ideascale-tutorial/IC790845.png "Configurar a URL do Aplicativo")
+    ![Configure App URL](./media/active-directory-saas-ideascale-tutorial/IC790845.png "Configure App URL")
 
-4.  Na página **Configurar logon único no IdeaScale**, para baixar os metadados, clique em **Baixar metadados** e salve o arquivo de metadados localmente no computador.
+4.  On the **Configure single sign-on at IdeaScale** page, to download your metadata, click **Download metadata**, and then save the metadata file locally on your computer.
 
-    ![Configurar o logon único](./media/active-directory-saas-ideascale-tutorial/IC790846.png "Configurar o logon único")
+    ![Configure Single Sign-On](./media/active-directory-saas-ideascale-tutorial/IC790846.png "Configure Single Sign-On")
 
-5.  Em outra janela do navegador da Web, faça logon em seu site de empresa do IdeaScale como administrador.
+5.  In a different web browser window, log into your IdeaScale company site as an administrator.
 
-6.  Vá para **Configurações da Comunidade**.
+6.  Go to **Community Settings**.
 
-    ![Configurações da Comunidade](./media/active-directory-saas-ideascale-tutorial/IC790847.png "Configurações da Comunidade")
+    ![Community Settings](./media/active-directory-saas-ideascale-tutorial/IC790847.png "Community Settings")
 
-7.  Vá para **Segurança > Configurações de Logon Único**.
+7.  Go to **Security \> Single Signon Settings**.
 
-    ![Configurações de Logon Único](./media/active-directory-saas-ideascale-tutorial/IC790848.png "Configurações de Logon Único")
+    ![Single Signon Settings](./media/active-directory-saas-ideascale-tutorial/IC790848.png "Single Signon Settings")
 
-8.  Para **Tipo de Logon Único**, selecione **SAML 2.0**.
+8.  As **Single-Signon Type**, select **SAML 2.0**.
 
-    ![Tipo de Logon Único](./media/active-directory-saas-ideascale-tutorial/IC790849.png "Tipo de Logon Único")
+    ![Single Signon Type](./media/active-directory-saas-ideascale-tutorial/IC790849.png "Single Signon Type")
 
-9.  No diálogo **Configurações de Logon Único**, realize as seguintes etapas:
+9.  On the **Single Signon Settings** dialog, perform the following steps:
 
-    ![Configurações de Logon Único](./media/active-directory-saas-ideascale-tutorial/IC790850.png "Configurações de Logon Único")
+    ![Single Signon Settings](./media/active-directory-saas-ideascale-tutorial/IC790850.png "Single Signon Settings")
 
-    1.  No portal clássico do Azure, na página de diálogo **Configurar logon único no IdeaScale**, copie o valor da **ID de Entidade** e cole-o na caixa de texto **ID de Entidade do IdP do SAML**.
-    2.  Copie o conteúdo do arquivo de metadados baixado e cole-o na caixa de texto **Metadados do IdP do SAML**.
-    3.  No portal clássico do Azure, na página de diálogo **Configurar logon único no IdeaScale**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Êxito de Logoff**.
-    4.  Clique em **Salvar Alterações**.
+    1.  In the Azure classic portal, on the **Configure single sign-on at IdeaScale** dialog page, copy the **Entity ID** value, and then paste it into the **SAML IdP Entity ID** textbox.
+    2.  Copy the content of your downloaded metadata file, and then paste it into the **SAML IdP Metadata** textbox.
+    3.  In the Azure classic portal, on the **Configure single sign-on at IdeaScale** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Logout Success URL** textbox.
+    4.  Click **Save Changes**.
 
-10. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurar o logon único](./media/active-directory-saas-ideascale-tutorial/IC790851.png "Configurar o logon único")
-##Configurando o provisionamento de usuários
+    ![Configure Single Sign-On](./media/active-directory-saas-ideascale-tutorial/IC790851.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Para permitir que os usuários do Azure AD façam logon no IdeaScale, eles deverão ser provisionados no IdeaScale. No caso do IdeaScale, o provisionamento é uma tarefa manual.
+In order to enable Azure AD users to log into IdeaScale, they must be provisioned into IdeaScale.  
+In the case of IdeaScale, provisioning is a manual task.
 
-###Para configurar o provisionamento de usuários, execute as seguintes etapas:
+###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
 
-1.  Faça logon em seu site de empresa do **IdeaScale** como administrador.
+1.  Log in to your **IdeaScale** company site as administrator.
 
-2.  Vá para **Configurações da Comunidade**.
+2.  Go to **Community Settings**.
 
-    ![Configurações da Comunidade](./media/active-directory-saas-ideascale-tutorial/IC790847.png "Configurações da Comunidade")
+    ![Community Settings](./media/active-directory-saas-ideascale-tutorial/IC790847.png "Community Settings")
 
-3.  Vá para **Configurações Básicas > Gerenciamento de Membros**.
+3.  Go to **Basic Settings \> Member Management**.
 
-4.  Clique em **Adicionar Membro**.
+4.  Click **Add Member**.
 
-    ![Gerenciamento de Membros](./media/active-directory-saas-ideascale-tutorial/IC790852.png "Gerenciamento de Membros")
+    ![Member Management](./media/active-directory-saas-ideascale-tutorial/IC790852.png "Member Management")
 
-5.  Na seção Adicionar Novo Membro, execute as seguintes etapas:
+5.  In the Add New Member section, perform the following steps:
 
-    ![Adicionar Novo Membro](./media/active-directory-saas-ideascale-tutorial/IC790853.png "Adicionar Novo Membro")
+    ![Add New Member](./media/active-directory-saas-ideascale-tutorial/IC790853.png "Add New Member")
 
-    1.  Na caixa de texto **Endereços de Email**, digite o endereço de email de uma conta de AAD válida que você deseja provisionar.
-    2.  Clique em **Salvar Alterações**.
+    1.  In the **Email Addresses** textbox, type the email address of a valid AAD account you want to provision.
+    2.  Click **Save Changes**.
 
-    >[AZURE.NOTE] O titular da conta do Active Directory do Azure receberá um email com um link para confirmar a conta antes que ela se torne ativa.
+    >[AZURE.NOTE] The Azure Active Directory account holder will get an email with a link to confirm the account before it becomes active.
 
->[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do IdeaScale ou as APIs fornecidas pelo IdeaScale para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] You can use any other IdeaScale user account creation tools or APIs provided by IdeaScale to provision AAD user accounts.
 
-##Atribuindo usuários
+##<a name="assigning-users"></a>Assigning users
   
-Para testar sua configuração, será necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que o utilizem.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para atribuir usuários ao IdeaScale, execute as seguintes etapas:
+###<a name="to-assign-users-to-ideascale,-perform-the-following-steps:"></a>To assign users to IdeaScale, perform the following steps:
 
-1.  No Portal clássico do Azure, crie uma conta de teste.
+1.  In the Azure classic portal, create a test account.
 
-2.  Na página de integração de aplicativos do **IdeaScale**, clique em **Atribuir usuários**.
+2.  On the **IdeaScale **application integration page, click **Assign users**.
 
-    ![Atribuir Usuários](./media/active-directory-saas-ideascale-tutorial/IC790854.png "Atribuir Usuários")
+    ![Assign Users](./media/active-directory-saas-ideascale-tutorial/IC790854.png "Assign Users")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sim](./media/active-directory-saas-ideascale-tutorial/IC767830.png "Sim")
+    ![Yes](./media/active-directory-saas-ideascale-tutorial/IC767830.png "Yes")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

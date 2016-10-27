@@ -1,11 +1,14 @@
-## Emparelhamento entre assinaturas
+## <a name="peering-across-subscriptions"></a>Peering across subscriptions
 
-Nesse cenário, você criará um emparelhamento entre duas VNets pertencentes a assinaturas diferentes.
+In this scenario you will create a peering between two VNets belonging to different subscriptions.
 
-![cenário entre assinaturas](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
+![cross sub scenario](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
 
-O emparelhamento VNet depende do RBAC (Controle de acesso baseado em função) para autorização. Para um cenário entre assinaturas, primeiro você precisa conceder permissão suficiente para os usuários que criarão o link de emparelhamento:
+VNet peering relies on Role based access control (RBAC) for authorization. For cross-subscriptions scenario, you first need to grant sufficient permission to users who will create the peering link:
 
-> [AZURE.NOTE] Se o mesmo usuário tiver privilégio em ambas as assinaturas, pule a etapa 1-4 abaixo.
+> [AZURE.NOTE] If the same user has the privilege over both subscriptions, then you can skip step1-4 below.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

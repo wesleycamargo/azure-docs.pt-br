@@ -1,187 +1,192 @@
 <properties 
-	pageTitle="Como executar uma transmissão ao vivo com codificadores locais usando o portal do Azure | Microsoft Azure" 
-	description="Este tutorial orienta você nas etapas de criação de um Canal que esteja configurado para uma entrega de passagem." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="How to perform live streaming with on-premise encoders using the Azure portal | Microsoft Azure" 
+    description="This tutorial walks you through the steps of creating a Channel that is configured for a pass-through delivery." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article"
-	ms.date="09/05/2016" 
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="get-started-article"
+    ms.date="09/05/2016" 
+    ms.author="juliako"/>
 
 
-#Como executar uma transmissão ao vivo com codificadores locais usando o portal do Azure
+
+#<a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>How to perform live streaming with on-premise encoders using the Azure portal
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-live-passthrough-get-started.md)
-- [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- [Portal]( media-services-portal-live-passthrough-get-started.md)
+- [.NET]( media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST]( https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
-Este tutorial orienta você nas etapas de como usar o portal do Azure para criar um **Canal** que é configurado para uma entrega de passagem.
+This tutorial walks you through the steps of using the Azure portal to create a **Channel** that is configured for a pass-through delivery. 
 
-##Pré-requisitos
+##<a name="prerequisites"></a>Prerequisites
 
-Os itens a seguir são necessários para concluir o tutorial:
+The following are required to complete the tutorial:
 
-- Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de Serviços de Mídia](media-services-create-account.md).
-- Uma Webcam. Por exemplo, [Codificador Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
+- An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+- A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
+- A webcam. For example, [Telestream Wirecast encoder](http://www.telestream.net/wirecast/overview.htm).
 
-É recomendável revisar os seguintes artigos:
+It is highly recommended to review the following articles:
 
-- [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores Ativos.](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
-- [Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure](media-services-manage-channels-overview.md)
-- [Transmissão ao vivo com codificadores locais, que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md)
-
-
-##<a id="scenario"></a>Cenário comum de streaming ao vivo
-
-As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos comuns de transmissão ao vivo que usam canais configurados para entrega de passagem. Este tutorial mostra como criar e gerenciar um canal de passagem e eventos ao vivo.
-
-1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que gere um fluxo RTMP com múltiplas taxas de bits ou MP4 Fragmentado. Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
-	
-	Essa etapa também pode ser realizada após a criação do canal.
-
-1. Crie e inicie um Canal de passagem.
-1. Recupere a URL de ingestão do canal.
-
-	A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal.
-1. Recupere a URL de visualização do canal.
-
-	Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
-
-3. Crie um evento ao vivo/programa.
-
-	Ao usar o portal do Azure, a criação de um evento ao vivo também cria um ativo.
-	  
-	>[AZURE.NOTE]Verifique se você tem pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo.
-1. Inicie o evento/programa quando estiver pronto para iniciar a transmissão e o arquivamento.
-2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
-1. Interrompa o evento/programa sempre que você quiser parar a transmissão e o arquivamento do evento.
-1. Exclua o evento/programa (e, opcionalmente, exclua o ativo).
-
->[AZURE.IMPORTANT] Examine a [Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md) para saber mais sobre os conceitos e considerações relacionados à transmissão ao vivo com codificadores locais e canais de passagem.
-
-##Para exibir notificações e erros
-
-Se você quiser exibir as notificações e erros produzidos pelo portal do Azure, clique no ícone Notificação.
-
-![Notificações](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
-
-##Configurar os pontos de extremidade de streaming 
-
-Os Serviços de Mídia fornecem um empacotamento dinâmico que permite enviar seus MP4s de múltiplas taxas de bits nos seguintes formatos de transmissão: MPEG DASH, HLS, Smooth Streaming ou HDS, sem a necessidade de recolocar nesses formatos de transmissão. Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia compilam e fornecem a resposta adequada com base nas solicitações de um cliente.
-
-Para aproveitar o empacotamento dinâmico, você precisa obter pelo menos uma unidade de transmissão para o ponto de extremidade da transmissão a partir do qual planeja fornecer seu conteúdo.
-
-Para criar e alterar o número de unidades reservadas de transmissão, faça o seguinte:
-
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-1. Na janela **Configurações**, clique em **Pontos de extremidade de streaming**.
-
-2. Clique no ponto de extremidade da transmissão padrão.
-
-	A janela **DETALHES DO PONTO DE EXTREMIDADE DE STREAMING PADRÃO** é exibida.
-
-3. Para especificar o número de unidades de transmissão, deslize o controle **Unidades de transmissão**.
-
-	![Unidades de streaming](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
-
-4. Clique no botão **Salvar** para salvar as alterações.
-
-	>[AZURE.NOTE]A alocação de quaisquer novas unidades leva cerca de 20 minutos para ser concluída.
-	
-##Criar e iniciar canais de passagem e eventos
-
-Um canal é associado a eventos/programas que permitem que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Os canais gerenciam os eventos.
-	
-Você pode especificar o número de horas pelo qual você deseja manter o conteúdo gravado para o programa, definindo a duração da **Janela de Arquivo**. Esse valor pode ser definido entre um mínimo de 5 minutos e um máximo de 25 horas. A duração da janela de arquivo também determina que a quantidade máxima de tempo que os clientes podem pesquisar na posição atual em tempo real. Os eventos podem ser executados no período de tempo especificado, mas o conteúdo que ficar para trás no comprimento da janela será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
-
-Cada evento está associado um ativo. Para publicar o evento, você precisa criar um localizador OnDemand para o ativo associado. Ter esse localizador permitirá que você crie uma URL de transmissão que você pode fornecer aos seus clientes.
-
-Um canal dá suporte a até três eventos em execução simultânea para que você possa criar diversos arquivos no mesmo fluxo de entrada. Isso permite que você publique e arquive diferentes partes de um evento, conforme necessário. Por exemplo, o requisito de negócios é arquivar 6 horas de um programa, mas transmitir apenas os últimos 10 minutos. Para fazer isso, você precisa criar dois programas em execução simultânea. Um programa é definido para arquivar 6 horas do evento, mas o programa não é publicado. Outro programa é definido para 10 minutos e esse programa é publicado.
-
-Você não deve reutilizar os eventos existentes ao vivo. Em vez disso, crie e inicie um novo evento para cada evento.
-
-Inicie o evento quando estiver pronto para começar a transmissão e o arquivamento. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
-
-Para excluir o conteúdo arquivado, interrompa e exclua o evento, em seguida, exclua o ativo associado. Não será possível excluir um ativo se este for usado por um evento; o evento deve ser excluído primeiro.
-
-Mesmo depois de você parar e excluir o evento, os usuários poderão transmitir seu conteúdo arquivado como vídeo por demanda enquanto você não excluir o ativo.
-
-Se desejar manter o conteúdo arquivado mas ele não está disponível para streaming, exclua o localizador de streaming.
-
-###Para usar o portal para criar um canal 
-
-Esta seção mostra como usar a opção **Criação Rápida** para criar um canal de passagem.
-
-Para obter mais detalhes sobre os canais de passagem, consulte [Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md).
-
-1. Na janela **Configurações**, clique em **Transmissão ao vivo**.
-
-	![Introdução](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
-	
-	A janela **Transmissão ao vivo** é exibida.
-
-3. Clique em **Criação Rápida** para criar um canal de passagem com o protocolo de ingestão RTMP.
-
-	A janela **CRIAR UM NOVO CANAL** é exibida.
-4. Nomeie o novo canal e clique em **Criar**.
-
-	Isso cria um canal de passagem com o protocolo de ingestão RTMP.
-
-##Criar eventos
-
-1. Selecione um canal para o qual você deseja adicionar um evento.
-2. Pressione o botão **Evento ao Vivo**.
-
-![Evento](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+- [Azure Media Services RTMP Support and Live Encoders](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
+- [Overview of Live Steaming using Azure Media Services](media-services-manage-channels-overview.md)
+- [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md)
 
 
-##Obter URLs de ingestão
+##<a name="<a-id="scenario"></a>common-live-streaming-scenario"></a><a id="scenario"></a>Common live streaming scenario
 
-Depois que o canal é criado, você pode obter URLs de ingestão que você fornecerá ao codificador ao vivo. O codificador usa essas URLs para gerar entrada de um fluxo ao vivo.
+The following steps describe tasks involved in creating common live streaming applications that use channels that are configured for pass-through delivery. This tutorial shows how to create and manage a pass-through channel and live events.
 
-![Criado](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that outputs a multi-bitrate RTMP or Fragmented MP4 stream. For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+    
+    This step could also be performed after you create your Channel.
 
-##Assistir ao evento
+1. Create and start a pass-through Channel.
+1. Retrieve the Channel ingest URL. 
 
-Para assistir o evento, clique em **Assistir** no portal do Azure ou copie a URL de transmissão e use um player de sua escolha.
+    The ingest URL is used by the live encoder to send the stream to the Channel.
+1. Retrieve the Channel preview URL. 
+
+    Use this URL to verify that your channel is properly receiving the live stream.
+
+3. Create a live event/program. 
+
+    When using the Azure portal, creating a live event also creates an asset. 
+      
+    >[AZURE.NOTE]Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+1. Start the event/program when you are ready to start streaming and archiving.
+2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
+1. Stop the event/program whenever you want to stop streaming and archiving the event.
+1. Delete the event/program (and optionally delete the asset).     
+
+>[AZURE.IMPORTANT] Please review [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md) to learn about concepts and considerations related to live streaming with on-premise encoders and pass-through channels.
+
+##<a name="to-view-notifications-and-errors"></a>To view notifications and errors
+
+If you want to view notifications and errors produced by the Azure portal, click on the Notification icon.
+
+![Notifications](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
+
+##<a name="configure-streaming-endpoints"></a>Configure streaming endpoints 
+
+Media Services provides dynamic packaging, which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, or HDS, without you having to repackage into these streaming formats. With dynamic packaging you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client.
+
+To take advantage of dynamic packaging, you need to get at least one streaming unit for the streaming endpoint from which you plan to delivery your content.  
+
+To create and change the number of streaming reserved units, do the following:
+
+1. Log in at the [Azure portal](https://portal.azure.com/).
+1. In the **Settings** window, click **Streaming endpoints**. 
+
+2. Click on the default streaming endpoint. 
+
+    The **DEFAULT STREAMING ENDPOINT DETAILS** window appears.
+
+3. To specify the number of streaming units, slide the **Streaming units** slider.
+
+    ![Streaming units](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
+
+4. Click the **Save** button to save your changes.
+
+    >[AZURE.NOTE]The allocation of any new units can take up to 20 minutes to complete.
+    
+##<a name="create-and-start-pass-through-channels-and-events"></a>Create and start pass-through channels and events
+
+A channel is associated with events/programs that enable you to control the publishing and storage of segments in a live stream. Channels manage events. 
+    
+You can specify the number of hours you want to retain the recorded content for the program by setting the **Archive Window** length. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. Archive window length also dictates the maximum amount of time clients can seek back in time from the current live position. Events can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
+
+Each event is associated with an asset. To publish the event, you must create an OnDemand locator for the associated asset. Having this locator enables you to build a streaming URL that you can provide to your clients.
+
+A channel supports up to three concurrently running events so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
+
+You should not reuse existing live events. Instead, create and start a new event for each event.
+
+Start the event when you are ready to start streaming and archiving. Stop the program whenever you want to stop streaming and archiving the event. 
+
+To delete archived content, stop and delete the event and then delete the associated asset. An asset cannot be deleted if it is used by an event; the event must be deleted first. 
+
+Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset.
+
+If you do want to retain the archived content, but not have it available for streaming, delete the streaming locator.
+
+###<a name="to-use-the-portal-to-create-a-channel"></a>To use the portal to create a channel 
+
+This section shows how to use the **Quick Create** option to create a pass-through channel.
+
+For more details about pass-through channels, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
+
+1. In the **Settings** window, click **Live streaming**. 
+
+    ![Getting started](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
+    
+    The **Live streaming** window appears.
+
+3. Click **Quick Create** to create a pass-through channel with the RTMP ingest protocol.
+
+    The **CREATE A NEW CHANNEL** window appears.
+4. Give the new channel a name and click **Create**. 
+
+    This creates a pass-through channel with the RTMP ingest protocol.
+
+##<a name="create-events"></a>Create events
+
+1. Select a channel to which you want to add an event.
+2. Press **Live Event** button.
+
+![Event](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+
+
+##<a name="get-ingest-urls"></a>Get ingest URLs
+
+Once the channel is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
+
+![Created](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+
+##<a name="watch-the-event"></a>Watch the event
+
+To watch the event, click **Watch** in the Azure portal or copy the streaming URL and use a player of your choice. 
  
-![Criado](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
+![Created](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
 
-O evento ao vivo é convertido automaticamente no conteúdo sob demanda quando estiver parado.
+Live event automatically get converted to on-demand content when stopped.
 
-##Limpar
+##<a name="clean-up"></a>Clean up
 
-Para obter mais detalhes sobre os canais de passagem, consulte [Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits](media-services-live-streaming-with-onprem-encoders.md).
+For more details about pass-through channels, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
 
-- Um canal pode ser interrompido somente quando todos os eventos/programas nele foram interrompidos. Depois que o canal estiver parado, ele não incorrerá em nenhum encargo. Quando for necessário iniciá-lo novamente ele terá a mesma URL de ingestão, portanto, você não precisará reconfigurar seu codificador.
-- Um canal pode ser excluído somente quando todos os eventos ao vivo nele foram excluídos.
+- A channel can be stopped only when all events/programs on the channel have been stopped.  Once the Channel is stopped, it does not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
+- A channel can be deleted only when all live events on the channel have been deleted.
 
-##Exibir conteúdo arquivado
+##<a name="view-archived-content"></a>View archived content
 
-Mesmo depois de você parar e excluir o evento, os usuários poderão transmitir seu conteúdo arquivado como vídeo por demanda enquanto você não excluir o ativo. Não será possível excluir um ativo se este for usado por um evento; o evento deve ser excluído primeiro.
+Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset. An asset cannot be deleted if it is used by an event; the event must be deleted first. 
 
-Para gerenciar os ativos, selecione **Configuração** e clique em **Ativos**.
+To manage your assets, select **Setting** and click **Assets**.
 
-![Ativos](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
+![Assets](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Próxima etapa
+##<a name="next-step"></a>Next step
 
-Revise os roteiros de aprendizagem dos Serviços de Mídia.
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fornecer comentários
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

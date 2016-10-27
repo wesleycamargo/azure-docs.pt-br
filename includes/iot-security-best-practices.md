@@ -1,54 +1,57 @@
-# Práticas recomendadas de segurança de Internet das Coisas
+# <a name="internet-of-things-security-best-practices"></a>Internet of Things security best practices
 
-Proteger uma infraestrutura de Internet das Coisas (IoT) requer uma estratégia de segurança em camadas rigorosa. Essa estratégia exige que você proteja dados na nuvem, proteja a integridade dos dados enquanto eles estão em trânsito na Internet pública e provisione dispositivos com segurança. Cada camada cria uma maior garantia de segurança na infraestrutura geral.
+To secure an Internet of Things (IoT) infrastructure requires a rigorous security-in-depth strategy. This strategy requires you to secure data in the cloud, protect data integrity while in transit over the public internet, and securely provision devices. Each layer builds greater security assurance in the overall infrastructure.
 
-## Proteger uma infraestrutura de IoT
+## <a name="secure-an-iot-infrastructure"></a>Secure an IoT infrastructure
 
-Essa estratégia de segurança em camadas pode ser desenvolvida e executada com a participação ativa de vários participantes envolvidos na produção, desenvolvimento e implantação de dispositivos e infraestrutura de IoT. Veja a seguir uma descrição de alto nível desses participantes.
+This security-in-depth strategy can be developed and executed with active participation of various players involved with the manufacturing, development, and deployment of IoT devices and infrastructure. Following is a high-level description of these players.  
 
-- **Fabricante/integrador de hardware de IoT**: normalmente, esses são os fabricantes de hardware de IoT que está sendo implantado, os integradores montando hardware de vários fabricantes ou os fornecedores de hardware para uma implantação de IoT fabricado ou integrado por outros fornecedores.
-- **Desenvolvedor de soluções IoT**: o desenvolvimento de uma solução de IoT normalmente é feito por um desenvolvedor de soluções. Esse desenvolvedor pode ser parte de uma equipe interna ou um SI (integrador de sistema) especializado nesta atividade. O desenvolvedor de soluções IoT pode desenvolver vários componentes da solução IoT do zero, integrar vários componentes prontos ou de software livre, ou então adotar soluções pré-configuradas com pequenas adaptações.
-- **Implantador de solução IoT**: depois que uma solução IoT é desenvolvida, ela precisa ser implantada em campo. Isso envolve a implantação de hardware, A interconexão de dispositivos e A implantação de soluções nos dispositivos de hardware ou na nuvem.
-- **Operador de solução IoT**: quando a solução IoT é implantada, ela requer operações, monitoramento, atualizações e manutenção de longo prazo. Isso pode ser feito por uma equipe interna composta por especialistas em tecnologia da informação, equipes de operações e manutenção de hardware e especialistas em domínio que monitoram o comportamento correto da infraestrutura geral de IoT.
+- **IoT hardware manufacturer/integrator**: Typically, these are the manufacturers of IoT hardware being deployed, integrators assembling hardware from various manufacturers, or suppliers providing hardware for an IoT deployment manufactured or integrated by other suppliers.
+- **IoT solution developer**: The development of an IoT solution is typically done by a solution developer. This developer may part of an in-house team or a system integrator (SI) specializing in this activity. The IoT solution developer can develop various components of the IoT solution from scratch, integrate various off-the-shelf or open-source components, or adopt preconfigured solutions with minor adaptation.
+- **IoT solution deployer**: After an IoT solution is developed, it needs to be deployed in the field. This involves deployment of hardware, interconnection of devices, and deployment of solutions in hardware devices or the cloud.
+- **IoT solution operator**: After the IoT solution is deployed, it requires long-term operations, monitoring, upgrades, and maintenance. This can be done by an in-house team that comprises information technology specialists, hardware operations and maintenance teams, and domain specialists who monitor the correct behavior of overall IoT infrastructure.
 
-As seções a seguir fornecem práticas recomendadas para cada um desses participantes para ajudar a desenvolver, implantar e operar uma infraestrutura de IoT segura.
+The sections that follow provide best practices for each of these players to help develop, deploy, and operate a secure IoT infrastructure.
 
-## Fabricante/integrador de hardware de IoT
+## <a name="iot-hardware-manufacturer/integrator"></a>IoT hardware manufacturer/integrator
 
-A seguir estão as práticas recomendadas para fabricantes de hardware IoT e integradores de hardware.
+The following are the best practices for IoT hardware manufacturers and hardware integrators.
 
-- **Escopo de hardware para requisitos mínimos**: o design de hardware deve incluir o mínimo de recursos necessários para a operação de hardware e nada mais. Um exemplo é incluir portas USB somente se necessário para a operação do dispositivo. Esses recursos adicionais expõem o dispositivo a vetores de ataque indesejados, o que deve ser evitado.
-- **Tornar o hardware à prova de adulteração**: mecanismos internos para detectar violação física, tal como a abertura da tampa do dispositivo ou a remoção de uma peça do dispositivo. Esses sinais de violação podem fazer parte do fluxo de dados carregado para a nuvem, o que poderia alertar os operadores sobre esses eventos.
-- **Criar em hardware seguro**: se o COGS permitir, crie recursos de segurança, como recursos de armazenamento seguro e criptografado ou a funcionalidade de inicialização com base em TPM (Trusted Platform Module). Esses recursos tornam os dispositivos mais seguros e ajudam a proteger a infraestrutura geral de IoT.
-- **Tornar as atualizações seguras**: atualizações de firmware durante o tempo de vida do dispositivo são inevitáveis. Criar dispositivos com caminhos seguros para atualizações e garantia criptográfica das versões de firmware permitirá que o dispositivo fique seguro durante e após atualizações.
+- **Scope hardware to minimum requirements**: The hardware design should include the minimum features required for operation of the hardware, and nothing more. An example is to include USB ports only if necessary for the operation of the device. These additional features open the device for unwanted attack vectors that should be avoided.
+- **Make hardware tamper proof**: Build in mechanisms to detect physical tampering, such as opening of the device cover or removing a part of the device. These tamper signals may be part of the data stream uploaded to the cloud, which could alert operators of these events.
+- **Build around secure hardware**: If COGS permits, build security features such as secure and encrypted storage, or boot functionality based on Trusted Platform Module (TPM). These features make devices more secure and help protect the overall IoT infrastructure.
+- **Make upgrades secure**: Firmware upgrades during the lifetime of the device are inevitable. Building devices with secure paths for upgrades and cryptographic assurance of firmware versions will allow the device to be secure during and after upgrades.
 
-## Desenvolvedor de soluções IoT
+## <a name="iot-solution-developer"></a>IoT solution developer
 
-A seguir estão as práticas recomendadas para desenvolvedores de solução de IoT:
+The following are the best practices for IoT solution developers:
 
-- **Seguir a metodologia de desenvolvimento de software seguro**: o desenvolvimento de software seguro requer uma consideração inicial desde a concepção do projeto até sua implementação, teste e implantação. A escolha de plataformas, linguagens e ferramentas são influenciados por essa metodologia. O Microsoft Security Development Lifecycle fornece uma abordagem passo a passo para a criação de software seguro.
-- **Escolher software livre com cuidado**: software livre fornece uma oportunidade o rápido desenvolvimento de soluções. Ao escolher o software livre, considere o nível de atividade da comunidade para cada componente de software livre. Uma comunidade ativa garante que existirá suporte para o software e que os problemas serão descobertos e tratados. Como alternativa, um software livre obscuro e inativo poderá não ter suporte e os problemas provavelmente não serão descobertos.
-- **Integrar com cuidado**: há muitas das falhas de segurança de software no limite de bibliotecas e APIs. Funcionalidades que podem não ser necessárias para a implantação atual ainda podem estar disponíveis por meio de uma camada de API. Para garantir a segurança geral, certifique-se de verificar todas as interfaces de componentes sendo integradas para ver se há falhas de segurança.
+- **Follow secure software development methodology**: Development of secure software requires ground-up thinking about security, from the inception of the project all the way to its implementation, testing, and deployment. The choices of platforms, languages, and tools are all influenced with this methodology. The Microsoft Security Development Lifecycle provides a step-by-step approach to building secure software.
+- **Choose open-source software with care**: Open-source software provides an opportunity to quickly develop solutions. When you're choosing open-source software, consider the activity level of the community for each open-source component. An active community ensures that software is supported and that issues are discovered and addressed. Alternatively, an obscure and inactive open-source software might not be supported and issues will probably not be discovered.
+- **Integrate with care**: Many software security flaws exist at the boundary of libraries and APIs. Functionality that may not be required for the current deployment might still be available via an API layer. To ensure overall security, make sure to check all interfaces of components being integrated for security flaws.      
 
-## Implantador de soluções IoT
+## <a name="iot-solution-deployer"></a>IoT solution deployer
 
-A seguir estão as práticas recomendadas para implantadores de solução de IoT:
+The following are best practices for IoT solution deployers:
 
-- **Implantar o hardware com segurança**: implantações de IoT podem exigir que o hardware seja implantado em locais não seguros, como espaços públicos ou localidades sem supervisão. Em tais situações, certifique-se de que a implantação de hardware seja à prova de adulteração o máximo possível. Se USB ou outras portas estiverem disponíveis no hardware, certifique-se de que elas estejam cobertas com segurança. Muitos vetores de ataque podem usá-las como ponto de entrada.
-- **Manter as chaves de autenticação em segurança**: durante a implantação, cada dispositivo requer IDs de dispositivo e chaves de autenticação associadas geradas pelo serviço de nuvem. Mantenha essas chaves fisicamente seguras mesmo após a implantação. Qualquer chave comprometida pode ser usada por um dispositivo mal-intencionado passando-se por um dispositivo existente.
+- **Deploy hardware securely**: IoT deployments may require hardware to be deployed in unsecure locations, such as in public spaces or unsupervised locales. In such situations, ensure that hardware deployment is tamper-proof to the maximum extent. If USB or other ports are available on the hardware, ensure that they are covered securely. Many attack vectors can use these as entry points.
+- **Keep authentication keys safe**: During deployment, each device requires device IDs and associated authentication keys generated by the cloud service. Keep these keys physically safe even after the deployment. Any compromised key can be used by a malicious device to masquerade as an existing device.
 
-## Operador de solução IoT
+## <a name="iot-solution-operator"></a>IoT solution operator
 
-A seguir estão as práticas recomendadas para operadores de solução de IoT:
+The following are the best practices for IoT solution operators:
 
-- **Manter o sistema atualizado**: verifique se todos os sistemas operacionais e drivers do dispositivo estão atualizados para as versões mais recentes. Se você ativar as atualizações automáticas no Windows 10 (IoT ou outras SKUs), a Microsoft vai mantê-las atualizadas, fornecendo um sistema operacional seguro para dispositivos IoT. Manter outros sistemas atualizados (como o Linux) ajuda a garantir que eles também estejam protegidos contra ataques mal-intencionados.
-- **Proteger contra atividades mal-intencionadas**: se o sistema operacional permitir, instale as funcionalidades antivírus e antimalware mais recentes em cada sistema operacional do dispositivo. Isso pode ajudar a atenuar a maioria das ameaças externas. Você pode proteger os sistemas operacionais mais modernos contra ameaças seguindo as etapas apropriadas.
-- **Auditar frequentemente**: auditar problemas relacionados à infraestrutura de IoT é essencial ao responder a incidentes de segurança. A maioria dos sistemas operacionais fornece o log de eventos internos que deve ser analisado com frequência para certificar-se de que não ocorreu nenhuma violação de segurança. Informações de auditoria podem ser enviadas como um fluxo de telemetria separado para o serviço de nuvem, em que serão analisadas.
-- **Proteger fisicamente a infraestrutura de IoT**: os pior ataques de segurança contra infraestrutura de são iniciados usando o acesso físico aos dispositivos. Uma prática de segurança importante é proteger contra o uso mal-intencionado de portas USB e outros acessos físicos. Um ponto importante para descobrir violações que podem ter ocorrido é registrar o acesso físico em log, tal como o uso da porta USB. Novamente, o Windows 10 (IoT e outros SKUs) habilita o registro em log detalhado desses eventos.
-- **Proteger credenciais da nuvem**: credenciais de autenticação da nuvem usadas para configurar e operar uma implantação de IoT são possivelmente a maneira mais fácil para acessar e comprometer um sistema de IoT. Proteja as credenciais alterando a senha com frequência e evitando o uso dessas credenciais em computadores públicos.
+- **Keep the system up to date**: Ensure that device operating systems and all device drivers are upgraded to the latest versions. If you turn on automatic updates in Windows 10 (IoT or other SKUs), Microsoft keeps it up to date, providing a secure operating system for IoT devices. Keeping other operating systems (such as Linux) up to date helps ensure that they are also protected against malicious attacks.
+- **Protect against malicious activity**: If the operating system permits, install the latest antivirus and antimalware capabilities on each device operating system. This can help mitigate most external threats. You can protect most modern operating systems against threats by taking appropriate steps.
+- **Audit frequently**: Auditing IoT infrastructure for security-related issues is key when responding to security incidents. Most operating systems provide built-in event logging that should be reviewed frequently to make sure no security breach has occurred. Audit information can be sent as a separate telemetry stream to the cloud service where it can be analyzed.
+- **Physically protect the IoT infrastructure**: The worst security attacks against IoT infrastructure are launched using physical access to devices. One important safety practice is to protect against malicious use of USB ports and other physical access. One key to uncovering breaches that might have occurred is logging of physical access, such as USB port use. Again, Windows 10 (IoT and other SKUs) enables detailed logging of these events.
+- **Protect cloud credentials**: Cloud authentication credentials used for configuring and operating an IoT deployment are possibly the easiest way to gain access and compromise an IoT system. Protect the credentials by changing the password frequently, and refrain from using these credentials on public machines.
 
-As funcionalidades de diferentes dispositivos IoT variam. Alguns dispositivos podem ser computadores executando sistemas operacionais de desktop comuns, e outros dispositivos podem estar executando sistemas operacionais muito leves. As práticas recomendadas de segurança descritas anteriormente podem ser aplicáveis a esses dispositivos em graus variados. Se fornecidas, as práticas recomendadas de segurança e de implantação do fabricante desses dispositivos deverão ser seguidas.
+Capabilities of different IoT devices vary. Some devices might be computers running common desktop operating systems, and some devices might be running very light-weight operating systems. The security best practices described previously might be applicable to these devices in varying degrees. If provided, additional security and deployment best practices from the manufacturers of these devices should be followed.
 
-Alguns dispositivos herdados e restritos podem não ter sido projetados especificamente para a implantação de IoT. Esses dispositivos podem não ter a capacidade de criptografar dados, conectar-se à Internet ou fornecer auditoria avançada. Nesses casos, um gateway de campo moderno e seguro pode agregar dados de dispositivos herdados e fornecer a segurança necessária para conectar esses dispositivos pela Internet. Gateways de campo fornecem autenticação segura, negociação de sessões criptografadas, recebimento de comandos da nuvem e muitos outros recursos de segurança.
+Some legacy and constrained devices might not have been designed specifically for IoT deployment. These devices might lack the capability to encrypt data, connect with the Internet, or provide advanced auditing. In these cases, a modern and secure field gateway can aggregate data from legacy devices and provide the security required for connecting these devices over the Internet. Field gateways can provide secure authentication, negotiation of encrypted sessions, receipt of commands from the cloud, and many other security features.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

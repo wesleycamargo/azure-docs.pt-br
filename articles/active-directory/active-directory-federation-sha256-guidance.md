@@ -1,51 +1,56 @@
 <properties
-	pageTitle="Alterar o algoritmo de hash de assinatura para o objeto de confiança de terceira parte confiável Office 365 | Microsoft Azure"
-	description="Esta página fornece diretrizes para alterar o algoritmo SHA para confiança de federação com o Office 365"
-    keywords="SHA1, SHA256, O365, federação, aadconnect, adfs, ad fs, alterar o sha, confiança de federação, objeto de confiança de terceira parte confiável"
-	services="active-directory"
-	documentationCenter=""
-	authors="anandyadavmsft"
-	manager="samueld"
-	editor=""/>
+    pageTitle="Change signature hash algorithm for Office 365 replying party trust | Microsoft Azure"
+    description="This page provides guidelines for changing SHA algorithm for federation trust with Office 365"
+    keywords="SHA1,SHA256,O365,federation,aadconnect,adfs,ad fs,change sha,federation trust,relying party trust"
+    services="active-directory"
+    documentationCenter=""
+    authors="anandyadavmsft"
+    manager="samueld"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/01/2016"
-	ms.author="anandy"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/01/2016"
+    ms.author="anandy"/>
 
-# Alterar o algoritmo de hash de assinatura para o objeto de confiança de terceira parte confiável Office 365
 
-## Visão geral
+# <a name="change-signature-hash-algorithm-for-office-365-replying-party-trust"></a>Change signature hash algorithm for Office 365 replying party trust
 
-O Azure AD FS (Serviços de Federação do Active Directory) assina seus tokens para o Microsoft Azure Active Directory para garantir que eles não possam ser violados. Essa assinatura pode ser baseada em SHA1 ou em SHA256. O Azure Active Directory agora dá suporte para tokens assinados com um algoritmo SHA256, e recomendamos configurar o algoritmo de assinatura do token para SHA256 no nível mais alto de segurança. Este artigo descreve as etapas necessárias para definir o algoritmo de assinatura de token para o nível SHA256 mais seguro.
+## <a name="overview"></a>Overview
 
-## Alterar o algoritmo de assinatura de token
+Azure Active Directory Federation Services (AD FS) signs its tokens to Microsoft Azure Active Directory to ensure that they cannot be tampered with. This signature can be based on SHA1 or SHA256. Azure Active Directory now supports tokens signed with an SHA256 algorithm, and we recommend setting the token-signing algorithm to SHA256 for the highest level of security. This article describes the steps needed to set the token-signing algorithm to the more secure SHA256 level.
 
-Depois que você define o algoritmo de assinatura com um dos dois processos abaixo, o AD FS assina os tokens para o objeto de confiança de terceira parte confiável do Office 365 com SHA256. Você não precisa fazer alterações de configuração adicionais, e essa alteração não tem nenhum impacto sobre a capacidade de acessar o Office 365 ou outros aplicativos do Azure AD.
+## <a name="change-the-token-signing-algorithm"></a>Change the token-signing algorithm
 
-### Console de gerenciamento do AD FS
+After you have set the signature algorithm with one of the two processes below, AD FS signs the tokens for Office 365 relying party trust with SHA256. You don't need to make any extra configuration changes, and this change has no impact on your ability to access Office 365 or other Azure AD applications.
 
-1. Abra o console de gerenciamento do AD FS no servidor primário do AD FS.
-2. Expanda o nó do AD FS e clique em **Objetos de Confiança de Terceira Parte Confiável **.
-3. Clique com o botão direito do mouse no Office 365/objeto de confiança de terceira parte confiável e selecione **Propriedades**.
-4. Selecione a guia **Avançado** e o Secure Hash Algorithm SHA256.
-5. Clique em **OK**.
+### <a name="ad-fs-management-console"></a>AD FS management console
 
-![Algoritmo de assinatura SHA256 - MMC](./media/active-directory-aadconnectfed-sha256guidance/mmc.png)
+1. Open the AD FS management console on the primary AD FS server.
+2. Expand the AD FS node and click **Relying Party Trusts**.
+3. Right-click your Office 365/Azure relying party trust and select **Properties**.
+4. Select the **Advanced** tab and select the secure hash algorithm SHA256.
+5. Click **OK**.
 
-### Cmdlets do PowerShell do AD FS
+![SHA256 signing algorithm--MMC](./media/active-directory-aadconnectfed-sha256guidance/mmc.png)
 
-1. Em qualquer servidor do AD FS, abra o PowerShell com privilégios de administrador.
-2. Definir o algoritmo de hash seguro usando o cmdlet **Set-AdfsRelyingPartyTrust**.
+### <a name="ad-fs-powershell-cmdlets"></a>AD FS PowerShell cmdlets
+
+1. On any AD FS server, open PowerShell under administrator privileges.
+2. Set the secure hash algorithm by using the **Set-AdfsRelyingPartyTrust** cmdlet.
 
  <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
 
-## Leia também
+## <a name="also-read"></a>Also read
 
-* [Reparar confiança do Office 365 com o Azure AD Connect](./active-directory-aadconnect-federation-management.md#repairing-the-trust)
+* [Repair Office 365 trust with Azure AD Connect](./active-directory-aadconnect-federation-management.md#repairing-the-trust)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

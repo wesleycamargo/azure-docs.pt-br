@@ -1,59 +1,64 @@
 <properties
-	pageTitle="Controlando o comportamento de cache da CDN do Azure para as solicitações com cadeias de caracteres de consulta | Microsoft Azure"
-	description="O cache da cadeia de caracteres de consulta da CDN do Azure controla como os arquivos devem ser armazenados em cache quando contêm cadeias de caracteres de consulta."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Controlling Azure CDN caching behavior of requests with query strings | Microsoft Azure"
+    description="Azure CDN query string caching controls how files are to be cached when they contain query strings."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="casoper"/>
 
-#Controlando o comportamento do cache de solicitações CDN com cadeias de caracteres de consulta
+
+#<a name="controlling-caching-behavior-of-cdn-requests-with-query-strings"></a>Controlling caching behavior of CDN requests with query strings
 
 > [AZURE.SELECTOR]
 - [Standard](cdn-query-string.md)
-- [CDN Premium do Azure da Verizon](cdn-query-string-premium.md)
+- [Azure CDN Premium from Verizon](cdn-query-string-premium.md)
 
-##Visão geral
+##<a name="overview"></a>Overview
 
-O cache da cadeia de caracteres de consulta controla como os arquivos devem ser armazenados em cache quando contêm cadeias de caracteres de consulta.
+Query string caching controls how files are to be cached when they contain query strings.
 
-> [AZURE.IMPORTANT] Os produtos CDN Standard e Premium fornecem a mesma funcionalidade de cache de cadeia de consulta, mas a interface do usuário varia. Este documento descreve a interface para a **CDN Standard do Azure do Akamai** e a **CDN Standard do Azure da Verizon**. Para saber mais sobre o armazenamento em cache de cadeias de caracteres de consulta com a **CDN Premium do Azure da Verizon**, confira [Controlando o comportamento do cache de solicitações de CDN com cadeias de caracteres de consulta - Premium](cdn-query-string-premium.md).
+> [AZURE.IMPORTANT] The Standard and Premium CDN products provide the same query string caching functionality, but the user interface differs.  This document describes the interface for **Azure CDN Standard from Akamai** and **Azure CDN Standard from Verizon**.  For query string caching with **Azure CDN Premium from Verizon**, see [Controlling caching behavior of CDN requests with query strings - Premium](cdn-query-string-premium.md).
 
-Existem três modos disponíveis:
+Three modes are available:
 
-- **Ignorar cadeias de caracteres de consulta**: esse é o modo padrão. O nó de borda CDN passará a cadeia de caracteres de consulta do solicitante para a origem na primeira solicitação e deixará o ativo em cache. Todas as solicitações subsequentes para esse ativo que são atendidas a partir do nó de borda ignorarão a cadeia de caracteres de consulta até que o ativo em cache expire.
-- **Ignorar o cache de URL com cadeias de caracteres de consulta**: nesse modo, as solicitações com cadeias de caracteres de consulta não estão armazenadas em cache no nó de borda da CDN. O nó de borda recupera o ativo diretamente da origem e passa-o para o solicitante com cada solicitação.
-- **Cada URL exclusiva de cache**: esse modo trata cada solicitação com uma cadeia de caracteres de consulta como um ativo exclusivo com seu próprio cache. Por exemplo, a resposta da origem de uma solicitação de *foo.ashx?q=bar* seria armazenada em cache no nó de borda e retornada para os caches subsequentes com a mesma cadeia de caracteres de consulta. Uma solicitação de *foo.ashx?q=somethingelse* será armazenada em cache como um ativo separado com seu próprio tempo de vida.
+- **Ignore query strings**:  This is the default mode.  The CDN edge node will pass the query string from the requestor to the origin on the first request and cache the asset.  All subsequent requests for that asset that are served from the edge node will ignore the query string until the cached asset expires.
+- **Bypass caching for URL with query strings**:  In this mode, requests with query strings are not cached at the CDN edge node.  The edge node retrieves the asset directly from the origin and passes it to the requestor with each request.
+- **Cache every unique URL**:  This mode treats each request with a query string as a unique asset with its own cache.  For example, the response from the origin for a request for *foo.ashx?q=bar* would be cached at the edge node and returned for subsequent caches with that same query string.  A request for *foo.ashx?q=somethingelse* would be cached as a separate asset with its own time to live.
 
-##Alterando configurações de cache de cadeia de consulta para perfis de CDN padrão
+##<a name="changing-query-string-caching-settings-for-standard-cdn-profiles"></a>Changing query string caching settings for standard CDN profiles
 
-1. Na folha Perfil CDN, clique no ponto de extremidade da CDN que deseja gerenciar.
+1. From the CDN profile blade, click the CDN endpoint you wish to manage.
 
-	![Pontos de extremidade da folha Perfil CDN](./media/cdn-query-string/cdn-endpoints.png)
+    ![CDN profile blade endpoints](./media/cdn-query-string/cdn-endpoints.png)
 
-	A folha do ponto de extremidade da CDN se abre.
+    The CDN endpoint blade opens.
 
-2. Clique no botão **Configurar**.
+2. Click the **Configure** button.
 
-	![botão gerenciar da folha Perfil CDN](./media/cdn-query-string/cdn-config-btn.png)
+    ![CDN profile blade manage button](./media/cdn-query-string/cdn-config-btn.png)
 
-	A folha Configuração da CDN se abre.
+    The CDN Configuration blade opens.
 
-3. Selecione uma configuração da lista suspensa **Comportamento do cache da cadeia de consulta**.
+3. Select a setting from the **Query string caching behavior** dropdown.
 
-	![Opções de cache de cadeia de caracteres de consulta CDN](./media/cdn-query-string/cdn-query-string.png)
+    ![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png)
 
-4. Após fazer suas seleções, clique no botão **Salvar**.
+4. After making your selection, click the **Save** button.
 
-> [AZURE.IMPORTANT] As mudanças de configuração podem não estar visíveis imediatamente, pois o registro demora um pouco para se propagar pela CDN. Para perfis <b>Azure CDN do Akamai</b>, a propagação geralmente é concluída em um minuto. Para perfis <b>Azure CDN da Verizon</b>, a propagação geralmente é concluída em 90 minutos, mas em alguns casos pode levar mais tempo.
+> [AZURE.IMPORTANT] The settings changes may not be immediately visible, as it takes time for the registration to propagate through the CDN.  For <b>Azure CDN from Akamai</b> profiles, propagation will usually complete within one minute.  For <b>Azure CDN from Verizon</b> profiles, propagation will usually complete within 90 minutes, but in some cases can take longer.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

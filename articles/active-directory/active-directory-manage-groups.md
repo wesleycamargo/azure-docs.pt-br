@@ -1,94 +1,99 @@
 <properties
-	pageTitle="Gerenciamento de acesso a recursos com grupos do Active Directory do Azure | Microsoft Azure"
-	description="Como usar grupos no Azure Active Directory para gerenciar o acesso de usuário a aplicativos e recursos locais e na nuvem."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""
+    pageTitle="Managing access to resources with Azure Active Directory groups| Microsoft Azure"
+    description="How to use groups in Azure Active Directory to manage user access to on-premises and cloud applications and resources."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""
 />
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/10/2016"
+    ms.author="curtand"/>
 
 
-# Gerenciamento de acesso a recursos com grupos do Active Directory do Azure
 
-O AD do Azure (Active Directory do Azure) é uma solução abrangente de gerenciamento de acesso e identidades que oferece um conjunto robusto de recursos para gerenciar o acesso aos recursos e aplicativos na nuvem e locais, incluindo serviços online da Microsoft como o Office 365 e uma infinidade de aplicativos SaaS que não são da Microsoft. Este artigo fornece uma visão geral, mas se você deseja começar a usar os grupos do Azure AD agora, siga as instruções em [Gerenciamento de grupos de segurança no Azure AD](active-directory-accessmanagement-manage-groups.md). Para ver como você pode usar o PowerShell para gerenciar grupos no Azure Active Directory, você pode ler mais em [Cmdlets de visualização do Azure Active Directory para gerenciamento de grupo](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+# <a name="managing-access-to-resources-with-azure-active-directory-groups"></a>Managing access to resources with Azure Active Directory groups
 
-
-> [AZURE.NOTE] Para usar o Active Directory do Azure, você precisa de uma conta do Azure. Se você ainda não tem uma conta, você pode [inscrever-se para uma conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Azure Active Directory (Azure AD) is a comprehensive identity and access management solution that provides a robust set of capabilities to manage access to on-premises and cloud applications and resources including Microsoft online services like Office 365 and a world of non-Microsoft SaaS applications. This article provides an overview, but if you want to start using Azure AD groups right now, follow the instructions in [Managing security groups in Azure AD](active-directory-accessmanagement-manage-groups.md). If you want to see how you can use PowerShell to manage groups in Azure Active directory you can read more in [Azure Active Directory preview cmdlets for group management](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 
-No Azure AD, um dos principais recursos é a capacidade de gerenciar o acesso aos recursos. Esses recursos podem ser parte do diretório, como no caso de permissões para gerenciar objetos por meio de funções no diretório, ou recursos que são externos ao diretório, como aplicativos SaaS, serviços do Azure e sites do SharePoint ou recursos locais. Há quatro maneiras de um usuário receber direitos de acesso a um recurso:
+> [AZURE.NOTE] To use Azure Active Directory, you need an Azure account. If you don't have an account, you can [sign up for a free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
 
-1. Atribuição direta
-
-	Os usuários podem ser atribuídos diretamente a um recurso pelo proprietário do recurso.
-
-2. Associação de grupo
-
-	Um grupo pode ser atribuído a um recurso pelo proprietário do recurso e, dessa forma, os membros desse grupo recebem o acesso ao recurso. A associação do grupo pode então ser gerenciada pelo proprietário do grupo. O proprietário do recurso delega efetivamente ao proprietário do grupo a permissão para atribuir usuários aos seus recursos.
-
-3. Com base em regra
-
-	O proprietário do recurso pode usar uma regra para expressar quais usuários devem receber acesso a um recurso. O resultado da regra depende dos atributos usados na regra e seus valores para usuários específicos e, dessa forma, o proprietário do recurso delega efetivamente o direito de gerenciar o acesso aos seus recursos à fonte autoritativa para os atributos que são usados na regra. O proprietário do recurso ainda gerencia a regra e determina quais atributos e valores fornecem acesso aos seus recursos.
-
-4. Autoridade externa
-
-	O acesso a um recurso é derivado de uma fonte externa; por exemplo, um grupo que é sincronizado por meio de uma fonte autoritativa, como um diretório local, ou um aplicativo SaaS, como o WorkDay. O proprietário do recurso atribui o grupo para fornecer acesso ao recurso, e a fonte externa gerencia os membros do grupo.
-
-  ![Visão geral do diagrama de gerenciamento de acesso](./media/active-directory-access-management-groups/access-management-overview.png)
+Within Azure AD, one of the major features is the ability to manage access to resources. These resources can be part of the directory, as in the case of permissions to manage objects through roles in the directory, or resources that are external to the directory, such as SaaS applications, Azure services, and SharePoint sites or on premise resources. There are four ways a user can be assigned access rights to a resource:
 
 
-## Assista a um vídeo que explica o gerenciamento de acesso
+1. Direct assignment
 
-Você pode assistir a um breve vídeo que explica mais sobre isso:
+    Users can be assigned directly to a resource by the owner of that resource.
 
-**Azure AD: introdução a associações dinâmicas para grupos**
+2. Group membership
+
+    A group can be assigned to a resource by the resource owner, and by doing so, granting the members of that group access to the resource. Membership of the group can then be managed by the owner of the group. Effectively, the resource owner delegates the permission to assign users to their resource to the owner of the group.
+
+3. Rule-based
+
+    The resource owner can use a rule to express which users should be assigned access to a resource. The outcome of the rule depends on the attributes used in that rule and their values for specific users, and by doing so, the resource owner effectively delegates the right to manage access to their resource to the authoritative source for the attributes that are used in the rule. The resource owner still manages the rule itself and determines which attributes and values provide access to their resource.
+
+4. External authority
+
+    The access to a resource is derived from an external source; for example, a group that is synchronized from an authoritative source such as an on-premises directory or a SaaS app such as WorkDay. The resource owner assigns the group to provide access to the resource, and the external source manages the members of the group.
+
+  ![Overview of access management diagram](./media/active-directory-access-management-groups/access-management-overview.png)
+
+
+## <a name="watch-a-video-that-explains-access-management"></a>Watch a video that explains access management
+
+You can watch a short video that explains more about this:
+
+**Azure AD: Introduction to dynamic membership for groups**
 
 > [AZURE.VIDEO azure-ad--introduction-to-dynamic-memberships-for-groups]
 
-## Como funciona o gerenciamento de acesso no Azure Active Directory?
-No centro da solução de gerenciamento de acesso do Azure AD está o grupo de segurança. Usar um grupo de segurança para gerenciar o acesso aos recursos é um paradigma conhecido, que possibilita uma maneira fácil de entender e flexível de fornecer acesso a um recurso para o grupo de usuários em questão. O proprietário do recurso (ou o administrador do diretório) pode atribuir um grupo para fornecer um determinado acesso aos recursos que possui. Os membros do grupo receberão o acesso, e o proprietário do recurso pode delegar o direito de gerenciar a lista de membros de um grupo a outra pessoa, como um gerente de departamento ou um administrador de assistência técnica.
+## <a name="how-does-access-management-in-azure-active-directory-work?"></a>How does access management in Azure Active Directory work?
+At the center of the Azure AD access management solution is the security group. Using a security group to manage access to resources is a well-known paradigm, which allows for a flexible and easily understood way to provide access to a resource for the intended group of users. The resource owner (or the administrator of the directory) can assign a group to provide a certain access right to the resources they own. The members of the group will be provided the access, and the resource owner can delegate the right to manage the members list of a group to someone else, such as a department manager or a helpdesk administrator.
 
-![Diagrama de gerenciamento de acesso do Active Directory do Azure](./media/active-directory-access-management-groups/active-directory-access-management-works.png)
+![Azure Active Directory access management diagram](./media/active-directory-access-management-groups/active-directory-access-management-works.png)
 
-O proprietário de um grupo também pode disponibilizar esse grupo para solicitações de autoatendimento. Dessa forma, um usuário final pode pesquisar e localizar o grupo e fazer uma solicitação para ingressar nele, buscando efetivamente permissão para acessar os recursos que são gerenciados por meio do grupo. O proprietário do grupo pode configurar o grupo para que as solicitações de ingresso sejam aprovadas automaticamente ou exijam a aprovação do proprietário do grupo. Quando um usuário faz uma solicitação para ingressar em um grupo, ela é encaminhada aos proprietários do grupo. Se um dos proprietários aprovar a solicitação, o usuário solicitante será notificado e o usuário será ingressado ao grupo. Se um dos proprietários recusar a solicitação, o usuário solicitante será notificado, mas não será ingressado ao grupo.
-
-
-## Introdução ao gerenciamento de acesso
-Pronto para começar? Você deve experimentar algumas das tarefas básicas que pode fazer com grupos do AD do Azure. Use esses recursos para fornecer acesso especializado a diferentes grupos de pessoas para recursos diferentes em sua organização. Uma lista das primeiras etapas básicas é exibida abaixo.
-
-* [Criação de uma regra simples para configurar associações dinâmicas para um grupo](active-directory-accessmanagement-manage-groups.md#how-can-i-manage-the-membership-of-a-group-dynamically)
-
-* [Uso de um grupo para gerenciar o acesso a aplicativos SaaS](active-directory-accessmanagement-group-saasapps.md)
-
-* [Disponibilização de um grupo para autoatendimento do usuário final](active-directory-accessmanagement-self-service-group-management.md)
-
-* [Sincronização de um grupo local para o Azure usando o Azure AD Connect](active-directory-aadconnect.md)
-
-* [Gerenciando proprietários de um grupo](active-directory-accessmanagement-managing-group-owners.md)
+The owner of a group can also make that group available for self-service requests. In doing so, an end user can search for and find the group and make a request to join, effectively seeking permission to access the resources that are managed through the group. The owner of the group can set up the group so that join requests are approved automatically or require approval by the owner of the group. When a user makes a request to join a group, the join request is forwarded to the owners of the group. If one of the owners approves the request, the requesting user is notified and the user is joined to the group. If one of the owners denies the request, the requesting user is notified but not joined to the group.
 
 
-## Próximas etapas para o gerenciamento de acesso
-Agora que você compreendeu as noções básicas do gerenciamento de acesso, aqui estão alguns recursos avançados adicionais disponíveis no Active Directory do Azure para gerenciar o acesso aos seus aplicativos e recursos.
+## <a name="getting-started-with-access-management"></a>Getting started with access management
+Ready to get started? You should try out some of the basic tasks you can do with Azure AD groups. Use these capabilities to provide specialized access to different groups of people for different resources in your organization. A list of basic first steps are listed below.
 
-* [Usar atributos para criar regras avançadas](active-directory-accessmanagement-groups-with-advanced-rules.md)
+* [Creating a simple rule to configure dynamic memberships for a group](active-directory-accessmanagement-manage-groups.md#how-can-i-manage-the-membership-of-a-group-dynamically)
 
-* [Gerenciamento de grupos de segurança no Azure AD](active-directory-accessmanagement-manage-groups.md)
+* [Using a group to manage access to SaaS applications](active-directory-accessmanagement-group-saasapps.md)
 
-* [Configuração de grupos dedicados no Azure AD](active-directory-accessmanagement-dedicated-groups.md)
+* [Making a group available for end user self-service](active-directory-accessmanagement-self-service-group-management.md)
 
-* [Referência de API do Graph para grupos](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
+* [Syncing an on-premises group to Azure using Azure AD Connect](active-directory-aadconnect.md)
 
-* [Cmdlets do Azure Active Directory para definir configurações de grupo](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [Managing owners for a group](active-directory-accessmanagement-managing-group-owners.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+## <a name="next-steps-for-access-management"></a>Next steps for access management
+Now that you have understood the basics of access management, here are some additional advanced capabilities available in Azure Active Directory for managing access to your applications and resources.
+
+* [Using attributes to create advanced rules](active-directory-accessmanagement-groups-with-advanced-rules.md)
+
+* [Managing security groups in Azure AD](active-directory-accessmanagement-manage-groups.md)
+
+* [Setting up dedicated groups in Azure AD](active-directory-accessmanagement-dedicated-groups.md)
+
+* [Graph API reference for groups](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
+
+* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

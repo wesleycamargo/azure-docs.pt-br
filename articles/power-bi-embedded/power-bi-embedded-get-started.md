@@ -3,8 +3,8 @@
    description="Power BI Embedded, adicione relatórios interativos do Power BI a seu aplicativo de business intelligence"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="mgblythe"
-   manager="NA"
+   authors="guyinacube"
+   manager="erikre"
    editor=""
    tags=""/>
 <tags
@@ -13,33 +13,34 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
-   ms.author="mblythe"/>
+   ms.date="10/04/2016"
+   ms.author="asaxton"/>
 
-# Introdução ao Microsoft Power BI Embedded
 
-O **Power BI Embedded** é um serviço do Azure que permite que os desenvolvedores de aplicativos adicionem relatórios interativos do Power BI a seus próprios aplicativos. O **Power BI Embedded** funciona com aplicativos existentes sem precisar reprojetar ou alterar os maneira como os usuários entram.
+# <a name="get-started-with-microsoft-power-bi-embedded"></a>Introdução ao Microsoft Power BI Embedded
+
+**Power BI Embedded** é um serviço do Azure que permite que os desenvolvedores de aplicativos adicionem relatórios interativos do Power BI a seus próprios aplicativos. **Power BI Embedded** funciona com aplicativos existentes sem precisar reprojetar ou alterar os maneira como os usuários entram.
 
 Os recursos para o **Microsoft Power BI Embedded** são provisionados por meio de [APIs do ARM do Azure](https://msdn.microsoft.com/library/mt712306.aspx). Nesse caso, o recurso que você provisiona é uma **Coleção de Espaços de Trabalho do Power BI**.
 
 ![](media\power-bi-embedded-get-started\introduction.png)
 
-## Criar uma coleção de espaços de trabalho
+## <a name="create-a-workspace-collection"></a>Criar uma coleção de espaços de trabalho
 Uma **coleção de espaços de trabalho** é o recurso mais avançado do Azure e um contêiner para o conteúdo que será inserido em seu aplicativo. Uma **Coleção de espaços de trabalho** pode ser criada de duas maneiras:
 
-   -	Usando o Portal do Azure manualmente
-   -	Programaticamente, usando as APIs do ARM (Azure Resource Manager)
+   -    Usando o Portal do Azure manualmente
+   -    Programaticamente, usando as APIs do ARM (Azure Resource Manager)
 
 Vamos percorrer as etapas para criar uma **Coleção de espaços de trabalho** usando o Portal do Azure.
 
-   1.	Abra e entre no **Portal do Azure**: [http://portal.azure.com](http://portal.azure.com).
+   1.   Abra e entre no **Portal do Azure**: [http://portal.azure.com](http://portal.azure.com).
 
-   2.	Clique em **+ Novo** no painel superior.
+   2.   Clique em **+ Novo** no painel superior.
 
        ![](media\power-bi-embedded-get-started\create-workspace-1.png)
 
-   3.	Em **Dados + Análise**, clique em **Power BI Embedded**.
-   4.	Na **Folha de Criação**, insira as informações necessárias. Para ver **Preços**, confira [Preço do Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
+   3.   Em **Dados + Análise**, clique em **Power BI Embedded**.
+   4.   Na **Folha de Criação**, insira as informações necessárias. Para ver **Preços**, confira [Preço do Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527).
 
        ![](media\power-bi-embedded-get-started\create-workspace-2.png)
 
@@ -52,7 +53,7 @@ A **Coleção de espaços de trabalho** levará alguns minutos para provisionar.
 A **Folha de Criação** contém as informações necessárias para chamar as APIs que criam espaços de trabalho e implanta conteúdo nelas.
 
 <a name="view-access-keys"/>
-## Exibir chaves de acesso da API do Power BI
+## <a name="view-power-bi-api-access-keys"></a>Exibir chaves de acesso da API do Power BI
 
 Uma das informações mais importantes necessárias para chamar as APIs REST do Power BI são as **Chaves de Acesso**. Elas são usadas para gerar os **tokens do aplicativo** que são usados na autenticação das solicitações de API. Para exibir suas **Chaves de Acesso**, clique em **Chaves de Acesso** na **Folha de Configurações**. Para saber mais sobre **tokens de aplicativo**, confira [Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
@@ -68,9 +69,9 @@ Embora duas chaves estejam listadas, somente uma chave é usada de cada vez. A s
 
 Agora que você tem uma instância do Power BI para seu aplicativo e as **Chaves de Acesso**, pode importar um relatório em seu próprio aplicativo. Antes de aprender como importar um relatório, a próxima seção descreve a criação de relatórios e conjuntos de dados do Power BI para inserir em um aplicativo.
 
-## Criar relatórios e conjuntos de dados do Power BI para inserir em um aplicativo
+## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Criar relatórios e conjuntos de dados do Power BI para inserir em um aplicativo
 
-Agora que você criou uma instância do Power BI para seu aplicativo e tem **Chaves de Acesso**, precisa criar os relatórios e conjuntos de dados do Power BI que deseja inserir. Conjuntos de dados e relatórios podem ser criados usando o **Power BI Desktop**. Você pode baixar o [Power BI Desktop gratuitamente](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Ou, para começar rapidamente, você pode baixar o [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547) (PBIX de exemplo de análise de varejo). Para saber mais sobre como usar o **Power BI Desktop**, confira [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/pt-BR/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+Agora que você criou uma instância do Power BI para seu aplicativo e tem **Chaves de Acesso**, precisa criar os relatórios e conjuntos de dados do Power BI que deseja inserir. Conjuntos de dados e relatórios podem ser criados usando o **Power BI Desktop**. Você pode baixar o [Power BI Desktop gratuitamente](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Ou, para começar rapidamente, você pode baixar [PBIX de Exemplo de Análise de Varejo] (http://go.microsoft.com/fwlink/?LinkID=780547). Para saber mais sobre como usar o **Power BI Desktop**, confira [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 Com o **Power BI Desktop**, você se conecta à fonte de dados importando uma cópia dos dados para o **Power BI Desktop** ou se conectando diretamente à fonte de dados usando o **DirectQuery**.
 
@@ -84,21 +85,25 @@ Para saber mais sobre como se conectar a uma fonte de dados, confira [Conectar-s
 
 Depois de salvar seu trabalho no **Power BI Desktop**, um arquivo PBIX será criado. Esse arquivo contém o relatório. Além disso, se você importar dados, o PBIX conterá o conjunto de dados completo, mas se usar o **DirectQuery**, o PBIX conterá apenas um esquema de conjunto de dados. Implante o PBIX em seu espaço de trabalho programaticamente usando a [API de importação do Power BI](https://msdn.microsoft.com/library/mt711504.aspx).
 
-> [AZURE.NOTE] O **Power BI Embedded** tem APIs adicionais para alterar o servidor e o banco de dados para onde seu conjunto de dados está apontando e para definir uma credencial da conta de serviço que o conjunto de dados usará a fim de se conectar ao banco de dados. Confira [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) e [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx) (Correção de fonte de dados do gateway).
+> [AZURE.NOTE] **Power BI Embedded** tem APIs adicionais para alterar o servidor e o banco de dados para onde seu conjunto de dados está apontando e para definir uma credencial da conta de serviço que o conjunto de dados usará a fim de se conectar ao banco de dados. Confira [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) e [Correção de fonte de dados do gateway](https://msdn.microsoft.com/library/mt711498.aspx).
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Nas etapas anteriores, você criou uma coleção de espaços de trabalho, o primeiro relatório e o primeiro conjunto de dados. Agora é hora de aprender a escrever código para o **Power BI Embedded**. Para ajudar você a começar, criamos um aplicativo Web de exemplo: [Introdução a exemplos](power-bi-embedded-get-started-sample.md). O exemplo mostra a você como:
 
-  -	Provisionar conteúdo
+  - Provisionar conteúdo
       - Criar um espaço de trabalho
       - Importar um arquivo PBIX
       - Atualizar cadeias de conexão e definir suas credenciais para os conjuntos de dados.
 
-  -	Inserir um relatório com segurança
+  - Inserir um relatório com segurança
 
-## Consulte também
+## <a name="see-also"></a>Consulte também
 - [Introdução a exemplos](power-bi-embedded-get-started-sample.md)
 - [Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md)
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

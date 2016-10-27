@@ -1,64 +1,69 @@
 <properties
-	pageTitle="Solicitação de aumento de cotas da conta do Banco de Dados de Documentos | Microsoft Azure"
-	description="Saiba como solicitar um ajuste para cotas de banco de dados do Banco de Dados de Documentos, como armazenamento de documento e produtividade por coleção."
-	services="documentdb"
-	authors="AndrewHoh"
-	manager="jhubbard"
-	editor="monicar"
-	documentationCenter=""/>
+    pageTitle="Request increased DocumentDB account quotas | Microsoft Azure"
+    description="Learn how to request an adjustment to DocumentDB database quotas such as document storage and throughput per collection."
+    services="documentdb"
+    authors="AndrewHoh"
+    manager="jhubbard"
+    editor="monicar"
+    documentationCenter=""/>
 
 <tags
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2016"
-	ms.author="anhoh"/>
+    ms.service="documentdb"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/25/2016"
+    ms.author="anhoh"/>
 
-# Limites da conta do Banco de Dados de Documentos aumentados por solicitação
 
-O [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) tem um conjunto de cotas padrão que pode ser ajustado contatando o suporte do Azure. Este artigo mostra como solicitar um aumento de cota.
+# <a name="request-increased-documentdb-account-limits"></a>Request increased DocumentDB account limits
 
-Após ler este artigo, você poderá responder as perguntas a seguir:
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) has a set of default quotas that can be adjusted by contacting Azure support.  This article shows how to request a quota increase.
 
--	Quais cotas de banco de dados do Banco de Dados de Documentos podem ser ajustadas contatando o suporte do Azure?
--	Como posso solicitar um ajuste de cota de conta do Banco de Dados de Documentos?
+After reading this article, you'll be able to answer the following questions:  
 
-##<a id="Quotas"></a>Cotas da conta do Banco de Dados de Documentos.
+-   Which DocumentDB database quotas can be adjusted by contacting Azure support?
+-   How can I request a DocumentDB account quota adjustment?
 
-A tabela a seguir descreve as cotas do Banco de Dados de Documentos: As cotas que apresentam um asterisco (*) podem ser ajustadas entrando em contato com o suporte do Azure:
+##<a name="<a-id="quotas"></a>-documentdb-account-quotas"></a><a id="Quotas"></a> DocumentDB account quotas
+
+The following table describes the DocumentDB quotas. The quotas that have an asterisk (*) can be adjusted by contacting Azure support:
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
 
-##<a id="RequestQuotaIncrease"></a> Solicitar um ajuste de cota
-As etapas a seguir mostram como solicitar um ajuste de cota.
+##<a name="<a-id="requestquotaincrease"></a>-request-a-quota-adjustment"></a><a id="RequestQuotaIncrease"></a> Request a quota adjustment
+The following steps show how to request a quota adjustment.
 
-1. No [portal do Azure](https://portal.azure.com), clique em **Mais Serviços** e em **Ajuda + suporte**.
+1. In the [Azure portal](https://portal.azure.com), click **More Services**, and then click **Help + support**.
 
-	![Captura de tela da inicialização da ajuda e suporte](media/documentdb-increase-limits/helpsupport.png)
+    ![Screenshot of launching help and support](media/documentdb-increase-limits/helpsupport.png)
 
-2. Na folha **Ajuda + suporte**, clique em **Nova solicitação de suporte**.
+2. In the **Help + support** blade, click **New support request**.
 
-	![Captura de tela da criação de um chamado de suporte](media/documentdb-increase-limits/getsupport.png)
+    ![Screenshot of creating a support ticket](media/documentdb-increase-limits/getsupport.png)
 
-3. Na folha **Nova solicitação de suporte**, clique em **Noções Básicas**. Em seguida, defina o **Tipo de questão** como **Cota**, a **Assinatura** como sua assinatura que hospeda sua conta do DocumentDB, o **Tipo de cota** como **DocumentDB** e o **Plano de suporte** como **SUPORTE de Cota — Incluído**. Em seguida, clique em **Avançar**.
+3. In the **New support request** blade, click **Basics**. Next, set **Issue type** to **Quota**, **Subscription** to your subscription that hosts your DocumentDB account, **Quota type** to **DocumentDB**, and **Support plan** to **Quota SUPPORT - Included**. Then, click **Next**.
 
-	![Captura de tela do tipo de solicitação de chamado de suporte](media/documentdb-increase-limits/supportrequest1.png)
+    ![Screenshot of support ticket request type](media/documentdb-increase-limits/supportrequest1.png)
 
-4. Na folha **Problema**, escolha uma gravidade e inclua as informações sobre o aumento da cota em **Detalhes**. Clique em **Avançar**.
+4. In the **Problem** blade, choose a severity and include information about your quota increase in **Details**. Click **Next**.
 
-	![Captura de tela do seletor de assinatura do tíquete de suporte](media/documentdb-increase-limits/supportrequest2.png)
+    ![Screenshot of support ticket subscription picker](media/documentdb-increase-limits/supportrequest2.png)
 
-5. Por fim, preencha suas informações de contato na folha **Informações de Contato** e clique em **Criar**.
+5. Finally, fill in your contact information in the **Contact information** blade and click **Create**.
 
-Depois que o chamado de suporte tiver sido criado, você deve receber o número de solicitação de suporte por email. Você também pode exibir a solicitação de suporte clicando em **Gerenciar solicitações de suporte** na folha **Ajuda + suporte**.
+Once the support ticket has been created, you should receive the support request number via email.  You can also view the support request by clicking **Manage support requests** in the **Help + support** blade.
 
-![Captura de tela da folha das solicitações de suporte](media/documentdb-increase-limits/supportrequest4.png)
+![Screenshot of support requests blade](media/documentdb-increase-limits/supportrequest4.png)
 
 
-##<a name="NextSteps"></a> Próximas etapas
-- Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
+##<a name="<a-name="nextsteps"></a>-next-steps"></a><a name="NextSteps"></a> Next steps
+- To learn more about DocumentDB, click [here](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

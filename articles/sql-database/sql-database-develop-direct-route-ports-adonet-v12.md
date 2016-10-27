@@ -1,123 +1,129 @@
 <properties 
-	pageTitle="Portas além de 1433 para o Banco de Dados SQL | Microsoft Azure"
-	description="Às vezes, as conexões de cliente do ADO.NET para o Banco de Dados SQL do Azure V12 ignoram o proxy e interagem diretamente com o banco de dados. Outras portas diferentes da 1433 se tornam importantes."
-	services="sql-database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jhubbard"
-	editor="" />
+    pageTitle="Ports beyond 1433 for SQL Database | Microsoft Azure"
+    description="Client connections from ADO.NET to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important."
+    services="sql-database"
+    documentationCenter=""
+    authors="MightyPen"
+    manager="jhubbard"
+    editor="" />
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="drivers"
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/17/2016"
-	ms.author="annemill"/>
+    ms.service="sql-database" 
+    ms.workload="drivers"
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/17/2016"
+    ms.author="annemill"/>
 
 
-# Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL V12
 
+# <a name="ports-beyond-1433-for-ado.net-4.5-and-sql-database-v12"></a>Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12
 
-Este tópico descreve as mudanças trazidas pelo Banco de Dados SQL do Azure V12 ao comportamento de conexão de clientes que usam ADO.NET 4.5 ou uma versão mais recente.
 
+This topic describes the changes that Azure SQL Database V12 brings to the connection behavior of clients that use ADO.NET 4.5 or a later version.
 
-## V11 do Banco de Dados SQL: Porta 1433
 
+## <a name="v11-of-sql-database:-port-1433"></a>V11 of SQL Database: Port 1433
 
-Quando o programa cliente usa ADO.NET 4.5 para se conectar e consultar com o Banco de Dados SQL V11, a sequência interna é a seguinte:
 
+When your client program uses ADO.NET 4.5 to connect and query with SQL Database V11, the internal sequence is as follows:
 
-1. O ADO.NET tenta se conectar ao Banco de Dados SQL.
 
-2. O ADO.NET usa a porta 1433 para chamar um módulo de middleware, e o middleware se conecta ao Banco de Dados SQL.
+1. ADO.NET attempts to connect to SQL Database.
 
-3. O Banco de Dados SQL envia sua resposta de volta ao middleware, que encaminha a resposta ao ADO.NET para a porta 1433.
+2. ADO.NET uses port 1433 to call a middleware module, and the middleware connects to SQL Database.
 
+3. SQL Database sends its response back to the middleware, which forwards the response to ADO.NET to port 1433.
 
-**Terminologia:** descrevemos a sequência anterior dizendo que o ADO.NET interage com o Banco de Dados SQL usando a *rota proxy*. Se nenhum middleware estivesse envolvido, diríamos que a *rota direta* foi usada.
 
+**Terminology:** We describe the preceding sequence by saying that ADO.NET interacts with SQL Database by using the *proxy route*. If no middleware were involved, we would say the *direct route* was used.
 
-## V12 do Banco de Dados SQL: fora versus dentro
 
+## <a name="v12-of-sql-database:-outside-vs-inside"></a>V12 of SQL Database: Outside vs inside
 
-Para conexões com V12 devemos perguntar se o programa cliente é executado *fora* ou *dentro* do limite de nuvem do Azure. As subseções discutem dois cenários comuns.
 
+For connections to V12, we must ask whether your client program runs *outside* or *inside* the Azure cloud boundary. The subsections discuss two common scenarios.
 
-#### *Fora:* o cliente é executado em seu computador desktop
 
+#### <a name="*outside:*-client-runs-on-your-desktop-computer"></a>*Outside:* Client runs on your desktop computer
 
-A porta 1433 é a única porta que deve estar aberta no computador desktop que hospeda o aplicativo cliente do Banco de Dados SQL.
 
+Port 1433 is the only port that must be open on your desktop computer that hosts your SQL Database client application.
 
-#### *Dentro:* o cliente é executado no Azure
 
+#### <a name="*inside:*-client-runs-on-azure"></a>*Inside:* Client runs on Azure
 
-Quando o cliente é executado dentro do limite de nuvem do Azure, ele usa o que podemos chamar de *rota direta* para interagir com o servidor de Banco de Dados SQL. Após o estabelecimento de uma conexão, as próximas interações entre o cliente e o banco de dados não envolvem um proxy de middleware.
 
+When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with the SQL Database server. After a connection is established, further interactions between the client and database involve no middleware proxy.
 
-Esta é a sequência:
 
+The sequence is as follows:
 
-1. O ADO.NET 4.5 (ou posterior) inicia uma breve interação com a nuvem do Azure e recebe um número de porta identificado dinamicamente.
- - O número da porta identificado dinamicamente está no intervalo de 11000-11999 ou 14000-14999.
 
-2. O ADO.NET conecta-se ao servidor de Banco de Dados SQL diretamente, sem um middleware entre os dois.
+1. ADO.NET 4.5 (or later) initiates a brief interaction with the Azure cloud, and receives a dynamically identified port number.
+ - The dynamically identified port number is in the range of 11000-11999 or 14000-14999.
 
-3. As consultas são enviadas diretamente ao banco de dados, e os resultados são retornados diretamente ao cliente.
+2. ADO.NET then connects to the SQL Database server directly, with no middleware in between.
 
+3. Queries are sent directly to the database, and results are returned directly to the client.
 
-Verifique se os intervalos de portas de 11000-11999 e 14000-14999 no computador cliente do Azure estão disponíveis para interações de cliente ADO.NET 4.5 com o Banco de Dados SQL V12.
 
-- Em particular, as portas no intervalo devem estar livres de outros bloqueadores de saída.
+Ensure that the port ranges of 11000-11999 and 14000-14999 on your Azure client machine are left available for ADO.NET 4.5 client interactions with SQL Database V12.
 
-- Em sua VM do Azure, o **Firewall do Windows com Segurança Avançada** controla as configurações de porta.
- - Você pode usar a [interface de usuário do firewall](http://msdn.microsoft.com/library/cc646023.aspx) a fim de adicionar uma regra para a qual você especifica o protocolo **TCP** junto com um intervalo de portas com a sintaxe **11000 a 11999**.
+- In particular, ports in the range must be free of any other outbound blockers.
 
+- On your Azure VM, the **Windows Firewall with Advanced Security** controls the port settings.
+ - You can use the [firewall's user interface](http://msdn.microsoft.com/library/cc646023.aspx) to add a rule for which you specify the **TCP** protocol along with a port range with the syntax like **11000-11999**.
 
-## Esclarecimentos da versão
 
+## <a name="version-clarifications"></a>Version clarifications
 
-Esta seção explica os identificadores que se referem a versões do produto. Ela também lista alguns emparelhamentos de versões entre produtos.
 
+This section clarifies the monikers that refer to product versions. It also lists some pairings of versions between products.
 
-#### ADO.NET
 
+#### <a name="ado.net"></a>ADO.NET
 
-- O ADO.NET 4.0 dá suporte ao protocolo TDS 7.3, mas não ao 7.4.
-- O ADO.NET 4.5 e posterior dá suporte ao protocolo TDS 7.4.
 
+- ADO.NET 4.0 supports the TDS 7.3 protocol, but not 7.4.
+- ADO.NET 4.5 and later supports the TDS 7.4 protocol.
 
-#### Banco de Dados SQL V11 e V12
 
+#### <a name="sql-database-v11-and-v12"></a>SQL Database V11 and V12
 
-As diferenças de conexão do cliente entre o Banco de Dados SQL V11 e V12 são destacadas neste tópico.
 
+The client connection differences between SQL Database V11 and V12 are highlighted in this topic.
 
-*Observação:* a instrução Transact-SQL `SELECT @@version;` retorna um valor que começa com um número como “11” ou “12”. Esses números correspondem aos nossos nomes de versão V11 e V12 do Banco de Dados SQL.
 
+*Note:* The Transact-SQL statement `SELECT @@version;` returns a value that start with a number such as '11.' or '12.', and those match our version names of V11 and V12 for SQL Database.
 
-## Links relacionados
 
+## <a name="related-links"></a>Related links
 
-- O ADO.NET 4.6 foi lançado em 20 de julho de 2015. Um comunicado do blog da equipe do .NET está disponível [aqui](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
+- ADO.NET 4.6 was released on July 20, 2015. A blog announcement from the .NET team is available [here](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
-- O ADO.NET 4.5 foi lançado em 15 de agosto de 2012. Um comunicado do blog da equipe do .NET está disponível [aqui](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
- - Uma postagem no blog sobre o ADO.NET 4.5.1 está disponível [aqui](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
+- ADO.NET 4.5 was released on August 15, 2012. A blog announcement from the .NET team is available [here](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
+ - A blog post about ADO.NET 4.5.1 is available [here](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
-- [Lista de versões do protocolo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 
+- [TDS protocol version list](http://www.freetds.org/userguide/tdshistory.htm)
 
-- [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
 
+- [SQL Database Development Overview](sql-database-develop-overview.md)
 
-- [Firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md)
 
+- [Azure SQL Database firewall](sql-database-firewall-configure.md)
 
-- [Como definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+- [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

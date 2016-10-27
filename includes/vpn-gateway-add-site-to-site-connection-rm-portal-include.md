@@ -1,25 +1,29 @@
-1. Localize seu gateway de rede virtual e clique em **Todas as configurações** para abrir a folha **Configurações**.
+1. Locate your virtual network gateway and click **All settings** to open the **Settings** blade.
 
-2. Na folha **Configurações**, clique em **Conexões** e, em seguida, clique em **Adicionar** na parte superior da folha para abrir a folha **Adicionar conexão**.
+2. On the **Settings** blade, click **Connections**, and then click **Add** at the top of the blade to open the **Add connection** blade.
 
-	![Criar uma conexão site a site](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/addconnection250.png)
+    ![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/addconnection250.png)
 
-3. Na folha **Adicionar conexão**, dê um **Nome** para sua conexão.
+3. On the **Add connection** blade, **Name** your connection. 
 
-4. Para **Tipo de Conexão**, selecione **Site a Site (IPsec)**
+4. For **Connection type**, select **Site-to-site(IPSec)**.
 
-5. Para **Gateway de Rede Virtual**, o valor é fixo porque você está se conectando por esse gateway.
+5. For **Virtual network gateway**, the value is fixed because you are connecting from this gateway.
 
-6. Para **Gateway de Rede Local**, clique em **Escolher um Gateway de Rede Local** e selecione o gateway de rede local que você deseja usar.
+6. For **Local network gateway**, click **Choose a local network gateway** and select the local network gateway that you want to use. 
 
-7. Para **Chave Compartilhada**, o valor aqui deve coincidir com o que você está usando para seu dispositivo VPN local. Se o seu dispositivo VPN na sua rede local não fornecer uma chave compartilhada, você pode compor uma e inseri-la aqui e em seus dispositivos locais. O importante é que ambos correspondam.
+7. For **Shared Key**, the value here must match the value that you are using for your local VPN device. If your VPN device on your local network doesn't provide a shared key, you can make one up and input it here and on your local device. The important thing is that they both match.
 
-8. O restante dos valores para **Assinatura**, **Grupo de Recursos** e **Local** são fixos.
+8. The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
 
-9. Clique em **OK** para criar sua conexão. Você verá *Criar Conexão* piscar na tela.
+9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
 
-10. Quando a conexão for concluída, você a verá na folha **Conexões** do seu Gateway.
+10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
 
-	![Criar uma conexão site a site](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/connectionstatus450.png)
+    ![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/connectionstatus450.png)
 
-<!----HONumber=AcomDC_0406_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

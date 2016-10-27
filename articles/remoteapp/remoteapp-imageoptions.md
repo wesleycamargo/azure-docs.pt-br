@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Criar uma imagem do RemoteApp do Azure | Microsoft Azure"
-    description="Saiba mais sobre as opções disponíveis para a criação de imagens para o RemoteApp do Azure"
+    pageTitle="Create an Azure RemoteApp image | Microsoft Azure"
+    description="Learn about the options available for creating images for Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -17,21 +17,26 @@
 
 
 
-# Criar uma imagem de RemoteApp do Azure
+
+# <a name="create-an-azure-remoteapp-image"></a>Create an Azure RemoteApp image
 
 > [AZURE.IMPORTANT]
-O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-O Azure RemoteApp usa imagens para manter os aplicativos que você compartilha com seus usuários. (Obtemos sua imagem e a usamos para criar VMs – e é isso o que os usuários acessam quando entram no Azure RemoteApp.) Para criar uma coleção do RemoteApp do Azure com sua escolha de aplicativos, seja ela de nuvem ou híbrida, você começa criando uma imagem com os aplicativos instalados. Em seguida, crie uma coleção que usa essa imagem, atribua usuários à coleção e publique aplicativos aos usuários.
+Azure RemoteApp uses images to hold the apps that you share with your users. (We take your image and use it to create VMs - that's what the users access when they sign into Azure RemoteApp.) To create an Azure RemoteApp collection with your choice of applications, whether it is cloud or hybrid, you  start by creating an image with those applications installed. Then, create a collection that uses that image, assign users to the collection, and publish apps to those users.
 
-Você tem várias opções para criar ou usar as imagens. O [requisito](remoteapp-imagereqs.md) básico para uma imagem é ela executar o Windows Server 2012 R2 e ter a função de Host da Sessão da Área de Trabalho Remota (RDSH) instalada. Como você obtém isso é onde as coisas ficam interessantes.
+You have several options for creating or using images. The basic [requirement](remoteapp-imagereqs.md) for an image is that it run Windows Server 2012 R2 and have the Remote Desktop Session Host (RDSH) role installed. How you get that is where things get interesting.
 
-Você tem as seguintes opções quando se trata de imagens:
+You have the following options when it comes to images:
 
-- Você pode importar e usar uma [imagem com base em uma máquina virtual do Azure](remoteapp-image-on-azurevm.md). Isso é bom para aplicativos de linha de negócios que requerem configurações personalizadas. Você pode personalizar a imagem para trabalhar para o aplicativo.
-- Você pode [criar e carregar uma imagem personalizada](remoteapp-create-custom-image.md). Isso é bom se você já tiver uma imagem que use para sua implantação de Serviços de Área de Trabalho Remota local.
-- Você pode usar uma das [imagens de modelo](remoteapp-images.md) incluídas na sua assinatura do RemoteApp. Essas imagens são criadas e mantidas pela equipe do RemoteApp e contêm alguns aplicativos padrão (como o pacote do Office) que você pode disponibilizar para os usuários. Observe que apenas a imagem do Office 365 Pro Plus pode ser usada em um ambiente de produção.
+- You can import and use an [image based on an Azure virtual machine](remoteapp-image-on-azurevm.md). This is good for line-of-business apps that require custom settings. You can customize the image to work for the app.
+- You can [create and upload a custom image](remoteapp-create-custom-image.md). This is good if you already have an image that you use for your on-premises Remote Desktop Services deployment.
+- You can use one of the [template images](remoteapp-images.md) included in your RemoteApp subscription. These images are created and maintained by the RemoteApp team and contain some standard applications (like the Office suite) that you can make available to your users. Note that only the Office 365 Pro Plus image can be used in a production setting.
 
-Independentemente de onde obter sua imagem ou como criá-la, convém certificar-se de que você entende os [requisitos de aplicativo](remoteapp-appreqs.md) para garantir que seu aplicativo funcione bem no RemoteApp. Em seguida, a próxima etapa é criar uma coleção de [nuvem](remoteapp-create-cloud-deployment.md) ou [híbrida](remoteapp-create-hybrid-deployment.md).
+Regardless of where you get your image or how you create it, you'll want to make sure you understand the [app requirements](remoteapp-appreqs.md) to ensure that your app works well in RemoteApp. Then, the next step is to create a [cloud](remoteapp-create-cloud-deployment.md) or [hybrid](remoteapp-create-hybrid-deployment.md) collection.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

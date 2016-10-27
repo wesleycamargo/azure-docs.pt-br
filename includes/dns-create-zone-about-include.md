@@ -1,12 +1,16 @@
-Uma zona DNS é usada para hospedar os registros DNS para um domínio específico. Para iniciar a hospedagem de seu domínio, você primeiro precisa criar uma zona DNS. Qualquer registro DNS criado para um determinado domínio estará dentro de uma zona DNS do domínio.
+A DNS zone is used to host the DNS records for a particular domain. In order to start hosting your domain, you need to create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain. 
 
-Por exemplo, domínio "contoso.com" pode conter uma série de registros DNS, como “mail.contoso.com” (para um servidor de email) e “www.contoso.com” (para um site da Web).
+For example, the domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site). 
 
 
-## <a name="names"></a>Sobre nomes da zona DNS
+## <a name="<a-name="names"></a>about-dns-zone-names"></a><a name="names"></a>About DNS zone names
  
-- O nome da zona deve ser exclusivo dentro do grupo de recursos e a zona não deve existir ainda. Caso contrário, a operação falhará.
+- The name of the zone must be unique within the resource group, and the zone must not exist already. Otherwise, the operation will fail.
 
-- O mesmo nome de zona pode ser reutilizado em outro grupo de recursos ou uma assinatura do Azure diferente.
+- The same zone name can be re-used in a different resource group or a different Azure subscription. 
 
-- Quando várias zonas compartilharem o mesmo nome, a cada instância serão atribuídos endereços de servidor de nome diferentes, e somente uma instância pode ser delegada do domínio pai. Confira [Delegar um domínio ao Azure DNS](../articles/dns/dns-domain-delegation.md) para saber mais.
+- Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain. For more information, see [Delegate a domain to Azure DNS](../articles/dns/dns-domain-delegation.md).
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Adicionar o conector do Google Drive aos aplicativos lógicos | Microsoft Azure"
-    description="Visão geral do conector do Google Drive com parâmetros da API REST"
+    pageTitle="Add the Google Drive connector in logic apps | Microsoft Azure"
+    description="Overview of the Google Drive connector with REST API parameters"
     services=""
     suite=""
     documentationCenter="" 
@@ -18,319 +18,333 @@
    ms.date="08/18/2016"
    ms.author="mandia"/>
 
-# Introdução ao conector do Google Drive
-Conecte-se ao Google Drive para criar arquivos, obter linhas e muito mais. Com o Google Drive, você pode:
 
-- Crie seu fluxo de negócios baseado nos dados que você obtém da pesquisa.
-- Use ações para pesquisar imagens, notícias e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode pesquisar por um vídeo e usar o Twitter para publicar esse vídeo em um feed do Twitter.
+# <a name="get-started-with-the-google-drive-connector"></a>Get started with the Google Drive connector
+Connect to Google Drive to create files, get rows, and more. With Google Drive, you can: 
 
-Para adicionar uma operação a aplicativos lógicos, consulte [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+- Build your business flow based on the data you get from your search. 
+- Use actions to search images, search the news, and more. These actions get a response, and then make the output available for other actions. For example, you can search for a video, and then use Twitter to post that video to a Twitter feed.
+
+To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
-## Gatilhos e ações
-O Google Drive inclui as ações a seguir. Não há nenhum gatilho.
+## <a name="triggers-and-actions"></a>Triggers and actions
+Google Drive includes the following actions. There are no triggers. 
 
-Gatilhos | Ações
+Triggers | Actions
 --- | ---
-Nenhum | <ul><li>Criar arquivo</li><li>Inserir linha</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Excluir linha</li><li>Extrair o arquivo para a pasta</li><li>Obter conteúdo do arquivo usando a ID</li><li>Obter conteúdo do arquivo usando o caminho</li><li>Obter metadados do arquivo usando a ID</li><li>Obter metadados do arquivo usando o caminho</li><li>Obter linha</li><li>Atualizar arquivo</li><li>Atualizar linha</li></ul>
+None | <ul><li>Create file</li><li>Insert row</li><li>Copy file</li><li>Delete file</li><li>Delete row</li><li>Extract archive to folder</li><li>Get file content using id</li><li>Get file content using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>Get row</li><li>Update file</li><li>Update row</li></ul>
 
-Todos os conectores dão suporte a dados nos formatos JSON e XML.
-
-
-## Criar a conexão com o Google Drive
-
-Quando você adiciona esse conector aos seus aplicativos lógicos, precisa autorizar que os aplicativos lógicos se conectem ao Google Drive.
-
->[AZURE.INCLUDE [Etapas para criar uma conexão com o googledrive](../../includes/connectors-create-api-googledrive.md)]
-
-Depois de criar a conexão, insira as propriedades do Google Drive, como o caminho da pasta ou o nome do arquivo. A **Referência da API REST** neste tópico descreve essas propriedades.
-
->[AZURE.TIP] Você pode usar essa mesma conexão do Google Drive em outros aplicativos lógicos.
+All connectors support data in JSON and XML formats.
 
 
-## Referência da API REST do Swagger
-Aplica-se à versão: 1.0.
+## <a name="create-the-connection-to-google-drive"></a>Create the connection to Google Drive
 
-### Criar arquivo    
-Carrega um arquivo no Google Drive.```POST: /datasets/default/files```
+When you add this connector to your logic apps, you must authorize logic apps to connect to your Google Drive.
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+>[AZURE.INCLUDE [Steps to create a connection to googledrive](../../includes/connectors-create-api-googledrive.md)]
+
+After you create the connection, you enter the Google Drive properties, like the folder path or file name. The **REST API reference** in this topic describes these properties.
+
+>[AZURE.TIP] You can use this same Google Drive connection in other logic apps.
+
+
+## <a name="swagger-rest-api-reference"></a>Swagger REST API reference
+Applies to version: 1.0.
+
+### <a name="create-file"></a>Create file    
+Uploads a file to Google Drive.  
+```POST: /datasets/default/files```
+
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|folderPath|string|sim|query|nenhum |Caminho da pasta para carregar o arquivo no Google Drive|
-|name|string|sim|query|nenhum |Nome do arquivo a ser criado no Google Drive|
-|corpo|string(binary) |sim|corpo| nenhum|Conteúdo do arquivo para carregar no Google Drive|
+|folderPath|string|yes|query|none |Folder path to upload the file to Google Drive|
+|name|string|yes|query|none |Name of the file to create in Google Drive|
+|body|string(binary) |yes|body| none|Content of the file to upload to Google Drive|
 
-#### Resposta
-|Nome|Descrição|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|default|Operation Failed.|
 
 
-### Inserir linha    
-Insere uma linha em uma Planilha do Google.```POST: /datasets/{dataset}/tables/{table}/items```
+### <a name="insert-row"></a>Insert row    
+Inserts a row into a Google Sheet.  
+```POST: /datasets/{dataset}/tables/{table}/items```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|sim|path| nenhum|Identificador exclusivo do arquivo de Planilha Google|
-|tabela|string|sim|path|nenhum |Identificador exclusivo da planilha|
-|item|ItemInternalId: cadeia de caracteres |sim|corpo|nenhum |Linha para inserir na planilha especificada|
+|dataset|string|yes|path| none|Unique identifier of the Google Sheet file|
+|table|string|yes|path|none |Unique identifier of the worksheet|
+|item|ItemInternalId: string |yes|body|none |Row to insert into the specified sheet|
 
-#### Resposta
-|Nome|Descrição|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|default|Operation Failed.|
 
 
-### Copiar arquivo    
-Copia um arquivo no Google Drive.```POST: /datasets/default/copyFile```
+### <a name="copy-file"></a>Copy file    
+Copies a file on Google Drive.  
+```POST: /datasets/default/copyFile```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|fonte|string|sim|query| nenhum|URL para o arquivo de origem|
-|destino|string|sim|query|nenhum |Caminho do arquivo de destino no Google Drive, incluindo nome do arquivo de destino|
-|substituir|Booliano|não|query|nenhum |Substitui o arquivo de destino se estiver definido como "true"|
+|source|string|yes|query| none|Url to source file|
+|destination|string|yes|query|none |Destination file path in Google Drive, including target filename|
+|overwrite|boolean|no|query|none |Overwrites the destination file if set to 'true'|
 
-#### Resposta
-|Nome|Descrição|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|default|Operation Failed.|
 
 
-### Excluir arquivo    
-Exclui um arquivo do Google Drive.```DELETE: /datasets/default/files/{id}```
+### <a name="delete-file"></a>Delete file    
+Deletes a file from Google Drive.  
+```DELETE: /datasets/default/files/{id}```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|ID|string|sim|path|nenhum |Identificador exclusivo do arquivo a ser excluído do Google Drive|
+|id|string|yes|path|none |Unique identifier of the file to delete from Google Drive|
 
-#### Resposta
-|Nome|Descrição|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|default|Operation Failed.|
 
 
-### Excluir linha    
-Exclui uma linha de uma Planilha do Google.```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
+### <a name="delete-row"></a>Delete Row    
+Deletes a row from a Google Sheet.  
+```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum |Identificador exclusivo do arquivo de Planilha Google|
-|tabela|string|sim|path|nenhum |Identificador exclusivo da planilha|
-|ID|string|sim|path|nenhum |Identificador exclusivo da linha a ser excluída|
+|dataset|string|yes|path|none |Unique identifier of the Google Sheet file|
+|table|string|yes|path|none |Unique identifier of the worksheet|
+|id|string|yes|path|none |Unique identifier of the row to delete|
 
-#### Resposta
-|Nome|Descrição|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|default|Operation Failed.|
 
 
-### Extrair o arquivo morto para a pasta    
-Extrai um arquivo para uma pasta no Google Drive (exemplo: .zip).```POST: /datasets/default/extractFolderV2```
+### <a name="extract-archive-to-folder"></a>Extract archive to folder    
+Extracts an archive file into a folder in Google Drive (example: .zip).  
+```POST: /datasets/default/extractFolderV2```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|fonte|string|sim|query|nenhum |Caminho para o arquivo morto|
-|destino|string|sim|query|nenhum |Caminho no Google Drive para extrair o conteúdo do arquivo morto|
-|substituir|Booliano|não|query|nenhum |Substitui os arquivos de destino se estiver definido como "true"|
+|source|string|yes|query|none |Path to the archive file|
+|destination|string|yes|query|none |Path in Google Drive to extract the archive contents|
+|overwrite|boolean|no|query|none |Overwrites the destination files if set to 'true'|
 
-#### Resposta
-|Nome|Descrição|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|default|Operation Failed.|
 
 
-### Obter o conteúdo do arquivo usando a ID    
-Recupera o conteúdo do arquivo do Google Drive usando a ID.```GET: /datasets/default/files/{id}/content```
+### <a name="get-file-content-using-id"></a>Get file content using id    
+Retrieves file content from Google Drive using id.  
+```GET: /datasets/default/files/{id}/content```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|ID|string|sim|path|nenhum |Identificador exclusivo do arquivo a ser recuperado no Google Drive|
+|id|string|yes|path|none |Unique identifier of the file to retrieve in Google Drive|
 
-#### Resposta
-|Nome|Descrição|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|default|Operation Failed.|
 
 
-### Obter o conteúdo do arquivo usando o caminho    
-Recupera o conteúdo do arquivo no Google Drive usando o caminho.```GET: /datasets/default/GetFileContentByPath```
+### <a name="get-file-content-using-path"></a>Get file content using path    
+Retrieves file content from Google Drive using path.  
+```GET: /datasets/default/GetFileContentByPath```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|path|string|sim|query|nenhum |Caminho do arquivo no Google Drive|
+|path|string|yes|query|none |Path of the file in Google Drive|
 
-#### Resposta
-|Nome|Descrição|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|default|Operation Failed.|
 
 
-### Obter metadados de arquivo usando a id    
-Recupera os metadados do arquivo do Google Drive usando a ID.```GET: /datasets/default/files/{id}```
+### <a name="get-file-metadata-using-id"></a>Get file metadata using id    
+Retrieves file metadata from Google Drive using id.  
+```GET: /datasets/default/files/{id}```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|ID|string|sim|path|nenhum |Identificador exclusivo do arquivo no Google Drive|
+|id|string|yes|path|none |Unique identifier of the file in Google Drive|
 
-#### Resposta
-|Nome|Descrição|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|default|Operation Failed.|
 
 
-### Obter metadados do arquivo usando o caminho    
-Recupera os metadados do arquivo do Google Drive usando o caminho.```GET: /datasets/default/GetFileByPath```
+### <a name="get-file-metadata-using-path"></a>Get file metadata using path    
+Retrieves file metadata from Google Drive using path.  
+```GET: /datasets/default/GetFileByPath```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|path|string|sim|query|nenhum |Caminho do arquivo no Google Drive|
+|path|string|yes|query|none |Path of the file in Google Drive|
 
-#### Resposta
-|Nome|Descrição|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|default|Operation Failed.|
 
 
-### Obter linha    
-Recupera uma única linha de uma Planilha do Google.```GET: /datasets/{dataset}/tables/{table}/items/{id}```
+### <a name="get-row"></a>Get row    
+Retrieves a single row from a Google Sheet.  
+```GET: /datasets/{dataset}/tables/{table}/items/{id}```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum |Identificador exclusivo do arquivo de Planilha Google|
-|tabela|string|sim|path|nenhum |Identificador exclusivo da planilha|
-|ID|string|sim|path| nenhum|O identificador exclusivo da linha a ser recuperado|
+|dataset|string|yes|path|none |Unique identifier of the Google Sheet file|
+|table|string|yes|path|none |Unique identifier of the worksheet|
+|id|string|yes|path| none|Unique identifier of row to retrieve|
 
-#### Resposta
-|Nome|Descrição|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|default|Operation Failed.|
 
 
-### Atualizar arquivo    
-Atualiza um arquivo no Google Drive.```PUT: /datasets/default/files/{id}```
+### <a name="update-file"></a>Update file    
+Updates a file in Google Drive.  
+```PUT: /datasets/default/files/{id}```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|ID|string|sim|path|nenhum |Identificador exclusivo do arquivo a ser atualizado no Google Drive|
-|corpo|string(binary) |sim|corpo| nenhum|Conteúdo do arquivo para carregar no Google Drive|
+|id|string|yes|path|none |Unique identifier of the file to update in Google Drive|
+|body|string(binary) |yes|body| none|Content of the file to upload to Google Drive|
 
-#### Resposta
-|Nome|Descrição|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|default|Operation Failed.|
 
 
-### Atualizar linha    
-Atualiza uma linha em uma Planilha do Google.```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
+### <a name="update-row"></a>Update row    
+Updates a row in a Google Sheet.  
+```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum |Identificador exclusivo do arquivo de Planilha Google|
-|tabela|string|sim|path| nenhum|Identificador exclusivo da planilha|
-|ID|string|sim|path|nenhum |Identificador exclusivo da linha a ser atualizada|
-|item|ItemInternalId: cadeia de caracteres |sim|corpo|nenhum |Linhas com valores atualizados|
+|dataset|string|yes|path|none |Unique identifier of the Google Sheet file|
+|table|string|yes|path| none|Unique identifier of the worksheet|
+|id|string|yes|path|none |Unique identifier of the row to update|
+|item|ItemInternalId: string |yes|body|none |Row with updated values|
 
-#### Resposta
-|Nome|Descrição|
+#### <a name="response"></a>Response
+|Name|Description|
 |---|---|
 |200|OK|
-|padrão|Falha na Operação.|
+|default|Operation Failed.|
 
 
-## Definições de objeto
+## <a name="object-definitions"></a>Object definitions
 
-#### DataSetsMetadata
+#### <a name="datasetsmetadata"></a>DataSetsMetadata
 
-|Nome da Propriedade | Tipo de Dados | Obrigatório|
+|Property Name | Data Type | Required|
 |---|---|---|
-|tabular|não definido|não|
-|blob|não definido|não|
+|tabular|not defined|no|
+|blob|not defined|no|
 
-#### TabularDataSetsMetadata
+#### <a name="tabulardatasetsmetadata"></a>TabularDataSetsMetadata
 
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
+|Property Name | Data Type |Required|
 |---|---|---|
-|fonte|string|não|
-|displayName|string|não|
-|urlEncoding|string|não|
-|tableDisplayName|string|não|
-|tablePluralName|string|não|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+|tableDisplayName|string|no|
+|tablePluralName|string|no|
 
-#### BlobDataSetsMetadata
+#### <a name="blobdatasetsmetadata"></a>BlobDataSetsMetadata
 
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
+|Property Name | Data Type |Required|
 |---|---|---|
-|fonte|string|não|
-|displayName|string|não|
-|urlEncoding|string|não|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
 
-#### BlobMetadata
+#### <a name="blobmetadata"></a>BlobMetadata
 
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
+|Property Name | Data Type |Required|
 |---|---|---|
-|ID|string|não|
-|Nome|string|não|
-|DisplayName|string|não|
-|Caminho|string|não|
-|LastModified|string|não|
-|Tamanho|inteiro|não|
-|MediaType|string|não|
-|IsFolder|Booliano|não|
-|ETag|string|não|
-|FileLocator|string|não|
+|Id|string|no|
+|Name|string|no|
+|DisplayName|string|no|
+|Path|string|no|
+|LastModified|string|no|
+|Size|integer|no|
+|MediaType|string|no|
+|IsFolder|boolean|no|
+|ETag|string|no|
+|FileLocator|string|no|
 
-#### TableMetadata
+#### <a name="tablemetadata"></a>TableMetadata
 
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
+|Property Name | Data Type |Required|
 |---|---|---|
-|name|string|não|
-|título|string|não|
-|x-ms-permission|string|não|
-|schema|não definido|não|
+|name|string|no|
+|title|string|no|
+|x-ms-permission|string|no|
+|schema|not defined|no|
 
-#### TablesList
+#### <a name="tableslist"></a>TablesList
 
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
+|Property Name | Data Type |Required|
 |---|---|---|
-|value|array|não|
+|value|array|no|
 
-#### Tabela
+#### <a name="table"></a>Table
 
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
+|Property Name | Data Type |Required|
 |---|---|---|
-|Nome|string|não|
-|DisplayName|string|não|
+|Name|string|no|
+|DisplayName|string|no|
 
-#### Item
+#### <a name="item"></a>Item
 
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
+|Property Name | Data Type |Required|
 |---|---|---|
-|ItemInternalId|string|não|
+|ItemInternalId|string|no|
 
-#### ItemsList
+#### <a name="itemslist"></a>ItemsList
 
-|Nome da Propriedade | Tipo de Dados |Obrigatório|
+|Property Name | Data Type |Required|
 |---|---|---|
-|value|array|não|
+|value|array|no|
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Voltar para a [Lista de APIs](apis-list.md).
+Go back to the [APIs list](apis-list.md).
 
 
 <!--References-->
@@ -343,4 +357,8 @@ Voltar para a [Lista de APIs](apis-list.md).
 [13]: ./media/connectors-create-api-googledrive/configure-consent-screen.png
 [14]: ./media/connectors-create-api-googledrive/create-client-id.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

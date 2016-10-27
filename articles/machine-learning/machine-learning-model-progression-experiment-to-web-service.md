@@ -1,49 +1,57 @@
 <properties
-	pageTitle="Como um modelo do Aprendizado de Máquina evolui de um teste para um serviço Web operacionalizado | Microsoft Azure"
-	description="Uma visão geral da mecânica de como seu modelo do Aprendizado de Máquina do Azure evolui de um teste de desenvolvimento para um serviço Web operacionalizado."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Como um modelo do Machine Learning evolui de um teste para um serviço Web operacionalizado | Microsoft Azure"
+    description="Uma visão geral da mecânica de como seu modelo do Azure Machine Learning evolui de um teste de desenvolvimento para um serviço Web operacionalizado."
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="garye"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="garye"/>
 
 
-# Como um modelo de Aprendizado de Máquina evolui de um experimento para um serviço Web operacionalizado
 
-Um ***experimento*** é uma tela no Estúdio de Aprendizado de Máquina do Azure que permite desenvolver, executar, testar e iterar enquanto você cria um modelo de análise preditiva interativamente. Há uma grande variedade de módulos disponíveis que você pode usar para transferir dados para seu experimento, manipular os dados, treinar um modelo usando algoritmos de aprendizado de máquina, pontuar o modelo, avaliar os resultados e os valores finais de saída.
+# <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Como um modelo de Machine Learning evolui de um experimento para um serviço Web operacionalizado
 
-Quando estiver satisfeito com seu teste, você poderá implantá-lo como um ***Serviço Web clássico do Azure*** ou ***Novo serviço Web do Azure***para que os usuários possam enviá-lo novos dados e receber resultados.
+O Azure Machine Learning Studio fornece uma tela interativa que permite a você desenvolver, executar, testar e iterar um ***teste*** representando um modelo de análise preditiva. Há uma grande variedade de módulos disponíveis que podem:
 
-Neste artigo, ofereceremos uma visão geral sobre a mecânica de como seu modelo de Aprendizado de Máquina evolui de um experimento de desenvolvimento para um serviço Web operacional.
+* Inserir dados em seu teste
+* Manipular os dados
+* Treinar um modelo usando algoritmos de aprendizado de máquina
+* Pontuar o modelo
+* Avaliar os resultados
+* Exibir os valores finais
 
->[AZURE.NOTE] Há outras maneiras de desenvolver e implantar modelos de aprendizado de máquina, mas este artigo se concentra em como usar o Estúdio de Aprendizado de Máquina. Para uma discussão sobre como criar um serviço Web de previsão clássico com R, consulte a postagem do blog [Criar e implantar aplicativos Web de previsão usando o RStudio e o Aprendizado de Máquina do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+Quando estiver satisfeito com seu teste, você poderá implantá-lo como um ***serviço Web clássico do Azure Machine Learning*** ou ***Novo serviço Web do Azure Machine Learning ***para que os usuários possam enviar novos dados e receber resultados.
 
-Embora o Estúdio de Aprendizado de Máquina do Azure seja projetado principalmente para ajudar você a desenvolver e implantar um *modelo de análise preditiva*, é possível usar o Estúdio para desenvolver um experimento que não inclua um modelo de análise preditiva. Por exemplo, um experimento pode simplesmente inserir dados, manipulá-los e gerar os resultados. Assim como um experimento de análise preditiva, você pode implantar esse teste não preditivo como um serviço Web, mas esse é um processo mais simples porque o teste não está treinando ou pontuando um modelo de aprendizado de máquina. Embora não seja o uso normal do Estúdio, o incluiremos na discussão abaixo para que possamos dar uma explicação completa de como funciona o Estúdio.
+Neste artigo, ofereceremos uma visão geral sobre a mecânica de como seu modelo de Machine Learning evolui de um experimento de desenvolvimento para um serviço Web operacional.
 
-## Desenvolvendo e implantando um serviço Web preditivo
+>[AZURE.NOTE] Há outras maneiras de desenvolver e implantar modelos de aprendizado de máquina, mas este artigo se concentra em como usar o Estúdio de Aprendizado de Máquina. Para uma discussão sobre como criar um serviço Web de previsão clássico com R, veja a postagem do blog [Criar e implantar aplicativos Web de previsão usando o RStudio e o Aprendizado de Máquina do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+
+Embora o Azure Machine Learning Studio seja projetado para ajudar você a desenvolver e implantar um *modelo de análise preditiva*, é possível usar o Studio para desenvolver um experimento que não inclua um modelo de análise preditiva. Por exemplo, um experimento pode simplesmente inserir dados, manipulá-los e gerar os resultados. Assim como um experimento de análise preditiva, você pode implantar esse teste não preditivo como um serviço Web, mas esse é um processo mais simples porque o teste não está treinando ou pontuando um modelo de aprendizado de máquina. Embora esse não seja o uso normal do Estúdio, o incluiremos na discussão para que possamos dar uma explicação completa de como funciona o Estúdio.
+
+## <a name="developing-and-deploying-a-predictive-web-service"></a>Desenvolvendo e implantando um serviço Web preditivo
 
 Estes são os estágios pelos quais passa uma solução típica quando você a desenvolve e implanta usando o Estúdio de Aprendizado de Máquina:
 
-![](media\machine-learning-model-progression-experiment-to-web-service\model-stages-from-experiment-to-web-service.png)
+![Fluxo de implantação](media\machine-learning-model-progression-experiment-to-web-service\model-stages-from-experiment-to-web-service.png)
 
 *Figura 1 - Estágios de um modelo típico de análise preditiva*
 
-### O teste de treinamento
+### <a name="the-training-experiment"></a>O teste de treinamento
 
-O ***teste de treinamento*** é a tela de teste inicial no Estúdio de Aprendizado de Máquina. A finalidade do teste de treinamento é fornecer a você um lugar para desenvolver, testar, iterar e, eventualmente, treinar um modelo de aprendizado de máquina. Você pode até mesmo treinar vários modelos simultaneamente já que procura pela melhor solução, mas assim que terminar de testar, você selecionará um único modelo treinado e eliminará o restante do experimento. Para obter um exemplo de como desenvolver um teste de análise preditiva, veja [Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md).
+O ***teste de treinamento*** é a fase inicial do desenvolvimento de seu serviço Web no Machine Learning Studio. A finalidade do teste de treinamento é fornecer a você um lugar para desenvolver, testar, iterar e, eventualmente, treinar um modelo de aprendizado de máquina. Você pode até mesmo treinar vários modelos simultaneamente já que procura pela melhor solução, mas assim que terminar de testar, você selecionará um único modelo treinado e eliminará o restante do experimento. Para obter um exemplo de como desenvolver um teste de análise preditiva, veja [Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md).
 
-### O teste preditivo
+### <a name="the-predictive-experiment"></a>O teste preditivo
 
-Quando você já tiver um modelo treinado em seu teste de treinamento, clique em **Configurar Serviço Web** no Estúdio de Aprendizado de Máquina, e o Estúdio passará pelo processo de converter seu teste de treinamento em um ***teste preditivo***. A finalidade do experimento preditivo é usar o modelo treinado para pontuar novos dados, com o objetivo de se tornar posteriormente operacionalizado como um serviço Web do Azure.
+Quando você já tiver um modelo treinado em seu teste de treinamento, clique em **Configurar Serviço Web** e selecione **Serviço Web Preditivo**no Machine Learning Studio para iniciar o processo de conversão de seu teste de treinamento em um ***teste preditivo***. A finalidade do experimento preditivo é usar o modelo treinado para pontuar novos dados, com o objetivo de se tornar posteriormente operacionalizado como um serviço Web do Azure.
 
 Essa conversão é feita para você pelas seguintes etapas:
 
@@ -55,73 +63,29 @@ Essa conversão é feita para você pelas seguintes etapas:
 
 Pode haver mais alterações que você queira fazer para ter seu experimento preditivo pronto para ser implantado como um serviço Web. Por exemplo, se você quiser que o serviço Web gere apenas um subconjunto dos resultados, você pode adicionar um módulo de filtragem antes da porta de saída.
 
-O teste de treinamento não é descartado neste processo de conversão. Quando o processo for concluído, você terá duas guias no Estúdio: uma para o teste de treinamento e outra para o teste preditivo. Dessa forma, antes de implantar o serviço Web, você poderá alterar o teste de treinamento e recriar o teste preditivo. Ou você pode salvar uma cópia do teste de treinamento para iniciar outra linha de teste.
+O teste de treinamento não é descartado neste processo de conversão. Quando o processo for concluído, você terá duas guias no Estúdio: uma para o teste de treinamento e outra para o teste preditivo. Dessa forma, você poderá alterar o teste de treinamento antes de implantar o serviço Web e recompilar o teste preditivo. Ou você pode salvar uma cópia do teste de treinamento para iniciar outra linha de teste.
 
->[AZURE.NOTE] Quando você clica em **Configurar Serviço Web**, um processo automático é iniciado para converter seu teste de treinamento em um teste preditivo, e isso funciona bem na maioria dos casos. Mas se o seu teste de treinamento for complexo (por exemplo, se você tiver vários caminhos para treinamento reunidos), convém fazer essa conversão manualmente. Para obter mais detalhes sobre como esse processo de conversão funciona, veja [Converter um teste de treinamento do Aprendizado de Máquina em um teste preditivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+>[AZURE.NOTE] Quando você clica em **Serviço Web Preditivo**, um processo automático é iniciado para converter seu teste de treinamento em um teste preditivo, e isso funciona bem na maioria dos casos. Se o seu teste de treinamento for complexo (por exemplo, se você tiver vários caminhos para treinamento reunidos), convém fazer essa conversão manualmente. Para saber mais, confira [Converter um teste de treinamento do Machine Learning em um teste preditivo](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
-### O serviço Web
+### <a name="the-web-service"></a>O serviço Web
 
-Quando estiver satisfeito que seu teste preditivo está pronto, você pode implantar o serviço como um serviço web clássico ou um novo serviço web com base no Azure Resource Manager. Para colocar em operação seu modelo implantando-o como um *serviço Web clássico*, clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [clássico]**. Para implantar como *novo serviço Web*, clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [novo]**. Os usuários podem agora enviar dados para seu modelo usando a API REST do serviço Web e receber os resultados de volta. Para obter mais informações sobre como fazer isso, veja [Como consumir um serviço Web do Aprendizado de Máquina do Azure implantado de um teste do Aprendizado de Máquina](machine-learning-consume-web-services.md).
+Quando estiver satisfeito que seu teste preditivo está pronto, você pode implantar o serviço como um serviço Web clássico ou um novo serviço Web com base no Azure Resource Manager. Para colocar em operação seu modelo implantando-o como um *Serviço Web clássico do Machine Learning*, clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [clássico]**. Para implantar como *Novo serviço Web de Machine Learning*, clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [Novo]**. Os usuários podem agora enviar dados para seu modelo usando a API REST do serviço Web e receber os resultados de volta. Para saber mais, confira [Como consumir um serviço Web do Azure Machine Learning implantado por meio de um teste do Machine Learning](machine-learning-consume-web-services.md).
 
-Após a implantação do serviço Web, o experimento preditivo e o serviço Web permanecerão conectados, e você poderá se movimentar entre eles:
+## <a name="the-non-typical-case:-creating-a-non-predictive-web-service"></a>O caso não típico: criando um serviço Web não preditivo
 
-| ***Nesta página...*** | ***clique aqui...*** | ***para abrir esta página...*** |
-| ------------------- | --------------- | ---------------------- |
-|tela de experimento do Estúdio|**Vá para o serviço Web**|configuração de serviço Web no Estúdio|
-|configuração de serviço Web no Estúdio|**Exibir mais recente**|tela de experimento do Estúdio|
-|configuração do serviço Web no Studio (apenas serviço Web clássico)|**Gerenciar pontos de extremidade...**|gerenciamento de ponto de extremidade no Portal Clássico do Azure|
-|gerenciamento de ponto de extremidade no Portal Clássico do Azure (apenas serviço Web clássico)|**Editar no Estúdio**|tela de experimento do Estúdio|
-
-![](media\machine-learning-model-progression-experiment-to-web-service\connections-between-experiment-and-web-service.png)
-
-*Figura 2 - Conexões entre um experimento e o serviço Web*
-
-## Caso não típico: criando um serviço Web não preditivo
-
-Se o seu teste não treinar um modelo de análise preditiva, você não precisará criar um teste de treinamento e um teste de pontuação. Há apenas um teste, e você pode implantá-lo como um serviço Web (o Estúdio do Aprendizado de Máquina detecta se o teste contém um modelo preditivo analisando os módulos usados).
+Se o seu teste não treinar um modelo de análise preditiva, você não precisará criar um teste de treinamento e um teste de pontuação. Há apenas um teste, e você pode implantá-lo como um serviço Web. O Machine Learning Studio detecta se o teste contém um modelo preditivo analisando os módulos usados.
 
 Depois que você tiver iterado no experimento e estiver satisfeito com ele:
 
-1.  Clique em **Configurar Serviço Web** - nós de entrada e saída são adicionados automaticamente
+1.  Clique em **Configurar Serviço Web** e selecione **Novo Treinamento de Serviço Web** – nós de entrada e saída são adicionados automaticamente
 
 2.  Clique em **Executar**
 
-3. Clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [clássico]** ou **Implantar Serviço Web [novo]** dependendo do ambiente no qual você deseja implantar.
+3. Clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [clássico]** ou **Implantar Serviço Web [Novo]** dependendo do ambiente no qual você deseja implantar.
 
-Seu serviço Web está agora implantado e você pode acessá-lo e gerenciá-lo como um serviço Web preditivo.
+Seu serviço Web está implantado, e você pode acessá-lo e gerenciá-lo como um serviço Web preditivo.
 
-## Botões do serviço Web
-
-No Estúdio de Aprendizado de Máquina, os botões do serviço da Web - **Configurar Serviço Web** e **Implantar Serviço Web** - têm nomes e funções diferentes dependendo de onde você está no processo de desenvolvimento.
-
-**O experimento contém um modelo preditivo**
-
-Se o experimento treinar e pontuar um modelo preditivo, os botões do serviço Web executarão estas funções:
-
-|**Tipo de experimento**|**Botão**|**O que ele faz**|
-| -------------------- | -------- | -------------- |
-|Experimento em desenvolvimento|**Configurar Serviço Web**|Fornece duas opções|
-|&nbsp;|- **Serviço Web Preditivo**|Converte o teste em um teste de treinamento e em um teste de pontuação|
-|&nbsp;|- **Treinando novamente o Serviço Web**|Converte o teste em um teste de novo treinamento (consulte a seção "Atualizando" abaixo)|
-|Experimento de treinamento|**Configurar Serviço Web**|Fornece duas opções|
-|&nbsp;|- **Atualizar teste preditivo**|Atualiza o teste preditivo associado com as alterações feitas no teste de treinamento|
-|&nbsp;|- **Treinando novamente o serviço Web**|Converte o teste de treinamento em um teste de novo treinamento (veja a seção “Atualizando” abaixo)|
-|&nbsp;|-*ou*- **Implantar Serviço Web [clássico]** |Se você tiver configurado o teste de novo treinamento para implantação, ele será implantado como um serviço Web clássico|
-|&nbsp;|-*ou*- **Implantar Serviço Web [novo]** |Se você tiver configurado o teste de novo treinamento para implantação, ele será implantado como um novo serviço Web|
-|Teste preditivo|**Implantar Serviço Web [clássico]** |Implanta o teste preditivo como um serviço Web clássico|
-|Teste preditivo|**Implantar Serviço Web [novo]** |Implanta o teste preditivo como um novo serviço Web|
-
-**O experimento *não* contém um modelo preditivo**
-
-Se o teste não treinar nem pontuar um modelo preditivo, os botões do serviço Web serão muito mais simples:
-
-|**Tipo de experimento**|**Botão**|**O que ele faz**|
-| -------------------- | -------- | -------------- |
-|Experimento em desenvolvimento|**Configurar Serviço Web**|Prepara o experimento para implantação como um Serviço Web|
-|Experimento preparado para implantação|***Implantar Serviço Web [clássico]**|Implanta o experimento como um serviço Web, abre a página de configuração do serviço Web clássico|
-|&nbsp;|-*ou*- **Implantar Serviço Web [novo]**| Implantar como um novo serviço Web|
-
-## Atualização de seu serviço Web
+## <a name="updating-your-web-service"></a>Atualização de seu serviço Web
 
 Agora que você implantou seu experimento como um serviço Web, o que acontecerá se precisar atualizá-lo?
 
@@ -129,31 +93,31 @@ Depende do que você precisa atualizar:
 
 **Para alterar a entrada ou saída, ou para modificar como o serviço Web manipula dados**
 
-Se você não estiver alterando o modelo, mas estiver apenas alterando como o serviço Web manipula os dados, poderá editar o teste preditivo e clicar em **Implantar Serviço Web** e selecionar **Implantar serviço Web [clássico]** ou **Implantar serviço Web [novo]** novamente. O serviço Web será parado, o experimento preditivo atualizado será implantado e o serviço Web será iniciado novamente.
+Se você não estiver alterando o modelo, mas estiver apenas alterando como o serviço Web manipula os dados, poderá editar o teste preditivo e clicar em **Implantar Serviço Web** e selecionar **Implantar serviço Web [Clássico]** ou **Implantar serviço Web [Novo]** novamente. O serviço Web é parado, o teste preditivo atualizado é implantado e o serviço Web é reiniciado.
 
-Veja um exemplo: suponha que seu experimento preditivo retorne toda a linha de dados de entrada com o resultado previsto. Talvez você queira que o serviço Web retorne apenas o resultado. Então adicione um módulo de **Colunas de Projeto** no experimento preditivo, logo antes da porta de saída, para excluir colunas que não sejam o resultado. Quando você clica em **Implantar Serviço Web** e seleciona **Implantar Serviço Web [clássico]** ou **Implantar Serviço Web [novo]** novamente, o serviço Web é atualizado.
+Veja um exemplo: suponha que seu experimento preditivo retorne toda a linha de dados de entrada com o resultado previsto. Talvez você queira que o serviço Web retorne apenas o resultado. Então adicione um módulo de **Colunas de Projeto** no experimento preditivo, logo antes da porta de saída, para excluir colunas que não sejam o resultado. Quando você clica em **Implantar Serviço Web** e seleciona **Implantar Serviço Web [Clássico]** ou **Implantar Serviço Web [Novo]** novamente, o serviço Web é atualizado.
 
 **Você quer treinar novamente o modelo com novos dados**
 
 Se você desejar manter a modelo de aprendizado de máquina, mas se quiser treiná-lo novamente com novos dados, terá duas opções:
 
-1.  **Treinar novamente o modelo enquanto o serviço Web está em execução** -se você quiser treinar novamente seu modelo enquanto o serviço Web preditivo estiver em execução, poderá fazer isso fazendo algumas modificações no teste de treinamento para transformá-lo em um ***teste de novo treinamento*** e poderá implantá-lo como um ***serviço Web de novo treinamento***. Para obter instruções sobre como fazer isso, veja [Treinar novamente os modelos do Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md).
+1.  **Treinar novamente o modelo enquanto o serviço Web está em execução** – se você quiser treinar novamente seu modelo enquanto o serviço Web preditivo estiver em execução, faça isso por meio de algumas modificações no teste de treinamento para transformá-lo em um ***teste de novo treinamento***, para poder implantá-lo como um ***serviço* Web de novo treinamento**. Para obter instruções sobre como fazer isso, veja [Treinar novamente os modelos do Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md).
 
-2.  **Volte para o teste de treinamento original e use dados de treinamento diferentes para desenvolver seu modelo** - seu teste preditivo está vinculado ao serviço Web, mas o teste de treinamento não é diretamente vinculado dessa maneira. Se você modificar o teste de treinamento original e clicar em **Configurar Serviço Web**, será criado um *novo* teste preditivo que, quando implantado, criará um *novo* serviço Web. Isso não atualiza simplesmente o serviço Web original.
+2.  **Volte para o teste de treinamento original e use dados de treinamento diferentes para desenvolver seu modelo** – seu teste preditivo está vinculado ao serviço Web, mas o teste de treinamento não é diretamente vinculado dessa maneira. Se você modificar o teste de treinamento original e clicar em **Configurar Serviço Web**, será criado um *novo* teste preditivo que, quando implantado, criará um *novo* serviço Web. Isso não atualiza simplesmente o serviço Web original.
 
-    Portanto, se você precisar modificar o teste de treinamento, abra-o e clique em **Salvar como** para fazer uma cópia. Isso deixará intacto o teste de treinamento original, o experimento preditivo e o serviço Web. Agora você pode criar um novo serviço Web com suas alterações. Depois de implantar o novo serviço Web, você poderá decidir se deseja interromper o serviço Web anterior ou mantê-lo em execução juntamente com o novo.
+    Se você precisar modificar o teste de treinamento, abra-o e clique em **Salvar como** para fazer uma cópia. Isso deixará intacto o teste de treinamento original, o teste preditivo e o serviço Web. Agora você pode criar um novo serviço Web com suas alterações. Depois de implantar o novo serviço Web, você poderá decidir se deseja interromper o serviço Web anterior ou mantê-lo em execução juntamente com o novo.
 
 **Você deseja treinar um modelo diferente**
 
-Se você deseja fazer alterações em seu teste preditivo original, como selecionar um algoritmo de aprendizado de máquina diferente, tentar um método diferente de treinamento etc., siga o segundo procedimento descrito acima para treinar novamente seu modelo: abra o teste de treinamento, clique em **Salvar como** para fazer uma cópia e inicie o novo caminho de desenvolvimento de modelo, criando o teste preditivo e implantando o serviço Web. Isso criará um novo serviço Web não relacionado ao original - você pode decidir qual deles, ou ambos, continuará em execução.
+Se você deseja fazer alterações em seu teste preditivo original, como selecionar um algoritmo de aprendizado de máquina diferente, tentar um método diferente de treinamento etc., siga o segundo procedimento descrito acima para treinar novamente seu modelo: abra o teste de treinamento, clique em **Salvar como** para fazer uma cópia e inicie o novo caminho de desenvolvimento de modelo, criando o teste preditivo e implantando o serviço Web. Isso criará um novo serviço Web não relacionado ao original – você pode decidir qual deles, ou ambos, continuará em execução.
 
-## Leitura adicional
+## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais detalhes sobre esse processo, consulte os seguintes artigos:
+Para obter mais detalhes sobre o processo de desenvolvimento e teste, veja os seguintes artigos:
 
 -   convertendo o teste - [Converter um teste de treinamento do Aprendizado de Máquina em um teste preditivo](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 
--   implantando o serviço Web - [Implantar um serviço Web do Aprendizado de Máquina do Azure](machine-learning-publish-a-machine-learning-web-service.md)
+-   implantando o serviço Web – [Implantar um serviço Web do Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
 
 -   treinando novamente o modelo - [Treinar novamente os modelos do Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md)
 
@@ -161,6 +125,9 @@ Para obter exemplos do processo inteiro, consulte:
 
 -   [Tutorial de aprendizado de máquina: Crie sua primeira experiência no Studio de Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
 
--   [Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md)
+-   [Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

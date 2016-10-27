@@ -1,22 +1,27 @@
 
 
 
-## Exibindo suas marcas nos detalhes de uso
+## <a name="viewing-your-tags-in-the-usage-details"></a>Viewing your tags in the usage details
 
-As marcas colocadas nos recursos de Computação, Rede e Armazenamento por meio do modelo de implantação do Resource Manager serão populadas nos detalhes de uso no [portal de cobrança](https://account.windowsazure.com/).
+Tags placed on Compute, Network, and Storage resources in the Resource Manager deployment model will be populated in your usage details in the [billing portal](https://account.windowsazure.com/).
 
-Clique em **Baixar detalhes de uso** para exibir os detalhes de uso da assinatura.
+Click on **Download usage details** to view the usage details in your subscription.
 
-![Detalhes de uso no Portal do Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
+![Usage details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
 
-Selecione o demonstrativo e os detalhes de uso da **Versão 2**:
+Select your billing statement and the **Version 2** usage details:
 
-![Detalhes de uso da versão de visualização 2 no Portal do Azure](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
+![Version 2 Preview Usage Details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
 
-Nos detalhes de uso, você pode ver todas as marcas na coluna **Marcas**:
+From the usage details, you can see all of the tags in the **Tags** column:
 
-![Coluna Marcas no Portal do Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
+![Tags column in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
 
-Ao analisar essas marcas juntamente com o uso, as organizações poderão adquirir novas percepções sobre os respectivos dados de consumo.
+By analyzing these tags along with usage, organizations will be able to gain new insights into their consumption data.
+
+
+
+
+<!--HONumber=Oct16_HO2-->
 
 

@@ -1,5 +1,8 @@
-Investigações personalizadas permitem que você tenha um controle mais granular sobre o status de monitoramento de integridade do pool de back-end de servidores. Você pode alterar as verificações de intervalo, limite de solicitação com falha e configurações de tempo limite.
+Custom probes allows you to have more granular control about health monitoring status for your back end pool of servers. You can change the interval checks, failed request threshold and timeout settings.
 
-Esse artigo o orientará para criar um gateway de aplicativo com uma investigação personalizada ou adicionando uma investigação personalizada a um gateway de aplicativo existente.
+This article will guide you to create an application gateway with a custom probe or adding a custom probe to an existing application gateway. 
 
-<!---HONumber=AcomDC_0107_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

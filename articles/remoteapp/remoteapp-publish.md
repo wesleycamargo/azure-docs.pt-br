@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Publicar um aplicativo no RemoteApp do Azure | Microsoft Azure"
-    description="Saiba como publicar aplicativos e recursos no RemoteApp do Azure."
+    pageTitle="Publish an app in Azure RemoteApp | Microsoft Azure"
+    description="Learn how to publish applications and resources in Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -16,24 +16,28 @@
     ms.author="elizapo" />
 
 
-# Como publicar um aplicativo no RemoteApp
+
+# <a name="how-to-publish-an-app-in-remoteapp"></a>How to publish an app in RemoteApp
 
 > [AZURE.IMPORTANT]
-O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Depois de criar sua coleção RemoteApp, você precisa publicar os aplicativos ou recursos que você deseja disponibilizar para os usuários. As imagens de modelo fornecidas com sua assinatura tem apenas alguns aplicativos publicados por padrão – para compartilhar os outros aplicativos, é necessário publicá-los.
+After you create your RemoteApp collection, you need to publish the apps or resources that you want to make available for your users. The template images provided with your subscription only have a few apps published by default - to share the other apps, you need to publish them.
 
-> [AZURE.NOTE] Você precisa atualizar um aplicativo? Você precisará [atualizar a imagem](remoteapp-update.md) primeiro.
+> [AZURE.NOTE] Do you need to update an app? You'll need to [update the image](remoteapp-update.md) first.
 
-Na guia **Publicação** no portal, clique em **Publicar**. Você pode adicionar um aplicativo da imagem do modelo do menu **Iniciar** ou fornecer o caminho onde o aplicativo está instalado na imagem do modelo. Se você optar por adicionar do menu **Iniciar**, escolha na lista o aplicativo para publicação. Se você optar por fornecer o caminho para o aplicativo, digite um nome para o aplicativo e o caminho para o aplicativo. Use variáveis no caminho - por exemplo, "%systemdrive%" em vez de "c:".
+On the **Publishing** tab in the portal, click **Publish**. You can either add an app from your template image's **Start** menu or provide the path to where the app is installed on the template image. If you choose to add from the **Start** menu, choose the app to publish from the list. If you choose to provide the path to the app, enter a name for the app and the path to the app. Use variables in the path - for example, "%systemdrive%" instead of "c:\".
 
-> [AZURE.NOTE] Se quiser adicionar seu aplicativo do menu **Iniciar**, precisará ter *adicionado esse aplicativo ao menu **Iniciar** em sua imagem de modelo.* Caso contrário, o RemoteApp verá somente o que *está* no menu **Iniciar** e você ficará confuso.
+> [AZURE.NOTE] If you want to add your app from the **Start** menu, you need to have *added that app to the **Start** menu on your template image.* Otherwise, RemoteApp will only see what *is* on the **Start** menu, and you will be confused. 
 
->Para ter certeza de que seu aplicativo está no menu **Iniciar**, coloque um arquivo de atalho - **.lnk** - dentro da pasta %systemdrive%\\ProgramData\\Microsoft\\Windows\\Menu Iniciar\\Programas.
+>To make sure your app is in the **Start** menu, place a shortcut file - **.lnk** - inside the %systemdrive%\ProgramData\Microsoft\Windows\Start Menu\Programs folder.
 
-> Se você se esqueceu de adicionar o aplicativo ao menu **Iniciar** quando criou o modelo, opte por adicionar o caminho ao aplicativo. (Ou recrie a imagem do seu modelo, mas é muito mais trabalhoso.)
+> If you forgot to add the app to the **Start** menu when you created the template, choose to add the path to the app. (Or recreate your template image, but that's quite a bit more work.)
 
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

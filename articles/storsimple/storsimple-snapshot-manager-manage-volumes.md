@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Snapshot Manager e volumes | Microsoft Azure"
-   description="Descreve como usar o snap-in do MMC do StorSimple Snapshot Manager para exibir e gerenciar volumes, bem como configurar backups."
+   pageTitle="StorSimple Snapshot Manager and volumes | Microsoft Azure"
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage volumes and to configure backups."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,260 +15,265 @@
    ms.date="04/18/2016"
    ms.author="v-sharos" />
 
-# Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes
 
-## Visão geral
+# <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Use StorSimple Snapshot Manager to view and manage volumes
 
-Você pode usar o nó **Volumes** do StorSimple Snapshot Manager (no painel **Escopo**) para selecionar volumes e exibir informações sobre eles. Os volumes são apresentados como unidades que correspondem aos volumes montados pelo host. O nó **Volumes** mostra os volumes locais e os tipos de volumes que têm suporte do StorSimple, incluindo os volumes descobertos por meio do uso do iSCSI e de um dispositivo.
+## <a name="overview"></a>Overview
 
-Para saber mais sobre os volumes compatíveis, vá até [Suporte para vários tipos de volume](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
+You can use the StorSimple Snapshot Manager **Volumes** node (on the **Scope** pane) to select volumes and view information about them. The volumes are presented as drives that correspond to the volumes mounted by the host. The **Volumes** node shows local volumes and volume types that are supported by StorSimple, including volumes discovered through the use of iSCSI and a device. 
 
-![Lista de Volumes no painel de Resultados](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
+For more information about supported volumes, go to [Support for multiple volume types](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
 
-O nó **Volumes** também permite examinar novamente ou excluir volumes após o StorSimple Snapshot Manager descobri-los.
+![Volume list in Results pane](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
 
-Este tutorial explica como montar, inicializar e formatar volumes e usar o StorSimple Snapshot Manager para:
+The **Volumes** node also lets you rescan or delete volumes after StorSimple Snapshot Manager discovers them. 
 
-- Exibir informações sobre volumes 
-- Excluir volumes
-- Examinar volumes novamente 
-- Configurar um volume básico e fazer seu backup
-- Configurar um volume dinâmico espelhado e fazer seu backup
+This tutorial explains how you can mount, initialize, and format volumes and then use StorSimple Snapshot Manager to:
 
->[AZURE.NOTE] Todas as ações do nó **Volume** também estão disponíveis no painel **Ações**.
+- View information about volumes 
+- Delete volumes
+- Rescan volumes 
+- Configure a basic volume and back it up
+- Configure a dynamic mirrored volume and back it up
+
+>[AZURE.NOTE] All of the **Volume** node actions are also available in the **Actions** pane.
  
-## Montar volumes
+## <a name="mount-volumes"></a>Mount volumes
 
-Use o procedimento a seguir para montar, inicializar e formatar volumes do StorSimple. Este procedimento usa o Gerenciamento de Disco, um utilitário do sistema para gerenciar discos rígidos e os volumes ou as partições correspondentes. Para saber mais sobre o Gerenciamento de Disco, vá até [Gerenciamento de Disco](https://technet.microsoft.com/library/cc770943.aspx) no site do Microsoft TechNet.
+Use the following procedure to mount, initialize, and format StorSimple volumes. This procedure uses Disk Management, a system utility for managing hard disks and the corresponding volumes or partitions. For more information about Disk Management, go to [Disk Management](https://technet.microsoft.com/library/cc770943.aspx) on the Microsoft TechNet website.
 
-#### Para montar volumes
+#### <a name="to-mount-volumes"></a>To mount volumes
 
-1. No computador host, inicie o Microsoft iSCSI.
+1. On your host computer, start the Microsoft iSCSI initiator.
 
-2. Forneça um dos endereços IP da interface como o portal de destino ou endereço IP de descoberta e conecte-se ao dispositivo. Após o dispositivo ser conectado, os volumes ficarão acessíveis para o seu sistema Windows. Para saber mais sobre o uso do iniciador Microsoft iSCSI, vá para a seção "Conectando a um dispositivo de destino iSCSI", em [Instalando e configurando o iniciador Microsoft iSCSI][1].
+2. Supply one of the interface IP addresses as the target portal or discovery IP address, and connect to the device. After the device is connected, the volumes will be accessible to your Windows system. For more information about using the Microsoft iSCSI initiator, go to the section “Connecting to an iSCSI target device” in [Installing and Configuring Microsoft iSCSI Initiator][1].
 
-3. Use qualquer uma das opções a seguir para iniciar o Gerenciamento de Disco:
+3. Use any of the following options to start Disk Management:
 
-    - Digite Diskmgmt.msc na caixa **Executar**.
+    - Type Diskmgmt.msc in the **Run** box.
 
-    - Inicie o Gerenciador do Servidor, expanda o nó **Armazenamento** e selecione **Gerenciamento de Disco**.
+    - Start Server Manager, expand the **Storage** node, and then select **Disk Management**.
 
-    - Inicie as **Ferramentas Administrativas**, expanda o nó **Gerenciamento do Computador** e selecione **Gerenciamento de Disco**.
+    - Start **Administrative Tools**, expand the **Computer Management** node, and then select **Disk Management**. 
 
-    >[AZURE.NOTE] Você precisa usar privilégios de administrador para executar o Gerenciamento de Disco.
+    >[AZURE.NOTE] You must use administrator privileges to run Disk Management.
  
-4. Coloque os volumes online:
+4. Take the volume(s) online:
 
-   1. No Gerenciamento de Disco, clique com o botão direito em qualquer volume marcado como **Offline**.
+   1. In Disk Management, right-click any volume marked **Offline**.
 
-   2. Clique em **Reativar Disco**. O disco deve ser marcado como **Online** após o disco ser reativado.
+   2. Click **Reactivate Disk**. The disk should be marked **Online** after the disk is reactivated.
 
-5. Inicializar os volumes:
+5. Initialize the volume(s):
 
-   1. Clique com botão direito nos volumes descobertos.
+   1. Right-click the discovered volumes.
 
-   2. No menu, selecione **Inicializar Disco**.
+   2. On the menu, select **Initialize Disk**.
 
-   3. Na caixa de diálogo **Inicializar Disco**, selecione os discos que você deseja inicializar e clique em **OK**.
+   3. In the **Initialize Disk** dialog box, select the disks that you want to initialize, and then click **OK**.
 
-6. Formate os volumes simples:
+6. Format simple volumes:
 
-   1. Clique com o botão direito em um volume que você deseja formatar.
+   1. Right-click a volume that you want to format.
 
-   2. No menu, selecione **Novo Volume Simples**.
+   2. On the menu, select **New Simple Volume**.
 
-   3. Use o assistente de Novo Volume Simples para formatar o volume:
+   3. Use the New Simple Volume wizard to format the volume:
 
-      - Especifique o tamanho do volume.
-      - Forneça uma letra da unidade.
-      - Selecione o sistema de arquivos NTFS.
-      - Especifique um tamanho de unidade de alocação com 64 KB.
-      - Realize uma formatação rápida.
+      - Specify the volume size.
+      - Supply a drive letter.
+      - Select the NTFS file system.
+      - Specify a 64 KB allocation unit size.
+      - Perform a quick format.
 
-7. Formate os volumes com várias partições. Para obter instruções, vá até a seção "Partições e Volumes" em [Implementando o Gerenciamento de Disco](https://msdn.microsoft.com/library/dd163556.aspx).
+7. Format multi-partition volumes. For instructions, go to the section, "Partitions and Volumes" in [Implementing Disk Management](https://msdn.microsoft.com/library/dd163556.aspx).
 
-## Exibir informações sobre os volumes
+## <a name="view-information-about-your-volumes"></a>View information about your volumes
 
-Use o procedimento a seguir para exibir informações sobre volumes locais e do Azure StorSimple.
+Use the following procedure to view information about local and Azure StorSimple volumes.
 
-#### Para exibir informações de volume
+#### <a name="to-view-volume-information"></a>To view volume information
 
-1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager. 
+1. Click the desktop icon to start StorSimple Snapshot Manager. 
 
-2. No painel **Escopo**, clique no nó **Volumes**. Uma lista de volumes locais e montados, incluindo todos os volumes do Azure StorSimple, aparece no painel **Resultados**. As colunas no painel **Resultados** são configuráveis. (Clique com o botão direito no nó **Volumes**, selecione **Exibir** e selecione **Adicionar/Remover Colunas**.)
+2. In the **Scope** pane, click the **Volumes** node. A list of local and mounted volumes, including all Azure StorSimple volumes, appears in the **Results** pane. The columns in the **Results** pane are configurable. (Right-click the **Volumes** node, select **View**, and then select **Add/Remove Columns**.)
 
-    ![Configurar as colunas](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
+    ![Configure the columns](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
 
-    Coluna de resultados | Descrição 
+    Results column | Description 
     :--------------|:-------------
-    Nome | A coluna **Nome** contém a letra da unidade atribuída a cada volume descoberto.
-    Dispositivo | A coluna **Dispositivo** contém o endereço IP do dispositivo conectado ao computador host.
-    Nome do Volume do Dispositivo | A coluna **Nome do Volume do Dispositivo** contém o nome do volume do dispositivo ao qual o volume selecionado pertence. Esse é o nome do volume definido no Portal clássico do Azure para o volume específico.
-    Caminhos de acesso | A coluna **Caminhos de Acesso** exibe o caminho de acesso ao volume. Esta é a letra da unidade ou ponto de montagem no qual o volume está acessível para o computador host.
+    Name           | The **Name** column contains the drive letter assigned to each discovered volume.
+    Device         | The **Device** column contains the IP address of the device connected to the host computer.
+    Device Volume Name | The **Device Volume Name** column contains the name of the device volume to which the selected volume belongs. This is the volume name defined in the Azure classic portal for that specific volume.
+    Access Paths   | The **Access Paths** column displays the access path to the volume. This is the drive letter or mount point at which the volume is accessible on the host computer.
  
-## Excluir um volume
+## <a name="delete-a-volume"></a>Delete a volume
 
-Use o procedimento a seguir para excluir um volume do StorSimple Snapshot Manager.
+Use the following procedure to delete a volume from StorSimple Snapshot Manager.
 
->[AZURE.NOTE] Você não pode excluir um volume se ele fizer parte de um grupo de volumes. (A opção de exclusão não está disponível para volumes que fazem parte de um grupo de volumes). Você deve excluir o grupo de volumes inteiro para excluir o volume.
+>[AZURE.NOTE] You cannot delete a volume if it is part of any volume group. (The delete option is not available for volumes that are members of a volume group.) You must delete the entire volume group to delete the volume.
 
 
-#### Para excluir um volume
+#### <a name="to-delete-a-volume"></a>To delete a volume
 
-1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. No painel **Escopo**, clique no nó **Volumes**.
+2. In the **Scope** pane, click the **Volumes** node. 
 
-3. No painel **Resultados**, clique com o botão direito do mouse no volume que deseja excluir.
+3. In the **Results** pane, right-click the volume that you want to delete.
 
-4. No menu, clique em **Excluir**.
+4. On the menu, click **Delete**. 
 
-    ![Excluir um volume](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Delete_volume.png)
+    ![Delete a volume](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Delete_volume.png) 
 
-5. A caixa de diálogo **Excluir Volume** é exibida. Digite **Confirmar** na caixa de texto e clique em **OK**.
+5. The **Delete Volume** dialog box appears. Type **Confirm** in the text box, and then click **OK**.
 
-6. Por padrão, o StorSimple Snapshot Manager faz backup de um volume antes de excluí-lo. Essa precaução pode proteger você contra perda de dados se a exclusão tiver sido involuntária. O StorSimple Snapshot Manager exibe uma mensagem de andamento do **Instantâneo Automático** enquanto faz backup do volume.
+6. By default, StorSimple Snapshot Manager backs up a volume before deleting it. This precaution can protect you from data loss if the deletion was unintentional. StorSimple Snapshot Manager displays an **Automatic Snapshot** progress message while it backs up the volume. 
 
-    ![Mensagem de instantâneo automático](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Automatic_snap.png)
+    ![Automatic snapshot message](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Automatic_snap.png) 
 
-## Examinar volumes novamente
+## <a name="rescan-volumes"></a>Rescan volumes
 
-Use o procedimento a seguir para examinar novamente os volumes conectados ao StorSimple Snapshot Manager.
+Use the following procedure to rescan the volumes connected to StorSimple Snapshot Manager.
 
-#### Para examinar novamente os volumes
+#### <a name="to-rescan-the-volumes"></a>To rescan the volumes
 
-1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.
+1. Click the desktop icon to start StorSimple Snapshot Manager.
 
-2. No painel **Escopo**, clique com o botão direito do mouse em **Volumes** e clique em **Examinar volumes novamente**.
+2. In the **Scope** pane, right-click **Volumes**, and then click **Rescan volumes**.
 
-    ![Examinar volumes novamente](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Rescan_volumes.png)
+    ![Rescan volumes](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Rescan_volumes.png)
  
-    Este procedimento sincroniza a lista de volumes com o StorSimple Snapshot Manager. Quaisquer alterações, como novos volumes ou volumes excluídos, serão refletidas nos resultados.
+    This procedure synchronizes the volume list with StorSimple Snapshot Manager. Any changes, such as new volumes or deleted volumes, will be reflected in the results.
 
-## Configurar e fazer backup de um volume básico
+## <a name="configure-and-back-up-a-basic-volume"></a>Configure and back up a basic volume
 
-Use o procedimento a seguir para configurar um backup de um volume básico e, em seguida, inicie um backup imediatamente ou crie uma política para backups agendados.
+Use the following procedure to configure a backup of a basic volume, and then either start a backup immediately or create a policy for scheduled backups.
 
-### Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
-Antes de começar:
+Before you begin:
 
-- Certifique-se de que o computador host e o dispositivo StorSimple estejam configurados corretamente. Para saber mais, vá até [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
+- Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
 
-- Instale e configure o StorSimple Snapshot Manager. Para saber mais, vá até [Implantar o StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+- Install and configure StorSimple Snapshot Manager. For more information, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
-#### Para configurar o backup de um volume básico
+#### <a name="to-configure-backup-of-a-basic-volume"></a>To configure backup of a basic volume
 
-1. Crie um volume básico no dispositivo StorSimple.
+1. Create a basic volume on the StorSimple device.
 
-2. Monte, inicialize e formate o volume, como descrito em [Montar volumes](#mount-volumes).
+2. Mount, initialize, and format the volume as described in [Mount volumes](#mount-volumes). 
 
-3. Clique no ícone do StorSimple Snapshot Manager na área de trabalho. A janela do StorSimple Snapshot Manager aparece.
+3. Click the StorSimple Snapshot Manager icon on your desktop. The StorSimple Snapshot Manager window appears. 
 
-4. No painel **Escopo**, clique com o botão direito do mouse no nó **Volumes** e selecione **Examinar volumes novamente**. Quando a verificação for concluída, uma lista de volumes deverá aparecer no painel **Resultados**.
+4. In the **Scope** pane, right-click the **Volumes** node, and then select **Rescan volumes**. When the scan is finished, a list of volumes should appear in the **Results** pane. 
 
-5. No painel **Resultados**, clique com o botão direito do mouse no volume e selecione **Criar Grupo de Volumes**.
+5. In the **Results** pane, right-click the volume, and then select **Create Volume Group**. 
 
-    ![Criar grupo de volumes](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Create_volume_group.png)
+    ![Create volume group](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Create_volume_group.png) 
 
-6. Na caixa de diálogo **Criar Grupo de Volumes**, digite um nome para o grupo de volumes, atribua volumes a ele e clique em **OK**.
+6. In the **Create Volume Group** dialog box, type a name for the volume group, assign volumes to it, and then click **OK**.
 
-7. No painel **Escopo**, expanda o nó **Grupos de Volumes**. O novo grupo de volumes deve aparecer no nó **Grupos de Volumes**.
+7. In the **Scope** pane, expand the **Volume Groups** node. The new volume group should appear under the **Volume Groups** node. 
 
-8. Clique com o botão direito no nome do grupo de volumes.
+8. Right-click the volume group name.
 
-    - Para iniciar um trabalho de backup interativo (sob demanda), clique em **Fazer Backup**. 
+    - To start an interactive (on-demand) backup job, click **Take Backup**. 
 
-    - Para agendar um backup automático, clique em **Criar Política de Backup**. Na página **Geral**, selecione um grupo de volumes na lista. Na página **Agendamento**, insira os detalhes do agendamento. Quando terminar, clique em **OK**.
+    - To schedule an automatic backup, click **Create Backup Policy**. On the **General** page, select a volume group from the list. On the **Schedule** page, enter the schedule details. When you are finished, click **OK**. 
 
-9. Para confirmar que o trabalho de backup foi iniciado, expanda o nó **Trabalhos** no painel **Escopo** e clique no nó **Em execução**. A lista de trabalhos atualmente em execução aparece no painel **Resultados**.
+9. To confirm that the backup job has started, expand the **Jobs** node in the **Scope** pane, and then click the **Running** node. The list of currently running jobs appears in the **Results** pane. 
 
-## Configurar e fazer backup de um volume espelhado dinâmico
+## <a name="configure-and-back-up-a-dynamic-mirrored-volume"></a>Configure and back up a dynamic mirrored volume
 
-Conclua as seguintes etapas para configurar o backup de um volume espelhado dinâmico:
+Complete the following steps to configure backup of a dynamic mirrored volume:
 
-- Etapa 1: usar o Gerenciamento de Disco para criar um volume espelhado dinâmico. 
+- Step 1: Use Disk Management to create a dynamic mirrored volume. 
 
-- Etapa 2: usar o StorSimple Snapshot Manager para configurar o backup.
+- Step 2: Use StorSimple Snapshot Manager to configure backup.
 
-### Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
-Antes de começar:
+Before you begin:
 
-- Certifique-se de que o computador host e o dispositivo StorSimple estejam configurados corretamente. Para saber mais, vá até [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
+- Make sure that the StorSimple device and host computer are configured correctly. For more information, go to [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
 
-- Instale e configure o StorSimple Snapshot Manager. Para saber mais, vá até [Implantar o StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+- Install and configure StorSimple Snapshot Manager. For more information, go to [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
-- Configure dois volumes no dispositivo StorSimple. (Nos exemplos, os volumes disponíveis são **Disco 1** e **Disco 2**).
+- Configure two volumes on the StorSimple device. (In the examples, the available volumes are **Disk 1** and **Disk 2**.) 
 
-### Etapa 1: Usar o Gerenciamento de Disco para criar um volume espelhado dinâmico
+### <a name="step-1:-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Step 1: Use Disk Management to create a dynamic mirrored volume
 
-O Gerenciamento de Disco é um utilitário do sistema para gerenciar discos rígidos e os volumes ou partições que eles contêm. Para obter mais informações sobre o Gerenciamento de Disco, vá até [Gerenciamento de Disco](https://technet.microsoft.com/library/cc770943.aspx) no site Microsoft TechNet.
+Disk Management is a system utility for managing hard disks and the volumes or partitions that they contain. For more information about Disk Management, go to [Disk Management](https://technet.microsoft.com/library/cc770943.aspx) on the Microsoft TechNet website.
 
-#### Para criar um volume espelhado dinâmico
+#### <a name="to-create-a-dynamic-mirrored-volume"></a>To create a dynamic mirrored volume
 
-1. Use qualquer uma das opções a seguir para iniciar o Gerenciamento de Disco: 
+1. Use any of the following options to start Disk Management: 
 
-   - Abra a caixa **Executar**, digite **Diskmgmt.msc** e pressione Enter.
+   - Open the **Run** box, type **Diskmgmt.msc**, and press Enter.
 
-   - Inicie o Gerenciador do Servidor, expanda o nó **Armazenamento** e selecione **Gerenciamento de Disco**.
+   - Start Server Manager, expand the **Storage** node, and then select **Disk Management**. 
 
-   - Inicie as **Ferramentas Administrativas**, expanda o nó **Gerenciamento do Computador** e selecione **Gerenciamento de Disco**.
+   - Start **Administrative Tools**, expand the **Computer Management** node, and then select **Disk Management**. 
 
-2. Certifique-se de que você tenha dois volumes disponíveis no dispositivo StorSimple. (No exemplo, os volumes disponíveis são **Disco 1** e **Disco 2**). 
+2. Make sure that you have two volumes available on the StorSimple device. (In the example, the available volumes are **Disk 1** and **Disk 2**.) 
 
-3. Na janela Gerenciamento de Disco, na coluna à direita do painel inferior, clique com o botão direito do mouse em **Disco 1** e selecione **Novo Volume Espelhado**.
+3. In the Disk Management window, in the right column of the lower pane, right-click **Disk 1** and select **New Mirrored Volume**. 
 
-    ![Novo Volume Espelhado](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png)
+    ![New Mirrored Volume](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png) 
 
-4. Na página do assistente **Novo Volume Espelhado**, clique em **Avançar**.
+4. On the **New Mirrored Volume** wizard page, click **Next**.
 
-5. Na página **Selecionar Discos**, selecione o **Disco 2** no painel **Selecionado**, clique em **Adicionar** e clique em **Avançar**.
+5. On the **Select Disks** page, select **Disk 2** in the **Selected** pane, click **Add**, and then click **Next**. 
 
-6. Na página **Atribuir uma Letra de Unidade ou Caminho**, aceite os padrões e clique em **Avançar**.
+6. On the **Assign Drive Letter or Path** page, accept the defaults, and then click **Next**. 
 
-7. Na página **Formatar Volume**, na caixa **Tamanho da Unidade de Alocação**, selecione **64 mil**. Marque a caixa de seleção **Executar uma formatação rápida** e clique em **Avançar**.
+7. On the **Format Volume** page, in the **Allocation Unit Size** box, select **64K**. Select the **Perform a quick format** check box, and then click **Next**. 
 
-8. Na página **Concluindo o Novo Volume Espelhado**, examine as configurações e clique em **Concluir**.
+8. On the **Completing the New Mirrored Volume** page, review your settings, and then click **Finish**. 
 
-9. Será exibida uma mensagem indicando que o disco básico será convertido em um disco dinâmico. Clique em **Sim**.
+9. A message appears to indicate that the basic disk will be converted to a dynamic disk. Click **Yes**.
 
-    ![Mensagem de conversão de disco dinâmico](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png)
+    ![Dynamic disk conversion message](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png) 
 
-10. No gerenciamento de disco, verifique se os discos 1 e 2 são mostrados como volumes dinâmicos espelhados. (**Dinâmico** deve aparecer na coluna de status, e a cor da barra de capacidade deve mudar para vermelho, indicando um volume espelhado).
+10. In Disk Management, verify that Disk 1 and Disk 2 are shown as dynamic mirrored volumes. (**Dynamic** should appear in the status column, and the capacity bar color should change to red, indicating a mirrored volume.) 
 
-    ![Discos dinâmicos espelhados do Gerenciamento de Disco](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png)
+    ![Disk Management mirrored dynamic disks](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png) 
  
-### Etapa 2: Usar o StorSimple Snapshot Manager para configurar o backup
+### <a name="step-2:-use-storsimple-snapshot-manager-to-configure-backup"></a>Step 2: Use StorSimple Snapshot Manager to configure backup
 
-Use o procedimento a seguir para configurar um volume espelhado dinâmico, em seguida, inicie um backup imediatamente ou crie uma política para backups agendados.
+Use the following procedure to configure a dynamic mirrored volume, and then either start a backup immediately or create a policy for scheduled backups.
 
-#### Para configurar o backup de um volume espelhado dinâmico
+#### <a name="to-configure-backup-of-a-dynamic-mirrored-volume"></a>To configure backup of a dynamic mirrored volume
 
-1. Clique no ícone do StorSimple Snapshot Manager na área de trabalho. A janela do StorSimple Snapshot Manager aparece. 
+1. Click the StorSimple Snapshot Manager icon on your desktop. The StorSimple Snapshot Manager window appears. 
 
-2. No painel **Escopo**, clique com o botão direito no nó **Volumes** e selecione **Examinar volumes novamente**. Quando a verificação for concluída, uma lista de volumes deverá aparecer no painel **Resultados**. O volume dinâmico espelhado é listado como um único volume.
+2. In the **Scope** pane, right-click the **Volumes** node and select **Rescan volumes**. When the scan is finished, a list of volumes should appear in the **Results** pane. The dynamic mirrored volume is listed as a single volume. 
 
-3. No painel **Resultados**, clique no volume dinâmico espelhado e clique em **Criar Grupo de Volumes**.
+3. In the **Results** pane, right-click the dynamic mirrored volume, and then click **Create Volume Group**. 
 
-4. Na caixa de diálogo **Criar Grupo de Volumes**, digite um nome para o grupo de volumes, atribua o volume espelhado dinâmico a esse grupo e clique em **OK**.
+4. In the **Create Volume Group** dialog box, type a name for the volume group, assign the dynamic mirrored volume to this group, and then click **OK**. 
 
-5. No painel **Escopo**, expanda o nó **Grupos de Volumes**. O novo grupo de volumes deve aparecer no nó **Grupos de Volumes**.
+5. In the **Scope** pane, expand the **Volume Groups** node. The new volume group should appear under the  **Volume Groups** node. 
 
-6. Clique com o botão direito no nome do grupo de volumes.
+6. Right-click the volume group name. 
 
-    - Para iniciar um trabalho de backup interativo (sob demanda), clique em **Fazer Backup**. 
+    - To start an interactive (on-demand) backup job, click **Take Backup**. 
 
-    - Para agendar um backup automático, clique em **Criar Política de Backup**. Na página **Geral**, selecione o grupo de volumes na lista. Na página **Agenda**, insira os detalhes da agenda. Quando tiver terminado, clique em **OK**.
+    - To schedule an automatic backup, click **Create Backup Policy**. On the **General** page, select the volume group from the list. On the **Schedule** page, enter the schedule details. When you are finished, click **OK**. 
 
-7. Você pode monitorar o trabalho de backup enquanto ele é executado. No painel **Escopo**, expanda o nós **Trabalhos** e clique em **Em execução**. Os detalhes do trabalho aparecem no painel **Resultados**. Quando o trabalho de backup é concluído, os detalhes são transferidos para a lista de trabalhos **Últimas 24 horas**.
+7. You can monitor the backup job as it runs. In the **Scope** pane, expand the **Jobs** node, and then click **Running**, The job details appear in the **Results** pane. When the backup job is finished, the details are transferred to the **Last 24** hours job list. 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
-- Saiba como [usar o StorSimple Snapshot Manager para criar e gerenciar grupos de volumes](storsimple-snapshot-manager-manage-volume-groups.md).
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to create and manage volume groups](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

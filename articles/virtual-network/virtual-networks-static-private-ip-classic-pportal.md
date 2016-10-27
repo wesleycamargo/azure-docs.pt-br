@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Como definir um IP privado estático no modo clássico usando o Portal do Azure | Microsoft Azure"
-   description="Noções básicas sobre IPs privados estáticos e como gerenciá-los no modo clássico usando o portal do Azure"
+   pageTitle="How to set a static private IP in classic mode using the Azure Portal| Microsoft Azure"
+   description="Understanding static private IPs and how to manage them in classic mode using the Azure portal"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,68 +17,72 @@
    ms.date="02/04/2016"
    ms.author="jdial" />
 
-# Como definir um endereço IP privado estático (clássico) no portal do Azure
+
+# <a name="how-to-set-a-static-private-ip-address-(classic)-in-the-azure-portal"></a>How to set a static private IP address (classic) in the Azure portal
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artigo aborda o modelo de implantação clássico. Você também pode [gerenciar um endereço IP privado estático no modelo de implantação do Gerenciador de Recursos](virtual-networks-static-private-ip-arm-pportal.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the classic deployment model. You can also [manage a static private IP address in the Resource Manager deployment model](virtual-networks-static-private-ip-arm-pportal.md).
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-As etapas de exemplo abaixo esperam um ambiente simples já criado. Se você quiser executar as etapas da forma como elas aparecem neste documento, primeiro crie o ambiente de teste descrito em [criar uma vnet](virtual-networks-create-vnet-classic-pportal.md).
+The sample steps below expect a simple environment already created. If you want to run the steps as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-classic-pportal.md).
 
-## Como especificar um endereço IP privado estático ao criar uma VM
-Para criar uma VM denominada *DNS01* na sub-rede *Front-end* de uma VNet chamada *TestVNet* com o endereço IP privado estático *192.168.1.101*, execute as etapas abaixo:
+## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>How to specify a static private IP address when creating a VM
+To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, follow the steps below:
 
-1. Em um navegador, navegue até http://portal.azure.com e, se necessário, entre com sua conta do Azure.
-2. Clique em **NOVO** > **Computação** > **Windows Server 2012 R2 Datacenter**, observe que a lista **Selecionar um modelo de implantação** já mostra **Clássico** e, em seguida, clique em **Criar**.
+1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+2. Click **NEW** > **Compute** > **Windows Server 2012 R2 Datacenter**, notice that the **Select a deployment model** list already shows **Classic**, and then click **Create**.
 
-	![Criar VM no portal do Azure](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
+    ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
 
-3. Na folha **Criar VM**, insira o nome da VM a ser criada (*DNS01* em nosso cenário), a conta de administrador local e a senha.
+3. In the **Create VM** blade, enter the name of the VM to be created (*DNS01* in our scenario), the local administrator account, and password.
 
-	![Criar VM no portal do Azure](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
+    ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
 
-4. Clique em **Configuração opcional** > **Rede** > **Rede Virtual**, e, em seguida, clique em **TestVNet**. Se **TestVNet** não estiver disponível, verifique se você está usando o *Centro dos EUA* como local e que você criou o ambiente de teste descrito no início deste artigo.
+4. Click **Optional Configuration** > **Network** > **Virtual Network**, and then click **TestVNet**. If **TestVNet** is not available, make sure you are using the *Central US* location and have created the test environment described at the beginning of this article.
 
-	![Criar VM no portal do Azure](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
+    ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
 
-5. Na folha **Rede**, certifique-se de que a sub-rede selecionada atualmente é *FrontEnd*, em seguida, clique em **Endereços IP**, em **Atribuição de endereço IP** clique em **Estático**, e, em seguida, digite *192.168.1.101* para **Endereço IP** conforme mostrado abaixo.
+5. In the **Network** blade, make sure the subnet currently selected is *FrontEnd*, then click **IP addresses**, under **IP address assignment** click **Static**, and then enter *192.168.1.101* for **IP Address** as seen below.
 
-	![Criar VM no portal do Azure](./media/virtual-networks-static-ip-classic-pportal/figure04.png)
+    ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure04.png)   
 
-6. Clique em **OK** na folha **Endereços IP**, em seguida, clique em **OK** na folha **Rede** e clique em **OK** na folha **Configuração opcional**.
-7. Na folha **Criar VM**, clique em **Criar**. Observe o bloco abaixo exibido no painel.
+6. Click **OK** in the **IP addresses** blade, then click **OK** in the **Network** blade, and click **OK** in the **Optional config** blade.
+7. In the **Create VM** blade, click **Create**. Notice the tile below displayed in your dashboard.
 
-	![Criar VM no portal do Azure](./media/virtual-networks-static-ip-classic-pportal/figure05.png)
+    ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure05.png)
 
-## Como recuperar informações do endereço IP privado estático de uma VM
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>How to retrieve static private IP address information for a VM
 
-Para exibir as informações de endereço IP privado estático para a VM criada com as etapas acima, execute as etapas abaixo.
+To view the static private IP address information for the VM created with the steps above, execute the steps below.
 
-1. No portal do Azure, clique em **PROCURAR TUDO** > **Máquinas virtuais (clássico)** > **DNS01** > **Todas as configurações** > **Endereços IP** e observe o endereço IP e a atribuição de endereço IP, conforme mostrado abaixo.
+1. From the Azure Azure portal, click **BROWSE ALL** > **Virtual machines (classic)** > **DNS01** > **All settings** > **IP addresses** and notice the IP address assignment and IP address as seen below.
 
-	![Criar VM no portal do Azure](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
+    ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
 
-## Como remover o endereço IP privado estático de uma VM
-Para remover o endereço IP privado estático da VM criada acima, siga as etapas abaixo.
-	
-1. Na folha **Endereços IP** mostrada acima, clique em **Dinâmico** à direita da **Atribuição de endereço IP**, em seguida, clique em **Salvar**, e, em seguida, clique em **Sim**.
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>How to remove a static private IP address from a VM
+To remove the static private IP address from the VM created above, follow the steps below.
+    
+1. From the **IP addresses** blade shown above, click **Dynamic** to the right of **IP address assignment**, then click **Save**, and then click **Yes**.
 
-	![Criar VM no portal do Azure](./media/virtual-networks-static-ip-classic-pportal/figure07.png)
+    ![Create VM in Azure portal](./media/virtual-networks-static-ip-classic-pportal/figure07.png)
 
-## Como adicionar um endereço IP privado estático a uma VM existente
-Para adicionar um IP privado estático à VM criada usando as etapas acima, execute as etapas abaixo:
+## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>How to add a static private IP address to an existing VM
+To add a static private IP address to the VM created using the steps above, follow the steps below:
 
-1. Na folha **Endereços IP** mostrada acima, clique em **Estático** à direita de **Atribuição de endereço IP**.
-2. Digite *192.168.1.101* para **Endereço IP**, clique em **Salvar** e, em seguida, clique em **Sim**.
+1. From the **IP addresses** blade shown above, click **Static** to the right of **IP address assignment**.
+2. Type *192.168.1.101* for **IP address**, then click **Save**, and then click **Yes**.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Saiba mais sobre endereços [IP públicos reservados](virtual-networks-reserved-public-ip.md).
-- Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](virtual-networks-instance-level-public-ip.md).
-- Consulte as [APIs REST de IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+- Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
+- Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
+- Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

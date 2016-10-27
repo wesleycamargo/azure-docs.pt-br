@@ -1,43 +1,48 @@
 <properties
-	pageTitle="O banco de dados no servidor não está atualmente disponível; conecte-se ao Banco de Dados SQL | Microsoft Azure"
-	description="Erro ";A solução de problemas de banco de dados no servidor não está disponível no momento"; quando um aplicativo se conecta ao Banco de Dados SQL."
-	services="sql-database"
-	documentationCenter=""
-	authors="dalechen"
-	manager="felixwu"
-	editor=""
-	keywords="o banco de dados no servidor não está disponível atualment; conecte-se ao banco de dados sql"/>
+    pageTitle="Database on server is not currently available, connect to SQL Database | Microsoft Azure"
+    description="Troubleshoot the database on server is not currently available error when an application connects to SQL Database."
+    services="sql-database"
+    documentationCenter=""
+    authors="dalechen"
+    manager="felixwu"
+    editor=""
+    keywords="database on server is not currently available, connect to sql database"/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2016"
-	ms.author="daleche"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/21/2016"
+    ms.author="daleche"/>
 
-# Erro "O banco de dados no servidor não está disponível atualmente" ao se conectar a um banco de dados sql
+
+# <a name="error-"database-on-server-is-not-currently-available"-when-connecting-to-sql-database"></a>Error "Database on server is not currently available" when connecting to sql database
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-Quando um aplicativo se conecta a um banco de dados SQL do Azure, a seguinte mensagem de erro é exibida:
+When an application connects to an Azure SQL database, you receive the following error message:
 
 ```
 Error code 40613: "Database <x> on server <y> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <z>"
 ```
 
-> [AZURE.NOTE] Essa mensagem de erro normalmente é transitória (de vida curta).
+> [AZURE.NOTE] This error message is typically transient (short-lived).
 
-Esse erro ocorre quando o banco de dados do Azure está sendo movido (ou reconfigurados) e seu aplicativo perde a conexão com o banco de dados SQL. Eventos de reconfiguração do banco de dados SQL ocorrem devido a um evento planejado (por exemplo, uma atualização de software) ou um evento não planejado (por exemplo, uma falha no processo ou balanceamento de carga). A maioria dos eventos de reconfiguração geralmente é de curta duração e deve ser concluída em, no máximo, de 60 segundos. No entanto, esses eventos ocasionalmente podem levar mais tempo para serem concluídos, como quando uma transação grande causa uma recuperação de execução longa.
+This error occurs when the Azure database is being moved (or reconfigured) and your application loses its connection to the SQL database. SQL database reconfiguration events occurs because of a planned event (for example, a software upgrade) or an unplanned event (for example, a process crash, or load balancing). Most reconfiguration events are generally short-lived and should be completed in less than 60 seconds at most. However, these events can occasionally take longer to finish, such as when a large transaction causes a long-running recovery.
 
-## Etapas para resolver problemas de conectividade temporários
-1.	Confira o [Painel de Serviços do Microsoft Azure](https://azure.microsoft.com/status) quanto a quaisquer interrupções conhecidas que tenham ocorrido durante o tempo em que o erro foi relatado pelo aplicativo.
-2. Aplicativos que se conectam a um serviço de nuvem, como Banco de Dados SQL, devem esperar eventos reconfiguração periódicos e implementar lógica de repetição para lidar com esses erros, em vez de exibir esses erros como erros de aplicativo aos usuários. Confira a seção [Erros transitórios](sql-database-connectivity-issues.md) e práticas recomendadas e diretrizes de design na [Visão geral de desenvolvimento do Banco de Dados SQL](sql-database-develop-overview.md) para saber mais e ver estratégias de repetição gerais. Em seguida, confira os exemplos de código em [Bibliotecas de Conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md) para obter as especificações.
-3.	Conforme um banco de dados se aproxima dos limites de recursos, pode parecer que há um problema de conectividade temporário. Confira [Solução de problemas de desempenho](sql-database-troubleshoot-performance.md).
-4.	Se problemas de conectividade continuarem, se a duração pela qual o aplicativo encontra o erro exceder 60 segundos ou se você vir várias ocorrências do erro em um determinado dia, envie uma solicitação de suporte do Azure selecionando **Obter Suporte** no site de [Suporte do Azure](https://azure.microsoft.com/support/options).
+## <a name="steps-to-resolve-transient-connectivity-issues"></a>Steps to resolve transient connectivity issues
+1.  Check the [Microsoft Azure Service Dashboard](https://azure.microsoft.com/status) for any known outages that occurred during the time during which the errors were reported by the application.
+2. Applications that connect to a cloud service such as Azure SQL Database should expect periodic reconfiguration events and implement retry logic to handle these errors instead of surfacing these as application errors to users. Review the [Transient errors](sql-database-connectivity-issues.md) section and the best practices and design guidelines at [SQL Database Development Overview](sql-database-develop-overview.md) for more information and general retry strategies. Then, see code samples at [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md) for specifics.
+3.  As a database approaches its resource limits, it can seem to be a transient connectivity issue. See [Troubleshooting Performance Issues](sql-database-troubleshoot-performance.md).
+4.  If connectivity problems continue, or if the duration for which your application encounters the error exceeds 60 seconds or if you see multiple occurrences of the error in a given day, file an Azure support request by selecting **Get Support** on the [Azure Support](https://azure.microsoft.com/support/options) site.
 
-## Próximas etapas
-- Se você receber um erro diferente, avalie a [mensagem de erro](sql-database-develop-error-messages.md) para dicas sobre a causa.
-- Se o problema persistir, visite a orientação em [Solucionar problemas comuns de conexão para o Banco de Dados SQL do Azure](sql-database-troubleshoot-common-connection-issues.md).
+## <a name="next-steps"></a>Next steps
+- If you receive a different error, evaluate the [error message](sql-database-develop-error-messages.md) for clues about the cause.
+- If the issue is persistent, visit the guidance in [Troubleshoot common connection issues to Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

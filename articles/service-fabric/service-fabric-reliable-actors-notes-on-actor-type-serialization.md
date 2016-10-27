@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Observações de Reliable Actors sobre a serialização do tipo de ator | Microsoft Azure"
-   description="Discute os requisitos básicos para definir as classes serializáveis que podem ser usadas para estabelecer as interfaces e o estado dos Reliable Actors do Service Fabric"
+   pageTitle="Reliable Actors notes on actor type serialization | Microsoft Azure"
+   description="Discusses basic requirements for defining serializable classes that can be used to define Service Fabric Reliable Actors states and interfaces"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,17 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/06/2015"
+   ms.date="10/19/2016"
    ms.author="vturecek"/>
 
-# Observações sobre a serialização de tipo dos Reliable Actors do Service Fabric
+
+# <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Notes on Service Fabric Reliable Actors type serialization
 
 
-Os argumentos de todos os métodos, os tipos de resultado das tarefas retornados por cada método em uma interface de ator e os objetos armazenados no Gerenciador de Estado de um ator devem ser [serializáveis por Contrato de Dados](https://msdn.microsoft.com/library/ms731923.aspx). Isso também se aplica aos argumentos dos métodos definidos nas [interfaces de evento de ator](service-fabric-reliable-actors-events.md#actor-events). (Os métodos de interface de eventos de ator sempre retornam nulo).
+The arguments of all methods, result types of the tasks returned by each method in an actor interface, and objects stored in an actor's State Manager must be [Data Contract serializable](https://msdn.microsoft.com/library/ms731923.aspx).. This also applies to the arguments of the methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md#actor-events). (Actor event interface methods always return void.)
 
-## Tipos de dados personalizados
+## <a name="custom-data-types"></a>Custom data types
 
-Neste exemplo, a interface de ator a seguir define um método que retorna um tipo de dados personalizado chamado `VoicemailBox`.
+In this example, the following actor interface defines a method that returns a custom data type called `VoicemailBox`.
 
 ```csharp
 public interface IVoiceMailBoxActor : IActor
@@ -32,12 +33,17 @@ public interface IVoiceMailBoxActor : IActor
 }
 ```
 
-A interface é implementada por um ator, que usa o Gerenciador de Estado para armazenar um objeto `VoicemailBox`:
+The interface is impelemented by an actor, which uses the State Manager to store a `VoicemailBox` object:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
 public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
 {
+    public VoiceMailBoxActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task<VoicemailBox> GetMailboxAsync()
     {
         return this.StateManager.GetStateAsync<VoicemailBox>("Mailbox");
@@ -46,11 +52,11 @@ public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
 
 ```
 
-Neste exemplo, o objeto `VoicemailBox` é serializado quando:
- - O objeto é transmitido entre uma instância do ator e um chamador.
- - O objeto é salvo no Gerenciador de Estado, onde é mantido no disco e replicado para outros nós.
+In this example, the `VoicemailBox` object is serialized when:
+ - The object is transmitted between an actor instance and a caller.
+ - The object is saved in the State Manager where it is persisted to disk and replicated to other nodes.
  
-A estrutura Reliable Actor usa a serialização DataContract. Portanto, os objetos de dados personalizados e seus membros devem ser anotados com os atributos **DataContract** e **DataMember**, respectivamente
+The Reliable Actor framework uses DataContract serialization. Therefore, the custom data objects and their members must be annotated with the **DataContract** and **DataMember** attributes, respectively
 
 ```csharp
 [DataContract]
@@ -84,12 +90,16 @@ public class VoicemailBox
 }
 ```
 
-## Próximas etapas
- - [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
- - [Lembretes e temporizadores de ator](service-fabric-reliable-actors-timers-reminders.md)
- - [Eventos de ator](service-fabric-reliable-actors-events.md)
- - [Reentrância de ator](service-fabric-reliable-actors-reentrancy.md)
- - [Polimorfismo de ator e padrões de design orientado a objeto](service-fabric-reliable-actors-polymorphism.md)
- - [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
+## <a name="next-steps"></a>Next steps
+ - [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
+ - [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
+ - [Actor events](service-fabric-reliable-actors-events.md)
+ - [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
+ - [Actor polymorphism and object-oriented design patterns](service-fabric-reliable-actors-polymorphism.md)
+ - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Gerenciar seus modelos de largura de banda do StorSimple | Microsoft Azure"
-   description="Descreve como gerenciar modelos de largura do StorSimple, que permitem controlar o consumo da largura de banda."
+   pageTitle="Manage your StorSimple bandwidth templates | Microsoft Azure"
+   description="Describes how to manage StorSimple bandwidth templates, which allow you to control bandwidth consumption."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,161 +15,166 @@
    ms.date="08/16/2016"
    ms.author="alkohli" />
 
-# Usar o serviço StorSimple Manager para gerenciar modelos de largura de banda do StorSimple
 
-## Visão geral
+# <a name="use-the-storsimple-manager-service-to-manage-storsimple-bandwidth-templates"></a>Use the StorSimple Manager service to manage StorSimple bandwidth templates
 
-Os modelos de largura de banda permitem configurar a largura de banda de rede em várias agendas do dia para dispor os dados do dispositivo StorSimple em camadas na nuvem.
+## <a name="overview"></a>Overview
 
-Com agendas de limitação da largura de banda, você pode:
+Bandwidth templates allow you to configure network bandwidth usage across multiple time-of-day schedules to tier the data from the StorSimple device to the cloud.
 
-- Especifica as agendas de largura de banda personalizadas dependendo dos usos da rede de carga de trabalho.
+With bandwidth throttling schedules you can:
 
-- Centralizar o gerenciamento e reutilizar as agendas em vários dispositivos de uma maneira fácil e direta.
+- Specify customized bandwidth schedules depending on the workload network usages.
 
-> [AZURE.NOTE] Esse recurso está disponível somente para dispositivos físicos do StorSimple, e não para dispositivos virtuais.
+- Centralize management and reuse the schedules across multiple devices in an easy and seamless manner.
 
-Todos os modelos de largura de banda para seu serviço são exibidos em um formato de tabela e contêm as seguintes informações:
+> [AZURE.NOTE] This feature is available only for StorSimple physical devices and not for virtual devices.
 
-- **Nome**: um nome exclusivo atribuído ao modelo de largura de banda quando ele foi criado.
+All the bandwidth templates for your service are displayed in a tabular format, and contain the following information:
 
-- **Agenda**: o número de agendas contidas em um determinado modelo de largura de banda.
+- **Name** – A unique name assigned to the bandwidth template when it was created.
 
-- **Usado por**: o número de volumes usando os modelos de largura de banda.
+- **Schedule** – The number of schedules contained in a given bandwidth template.
 
-Use a página **Configurar** do serviço StorSimple Manager no Portal clássico do Azure para gerenciar modelos de largura de banda.
+- **Used by** – The number of volumes using the bandwidth templates.
 
-Você também pode encontrar informações adicionais que ajudam a configurar modelos de largura de banda em:
+You use the StorSimple Manager service **Configure** page in the Azure classic portal to manage bandwidth templates.
 
-- Perguntas e respostas sobre modelos de largura de banda
-- Práticas recomendadas para modelos de largura de banda
+You can also find additional information to help configure bandwidth templates in:
 
-## Adicionar um modelo de largura de banda
+- Questions and answers about bandwidth templates
+- Best practices for bandwidth templates
 
-Execute as etapas a seguir para criar um novo modelo de largura de banda.
+## <a name="add-a-bandwidth-template"></a>Add a bandwidth template
 
-#### Para adicionar um modelo de largura de banda
+Perform the following steps to create a new bandwidth template.
 
-1. Na página **Configurar** do serviço StorSimple Manager, clique em **adicionar/editar modelo de largura de banda**.
+#### <a name="to-add-a-bandwidth-template"></a>To add a bandwidth template
 
-2. Na caixa de diálogo **Adicionar/Editar Modelo de Largura de Banda**:
+1. On the StorSimple Manager service **Configure** page, click **add/edit bandwidth template**.
 
-   1. Na lista suspensa **Modelo**, selecione **Criar novo** para adicionar um novo modelo de largura de banda.
-   2. Especifique um nome exclusivo para o modelo de largura de banda.
+2. In the **Add/Edit Bandwidth Template** dialog box:
 
-3. Defina uma **Agenda de Largura de Banda**. Para criar uma agenda:
+   1. From the **Template** drop-down list, select **Create new** to add a new bandwidth template.
+   2. Specify a unique name for your bandwidth template.
 
-   1. Na lista suspensa, escolha os dias da semana para os quais a agenda é configurada. Você pode selecionar vários dias marcando as caixas de seleção localizadas antes dos respectivos dias na lista.
-   2. Selecione a opção **Dia Inteiro** se a agenda for imposta para o dia inteiro. Quando essa opção é marcada, você não pode especificar uma **Hora de Início** ou uma **Hora de Término**. A agenda é válida das 0:00 às 23:59.
-   3. Na lista suspensa, selecione uma **Hora de Início**. Essa é a hora em que a agenda será iniciada.
-   4. Na lista suspensa, selecione uma **Hora de Término**. Essa é a hora em que a agenda será encerrada.
+3. Define a **Bandwidth Schedule**. To create a schedule:
 
-         > [AZURE.NOTE] Os agendamentos sobrepostos não são permitidos. Se as horas de início e término resultarem em um agendamento sobreposto, você verá uma mensagem de erro sobre isso.
+   1. From the drop-down list, choose the days of the week the schedule is configured for. You can select multiple days by selecting the check boxes located before the respective days in the list.
+   2. Select the **All Day** option if the schedule is enforced for the entire day. When this option is checked, you can no longer specify a **Start Time** or an **End Time**. The schedule runs from 12:00 AM to 11:59 PM.
+   3. From the drop-down list, select a **Start Time**. This is when the schedule will begin.
+   4. From the drop-down list, select an **End Time**. This is when the schedule will stop.
 
-   5. Especifique a **Taxa da Largura de Banda**. Essa é a largura de banda em Megabits por segundo (Mbps) usada pelo dispositivo StorSimple em operações que envolvem a nuvem (uploads e downloads). Forneça um número entre 1 e 1.000 para esse campo.
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
-   6. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). O modelo que você criou será adicionado à lista de modelos de largura de banda na página **Configurar** do serviço.
+   5. Specify the **Bandwidth Rate**. This is the bandwidth in Megabits per second (Mbps) used by your StorSimple device in operations involving the cloud (both uploads and downloads). Supply a number between 1 and 1,000 for this field.
 
-    ![Criar novo modelo de largura de banda](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
+   6. Click the check icon ![Check icon](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). The template that you have created will be added to the list of bandwidth templates on the service **Configure** page.
 
-4. Clique em **Salvar** na parte inferior da página e em **Sim** quando solicitada a confirmação. Isso salvará as alterações de configuração que você fez.
+    ![Create new bandwidth template](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
 
-## Editar um modelo de largura de banda
+4. Click **Save** at the bottom of the page and then click **Yes** when prompted for confirmation. This will save the configuration changes that you have made.
 
-Execute as etapas a seguir para editar um modelo de largura de banda.
+## <a name="edit-a-bandwidth-template"></a>Edit a bandwidth template
 
-### Para editar um modelo de largura de banda
+Perform the following steps to edit a bandwidth template.
 
-1. Clique em **adicionar/editar modelo de largura de banda**.
+### <a name="to-edit-a-bandwidth-template"></a>To edit a bandwidth template
 
-2. Na caixa de diálogo **Adicionar/Editar Modelo de Largura de Banda**:
+1. Click **add/edit bandwidth template**.
 
-   1. Na lista suspensa **Modelo**, escolha um modelo de largura de banda existente que deseja modificar.
-   2. Conclua as alterações. (Você pode modificar qualquer uma das configurações existentes.)
-   3. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). Você verá o modelo modificado na lista de modelos de largura de banda na página Configurar do serviço.
+2. In the **Add/Edit Bandwidth Template** dialog box:
 
-3. Para salvar as alterações, clique em **Salvar** na parte inferior da página. Clique em **Sim** quando for solicitada a confirmação.
+   1. From the **Template** drop-down list, choose an existing bandwidth template that you want to modify.
+   2. Complete your changes. (You can modify any of the existing settings.)
+   3. Click the check icon ![Check icon](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). You will see the modified template in the list of bandwidth templates on the service Configure page.
 
-> [AZURE.NOTE] Você não poderá salvar as alterações se a agenda editada sobrepuser uma agenda existente no modelo de largura de banda que você está modificando.
+3. To save your changes, click **Save** at the bottom of the page. Click **Yes** when prompted for confirmation.
 
-## Excluir um modelo de largura de banda
+> [AZURE.NOTE] You will not be allowed to save your changes if the edited schedule overlaps with an existing schedule in the bandwidth template that you are modifying.
 
-Execute as etapas a seguir para excluir um modelo de largura de banda.
+## <a name="delete-a-bandwidth-template"></a>Delete a bandwidth template
 
-#### Para excluir um modelo de largura de banda
+Perform the following steps to delete a bandwidth template.
 
-1. Na lista de tabela dos modelos de largura de banda para seu serviço, selecione o modelo que deseja excluir. Um ícone de exclusão (**x**) aparecerá à extrema direita do modelo selecionado. Clique no ícone **x** para excluir o modelo.
+#### <a name="to-delete-a-bandwidth-template"></a>To delete a bandwidth template
 
-2. Será solicitada a sua confirmação. Clique em **OK** para continuar.
+1. In the tabular list of the bandwidth templates for your service, select the template that you wish to delete. A delete icon (**x**) will appear to the extreme right of the selected template. Click the **x** icon to delete the template.
 
-Se o modelo estiver sendo usado por algum volume, você não poderá excluí-lo. Você verá uma mensagem de erro indicando que o modelo está em uso. Uma caixa de diálogo de mensagem de erro será exibida avisando que todas as referências ao modelo devem ser removidas.
+2. You will be prompted for confirmation. Click **OK** to proceed.
 
-É possível excluir todas as referências ao modelo acessando a página **Contêineres de Volume** e modificando os contêineres de volume que usam esse modelo para que eles usem outro modelo ou usem uma configuração de largura de banda personalizada ou ilimitada. Quando todas as referências forem removidas, você poderá excluir o modelo.
+If the template is in use by any volume(s), you will not be allowed to delete it. You will see an error message indicating that the template is in use. An error message dialog box will appear advising you that all the references to the template should be removed.
 
-## Usar um modelo de largura de banda padrão
+You can delete all the references to the template by accessing the **Volume Containers** page and modifying the volume containers that use this template so that they use another template or use a custom or unlimited bandwidth setting. When all the references have been removed, you can delete the template.
 
-Um modelo de largura de banda padrão é fornecido e usado pelos contêineres de volume, por padrão, para impor controles de largura de banda durante o acesso à nuvem. O modelo padrão também serve como uma referência pronta para os usuários que criam seus próprios modelos. Os detalhes desse modelo padrão são:
+## <a name="use-a-default-bandwidth-template"></a>Use a default bandwidth template
 
-- **Nome**: noites e fins de semana ilimitados
+A default bandwidth template is provided and is used by volume containers by default to enforce bandwidth controls when accessing the cloud. The default template also serves as a ready reference for users who create their own templates. The details of this default template are:
 
-- **Agenda**: uma única agenda de segunda-feira a sexta-feira que se aplica a uma taxa de largura de banda de 1 Mbps no horário das 8:00 às 17:00 do dispositivo. A largura de banda é definida como Ilimitada para o restante da semana.
+- **Name** – Unlimited nights and weekends
 
-O modelo padrão pode ser editado. O uso desse modelo (incluindo versões editadas) é rastreado.
+- **Schedule** – A single schedule from Monday to Friday that applies a bandwidth rate of 1 Mbps between 8 AM and 5 PM device time. The bandwidth is set to Unlimited for the remainder of the week.
 
-## Criar um modelo de largura de banda de dia inteiro que comece em uma hora especificada
+The default template can be edited. The usage of this template (including edited versions) is tracked.
 
-Siga este procedimento para criar uma agenda que comece em uma hora especificada e seja executada o dia todo. No exemplo, a agenda inicia às 9:00 e é executada até às 9:00 do dia seguinte. É importante observar que as horas de início e término de uma determinada agenda devem estar contidas na mesma agenda de 24 horas e não podem abranger vários dias. Se precisar configurar modelos de largura de banda que se estendam por vários dias, você precisará usar várias agendas (conforme mostrado no exemplo).
+## <a name="create-an-all-day-bandwidth-template-that-starts-at-a-specified-time"></a>Create an all-day bandwidth template that starts at a specified time
 
-#### Para criar um modelo de largura de banda de dia inteiro
+Follow this procedure to create a schedule that starts at a specified time and runs all day. In the example, the schedule starts at 9 AM in the morning and runs until 9 AM the next morning. It's important to note that the start and end times for a given schedule must both be contained on the same 24 hour schedule and cannot span multiple days. If you need to set up bandwidth templates that span multiple days, you will need to use multiple schedules (as shown in the example).
 
-1. Crie uma agenda que inicie às 9:00 e seja executada até a meia-noite.
+#### <a name="to-create-an-all-day-bandwidth-template"></a>To create an all-day bandwidth template
 
-2. Adicione outra agenda. Configure a segunda agenda para execução da meia-noite até às 9:00.
+1. Create a schedule that starts at 9 AM in the morning and runs until midnight.
 
-3. Salve o modelo de largura de banda.
+2. Add another schedule. Configure the second schedule to run from midnight until 9 AM in the morning.
 
-A agenda composta terá início na hora de sua escolha e será executa o dia todo.
+3. Save the bandwidth template.
 
-## Perguntas e respostas sobre modelos de largura de banda
+The composite schedule will then start at a time of your choosing and run all-day.
 
-**P**. O que acontece aos controles de largura de banda quando você está entre as agendas? (Uma agenda foi encerrada e outra ainda não foi iniciada.)
+## <a name="questions-and-answers-about-bandwidth-templates"></a>Questions and answers about bandwidth templates
 
-**R**. Nesses casos, nenhum controle de largura de banda será utilizado. Isso significa que o dispositivo pode usar a largura de banda ilimitada ao dispor dados em camadas na nuvem.
+**Q**. What happens to bandwidth controls when you are in between the schedules? (A schedule has ended and another one has not started yet.)
 
-**P**. Você pode modificar os modelos de largura de banda em um dispositivo offline?
+**A**. In such cases, no bandwidth controls will be employed. This means that the device can use unlimited bandwidth when tiering data to the cloud.
 
-**R**. Você não poderá modificar os modelos de largura de banda em contêineres de volumes se o dispositivo correspondente estiver offline.
+**Q**. Can you modify bandwidth templates on an offline device?
 
-**P**. Você pode editar um modelo de largura de banda associado a um contêiner de volume quando os volumes associados estão offline?
+**A**. You will not be able to modify bandwidth templates on volumes containers if the corresponding device is offline.
 
-**R**. Você pode modificar um modelo de largura de banda associado a um contêiner de volume cujos volumes estejam offline. Observe que quando os volumes estiverem offline, nenhum dado será disposto em camadas do dispositivo para a nuvem.
+**Q**. Can you edit a bandwidth template associated with a volume container when the associated volumes are offline?
 
-**P**. Você pode excluir um modelo padrão?
+**A**. You can modify a bandwidth template associated with a volume container whose volumes are offline. Note that when volumes are offline, no data will be tiered from the device to the cloud.
 
-**R**. Embora você possa excluir um modelo padrão, não é uma boa ideia fazer isso. O uso de um modelo padrão, incluindo versões editadas, é rastreado. Os dados de rastreamento são analisados e, ao longo do tempo, são usados para melhorar o modelo padrão.
+**Q**. Can you delete a default template?
 
-**P**. Como determinar se seus modelos de largura de banda precisam ser modificados?
+**A**. Although you can delete a default template, it is not a good idea to do so. The usage of a default template, including edited versions, is tracked. The tracking data is analyzed and over the course of time, is used to improve the default template.
 
-**R**. Um dos sinais que indicam que é preciso modificar os modelos de largura de banda é quando você começa a perceber a lentidão da rede ou reduções várias vezes no dia. Se isso acontecer, monitore a rede de armazenamento e uso examinando os gráficos do desempenho de E/S e da taxa de transferência de rede.
+**Q**. How do you determine that your bandwidth templates need to be modified?
 
-Com os dados de taxa de transferência da rede, identifique a hora do dia e os contêineres de volume em que ocorre o afunilamento da rede. Se isso ocorre quando dados estão sendo dispostos em camada na nuvem (obtenha essa informação do desempenho de E/S de todos os contêineres de volume do dispositivo para nuvem), você precisará modificar os modelos de largura de banda associados aos seus contêineres de volume.
+**A**. One of the signs that you need to modify the bandwidth templates is when you start seeing the network slow down or choke multiple times in a day. If this happens, monitor the storage and usage network by looking at the I/O Performance and Network Throughput charts.
 
-Depois que os modelos modificados estiverem em uso, você precisara monitorar a rede novamente em busca de latências significativas. Se elas ainda existirem, você precisará rever seus modelos de largura de banda.
+From the network throughput data, identify the time of day and the volume containers in which the network bottleneck occurs. If this happens when data is being tiered to the cloud (get this information from I/O performance for all volume containers for device to cloud), then you will need to modify the bandwidth templates associated with your volume containers.
 
-**P**. O que acontece se vários contêineres de volume em meu dispositivo tiverem agendas que se sobrepõem, mas diferentes limites se aplicarem a cada uma?
+After the modified templates are in use, you will need to monitor the network again for significant latencies. If these still exist, then you will need to revisit your bandwidth templates.
 
-**R**. Vamos supor que você tenha um dispositivo com 3 contêineres de volume. As agendas associadas a esses contêineres se sobrepõem completamente. Para cada um desses contêineres, os limites de largura de banda usados são 5, 10 e 15 Mbps, respectivamente. Quando a E/S estiver ocorrendo em todos esses contêineres ao mesmo tempo, o mínimo dos 3 limites de largura de banda poderá ser aplicado: nesse caso, 5 Mbps, pois essas solicitações de E/S de saída compartilham a mesma fila.
+**Q**. What happens if multiple volume containers on my device have schedules that overlap but different limits apply to each?
 
-## Práticas recomendadas para modelos de largura de banda
+**A**. Let's assume that you have a device with 3 volume containers. The schedules associated with these containers completely overlap. For each of these containers, the bandwidth limits used are 5, 10, and 15 Mbps respectively. When I/Os are occurring on all of these containers at the same time, the minimum of the 3 bandwidth limits may be applied: in this case, 5 Mbps as these outgoing I/O requests share the same queue.
 
-Siga estas práticas recomendadas para seu dispositivo StorSimple:
+## <a name="best-practices-for-bandwidth-templates"></a>Best practices for bandwidth templates
 
-- Configure modelos de largura de banda em seu dispositivo para habilitar a limitação variável da taxa de transferência da rede pelo dispositivo em diferentes horas do dia. Esses modelos de largura de banda quando usados com agendas de backup podem aproveitar eficientemente largura de banda de rede adicionais para operações de nuvem fora dos horários de pico.
+Follow these best practices for your StorSimple device:
 
-- Calcule a largura de banda real necessária para uma implantação específica com base no tamanho da implantação e no RTO (objetivo de tempo de recuperação) necessário.
+- Configure bandwidth templates on your device to enable variable throttling of the network throughput by the device at different times of the day. These bandwidth templates when used with backup schedules can effectively leverage additional network bandwidth for cloud operations during off-peak hours.
 
-## Próximas etapas
+- Calculate the actual bandwidth required for a particular deployment based on the size of the deployment and the required recovery time objective (RTO).
 
-Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0824_2016-->
+Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

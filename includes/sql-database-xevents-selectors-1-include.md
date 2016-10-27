@@ -1,6 +1,10 @@
 > [AZURE.SELECTOR]
-- [Visão geral](sql-database-xevent-db-diff-from-svr.md)
-- [Buffer em anel](sql-database-xevent-code-ring-buffer.md)
-- [Arquivo do evento](sql-database-xevent-code-event-file.md)
+- [Overview](sql-database-xevent-db-diff-from-svr.md)
+- [Ring Buffer](sql-database-xevent-code-ring-buffer.md)
+- [Event File](sql-database-xevent-code-event-file.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

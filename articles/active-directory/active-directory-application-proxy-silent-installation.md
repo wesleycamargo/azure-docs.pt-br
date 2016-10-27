@@ -1,64 +1,65 @@
 <properties
-	pageTitle="Como instalar silenciosamente o Conector de Proxy de Aplicativo do Azure AD | Microsoft Azure"
-	description="Aborda como realizar a instalação silenciosa do Conector de proxy de Aplicativo do Azure AD para fornecer acesso remoto seguro aos seus aplicativos locais."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+    pageTitle="How to silently install the Azure AD Application Proxy Connector | Microsoft Azure"
+    description="Covers how to perform a silent installation of Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps."
+    services="active-directory"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/22/2016"
-	ms.author="kgremban"/>
-
-# Como instalar silenciosamente o Conector de proxy de aplicativo do Azure AD
-
-Você deseja conseguir enviar um script de instalação para vários servidores do Windows ou para os servidores do Windows que não têm uma interface de usuário ativada. Este tópico explica como criar um script do Windows PowerShell que permite a instalação autônoma e instala e registra o Conector de Proxy de Aplicativo do Azure AD.
-
-## Como habilitar o acesso
-O Proxy de Aplicativo funciona por meio da instalação de um serviço leve do Windows Server chamado Conector dentro de sua rede. Para o Conector do proxy de aplicativo funcionar, ele deve ser registrado com o diretório do Azure AD usando uma senha e um administrador global. Normalmente, isso é inserido durante a instalação do Conector em uma caixa de diálogo pop-up. Você pode, ainda, usar o Windows PowerShell para criar um objeto de credencial para inserir suas informações de registro ou pode criar seu próprio token e usá-lo para inserir suas informações de registro.
-
-## Etapa 1: Instalar o Conector sem registro
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/22/2016"
+    ms.author="kgremban"/>
 
 
-Instale o MSIs do Conector sem registrar o Conector, da seguinte maneira:
+# <a name="how-to-silently-install-the-azure-ad-application-proxy-connector"></a>How to silently install the Azure AD Application Proxy Connector
+
+You want to be able to send an installation script to multiple Windows servers or to Windows Servers that don't have user interface enabled. This topic explains how to create a Windows PowerShell script that enables unattended installation to install and register your Azure AD Application Proxy Connector.
+
+## <a name="enabling-access"></a>Enabling Access
+Application Proxy works by installing a slim Windows Server service called the Connector inside your network. For the Application Proxy Connector to work it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this is entered during Connector installation in a pop up dialog box. Alternatively, you can use Windows PowerShell to create a credential object to enter your registration information, or you can create your own token and use it to enter your registration information.
+
+## <a name="step-1:-install-the-connector-without-registration"></a>Step 1:  Install the Connector without registration
 
 
-1. Abra um prompt de comando.
-2. Execute o seguinte comando no qual /q significa instalação silenciosa - a instalação não solicitará que você aceite o Contrato de Licença de Usuário Final.
+Install the Connector MSIs without registering the Connector as follows:
+
+
+1. Open a command prompt.
+2. Run the following command in which the /q means quiet installation - the installation will not prompt you to accept the End User License Agreement.
 
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
-## Etapa 2: Registre o Conector com o Active Directory do Azure
-Isso pode ser feito usando um dos métodos a seguir:
+## <a name="step-2:-register-the-connector-with-azure-active-directory"></a>Step 2: Register the Connector with Azure Active Directory
+This can be accomplished using either of the following methods:
 
 
-- Registrar o Conector usando um objeto de credencial do Windows PowerShell
-- Registre o Conector usando um token criado offline
+- Register the Connector using a Windows PowerShell credential object
+- Register the Connector using a token created offline
 
-### Registrar o Conector usando um objeto de credencial do Windows PowerShell
+### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Register the Connector using a Windows PowerShell credential object
 
 
-1. Crie o objeto de credencial do Windows PowerShell executando o seguinte, em que “<username>” e “<password>” devem ser substituídos pelo nome de usuário e senha para seu diretório:
+1. Create the Windows PowerShell Credentials object by running the following, where "<username>" and "<password>" should be replaced with the username and password for your directory:
 
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
 
-2. Vá para **C:\\Arquivos de Programa\\Microsoft AAD App Proxy Connector** e execute o script usando o objeto de credenciais do PowerShell criado: em que $cred é o nome do objeto de credenciais do PowerShell criado:
+2. Go to **C:\Program Files\Microsoft AAD App Proxy Connector** and run the script using the PowerShell credentials object you created, where $cred is the name of the PowerShell credentials object you created:
 
-        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
 
-### Registre o Conector usando um token criado offline
+### <a name="register-the-connector-using-a-token-created-offline"></a>Register the Connector using a token created offline
 
-1. Crie um token offline usando a classe AuthenticationContext, com os valores no trecho de código:
+1. Create an offline token using the AuthenticationContext class using the values in the code snippet:
 
 
         using System;
@@ -118,18 +119,24 @@ Isso pode ser feito usando um dos métodos a seguir:
 
 
 
-2. Quando tiver o token, crie uma SecureString usando o token: <br> `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
-3. Execute o seguinte comando do Windows PowerShell, onde SecureToken é o nome do token criado acima e tenantID é o GUID do seu locatário: <br> `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
+2. Once you have the token create a SecureString using the token: <br>
+`$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
+3. Run the following Windows PowerShell command, where SecureToken is the name of the token you created above and tenantID is your tenant's GUID: <br>
+`RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
 
 
 
-## Consulte também
+## <a name="see-also"></a>See also
 
-- [Habilitar o Proxy de Aplicativo para o Azure Active Directory](active-directory-application-proxy-enable.md)
-- [Publicar aplicativos usando seu próprio nome de domínio](active-directory-application-proxy-custom-domains.md)
-- [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
-- [Solucionar problemas que surgirem com o Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)
+- [Enable Application Proxy for Azure Active Directory](active-directory-application-proxy-enable.md)
+- [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
+- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
+- [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
 
-Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
+For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

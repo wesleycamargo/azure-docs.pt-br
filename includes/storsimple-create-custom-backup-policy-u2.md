@@ -1,32 +1,37 @@
 <!--author=SharS last changed: 11/04/15-->
 
 
-#### Para criar uma política de backup personalizada
+#### <a name="to-create-a-custom-backup-policy"></a>To create a custom backup policy
 
-1. Na página **Dispositivos**, clique em **Políticas de Backup** e, em seguida, clique em **Adicionar**.
+1. On the **Devices** page, click **Backup Policies** and then click **Add**.
 
-2. Na caixa de diálogo **Adicionar uma política de backup**, em **Definir sua política de backup**:
+2. In the **Add a backup policy** dialog box, under **Define your backup policy**:
 
-    1. Especifique o nome da política de backup.
+    1. Specify a backup policy name.
 
-    2. Selecione os volumes a serem adicionados a essa política. Você pode optar por adicionar vários volumes, marcando várias caixas de seleção.
+    2. Select the volumes to be added to this policy. You can choose to add multiple volumes by selecting multiple check boxes.
 
-    3. Clique no ícone de seta. ![ícone de verificação](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png)
+    3. Click the arrow icon ![check icon](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
 
-6. Na página **Definir uma Agenda**:
+6. Under **Define a Schedule**:
 
-    1. Selecione o **Tipo de backup** (**Instantâneo Local** ou **Instantâneo na Nuvem**).
+    1. Select the **Type of backup** (**Local Snapshot** or **Cloud Snapshot**).
 
-    3. Especifique a frequência de backup em minutos, em horas, em dias ou em semanas.
+    3. Specify the backup frequency in minutes, hours, days, or weeks.
 
-    4. Selecione um agendamento de retenção na lista suspensa. As opções de retenção dependem da frequência do backup.
+    4. Select a retention schedule from the drop-down list. The retention choices depend on the backup frequency. 
  
-    5. Selecione a hora e a data de início da política.
+    5. Select the starting time and date for the policy.
 
-    6. Marque a caixa de seleção para habilitar a política.
+    6. Select the check box to enable the policy.
 
-7. Clique no ícone de seleção ![ícone de verificação](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) para concluir.
+7. Click the check icon ![check icon](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) to finish.
 
-8. Você retornará à página **Políticas de Backup**. A listagem tabular de políticas de backup será atualizada para exibir a política personalizada.
+8. You will return to the **Backup Policies** page. The tabular listing of the backup policies will be updated to display the custom policy.
+
+
+
+
+<!--HONumber=Oct16_HO2-->
 
 

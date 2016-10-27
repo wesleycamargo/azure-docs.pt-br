@@ -1,9 +1,12 @@
-As tarefas a seguir serão feitas nesse cenário:
+The following tasks will be done in this scenario:
 
-* Criar um balanceador de carga que recebe o tráfego de rede na porta 80 e enviar o tráfego com balanceamento de carga para as máquinas virtuais "web1" e "web2"
-* Criar regras NAT para acesso via área de trabalho remota/SSH às máquinas virtuais por trás do balanceador de carga
-* Criar investigações de integridade
+* Create a load balancer that receives network traffic on port 80 and send load-balanced traffic to virtual machines "web1" and "web2"
+* Create NAT rules for remote desktop access/SSH for virtual machines behind the load balancer
+* Create health probes
 
-![Cenário com o balanceador de carga](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
+![Load balancer scenario](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

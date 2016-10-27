@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Criar uma rede virtual usando a CLI do Azure | Microsoft Azure"
-   description="Saiba como criar uma rede virtual usando a CLI do Azure no ARM | Gerenciador de Recursos."
+   pageTitle="Create a virtual network using Azure CLI | Microsoft Azure"
+   description="Learn how to create a virtual network using Azure CLI in ARM | Resource Manager."
    services="virtual-network"
    documentationCenter=""
    authors="jimdial"
@@ -17,16 +17,20 @@
    ms.date="03/15/2016"
    ms.author="jdial"/>
 
-# Para criar uma rede virtual usando a CLI do Azure
+
+# <a name="create-a-virtual-network-by-using-the-azure-cli"></a>Create a virtual network by using the Azure CLI
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este documento aborda a criação de uma Rede Virtual usando o modelo de implantação do Gerenciador de Recursos. Você também pode [criar uma rede virtual no modelo de implantação clássica usando a CLI do Azure](virtual-networks-create-vnet-classic-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This document covers creating a VNet by using the Resource Manager deployment model. You can also [create a virtual network in the classic deployment model by using the Azure CLI](virtual-networks-create-vnet-classic-cli.md).
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-cli-include](../../includes/virtual-networks-create-vnet-arm-cli-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

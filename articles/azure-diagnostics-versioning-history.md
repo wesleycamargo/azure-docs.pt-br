@@ -1,93 +1,98 @@
 <properties
-	pageTitle="Histórico de versão do Diagnóstico do Azure"
-	description="Explicação das alterações nas diferentes versões do diagnóstico do Azure, conforme fornecido com diferentes versões de SDKs do Microsoft Azure."
-	services="multiple"
-	documentationCenter=".net"
-	authors="rboucher"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Azure Diagnostics Version History"
+    description="Explanation of changes in the different versions of Azure diagnostics as shipped with different Microsoft Azure SDKs versions."
+    services="multiple"
+    documentationCenter=".net"
+    authors="rboucher"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="02/12/2016"
-	ms.author="robb"/>
-
-
-# Histórico de versão do Diagnóstico do Microsoft Azure
-
-Ainda não conhece o Diagnóstico do Azure? Confira [Visão geral do Diagnóstico do Azure](azure-diagnostics.md).
-
-Normalmente, cada versão do SDK do Azure é fornecida com uma nova versão do Diagnóstico do Azure. A tabela abaixo descreve as versões do SDK do Azure e Diagnóstico do Azure associadas à versão do SDK.
+    ms.service="multiple"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="02/12/2016"
+    ms.author="robb"/>
 
 
 
-Versão do SDK do Azure | Versão do Diagnóstico do Azure | Modelo
+# <a name="microsoft-azure-diagnostics-version-history"></a>Microsoft Azure Diagnostics Version History
+
+New to Azure Diagnostics? See [Azure Diagnostics Overview](azure-diagnostics.md).
+
+Each version of Azure SDK typically ships with a new version of Azure Diagnostics. The table below describes the Azure SDK and Azure Diagnostics versions associated with the SDK release.
+
+
+
+Azure SDK version | Azure Diagnostics version | Model
 --- | --- | ---
-1\.x | 1\.0 | plug-in
-2\.0 para 2.4| 1\.0 | "
-2\.5 | 1\.2 | extensão
-2\.6 | 1,3 | "
-2\.7 | 1\.4 | "
-2\.8 | 1\.5 | "
+1.x      | 1.0 | plug-in
+2.0 to 2.4| 1.0 | "
+2.5      | 1.2 | extension
+2.6      | 1.3 | "
+2.7      | 1.4 | "
+2.8      | 1.5 | "
 
 
-A versão mais recente é 1.5, que é fornecida com o SDK 2.8 do Azure. A versão da extensão do Diagnóstico do Azure que é fornecida com o SDK é usada somente para cenários de emulador local. Qualquer aplicativo implantado usa automaticamente a versão mais recente quando executado no Azure, independentemente de qual versão do SDK é utilizada para compilar o aplicativo. No entanto, a menos que o SDK mais recente do Azure seja instalado, talvez você não tenha todas as ferramentas que o ajudam a utilizar os novos recursos.
+The latest version is 1.5, which shipped with Azure SDK 2.8. The version of Azure Diagnostics extension that ships with the SDK is only used for local emulator scenarios. Any deployed application automatically uses the latest version when running in Azure, irrespective of which version of the SDK the application is built with. However, unless you install the latest Azure SDK, you may not have all the tools that help you utilize the new features.
 
-Vários recursos e alterações descritas abaixo.
+Various features and changes described below.
 
-## SDK 2.8 do Azure
-O SDK 2.8 do Azure adicionou a capacidade de enviar dados de diagnósticos para o [Application Insights](./application-insights/app-insights-cloudservices.md), facilitando o diagnóstico de problemas em seu aplicativo, bem como no nível do sistema e da infraestrutura.
+## <a name="azure-sdk-2.8"></a>Azure SDK 2.8
+Azure SDK 2.8 added the ability to send diagnostics data to [Application Insights](./application-insights/app-insights-cloudservices.md) making it easier to diagnose issues across your application as well as the system and infrastructure level.
 
-## Alterações de diagnóstico do Azure 2.6
+## <a name="azure-2.6-diagnostics-changes"></a>Azure 2.6 diagnostics changes
 
-Para projetos do Serviço de Nuvem do SDK 2.6 do Azure no Visual Studio, as seguintes alterações foram feitas. (Essas alterações também se aplicam a versões mais recentes do SDK do Azure).
+For Azure SDK 2.6 Cloud Service projects in Visual Studio, the following changes were made. (These changes also apply to later versions of Azure SDK.)
 
-- O emulador local agora dá suporte a diagnósticos. Isso significa que você pode coletar dados de diagnóstico e garantir que seu aplicativo está criando os rastreamentos corretos enquanto está desenvolvendo e testando no Visual Studio. A cadeia de conexão `UseDevelopmentStorage=true` habilita a coleta de dados de diagnóstico durante a execução do seu projeto de serviço de nuvem no Visual Studio usando o emulador de armazenamento do Azure. Todos os dados de diagnóstico são coletados na conta de armazenamento (armazenamento de desenvolvimento).
+- The local emulator now supports diagnostics. This means you can collect diagnostics data and ensure your application is creating the right traces while you're developing and testing in Visual Studio. The connection string `UseDevelopmentStorage=true` enables diagnostics data collection while you're running your cloud service project in Visual Studio by using the Azure storage emulator. All diagnostics data is collected in the (Development Storage) storage account.
 
-- A cadeia de conexão da conta de armazenamento de diagnóstico (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) é armazenada novamente no arquivo de configuração de serviço (.cscfg). No SDK do Azure 2.5, a conta de armazenamento de diagnóstico foi especificada no arquivo diagnostics.wadcfgx.
+- The diagnostics storage account connection string (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) is stored once again in the service configuration (.cscfg) file. In Azure SDK 2.5 the diagnostics storage account was specified in the diagnostics.wadcfgx file.
 
-Há algumas diferenças perceptíveis entre como a cadeia de conexão funcionava no SDK do Azure 2.4 e anteriores e como funciona no SDK do Azure 2.6 e posteriores.
+There are some notable differences between how the connection string worked in Azure SDK 2.4 and earlier and how it works in Azure SDK 2.6 and later.
 
-- No SDK do Azure 2.4 e anteriores, a cadeia de conexão era usada como um tempo de execução pelo plug-in de diagnóstico para obter as informações de conta de armazenamento para transferir os logs de diagnóstico.
+- In Azure SDK 2.4 and earlier, the connection string was used as a runtime by the diagnostics plugin to get the storage account information for transferring diagnostics logs.
 
-- No SDK do Azure 2.6 e posteriores, a cadeia de conexão de diagnóstico é usada pelo Visual Studio para configurar a extensão de diagnóstico com as informações da conta de armazenamento apropriadas durante a publicação. A cadeia de conexão permite definir contas de armazenamento diferentes para diferentes configurações de serviço que o Visual Studio usará ao publicar. No entanto, como o plug-in de diagnóstico não está mais disponível (após o SDK do Azure 2.5), o arquivo .cscfg sozinho por si só não é capaz de habilitar a extensão de diagnóstico. Você precisa habilitar a extensão separadamente por meio de ferramentas como o Visual Studio ou o PowerShell.
+- In Azure SDK 2.6 and later, the diagnostics connection string is used by Visual Studio to configure the diagnostics extension with the appropriate storage account information during publishing. The connection string lets you define different storage accounts for different service configurations that Visual Studio will use when publishing. However, because the diagnostics plugin is no longer available (after Azure SDK 2.5), the .cscfg file by itself can't enable the Diagnostics Extension. You have to enable the extension separately through tools such as Visual Studio or PowerShell.
 
-- Para simplificar o processo de configuração da extensão de diagnóstico com o PowerShell, a saída do pacote do Visual Studio também contém o XML de configuração pública para a extensão de diagnóstico para cada função. O Visual Studio usa a cadeia de conexão de diagnóstico para preencher as informações da conta de armazenamento presentes na configuração pública. Os arquivos de configuração pública são criados na pasta Extensões e seguem o padrão PaaSDiagnostics.<RoleName>. PubConfig.xml. Todas as implantações baseadas em PowerShell podem usar esse padrão para mapear cada configuração para uma função.
+- To simplify the process of configuring the diagnostics extension with PowerShell, the package output from Visual Studio also contains the public configuration XML for the diagnostics extension for each role. Visual Studio uses the diagnostics connection string to populate the storage account information present in the public configuration. The public config files are created in the Extensions folder and follow the pattern PaaSDiagnostics.<RoleName>.PubConfig.xml. Any PowerShell based deployments can use this pattern to map each configuration to a Role.
 
-- A cadeia de conexão no arquivo .cscfg também é usada pelo portal do Azure para acessar os dados de diagnóstico para que possam aparecer na guia **monitoramento**. A cadeia de conexão é necessária para configurar o serviço para mostrar dados do monitoramento detalhado no portal.
+- The connection string in the .cscfg file is also used by the Azure portal to access the diagnostics data so it can appear in the **Monitoring** tab. The connection string is needed to configure the service to show verbose monitoring data in the portal.
 
-### Migrando projetos para o SDK do Azure 2.6 e posteriores
+### <a name="migrating-projects-to-azure-sdk-2.6-and-later"></a>Migrating projects to Azure SDK 2.6 and later
 
-Ao migrar do SDK do Azure 2.5 para SDK do Azure 2.6 ou posteriores, se você tiver uma conta de armazenamento de diagnóstico especificada no arquivo de .wadcfgx, lá ela permanecerá. Para aproveitar a flexibilidade de usar diferentes contas de armazenamento para diferentes configurações de armazenamento, você terá de adicionar manualmente a cadeia de conexão ao seu projeto. Se estiver migrando um projeto do SDK 2.4 ou anterior do Azure para o SDK 2.6 do Azure, as cadeias de conexão de diagnóstico serão preservadas. No entanto, observe as alterações na forma como as cadeias de conexão são tratadas no SDK do Azure 2.6 conforme especificado na seção anterior.
+When migrating from Azure SDK 2.5 to Azure SDK 2.6 or later, if you had a diagnostics storage account specified in the .wadcfgx file, then it will stay there. To take advantage of the flexibility of using different storage accounts for different storage configurations, you'll have to manually add the connection string to your project. If you're migrating a project from Azure SDK 2.4 or earlier to Azure SDK 2.6, then the diagnostics connection strings are preserved. However, please note the changes in how connection strings are treated in Azure SDK 2.6 as specified in the previous section.
 
-### Como o Visual Studio determina a conta de armazenamento de diagnóstico
+### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>How Visual Studio determines the diagnostics storage account
 
-- Se uma cadeia de conexão de diagnóstico é especificada no arquivo .cscfg, o Visual Studio a usa para configurar a extensão de diagnóstico durante a publicação e ao gerar os arquivos xml de configuração pública durante o empacotamento.
+- If a diagnostics connection string is specified in the .cscfg file, Visual Studio uses it to configure the diagnostics extension when publishing, and when generating the public configuration xml files during packaging.
 
-- Se nenhuma cadeia de conexão de diagnóstico é especificada no arquivo .cscfg, o Visual Studio voltará a usar a conta de armazenamento especificada no arquivo .wadcfgx para configurar a extensão de diagnóstico durante a publicação e ao gerar os arquivos xml de configuração pública durante o empacotamento.
+- If no diagnostics connection string is specified in the .cscfg file, then Visual Studio falls back to using the storage account specified in the .wadcfgx file to configure the diagnostics extension when publishing, and generating the public configuration xml files when packaging.
 
-- A cadeia de conexão de diagnóstico no arquivo .cscfg tem precedência sobre a conta de armazenamento no arquivo .wadcfgx. Se uma cadeia de conexão de diagnóstico é especificada no arquivo .cscfg, o Visual Studio a usa e ignora a conta de armazenamento em .wadcfgx.
+- The diagnostics connection string in the .cscfg file takes precedence over the storage account in the .wadcfgx file. If a diagnostics connection string is specified in the .cscfg file, then Visual Studio uses that and ignores the storage account in .wadcfgx.
 
-### O que faz a caixa de seleção "Atualizar cadeias de conexão do armazenamento de desenvolvimento..."?
+### <a name="what-does-the-"update-development-storage-connection-strings…"-checkbox-do?"></a>What does the "Update development storage connection strings…" checkbox do?
 
-A caixa de seleção **Atualizar cadeias de conexão do armazenamento de desenvolvimento para Diagnóstico e cache com credenciais de conta de armazenamento do Microsoft Azure durante a publicação no Microsoft Azure** oferece uma maneira conveniente para atualizar qualquer cadeia de conexão de conta de armazenamento de desenvolvimento com a conta de armazenamento do Azure especificada durante a publicação.
+The checkbox for **Update development storage connection strings for Diagnostics and Caching with Microsoft Azure storage account credentials when publishing to Microsoft Azure** gives you a convenient way to update any development storage account connection strings with the Azure storage account specified during publishing.
 
-Por exemplo, suponha que você selecione esta caixa de seleção e a cadeia de conexão de diagnóstico especifique `UseDevelopmentStorage=true`. Quando você publicar o projeto no Azure, o Visual Studio atualizará automaticamente a cadeia de conexão de diagnóstico com a conta de armazenamento que você especificou no Assistente de publicação. No entanto, se uma conta de armazenamento real foi especificada como a cadeia de conexão de diagnóstico, então essa conta será usada.
+For example, suppose you select this checkbox and the diagnostics connection string specifies `UseDevelopmentStorage=true`. When you publish the project to Azure, Visual Studio will automatically update the diagnostics connection string with the storage account you specified in the Publish wizard. However, if a real storage account was specified as the diagnostics connection string, then that account is used instead.
 
-## Diferenças de funcionalidade de diagnóstico entre SDK do Azure 2.4 e anteriores e SDK do Azure 2.5 e posteriores
+## <a name="diagnostics-functionality-differences-between-azure-sdk-2.4-and-earlier-and-azure-sdk-2.5-and-later"></a>Diagnostics functionality differences between Azure SDK 2.4 and earlier and Azure SDK 2.5 and later
 
-Se você estiver atualizando seu projeto do SDK do Azure 2.4 para o SDK do Azure 2.5 ou posterior, considere as seguintes diferenças de funcionalidade de diagnóstico.
+If you're upgrading your project from Azure SDK 2.4 to Azure SDK 2.5 or later, you should bear in mind the following diagnostics functionality differences.
 
-- **APIs de configuração estão preteridos** – A configuração programática de diagnóstico está disponível no SDK do Azure 2.4 ou anteriores, mas foi preterida no SDK do Azure 2.5 e posteriores. Se sua configuração de diagnóstico está definida atualmente no código, você precisará reconfigurar as configurações do zero no projeto migrado para que o diagnóstico continue a funcionar. O arquivo de configuração de diagnóstico do SDK do Azure 2.4 é diagnostics.wadcfg e para o SDK do Azure 2.5 e posteriores, diagnostics.wadcfgx.
+- **Configuration APIs are deprecated** – Programmatic configuration of diagnostics is available in Azure SDK 2.4 or earlier versions, but is deprecated in Azure SDK 2.5 and later. If your diagnostics configuration is currently defined in code, you'll need to reconfigure those settings from scratch in the migrated project in order for diagnostics to keep working. The diagnostics configuration file for Azure SDK 2.4 is diagnostics.wadcfg, and diagnostics.wadcfgx for Azure SDK 2.5 and later.
 
-- **Diagnóstico para aplicativos de serviço de nuvem só podem ser configurados no nível de função, não no nível de instância.**
+- **Diagnostics for cloud service applications can only be configured at the role level, not at the instance level.**
 
-- **Sempre que você implanta seu aplicativo, a configuração de diagnóstico é atualizada** – isso pode causar problemas de paridade, se você altera a configuração de diagnóstico do Gerenciador de Servidores e, em seguida, reimplanta o aplicativo.
+- **Every time you deploy your app, the diagnostics configuration is updated** – This can cause parity issues if you change your diagnostics configuration from Server Explorer and then redeploy your app.
 
-- **No SDK do Azure 2.5 e posteriores, despejos de memória são configurados no arquivo de configuração de diagnóstico, não no código** – se você tiver despejos de memória configurados no código, precisará transferir manualmente a configuração de código para o arquivo de configuração, pois os despejos de memória não são transferidos durante a migração para o SDK do Azure 2.6.
+- **In Azure SDK 2.5 and later, crash dumps are configured in the diagnostics configuration file, not in code** – If you have crash dumps configured in code, you'll have to manually transfer the configuration from code to the configuration file, because the crash dumps aren't transferred during the migration to Azure SDK 2.6.
 
-<!---HONumber=AcomDC_0302_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

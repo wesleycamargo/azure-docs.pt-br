@@ -1,34 +1,35 @@
 <properties
-	pageTitle="Gatilho de temporizador do Azure Functions | Microsoft Azure"
-	description="Entenda como usar gatilhos de temporizador no Azure Functions."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"/>
+    pageTitle="Azure Functions timer trigger | Microsoft Azure"
+    description="Understand how to use timer triggers in Azure Functions."
+    services="functions"
+    documentationCenter="na"
+    authors="christopheranderson"
+    manager="erikre"
+    editor=""
+    tags=""
+    keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
 
 <tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/22/2016"
-	ms.author="chrande; glenga"/>
+    ms.service="functions"
+    ms.devlang="multiple"
+    ms.topic="reference"
+    ms.tgt_pltfrm="multiple"
+    ms.workload="na"
+    ms.date="08/22/2016"
+    ms.author="chrande; glenga"/>
 
-# Gatilho de temporizador do Azure Functions
+
+# <a name="azure-functions-timer-trigger"></a>Azure Functions timer trigger
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e codificar gatilhos de temporizador no Azure Functions. Os gatilhos de temporizador chamam funções com base em uma agenda, única ou recorrente.
+This article explains how to configure timer triggers in Azure Functions. Timer triggers call functions based on a schedule, one time or recurring.  
 
-[AZURE.INCLUDE [introdução](../../includes/functions-bindings-intro.md)]
+[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-## function.json para gatilho de temporizador
+## <a name="function.json-for-timer-trigger"></a>function.json for timer trigger
 
-O arquivo *function.json* fornece uma expressão de agendamento. Por exemplo, o agendamento a seguir executa a função a cada minuto:
+The *function.json* file provides a schedule expression. For example, the following schedule runs the function every minute:
 
 ```json
 {
@@ -44,55 +45,55 @@ O arquivo *function.json* fornece uma expressão de agendamento. Por exemplo, o 
 }
 ```
 
-O gatilho de temporizador lida com a expansão de várias instâncias automaticamente: apenas uma única instância de uma função específica de temporizador será executada em todas as instâncias.
+The timer trigger handles multi-instance scale-out automatically: only a single instance of a particular timer function will be running across all instances.
 
-## Formato de expressão de agendamento
+## <a name="format-of-schedule-expression"></a>Format of schedule expression
 
-A expressão de agendamento é uma [expressão CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que inclui 6 campos: `{second} {minute} {hour} {day} {month} {day of the week}`.
+The schedule expression is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes 6 fields:  `{second} {minute} {hour} {day} {month} {day of the week}`. 
 
-Observe que muitas das expressões cron encontradas online omitem o campo {segundo} e, portanto, se você copiar de um deles, terá de ajustar o campo extra.
+Note that many of the cron expressions you find online omit the {second} field, so if you copy from one of those you'll have to adjust for the extra field. 
 
-Veja alguns outros exemplos de expressão de agendamento:
+Here are some other schedule expression examples:
 
-Para disparar uma vez a cada cinco minutos:
+To trigger once every 5 minutes:
 
 ```json
 "schedule": "0 */5 * * * *"
 ```
 
-Para disparar uma vez na parte superior de cada hora:
+To trigger once at the top of every hour:
 
 ```json
 "schedule": "0 0 * * * *",
 ```
 
-Para disparar uma vez a cada duas horas:
+To trigger once every two hours:
 
 ```json
 "schedule": "0 0 */2 * * *",
 ```
 
-Para disparar uma vez a cada hora das 9h às 17h:
+To trigger once every hour from 9 AM to 5 PM:
 
 ```json
 "schedule": "0 0 9-17 * * *",
 ```
 
-Para disparar às 9h30 todos os dias:
+To trigger At 9:30 AM every day:
 
 ```json
 "schedule": "0 30 9 * * *",
 ```
 
-Para disparar às 9h30 todos os dias da semana:
+To trigger At 9:30 AM every weekday:
 
 ```json
 "schedule": "0 30 9 * * 1-5",
 ```
 
-## Exemplo de código C# de gatilho de temporizador
+## <a name="timer-trigger-c#-code-example"></a>Timer trigger C# code example
 
-Este exemplo de código G# grava um único log sempre que a função é disparada.
+This C# code example writes a single log each time the function is triggered.
 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
@@ -101,8 +102,12 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 }
 ```
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-[AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
+[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)] 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

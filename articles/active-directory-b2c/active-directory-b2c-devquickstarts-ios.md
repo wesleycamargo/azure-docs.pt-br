@@ -1,84 +1,85 @@
 <properties
-	pageTitle="Azure Active Directory B2C: chamar uma API Web de um aplicativo do iOS usando bibliotecas de terceiros | Microsoft Azure"
-	description="Este artigo mostrará como criar um aplicativo de ";lista de tarefas pendentes"; do iOS que chama uma API Web do Node.js usando tokens de portador OAuth 2.0 usando uma biblioteca de terceiros"
-	services="active-directory-b2c"
-	documentationCenter="ios"
-	authors="brandwe"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure Active Directory B2C: Call a web API from an iOS application using third party libraries| Microsoft Azure"
+    description="This article will show you how to create an iOS 'to-do list' app that calls a Node.js web API by using OAuth 2.0 bearer tokens using a third party library"
+    services="active-directory-b2c"
+    documentationCenter="ios"
+    authors="brandwe"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags ms.service="active-directory-b2c" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="objectivec" ms.topic="hero-article"
 
-	ms.date="07/26/2016"
-	ms.author="brandwe"/>
+    ms.date="07/26/2016"
+    ms.author="brandwe"/>
 
-# Azure AD B2C : chamar uma API Web de um aplicativo iOS usando uma biblioteca de terceiros
+
+# <a name="azure-ad-b2c-:-call-a-web-api-from-an-ios-application-using-a-third-party-library"></a>Azure AD B2C : Call a web API from an iOS application using a third party library
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e OpenID Connect. Isso permite aos desenvolvedores aproveitar qualquer biblioteca que queiram integrar aos nossos serviços. Para auxiliar os desenvolvedores a usar nossa plataforma com outras bibliotecas, escrevemos alguns passo a passos como este para demonstrar como configurar bibliotecas de terceiros para que elas se conectem à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementam [a especificação RFC6749 do OAuth2](https://tools.ietf.org/html/rfc6749) poderá conectar-se à Plataforma de Identidade da Microsoft.
+The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. This allows developers to leverage any library they wish to integrate with our services. To aid developers in using our platform with other libraries we've written a few walkthroughs like this one to demonstate how to configure third party libraries to connect to the Microsoft identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) will be able to connect to the Microsoft Identity platform.
 
 
-Se você ainda não conhece o OAuth2 ou o OpenID Connect, grande parte desta configuração de exemplo poderá não fazer muito sentido para você. Recomendamos que você examine uma breve [visão geral do protocolo que documentamos aqui](active-directory-b2c-reference-protocols.md).
+If you're new to OAuth2 or OpenID Connect much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](active-directory-b2c-reference-protocols.md).
 
 > [AZURE.NOTE]
-    Alguns recursos de nossa plataforma que possuem uma expressão nesses padrões, como o Acesso Condicional e o gerenciamento de política do Intune, exigem a utilização das nossas Bibliotecas de Identidades do Microsoft Azure de software livre.
+    Some features of our platform that do have an expression in these standards, such as Conditional Access and Intune policy management, require you to use our open source Microsoft Azure Identity Libraries. 
    
-Nem todos os recursos e cenários do Azure Active Directory têm suporte na plataforma B2C. Para determinar se você deve usar a plataforma B2C, leia sobre as [limitações de B2C](active-directory-b2c-limitations.md).
+Not all Azure Active Directory scenarios & features are supported by the B2C platform.  To determine if you should use the B2C platform, read about [B2C limitations](active-directory-b2c-limitations.md).
 
 
-## Obter um diretório AD B2C do Azure
+## <a name="get-an-azure-ad-b2c-directory"></a>Get an Azure AD B2C directory
 
-Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um diretório é um contêiner para todos os seus usuários, aplicativos, grupos etc. Se você ainda não tiver um, [crie um diretório B2C](active-directory-b2c-get-started.md) antes de prosseguir.
+Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue.
 
-## Criar um aplicativo
+## <a name="create-an-application"></a>Create an application
 
-Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornece ao Azure AD as informações de que ele precisa para se comunicar de forma segura com seu aplicativo. Nesse caso, aplicativo e a API Web são representados por uma única **ID do Aplicativo**, pois abrangem um aplicativo lógico. Para criar um aplicativo, [siga estas instruções](active-directory-b2c-app-registration.md). É necessário que você:
+Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to communicate securely with your app. Both the app and the web API are represented by a single **Application ID** in this case, because they comprise one logical app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
 
-- Inclua um **dispositivo móvel** no aplicativo.
-- Copie a **ID do Aplicativo** atribuída ao seu aplicativo. Você também precisará dela mais tarde.
+- Include a **mobile device** in the application.
+- Copy the **Application ID** that is assigned to your app. You will also need this later.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## Criar suas políticas
+## <a name="create-your-policies"></a>Create your policies
 
-No Azure AD B2C, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Esse aplicativo contém uma experiência de identidade: uma combinação de entrada e inscrição. Você precisa criar esta política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Ao criar a política, não se esqueça de fazer o seguinte:
+In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains one identity experience: a combined sign in and sign-up. You need to create this policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). When you create the policy, be sure to:
 
-- Escolha o **Nome de exibição** e atributos de inscrição em sua política.
-- Escolha as declarações de aplicativo **Nome de exibição** e **ID do Objeto** em todas as políticas. Você pode escolher outras declarações também.
-- Copie o **Nome** de cada política depois de criá-la. Ele deve ter o prefixo `b2c_1_`. Posteriormente, você precisará do nome da política.
+- Choose the **Display name** and sign-up attributes in your policy.
+- Choose the **Display name** and **Object ID** application claims in every policy. You can choose other claims as well.
+- Copy the **Name** of each policy after you create it. It should have the prefix `b2c_1_`.  You'll need the policy name later.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Depois de criar as políticas, você estará pronto para compilar o aplicativo.
+After you have created your policies, you're ready to build your app.
 
 
-## Baixar o código
+## <a name="download-the-code"></a>Download the code
 
-O código para este tutorial é mantido [no GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c). Para acompanhá-lo, você pode [baixar o aplicativo como .zip](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c)/archive/master.zip) ou cloná-lo:
+The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c).  To follow along, you can [download the app as a .zip](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c)/archive/master.zip) or clone it:
 
 ```
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-Ou basta baixar o código completo e começar imediatamente:
+Or just download the completed code and get started right away: 
 
 ```
 git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-## Baixe a biblioteca de terceiros nxoauth2 e inicie um espaço de trabalho
+## <a name="download-the-third-party-library-nxoauth2-and-launch-a-workspace"></a>Download the third party library nxoauth2 and launch a workspace
 
-Para este passo a passo, usaremos o OAuth2Client do GitHub, uma biblioteca do OAuth2 para Mac OS X e o iOS (Cocoa & Cocoa touch). Essa biblioteca baseia-se no rascunho 10 da especificação OAuth2. Ela implementa o perfil de aplicativo nativo e dá suporte ao ponto de extremidade de autorização do usuário final. Isso é tudo do que precisamos para a integração à plataforma de identidade da Microsoft.
+For this walkthrough we will use the OAuth2Client from GitHub, an OAuth2 library for Mac OS X & iOS (Cocoa & Cocoa touch). This library is based on draft 10 of the OAuth2 spec. It implements the native application profile and supports the end-user authorization endpoint. These are all the things we'll need in order to integrat with The Microsoft identity platform.
 
-### Adicionar a biblioteca ao seu projeto usando o CocoaPods
+### <a name="adding-the-library-to-your-project-using-cocoapods"></a>Adding the library to your project using CocoaPods
 
-O CocoaPods é um gerenciador de dependência para projetos do Xcode. Ele gerencia automaticamente as etapas de instalação acima.
+CocoaPods is a dependency manager for Xcode projects. It manages the above installation steps automatically.
 
 ```
 $ vi Podfile
 ```
-Adicione o seguinte a esse podfile:
+Add the following to this podfile:
 
 ```
  platform :ios, '8.0'
@@ -90,7 +91,7 @@ Adicione o seguinte a esse podfile:
  end
 ```
 
-Agora, carregue o podfile usando o cocoapods. Isso criará um novo espaço de trabalho XCode que será carregado.
+Now load the podfile using cocoapods. This will create a new XCode Workspace you will load.
 
 ```
 $ pod install
@@ -99,75 +100,75 @@ $ open SampleforB2C.xcworkspace
 
 ```
 
-## A estrutura do projeto
+## <a name="the-structure-of-the-project"></a>The structure of the project
 
-Temos a seguinte estrutura configurada para nosso projeto no esqueleto:
+We have the following structure set up for our project in the skeleton:
 
-* Um **Modo de Exibição Mestre** com um painel de tarefas
-* Um **Modo de Exibição Adicionar Tarefa** para os dados sobre a tarefa selecionada
-* Um **Modo de Exibição de Logon** que permite que um usuário entre no aplicativo.
+* A **Master View** with a task pane
+* A **Add Task View** for the data about the selected task
+* A **Login View** that allows a user to sign-in to the app.
 
-Entraremos em diversos arquivos no projeto para adicionar autenticação. Outras partes do código como o código visual não é similar à identidade e são fornecidos para você.
+We will jump in to various files in the project to add authentication. Other parts of the code such as the visual code is not germane to identity and are provided for you.
 
-## Criar o arquivo `settings.plist` para seu aplicativo
+## <a name="create-the-`settings.plist`-file-for-your-application"></a>Create the `settings.plist` file for your application
 
-Será mais fácil configurar o aplicativo se tivermos um local centralizado para colocar os valores de configuração. Isso também ajuda a entender o que cada configuração faz no aplicativo. Aproveitaremos a *Lista de Propriedades* como uma maneira de fornecer esses valores para o aplicativo.
+It's easier to configure the application if we have a centralized location to put our configuration values. It also helps you understand what each setting does in your application. We will leverage the *Property List* as a way to provide these values to the application.
 
-* Criar/abrir o arquivo `settings.plist` em `Supporting Files` no espaço de trabalho do aplicativo
+* Create/Open the `settings.plist` file under `Supporting Files` in your application workspace
 
-* Insira os valores a seguir (vamos abordá-los detalhadamente em breve)
+* Enter in the following values (we'll go through them in detail soon)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>accountIdentifier</key>
-	<string>B2C_Acccount</string>
-	<key>clientID</key>
-	<string><client ID></string>
-	<key>clientSecret</key>
-	<string></string>
-	<key>authURL</key>
-	<string>https://login.microsoftonline.com/<tenant name>/oauth2/v2.0/authorize?p=<policy name></string>
-	<key>loginURL</key>
-	<string>https://login.microsoftonline.com/<tenant name>/login</string>
-	<key>bhh</key>
-	<string>urn:ietf:wg:oauth:2.0:oob</string>
-	<key>tokenURL</key>
-	<string>https://login.microsoftonline.com/<tenant name>/oauth2/v2.0/token?p=<policy name></string>
-	<key>keychain</key>
-	<string>com.microsoft.azureactivedirectory.samples.graph.QuickStart</string>
-	<key>contentType</key>
-	<string>application/x-www-form-urlencoded</string>
-	<key>taskAPI</key>
-	<string>https://aadb2cplayground.azurewebsites.net</string>
+    <key>accountIdentifier</key>
+    <string>B2C_Acccount</string>
+    <key>clientID</key>
+    <string><client ID></string>
+    <key>clientSecret</key>
+    <string></string>
+    <key>authURL</key>
+    <string>https://login.microsoftonline.com/<tenant name>/oauth2/v2.0/authorize?p=<policy name></string>
+    <key>loginURL</key>
+    <string>https://login.microsoftonline.com/<tenant name>/login</string>
+    <key>bhh</key>
+    <string>urn:ietf:wg:oauth:2.0:oob</string>
+    <key>tokenURL</key>
+    <string>https://login.microsoftonline.com/<tenant name>/oauth2/v2.0/token?p=<policy name></string>
+    <key>keychain</key>
+    <string>com.microsoft.azureactivedirectory.samples.graph.QuickStart</string>
+    <key>contentType</key>
+    <string>application/x-www-form-urlencoded</string>
+    <key>taskAPI</key>
+    <string>https://aadb2cplayground.azurewebsites.net</string>
 </dict>
 </plist>
 ```
 
-Vamos examinar esses detalhes.
+Let's go in to these in detail.
 
 
-Para `authURL`, `loginURL`, `bhh`, `tokenURL`, você observará que precisa preencher o nome do locatário. Esse é o nome do locatário B2C que foi atribuído a você. Por exemplo, `kidventusb2c.onmicrosoft.com`. Se você usar as nossas Bibliotecas de Identidades do Microsoft Azure de software livre, obteremos esses dados para você usando nosso ponto de extremidade de metadados. Fizemos o trabalho pesado de extrair esses valores para você.
+For `authURL`, `loginURL`, `bhh`, `tokenURL` you'll notice you need to fill in your tenant name. This is the tenant name of your B2C tenant that was assigned to you. For instance, `kidventusb2c.onmicrosoft.com`.If you use our open source Microsoft Azure Identity Libraries we would pull this data down for you using our metadata endpoint. We've done the hard work of extracting these values for you.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-O valor `keychain` é o contêiner que a biblioteca NXOAuth2Client usará na criação de um conjunto de chaves para armazenar seus tokens. Se quiser obter SSO entre vários aplicativos, você poderá especificar o mesmo conjunto de chaves em cada um dos aplicativos, bem como solicitar o uso desse conjunto de chaves em seus direitos de XCode. Isso é abordado na documentação da Apple.
+The `keychain` value is the container that the NXOAuth2Client library will use to create a keychain to store your tokens. If you'd like to get SSO across numerous apps you can specify the same keychain in each of your applications as well as request the use of that keychain in your XCode entitements. This is covered in the Apple documentation.
 
-O `<policy name>` no fim de cada URL consiste nos locais em que você colocaria a política que criou acima. O aplicativo chamará essas políticas dependendo do fluxo.
+The `<policy name>`  at the end of each URL are the places where you'd put the policy you created above. The app will call these policies depending on the flow.
 
-O `taskAPI` é o Ponto de Extremidade REST que chamaremos com seu token B2C para adicionar tarefas ou consultar tarefas existentes. Isso foi configurado especificamente para este exemplo. Não é necessário alterá-lo para que o exemplo funcione.
+The `taskAPI` is the REST Endpoint we will call with your B2C token to either add tasks or query existing tasks. This has been set up specifically for this sample. You don't need to change it for the sample to work.
 
-O restante desses valores é necessário para usar a biblioteca e simplesmente cria locais para você levar valores para o contexto.
+The rest of these values are required to use the library and simply create places for you to carry values to the context.
 
-Agora que o arquivo `settings.plist` foi criado, precisamos de código para lê-lo.
+Now that we have the `settings.plist` file created, we need code to read it.
 
-## Configurar uma classe AppData para ler as configurações
+## <a name="set-up-a-appdata-class-to-read-our-settings"></a>Set up a AppData class to read our settings
 
-Vamos criar um arquivo simples que analisa apenas nosso arquivo `settngs.plist` criado acima e torna as configurações disponíveis no futuro para qualquer classe. Como não queremos criar uma nova cópia dos dados sempre que uma classe a solicita, usaremos um padrão Singleton e retornaremos apenas a mesma instância cada vez que uma solicitação for feita para as configurações
+Let's make a simple file that just parses our `settngs.plist` file we created above and make those settings avaialble in the future to any class. Since we don't want to create a new copy of the data every time a class asks for it, we will use a Singleton pattern and only return the same instance created each time a request is made for the settings
 
-* Crie um arquivo `AppData.h`:
+* Create an `AppData.h` file:
 
 ```objc
 #import <Foundation/Foundation.h>
@@ -190,7 +191,7 @@ Vamos criar um arquivo simples que analisa apenas nosso arquivo `settngs.plist` 
 @end
 ```
 
-* Crie um arquivo `AppData.m`:
+* Create an `AppData.m` file:
 
 ```objc
 #import "AppData.h"
@@ -226,32 +227,32 @@ Vamos criar um arquivo simples que analisa apenas nosso arquivo `settngs.plist` 
 @end
 ```
 
-Agora podemos facilmente acessar os dados apenas chamando `  AppData *data = [AppData getInstance];` em qualquer uma das classes, como você verá a seguir.
+Now we can easily get at our data by simply calling `  AppData *data = [AppData getInstance];` in any of our classes as you'll see below.
 
 
 
-## Configurar a biblioteca NXOAuth2Client no AppDelegate
+## <a name="set-up-the-nxoauth2client-library-in-your-appdelegate"></a>Set up the NXOAuth2Client library in your AppDelegate
 
-A biblioteca NXOAuthClient requer alguns valores para sua configuração. Assim que estiver concluída, você poderá usar o token obtido para chamar a API REST. Como sabemos que o `AppDelegate` será chamado sempre que carregarmos o aplicativo, faz sentido colocarmos nossos valores de configuração no arquivo.
-* Abrir o arquivo `AppDelegate.m`
+The NXOAuthClient library requires some values to get set up. Once that is complete you can use the token that is aquired to call the REST API. Since we know that the `AppDelegate` will be called any time we load the application it makes sense that we put our configuration values in to that file.
+* Open `AppDelegate.m` file
 
-* Importe alguns arquivos de cabeçalho que usaremos mais tarde.
+* Import some header files we will use later.
 
 ```objc
 #import "NXOAuth2.h" // the Identity library we are using
 #import "AppData.h" // the class we just created we will use to load the settings of our application
 ```
 
-* Adicionar o método `setupOAuth2AccountStore` a AppDelegate
+* Add the `setupOAuth2AccountStore` method in the AppDelegate
 
-Precisamos criar um AccountStore e, depois, fornecer os dados que acabamos de ler do arquivo `settings.plist`.
+We need to create an AccountStore and then feed it the data we just read in from the `settings.plist` file.
 
-Há algumas coisas para as quais você deve estar atento em relação ao serviço B2C nesse ponto para tornar o código mais legível:
+There are some things you should be aware of regarding the B2C service at this point that will make this code more understandable:
 
 
-1. O Azure AD B2C usa a *política* conforme fornecido pelos parâmetros de consulta para atender à sua solicitação. Isso permite que o Azure Active Directory atue como um serviço independente apenas para seu aplicativo. Para fornecer esses parâmetros adicionais, precisamos fornecer o método `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` com os parâmetros de política personalizada.
+1. Azure AD B2C uses the *policy* as provided by the query parameters to service your request. This allows Azure Active Directory to act as an independent service just for your application. In order to provide these extra query parameters we need to provide the `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` method with our custom policy parameters. 
 
-2. O Azure AD B2C usa escopos de maneira bastante semelhante a outros servidores OAuth2. No entanto, como o uso de B2C inclui a autenticação de um usuário e o acesso a recursos, alguns escopos são absolutamente necessários para que o fluxo funcione corretamente. Este é o escopo `openid`. Os SDKs de identidade da Microsoft oferecem automaticamente o escopo `openid` a você. Portanto, você não o verá na configuração de SDK. No entanto, como estamos usando uma biblioteca de terceiros, precisamos especificar esse escopo.
+2. Azure AD B2C uses scopes in much the same way as other OAuth2 servers. However since the use of B2C is as much about authenticating a user as accessing resources some scopes are absolutely required in order for the flow to work correctly. This is the `openid` scope. Our Microsoft identity SDKs automatically provide the `openid` scope for you so you won't see that in our SDK configuration. Since we are using a third party library, however, we need to specify this scope.
 
 ```objc
 - (void)setupOAuth2AccountStore {
@@ -284,18 +285,18 @@ Há algumas coisas para as quais você deve estar atento em relação ao serviç
                                         forAccountType:data.accountIdentifier];
 }
 ```
-Em seguida, chame-o no AppDelegate no método `didFinishLaunchingWithOptions:`.
+Next, make sure you call it in the AppDelegate under `didFinishLaunchingWithOptions:` method. 
 
 ```
 [self setupOAuth2AccountStore];
 ```
 
 
-## Criar uma classe `LoginViewController` que usaremos para lidar com solicitações de autenticação
+## <a name="create-a-`loginviewcontroller`-class-that-we-will-use-to-handle-authentication-requests"></a>Create a `LoginViewController` class that we will use to handle authentication requests
 
-Usamos um modo de exibição da Web para entrar na conta. Isso nos permite solicitar ao usuário fatores adicionais, como mensagens de texto SMS (se configurado) ou o envio de mensagens de erro para o usuário. Aqui vamos configurar o modo de exibição da Web e, em seguida, escreveremos o código para manipular os retornos de chamada que ocorrerão no Modo de Exibição da Web do Serviço de Identidade da Microsoft.
+We use a webview for account sign-in. This allows us to prompt the user for additional factors like SMS text message (if configured) or give error messages back to the user. Here we'll set up the webview and then later write the code to handle the callbacks that will happen in the WebView from the Microsoft Identity Service.
 
-* Criar uma classe `LoginViewController.h`
+* Create a `LoginViewController.h` class
 
 ```objc
 @interface LoginViewController : UIViewController <UIWebViewDelegate>
@@ -306,14 +307,14 @@ Usamos um modo de exibição da Web para entrar na conta. Isso nos permite solic
 - (void)requestOAuth2Access; // This is where we invoke our webview.
 ```
 
-Vamos criar cada um desses métodos abaixo.
+We will create each of these methods below.
 
 > [AZURE.NOTE] 
-    Associe o `loginView` ao modo de exibição da Web real que está dentro de seu storyboard. Caso contrário, você não terá um modo de exibição da Web que pode ser exibido no momento da autenticação.
+    Make sure that you bind the `loginView` to the actual webview that is inside your storyboard. Otherwise you won't have a webview that can pop up when it's time to authenticate.
 
-* Criar uma classe `LoginViewController.m`
+* Create a `LoginViewController.m` class
 
-* Adicionar algumas variáveis para transportar o estado durante a autenticação
+* Add some variables to carry state as we authenticate
 
 ```objc
 NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory 
@@ -323,9 +324,9 @@ bool isRequestBusy; \\ A way to give status to the thread that the request is st
 NSURL *authcode; \\ A placeholder for our auth code.
 ```
 
-* Substituir os métodos do Modo de Exibição da Web para manipular a autenticação
+* Override the WebView methods to handle authentication
 
-Precisamos dizer ao modo de exibição da Web o comportamento que queremos quando um usuário precisar fazer logon conforme discutido acima. Você pode simplesmente recortar e colar o código a seguir.
+We need to tell the webview the behavior we want when a user needs to login as discussed above. You can simply cut and paste the code below.
 
 ```objc
 - (void)resolveUsingUIWebView:(NSURL *)URL {
@@ -395,9 +396,9 @@ Precisamos dizer ao modo de exibição da Web o comportamento que queremos quand
 
 ```
 
-* Escrever código para manipular o resultado da solicitação de OAuth2
+* Write code to handle the result of the OAuth2 request
 
-Precisaremos de um código para manipular a redirectURL proveniente do Modo de Exibição da Web. Caso ele não obtenha êxito, tentaremos novamente. Enquanto isso, a biblioteca fornecerá o erro que você pode ver no console ou com o qual lidará assincronamente.
+We'll need code that will handle the redirectURL that comes back from the WebView. If it wasn't successful, we will try again. Meanwhile the library will provide the error that you can see in the console or handle asyncronously. 
 
 ```objc
 - (void)handleOAuth2AccessResult:(NSURL *)accessResult {
@@ -414,9 +415,9 @@ Precisaremos de um código para manipular a redirectURL proveniente do Modo de E
 }
 ```
 
-* Configure as fábricas de Notificação.
+* Set up the Notification factories.
 
-Criamos o mesmo método que criamos no `AppDelegate` acima, mas, desta vez, adicionaremos alguns `NSNotification`s para nos dizer o que está acontecendo no serviço. Configuramos um observador que nos informará quando algo no token for alterado. Assim que obtivermos o token, o usuário retornará ao `masterView`.
+We create the same method we did in the `AppDelegate` above, but this time we will add some `NSNotification`s to tell us what is happening in our service. We set up an observer that will tell us when anything changes with the token. Once we get the token we return the user back to the `masterView`.
 
 
 
@@ -457,9 +458,9 @@ Criamos o mesmo método que criamos no `AppDelegate` acima, mas, desta vez, adic
 }
 
 ```
-* Adicionar código que lida com o usuário sempre que uma solicitação é iniciada para entrada nativa
+* Add code that handles the user whenever a request is initiated for sign-native
 
-Vamos criar um método que será chamado sempre que tivermos uma solicitação de autenticação. Esse será o método que criará realmente um modo de exibição da Web
+Let's create a method that will be called whenever we have a request for authentication. This will be the method that actually creates a webview
 
 ```objc
 - (void)requestOAuth2Access {
@@ -478,7 +479,7 @@ Vamos criar um método que será chamado sempre que tivermos uma solicitação d
 }
 ```
 
-* Por fim, vamos chamar todos esses métodos que escrevemos acima sempre que o `LoginViewController` for carregado. Fazemos isso adicionando esses métodos ao método `viewDidLoad` fornecido pela Apple
+* Finally, let's call all these methods we've written above every time the `LoginViewController` loads. We do this by adding these methods to our `viewDidLoad` method Apple gives us
 
 ```objc
   [super viewDidLoad];
@@ -496,14 +497,14 @@ Vamos criar um método que será chamado sempre que tivermos uma solicitação d
   [NSURLCache setSharedURLCache:URLCache];
 ```
 
-Agora você concluiu criando a criação da forma principal como interagiremos com o aplicativo para a entrada. Após a entrada, precisaremos usar os tokens que recebemos. Para isso, vamos criar código auxiliar que chamará APIs REST para que possamos usar esta biblioteca.
+You are now done with creating the main way we'll interact with our application for sign in. After we've signed in, we'll need to use our tokens we've received. For that we'll create some helper code that will call REST APIs for us using this library.
 
 
-## Criar uma classe `GraphAPICaller` para lidar com nossos pedidos para uma API REST
+## <a name="create-a-`graphapicaller`-class-to-handle-our-requests-to-a-rest-api"></a>Create a `GraphAPICaller` class to handle our requests to a REST API
 
-Temos uma configuração carregada sempre que carregarmos o aplicativo. Agora, precisamos fazer algo com ele assim que tivermos um token.
+We have a configuration loaded every time we load our app. Now we need to do something with it once we have a token. 
 
-* Criar um arquivo `GraphAPICaller.h`
+* Create a `GraphAPICaller.h`  file
 
 ```objc
 @interface GraphAPICaller : NSObject <NSURLConnectionDataDelegate>
@@ -516,11 +517,11 @@ completionBlock:(void (^)(bool, NSError *error))completionBlock;
 @end
 ```
 
-Você vê no código que estamos criando dois métodos: uma para obter as tarefas de uma API e outro para adicionar tarefas à API.
+You see from this code that we will be creating two methods: one to get the tasks from an API and another to add tasks to the API.
 
-Agora que criamos a interface, vamos adicionar a implementação real:
+Now that we've set up our interface, let's add the actual implementation:
 
-* Criar um `GraphAPICaller.m file`
+* Create a `GraphAPICaller.m file`
 
 ```objc
 @implementation GraphAPICaller
@@ -631,19 +632,23 @@ completionBlock:(void (^)(bool, NSError *error))completionBlock {
 @end
 ```
 
-## Executar o aplicativo de exemplo
+## <a name="run-the-sample-app"></a>Run the sample app
 
-Por fim, compile e execute o aplicativo no Xcode. Inscreva-se ou entre no aplicativo e crie tarefas para um usuário conectado. Saia e entre novamente como um usuário diferente e crie tarefas para esse usuário.
+Finally, build and run the app in Xcode. Sign up or sign in to the app, and create tasks for a signed-in user. Sign out and sign back in as a different user, and create tasks for that user.
 
-Observe que as tarefas são armazenados por usuário na API, pois a API extrai a identidade do usuário do token de acesso que recebe.
+Notice that the tasks are stored per-user on the API, because the API extracts the user's identity from the access token that it receives.
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Agora você pode ir para tópicos mais avançados sobre o B2C. Você pode experimentar:
+You can now move onto more advanced B2C topics. You might try:
 
-[Chamar uma API Web do Node.js em um aplicativo Web do Node.js]()
+[Call a Node.js web API from a Node.js web app]()
 
-[Personalizar a experiência do usuário para um aplicativo B2C]()
+[Customize the UX for a B2C app]()
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO4-->
+
+

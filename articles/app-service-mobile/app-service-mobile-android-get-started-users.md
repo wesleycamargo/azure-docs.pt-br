@@ -1,58 +1,59 @@
 <properties
-	pageTitle="Adicionar autenticação no Android com os Aplicativos Móveis| Serviço de Aplicativo do Azure"
-	description="Aprenda a usar os Aplicativos Móveis no Serviço de Aplicativo do Azure para autenticar usuários de seu aplicativo Android usando uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft."
-	services="app-service\mobile"
-	documentationCenter="android"
-	authors="RickSaling"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Add authentication on Android with Mobile Apps | Azure App Service"
+    description="Learn how to use Mobile Apps in Azure App Service to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
+    services="app-service\mobile"
+    documentationCenter="android"
+    authors="yuaxu"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="07/18/2016"
-	ms.author="ricksal"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="10/01/2016"
+    ms.author="yuaxu"/>
 
-# Adicionar autenticação ao aplicativo do Android
+
+# <a name="add-authentication-to-your-android-app"></a>Add authentication to your Android app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-## Resumo
+## <a name="summary"></a>Summary
 
-Neste tutorial, você adiciona a autenticação ao projeto de início rápido todolist usando um provedor de identidade com suporte. Este tutorial se baseia no tutorial [Introdução aos Aplicativos Móveis], que você deve concluir primeiro.
+In this tutorial, you add authentication to the todolist quickstart project on Android using a supported identity provider. This tutorial is based on the [Get started with Mobile Apps] tutorial, which you must complete first.
 
-##<a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo
+##<a name="<a-name="register"></a>register-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Register your app for authentication and configure the App Service
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-##<a name="permissions"></a>Restringir permissões a usuários autenticados
+##<a name="<a-name="permissions"></a>restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restrict permissions to authenticated users
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-+ No Android Studio, abra o projeto que você criou quando concluiu o tutorial [Introdução aos Aplicativos Móveis]; em seguida, no menu **Executar**, clique em **Executar aplicativo** e verifique se uma exceção não tratada com um código de status 401 (não autorizado) é gerada depois que o aplicativo é iniciado.
++ In Android Studio, open the project that you created when you completed the tutorial [Get started with Mobile Apps], then from the **Run** menu click **Run app** and verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-	 Isso acontece porque o aplicativo tenta acessar o back-end como um usuário não autenticado, mas a tabela _TodoItem_ agora exige autenticação.
+     This happens because the app attempts to access the backend as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
-Em seguida, você atualiza o aplicativo para autenticar os usuários antes de solicitar recursos do back-end do Aplicativo Móvel.
+Next, you will update the app to authenticate users before requesting resources from the Mobile App backend.
 
-## Adicionar autenticação ao aplicativo
+## <a name="add-authentication-to-the-app"></a>Add authentication to the app
 
 [AZURE.INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
 
-## <a name="cache-tokens"></a>Armazenar em cache tokens de autenticação no cliente
+## <a name="<a-name="cache-tokens"></a>cache-authentication-tokens-on-the-client"></a><a name="cache-tokens"></a>Cache authentication tokens on the client
 
 [AZURE.INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
-##Próximas etapas
+##<a name="next-steps"></a>Next steps
 
-Agora que você concluiu este tutorial de autenticação básica, considere continuar com um dos seguintes tutoriais:
+Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
 
-+ [Adicionar notificações por push ao seu aplicativo do Android](app-service-mobile-android-get-started-push.md) Saiba como adicionar suporte a notificações por push para seu aplicativo e configurar o back-end do Aplicativo Móvel para usar os Hubs de Notificação do Azure para enviar notificações por push.
++ [Add push notifications to your Android app](app-service-mobile-android-get-started-push.md) Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
 
-+ [Habilitar sincronização offline para seu aplicativo do Android](app-service-mobile-android-get-started-offline-data.md) Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de Aplicativo Móvel. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede.
++ [Enable offline sync for your Android app](app-service-mobile-android-get-started-offline-data.md) Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 
 
@@ -62,10 +63,14 @@ Agora que você concluiu este tutorial de autenticação básica, considere cont
 [Add authentication to the app]: #add-authentication
 [Store authentication tokens on the client]: #cache-tokens
 [Refresh expired tokens]: #refresh-tokens
-[Next Steps]: #next-steps
+[Next Steps]:#next-steps
 
 
 <!-- URLs. -->
-[Introdução aos Aplicativos Móveis]: app-service-mobile-android-get-started.md
+[Get started with Mobile Apps]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

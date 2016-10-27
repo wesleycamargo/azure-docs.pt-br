@@ -1,19 +1,26 @@
-#### Parar e iniciar um dispositivo virtual
-Para parar um dispositivo virtual, clique em seu nome e, em seguida, clique em **Desligar**. Enquanto o dispositivo virtual estiver desligando, seu status será **Parando**. Depois que o dispositivo virtual parar, seu status será **Parado**.
+#### <a name="to-stop-and-start-a-virtual-device"></a>To stop and start a virtual device
+To stop a virtual device, click its name, and then click **Shutdown**. While the virtual device is shutting down, its status is **Stopping**. After the virtual device is stopped, its status is **Stopped**.
 
-Use os seguintes cmdlets para parar e iniciar um dispositivo virtual.
+Use the following cmdlets to stop and start a virtual device.
 
 `Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
     
-#### Parar e reiniciar um dispositivo virtual
+#### <a name="to-restart-a-virtual-device"></a>To restart a virtual device
 
-Quando um dispositivo virtual estiver em execução e você quiser reiniciá-lo, clique em seu nome e, em seguida, clique em **Reiniciar**. Enquanto o dispositivo virtual estiver reiniciando, seu status será **Reiniciando**. Quando o dispositivo virtual estiver pronto para uso, seu status será **Em execução**.
+When a virtual device is running and you want to restart it, click its name, and then click **Restart**. While the virtual device is restarting, its status is **Restarting**. When the virtual device is ready for you to use, its status is **Running**.
 
-Use o seguinte cmdlet para parar e reiniciar um dispositivo virtual.
+Use the following cmdlet to restart a virtual device.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-<!---HONumber=AcomDC_1217_2015-->
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

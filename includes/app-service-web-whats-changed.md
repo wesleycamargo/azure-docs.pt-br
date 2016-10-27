@@ -1,4 +1,7 @@
-## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+## <a name="what's-changed"></a>What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_1203_2015-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,8 @@
-| | **Implantação Clássica** | **Implantação do Gerenciador de Recursos** |
-|----------------------------------------|-------------|----------------------|
-| **Portal clássico** | Sem suporte | Sem suporte |
-| **Portal do Azure** | Sem suporte | Sem suporte |
-| **PowerShell** | [Artigo](../articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md) | [Artigo](../articles/vpn-gateway/vpn-gateway-forced-tunneling-rm.md) |
- 
+| **Deployment Model/Method** | **Azure Portal** | **Classic Portal** | **PowerShell** |
+|---|---|---|---|
+| **Classic** | Not Supported | Not Supported| [Article](../articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md) | 
+| **Resource Manager** | Not Supported | Not Supported | [Article](../articles/vpn-gateway/vpn-gateway-forced-tunneling-rm.md)  |
+
+<!--HONumber=Oct16_HO2-->
+
+

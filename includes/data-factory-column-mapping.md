@@ -1,152 +1,162 @@
-## Mapeamento de coluna com regras de conversor
-O mapeamento de coluna pode ser usado para definir como colunas especificadas na "estrutura" da tabela de origem estão correlacionadas a colunas especificada na "estrutura" da tabela de coletor. A propriedade **columnMapping** está disponível na seção **typeProperties** da atividade de cópia.
+## <a name="column-mapping-with-translator-rules"></a>Column mapping with translator rules
+Column mapping can be used to specify how columns specified in the “structure” of source table map to columns specified in the “structure” of sink table. The **columnMapping** property is available in the **typeProperties** section of the Copy activity.
 
-O mapeamento de coluna oferece suporte para os seguintes cenários:
+Column mapping supports the following scenarios:
 
-- Todas as colunas na "estrutura" da tabela de origem são mapeadas para todas as colunas na "estrutura" da tabela de coletor.
-- Um subconjunto das colunas na "estrutura" da tabela de origem é mapeado para todas as colunas na "estrutura" da tabela de coletor.
+- All columns in the source table “structure” are mapped to all columns in the sink table “structure”.
+- A subset of the columns in the source table “structure” are mapped to all columns in the sink table “structure”.
 
-A seguir há condições de erro que geram exceções:
+The following are error conditions and will result in an exception:
 
-- Menos colunas ou mais colunas na "estrutura" da tabela de coletor do que o especificado no mapeamento.
-- Mapeamento duplicado.
-- O resultado da consulta SQL não tem um nome de coluna especificado no mapeamento.
+- Either fewer columns or more columns in the “structure” of sink table than specified in the mapping.
+- Duplicate mapping.
+- SQL query result does not have a column name that is specified in the mapping.
 
-## Exemplos de mapeamento de coluna
-> [AZURE.NOTE] Os exemplos a seguir são para o Azure SQL e os Blobs do Azure, mas são aplicáveis a qualquer repositório de dados com suporte a conjuntos de dados retangulares. Você precisará ajustar o conjunto de dados e as definições de serviço vinculado nos exemplos abaixo para apontar para dados na fonte de dados relevante.
+## <a name="column-mapping-samples"></a>Column mapping samples
+> [AZURE.NOTE] The samples below are for Azure SQL and Azure Blob but are applicable to any data store that supports rectangular datasets. You will have to adjust dataset and linked service definitions in examples below to point to data in the relevant data source. 
 
-### Exemplo 1 - mapeamento de coluna do SQL Azure para blobs do Azure
-Neste exemplo, a tabela de entrada tem uma estrutura e ela aponta para uma tabela do SQL em um banco de dados SQL Azure.
+### <a name="sample-1-–-column-mapping-from-azure-sql-to-azure-blob"></a>Sample 1 – column mapping from Azure SQL to Azure blob
+In this sample, the input table has a structure and it points to a SQL table in an Azure SQL database.
 
-	{
-	    "name": "AzureSQLInput",
-	    "properties": {
-	        "structure": 
-	         [
-	           { "name": "userid"},
-	           { "name": "name"},
-	           { "name": "group"}
-	         ],
-	        "type": "AzureSqlTable",
-	        "linkedServiceName": "AzureSqlLinkedService",
-	        "typeProperties": {
-	            "tableName": "MyTable"
-	        },
-	        "availability": {
-	            "frequency": "Hour",
-	            "interval": 1
-	        },
-			"external": true,
-			"policy": {
-	            "externalData": {
-	                "retryInterval": "00:01:00",
-	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
-	            }
-			}
-	    }
-	}
+    {
+        "name": "AzureSQLInput",
+        "properties": {
+            "structure": 
+             [
+               { "name": "userid"},
+               { "name": "name"},
+               { "name": "group"}
+             ],
+            "type": "AzureSqlTable",
+            "linkedServiceName": "AzureSqlLinkedService",
+            "typeProperties": {
+                "tableName": "MyTable"
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "external": true,
+            "policy": {
+                "externalData": {
+                    "retryInterval": "00:01:00",
+                    "retryTimeout": "00:10:00",
+                    "maximumRetry": 3
+                }
+            }
+        }
+    }
 
-Neste exemplo, a tabela de saída tem uma estrutura e ela aponta para um blob em um armazenamento de blobs do Azure.
+In this sample, the output table has a structure and it points to a blob in an Azure blob storage.
 
-	{
-	    "name": "AzureBlobOutput",
-	    "properties":
-	    {
-	         "structure": 
-	          [
-	                { "name": "myuserid"},
-	                { "name": "myname" },
-	                { "name": "mygroup"}
-	          ],
-	        "type": "AzureBlob",
-	        "linkedServiceName": "StorageLinkedService",
-	        "typeProperties": {
-	            "folderPath": "mycontainer/myfolder",
-	            "fileName":"myfile.csv",
-	            "format":
-	            {
-	                "type": "TextFormat",
-	                "columnDelimiter": ","
-	            }
-	        },
-	        "availability":
-	        {
-	            "frequency": "Hour",
-	            "interval": 1
-	        }
-	    }
-	}
+    {
+        "name": "AzureBlobOutput",
+        "properties":
+        {
+             "structure": 
+              [
+                    { "name": "myuserid"},
+                    { "name": "myname" },
+                    { "name": "mygroup"}
+              ],
+            "type": "AzureBlob",
+            "linkedServiceName": "StorageLinkedService",
+            "typeProperties": {
+                "folderPath": "mycontainer/myfolder",
+                "fileName":"myfile.csv",
+                "format":
+                {
+                    "type": "TextFormat",
+                    "columnDelimiter": ","
+                }
+            },
+            "availability":
+            {
+                "frequency": "Hour",
+                "interval": 1
+            }
+        }
+    }
 
-O JSON para a atividade é mostrado abaixo. As colunas da fonte são mapeadas para colunas no coletor (**columnMappings**) utilizando a propriedade **Translator**.
+The JSON for the activity is shown below. The columns from source mapped to columns in sink (**columnMappings**) by using **Translator** property.
 
-	{
-	    "name": "CopyActivity",
-	    "description": "description", 
-	    "type": "Copy",
-	    "inputs":  [ { "name": "AzureSQLInput"  } ],
-	    "outputs":  [ { "name": "AzureBlobOutput" } ],
-	    "typeProperties":    {
-	        "source":
-	        {
-	            "type": "SqlSource"
-	        },
-	        "sink":
-	        {
-	            "type": "BlobSink"
-	        },
-	        "translator": 
-	        {
-	            "type": "TabularTranslator",
-	            "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
-	        }
-	    },
-	   "scheduler": {
-	          "frequency": "Hour",
-	          "interval": 1
-	        }
-	}
+    {
+        "name": "CopyActivity",
+        "description": "description", 
+        "type": "Copy",
+        "inputs":  [ { "name": "AzureSQLInput"  } ],
+        "outputs":  [ { "name": "AzureBlobOutput" } ],
+        "typeProperties":    {
+            "source":
+            {
+                "type": "SqlSource"
+            },
+            "sink":
+            {
+                "type": "BlobSink"
+            },
+            "translator": 
+            {
+                "type": "TabularTranslator",
+                "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+            }
+        },
+       "scheduler": {
+              "frequency": "Hour",
+              "interval": 1
+            }
+    }
 
-**Fluxo de mapeamento de coluna:**
+**Column mapping flow:**
 
-![Fluxo de mapeamento de coluna](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
+![Column mapping flow](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
 
-### Exemplo 2 - mapeamento de coluna com a consulta SQL do SQL Azure para blobs do Azure
-Neste exemplo, uma consulta SQL é usada para extrair dados do SQL Azure, em vez de simplesmente especificar o nome da tabela e os nomes das colunas na seção de "estrutura".
+### <a name="sample-2-–-column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Sample 2 – column mapping with SQL query from Azure SQL to Azure blob
+In this sample, a SQL query is used to extract data from Azure SQL instead of simply specifying the table name and the column names in “structure” section. 
 
-	{
-	    "name": "CopyActivity",
-	    "description": "description", 
-	    "type": "CopyActivity",
-	    "inputs":  [ { "name": " AzureSQLInput"  } ],
-	    "outputs":  [ { "name": " AzureBlobOutput" } ],
-	    "typeProperties":
-	    {
-	        "source":
-	        {
-	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
-	        },
-	        "sink":
-	        {
-	            "type": "BlobSink"
-	        },
-	        "Translator": 
-	        {
-	            "type": "TabularTranslator",
-	            "ColumnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
-	        }
-	    },
-	    "scheduler": {
-	          "frequency": "Hour",
-	          "interval": 1
-	        }
-	}
+    {
+        "name": "CopyActivity",
+        "description": "description", 
+        "type": "CopyActivity",
+        "inputs":  [ { "name": " AzureSQLInput"  } ],
+        "outputs":  [ { "name": " AzureBlobOutput" } ],
+        "typeProperties":
+        {
+            "source":
+            {
+                "type": "SqlSource",
+                "SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
+            },
+            "sink":
+            {
+                "type": "BlobSink"
+            },
+            "Translator": 
+            {
+                "type": "TabularTranslator",
+                "ColumnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
+            }
+        },
+        "scheduler": {
+              "frequency": "Hour",
+              "interval": 1
+            }
+    }
 
-Nesse caso, os resultados da consulta primeiro são mapeados para colunas especificadas na "estrutura" da origem. Em seguida, as colunas da "estrutura" de origem são mapeadas para colunas na "estrutura" do coletor com as regras especificadas em columnMappings. Suponha que a consulta retorne cinco colunas, duas colunas adicionais e as especificadas na "estrutura" de origem.
+In this case, the query results are first mapped to columns specified in “structure” of source. Next, the columns from source “structure” are mapped to columns in sink “structure” with rules specified in columnMappings.  Suppose the query returns 5 columns, two additional columns then those specified in the “structure” of source.
 
-**Fluxo de mapeamento de coluna**
+**Column mapping flow**
 
-![Fluxo de mapeamento de coluna-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
+![Column mapping flow-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

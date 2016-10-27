@@ -1,6 +1,6 @@
 <properties
- pageTitle="Dimensionamento no Hub IoT do Azure | Microsoft Azure"
- description="Descreve como dimensionar o Hub IoT do Azure."
+ pageTitle="Azure IoT Hub scaling | Microsoft Azure"
+ description="Describes how to scale Azure IoT Hub."
  services="iot-hub"
  documentationCenter=""
  authors="fsautomata"
@@ -16,61 +16,56 @@
  ms.date="09/19/2016"
  ms.author="elioda"/>
 
-# Dimensionamento do Hub IoT
 
-O Hub do IoT do Azure pode oferecer suporte a até um milhão de dispositivos conectados ao mesmo tempo. Para saber mais, confira [Preço do Hub IoT][lnk-pricing]. Cada unidade do Hub IoT permite uma determinada quantidade de mensagens diárias.
+# <a name="scaling-iot-hub"></a>Scaling IoT Hub
 
-Para dimensionar corretamente sua solução, considere sua utilização específica do Hub IoT. Em particular, considere a taxa de transferência de pico necessária para as seguintes categorias de operações:
+Azure IoT Hub can support up to a million simultaneously connected devices. For more information, see [IoT Hub pricing][lnk-pricing]. Each IoT Hub unit allows a certain number of daily messages.
 
-* Mensagens do dispositivo para a nuvem
-* Mensagens da nuvem para o dispositivo
-* Operações de registro de identidade
+To properly scale your solution, consider your particular use of IoT Hub. In particular, consider the required peak throughput for the following categories of operations:
 
-Além dessas informações sobre produtividade, confira as [Cotas e limites do Hub IoT][] e crie sua solução adequadamente.
+* Device-to-cloud messages
+* Cloud-to-device messages
+* Identity registry operations
 
-## Taxa de transferência de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo
+In addition to this throughput information, see [IoT Hub quotas and throttles][] and design your solution accordingly.
 
-A melhor maneira de dimensionar uma solução do Hub IoT é avaliar o tráfego de acordo com a unidade.
+## <a name="device-to-cloud-and-cloud-to-device-message-throughput"></a>Device-to-cloud and cloud-to-device message throughput
 
-As mensagens do dispositivo para a nuvem seguem estas diretrizes de taxa de transferência sustentada.
+The best way to size an IoT Hub solution is to evaluate the traffic on a per-unit basis.
 
-| Camada | Taxa de transferência sustentada | Taxa de envio sustentada |
+Device-to-cloud messages follow these sustained throughput guidelines.
+
+| Tier | Sustained throughput | Sustained send rate |
 | ---- | -------------------- | ------------------- |
-| S1 | Até 1111 KB/minuto por unidade<br/>(1,5 GB/dia/unidade) | Média de 278 mensagens/minuto por unidade<br/>(400.000 mensagens/dia por unidade) |
-| S2 | Até 16 MB/minuto por unidade<br/>(22,8 GB/dia/unidade) | Média de 4167 mensagens/minuto por unidade<br/>(6 milhões de mensagens/dia por unidade) |
-| S3 | Até 814 MB/minuto por unidade<br/>(1144,4 GB/dia/unidade) | Média de 208,333 mensagens/minuto por unidade<br/>(300 milhões de mensagens/dia por unidade) |
+| S1 | Up to 1111 KB/minute per unit<br/>(1.5 GB/day/unit) | Average of 278 messages/minute per unit<br/>(400,000 messages/day per unit) |
+| S2 | Up to 16 MB/minute per unit<br/>(22.8 GB/day/unit) | Average of 4167 messages/minute per unit<br/>(6 million messages/day per unit) |
+| S3 | Up to 814 MB/minute per unit<br/>(1144.4 GB/day/unit) | Average of 208,333 messages/minute per unit<br/>(300 million messages/day per unit) |
 
-## Taxa de transferência de operações de registro de identidade
+## <a name="identity-registry-operation-throughput"></a>Identity registry operation throughput
 
-As operações de registro de identidade do Hub IoT não devem ser operações em tempo de execução, pois estão relacionadas principalmente com provisionamento do dispositivo.
+IoT Hub identity registry operations are not supposed to be runtime operations, as they are mostly related to device provisioning.
 
-Consulte [Cotas e limites do Hub IoT][] para obter números específicos de desempenho de intermitência.
+For specific burst performance numbers, see [IoT Hub quotas and throttles][].
 
-## Fragmentação
+## <a name="sharding"></a>Sharding
 
-Enquanto um único Hub IoT pode ser dimensionado para milhões de dispositivos, às vezes sua solução exigirá características específicas de desempenho que um único Hub IoT não pode garantir. Nesse caso, é recomendável que você particione seus dispositivos em vários Hubs IoT. Vários hubs IoT suavizam picos de tráfego e obtêm a taxa de transferência ou as taxas de operação necessárias.
+While a single IoT hub can scale to millions of devices, sometimes your solution requires specific performance characteristics that a single IoT hub cannot guarantee. In that case, it is recommended that you partition your devices into multiple IoT hubs. Multiple IoT hubs smooth traffic bursts and obtain the required throughput or operation rates that are required.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Para explorar melhor as funcionalidades do Hub IoT, consulte:
+To further explore the capabilities of IoT Hub, see:
 
-- [Guia do desenvolvedor][lnk-devguide]
-- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
-- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
-- [Gerenciar Hubs IoT por meio do portal do Azure][lnk-portal]
+- [Developer guide][lnk-devguide]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[Cotas e limites do Hub IoT]: iot-hub-devguide.md#throttling
+[IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
 
-[lnk-design]: iot-hub-guidance.md
-[lnk-mqtt]: iot-hub-mqtt-support.md
-[lnk-devices]: iot-hub-tested-configurations.md
-[lnk-protocols]: iot-hub-protocol-gateway.md
-[lnk-compare]: iot-hub-compare-event-hubs.md
-[lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

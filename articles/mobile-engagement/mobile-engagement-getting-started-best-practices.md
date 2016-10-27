@@ -1,401 +1,402 @@
 <properties 
-	pageTitle="Guia de introdução ao Azure Mobile Engagement com práticas recomendadas"
-	description="Guia de introdução ao Azure Mobile Engagement e práticas recomendadas para a integração" 
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="wesmc7777"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Azure Mobile Engagement Getting Started Guide with Best Practices"
+    description="Getting Started guide for Azure Mobile Engagement and Best practices for onboarding" 
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="wesmc7777"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="mobile-engagement"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.workload="mobile" 
-	ms.date="10/04/2016"
-	ms.author="wesmc;ricksal"/>
+    ms.service="mobile-engagement"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.workload="mobile" 
+    ms.date="10/04/2016"
+    ms.author="wesmc;ricksal"/>
 
-# Azure Mobile Engagement - Guia de introdução com práticas recomendadas
 
-## Visão geral
+# <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Getting Started Guide with Best practices
 
-**A tela do celular é um espaço muito concorrido:** em 2013, um estudo descobriu que o dispositivo móvel médio tinha 27 aplicativos instalados. Os usuários normalmente passam 30 horas por mês em seus aplicativos. A maior parte desse tempo foi passado em redes sociais e em jogos (cerca de 20 horas). Até 2014, o Android disponibilizava cerca de 1,5 milhão de aplicativos para os usuários. A Apple Store continha cerca de 1,2 milhão de aplicativos. O uso de aplicativos móveis não para de aumentar à medida que os desenvolvedores competem nesse mercado em expansão.
+## <a name="overview"></a>Overview
 
-O usuário móvel comum instalará e desinstalará aplicativos frequentemente, dependendo das mudança de interesse e nas experiências proporcionadas no aplicativo. Para determinar o êxito de um aplicativo, tornou-se essencial ter mais informações além de quantos usuários instalaram o seu aplicativo. É importante saber a utilidade de seu aplicativo e se essa tendência de uso está mudando. As perguntas a seguir tornam-se importantes:
+**The mobile screen is a very crowded space:** In 2013, a study found the average mobile device had 27 applications installed. Users typically spent 30 hours per month on their apps. Most of this time was spent on social networking and gaming (around 20 hours). By 2014, the Android market had around 1.5 million applications for users to choose from. The Apple store contained around 1.2 million apps. Mobile app use is still increasing as developers compete in this growing market. 
 
-- Seus usuários estão começando a achar seu aplicativo pouco interessante ou obsoleto?
-- Quantos usuários deixaram de usar seu aplicativo?
-- A tendência de compras no aplicativo está aumentando ou diminuindo?
-- Os usuários estão deixando de concluir os fluxos de trabalho devido a problemas com o aplicativo ou pela falta de interesse?
-- Você conseguiria manter a utilidade e relevância de seu aplicativo disponibilizando conteúdo atualizado para sua base de usuários?
-- Esse conteúdo atualizado seria o mesmo para todos os usuários ou estaria focado em segmentos de usuários baseados no comportamento em seu aplicativo?
+The average mobile user will install and uninstall apps with high frequency depending on changing interests and in-app experiences. In order to determine the success of an app it becomes vital to know more than just how many users install your app. It's important to know how useful your app is and if that usage trend is changing. The following questions become important:
+
+- Are your users beginning to find your app uninteresting or obsolete? 
+- How many users have stopped using your app at all? 
+- Are in-app purchases trending upward or downward?
+- Are users failing to complete work flows because of issues with the app or lack of interest? 
+- Could you keep your app useful and relevant by pushing fresh content to your user base? 
+- Would this fresh content be the same for all users or focused on user segments based on behavior in your app? 
  
-As respostas a perguntas parecidas poderiam ajudar a estender a vida útil e a receita de seu aplicativo. Elas também podem ajudar você a definir e a manter sua base de usuários.
+Answers to questions similar to these could help extend the life and revenue from your app. They can also help you define and retain your user base. 
 
-Os aplicativos relacionados a mídia costumam apresentar a retenção mais alta entre os usuários. Um dos motivos disso é o fornecimento constante de conteúdo atualizado aos usuários. A adoção antecipada de notificações úteis por push direcionadas a um segmento de usuários costuma apresentar um grande impacto sobre a retenção do aplicativo.
+Media related apps tend to have some of the highest retention among users. One reason for this is they are constantly providing fresh content to users. Early adoption of useful push notifications directed to a user segment tends to have a high impact on app retention. 
 
-O programa Azure Mobile Engagement foi projetado para ajudar você a estender a vida útil e a retenção de seu aplicativo por meio de um método de coleta e análise de informações detalhadas sobre o uso de seu aplicativo. Ele ajudará a classificar sua base de usuários de acordo com o comportamento e a criar campanhas focadas para o envio de notificações por push e mensagens no aplicativo aos segmentos de usuários identificados. Os indicadores chave de desempenho (KPIs) medem o nível de atividade dos usuários em diferentes aspectos de seu aplicativo. O Azure Mobile Engagement fornece os métodos necessários para determinar esses KPIs. Ele ajuda a aumentar o retorno sobre o investimento (ROI), fornecendo a infraestrutura necessária para aumentar o envolvimento com seu aplicativo móvel.
+The Azure Mobile Engagement program is designed to help you extend the life and retention of your app by providing a method to gather and analyze detailed information on the use of your app. It will help you classify your user base according to behavior, and create focused campaigns for delivering push notifications and in-app messages to identified user segments. Key performance indicators (KPI) measure how active your users are with different aspects of your app. Azure Mobile Engagement provides the methods you need to determine these KPIs. It helps increase the return on your investment (ROI) by providing the infrastructure you need to increase engagement with your mobile app. 
 
-Para tirar o máximo proveito do Azure Mobile Engagement, você precisará começar com um plano de envolvimento bem projetado. Seu plano ajudará você a identificar os dados granulares necessários para que você possa segmentar sua base de usuários. Isso pode ter base no comportamento e em experiências no aplicativo. Para que seu plano seja bem-sucedido, é uma prática recomendada definir claramente o KPI que medirá os objetivos de seu aplicativo. Com os indicadores de desempenho claramente definidos, você pode incorporar facilmente a lógica necessária em seu aplicativo a fim de coletar dados refinados para análise e avaliação dos KPIs. Este tópico é um guia de práticas recomendadas para a definição dos KPIs que serão usados com seu plano de envolvimento.
-
-
-## Etapa 1: definir os KPIs de acordo com o modelo BET
+In order to get the most out of Azure Mobile Engagement, you need to start with a well designed engagement plan. Your plan will help you identify the granular data you will need to be able to segment your user base. This can be based on behavior and in-app experiences. In order for your plan to be successful, it is a best practice to clearly define the KPI that will measure the objectives of your app. With clear performance indicators defined, you can easily embed the necessary logic in your app to collect fine grained data which you will use to analyze and evaluate your KPIs. This topic is a best practice guide for defining the KPIs that you will use with your engagement plan. 
 
 
-Definir corretamente os KPIs pode ser uma tarefa bem difícil. Os aplicativos projetados para diversos setores têm suas próprias especificações e objetivos. Isso pode confundir sua abordagem. Para evitar isso, os objetivos e KPIs devem ser classificados em três categorias principais: **Negócios**, **Envolvimento** e **Técnico**. Isso é o que chamamos de **modelo BET**.
-
-Geralmente, um bom plano terá objetivos com os KPIs que medem o sucesso em cada uma das categorias do modelo BET a seguir.
+## <a name="step-1:-define-your-kpis-to-fit-the-bet-model"></a>Step 1: Define your KPIs to fit the BET model
 
 
-#### KPIs de Negócios
+Correctly defining KPIs can be a difficult task to complete. Apps designed for different industries have their own specifics and objectives. This may tend to confuse your approach. To help avoid this, objectives and KPIs should be classified into three main categories: **Business**, **Engagement**, and **Technical**. This is what we call the **BET model**.
 
-A criação dos KPIs de Negócios deve ser a parte mais fácil. Provavelmente você já os definiu de alguma forma quando planejou seu aplicativo móvel. Esses KPIs normalmente ajudam a medir a receita e o ROI do aplicativo. A lista a seguir fornece alguns exemplos de KPIs de Negócios que podem orientar você na definição de seus indicadores de desempenho:
-
-- KPIs de Negócios de Mídia
-	- Número de anúncios clicados
-	- Número de visitas à página por usuário
-	- Número de assinaturas atuais
-- KPIs de Negócios em Jogos
-	- Número de compras no aplicativo
-	- Receita média por usuário (ARPU)
-	- Tempo gasto por sessão
-	- Dias jogados e atuais no nível do jogo
-- KPIs da Negócios em Comércio Eletrônico
-	- Dias de utilização do aplicativo
-	- Receita média por usuário (ARPU)
-	- Valor médio no carrinho durante o check-out
-	- Categoria do produto com mais visualizações e compras
-- KPIs de Negócios em Banco e Seguros
-	- Número de contas
-	- Recursos ativados
-	- Páginas de ofertas visitadas
-	- Alertas clicados ou ativados
+A good plan will generally have objectives with the KPIs that measure the successes in each of the following categories of the BET model.
 
 
+#### <a name="business-kpis"></a>Business KPIs
 
-#### KPIs de Envolvimento
+Business KPIs should be the easiest part to build. You probably already defined these in some form when you planned your mobile app. These KPIs generally help measure revenue and ROI for you app. The following list provides some example Business KPIs that may help guide you while defining your performance indicators:
 
-Uma KPI de Envolvimento é um indicador de desempenho que mede o envolvimento dos usuários. As tendências nessa área ajudam a determinar a retenção de seu aplicativo. Aqui estão alguns exemplos de indicadores de desempenho para esse tipo de KPI:
-
-- Usuários ativos nos últimos sete dias
-- Contagem de usuários inativos nos últimos sete dias
-- Contagem de usuários que não usaram o aplicativo em 30 dias
-
-Alguns fatores externos óbvios podem influenciar os indicadores nessa área. Por exemplo, você pode considerar que um usuário carrega o dispositivo móvel sempre com ele. Isso pode ou não ser verdadeiro. Um aplicativo de jogo tende a ser mais usado durante os feriados, quando um jogador pode jogar mais por estar de folga do trabalho ou da escola.
-
-Os KPIs bem definidos nessa categoria ajudarão você a avaliar a relação entre seu aplicativo e seus clientes.
+- Media Business KPIs
+    - Number of Ads clicked
+    - Number of page visits per user
+    - Number of current subscriptions
+- Gaming Business KPIs
+    - Number of in-app purchases
+    - Average revenue per user (ARPU)
+    - Time spent per session
+    - Days played and current in game level
+- E-Commerce Business KPIs
+    - Days app used
+    - Average revenue per user (ARPU)
+    - Average amount in cart during checkout
+    - Product category for most views and purchases
+- Bank and insurance Business KPIs
+    - Number of accounts
+    - Features activated
+    - Offer pages visited
+    - Alerts clicked or activated      
 
 
 
-#### KPIs Técnicos
+#### <a name="engagement-kpis"></a>Engagement KPIs
 
-Os indicadores de desempenho nessa categoria ajudarão você a determinar se o seu aplicativo está se comportando corretamente, se está travando ou falhando. Esses indicadores podem medir a integridade de seu aplicativo e identificar problemas de uso que podem impedir a utilização do aplicativo pelos usuários. As informações coletadas para essa categoria também podem apresentar dados sobre o desempenho que talvez sejam relevantes para as equipes de marketing. Os dados também podem ser úteis para a solução de problemas por parte das equipes de TI e de suporte, a fim de identificar os bugs não relatados.
+An Engagement KPI is a performance indicator to measure the engagement of your users. Trends in this area help determine the retention of your app. Here are a few example performance indicators for this type of KPI:
+
+- Active users in the last 7 days
+- Inactive user count for the last 7 days
+- Count of users who have not used the app in 30 days  
+
+Some obvious external factors may influence indicators in this area. For example, you may consider a mobile device to be with a user at all times. This may or may not be true. A gaming app might tend to have higher usage around holidays when a gamer may play more while off work or out of school.   
+
+Well defined KPIs in this category should help you measure the relationship between your app and your customers.
+
+
+
+#### <a name="technical-kpis"></a>Technical KPIs
+
+Performance indicators in this category help you determine if your app is behaving correctly, hanging, or crashing. These indicators can measure the health of your app and determine usability issues that may prevent users from using the app. Information collected for this category could also contain performance information that would be relevant to marketing teams. The data could also be useful for troubleshooting by IT and support teams to help identify unreported bugs. 
  
-Veja alguns exemplos de KPIs Técnicos:
+Here are some examples of Technical KPIs:
 
-- Contagem e informações sobre exceções manipuladas ou não manipuladas
-- Carimbo de data e hora do último travamento
-- Último botão clicado ou última página visitada
-- Uso de memória do aplicativo
-- Taxa de quadros do aplicativo
-- A versão do SO no qual o aplicativo está em execução
-- Versão do aplicativo
+- Unhandled or handled exception information and count 
+- Timestamp for last crash
+- Last button clicked or last page visited
+- Memory usage of the app
+- App frame rate
+- OS version that the app is running on
+- App version
 
-Defina esses KPIs para ajudar a medir o desempenho do aplicativo e identificar possíveis bugs. Esses indicadores devem ajudar a reduzir o tempo necessário para entregar uma correção aos clientes. Eles também podem ajudar a definir um segmento de usuários que enfrentou um problema específico. Você pode usar essa segmentação de usuários para criar campanhas de envio de notificações sobre as correções disponíveis e possíveis promoções para ajudar a recuperar a satisfação do cliente.
-
-
-#### Exercício 1 do guia estratégico: Criar seu painel de KPIs
-
-Depois de definir sua estratégia de marketing, os KPIs deverão apresentar uma visão de cada um dos seus principais objetivos. Eles devem ser pontos de dados claramente definidos que permitirão a coleta de informações vitais para o monitoramento de seu aplicativo e o comportamento do usuário final.
-
-Crie um painel de KPIs que contenha as informações abaixo
-
-1.	Quais são os KPIs para o aplicativo?
-2.	Quais pontos de dados eu usarei para representar cada KPI?
-3.	Onde esses dados estarão localizados para meu aplicativo (ou seja, tela, configurações, sistema...)?
-4.	Posso executar uma sequência de Envolvimento para este KPI?
-
-Você pode usar a planilha **Construtor de KPI** em nosso [Modelo de guia estratégico de mídia][Media Playbook link] para obter exemplos e orientações.
+Define these KPIs to help measure app performance and pinpoint potential bugs. This indicators should help reduce the time you need to deliver a fix for your customers. They could also help you define a user segment who have encountered a particular issues. You can use that user segmentation to create campaigns to deliver notifications regarding available fixes and potential promotions to help recover customer satisfaction. 
 
 
+#### <a name="playbook-exercise-1:-create-your-kpi-dashboard"></a>Playbook Exercise 1: Create your KPI dashboard
 
-## Etapa 2: seu programa de envolvimento
+When defining your marketing strategy, your KPIs should present a view for each of your main objectives. They should be clearly defined data points that will allow you to collect vital information to monitor your app and the behavior of the end-user.
+
+Build a KPI dashboard which contains the below information
+
+1.  What are the KPIs for the app?
+2.  What data points will I use to represent each KPI?
+3.  Where is this data located for my application (i.e. screen, settings, system…)?
+4.  Can I play an Engagement sequence for this KPI?
+
+You can use the **KPI Builder** worksheet in our [Media Playbook Template][Media Playbook link] for examples and guidance.
 
 
-Um ótimo programa de envolvimento móvel deve ser considerado um componente fundamental de seu aplicativo. Ele deve incluir um excelente programa de boas-vindas que seja executado para um usuário durante os primeiros dias de utilização do aplicativo. Isso costuma ter um efeito muito positivo no envolvimento e na retenção de seu aplicativo. Estudos mostraram que a maioria dos usuários deixa de usar um aplicativo nos primeiros dias após a instalação. Convém tentar atender ou exceder a expectativa do cliente gerando interesse logo no início, enquanto o foco do usuário ainda está em seu aplicativo. Lembre-se de apresentar os principais benefícios e o valor de seu aplicativo para seus clientes.
+
+## <a name="step-2:-your-engagement-program"></a>Step 2: Your Engagement Program
+
+
+A great mobile engagement program should be considered a key component of your app. This should absolutely include a great welcome program that executes for a user during the first days of app usage. This tends to have a very positive effect on engagement and retention of your app. Studies have shown that the majority of users stop using an app the first few days after installation. You want to strive to meet or exceed customer expectation driving interest early while the user is still focused on your app. Make sure you present the key value and benefits of your app to your customers. 
 
 
 ![](./media/mobile-engagement-getting-started-best-practices/unsegmented-push-notifications.png)
 
-As notificações por push são a melhor abordagem para o envolvimento inicial com usuários de dispositivos móveis. No entanto, tome bastante cuidado ao segmentar os usuários para o envio de notificações por push. Isso porque se o usuário sentir que está recebendo spam ou notificações desinteressantes, o impacto poderá ser grave. Com alguns cliques, o usuário poderá excluir seu aplicativo e nunca mais retornar. O usuário deve receber algo altamente personalizado no aplicativo, em vez de spam genérico.
+Push notifications are the best approach to early engagements with mobile device users. However, great care should be taken when segmenting users for push notifications. Because once a user feels like they are receiving spam or uninteresting notifications, it can have serious affect. In few clicks, a user may delete your application never to return. The user should be receiving highly personalized in-app value instead of generic spam.
 
-Quando os usuários estiverem ativamente envolvidos, seu programa de envolvimento poderá ajudar a conduzir outros aspectos do aplicativo.
+Once users are actively engaged, then your engagement program can help drive other aspects of the app.
 
-Por exemplo, você pode configurar uma campanha que solicita aos usuários ativos a avaliação de seu aplicativo. Como este segmento de usuários é o mais ativo e apresenta a maior experiência com seu aplicativo, você esperaria deles a classificação mais precisa. Uma classificação alta de seu aplicativo pode ajudar a aumentar o download orgânico e também a reduzir os custos de aquisição de novos clientes.
-
-
-
-#### Sequência de envolvimento
+For instance, you could setup a campaign that requests your active users to rate your app. Since this user segment is the most active and has the most experience with you app, you would expect them to give the most accurate rating. Once you have a high app rating, it can help drive up the organic download of your app as well reducing your new customer acquisition costs.
 
 
-Um programa de envolvimento global inclui sequências de envolvimento diferentes. Cada sequência tem como objetivo atingir vários objetivos.
+
+#### <a name="engagement-sequence"></a>Engagement Sequence
 
 
-###### Sequência de envio por push durante a vida útil
+A global Engagement Program includes different engagement sequences. Each sequence aims to reach several objectives.
 
 
-Os objetivos de uma sequência de envio por push durante a vida útil pode variar dependendo do ciclo de vida do envolvimento do usuário com o aplicativo. Um usuário específico pode ser novo, inativo ou muito ativo. Em estágios diferentes de um ciclo de vida de envolvimento, os usuários poderão aproveitar o conteúdo atualizado na forma de dicas ou links para a documentação.
-
-Por exemplo, um novo usuário pode precisar de orientação com relação a um aplicativo ou se beneficiar de um novo incentivo de usuário semelhante ao seguinte na primeira vez que inicia o aplicativo...
-
-*"Estamos felizes por ter você a bordo! Lembre-se de fazer logon para ganhar seu primeiro mês gratuito!"*
+###### <a name="life-push-sequence"></a>Life push sequence
 
 
-###### Sequência de envio por push comportamental
+The objectives for a Life push sequence are different depending on the lifecycle of the user’s engagement with the app. A particular user may be new, inactive, or very active. At different stages of an engagement lifecycle, users may benefit from your fresh content in the form of tips or links to documentation. 
 
-A sequência de envio por push comportamental tem como objetivo aumentar o uso com base no comportamento do usuário coletado para o aplicativo.
+For example a new user may need help getting oriented to an app or benefit from a new user incentive similar to the following the first time they launch the app...
 
-Por exemplo, um usuário muito ativo de um aplicativo de futebol pode se beneficiar do envolvimento com a seguinte notificação por push...
-
-*"Julio, você é um verdadeiro fã de futebol! Faça logon em nossa seção sobre o Brasileirão e ganhe acesso gratuito à Copa do Mundo!"*
+*"Glad to have you onboard! Remember to login to get your 1st month free!"*
 
 
-###### Sequência de envio por push de alerta
+###### <a name="behavioral-push-sequence"></a>Behavioral push sequence
 
-Os usuários apreciarão notícias relevantes focadas em seus interesses. Uma sequência de envio por push de alerta melhora o envolvimento enviando alertas baseados nos interesses claramente demonstrados de um usuário. Isso pode ser explícito se um usuário selecionar seus próprios interesses no aplicativo. Isso também pode ser determinado de forma implícita com base nos dados coletados durante a interação do usuário com o aplicativo.
+The behavioral push sequence aims to increase usage based on user behavior collected for the app.  
 
-Por exemplo, o usuário de um aplicativo de comércio eletrônico pode comprar regularmente uma marca específica de café que você capturou com um KPI de negócios. O seguinte alerta pode aprimorar o envolvimento do usuário com o aplicativo.
+For example, a very active user of a fantasy football app might benefit from being engaged with the following push notification...
+
+*"John you are a serious football fan! Log in to our NFL section and win free access to the SuperBowl!"*
+
+
+###### <a name="alerting-push-sequence"></a>Alerting push sequence
+
+Users will appreciate relevant news focused on their interests. An alert push sequence enhances engagement by sending alerts based on interests a user has clearly shown. This could be explicit when a user selects their own interests in the app. It could also be determined implicitly based on data collected during user interaction with the app.
+
+For example, the user of an E-Commerce app may regularly buy a specific brand of coffee which you have captured with a business KPI. The following alert can enhance this user's engagement with the app.
  
-*"Olá Inês, uma de suas marcas favoritas de café estará com 25% de desconto na primeira semana de setembro de 2015. Estamos felizes por tê-la como cliente e queremos ter certeza de que você está ciente desta promoção."*
+*"Hi Wes, One of your favorite brands of coffee will be on sale 25% off the first week of September 2015. We appreciate you as a customer and wanted to make sure you were aware."*
 
-###### Sequência de envio por push de retenção
+###### <a name="rentention-push-sequence"></a>Rentention push sequence
 
-Essa sequência tem como objetivo reter usuários por meio de campanhas de notificação por push repetitivas, a fim de gerar um hábito regular de envolvimento com o aplicativo. Isso pode ajudar a aumentar a retenção do aplicativo, caso o usuário desfrute das interações.
+This sequence aims to retain users using a repetitive push notification campaigns to help drive a regular habit of engaging with the app. This can help increase app retention if the user enjoys the interactions. 
 
-Por exemplo, o usuário de um aplicativo relacionado a esportes pode receber semanalmente a seguinte notificação por push, com base nas equipes favoritas do usuário:
+For example, the user of a sports related app might receive the following push notification weekly based on the user's favorite teams:
 
-*"Para concorrer a 200 pontos, vote se a Seleção Brasileira ganhará o jogo desta semana contra a Argentina!"*
+*"For a chance to win 200 points, go vote whether the New York Yankees will win their game this week against Toronto Blue Jays!"*
 
 
-#### A abordagem 3W
+#### <a name="the-3w-approach"></a>The 3W approach
 
-Dominar as diferentes sequências de envio por push ajudará você a se comunicar com os usuários finais. No entanto, você ainda precisa usar a abordagem 3W para personalizar suas notificações. A abordagem 3W deve abordar Quem (Who), O que (What) e Quando (When) de cada notificação. Se você responder claramente essas perguntas, suas notificações estarão apropriadamente focadas no envolvimento.
+Mastering the different push sequences will help you engage with end-users. However, you still need to use the 3W approach for personalizing your notifications. The 3W approach should address Who, What and When for each notification. If you clearly satisfy these three questions you notifications should be properly focused for engagement.
 
 ![](./media/mobile-engagement-getting-started-best-practices/who-what-when.png)
 
 
 
-###### Quem: o segmento de usuários que receberá as mensagens
+###### <a name="who:-the-user-segment-that-will-receive-messages"></a>Who: The user segment that will receive messages
 
-O envio de notificações por push aos usuários deve ser considerado um canal de comunicação muito confidencial. Verifique se as notificações que você gostaria de enviar a um segmento de usuários estão com o escopo bem definido de acordo com os interesses desse segmento. Uma notificação encaminhada incorretamente provavelmente terá um efeito negativo sobre um usuário. Ele pode considerá-la um spam e desinstalar seu aplicativo.
+Pushing notifications to your users should be considered a very sensitive communication channel. Make sure the notifications you aim to send to a user segment are well scoped to the interests of that user segment. An incorrectly routed notification is very likely to have a negative affect on a user. They may consider it spam leading to your app being uninstalled. 
 
-Use uma combinação de critérios técnicos e comportamentais específicos ao definir os segmentos de usuários que receberão as notificações. Um exemplo simples de definição de um segmento de usuários poderia ser semelhante a seguinte declaração:
+Use a combination of specific technical and behavioral criteria when defining user segments that will receive notifications. A simple example defining a user segment could be similar to the following statement:
 
-"Todos os usuários que iniciaram um aplicativo móvel pela primeira vez há três dias e visitaram a página de logon duas vezes sem concluir o logon".
+"All users who launched the a mobile application for the first time 3 days ago, and have visited the login page twice without actually completing a login".
  
-Essa declaração ajuda a identificar os dados que você precisará coletar para dar suporte a um cenário específico.
+That statement helps identify the data you would need to collect to support a specific scenario.
 
 
-###### O que: a mensagem que você enviará
+###### <a name="what:-the-message-that-you-will-send"></a>What: The message that you will send
 
-**Tom**
+**Tone**
 
-Use, em seus envolvimentos, um tom apropriado para seus usuários segmentados. Essa é, definitivamente, uma boa maneira de conectar-se com os usuários finais e promover o interesse do usuário em seu aplicativo.
+In your engagements use a tone that is appropriate for your for your segmented users. This is definitely a good way to connect with your end-users and promote a user's interest in your app. 
 
-**Redirecionamento**
+**Redirection**
 
-É possível usar uma notificação por push para outros fins além da abertura do aplicativo. Se a mensagem de notificação fornecer um contexto, como a transmissão de notícias ou a promoção de um produto, essa notificação poderá levar diretamente ao conteúdo correto no aplicativo. Para dar suporte a isso, você deverá criar um esquema de URL que permita ao aplicativo gerenciar o redirecionamento. Ao trabalhar em suas sequências de envolvimento, essa é uma etapa importante que não deve ser negligenciada.
+A push notification can be used for more than opening up the application. If the notification message provides a context such as broadcast news or a product promotion, this notification may deep link directly to the right content within the application. To support this, you must create a URL scheme to let the application manage the redirection. When working on your engagement sequences, this is an important step that must not be forgotten.
 
-O redirecionamento também pode ser gerenciado para outros sistemas. Por exemplo, uma URL de ação pode redirecionar os usuários finais a vários outros sistemas, incluindo os seguintes:
+Redirection can also be managed for other systems. For instance, with an Action URL it is possible to redirect end-users to many other systems including the following:
 
-- Um site
-- Uma caixa de correio com um email já configurado
-- Uma caixa de SMS
-- Um serviço de discagem
-- Diretamente à loja de aplicativos para classificação do aplicativo.
+- A website
+- A mailbox with email already set up
+- An SMS box
+- A dial service
+- Directly to the application store for rating the application. 
 
-Isso proporciona muitas oportunidades de envolvimento com os usuários finais e cria regras automáticas para melhorar o desempenho.
+This provides many opportunities to engage end-users and create automatic rules to improve performances.
 
 
-**Formato/conteúdo**
+**Format/Content**
 
-Tipos e formatos diferentes de notificação por push:
+Different types and Push notification formats:
 
-1. **Anúncios**: permite o envio de mensagens de anúncio para os usuários em momentos diferentes (fora do aplicativo, no aplicativo ou a qualquer momento).
-2. **Pesquisas**: permite a coleta de informações dos usuários finais por meio de perguntas. Essas respostas ficam disponíveis durante a criação de critérios para a segmentação dos usuários finais.
-3. **Envios de dados por push**: permite o envio de um arquivo de dados binário ou de base64 a fim de atualizar o aplicativo. As informações contidas em um envio de dados por push são enviadas ao seu aplicativo para personalizarem a experiência dos usuários em seu aplicativo. Seu aplicativo precisa ser desenvolvido para dar suporte aos dados em um envio de dados.
-4. **Blocos (somente Windows Phone)**: permite o uso do Serviço de Notificação por Push da Microsoft (MPNS) para enviar notificações por push nativas contendo dados XML (com suporte desde a versão 0.9.0 do SDK. A carga final dos blocos não pode exceder 32 quilobytes). A mensagem aparece diretamente no bloco de seu painel.
-5. **Modo de exibição da Web**: um modo de exibição da Web é um pop-up com conteúdo da Web. Essa janela pop-up aparece quando o usuário final tiver clicado em uma notificação por push. Uma exibição da web permite que você tenha mais interação com o usuário final.
+1. **Announcements** : enables you to send advertising messages to users at different moments (out of app, in app or anytime).
+2. **Polls** : enabled you to gather information from end-users by asking them questions. Those answers are then available when creating criteria  to target end-users.
+3. **Data Pushes** : enables you to send a binary or base64 data file to update the app. The information contained in a data push is sent to your application to personalize the users' experience in your app. Your application needs to be designed to support the data in a data push.
+4. **Tiles (Windows Phone only)** : enabled you to use the Microsoft Push Notification Service (MPNS) to send Native Push Notification containing XML Data (Supported since SDK version 0.9.0. The final payload for tiles cannot exceed 32 kilobytes.). The message appears directly on your board’s tile.
+5. **Webview** : A web view is a pop-up containing web content. This pop-up appears when the end-user has clicked on the push notification. A web view allows you to have more interaction with the end-user.
  
->[AZURE.NOTE] Certifique-se de que o conteúdo que você está enviando como notificações por push esteja em conformidade com as respectivas diretrizes das plataformas (iOS, Android, Windows) para o desenvolvimento de aplicativos e o envio de notificações por push.
+>[AZURE.NOTE] Make sure that the content you are sending as push notifications complies with the respective platform (iOS, Android, Windows) guidelines for developing apps and sending push notifications.
 
  
 
 
-###### Quando: o cronograma de sua campanha.
+###### <a name="when:-the-timing-of-your-campaign"></a>When: The timing of your campaign
 
-Quando é o melhor momento para ativar uma campanha por meio do envio de notificações por push? Isso deve ser manual ou automático? Deve ser recorrente? Determinar o momento ou frequência certa é essencial para envolver os usuários e obter os melhores resultados. Para cada sequência e cenário de envolvimento, você deve especificar quando será o melhor momento para enviar notificações por push. Aqui estão alguns exemplos possíveis:
+When is the best time to activate a campaign triggering push notifications? Should it be manual or automatic? Should it be recurring? Determining the right time or frequency is essential to engage users with the best results. For each engagement sequence and scenario, you must specify when will be the best time to send push notifications. Here are some possible examples:
 
 ![](./media/mobile-engagement-getting-started-best-practices/campaign-timing-examples.png)
 
-Se você estiver enviando muitas notificações por dia, pense seriamente se os usuários estão considerando suas comunicações como spam.
+If you are sending many notifications daily, you must take serious consideration that your users may perceive your communications as spam. 
 
-O Azure Mobile Engagement fornece duas maneiras para ajudar a evitar que sua comunicação seja percebida como spam. Primeiro, use uma segmentação refinada para garantir que você não selecione os mesmos usuários. Além disso, o Azure Mobile Engagement fornece um recurso de "cota". Esse recurso pode limitar as notificações enviadas para uma campanha. Por exemplo, a configuração de uma cota padrão de cinco por semana garantirá que um usuário incluído como parte do segmento de usuários da campanha receba no máximo cinco notificações por semana.
-
-
-
-
-
-#### Exercício 2 do guia estratégico: Criar o seu programa de envolvimento
-
-Reserve algum tempo para resumir seus objetivos e definir as campanhas que você pretende aplicar com sequências específicas. Não deixe de aplicar a abordagem 3W às notificações em suas campanhas.
-
-Use a planilha **Programa de envolvimento** em nosso [Modelo de guia estratégico de mídia][Media Playbook link] para obter exemplos e orientações.
-
-
-## Etapa 3: integração do aplicativo
-
-
-#### Criar um plano de marca
-
-Para integrar o Azure Mobile Engagement em seu aplicativo, você precisará criar um plano de marca. O plano de marca é a base do projeto. Ele define a relação entre as especificações de marketing, o fluxo de trabalho do aplicativo e os dados reais de marca coletados no aplicativo a fim de medir os KPIs. Ele indica qual análise você poderá ver no portal. Ele também ajuda a definir os segmentos de usuários e a enviar notificações por push a fim de envolver os usuários finais. Após a definição do plano de marca, a adição do código para integrá-lo ao seu aplicativo é bastante simples, basta usar o SDK do Azure Mobile Engagement.
-
-Um plano de marca não deve marcar tudo em um aplicativo. Ele deve incluir apenas os dados de marca que fazem parte de sua estratégia de envolvimento móvel. Provavelmente haverá diferenças entre os aplicativos. O [Modelo de guia estratégico de mídia][Media Playbook link] fornecido pelo Azure Mobile Engagement ajuda você criar um plano de marca com um determinado método. Use a planilha **Plano de Marca** como um guia para a criação de seu plano de marca.
-
-Ao definir uma seção de marca na planilha, seja bastante específico. Isso é muito importante para evitar confusões. Detalhe cada cenário esperado no qual cada marca será enviada. Inclua o nome da atividade na qual cada marca será inserida. Tudo isso deve ser incluído na parte **Informativa** da planilha. A planilha do plano de marca deve ser a principal referência para a verificação de teste.
-
-Na seção **Dados a serem coletados**, sua equipe de desenvolvimento deve localizar os tipos, os nomes, os valores e os pares de chave/valor com informações adicionais necessários para cada marca inserida no aplicativo.
-
-Recomendamos a revisão do plano de marca com todas as equipes associadas ao projeto. Faça as correções necessárias e confirme se tudo está claro para as equipes de marketing e desenvolvimento.
-
-A planilha **Declaração de trabalho** pode ser usada para ajudar a orientar todas as pessoas envolvidas no projeto.
-
-
-#### Tipos de dados
-
-Estes são os tipos comuns de dados com suporte no Azure Mobile Engagement.
-
-###### Dispositivos e usuários
-
-O Azure Mobile Engagement identifica os usuários gerando um identificador exclusivo para cada dispositivo. Esse identificador é chamado de identificador de dispositivo (ou deviceid). Ele é gerado de forma que a execução de todos os aplicativos do mesmo dispositivo compartilha o mesmo identificador de dispositivo.
-
-###### Sessões e atividades
-
-Uma sessão é uma instância do aplicativo que está sendo executada por um usuário. A sessão abrange desde o momento em que o usuário inicia o aplicativo, até o momento em que ele para.
-
-Uma atividade é um agrupamento lógico de um conjunto de coisas que o aplicativo pode fazer durante uma sessão. Geralmente é uma tela específica no aplicativo, mas pode ser que qualquer coisa definida pela lógica do aplicativo. No mínimo, você deve marcar cada tela ou atividade para seu aplicativo. Isso permitirá a compreensão sobre o caminho do usuário.
-
-
-###### Eventos
-
-Eventos são usados para relatar a interação do usuário com o aplicativo. Podem ser ações instantâneas, como o compartilhamento de conteúdo ou reprodução de um vídeo. A marcação de eventos fornecerá coletas de dados que mostram como os usuários interagem com o aplicativo.
-
-###### Trabalhos
-
-Trabalhos são usados para relatar ações com uma duração. Alguns exemplos incluem:
-
-- Execução de chamadas à API
-- Tempo de exibição de anúncios
-- Execução de tarefas em segundo plano
-- Duração do processo de compra
-- Reprodução de um vídeo
-
-
-###### Erros
-
-Erros são usados para relatar problemas detectados pelo aplicativo. Por exemplo, ações incorretas do usuário ou falhas na chamada da API.
-
-###### Informações do aplicativo
-
-Informações do aplicativo (App-Info) são usadas para marcar os dados relacionados à experiência do usuário com um aplicativo. Elas são geradas por uma interação do usuário com o aplicativo.
-
-Para uma determinada chave app-info, o Azure Mobile Engagement controla o valor mais recente (sem histórico). As informações do aplicativo revelam o status de seu aplicativo ou de seus usuários finais. Por exemplo, o status de logon ou o grupo de produtos favorito do usuário.
-
-###### Dados de falha
-
-Os dados de falha coletados automaticamente pelo SDK do Mobile Engagement relatam falhas do aplicativo não tratadas pelo aplicativo. Por exemplo, uma exceção não tratada que ocorrer.
-
-
-###### Dados extras
-
-Eventos, erros, atividades e eventos podem ser aprimorados com parâmetros. Essas são informações extras que um desenvolvedor pode fornecer como dados específicos do aplicativo. Isso é importante para a definição de uma segmentação mais refinada.
-
-Por exemplo, o valor de uma marca "article" permitirá a segmentação dos usuários finais com base em quem exibiu esse artigo específico. No entanto, talvez isso não seja suficiente. Talvez fosse melhor se essa mesma marca "article" também incluísse informações adicionais, como "news\_category" em uma atividade. Isso seria útil para determinar dinamicamente as categorias favoritas para o usuário.
-
-Informação extras são reportadas como um par de chave/valor. No exemplo para este aplicativo de mídia, as informações adicionais para "news\_category" seriam o valor dessa categoria. Por exemplo, “sports", "economy" ou "politics".
+Azure Mobile Engagement provides two ways to help avoid your communications being perceived as spam. First, use fine grain segmentation to ensure you do not target the same users. Additionally, Azure Mobile Engagement provides a “quota” feature. This feature can limit notifications sent for a campaign. For example, setting a default quota to 5 per week will ensure that a user included as part of the campaign user segment receives no more than 5 notifications for that week.
 
 
 
 
 
-#### Marcas e integração do SDK 
+#### <a name="playbook-exercise-2:-create-your-engagement-program"></a>Playbook Exercise 2: Create your engagement program
 
-Para obter instruções detalhadas de integração do SDK do Azure Mobile Engagement em seu aplicativo, siga a documentação [Integração do SDK de envolvimento](mobile-engagement-windows-store-integrate-engagement.md) no site do Azure. Escolha sua plataforma de destino nos links na parte superior da página.
+Spend some time summarizing your objectives and defining the campaigns you expect to play using specific sequences. Make sure you apply the 3W approach to the notifications in your campaigns. 
 
-Recomendamos a criação de projetos para dois aplicativos criados com base no Azure Mobile Engagement. Um para desenvolvimento e teste e outro para preparação para a produção. Sua equipe de TI pode promover do teste para a produção quando a aceitação do usuário for bem-sucedida.
+Use the **Engagement Program** worksheet in the [Media Playbook Template][Media Playbook link] for examples and guidance.
+
+
+## <a name="step-3:-app-integration"></a>Step 3: App Integration
+
+
+#### <a name="create-a-tag-plan"></a>Create a tag plan
+
+To integrate Azure Mobile Engagement into your app you will need to create a tag plan. The tag plan is the cornerstone of the project. It defines the relationship between marketing specifications, the work flow of the application, and the real tag data collected in the app to measure KPIs. It indicates what analytics you will be able to see in the portal. It also helps you define user segments, and send focused push notifications to engage your end-users. Once you have the tag plan defined, adding the code to integrate it into your app is simple using the Azure Mobile Engagement SDK.
+
+A tag plan should not tag everything in an application. It should only include tag data that is part of your mobile engagement strategy. This will likely be diverse between applications. The [Media Playbook Template][Media Playbook link] provided by Azure Mobile Engagement helps you build a tag plan with a given method. Use the **Tag Plan** worksheet as a guide to building your tag plan.
+
+When defining a tag section in the worksheet, be very specific. This is very important to avoid confusion. Detail each expected scenario in which each tag will be sent. Include the name of the activity where each tag is embedded. This should all be included in the **Informative** part of the worksheet. The tag plan worksheet should be the main reference for test verification. 
+
+In the **Data to collect** section, your development team should find the types, names, values and extra-info key/value pairs required for each tag that will be embedded in the application.
+
+We recommend reviewing the Tag plan with all teams associated with the project. Make necessary corrections and confirm everything is clear for marketing and development teams.
+
+The **Statement of work** worksheet can be used to help guide everyone involved in the project.
+
+
+#### <a name="data-types"></a>Data Types
+
+These are common types of data support by Azure Mobile Engagement.
+
+###### <a name="devices-and-users"></a>Devices and users
+
+Azure Mobile Engagement identifies users by generating a unique identifier for each device. This identifier is called the device identifier (or deviceid). It is generated in such a way that all applications running on that same device share the same device identifier.
+
+###### <a name="sessions-and-activities"></a>Sessions and activities
+
+A session is one instance of the app being run by a user. The session spans from the time the user starts the app, until it stops.
+
+An activity is a logical grouping of a set of things the app may do during a session. It is usually a particular screen in the app, but it can be anything defined by the logic of the application. At a minimum you should tag each screen or Activity for your app. This will allow you to understand the user-path.
+
+
+###### <a name="events"></a>Events
+
+Events are used to report user interaction with the app. They can be instant actions, like sharing content or launching a video. Tagging events will provide you with data collections that show how users interact with the app. 
+
+###### <a name="jobs"></a>Jobs
+
+Jobs are used to report actions that have a duration. Some examples would include:
+
+- Execution of API calls
+- Display time of ads
+- Background tasks duration 
+- Purchase process duration
+- Viewing a video
+
+
+###### <a name="errors"></a>Errors
+
+Errors are used to report issues detected by the app. For example, incorrect user actions, or API call failures.
+
+###### <a name="application-information"></a>Application information
+
+Application information (App-Info) is used to tag data related to a user's experience with an application. It is generated by a user's interaction with the application. 
+
+For a given app-info key, Azure Mobile Engagement only keeps track of the latest value (no history). App-info reveals the status of your app or your end-users. For example the log-in status, or a user's favorite product group.
+
+###### <a name="crash-data"></a>Crash data
+
+Crash data automatically collected by the Mobile Engagement SDK reports application failures not handled by the application. For example an unhandled exception that occurs.
+
+
+###### <a name="extra-data"></a>Extra data
+
+Events, errors, activities and jobs can be enhanced with parameters. This is extra-information a developer may provide as specific data from the application. This is important for defining fine-grained segmentation. 
+
+For example, the value of an “article” tag will allow you to segment end-users based on who viewed that particular article. However, that may not be enough. It may be better if that same "article" tag also included extra-info such as “news_category” within an activity. This would be useful to determine dynamically the favorite categories for the user. 
+
+Extra-info is reported as a key/value pair. In the example for this media application, the extra-info for “news_category” would be the value for that category. For example, “sports", "economy", or "politics".
 
 
 
-#### Teste de aceitação do usuário
 
-O Teste de aceitação do usuário envolve a certeza de que tudo está funcionando corretamente. É possível usar fluxos de trabalho para coletar todos os dados necessários com base em seu plano de marca:
+
+#### <a name="tag-and-sdk-integration"></a>Tag and SDK integration 
+
+For step by step instructions for integrating the Azure Mobile Engagement SDK into your app, follow the  [Engagement SDK Integration](mobile-engagement-windows-store-integrate-engagement.md) documentation on Azure website. Choose your target platform from the links at the top of that page.
+
+We recommend creating projects for two apps built on top of Azure Mobile Engagement. One for development and test staging and the other for production staging. Your IT team can then promote from test staging to production when the user acceptance testing is successful.
+
+
+
+#### <a name="user-acceptance-testing-(uat)"></a>User acceptance testing (UAT)
+
+User acceptance testing (UAT) involves making sure that everything works as designed. Work flows can be completed and gather all required data based on your tag plan:
  
-- A marcação de informações deve ter sido implementada de acordo com os conceitos AZME documentados
-- Todas as informações necessárias foram coletadas (incluindo os valores Extra info e App info)
-- A nomenclatura corresponde ao seu plano de marca
-- Nenhuma marca duplicada foi enviada
+- Information tagging should be in place according to documented AZME concepts
+- All information you need is collected (including Extra info value, App info value)
+- Nomenclature matches according to yout Tag Plan
+- There is no duplicate tags sent
 
-Teste completamente todos os tipos de comportamento de notificação incorporados ao seu aplicativo
+Thoroughly test all the types of notification behavior you have embedded in your app
 
-- Envios por push de anúncios, pesquisas e dados para fora do aplicativo e dentro do aplicativo
-- Modos de exibição de texto/Web
-- Atualização de notificação, categorias
-
-
-
-#### Configuração
-
-A configuração do Azure Mobile Engagement é muito simples. Toda a documentação relacionada à interface do usuário está disponível no site do Azure Mobile Engagement, [Como navegar pela interface do usuário](mobile-engagement-user-interface-home.md).
-
-Recomendamos que você comece definindo as funções certas e associações de função para os usuários de seu projeto. Isso ajuda com o gerenciamento do acesso apropriado à plataforma para todos os usuários. As funções podem incluir:
-
-- Administradores
-- Desenvolvedores
-- Visualizadores
-
-Em seguida:
-- Registre o deviceID para testar seu próprio dispositivo.
-- Vá para as configurações de sua conta e configure o fuso horário para ter os gráficos e o horário de entrega da notificação definidos para seu fuso horário.
-- Vá para as configurações do aplicativo e registre o "App-info" de que você precisa para direcionar usuários finais no Reach.
-
-Para saber mais sobre como executar sua campanha de notificação por push, consulte [Como começar a usar e a gerenciar envios por push para alcançar seus usuários finais](mobile-engagement-how-tos.md).
+- Announcements, Polls, Data pushes out of app and in-app
+- Text/Web views
+- Badge update, Categories
 
 
 
-## Conclusão
+#### <a name="setup"></a>Setup
+
+Setting up Azure Mobile Engagement is very simple. All the documentation related to the user interface is available on the Azure Mobile Engagement website, [How to navigate the user interface](mobile-engagement-user-interface-home.md).
+
+It is recommended that you start by setting up the right roles and role memberships for the users of your project. This helps you manage proper access to the platform for all users. Your roles may include:
+
+- Administrators
+- Developers
+- Viewers 
+
+Afterwards:
+- Register your deviceID to test on your own device.
+- Go to the settings of your account and set up the time zone to have charts and notification delivery time set for your time zone.
+- Go to the settings of your application and register the “App-info” you need to target end-user within Reach.
+
+For more information on how to run your first push notification campaign, review [How to get started using and managing pushes to reach out to your end users](mobile-engagement-how-tos.md).
 
 
-Os programas de envolvimento são iterativos, e você deve melhorar os seus continuamente à medida que experimenta o que funciona melhor para seu aplicativo.
 
-Inicialmente, durante o desenvolvimento da experiência com as estratégias de envolvimento não tente construir uma estratégia de envolvimento global. Adote uma abordagem passo a passo identificando os KPIs e como aproveitá-los. A estratégia de envolvimento será exclusiva para cada aplicativo.
-
-Depois de reunir alguma experiência, adicione o seguinte aos seus programas de envolvimento:
-
-- Acompanhamento: você vai adquirir usuários e provavelmente definirá fontes de coleta de dados. O Azure mobile Engagement pode ser vinculado a fontes de coleta de dados. Isso permite o monitoramento do desempenho de cada fonte. Essas informações serão interessantes para maximizar seus investimentos de aquisição.
-
-- Teste A/B: essa é uma parte essencial do programa de envolvimento. Cada aplicativo tem suas própria especificações. Com o teste A/B, você pode melhorar seu programa de envolvimento.
-
-- Localização geográfica: essa é uma grande oportunidade para as marcas. Graças a esse recurso, você pode entrar em contato no lugar certo, na hora certa. Recomendamos que você verifique se coletou dados suficientes sobre o comportamento do usuário final antes de começar a usar a localização geográfica.
-
-- Envio de dados por push: o envio de dados por push é um envio invisível. O envio de dados por push permite a personalização de seu aplicativo com base no comportamento do usuário final. Por exemplo, se um segmento de usuários geralmente consulta produtos de alta tecnologia, o proprietário do aplicativo poderá enviar dados por push que personalizarão a página inicial dos usuários com conteúdo de alta tecnologia.
+## <a name="conclusion"></a>Conclusion
 
 
+Engagement Programs are iterative and you should continuously improve yours as you experiment with what works best for your app. 
 
-## Próximas etapas
+Initially, while developing experience with engagement strategies don't try to build an entire global engagement strategy. Take a step by step approach identifying your KPIs and how to leverage them. Engagement strategy will be unique for each app.
 
-- [Criar uma conta no Azure Mobile Engagement](mobile-engagement-create.md).
-- Visite [Definir sua estratégia do Mobile Engagement](mobile-engagement-define-your-mobile-engagement-strategy.md) para saber mais sobre como definir sua estratégia do Mobile Engagement.
+After you have developed some experience you might consider adding the following to your engagement programs:
+
+- Tracking:  You acquire users and you probably define data-collection sources. Azure mobile Engagement can be linked to data-collection sources. It allows you to monitor performances of each source. This information will be interesting to maximize your acquisition investment. 
+
+- A/B testing: This is an essential part of Engagement program. Each app has its own specifics. With A/B testing, you can improve your engagement program.
+
+- Geo-location: This is a big opportunity for brands. Thanks to this feature you can reach at the right place and time. We recommend verifying you have gathered enough end-user behavior data before starting to use geo-location.
+
+- Data push: Data push is an invisible push. Data push allows customizing your application based on end-user behavior. For example, if a user segment often consults high-tech products, the app owner can send a data push which will personalize her home page with high-tech content.
+
+
+
+## <a name="next-steps"></a>Next Steps
+
+- [Create an Azure Mobile Engagement account](mobile-engagement-create.md).
+- Visit [Define your Mobile Engagement strategy](mobile-engagement-define-your-mobile-engagement-strategy.md) to learn more about defining your Mobile Engagement strategy.
 
 
 
@@ -407,4 +408,8 @@ Depois de reunir alguma experiência, adicione o seguinte aos seus programas de 
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Registrar seu aplicativo e obter a ID do cliente e a chave para se conectar ao Banco de Dados SQL do código | Microsoft Azure"
-   description="Obtenha a ID do cliente e a chave para acessar o Banco de Dados SQL do código."
+   pageTitle="Get the required values for authenticating an application to access SQL Database from code | Microsoft Azure"
+   description="Create a service principal for accessing SQL Database from code."
    services="sql-database"
    documentationCenter=""
    authors="stevestein"
@@ -14,240 +14,71 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/06/2016"
+   ms.date="09/30/2016"
    ms.author="sstein"/>
 
-# Obter a ID do cliente e a chave para se conectar ao Banco de Dados SQL do código
 
-Para criar e gerenciar o Banco de Dados SQL do código, você deve registrar seu aplicativo no domínio do AAD (Azure Active Directory) associado à assinatura em que os recursos do Azure foram criados. Quando você registrar seu aplicativo, o Azure gerará uma ID de cliente e uma chave que serão necessárias em seu código para autenticar seu aplicativo. Para obter mais informações, consulte [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+# <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Get the required values for authenticating an application to access SQL Database from code
 
-## Registrar um aplicativo cliente nativo e obter a ID do cliente
+To create and manage SQL Database from code you must register your app in the Azure Active Directory (AAD) domain  in the subscription where your Azure resources have been created.
 
-Para criar um novo aplicativo e registrá-lo, faça o seguinte:
+## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Create a service principal to access resources from an application
 
-1. Faça logon no [Portal Clássico](https://manage.windowsazure.com/) (atualmente, o registro de aplicativos precisa ser feito no Portal Clássico).
-1. Localize o **Active Directory** no menu e selecione-o.
+You need to have the latest [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) installed and running. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-    ![AAD][1]
+The following PowerShell script creates the Active Directory (AD) application and the service principal that we need to authenticate our C# app. The script outputs values we need for the preceding C# sample. For detailed information, see [Use Azure PowerShell to create a service principal to access resources](../resource-group-authenticate-service-principal.md).
 
-2. Selecione o diretório para autenticar o aplicativo e clique no respectivo **Nome**.
-
-    ![Diretórios][4]
-
-3. Na página do diretório, clique em **APLICATIVOS**.
-
-    ![Aplicativos][5]
-
-4. Clique em **ADICIONAR** para criar um aplicativo novo.
-
-    ![Adicionar aplicativo][6]
-
-5. Forneça um **NOME** para o aplicativo e selecione **APLICATIVO CLIENTE NATIVO**.
-
-    ![Adicionar aplicativo][7]
-
-6. Forneça um **URI DE REDIRECIONAMENTO**. Não precisa ser um ponto de extremidade real, apenas um URI válido.
-
-    ![Adicionar aplicativo][8]
-
-7. Conclua a criação do aplicativo, clique em **CONFIGURAR** e copie a **ID DO CLIENTE** (este é o valor de que você precisará em seu código).
-
-    ![obter id do cliente][9]
-
-
-1. Role para baixo na página e clique em **Adicionar aplicativo**.
-1. Selecione **Aplicativos da Microsoft**.
-1. Selecione **API de Gerenciamento de Serviços do Microsoft Azure** e conclua o assistente.
-2. Na seção **permissões para outros aplicativos**, localize a **API de Gerenciamento de Serviços do Microsoft Azure** e clique em **Permissões Delegadas**.
-3. Selecione **Acessar o Gerenciamento de Serviços do Azure...**.
-
-    ![permissões][2]
-
-2. Na parte inferior da página, clique em **SALVAR**.
-
-
-
-## Registre um aplicativo Web (ou API da Web) e obtenha a ID e a chave do cliente
-
-Para criar um novo aplicativo e registrá-lo no active directory correto, faça o seguinte:
-
-1. Faça logon no [Portal Clássico](https://manage.windowsazure.com/).
-1. Localize o **Active Directory** no menu e selecione-o.
-
-    ![AAD][1]
-
-2. Selecione o diretório para autenticar o aplicativo e clique no respectivo **Nome**.
-
-    ![Diretórios][4]
-
-3. Na página do diretório, clique em **APLICATIVOS**.
-
-    ![Aplicativos][5]
-
-4. Clique em **ADICIONAR** para criar um aplicativo novo.
-
-    ![Adicionar aplicativo][6]
-
-5. Forneça um **NOME** para o aplicativo e selecione **APLICATIVO WEB E/OU API DA WEB**.
-
-    ![Adicionar aplicativo][10]
-
-6. Forneça uma **URL de logon** e um **URI DA ID DO APLICATIVO**. Não precisa ser um ponto de extremidade real, apenas um URI válido.
-
-    ![Adicionar aplicativo][11]
-
-7. Conclua a criação do aplicativo e clique em **CONFIGURAR**.
-
-    ![configurar][12]
-
-8. Role até a seção **chaves** e selecione **1 ano** na lista **Selecionar duração**. O valor da chave será exibido depois que você salvar, então voltaremos e copiaremos a chave mais tarde.
-
-    ![definir duração da chave][13]
-
-
-
-1. Role para baixo na página e clique em **Adicionar aplicativo**.
-1. Selecione **Aplicativos da Microsoft**.
-1. Localize e selecione **API de Gerenciamento de Serviços do Microsoft Azure** e conclua o assistente.
-2. Na seção **permissões para outros aplicativos**, localize a **API de Gerenciamento de Serviços do Microsoft Azure** e clique em **Permissões Delegadas**.
-3. Selecione **Acessar o Gerenciamento de Serviços do Azure...**.
-
-    ![permissões][2]
-
-2. Na parte inferior da página, clique em **SALVAR**.
-3. Após o salvamento ser concluído, localize e salve a ID do cliente e a chave:
-
-    ![segredos do aplicativo Web][14]
-
-
-
-## Obter seu nome de domínio
-
-Às vezes, o nome de domínio é necessário para seu código de autorização. Uma maneira fácil de identificar o nome de domínio adequado é:
-
-1. Vá para o [Portal do Azure](https://portal.azure.com).
-2. Passe o mouse sobre o nome no canto superior direito e observe o Domínio que aparece na janela pop-up.
-
-    ![Identificar nome de domínio][3]
-
-
-
-
-## Exemplo de aplicativo de console
-
-
-Obtenha as bibliotecas de gerenciamento necessárias instalando os pacotes a seguir com o [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**):
-
-
-    PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
-
-
-Crie um aplicativo de console chamado **SqlDbAuthSample** e substitua o conteúdo de **Program.cs** pelo seguinte:
-
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using System;
+   
+    # Sign in to Azure.
+    Add-AzureRmAccount
     
-    namespace SqlDbAuthSample
-    {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            token = GetAccessTokenforNativeClient();
-            // token = GetAccessTokenUsingUserCredentials(new UserCredential("<email address>"));
-            // token = GetAccessTokenForWebApp();
-
-            Console.WriteLine("Signed in as: " + token.UserInfo.DisplayableId);
-
-            Console.WriteLine("Press Enter to continue...");
-            Console.ReadLine();
-        }
-
-
-        // authentication variables (native)
-        static string nclientId = "<your client id>";
-        static string nredirectUri = "<your redirect URI>";
-        static string ndomainName = "<i.e. microsoft.onmicrosoft.com>";
-        static AuthenticationResult token;
-
-        private static AuthenticationResult GetAccessTokenforNativeClient()
-        {
-            AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" + ndomainName /* Tenant ID or AAD domain */);
-
-            token = authContext.AcquireToken
-                ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                    nclientId,
-            new Uri(nredirectUri),
-            PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
-
-            return token;
-        }
-
-
-        // authentication variables (web)
-        static string wclientId = "<your client id>";
-        static string wkey = "<your key>";
-        static string wdomainName = "<i.e. microsoft.onmicrosoft.com>";
-
-        private static AuthenticationResult GetAccessTokenForWebApp()
-        {
-            AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" /* AAD URI */
-                + wdomainName /* Tenant ID or AAD domain */);
-
-            ClientCredential cc = new ClientCredential(wclientId, wkey);
-
-            AuthenticationResult token = authContext.AcquireToken(
-                "https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                cc);
-
-            return token;
-        }
-
-
-        private static AuthenticationResult GetAccessTokenUsingUserCredentials(UserCredential userCredential)
-        {
-            AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" /* AAD URI */
-                + ndomainName /* Tenant ID or AAD domain */);
-
-            AuthenticationResult token = authContext.AcquireToken(
-                "https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                nclientId /* application client ID from AAD*/,
-                new Uri(nredirectUri) /* redirect URI */,
-                PromptBehavior.Auto,
-                new UserIdentifier(userCredential.UserName, UserIdentifierType.RequiredDisplayableId));
-
-            return token;
-        }
-    }
-    }
-
-
-Para exemplos de código específicos relacionados à autenticação do Azure AD, confira o [Blog sobre segurança do SQL Server](http://blogs.msdn.com/b/sqlsecurity/) no MSDN.
-
-## Consulte também
-
-- [Criar um Banco de Dados SQL com C#](sql-database-get-started-csharp.md)
-- [Conectar-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
+    # If you have multiple subscriptions, uncomment and set to the subscription you want to work with.
+    #$subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}"
+    #Set-AzureRmContext -SubscriptionId $subscriptionId
+    
+    # Provide these values for your new AAD app.
+    # $appName is the display name for your app, must be unique in your directory.
+    # $uri does not need to be a real uri.
+    # $secret is a password you create.
+    
+    $appName = "{app-name}"
+    $uri = "http://{app-name}"
+    $secret = "{app-password}"
+    
+    # Create a AAD app
+    $azureAdApplication = New-AzureRmADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
+    
+    # Create a Service Principal for the app
+    $svcprincipal = New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    
+    # To avoid a PrincipalNotFound error, I pause here for 15 seconds.
+    Start-Sleep -s 15
+    
+    # If you still get a PrincipalNotFound error, then rerun the following until successful. 
+    $roleassignment = New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    
+    
+    # Output the values we need for our C# application to successfully authenticate
+    
+    Write-Output "Copy these values into the C# sample app"
+    
+    Write-Output "_subscriptionId:" (Get-AzureRmContext).Subscription.SubscriptionId
+    Write-Output "_tenantId:" (Get-AzureRmContext).Tenant.TenantId
+    Write-Output "_applicationId:" $azureAdApplication.ApplicationId.Guid
+    Write-Output "_applicationSecret:" $secret
 
 
 
-<!--Image references-->
-[1]: ./media/sql-database-client-id-keys/aad.png
-[2]: ./media/sql-database-client-id-keys/permissions.png
-[3]: ./media/sql-database-client-id-keys/getdomain.png
-[4]: ./media/sql-database-client-id-keys/aad2.png
-[5]: ./media/sql-database-client-id-keys/aad-applications.png
-[6]: ./media/sql-database-client-id-keys/add.png
-[7]: ./media/sql-database-client-id-keys/add-application.png
-[8]: ./media/sql-database-client-id-keys/add-application2.png
-[9]: ./media/sql-database-client-id-keys/clientid.png
-[10]: ./media/sql-database-client-id-keys/add-application-web.png
-[11]: ./media/sql-database-client-id-keys/add-application-app-properties.png
-[12]: ./media/sql-database-client-id-keys/configure.png
-[13]: ./media/sql-database-client-id-keys/key-duration.png
-[14]: ./media/sql-database-client-id-keys/web-secrets.png
 
-<!---HONumber=AcomDC_0608_2016-->
+## <a name="see-also"></a>See also
+
+- [Create a SQL database with C#](sql-database-get-started-csharp.md)
+- [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

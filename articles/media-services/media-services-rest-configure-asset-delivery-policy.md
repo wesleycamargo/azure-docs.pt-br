@@ -1,295 +1,296 @@
 <properties 
-	pageTitle="Configuração de políticas de entrega de ativos usando API REST dos Serviços de Mídia | Microsoft Azure" 
-	description="Este tópico mostra como configurar políticas de entrega de ativos diferentes usando a API REST dos Serviços de Mídia." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Configuring asset delivery policies using Media Services REST API | Microsoft Azure" 
+    description="This topic shows how to configure different asset delivery policies using Media Services REST API." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/19/2016"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/19/2016"  
+    ms.author="juliako"/>
 
-#Configuração de políticas de entrega de ativos
+
+#<a name="configuring-asset-delivery-policies"></a>Configuring asset delivery policies
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Se você planeja entregar dinamicamente ativos criptografados, uma das etapas do fluxo de trabalho de distribuição de conteúdo de Serviços de Mídia é configurar políticas de entrega de ativos. A política de entrega de ativos informa aos serviços de mídia como você deseja que o ativo seja entregue: em que protocolo de fluxo seu ativo deve ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se você deseja criptografar dinamicamente seu ativo ou não e como (criptografia de envelope ou comum).
+If you plan to deliver dynamically encrypted assets, one of the steps in the Media Services content delivery workflow is configuring delivery policies for assets. The asset delivery policy tells Media Services how you want for your asset to be delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want to dynamically encrypt your asset and how (envelope or common encryption).
 
-Este tópico discute como e por que criar e configurar políticas de entrega de ativos.
+This topic discusses why and how to create and configure asset delivery policies.
 
->[AZURE.NOTE]Para poder usar o empacotamento dinâmico e a criptografia dinâmica, certifique-se de ter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-portal-manage-streaming-endpoints.md).
+>[AZURE.NOTE]To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one scale unit (also known as streaming unit). For more information, see [How to Scale a Media Service](media-services-portal-manage-streaming-endpoints.md).
 >
->Além disso, o ativo deve conter um conjunto de MP4s de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável.
+>Also, your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.
 
-Você pode aplicar políticas diferentes para o mesmo ativo. Por exemplo, você poderia aplicar criptografia PlayReady para criptografia de Envelope AES e Smooth Streaming para MPEG DASH e HLS. Todos os protocolos que não são definidos em uma política de entrega (por exemplo, você adicionar uma única política que só especifica HLS como o protocolo) será bloqueado a partir do streaming. A exceção a isso é se você não tiver nenhuma política de entrega de ativos definida em todos. Em seguida, todos os protocolos poderão ser criptografados.
+You could apply different policies to the same asset. For example, you could apply PlayReady encryption to Smooth Streaming and AES Envelope encryption to MPEG DASH and HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
 
-Se você quiser entregar um ativo de armazenamento criptografado, configure a política de entrega do ativo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada. Por exemplo, para entregar o ativo criptografado com chave de criptografia de envelope de AES (Criptografia Avançada Padrão), defina o tipo de política como **DynamicEnvelopeEncryption**. Para remover a criptografia de armazenamento e transmitir o ativo não criptografado, defina o tipo de política como **NoDynamicEncryption**. Seguem exemplos que mostram como configurar esses tipos de política.
+If you want to deliver a storage encrypted asset, you must configure the asset’s delivery policy. Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy. For example, to deliver your asset encrypted with Advanced Encryption Standard (AES) envelope encryption key, set the policy type to **DynamicEnvelopeEncryption**. To remove storage encryption and stream the asset in the clear, set the policy type to **NoDynamicEncryption**. Examples that show how to configure these policy types follow.
 
-Dependendo de como você configura a política de entrega de ativos, você será capaz de empacotar dinamicamente, criptografar dinamicamente e transmitir os seguintes protocolos de streaming: Smooth Streaming, HLS, MPEG DASH e fluxos HDS.
+Depending on how you configure the asset delivery policy you would be able to dynamically package, dynamically encrypt, and stream the following streaming protocols: Smooth Streaming, HLS, MPEG DASH, and HDS streams.
 
-A lista a seguir mostra os formatos que você usa para transmitir Smooth, HLS, DASH e HDS.
+The following list shows the formats that you use to stream Smooth, HLS, DASH and HDS.
 
 Smooth Streaming:
 
-{nome do ponto de extremidade de streaming - nome de conta do dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arqui}.ism/Manifest
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
 HLS:
 
-{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=m3u8-aapl)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 MPEG DASH
 
-{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=mpd-time-csf)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 HDS
 
-{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=f4m-f4f)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
-Para obter instruções sobre como publicar um ativo e criar uma URL de streaming, consulte [Criar uma URL de streaming](media-services-deliver-streaming-content.md).
+For instructions on how to publish an asset and build a streaming URL, see [Build a streaming URL](media-services-deliver-streaming-content.md).
 
 
-##Considerações
+##<a name="considerations"></a>Considerations
 
-- Você não pode excluir um AssetDeliveryPolicy associado a um ativo enquanto um localizador OnDemand (streaming) existir para esse ativo. A recomendação é remover a política do ativo antes de excluir a política.
-- Não é possível criar um localizador de streaming em um ativo criptografado para armazenamento quando nenhuma política de entrega de ativo estiver definida. Se o Ativo não estiver criptografado para armazenamento, o sistema permitirá que você crie um localizador e transmita o ativo sem uma política de entrega de ativos.
-- Você pode ter várias políticas de entrega de ativos associadas a um único ativo, mas pode especificar apenas uma maneira de lidar com um determinado AssetDeliveryProtocol. Isso significa que se você tentar vincular duas políticas de entrega que especificam o protocolo AssetDeliveryProtocol.SmoothStreaming, o resultado será um erro pois o sistema não sabe qual delas você deseja aplicar quando um cliente fizer uma solicitação de Smooth Streaming.
-- Se você tiver um ativo com um localizador de streaming existente, não poderá vincular uma nova política ao ativo, desvincular uma política existente do ativo ou atualizar uma política de entrega associada ao ativo. Primeiro, você precisa remover o localizador de streaming, ajustar as políticas e, em seguida, recriar o localizador de streaming. Você pode usar o mesmo locatorId quando recriar o localizador de streaming, mas certifique-se de que isso não causará problemas para os clientes uma vez que o conteúdo pode ser armazenado em cache pelo CDN de origem ou downstream.
+- You cannot delete an AssetDeliveryPolicy associated with an asset while an OnDemand (streaming) locator exists for that asset. The recommendation is to remove the policy from the asset before deleting the policy.
+- A streaming locator cannot be created on a storage encrypted asset when no asset delivery policy is set.  If the Asset isn’t storage encrypted, the system will let you create a locator and stream the asset in the clear without an asset delivery policy.
+- You can have multiple asset delivery policies associated with a single asset but you can only specify one way to handle a given AssetDeliveryProtocol.  Meaning if you try to link two delivery policies that specify the AssetDeliveryProtocol.SmoothStreaming protocol that will result in an error because the system does not know which one you want it to apply when a client makes a Smooth Streaming request.
+- If you have an asset with an existing streaming locator, you cannot link a new policy to the asset, unlink an existing policy from the asset, or update a delivery policy associated with the asset.  You first have to remove the streaming locator, adjust the policies, and then re-create the streaming locator.  You can use the same locatorId when you recreate the streaming locator but you should ensure that won’t cause issues for clients since content can be cached by the origin or a downstream CDN.
 
->[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
+>[AZURE.NOTE] When working with the Media Services REST API, the following considerations apply:
 >
->Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
+>When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 
->Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect-programmatically.md).
-
-
-##Política de entrega de ativos clara
-
-###<a id="create_asset_delivery_policy"></a>Criar política de entrega de ativos
-A solicitação HTTP a seguir cria uma política de entrega de ativos que especifica a não aplicação de criptografia dinâmica e a entrega do fluxo em qualquer um dos seguintes protocolos: MPEG DASH, HLS e protocolos Smooth Streaming.
-
-Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types).
+>After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect-programmatically.md).
 
 
-Solicitação:
-	  
-	POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
-	Content-Type: application/json
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423397827&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=Szo6lbJAvL3dyecAeVmyAnzv3mGzfUNClR5shk9Ivbk%3d
-	x-ms-version: 2.11
-	x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
-	Host: media.windows.net
-	
-	{"Name":"Clear Policy",
-	"AssetDeliveryProtocol":7,
-	"AssetDeliveryPolicyType":2,
-	"AssetDeliveryConfiguration":null}
+##<a name="clear-asset-delivery-policy"></a>Clear asset delivery policy
 
-Resposta:
-	
-	HTTP/1.1 201 Created
-	Cache-Control: no-cache
-	Content-Length: 363
-	Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-	Location: https://media.windows.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')
-	Server: Microsoft-IIS/8.5
-	x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
-	request-id: 6aedbf93-4bc2-4586-8845-fd45590136af
-	x-ms-request-id: 6aedbf93-4bc2-4586-8845-fd45590136af
-	X-Content-Type-Options: nosniff
-	DataServiceVersion: 3.0;
-	X-Powered-By: ASP.NET
-	Strict-Transport-Security: max-age=31536000; includeSubDomains
-	Date: Sun, 08 Feb 2015 06:21:27 GMT
-	
-	{"odata.metadata":"https://media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element",
-	"Id":"nb:adpid:UUID:92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd",
-	"Name":"Clear Policy",
-	"AssetDeliveryProtocol":7,
-	"AssetDeliveryPolicyType":2,
-	"AssetDeliveryConfiguration":null,
-	"Created":"2015-02-08T06:21:27.6908329Z",
-	"LastModified":"2015-02-08T06:21:27.6908329Z"}
-	
-###<a id="link_asset_with_asset_delivery_policy"></a>Ativos de link com a política de entrega de ativos
+###<a name="<a-id="create_asset_delivery_policy"></a>create-asset-delivery-policy"></a><a id="create_asset_delivery_policy"></a>Create asset delivery policy
+The following HTTP request creates an asset delivery policy that specifies to not apply dynamic encryption and to deliver the stream in any of the following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols. 
 
-A seguinte solicitação HTTP vincula o ativo especificado na política de entrega de ativos.
-
-Solicitação:
-
-	POST https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A86933344-9539-4d0c-be7d-f842458693e0')/$links/DeliveryPolicies HTTP/1.1
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	Content-Type: application/json
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-e769-3344-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423397827&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=Szo6lbJAvL3dyecAeVmyAnzv3mGzfUNClR5shk9Ivbk%3d
-	x-ms-version: 2.11
-	x-ms-client-request-id: 56d2763f-6e72-419d-ba3c-685f6db97e81
-	Host: media.windows.net
-	
-	{"uri":"https://media.windows.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')"}
-
-Resposta:
-
-	HTTP/1.1 204 No Content
+For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
 
 
-##Política de entrega de ativos DynamicEnvelopeEncryption 
+Request:
+      
+    POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
+    Content-Type: application/json
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423397827&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=Szo6lbJAvL3dyecAeVmyAnzv3mGzfUNClR5shk9Ivbk%3d
+    x-ms-version: 2.11
+    x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
+    Host: media.windows.net
+    
+    {"Name":"Clear Policy",
+    "AssetDeliveryProtocol":7,
+    "AssetDeliveryPolicyType":2,
+    "AssetDeliveryConfiguration":null}
 
-###Cria chave de conteúdo do tipo EnvelopeEncryption e a vincula ao ativo
+Response:
+    
+    HTTP/1.1 201 Created
+    Cache-Control: no-cache
+    Content-Length: 363
+    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+    Location: https://media.windows.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')
+    Server: Microsoft-IIS/8.5
+    x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
+    request-id: 6aedbf93-4bc2-4586-8845-fd45590136af
+    x-ms-request-id: 6aedbf93-4bc2-4586-8845-fd45590136af
+    X-Content-Type-Options: nosniff
+    DataServiceVersion: 3.0;
+    X-Powered-By: ASP.NET
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+    Date: Sun, 08 Feb 2015 06:21:27 GMT
+    
+    {"odata.metadata":"https://media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element",
+    "Id":"nb:adpid:UUID:92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd",
+    "Name":"Clear Policy",
+    "AssetDeliveryProtocol":7,
+    "AssetDeliveryPolicyType":2,
+    "AssetDeliveryConfiguration":null,
+    "Created":"2015-02-08T06:21:27.6908329Z",
+    "LastModified":"2015-02-08T06:21:27.6908329Z"}
+    
+###<a name="<a-id="link_asset_with_asset_delivery_policy"></a>link-asset-with-asset-delivery-policy"></a><a id="link_asset_with_asset_delivery_policy"></a>Link asset with asset delivery policy
 
-Ao especificar a política de entrega DynamicEnvelopeEncryption, você precisa certificar-se de vincular seu ativo a uma chave de conteúdo do tipo EnvelopeEncryption. Para saber mais, confira: [Criando uma chave de conteúdo](media-services-rest-create-contentkey.md)).
+The following HTTP request links the specified asset to the asset delivery policy to.
 
+Request:
 
-###<a id="get_delivery_url"></a>Obter URL de entrega
+    POST https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A86933344-9539-4d0c-be7d-f842458693e0')/$links/DeliveryPolicies HTTP/1.1
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Content-Type: application/json
+    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-e769-3344-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423397827&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=Szo6lbJAvL3dyecAeVmyAnzv3mGzfUNClR5shk9Ivbk%3d
+    x-ms-version: 2.11
+    x-ms-client-request-id: 56d2763f-6e72-419d-ba3c-685f6db97e81
+    Host: media.windows.net
+    
+    {"uri":"https://media.windows.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')"}
 
-Obter a URL de entrega para o método de entrega especificado da chave de conteúdo criado na etapa anterior. Um cliente usa a URL retornada para solicitar uma chave AES ou uma licença PlayReady a fim de reproduzir o conteúdo protegido.
+Response:
 
-Especifique o tipo da URL para obter no corpo da solicitação HTTP. Se você estiver protegendo o conteúdo com PlayReady, solicite uma URL de aquisição de licenças PlayReady dos Serviços de Mídia usando 1 para o keyDeliveryType: {"keyDeliveryType":1}. Se você estiver protegendo seu conteúdo com a criptografia de envelope, solicite uma URL de aquisição de chave especificando 2 para keyDeliveryType: {"keyDeliveryType":2}.
-
-Solicitação:
-	
-	POST https://media.windows.net/api/ContentKeys('nb:kid:UUID:dc88f996-2859-4cf7-a279-c52a9d6b2f04')/GetKeyDeliveryUrl HTTP/1.1
-	Content-Type: application/json
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423452029&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=IEXV06e3drSIN5naFRBdhJZCbfEqQbFZsGSIGmawhEo%3d
-	x-ms-version: 2.11
-	x-ms-client-request-id: 569d4b7c-a446-4edc-b77c-9fb686083dd8
-	Host: media.windows.net
-	Content-Length: 21
-	
-	{"keyDeliveryType":2}
-
-Resposta:
-	
-	HTTP/1.1 200 OK
-	Cache-Control: no-cache
-	Content-Length: 198
-	Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-	Server: Microsoft-IIS/8.5
-	x-ms-client-request-id: 569d4b7c-a446-4edc-b77c-9fb686083dd8
-	request-id: d26f65d2-fe65-4136-8fcf-31545be68377
-	x-ms-request-id: d26f65d2-fe65-4136-8fcf-31545be68377
-	X-Content-Type-Options: nosniff
-	DataServiceVersion: 3.0;
-	Strict-Transport-Security: max-age=31536000; includeSubDomains
-	Date: Sun, 08 Feb 2015 21:42:30 GMT
-	
-	{"odata.metadata":"media.windows.net/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.windows.net/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
-
-
-###Criar política de entrega de ativos
-
-A solicitação HTTP a seguir cria a **AssetDeliveryPolicy** que é configurada para aplicar a criptografia de envelope dinâmico (**DynamicEnvelopeEncryption**) para o protocolo **HLS** (neste exemplo, outros protocolos serão impedidos de realizar streaming).
-
-
-Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types).
-
-Solicitação:
-
-	POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
-	Content-Type: application/json
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	User-Agent: Microsoft ADO.NET Data Services
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423480651&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=T2FG3tIV0e2ETzxQ6RDWxWAsAzuy3ez2ruXPhrBe62Y%3d
-	x-ms-version: 2.11
-	x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
-	Host: media.windows.net
-	
-	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/"}]"}
-
-	
-Resposta:
-	
-	HTTP/1.1 201 Created
-	Cache-Control: no-cache
-	Content-Length: 460
-	Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-	Location: media.windows.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3Aec9b994e-672c-4a5b-8490-a464eeb7964b')
-	Server: Microsoft-IIS/8.5
-	x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
-	request-id: c2a1ac0e-9644-474f-b38f-b9541c3a7c5f
-	x-ms-request-id: c2a1ac0e-9644-474f-b38f-b9541c3a7c5f
-	X-Content-Type-Options: nosniff
-	DataServiceVersion: 3.0;
-	Strict-Transport-Security: max-age=31536000; includeSubDomains
-	Date: Mon, 09 Feb 2015 05:24:38 GMT
-	
-	{"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
+    HTTP/1.1 204 No Content
 
 
-###Ativos de link com a política de entrega de ativos
+##<a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption asset delivery policy 
 
-Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_asset_delivery_policy)
+###<a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>Create content key of the EnvelopeEncryption type and link it to the asset
 
-##Política de entrega de ativos DynamicCommonEncryption 
-
-###Cria chave de conteúdo do tipo CommonEncryption e a vincule ao ativo
-
-Ao especificar a política de entrega DynamicCommonEncryption, você precisa certificar-se de vincular seu ativo a uma chave de conteúdo do tipo CommonEncryption. Para saber mais, confira: [Criando uma chave de conteúdo](media-services-rest-create-contentkey.md)).
+When specifying DynamicEnvelopeEncryption delivery policy, you need to make sure to link your asset to a content key of the EnvelopeEncryption type. For more information, see: [Creating a content key](media-services-rest-create-contentkey.md)).
 
 
-###Obter URL de entrega
+###<a name="<a-id="get_delivery_url"></a>get-delivery-url"></a><a id="get_delivery_url"></a>Get delivery URL
 
-Obter a URL de entrega para o método de entrega PlayReady da chave de conteúdo criada na etapa anterior. Um cliente usa a URL retornada para solicitar uma licença do PlayReady a fim de reproduzir o conteúdo protegido. Para saber mais, confira [Obter a URL de entrega](#get_delivery_url)
+Get the delivery URL for the specified delivery method of the content key created in the previous step. A client uses the returned URL to request an AES key or a PlayReady license in order to playback the protected content.
 
-###Criar política de entrega de ativos
+Specify the type of the URL to get in the body of the HTTP request. If you are protecting your content with PlayReady, request a Media Services PlayReady license acquisition URL, using 1 for the keyDeliveryType: {"keyDeliveryType":1}. If you are protecting your content with the envelope encryption, request a key acquisition URL by specifying 2 for keyDeliveryType: {"keyDeliveryType":2}.
 
-A solicitação HTTP a seguir cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia comum dinâmica (**DynamicCommonEncryption**) para o protocolo **Smooth Streaming** (neste exemplo, outros protocolos serão impedidos de realizar streaming).
+Request:
+    
+    POST https://media.windows.net/api/ContentKeys('nb:kid:UUID:dc88f996-2859-4cf7-a279-c52a9d6b2f04')/GetKeyDeliveryUrl HTTP/1.1
+    Content-Type: application/json
+    MaxDataServiceVersion: 3.0;NetFx
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423452029&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=IEXV06e3drSIN5naFRBdhJZCbfEqQbFZsGSIGmawhEo%3d
+    x-ms-version: 2.11
+    x-ms-client-request-id: 569d4b7c-a446-4edc-b77c-9fb686083dd8
+    Host: media.windows.net
+    Content-Length: 21
+    
+    {"keyDeliveryType":2}
 
-Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types).
+Response:
+    
+    HTTP/1.1 200 OK
+    Cache-Control: no-cache
+    Content-Length: 198
+    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+    Server: Microsoft-IIS/8.5
+    x-ms-client-request-id: 569d4b7c-a446-4edc-b77c-9fb686083dd8
+    request-id: d26f65d2-fe65-4136-8fcf-31545be68377
+    x-ms-request-id: d26f65d2-fe65-4136-8fcf-31545be68377
+    X-Content-Type-Options: nosniff
+    DataServiceVersion: 3.0;
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+    Date: Sun, 08 Feb 2015 21:42:30 GMT
+    
+    {"odata.metadata":"media.windows.net/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.windows.net/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
 
 
-Solicitação:
+###<a name="create-asset-delivery-policy"></a>Create asset delivery policy
 
-	POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
-	Content-Type: application/json
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	User-Agent: Microsoft ADO.NET Data Services
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423480651&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=T2FG3tIV0e2ETzxQ6RDWxWAsAzuy3ez2ruXPhrBe62Y%3d
-	x-ms-version: 2.11
-	x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
-	Host: media.windows.net
-	
-	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
+The following HTTP request creates the **AssetDeliveryPolicy** that is configured to apply dynamic envelope encryption (**DynamicEnvelopeEncryption**) to the **HLS** protocol (in this example, other protocols will be blocked from streaming). 
 
 
-Se você deseja proteger o conteúdo usando Widevine DRM, atualize os valores de AssetDeliveryConfiguration para usar WidevineLicenseAcquisitionUrl (que tem o valor de 7) e especifique a URL de um serviço de fornecimento de licença. Você pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/).
+For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
 
-Por exemplo:
+Request:
+
+    POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
+    Content-Type: application/json
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Accept: application/json
+    Accept-Charset: UTF-8
+    User-Agent: Microsoft ADO.NET Data Services
+    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423480651&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=T2FG3tIV0e2ETzxQ6RDWxWAsAzuy3ez2ruXPhrBe62Y%3d
+    x-ms-version: 2.11
+    x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
+    Host: media.windows.net
+    
+    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]"}
+
+    
+Response:
+    
+    HTTP/1.1 201 Created
+    Cache-Control: no-cache
+    Content-Length: 460
+    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+    Location: media.windows.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3Aec9b994e-672c-4a5b-8490-a464eeb7964b')
+    Server: Microsoft-IIS/8.5
+    x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
+    request-id: c2a1ac0e-9644-474f-b38f-b9541c3a7c5f
+    x-ms-request-id: c2a1ac0e-9644-474f-b38f-b9541c3a7c5f
+    X-Content-Type-Options: nosniff
+    DataServiceVersion: 3.0;
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+    Date: Mon, 09 Feb 2015 05:24:38 GMT
+    
+    {"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
+
+
+###<a name="link-asset-with-asset-delivery-policy"></a>Link asset with asset delivery policy
+
+See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)
+
+##<a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption asset delivery policy 
+
+###<a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>Create content key of the CommonEncryption type and link it to the asset
+
+When specifying DynamicCommonEncryption delivery policy, you need to make sure to link your asset to a content key of the CommonEncryption type. For more information, see: [Creating a content key](media-services-rest-create-contentkey.md)).
+
+
+###<a name="get-delivery-url"></a>Get Delivery URL
+
+Get the delivery URL for the PlayReady delivery method of the content key created in the previous step. A client uses the returned URL to request a PlayReady license in order to playback the protected content. For more information, see [Get Delivery URL](#get_delivery_url).
+
+###<a name="create-asset-delivery-policy"></a>Create asset delivery policy
+
+The following HTTP request creates the **AssetDeliveryPolicy** that is configured to apply dynamic common encryption (**DynamicCommonEncryption**) to the **Smooth Streaming** protocol (in this example, other protocols will be blocked from streaming). 
+
+For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
+
+
+Request:
+
+    POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
+    Content-Type: application/json
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Accept: application/json
+    Accept-Charset: UTF-8
+    User-Agent: Microsoft ADO.NET Data Services
+    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423480651&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=T2FG3tIV0e2ETzxQ6RDWxWAsAzuy3ez2ruXPhrBe62Y%3d
+    x-ms-version: 2.11
+    x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
+    Host: media.windows.net
+    
+    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
+
+
+If you want to protect your content using Widevine DRM, update the AssetDeliveryConfiguration values to use WidevineLicenseAcquisitionUrl (which has the value of 7) and specify the URL of a license delivery service. You can use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+
+For example: 
  
-	
-	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{"Key":7,"Value":"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
+    
+    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 
->[AZURE.NOTE]Ao criptografar com Widevine, você só seria capaz de fornecer usando um DASH. Certifique-se de especificar DASH (2) no protocolo de fornecimento de ativos.
+>[AZURE.NOTE]When encrypting with Widevine, you would only be able to deliver using DASH. Make sure to specify DASH (2) in the asset delivery protocol.
   
-###Ativos de link com a política de entrega de ativos
+###<a name="link-asset-with-asset-delivery-policy"></a>Link asset with asset delivery policy
 
-Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_asset_delivery_policy)
+See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)
 
 
-##<a id="types"></a>Tipos usados ao definir AssetDeliveryPolicy
+##<a name="<a-id="types"></a>types-used-when-defining-assetdeliverypolicy"></a><a id="types"></a>Types used when defining AssetDeliveryPolicy
 
-###AssetDeliveryProtocol 
+###<a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol 
 
     /// <summary>
     /// Delivery protocol for an asset delivery policy.
@@ -328,7 +329,7 @@ Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_a
         All = 0xFFFF
     }
 
-###AssetDeliveryPolicyType
+###<a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
 
     /// <summary>
     /// Policy type for dynamic encryption of assets.
@@ -362,7 +363,7 @@ Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_a
         DynamicCommonEncryption
         }
 
-###ContentKeyDeliveryType
+###<a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
 
 
     /// <summary>
@@ -398,7 +399,7 @@ Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_a
     }
 
 
-###AssetDeliveryPolicyConfigurationKey
+###<a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
 
     /// <summary>
     /// Keys used to get specific configuration for an asset delivery policy.
@@ -448,12 +449,16 @@ Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_a
     }
 
 
-##Roteiros de aprendizagem dos Serviços de Mídia
+##<a name="media-services-learning-paths"></a>Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fornecer comentários
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

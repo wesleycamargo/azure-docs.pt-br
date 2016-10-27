@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Exibir e gerenciar trabalhos de matriz Virtual StorSimple | Microsoft Azure"
-   description="Descreve a página de Trabalhos do serviço StorSimple Manager e como usá-la para controlar trabalhos recentes e atuais para a matriz Virtual StorSimple."
+   pageTitle="View and manage StorSimple Virtual Array jobs | Microsoft Azure"
+   description="Describes the StorSimple Manager service Jobs page and how to use it to track recent and current jobs for the StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,61 +15,66 @@
    ms.date="06/07/2016"
    ms.author="alkohli" />
 
-# Use o serviço StorSimple Manager para exibir os trabalhos para o StorSimple Virtual Array
 
-## Visão geral
+# <a name="use-the-storsimple-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Use the StorSimple Manager service to view jobs for the StorSimple Virtual Array
 
-A página **Trabalhos** fornece um único portal central para exibir e gerenciar trabalhos iniciados em matrizes Virtuais (também conhecidas como dispositivos virtuais locais) que estão conectadas ao serviço StorSimple Manager. Você pode exibir os trabalhos em execução, concluídos e com falha para vários dispositivos virtuais. Os resultados são apresentados em um formato tabular.
+## <a name="overview"></a>Overview
 
-![Página Trabalhos](./media/storsimple-ova-manage-jobs/ovajobs1.png)
+The **Jobs** page provides a single central portal for viewing and managing jobs that are started on Virtual Arrays (also known as on-premises virtual devices) that are connected to your StorSimple Manager service. You can view running, completed, and failed jobs for multiple virtual devices. Results are presented in a tabular format. 
 
-Você pode localizar rapidamente os trabalhos nos quais está interessado filtrando os campos, como:
+![Jobs page](./media/storsimple-ova-manage-jobs/ovajobs1.png)
 
-- **Status** – você pode pesquisar todos os trabalhos em execução, concluídos ou com falha.
-- **De e Para** – os trabalhos podem ser filtrados com base no intervalo de data e hora.
-- **Tipo** – o tipo de trabalho pode ser backup, restauração, failover, baixar atualizações ou instalar atualizações.
-- **Dispositivos** – os trabalhos são iniciados em um dispositivo específico conectado ao seu serviço. Os trabalhos filtrados são então tabulados com base nos seguintes atributos:
+You can quickly find the jobs you are interested in by filtering on fields such as:
 
-    - **Tipo** – o tipo de trabalho pode ser backup, restauração, failover, baixar atualizações ou instalar atualizações.
+- **Status** – You can search for all, running, completed, or failed jobs.
+- **From and To** – Jobs can be filtered based on the date and time range.
+- **Type** – The job type can be all, backup, restore, failover, download updates, or install updates.
+- **Devices** – Jobs are initiated on a specific device connected to your service. The filtered jobs are then tabulated on the basis of the following attributes:
 
-    - **Status** – os trabalhos podem ser em execução, concluído ou com falha.
+    - **Type** – The job type can be all, backup, restore, failover, download updates, or install updates.
 
-    - **Entidade** – os trabalhos podem ser associados a um volume, compartilhamento ou dispositivo.
+    - **Status** – Jobs can be all, running, completed, or failed.
 
-    - **Dispositivo** – o nome do dispositivo no qual o trabalho foi iniciado.
+    - **Entity** – The jobs can be associated with a volume, share, or device. 
 
-    - **Iniciado em** – a hora em que o trabalho foi iniciado.
+    - **Device** – The name of the device on which the job was started.
 
-    - **Andamento** – o percentual de conclusão de um trabalho em execução. Para um trabalho concluído, sempre deve ser 100%.
+    - **Started on** – The time when the job was started.
 
-A lista de trabalhos é atualizada a cada 30 segundos.
+    - **Progress** – The percentage completion of a running job. For a completed job, this should always be 100%.
 
-## Exibir detalhes do trabalho
+The list of jobs is refreshed every 30 seconds.
 
-Execute as etapas a seguir para exibir os detalhes de qualquer trabalho.
+## <a name="view-job-details"></a>View job details
 
-#### Para exibir detalhes do trabalho
+Perform the following steps to view the details of any job.
 
-1. Na página **Trabalhos**, exiba o(s) trabalho(s) no(s) qual(is) está interessado executando uma consulta com os filtros apropriados. Você pode pesquisar trabalhos concluídos ou em execução.
+#### <a name="to-view-job-details"></a>To view job details
 
-2. Selecione um trabalho na lista tabular dos trabalhos.
+1. On the **Jobs** page, display the job(s) you are interested in by running a query with appropriate filters. You can search for completed or running jobs.
 
-3. Na parte inferior da página, clique em **Detalhes**.
+2. Select a job from the tabular list of jobs.
 
-4. Na caixa de diálogo **Detalhes**, você pode exibir o status, os detalhes e as estatísticas de tempo. A ilustração a seguir mostra um exemplo da caixa de diálogo **Detalhes do trabalho de Backup**.
+3. At the bottom of the page, click **Details**.
+
+4. In the **Details** dialog box, you can view status, details,  and time statistics. The following illustration shows an example of the **Backup Job Details** dialog box.
  
-    ![Página de detalhes do trabalho](./media/storsimple-ova-manage-jobs/ovajobs2.png)
+    ![Job details page](./media/storsimple-ova-manage-jobs/ovajobs2.png)
 
-#### Falhas de trabalho quando a máquina virtual está em pausa no hipervisor
+#### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Job failures when the virtual machine is paused in the hypervisor
 
-Quando um trabalho estiver em andamento no seu StorSimple Virtual Array e o dispositivo (a máquina virtual provisionada no hipervisor) estiver em pausa há mais de 15 minutos, o trabalho falhará. Isso ocorre devido ao tempo StorSimple Virtual Array estar fora de sincronia com a hora do Microsoft Azure. Um exemplo de uma falha do trabalho de restauração é mostrado na seguinte captura de tela.
+When a job is in progress on your StorSimple Virtual Array and the device (virtual machine provisioned in hypervisor) is paused for greater than 15 minutes, the job will fail. This is due to your StorSimple Virtual Array time being out of sync with the Microsoft Azure time. An example for a restore job failure is shown in the following screenshot.
 
-![Falha no trabalho de restauração](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
+![Restore job failure](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
 
-Essas falhas serão aplicadas aos trabalhos de backup, restauração, atualização e failover. Se sua máquina virtual for provisionada no Hyper-V, ela eventualmente sincronizará a hora com o hipervisor. Depois que isso acontece, você pode reiniciar seu trabalho.
+These failures will apply to backup, restore, update, and failover jobs. If your virtual machine is provisioned in Hyper-V, the machine will eventually synchronize time with your hypervisor. Once that happens, you can restart your job. 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-[Saiba como usar a interface do usuário da Web local para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+[Learn how to use the local web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

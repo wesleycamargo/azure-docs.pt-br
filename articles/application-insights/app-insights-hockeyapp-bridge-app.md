@@ -1,77 +1,84 @@
 <properties 
-	pageTitle="Gerenciamento dos dados do HockeyApp no Application Insights | Microsoft Azure" 
-	description="Analise o uso e o desempenho de seu aplicativo do Azure com o Application Insights." 
-	services="application-insights" 
+    pageTitle="Exploring HockeyApp data in Application Insights | Microsoft Azure" 
+    description="Analyze usage and performance of your Azure app with Application Insights." 
+    services="application-insights" 
     documentationCenter="windows"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="awills"/>
-
-#  Exploração de dados do HockeyApp no Application Insights
-
-O [HockeyApp](https://azure.microsoft.com/services/hockeyapp/) é a plataforma recomendada para o monitoramento de aplicativos móveis e de desktop dinâmico. Do HockeyApp, você pode enviar telemetria personalizada e de rastreamento para monitorar o uso e ajudar no diagnóstico (além de obter dados de falha). Esse fluxo de telemetria pode ser consultado usando o poderoso recurso [Analytics](app-insights-analytics.md) do [Visual Studio Application Insights](app-insights-overview.md). Além disso, você pode [exportar a telemetria personalizada e de rastreamento](app-insights-export-telemetry.md). Para habilitar esses recursos, você configura uma ponte que retransmite os dados do HockeyApp ao Application Insights.
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/25/2016" 
+    ms.author="awills"/>
 
 
-## O aplicativo de ponte HockeyApp
+#  <a name="exploring-hockeyapp-data-in-application-insights"></a>Exploring HockeyApp data in Application Insights
 
-O aplicativo de ponte HockeyApp é o principal recurso que permite a você acessar seus dados do HockeyApp no Application Insights por meio dos recursos Analytics e Exportação Contínua. Todos os dados coletados pelo HockeyApp após a criação do aplicativo de ponte HockeyApp estarão acessíveis a partir desses recursos. Vamos ver como configurar esses aplicativos de ponte.
-
-No HockeyApp, abra Configurações de Conta, [Tokens de API](https://rink.hockeyapp.net/manage/auth_tokens). Crie um novo token ou reutilize um existente. Os direitos mínimos necessários são "somente leitura". Faça uma cópia do token da API.
-
-![Obter um token da API do HockeyApp](./media/app-insights-hockeyapp-bridge-app/01.png)
-
-Abra o portal do Microsoft Azure e [crie um recurso do Application Insights](app-insights-create-new-resource.md). Defina o Tipo de Aplicativo como "Aplicativo de ponte HockeyApp":
-
-![Novo recurso do Application Insights](./media/app-insights-hockeyapp-bridge-app/02.png)
-
-Você não precisa definir um nome - isso será definido automaticamente a partir do nome do HockeyApp.
-
-Os campos da ponte HockeyApp aparecem.
-
-![Inserir campos de ponte](./media/app-insights-hockeyapp-bridge-app/03.png)
-
-Insira o token do HockeyApp que você anotou anteriormente. Essa ação preenche o menu suspenso "Aplicativo HockeyApp" com todos os seus aplicativos do HockeyApp. Selecione o que você deseja usar e conclua o restante dos campos.
-
-Abra o novo recurso.
-
-Observe que os dados demoram um pouco para começar a fluir.
-
-![Recurso do Application Insights aguardando os dados](./media/app-insights-hockeyapp-bridge-app/04.png)
-
-É isso! Daqui em diante, todos os dados coletados em seu aplicativo instrumentado pelo HockeyApp agora também estão disponíveis para você nos recursos Analytics e Exportação Contínua do Application Insights.
-
-Vamos analisar rapidamente cada um desses recursos agora disponíveis para você.
-
-## Análise
-
-O Analytics é uma ferramenta eficiente para consultas ad hoc de seus dados, permitindo que você diagnostique e analise a telemetria e descubra rapidamente as causas raiz e os padrões.
+[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) is the recommended platform for monitoring live desktop and mobile apps. From HockeyApp, you can send custom and trace telemetry to monitor usage and assist in diagnosis (in addition to getting crash data). This stream of telemetry can be queried using the powerful [Analytics](app-insights-analytics.md) feature of [Visual Studio Application Insights](app-insights-overview.md). In addition, you can [export the custom and trace telemetry](app-insights-export-telemetry.md). To enable these features, you set up a bridge that relays the HockeyApp data to Application Insights.
 
 
-![Análise](./media/app-insights-hockeyapp-bridge-app/05.png)
+## <a name="the-hockeyapp-bridge-app"></a>The HockeyApp Bridge app
+
+The HockeyApp Bridge App is the core feature that enables you to access your HockeyApp data in Application Insights through the Analytics and Continuous Export features. Any data collected by HockeyApp after the creation of the HockeyApp Bridge App will be accessible from these features. Let’s see how to set up one of these Bridge Apps.
+
+In HockeyApp, open Account Settings, [API Tokens](https://rink.hockeyapp.net/manage/auth_tokens). Either create a new token or reuse an existing one. The minimum rights required are "read only". Take a copy of the API token.
+
+![Get a HockeyApp API token](./media/app-insights-hockeyapp-bridge-app/01.png)
+
+Open the Microsoft Azure portal and [create an Application Insights resource](app-insights-create-new-resource.md). Set Application Type to “HockeyApp bridge application”:
+
+![New Application Insights resource](./media/app-insights-hockeyapp-bridge-app/02.png)
+
+You don't need to set a name - this will automatically be set from the HockeyApp name.
+
+The HockeyApp bridge fields appear. 
+
+![Enter bridge fields](./media/app-insights-hockeyapp-bridge-app/03.png)
+
+Enter the HockeyApp token you noted earlier. This action populates the “HockeyApp Application” dropdown menu with all your HockeyApp applications. Select the one you want to use, and complete the remainder of the fields. 
+
+Open the new resource. 
+
+Note that the data takes a while to start flowing.
+
+![Application Insights resource waiting for data](./media/app-insights-hockeyapp-bridge-app/04.png)
+
+That’s it! Any data collected in your HockeyApp-instrumented app from this point forward is now also available to you in the Analytics and Continuous Export features of Application Insights.
+
+Let’s briefly review each of these features now available to you.
+
+## <a name="analytics"></a>Analytics
+
+Analytics is a powerful tool for ad-hoc querying of your data, allowing you to diagnose and analyze your telemetry and quickly discover root causes and patterns.
 
 
-* [Saiba mais sobre o Analytics](app-insights-analytics-tour.md)
-* [Vídeo de introdução](https://channel9.msdn.com/events/Build/2016/T666)
-* [Vídeo de conceitos avançados](https://channel9.msdn.com/Events/Build/2016/P591)
+![Analytics](./media/app-insights-hockeyapp-bridge-app/05.png)
 
 
-## Exportação contínua
-
-A Exportação Contínua permite que você exporte os dados para um contêiner do Armazenamento de Blobs do Azure. Isso será muito útil se você precisar manter seus dados por mais tempo que o período de retenção atualmente oferecido pelo Application Insights. Você pode manter os dados no armazenamento de blobs, processá-los em um banco de dados SQL ou a solução de data warehouse preferencial.
-
-[Saiba mais sobre a Exportação Contínua](app-insights-export-telemetry.md)
+* [Learn more about Analytics](app-insights-analytics-tour.md)
+* [Introduction video](https://channel9.msdn.com/events/Build/2016/T666)
+* [Advanced concepts video](https://channel9.msdn.com/Events/Build/2016/P591)
 
 
-## Próximas etapas
+## <a name="continuous-export"></a>Continuous export
 
-* [Aplicar a análise aos seus dados](app-insights-analytics-tour.md)
+Continuous Export allows you to export your data into an Azure Blob Storage container. This is very useful if you need to keep your data for longer than the retention period currently offered by Application Insights. You can keep the data in blob storage, process it into a SQL Database, or your preferred data warehousing solution.
 
-<!---HONumber=AcomDC_0831_2016-->
+[Learn more about Continuous Export](app-insights-export-telemetry.md)
+
+
+## <a name="next-steps"></a>Next steps
+
+* [Apply Analytics to your data](app-insights-analytics-tour.md)
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

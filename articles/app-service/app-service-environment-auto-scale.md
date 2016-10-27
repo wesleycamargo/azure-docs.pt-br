@@ -1,226 +1,229 @@
 <properties
-	pageTitle="Dimensionamento automático e Ambiente do Serviço de Aplicativo | Microsoft Azure"
-	description="Dimensionamento automático e Ambiente de Serviço de Aplicativo"
-	services="app-service"
-	documentationCenter=""
-	authors="btardif"
-	manager="wpickett"
-	editor=""
+    pageTitle="Autoscaling and App Service Environment | Microsoft Azure"
+    description="Autoscaling and App Service Environment"
+    services="app-service"
+    documentationCenter=""
+    authors="btardif"
+    manager="wpickett"
+    editor=""
 />
 
 <tags
-	ms.service="app-service"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/07/2016"
-	ms.author="byvinyal"
+    ms.service="app-service"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/07/2016"
+    ms.author="byvinyal"
 />
 
-# Dimensionamento automático e Ambiente de Serviço de Aplicativo
 
-Os ambientes de Serviço de Aplicativo do Azure dão suporte ao *dimensionamento automático*. Você pode dimensionar automaticamente pools de trabalho individuais com base em métricas ou na agenda.
+# <a name="autoscaling-and-app-service-environment"></a>Autoscaling and App Service Environment
 
-![Opções de dimensionamento automático para um pool de trabalho.][intro]
+Azure App Service environments support *autoscaling*. You can autoscale individual worker pools based on metrics or schedule.
 
-O dimensionamento automático otimiza a utilização de recursos, escalar e reduzir verticalmente um ambiente de Serviço de Aplicativo de forma automática para ajustar seu orçamento e/ou perfil de carregamento.
+![Autoscale options for a worker pool.][intro]
 
-## Configurar o dimensionamento automático de pool de trabalho
+Autoscaling optimizes your resource utilization by automatically growing and shrinking an App Service environment to fit your budget and or load profile.
 
-Você pode acessar a funcionalidade de dimensionamento automático na guia **Configurações** do pool de trabalho.
+## <a name="configure-worker-pool-autoscale"></a>Configure worker pool autoscale
 
-![Guia de configurações do pool de trabalho.][settings-scale]
+You can access the autoscale functionality from the **Settings** tab of the worker pool.
 
-A partir daí, a interface deve ser bastante familiar, já que é a mesma experiência que você vê quando dimensiona um plano do Serviço de Aplicativo. Você pode inserir manualmente um valor de escala.
+![Settings tab of the worker pool.][settings-scale]
 
-![Configurações manuais de escala.][scale-manual]
+From there, the interface should be fairly familiar because this is the same experience that you see when you scale an App Service plan. You will be able to enter a scale value manually.
 
-Você também pode configurar um perfil de dimensionamento automático.
+![Manual scale settings.][scale-manual]
 
-![Configurações de dimensionamento automático.][scale-profile]
+You can also configure an autoscale profile.
 
-Os perfis de dimensionamento automático são úteis para definir limites na sua escala. Dessa forma, você pode ter uma experiência de desempenho consistente, definindo um valor de escala de limite inferior (1) e um limite de gastos previsível, definindo um limite superior (2).
+![Autoscale settings.][scale-profile]
 
-![Configurações de escala no perfil.][scale-profile2]
+Autoscale profiles are useful to set limits on your scale. This way, you can have a consistent performance experience by setting a lower bound scale value (1) and a predictable spend cap by setting an upper bound (2).
 
-Depois de definir um perfil, você pode adicionar regras de dimensionamento automático para aumentar ou reduzir o número de instâncias no pool de trabalho dentro dos limites definidos pelo perfil. As regras de dimensionamento automático se baseiam em métricas.
+![Scale settings in profile.][scale-profile2]
 
-![Regra de escala.][scale-rule]
+After you define a profile, you can add autoscale rules to scale up or down the number of instances in the worker pool within the bounds defined by the profile. Autoscale rules are based on metrics.
 
- Qualquer métrica de pool de trabalho ou de front-end pode ser usada para definir regras de dimensionamento automático. Essas são as mesmas métricas que você pode monitorar nos gráficos de folha de recursos e para as quais pode definir alertas.
+![Scale rule.][scale-rule]
 
-## Exemplo de dimensionamento automático
+ Any worker pool or front-end metrics can be used to define autoscale rules. These are the same metrics that you can monitor in the resource blade graphs or set alerts for.
 
-O dimensionamento automático de um ambiente de Serviço de Aplicativo pode ser melhor ilustrado examinando um cenário.
+## <a name="autoscale-example"></a>Autoscale example
 
-Este artigo explica todas as considerações necessárias quando você configura o dimensionamento automático e todas as interações que entram em jogo quando você fatora em ambientes de Serviço de Aplicativo de dimensionamento automático hospedados no Ambiente de Serviço de Aplicativo.
+Autoscale of an App Service environment can best be illustrated by walking through a scenario.
 
-### Introdução ao cenário
+This article explains all the necessary considerations when you set up autoscale and all the interactions that come into play when you factor in autoscaling App Service environments that are hosted in App Service Environment.
 
-Matheus é um SysAdmin de uma empresa que migrou uma parte das cargas de trabalho que ele gerencia para um ambiente de Serviço de Aplicativo.
+### <a name="scenario-introduction"></a>Scenario introduction
 
-O ambiente do Serviço de Aplicativo está configurado para a escala manual da seguinte maneira:
+Frank is a sysadmin for an enterprise who has migrated a portion of the workloads that he manages to an App Service environment.
 
-* **Front-ends:** 3
-* **Pool de trabalho 1**: 10
-* **Pool de trabalho 2:** 5
-* **Pool de trabalho 3:** 5
+The App Service environment is configured to manual scale as follows:
 
-O pool de trabalho 1 é usado para cargas de trabalho de produção, embora o pool de trabalho 2 e o pool de trabalho 3 sejam usados para garantia de qualidade (QA) e cargas de trabalho de desenvolvimento.
+* **Front ends:** 3
+* **Worker pool 1**: 10
+* **Worker pool 2**: 5
+* **Worker pool 3**: 5
 
-Os planos do Serviço de Aplicativo para QA e desenvolvimento são configurados para escala manual, mas o plano do Serviço de Aplicativo de produção é definido como dimensionamento automático para lidar com variações na carga e tráfego.
+Worker pool 1 is used for production workloads, while worker pool 2 and worker pool 3 are used for quality assurance (QA) and development workloads.
 
-Matheus está familiarizado com o aplicativo. Ele sabe que as horas de pico de carga ocorrem entre 9:00 e 18:00, porque este é um aplicativo de linha de negócios (LOB) que os funcionários usam enquanto estão no escritório. O uso é reduzido depois disso, quando os usuários param de trabalhar naquele dia. Fora do horário de pico, ainda há alguma carga porque os usuários podem acessar o aplicativo remotamente, usando seus dispositivos móveis ou computadores domésticos. O plano do Serviço de Aplicativo de produção já está configurado para dimensionamento automático com base no uso de CPU com as seguintes regras:
+The App Service plans for QA and dev are configured to manual scale, but the production App Service plan is set to autoscale to deal with variations in load and traffic.
 
-![Configurações específicas para o aplicativo LOB.][asp-scale]
+Frank is very familiar with the application. He knows that the peak hours for load are between 9:00 AM and 6:00 PM because this is a line-of-business (LOB) application that employees use while they are in the office. Usage drops after that when users are done for that day. Outside peak hours, there is still some load because users can access the app remotely by using their mobile devices or home PCs. The production App Service plan is already configured to autoscale based on CPU usage with the following rules:
 
-|	**Perfil de dimensionamento automático – Dias da semana – plano do Serviço de Aplicativo** |	**Perfil de dimensionamento automático – Finais de semana – plano do Serviço de Aplicativo** |
-|	----------------------------------------------------	|	----------------------------------------------------	|
-|	**Nome:** Perfil de dia da semana |	**Nome:** Perfil de final de semana |
-|	**Dimensionar por:** Regras de agendamento e desempenho |	**Dimensionar por:** Regras de agendamento e desempenho |
-|	**Perfil:** Dias da semana |	**Perfil:** Final de semana |
-|	**Tipo:** Recorrência |	**Tipo:** Recorrência |
-|	**Intervalo de destino:** 5 a 20 instâncias |	**Intervalo de destino:** 3 a 10 instâncias |
-|	**Dias:** segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira |	**Dias:** sábado e domingo |
-|	**Hora de início:** 9:00 |	**Hora de início:** 9:00 |
-|	**Fuso horário:** UTC-08 |	**Fuso horário:** UTC-08 |
-| | |
-|	**Regra de dimensionamento automático (Escalar Verticalmente)** |	**Regra de dimensionamento automático (Escalar Verticalmente)** |
-|	**Recurso:** Produção (ambiente de Serviço de Aplicativo) |	**Recurso:** Produção (ambiente de Serviço de Aplicativo) |
-|	**Métrica:** % da CPU |	**Métrica:** % da CPU |
-|	**Operação:** Mais de 60% |	**Operação:** Mais de 80% |
-|	**Duração:** 5 minutos |	**Duração:** 10 minutos |
-|	**Agregação de tempo:** Média |	**Agregação de tempo:** Média |
-|	**Ação:** Aumentar a contagem em 2 |	**Ação:** Aumentar a contagem em 1 |
-|	**Tempo de resfriamento (minutos):** 15 |	**Tempo de resfriamento (minutos):** 20 |
-| | |
- |	**Regra de dimensionamento automático (Reduzir Verticalmente)** |	**Regra de dimensionamento automático (Reduzir Verticalmente)** |
-|	**Recurso:** Produção (ambiente de Serviço de Aplicativo) |	**Recurso:** Produção (ambiente de Serviço de Aplicativo) |
-|	**Métrica:** % da CPU |	**Métrica:** % da CPU |
-|	**Operação:** Menos de 30% |	**Operação:** Menos de 20% |
-|	**Duração:** 10 minutos |	**Duração:** 15 minutos |
-|	**Agregação de tempo:** Média |	**Agregação de tempo:** Média |
-|	**Ação:** Reduzir a contagem em 1 |	**Ação:** Reduzir a contagem em 1 |
-|	**Tempo de resfriamento (minutos):** 20 |	**Tempo de resfriamento (minutos):** 10 |
+![Specific settings for LOB app.][asp-scale]
 
-### Taxa de inflação do plano do Serviço de Aplicativo
+|   **Autoscale profile – Weekdays – App Service plan**     |   **Autoscale profile – Weekends – App Service plan**     |
+|   ----------------------------------------------------    |   ----------------------------------------------------    |
+|   **Name:** Weekday profile                               |   **Name:** Weekend profile                               |
+|   **Scale by:** Schedule and performance rules            |   **Scale by:** Schedule and performance rules            |
+|   **Profile:** Weekdays                                   |   **Profile:** Weekend                                    |
+|   **Type:** Recurrence                                    |   **Type:** Recurrence                                    |
+|   **Target range:** 5 to 20 instances                     |   **Target range:** 3 to 10 instances                     |
+|   **Days:** Monday, Tuesday, Wednesday, Thursday, Friday  |   **Days:** Saturday, Sunday                              |
+|   **Start time:** 9:00 AM                                 |   **Start time:** 9:00 AM                                 |
+|   **Time zone:** UTC-08                                   |   **Time zone:** UTC-08                                   |
+|                                                           |                                                           |
+|   **Autoscale rule (Scale Up)**                           |   **Autoscale rule (Scale Up)**                           |
+|   **Resource:** Production (App Service Environment)      |   **Resource:** Production (App Service Environment)      |
+|   **Metric:** CPU %                                       |   **Metric:** CPU %                                       |
+|   **Operation:** Greater than 60%                         |   **Operation:** Greater than 80%                         |
+|   **Duration:** 5 Minutes                                 |   **Duration:** 10 Minutes                                |
+|   **Time aggregation:** Average                           |   **Time aggregation:** Average                           |
+|   **Action:** Increase count by 2                         |   **Action:** Increase count by 1                         |
+|   **Cool down (minutes):** 15                             |   **Cool down (minutes):** 20                             |
+|                                                           |                                                           |
+  	|   **Autoscale rule (Scale Down)**                     |   **Autoscale rule (Scale Down)**                         |
+|   **Resource:** Production (App Service Environment)      |   **Resource:** Production (App Service Environment)      |
+|   **Metric:** CPU %                                       |   **Metric:** CPU %                                       |
+|   **Operation:** Less than 30%                            |   **Operation:** Less than 20%                            |
+|   **Duration:** 10 minutes                                |   **Duration:** 15 minutes                                |
+|   **Time aggregation:** Average                           |   **Time aggregation:** Average                           |
+|   **Action:** Decrease count by 1                         |   **Action:** Decrease count by 1                         |
+|   **Cool down (minutes):** 20                             |   **Cool down (minutes):** 10                             |
 
-Os planos do Serviço de Aplicativo configurados para dimensionamento automático escalam ou reduzem a uma taxa máxima por hora. Essa taxa pode ser calculada com base nos valores fornecidos na regra de dimensionamento automático.
+### <a name="app-service-plan-inflation-rate"></a>App Service plan inflation rate
 
-Compreender e calcular a *taxa de inflação do plano do Serviço de Aplicativo* é importante para o dimensionamento automático do ambiente de Serviço de Aplicativo, já que as alterações de escala em um pool de trabalho não são instantâneas.
+App Service plans that are configured to autoscale will do so at a maximum rate per hour. This rate can be calculated based on the values provided on the autoscale rule.
 
-A taxa de inflação do plano do Serviço de Aplicativo é calculada da seguinte maneira:
+Understanding and calculating the *App Service plan inflation rate* is important for App Service environment autoscale because scale changes to a worker pool are not instantaneous.
 
-![Cálculo da taxa de inflação do plano do Serviço de Aplicativo.][ASP-Inflation]
+The App Service plan inflation rate is calculated as follows:
 
-Com base na regra Dimensionamento automático - Escalar verticalmente do perfil dia da semana perfil do plano do Serviço de Aplicativo de produção, seria semelhante ao seguinte:
+![App Service plan inflation rate calculation.][ASP-Inflation]
 
-![Taxa de inflação de plano do Serviço de Aplicativo para dias da semana com base em Dimensionamento automático – regra Escalar Verticalmente.][Equation1]
+Based on the Autoscale – Scale Up rule for the Weekday profile of the production App Service plan, this would look as follows:
 
-No caso da regra Dimensionamento automático - Escalar verticalmente do perfil Finais de semana do plano do Serviço de Aplicativo de produção, a fórmula resolveria para:
+![App Service plan inflation rate for weekdays based on Autoscale – Scale Up rule.][Equation1]
 
-![Taxa de inflação de plano do Serviço de Aplicativo para finais de semana com base em Dimensionamento automático – regra Escalar Verticalmente.][Equation2]
+In the case of the Autoscale – Scale Up rule for the Weekend profile of the production App Service plan, the formula would resolve to:
 
-Esse valor também pode ser calculado para operações de redução.
+![App Service plan inflation rate for weekends based on Autoscale – Scale Up rule.][Equation2]
 
-Com base na regra Dimensionamento automático - Reduzir verticalmente do perfil dia da semana perfil do plano do Serviço de Aplicativo de produção, seria semelhante ao seguinte:
+This value can also be calculated for scale-down operations.
 
-![Taxa de inflação de plano do Serviço de Aplicativo para dias da semana com base em Dimensionamento automático – regra Reduzir Verticalmente.][Equation3]
+Based on the Autoscale – Scale Down rule for the Weekday profile of the production App Service plan, this would look as follows:
 
-No caso da regra Dimensionamento automático - Reduzir verticalmente do perfil Finais de semana do plano do Serviço de Aplicativo de produção, a fórmula resolveria para:
+![App Service plan inflation rate for weekdays based on Autoscale – Scale Down rule.][Equation3]
 
-![Taxa de inflação de plano do Serviço de Aplicativo para fins de semana com base em Dimensionamento automático – regra Reduzir Verticalmente.][Equation4]
+In the case of the Autoscale – Scale Down rule for the Weekend profile of the production App Service plan, the formula would resolve to:  
 
-Isso significa que o plano do Serviço de Aplicativo pode crescer em uma taxa máxima de oito instâncias por hora durante a semana e quatro instâncias por hora durante o fim de semana. E ele pode liberar instâncias em uma taxa máxima de quatro instâncias por hora durante a semana e seis instâncias por hora durante os finais de semana.
+![App Service plan inflation rate for weekends based on Autoscale – Scale Down rule.][Equation4]
 
-Se vários planos do Serviço de Aplicativo estiverem sendo hospedados em um pool de trabalho, você precisará calcular a *taxa total de inflação* como a soma da taxa de inflação de todos os planos do Serviço de Aplicativo hospedados nesse pool de trabalho.
+This means that the production App Service plan can grow at a maximum rate of eight instances per hour during the week and four instances per hour during the weekend. And it can release instances at a maximum rate of four instances per hour during the week and six instances per hour during weekends.
 
-![Cálculo da taxa total de inflação para vários planos do Serviço de Aplicativo hospedados em um pool de trabalho.][ASP-Total-Inflation]
+If multiple App Service plans are being hosted in a worker pool, you have to calculate the *total inflation rate* as the sum of the inflation rate for all the App Service plans that are being hosting in that worker pool.
 
-### Usar a taxa de inflação do plano do Serviço de Aplicativo para definir regras de dimensionamento automático do pool de trabalho
+![Total inflation rate calculation for multiple App Service plans hosted in a worker pool.][ASP-Total-Inflation]
 
-Os pools de trabalho que hospedam planos do Serviço de Aplicativo configurados para o dimensionamento automático precisarão receber um buffer de capacidade. O buffer permite que as operações de dimensionamento automático aumentem ou reduzam o plano do Serviço de Aplicativo, conforme necessário. O buffer mínimo seria a Taxa de Inflação Total do Plano do Serviço de Aplicativo calculada.
+### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>Use the App Service plan inflation rate to define worker pool autoscale rules
 
-Como as operações de dimensionamento do ambiente de Serviço de Aplicativo demoram algum tempo para serem aplicadas, qualquer alteração deve levar em consideração outras alterações sob demanda que poderiam acontecer enquanto uma operação de escala está em andamento. Para acomodar essa latência, recomendamos que você use a Taxa de Inflação do Plano do Serviço de Aplicativo Total como o número mínimo de instâncias adicionadas para cada operação de dimensionamento automático.
+Worker pools that host App Service plans that are configured to autoscale will need to be allocated a buffer of capacity. The buffer allows for the autoscale operations to grow and shrink the App Service plan as needed. The minimum buffer would be the calculated Total App Service Plan Inflation Rate.
 
-Com essas informações, Matheus pode definir o seguinte perfil e regras de dimensionamento automático:
+Because App Service environment scale operations take some time to apply, any change should account for further demand changes that could happen while a scale operation is in progress. To accommodate this latency, we recommend that you use the calculated Total App Service Plan Inflation Rate as the minimum number of instances that are added for each autoscale operation.
 
-![Regras de perfil de dimensionamento automático para o exemplo LOB.][Worker-Pool-Scale]
+With this information, Frank can define the following autoscale profile and rules:
 
-|	**Perfil de dimensionamento automático – Dias da semana** |	**Perfil de dimensionamento automático – Finais de semana** |
-|	----------------------------------------------------	|	--------------------------------------------	|
-|	**Nome:** Perfil de dia da semana |	**Nome:** Perfil de final de semana |
-|	**Dimensionar por:** Regras de agendamento e desempenho |	**Dimensionar por:** Regras de agendamento e desempenho |
-|	**Perfil:** Dias da semana |	**Perfil:** Final de semana |
-|	**Tipo:** Recorrência |	**Tipo:** Recorrência |
-|	**Intervalo de destino:** 13 a 25 instâncias |	**Intervalo de destino:** 6 a 15 instâncias |
-|	**Dias:** segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira |	**Dias:** sábado e domingo |
-|	**Hora de início:** 7:00 |	**Hora de início:** 9:00 |
-|	**Fuso horário:** UTC-08 |	**Fuso horário:** UTC-08 |
-| | |
-|	**Regra de dimensionamento automático (Escalar Verticalmente)** |	**Regra de dimensionamento automático (Escalar Verticalmente)** |
-|	**Recurso:** Pool de trabalho 1 |	**Recurso:** Pool de trabalho 1 |
-|	**Métrica:** WorkersAvailable |	**Métrica:** WorkersAvailable |
-|	**Operação:** menos de 8 |	**Operação:** menos de 3 |
-|	**Duração:** 20 minutos |	**Duração:** 30 minutos |
-|	**Agregação de tempo:** Média |	**Agregação de tempo:** Média |
-|	**Ação:** Aumentar a contagem em 8 |	**Ação:** Aumentar a contagem em 3 |
-|	**Tempo de resfriamento (minutos):** 180 |	**Tempo de resfriamento (minutos):** 180 |
-| | |
-|	**Regra de dimensionamento automático (Reduzir Verticalmente)** |	**Regra de dimensionamento automático (Reduzir Verticalmente)** |
-|	**Recurso:** Pool de trabalho 1 |	**Recurso:** Pool de trabalho 1 |
-|	**Métrica:** WorkersAvailable |	**Métrica:** WorkersAvailable |
-|	**Operação:** maior que 8 |	**Operação:** maior que 3 |
-|	**Duração:** 20 minutos |	**Duração:** 15 minutos |
-|	**Agregação de tempo:** Média |	**Agregação de tempo:** Média |
-|	**Ação:** Diminuir a contagem em 2 |	**Ação:** Diminuir a contagem em 3 |
-|	**Tempo de resfriamento (minutos):** 120 |	**Tempo de resfriamento (minutos):** 120 |
+![Autoscale profile rules for LOB example.][Worker-Pool-Scale]
 
-O intervalo de Destino definido no perfil é calculado pelas instâncias do mínimas definidas no perfil para o plano do Serviço de Aplicativo + buffer.
+|   **Autoscale profile – Weekdays**                        |   **Autoscale profile – Weekends**                |
+|   ----------------------------------------------------    |   --------------------------------------------    |
+|   **Name:** Weekday profile                               |   **Name:** Weekend profile                       |
+|   **Scale by:** Schedule and performance rules            |   **Scale by:** Schedule and performance rules    |
+|   **Profile:** Weekdays                                   |   **Profile:** Weekend                            |
+|   **Type:** Recurrence                                    |   **Type:** Recurrence                            |
+|   **Target range:** 13 to 25 instances                    |   **Target range:** 6 to 15 instances             |
+|   **Days:** Monday, Tuesday, Wednesday, Thursday, Friday  |   **Days:** Saturday, Sunday                      |
+|   **Start time:** 7:00 AM                                 |   **Start time:** 9:00 AM                         |
+|   **Time zone:** UTC-08                                   |   **Time zone:** UTC-08                           |
+|                                                           |                                                   |
+|   **Autoscale rule (Scale Up)**                           |   **Autoscale rule (Scale Up)**                   |
+|   **Resource:** Worker pool 1                             |   **Resource:** Worker pool 1                     |
+|   **Metric:** WorkersAvailable                            |   **Metric:** WorkersAvailable                    |
+|   **Operation:** Less than 8                              |   **Operation:** Less than 3                      |
+|   **Duration:** 20 minutes                                |   **Duration:** 30 minutes                        |
+|   **Time aggregation:** Average                           |   **Time aggregation:** Average                   |
+|   **Action:** Increase count by 8                         |   **Action:** Increase count by 3                 |
+|   **Cool down (minutes):** 180                            |   **Cool down (minutes):** 180                    |
+|                                                           |                                                   |
+|   **Autoscale rule (Scale Down)**                         |   **Autoscale rule (Scale Down)**                 |
+|   **Resource:** Worker pool 1                             |   **Resource:** Worker pool 1                     |
+|   **Metric:** WorkersAvailable                            |   **Metric:** WorkersAvailable                    |
+|   **Operation:** Greater than 8                           |   **Operation:** Greater than 3                   |
+|   **Duration:** 20 minutes                                |   **Duration:** 15 minutes                        |
+|   **Time aggregation:** Average                           |   **Time aggregation:** Average                   |
+|   **Action:** Decrease count by 2                         |   **Action:** Decrease count by 3                 |
+|   **Cool down (minutes):** 120                            |   **Cool down (minutes):** 120                    |
 
-O intervalo Máximo seria a soma de todos os intervalos máximos de todos os planos do Serviço de Aplicativo hospedados no pool de trabalho.
+The Target range defined in the profile is calculated by the minimum instances defined in the profile for the App Service plan + buffer.
 
-A contagem de Aumento das regras de escala vertical deve ser definida como, pelo menos, 1X a Taxa de Inflação do Plano do Serviço de Aplicativo para a escala vertical.
+The Maximum range would be the sum of all the maximum ranges for all App Service plans hosted in the worker pool.
 
-A contagem de redução pode ser ajustada para algo entre 1/2x ou 1x a taxa de inflação do plano do Serviço de Aplicativo para reduzir verticalmente.
+The Increase count for the scale up rules should be set to at least 1X the App Service Plan Inflation Rate for scale up.
 
-### Dimensionamento automático para o pool de front-end
+Decrease count can be adjusted to something between 1/2X or 1X the App Service Plan Inflation Rate for scale down.
 
-As regras de dimensionamento automático de front-end são mais simples para pools de trabalho. Basicamente, verifique se a duração da medição e se os temporizadores de resfriamento considerem que as operações de escala em um plano do Serviço de Aplicativo não sejam instantâneas.
+### <a name="autoscale-for-front-end-pool"></a>Autoscale for front-end pool
 
-Para este cenário, Matheus sabe que a taxa de erro aumenta depois que os front-ends atingem 80% de utilização da CPU. Para evitar isso, ele define a regra de dimensionamento automático para aumentar o número de instâncias da seguinte maneira:
+Rules for front-end autoscale are simpler than for worker pools. Primarily, you should  
+make sure that duration of the measurement and the cooldown timers consider that scale operations on an App Service plan are not instantaneous.
 
-![Configurações de dimensionamento automático para o pool de front-end.][Front-End-Scale]
+For this scenario, Frank knows that the error rate increases after front ends reach 80% CPU utilization.
+To prevent this, he sets the autoscale rule to increase instances as follows:
 
-|	**Perfil de dimensionamento automático – Front-ends** |
-|	--------------------------------------------	|
-|	**Nome:** Dimensionamento automático – Front-ends |
-|	**Dimensionar por:** Regras de agendamento e desempenho |
-|	**Perfil:** Todos os dias |
-|	**Tipo:** Recorrência |
-|	**Intervalo de destino:** 3 a 10 instâncias |
-|	**Dias:** Todos os dias |
-|	**Hora de início:** 9:00 |
-|	**Fuso horário:** UTC-08 |
-| |
-|	**Regra de dimensionamento automático (Escalar Verticalmente)** |
-|	**Recurso:** Pool de front-end |
-|	**Métrica:** % da CPU |
-|	**Operação:** Mais de 60% |
-|	**Duração:** 20 minutos |
-|	**Agregação de tempo:** Média |
-|	**Ação:** Aumentar a contagem em 3 |
-|	**Tempo de resfriamento (minutos):** 120 |
-| |
-|	**Regra de dimensionamento automático (Reduzir Verticalmente)** |
-|	**Recurso:** Pool de trabalho 1 |
-|	**Métrica:** % da CPU |
-|	**Operação:** Menos de 30% |
-|	**Duração:** 20 minutos |
-|	**Agregação de tempo:** Média |
-|	**Ação:** Diminuir a contagem em 3 |
-|	**Tempo de resfriamento (minutos):** 120 |
+![Autoscale settings for front-end pool.][Front-End-Scale]
+
+|   **Autoscale profile – Front ends**              |
+|   --------------------------------------------    |
+|   **Name:** Autoscale – Front ends                |
+|   **Scale by:** Schedule and performance rules    |
+|   **Profile:** Everyday                           |
+|   **Type:** Recurrence                            |
+|   **Target range:** 3 to 10 instances             |
+|   **Days:** Everyday                              |
+|   **Start time:** 9:00 AM                         |
+|   **Time zone:** UTC-08                           |
+|                                                   |
+|   **Autoscale rule (Scale Up)**                   |
+|   **Resource:** Front-end pool                    |
+|   **Metric:** CPU %                               |
+|   **Operation:** Greater than 60%                 |
+|   **Duration:** 20 minutes                        |
+|   **Time aggregation:** Average                   |
+|   **Action:** Increase count by 3                 |
+|   **Cool down (minutes):** 120                    |
+|                                                   |
+|   **Autoscale rule (Scale Down)**                 |
+|   **Resource:** Worker pool 1                     |
+|   **Metric:** CPU %                               |
+|   **Operation:** Less than 30%                    |
+|   **Duration:** 20 Minutes                        |
+|   **Time aggregation:** Average                   |
+|   **Action:** Decrease count by 3                 |
+|   **Cool down (minutes):** 120                    |
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png
@@ -239,4 +242,8 @@ Para este cenário, Matheus sabe que a taxa de erro aumenta depois que os front-
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

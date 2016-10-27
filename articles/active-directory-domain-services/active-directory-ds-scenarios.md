@@ -1,26 +1,27 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services: cenários de implantação | Microsoft Azure"
-	description="Cenários de implantação dos Serviços de Domínio do Azure AD"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory Domain Services: cenários de implantação | Microsoft Azure"
+    description="Cenários de implantação dos Serviços de Domínio do Azure AD"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2016"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/21/2016"
+    ms.author="maheshu"/>
 
 
-# Cenários de implantação e casos de uso
+
+# <a name="deployment-scenarios-and-use-cases"></a>Cenários de implantação e casos de uso
 Nesta seção, examinamos alguns cenários e casos de uso que podem aproveitar os Serviços de Domínio do AD (Azure Active Directory).
 
-## Administração segura e fácil de máquinas virtuais do Azure
+## <a name="secure,-easy-administration-of-azure-virtual-machines"></a>Administração segura e fácil de máquinas virtuais do Azure
 Você pode usar os Serviços de Domínio do Azure Active Directory para gerenciar as máquinas virtuais do Azure de forma simplificada. As máquinas virtuais do Azure pode ser associadas ao domínio gerenciado, permitindo que você use suas credenciais corporativas do AD para fazer logon. Essa abordagem ajuda a evitar problemas de gerenciamento de credenciais, como manutenção de contas de administrador local em cada uma de suas máquinas virtuais do Azure.
 
 Máquinas virtuais do servidor que ingressaram no domínio gerenciado também podem ser gerenciadas e protegidas usando a Política de Grupo. Você pode aplicar linhas de base de segurança necessária para as máquinas virtuais do Azure e bloquear de acordo com as diretrizes de segurança corporativa. Por exemplo, você pode usar os recursos de gerenciamento da Política de Grupo para restringir os tipos de aplicativos que podem ser iniciados nessas máquinas virtuais.
@@ -40,7 +41,7 @@ Considere os seguintes pontos importantes para este cenário de implantação:
 - Os Serviços de Domínio do AD do Azure dão suporte ao esquema do objeto de computador AD base. Você não pode estender o esquema do objeto de computador.
 
 
-## Fazer a mudança de aplicativos locais que usam autenticação de associação LDAP para os Serviços de Infraestrutura do Azure
+## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-bind-authentication-to-azure-infrastructure-services"></a>Fazer a mudança de aplicativos locais que usam autenticação de associação LDAP para os Serviços de Infraestrutura do Azure
 
 ![Associação LDAP](./media/active-directory-domain-services-scenarios/ldap-bind.png)
 
@@ -55,7 +56,7 @@ Considere os seguintes pontos importantes para este cenário de implantação:
 - Você não pode alterar senhas diretamente em relação ao domínio gerenciado. Os usuários finais podem alterar suas senhas ou usando o mecanismo de alteração de senha de autoatendimento do Azure AD ou no diretório local. Essas alterações são automaticamente sincronizadas e disponibilizadas no domínio gerenciado.
 
 
-## Fazer a mudança de aplicativos locais que usam leitura LDAP para acessar o diretório que leva aos Serviços de Infraestrutura do Azure
+## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-read-to-access-the-directory-to-azure-infrastructure-services"></a>Fazer a mudança de aplicativos locais que usam leitura LDAP para acessar o diretório que leva aos Serviços de Infraestrutura do Azure
 A Contoso tem um aplicativo de LOB (linha de negócios) local desenvolvido quase uma década atrás. Esse aplicativo percebe diretórios e foi projetado para funcionar com o AD do Windows Server. O aplicativo usa LDAP (Lightweight Directory Access Protocol) para ler informações/atributos sobre os usuários do Active Directory. O aplicativo não modifica atributos ou gravar no diretório de forma alguma. A Contoso deseja migrar esse aplicativo para os Serviços de Infraestrutura do Azure e desativar o hardware local antigo que atualmente hospeda esse aplicativo. O aplicativo não pode ser reescrito para usar APIs de diretório modernas, como a Graph API do Azure AD baseada em REST. Portanto, uma opção de mudança é desejada por meio da qual o aplicativo possa ser migrado para executar na nuvem sem modificar o código ou reescrever o aplicativo.
 
 **Observações de implantação**
@@ -67,7 +68,7 @@ Considere os seguintes pontos importantes para este cenário de implantação:
 - Verifique se o aplicativo não precisa de um esquema do Active Directory estendido/personalizado. As extensões de esquema não têm suporte nos Serviços de Domínio do AD do Azure.
 
 
-## Migrar um aplicativo de serviço ou daemon do local para os Serviços de Infraestrutura do Azure
+## <a name="migrate-an-on-premises-service-or-daemon-application-to-azure-infrastructure-services"></a>Migrar um aplicativo de serviço ou daemon do local para os Serviços de Infraestrutura do Azure
 Alguns aplicativos consistem em várias camadas, em que uma das camadas precisa realizar chamadas autenticadas para uma camada de back-end, como uma camada de banco de dados. Contas de serviço do Active Directory são usadas para esses casos de uso. Você pode arrastar e deslocar aplicativos para os Serviços de Infraestrutura do Azure e usar os Serviços de Domínio do Azure AD para as necessidades de identidade desses aplicativos. Você pode optar por usar a mesma conta de serviço que é sincronizada do seu diretório local para o Azure AD. Como alternativa, você pode criar primeiro uma UO personalizada e, em seguida, criar uma conta de serviço separada na UO para implantar esses aplicativos.
 
 ![Conta de serviço usando WIA](./media/active-directory-domain-services-scenarios/wia-service-account.png)
@@ -83,11 +84,15 @@ Considere os seguintes pontos importantes para este cenário de implantação:
 - Você não pode alterar senhas diretamente em relação ao domínio gerenciado. Os usuários finais podem alterar suas senhas ou usando o mecanismo de alteração de senha de autoatendimento do Azure AD ou no diretório local. Essas alterações são automaticamente sincronizadas e disponibilizadas no domínio gerenciado.
 
 
-## RemoteApp do Azure
+## <a name="azure-remoteapp"></a>RemoteApp do Azure
 O RemoteApp do Azure permite que o administrador do Contoso crie uma coleção associada a um domínio. Esse recurso permite que aplicativos remotos atendidos pelo RemoteApp do Azure sejam executados em computadores associados ao domínio e acessem outros recursos usando a autenticação integrada do Windows. O Contoso pode usar os Serviços de Domínio do AD do Azure para fornecer um domínio gerenciado usado pelas coleções associadas ao domínio do RemoteApp do Azure.
 
 ![RemoteApp do Azure](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
 
-Para saber mais sobre esse cenário de implantação, confira o artigo do Blog de Serviços de Área de Trabalho Remota intitulado [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx) (Levantar e deslocar suas cargas de trabalho com o Azure RemoteApp e os Azure AD Domain Services).
+Para saber mais sobre esse cenário de implantação, confira o artigo do Blog de Serviços de Área de Trabalho Remota intitulado [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)(Levantar e deslocar suas cargas de trabalho com o Azure RemoteApp e os Azure AD Domain Services).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

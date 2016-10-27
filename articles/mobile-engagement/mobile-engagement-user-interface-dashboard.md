@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Interface do usuário do Mobile Engagement do Azure - Painel" 
-   description="Saiba como exibir e gerenciar os gráficos de dados sobre seu aplicativo usando o Mobile Engagement do Azure" 
+   pageTitle="Azure Mobile Engagement User Interface - Dashboard" 
+   description="Learn how to view and manage charts of data about your application using Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -16,20 +16,21 @@
    ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
-# Como exibir e gerenciar os gráficos de dados sobre seu aplicativo
-A seção do painel de controle da interface do usuário permite aos clientes criar gráficos personalizados para maximizar seu tempo fornecendo as informações exatas que desejam em vez de procurá-las na seção de análise. Um painel mostra as tendências de seu aplicativo e a contas de usuário ativas para versões diferentes do seu aplicativo durante um determinado momento (hora/dia/semana/mês/personalizado). As tendências mostradas baseiam-se nos últimos 7 dias.
 
-### Confira também
--  [Guia de solução de problemas - Análise][Link 21]
+# <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>How to view and manage charts of data about your application
+The Dashboard section of the UI allows customers to create customized charts to maximize their time by providing the exact information they want instead of searching for it in the analytics section. A dashboard shows the trends of your application and the Active User Counts for the different versions of your application during a given time (hour/day/week/month/customized). The trends shown are based on the last 7 days.
 
-## Painel
-- Você pode adicionar gráficos a um painel vazio escolhendo a ação “Enviar ao painel” no menu de engrenagem de qualquer gráfico na seção Análise da interface do usuário que você gostaria de ver em um painel.
+### <a name="see-also"></a>See also
+-  [Troubleshooting Guide - Analytics][Link 21]
+
+## <a name="dashboard"></a>Dashboard
+- You can add charts to an empty dashboard by choosing the "Send to dashboard" action from the gear menu of any chart in the Analytics section of the UI that you'd like to see on a dashboard.
  
-## + (Adicionar um painel de controle):
-- Você pode usar o item de menu da faixa de opções “+” para criar um novo painel que será exibido no menu da faixa de opções.
+## <a name="+-(add-a-dashboard)"></a>+ (Add a Dashboard)
+- You can use the "+" ribbon menu item to create a new dashboard that will show on the ribbon menu.
  
-## Menu de engrenagem
-- Você pode usar o menu de engrenagem de um painel para Excluir, Renomear, Compartilhar ou o Agendar (recepção de Email) de seu painel. Você pode usar a opção de Agendamento para definir a agenda na qual você gostaria de receber seu painel personalizado por email. Você pode agendar para recebê-lo diária, semanal ou mensalmente. Você pode escolher a hora do dia e o dia da semana ou dia do mês em que você gostaria de receber o email. Seu endereço de email e o fuso horário com base nas configurações que você configurou na seção Minha conta da interface do usuário.
+## <a name="gear-menu"></a>Gear Menu
+- You can use the gear menu of a dashboard to Delete, Rename, Share, or Schedule (E-mail Reception) of your dashboard. You can use the Schedule option to define the schedule at which you would like to receive your custom dashboard by email. You can schedule to receive it daily, weekly, or monthly. You can choose the time of the day, and the day of the week, or day of the month when you would like to receive the e-mail. Your e-mail address and time zone are based on the settings you have configured in the My Account section of the UI.
  
  ![dashboard1][34]
 
@@ -129,4 +130,8 @@ A seção do painel de controle da interface do usuário permite aos clientes cr
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

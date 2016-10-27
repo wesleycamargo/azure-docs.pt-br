@@ -1,93 +1,99 @@
 <properties 
-	pageTitle="Saiba mais sobre o Conector de Mensagem de Codificação de X12 do Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
-	description="Saiba como usar parceiros com o Enterprise Integration Pack e aplicativos Lógicos" 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="padmavc" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Learn about Enterprise Integration Pack Encode X12 Message Connctor | Microsoft Azure App Service | Microsoft Azure" 
+    description="Learn how to use partners with the Enterprise Integration Pack and Logic apps" 
+    services="logic-apps" 
+    documentationCenter=".net,nodejs,java"
+    authors="padmavc" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/15/2016" 
-	ms.author="padmavc"/>
-
-# Introdução para Codificar Mensagem X12
-
-Valida o EDI e as propriedades específicas de parceiro, converte as mensagens codificadas em XML em conjuntos de transações de EDI no intercâmbio e solicita uma confirmação técnica e/ou funcional
-
-## Criar a conexão
-
-### Pré-requisitos
-
-* Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
-
-* Uma Conta de Integração é necessária para usar o conector de Codificar Mensagem x12. Consulte detalhes sobre como criar uma [Conta de Integração](./app-service-logic-enterprise-integration-create-integration-account.md), [parceiros](./app-service-logic-enterprise-integration-partners.md) e um [contrato X12](./app-service-logic-enterprise-integration-x12.md)
-
-### Conecte-se à opção Codificar Mensagem X12 usando as seguintes etapas:
-
-1. [Criar um Aplicativo Lógico](./app-service-logic-create-a-logic-app.md) fornece um exemplo
-
-2. Esse conector não tem gatilhos. Use outros gatilhos para iniciar o Aplicativo Lógico, como um gatilho de solicitação. No designer do Aplicativo Lógico, adicione um gatilho e uma ação. Selecione Mostrar APIs gerenciadas da Microsoft na lista suspensa e digite “x12” na caixa de pesquisa. Selecione X12 – Codificar Mensagem X12 pelo nome do contrato ou X12 – Codificar Mensagem X12 por identidades.
-
-	![pesquisar x12](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage1.png)
-
-3. Se ainda não tiver criado conexões com a Conta de Integração, você deverá fornecer os detalhes de conexão
-
-	![conexão com a conta de integração](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage1.png)
+    ms.service="logic-apps" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/15/2016" 
+    ms.author="padmavc"/>
 
 
-4. Insira os detalhes da Conta de Integração. As propriedades com um asterisco são obrigatórias
+# <a name="get-started-with-encode-x12-message"></a>Get started with Encode X12 Message
 
-	| Propriedade | Detalhes |
-	| -------- | ------- |
-	| Nome da Conexão * | Digite um nome para a conexão |
-	| Uma conta de integração * | Insira o nome da Conta de Integração. Certifique-se de que sua Conta de Integração e que o Aplicativo Lógico estejam na mesma localização do Azure |
+Validates EDI and partner-specific properties, converts XML-encoded messages into EDI transaction sets in the interchange and requests a Technical and/or Functional acknowledgment
 
-	Uma vez concluída, os detalhes da conexão se parecerão com estes
+## <a name="create-the-connection"></a>Create the connection
 
-	![conexão com a conta de integração criada](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage2.png)
+### <a name="prerequisites"></a>Prerequisites
+
+* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
+
+* An Integration Account is required to use Encode x12 message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-partners.md) and [X12 agreement](./app-service-logic-enterprise-integration-x12.md)
+
+### <a name="connect-to-encode-x12-message-using-the-following-steps:"></a>Connect to Encode X12 Message using the following steps:
+
+1. [Create a Logic App](./app-service-logic-create-a-logic-app.md) provides an example
+
+2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “x12” in the search box.  Select either X12 - Encode X12 Message by agreement name or X12 - Encode to X 12 message by identities.  
+
+    ![search x12](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage1.png) 
+
+3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details
+
+    ![integration account connection](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage1.png) 
 
 
-5. Selecione **Criar**
+4. Enter the Integration Account details.  Properties with an asterisk are required
 
-6. Observe que a conexão foi criada.
+  	| Property | Details |
+  	| -------- | ------- |
+  	| Connection Name * | Enter any name for your connection |
+  	| Integration Account * | Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location |
 
-	![detalhes da conexão com a conta de integração](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage3.png)
+    Once complete, your connection details look similar to the following
 
-#### X12 – Codificar Mensagem X12 pelo nome do contrato
+    ![integration account connection created](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage2.png) 
 
-7. Selecione o contrato de X12 da mensagem suspensa e xml para codificar.
 
-	![fornecer campos obrigatórios](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage4.png)
+5. Select **Create**
 
-#### X12 – Codificar Mensagem X12 por identidades
+6. Notice the connection has been created.
 
-7.	Forneça o identificador do remetente, o qualificador de remetente, o identificador do destinatário e o qualificador do destinatário conforme configurado no contrato de X12. Selecione a mensagem xml para codificar
+    ![integration account connection details](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage3.png) 
 
-	![fornecer campos obrigatórios](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage5.png)
+#### <a name="x12---encode-x12-message-by-agreement-name"></a>X12 - Encode X12 Message by agreement name
 
-## A Codificação X12 faz o seguinte:
+7. Select X12 agreement from the drop-down and xml message to encode.
 
-* Resolução de contrato ao corresponder as propriedades de contexto do remetente e destinatário.
-* Serializa o intercâmbio de EDI, convertendo mensagens codificadas em XML em conjuntos de transação EDI no intercâmbio.
-* Aplica os segmentos de cabeçalho e rodapé do conjunto de transação
-* Gera um número de controle de intercâmbio, um número de controle de grupo e um número de controle de conjunto de transações para cada intercâmbio de saída
-* Substitui os separadores nos dados de conteúdo
-* Valida o EDI e as propriedades específicas de parceiro
-	* Validação de esquema dos elementos de dados do conjunto de transações em relação ao esquema de mensagem
-	* Validação de EDI executadas em elementos de dados do conjunto de transação.
-	* Validação estendida executada em elementos de dados do conjunto de transação
-* Solicita uma confirmação técnica e/ou funcional (se configurado).
-	* Uma confirmação técnica é gerada como resultado da validação de cabeçalho. A confirmação técnica relata o status do processamento de um cabeçalho e rodapé de intercâmbio pelo destinatário no endereço
-	* Uma confirmação técnica é gerada como resultado da validação do corpo. A confirmação funcional relata cada erro encontrado durante o processamento de documentos recebidos
+    ![provide mandatory fields](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage4.png) 
 
-## Próximas etapas
+#### <a name="x12---encode-x12-message-by-identities"></a>X12 - Encode X12 Message by identities
 
-[Saiba mais sobre o Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
+7.  Provide sender identifier, sender qualifier, receiver identifier, and receiver qualifier as configured in the X12 agreement.  Select xml message to encode
 
-<!---HONumber=AcomDC_0824_2016-->
+    ![provide mandatory fields](./media/app-service-logic-enterprise-integration-x12connector/x12encodeimage5.png) 
+
+## <a name="x12-encode-does-following:"></a>X12 Encode does following:
+
+* Agreement resolution by matching sender and receiver context properties.
+* Serializes the EDI interchange, converting XML-encoded messages into EDI transaction sets in the interchange.
+* Applies transaction set header and trailer segments
+* Generates an interchange control number, a group control number, and a transaction set control number for each outgoing interchange
+* Replaces separators in the payload data
+* Validates EDI and partner-specific properties
+    * Schema validation of the transaction-set data elements against the message Schema
+    * EDI validation performed on transaction-set data elements.
+    * Extended validation performed on transaction-set data elements
+* Requests a Technical and/or Functional acknowledgment (if configured).
+    * A Technical Acknowledgment generates as a result of header validation. The technical acknowledgment reports the status of the processing of an interchange header and trailer by the address receiver
+    * A Functional Acknowledgment generates as a result of body validation. The functional acknowledgment reports each error encountered while processing the received document
+
+## <a name="next-steps"></a>Next steps
+
+[Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

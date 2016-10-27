@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Tratamento de tipos de conteúdo de Aplicativos Lógicos | Microsoft Azure"
-   description="Entender como os Aplicativos Lógicos lidam com tipos de conteúdo em tempo de execução e de design"
+   pageTitle="Logic apps content type handling | Microsoft Azure"
+   description="Understand how Logic Apps deals with content-types at design and runtime"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -13,20 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/03/2016"
+   ms.date="10/18/2016"
    ms.author="jehollan"/>
 
-# Tratamento de tipos de conteúdo de Aplicativos Lógicos
 
-Há muitos tipos diferentes de conteúdo podem fluir por um Aplicativo Lógico - incluindo JSON, XML, arquivos simples e dados binários. Embora haja suporte para todos os tipos de conteúdo, alguns são nativamente compreendidos pelo Mecanismo de Aplicativos Lógicos, e outros podem exigir conversões, como necessário. O artigo a seguir descreverá como o mecanismo lida com diferentes tipos de conteúdo e como eles podem ser tratados corretamente como necessário.
+# <a name="logic-apps-content-type-handling"></a>Logic Apps Content Type Handling
 
-## Cabeçalho Content-Type
+There are many different types of content that can flow through a Logic App - including JSON, XML, flat files, and binary data.  While all content-types are supported, some are natively understood by the Logic Apps Engine, and others may require casting or conversions as needed.  The following article will describe how the engine handles different content-types and how they can be correctly handled as needed.
 
-Para começarmos de forma simples, vamos examinar os dois `Content-Types` que não exigem conversão a ser usada em um Aplicativo Lógico - `application/json` e `text/plain`.
+## <a name="content-type-header"></a>Content-Type Header
 
-### Application/json
+To start simple, let's look at the two `Content-Types` that don't require any conversion or casting to use within a Logic App - `application/json` and `text/plain`.
 
-O mecanismo de fluxo de trabalho depende do cabeçalho `Content-Type` de chamadas HTTP para determinar o tratamento apropriado. Qualquer solicitação com o tipo de conteúdo `application/json` será armazenada e tratada como um Objeto JSON. Além disso, o conteúdo JSON pode ser analisado por padrão sem a necessidade de conversão. Então, uma solicitação com o cabeçalho content-type `application/json ` como esta:
+### <a name="application/json"></a>Application/json
+
+The workflow engine relies on the `Content-Type` header from HTTP calls to determine the appropriate handling.  Any request with the content type `application/json` will be stored and handled as a JSON Object.  In addition, JSON content can be parsed by default without needing any casting.  So a request that has the content-type header `application/json ` like this:
 
 ```
 {
@@ -37,51 +38,51 @@ O mecanismo de fluxo de trabalho depende do cabeçalho `Content-Type` de chamada
 }
 ```
 
-pode ser analisada em um fluxo de trabalho com uma expressão como `@body('myAction')['foo'][0]` para obter um valor (neste caso, `bar`). Nenhuma conversão adicional é necessária. Se você estiver trabalhando com dados JSON, mas se não tiver um cabeçalho especificado, poderá convertê-lo manualmente para JSON usando a função `@json()` (por exemplo: `@json(triggerBody())['foo']`).
+could be parsed in a workflow with an expression like `@body('myAction')['foo'][0]` to get a value (in this case, `bar`).  No additional casting is needed.  If you are working with data that is JSON but didn't have a header specified, you can manually cast it to JSON using the `@json()` function (for example: `@json(triggerBody())['foo']`).
 
-### Text/plain
+### <a name="text/plain"></a>Text/plain
 
-Semelhante a `application/json`, as mensagens HTTP recebidas com o cabeçalho `Content-Type` de `text/plain` serão armazenadas em sua forma bruta. Além disso, se incluída em ações subsequentes sem qualquer conversão, a solicitação sairá com um cabeçalho `Content-Type`: `text/plain`. Por exemplo, se você estiver trabalhando com um arquivo simples, receberá o seguinte conteúdo HTTP:
+Similar to `application/json`, HTTP messages recieved with the `Content-Type` header of `text/plain` will be stored in it's raw form.  In addition, if included in a subsequent actions without any casting the request will go out with a `Content-Type`: `text/plain` header.  For example, if working with a flat file you may recieve the following HTTP content:
 
 ```
 Date,Name,Address
 Oct-1,Frank,123 Ave.
 ```
 
-como `text/plain`. Se, na próxima ação, você a enviar como o corpo de outra solicitação (`@body('flatfile')`), a solicitação teria um cabeçalho Content-Type `text/plain`. Se você estiver trabalhando com dados de texto sem formatação, mas se não tiver um cabeçalho especificado, poderá convertê-lo manualmente para texto sem formatação usando a função `@string()` (por exemplo: `@string(triggerBody())`)
+as `text/plain`.  If in the next action you sent it as the body of another request (`@body('flatfile')`), the request would have a `text/plain` Content-Type header.  If you are working with data that is plain text but didn't have a header specified, you can manually cast it to text using the `@string()` function (for example: `@string(triggerBody())`)
 
-### Application/xml e Application/octet-stream e Funções de Conversor
+### <a name="application/xml-and-application/octet-stream-and-converter-functions"></a>Application/xml and Application/octet-stream and Converter Functions
 
-O Mecanismo de Aplicativo Lógico sempre manterá o `Content-Type` recebido na solicitação ou na resposta HTTP. Isso significa que, se um conteúdo for recebido com `Content-Type` de `application/octet-stream`, incluindo-os em uma ação subsequente sem nenhuma conversão, isso resultará em uma solicitação de saída com `Content-Type`: `application/octet-stream`. Dessa forma, o mecanismo pode garantir que os dados não se perderão conforme se movem pelo fluxo de trabalho. No entanto, o estado da ação (entradas e saídas) é armazenado em objetos JSON, conforme eles percorrem o fluxo de trabalho. Isso significa que, para preservar alguns tipos de dados, o mecanismo converterá o conteúdo em uma cadeia de caracteres binária codificada em base64 com os metadados apropriados que preservam `$content` e `$content-type` - que serão convertidos automaticamente. Você também pode converter entre tipos de conteúdo manualmente usando funções do conversor internas:
+The Logic App Engine will always preserve the `Content-Type` that was recieved on the HTTP request or response.  What this means is if a content is recieved with `Content-Type` of `application/octet-stream`, including that in a subsequent action with no casting will result in an outgoing request with `Content-Type`: `application/octet-stream`.  In this way the engine can guaruntee data will not be lost as it moves throughout the workflow.  However, the action state (inputs and outputs) are stored in a JSON object as it flows throughout the workflow.  This means in order to preserve some data-types, the engine will convert the content to a binary base64 encoded string with appropriate metadata that preserves both `$content` and `$content-type` - which will automatically be converted.  You can also manually convert between content-types using built in converter functions:
 
-* `@json()` - converte dados em `application/json`
-* `@xml()` - converte dados em `application/xml`
-* `@binary()` - converte dados em `application/octet-stream`
-* `@string()` - converte dados em `text/plain`
-* `@base64()` - converte conteúdo em uma cadeia de caracteres de base64
-* `@base64toString()` - converte uma cadeia de caracteres codificada em base64 em `text/plain`
-* `@base64toBinary()` - converte uma cadeia de caracteres codificada em base64 em `application/octet-stream`
-* `@encodeDataUri()` - codifica uma cadeia de caracteres como uma matriz de bytes dataUri
-* `@decodeDataUri()` - decodifica uma dataUri em uma matriz de bytes
+* `@json()` - casts data to `application/json`
+* `@xml()` - casts data to `application/xml`
+* `@binary()` - casts data to `application/octet-stream`
+* `@string()` - casts data to `text/plain`
+* `@base64()` - converts content to a base64 string
+* `@base64toString()` - converts a base64 encoded string to `text/plain`
+* `@base64toBinary()` - converts a base64 encoded string to `application/octet-stream`
+* `@encodeDataUri()` - encodes a string as a dataUri byte array
+* `@decodeDataUri()` - decodes a dataUri into a byte array
 
-Por exemplo, se você tiver recebido uma solicitação HTTP com `Content-Type`: `application/xml` de:
+For example, if you recieved an HTTP request with `Content-Type`: `application/xml` of:
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 <CustomerName>Frank</CustomerName>
 ```
 
-Eu poderia converter e usar mais tarde com algo como `@xml(triggerBody())`, ou em uma função como `@xpath(xml(triggerBody()), '/CustomerName')`.
+I could cast and use later with something like `@xml(triggerBody())`, or within a function like `@xpath(xml(triggerBody()), '/CustomerName')`.
 
-### Outros tipos de conteúdo
+### <a name="other-content-types"></a>Other-Content Types
 
-Outros tipos de conteúdo têm suporte e funcionarão com um Aplicativo Lógico, mas poderão exigir a recuperação manual do corpo da mensagem por meio da decodificação do `$content`. Por exemplo, se eu estiver disparando de uma solicitação `application/x-www-url-formencoded` parecida com a seguinte:
+Other content types are supported and will work with a Logic App, but may require manually retrieving the message body by decoding the `$content`.  For example, if I were triggering off of a `application/x-www-url-formencoded` request that looked like the following:
 
 ```
 CustomerName=Frank&Address=123+Avenue
 ```
 
-já que não é um texto sem formatação ou um JSON, estará armazenado na ação como:
+since this a not plain text or JSON it will be stored in the action as:
 
 ```
 ...
@@ -91,6 +92,10 @@ já que não é um texto sem formatação ou um JSON, estará armazenado na aç�
 }
 ```
 
-Onde `$content` é o conteúdo codificado como uma cadeia de caracteres em base64 para preservar todos os dados. Uma vez que atualmente não existe uma função nativa para dados de formulário, eu ainda poderia usar esses dados em um fluxo de trabalho ao acessar manualmente os dados com uma função como `@string(body('formdataAction'))`. Se eu quisesse que a minha solicitação de saída também tivesse o cabeçalho content-type `application/x-www-url-formencoded`, poderia simplesmente adicioná-lo ao corpo da ação sem qualquer conversão como `@body('formdataAction')`. No entanto, isso só funcionará se o corpo for o único parâmetro na entrada `body`. Se você tentar fazer `@body('formdataAction')` em uma solicitação `application/json`, obterá um erro de tempo de execução, pois o corpo codificado será enviado.
+Where `$content` is the payload encoded as a base64 string to preserve all data.  Since there currently isn't a native function for form-data, I could still use this data within a workflow by manually accessing the data with a function like `@string(body('formdataAction'))`.  If I wanted my outgoing request to also have the `application/x-www-url-formencoded` content-type header, I could just add it to the action body without any casting like `@body('formdataAction')`.  However, this will only work if body is the only parameter in the `body` input.  If you try to do `@body('formdataAction')` inside of an `application/json` request you will get a runtime error as it will send the encoded body.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Visão geral do Microsoft Azure IoT Suite | Microsoft Azure"
-	description="Visão geral de como o Azure IoT Suite oferece soluções pré-configuradas de Internet das coisas para coletar, analisar, armazenar dados, fornecer visualizações e integrar com outros sistemas."
-	services=""
+    pageTitle="Microsoft Azure IoT Suite overview | Microsoft Azure"
+    description="Overview of how Azure IoT Suite delivers internet of things preconfigured solutions to collect, analyze, and store data, provide visualizations, and integrate with other systems."
+    services=""
     suite="iot-suite"
-	documentationCenter=""
-	authors="dominicbetts"
-	manager="timlt"
-	editor=""/>
+    documentationCenter=""
+    authors="dominicbetts"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-suite"
@@ -17,43 +17,44 @@
      ms.date="08/09/2016"
      ms.author="dobett"/>
 
-# O que é o Azure IoT Suite?
 
-Os serviços de IoT (Internet das coisas) do Azure oferecem uma ampla variedade de recursos. Esses serviços de nível corporativo permitem que você:
+# <a name="what-is-azure-iot-suite?"></a>What is Azure IoT Suite?
 
-- Colete dados de dispositivos
-- Analise fluxos de dados em movimento
-- Armazene e consulte grandes conjuntos de dados
-- Visualize dados históricos e em tempo real
-- Realize a integração com sistemas de back-office
+The Azure internet of things (IoT) services offer a broad range of capabilities. These enterprise grade services enable you to:
 
-Para fornecer esses recursos, os pacotes do Azure IoT Suite reúnem diversos serviços do Azure com extensões personalizadas como *soluções pré-configuradas.* Essas soluções pré-configuradas são implementações básicas dos padrões comuns de solução de IoT que ajudam a reduzir o tempo necessário para entregar suas soluções de IoT. Usando os [Kits de desenvolvimento de software IoT][lnk-sdks], você pode personalizar e estender essas soluções para atender a seus requisitos. Você também pode usar essas soluções como exemplos ou modelos no desenvolvimento de novas soluções de IoT.
+- Collect data from devices
+- Analyze data streams in-motion
+- Store and query large data sets
+- Visualize both real-time and historical data
+- Integrate with back-office systems
 
-O vídeo a seguir oferece uma introdução ao Azure IoT Suite:
+To deliver these capabilities, Azure IoT Suite packages together multiple Azure services with custom extensions as *preconfigured solutions*. These preconfigured solutions are base implementations of common IoT solution patterns that help to reduce the time you take to deliver your IoT solutions. Using the [IoT software development kits][lnk-sdks], you can customize and extend these solutions to meet your own requirements. You can also use these solutions as examples or templates when you are developing new IoT solutions.
+
+The following video provides an introduction to Azure IoT Suite:
 
 > [AZURE.VIDEO azurecon-2015-introducing-the-microsoft-azure-iot-suite]
 
-## Serviços do Azure IoT no Azure IoT Suite
+## <a name="azure-iot-services-in-azure-iot-suite"></a>Azure IoT services in Azure IoT Suite
 
-As soluções pré-configuradas normalmente usam os seguintes serviços:
+The preconfigured solutions typically use the following services:
 
-- O principal serviço do Pacote IoT do Azure é o serviço de [Hub IoT do Azure][lnk-iot-hub]. Esse serviço fornece os recursos de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo e age como o gateway para a nuvem e para outros serviços importantes do Pacote IoT. O serviço permite que você receba mensagens de seus dispositivos em escala e envie comandos para seus dispositivos.
+- Core to Azure IoT Suite is the [Azure IoT Hub][lnk-iot-hub] service. This service provides the device-to-cloud and cloud-to-device messaging capabilities and acts as the gateway to the cloud and the other key IoT Suite services. The service enables you to receive messages from your devices at scale, and send commands to your devices.
 
-- O [Azure Stream Analytics][lnk-asa] fornece análise de dados em movimento. O Pacote IoT utiliza esse serviço para processar telemetria de entrada, executar a agregação e detectar eventos. As soluções pré-configuradas também usam a análise de fluxo para processar mensagens informativas que contêm dados como metadados ou respostas de comando de dispositivos. As soluções usam o Stream Analytics para processar mensagens de seus dispositivos e entregar as mensagens para outros serviços.
+- [Azure Stream Analytics][lnk-asa] provides in-motion data analysis. IoT Suite leverages this service to process incoming telemetry, perform aggregation, and detect events. The preconfigured solutions also use stream analytics to process informational messages that contain data such as metadata or command responses from devices. The solutions use Stream Analytics to process the messages from your devices and deliver those messages to other services.
 
-- O [Armazenamento do Azure][lnk-azure-storage] e o [Banco de Dados de Documentos do Azure][lnk-document-db] fornecem os recursos de armazenamento de dados. As soluções pré-configuradas usam o armazenamento de blobs para armazenar telemetria e disponibilizá-la para análise. As soluções usam o Banco de Dados de Documentos para armazenar os metadados de dispositivos e habilitar os recursos de gerenciamento de dispositivo das soluções.
+- [Azure Storage][lnk-azure-storage] and [Azure DocumentDB][lnk-document-db] provide the data storage capabilities. The preconfigured solutions use blob storage to store telemetry and to make it available for analysis. The solutions use DocumentDB to store device metadata and enable the device management capabilities of the solutions.
 
-- Os [Aplicativos Web do Azure][lnk-web-apps] e o [Microsoft Power BI][lnk-power-bi] fornecem os recursos de visualização de dados. A flexibilidade do Power BI permite que você crie seus próprios painéis interativos rapidamente por meio de dados do Pacote IoT.
+- [Azure Web Apps][lnk-web-apps] and [Microsoft Power BI][lnk-power-bi] provide the data visualization capabilities. The flexibility of Power BI enables you to quickly build your own interactive dashboards that use IoT Suite data.
 
-Para obter uma visão geral da arquitetura de uma solução de IoT típica, consulte [Microsoft Azure e a IoT (Internet das Coisas)][iot-suite-what-is-azure-iot].
+For an overview of the architecture of a typical IoT solution, see [Microsoft Azure and the Internet of Things (IoT)][iot-suite-what-is-azure-iot].
 
-## Soluções pré-configuradas
+## <a name="preconfigured-solutions"></a>Preconfigured solutions
 
-O Pacote IoT inclui soluções pré-configuradas que o habilitam a começar rapidamente e explorar os cenários comuns da IoT, como o *Monitoramento remoto* e a *Manutenção preditiva*, possibilitados pelo Azure IoT Suite. Você pode implantar as soluções em sua assinatura do Azure e executar um cenário IoT completo e de ponta a ponta.
+IoT Suite includes preconfigured solutions that enable you to quickly get started with and to explore the common IoT scenarios, such as *Remote monitoring* and *Predictive maintenance*, that Azure IoT Suite makes possible. You can deploy these solutions to your Azure subscription and then run a complete, end-to-end IoT scenario.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Agora que você tem uma visão geral do que IoT Suite pode fazer e quais são seus principais componentes, poderá saber mais sobre as soluções pré-configuradas no IoT Suite em [Quais são as soluções pré-configuradas do Azure IoT?][lnk-what-are-preconfig]
+Now that you have an overview of what IoT Suite can do and what are its main components, you can learn more about the preconfigured solutions in IoT Suite, see [What are the Azure IoT preconfigured solutions?][lnk-what-are-preconfig]
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
@@ -65,4 +66,8 @@ Agora que você tem uma visão geral do que IoT Suite pode fazer e quais são se
 [iot-suite-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-what-are-preconfig]: iot-suite-what-are-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

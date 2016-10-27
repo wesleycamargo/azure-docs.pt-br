@@ -1,6 +1,6 @@
 <properties
-pageTitle="Criar vários modelos baseados em um teste | Microsoft Azure"
-description="Use o PowerShell para criar vários modelos do Aprendizado de Máquina e pontos de extremidade de serviço Web com o mesmo algoritmo, mas com conjuntos de dados de treinamento diferentes."
+pageTitle="Create multiple models from one experiment | Microsoft Azure"
+description="Use PowerShell to create multiple Machine Learning models and web service endpoints with the same algorithm but different training datasets."
 services="machine-learning"
 documentationCenter=""
 authors="hning86"
@@ -13,152 +13,161 @@ ms.workload="data-services"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="05/12/2016"
+ms.date="10/03/2016"
 ms.author="garye;haining"/>
 
-# Criar vários modelos do Aprendizado de Máquina e pontos de extremidade de serviço Web com base em um teste usando o PowerShell
 
-Este é um problema comum do aprendizado de máquina: você deseja criar vários modelos que têm o mesmo fluxo de trabalho de treinamento e que usam o mesmo algoritmo, mas tem conjuntos de dados de treinamento diferentes como entrada. Este artigo mostra como fazer isso em escala no Estúdio de Aprendizado de Máquina do Azure usando apenas um único teste.
+# <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>Create many Machine Learning models and web service endpoints from one experiment using PowerShell
 
-Por exemplo, digamos que você tenha um negócio de franquia mundial de aluguel de bicicletas. Você deseja criar um modelo de regressão para prever a demanda de aluguel com base em dados históricos. Você tem 1.000 locais de aluguel em todo o mundo e coletou um conjunto de dados para cada local que inclui recursos importantes, tais como data, hora, clima e tráfego que são específicos de cada local.
+Here's a common machine learning problem: You want to create many models that have the same training workflow and use the same algorithm, but have different training datasets as input. This article shows you how to do this at scale in Azure Machine Learning Studio using just a single experiment.
 
-Você poderia treinar seu modelo uma vez usando uma versão mesclada de todos os conjuntos de dados em todos os locais. Mas como cada um de seus locais tem um ambiente exclusivo, uma abordagem melhor seria treinar seu modelo de regressão separadamente, usando o conjunto de dados para cada local. Dessa forma, cada modelo treinado poderia levar em conta os diferentes tamanhos de armazenamento, volume, geografia, população, ambiente de tráfego para bicicletas, *etc.*
+For example, let's say you own a global bike rental franchise business. You want to build a regression model to predict the rental demand based on historic data. You have 1,000 rental locations across the world and you've collected a dataset for each location that includes important features such as date, time, weather, and traffic that are specific to each location.
 
-Essa poderia ser a melhor abordagem, mas você não quer criar 1.000 testes de treinamento no Aprendizado de Máquina do Azure com cada um deles representando um local exclusivo. Além de essa ser uma tarefa árdua, também parece muito ineficiente, já que cada teste teria todos os mesmos componentes, exceto pelo conjunto de dados de treinamento.
+You could train your model once using a merged version of all the datasets across all locations. But because each of your locations has a unique environment, a better approach would be to train your regression model separately using the dataset for each location. That way, each trained model could take into account the different store sizes, volume, geography, population, bike-friendly traffic environment, *etc.*.
 
-A boa notícia é que podemos fazer isso usando a [API de novo treinamento do Aprendizado de Máquina do Azure](machine-learning-retrain-models-programmatically.md) e automatizar a tarefa com o [PowerShell do Aprendizado de Máquina do Azure](machine-learning-powershell-module.md).
+That may be the best approach, but you don't want to create 1,000 training experiments in Azure Machine Learning with each one representing a unique location. Besides being an overwhelming task, it's also seems pretty inefficient since each experiment would have all the same components except for the training dataset.
 
-> [AZURE.NOTE] Para fazer com que nossa amostra seja executada mais rapidamente, reduziremos o número de locais de 1.000 para 10. No entanto, os mesmos princípios e procedimentos se aplicam aos 1.000 locais. A única diferença é que, se você deseja treinar com base nos 1.000 conjuntos de dados, provavelmente, é mais conveniente pensar em executar os seguintes scripts do PowerShell em paralelo. A forma como isso será feito está além do escopo deste artigo, mas é possível encontrar exemplos de multi-thread do PowerShell na Internet.
+Fortunately, we can accomplish this by using the [Azure Machine Learning retraining API](machine-learning-retrain-models-programmatically.md) and automating the task with [Azure Machine Learning PowerShell](machine-learning-powershell-module.md).
 
-## Configurar o teste de treinamento
+> [AZURE.NOTE] To make our sample run faster, we'll reduce the number of locations from 1,000 to 10. But the same principles and procedures apply to 1,000 locations. The only difference is that if you want to train from 1,000 datasets you probably want to think of running the following PowerShell scripts in parallel. How to do that is beyond the scope of this article, but you can find examples of PowerShell multi-threading on the Internet.  
 
-Vamos usar um [teste de treinamento](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) de exemplo que já criamos na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Abra esse teste em seu espaço de trabalho do [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net).
+## <a name="set-up-the-training-experiment"></a>Set up the training experiment
 
->[AZURE.NOTE] Para acompanhar este exemplo, talvez você queira usar um espaço de trabalho padrão em vez de um espaço de trabalho gratuito. Criaremos um ponto de extremidade para cada cliente – para um total de 10 pontos de extremidade – e isso exigirá um espaço de trabalho padrão, pois um espaço de trabalho gratuito é limitado a 3 pontos de extremidade. Se você tiver apenas um espaço de trabalho gratuito, basta modificar os scripts abaixo para permitir apenas 3 locais.
+We're going to use an example [training experiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) that we've already created in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Open this experiment in your [Azure Machine Learning Studio](https://studio.azureml.net) workspace.
 
-O teste usa um módulo **Importar Dados** para importar o conjunto de dados de treinamento *customer001.csv* de uma conta de armazenamento do Azure. Vamos supor que coletamos conjuntos de dados de treinamento de todos os locais de aluguel de bicicletas e os armazenamos no mesmo local que o armazenamento de blobs com nomes de arquivo que vão de *rentalloc001.csv* a *rentalloc10.csv*.
+>[AZURE.NOTE] In order to follow along with this example, you may want to use a standard workspace rather than a free workspace. We'll be creating one endpoint for each customer - for a total of 10 endpoints - and that will require a standard workspace since a free workspace is limited to 3 endpoints. If you only have a free workspace, just modify the scripts below to allow for only 3 locations.
 
-![imagem](./media/machine-learning-create-models-and-endpoints-with-powershell/reader-module.png)
+The experiment uses an **Import Data** module to import the training dataset *customer001.csv* from an Azure storage account. Let's assume we have collected training datasets from all bike rental locations and stored them in the same blob storage location with file names ranging from *rentalloc001.csv* to *rentalloc10.csv*.
 
-Observe que um módulo **Saída do Serviço Web** foi adicionado ao módulo **Treinar Modelo**. Quando esse teste for implantado como um serviço Web, o ponto de extremidade associado a essa saída retornará o modelo treinado no formato de um arquivo .ilearner.
+![image](./media/machine-learning-create-models-and-endpoints-with-powershell/reader-module.png)
 
-Observe também que configuramos um parâmetro de serviço Web para a URL usada pelo módulo **Importar Dados**. Isso nos permite usar o parâmetro para especificar conjuntos de dados de treinamento individuais para treinar o modelo para cada local. Existem outras maneiras pelas quais poderíamos ter feito isso, como usar uma consulta SQL com um parâmetro de serviço Web para obter dados de um banco de dados SQL Azure ou usando apenas um módulo **Entrada do Serviço Web** para transmitir um conjunto de dados para o serviço Web.
+Note that a **Web Service Output** module has been added to the **Train Model** module.
+When this experiment is deployed as a web service, the endpoint associated with that output will return the trained model in the format of a .ilearner file.
 
-![imagem](./media/machine-learning-create-models-and-endpoints-with-powershell/web-service-output.png)
+Also note that we set up a web service parameter for the URL that the **Import Data** module uses. This allows us to use the parameter to specify individual training datasets to train the model for each location.
+There are other ways we could have done this, such as using a SQL query with a web service parameter to get data from a SQL Azure database, or simply using a  **Web Service Input** module to pass in a dataset to the web service.
 
-Agora, vamos executar esse teste de treinamento usando o valor padrão *rental001.csv* como o conjunto de dados de treinamento. Se você exibir a saída do módulo **Avaliar** (clique na saída e selecione **Visualizar**), será possível ver que obtemos um desempenho razoável de *AUC* = 0,91. Neste ponto, estamos prontos para implantar um serviço Web com base nesse teste de treinamento.
+![image](./media/machine-learning-create-models-and-endpoints-with-powershell/web-service-output.png)
 
-## Implantar os serviços Web de treinamento e pontuação
+Now, let's run this training experiment using the default value *rental001.csv* as the training dataset. If you view the output of the **Evaluate** module (click the output and select **Visualize**), you can see we get a decent performance of *AUC* = 0.91. At this point, we're ready to deploy a web service out of this training experiment.
 
-Para implantar o serviço Web de treinamento, clique no botão **Configurar Serviço Web** abaixo da tela do teste e selecione **Implantar Serviço Web**. Chame esse serviço Web de “Treinamento do Aluguel de Bicicletas”.
+## <a name="deploy-the-training-and-scoring-web-services"></a>Deploy the training and scoring web services
 
-Agora, precisamos implantar o serviço Web de pontuação. Para fazer isso, podemos clicar em **Configurar Serviço Web** abaixo das telas e selecionar **Serviço Web Preditivo**. Isso criará um teste de pontuação. Precisaremos fazer alguns pequenos ajustes para fazê-lo funcionar como um serviço Web, como remover a coluna de rótulo “cnt” dos dados de entrada e limitar a saída apenas à ID da instância e ao valor previsto correspondente.
+To deploy the training web service, click the **Set Up Web Service** button below the experiment canvas and select **Deploy Web Service**. Call this web service ""Bike Rental Training".
 
-Para poupá-lo desse trabalho, basta abrir o [teste preditivo](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) na Galeria que já foi preparado.
+Now we need to deploy the scoring web service.
+To do this, we can click **Set Up Web Service** below the canvas and select **Predictive Web Service**. This creates a scoring experiment.
+We'll need to make a few minor adjustments to make it work as a web service, such as removing the label column "cnt" from the input data and limiting the output to only the instance id and the corresponding predicted value.
 
-Para implantar o serviço Web, execute o teste preditivo e clique no botão **Implantar Serviço Web** abaixo da tela. Nomeie o serviço Web de pontuação “Pontuação do Aluguel de Bicicletas”.
+To save yourself that work, you can simply open the [predictive experiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) in the Gallery that's already been prepared.
 
-## Criar 10 pontos de extremidade de serviço Web idênticos com o PowerShell
+To deploy the web service, run the predictive experiment, then click the **Deploy Web Service** button below the canvas. Name the scoring web service "Bike Rental Scoring"".
 
-Este serviço Web é fornecido com um ponto de extremidade padrão. Mas não estamos muito interessados no ponto de extremidade padrão, pois ele não pode ser atualizado. O que precisamos fazer é criar 10 pontos de extremidade adicionais, um para cada local. Faremos isso com o PowerShell.
+## <a name="create-10-identical-web-service-endpoints-with-powershell"></a>Create 10 identical web service endpoints with PowerShell
 
-Primeiro, configuramos nosso ambiente do PowerShell:
+This web service comes with a default endpoint. But we're not as interested in the default endpoint since it can't be updated. What we need to do is to create 10 additional endpoints, one for each location. We'll do this with PowerShell.
 
-	Import-Module .\AzureMLPS.dll
-	# Assume the default configuration file exists and is properly set to point to the valid Workspace.
-	$scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
-	$trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
+First, we set up our PowerShell environment:
 
-Em seguida, executamos o seguinte comando do PowerShell:
+    Import-Module .\AzureMLPS.dll
+    # Assume the default configuration file exists and is properly set to point to the valid Workspace.
+    $scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
+    $trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
 
-	# Create 10 endpoints on the scoring web service.
-	For ($i = 1; $i -le 10; $i++){
-	    $seq = $i.ToString().PadLeft(3, '0');
-	    $endpointName = 'rentalloc' + $seq;
-	    Write-Host ('adding endpoint ' + $endpointName + '...')
-	    Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
-	}
+Then, run the following PowerShell command:
 
-Agora, já criamos 10 pontos de extremidade e todos eles contêm o mesmo modelo treinado em *customer001.csv*. Você pode exibi-los no Portal de Gerenciamento do Azure.
+    # Create 10 endpoints on the scoring web service.
+    For ($i = 1; $i -le 10; $i++){
+        $seq = $i.ToString().PadLeft(3, '0');
+        $endpointName = 'rentalloc' + $seq;
+        Write-Host ('adding endpoint ' + $endpointName + '...')
+        Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
+    }
 
-![imagem](./media/machine-learning-create-models-and-endpoints-with-powershell/created-endpoints.png)
+Now we've created 10 endpoints and they all contain the same trained model trained on *customer001.csv*. You can view them in the Azure Management Portal.
 
-## Atualizar os pontos de extremidade para usar conjuntos de dados de treinamento separados usando o PowerShell
+![image](./media/machine-learning-create-models-and-endpoints-with-powershell/created-endpoints.png)
 
-A próxima etapa é atualizar os pontos de extremidade com modelos treinados exclusivamente nos dados individuais de cada cliente. Mas primeiro, precisamos produzir esses modelos com base no serviço Web **Treinamento do Aluguel de Bicicletas**. Vamos voltar ao serviço Web **Treinamento do Aluguel de Bicicletas**. Precisamos chamar seu ponto de extremidade BES 10 vezes com 10 conjuntos de dados de treinamento diferentes para produzir 10 modelos diferentes. Usaremos o cmdlet **InovkeAmlWebServiceBESEndpoint** do PowerShell para fazer isso.
+## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Update the endpoints to use separate training datasets using PowerShell
 
-Você também precisará fornecer credenciais para sua conta de armazenamento de blobs em `$configContent`, ou seja, nos campos `AccountName`, `AccountKey` e `RelativeLocation`. O `AccountName` pode ser um de seus nomes de conta, como mostrado no **Portal de Gerenciamento do Azure Clássico** (guia *Armazenamento*). Quando você clica em uma conta de armazenamento, seu `AccountKey` pode ser encontrado pressionando o botão **Gerenciar Chaves de Acesso** na parte inferior e copiando a *Chave de Acesso Primária*. O `RelativeLocation` é o caminho relativo ao seu armazenamento em que um novo modelo será armazenado. Por exemplo, o caminho `hai/retrain/bike_rental/` no script abaixo aponta para um contêiner chamado `hai`, e `/retrain/bike_rental/` são subpastas. Atualmente, não é possível criar subpastas por meio da interface do usuário do portal, mas há [vários Gerenciadores de Armazenamento do Azure](../storage/storage-explorers.md) que permitem que você faça isso. É recomendável que você crie um novo contêiner no armazenamento para armazenar os novos modelos treinados (arquivos .ilearner) da seguinte maneira: na página do armazenamento, clique no botão **Adicionar** na parte inferior e nomeie-o como `retrain`. Em resumo, as alterações necessárias para o script a seguir referem-se a `AccountName`, `AccountKey` e `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+The next step is to update the endpoints with models uniquely trained on each customer's individual data. But first we need to produce these models from the **Bike Rental Training** web service. Let's go back to the **Bike Rental Training** web service. We need to call its BES endpoint 10 times with 10 different training datasets in order to produce 10 different models. We'll use the **InovkeAmlWebServiceBESEndpoint** PowerShell cmdlet to do this.
 
-	# Invoke the retraining API 10 times
-	# This is the default (and the only) endpoint on the training web service
-	$trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
-	$submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
-	$apiKey = $trainingSvcEp.PrimaryKey;
-	For ($i = 1; $i -le 10; $i++){
-	    $seq = $i.ToString().PadLeft(3, '0');
-	    $inputFileName = 'https://bostonmtc.blob.core.windows.net/hai/retrain/bike_rental/BikeRental' + $seq + '.csv';
-	    $configContent = '{ "GlobalParameters": { "URI": "' + $inputFileName + '" }, "Outputs": { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=<myaccount>;AccountKey=<mykey>", "RelativeLocation": "hai/retrain/bike_rental/model' + $seq + '.ilearner" } } }';
-	    Write-Host ('training regression model on ' + $inputFileName + ' for rental location ' + $seq + '...');
-	    Invoke-AmlWebServiceBESEndpoint -JobConfigString $configContent -SubmitJobRequestUrl $submitJobRequestUrl -ApiKey $apiKey
-	}
+You will also need to provide credentials for your blob storage account into `$configContent`, namely, at the fields `AccountName`, `AccountKey` and `RelativeLocation`. The `AccountName` can be one of your account names, as seen in the **Classic Azure Management Portal** (*Storage* tab). Once you click on a storage account, its `AccountKey` can be found by pressing the **Manage Access Keys** button at the bottom and copying the *Primary Access Key*. The `RelativeLocation` is the path relative to your storage where a new model will be stored. For instance, the path `hai/retrain/bike_rental/` in the script below points to a container named `hai`, and `/retrain/bike_rental/` are subfolders. Currently, you cannot create subfolders through the portal UI, but there are [several Azure Storage Explorers](../storage/storage-explorers.md) that allow you to do so. It is recommended that you create a new container in your storage to store the new trained models (.ilearner files) as follows: from your storage page, click on the **Add** button at the bottom and name it `retrain`. In summary, the necassary changes to the script below pertain to `AccountName`, `AccountKey` and `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
 
->[AZURE.NOTE] O ponto de extremidade BES é o único modo com suporte para esta operação. O RRS não pode ser usado para a produção de modelos treinados.
+    # Invoke the retraining API 10 times
+    # This is the default (and the only) endpoint on the training web service
+    $trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
+    $submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
+    $apiKey = $trainingSvcEp.PrimaryKey;
+    For ($i = 1; $i -le 10; $i++){
+        $seq = $i.ToString().PadLeft(3, '0');
+        $inputFileName = 'https://bostonmtc.blob.core.windows.net/hai/retrain/bike_rental/BikeRental' + $seq + '.csv';
+        $configContent = '{ "GlobalParameters": { "URI": "' + $inputFileName + '" }, "Outputs": { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=<myaccount>;AccountKey=<mykey>", "RelativeLocation": "hai/retrain/bike_rental/model' + $seq + '.ilearner" } } }';
+        Write-Host ('training regression model on ' + $inputFileName + ' for rental location ' + $seq + '...');
+        Invoke-AmlWebServiceBESEndpoint -JobConfigString $configContent -SubmitJobRequestUrl $submitJobRequestUrl -ApiKey $apiKey
+    }
 
-Como você pode ver acima, em vez de construir 10 arquivos JSON de configuração de trabalho BES diferentes, criamos dinamicamente a cadeia de caracteres de configuração e a fornecemos ao parâmetro *jobConfigString* do cmdlet **InvokeAmlWebServceBESEndpoint**, já que não é realmente necessário manter uma cópia em disco.
+>[AZURE.NOTE] The BES endpoint is the only supported mode for this operation. RRS cannot be used for producing trained models.
 
-Se tudo correr bem, após alguns instantes, você verá 10 arquivos .ilearner, de *model001.ilearner* a *model010.ilearner*, em sua conta de armazenamento do Azure. Agora estamos prontos para atualizar os 10 pontos de extremidade de serviço Web de pontuação com esses modelos usando o cmdlet **Patch-AmlWebServiceEndpoint** do PowerShell. Lembre-se mais uma vez de que podemos aplicar patch apenas aos pontos de extremidade não padrão que criamos de forma programática anteriormente.
+As you can see above, instead of constructing 10 different BES job configuration json files, we dynamically create the config string instead and feed it to the *jobConfigString* parameter of the **InvokeAmlWebServceBESEndpoint** cmdlet, since there is really no need to keep a copy on disk.
 
-	# Patch the 10 endpoints with respective .ilearner models
-	$baseLoc = 'http://bostonmtc.blob.core.windows.net/'
-	$sasToken = '<my_blob_sas_token>'
-	For ($i = 1; $i -le 10; $i++){
-	    $seq = $i.ToString().PadLeft(3, '0');
-	    $endpointName = 'rentalloc' + $seq;
-	    $relativeLoc = 'hai/retrain/bike_rental/model' + $seq + '.ilearner';
-	    Write-Host ('Patching endpoint ' + $endpointName + '...');
-	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
-	}
+If everything goes well, after a while you should see 10 .ilearner files, from *model001.ilearner* to *model010.ilearner*, in your Azure storage account. Now we're ready to update our 10 scoring web service endpoints with these models using the **Patch-AmlWebServiceEndpoint** PowerShell cmdlet. Remember again that we can only patch the non-default endpoints we programmatically created earlier.
 
-Isso deverá ser executado rapidamente. Quando a execução for concluída, teremos criado com êxito 10 pontos de extremidade de serviço Web preditivo, cada um contendo um modelo treinado exclusivamente no conjunto de dados específico a um local de aluguel, tudo com base em um único teste de treinamento. Para verificar isso, é possível tentar chamar esses pontos de extremidade usando o cmdlet **InvokeAmlWebServiceRRSEndpoint**, fornecendo a eles os mesmos dados de entrada. Além disso, você deve esperar ver resultados de previsão diferentes, já que os modelos são treinados com conjuntos de treinamento diferentes.
+    # Patch the 10 endpoints with respective .ilearner models
+    $baseLoc = 'http://bostonmtc.blob.core.windows.net/'
+    $sasToken = '<my_blob_sas_token>'
+    For ($i = 1; $i -le 10; $i++){
+        $seq = $i.ToString().PadLeft(3, '0');
+        $endpointName = 'rentalloc' + $seq;
+        $relativeLoc = 'hai/retrain/bike_rental/model' + $seq + '.ilearner';
+        Write-Host ('Patching endpoint ' + $endpointName + '...');
+        Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
+    }
 
-## Script completo do PowerShell
+This should run fairly quickly. When the execution finishes, we'll have successfully created 10 predictive web service endpoints, each containing a trained model uniquely trained on the dataset specific to a rental location, all from a single training experiment. To verify this, you can try calling these endpoints using the **InvokeAmlWebServiceRRSEndpoint** cmdlet, providing them with the same input data, and you should expect to see different prediction results since the models are trained with different training sets.
 
-Esta é a listagem do código-fonte completo:
+## <a name="full-powershell-script"></a>Full PowerShell script
 
-	Import-Module .\AzureMLPS.dll
-	# Assume the default configuration file exists and properly set to point to the valid workspace.
-	$scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
-	$trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
+Here's the listing of the full source code:
 
-	# Create 10 endpoints on the scoring web service
-	For ($i = 1; $i -le 10; $i++){
-	    $seq = $i.ToString().PadLeft(3, '0');
-	    $endpointName = 'rentalloc' + $seq;
-	    Write-Host ('adding endpoint ' + $endpontName + '...')
-	    Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
-	}
+    Import-Module .\AzureMLPS.dll
+    # Assume the default configuration file exists and properly set to point to the valid workspace.
+    $scoringSvc = Get-AmlWebService | where Name -eq 'Bike Rental Scoring'
+    $trainingSvc = Get-AmlWebService | where Name -eq 'Bike Rental Training'
 
-	# Invoke the retraining API 10 times to produce 10 regression models in .ilearner format
-	$trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
-	$submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
-	$apiKey = $trainingSvcEp.PrimaryKey;
-	For ($i = 1; $i -le 10; $i++){
-	    $seq = $i.ToString().PadLeft(3, '0');
-	    $inputFileName = 'https://bostonmtc.blob.core.windows.net/hai/retrain/bike_rental/BikeRental' + $seq + '.csv';
-	    $configContent = '{ "GlobalParameters": { "URI": "' + $inputFileName + '" }, "Outputs": { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=<myaccount>;AccountKey=<mykey>", "RelativeLocation": "hai/retrain/bike_rental/model' + $seq + '.ilearner" } } }';
-	    Write-Host ('training regression model on ' + $inputFileName + ' for rental location ' + $seq + '...');
-	    Invoke-AmlWebServiceBESEndpoint -JobConfigString $configContent -SubmitJobRequestUrl $submitJobRequestUrl -ApiKey $apiKey
-	}
+    # Create 10 endpoints on the scoring web service
+    For ($i = 1; $i -le 10; $i++){
+        $seq = $i.ToString().PadLeft(3, '0');
+        $endpointName = 'rentalloc' + $seq;
+        Write-Host ('adding endpoint ' + $endpontName + '...')
+        Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
+    }
 
-	# Patch the 10 endpoints with respective .ilearner models
-	$baseLoc = 'http://bostonmtc.blob.core.windows.net/'
-	$sasToken = '?test'
-	For ($i = 1; $i -le 10; $i++){
-	    $seq = $i.ToString().PadLeft(3, '0');
-	    $endpointName = 'rentalloc' + $seq;
-	    $relativeLoc = 'hai/retrain/bike_rental/model' + $seq + '.ilearner';
-	    Write-Host ('Patching endpoint ' + $endpointName + '...');
-	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
-	}
+    # Invoke the retraining API 10 times to produce 10 regression models in .ilearner format
+    $trainingSvcEp = (Get-AmlWebServiceEndpoint -WebServiceId $trainingSvc.Id)[0];
+    $submitJobRequestUrl = $trainingSvcEp.ApiLocation + '/jobs?api-version=2.0';
+    $apiKey = $trainingSvcEp.PrimaryKey;
+    For ($i = 1; $i -le 10; $i++){
+        $seq = $i.ToString().PadLeft(3, '0');
+        $inputFileName = 'https://bostonmtc.blob.core.windows.net/hai/retrain/bike_rental/BikeRental' + $seq + '.csv';
+        $configContent = '{ "GlobalParameters": { "URI": "' + $inputFileName + '" }, "Outputs": { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=<myaccount>;AccountKey=<mykey>", "RelativeLocation": "hai/retrain/bike_rental/model' + $seq + '.ilearner" } } }';
+        Write-Host ('training regression model on ' + $inputFileName + ' for rental location ' + $seq + '...');
+        Invoke-AmlWebServiceBESEndpoint -JobConfigString $configContent -SubmitJobRequestUrl $submitJobRequestUrl -ApiKey $apiKey
+    }
 
-<!---HONumber=AcomDC_0914_2016-->
+    # Patch the 10 endpoints with respective .ilearner models
+    $baseLoc = 'http://bostonmtc.blob.core.windows.net/'
+    $sasToken = '?test'
+    For ($i = 1; $i -le 10; $i++){
+        $seq = $i.ToString().PadLeft(3, '0');
+        $endpointName = 'rentalloc' + $seq;
+        $relativeLoc = 'hai/retrain/bike_rental/model' + $seq + '.ilearner';
+        Write-Host ('Patching endpoint ' + $endpointName + '...');
+        Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
+    }
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

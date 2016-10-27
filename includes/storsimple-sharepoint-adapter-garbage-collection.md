@@ -1,36 +1,36 @@
 <!--author=SharS last changed: 9/17/15-->
 
-Neste procedimento, você vai:
+In this procedure, you will:
 
-1. [Preparar-se para executar o arquivo executável do Maintainer](#to-prepare-to-run-the-maintainer).
+1. [Prepare to run the Maintainer executable](#to-prepare-to-run-the-maintainer) .
 
-2. [Preparar o banco de dados de conteúdo e a Lixeira para exclusão imediata de BLOBs órfãos](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs).
+2. [Prepare the content database and Recycle Bin for immediate deletion of orphaned BLOBs](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs).
 
-3. [Executar o Maintainer.exe](#to-run-the-maintainer).
+3. [Run Maintainer.exe](#to-run-the-maintainer).
 
-4. [Reverter as configurações da Lixeira e do banco de dados de conteúdo](#to-revert-the-content-database-and-recycle-bin-settings).
+4. [Revert the content database and Recycle Bin settings](#to-revert-the-content-database-and-recycle-bin-settings).
 
-#### Preparar-se para executar o arquivo executável do Maintainer.
+#### <a name="to-prepare-to-run-the-maintainer"></a>To prepare to run the Maintainer
 
-1. No servidor Web front-end, abra o Shell de Gerenciamento do SharePoint 2013 como administrador.
+1. On the Web front-end server, open the SharePoint 2013 Management Shell as an administrator.
 
-2. Navegue até a pasta *unidade de inicialização*:\\Arquivos de Programas\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer.
+2. Navigate to the folder *boot drive*:\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\.
 
-3. Renomeie **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** para **web.config**.
+3. Rename **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** to **web.config**.
 
-4. Use `aspnet_regiis -pdf connectionStrings` para descriptografar o arquivo web.config.
+4. Use `aspnet_regiis -pdf connectionStrings` to decrypt the web.config file.
 
-5. No arquivo web.config descriptografado, sob o nó `connectionStrings`, adicione a cadeia de conexão para sua instância de SQL Server e o nome do banco de dados de conteúdo. Veja os exemplos a seguir.
+5. In the decrypted web.config file, under the `connectionStrings` node, add the connection string for your SQL server instance and the content database name. See the following example.
 
-    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />`
+    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
 
-6. Use `aspnet_regiis –pef connectionStrings` para criptografar o arquivo web.config novamente.
+6. Use `aspnet_regiis –pef connectionStrings` to re-encrypt the web.config file. 
 
-7. Renomeie o web.config para Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config.
+7. Rename web.config to Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config. 
 
-#### Para preparar o banco de dados de conteúdo e a Lixeira para excluir imediatamente BLOBs órfãos
+#### <a name="to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs"></a>To prepare the content database and Recycle Bin to immediately delete orphaned BLOBs
 
-1. No SQL Server, no SQL Management Studio, execute as seguintes consultas de atualização para o banco de dados de conteúdo de destino: 
+1. On the SQL Server, in SQL Management Studio, run the following update queries for the target content database: 
 
        `use WSS_Content`
 
@@ -38,21 +38,21 @@ Neste procedimento, você vai:
 
        `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
 
-2. No servidor Web front-end, em **Administração Central**, edite as **Configurações Gerais do Aplicativo Web** para o banco de dados de conteúdo desejado a fim de desabilitar temporariamente a Lixeira. Essa ação também esvaziará a Lixeira para qualquer coleção de site relacionada. Para fazer isso, clique em **Administração Central** -> **Gerenciamento de Aplicativos** -> **Aplicativos Web (Gerenciar aplicativos Web)** -> **SharePoint - 80** -> **Configurações Gerais de Aplicativos**. Defina o **Status da Lixeira** para **DESATIVADO**.
+2. On the web front-end server, under **Central Administration**, edit the **Web Application General Settings** for the desired content database to temporarily disable the Recycle Bin. This action will also empty the Recycle Bin for any related site collections. To do this, click **Central Administration** -> **Application Management** -> **Web Applications (Manage web applications)** -> **SharePoint - 80** -> **General Application Settings**. Set the **Recycle Bin Status** to **OFF**.
 
-    ![Configurações Gerais do Aplicativo Web](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
+    ![Web Application General Settings](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
-#### Para executar o Maintainer
+#### <a name="to-run-the-maintainer"></a>To run the Maintainer
 
-- No servidor Web front-end, no Shell de Gerenciamento do SharePoint 2013, execute o Maintainer como se segue:
+- On the web front-end server, in the SharePoint 2013 Management Shell, run the Maintainer as follows:
 
       `Microsoft.Data.SqlRemoteBlobs.Maintainer.exe -ConnectionStringName RBSMaintainerConnectionWSSContent -Operation GarbageCollection -GarbageCollectionPhases rdo`
 
-    >[AZURE.NOTE]Somente a operação `GarbageCollection` tem suporte para o StorSimple neste momento. Observe também que os parâmetros emitidos para Microsoft.Data.SqlRemoteBlobs.Maintainer.exe diferenciam maiúsculas de minúsculas.
+    >[AZURE.NOTE] Only the `GarbageCollection` operation is supported for StorSimple at this time. Also note that the parameters issued for Microsoft.Data.SqlRemoteBlobs.Maintainer.exe are case sensitive. 
  
-#### Para reverter as configurações da Lixeira e do banco de dados de conteúdo
+#### <a name="to-revert-the-content-database-and-recycle-bin-settings"></a>To revert the content database and Recycle Bin settings
 
-1. No SQL Server, no SQL Management Studio, execute as seguintes consultas de atualização para o banco de dados de conteúdo de destino:
+1. On the SQL Server, in SQL Management Studio, run the following update queries for the target content database:
 
       `use WSS_Content`
 
@@ -62,6 +62,9 @@ Neste procedimento, você vai:
 
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
 
-2. No servidor Web front-end, na **Administração Central**, edite as **Configurações Gerais do Aplicativo Web** para o banco de dados de conteúdo desejado a fim de reabilitar a Lixeira. Para fazer isso, clique em **Administração Central** -> **Gerenciamento de Aplicativos** -> **Aplicativos Web (Gerenciar aplicativos Web)** -> **SharePoint - 80** -> **Configurações Gerais de Aplicativos**. Defina o Status da Lixeira para **ATIVADO**.
+2. On the web front-end server, in **Central Administration**, edit the **Web Application General Settings** for the desired content database to re-enable the Recycle Bin. To do this, click **Central Administration** -> **Application Management** -> **Web Applications (Manage web applications)** -> **SharePoint - 80** -> **General Application Settings**. Set the Recycle Bin Status to **ON**.
 
-<!---HONumber=AcomDC_0107_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

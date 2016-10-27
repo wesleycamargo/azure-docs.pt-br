@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Aplicar atualizações do sistema na Central de Segurança do Azure | Microsoft Azure"
-   description="Este documento mostra como implementar as recomendações da Central de Segurança do Azure **Aplicar atualizações do sistema** e **Reinicializar após as atualizações do sistema**."
+   pageTitle="Apply system updates in Azure Security Center | Microsoft Azure"
+   description="This document shows you how to implement the Azure Security Center recommendations **Apply system updates** and **Reboot after system updates**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,48 +16,59 @@
    ms.date="07/29/2016"
    ms.author="terrylan"/>
 
-# Aplicar atualizações do sistema na Central de Segurança do Azure
 
-A Central de Segurança do Azure monitora diariamente VMs (máquinas virtuais) Windows e Linux para saber se faltam atualizações do sistema operacional. A Central de Segurança recupera uma lista de atualizações críticas e de segurança disponíveis no Windows Update ou no WSUS (Windows Server Update Services), dependendo de qual serviço está configurado em uma VM do Windows. A Central de Segurança também verifica as atualizações mais recentes em sistemas Linux. Se faltar uma atualização do sistema em sua VM, a Central de Segurança recomendará que você aplique as atualizações do sistema
+# <a name="apply-system-updates-in-azure-security-center"></a>Apply system updates in Azure Security Center
 
-> [AZURE.NOTE] Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
+Azure Security Center monitors daily Windows and  Linux virtual machines (VMs) for missing operating system updates. Security Center retrieves a list of available security and critical updates from Windows Update or Windows Server Update Services (WSUS), depending on which service is configured on a Windows VM.  Security Center also checks for the latest updates in Linux systems. If your VM is missing a system update, Security Center will recommend that you apply system updates
 
-## Implementar a recomendação
+> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
-1. Na folha **Recomendações**, selecione **Aplicar atualizações do sistema**. ![Aplicar atualizações do sistema][1]
+## <a name="implement-the-recommendation"></a>Implement the recommendation
 
-2. A folha **Aplicar atualizações do sistema** abre exibindo uma lista de VMs sem atualizações de sistema. Selecione uma VM. ![Selecionar uma máquina virtual][2]
+1. In the **Recommendations** blade, select **Apply system updates**.
+![Apply system updates][1]
 
-3. Uma folha abrirá exibindo uma lista de atualizações ausentes para a VM. Selecione uma atualização do sistema. Neste exemplo, vamos selecionar KB3156016. ![Atualizações de segurança ausentes][3]
+2. The **Apply system updates** blade opens displaying a list of VMs missing system updates. Select a VM.
+![Select a VM][2]
 
-4. Siga as etapas na folha **Atualização de segurança** para aplicar a atualização ausente. ![Atualização de segurança][4]
+3. A blade opens displaying a list of missing updates for that VM. Select a system update. In this example, let’s select KB3156016.
+![Missing security updates][3]
 
-## Reinicializar após as atualizações do sistema
+4. Follow the steps in the **Security Update** blade to apply the missing update.
+![Security update][4]
 
-5. Volte para a folha **Recomendações**. Uma nova entrada foi gerada depois que você aplicou atualizações do sistema, chamada **Reinicializar após as atualizações do sistema**. Essa entrada permite que você saiba que é necessário reinicializar a máquina virtual para concluir o processo de aplicação de atualizações de sistema. ![Reinicializar após as atualizações do sistema][5]
+## <a name="reboot-after-system-updates"></a>Reboot after system updates
 
-6. Selecione **Reinicializar após as atualizações do sistema**. Isso abre a folha **Uma reinicialização está pendente para concluir as atualizações do sistema** exibindo uma lista de máquinas virtuais que você precisa reiniciar para concluir o processo de aplicar atualizações d sistema. ![Reinicialização pendente][6]
+5. Return to the **Recommendations** blade. A new entry was generated after you applied system updates, called **Reboot after system updates**. This entry lets you know that you need to reboot the VM to complete the process of applying system updates.
+![Reboot after system updates][5]
 
-Reinicie a VM do Azure para concluir o processo.
+6. Select **Reboot after system updates**. This opens **A restart is pending to complete system updates** blade displaying a list of VMs that you need to restart to complete the apply system updates process.
+![Restart pending][6]
 
-## Consulte também
+Restart the VM from Azure to complete the process.
 
-Para saber mais sobre a Central de Segurança, confira o seguinte:
+## <a name="see-also"></a>See also
 
-- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-- [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
-- [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
-- [Gerenciamento e resposta a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e a responder a alertas de segurança.
-- [Monitorar as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
-- [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
+To learn more about Security Center, see the following:
+
+- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
 
 <!--Image references-->
 [1]: ./media/security-center-apply-system-updates/recommendation.png
-[2]: ./media/security-center-apply-system-updates/select-vm.png
+[2]:./media/security-center-apply-system-updates/select-vm.png
 [3]: ./media/security-center-apply-system-updates/missing-security-updates.png
 [4]: ./media/security-center-apply-system-updates/security-update.png
 [5]: ./media/security-center-apply-system-updates/reboot-after-system-updates.png
 [6]: ./media/security-center-apply-system-updates/restart-pending.png
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

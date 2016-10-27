@@ -1,61 +1,66 @@
 <properties
-	pageTitle="Controlando o tráfego de aplicativos Web do Azure com o Gerenciador de Tráfego do Azure"
-	description="Este artigo fornece informações resumidas sobre o Gerenciador de Tráfego do Azure, já que ele está relacionado a aplicativos Web do Azure."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	writer="cephalin"
-	manager="wpickett"
-	editor="mollybos"/>
+    pageTitle="Controlling Azure web app traffic with Azure Traffic Manager"
+    description="This article provides summary information for  Azure Traffic Manager as it relates to Azure web apps."
+    services="app-service\web"
+    documentationCenter=""
+    authors="cephalin"
+    writer="cephalin"
+    manager="wpickett"
+    editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/25/2016"
-	ms.author="cephalin"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="02/25/2016"
+    ms.author="cephalin"/>
 
-# Controlando o tráfego de aplicativos Web do Azure com o Gerenciador de Tráfego do Azure
 
-> [AZURE.NOTE] Este artigo fornece informações resumidas sobre o Gerenciador de Tráfego do Microsoft Azure, já que está relacionado a aplicativos Web do Serviço de Aplicativo do Azure. Mais informações sobre o próprio Gerenciador de Tráfego do Azure podem ser encontradas visitando-se os links ao final deste artigo.
+# <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>Controlling Azure web app traffic with Azure Traffic Manager
 
-## Introdução
-Você pode usar o Gerenciador de Tráfego do Azure para controlar como as solicitações de clientes Web são distribuídas aos aplicativos Web no Serviço de Aplicativo do Azure. Quando os pontos de extremidade do aplicativo Web são adicionados a um perfil do Gerenciador de Tráfego do Azure, este acompanha o status de seus aplicativos Web (em execução, parado ou excluído) de modo que pode decidir quais desses pontos de extremidade devem receber tráfego.
+> [AZURE.NOTE] This article provides summary information for Microsoft Azure Traffic Manager as it relates to Azure App Service Web Apps. More information about Azure Traffic Manager itself can be found by visiting the links at the end of this article.
 
-## Métodos de balanceamento de carga
-O Gerenciador de Tráfego do Azure usa três métodos de balanceamento de carga diferentes. Eles estão descritos na lista a seguir, já que pertencem a aplicativos Web do Azure.
+## <a name="introduction"></a>Introduction
+You can use Azure Traffic Manager to control how requests from web clients are distributed to web apps in Azure App Service. When web app endpoints are added to a Azure Traffic Manager profile, Azure Traffic Manager keeps track of the status of your web apps (running, stopped or deleted) so that it can decide which of those endpoints should receive traffic.
 
-* **Failover**: se tiver clones de aplicativos Web em regiões diferentes, você poderá usar esse método para configurar um aplicativo Web para suprir todo o tráfego do cliente Web e configurar outro aplicativo Web em uma região diferente, para suprir esse tráfego caso o primeiro site fique indisponível.
+## <a name="load-balancing-methods"></a>Load Balancing Methods
+Azure Traffic Manager uses three different load balancing methods. These are described  in the following list as they pertain to Azure web apps.
 
-* **Round Robin**: se tiver clones de aplicativo Web em regiões diferentes, você poderá usar esse método para distribuir tráfego por igual entre os aplicativos Web em regiões diferentes.
+* **Failover**: If you have web app clones in different regions, you can use this method to configure one web app to service all web client traffic, and configure another web app in a different region to service that traffic in case the first web app becomes unavailable.
 
-* **Desempenho**: o método de desempenho distribui o tráfego com base no menor tempo de ida e volta até os clientes. O método de desempenho pode ser usado em aplicativos Web dentro da mesma região ou em regiões diferentes.
+* **Round Robin**: If you have web app clones in different regions, you can use this method to distribute traffic equally across the web apps in different regions.
 
-##Aplicativos Web e perfis do Gerenciador de Tráfego
-Para configurar o controle do tráfego de aplicativos Web, crie um perfil no Gerenciador de Tráfego do Azure que use um dos três métodos de balanceamento de carga descritos anteriormente e, em seguida, adicione os pontos de extremidade (neste caso, aplicativos Web) para os quais você deseja controlar o tráfego até o perfil. O status do aplicativo Web (em execução, parado ou excluído) é comunicado regularmente ao perfil, para que o Gerenciador de Tráfego do Azure possa direcionar o tráfego de acordo.
+* **Performance**: The Performance method distributes traffic based on the shortest round trip time to clients. The Performance method can be used for web apps within the same region or in different regions.
 
-Ao usar o Gerenciador de Tráfego do Azure com o Azure, tenha em mente os seguintes pontos:
+##<a name="web-apps-and-traffic-manager-profiles"></a>Web Apps and Traffic Manager Profiles
+To configure the control of web app traffic, you create a profile in Azure Traffic Manager that uses one of the three load balancing methods described previously, and then add the endpoints (in this case, web apps) for which you want to control traffic to the profile. Your web app status (running, stopped or deleted) is regularly communicated to the profile so that Azure Traffic Manager can direct traffic accordingly.
 
-* Para implantações apenas de aplicativos Web na mesma região, Aplicativos Web já oferece funcionalidade de failover e rodízio independentemente do modo do aplicativo Web.
+When using Azure Traffic Manager with Azure, keep in mind the following points:
 
-* Para implantações na mesma região usando Aplicativos Web juntamente com outro serviço de nuvem do Azure, você pode combinar ambos os tipos de pontos de extremidade para habilitar cenários híbridos.
+* For web app only deployments within the same region, Web Apps already provides failover and round-robin functionality without regard to web app mode.
 
-* Você só pode especificar um ponto de extremidade de aplicativo Web por região em um perfil. Quando você seleciona um aplicativo Web como um ponto de extremidade para uma região, os aplicativos Web restantes nessa região ficam indisponíveis para seleção para esse perfil.
+* For deployments in the same region that use Web Apps in conjunction with another Azure cloud service, you can combine both types of endpoints to enable hybrid scenarios.
 
-* Os pontos de extremidade de aplicativo Web que você especificar em um perfil do Gerenciador de Tráfego do Azure serão exibidos na seção **Nomes de Domínio** da página Configurar do aplicativo Web no perfil, mas não serão configuráveis nessa página.
+* You can only specify one web app endpoint per region in a profile. When you select a web app as an endpoint for one region, the remaining web apps in that region become unavailable for selection for that profile.
 
-* Depois que você adicionar um aplicativo Web a um perfil, a **URL do Site** no painel da página de portal do aplicativo Web exibirá a URL do domínio personalizado do aplicativo Web, se você tiver definido uma. Do contrário, ele exibirá a URL do perfil do Gerenciador de Tráfego (por exemplo, `contoso.trafficmgr.com`). O nome de domínio direto do aplicativo Web e a URL do Gerenciador de Tráfego estarão visíveis na página Configurar do aplicativo Web na seção **Nomes de Domínio**.
+* The web app endpoints that you specify in a Azure Traffic Manager profile will appear under the **Domain Names** section on the Configure page for the web app in the profile, but will not be configurable there.
 
-* Os nomes de domínio personalizados funcionarão conforme esperado, mas além de adicioná-los a seus aplicativos Web, você deve configurar o mapa DNS a fim de apontar para a URL do Gerenciador de Tráfego. Para obter informações sobre como configurar um domínio personalizado para um aplicativo Web do Azure, consulte [Configurando um nome de domínio personalizado para um site do Azure](web-sites-custom-domain-name.md).
+* After you add a web app to a profile, the **Site URL** on the Dashboard of the web app's portal page will display the custom domain URL of the web app if you have set one up. Otherwise, it will display the Traffic Manager profile URL (for example, `contoso.trafficmgr.com`). Both the direct domain name of the web app and the Traffic Manager URL will be visible on the web app's Configure page under the **Domain Names** section.
 
-* Você só pode adicionar a um perfil do Gerenciador de Tráfego do Azure aplicativos Web que estejam no modo Padrão.
+* Your custom domain names will work as expected, but in addition to adding them to your web apps, you must also configure your DNS map to point to the Traffic Manager URL. For information on how to set up a custom domain for a Azure web app,  see [Configuring a custom domain name for an Azure web site](web-sites-custom-domain-name.md).
 
-## Próximas etapas
+* You can only add web apps that are in standard mode to a Azure Traffic Manager profile.
 
-Para obter uma visão geral conceitual e técnica do Gerenciador de Tráfego do Azure, consulte [Visão geral do Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md).
+## <a name="next-steps"></a>Next Steps
 
-Para obter mais informações sobre como usar o Gerenciador de Tráfego com aplicativos Web, consulte as postagens de blog [Usando o Gerenciador de Tráfego do Azure com sites do Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) e [O Gerenciador de Tráfego do Azure agora pode se integrar a sites do Azure](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
+For a conceptual and technical overview of Azure Traffic Manager, see [Traffic Manager Overview](../traffic-manager/traffic-manager-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+For more information about using Traffic Manager with Web Apps, see the blog posts [Using Azure Traffic Manager with Azure Web Sites](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) and [Azure Traffic Manager can now integrate with Azure Web Sites](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

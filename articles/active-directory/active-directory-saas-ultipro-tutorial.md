@@ -1,260 +1,265 @@
 <properties
-	pageTitle="Tutorial: Integração do Azure Active Directory com o Ultipro | Microsoft Azure"
-	description="Saiba como configurar o logon único entre o Azure Active Directory e o Ultipro."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Ultipro | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Ultipro."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="jeedes"/>
-
-
-# Tutorial: Integração do Azure Active Directory com o Ultipro
-
-O objetivo deste tutorial é mostrar como integrar o Ultipro ao Azure AD (Azure Active Directory). A integração do Ultipro ao Azure AD oferece os seguintes benefícios:
-
-- No AD do Azure, é possível controlar quem tem acesso ao Ultipro
-- Você pode permitir que seus usuários façam logon automaticamente no Ultipro (Logon Único) com suas contas do AD do Azure
-- Gerenciar suas contas em um único local: o Portal clássico do Azure
-
-
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
-
-## Pré-requisitos
-
-Para configurar a integração do AD do Azure ao Ultipro, você precisará dos seguintes itens:
-
-- Uma assinatura do AD do Azure
-- Uma assinatura habilitada para logon único do Ultipro
-
-
-> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-
-
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
-
-- Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-
-
-## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
-
-1. Como adicionar o Ultipro da galeria
-2. Configurar e testar o logon único do AD do Azure
-
-
-## Como adicionar o Ultipro da galeria
-Para configurar a integração do Ultipro ao AD do Azure, você precisará adicionar o Ultipro da galeria à sua lista de aplicativos SaaS gerenciados.
-
-**Para adicionar o Ultipro da galeria, execute as etapas a seguir:**
-
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
-
-	![Active Directory][1]
-
-2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
-
-	![Aplicativos][2]
-
-4. Clique em **Adicionar** na parte inferior da página.
-
-	![Aplicativos][3]
-
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
-
-	![Aplicativos][4]
-
-6. Na caixa de pesquisa, digite **Ultipro**.
-
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_01.png)
-
-7. No painel de resultados, selecione **Ultipro** e clique em **Concluir** para adicionar o aplicativo.
-
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_02.png)
-
-##  Configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o Ultipro, com base em um usuário de teste chamado “Brenda Fernandes”.
-
-Para que o logon único funcione, o AD do Azure precisa saber qual usuário do Ultipro é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no Ultipro. Essa relação de vinculação é estabelecida com a atribuição do valor de **nome de usuário** no Azure AD como o valor de **Nome de usuário** no Ultipro.
-
-Para configurar e testar o logon único do AD do Azure com o Ultipro, você precisa concluir os seguintes blocos de construção:
-
-1. **[Configurando o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criando um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
-4. **[Criação de um usuário de teste do Ultipro](#creating-a-ultipro-test-user)** - para ter um equivalente de Brenda Fernandes no Ultipro que esteja vinculado à representação dela no Azure AD.
-5. **[Atribuindo o usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
-
-### Configuração do logon único do AD do Azure
-
-O objetivo desta seção é habilitar o logon único do AD do Azure no portal clássico do Azure e configurar o logon único em seu aplicativo Ultipro.
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/07/2016"
+    ms.author="jeedes"/>
 
 
 
-**Para configurar o logon único do AD do Azure com Ultipro, execute as etapas a seguir:**
+# <a name="tutorial:-azure-active-directory-integration-with-ultipro"></a>Tutorial: Azure Active Directory integration with Ultipro
 
-1. No portal clássico do Azure, na página de integração de aplicativo do **Ultipro**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+The objective of this tutorial is to show you how to integrate Ultipro with Azure Active Directory (Azure AD).  
+Integrating Ultipro with Azure AD provides you with the following benefits:
 
-	![Configurar o logon único][6]
+- You can control in Azure AD who has access to Ultipro
+- You can enable your users to automatically get signed-on to Ultipro (Single Sign-On) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-2. Na página **Como você deseja que os usuários façam logon no Ultipro**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
+
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+
+## <a name="prerequisites"></a>Prerequisites
+
+To configure Azure AD integration with Ultipro, you need the following items:
+
+- An Azure AD subscription
+- A Ultipro single-sign on enabled subscription
+
+
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+
+
+To test the steps in this tutorial, you should follow these recommendations:
+
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+
+
+## <a name="scenario-description"></a>Scenario Description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
+The scenario outlined in this tutorial consists of two main building blocks:
+
+1. Adding Ultipro from the gallery
+2. Configuring and testing Azure AD single sign-on
+
+
+## <a name="adding-ultipro-from-the-gallery"></a>Adding Ultipro from the gallery
+To configure the integration of Ultipro into Azure AD, you need to add Ultipro from the gallery to your list of managed SaaS apps.
+
+**To add Ultipro from the gallery, perform the following steps:**
+
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+
+    ![Active Directory][1]
+
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Applications][2]
+
+4. Click **Add** at the bottom of the page.
+
+    ![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Applications][4]
+
+6. In the search box, type **Ultipro**.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_01.png)
+
+7. In the results pane, select **Ultipro**, and then click **Complete** to add the application.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_02.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with Ultipro based on a test user called "Britta Simon".
+
+For single sign-on to work, Azure AD needs to know what the counterpart user in Ultipro to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Ultipro needs to be established.  
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Ultipro.
+
+To configure and test Azure AD single sign-on with Ultipro, you need to complete the following building blocks:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Creating a Ultipro test user](#creating-a-ultipro-test-user)** - to have a counterpart of Britta Simon in Ultipro that is linked to the Azure AD representation of her.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
+
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Ultipro application.
+
+
+
+**To configure Azure AD single sign-on with Ultipro, perform the following steps:**
+
+1. In the Azure classic portal, on the **Ultipro** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+
+    ![Configure Single Sign-On][6] 
+
+2. On the **How would you like users to sign on to Ultipro** page, select **Azure AD Single Sign-On**, and then click **Next**.
  
-	![Configurar o logon único](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_03.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_03.png) 
 
-3. Na página de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:
+3. On the **Configure App Settings** dialog page, perform the following steps:
 
-	![Configurar o logon único](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_04.png)
-
-
-    a. Na caixa de texto URL de Logon, digite a URL usada pelos usuários para entrar no aplicativo Ultipro usando o seguinte padrão: **"https://<nome da empresa>.ultipro.com/"**.
-
-    b. Clique em **Avançar**.
-
-4. Na página **Configurar logon único no Ultipro**, execute as seguintes etapas:
-
-	![Configurar o logon único](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_05.png)
-
-    a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
-
-    b. Clique em **Avançar**.
+    ![Configure Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_04.png) 
 
 
-5. Para que o SSO seja configurado para seu aplicativo, entre em contato com o Gerente de Conta do UltiPro e forneça o seguinte:
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Ultipro application using the following pattern: **“https://\<company name\>.ultipro.com/”**.
 
-    - O arquivo de certificado baixado
+    b. Click **Next**.
 
-    - A **URL do Emissor**
+4. On the **Configure single sign-on at Ultipro** page, perform the following steps:
 
-    - A **URL de SSO do SAML**
+    ![Configure Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_05.png) 
 
-    - A **URL do Serviço de Logoff Único**
+    a. Click **Download certificate**, and then save the file on your computer.
+
+    b. Click **Next**.
 
 
-6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+5. To get SSO configured for your application, contact your UltiPro Account Manager and provide them with the following:
 
-	![Logon único do AD do Azure][10]
+    - The downloaded certificate file
 
-7. Na página **Confirmação de logon único**, clique em **Concluir**.
+    - The **Issuer URL**
+
+    - The **SAML SSO URL** 
+
+    - The **Single Sign Out Service URL**
+
+
+6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+
+    ![Azure AD Single Sign-On][10]
+
+7. On the **Single sign-on confirmation** page, click **Complete**.  
   
-	![Logon único do AD do Azure][11]
+    ![Azure AD Single Sign-On][11]
 
 
 
-### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
 
-![Criar um usuário do AD do Azure][20]
+![Create Azure AD User][20]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/create_aaduser_09.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-ultipro-tutorial/create_aaduser_09.png) 
 
-2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
+3. To display the list of users, in the menu on the top, click **Users**.
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/create_aaduser_03.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-ultipro-tutorial/create_aaduser_03.png) 
 
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/create_aaduser_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-ultipro-tutorial/create_aaduser_04.png) 
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+5. On the **Tell us about this user** dialog page, perform the following steps:
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/create_aaduser_05.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-ultipro-tutorial/create_aaduser_05.png) 
 
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
+    a. As Type Of User, select New user in your organization.
 
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-    c. Clique em **Avançar**.
+    c. Click **Next**.
 
-6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+6.  On the **User Profile** dialog page, perform the following steps:
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/create_aaduser_06.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-ultipro-tutorial/create_aaduser_06.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    d. Na lista **Função**, selecione **Usuário**.
+    d. In the **Role** list, select **User**.
 
-    e. Clique em **Avançar**.
+    e. Click **Next**.
 
-7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-ultipro-tutorial/create_aaduser_07.png) 
 
-8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-ultipro-tutorial/create_aaduser_08.png) 
 
-    a. Anote o valor da **Nova Senha**.
+    a. Write down the value of the **New Password**.
 
-    b. Clique em **Concluído**.
-
-
-
-### Criação de um usuário de teste do Ultipro
-
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Ultipro. Trabalhe com a equipe de suporte do Ultipro para adicionar os usuários à conta do Ultipro.
-
-
-> [AZURE.NOTE] Se precisar criar um usuário manualmente, entre em contato com a equipe de suporte do Ultipro.
-
-
-### Atribuição do usuário de teste do AD do Azure
-
-O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do Azure concedendo a ela acesso ao Ultipro.
-
-![Atribuir usuário][200]
-
-**Para atribuir Brenda Fernandes ao Ultipro, execute as seguintes etapas:**
-
-1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
-
-	![Atribuir usuário][201]
-
-2. Na lista de aplicativos, selecione **Ultipro**.
-
-	![Configurar o logon único](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_50.png)
-
-1. No menu na parte superior, clique em **Usuários**.
-
-	![Atribuir usuário][203]
-
-1. Na lista de usuários, selecione **Brenda Fernandes**.
-
-2. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
-
-	![Atribuir usuário][205]
+    b. Click **Complete**.   
 
 
 
-### Teste do logon único
+### <a name="creating-a-ultipro-test-user"></a>Creating a Ultipro test user
 
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso. Quando você clicar no bloco Ultipro no Painel de Acesso, deverá ser conectado automaticamente ao seu aplicativo Ultipro.
+The objective of this section is to create a user called Britta Simon in Ultipro. Please work with Ultipro support team to add the users in the Ultipro account. 
 
 
-## Recursos adicionais
+> [AZURE.NOTE] If you need to create an user manually, you need to contact the Ultipro support team.
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Ultipro.
+
+![Assign User][200] 
+
+**To assign Britta Simon to Ultipro, perform the following steps:**
+
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Assign User][201] 
+
+2. In the applications list, select **Ultipro**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_50.png) 
+
+1. In the menu on the top, click **Users**.
+
+    ![Assign User][203] 
+
+1. In the Users list, select **Britta Simon**.
+
+2. In the toolbar on the bottom, click **Assign**.
+
+    ![Assign User][205]
+
+
+
+### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
+When you click the Ultipro tile in the Access Panel, you should get automatically signed-on to your Ultipro application.
+
+
+## <a name="additional-resources"></a>Additional Resources
+
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -275,4 +280,8 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,149 +1,154 @@
 <properties 
-	pageTitle="Problemas conhecidos do Apache Spark no HDInsight | Microsoft Azure" 
-	description="Problemas conhecidos do Apache Spark no HDInsight." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="jhubbard" 
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Known issues of Apache Spark in HDInsight | Microsoft Azure" 
+    description="Known issues of Apache Spark in HDInsight." 
+    services="hdinsight" 
+    documentationCenter="" 
+    authors="mumian" 
+    manager="jhubbard" 
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="nitinme"/>
+    ms.service="hdinsight" 
+    ms.workload="big-data" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/25/2016" 
+    ms.author="nitinme"/>
 
-# Problemas conhecidos do cluster do Apache Spark no HDInsight Linux
 
-Este documento mantém o registro de todos os problemas conhecidos para a visualização pública do Spark no HDInsight.
+# <a name="known-issues-for-apache-spark-cluster-on-hdinsight-linux"></a>Known issues for Apache Spark cluster on HDInsight Linux
 
-##Sessão interativa de vazamentos do Livy
+This document keeps track of all the known issues for the HDInsight Spark public preview.  
+
+##<a name="livy-leaks-interactive-session"></a>Livy leaks interactive session
  
-Quando o Livy é reiniciado com uma sessão interativa (do Ambari ou devido a reinicialização da máquina virtual de nó principal 0) ainda ativa, uma sessão de trabalho interativo irá vazar. Por isso, novos trabalhos podem travar no estado Aceito, não podendo ser iniciados.
+When Livy is restarted with an interactive session (from Ambari or due to headnode 0 virtual machine reboot) still alive, an interactive job session will be leaked. Because of this, new jobs can stuck in the Accepted state, and cannot be started.
 
-**Atenuação:**
+**Mitigation:**
 
-Use o procedimento a seguir para contornar o problema:
+Use the following procedure to workaround the issue:
 
-1. SSH no nó principal.
-2. Execute o seguinte comando para encontrar as IDs de aplicativo dos trabalhos interativos iniciados por Livy.
+1. Ssh into headnode. 
+2. Run the following command to find the application IDs of the interactive jobs started through Livy. 
 
         yarn application –list
 
-    Os nomes de trabalho padrão serão Livy se os trabalhos tiverem sido iniciados com uma sessão interativa Livy sem nomes explícitos especificados; para a sessão Livy iniciada pelo notebook do Jupyter, o nome do trabalho iniciará com remotesparkmagics\_*.
+    The default job names will be Livy if the jobs were started with a Livy interactive session with no explicit names specified, For the Livy session started by Jupyter notebook, the job name will start with remotesparkmagics_*. 
 
-3. Execute o seguinte comando para eliminar esses trabalhos.
+3. Run the following command to kill those jobs. 
 
         yarn application –kill <Application ID>
 
-A execução de novos trabalhos terá início.
+New jobs will start running. 
 
-##Servidor de histórico Spark não iniciado 
+##<a name="spark-history-server-not-started"></a>Spark History Server not started 
 
-O servidor de histórico Spark não é iniciado automaticamente depois de um cluster ser criado.
+Spark History Server is not started automatically after a cluster is created.  
 
-**Atenuação:**
+**Mitigation:** 
 
-Inicie manualmente o servidor de histórico do Ambari.
+Manually start the history server from Ambari.
 
-## Problema de permissão no diretório de log do Spark 
+## <a name="permission-issue-in-spark-log-directory"></a>Permission issue in Spark log directory 
 
-Quando hdiuser envia um trabalho com spark-submit, há um erro java.io.FileNotFoundException: /var/log/spark/sparkdriver\_hdiuser.log (permissão negada) e o log do driver não é gravado.
+When hdiuser submits a job with spark-submit, there is an error java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied) and the driver log is not written. 
 
-**Atenuação:**
+**Mitigation:**
  
-1. Adicione hdiuser ao grupo Hadoop.
-2. Forneça 777 permissões em /var/log/spark após a criação do cluster.
-3. Atualize o local do log spark usando o Ambari para ser um diretório com 777 permissões.
-4. Execute spark-submit como sudo.
+1. Add hdiuser to the Hadoop group. 
+2. Provide 777 permissions on /var/log/spark after cluster creation. 
+3. Update the spark log location using Ambari to be a directory with 777 permissions.  
+4. Run spark-submit as sudo.  
 
-## Problemas relacionados aos notebooks do Jupyter
+## <a name="issues-related-to-jupyter-notebooks"></a>Issues related to Jupyter notebooks
 
-A seguir estão alguns problemas conhecidos relacionados aos notebooks do Jupyter.
+Following are some known issues related to Jupyter notebooks.
 
 
-### Notebooks com caracteres não ASCII nos nomes de arquivos
+### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Notebooks with non-ASCII characters in filenames
 
-Os notebooks do Jupyter que podem ser usados em clusters HDInsight do Spark não devem ter caracteres não ASCII nos nomes de arquivos. Se você tentar carregar um arquivo por meio da interface do usuário do Jupyter que tenha um nome de arquivo não ASCII, ele falhará silenciosamente (ou seja, o Jupyter não permitirá que você carregue o arquivo, mas ele também não emitirá um erro visível).
+Jupyter notebooks that can be used in Spark HDInsight clusters should not have non-ASCII characters in filenames. If you try to upload a file through the Jupyter UI which has a non-ASCII filename, it will fail silently (that is, Jupyter won’t let you upload the file, but it won’t throw a visible error either). 
 
-### Erro ao carregar notebooks de tamanhos maiores
+### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Error while loading notebooks of larger sizes
 
-Você pode encontrar um erro **`Error loading notebook`** ao carregar notebooks com um tamanho maior.
+You might see an error **`Error loading notebook`** when you load notebooks that are larger in size.  
 
-**Atenuação:**
+**Mitigation:**
 
-Se você visualizar esse erro, não significa que seus dados estão corrompidos ou foram perdidos. Os notebooks ainda estão no disco, em `/var/lib/jupyter`, e você pode usar o SSH no cluster para acessá-los. É possível copiar os blocos de anotações do cluster para o computador local (usando SCP ou WinSCP) como um backup para impedir a perda de qualquer dado importante no bloco de anotações. Você pode aplicar SSH no túnel no nó de cabeçalho na porta 8001 para acessar o Jupyter sem passar pelo gateway. A partir daí, você pode limpar a saída do bloco de anotações e salvá-lo novamente para minimizar o tamanho dele.
+If you get this error, it does not mean your data is corrupt or lost.  Your notebooks are still on disk in `/var/lib/jupyter`, and you can SSH into the cluster to access them. You can copy your notebooks from your cluster to your local machine (using SCP or WinSCP) as a backup to prevent the loss of any important data in the notebook. You can then SSH tunnel into your headnode at port 8001 to access Jupyter without going through the gateway.  From there, you can clear the output of your notebook and re-save it to minimize the notebook’s size.
 
-Para evitar que esse erro aconteça no futuro, você deve seguir algumas práticas recomendadas:
+To prevent this error from happening in the future, you must follow some best practices:
 
-* É importante manter um tamanho pequeno de bloco de anotações. Qualquer saída de trabalho no Spark que é enviada de volta ao Jupyter é mantida no bloco de anotações. De modo geral, uma melhor prática com o Jupyter é evitar a execução de `.collect()` em RDDs ou em quadros de dados grandes. Em vez disso, se você quiser inspecionar o conteúdo de um RDD, considere a execução de `.take()` ou `.sample()` para que sua saída não fique muito grande.
-* Além disso, quando você salvar um bloco de anotações, limpe todas as células de saída para reduzir o tamanho.
+* It is important to keep the notebook size small. Any output from your Spark jobs that is sent back to Jupyter is persisted in the notebook.  It is a best practice with Jupyter in general to avoid running `.collect()` on large RDD’s or dataframes; instead, if you want to peek at an RDD’s contents, consider running `.take()` or `.sample()` so that your output doesn’t get too big.
+* Also, when you save a notebook, clear all output cells to reduce the size.
 
-### A inicialização inicial do notebook demora mais do que o esperado 
+### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Notebook initial startup takes longer than expected 
 
-A primeira instrução de código no notebook Jupyter usando a mágica do Spark pode demorar mais de um minuto.
+First code statement in Jupyter notebook using Spark magic could take more than a minute.  
 
-**Explicação:**
+**Explanation:**
  
-Isso acontece quando a primeira célula de código é executada. Em segundo plano, isso inicia a configuração de sessão e os contextos de Spark, SQL e Hive são definidos. Depois desses contextos são definidos, a primeira instrução é executada e isso dá a impressão de que a instrução levou muito tempo para ser concluída.
+This happens because when the first code cell is run. In the background this initiates session configuration and Spark, SQL, and Hive contexts are set. After these contexts are set, the first statement is run and this gives the impression that the statement took a long time to complete.
 
-### Tempo limite do notebook do Jupyter atingido na criação da sessão
+### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Jupyter notebook timeout in creating the session
 
-Quando o cluster Spark está sem recursos, os kernels Spark e Pyspark no notebook do Jupyter atingirão o tempo limite ao tentar criar a sessão.
+When Spark cluster is out of resources, the Spark and Pyspark kernels in the Jupyter notebook will timeout trying to create the session. 
 
-**Atenuações:**
+**Mitigations:** 
 
-1. Libere alguns recursos do cluster Spark:
+1. Free up some resources in your Spark cluster by:
 
-    - Pare outros notebooks do Spark no menu Fechar e Parar ou clicando em Desligar no gerenciador de notebook.
-    - Interrompendo outros aplicativos Spark do YARN.
+    - Stopping other Spark notebooks by going to the Close and Halt menu or clicking Shutdown in the notebook explorer.
+    - Stopping other Spark applications from YARN.
 
-2. Reinicie o notebook que você está tentando iniciar. Recursos suficientes devem estar disponíveis para você criar uma sessão agora.
+2. Restart the notebook you were trying to start up. Enough resources should be available for you to create a session now.
 
-##Confira também
+##<a name="see-also"></a>See also
 
-* [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
+* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-### Cenários
+### <a name="scenarios"></a>Scenarios
 
-* [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
 
-* [Análise de log do site usando o Spark no HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-### Criar e executar aplicativos
+### <a name="create-and-run-applications"></a>Create and run applications
 
-* [Criar um aplicativo autônomo usando Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-* [Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
+* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Ferramentas e extensões
+### <a name="tools-and-extensions"></a>Tools and extensions
 
-* [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
-* [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-* [Usar pacotes externos com blocos de notas Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### Gerenciar recursos
+### <a name="manage-resources"></a>Manage resources
 
-* [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-* [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

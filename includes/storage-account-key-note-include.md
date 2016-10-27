@@ -1,3 +1,6 @@
->[AZURE.IMPORTANT] Sua chave de conta de armazenamento é semelhante para a senha raiz da sua conta de armazenamento. Sempre tenha cuidado para proteger a chave da sua conta. Evite distribuí-la a outros usuários, embuti-la no código ou salvá-lo em um arquivo de texto sem formatação que esteja acessível a outras pessoas. Regenere a chave da sua conta usando o Portal do Azure se você achar que ela pode ter sido comprometida. Para saber como regenerar a chave da sua conta, consulte [Como criar, gerenciar ou excluir uma conta de armazenamento no Portal do Azure](../articles/storage/storage-create-storage-account.md#manage-your-storage-account).
+>[AZURE.IMPORTANT] Your storage account key is similar to the root password for your storage account. Always be careful to protect your account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your account key using the Azure Portal if you believe it may have been compromised. To learn how to regenerate your account key, see [How to create, manage, or delete a storage account in the Azure Portal](../articles/storage/storage-create-storage-account.md#manage-your-storage-account).
 
-<!---HONumber=AcomDC_0420_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

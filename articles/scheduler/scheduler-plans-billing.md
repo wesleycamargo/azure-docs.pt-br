@@ -1,10 +1,10 @@
 <properties
- pageTitle="Planos e Cobrança no Agendador do Azure"
- description="Planos e Cobrança no Agendador do Azure"
+ pageTitle="Plans and Billing in Azure Scheduler"
+ description="Plans and Billing in Azure Scheduler"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,83 +13,88 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/18/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
-# Planos e Cobrança no Agendador do Azure
 
-## Planos de Coleção de Trabalho
+# <a name="plans-and-billing-in-azure-scheduler"></a>Plans and Billing in Azure Scheduler
 
-Coleções de trabalho são a entidade faturável no Agendador do Azure. As coleções de trabalho contém vários trabalhos e vêm em três planos: Gratuito, Standard e Premium, que são descritos abaixo.
+## <a name="job-collection-plans"></a>Job Collection Plans
 
-|**Plano de Coleção de Trabalho**|**Número máximo de trabalhos por Coleção de Trabalhos**|**Recorrência Máxima**|**Máximo de Coleções de Trabalho por Assinatura**|**Limites**|
+Job collections are the billable entity in Azure Scheduler. Job collections contain a number of jobs and come in three plans – Free, Standard, and Premium – that are described below.
+
+|**Job Collection Plan**|**Max # of Jobs per Job Collection**|**Max Recurrence**|**Max Job Collections per Subscription**|**Limits**|
 |:---|:---|:---|:---|:---|
-|**Gratuito**|5 trabalhos por coleção de trabalhos|Uma vez por hora. Não é possível executar trabalhos com uma frequência maior do que uma vez por hora|É permitida até 1 coleção de trabalho gratuita por assinatura|Não é possível usar [objeto de saída de autorização HTTP](scheduler-outbound-authentication.md)
-|**Standard**|50 trabalhos por coleção de trabalhos|Uma vez por minuto. Não é possível executar trabalhos com uma frequência maior do que uma vez por minuto|São permitidas até 100 coleções de trabalho standard por assinatura|Acesso ao conjunto completo de recursos do Agendador|
-|**P10 Premium**|50 trabalhos por coleção de trabalhos|Uma vez por minuto. Não é possível executar trabalhos com uma frequência maior do que uma vez por minuto|São permitidas até 10.000 coleções de trabalhos Premium P10 por assinatura. <a href="mailto:wapteams@microsoft.com">Entre em contato conosco</a>para obter mais informações.|Acesso ao conjunto completo de recursos do Agendador|
-|**P20 Premium**|1000 trabalhos por coleção de trabalhos|Uma vez por minuto. Não é possível executar trabalhos com uma frequência maior do que uma vez por minuto|São permitidas até 10.000 coleções de trabalhos Premium P20 por assinatura. <a href="mailto:wapteams@microsoft.com">Entre em contato conosco</a>para obter mais informações.|Acesso ao conjunto completo de recursos do Agendador|
+|**Free**|5 jobs per job collection|Once per hour. Cannot execute jobs more often than once an hour|A subscription is allowed up to 1 free job collection|Cannot use [HTTP outbound authorization object](scheduler-outbound-authentication.md)
+|**Standard**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 100 standard job collections|Access to full feature set of Scheduler|
+|**P10 Premium**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 10,000 P10 Premium job collections. <a href="mailto:wapteams@microsoft.com">Contact us</a> for more.|Access to full feature set of Scheduler|
+|**P20 Premium**|1000 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 10,000 P20 Premium job collections. <a href="mailto:wapteams@microsoft.com">Contact us</a> for more.|Access to full feature set of Scheduler|
 
-## Atualizações e Downgrades de Planos de Coleção de Trabalhos
+## <a name="upgrades-and-downgrades-of-job-collection-plans"></a>Upgrades and Downgrades of Job Collection Plans
 
-Você pode atualizar ou fazer downgrade de um plano de coleção de trabalhos a qualquer momento entre os planos Gratuito, Standard e Premium. No entanto, ao fazer o downgrade para uma coleção de trabalhos gratuita, o downgrade pode falhar por um dos seguintes motivos:
+You may upgrade or downgrade a job collection plan anytime among the Free, Standard, and Premium plans. However, when downgrading to a free job collection, the downgrade may fail for one of the following reasons:
 
-- Já existe uma coleção de trabalhos gratuita na assinatura
-- Um trabalho na coleção de trabalhos tem uma recorrência maior que o permitido para trabalhos em coleções de trabalhos gratuitas. A recorrência máxima permitida em uma coleção de trabalhos gratuita é de uma vez por hora
-- Há mais de 5 trabalhos na coleção de trabalhos
-- Um trabalho na coleção de trabalhos tem uma ação HTTP ou HTTPS que usa um [objeto de saída de autorização HTTP](scheduler-outbound-authentication.md)
+- A free job collection already exists in the subscription
+- A job in the job collection has a higher recurrence than allowed for jobs in free job collections. The maximum recurrence allowed in a free job collection is once per hour
+- There are more than 5 jobs in the job collection
+- A job in the job collection has an HTTP or HTTPS action that uses an [HTTP outbound authorization object](scheduler-outbound-authentication.md)
 
-## Planos de cobrança e do Azure
+## <a name="billing-and-azure-plans"></a>Billing and Azure Plans
 
-As assinaturas não são cobradas para coleções de trabalhos gratuitas. Se você tiver mais de 100 coleções de trabalhos standard (10 unidades de cobrança standard), então é melhor ter todas as coleções de trabalhos no plano premium.
+Subscriptions are not charged for free job collections. If you have more than 100 standard job collections (10 standard billing units), then it's a better deal to have all job collections in the premium plan.
 
-Se você tiver uma coleção de trabalhos standard e uma coleção de trabalhos premium, será cobrada uma unidade de cobrança standard _e_ uma unidade de cobrança premium. As listas de serviço do Agendador com base no número de coleções de trabalhos ativos que são definidos como standard ou premium; isso é explicado com mais detalhes nas próximas duas seções.
+If you have one standard job collection and one premium job collection, you are billed one standard billing unit _and_ one premium billing unit. The Scheduler service bills based on the number of active job collections that are set to either standard or premium; this is explained further in the next two sections.
 
-## Unidades faturáveis Standard
+## <a name="standard-billable-units"></a>Standard Billable Units
 
-Uma unidade faturável padrão pode incluir até 10 coleções de trabalhos standard. Como um conjunto de trabalhos standard pode ter até 50 trabalhos por coleção de trabalhos, uma unidade de cobrança standard permite que uma assinatura tenha até 500 trabalhos, até quase 22 milhões de execuções de trabalhos por mês.
+A standard billable unit can include up to 10 standard job collections. Since a standard job collection can have up to 50 jobs per job collection, one standard billing unit allows a subscription to have up to 500 jobs – up to almost 22 million job executions per month.
 
-Se você tiver entre 1 e 10 coleções de trabalhos standard, você será cobrado por 1 unidade de cobrança standard. Se você tiver entre 11 e 20 coleções de trabalhos standard, você será cobrado por 2 unidades de cobrança standard. Se você tiver entre 21 e 30 coleções de trabalhos standard, você será cobrado por 3 unidades de cobrança standard e assim por diante.
+If you have between 1 and 10 standard job collections, you'll be billed for 1 standard billing unit. If you have between 11 and 20 standard job collections, you'll be billed for 2 standard billing units. If you have between 21 and 30 standard job collections, you'll be billed for 3 standard billing units, and so on.
 
-## Unidades faturáveis Premium P10
+## <a name="p10-premium-billable-units"></a>P10 Premium Billable Units
 
-Uma unidade faturável premium P10 pode incluir até 10.000 coleções de trabalhos premium P10. Como um conjunto de trabalhos premium P10 pode ter até 50 trabalhos por coleção de trabalhos, uma unidade de cobrança premium permite que uma assinatura tenha até 500.000 trabalhos, até quase 22 bilhões de execuções de trabalhos por mês.
+A P10 premium billable unit can include up to 10,000 P10 premium job collections. Since a P10 premium job collection can have up to 50 jobs per job collection, one premium billing unit allows a subscription to have up to 500,000 jobs – up to almost 22 billion job executions per month.
 
-Se você tiver entre 1 e 10.000 coleções de trabalhos premium P10, você será cobrado por 1 unidade de cobrança premium. Se você tiver entre 10.001 e 20.000 coleções de trabalhos premium, você será cobrado por 2 unidades de cobrança premium P10 e assim por diante.
+If you have between 1 and 10,000 premium job collections, you'll be billed for 1 P10 premium billing unit. If you have between 10,001 and 20,000 premium job collections, you'll be billed for 2 P10 premium billing units, and so on.
 
-Portanto, coleções de trabalhos premium P10 têm a mesma funcionalidade que as coleções de trabalhos standard, mas fornecem uma quebra de preço no caso do seu aplicativo precisar de muitas coleções de trabalhos.
+Thus, P10 premium job collections have the same functionality as the standard job collections but provide a price break in case your application requires a lot of job collections.
 
-## Unidades Faturáveis Premium P20
+## <a name="p20-premium-billable-units"></a>P20 Premium Billable Units
 
-Uma unidade faturável premium P20 pode incluir até 5.000 coleções de trabalhos premium P20. Como um conjunto de trabalhos premium P20 pode ter até 1.000 trabalhos por coleção de trabalhos, uma unidade de cobrança premium permite que uma assinatura tenha até 5.000.000 trabalhos, até quase 220 bilhões de execuções de trabalhos por mês.
+A P20 premium billable unit can include up to 5,000 P20 premium job collections. Since a P20 premium job collection can have up to 1,000 jobs per job collection, one premium billing unit allows a subscription to have up to 5,000,000 jobs – up to almost 220 billion job executions per month.
 
-As coleções de trabalhos premium P20 fornecem os mesmos recursos das coleções de trabalhos premium P10, mas também dão suporte a um número maior de trabalhos por coleção de trabalho e a um número total maior geral de trabalhos do que o premium 10, permitindo que você tenha mais escalabilidade.
+P20 premium job collections provides the same capabilities as P10 premium job collections but also supports a greater number jobs per job collection and a greater total number of jobs overall than P10 premium allowing you to have more scalability.
 
-## Status de Cobrança e Ativo
+## <a name="billing-and-active-status"></a>Billing and Active Status
 
-As coleções de trabalhos estão sempre ativas, a menos que a assinatura inteira tenha entrado em algum estado temporário desabilitado devido a problemas de cobrança. A única maneira de garantir que uma coleção de trabalhos não será cobrada é defini-la para o plano _Gratuito_ ou excluir a coleção de trabalhos.
+Job collections are always active unless your entire subscription has gone into some temporary disabled state due to billing issues. The only way to ensure that a job collection is not billed is to either set it to the _Free_ plan or to delete the job collection.
 
-Você pode desativar todos os trabalhos em um conjunto de trabalhos em uma única operação, isso não altera o status de cobrança da coleção de trabalhos; a coleção de trabalhos _ainda_ será cobrada. Da mesma forma, coleções de trabalhos vazias são consideradas ativas e serão cobradas.
+Although you may disable all jobs within a job collection in a single operation, it does not change the billing status of the job collection – the job collection will _still_ be billed. Similarly, empty job collections are considered active and will be billed.
 
-## Preços
+## <a name="pricing"></a>Pricing
 
-Para obter detalhes sobre preços, confira [Preços do Agendador](https://azure.microsoft.com/pricing/details/scheduler/).
+For pricing details, please see [Scheduler Pricing](https://azure.microsoft.com/pricing/details/scheduler/).
 
-## Consulte também
+## <a name="see-also"></a>See Also
 
 
- [O que é o Agendador?](scheduler-intro.md)
+ [What is Scheduler?](scheduler-intro.md)
 
- [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
- [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Alta disponibilidade e confiabilidade do Agendador do Azure](scheduler-high-availability-reliability.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
- [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

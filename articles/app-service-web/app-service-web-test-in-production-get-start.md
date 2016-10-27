@@ -1,89 +1,94 @@
 <properties
-	pageTitle="Introdução ao teste em produção para Aplicativos Web"
-	description="Saiba mais sobre o recurso TiP (Teste em Produção) nos Aplicativos Web do Serviço de Aplicativo do Azure."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Get started with test in production for Web Apps"
+    description="Learn about the Test in Production (TiP) feature in Azure App Service Web Apps."
+    services="app-service\web"
+    documentationCenter=""
+    authors="cephalin"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/13/2016"
-	ms.author="cephalin"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/13/2016"
+    ms.author="cephalin"/>
 
-# Introdução ao teste em produção para Aplicativos Web
 
-O teste em produção, ou teste dinâmico do seu aplicativo Web usando o tráfego do cliente em tempo real, é uma estratégia de teste que está cada vez mais sendo integrada pelos desenvolvedores de aplicativos em sua metodologia de [desenvolvimento ágil](https://en.wikipedia.org/wiki/Agile_software_development). Ele permite que você teste a qualidade dos seus aplicativos com o tráfego do usuário em tempo real em seu ambiente de produção, em vez de dados sintetizados em um ambiente de teste. Ao expor seu novo aplicativo para usuários reais, você pode ser informado dos problemas reais que o aplicativo poderá enfrentar após sua implantação. Você pode verificar a funcionalidade, desempenho e valor de suas atualizações de aplicativo em relação ao volume, velocidade e variedade do tráfego de usuário real, que você nunca pode aproximar em um ambiente de teste.
+# <a name="get-started-with-test-in-production-for-web-apps"></a>Get started with test in production for Web Apps
 
-## Roteamento de Tráfego nos Aplicativos Web do Serviço de Aplicativo
+Testing in production, or live-testing your web app using live customer traffic, is a test strategy that app developers increasingly integrate into their [agile development](https://en.wikipedia.org/wiki/Agile_software_development) methodology. It enables you to test the quality of your apps with live user traffic in your production environment, as opposed to synthesized data in a test environment. By exposing your new app to real users, you can be informed on the real problems your app may face once it is deployed. You can verify the functionality, performance, and value of your app updates against the volume, velocity, and variety of real user traffic, which you can never approximate in a test environment.
 
-Com o recurso de Roteamento de Tráfego no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714), é possível direcionar uma parte do tráfego do usuário em tempo real para um ou mais [slots de implantação](web-sites-staged-publishing.md) e analisar seu aplicativo com o [Azure Application Insights](/services/application-insights/), [Azure HDInsight](/services/hdinsight/) ou uma ferramenta de terceiros como o [New Relic](/marketplace/partners/newrelic/newrelic/) para validar a alteração. Por exemplo, é possível implementar os seguintes cenários com o Serviço de Aplicativo:
+## <a name="traffic-routing-in-app-service-web-apps"></a>Traffic Routing in App Service Web Apps
 
-- Descobrir bugs funcionais ou identificar afunilamentos de desempenho em suas atualizações antes da implantação em todo o site
-- Execute “voos de teste controlado” de suas alterações, medindo métricas de usabilidade no aplicativo beta
-- Aumente gradualmente para uma nova atualização e normalmente volte para a versão atual se ocorrer um erro
-- Otimize os resultados de negócios do seu aplicativo executando [testes A/B](https://en.wikipedia.org/wiki/A/B_testing) ou [testes multivariados](https://en.wikipedia.org/wiki/Multivariate_testing_in_marketing) em vários slots de implantação
+With the Traffic Routing feature in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), you can direct a portion of live user traffic to one or more [deployment slots](web-sites-staged-publishing.md), and then analyze your app with [Azure Application Insights](/services/application-insights/) or [Azure HDInsight](/services/hdinsight/), or a third-party tool like [New Relic](/marketplace/partners/newrelic/newrelic/) to validate your change. For example, you can implement the following scenarios with App Service:
 
-### Requisitos para usar o Roteamento de Tráfego em Aplicativos Web
+- Discover functional bugs or pinpoint performance bottlenecks in your updates prior to site-wide deployment
+- Perform "controlled test flights" of your changes by measuring usibility metrics on the beta app
+- Gradually ramp up to a new update, and gracefully back down to the current version if an error occurs 
+- Optimize your app's business results by running [A/B tests](https://en.wikipedia.org/wiki/A/B_testing) or [multivariate tests](https://en.wikipedia.org/wiki/Multivariate_testing_in_marketing) in multiple deployment slots
 
-- Seu aplicativo Web deve ser executado na camada **Standard** ou **Premium**, pois ela é necessária para vários slots de implantação.
-- Para funcionar corretamente, o Roteamento de Tráfego exige que os cookies estejam habilitados no navegador dos usuários. O Roteamento de Tráfego usa cookies para fixar um navegador do cliente em um slot de implantação durante toda a sessão do cliente.
-- O Roteamento de Tráfego dá suporte a cenários avançados do TiP por meio de cmdlets do Azure PowerShell.
+### <a name="requirements-for-using-traffic-routing-in-web-apps"></a>Requirements for using Traffic Routing in Web Apps
 
-## Encaminhar segmento de tráfego para um slot de implantação
+- Your web app must run in **Standard** or **Premium** tier, as it is required for multiple deployment slots.
+- In order to work properly, Traffic Routing requires cookies to be enabled in the users' browser. Traffic Routing uses cookies to pin a client browser to a deployment slot for the life the client session.
+- Traffic Routing supports advanced TiP scenarios through Azure PowerShell cmdlets.
 
-No nível básico em cada cenário do TiP, encaminhe um percentual predefinido do seu tráfego em tempo real em um slot de implantação que não seja de produção. Para fazer isso, siga as etapas abaixo:
+## <a name="route-traffic-segment-to-a-deployment-slot"></a>Route traffic segment to a deployment slot
 
->[AZURE.NOTE] Nessas etapas, pressupomos que você já tenha um [slot de implantação de não produção](web-sites-staged-publishing.md) e que o conteúdo do aplicativo Web desejado já esteja [implantado](web-sites-deploy.md) nele.
+At the basic level in every TiP scenario, you route a predefined percentage of your live traffic to a non-production deployment slot. To do this, follow the steps below:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Na folha de seu aplicativo Web, clique em **Configurações** > **Roteamento de Tráfego**. ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
-3. Selecione o slot para o qual você deseja encaminhar o tráfego e o percentual do tráfego total desejado e clique em **Salvar**.
+>[AZURE.NOTE] The steps here assumes that you already have a [non-production deployment slot](web-sites-staged-publishing.md) and that the desired web app content is already [deployed](web-sites-deploy.md) to it.
 
-	![](./media/app-service-web-test-in-production/02-select-slot.png)
+1. Log into the [Azure Portal](https://portal.azure.com/).
+2. In your web app's blade, click **Settings** > **Traffic Routing**.
+  ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
+3. Select the slot that you want to route traffic to and the percentage of the total traffic you desire, then click **Save**.
 
-4. Vá para a folha do slot de implantação. Agora você deverá ver o tráfego em tempo real ser encaminhado para ele.
+    ![](./media/app-service-web-test-in-production/02-select-slot.png)
 
-	![](./media/app-service-web-test-in-production/03-traffic-routed.png)
+4. Go to the deployment slot's blade. You should now see live traffic being routed to it.
 
-Depois de configurar o Roteamento de Tráfego, o percentual especificado de clientes será encaminhado aleatoriamente para o slot de não produção. No entanto, é importante observar que quando um cliente é encaminhado automaticamente para um slot específico, ele será “fixado” nesse slot durante a vida útil da sessão do cliente. Isso pode ser feito usando um cookie para fixar a sessão do usuário. Se você inspecionar as solicitações HTTP, você encontrará um cookie `TipMix` em cada solicitação subsequente.
+    ![](./media/app-service-web-test-in-production/03-traffic-routed.png)
+
+Once Traffic Routing is configured, the specified percentage of clients will be randomly routed to your non-production slot. However, it is important to note that once a client is automatically routed to a specific slot, it will be "pinned" to that slot for the life of that client session. This done using a cookie to pin the user session. If you inspect the HTTP requests, you will find a `TipMix` cookie in every subsequent request.
 
 ![](./media/app-service-web-test-in-production/04-tip-cookie.png)
 
-## Forçar solicitações de cliente em um slot específico
+## <a name="force-client-requests-to-a-specific-slot"></a>Force client requests to a specific slot
 
-Além do roteamento de tráfego automático, o Serviço de Aplicativo pode encaminhar solicitações para um slot específico. Isso é útil quando você deseja que os usuários consigam aceitar ou recusar seu aplicativo beta. Para fazer isso, use o parâmetro de consulta `x-ms-routing-name`.
+In addition to automatic traffic routing, App Service is able to route requests to a specific slot. This is useful when you want your users to be able to opt-into or opt-out of your beta app. To do this, you use the `x-ms-routing-name` query parameter.
 
-Para redirecionar os usuários para um slot específico usando `x-ms-routing-name`, certifique-se de que o slot já foi adicionado à lista de Roteamento de Tráfego. Como você deseja encaminhar para um slot explicitamente, não importa o percentual de roteamento real que será definido. Se desejar, você pode criar um “link beta” que os usuários podem clicar para acessar o aplicativo beta.
+To reroute users to a specific slot using `x-ms-routing-name`, you must make sure that the slot is already added to the Traffic Routing list. Since you want to route to a slot explicitly, the actual routing percentage you set doesn't matter. If you want, you can craft a "beta link" that users can click to access the beta app.
 
 ![](./media/app-service-web-test-in-production/06-enable-x-ms-routing-name.png)
 
-### Recusar usuários do aplicativo beta
+### <a name="opt-users-out-of-beta-app"></a>Opt users out of beta app
 
-Para permitir que os usuários recusem seu aplicativo beta, é possível colocar este link na página da Web:
+To let users opt out of your beta app, for example, you can put this link in your web page:
 
     <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 
-A cadeia de caracteres `x-ms-routing-name=self` especifica o local de produção. Depois que o navegador do cliente acessar o link, ele não só é redirecionado para o slot de produção, mas todas as solicitações subsequentes conterão o cookie `x-ms-routing-name=self` que fixa a sessão no slot de produção.
+The string `x-ms-routing-name=self` specifies the production slot. Once the client browser access the link, not only is it redirected to the production slot, but every subsequent request will contain the `x-ms-routing-name=self` cookie that pins the session to the production slot.
 
 ![](./media/app-service-web-test-in-production/05-access-production-slot.png)
 
-### Aceitar usuários no aplicativo beta
+### <a name="opt-users-in-to-beta-app"></a>Opt users in to beta app
 
-Para permitir que os usuários aceitem seu aplicativo beta, defina o mesmo parâmetro de consulta como o nome do slot de não produção, por exemplo:
+To let users opt in to your beta app, set the same query parameter to the name of the non-production slot, for example:
 
-		<webappname>.azurewebsites.net/?x-ms-routing-name=staging
+        <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 
-## Mais recursos ##
+## <a name="more-resources"></a>More resources ##
 
--   [Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-staged-publishing.md)
--	[Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md)
--   [Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure](app-service-agile-software-development.md)
--	[Usar ambientes de Operações de Desenvolvimento com eficiência em seus aplicativos Web](app-service-web-staged-publishing-realworld-scenarios.md)
+-   [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing.md)
+-   [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
+-   [Agile software development with Azure App Service](app-service-agile-software-development.md)
+-   [Use DevOps environments effectively for your web apps](app-service-web-staged-publishing-realworld-scenarios.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

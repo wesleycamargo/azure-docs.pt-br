@@ -1,34 +1,40 @@
-1. No portal, acesse **Novo**. Digite “Gateway de Rede Virtual” em pesquisa. Localize **Gateway de rede virtual** na pesquisa, retorne e clique na entrada. Isso abrirá a folha **Criar gateway de rede virtual**.
-2. Clique em **Criar** na parte inferior da folha **Gateway de rede virtual**. A folha **Criar gateway de rede virtual** será aberta. Preencha os valores para seu gateway de rede virtual.
+1. In the portal, go to **New**. Type "Virtual Network Gateway" in search. Locate **Virtual network gateway** in the search return and click the entry. This opens the **Create virtual network gateway** blade.
+2. Click **Create** at the bottom of the **Virtual network gateway** blade. The **Create virtual network gateway** blade will open. Fill in the values for your virtual network gateway.
 
-	![Campos da folha Criar gateway de rede virtual](./media/vpn-gateway-add-gw-rm-portal-include/createvnetgw300.png "Campos da folha Criar gateway de rede virtual")
+    ![Create virtual network gateway blade fields](./media/vpn-gateway-add-gw-rm-portal-include/createvnetgw300.png "Create virtual network gateway blade fields")
 
-3. **Nome**: nomeie o seu gateway. Isso não é igual a nomear uma sub-rede de gateway. É o nome do objeto de gateway que você está criando.
+3. **Name**: Name your gateway. This is not the same as naming a gateway subnet. It's the name of the gateway object you are creating.
 
-4. **Tipo de gateway**: selecione **VPN**. Gateways VPN usam o tipo de gateway de rede virtual **VPN**.
+4. **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**. 
 
-5. **Tipo de VPN**: selecione o Tipo de VPN especificado para sua configuração. A maioria das configurações exige um tipo de VPN baseado em rota.
+5. **VPN type**: Select the VPN type that is specified for your configuration. Most configurations require a Route-based VPN type.
 
-6. **SKU**: selecione o SKU de gateway no menu suspenso. As SKUs listadas na lista suspensa dependem do tipo de VPN selecionado.
+6. **SKU**: Select the gateway SKU from the dropdown. The SKUs listed in the dropdown depend on the VPN type you select.
 
-7. **Local**: ajuste o campo **Local** para apontar para o local onde está sua rede virtual.
+7. **Location**: Adjust the **Location** field to point to the location where your virtual network is located.
  
-8. Escolha a rede virtual à qual você deseja adicionar este gateway. Clique em **Rede virtual** para abrir a folha **Escolher uma rede virtual**. Selecione a rede virtual. Se você não vir a sua rede virtual, verifique se o campo **Local** está apontando para a região na qual sua rede virtual está localizada.
+8. Choose the virtual network to which you want to add this gateway. Click **Virtual network** to open the **Choose a virtual network** blade. Select the VNet. If you don't see your VNet, make sure the **Location** field is pointing to the region in which your virtual network is located.
 
-9. Escolha um endereço IP público. Clique em **Endereço IP público** para abrir a folha **Escolher endereço IP público**. Clique em **+Criar Novo** para abrir a folha **Criar endereço IP público**. Dê um nome para o seu endereço IP público. Esta folha cria um objeto de endereço IP público para o qual um endereço IP público será atribuído dinamicamente.<br>Clique em **OK** para salvar as alterações nessa folha.
+9. Choose a public IP address. Click **Public IP address** to open the **Choose public IP address** blade. Click **+Create New** to open the **Create public IP address blade**. Input a name for your public IP address. This blade creates a public IP address object to which a public IP address will be dynamically assigned.<br>Click **OK** to save your changes to this blade.
 
-10. **Assinatura**: verifique se a assinatura correta foi selecionada.
+10. **Subscription**: Verify that the correct subscription is selected.
 
-11. **Grupo de recursos**: essa configuração é determinada pela Rede virtual selecionada.
+11. **Resource group**: This setting is determined by the Virtual Network that you select. 
 
-12. Não ajuste o **Local** depois de especificar as configurações acima.
+12. Don't adjust the **Location** after you've specified the previous settings.
 
-13. Verifique as configurações. Você pode selecionar **Fixar no painel** na parte inferior da folha se quer que seu gateway apareça no painel.
+13. Verify the settings. You can select **Pin to dashboard** at the bottom of the blade if you want your gateway to appear on the dashboard.
 
-14. Clique em **Criar** para começar a criar o gateway. As configurações serão validadas e você verá o bloco "Gateway de rede virtual implantado" no painel. A criação de um gateway pode levar até 45 minutos. Talvez seja necessário atualizar a página do portal para ver o status concluído.
+14. Click **Create** to begin creating the gateway. The settings will be validated and you'll see the "Deploying Virtual network gateway" tile on the dashboard. Creating a gateway can take up to 45 minutes. You may need to refresh your portal page to see the completed status.
 
-	![Implantar gateway de rede virtual](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png "Implantar gateway de rede virtual")
+    ![Deploying Virtual network gateway](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png "Deploying Virtual network gateway")
 
-11. Depois de criar o gateway você pode exibir, observando a Rede Virtual no portal, o endereço IP que foi atribuído a esse gateway. O gateway será exibido como um dispositivo conectado. Você pode clicar no dispositivo conectado (seu gateway de rede virtual) para exibir mais informações.
+11. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway will appear as a connected device. You can click the connected device (your virtual network gateway) to view more information.
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

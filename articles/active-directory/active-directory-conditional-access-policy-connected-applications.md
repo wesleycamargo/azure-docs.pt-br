@@ -1,176 +1,181 @@
 <properties
-	pageTitle="Como definir a política de acesso condicional com base no dispositivo do Azure Active Directory para controle de acesso dos aplicativos conectados no Azure Active Directory"
-	description="Explica como os administradores de TI podem configurar políticas de acesso condicional com base no dispositivo para aplicativos conectados do Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="How to set Azure Active Directory device-based conditional access policy for access control to Azure Active Directory connected applications"
+    description="Explains how IT admins can set device-based conditional access policies for Azure AD connected applications."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/14/2016"
-	ms.author="markvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/14/2016"
+    ms.author="markvi"/>
 
 
-# Como definir a política de acesso condicional com base no dispositivo do Azure Active Directory para controle de acesso dos aplicativos conectados no Azure Active Directory 
+
+# <a name="how-to-set-azure-active-directory-device-based-conditional-access-policy-for-access-control-to-azure-active-directory-connected-applications"></a>How to set Azure Active Directory device-based conditional access policy for access control to Azure Active Directory connected applications 
 
 
-O acesso condicional com base no dispositivo do Azure Active Directory é a capacidade que você tem para proteger os recursos organizacionais de:
+Azure Active Directory device-based conditional access is the ability you have to protect organizational resources from:
 
-- Acesso proveniente de dispositivos desconhecidos / não gerenciados
-- De dispositivos que não atendem às políticas de segurança, conforme definido pela sua organização.
+- Access made from unknown / unmanaged devices 
+- From devices that don’t meet security policies as defined by your organization. 
 
-Para obter uma visão geral sobre o acesso condicional, confira [Acesso condicional ao Azure Active Directory](active-directory-conditional-access.md).
+For an overview on conditional access, see [Azure Active Directory conditional access](active-directory-conditional-access.md). 
 
-Você pode definir as políticas de acesso condicional com base no dispositivo para proteger o seguinte:
+You can set device-based conditional access policies to protect the following: 
 
-- Office 365 SharePoint Online para proteger sites e documentos organizacionais.
+- Office 365 SharePoint Online to protect organizational sites and documents. 
 
-- Office 365 Exchange Online para proteger emails organizacionais.
+- Office 365 Exchange Online to protect organizational email. 
 
-- Aplicativos de SaaS conectados ao Azure AD para autenticação.
+- SaaS applications connected to Azure AD for authentication. 
 
-- Aplicativos locais publicados por meio do Proxy de aplicativo do Azure AD.
-
-
-No Portal de Gerenciamento do Azure, você pode definir esta política ao visitar o aplicativo específico no diretório.
-
- 
-  ![Aplicativos](./media/active-directory-conditional-access-policy-connected-applications/01.png "Aplicativos")
+- On-premises applications published through the Azure AD Application Proxy. 
 
 
-Após selecionar o aplicativo, clique na guia **Configurar** para definir a política de acesso condicional.
-
-
-  ![Regras de acesso com base no dispositivo](./media/active-directory-conditional-access-policy-connected-applications/02.png "Regras de acesso com base no dispositivo")
-
+In the Azure management portal, you can set this policy by going to the specific application in the directory. 
 
  
+  ![Applications](./media/active-directory-conditional-access-policy-connected-applications/01.png "Applications")
 
-Para habilitar uma política de acesso condicional com base no dispositivo, na seção **Regras de acesso com base no dispositivo**, para **Habilitar as regras de acesso**, selecione **Ativado**.
 
-Essa política consiste em três componentes:
+After selecting the application, click the **Configure** tab to set the Conditional Access policy.  
 
-1. **Aplicar a** - O escopo de usuários para os quais esta política é aplicável ao acessarem o aplicativo.
 
-2. **Regras do Dispositivo** - Os requisitos exigidos que os dispositivos devem atender antes de acessar o aplicativo.
+  ![Device based access rules](./media/active-directory-conditional-access-policy-connected-applications/02.png "Device based access rules")
 
-3. **Imposição do Aplicativo** - Os aplicativos do cliente (nativo versus navegador) para os quais a política deve ser avaliada.
 
-  ![Regras de acesso com base no dispositivo](./media/active-directory-conditional-access-policy-connected-applications/03.png "Regras de acesso com base no dispositivo")
  
 
-## Seleção dos usuários para os quais a política se aplica 
+To enable a device-based conditional access policy, in the **Device based access rules** section, for **Enable Access Rules**, select **On**. 
 
-Na seção **Aplicar a**, você pode selecionar o escopo de usuários para os quais essa política se aplica.
+This policy consist of three components:
 
-Você tem duas opções para o escopo:
+1. **Apply To** -  The scope of users this policy applies to when accessing the application. 
 
-- **Todos os usuários** - Para todas as pessoas que acessarem o aplicativo
+2. **Device Rules** -  The required conditions devices must meet before accessing the application. 
 
-- **Grupos** - Para limitar o escopo aos usuários que são membros de um ou mais grupos.
+3. **Application Enforcement** -  The client applications (native vs. browser) the policy should be evaluated for. 
 
-![Aplicar a](./media/active-directory-conditional-access-policy-connected-applications/11.png "Aplicar a")
-
-
-Ao selecionar **Exceto**, você pode excluir usuários dessa política enquanto acessam o aplicativo. Isso é útil quando você precisa permitir que usuários específicos acessem o aplicativo temporariamente. Selecione esta opção, por exemplo, se alguns dos seus usuários tiverem dispositivos que não estão prontos para o acesso condicional (ainda não registrados, fora de conformidade, etc.).
+  ![Device based access rules](./media/active-directory-conditional-access-policy-connected-applications/03.png "Device based access rules")
  
 
-## Selecionando as condições que os dispositivos devem atender 
+## <a name="selecting-the-users-the-policy-applies-to"></a>Selecting the users the policy applies to 
 
-Com as **Regras de Dispositivo**, defina os requisitos para que os dispositivos possam acessar o aplicativo.
+In the **Apply To** section, you can select the scope of users this policy applies to. 
 
-Para o acesso condicional com base no dispositivo, há suporte para os seguintes dispositivos:
+You have two options for the scope:
 
-- Atualização de Aniversário do Windows 10, Windows 7 e Windows 8.1.
+- **All Users** - For everyone accessing the application 
 
-- Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2
+- **Groups** - To limit the scope to users that are a member of a group or groups. 
 
-- Dispositivos iOS (iPad, iPhone)
-
-- Dispositivos Android
-
-O suporte para Mac será disponibilizado em breve.
-
-  ![Dispositivos](./media/active-directory-conditional-access-policy-connected-applications/04.png "Aplicativos")
+![Apply to](./media/active-directory-conditional-access-policy-connected-applications/11.png "Apply to")
 
 
-
- >[AZURE.NOTE] Para obter informações sobre as diferenças entre o ingresso no domínio e o ingresso do Azure AD, confira [Usando dispositivos com Windows 10 no local de trabalho](active-directory-azureadjoin-windows10-devices.md).
-
-
-Você tem duas opções para as regras de dispositivo:
-
-- **Todos os dispositivos devem ser compatíveis** - Isso exige que todas as plataformas de dispositivo que acessam o aplicativo sejam compatíveis. Para plataformas que não dão suporte para o acesso condicional com base no dispositivo, os dispositivos têm o acesso negado.
-
-- **Apenas dispositivos selecionados devem ser compatíveis** - Isso exige que somente as plataformas de dispositivo selecionadas sejam compatíveis. As plataformas não selecionadas ou outras plataformas que acessam o aplicativo têm permissão de acesso.
-
-  ![Aplicativos](./media/active-directory-conditional-access-policy-connected-applications/05.png "Aplicativos")
-
-
-
-Os dispositivos do Azure AD associados são compatíveis quando estão marcados como **compatíveis** no diretório pelo Microsoft Intune ou por um sistema de MDM (gerenciamento de dispositivo móvel) de terceiros que se integra ao Azure AD.
-
-Os dispositivos ingressados no domínio são compatíveis em uma das duas maneiras:
-
-- Se eles forem registrados com o Azure AD, o fato de eles serem ingressados no domínio poderá fazer com que muitas organizações os tratem como dispositivos confiáveis.
-
-- Se eles estiverem marcados como 'compatíveis' no Azure AD pelo System Center Configuration Manager 2016.
-
- ![Regras de Dispositivo](./media/active-directory-conditional-access-policy-connected-applications/06.png "Regras de Dispositivo")
+By selecting **Except**, you can exclude users from this policy while accessing the application. This is helpful when you need to enable specific users to access the application temporarily. Select this option, for example, if some of your users have devices that are not ready for conditional access (not yet registered, coming out of compliance, etc.).
  
 
-Os dispositivos pessoais do Windows são compatíveis quando estão marcados como **compatíveis** no diretório pelo Microsoft Intune ou por um sistema de MDM (gerenciamento de dispositivo móvel) de terceiros que se integra ao Azure AD.
+## <a name="selecting-the-conditions-that-devices-must-meet"></a>Selecting the conditions that devices must meet 
 
-Os dispositivos que não são do Windows são compatíveis quando estão marcados como **compatíveis** no diretório pelo Microsoft Intune.
+With **Device Rules**, you set the conditions for devices to be able to access the application. 
 
- >[AZURE.NOTE] Para obter mais informações sobre como configurar o Azure AD para fins de conformidade do dispositivo pelo sistema de gerenciamento, confira [Acesso condicional ao Azure Active Directory](active-directory-conditional-access.md).
+For Device-based Conditional Access, the following devices are supported: 
+
+- Windows 10 Anniversary Update, Windows 7 and Windows 8.1. 
+
+- Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 and Windows Server 2008 R2 
+
+- iOS devices (iPad, iPhone) 
+
+- Android devices 
+
+Support for Mac is coming soon. 
+
+  ![Devices](./media/active-directory-conditional-access-policy-connected-applications/04.png "Applications")
 
 
-Ao selecionar as plataformas de dispositivo específicas, você pode escolher uma ou várias opções, incluindo Android, iOS, Windows Mobile (telefones e tablets Windows 8.1) e Windows (todos os outros dispositivos Windows, incluindo todos os dispositivos Windows 10). Com esta opção, a avaliação da política ocorre apenas em plataformas selecionadas. Se houver uma tentativa de acesso de um dispositivo que não faz parte da seleção, nenhuma política de dispositivo será avaliada e o dispositivo será permitido se o usuário também for.
 
-![Regras de Dispositivo](./media/active-directory-conditional-access-policy-connected-applications/07.png "Regras de Dispositivo")
+ >[AZURE.NOTE] For information about differences between Domain Join and Azure AD Join please see [Using Windows 10 devices in your workplace](active-directory-azureadjoin-windows10-devices.md). 
+
+
+You have two options for device rules: 
+
+- **All devices must be compliant** - This requires all device platforms accessing the application to be compliant. For platforms that don't support Device-based Conditional Access, the devices are denied access. 
+
+- **Only selected devices must be compliant** - This requires only selected device platforms to be compliant. Non-selected platforms or other platforms accessing the application are allowed access.”
+
+  ![Applications](./media/active-directory-conditional-access-policy-connected-applications/05.png "Applications")
+
+
+
+Azure AD joined devices are compliant if they are marked as **compliant** in the directory by Microsoft Intune or a 3rd party Mobile Device Management (MDM) system that integrates with Azure AD. 
+
+Domain joined devices are compliant in one of two ways: 
+
+- If they are registered with Azure AD, the fact that they are domain joined many organizations treat them as trusted devices. 
+
+- If they are marked as ‘compliant’ in the Azure AD by System Center Configuration Manager 2016. 
+
+ ![Device Rules](./media/active-directory-conditional-access-policy-connected-applications/06.png "Device Rules")
+ 
+
+Windows personal devices are compliant if they are marked as **compliant** in the directory by Microsoft Intune or a 3rd party Mobile Device Management (MDM) system that integrates with Azure AD. 
+
+Non-Windows devices are compliant if they are marked as **compliant** in the directory by Microsoft Intune. 
+
+ >[AZURE.NOTE] For more information on how to setup Azure AD for device compliance by management system, see [Azure Active Directory Conditional Access](active-directory-conditional-access.md). 
+
+
+When you select specific device platforms, you can select one or multiple options including Android, iOS, Windows Mobile (Windows 8.1 phones and tablets) and Windows (all other Windows devices including all Windows 10 devices). With this option, the policy evaluation only occurs on the selected platforms. If access is attempted from a device that is not part of the selection, no device policy is evaluated and the device is allowed if the user is. 
+
+![Device Rules](./media/active-directory-conditional-access-policy-connected-applications/07.png "Device Rules")
   
 
-## Seleção do tipo de aplicativos de cliente sob a política em que serão avaliados 
+## <a name="selecting-the-type-of-client-applications-under-which-policy-will-be-evaluated"></a>Selecting the type of client applications under which policy will be evaluated 
 
-Na seção **Imposição do Aplicativo**, você define o tipo de aplicativos no qual a política deverá ser avaliada.
-
-
-Você tem duas opções de aplicativos:
-
-- Para aplicativos de navegador e nativos
-- Somente para aplicativos nativos.
+In the **Application Enforcement** section, you set the type of applications the policy must be evaluated for.
 
 
-![Aplicativos](./media/active-directory-conditional-access-policy-connected-applications/08.png "Aplicativos")
+You have two options for applications: 
+
+- For browser and native applications 
+- For only native applications. 
 
 
-Selecionar a opção **Para aplicativos de navegador e nativos** impõe a política de acesso a aplicativos por:
+![Applications](./media/active-directory-conditional-access-policy-connected-applications/08.png "Applications")
 
-- Navegadores (por exemplo, o Edge no Windows 10, o Safari no iOS, etc.)
-- Aplicativos que usam a ADAL (Biblioteca de Autenticação do Active Directory) em qualquer plataforma ou na API WAM (Gerenciador de Contas da Web) no Windows 10
 
->[AZURE.NOTE] Para obter mais informações sobre o suporte ao navegador e outras considerações para o usuário final que está acessando os aplicativos protegidos da AC com base no dispositivo, confira [Acesso condicional ao Azure Active Directory](active-directory-conditional-access.md).
+Selecting **For browser and native applications** enforces the policy on access to applications by: 
 
- 
+- Browsers (e.g. Edge in Windows 10, Safari in iOS, etc.) 
+- Applications using the Active Directory Authentication Library (ADAL) in any platform or the Web Account Manager (WAM) API in Windows 10 
 
-## Protegendo o acesso a email do Exchange Active Sync com base em aplicativos 
-
-Nos aplicativos do Office 365 Exchange Online, você tem uma seção adicional chamada **Exchange Activesync**. Esta seção permite que você bloqueie o acesso ao email para aplicativos de email com base no Exchange Active Sync.
-
-![Aplicativos](./media/active-directory-conditional-access-policy-connected-applications/09.png "Aplicativos")
- 
-![Aplicativos](./media/active-directory-conditional-access-policy-connected-applications/10.png "Aplicativos")
+>[AZURE.NOTE] For more information about browser support and other considerations for the end-user accessing device-based CA protected applications see, [Azure Active Directory Conditional Access](active-directory-conditional-access.md). 
 
  
-## Tópicos adicionais
 
-- [Acesso condicional ao Azure Active Directory](active-directory-conditional-access.md)
+## <a name="protecting-email-access-from-exchange-active-sync-based-applications"></a>Protecting email access from Exchange Active Sync based applications 
 
-<!---HONumber=AcomDC_0914_2016-->
+In Office 365 Exchange Online applications, you have an additional section called **Exchange Activesync**. This section enables you to block email access to Exchange Active Sync based mail applications. 
+
+![Applications](./media/active-directory-conditional-access-policy-connected-applications/09.png "Applications")
+ 
+![Applications](./media/active-directory-conditional-access-policy-connected-applications/10.png "Applications")
+
+ 
+## <a name="additional-topics"></a>Additional topics
+
+- [Azure Active Directory Conditional Access](active-directory-conditional-access.md) 
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

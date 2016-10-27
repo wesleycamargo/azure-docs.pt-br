@@ -1,11 +1,12 @@
-## Visão geral dos modelos do Gerenciador de Recursos do Azure
+## <a name="overview-of-azure-resource-manager-templates"></a>Overview of Azure Resource Manager templates
 
-O modelo do Azure Resource Manager permite especificar de forma declarativa a infraestrutura IaaS do Azure na linguagem JSON definindo as dependências entre recursos. Para obter uma visão geral detalhada dos Modelos do Azure Resource Manager, consulte os artigos abaixo:
+Azure Resource Manager templates allow you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources. For a detailed overview of Azure Resource Manager Templates, please refer to the article below:
 
-[Visão geral do Grupo de Recursos](../articles/resource-group-overview.md)
+[Resource Group Overview](../articles/resource-group-overview.md)
 
-## Trecho de código do modelo de exemplo para extensões de VM
-Implantar as extensões de VM como parte de um modelo do Azure Resource Manager exige uma especificação declarativa e a configuração da extensão no modelo. Veja abaixo o formato para especificar a configuração da extensão.
+## <a name="sample-template-snippet-for-vm-extensions"></a>Sample template snippet for VM extensions
+Deploying VM extensions as part of an Azure Resource Manager template requires you to declaratively specify the extension configuration in the template.
+Here is the format for specifying the extension configuration.
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -24,13 +25,15 @@ Implantar as extensões de VM como parte de um modelo do Azure Resource Manager 
       }
       }
 
-Como você pode ver no exemplo acima, o modelo de extensão contém duas partes principais:
+As you can see from the above, the extension template contains two main parts:
 
-1. Nome da extensão, editor e versão
-2. Configuração da Extensão.
+1. Extension name, publisher and version
+2. Extension Configuration.
 
-## Identificando o editor, o tipo e a typeHandlerVersion de qualquer extensão
+## <a name="identifying-the-publisher,-type,-and-typehandlerversion-for-any-extension"></a>Identifying the publisher, type, and typeHandlerVersion for any extension
 
-As extensões de VM do Azure são publicadas pela Microsoft e por editores terceiros confiáveis, e cada extensão é identificada exclusivamente por seu editor, tipo e typeHandlerVersion. Elas podem ser determinadas da seguinte maneira:
+Azure VM extensions are published by Microsoft and trusted 3rd party publishers and each extension is uniquely identified by its publisher,type and the typeHandlerVersion. These can be determined as following:  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

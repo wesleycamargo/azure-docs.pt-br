@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Visão do desempenho de consulta de Banco de Dados SQL do Azure" 
-   description="O monitoramento do desempenho de consulta identifica as consultas que consumem mais CPU de um Banco de Dados SQL do Azure." 
+   pageTitle="Azure SQL Database Query Performance Insight" 
+   description="Query performance monitoring identifies the most CPU-consuming queries for an Azure SQL Database." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -16,216 +16,218 @@
    ms.date="08/09/2016"
    ms.author="sstein"/>
 
-# Visão do desempenho de consulta de Banco de Dados SQL do Azure
+
+# <a name="azure-sql-database-query-performance-insight"></a>Azure SQL Database Query Performance Insight
 
 
-Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tarefa desafiadora que requer conhecimento significativo e investimento de tempo. A Análise de Desempenho de Consultas permite que você gaste menos tempo solucionando problemas de desempenho de banco de dados, fornecendo o seguinte:
+Managing and tuning the performance of relational databases is a challenging task that requires significant expertise and time investment. Query Performance Insight allows you to spend less time troubleshooting database performance by providing the following:
 
-- Mais informações sobre o consumo de recursos de bancos de dados (DTU).
-- As principais consultas por contagem de CPU/Duração/Execução, que potencialmente podem ser ajustadas para melhorar o desempenho.
-- A capacidade de analisar os detalhes de uma consulta, exibir o texto e o histórico de utilização de recursos.
-- Anotações de ajuste de desempenho que mostram as ações executadas [Advisor do Banco de Dados SQL Azure](sql-database-advisor.md)
+- Deeper insight into your databases resource (DTU) consumption. 
+- The top queries by CPU/Duration/Execution count, which can potentially be tuned for improved performance.
+- The ability to drill down into the details of a query, view its text and history of resource utilization. 
+- Performance tuning annotations that show actions performed by [SQL Azure Database Advisor](sql-database-advisor.md)  
 
-​
 
-## Pré-requisitos
 
-- A Visão do Desempenho de Consulta está disponível somente com o Banco de Dados SQL do Azure V12.
-- A Análise de Desempenho de Consultas exige a execução do [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx) em seu banco de dados. Se o Repositório de Consultas não estiver em execução, o portal solicitará que você o ative.
+## <a name="prerequisites"></a>Prerequisites
+
+- Query Performance Insight is only available with Azure SQL Database V12.
+- Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. If Query Store is not running, the portal prompts you to turn it on.
 
  
-## Permissões
+## <a name="permissions"></a>Permissions
 
-As seguintes permissões de [controle de acesso baseado em função](../active-directory/role-based-access-control-configure.md) são necessárias para usar a Visão do Desempenho de Consulta:
+The following [role-based access control](../active-directory/role-based-access-control-configure.md) permissions are required to use Query Performance Insight: 
 
-- As permissões **Leitor**, **Proprietário**, **Colaborador**, **Colaborador do Banco de Dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir as consultas e gráficos que consomem mais recursos.
-- As permissões **Proprietário**, **Colaborador**, **Colaborador do Banco de Dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir o texto da consulta.
-
-
-
-## Usando a Visão de Desempenho de Consulta
-
-A Visão do Desempenho de Consulta é fácil de usar:
-
-- Abra o [portal do Azure](https://portal.azure.com/) e localize o banco de dados de localização que você deseja examinar.
-  - No menu do lado esquerdo, em suporte e solução de problemas, selecione "Análise de Desempenho de Consultas".
-- Na primeira guia, examine a lista das consultas que consomem mais recursos.
-- Escolha uma consulta individual para exibir seus detalhes.
-- Abra o [Advisor do Banco de Dados do SQL Azure](sql-database-advisor.md) e verifique se há alguma recomendação disponível.
-- Use os controles deslizantes ou os ícones de zoom para alterar o intervalo observado.
-
-    ![painel de desempenho](./media/sql-database-query-performance/performance.png)
-
-> [AZURE.NOTE] São necessárias duas horas de dados a serem capturados pelo Repositório de Consulta para fornecer as análises de desempenho de consultas no banco de dados SQL. Se o banco de dados não tem atividades ou o Armazenamento de Consulta não estava ativo durante um determinado período de tempo, os gráficos estarão vazios ao exibir o período de tempo. Você pode habilitar o Armazenamento de Consulta a qualquer momento se ele não estiver em execução.
+- **Reader**, **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view the top resource consuming queries and charts. 
+- **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view query text.
 
 
 
-## Examinar as consultas que mais consomem CPU
+## <a name="using-query-performance-insight"></a>Using Query Performance Insight
 
-No [portal](http://portal.azure.com), faça o descrito a seguir:
+Query Performance Insight is easy to use:
 
-1. Navegue até um banco de dados SQL e clique em **Todas as configurações** > **Suporte + Solução de problemas** > **Análise de desempenho de consultas**.
+- Open [Azure portal](https://portal.azure.com/) and find database that you want to examine. 
+  - From left-hand side menu, under support and troubleshooting, select “Query Performance Insight”.
+- On the first tab, review the list of top resource-consuming queries.
+- Select an individual query to view its details.
+- Open [SQL Azure Database Advisor](sql-database-advisor.md) and check if any recommendations are available.
+- Use sliders or zoom icons to change observed interval.
 
-    ![Visão de Desempenho de Consulta][1]
+    ![performance dashboard](./media/sql-database-query-performance/performance.png)
 
-    A exibição das principais consultas é aberta e as consultas que consomem mais CPU são listadas.
+> [AZURE.NOTE] A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insights. If the database has no activity or Query Store was not active during a certain time period, the charts will be empty when displaying that time period. You may enable Query Store at any time if it is not running.   
 
-1. Clique em torno do gráfico para obter detalhes.<br>A linha superior mostra a % de DTU geral do banco de dados, enquanto as barras mostram a % de CPU consumida pelas consultas selecionadas durante o intervalo escolhido (por exemplo, se **Semana passada** for escolhida, cada barra representará um dia).
 
-    ![principais consultas][2]
 
-    A grade inferior representa informações agregadas das consultas visíveis.
+## <a name="review-top-cpu-consuming-queries"></a>Review top CPU consuming queries
 
-  -	ID da consulta: identificador exclusivo da consulta no banco de dados.
-  -	CPU por consulta durante o intervalo observável (depende da função de agregação).
-  -	Duração por consulta (depende da função de agregação).
-  -	Número total de execuções para uma consulta específica.
+In the [portal](http://portal.azure.com) do the following:
 
-    Marque ou desmarque as consultas individuais para incluir ou exclui-las do gráfico usando as caixas de seleção.
+1. Browse to a SQL database and click **All settings** > **Support + Troubleshooting** > **Query performance insight**. 
 
-1. Se os dados se tornarem obsoletos, clique no botão **Atualizar**.
-1. Você pode usar os controles deslizantes e os botões de zoom para alterar o intervalo de observação e investigar os picos: ![configurações](./media/sql-database-query-performance/zoom.png)
-1. Opcionalmente, se você quiser uma exibição diferente, você pode selecionar a guia **Personalizar** e definir:
+    ![Query Performance Insight][1]
+
+    The top queries view opens and the top CPU consuming queries are listed.
+
+1. Click around the chart for details.<br>The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if **Past week** is selected each bar represents one day).
+
+    ![top queries][2]
+
+    The bottom grid represents aggregated information for the visible queries.
+
+  - Query ID – unique identifier of query inside database.
+  - CPU per query during observable interval (depends on aggregation function).
+  - Duration per query (depends on aggregation function).
+  - Total number of executions for a particular query.
+
+    Select or clear individual queries to include or exclude them from the chart using checkboxes.
+
+1. If your data becomes stale, click the **Refresh** button.
+1. You can use sliders and zoom buttons to change observation interval and investigate spikes:  ![settings](./media/sql-database-query-performance/zoom.png)
+1. Optionally, if you want a different view, you can select **Custom** tab and set:
   
-  - Métrica (CPU, duração, contagem de execução)
-  - Intervalo de tempo (Últimas 24 horas, Última semana, Mês passado).
-  - Número de consultas.
-  - Função de agregação.
+  - Metric (CPU, duration, execution count)
+  - Time interval (Last 24 hours, Past week, Past month). 
+  - Number of queries.
+  - Aggregation function.
 
-    ![configurações](./media/sql-database-query-performance/custom-tab.png)
+    ![settings](./media/sql-database-query-performance/custom-tab.png)
 
-## Exibindo detalhes de uma consulta individual
+## <a name="viewing-individual-query-details"></a>Viewing individual query details
 
-Para exibir detalhes da consulta:
+To view query details:
 
-1. Clique em qualquer consulta na lista de consultas principais.
+1. Click any query in the list of top queries.
 
-    ![detalhes](./media/sql-database-query-performance/details.png)
+    ![details](./media/sql-database-query-performance/details.png)
 
-1. A exibição de detalhes é aberta e o consumo de CPU/Duração/Contagem de execução de consultas é dividido ao longo do tempo.
-1. Clique em torno do gráfico para obter detalhes.
-  - O gráfico superior mostra a linha com a % de DTU do banco de dados geral e as barras são a % de CPU consumida pela consulta selecionada.
-  - O segundo gráfico mostra a duração total pela consulta selecionada.
-  - O gráfico na parte inferior mostra o número total de execuções pela consulta selecionada.
+1. The details view opens and the queries CPU consumption/Duration/Execution count is broken down over time.
+1. Click around the chart for details.
+  - Top chart shows line with overall database DTU%, and the bars are CPU% consumed by the selected query.
+  - Second chart shows total duration by the selected query.
+  - Bottom chart shows total number of executions by the selected query.
     
-    ![detalhes da consulta][3]
+    ![query details][3]
 
-1. Opcionalmente, use os controles deslizantes, os botões de zoom ou clique em **Configurações** para personalizar a exibição dos dados de consumo de CPU ou escolher um período de tempo diferente.
+1. Optionally, use sliders, zoom buttons or click **Settings** to customize how query data is displayed, or to pick a different time period.
 
-## Analise as principais consultas por duração
+## <a name="review-top-queries-per-duration"></a>Review top queries per duration
 
-Na atualização recente da Análise de Desempenho de Consultas, apresentamos duas novas métricas que podem ajudar a identificar possíveis afunilamentos: duração e contagem de execução.<br>
+In the recent update of Query Performance Insight, we introduced two new metrics that can help you identify potential bottlenecks: duration and execution count.<br>
 
-Consultas de longa execução tem o maior potencial para bloquear recursos por mais tempo, bloqueando outros usuários e limitando a escalabilidade. Elas também são as melhores candidatas para otimização.<br>
+Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They are also the best candidates for optimization.<br>
 
-Para identificar consultas de longa execução:
+To identify long running queries:
 
-1. Abra a guia **Personalizar** na Análise de Desempenho de Consultas do banco de dados selecionado
-1. Altere as métricas para **duração**
-1. Selecione o número de consultas e o intervalo de observação
-1. Selecione a função de agregação
-  - **Soma** adiciona todo o tempo de execução de consulta durante todo o intervalo de observação.
-  - **Máximo** localiza consultas para as quais tempo de execução foi máximo no intervalo inteiro de observação.
-  - **Média** encontra a média de tempo de execução de todas as execuções de consulta e mostra a você as primeiras entre essas médias.
+1. Open **Custom** tab in Query Performance Insight for selected database
+1. Change metrics to be **duration**
+1. Select number of queries and observation interval
+1. Select aggregation function
+  - **Sum** adds up all query execution time during whole observation interval.
+  - **Max** finds queries which execution time was maximum at whole observation interval.
+  - **Avg** finds average execution time of all query executions and show you the top out of these averages. 
 
-    ![duração da consulta][4]
+    ![query duration][4]
 
-## Analise as principais consultas por contagem de execução
+## <a name="review-top-queries-per-execution-count"></a>Review top queries per execution count
 
-Um alto número de execuções pode não estar afetando o banco de dados propriamente dito e o uso de recursos pode ser baixo, mas o aplicativo pode ficar lento no geral.
+High number of executions might not be affecting database itself and resources usage can be low, but overall application might get slow.
 
-Em alguns casos, a contagem de execução muito alta pode levar a um aumento das viagens de ida e volta na rede. Viagens de ida e afetam o desempenho de forma significativa. Elas estão sujeitas à latência de rede e à latência do servidor downstream.
+In some cases, very high execution count may lead to increase of network round trips. Round trips significantly affect performance. They are subject to network latency and to downstream server latency. 
 
-Por exemplo, muitos sites orientados a dados acessam bastante o banco de dados para cada solicitação do usuário. Apesar do pool de conexões ajudar, o maior tráfego de rede e a maior carga de processamento no servidor de banco de dados podem prejudicar o desempenho. A orientação geral é manter a menor quantidade possível de viagens de ida e volta.
+For example, many data-driven Web sites heavily access the database for every user request. While connection pooling helps, the increased network traffic and processing load on the database server can adversely affect performance.  General advice is to keep round trips to an absolute minimum.
 
-Para identificar consultas executadas com frequência, consultas ("tagarelas"):
+To identify frequently executed queries (“chatty”) queries:
 
-1. Abra a guia **Personalizar** na Análise de Desempenho de Consultas do banco de dados selecionado
-1. Altere as métricas para **contagem de execução**
-1. Selecione o número de consultas e o intervalo de observação
+1. Open **Custom** tab in Query Performance Insight for selected database
+1. Change metrics to be **execution count**
+1. Select number of queries and observation interval
 
-    ![contagem de execução da consulta][5]
+    ![query execution count][5]
 
-## Noções básicas sobre anotações de ajuste de desempenho 
+## <a name="understanding-performance-tuning-annotations"></a>Understanding performance tuning annotations 
 
-Ao explorar a carga de trabalho na Análise de Desempenho de Consultas, você pode notar ícones com uma linha vertical na parte superior do gráfico.<br>
+While exploring your workload in Query Performance Insight, you might notice icons with vertical line on top of the chart.<br>
 
-Esses ícones são anotações; eles representam as ações que afetam o desempenho executadas pelo [Advisor do Banco de Dados SQL Azure](sql-database-advisor.md). Passando com o mouse sobre a anotação, você obtém informações básicas sobre a ação:
+These icons are annotations; they represent performance affecting actions performed by [SQL Azure Database Advisor](sql-database-advisor.md). By hovering annotation, you get basic information about the action:
 
-![anotação da consulta][6]
+![query annotation][6]
 
-Se você quiser saber mais ou aplicar a recomendação do Advisor, clique no ícone. O ícone abrirá os detalhes da ação. Se for uma recomendação ativa, você pode aplicar imediatamente usando o comando.
+If you want to know more or apply advisor recommendation, click the icon. It will open details of action. If it’s an active recommendation you can apply it straight away using command.
 
-![detalhes de anotação de consulta][7]
+![query annotation details][7]
 
-### Várias anotações. ###
+### <a name="multiple-annotations."></a>Multiple annotations. ###
 
-É possível, que por causa do nível de zoom, anotações que estão próximas umas às outras serão recolhidas em somente uma anotação. Isso será representado por um ícone especial, clicar nele irá abrirá uma nova folha onde a lista de anotações agrupadas será mostrada. Correlacionar consultas e ações de ajuste de desempenho pode ajudar a compreender melhor a sua carga de trabalho.
+It’s possible, that because of zoom level, annotations that are close to each other will get collapsed into one. This will be represented by special icon, clicking it will open new blade where list of grouped annotations will be shown.
+Correlating queries and performance tuning actions can help to better understand your workload. 
 
 
-## 	Otimizando a configuração do Repositório de Consultas para Análise de Desempenho de Consultas
+##  <a name="optimizing-the-query-store-configuration-for-query-performance-insight"></a>Optimizing the Query Store configuration for Query Performance Insight
 
-Durante o uso da Análise de Desempenho de Consultas, você poderá encontrar as seguintes mensagens do Repositório de Consultas:
+During your use of Query Performance Insight, you might encounter the following Query Store messages:
 
-- "O Repositório de Consulta não está corretamente configurado neste banco de dados. Clique aqui para saber mais."
-- "O Repositório de Consulta não está corretamente configurado neste banco de dados. Clique aqui para alterar as configurações."
+- "Query Store is not properly configured on this database. Click here to learn more."
+- "Query Store is not properly configured on this database. Click here to change settings." 
 
-Normalmente, essas mensagens aparecem quando o Repositório de Consultas não está apto a coletar novos dados.
+These messages usually appear when Query Store is not able to collect new data. 
 
-O primeiro caso ocorre quando o Repositório de Consultas está em estado somente leitura e os parâmetros são definidos de forma ideal. Você pode corrigir isso, aumentando o tamanho do Repositório de Consultas ou desmarcando o Repositório de Consultas.
+First case happens when Query Store is in Read-Only state and parameters are set optimally. You can fix this by increasing size of Query Store or clearing Query Store.
 
-![botão qds][8]
+![qds button][8]
 
-O segundo caso acontece quando o Repositório de Consultas está Desligado ou parâmetros não estão definidos de forma ideal. <br>Você pode alterar a política de Retenção e Captura e habilitar o Repositório de Consultas, executando os comandos a seguir ou diretamente do portal:
+Second case happens when Query Store is Off or parameters aren’t set optimally. <br>You can change the Retention and Capture policy and enable Query Store by executing commands below or directly from portal:
 
-![botão qds][9]
+![qds button][9]
 
-### Política recomendada de retenção e captura
+### <a name="recommended-retention-and-capture-policy"></a>Recommended retention and capture policy
 
-Há dois tipos de política de retenção:
+There are two types of retention policies:
 
-- Baseada em tamanho — se definida para AUTOMÁTICA, ela limpará os dados automaticamente quando o tamanho máximo estiver perto de se atingido.
-- Baseada no tempo — por padrão, nós a definiremos para 30 dias, o que significa que, se o Repositório de Consultas ficar sem espaço, ele excluirá informações de consulta com mais de 30 dias
+- Size based – if set to AUTO it will clean data automatically when near max size is reached.
+- Time based - by default we will set it to 30 days, which means, if Query Store will run out of space, it will delete query information older than 30 days
 
-A política de captura pode ser definida para:
+Capture policy could be set to:
 
-- **Todas**: captura todas as consultas.
-- **Automática**: consultas pouco frequentes e consultas com duração de execução e compilação insignificantes são ignoradas. Os limites da duração de contagem de execução, compilação e tempo de execução são determinados internamente. Essa é a opção padrão.
-- **Nenhuma** – o Repositório de Consultas interrompe a captura de novas consultas, porém, as estatísticas de tempo de execução para consultas já capturadas ainda são coletadas.
-	
-É recomendável definir todas as políticas para AUTOMÁTICA e a limpeza de políticas para 30 dias:
+- **All** – Captures all queries.
+- **Auto** – Infrequent queries and queries with insignificant compile and execution duration are ignored. Thresholds for execution count, compile and runtime duration are internally determined. This is the default option.
+- **None** – Query Store stops capturing new queries, however runtime stats for already captured queries are still collected.
+    
+We recommend setting all policies to AUTO and clean policy to 30 days:
 
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (SIZE_BASED_CLEANUP_MODE = AUTO);
-    	
+        
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30));
     
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 
-Aumente o tamanho do Repositório de Consultas. Essa ação pode ser realizada conectando-se a um banco de dados e emitindo a seguinte consulta:
+Increase size of Query Store. This could be performed by connecting to a database and issuing following query:
 
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 
-Aplicar essas configurações eventualmente fará o Repositório de Consultas coletar novas consultas, no entanto, se você não quiser esperar, você pode limpar o Repositório de Consultas.
-> [AZURE.NOTE] A execução da consulta a seguir excluirá todas as informações atuais no Repositório de Consultas.
+Applying these settings will eventually make Query Store collecting new queries, however if you don’t want to wait you can clear Query Store. 
+> [AZURE.NOTE] Executing following query will delete all current information in the Query Store. 
 
 
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 
 
-## Resumo
+## <a name="summary"></a>Summary
 
-A Visão do Desempenho de Consulta ajuda a entender o impacto de sua carga de trabalho de consulta e como ela se relaciona com o consumo de recursos do banco de dados. Com esse recurso, você saberá mais sobre as consultas que consomem mais recursos e identificará facilmente as que devem ser corrigidas antes que as mesmas se tornem um problema.
-
-
+Query Performance Insight helps you understand the impact of your query workload and how it relates to database resource consumption. With this feature, you will learn about the top consuming queries, and easily identify the ones to fix before they become a problem.
 
 
-## Próximas etapas
 
-Para obter recomendações adicionais sobre como aprimorar o desempenho do seu banco de dados SQL, clique em [Recomendações](sql-database-advisor.md) na folha **Análise de Desempenho de Consultas**.
+
+## <a name="next-steps"></a>Next steps
+
+For additional recommendations about improving the performance of your SQL database, click [Recommendations](sql-database-advisor.md) on the **Query Performance Insight** blade.
 
 ![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
@@ -241,4 +243,9 @@ Para obter recomendações adicionais sobre como aprimorar o desempenho do seu b
 [8]: ./media/sql-database-query-performance/qds-off.png
 [9]: ./media/sql-database-query-performance/qds-button.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

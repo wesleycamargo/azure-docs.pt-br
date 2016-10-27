@@ -1,54 +1,58 @@
 <properties
-	pageTitle="Diretrizes de conjuntos de disponibilidade | Microsoft Azure"
-	description="Saiba mais sobre as principais diretrizes de design e implementação para a implantação de conjuntos de disponibilidade em serviços de infraestrutura do Azure."
-	documentationCenter=""
-	services="virtual-machines-windows"
-	authors="iainfoulds"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Availability Set Guidelines | Microsoft Azure"
+    description="Learn about the key design and implementation guidelines for deploying Availability Sets in Azure infrastructure services."
+    documentationCenter=""
+    services="virtual-machines-windows"
+    authors="iainfoulds"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2016"
-	ms.author="iainfou"/>
-
-# Diretrizes de conjuntos de disponibilidade
-
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
-
-Este artigo concentra-se em compreender as etapas de planejamento necessárias para conjuntos de disponibilidade para garantir que seus aplicativos permaneçam acessíveis durante eventos planejados ou não planejados.
-
-## Diretrizes de implementação para conjuntos de disponibilidade
-
-Decisões:
-
-- Quantos conjuntos de disponibilidade são necessários para as várias funções e camadas da infraestrutura do seu aplicativo?
-
-Tarefas:
-
-- Defina o número de VMs em cada camada de aplicativo que você precisa.
-- Determine se você precisa ajustar o número de falhas ou atualizar domínios a serem usados para seu aplicativo.
-- Definir os conjuntos de disponibilidade necessários usando sua convenção de nomenclatura e quais VMs residem neles. Uma VM pode residir apenas em um conjunto de disponibilidade.
-
-## Conjuntos de disponibilidade
-
-No Azure, VMs (máquinas virtuais) podem ser depositadas em um agrupamento lógico denominado um conjunto de disponibilidade. Quando você cria VMs em um conjunto de disponibilidade, a plataforma do Azure distribui o posicionamento dessas VMs na infraestrutura subjacente. Caso ocorra um evento de manutenção planejada para a plataforma do Azure ou uma falha de infraestrutura/hardware subjacente, o uso de conjuntos de disponibilidade garante que pelo menos uma VM permaneça em execução.
-
-Como prática recomendada, os aplicativos não devem residir em uma única VM. Um conjunto de disponibilidade que contém uma única VM não obtém nenhuma proteção contra eventos planejados ou não planejados na plataforma Azure. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines) requer duas ou mais VMs em um conjunto de disponibilidade para permitir a distribuição de VMs na infraestrutura subjacente.
-
-A infraestrutura subjacente no Azure é dividida em atualizar domínios e domínios de falha. Esses domínios são definidos pelos hosts que compartilham um ciclo de atualização comum ou uma infraestrutura física semelhante, como energia e rede. O Azure distribui automaticamente as VMs em um conjunto de disponibilidade entre domínios para manter a disponibilidade e a tolerância a falhas. Dependendo do tamanho do seu aplicativo e o número de VMs em um conjunto de disponibilidade, você pode ajustar o número de domínios que deseja usar. Você pode ler mais sobre [Gerenciar a disponibilidade e o uso dos domínios de atualização e de falha](virtual-machines-windows-manage-availability.md).
-
-Ao projetar sua infraestrutura de aplicativos, você também deve planejar as camadas de aplicativo que usará. Agrupe VMs que têm a mesma finalidade em conjuntos de disponibilidade, como um conjunto de disponibilidade para suas VMs de front-end executando IIS. Crie um conjunto de disponibilidade separado para suas VMs de back-end executando o SQL Server. O objetivo é garantir que cada componente do aplicativo seja protegido por um conjunto de disponibilidade e pelo menos uma instância sempre permaneça em execução.
-
-Balanceadores de carga podem ser utilizados antes de cada camada de aplicativo para trabalhar junto com um conjunto de disponibilidade e certificar-se de que o tráfego sempre possa ser roteado para uma instância em execução. Sem um balanceador de carga, suas VMs podem continuar em execução durante manutenções planejadas e não planejadas, mas os usuários finais não poderá resolvê-los se a VM primária não estiver disponível.
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/08/2016"
+    ms.author="iainfou"/>
 
 
-## Próximas etapas
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+# <a name="availability-sets-guidelines"></a>Availability sets guidelines
 
-<!---HONumber=AcomDC_0914_2016-->
+[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)] 
+
+This article focuses on understanding the required planning steps for availability sets to ensure your applications remains accessible during planned or unplanned events.
+
+## <a name="implementation-guidelines-for-availability-sets"></a>Implementation guidelines for availability sets
+
+Decisions:
+
+- How many availability sets do you need for the various roles and tiers in your application infrastructure?
+
+Tasks:
+
+- Define the number of VMs in each application tier you require.
+- Determine if you need to adjust the number of fault or update domains to be used for your application.
+- Define the required availability sets using your naming convention and what VMs reside in them. A VM can only reside in one availability set. 
+
+## <a name="availability-sets"></a>Availability sets
+
+In Azure, virtual machines (VMs) can be placed in to a logical grouping called an availability set. When you create VMs within an availability set, the Azure platform distributes the placement of those VMs across the underlying infrastructure. Should there be a planned maintenance event to the Azure platform or an underlying hardware / infrastructure fault, the use of availability sets ensures that at least one VM remains running.
+
+As a best practice, applications should not reside on a single VM. An availability set that contains a single VM doesn't gain any protection from planned or unplanned events within the Azure platform. The [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines) requires two or more VMs within an availability set to allow the distribution of VMs across the underlying infrastructure.
+
+The underlying infrastructure in Azure is divided in to update domains and fault domains. These domains are defined by what hosts share a common update cycle, or share similar physical infrastructure such as power and networking. Azure automatically distributes your VMs within an availability set across domains to maintain availability and fault tolerance. Depending on the size of your application and the number of VMs within an availability set, you can adjust the number of domains you wish to use. You can read more about [managing availability and use of update and fault domains](virtual-machines-windows-manage-availability.md).
+
+When designing your application infrastructure, you should also plan the application tiers that you use. Group VMs that serve the same purpose in to availability sets, such as an availability set for your front-end VMs running IIS. Create a separate availability set for your back-end VMs running SQL Server. The goal is to ensure that each component of your application is protected by an availability set and at least once instance always remains running.
+
+Load balancers can be utilized in front of each application tier to work alongside an availability set and ensure traffic can always be routed to a running instance. Without a load balancer, your VMs may continue running throughout planned and unplanned maintenance events, but your end users may not be able to resolve them if the primary VM is unavailable.
+
+
+## <a name="next-steps"></a>Next steps
+[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)] 
+
+
+<!--HONumber=Oct16_HO2-->
+
+

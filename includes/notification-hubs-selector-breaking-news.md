@@ -4,4 +4,9 @@
 - [Windows Runtime 8.1 universal](../articles/notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
 - [Windows Phone Silverlight 8.x](../articles/notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

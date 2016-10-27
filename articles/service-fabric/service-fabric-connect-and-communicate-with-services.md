@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Conectar-se e comunicar-se com serviços no Azure Service Fabric | Microsoft Azure"
-   description="Saiba como resolver, conectar-se e comunicar-se com serviços no Service Fabric."
+   pageTitle="Connect and communicate with services in Azure Service Fabric | Microsoft Azure"
+   description="Learn how to resolve, connect, and communicate with services in Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,49 +13,50 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/05/2016"
+   ms.date="10/19/2016"
    ms.author="vturecek"/>
 
-# Conectar e se comunicar com serviços no Service Fabric
-No Service Fabric, um serviço é executado em algum lugar em um cluster do Service Fabric, normalmente distribuído entre várias VMs. Ele pode ser movido de um local para outro, pelo proprietário do serviço ou automaticamente pelo Service Fabric. Os serviços não estão estaticamente vinculados a um determinado computador ou endereço.
+
+# <a name="connect-and-communicate-with-services-in-service-fabric"></a>Connect and communicate with services in Service Fabric
+In Service Fabric, a service runs somewhere in a Service Fabric cluster, typically distributed across multiple VMs. It can be moved from one place to another, either by the service owner, or automatically by Service Fabric. Services are not statically tied to a particular machine or address.
  
-Um aplicativo do Service Fabric geralmente é composto por vários serviços diferentes, em que cada serviço executa uma tarefa específica. Esses serviços podem se comunicar entre si para formar uma função completa, tal como partes diferentes de renderização de um aplicativo Web. Também existem aplicativos cliente que se conectam e se comunicam com os serviços. Este documento aborda como configurar a comunicação com os serviços do Service Fabric e entre eles.
+A Service Fabric application is generally composed of many different services, where each service performs a specialized task. These services may communicate with each other to form a complete function, such as rendering different parts of a web application. There are also client applications that connect to and communicate with services. This document discusses how to set up communication with and between your services in Service Fabric.
 
-## Trazer seu próprio protocolo
-O Service Fabric ajuda a gerenciar o ciclo de vida dos seus serviços, mas ele não tome decisões sobre o que seus serviços fazem. Isso inclui a comunicação. Quando seu serviço é aberto pelo Service Fabric, que é a oportunidade do serviço de configurar um ponto de extremidade para solicitações de entrada, usando qualquer protocolo ou pilha de comunicação desejados. O serviço escutará um endereço **IP:port** normal usando qualquer esquema de endereçamento, como um URI. Várias instâncias de serviço ou réplicas podem compartilhar um processo de host, quando então eles precisarão usar portas diferentes ou um mecanismo de compartilhamento de porta, como o driver do kernel http.sys no Windows. Em ambos os casos, cada instância de serviço ou réplica em um processo de host deve ser endereçável exclusivamente.
+## <a name="bring-your-own-protocol"></a>Bring your own protocol
+Service Fabric helps manage the lifecycle of your services but it does not make decisions about what your services do. This includes communication. When your service is opened by Service Fabric, that's your service's opportunity to set up an endpoint for incoming requests, using whatever protocol or communication stack you want. Your service will listen on a normal **IP:port** address using any addressing scheme, such as a URI. Multiple service instances or replicas may share a host process, in which case they will either need to use different ports or use a port-sharing mechanism, such as the http.sys kernel driver in Windows. In either case, each service instance or replica in a host process must be uniquely addressable.
 
-![pontos de extremidade de serviço][1]
+![service endpoints][1]
 
-## Resolução e descoberta de serviço
-Em um sistema distribuído, os serviços podem passar de um computador para outro ao com o passar do tempo. Isso pode ocorrer por vários motivos, incluindo balanceamento de recursos, atualizações, failovers ou escala horizontal. Isso significa que os endereços de ponto de extremidade de serviço mudam conforme o serviço passa para nós com endereços IP diferentes, podendo abrir portas diferentes se o serviço usar uma porta dinâmica selecionada.
+## <a name="service-discovery-and-resolution"></a>Service discovery and resolution
+In a distributed system, services may move from one machine to another over time. This can happen for various reasons, including resource balancing, upgrades, failovers, or scale-out. This means service endpoint addresses change as the service moves to nodes with different IP addresses, and may open on different ports if the service uses a dynamically selected port.
 
-![Distribuição de serviços][7]
+![Distribution of services][7]
 
-O Service Fabric fornece um serviço de descoberta e resolução chamado Serviço de Nomenclatura. O Serviço de Nomenclatura mantém uma tabela que mapeia instâncias do serviço nomeadas para os endereços de ponto de extremidade que elas escutam. Todas as instâncias de serviço nomeadas do Service Fabric têm nomes exclusivos representados como URIs, como por exemplo, `"fabric:/MyApplication/MyService"`. O nome do serviço não é alterado com o tempo de vida do serviço, apenas os endereços de ponto de extremidade podem ser alterados quando ao mover os serviços. Isso é semelhante aos sites que têm URLs constantes, mas em que o endereço IP pode mudar. E assim como DNS na web, que resolve as URLs do site para endereços IP, o Service Fabric tem um registrador que mapeia nomes de serviço para seu endereço do ponto de extremidade.
+Service Fabric provides a discovery and resolution service called the Naming Service. The Naming Service maintains a table that maps named service instances to the endpoint addresses they listen on. All named service instances in Service Fabric have unique names represented as URIs, for example, `"fabric:/MyApplication/MyService"`. The name of the service does not change over the lifetime of the service, it's only the endpoint addresses that can change when services move. This is analogous to websites that have constant URLs but where the IP address may change. And similar to DNS on the web, which resolves website URLs to IP addresses, Service Fabric has a registrar that maps service names to their endpoint address.
 
-![pontos de extremidade de serviço][2]
+![service endpoints][2]
 
-Resolver e conectar-se aos serviços envolve as seguintes etapas executadas em um loop:
+Resolving and connecting to services involves the following steps run in a loop:
 
-* **Resolver**: obter o ponto de extremidade que um serviço publicou do Serviço de Nomenclatura.
+* **Resolve**: Get the endpoint that a service has published from the Naming Service.
 
-* **Conectar**: conectar-se ao serviço por meio de qualquer protocolo usado no ponto de extremidade em questão.
+* **Connect**: Connect to the service over whatever protocol it uses on that endpoint.
 
-* **Tentar Novamente**: uma tentativa de conexão pode falhar por vários motivos, por exemplo, se o serviço foi movido desde a última vez que o endereço do ponto de extremidade foi resolvido. Nesse caso, as etapas resolver e conectar anteriores precisam ser repetidas e esse ciclo é repetido até que a conexão seja bem-sucedida.
+* **Retry**: A connection attempt may fail for any number of reasons, for example if the service has moved since the last time the endpoint address was resolved. In that case, the preceding resolve and connect steps need to be retried, and this cycle is repeated until the connection succeeds.
 
-## Conexões de clientes externos
+## <a name="connections-from-external-clients"></a>Connections from external clients
 
-Serviços que se conectam uns aos outros dentro de um cluster geralmente podem acessar diretamente os pontos de extremidade de outros serviços, pois os nós em um cluster geralmente estão na mesma rede local. Em alguns ambientes, entretanto, um cluster pode estar por trás de um balanceador de carga que encaminha o tráfego de entrada externo por meio de um conjunto limitado de portas. Nesses casos, os serviços ainda poderão se comunicar e resolver endereços usando o Serviço de Nomenclatura, porém, etapas adicionais deverão ser executadas para permitir que clientes externos se conectem aos serviços.
+Services connecting to each other inside a cluster generally can directly access the endpoints of other services because the nodes in a cluster are usually on the same local network. In some environments, however, a cluster may be behind a load balancer that routes external ingress traffic through a limited set of ports. In these cases, services can still communicate with each other and resolve addresses using the Naming Service, but extra steps must be taken to allow external clients to connect to services.
 
-## Service Fabric no Azure
+## <a name="service-fabric-in-azure"></a>Service Fabric in Azure
 
-Um cluster do Service Fabric no Azure é colocado atrás de um Balanceador de Carga do Azure. Todo o tráfego externo para o cluster deve passar pelo balanceador de carga. O balanceador de carga encaminhará automaticamente o tráfego de entrada em uma determinada porta para um *nó* aleatório que abriu a mesma porta. O Balanceador de Carga do Azure só conhece as portas abertas nos *nós*, ele não conhece portas abertas por *serviços* individuais.
+A Service Fabric cluster in Azure is placed behind an Azure Load Balancer. All external traffic to the cluster must pass through the load balancer. The load balancer will automatically forward traffic inbound on a given port to a random *node* that has the same port open. The Azure Load Balancer only knows about ports open on the *nodes*, it does not know about ports open by individual *services*. 
 
-![Topologia do Balanceador de Carga do Azure e do Service Fabric][3]
+![Azure Load Balancer and Service Fabric topology][3]
 
-Por exemplo, para aceitar o tráfego externo na porta **80**, configure os seguintes itens:
+For example, in order to accept external traffic on port **80**, the following things must be configured:
 
-1. Escreva um serviço de escuta a porta 80. Configure a porta 80 no ServiceManifest.xml do serviço e abra um ouvinte no serviço, por exemplo, um servidor Web auto-hospedado.
+1. Write a service the listens on port 80. Configure port 80 in the service's ServiceManifest.xml and open a listener in the service, for example, a self-hosted web server.
  
     ```xml
     <Resources>
@@ -101,35 +102,35 @@ Por exemplo, para aceitar o tráfego externo na porta **80**, configure os segui
         }
     ```
   
-2. Crie um Cluster do Service Fabric no Azure e especifique a porta **80** como uma porta de ponto de extremidade personalizado para o tipo de nó que vai hospedar o serviço. Se você tiver mais de um tipo de nó, configure uma *restrição de posicionamento* no serviço para assegurar que ele só seja executado no tipo de nó que tem a porta de ponto de extremidade personalizado aberta.
+2. Create a Service Fabric Cluster in Azure and specify port **80** as a custom endpoint port for the node type that will host the service. If you have more than one node type, you can set up a *placement constraint* on the service to ensure it only runs on the node type that has the custom endpoint port opened.
 
-    ![Abrir uma porta em um tipo de nó][4]
+    ![Open a port on a node type][4]
 
-3. Após o cluster ter sido criado, configure o Balanceador de Carga do Azure no Grupo de Recursos do cluster para encaminhar o tráfego na porta 80. Ao criar um cluster por meio do Portal do Azure, isso é configurado automaticamente para cada porta de ponto de extremidade personalizado que foi configurada.
+3. Once the cluster has been created, configure the Azure Load Balancer in the cluster's Resource Group to forward traffic on port 80. When creating a cluster through the Azure portal, this is set up automatically for each custom endpoint port that was configured.
 
-    ![Encaminhar o tráfego no Balanceador de Carga do Azure][5]
+    ![Forward traffic in the Azure Load Balancer][5]
 
-4. O Balanceador de Carga do Azure usa uma investigação para determinar deve enviar ou não o tráfego para um nó específico. A investigação verifica periodicamente um ponto de extremidade em cada nó para determinar se o nó está respondendo ou não. Se a investigação não receber uma resposta após um número de vezes configurado, o balanceador de carga interromperá o envio de tráfego para esse nó. Ao criar um cluster por meio do Portal do Azure, uma investigação é definida automaticamente para cada porta de ponto de extremidade personalizado que foi configurada.
+4. The Azure Load Balancer uses a probe to determine whether or not to send traffic to a particular node. The probe periodically checks an endpoint on each node to determine whether or not the node is responding. If the probe fails to receive a response after a configured number of times, the load balancer stops sending traffic to that node. When creating a cluster through the Azure portal, a probe is automatically set up for each custom endpoint port that was configured.
 
-    ![Encaminhar o tráfego no Balanceador de Carga do Azure][8]
+    ![Forward traffic in the Azure Load Balancer][8]
 
-É importante lembrar que o Balanceador de Carga do Azure e a investigação só conhecem os *nós*, não os *serviços* em execução nos nós. O Balanceador de Carga do Azure sempre enviará tráfego para os nós que responderem à investigação, portanto tome cuidado para garantir que os serviços estão disponíveis em nós que podem responder à investigação.
+It's important to remember that the Azure Load Balancer and the probe only know about the *nodes*, not the *services* running on the nodes. The Azure Load Balancer will always send traffic to nodes that respond to the probe, so care must be taken to ensure services are available on the nodes that are able to respond to the probe.
 
-## Opções de API de comunicação interna
-A estrutura do Reliable Services vem com várias opções de comunicação predefinidas. A decisão sobre qual uma funcionará melhor para você depende da escolha do modelo de programação, da estrutura de comunicação e da linguagem de programação em que os serviços são escritos.
+## <a name="built-in-communication-api-options"></a>Built-in communication API options
+The Reliable Services framework ships with several pre-built communication options. The decision about which one will work best for you depends on the choice of the programming model, the communication framework, and the programming language that your services are written in.
 
-* **Nenhum protocolo específico:** se você não tiver uma preferência específica de estrutura de comunicação, mas desejar colocar algo em funcionamento rapidamente, a opção ideal para você será o [comunicação remota do serviço](service-fabric-reliable-services-communication-remoting.md), que possibilita chamadas de procedimento remoto fortemente tipadas para os Reliable Services e Reliable Actors. Essa é a maneira mais fácil e rápida de começar a comunicação de serviço. A comunicação remota do serviço lida com a resolução de endereços de serviço, conexão, repetição e tratamento de erro. Observe que essa comunicação remota do serviço está disponível somente para aplicativos em C#.
+* **No specific protocol:**  If you don't have a particular choice of communication framework, but you want to get something up and running quickly, then the ideal option for you is [service remoting](service-fabric-reliable-services-communication-remoting.md), which allows strongly-typed remote procedure calls for Reliable Services and Reliable Actors. This is the easiest and fastest way to get started with service communication. Service remoting handles resolution of service addresses, connection, retry, and error handling. Note that service remoting is only available to C# applications.
 
-* **HTTP**: para comunicação independente de idioma, o HTTP fornece uma opção padrão do setor com ferramentas e servidores HTTP disponíveis em vários idiomas diferentes, tudo isso com suporte no Service Fabric. Os serviços podem usar qualquer pilha HTTP disponível, incluindo [API Web ASP.NET](service-fabric-reliable-services-communication-webapi.md). Clientes escritos em C# podem aproveitar as [classes `ICommunicationClient` e `ServicePartitionClient`](service-fabric-reliable-services-communication.md) para resolução de serviço, conexões HTTP e loops de repetição.
+* **HTTP**: For language-agnostic communication, HTTP provides an industry-standard choice with tools and HTTP servers available in many different langauges, all supported by Service Fabric. Services can use any HTTP stack available, including [ASP.NET Web API](service-fabric-reliable-services-communication-webapi.md). Clients written in C# can leverage the [`ICommunicationClient` and `ServicePartitionClient` classes](service-fabric-reliable-services-communication.md) for service resolution, HTTP connections, and retry loops.
 
-* **WCF**: se você tiver um código existente que use WCF como estrutura de comunicação, poderá usar o `WcfCommunicationListener` para o lado do servidor e as classes `WcfCommunicationClient` e `ServicePartitionClient` para o cliente. Para obter mais detalhes, consulte este artigo sobre [implementação baseada no WCF da pilha de comunicação](service-fabric-reliable-services-communication-wcf.md).
+* **WCF**: If you have existing code that uses WCF as your communication framework, then you can use the `WcfCommunicationListener` for the server side and `WcfCommunicationClient` and `ServicePartitionClient` classes for the client. For more details, see this article about [WCF-based implementation of the communication stack](service-fabric-reliable-services-communication-wcf.md).
 
-## Usando protocolos personalizados e outras estruturas de comunicação
-Os serviços poderão usar qualquer protocolo ou estrutura para comunicação, independentemente de esse ser um protocolo binário personalizado via soquetes TCP ou eventos de streaming por meio de [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) ou [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/). O Service Fabric fornece APIs de comunicação aos quais você pode conectar sua pilha de comunicação, enquanto todo o trabalho de descoberta e conexão é omitido. Consulte este artigo sobre o [modelo de comunicação de serviço confiável](service-fabric-reliable-services-communication.md) para obter mais detalhes.
+## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Using custom protocols and other communication frameworks
+Services can use any protocol or framework for communication, whether its a custom binary protocol over TCP sockets, or streaming events through [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) or [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). Service Fabric provides communication APIs that you can plug your communication stack into, while all the work to discover and connect is abstracted from you. See this article about the [Reliable Service communication model](service-fabric-reliable-services-communication.md) for more details.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Saiba mais sobre os conceitos e as APIs disponíveis no [modelo de comunicação dos Reliable Services](service-fabric-reliable-services-communication.md) e começar rapidamente com a [comunicação remota do serviço](service-fabric-reliable-services-communication-remoting.md) ou aprofunde-se para aprender a escrever um ouvinte de comunicação usando [API da Web com auto-hospedagem de OWIN](service-fabric-reliable-services-communication-webapi.md).
+Learn more about the concepts and APIs available in the [Reliable Services communication model](service-fabric-reliable-services-communication.md), then get started quickly with [service remoting](service-fabric-reliable-services-communication-remoting.md) or go in-depth to learn how to write a communication listener using [Web API with OWIN self-host](service-fabric-reliable-services-communication-webapi.md).
 
 [1]: ./media/service-fabric-connect-and-communicate-with-services/serviceendpoints.png
 [2]: ./media/service-fabric-connect-and-communicate-with-services/namingservice.png
@@ -139,4 +140,8 @@ Saiba mais sobre os conceitos e as APIs disponíveis no [modelo de comunicação
 [7]: ./media/service-fabric-connect-and-communicate-with-services/distributedservices.png
 [8]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerprobe.png
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

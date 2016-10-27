@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Segurança para seu dispositivo StorSimple | Microsoft Azure"
-   description="Descreve considerações, diretrizes e convenções de segurança e explica como instalar e operar seu dispositivo StorSimple com segurança."
+   pageTitle="Safety for your StorSimple device | Microsoft Azure"
+   description="Describes safety conventions, guidelines, and considerations, and explains how to safely install and operate your StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,168 +15,175 @@
    ms.date="08/18/2016"
    ms.author="alkohli" />
 
-# Instalar e operar seu dispositivo StorSimple com segurança
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Leia o ícone de aviso de segurança](./media/storsimple-safety/IC740885.png) **LEIA AS INFORMAÇÕES DE SEGURANÇA E INTEGRIDADE**
+# <a name="safely-install-and-operate-your-storsimple-device"></a>Safely install and operate your StorSimple device
 
-Leia todas as informações de segurança e integridade neste artigo, que aplicam-se ao dispositivo do Microsoft Azure StorSimple. Guarde todos os guias impressos fornecidos com o dispositivo StorSimple para referência futura. Não seguir as instruções nem configurar, usar e manter adequadamente este produto pode aumentar o risco de danos graves, morte ou danificar o dispositivo ou dispositivos. Uma [versão para download deste guia](http://www.microsoft.com/download/details.aspx?id=44233) também está disponível.
+![Warning Icon](./media/storsimple-safety/IC740879.png)
+![Read Safety Notice Icon](./media/storsimple-safety/IC740885.png) **READ SAFETY AND HEALTH INFORMATION**
 
-## Convenções de ícones de segurança
+Read all the safety and health information in this article that applies to your Microsoft Azure StorSimple device. Keep all the printed guides shipped with your StorSimple device for future reference. Failure to follow instructions and properly set up, use, and care for this product can increase the risk of serious injury or death, or damage to the device or devices. A [downloadable version of this guide](http://www.microsoft.com/download/details.aspx?id=44233) is also available.
 
-Estes são os ícones que você encontrará ao ler as precauções de segurança a serem observadas ao configurar e executar seu dispositivo Microsoft Azure StorSimple.
+## <a name="safety-icon-conventions"></a>Safety icon conventions
 
-| ícone | Descrição |
+Here are the icons that you will find when you review the safety precautions to be observed when setting up and running your Microsoft Azure StorSimple device.
+
+| Icon  | Description  |
 |:------|:-------------| 
-|![Ícone de perigo](./media/storsimple-safety/IC740879.png) **PERIGO!**|Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra limitas-e às situações mais graves.| 
-|![Ícone de aviso](./media/storsimple-safety/IC740879.png) **AVISO!**|Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte.|
-|![Ícone de aviso](./media/storsimple-safety/IC740879.png) **CUIDADO!**|Indica uma situação perigosa que, se não for evitada, pode em uma lesão pequena ou moderada.|
-|![Ícone de observação](./media/storsimple-safety/IC740881.png)**OBSERVAÇÃO:**|Indica informações consideradas importantes, mas não são relacionadas a riscos.|
-|![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png)**Risco de choque elétrico** |Alta tensão|
-|![Ícone de peso pesado](./media/storsimple-safety/IC740883.png) **Peso pesado**| |
-|![Ícone de nenhuma peça operada pelo usuário](./media/storsimple-safety/IC740879.png) **Nenhuma peça é operada pelo usuário**|Não acesse a menos que seja devidamente treinado.|
-|![Leia o ícone de aviso de segurança](./media/storsimple-safety/IC740885.png)**Leia todas as instruções primeiro**| |
-|![Ícone de risco de tombamento](./media/storsimple-safety/IC740886.png) **Risco de tombamento**| |
+|![Danger Icon](./media/storsimple-safety/IC740879.png) **DANGER!**|Indicates a hazardous situation that, if not avoided, will result in death or serious injury. This signal word is to be limited to the most extreme situations.| 
+|![Warning Icon](./media/storsimple-safety/IC740879.png) **WARNING!**|Indicates a hazardous situation that, if not avoided, could result in death or serious injury.|
+|![Warning Icon](./media/storsimple-safety/IC740879.png) **CAUTION!**|Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury.|
+|![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**|Indicates information considered important, but not hazard-related.|
+|![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **Electrical Shock Hazard** |High voltage|
+|![Heavy Weight Icon](./media/storsimple-safety/IC740883.png) **Heavy Weight**| |
+|![No User Serviceable Parts Icon](./media/storsimple-safety/IC740879.png) **No User Serviceable Parts**|Do not access unless properly trained.|
+|![Read Safety Notice Icon](./media/storsimple-safety/IC740885.png)**Read All Instructions First**| |
+|![Tip Hazard Icon](./media/storsimple-safety/IC740886.png) **Tip Hazard**| |
 
 
-## Precauções de manuseio
+## <a name="handling-precautions"></a>Handling precautions
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de peso pesado](./media/storsimple-safety/IC740883.png) **AVISO!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Heavy Weight Icon](./media/storsimple-safety/IC740883.png) **WARNING!** 
 
 
-Para reduzir o risco de lesões:
+To reduce the risk of injury:
 
-- Um gabinete completamente configurado pode pesar até 32 kg (70 lbs); não tente erguê-lo por conta própria.
-- Antes de mover o compartimento, certifique-se sempre de que duas pessoas estejam disponíveis para dar suporte ao peso. Esteja ciente que uma pessoa que tente erguer esse peso sozinha pode sofrer lesões.
-- Não erga o compartimento pelas alças nos PCMs (Módulos de Energia e Resfriamento) localizados na parte traseira da unidade. Eles não se destinam para aguentar esse peso.
+- A fully configured enclosure can weigh up to 32 kg (70 lbs); do not try to lift it by yourself.
+- Before moving the enclosure, always ensure that two people are available to handle the weight. Be aware that one person attempting to lift this weight can sustain injuries.
+- Do not lift the enclosure by the handles on the Power and Cooling Modules (PCMs) located at the rear of the unit. These are not designed to take the weight.
 
-## Precauções de conexão
+## <a name="connection-precautions"></a>Connection precautions
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **AVISO!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **WARNING!**
 
-Para reduzir a probabilidade de lesões, choque elétrico ou morte:
+To reduce the likelihood of injury, electrical shock, or death:
 
-- Quando alimentado por várias fontes de CA, desconecte todas as fontes de energia para um isolamento completo.
+- When powered by multiple AC sources, disconnect all supply power for complete isolation.
 
-- Desconecte permanentemente a unidade antes de movê-la ou se achar que ela foi danificada de alguma forma.
+- Permanently unplug the unit before you move it or if you think it has become damaged in any way.
 
-- Forneça uma conexão terra elétrica segura para os cabos de alimentação. Verifique se o aterramento do compartimento cumpre os requisitos locais e nacionais antes de ligar a energia.
+- Provide a safe electrical earth connection to the power supply cords. Verify that the grounding of the enclosure meets the national and local requirements before applying power.
 
-- Certifique-se de que a conexão de energia esteja sempre desconectada antes de remover um PCM do compartimento.
+- Ensure that the power connection is always disconnected prior to the removal of a PCM from the enclosure.
 
-- Considerando que o plugue no cabo de alimentação é o dispositivo de desconexão principal, verifique se as saídas de soquete localizadas perto do equipamento e são de fácil acesso.
+- Given that the plug on the power supply cord is the main disconnect device, ensure that the socket outlets are located near the equipment and are easily accessible.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **AVISO!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **WARNING!**
 
-Para reduzir a probabilidade de superaquecimento ou chamas nas conexões elétricas:
+To reduce the likelihood of overheating or fire from the electrical connections:
 
-- Forneça uma fonte de energia adequada com a proteção contra sobrecarga elétrica para atender aos requisitos detalhados nas especificações técnicas.
+- Provide a suitable power source with electrical overload protection to meet the requirements detailed in the technical specification.
 
-- Não use cabos de alimentação bifurcados (conectores em "Y").
+- Do not use bifurcated power cords (“Y” leads).
 
-- Para atender aos requisitos térmicos, de emissão e de segurança aplicáveis, nenhuma tampa deverá ser removida e todos os compartimentos devem ser preenchidos com ou módulos plug-in ou unidades em branco.
+- To comply with applicable safety, emission, and thermal requirements, no covers should be removed and all bays must be populated with plug-in modules or drive blanks.
 
-- Certifique-se de que o equipamento seja usado da maneira especificada pelo fabricante. Se este equipamento for usado de maneira não especificada pelo fabricante, a proteção fornecida pelo equipamento poderá ser afetada.
+- Ensure that the equipment is used in a manner specified by the manufacturer. If this equipment is used in a manner not specified by the manufacturer, the protection provided by the equipment may be impaired.
 
-![Ícone de observação](./media/storsimple-safety/IC740881.png)**OBSERVAÇÃO:**
+![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
 
-Para a operação adequada do seu equipamento e para evitar danos ao produto:
+For the proper operation of your equipment and to prevent product damage:
 
-- As portas RJ45 na parte posterior do dispositivo servem somente para conexão Ethernet. Elas não devem estar conectadas a uma rede de telecomunicações.
+- The RJ45 ports at the back of the device are for an Ethernet connection only. These must not be connected to a telecommunications network.
 
-- Instale o dispositivo em um rack que possa acomodar um design de resfriamento de frente para trás.
+- Be sure to install the device in a rack that can accommodate a front-to-back cooling design.
 
-- Todos os módulos de plug-in e placas em branco fazem parte do compartimento do sistema. Eles devem ser removidos somente caso um substituto possa ser adicionado imediatamente. O sistema não deve ser executado sem todos os módulos ou módulos em branco no devido lugar.
+- All plug-in modules and blank plates are part of the system enclosure. These must only be removed when a replacement can be immediately added. The system must not be run without all modules or blanks in place.
 
-## Precauções do sistema de rack
+## <a name="rack-system-precautions"></a>Rack system precautions
 
-Os seguintes requisitos de segurança devem ser considerados ao montar o dispositivo em um gabinete de rack.
+The following safety requirements must be considered when you mount the device in a rack cabinet.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de risco de tombamento](./media/storsimple-safety/IC740886.png) **AVISO!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Tip Hazard Icon](./media/storsimple-safety/IC740886.png) **WARNING!**
  
-Para reduzir a probabilidade de lesões causadas por tombamento:
+To reduce the likelihood of injury from a tip over:
 
-- O design de rack deve dar suporte ao peso total dos compartimentos instalados e deve incorporar recursos de estabilização adequados para impedir que o rack tombe ou deslize durante a instalação ou uso normal.
+- The rack design should support the total weight of the installed enclosures and should incorporate stabilizing features suitable to prevent the rack from tipping or being pushed over during installation or normal use.
 
-- Ao montar um rack, preencha-o de baixo para cima e esvazie-o de cima para baixo.
+- When loading a rack, fill the rack from the bottom up and empty from the top down.
 
-- Não retire mais de um gabinete do rack por vez para evitar o risco de o rack tombar.
+- Do not slide more than one enclosure out of the rack at a time to avoid the danger of the rack toppling over.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **AVISO!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **WARNING!**
 
-Para reduzir a probabilidade de lesões, choque elétrico ou morte:
+To reduce the likelihood of injury, electrical shock, or death:
 
-- O rack deve ter um sistema de distribuição elétrica seguro. Ele deve fornecer proteção contra sobrecarga para o compartimento e não deve ser sobrecarregado pelo número total de compartimentos instalados. A classificação de consumo de energia elétrica mostrada na placa deve ser observada.
+- The rack should have a safe electrical distribution system. It must provide over-current protection for the enclosure and must not be overloaded by the total number of enclosures installed. The electrical power consumption rating shown on the nameplate should be observed.
 
-- O sistema de distribuição elétrica deve fornecer aterramento confiável para cada compartimento no rack.
+- The electrical distribution system must provide a reliable ground for each enclosure in the rack.
 
-- O design do sistema de distribuição de energia deve levar em consideração a corrente de perda do aterramento total de todas as fontes de alimentação em todos os compartimentos. Observe que cada fonte de alimentação em cada compartimento tem uma corrente de perda de aterramento máximo de mA 1,0 a 60 Hz, 264 v. O rack pode exigir rótulos como "CORRENTE DE ALTA PERDA. O aterramento é essencial para conectar a alimentação."
+- The design of the electrical distribution system must take into consideration the total ground leakage current from all power supplies in all enclosures. Note that each power supply in each enclosure has a ground leakage current of 1.0 mA maximum at 60 Hz, 264 volts. The rack may require labeling with “HIGH LEAKAGE CURRENT. Ground (earth) connection is essential before connecting a supply.”
 
-- O rack, quando configurado com os compartimentos deve atender aos requisitos de segurança UL 60950-1 e IEC 60950-1/EN 60950-1.
+- The rack, when configured with the enclosures, must meet the safety requirements of UL 60950-1 and IEC 60950-1/EN 60950-1.
 
-![Ícone de observação](./media/storsimple-safety/IC740881.png)**OBSERVAÇÃO:**
+![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
 
-Para o resfriamento correto do seu sistema de rack:
+For the proper cooling of your rack system:
 
-- Certifique-se de que o design de rack considere a temperatura ambiente máxima de operação de 35 °C (95 °F).
+- Ensure that the rack design takes into consideration the maximum enclosure operating ambient temperature of 35 degrees Celsius (95 degrees Fahrenheit).
 
-- O sistema é operado com instalação de exaustor traseiro de baixa pressão (a pressão traseira criada pelas portas e obstáculos do rack não excedem 5 Pascal [0,5 mm no medidor de água]).
+- The system is operated with low-pressure, rear-exhaust installation (back pressure created by rack doors and obstacles not to exceed 5 Pascal [0.5 mm water gauge]).
 
-## Precauções do PCM (Módulo de Resfriamento de Energia)
+## <a name="power-cooling-module-(pcm)-precautions"></a>Power Cooling Module (PCM) precautions
 
-Este dispositivo foi projetado para operar com dois PCMs. Cada PCMs tem uma fonte de energia e uma ventoinha de dois eixos. Durante uma condição crítica, o sistema dá suporte à falha de uma fonte de alimentação e continua com suas operações normais. Dois PCMs (e, portanto, duas fontes de alimentação) sempre devem estar instalados. Um único PCM não oferece fontes de alimentação redundantes. Por isso, a falha de um dos PCMs pode resultar em tempo de inatividade ou possível perda de dados.
+The device is designed to operate with two PCMs. Each of the PCMs has a power supply and a dual-axis fan. During a critical condition, the system allows for a failure of one power supply while continuing normal operations. Two PCMs (and hence power supplies) must always be installed. A single PCM does not provide redundant power. Therefore, the failure of even one PCM can result in downtime or possible data loss.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **AVISO!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **WARNING!**
 
-Para reduzir a probabilidade de lesões, choque elétrico ou morte:
+To reduce the likelihood of injury, electrical shock, or death:
 
-- Não remova as tampas do PCM. Há risco de choque elétrico no interior. Para devolver o PCM e obter um substituto, [contate o Suporte da Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+- Do not remove the covers from the PCM. There is a danger of electric shock inside. To return the PCM and obtain a replacement, [contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
-![Ícone de observação](./media/storsimple-safety/IC740881.png)**OBSERVAÇÃO:**
+![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
 
-Para a operação adequada do seu equipamento e para evitar danos ao produto:
+For the proper operation of your equipment and to prevent product damage:
 
-- Você deve substituir o PCM com falha dentro de 24 horas. Após a remoção de um PCM para substituição, ela deve ser concluída dentro de 10 minutos após a remoção.
+- You must replace the failed PCM within 24 hours. After a PCM is removed for replacement, the replacement must be completed within 10 minutes after removal.
 
-- Não remova um PCM a menos que um substituto possa ser instalado imediatamente. O compartimento não deve ser operado sem todos os módulos no lugar.
+- Do not remove a PCM unless a replacement can be installed immediately. The enclosure must not be operated without all modules in place.
 
-## Precauções contra ESD (descarga elétrica)
+## <a name="electrostatic-discharge-(esd)-precautions"></a>Electrostatic discharge (ESD) precautions
 
-![Ícone de observação](./media/storsimple-safety/IC740881.png)**OBSERVAÇÃO:**
+![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
 
-Observe as seguintes precauções relacionada a ESD.
+Observe the following ESD-related precautions.
 
-- Instale e confira o funcionamento de uma pulseira ou tornozeleira antiestática adequada.
+- Ensure that you have installed and checked a suitable antistatic wrist or ankle strap.
 
-- Observe todas as precauções contra ESD convencionais ao manusear os módulos e componentes.
+- Observe all conventional ESD precautions when handling modules and components.
 
-- Evite o contato com os componentes de backplane e conectores de módulo.
+- Avoid contact with backplane components and module connectors.
 
-- Danos de ESD não são cobertos pela garantia.
+- ESD damage is not covered by warranty.
 
-## Precauções de descarte de bateria
+## <a name="battery-disposal-precautions"></a>Battery disposal precautions
 
-A fonte de alimentação usa uma bateria especial para proteger o conteúdo da memória durante interrupções de energia temporárias e de curto prazo. A bateria está encaixada no PCM. Lembre-se das informações a seguir sobre a bateria.
+The power supply uses a special battery to protect the contents of memory during temporary, short-term power outages. The battery is seated in the PCM. Keep the following information in mind about the battery.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) **AVISO!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) **WARNING!**
 
-Para reduzir o risco de curto, incêndio, explosão, lesões ou morte:
+To reduce the risk of shorts, fire, explosion, injury, or death:
 
-- Descarte as baterias usadas de acordo com as regulamentações nacionais/regionais.
+- Dispose of used batteries in accordance with national/regional regulations.
 
-- Não desmonte, amasse, aqueça acima de 60 °C (140 °F) ou incinere a bateria. Substitua a bateria do PCM apenas por uma bateria fornecida. Usar outra bateria pode apresentar risco de incêndio ou explosão.
+- Do not disassemble, crush, or heat above 60 degrees Celsius (140 degrees Fahrenheit) or incinerate. Replace the PCM battery with a supplied battery only. Use of another battery may present a risk of fire or explosion.
 
-- Use tampas protetoras nas baterias se elas forem removidas da fonte de alimentação.
+- Use protective end caps on the batteries if these are removed from the power supply.
 
-![Ícone de observação](./media/storsimple-safety/IC740881.png)**OBSERVAÇÃO:**
+![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
 
-Ao enviar ou transportar as baterias por via aérea, siga o documento de Diretrizes de Bateria de Lítio IATA disponível em [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+When shipping or otherwise transporting the batteries by air, follow the IATA Lithium Battery Guidance document available at [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
-Depois de revisar esses avisos de segurança, as próximas etapas serão desembalar, montar no rack e cabear o dispositivo.
+After you have reviewed these safety notices, the next steps are to unpack, rack and cable your device.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Para um dispositivo 8100, acesse [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md).
+- For an 8100 device, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md).
 
-- Para um dispositivo 8600, acesse [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
+- For an 8600 device, go to [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

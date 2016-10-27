@@ -1,52 +1,57 @@
 <properties 
-	pageTitle="Monitorar o andamento do trabalho codificação com o portal do Azure" 
-	description="Este tutorial orienta você pelas etapas de monitorar o andamento do trabalho usando o portal do Azure." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Monitor encoding job progress with the Azure portal" 
+    description="This tutorial walks you through the steps of monitoring your job progress using the Azure portal." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/29/2016"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/29/2016"  
+    ms.author="juliako"/>
 
-#Monitorar o andamento do trabalho codificação com o portal do Azure
+
+#<a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitor encoding job progress with the Azure portal
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-check-job-progress.md)
 - [.NET](media-services-check-job-progress.md)
 - [REST](media-services-rest-check-job-progress.md)
 
-## Visão geral
+## <a name="overview"></a>Overview
 
-> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
-Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho.
+When you run jobs, you often require a way to track job progress. 
 
-Para monitorar o andamento do trabalho de codificação, clique em **Configurações** (na parte superior da página), em seguida, selecione **Trabalhos**.
+To monitor the progress of the encoding job, click **Settings** (at the top of the page) and then select **Jobs**.
 
-![Trabalhos](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![Jobs](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
-Você pode clicar no trabalho para ver mais detalhes.
+You can click the job to see more details.
 
-![Trabalhos](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
+![Jobs](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 
-##Próximas etapas
+##<a name="next-steps"></a>Next steps
 
-Depois que seu trabalho de codificação estiver concluído, você poderá publicar e reproduzir seus ativos, conforme descrito [aqui](media-services-portal-publish.md).
+After your encoding job is one, you can publish and play your assets, as described [here](media-services-portal-publish.md).
 
-##Roteiros de aprendizagem dos Serviços de Mídia
+##<a name="media-services-learning-paths"></a>Media Services learning paths
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fornecer comentários
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

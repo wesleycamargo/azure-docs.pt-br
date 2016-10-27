@@ -1,126 +1,131 @@
 <properties 
-	pageTitle="Gerenciar pontos de extremidade de streaming com o portal do Azure | Microsoft Azure" 
-	description="Este tópico mostra como gerenciar pontos de extremidade de streaming usando o portal do Azure." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	writer="juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Manage streaming endpoints with the Azure portal | Microsoft Azure" 
+    description="This topic shows how to manage streaming endpoints with the Azure portal." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    writer="juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/29/2016"
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/29/2016"
+    ms.author="juliako"/>
 
 
-#Gerenciar pontos de extremidade de streaming com o portal do Azure
 
-## Visão geral
+#<a name="manage-streaming-endpoints-with-the-azure-portal"></a>Manage streaming endpoints with the Azure portal
 
-> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+## <a name="overview"></a>Overview
 
-Nos Serviços de Mídia do Microsoft Azure, um **Ponto de Extremidade de Streaming** representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo de player de cliente ou à CDN (Rede de Distribuição de Conteúdo) para a distribuição posterior. Os Serviços de Mídia também fornecem integração perfeita da CDN do Azure. O fluxo de saída do serviço StreamingEndpoint pode ser um fluxo ao vivo ou um ativo de vídeo por demanda na sua conta dos Serviços de Mídia.
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
-Além disso, você pode controlar a capacidade do serviço de ponto de extremidade de streaming para lidar com necessidades crescentes de largura de banda ajustando as unidades de streaming. É recomendável alocar uma ou mais unidades de escala para aplicativos no ambiente de produção. As unidades de streaming fornecem a você capacidade de egresso dedicada que pode ser comprada em incrementos de 200 Mbps e funcionalidade adicional, que inclui: [empacotamento dinâmico](media-services-dynamic-packaging-overview.md), Integração da CDN e configuração avançada.
+In Microsoft Azure Media Services, a **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Media Services also provides seamless Azure CDN integration. The outbound stream from a StreamingEndpoint service can be a live stream, or a video on demand Asset in your Media Services account.
 
->[AZURE.NOTE]Você será cobrado apenas quando seu ponto de extremidade de streaming estiver em estado de execução.
+In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting streaming units. It is recommended to allocate one or more scale units for applications in production environment. Streaming units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality, which includes: [dynamic packaging](media-services-dynamic-packaging-overview.md), CDN integration, and advanced configuration.
 
-Este tópico fornece uma visão geral das principais funcionalidades fornecidas pelos Pontos de Extremidade de Streaming. O tópico também mostra como usar o portal do Azure para gerenciar pontos de extremidade de streaming. Para obter informações sobre como dimensionar o ponto de extremidade de streaming, consulte [este](media-services-portal-scale-streaming-endpoints.md) tópico.
+>[AZURE.NOTE]You are only billed when your Streaming Endpoint is in running state.
 
-## Começar a gerenciar pontos de extremidade de streaming
+This topic gives an overview of the main functionalities that are provided by Streaming Endpoints. The topic also shows how to use the Azure portal to manage streaming endpoints. For information about how to scale the streaming endpoint, see [this](media-services-portal-scale-streaming-endpoints.md) topic.
 
-Para começar a gerenciar pontos de extremidade de streaming para sua conta, faça o indicado a seguir.
+## <a name="start-managing-streaming-endpoints"></a>Start managing streaming endpoints
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Na janela **Configurações**, selecione **Pontos de extremidade de streaming**.
+To start managing streaming endpoints for your account, do the following.
 
-	![Ponto de extremidade de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
+1. Log in at the [Azure portal](https://portal.azure.com/).
+2. In the **Settings** window, select **Streaming endpoints**.
 
-##Adicionar/excluir um ponto de extremidade de streaming
+    ![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
-Para adicionar\\excluir um ponto de extremidade de streaming usando o portal do Azure, faça o seguinte:
+##<a name="add/delete-a-streaming-endpoint"></a>Add/delete a streaming endpoint
 
-1. Para adicionar um ponto de extremidade de streaming, clique no **+ Ponto de extremidade** na parte superior da página.
-2. Para excluir um ponto de extremidade de streaming, pressione o botão **Excluir**.
+To add/delete streaming endpoint using the Azure portal, do the following:
 
-	O ponto de extremidade de streaming não pode ser excluído.
-2. Clique no botão **Iniciar** para iniciar o ponto de extremidade de streaming.
+1. To add a streaming endpoint, click the **+ Endpoint** at the top of the page. 
+2. To delete a streaming endpoint, press **Delete** button. 
 
-	![Ponto de extremidade de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
+    The default streaming endpoint cannot be deleted.
+2. Click the **Start** button to start the streaming endpoint.
 
-Por padrão, você pode ter até dois pontos de extremidade de streaming. Se você precisar solicitar mais, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).
-	
-##<a id="configure_streaming_endpoints"></a>Configurando o ponto de extremidade de streaming
+    ![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
-O Ponto de Extremidade de Streaming permite que você configure as seguintes propriedades quando tem pelo menos uma unidade de escala:
+By default you can have up to two streaming endpoints. If you need to request more, see [Quotas and limitations](media-services-quotas-and-limitations.md).
+    
+##<a name="<a-id="configure_streaming_endpoints"></a>configuring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Configuring the Streaming Endpoint
 
-- Controle de acesso
-- Controle de cache
-- Políticas de acesso entre sites
+Streaming Endpoint enables you to configure the following properties when you have at least 1 scale unit: 
 
-Para obter informações detalhadas sobre essas propriedades, consulte [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx).
+- Access control
+- Cache control
+- Cross site access policies
 
-Você pode configurar o ponto de extremidade de streaming fazendo o seguinte:
+For detailed information about these properties, see [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx).
 
-1. Selecione o ponto de extremidade de streaming que você deseja configurar.
-1. Clique em **Configurações**.
+You can configure streaming endpoint by doing the following:
+
+1. Select the streaming endpoint that you want to configure.
+1. Click **Settings**.
   
-A seguir há uma breve descrição dos campos.
+A brief description of the fields follows.
 
-![Ponto de extremidade de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
+![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
   
-1. Política de cache máximo: usada para configurar o tempo de vida de cache para ativos atendidos por esse ponto de extremidade de streaming. Se nenhum valor for definido, o padrão será usado. Os valores padrão também podem ser definidos diretamente no armazenamento do Azure. Se a CDN do Azure estiver habilitada para o ponto de extremidade de streaming, você não deverá definir o valor da política de cache para menos de 600 segundos.
+1. Maximum cache policy: used to configure cache lifetime for assets served through this streaming endpoint. If no value is set, the default is used. The default values can also be defined directly in Azure storage. If Azure CDN is enabled for the streaming endpoint, you should not set the cache policy value to less than 600 seconds.  
 
-2. Endereços IP permitidos: usado para especificar endereços IP que terão permissão para se conectar ao ponto de extremidade de streaming publicado. Se nenhum endereço IP for especificado, qualquer endereço IP poderá se conectar. Os endereços IP podem ser especificados como um único endereço IP (por exemplo, '10.0.0.1'), um intervalo de IP usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, '10.0.0.1/22') ou um intervalo de IPs usando um endereço IP e uma máscara de sub-rede em notação decimal com ponto (por exemplo, '10.0.0.1(255.255.255.0)').
+2. Allowed IP addresses: used to specify IP addresses that would be allowed to connect to the published streaming endpoint. If no IP addresses specified, any IP address would be able to connect. IP addresses can be specified as either a single IP address (for example, '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.255.0)').
 
-3. Configuração de autenticação de cabeçalho de assinatura da Akamai: usado para especificar como a solicitação de autenticação de cabeçalho de assinatura de servidores da Akamai está configurada. A data de validade é no formato UTC.
+3. Configuration for Akamai signature header authentication: used to specify how signature header authentication request from Akamai servers is configured. Expiration is in UTC.
 
 
 
-##<a id="enable_cdn"></a>Habilitar a integração da CDN do Azure
+##<a name="<a-id="enable_cdn"></a>enable-azure-cdn-integration"></a><a id="enable_cdn"></a>Enable Azure CDN integration
 
-Você pode especificar a habilitação da integração da CDN do Azure para um Ponto de Extremidade de Streaming (isso é desabilitado por padrão).
+You can specify to enable the Azure CDN integration for a Streaming Endpoint (it is disabled by default.)
 
-Para configurar a integração da CDN do Azure como true:
+To set the Azure CDN integration to true:
 
-- O ponto de extremidade de streaming deve ter pelo menos uma unidade de streaming. Se, posteriormente, você desejar definir unidades de escala como 0, primeiro deverá desabilitar a integração da CDN. Por padrão, quando você cria um novo ponto de extremidade de streaming, uma unidade de streaming é automaticamente definida.
+- The streaming endpoint must have at least one streaming unit. If later you want to set scale units to 0, you must first disable the CDN integration. By default when you create a new streaming endpoint one streaming unit is automatically set.
 
-- O ponto de extremidade de streaming deve estar no estado parado. Quando a CDN for habilitada, você poderá iniciar o ponto de extremidade de streaming.
+- The streaming endpoint must be in a stopped state. Once the CDN gets enabled, you can start the streaming endpoint. 
 
-Pode levar até 90 minutos para que a integração da CDN do Azure seja habilitada. Leva até duas horas para que as alterações estejam ativas em todos os POPS do CDN.
+It could take up to 90 min for the Azure CDN integration to get enabled.  It takes up to two hours for the changes to be active across all the CDN POPs.
 
-A integração com a CDN é habilitada em todos os data centers do Azure: Oeste dos EUA, Leste dos EUA, Europa Setentrional, Europa Ocidental, Oeste do Japão, Leste do Japão, Sudeste Asiático e Ásia Oriental.
+CDN integration is enabled in all the Azure data centers: US West, US East, North Europe, West Europe, Japan West, Japan East, South East Asia, and East Asia.
 
-Após ela ter sido habilitada, a configuração **Controle de Acesso** é desabilitada.
+Once it is enabled, the **Access Control** configuration gets disabled.
 
-![Ponto de extremidade de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints5.png)
+![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints5.png)
 
->[AZURE.IMPORTANT] A integração dos Serviços de Mídia do Azure com a CDN do Azure é implementada na **CDN do Azure da Verizon**. Para usar a **CDN do Azure da Akamai** para Serviços de Mídia do Azure, é preciso [configurar o ponto de extremidade manualmente](../cdn/cdn-create-new-endpoint.md). Para obter mais informações sobre os recursos da CDN do Azure, veja [Visão geral da CDN](../cdn/cdn-overview.md).
+>[AZURE.IMPORTANT] Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon**.  If you wish to use **Azure CDN from Akamai** for Azure Media Services, you must [configure the endpoint manually](../cdn/cdn-create-new-endpoint.md).  For more information about Azure CDN features, see the [CDN overview](../cdn/cdn-overview.md).
 
-###Considerações adicionais
+###<a name="additional-considerations"></a>Additional considerations
 
-- Quando CDN está habilitado para um ponto de extremidade de streaming, os clientes não podem solicitar o conteúdo diretamente a partir da origem. Se você precisar da capacidade de testar seu conteúdo com ou sem CDN, poderá criar outro ponto de extremidade de streaming no qual a CDN não esteja habilitada.
-- O nome de host do ponto de extremidade de streaming permanece o mesmo depois de habilitar o CDN. Você não precisa fazer nenhuma alteração ao seu fluxo de trabalho de serviços de mídia depois que o CDN for habilitado. Por exemplo, se o nome de host do ponto de extremidade de streaming for strasbourg.streaming.mediaservices.windows.net, depois de habilitar o CDN, o mesmo nome de host é usado.
-- Para novos pontos de extremidade de streaming, é possível habilitar a CDN simplesmente criando um novo ponto de extremidade; para pontos de extremidade de streaming existentes, será necessário primeiro parar o ponto de extremidade e, em seguida, habilitar a CDN.
+- When CDN is enabled for a streaming endpoint, clients cannot request content directly from the origin. If you need the ability to test your content with or without CDN, you can create another streaming endpoint that isn't CDN enabled.
+- Your streaming endpoint hostname remains the same after enabling CDN. You don’t need to make any changes to your media services workflow after CDN is enabled. For example, if your streaming endpoint hostname is strasbourg.streaming.mediaservices.windows.net, after enabling CDN, the exact same hostname is used.
+- For new streaming endpoints, you can enable CDN simply by creating a new endpoint; for existing streaming endpoints, you need to first stop the endpoint and then enable the CDN.
  
 
-Para obter mais informações, consulte [Anunciando a integração dos Serviços de Mídia do Azure com o CDN do Azure (Rede de Distribuição de Conteúdo)](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/).
+For more information see, [Announcing Azure Media Services integration with Azure CDN (Content Delivery Network)](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/).
 
 
-##Próximas etapas
+##<a name="next-steps"></a>Next steps
 
-Examine os roteiros de aprendizagem dos Serviços de Mídia.
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fornecer comentários
+##<a name="provide-feedback"></a>Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
  
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

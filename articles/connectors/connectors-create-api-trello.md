@@ -1,10 +1,10 @@
 <properties
 pageTitle="Trello | Microsoft Azure"
-description="Crie Aplicativos Lógicos com o serviço de Aplicativo do Azure. O Trello lhe dá uma perspectiva de todos os seus projetos, no trabalho e em casa. É uma maneira fácil, gratuita, flexível e visual de gerenciar seus projetos e organizar qualquer coisa. Conectar ao Trello para gerenciar seus quadros, listas e cartões"
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+description="Create Logic apps with Azure App service. Trello gives you perspective over all your projects, at work and at home.  It is an easy, free, flexible, and visual way to manage your projects and organize anything.  Connect to Trello to manage your boards, lists and cards"
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -17,591 +17,595 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
-# Introdução ao conector do Trello
 
-O Trello lhe dá uma perspectiva de todos os seus projetos, no trabalho e em casa. É uma maneira fácil, gratuita, flexível e visual de gerenciar seus projetos e organizar qualquer coisa. Conectar ao Trello para gerenciar seus quadros, listas e cartões.
+# <a name="get-started-with-the-trello-connector"></a>Get started with the Trello connector
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
+Trello gives you perspective over all your projects, at work and at home.  It is an easy, free, flexible, and visual way to manage your projects and organize anything.  Connect to Trello to manage your boards, lists and cards.
 
-É possível começar criando um Aplicativo Lógico agora; veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
 
-## Gatilhos e ações
+You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-O conector do Trello pode ser usado como uma ação: ele tem um ou mais gatilhos. Todos os conectores dão suporte a dados nos formatos JSON e XML.
+## <a name="triggers-and-actions"></a>Triggers and actions
 
- O conector do Trello contém as seguintes ações e/ou gatilhos disponíveis:
+The Trello connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
 
-### Ações do Trello
-Você pode executar as seguintes ações:
+ The Trello connector has the following action(s) and/or trigger(s) available:
 
-|Ação|Descrição|
+### <a name="trello-actions"></a>Trello actions
+You can take these action(s):
+
+|Action|Description|
 |--- | ---|
-|[ListCards](connectors-create-api-trello.md#listcards)|Lista cartões no quadro|
-|[GetCard](connectors-create-api-trello.md#getcard)|Obtém um cartão por ID|
-|[UpdateCard](connectors-create-api-trello.md#updatecard)|Atualiza cartão|
-|[DeleteCard](connectors-create-api-trello.md#deletecard)|Exclui cartão|
-|[CreateCard](connectors-create-api-trello.md#createcard)|Cria um novo cartão em sua conta do Trello|
-|[ListBoards](connectors-create-api-trello.md#listboards)|Lista cartões|
-|[GetBoard](connectors-create-api-trello.md#getboard)|Obtém um quadro por ID|
-|[ListLists](connectors-create-api-trello.md#listlists)|Lista as listas de cartões no quadro|
-|[GetList](connectors-create-api-trello.md#getlist)|Obtém uma lista por ID|
-### Gatilhos do Trello
-Você pode escutar estes eventos:
+|[ListCards](connectors-create-api-trello.md#listcards)|List cards in board|
+|[GetCard](connectors-create-api-trello.md#getcard)|Get card by id|
+|[UpdateCard](connectors-create-api-trello.md#updatecard)|Update card|
+|[DeleteCard](connectors-create-api-trello.md#deletecard)|Delete card|
+|[CreateCard](connectors-create-api-trello.md#createcard)|Creates a new card in your trello account|
+|[ListBoards](connectors-create-api-trello.md#listboards)|List boards|
+|[GetBoard](connectors-create-api-trello.md#getboard)|Gets board by Id|
+|[ListLists](connectors-create-api-trello.md#listlists)|List card lists in board|
+|[GetList](connectors-create-api-trello.md#getlist)|Gets list by Id|
+### <a name="trello-triggers"></a>Trello triggers
+You can listen for these event(s):
 
-|Gatilho | Descrição|
+|Trigger | Description|
 |--- | ---|
-|Quando um novo cartão é adicionado a um quadro|Dispara um fluxo quando um novo cartão é adicionado a um quadro|
-|Quando um novo cartão é adicionado a uma lista|Dispara um fluxo quando um novo cartão é adicionado a uma lista|
+|When a new card is added to a board|Triggers a flow when a new card is added to a board|
+|When a new card is added to a list|Triggers a flow when a new card is added to a list|
 
 
-## Criar uma conexão com o Trello
-Para criar Aplicativos Lógicos com o Trello, primeiro, você deve criar uma **conexão** e, em seguida, fornecer os detalhes das seguintes propriedades:
+## <a name="create-a-connection-to-trello"></a>Create a connection to Trello
+To create Logic apps with Trello, you must first create a **connection** then provide the details for the following properties: 
 
-|Propriedade| Obrigatório|Descrição|
+|Property| Required|Description|
 | ---|---|---|
-|Token|Sim|Fornecer as credenciais do Trello|
-Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
+|Token|Yes|Provide Trello Credentials|
+After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
 
->[AZURE.INCLUDE [Etapas para criar uma conexão com o Trello](../../includes/connectors-create-api-trello.md)]
+>[AZURE.INCLUDE [Steps to create a connection to Trello](../../includes/connectors-create-api-trello.md)]
 
->[AZURE.TIP] Você pode usar essa conexão em outros aplicativos lógicos.
+>[AZURE.TIP] You can use this connection in other logic apps.
 
-## Referência do Trello
-Aplica-se à versão: 1.0
+## <a name="reference-for-trello"></a>Reference for Trello
+Applies to version: 1.0
 
-## OnNewCardInBoard
-Quando um novo cartão é adicionado a um quadro: dispara um fluxo quando um novo cartão é adicionado a um quadro
+## <a name="onnewcardinboard"></a>OnNewCardInBoard
+When a new card is added to a board: Triggers a flow when a new card is added to a board 
 
-```GET: /trigger/boards/{board_id}/cards```
+```GET: /trigger/boards/{board_id}/cards``` 
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|board\_id|string|sim|path|nenhum|ID exclusiva do quadro no qual os cartões serão buscados|
+|board_id|string|yes|path|none|Unique id of the board to fetch cards in|
 
-#### Resposta
+#### <a name="response"></a>Response
 
-|Nome|Descrição|
+|Name|Description|
 |---|---|
 |200|OK|
-|400|Solicitação incorreta|
-|401|Não Autorizado|
-|403|Proibido|
-|404|Não encontrado|
-|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
-|padrão|Falha na operação|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed|
 
 
-## OnNewCardInList
-Quando um novo cartão é adicionado a uma lista: dispara um fluxo quando um novo cartão é adicionado a uma lista
+## <a name="onnewcardinlist"></a>OnNewCardInList
+When a new card is added to a list: Triggers a flow when a new card is added to a list 
 
-```GET: /trigger/lists/{list_id}/cards```
+```GET: /trigger/lists/{list_id}/cards``` 
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|board\_id|string|sim|query|nenhum|ID exclusiva do quadro no qual os cartões serão buscados|
-|list\_id|string|sim|path|nenhum|ID exclusiva da lista na qual os cartões serão buscados|
+|board_id|string|yes|query|none|Unique id of the board to fetch cards in|
+|list_id|string|yes|path|none|Unique id of the list to fetch cards in|
 
-#### Resposta
+#### <a name="response"></a>Response
 
-|Nome|Descrição|
+|Name|Description|
 |---|---|
 |200|OK|
-|400|Solicitação incorreta|
-|401|Não Autorizado|
-|403|Proibido|
-|404|Não encontrado|
-|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
-|padrão|Falha na operação|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed|
 
 
-## ListCards
-Listar cartões no quadro: lista os cartões no quadro
+## <a name="listcards"></a>ListCards
+List cards in board: List cards in board 
 
-```GET: /boards/{board_id}/cards```
+```GET: /boards/{board_id}/cards``` 
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|board\_id|string|sim|path|nenhum|ID do quadro no qual todos os cartões serão buscados|
-|actions|string|não|query|nenhum|Lista as ações a serem retornadas. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|attachments|Booliano|não|query|nenhum|Mostra anexos|
-|attachment\_fields|string|não|query|nenhum|Lista os campos de anexo a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|stickers|Booliano|não|query|nenhum|Mostra os adesivos|
-|membros|Booliano|não|query|nenhum|Mostra os membros|
-|member\_fields|string|não|query|nenhum|Lista os campos de membro a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|CheckItemStates|Booliano|não|query|nenhum|Retorna os estados de cartão|
-|Checklists|string|não|query|nenhum|Mostra as listas de verificação|
-|limite|inteiro|não|query|nenhum|O número máximo de resultados a serem retornados, entre 1 e 1000|
-|since|string|não|query|nenhum|Busca todos os cartões após essa data|
-|antes|string|não|query|nenhum|Busca todos os cartões antes dessa data|
-|filtro|string|não|query|nenhum|Filtra a resposta|
-|fields|string|não|query|nenhum|Lista os campos de cartão a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
+|board_id|string|yes|path|none|Id of the board to fetch all the cards|
+|actions|string|no|query|none|List the actions to return. Specify 'all' or a comma seperated list of valid values|
+|attachments|boolean|no|query|none|Show attachments|
+|attachment_fields|string|no|query|none|List the attachment fields to return. Specify 'all' or a comma seperated list of valid values|
+|stickers|boolean|no|query|none|Show stickers|
+|members|boolean|no|query|none|Show members|
+|memeber_fields|string|no|query|none|List the member fields to return. Specify 'all' or a comma seperated list of valid values|
+|CheckItemStates|boolean|no|query|none|Return the card states|
+|Checklists|string|no|query|none|Show checklists|
+|limit|integer|no|query|none|The max number of results to return, between 1 and 1000|
+|since|string|no|query|none|Fetch all cards after this date|
+|before|string|no|query|none|Fetch all cards before this date|
+|filter|string|no|query|none|Filter the response|
+|fields|string|no|query|none|List the card fields to return. Specify 'all' or a comma seperated list of valid values|
 
-#### Resposta
+#### <a name="response"></a>Response
 
-|Nome|Descrição|
+|Name|Description|
 |---|---|
 |200|OK|
-|400|Solicitação incorreta|
-|401|Não Autorizado|
-|403|Proibido|
-|404|Não encontrado|
-|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
-|padrão|Falha na operação|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed|
 
 
-## GetCard
-Obter cartão por ID: obtém um cartão por ID
+## <a name="getcard"></a>GetCard
+Get card by id: Get card by id 
 
-```GET: /cards/{card_id}```
+```GET: /cards/{card_id}``` 
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|board\_id|string|sim|query|nenhum|ID do quadro no qual os cartões serão buscados|
-|card\_id|string|sim|path|nenhum|ID do cartão a ser buscado|
-|actions|string|não|query|nenhum|Lista as ações a serem retornadas. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|actions\_entities|Booliano|não|query|nenhum|Retorna as entidades de ação|
-|actions\_display|Booliano|não|query|nenhum|Retorna as exibições de ação|
-|actions\_limit|inteiro|não|query|nenhum|Número máximo de ações a serem retornadas|
-|action\_fields|string|não|query|nenhum|Lista de campos de ação a serem retornados para cada ação. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|action\_memberCreator\_fields|string|não|query|nenhum|Lista de campos de criador de membro de ação a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|attachments|Booliano|não|query|nenhum|Retorna os anexos|
-|attachement\_fields|string|não|query|nenhum|Lista de campos de anexo a serem retornados para cada anexo. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|membros|Booliano|não|query|nenhum|Retorna os membros|
-|member\_fields|string|não|query|nenhum|Lista de campos de membro a serem retornados para cada membro. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|membersVoted|Booliano|não|query|nenhum|Retorna os membros votados|
-|memberVoted\_fields|string|não|query|nenhum|Lista de campos de membro votados a serem retornados para cada membro votado. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|checkItemStates|Booliano|não|query|nenhum|Retorna os estados de cartão|
-|checkItemState\_fields|string|não|query|nenhum|Lista de campos de estado a serem retornados para cada estado do item de cartão. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|checklists|string|não|query|nenhum|Retorna as listas de verificação|
-|checklist\_fields|string|não|query|nenhum|Lista de campos de lista de verificação a serem retornados para cada lista de verificação. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|board|Booliano|não|query|nenhum|Retorna o quadro ao qual pertence o cartão|
-|board\_fields|string|não|query|nenhum|Lista os campos de quadro a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|list|Booliano|não|query|nenhum|Retorna a lista à qual pertence o cartão|
-|list\_fields|string|não|query|nenhum|Lista os campos de lista a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|stickers|Booliano|não|query|nenhum|Retorna os adesivos|
-|sticker\_fields|string|não|query|nenhum|Lista os campos de adesivo a serem retornados para cada adesivo. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|fields|string|não|query|nenhum|Lista os campos de cartão a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
+|board_id|string|yes|query|none|Id of the board to fetch cards in|
+|card_id|string|yes|path|none|Id of the card to fetch|
+|actions|string|no|query|none|List the actions to return. Specify 'all' or a comma seperated list of valid values|
+|actions_entities|boolean|no|query|none|Return action entities|
+|actions_display|boolean|no|query|none|Return action displays|
+|actions_limit|integer|no|query|none|Max number of actions to return|
+|action_fields|string|no|query|none|List of action fields to return for each action. Specify 'all' or a comma seperated list of valid values|
+|action_memberCreator_fields|string|no|query|none|List of action member creator fields to return. Specify 'all' or a comma seperated list of valid values|
+|attachments|boolean|no|query|none|Return attachments|
+|attachement_fields|string|no|query|none|List of attachment fields to return for each attachment. Specify 'all' or a comma seperated list of valid values|
+|members|boolean|no|query|none|Return members|
+|member_fields|string|no|query|none|List of member fields to return for each member. Specify 'all' or a comma seperated list of valid values|
+|membersVoted|boolean|no|query|none|Return voted members|
+|memberVoted_fields|string|no|query|none|List of voted member fields to return for each voted member. Specify 'all' or a comma seperated list of valid values|
+|checkItemStates|boolean|no|query|none|Return card states|
+|checkItemState_fields|string|no|query|none|List of state fields to return for each of the card item state. Specify 'all' or a comma seperated list of valid values|
+|checklists|string|no|query|none|Return checklists|
+|checklist_fields|string|no|query|none|List of checklist fields to return for each checklist. Specify 'all' or a comma seperated list of valid values|
+|board|boolean|no|query|none|Return the board which the card belongs to|
+|board_fields|string|no|query|none|List the board fields to return. Specify 'all' or a comma seperated list of valid values|
+|list|boolean|no|query|none|Return the list which the card belongs to|
+|list_fields|string|no|query|none|List the list fields to return. Specify 'all' or a comma seperated list of valid values|
+|stickers|boolean|no|query|none|Return stickers|
+|sticker_fields|string|no|query|none|List the sticker fields to return for each sticker. Specify 'all' or a comma seperated list of valid values|
+|fields|string|no|query|none|List the card fields to return. Specify 'all' or a comma seperated list of valid values|
 
-#### Resposta
+#### <a name="response"></a>Response
 
-|Nome|Descrição|
+|Name|Description|
 |---|---|
 |200|OK|
-|400|Solicitação incorreta|
-|401|Não Autorizado|
-|403|Proibido|
-|404|Não encontrado|
-|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
-|padrão|Falha na operação|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed|
 
 
-## UpdateCard
-Atualizar cartão: atualiza o cartão
+## <a name="updatecard"></a>UpdateCard
+Update card: Update card 
 
-```PUT: /cards/{card_id}```
+```PUT: /cards/{card_id}``` 
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|board\_id|string|sim|query|nenhum|ID do quadro no qual os cartões serão buscados|
-|card\_id|string|sim|path|nenhum|ID do cartão a ser atualizado|
-|updateCard| |sim|corpo|nenhum|Valores do cartão atualizado|
+|board_id|string|yes|query|none|Id of the board to fetch cards from|
+|card_id|string|yes|path|none|Id of the card to update|
+|updateCard| |yes|body|none|Updated card values|
 
-#### Resposta
+#### <a name="response"></a>Response
 
-|Nome|Descrição|
+|Name|Description|
 |---|---|
 |200|OK|
-|400|Solicitação incorreta|
-|401|Não Autorizado|
-|403|Proibido|
-|404|Não encontrado|
-|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
-|padrão|Falha na operação|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed|
 
 
-## DeleteCard
-Excluir cartão: exclui o cartão
+## <a name="deletecard"></a>DeleteCard
+Delete card: Delete card 
 
-```DELETE: /cards/{card_id}```
+```DELETE: /cards/{card_id}``` 
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|board\_id|string|sim|query|nenhum|ID do quadro no qual os cartões serão buscados|
-|card\_id|string|sim|path|nenhum|ID do cartão a ser excluído|
+|board_id|string|yes|query|none|Id of the board to fetch cards from|
+|card_id|string|yes|path|none|Id of the card to delete|
 
-#### Resposta
+#### <a name="response"></a>Response
 
-|Nome|Descrição|
+|Name|Description|
 |---|---|
 |200|OK|
-|400|Solicitação incorreta|
-|401|Não Autorizado|
-|403|Proibido|
-|404|Não encontrado|
-|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
-|padrão|Falha na operação|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed|
 
 
-## CreateCard
-Criar cartão: cria um novo cartão em sua conta do Trello
+## <a name="createcard"></a>CreateCard
+Create card: Creates a new card in your trello account 
 
-```POST: /cards```
+```POST: /cards``` 
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|board\_id|string|sim|query|nenhum|ID exclusiva do quadro no qual os cartões serão criados|
-|newCard| |sim|corpo|nenhum|Novo cartão a ser adicionado ao painel do Trello|
+|board_id|string|yes|query|none|Unique id of the board to create cards in|
+|newCard| |yes|body|none|New card to add to the trello board|
 
-#### Resposta
+#### <a name="response"></a>Response
 
-|Nome|Descrição|
+|Name|Description|
 |---|---|
 |200|OK|
-|400|Solicitação incorreta|
-|401|Não Autorizado|
-|403|Proibido|
-|404|Não encontrado|
-|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
-|padrão|Falha na operação|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed|
 
 
-## ListBoards
-Listar quadros: lista os quadros
+## <a name="listboards"></a>ListBoards
+List boards: List boards 
 
-```GET: /member/me/boards```
+```GET: /member/me/boards``` 
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|filtro|string|não|query|nenhum|Lista os filtros a serem aplicados aos resultados do quadro. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|fields|string|não|query|nenhum|Lista os campos de quadro a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|actions|string|não|query|nenhum|Lista os campos de ação a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|actions\_entities|Booliano|não|query|nenhum|Retorna as entidades de ação|
-|actions\_limit|inteiro|não|query|nenhum|Número máximo de ações a serem retornadas|
-|actions\_format|string|não|query|nenhum|Especificar o formato das ações a serem retornadas|
-|actions\_since|string|não|query|nenhum|Retorna as ações após a data especificada|
-|action\_fields|string|não|query|nenhum|Lista os campos da ação a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|memberships|string|não|query|nenhum|Especifica as informações de associação a serem retornadas. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|organization|Booliano|não|query|nenhum|Especifica o retorno das informações sobre a organização|
-|organization\_fields|string|não|query|nenhum|Lista os campos de organização a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|lists|string|não|query|nenhum|Especifica se as listas que pertencem ao quadro serão retornadas|
+|filter|string|no|query|none|List filters to apply to board results. Specify 'all' or a comma seperated list of valid values|
+|fields|string|no|query|none|List the board fields to return. Specify 'all' or a comma seperated list of valid values|
+|actions|string|no|query|none|List the action fields to return. Specify 'all' or a comma seperated list of valid values|
+|actions_entities|boolean|no|query|none|Return action entities|
+|actions_limit|integer|no|query|none|Max number of actions to return|
+|actions_format|string|no|query|none|Specify the format of the actions to return|
+|actions_since|string|no|query|none|Return actions after the specified date|
+|action_fields|string|no|query|none|List the fields of the action to return. Specify 'all' or a comma seperated list of valid values|
+|memberships|string|no|query|none|Specify membership information to return. Specify 'all' or a comma seperated list of valid values|
+|organization|boolean|no|query|none|Specify to return organization information|
+|organization_fields|string|no|query|none|List the organization fields to return. Specify 'all' or a comma seperated list of valid values|
+|lists|string|no|query|none|Specify whether to return lists which belong to the board|
 
-#### Resposta
+#### <a name="response"></a>Response
 
-|Nome|Descrição|
+|Name|Description|
 |---|---|
 |200|OK|
-|400|Solicitação incorreta|
-|401|Não Autorizado|
-|403|Proibido|
-|404|Não encontrado|
-|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
-|padrão|Falha na operação|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed|
 
 
-## GetBoard
-Obter quadro por ID: obtém quadro por ID
+## <a name="getboard"></a>GetBoard
+Gets board by Id: Gets board by Id 
 
-```GET: /boards/{board_id}```
+```GET: /boards/{board_id}``` 
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|board\_id|string|sim|path|nenhum|ID exclusiva do quadro a ser obtido|
-|actions|string|não|query|nenhum|Lista as ações a serem retornadas. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|action\_entities|Booliano|não|query|nenhum|Especifica se as entidades de ação serão retornadas|
-|actions\_display|Booliano|não|query|nenhum|Especifica se a exibição de ações será retornada|
-|actions\_format|string|não|query|nenhum|Especificar o formato das ações a serem retornadas|
-|actions\_since|string|não|query|nenhum|Retorna somente as ações após esta data|
-|actions\_limit|inteiro|não|query|nenhum|Número máximo de ações a serem retornadas|
-|action\_fields|string|não|query|nenhum|Lista os campos a serem retornados com cada campo. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|action\_member|Booliano|não|query|nenhum|Especifica se os membros de ação serão retornados|
-|action\_member\_fields|string|não|query|nenhum|Lista os campos de membro a serem retornados com cada membro de ação. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|action\_memberCreator|Booliano|não|query|nenhum|Especifica se o criador de membro de ação será retornado|
-|action\_memberCreator\_fields|string|não|query|nenhum|Lista os campos de criador de membro de ação a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|cards|string|não|query|nenhum|Especifica os cartões a serem retornados|
-|card\_fields|string|não|query|nenhum|Lista os campos a serem retornados para cada cartão. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|card\_attachments|Booliano|sim|query|nenhum|Especifica se os anexos nos cartões serão retornados|
-|card\_attachment\_fields|string|não|query|nenhum|Lista os campos de anexo a serem retornados para cada anexo. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|card\_checklists|string|não|query|nenhum|Especifica as listas de verificação a serem retornadas para cada cartão|
-|card\_stickers|Booliano|não|query|nenhum|Especifica se os adesivos de cartão serão retornados|
-|boardStarts|string|não|query|nenhum|Especifica as estrelas de quadro a serem retornadas|
-|rótulos|string|não|query|nenhum|Especifica os rótulos a serem retornados|
-|label\_fields|string|não|query|nenhum|Lista os campos de rótulo a serem retornados para cada rótulo. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|labels\_limits|inteiro|não|query|nenhum|Número máximo de rótulos a serem retornados|
-|lists|string|não|query|nenhum|Especifica as listas a serem retornadas|
-|list\_fields|string|não|query|nenhum|Lista os campos de lista a serem retornados para cada lista. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|memberships|string|não|query|nenhum|Lista as associações a serem retornadas. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|memberships\_member|Booliano|não|query|nenhum|Especifica se os membros de associação serão retornados|
-|memberships\_member\_fields|string|não|query|nenhum|Lista os campos de membro a serem retornados para cada membro de associação. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|membros|string|não|query|nenhum|Lista os membros a serem retornados|
-|member\_fields|string|não|query|nenhum|Lista os campos de membro a serem retornados para cada membro. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|membersInvited|string|não|query|nenhum|Especifica os membros convidados a serem retornados|
-|membersInvited\_fields|string|não|query|nenhum|Lista os campos a serem retornados para cada um. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|checklists|string|não|query|nenhum|Especifica as listas de verificação a serem retornadas|
-|checklist\_fields|string|não|query|nenhum|Lista os campos de lista de verificação a serem retornados para cada lista de verificação. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|organization|Booliano|não|query|nenhum|Especifica se as informações sobre a organização serão retornadas|
-|organization\_fields|string|não|query|nenhum|Lista os campos de organização a serem retornados para cada organização. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|organization\_memberships|string|não|query|nenhum|Lista os membros da organização a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|myPerfs|Booliano|não|query|nenhum|Especifica se meus perfs serão retornados|
-|fields|string|não|query|nenhum|Lista os campos a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
+|board_id|string|yes|path|none|Unique id of the board to get|
+|actions|string|no|query|none|List the actions to return. Specify 'all' or a comma seperated list of valid values|
+|action_entities|boolean|no|query|none|Specify whether to return action entities|
+|actions_display|boolean|no|query|none|Specify whether to return actions display|
+|actions_format|string|no|query|none|Specify the format of the actions to return|
+|actions_since|string|no|query|none|Only return the actions after this date|
+|actions_limit|integer|no|query|none|Max number of actions to return|
+|action_fields|string|no|query|none|List the fields to return with each field. Specify 'all' or a comma seperated list of valid values|
+|action_memeber|boolean|no|query|none|Specify whether to return action members|
+|action_member_fields|string|no|query|none|List the member fields to return with each action member. Specify 'all' or a comma seperated list of valid values|
+|action_memberCreator|boolean|no|query|none|Specify whether to return action member creator|
+|action_memberCreator_fields|string|no|query|none|List the action member creator fields to return. Specify 'all' or a comma seperated list of valid values|
+|cards|string|no|query|none|Specify the cards to return|
+|card_fields|string|no|query|none|List the fields to return for each card. Specify 'all' or a comma seperated list of valid values|
+|card_attachments|boolean|yes|query|none|Specify whether to return attachments on cards|
+|card_attachment_fields|string|no|query|none|List the attachment fields to return for each attachment. Specify 'all' or a comma seperated list of valid values|
+|card_checklists|string|no|query|none|Specify the checklists to return for each card|
+|card_stickers|boolean|no|query|none|Specify whether to return card stickers|
+|boardStarts|string|no|query|none|Specify the board stars to return|
+|labels|string|no|query|none|Specify the labels to return|
+|label_fields|string|no|query|none|List the label fields to return for each label. Specify 'all' or a comma seperated list of valid values|
+|labels_limits|integer|no|query|none|Max number of labels to return|
+|lists|string|no|query|none|Specify the lists to return|
+|list_fields|string|no|query|none|List the list fields to return for each list. Specify 'all' or a comma seperated list of valid values|
+|memberships|string|no|query|none|List the memberships to return. Specify 'all' or a comma seperated list of valid values|
+|memberships_member|boolean|no|query|none|Specify whether to return membership members|
+|memberships_member_fields|string|no|query|none|List the member fields to return for each membership member. Specify 'all' or a comma seperated list of valid values|
+|members|string|no|query|none|List the members to return|
+|member_fields|string|no|query|none|List the member fields to return for each member. Specify 'all' or a comma seperated list of valid values|
+|membersInvited|string|no|query|none|Specify the invited members to return|
+|membersInvited_fields|string|no|query|none|List the fields to return for each. Specify 'all' or a comma seperated list of valid values|
+|checklists|string|no|query|none|Specify the checklists to return|
+|checklist_fields|string|no|query|none|List the checklist fields to return for each checklist. Specify 'all' or a comma seperated list of valid values|
+|organization|boolean|no|query|none|Specify whether to return the organization information|
+|organization_fields|string|no|query|none|List the organization fields to return for each organization. Specify 'all' or a comma seperated list of valid values|
+|organization_memberships|string|no|query|none|List the organization memberships to return. Specify 'all' or a comma seperated list of valid values|
+|myPerfs|boolean|no|query|none|Specify whether to return my perfs|
+|fields|string|no|query|none|List the fields to return. Specify 'all' or a comma seperated list of valid values|
 
-#### Resposta
+#### <a name="response"></a>Response
 
-|Nome|Descrição|
+|Name|Description|
 |---|---|
 |200|OK|
-|400|Solicitação incorreta|
-|401|Não Autorizado|
-|403|Proibido|
-|404|Não encontrado|
-|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
-|padrão|Falha na operação|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed|
 
 
-## ListLists
-Listar as listas de cartões no quadro: lista as listas de cartões no quadro
+## <a name="listlists"></a>ListLists
+List card lists in board: List card lists in board 
 
-```GET: /boards/{board_id}/lists```
+```GET: /boards/{board_id}/lists``` 
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|board\_id|string|sim|path|nenhum|ID exclusiva do quadro para buscar listas|
-|cards|string|não|query|nenhum|Especifica os cartões a serem retornados|
-|card\_fields|string|não|query|nenhum|Lista os campos de cartão do qual serão retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|filtro|string|não|query|nenhum|Especifica a propriedade de filtro para as listas|
-|fields|string|não|query|nenhum|Lista os campos a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
+|board_id|string|yes|path|none|Unique id of the board to fetch lists|
+|cards|string|no|query|none|Specify the cards to return|
+|card_fields|string|no|query|none|List the card fields to return from. Specify 'all' or a comma seperated list of valid values|
+|filter|string|no|query|none|Specify the filter property for lists|
+|fields|string|no|query|none|List the fields to return. Specify 'all' or a comma seperated list of valid values|
 
-#### Resposta
+#### <a name="response"></a>Response
 
-|Nome|Descrição|
+|Name|Description|
 |---|---|
 |200|OK|
-|400|Solicitação incorreta|
-|401|Não Autorizado|
-|403|Proibido|
-|404|Não encontrado|
-|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
-|padrão|Falha na operação|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed|
 
 
-## GetList
-Obter lista por ID: obtém lista por ID
+## <a name="getlist"></a>GetList
+Gets list by Id: Gets list by Id 
 
-```GET: /lists/{list_id}```
+```GET: /lists/{list_id}``` 
 
-| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|board\_id|string|sim|query|nenhum|ID exclusiva do quadro no qual as listas serão buscadas|
-|list\_id|string|sim|path|nenhum|ID exclusiva da lista a ser buscada|
-|cards|string|não|query|nenhum|Especifica os cartões a serem retornados|
-|card\_fields|string|não|query|nenhum|Lista os campos de cartão a serem retornados para cada cartão. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|board|Booliano|não|query|nenhum|Especificar se as informações do quadro serão retornadas|
-|board\_fields|string|não|query|nenhum|Lista os campos de quadro a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
-|fields|string|não|query|nenhum|Lista os campos de lista a serem retornados. Especifica “todos” ou uma lista de valores válidos separados por vírgula|
+|board_id|string|yes|query|none|Unique id of the board to fetch the lists from|
+|list_id|string|yes|path|none|Unique id of the list to fetch|
+|cards|string|no|query|none|Specify the cards to return|
+|card_fields|string|no|query|none|List the card fields to return for each card. Specify 'all' or a comma seperated list of valid values|
+|board|boolean|no|query|none|Specify whether to return board information|
+|board_fields|string|no|query|none|List the board fields to return. Specify 'all' or a comma seperated list of valid values|
+|fields|string|no|query|none|List the list fields to return. Specify 'all' or a comma seperated list of valid values|
 
-#### Resposta
+#### <a name="response"></a>Response
 
-|Nome|Descrição|
+|Name|Description|
 |---|---|
 |200|OK|
-|400|Solicitação incorreta|
-|401|Não Autorizado|
-|403|Proibido|
-|404|Não encontrado|
-|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
-|padrão|Falha na operação|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occured|
+|default|Operation Failed|
 
 
-## Definições de objeto 
+## <a name="object-definitions"></a>Object definitions 
 
-### Card
+### <a name="card"></a>Card
 
 
-| Nome da Propriedade | Tipo de Dados | Obrigatório |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ID|string|Não |
-|checkItemStates|array|Não |
-|closed|Booliano|Não |
-|dateLastActivity|string|Não |
-|desc|string|Não |
-|idBoard|string|Não |
-|idList|string|Não |
-|idMembersVoted|array|Não |
-|idShort|inteiro|Não |
-|idAttachmentCover|string|Não |
-|manualCoverAttachment|Booliano|Não |
-|idLabels|array|Não |
-|name|string|Não |
-|pos|inteiro|Não |
-|shortLink|string|Não |
-|badges|não definido|Não |
-|due|string|Não |
-|email|string|Não |
-|shortUrl|string|Não |
-|subscribed|Booliano|Não |
-|url|string|Não |
+|id|string|No |
+|checkItemStates|array|No |
+|closed|boolean|No |
+|dateLastActivity|string|No |
+|desc|string|No |
+|idBoard|string|No |
+|idList|string|No |
+|idMembersVoted|array|No |
+|idShort|integer|No |
+|idAttachmentCover|string|No |
+|manualCoverAttachment|boolean|No |
+|idLabels|array|No |
+|name|string|No |
+|pos|integer|No |
+|shortLink|string|No |
+|badges|not defined|No |
+|due|string|No |
+|email|string|No |
+|shortUrl|string|No |
+|subscribed|boolean|No |
+|url|string|No |
 
 
 
-### Badges
+### <a name="badges"></a>Badges
 
 
-| Nome da Propriedade | Tipo de Dados | Obrigatório |
+| Property Name | Data Type | Required |
 |---|---|---|
-|Votes|inteiro|Não |
-|ViewingMemberVoted|Booliano|Não |
-|Subscribed|Booliano|Não |
-|Fogbugz|string|Não |
-|CheckItems|inteiro|Não |
-|CheckItemsChecked|inteiro|Não |
-|Comentários|inteiro|Não |
-|Anexos|inteiro|Não |
-|Descrição|Booliano|Não |
-|Due|string|Não |
+|Votes|integer|No |
+|ViewingMemberVoted|boolean|No |
+|Subscribed|boolean|No |
+|Fogbugz|string|No |
+|CheckItems|integer|No |
+|CheckItemsChecked|integer|No |
+|Comments|integer|No |
+|Attachments|integer|No |
+|Description|boolean|No |
+|Due|string|No |
 
 
 
-### Objeto
+### <a name="object"></a>Object
 
 
-| Nome da Propriedade | Tipo de Dados | Obrigatório |
+| Property Name | Data Type | Required |
 |---|---|---|
 
 
 
-### CreateCard
+### <a name="createcard"></a>CreateCard
 
 
-| Nome da Propriedade | Tipo de Dados | Obrigatório |
+| Property Name | Data Type | Required |
 |---|---|---|
-|idList|string|Sim |
-|name|string|Sim |
-|desc|string|Não |
-|pos|string|Não |
-|idMembers|string|Não |
-|idLabels|string|Não |
-|urlSource|string|Não |
-|fileSource|string|Não |
-|idCardSource|string|Não |
-|keepFromSource|string|Não |
+|idList|string|Yes |
+|name|string|Yes |
+|desc|string|No |
+|pos|string|No |
+|idMembers|string|No |
+|idLabels|string|No |
+|urlSource|string|No |
+|fileSource|string|No |
+|idCardSource|string|No |
+|keepFromSource|string|No |
 
 
 
-### UpdateCard
+### <a name="updatecard"></a>UpdateCard
 
 
-| Nome da Propriedade | Tipo de Dados | Obrigatório |
+| Property Name | Data Type | Required |
 |---|---|---|
-|name|string|Não |
-|desc|string|Não |
-|closed|Booliano|Não |
-|idMembers|string|Não |
-|idAttachmentCover|string|Não |
-|idList|string|Não |
-|idBoard|string|Não |
-|pos|string|Não |
-|due|string|Não |
-|subscribed|Booliano|Não |
+|name|string|No |
+|desc|string|No |
+|closed|boolean|No |
+|idMembers|string|No |
+|idAttachmentCover|string|No |
+|idList|string|No |
+|idBoard|string|No |
+|pos|string|No |
+|due|string|No |
+|subscribed|boolean|No |
 
 
 
-### Board
+### <a name="board"></a>Board
 
 
-| Nome da Propriedade | Tipo de Dados | Obrigatório |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ID|string|Não |
-|closed|Booliano|Não |
-|dateLastActivity|string|Não |
-|dateLastView|string|Não |
-|desc|string|Não |
-|idOrganization|string|Não |
-|invitations|array|Não |
-|invited|Booliano|Não |
-|labelNames|não definido|Não |
-|memberships|array|Não |
-|name|string|Não |
-|pinned|Booliano|Não |
-|powerUps|array|Não |
-|perfs|não definido|Não |
-|shortLink|string|Não |
-|shortUrl|string|Não |
-|starred|string|Não |
-|subscribed|string|Não |
-|url|string|Não |
+|id|string|No |
+|closed|boolean|No |
+|dateLastActivity|string|No |
+|dateLastView|string|No |
+|desc|string|No |
+|idOrganization|string|No |
+|invitations|array|No |
+|invited|boolean|No |
+|labelNames|not defined|No |
+|memberships|array|No |
+|name|string|No |
+|pinned|boolean|No |
+|powerUps|array|No |
+|perfs|not defined|No |
+|shortLink|string|No |
+|shortUrl|string|No |
+|starred|string|No |
+|subscribed|string|No |
+|url|string|No |
 
 
 
-### Rótulo
+### <a name="label"></a>Label
 
 
-| Nome da Propriedade | Tipo de Dados | Obrigatório |
+| Property Name | Data Type | Required |
 |---|---|---|
-|green|string|Não |
-|yellow|string|Não |
-|orange|string|Não |
-|red|string|Não |
-|purple|string|Não |
-|blue|string|Não |
-|sky|string|Não |
-|lime|string|Não |
-|pink|string|Não |
-|black|string|Não |
+|green|string|No |
+|yellow|string|No |
+|orange|string|No |
+|red|string|No |
+|purple|string|No |
+|blue|string|No |
+|sky|string|No |
+|lime|string|No |
+|pink|string|No |
+|black|string|No |
 
 
 
-### Membership
+### <a name="membership"></a>Membership
 
 
-| Nome da Propriedade | Tipo de Dados | Obrigatório |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ID|string|Não |
-|idMember|string|Não |
-|memberType|string|Não |
-|unconfirmed|Booliano|Não |
+|id|string|No |
+|idMember|string|No |
+|memberType|string|No |
+|unconfirmed|boolean|No |
 
 
 
-### Perfs
+### <a name="perfs"></a>Perfs
 
 
-| Nome da Propriedade | Tipo de Dados | Obrigatório |
+| Property Name | Data Type | Required |
 |---|---|---|
-|permissionLevel|string|Não |
-|voting|string|Não |
-|comentários|string|Não |
-|invitations|string|Não |
-|selfJoin|Booliano|Não |
-|cardCovers|Booliano|Não |
-|calendarFeedEnabled|Booliano|Não |
-|background|string|Não |
-|backgroundColor|string|Não |
-|backgroundImage|string|Não |
-|backgroundImageScaled|string|Não |
-|backgroundTile|Booliano|Não |
-|backgroundBrightness|string|Não |
-|canBePublic|Booliano|Não |
-|canBeOrg|Booliano|Não |
-|canBePrivate|Booliano|Não |
-|canInvite|Booliano|Não |
+|permissionLevel|string|No |
+|voting|string|No |
+|comments|string|No |
+|invitations|string|No |
+|selfJoin|boolean|No |
+|cardCovers|boolean|No |
+|calendarFeedEnabled|boolean|No |
+|background|string|No |
+|backgroundColor|string|No |
+|backgroundImage|string|No |
+|backgroundImageScaled|string|No |
+|backgroundTile|boolean|No |
+|backgroundBrightness|string|No |
+|canBePublic|boolean|No |
+|canBeOrg|boolean|No |
+|canBePrivate|boolean|No |
+|canInvite|boolean|No |
 
 
 
-### Listar
+### <a name="list"></a>List
 
 
-| Nome da Propriedade | Tipo de Dados | Obrigatório |
+| Property Name | Data Type | Required |
 |---|---|---|
-|ID|string|Não |
-|name|string|Não |
-|closed|Booliano|Não |
-|idBoard|string|Não |
-|pos|número|Não |
-|subscribed|Booliano|Não |
-|cards|array|Não |
-|board|não definido|Não |
+|id|string|No |
+|name|string|No |
+|closed|boolean|No |
+|idBoard|string|No |
+|pos|number|No |
+|subscribed|boolean|No |
+|cards|array|No |
+|board|not defined|No |
 
 
-## Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## <a name="next-steps"></a>Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

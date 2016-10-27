@@ -1,28 +1,33 @@
 
-|Recurso | Limite padrão|
+|Resource | Default limit|
 |--------------|--------|
-|Coleções por usuário| 1|
-|Aplicativos publicados por coleção|	100|
-|Duração da coleção de avaliação| 30 dias|
-|Coleções de avaliação| 2 por assinatura|
-|Usuários por coleção de avaliação| 10|
-|Imagens de modelo de avaliação|	25|
-|Coleções pagas| 3 |
-|Imagens de modelo pagas| 25|
-|Usuários — camada básica*| 400 (padrão)/800 (máximo)|
-|Usuários — camada padrão*| 250 (padrão)/500 (máximo)|
-|Usuários — camada premium| O padrão é 100.|
-|Usuários - camada premium plus | O padrão é 50.|
-|Conexões simultâneas em todas as coleções em uma assinatura| 5\.000|
-|Armazenamento de dados do usuário (UPD) por usuário, por coleção| 50 GB|
-|Tempo limite de ociosidade| 4 horas|
-|Tempo limite desconectado| 4 horas|
+|Collections per user| 1|
+|Published apps per collection| 100|
+|Trial collection duration| 30 days|
+|Trial collections| 2 per subscription|
+|Users per trial collection| 10|
+|Trial template images| 25|
+|Paid collections| 3 |
+|Paid template images| 25|
+|Users - basic tier*| 400 (default)/ 800 (maximum)|
+|Users - standard tier*| 250 (default)/ 500 (maximum)|
+|Users- premium tier| 100 default.|
+|Users - premium plus tier | 50 default.|
+|Concurrent connections across all collections in a subscription| 5000|
+|User data storage (UPD) per user per collection| 50 GB|
+|Idle timeout| 4 hours|
+|Disconnected timeout| 4 hours|
 
-**Os limites de usuário nas camadas básica e padrão não podem ser aumentados além do limite máximo listado acima.
+*User limits in basic and standard tiers cannot be increased beyond the maximum limit listed above. 
 
-O número de usuários é determinado pelo número de VMs usadas na sua coleção:
+The number of users is determined by the number of VMs used for your collection:
 
-- Básica = 16 usuários por VM
-- Padrão = 10 usuários por VM
-- Premium = 4 usuários por VM
-- Premium plus = 2 usuários por VM
+- Basic = 16 users per VM
+- Standard = 10 users per VM
+- Premium = 4 users per VM
+- Premium plus = 2 users per VM
+
+
+<!--HONumber=Oct16_HO2-->
+
+

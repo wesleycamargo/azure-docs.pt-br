@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Aplicação de patch automatizada para VMs do SQL Server (Clássico) | Microsoft Azure"
-	description="Explica o recurso de Aplicação de Patch Automatizada para Máquinas Virtuais do SQL Server em execução no Azure e usando o modo de implantação clássico."
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jhubbard"
-	editor=""
-	tags="azure-service-management" />
+    pageTitle="Aplicação de patch automatizada para VMs do SQL Server (Clássico) | Microsoft Azure"
+    description="Explica o recurso de Aplicação de Patch Automatizada para Máquinas Virtuais do SQL Server em execução no Azure e usando o modo de implantação clássico."
+    services="virtual-machines-windows"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jhubbard"
+    editor=""
+    tags="azure-service-management" />
 <tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="09/26/2016"
-	ms.author="jroth" />
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="09/26/2016"
+    ms.author="jroth" />
 
-# Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure (Clássico)
+
+# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-(classic)"></a>Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure (Clássico)
 
 > [AZURE.SELECTOR]
 - [Gerenciador de Recursos](virtual-machines-windows-sql-automated-patching.md)
@@ -24,10 +25,9 @@
 
 A aplicação de patch automatizada estabelece uma janela de manutenção para uma Máquina Virtual do Azure que executa o SQL Server. Atualizações automáticas só podem ser instaladas durante esta janela de manutenção. Para o SQL Server, isso garante que as atualizações do sistema e qualquer reinicialização associada ocorrerão no melhor momento possível para o banco de dados. A aplicação de patch automatizada depende da [Extensão do Agente IaaS do SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-Para exibir a versão do Resource Manager deste artigo, consulte [Aplicação de Patch Automatizada para o SQL Server em Máquinas Virtuais do Azure do Resource Manager](virtual-machines-windows-sql-automated-patching.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Para exibir a versão do Resource Manager deste artigo, consulte [Aplicação de Patch Automatizada para o SQL Server em Máquinas Virtuais do Azure do Resource Manager](virtual-machines-windows-sql-automated-patching.md).
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para usar a Aplicação de Patch Automatizada, considere os seguintes pré-requisitos:
 
@@ -50,7 +50,7 @@ Para usar a Aplicação de Patch Automatizada, considere os seguintes pré-requi
 
 - [Instale a Extensão IaaS do SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-## Configurações
+## <a name="settings"></a>Configurações
 
 A tabela a seguir descreve as opções que podem ser configuradas para Aplicação de Patch Automatizada. Para VMs clássicas, você deve usar o PowerShell para definir essas configurações.
 
@@ -62,7 +62,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para Aplicaç�
 |**Duração da janela de manutenção**|30-180|O número de minutos permitidos para concluir o download e a instalação de atualizações.|
 |**Categoria de patch**|Importante|A categoria de atualizações para baixar e instalar.|
 
-## Configuração com o PowerShell
+## <a name="configuration-with-powershell"></a>Configuração com o PowerShell
 
 No exemplo a seguir, o PowerShell é usado para configurar a Aplicação de Patch Automatizada em uma VM existente do SQL Server. O comando **New-AzureVMSqlServerAutoPatchingConfig** configura uma nova janela de manutenção para atualizações automáticas.
 
@@ -83,10 +83,14 @@ Pode demorar vários minutos para instalar e configurar o Agente IaaS do SQL Ser
 
 Para desabilitar a Aplicação de Patch Automatizada, execute o mesmo script sem o parâmetro -Enable para New-AzureVMSqlServerAutoPatchingConfig. Assim como acontece com a instalação, pode demorar vários minutos para desabilitar a Aplicação de Patch Automatizada.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter informações sobre outras tarefas de automação disponíveis, consulte [Extensão do agente IaaS do SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 Para obter mais informações sobre como executar o SQL Server em VMs do Azure, consulte [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

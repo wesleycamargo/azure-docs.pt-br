@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Loops, escopos e debatching de Aplicativos Lógicos | Microsoft Azure"
-   description="Conceitos de loop, escopo e debatching de Aplicativo Lógico"
+   pageTitle="Logic Apps Loops, Scopes, and Debatching | Microsoft Azure"
+   description="Logic App loop, scope, and debatching concepts"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -16,15 +16,16 @@
    ms.date="05/14/2016"
    ms.author="jehollan"/>
    
-# Loops, Escopos e Debatch dos Aplicativos Lógicos
-  
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2016-04-01-preview e posterior dos Aplicativos Lógicos. Os conceitos são semelhantes a esquemas mais antigos, mas os escopos só estão disponíveis para este esquema e posteriores.
-  
-## Loop ForEach e Matrizes
-  
-Os Aplicativos Lógicos permitem que você faça um loop em um conjunto de dados e execute uma ação para cada item. Isso é possível por meio da ação `foreach`. No designer, você pode especificar a adição de um loop for each. Depois de selecionar a matriz em que você deseja iterar, você poderá começar a adicionar ações. No momento, você está limitado a apenas uma ação por loop foreach, mas essa restrição será eliminada nas próximas semanas. Uma vez no loop, você poderá começar a especificar o que deve ocorrer em cada valor da matriz.
 
-Se você estiver usando o modo de exibição de código, poderá especificar um loop for each como o abaixo. Este é um exemplo de um loop for each que envia um email para cada endereço de email com 'microsoft.com':
+# <a name="logic-apps-loops,-scopes,-and-debatching"></a>Logic Apps Loops, Scopes, and Debatching
+  
+>[AZURE.NOTE] This version of the article applies to Logic Apps 2016-04-01-preview schema and later.  Concepts are similar for older schemas, but scopes are only available for this schema and later.
+  
+## <a name="foreach-loop-and-arrays"></a>ForEach Loop and Arrays
+  
+Logic Apps allows you to loop over a set of data and perform an action for each item.  This is possible via the `foreach` action.  In the designer, you can specify to add a for each loop.  After selecting the array you wish to iterate over, you can begin adding actions.  Currently you are limited to only one action per foreach loop, but this restriction will be lifted in the coming weeks.  Once within the loop you can begin to specify what should occur at each value of the array.
+
+If using code-view, you can specify a for each loop like below.  This is an example of a for each loop that sends an email for each email address that contains 'microsoft.com':
 
 ```
 {
@@ -62,17 +63,17 @@ Se você estiver usando o modo de exibição de código, poderá especificar um 
 }
 ```
   
-  Uma ação `foreach` pode iterar em matrizes até 5.000 linhas. Cada iteração pode ser executada eem paralelo, portanto, pode ser necessário adicionar mensagens a uma fila, se houver necessidade de controle de fluxo.
+  A `foreach` action can iterate over arrays up to 5,000 rows.  Each iteration can execute in parallel, so it may be necessary to add messages to a queue if flow control is needed.
   
-## Loop Until
+## <a name="until-loop"></a>Until Loop
   
-  Você pode executar uma ação ou uma série de ações até que uma condição seja atendida. O cenário mais comum para isso é chamar um ponto de extremidade até você chegar à resposta que está procurando. No designer, você pode especificar a adição de um loop until. Depois de adicionar ações dentro do loop, você poderá definir a condição de saída, bem como os limites do loop. Há um atraso de um minuto entre os ciclos de loop.
+  You can perform an action or series of actions until a condition is met.  The most common scenario for this is calling an endpoint until you get the response you are looking for.  In the designer, you can specify to add an until loop.  After adding actions inside the loop, you can set the exit condition, as well as the loop limits.  There is a 1 minute delay between loop cycles.
   
-  Se você estiver usando o modo de exibição de código, poderá especificar um loop unitl como o abaixo. Este é um exemplo de chamada a um ponto de extremidade HTTP até que o corpo da resposta tenha o valor 'Concluído'. Ele será concluído quando a
+  If using code-view, you can specify an until loop like below.  This is an example of calling an HTTP endpoint until the response body has the value 'Completed'.  It will complete when either 
   
-  * Resposta HTTP tiver o status 'Concluído'
-  * Ele tentou por uma hora
-  * Ele entrou em loop 100 vezes
+  * HTTP Response has status of 'Completed'
+  * It has tried for 1 hour
+  * It has looped 100 times
   
   ```
   {
@@ -98,11 +99,11 @@ Se você estiver usando o modo de exibição de código, poderá especificar um 
   }
   ```
   
-## SplitOn e Debatching
+## <a name="spliton-and-debatching"></a>SplitOn and Debatching
 
-Às vezes, um gatilho pode receber uma matriz de itens nos quais deseja fazer debatch e iniciar um fluxo de trabalho por item. Isso pode ser feito por meio do comando `spliton`. Por padrão, se o gatilho swagger especificar uma carga que seja uma matriz, um `spliton` será adicionado e iniciará uma execução por item. SplitOn só pode ser adicionado a um gatilho. Isso pode ser manualmente configurado ou substituído na exibição de código de definição. Atualmente, o SplitOn pode fazer debatch em matrizes de até 5.000 itens. Você não pode ter um `spliton` e também implementar o padrão de resposta síncrona. Qualquer fluxo de trabalho chamado com uma ação `response` além de `spliton` será executado de forma assíncrona e enviará uma resposta `202 Accepted` imediata.
+Sometimes a trigger may recieve an array of items that you want to debatch and start a workflow per item.  This can be accomplished via the `spliton` command.  By default, if your trigger swagger specifies a payload that is an array, a `spliton` will be added and start a run per item.  SplitOn can only be added to a trigger.  This can be manually configured or overridden in definition code-view.  Currently SplitOn can debatch arrays up to 5,000 items.  You cannot have a `spliton` and also implement the syncronous response pattern.  Any workflow called that has a `response` action in addition to `spliton` will run asyncronously and send an immediate `202 Accepted` response.  
 
-SplitOn pode ser especificado no modo de exibição de código como o exemplo a seguir. Isso recebe uma matriz de itens e faz debatch em cada linha.
+SplitOn can be specified in code-view as the following example.  This recieves an array of items and debatches on each row.
 
 ```
 {
@@ -112,7 +113,7 @@ SplitOn pode ser especificado no modo de exibição de código como o exemplo a 
             "url": "http://getNewCustomers",
         },
         "recurrence": {
-            "frequencey": "Second",
+            "frequency": "Second",
             "interval": 15
         },
         "spliton": "@triggerBody()['rows']"
@@ -120,9 +121,9 @@ SplitOn pode ser especificado no modo de exibição de código como o exemplo a 
 }
 ```
 
-## Escopos
+## <a name="scopes"></a>Scopes
 
-É possível agrupar uma série de ações usando um escopo. Isso é particularmente útil para implementar o tratamento de exceções. No designer, você pode adicionar um novo escopo e começar a adicionar ações dentro dele. É possível definir escopos no modo de exibição de código semelhante ao seguinte:
+It is possible to group a series of actions together using a scope.  This is particularly useful for implementing exception handling.  In the designer you can add a new scope, and begin adding any actions inside of it.  You can define scopes in code-view like the following:
 
 
 ```
@@ -141,4 +142,8 @@ SplitOn pode ser especificado no modo de exibição de código como o exemplo a 
 }
 ```
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

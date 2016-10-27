@@ -1,23 +1,25 @@
-**Para criar um perfil CDN**
+**To create a new CDN profile**
 
-1. No [Portal do Azure](https://portal.azure.com), no canto superior esquerdo, clique em **Novo**. Na folha **Novo**, selecione **Mídia + CDN** e, em seguida, **CDN**.
+1. In the [Azure Portal](https://portal.azure.com), in the upper left, click **New**.  In the **New** blade, select **Media + CDN**, then **CDN**.
 
-    A folha do novo perfil CDN é exibida.
+    The new CDN profile blade appears.
 
-    ![Novo perfil CDN](./media/cdn-create-profile/new-cdn-profile-include.png)
+    ![New CDN Profile](./media/cdn-create-profile/new-cdn-profile-include.png)
 
-2. Insira um nome para o perfil CDN.
+2. Enter a name for your CDN profile.
 
-3. Selecione um **Local**. Esse é o local do Azure onde suas informações de perfil CDN serão armazenadas. Ele não tem impacto sobre os locais de ponto de extremidade CDN.
+3. Select a **Location**.  This is the Azure location where your CDN profile information will be stored.  It has no impact on CDN endpoint locations.
 
-4. Selecione ou crie um **Grupo de Recursos**. Para obter mais informações sobre Grupos de Recursos, confira [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md#resource-groups).
+4. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md#resource-groups).
 
-5. Selecione um **tipo de preço**. Confira a [Visão geral da CDN](cdn-overview.md#azure-cdn-features) para uma comparação de tipos de preço.
+5. Select a **Pricing tier**.  See the [CDN Overview](cdn-overview.md#azure-cdn-features) for a comparison of pricing tiers.
     
-    ![Seleção de tipo de preço de CDN](./media/cdn-create-profile/cdn-choose-sku-include.png)
+    ![CDN pricing tier selection](./media/cdn-create-profile/cdn-choose-sku-include.png)
 
-6. Selecione a **Assinatura** para este perfil CDN.
+6. Select the **Subscription** for this CDN profile.
 
-7. Clique no botão **Criar** para criar um novo perfil.
+7. Click the **Create** button to create the new profile. 
 
-<!---HONumber=AcomDC_0706_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

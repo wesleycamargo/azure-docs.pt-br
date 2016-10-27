@@ -1,18 +1,21 @@
-### Para adicionar o espaço de endereço
+### <a name="to-add-address-space"></a>To add address space
 
-1. Para adicionar outro espaço de endereço, clique em **Todas as configurações** para abrir a folha **Configurações**. 
+1. To add additional address space, click **All settings** to open the **Settings** blade. 
 
-2. Na folha **Configurações**, clique em **Espaço de endereço** para abrir a folha de Espaço de endereço. Adicione o espaço de endereço adicional nessa folha e, em seguida, clique em **Salvar** na parte superior da folha.
+2. On the **Settings** blade, click **Address space** to open the Address space blade. Add the additional address space in this blade, and then click **Save** at the top of the blade.
 
-	![Adicionar o espaço de endereço](./media/vpn-gateway-additional-address-space-include/address400.png)
+    ![Add address space](./media/vpn-gateway-additional-address-space-include/address400.png)
 
-### Para adicionar sub-redes 
+### <a name="to-add-subnets"></a>To add subnets 
 
-1. Para adicionar as sub-redes adicionais a seus espaços de endereço, na folha **Configurações**, clique em **Sub-redes** para abrir a folha **Sub-redes**. 
+1. To add additional subnets to your address spaces, in the **Settings** blade, click **Subnets** to open the **Subnets** blade. 
 
-2. Na folha Sub-redes, clique em **Adicionar** para abrir a folha **Adicionar sub-rede**. Nomeie sua nova sub-rede e especifique o intervalo de endereços. Em seguida, clique em **OK** na parte inferior da folha. Após a criação da sub-rede, você poderá usar a folha de sub-redes para exibir todas as suas sub-redes de uma rede virtual.
+2. In the Subnets blade, click **Add** to open the **Add subnet** blade. Name your new subnet and specify the address range, and then click **OK** at the bottom of the blade. Once a subnet has been created, you can use the subnets blade to view all of your subnets for a VNet.
 
 
-	![Configurações de sub-rede](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)
+    ![Subnet settings](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)       
 
-<!----HONumber=AcomDC_0406_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

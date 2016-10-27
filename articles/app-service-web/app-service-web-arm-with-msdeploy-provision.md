@@ -1,80 +1,81 @@
 <properties
-	pageTitle="Implantar um aplicativo Web usando o MSDeploy com um nome de host e um certificado ssl"
-	description="Use um modelo do Gerenciador de Recursos do Azure para implantar um aplicativo Web usando o MSDeploy e configurando um nome de host personalizado e um certificado SSL"
-	services="app-service\web"
-	documentationCenter=""
-	authors="jodehavi"
-	/>
+    pageTitle="Deploy a web app using MSDeploy with hostname and ssl certificate"
+    description="Use an Azure Resource Manager template to deploy a web app using MSDeploy and setting up custom hostname and a SSL certificate"
+    services="app-service\web"
+    documentationCenter=""
+    authors="jodehavi"
+    />
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="john.dehavilland"/>
+    ms.service="app-service-web"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="05/31/2016"
+    ms.author="john.dehavilland"/>
 
-# Implantar um aplicativo Web com o MSDeploy, um nome de host personalizado e um certificado SSL
 
-Este guia orienta você durante a criação de uma implantação ponta a ponta para um Aplicativo Web do Azure usando o MSDeploy e adicionando um nome de host personalizado e um certificado SSL ao modelo ARM.
+# <a name="deploy-a-web-app-with-msdeploy,-custom-hostname-and-ssl-certificate"></a>Deploy a web app with MSDeploy, custom hostname and SSL certificate
 
-Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+This guide walks through creating an end-to-end deployment for an Azure Web App, leveraging MSDeploy as well as adding a custom hostname and an SSL certificate to the ARM template.
 
-###Criar o aplicativo de exemplo
+For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
-Você implantará um aplicativo Web ASP.NET. A primeira etapa é criar um aplicativo Web simples (ou você pode optar por usar um existente — nesse caso, ignore esta etapa).
+###<a name="create-sample-application"></a>Create Sample Application
 
-Abra o Visual Studio 2015 e escolha Arquivo > Novo Projeto. Na caixa de diálogo que aparecer, escolha Web > aplicativo Web ASP.NET. Em Modelos, escolha Web e escolha o modelo MVC. Selecione _Alterar tipo de autenticação_ para _Sem Autenticação_. Isso é apenas para simplificar ao máximo o aplicativo de exemplo.
+You will be deploying an ASP.NET web application. The first step is to create a simple web application (or you could choose to use an existing one - in which case you can skip this step).
 
-Neste ponto, você terá um aplicativo Web ASP.Net básico pronto para uso como parte do processo de implantação.
+Open Visual Studio 2015 and choose File > New Project. On the dialog that appears choose Web > ASP.NET Web Application. Under Templates choose Web and choose the MVC template. Select _Change authentication type_ to _No Authentication_. This is just to make the sample application as simple as possible.
 
-###Criar um pacote do MSDeploy
+At this point you will have a basic ASP.Net web app ready to use as part of your deployment process.
 
-A próxima etapa será criar o pacote para implantar o aplicativo Web no Azure. Para fazer isso, salve seu projeto e execute o seguinte na linha de comando:
+###<a name="create-msdeploy-package"></a>Create MSDeploy package
 
-	msbuild yourwebapp.csproj /t:Package /p:PackageLocation="path\to\package.zip"
+Next step is to create the package to deploy the web app to Azure. To do this, save your project and then run the following from the command line:
 
-Isso criará um pacote compactado na pasta PackageLocation. O aplicativo está pronto para ser implantado; agora você pode compilar um modelo do Gerenciador de Recursos do Azure para fazer isso.
+    msbuild yourwebapp.csproj /t:Package /p:PackageLocation="path\to\package.zip"
 
-###Criar um modelo ARM
-Primeiro, vamos começar com um modelo ARM básico que criará um aplicativo Web e um plano de hospedagem (observe que os parâmetros e as variáveis não serão mostrados para tudo ficar mais conciso).
+This will create a zipped package under the PackageLocation folder. The application is now ready to be deployed, which you can now build out an Azure Resource Manager template to do that.
 
-	{
-		"name": "[parameters('appServicePlanName')]",
-		"type": "Microsoft.Web/serverfarms",
-		"location": "[resourceGroup().location]",
-		"apiVersion": "2014-06-01",
-		"dependsOn": [ ],
-		"tags": {
-		    "displayName": "appServicePlan"
-		},
-		"properties": {
-		    "name": "[parameters('appServicePlanName')]",
-		    "sku": "[parameters('appServicePlanSKU')]",
-		    "workerSize": "[parameters('appServicePlanWorkerSize')]",
-		    "numberOfWorkers": 1
-		}
-	},
-	{
-		"name": "[variables('webAppName')]",
-		"type": "Microsoft.Web/sites",
-		"location": "[resourceGroup().location]",
-		"apiVersion": "2015-08-01",
-		"dependsOn": [
-		    "[concat('Microsoft.Web/serverfarms/', parameters('appServicePlanName'))]"
-		],
-		"tags": {
-		    "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('appServicePlanName'))]": "Resource",
-		    "displayName": "webApp"
-		},
-		"properties": {
-		    "name": "[variables('webAppName')]",
-		    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms/', parameters('appServicePlanName'))]"
-		}
-	}
+###<a name="create-arm-template"></a>Create ARM Template
+First, let's start with a basic ARM template that will create a web application and a hosting plan (note that parameters and variables are not shown for brevity).
 
-Em seguida, você precisará modificar o recurso de aplicativo Web para que ele obtenha um recurso aninhado do MSDeploy. Isso permitirá que você referencie o pacote criado anteriormente e diga ao Gerenciador de Recursos do Azure para usar o MSDeploy para implantar o pacote no Aplicativo Web do Azure. A seguir, o recurso Microsoft.Web/sites com o recurso aninhado do MSDeploy:
+    {
+        "name": "[parameters('appServicePlanName')]",
+        "type": "Microsoft.Web/serverfarms",
+        "location": "[resourceGroup().location]",
+        "apiVersion": "2014-06-01",
+        "dependsOn": [ ],
+        "tags": {
+            "displayName": "appServicePlan"
+        },
+        "properties": {
+            "name": "[parameters('appServicePlanName')]",
+            "sku": "[parameters('appServicePlanSKU')]",
+            "workerSize": "[parameters('appServicePlanWorkerSize')]",
+            "numberOfWorkers": 1
+        }
+    },
+    {
+        "name": "[variables('webAppName')]",
+        "type": "Microsoft.Web/sites",
+        "location": "[resourceGroup().location]",
+        "apiVersion": "2015-08-01",
+        "dependsOn": [
+            "[concat('Microsoft.Web/serverfarms/', parameters('appServicePlanName'))]"
+        ],
+        "tags": {
+            "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('appServicePlanName'))]": "Resource",
+            "displayName": "webApp"
+        },
+        "properties": {
+            "name": "[variables('webAppName')]",
+            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms/', parameters('appServicePlanName'))]"
+        }
+    }
+
+Next, you will need to modify the web app resource to take a nested MSDeploy resource. This will allow you to reference the package created earlier and tell Azure Resource Manager to use MSDeploy to deploy the package to the Azure WebApp. The following shows the Microsoft.Web/sites resource with the nested MSDeploy resource:
 
     {
         "name": "[variables('webAppName')]",
@@ -116,85 +117,89 @@ Em seguida, você precisará modificar o recurso de aplicativo Web para que ele 
         ]
     }
 
-Agora você observará que o recurso do MSDeploy obtém uma propriedade **packageUri**, definida desta forma:
+Now you will notice that the MSDeploy resource takes a **packageUri** property which is defined as follows:
 
-	"packageUri": "[concat(parameters('_artifactsLocation'), '/', parameters('webDeployPackageFolder'), '/', parameters('webDeployPackageFileName'), parameters('_artifactsLocationSasToken'))]"
+    "packageUri": "[concat(parameters('_artifactsLocation'), '/', parameters('webDeployPackageFolder'), '/', parameters('webDeployPackageFileName'), parameters('_artifactsLocationSasToken'))]"
 
-Essa **packageUri** obtém o uri da conta de armazenamento que aponta para a conta de armazenamento para onde você carregará o pacote compactado. O Gerenciador de Recursos do Azure aproveitará as [Assinaturas de Acesso Compartilhado](../storage/storage-dotnet-shared-access-signature-part-1.md) para obter o pacote localmente da conta de armazenamento durante a implantação do modelo. Este processo será automatizado por meio de um script do PowerShell que carregará o pacote e chamará a API de Gerenciamento do Azure para criar as chaves necessárias e passá-las para o modelo como parâmetros (*\_artifactsLocation* e *\_artifactsLocationSasToken*). Será necessário definir parâmetros para a pasta em que o pacote será carregado no contêiner de armazenamento e para o nome de arquivo desse pacote.
+This **packageUri** takes the storage account uri which points to the storage account where you will upload your package zip to. The Azure Resource Manager will leverage [Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md) to pull the package down locally from the storage account when you deploy the template. This process will be automated via a PowerShell script that will upload the package and call the Azure Management API to create the keys required and pass those into the template as parameters (*_artifactsLocation* and *_artifactsLocationSasToken*). You will need to define parameters for the folder and filename the package is uploaded to under the storage container.
 
-Em seguida, adicione outro recurso aninhado para configurar as associações de nome de host para aproveitar um domínio personalizado. Primeiro, você precisará garantir que você possui o nome de host e configurá-lo para que o Azure verifique você o possui - consulte [Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure](web-sites-custom-domain-name.md). Depois disso, você poderá adicionar o seguinte ao seu modelo na seção do recurso Microsoft.Web/sites:
+Next you need to add in another nested resource to setup the hostname bindings to leverage a custom domain. You will first need to ensure that you own the hostname and set it up to be verified by Azure that you own it - see [Configure a custom domain name in Azure App Service](web-sites-custom-domain-name.md). Once that is done you can add the following to your template under the Microsoft.Web/sites resource section:
 
-	{
-		"apiVersion": "2015-08-01",
-		"type": "hostNameBindings",
-		"name": "www.yourcustomdomain.com",
-		"dependsOn": [
-		    "[concat('Microsoft.Web/sites/', variables('webAppName'))]"
-		],
-		"properties": {
-		    "domainId": null,
-		    "hostNameType": "Verified",
-		    "siteName": "variables('webAppName')"
-		}
-	}
+    {
+        "apiVersion": "2015-08-01",
+        "type": "hostNameBindings",
+        "name": "www.yourcustomdomain.com",
+        "dependsOn": [
+            "[concat('Microsoft.Web/sites/', variables('webAppName'))]"
+        ],
+        "properties": {
+            "domainId": null,
+            "hostNameType": "Verified",
+            "siteName": "variables('webAppName')"
+        }
+    }
 
-Por fim, adicione outro recurso de nível superior, Microsoft.Web/certificates. Esse recurso conterá o certificado SSL e existirá no mesmo nível do aplicativo Web e do plano de hospedagem.
+Finally you need to add another top level resource, Microsoft.Web/certificates. This resource will contain your SSL certificate and will exist at the same level as your web app and hosting plan.
 
-	{
-	    "name": "[parameters('certificateName')]",
-	    "apiVersion": "2014-04-01",
-	    "type": "Microsoft.Web/certificates",
-	    "location": "[resourceGroup().location]",
-	    "properties": {
-	        "pfxBlob": "pfx base64 blob",
-	        "password": "some pass"
-	    }
-	}
+    {
+        "name": "[parameters('certificateName')]",
+        "apiVersion": "2014-04-01",
+        "type": "Microsoft.Web/certificates",
+        "location": "[resourceGroup().location]",
+        "properties": {
+            "pfxBlob": "pfx base64 blob",
+            "password": "some pass"
+        }
+    }
 
-Você precisará ter um certificado SSL válido para configurar esse recurso. Quando você tiver um certificado válido, será necessário extrair os bytes pfx como uma cadeia de caracteres de base64. Uma opção para extrair isso é usar o seguinte comando PowerShell:
+You will need to have a valid SSL certificate in order to set up this resource. Once you have that valid certificate then you need to extract the pfx bytes as a base64 string. One option to extract this is to use the following PowerShell command:
 
-	$fileContentBytes = get-content 'C:\path\to\cert.pfx' -Encoding Byte
+    $fileContentBytes = get-content 'C:\path\to\cert.pfx' -Encoding Byte
 
-	[System.Convert]::ToBase64String($fileContentBytes) | Out-File 'pfx-bytes.txt'
+    [System.Convert]::ToBase64String($fileContentBytes) | Out-File 'pfx-bytes.txt'
 
-Em seguida, você poderia passar isso como um parâmetro para o modelo de implantação ARM.
+You could then pass this as a parameter to your ARM deployment template.
 
-Neste ponto, o modelo ARM estará pronto.
+At this point the ARM template is ready.
 
-###Implantar o modelo
+###<a name="deploy-template"></a>Deploy Template
 
-As etapas finais são juntar tudo isso em uma implantação completa ponta a ponta. Para facilitar a implantação, você pode aproveitar o script **Deploy-AzureResourceGroup.ps1** do PowerShell adicionado durante a criação de um projeto do Grupo de Recursos do Azure no Visual Studio para ajudar no carregamento de todos os artefatos necessários ao modelo. Ele exige a criação prévia de uma conta de armazenamento que você deseja usar. Neste exemplo, criei uma conta de armazenamento compartilhada para o pacote.zip a ser carregado. O script utilizará o AzCopy para carregar o pacote para a conta de armazenamento. Você passa o local da pasta do artefato e o script carregará automaticamente todos os arquivos desse diretório para o contêiner de armazenamento nomeado. Depois de chamar Deploy-AzureResourceGroup.ps1, você deverá atualizar as associações SSL para mapear o nome de host personalizado com o certificado SSL.
+The final steps are to piece this all together into a full end-to-end deployment. To make deployment easier you can leverage the **Deploy-AzureResourceGroup.ps1** PowerShell script that is added when you create an Azure Resource Group project in Visual Studio to help with uploading of any artifacts required in the template. It requires you to have created a storage account you want to use ahead of time. For this example, I created a shared storage account for the package.zip to be uploaded. The script will leverage AzCopy to upload the package to the storage account. You pass in your artifact folder location and the script will automatically upload all files within that directory to the named storage container. After calling Deploy-AzureResourceGroup.ps1 you have to then update the SSL bindings to map the custom hostname with your SSL certificate.
 
-O PowerShell a seguir mostra a implantação completa chamando Deploy-AzureResourceGroup.ps1:
+The following PowerShell shows the complete deployment calling the Deploy-AzureResourceGroup.ps1:
 
-	#Set resource group name
-	$rgName = "Name-of-resource-group"
+    #Set resource group name
+    $rgName = "Name-of-resource-group"
 
-	#call deploy-azureresourcegroup script to deploy web app
+    #call deploy-azureresourcegroup script to deploy web app
 
-	.\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation "East US" `
-									-ResourceGroupName $rgName `
-									-UploadArtifacts `
-									-StorageAccountName "name-of-storage-acct-for-package" `
-									-StorageAccountResourceGroupName "resource-group-name-storage-acct" `
-									-TemplateFile "web-app-deploy.json" `
-									-TemplateParametersFile "web-app-deploy-parameters.json" `
-									-ArtifactStagingDirectory "C:\path\to\packagefolder"
+    .\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation "East US" `
+                                    -ResourceGroupName $rgName `
+                                    -UploadArtifacts `
+                                    -StorageAccountName "name-of-storage-acct-for-package" `
+                                    -StorageAccountResourceGroupName "resource-group-name-storage-acct" `
+                                    -TemplateFile "web-app-deploy.json" `
+                                    -TemplateParametersFile "web-app-deploy-parameters.json" `
+                                    -ArtifactStagingDirectory "C:\path\to\packagefolder\"
 
-	#update web app to bind ssl certificate to hostname. This has to be done after creation above.
+    #update web app to bind ssl certificate to hostname. This has to be done after creation above.
 
-	$cert = Get-PfxCertificate -FilePath C:\path\to\certificate.pfx
+    $cert = Get-PfxCertificate -FilePath C:\path\to\certificate.pfx
 
-	$ar = Get-AzureRmResource -Name nameofwebsite -ResourceGroupName $rgName -ResourceType Microsoft.Web/sites -ApiVersion 2014-11-01
+    $ar = Get-AzureRmResource -Name nameofwebsite -ResourceGroupName $rgName -ResourceType Microsoft.Web/sites -ApiVersion 2014-11-01
 
-	$props = $ar.Properties
+    $props = $ar.Properties
 
-	$props.HostNameSslStates[2].'SslState' = 1
-	$props.HostNameSslStates[2].'thumbprint' = $cert.Thumbprint
-	$props.hostNameSslStates[2].'toUpdate' = $true
+    $props.HostNameSslStates[2].'SslState' = 1
+    $props.HostNameSslStates[2].'thumbprint' = $cert.Thumbprint
+    $props.hostNameSslStates[2].'toUpdate' = $true
 
-	Set-AzureRmResource -ApiVersion 2014-11-01 -Name nameofwebsite -ResourceGroupName $rgName -ResourceType Microsoft.Web/sites -PropertyObject $props
+    Set-AzureRmResource -ApiVersion 2014-11-01 -Name nameofwebsite -ResourceGroupName $rgName -ResourceType Microsoft.Web/sites -PropertyObject $props
 
-Neste ponto, seu aplicativo deve ter sido implantado e você deve ser capaz de localizá-lo por meio de https://www.yourcustomdomain.com
+At this point your application should have been deployed and you should be able to browse to it via https://www.yourcustomdomain.com
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

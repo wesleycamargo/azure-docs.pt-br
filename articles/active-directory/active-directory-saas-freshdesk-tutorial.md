@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: integração do Active Directory do Azure ao Freshdesk | Microsoft Azure" 
-    description="Saiba como usar o Freshdesk com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    pageTitle="Tutorial: Azure Active Directory Integration with Freshdesk | Microsoft Azure" 
+    description="Learn how to use Freshdesk with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,156 +11,164 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/09/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Tutorial: integração do Active Directory do Azure ao Freshdesk
+
+#<a name="tutorial:-azure-active-directory-integration-with-freshdesk"></a>Tutorial: Azure Active Directory Integration with Freshdesk
   
-O objetivo deste tutorial é mostrar a integração do Azure ao Freshdesk. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+The objective of this tutorial is to show the integration of Azure and Freshdesk.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
--   Uma assinatura válida do Azure
--   Um locatário do Freshdesk
+-   A valid Azure subscription
+-   A Freshdesk tenant
   
-Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Freshdesk poderão fazer logon único no aplicativo em seu site de empresa do Freshdesk (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+After completing this tutorial, the Azure AD users you have assigned to Freshdesk will be able to single sign into the application at your Freshdesk company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
   
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+The scenario outlined in this tutorial consists of the following building blocks:
 
-1.  Habilitando a integração de aplicativos para Freshdesk
-2.  Configurando o logon único
-3.  Configurando o provisionamento de usuários
-4.  Atribuindo usuários
+1.  Enabling the application integration for Freshdesk
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-![Cenário](./media/active-directory-saas-freshdesk-tutorial/IC776761.png "Cenário")
-##Habilitando a integração de aplicativos para Freshdesk
+![Scenario](./media/active-directory-saas-freshdesk-tutorial/IC776761.png "Scenario")
+##<a name="enabling-the-application-integration-for-freshdesk"></a>Enabling the application integration for Freshdesk
   
-O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Freshdesk.
+The objective of this section is to outline how to enable the application integration for Freshdesk.
 
-###Para habilitar a integração de aplicativos para o Freshdesk, execute as seguintes etapas:
+###<a name="to-enable-the-application-integration-for-freshdesk,-perform-the-following-steps:"></a>To enable the application integration for Freshdesk, perform the following steps:
 
-1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-freshdesk-tutorial/IC700993.png "Active Directory")
 
-2.  Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicativos](./media/active-directory-saas-freshdesk-tutorial/IC700994.png "Aplicativos")
+    ![Applications](./media/active-directory-saas-freshdesk-tutorial/IC700994.png "Applications")
 
-4.  Clique em **Adicionar** na parte inferior da página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Adicionar aplicativo](./media/active-directory-saas-freshdesk-tutorial/IC749321.png "Adicionar aplicativo")
+    ![Add application](./media/active-directory-saas-freshdesk-tutorial/IC749321.png "Add application")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-freshdesk-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
+    ![Add an application from gallerry](./media/active-directory-saas-freshdesk-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Na **caixa de pesquisa**, digite **Freshdesk**.
+6.  In the **search box**, type **Freshdesk**.
 
-    ![Galeria de aplicativos](./media/active-directory-saas-freshdesk-tutorial/IC776762.png "Galeria de aplicativos")
+    ![Application gallery](./media/active-directory-saas-freshdesk-tutorial/IC776762.png "Application gallery")
 
-7.  No painel de resultados, selecione **Freshdesk** e clique em **Concluir** para adicionar o aplicativo.
+7.  In the results pane, select **Freshdesk**, and then click **Complete** to add the application.
 
     ![Freshdesk](./media/active-directory-saas-freshdesk-tutorial/IC776763.png "Freshdesk")
-##Configurando o logon único
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
   
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Freshdesk com a própria conta no Azure AD usando federação baseada no protocolo SAML. A configuração do logon único para Freshdesk exige que você recupere um valor de impressão digital de um certificado. Se você não estiver familiarizado com esse procedimento, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI).
+The objective of this section is to outline how to enable users to authenticate to Freshdesk with their account in Azure AD using federation based on the SAML protocol.  
+Configuring single sign-on for Freshdesk requires you to retrieve a thumbprint value from a certificate.  
+If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
-###Para configurar o logon único, execute as seguintes etapas:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  No portal clássico do Azure, na página de integração de aplicativos do **Freshdesk**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  In the Azure classic portal, on the **Freshdesk** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurar o logon único](./media/active-directory-saas-freshdesk-tutorial/IC776764.png "Configurar o logon único")
+    ![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/IC776764.png "Configure Single Sign-On")
 
-2.  Na página **Como você deseja que os usuários façam logon no Freshdesk**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
+2.  On the **How would you like users to sign on to Freshdesk** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar o logon único](./media/active-directory-saas-freshdesk-tutorial/IC776765.png "Configurar o logon único")
+    ![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/IC776765.png "Configure Single Sign-On")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Freshdesk**, digite a URL usando o padrão "*https://\<nome-locatário>.Freshdesk.com*" e clique em **Avançar**.
+3.  On the **Configure App URL** page, in the **Freshdesk Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Freshdesk.com*", and then click **Next**.
 
-    ![Configurar a URL do Aplicativo](./media/active-directory-saas-freshdesk-tutorial/IC776766.png "Configurar a URL do Aplicativo")
+    ![Configure App URL](./media/active-directory-saas-freshdesk-tutorial/IC776766.png "Configure App URL")
 
-4.  Na página **Configurar logon único no Freshdesk**, clique em **Baixar certificado** e salve o arquivo de certificado localmente no computador como **c:\\Freshdesk.cer**.
+4.  On the **Configure single sign-on at Freshdesk** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\Freshdesk.cer**.
 
-    ![Configurar o logon único](./media/active-directory-saas-freshdesk-tutorial/IC776767.png "Configurar o logon único")
+    ![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/IC776767.png "Configure Single Sign-On")
 
-5.  Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Freshdesk como administrador.
+5.  In a different web browser window, log into your Freshdesk company site as an administrator.
 
-6.  No menu na parte superior, clique em **Administrador**.
+6.  In the menu on the top, click **Admin**.
 
-    ![Administrador](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Administrador")
+    ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
 
-7.  Na guia **Configurações Gerais**, clique em **Segurança**.
+7.  In the **General Settings** tab, click **Security**.
 
-    ![Segurança](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Segurança")
+    ![Security](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Security")
 
-8.  Na seção **Segurança**, realize as seguintes etapas:
+8.  In the **Security** section, perform the following steps:
 
-    ![Logon Único](./media/active-directory-saas-freshdesk-tutorial/IC776770.png "Logon Único")
+    ![Single Sign On](./media/active-directory-saas-freshdesk-tutorial/IC776770.png "Single Sign On")
 
-    1.  Para **SSO (Logon Único)**, selecione **Ativado**.
-    2.  Selecione **SSO do SAML**.
-    3.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Freshdesk**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do SAML**.
-    4.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Freshdesk**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
-    5.  Copie o valor de **Impressão Digital** do certificado exportado e cole-o na caixa de texto **Impressão Digital do Certificado de Segurança**.
+    1.  For **Single Sign On (SSO)**, select **On**.
+    2.  Select **SAML SSO**.
+    3.  In the Azure classic portal, on the **Configure single sign-on at Freshdesk** dialog page, copy the **Remote Login URL** value, and then paste it into the **SAML Login URL** textbox.
+    4.  In the Azure classic portal, on the **Configure single sign-on at Freshdesk** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
+    5.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Security Certificate Fingerprint** textbox.  
 
-        >[AZURE.TIP]Para obter mais detalhes, consulte [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP]For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
-    6.  Clique em **Salvar**.
+    6.  Click **Save**.
 
-9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurar o logon único](./media/active-directory-saas-freshdesk-tutorial/IC776771.png "Configurar o logon único")
-##Configurando o provisionamento de usuários
+    ![Configure Single Sign-On](./media/active-directory-saas-freshdesk-tutorial/IC776771.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
   
-Para permitir que os usuários do Azure AD façam logon no Freshdesk, eles devem ser provisionados no Freshdesk. No caso do Freshdesk, o provisionamento é uma tarefa manual.
+In order to enable Azure AD users to log into Freshdesk, they must be provisioned into Freshdesk.  
+In the case of Freshdesk, provisioning is a manual task.
 
-###Para provisionar contas de usuário, execute as seguintes etapas:
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
 
-1.  Faça logon em seu locatário do **Freshdesk**.
+1.  Log in to your **Freshdesk** tenant.
 
-2.  No menu na parte superior, clique em **Administrador**.
+2.  In the menu on the top, click **Admin**.
 
-    ![Administrador](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Administrador")
+    ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Admin")
 
-3.  Na guia **Configurações Gerais**, clique em **Agentes**.
+3.  In the **General Settings** tab, click **Agents**.
 
-    ![Agentes](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agentes")
+    ![Agents](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agents")
 
-4.  Clique em **Novo Agente**.
+4.  Click **New Agent**.
 
-    ![Novo Agente](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "Novo Agente")
+    ![New Agent](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "New Agent")
 
-5.  Na caixa de diálogo Informações sobre o Agente, execute as seguintes etapas:
+5.  On the Agent Information dialog, perform the following steps:
 
-    ![Informações sobre o Agente](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Informações sobre o Agente")
+    ![Agent Information](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Agent Information")
 
-    1.  Na caixa de texto **Nome Completo**, digite o nome da conta do Azure AD que você deseja provisionar.
-    2.  Na caixa de texto **Email**, digite o endereço de email do Azure AD da conta do Azure AD que você deseja provisionar.
-    3.  Na caixa de texto **Título**, digite a conta do Azure AD que você deseja provisionar.
-    4.  Selecione **Função de agentes** e clique em **Atribuir**.
-    5.  Clique em **Salvar**.
+    1.  In the **Full Name** textbox, type the name of the Azure AD account you want to provision.
+    2.  In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
+    3.  In the **Title** textbox, type the title of the Azure AD account you want to provision.
+    4.  Select **Agents role**, and then click **Assign**.
+    5.  Click **Save**.
     
-        >[AZURE.NOTE] O titular da conta do Azure AD receberá um email que inclui um link para confirmar a conta antes que ela se torne ativa.
+        >[AZURE.NOTE] The Azure AD account holder will get an email that includes a link to confirm the account before it is activated.
 
->[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Freshdesk ou APIs fornecidas pelo Freshdesk para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] You can use any other Freshdesk user account creation tools or APIs provided by Freshdesk to provision AAD user accounts.
 
-##Atribuindo usuários
+##<a name="assigning-users"></a>Assigning users
   
-Para testar sua configuração, será necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que o utilizem.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para atribuir usuários ao Freshdesk, execute as seguintes etapas:
+###<a name="to-assign-users-to-freshdesk,-perform-the-following-steps:"></a>To assign users to Freshdesk, perform the following steps:
 
-1.  No Portal clássico do Azure, crie uma conta de teste.
+1.  In the Azure classic portal, create a test account.
 
-2.  Na página de integração de aplicativos do **Freshdesk**, clique em **Atribuir usuários**.
+2.  On the **Freshdesk **application integration page, click **Assign users**.
 
-    ![Atribuir Usuários](./media/active-directory-saas-freshdesk-tutorial/IC776776.png "Atribuir Usuários")
+    ![Assign Users](./media/active-directory-saas-freshdesk-tutorial/IC776776.png "Assign Users")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sim](./media/active-directory-saas-freshdesk-tutorial/IC767830.png "Sim")
+    ![Yes](./media/active-directory-saas-freshdesk-tutorial/IC767830.png "Yes")
   
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

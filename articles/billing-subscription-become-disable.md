@@ -1,89 +1,80 @@
 <properties
-	pageTitle="O que devo fazer se minha assinatura do Azure for desabilitada? | Microsoft Azure"
-	description="Descreve os motivos da desabilitação da assinatura do Azure e a resolução"
-	services=""
-	documentationCenter=""
-	authors="genlin"
-	manager="msmbaldwin"
-	editor=""
-	tags="billing"
-	/>
+    pageTitle="Reactivate disabled Azure subscription | Microsoft Azure"
+    description="Describes when you might have an Azure subscription disabled and how to reactivate it."
+    keywords="azure subscription disabled"
+    services=""
+    documentationCenter=""
+    authors="genlin"
+    manager="mbaldwin"
+    editor=""
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="genli"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="genli"/>
 
-# O que devo fazer se minha assinatura do Azure for desabilitada?
 
-> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+# <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it?"></a>Why is my Azure subscription disabled and how do I reactivate it?
 
-Se sua assinatura do Azure for desabilitada, você poderá usar as etapas neste artigo para reabilitá-la. Sua assinatura do Azure pode ser desabilitada pelos seguintes motivos.
+You might have your Azure subscription disabled because you reached your spending limit, have an overdue bill, hit your credit card limit, or because the subscription was canceled by the account administrator. See what issue applies to you and follow the steps in this article to get your subscription reactivated. 
 
-## Você atingiu o limite de gastos
+## <a name="you-reached-your-spending-limit"></a>You reached your spending limit
 
-Para protegê-lo da incidência acidental de encargos pelo uso além da quantia incluída na oferta, introduzimos o recurso [Limite de gastos](https://azure.microsoft.com/pricing/spending-limits/). Quando seu uso supera as quantias mensais incluídas em sua oferta, desabilitaremos o serviço durante o restante daquele mês de cobrança. Você pode optar por remover o limite de gastos para evitar isso e [configurar alertas de cobranças para suas assinaturas do Microsoft Azure](billing-set-up-alerts.md) para ajudá-lo a monitorar e gerenciar atividades de cobrança de suas contas do Azure.
+When your usage exhausts the monthly amounts included with your subscription, we disable your service for the remainder of that billing month. Your service is disabled to protect you from accidentally incurring charges for usage beyond the amount included with your subscription. You can remove the spending limit and [set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md) to help you monitor and manage billing activity for your Azure accounts.
 
-Aqui você encontra como remover seu Limite de Gastos:
+To remove your spending limit,
 
-1. Faça logon no [Centro de Contas do Azure](https://account.windowsazure.com/Home/Index).
+1. Log in to the [Azure Account Center](https://account.windowsazure.com/Home/Index).
 
-2. Clique em **Assinaturas**.
+2. Click **Subscriptions**.
 
-3. Selecione uma assinatura.
+3. Select a subscription.
 
-4. Se você vir *A assinatura alcançou o Limite de Gastos e foi desabilitada para evitar encargos*, clique nela.
+4. Click **Subscription reached the Spending Limit and has been disabled to prevent charges**.
 
-	Caso contrário, clique em **Remover limite de gastos** na área **Status da Assinatura**.
+    If you don't see that option, click **Remove spending limit** in the subscription **Status** area.
 
-5. Selecione uma das opções a seguir que é apropriada para você:
+5. Select one of the following options:
 
-|Opção|Efeito|
+|Option|Effect|
 |------|------|
-|Remover o limite de gastos indefinidamente|Remove o limite de gastos sem ativá-lo automaticamente no início do próximo período de cobrança.|
-|Remover limite de gastos para o período de cobrança atual|Remove o limite de gastos para que ele seja ativado automaticamente no início do próximo período de cobrança.|
+|Remove spending limit indefinitely|Removes the spending limit until you turn it back on.|
+|Remove spending limit for the current billing period|Removes the spending limit but the spending limit restarts for the next billing period.|
 
->[AZURE.NOTE] Se você estiver usando uma assinatura de Avaliação Gratuita, a remoção do limite de gastos converterá sua assinatura em pré-paga no final da Avaliação Gratuita.
+If you have a Free Trial subscription and you remove the spending limits, your subscription converts to Pay-As-You-Go at the end of the free trial.
 
-## Sua fatura está atrasada
+## <a name="your-bill-is-past-due"></a>Your bill is past due
 
-Pague o saldo pendente na íntegra. Para resolver isso, confira o artigo [Por que você recebeu uma notificação informando que sua assinatura do Azure tem um saldo devido?](billing-azure-subscription-past-due-balance.md#what-can-you-do-to-resolve-the-issue)
+Pay your outstanding balance in full. See the article [Why have you received a notification that your Azure subscription has a past due balance?](billing-azure-subscription-past-due-balance.md#what-can-you-do-to-resolve-the-issue)
 
-## A fatura excede o limite de cartão de crédito
+## <a name="the-bill-exceeds-your-credit-card-limit"></a>The bill exceeds your credit card limit
 
-Para resolver esse problema, use um dos seguintes métodos:
+To resolve this issue, [switch to a different credit card](billing-how-to-change-credit-card.md). Or if you're representing a business, you can [switch to pay by invoice](https://azure.microsoft.com/pricing/invoicing/).
 
-- [Alternar para um cartão de crédito diferente](billing-how-to-change-credit-card.md).
-- Se você tiver um negócio, poderá [alternar para o método de pagamento da nota fiscal](https://azure.microsoft.com/pricing/invoicing/).
+## <a name="the-subscription-was-canceled-by-the-account-administrator"></a>The subscription was canceled by the Account Administrator
 
-## A assinatura foi cancelada pelo Administrador da Conta
+If you're the account administrator, reactivate your Pay-As-You-Go subscription by using the following steps: 
 
->[AZURE.NOTE] Atualmente, esse método se aplica somente às assinaturas Pré-pagas. Para outros tipos de assinatura, você precisará [contatar o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+1. Log in to the [Azure Account Center](https://account.windowsazure.com/Home/Index).
+2. Select the canceled subscription.
+3. Click **Reactivate**.
 
-Se você for o administrador da conta, será possível reativar sua assinatura Pré-paga seguindo as etapas abaixo:
+![Screenshot that shows reactivate links on the right pane.](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
 
-- Escolha a assinatura cancelada.
-- Clique em um dos links **Reativar** na página de detalhes da assinatura.
+For other subscription types, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to have your subscription reactivated.
 
-![reactivate-sub](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
+## <a name="need-help?-contact-support."></a>Need help? Contact support.
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 
 
-## Como reabilitar as assinatura que não são pré-pagas:
 
-Para reativar uma assinatura desabilitada, você deve criar um tíquete de suporte: entre no [Portal do Azure](https://portal.azure.com/), escolha **Ajuda + suporte**>**Nova solicitação de suporte**.
 
-![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
-Se você não conseguir acessar o portal, envie a solicitação de suporte pelo site do Suporte do Azure ou pela Central de Contas do Azure:
+<!--HONumber=Oct16_HO2-->
 
- * Para enviar um tíquete de suporte a partir do [site de Suporte do Azure](https://azure.microsoft.com/support/options/), clique em **Obter suporte**.
- * Para enviar um tíquete de suporte a partir da [Central de Contas do Azure](https://account.windowsazure.com/Subscriptions), selecione uma assinatura, em seguida, clique em **Contatar Suporte da Microsoft**.
 
-Para saber mais, confira [Como Criar um Tíquete de Suporte para Problemas de Cobrança e Assinatura do Azure](billing-how-to-create-billing-support-ticket.md).
-
-> [AZURE.NOTE] Se ainda tiver dúvidas, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
-
-<!---HONumber=AcomDC_0914_2016-->

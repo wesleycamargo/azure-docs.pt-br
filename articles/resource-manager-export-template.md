@@ -1,160 +1,122 @@
 <properties
-	pageTitle="Exportar o modelo do Azure Resource Manager | Microsoft Azure"
-	description="Use o Azure Resource Manager para exportar um modelo a partir de um grupo de recursos existente."
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="timlt"
-	editor="tysonn"/>
+    pageTitle="Export Azure Resource Manager template | Microsoft Azure"
+    description="Use Azure Resource Manage to export a template from an existing resource group."
+    services="azure-resource-manager"
+    documentationCenter=""
+    authors="tfitzmac"
+    manager="timlt"
+    editor="tysonn"/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/03/2016"
-	ms.author="tomfitz"/>
+    ms.service="azure-resource-manager"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/03/2016"
+    ms.author="tomfitz"/>
 
-# Exportar um modelo do Azure Resource Manager a partir dos recursos existentes
 
-O Gerenciador de Recursos permite que você exporte um modelo do Gerenciador de Recursos a partir dos recursos existentes em sua assinatura. Você pode usar esse modelo gerado para saber mais sobre a sintaxe do modelo ou automatizar a reimplantação de sua solução, conforme o necessário.
+# <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Export an Azure Resource Manager template from existing resources
 
-É importante observar que há duas maneiras diferentes de exportar um modelo:
+Resource Manager enables you to export a Resource Manager template from existing resources in your subscription. You can use that generated template to learn about the template syntax or to automate the redeployment of your solution as needed.
 
-- Você pode exportar o modelo real que usou para uma implantação. O modelo exportado inclui todas as variáveis e parâmetros exatamente como apareceram no modelo original. Essa abordagem é útil quando você implantou recursos pelo portal. Agora, você deve ver como construir o modelo para criar esses recursos.
-- Você pode exportar um modelo que representa o estado atual do grupo de recursos. O modelo exportado não é baseado em nenhum modelo que você usou para a implantação. Ao contrário, ele cria um modelo que é um instantâneo do grupo de recursos. O modelo exportado tem muitos valores embutidos e provavelmente menos parâmetros do que você normalmente definiria. Essa abordagem é útil quando você modificou o grupo de recursos pelo portal ou com scripts. Agora, você precisa capturar o grupo de recursos como um modelo.
+It is important to note that there are two different ways to export a template:
 
-Este tópico mostra as duas abordagens. No artigo [Personalizar um modelo do Azure Resource Manager exportado](resource-manager-customize-template.md), você aprende a aproveitar um modelo que gerou do estado atual do grupo de recursos e a torná-lo mais útil para reimplantar a solução.
+- You can export the actual template that you used for a deployment. The exported template includes all the parameters and variables exactly as they appeared in the original template. This approach is helpful when you have deployed resources through the portal. Now, you want to see how to construct the template to create those resources.
+- You can export a template that represents the current state of the resource group. The exported template is not based on any template that you used for deployment. Instead, it creates a template that is a snapshot of the resource group. The exported template has many hard-coded values and probably not as many parameters as you would typically define. This approach is useful when you have modified the resource group through the portal or scripts. Now, you need to capture the resource group as a template.
 
-Neste tutorial, você entra no portal do Azure, cria uma conta de armazenamento e exporta o modelo para essa conta de armazenamento. Você adiciona uma rede virtual para modificar o grupo de recursos. Por fim, exporta um novo modelo que representa seu estado atual. Embora este artigo foque em uma infraestrutura simplificada, você poderia usar essas mesmas etapas para exportar um modelo para uma solução mais complicada.
+This topic shows both approaches. In the [Customize an exported Azure Resource Manager template](resource-manager-customize-template.md) article, you see how to take a template you generated from the current state of the resource group and make it more useful for redeploying your solution.
 
-## Criar uma conta de armazenamento
+In this tutorial, you sign in to the Azure portal, create a storage account, and export the template for that storage account. You add a virtual network to modify the resource group. Finally, you export a new template that represents its current state. Although this article focuses on a simplified infrastructure, you could use these same steps to export a template for a more complicated solution.
 
-1. No [portal do Azure](https://portal.azure.com), selecione **Novo** > **Dados + Armazenamento** > **Conta de armazenamento**.
+## <a name="create-a-storage-account"></a>Create a storage account
 
-      ![criar armazenamento](./media/resource-manager-export-template/create-storage.png)
+1. In the [Azure portal](https://portal.azure.com), select **New** > **Data + Storage** > **Storage account**.
 
-2. Crie uma conta de armazenamento com o nome **armazenamento**, suas iniciais e a data. O nome da conta de armazenamento deve ser exclusivo no Azure. Se você tentar inicialmente um nome que já está em uso, experimente uma variação. Para o grupo de recursos, use **ExportGroup**. Você pode usar valores padrão para as outras propriedades. Selecione **Criar**.
+      ![create storage](./media/resource-manager-export-template/create-storage.png)
 
-      ![fornecer valores para o armazenamento](./media/resource-manager-export-template/provide-storage-values.png)
+2. Create a storage account with the name **storage**, your initials, and the date. The storage account name must be unique across Azure. If you initially try a name that's already in use, try a variation. For resource group, use **ExportGroup**. You can use the default values for the other properties. Select **Create**.
 
-Depois da implantação terminar, sua assinatura conterá a conta de armazenamento.
+      ![provide values for storage](./media/resource-manager-export-template/provide-storage-values.png)
 
-## Exportar o modelo a partir do histórico de implantações
+After the deployment finishes, your subscription contains the storage account.
 
-1. Vá para a folha do grupo de recursos do novo grupo de recursos. Observe que a folha mostra o resultado da última implantação. Selecione este link.
+## <a name="export-the-template-from-deployment-history"></a>Export the template from deployment history
 
-      ![folha do grupo de recursos](./media/resource-manager-export-template/resource-group-blade.png)
+1. Go to the resource group blade for your new resource group. Notice that the blade shows the result of the last deployment. Select this link.
 
-2. Você vê um histórico das implantações do grupo. No seu caso, a folha provavelmente lista apenas uma implantação. Selecione essa implantação.
+      ![resource group blade](./media/resource-manager-export-template/resource-group-blade.png)
 
-     ![última implantação](./media/resource-manager-export-template/last-deployment.png)
+2. You see a history of deployments for the group. In your case, the blade probably lists only one deployment. Select this deployment.
 
-3. A folha exibe um resumo da implantação. O resumo inclui o status da implantação, suas operações e os valores que você forneceu para os parâmetros. Para ver o modelo usado para a implantação, selecione **Exibir modelo**.
+     ![last deployment](./media/resource-manager-export-template/last-deployment.png)
 
-     ![exibir resumo da implantação](./media/resource-manager-export-template/deployment-summary.png)
+3. The blade displays a summary of the deployment. The summary includes the status of the deployment and its operations and the values that you provided for parameters. To see the template that you used for the deployment, select **View template**.
 
-4. O Resource Manager recupera os seguintes seis arquivos para você:
+     ![view deployment summary](./media/resource-manager-export-template/deployment-summary.png)
 
-   1. **Modelo** - O modelo que define a infraestrutura de sua solução. Quando você criou a conta de armazenamento por meio do portal, o Gerenciador de Recursos usou um modelo para implantá-la e salvou esse modelo para uma futura referência.
-   2. **Parâmetros** - Um arquivo de parâmetro que você pode usar para passar valores durante a implantação. Ele contém os valores fornecidos durante a primeira implantação, mas você pode alterar qualquer um desses valores ao reimplantar o modelo.
-   3. **CLI** - Um arquivo de script CLI (interface da linha comando) do Azure que você pode usar para implantar o modelo.
-   4. **PowerShell** - Um arquivo de script do Azure PowerShell que você pode usar para implantar o modelo.
-   5. **.NET** - Uma classe .NET que você pode usar para implantar o modelo.
-   6. **Ruby** - uma classe Ruby que você pode usar para implantar o modelo.
+4. Resource Manager retrieves the following six files for you:
 
-     Os arquivos estão disponíveis por meio de links na folha. Por padrão, a folha exibe o modelo.
+   1. **Template** - The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference.
+   2. **Parameters** - A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment, but you can change any of these values when you redeploy the template.
+   3. **CLI** - An Azure command-line-interface (CLI) script file that you can use to deploy the template.
+   4. **PowerShell** - An Azure PowerShell script file that you can use to deploy the template.
+   5. **.NET** - A .NET class that you can use to deploy the template.
+   6. **Ruby** - A Ruby class that you can use to deploy the template.
 
-       ![exibir modelo](./media/resource-manager-export-template/view-template.png)
+     The files are available through links across the blade. By default, the blade displays the template.
 
-     Vamos prestar atenção particular no modelo. O modelo deve ser semelhante a:
+       ![view template](./media/resource-manager-export-template/view-template.png)
 
-        {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-            "name": {
-              "type": "String"
-            },
-            "accountType": {
-              "type": "String"
-            },
-            "location": {
-              "type": "String"
-            },
-            "encryptionEnabled": {
-              "defaultValue": false,
-              "type": "Bool"
-            }
-          },
-          "resources": [
-            {
-              "type": "Microsoft.Storage/storageAccounts",
-              "sku": {
-                "name": "[parameters('accountType')]"
-              },
-              "kind": "Storage",
-              "name": "[parameters('name')]",
-              "apiVersion": "2016-01-01",
-              "location": "[parameters('location')]",
-              "properties": {
-                "encryption": {
-                  "services": {
-                    "blob": {
-                      "enabled": "[parameters('encryptionEnabled')]"
-                    }
-                  },
-                  "keySource": "Microsoft.Storage"
-                }
-              }
-            }
-          ]
-        }
+     Let's pay particular attention to the template. Your template should look similar to:
+
+        {     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",     "contentVersion": "1.0.0.0",     "parameters": {       "name": {         "type": "String"       },       "accountType": {         "type": "String"       },       "location": {         "type": "String"       },       "encryptionEnabled": {         "defaultValue": false,         "type": "Bool"       }     },     "resources": [       {         "type": "Microsoft.Storage/storageAccounts",         "sku": {           "name": "[parameters('accountType')]"         },         "kind": "Storage",         "name": "[parameters('name')]",         "apiVersion": "2016-01-01",         "location": "[parameters('location')]",         "properties": {           "encryption": {             "services": {               "blob": {                 "enabled": "[parameters('encryptionEnabled')]"               }             },             "keySource": "Microsoft.Storage"           }         }       }     ]   }
  
-Esse modelo é o modelo real usado para criar sua conta de armazenamento. Observe que ele contém parâmetros que permitem implantar diferentes tipos de contas de armazenamento. Para saber mais sobre a estrutura de um modelo, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md). Para obter a lista completa de funções que você pode usar em um modelo, consulte [Funções do modelo do Azure Resource Manager](resource-group-template-functions.md).
+This template is the actual template used to create your storage account. Notice it contains parameters that enable you to deploy different types of storage accounts. To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). For the complete list of the functions you can use in a template, see [Azure Resource Manager template functions](resource-group-template-functions.md).
 
 
-## Adicionar uma rede virtual
+## <a name="add-a-virtual-network"></a>Add a virtual network
 
-O modelo que você baixou na seção anterior representa a infraestrutura da implantação original. No entanto, ele não mostrará as alterações feitas após a implantação. Para ilustrar esse problema, modificaremos o grupo de recursos adicionando uma rede virtual por meio do portal.
+The template that you downloaded in the previous section represented the infrastructure for that original deployment. However, it will not account for any changes you make after the deployment.
+To illustrate this issue, let's modify the resource group by adding a virtual network through the portal.
 
-1. Na folha do grupo de recursos, selecione **Adicionar**.
+1. In the resource group blade, select **Add**.
 
-      ![adicionar recurso](./media/resource-manager-export-template/add-resource.png)
+      ![add resource](./media/resource-manager-export-template/add-resource.png)
 
-2. Selecione **Rede virtual** nos recursos disponíveis.
+2. Select **Virtual network** from the available resources.
 
-      ![selecionar uma rede virtual](./media/resource-manager-export-template/select-vnet.png)
+      ![select virtual network](./media/resource-manager-export-template/select-vnet.png)
 
-2. Nomeie sua rede virtual como **VNET** e use os valores padrão para as outras propriedades. Selecione **Criar**.
+2. Name your virtual network **VNET**, and use the default values for the other properties. Select **Create**.
 
-      ![definir alerta](./media/resource-manager-export-template/create-vnet.png)
+      ![set alert](./media/resource-manager-export-template/create-vnet.png)
 
-3. Depois da rede virtual ser implantada com êxito para o grupo de recursos, veja novamente o histórico de implantações. Agora, você vê duas implantações. Se você não vir a segunda implantação, precisará fechar a folha do grupo de recursos e abri-la novamente. Selecione a implantação mais recente.
+3. After the virtual network has successfully deployed to your resource group, look again at the deployment history. You now see two deployments. If you do not see the second deployment, you may need to close your resource group blade and reopen it. Select the more recent deployment.
 
-      ![histórico de implantações](./media/resource-manager-export-template/deployment-history.png)
+      ![deployment history](./media/resource-manager-export-template/deployment-history.png)
 
-4. Veja o modelo dessa implantação. Observe que ele define apenas as alterações feitas para adicionar a rede virtual.
+4. Look at the template for that deployment. Notice that it defines only the changes that you have made to add the virtual network.
 
-Geralmente, é uma prática recomendada trabalhar com um modelo que implante toda a infraestrutura para sua solução em uma única operação. Essa abordagem é mais confiável do que lembrar-se de vários modelos diferentes a implantar.
+It is generally a best practice to work with a template that deploys all the infrastructure for your solution in a single operation. This approach is more reliable than remembering many different templates to deploy.
 
 
-## Exportar o modelo do grupo de recursos
+## <a name="export-the-template-from-resource-group"></a>Export the template from resource group
 
-Embora cada implantação mostre apenas as alterações feitas em seu grupo de recursos, a qualquer momento você pode exportar um modelo para exibir os atributos de todo o seu grupo de recursos.
+Although each deployment shows only the changes that you have made to your resource group, at any time you can export a template to show the attributes of your entire resource group.  
 
-> [AZURE.NOTE] Você não pode exportar um modelo para um grupo de recursos que tenha mais de 200 recursos.
+> [AZURE.NOTE] You cannot export a template for a resource group that has more than 200 resources.
 
-1. Para exibir o modelo de um grupo de recursos, selecione **Script de automação**.
+1. To view the template for a resource group, select **Automation script**.
 
-      ![exportar grupo de recursos](./media/resource-manager-export-template/export-resource-group.png)
+      ![export resource group](./media/resource-manager-export-template/export-resource-group.png)
 
-     Nem todos os tipos de recursos suportam a função para exportar o modelo. Se o grupo de recursos contiver somente a conta de armazenamento e a rede virtual mostradas neste artigo, você não verá um erro. No entanto, se você criou outros tipos de recursos, verá um erro indicando que há um problema com a exportação. Você aprende a lidar com esses problemas na seção [Corrigir os problemas da exportação](#fix-export-issues).
+     Not all resource types support the export template function. If your resource group only contains the storage account and virtual network shown in this article, you will not see an error. However, if you have created other resource types, you may see an error stating that there is a problem with the export. You learn how to handle those issues in the [Fix export issues](#fix-export-issues) section.
 
       
 
-2. Novamente, você vê os seis arquivos que pode usar para reimplantar a solução, mas dessa vez, o modelo é um pouco diferente. Esse modelo tem somente dois parâmetros: um para o nome da conta de armazenamento e outro para o nome da rede virtual.
+2. You again see the six files that you can use to redeploy the solution, but this time the template is a little different. This template has only two parameters: one for the storage account name, and one for the virtual network name.
 
         "parameters": {
           "virtualNetworks_VNET_name": {
@@ -167,7 +129,7 @@ Embora cada implantação mostre apenas as alterações feitas em seu grupo de r
           }
         },
 
-     O Gerenciador de Recursos não recuperou os modelos que você usou durante a implantação. Em vez disso, ele gerou um novo modelo com base na configuração atual dos recursos. Por exemplo, o modelo define o local da conta de armazenamento e o valor da replicação como:
+     Resource Manager did not retrieve the templates that you used during deployment. Instead, it generated a new template that's based on the current configuration of the resources. For example, the template sets the storage account location and replication value to:
 
         "location": "northeurope",
         "tags": {},
@@ -175,31 +137,31 @@ Embora cada implantação mostre apenas as alterações feitas em seu grupo de r
             "accountType": "Standard_RAGRS"
         },
 
-3. Baixe o modelo para que você possa trabalhar nele localmente.
+3. Download the template so that you can work on it locally.
 
-      ![baixar modelo](./media/resource-manager-export-template/download-template.png)
+      ![download template](./media/resource-manager-export-template/download-template.png)
 
-4. Localize o arquivo .zip que você baixou e extraia o conteúdo. Você pode usar esse modelo baixado para reimplantar sua infraestrutura.
+4. Find the .zip file that you downloaded and extract the contents. You can use this downloaded template to redeploy your infrastructure.
 
-## Corrigir os problemas da exportação
+## <a name="fix-export-issues"></a>Fix export issues
 
-Nem todos os tipos de recursos suportam a função para exportar o modelo. O Gerenciador de Recursos não exporta alguns tipos de recursos especificamente para evitar a exposição de dados confidenciais. Por exemplo, se você tiver uma cadeia de conexão na configuração de seu site, provavelmente não desejará que ela seja exibida explicitamente em um modelo exportado. Você pode resolver esse problema adicionando manualmente os recursos que faltam de volta ao seu modelo.
+Not all resource types support the export template function. Resource Manager specifically does not export some resource types to prevent exposing sensitive data. For example, if you have a connection string in your site config, you probably do not want it explicitly displayed in an exported template. You can get around this issue by manually adding the missing resources back into your template.
 
-> [AZURE.NOTE] Você só encontra problemas de exportação quando exporta de um grupo de recursos em vez de seu histórico de implantações. Se sua última implantação apresentar com precisão o estado atual do grupo de recursos, você deverá exportar o modelo do histórico de implantações, em vez do grupo de recursos. Exporte somente a partir de um grupo de recursos quando você fez alterações no grupo de recursos que não são definidas em um único modelo.
+> [AZURE.NOTE] You only encounter export issues when exporting from a resource group rather than from your deployment history. If your last deployment accurately represents the current state of the resource group, you should export the template from the deployment history rather than from the resource group. Only export from a resource group when you have made changes to the resource group that are not defined in a single template.
 
-Por exemplo, se você exportar um modelo para um grupo de recursos que contém um aplicativo Web, Banco de Dados SQL e uma cadeia de conexão na configuração do site, verá a seguinte mensagem de erro.
+For example, if you export a template for a resource group that contains a web app, SQL Database, and a connection string in the site config, you will see the following message.
 
-![mostrar erros](./media/resource-manager-export-template/show-error.png)
+![show error](./media/resource-manager-export-template/show-error.png)
 
-Selecionar a mensagem mostra exatamente quais tipos de recursos não foram exportados.
+Selecting the message shows you exactly which resource types were not exported. 
      
-![mostrar erros](./media/resource-manager-export-template/show-error-details.png)
+![show error](./media/resource-manager-export-template/show-error-details.png)
 
-Este tópico mostra as seguintes correções comuns. Para implementar esses recursos, você precisará adicionar parâmetros ao modelo. Para saber mais, confira [Personalizar e reimplantar o modelo exportado](resource-manager-customize-template.md).
+This topic shows the following common fixes. To implement these resources, you need to add parameters to template. For more information, see [Customize and redeploy exported template](resource-manager-customize-template.md).
 
-### Cadeia de conexão
+### <a name="connection-string"></a>Connection string
 
-No recurso dos sites da Web, adicione uma definição da cadeia de conexão ao banco de dados:
+In the web sites resource, add a definition for the connection string to the database:
 
 ```
 {
@@ -224,9 +186,9 @@ No recurso dos sites da Web, adicione uma definição da cadeia de conexão ao b
 }
 ```    
 
-### Extensão do site da Web
+### <a name="web-site-extension"></a>Web site extension
 
-No recurso do site da Web, adicione uma definição para o código a instalar:
+In the web site resource, add a definition for the code to install:
 
 ```
 {
@@ -254,13 +216,13 @@ No recurso do site da Web, adicione uma definição para o código a instalar:
 }
 ```
 
-### Extensão da máquina virtual
+### <a name="virtual-machine-extension"></a>Virtual machine extension
 
-Para obter exemplos das extensões da máquina virtual, consulte [Exemplos de Configuração da Extensão da VM do Windows do Azure](./virtual-machines/virtual-machines-windows-extensions-configuration-samples.md).
+For examples of virtual machine extensions, see [Azure Windows VM Extension Configuration Samples](./virtual-machines/virtual-machines-windows-extensions-configuration-samples.md).
 
-### Gateway de rede virtual
+### <a name="virtual-network-gateway"></a>Virtual network gateway
 
-Adicione um tipo de recurso do gateway de rede virtual.
+Add a virtual network gateway resource type.
 
 ```
 {
@@ -294,9 +256,9 @@ Adicione um tipo de recurso do gateway de rede virtual.
 },
 ```
 
-### Gateway de rede local
+### <a name="local-network-gateway"></a>Local network gateway
 
-Adicione um tipo de recurso do gateway de rede local.
+Add a local network gateway resource type.
 
 ```
 {
@@ -312,9 +274,9 @@ Adicione um tipo de recurso do gateway de rede local.
 }
 ```
 
-### Conexão
+### <a name="connection"></a>Connection
 
-Adicione um tipo de recurso de conexão.
+Add a connection resource type.
 
 ```
 {
@@ -337,12 +299,16 @@ Adicione um tipo de recurso de conexão.
 ```
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Parabéns! Você aprendeu a exportar um modelo a partir dos recursos criados no portal.
+Congratulations! You have learned how to export a template from resources that you created in the portal.
 
-- Na segunda parte deste tutorial, você personaliza o modelo que baixou adicionando mais parâmetros e o reimplanta por meio de um script. Consulte [Personalizar e reimplantar o modelo exportado](resource-manager-customize-template.md).
-- Para ver como exportar um modelo por meio do PowerShell, consulte [Usando o Azure PowerShell com o Azure Resource Manager](powershell-azure-resource-manager.md).
-- Para ver como exportar um modelo por meio da CLI do Azure, consulte [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+- In the second part of this tutorial, you customize the template that you downloaded by adding more parameters and redeploy it through a script. See [Customize and redeploy exported template](resource-manager-customize-template.md).
+- To see how to export a template through PowerShell, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
+- To see how to export a template through Azure CLI, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

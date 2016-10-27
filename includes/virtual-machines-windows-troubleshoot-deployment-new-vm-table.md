@@ -1,6 +1,11 @@
-A tabela a seguir lista os possíveis combinações de upload e captura do Windows generalizadas (gen.) e especializadas (espec.) Imagens do sistema operacional. As combinações que serão processadas sem erros são indicadas por um Y e aquelas que gerarão erros são indicadas por um N. As causas e resoluções para os diferentes erros que ocorrem são fornecidas abaixo da tabela.
+The following table lists the possible upload and capture combinations of Windows generalized (gen.) and specialized (spec.) OS images. The combinations that will process without any errors are indicated by a Y, and those that will throw errors are indicated by an N. The causes and resolutions for the different errors you will run into are given below the table.
 
-| SO | Upload espec. | Upload gen. | Captura espec. | Captura gen. |
+| OS            | Upload spec. | Upload gen. | Capture spec. | Capture gen. |
 |---------------|--------------|-------------|---------------|--------------|
-| Windows gen. | N<sup>1</sup> | S | N<sup>3</sup> | S |
-| Windows espec. | S | N<sup>2</sup> | S | N<sup>4</sup> |
+| Windows gen.  | N<sup>1</sup>            | Y           | N<sup>3</sup>             | Y            |
+| Windows spec. | Y            | N<sup>2</sup>           | Y             | N<sup>4</sup>            |
+
+
+<!--HONumber=Oct16_HO2-->
+
+

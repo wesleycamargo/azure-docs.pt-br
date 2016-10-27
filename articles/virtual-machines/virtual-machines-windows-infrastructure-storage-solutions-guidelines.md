@@ -1,94 +1,98 @@
 <properties
-	pageTitle="Diretrizes de soluções de armazenamento | Microsoft Azure"
-	description="Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de soluções de armazenamento em serviços de infraestrutura do Azure."
-	documentationCenter=""
-	services="virtual-machines-windows"
-	authors="iainfoulds"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Storage Solutions Guidelines | Microsoft Azure"
+    description="Learn about the key design and implementation guidelines for deploying storage solutions in Azure infrastructure services."
+    documentationCenter=""
+    services="virtual-machines-windows"
+    authors="iainfoulds"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2016"
-	ms.author="iainfou"/>
-
-# Diretrizes de infraestrutura de armazenamento
-
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
-
-Este artigo destaca as noções básicas sobre as necessidades de armazenamento e considerações de design para atingir o desempenho de VM (máquina virtual) ideal.
+    ms.service="virtual-machines-windows"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/08/2016"
+    ms.author="iainfou"/>
 
 
-## Diretrizes de implementação de armazenamento
+# <a name="storage-infrastructure-guidelines"></a>Storage infrastructure guidelines
 
-Decisões:
+[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)] 
 
-- Você precisa usar o armazenamento Standard ou Premium para sua carga de trabalho?
-- Você precisa da distribuição de discos para criar discos com mais de 1.023 GB?
-- Você precisa da distribuição de discos para obter o desempenho de E/S ideal para sua carga de trabalho?
-- De que conjunto de contas de armazenamento você precisa para hospedar a infraestrutura ou a carga de trabalho de TI?
-
-Tarefas:
-
-- Examinar as demandas de E/S dos aplicativos que serão implantados e planejar a quantidade e o tipo apropriados de contas de armazenamento.
-- Crie o conjunto de contas de armazenamento usando a sua convenção de nomenclatura. Você pode usar o Azure PowerShell ou o Portal.
+This article focuses on understanding storage needs and design considerations for achieving optimum virtual machine (VM) performance.
 
 
-## Armazenamento
+## <a name="implementation-guidelines-for-storage"></a>Implementation guidelines for storage
 
-O Armazenamento do Azure é uma parte fundamental de implantação e gerenciamento de aplicativos e VMs (máquinas virtuais). O Armazenamento do Azure fornece serviços para armazenar dados de arquivo, dados não estruturados e mensagens, além de fazer parte da infraestrutura que dá suporte às VMs.
+Decisions:
 
-Há dois tipos de conta de armazenamento disponíveis para dar suporte às VMs:
+- Do you need to use Standard or Premium storage for your workload?
+- Do you need disk striping to create disks larger than 1023 GB?
+- Do you need disk striping to achieve optimal I/O performance for your workload?
+- What set of storage accounts do you need to host your IT workload or infrastructure?
 
-- Contas de armazenamento Standard fornece acesso ao armazenamento de blobs (usado para armazenar discos da VM do Azure), armazenamento de tabelas, armazenamento de filas e armazenamento de arquivos.
-- Contas de [armazenamento premium](../storage/storage-premium-storage.md) dão suporte de disco de alto desempenho e baixa latência para cargas de trabalho com uso intensivo de E/S, como SQL Servers em um cluster AlwaysOn. Um armazenamento premium dá suporte no momento somente a discos de VM do Azure.
+Tasks:
 
-O Azure cria VMs com um disco do sistema operacional, um disco temporário e zero ou mais discos de dados opcionais. O disco do sistema operacional e os discos de dados são blobs de página do Azure, enquanto o disco temporário é armazenado localmente no nó em que a máquina reside. Tome cuidado ao projetar aplicativos para usar somente este disco temporário para dados não persistentes, pois a VM poderá ser migrada entre hosts durante um evento de manutenção. Todos os dados armazenados no disco temporário seriam perdidos.
-
-Durabilidade e alta disponibilidade são fornecidas pelo ambiente de Armazenamento do Azure subjacente para garantir que seus dados permaneçam protegidos contra falhas de hardware ou de manutenção não planejadas. Ao projetar seu ambiente de Armazenamento do Azure, você pode optar por replicar o armazenamento da VM:
-
-- localmente em um datacenter do Azure fornecido
-- entre os datacenters do Azure dentro de uma determinada região
-- entre os datacenters do Azure em regiões diferentes
-
-Leia [mais sobre as opções de replicação para alta disponibilidade](../storage/storage-introduction.md#replication-for-durability-and-high-availability).
-
-Discos do sistema operacional e discos de dados têm um tamanho máximo de 1023 GB (gigabytes). O tamanho máximo de um blob é de 1024 GB e deve conter os metadados (rodapé) do arquivo VHD (um GB tem 1024<sup>3</sup> bytes). É possível usar os Espaços de Armazenamento no Windows Server 2012 para ultrapassar esse limite agrupando discos de dados para apresentar volumes lógicos maiores que 1.023 GB à sua VM.
-
-Há alguns limites de escalabilidade ao projetar suas implantações do Armazenamento do Azure – veja [Assinatura, limite de serviços, cotas e restrições do Microsoft Azure](azure-subscription-service-limits.md#storage-limits) para obter mais detalhes. Consulte também [Metas de desempenho e escalabilidade do armazenamento do Azure](../storage/storage-scalability-targets.md).
-
-Para armazenamento de aplicativos, é possível armazenar dados de objeto não estruturados, como documentos, imagens, backups, dados de configuração, logs etc. usando o armazenamento de blobs. Em vez de seu aplicativo gravar em um disco virtual anexado à VM, o aplicativo poderá gravar diretamente no armazenamento de blobs do Azure. O armazenamento de blobs também oferece a opção de [camadas de armazenamento quentes e frias](../storage/storage-blob-storage-tiers.md) dependendo de suas necessidades de disponibilidade e restrições de custo.
+- Review I/O demands of the applications you are deploying and plan the appropriate number and type of storage accounts.
+- Create the set of storage accounts using your naming convention. You can use Azure PowerShell or the portal.
 
 
-## Discos distribuídos
-Além de permitir que você crie discos com mais de 1023 GB, em muitos casos, o uso da distribuição para discos de dados pode melhorar o desempenho, permitindo que vários blobs façam o armazenamento de um único volume. Com a distribuição, a E/S necessária para gravar e ler dados de um único disco lógico continua em paralelo.
+## <a name="storage"></a>Storage
 
-O Azure impõe limites no número de discos de dados e na quantidade de largura de banda disponíveis, dependendo do tamanho da VM. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-windows-sizes.md).
+Azure Storage is a key part of deploying and managing virtual machines (VMs) and applications. Azure Storage provides services for storing file data, unstructured data, and messages, and it is also part of the infrastructure supporting VMs.
 
-Se você estiver usando a distribuição de disco para os discos de dados do Azure, considere as seguintes diretrizes:
+There are two types of storage accounts available for supporting VMs:
 
-- Os discos de dados devem ter sempre o tamanho máximo (1023 GB).
-- Anexe o número máximo de discos de dados permitidos para o tamanho da VM.
-- Use Espaços de Armazenamento.
-- Evite usar opções de cache de disco de dados do Azure (política de cache = Nenhuma).
+- Standard storage accounts give you access to blob storage (used for storing Azure VM disks), table storage, queue storage, and file storage.
+- [Premium storage](../storage/storage-premium-storage.md) accounts deliver high-performance, low-latency disk support for I/O intensive workloads, such as SQL Servers in an AlwaysOn cluster. Premium storage currently supports Azure VM disks only.
 
-Para saber mais, consulte [Espaços de armazenamento: design para desempenho](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
+Azure creates VMs with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure page blobs, whereas the temporary disk is stored locally on the node where the machine lives. Take care when designing applications to only use this temporary disk for non-persistent data as the VM may be migrated between hosts during a maintenance event. Any data stored on the temporary disk would be lost.
+
+Durability and high availability is provided by the underlying Azure Storage environment to ensure that your data remains protected against unplanned maintenance or hardware failures. As you design your Azure Storage environment, you can choose to replicate VM storage:
+
+- locally within a given Azure datacenter
+- across Azure datacenters within a given region
+- across Azure datacenters across different regions
+
+You can read [more about the replication options for high availability](../storage/storage-introduction.md#replication-for-durability-and-high-availability).
+
+Operating system disks and data disks have a maximum size of 1023 gigabytes (GB). The maximum size of a blob is 1024 GB and that must contain the metadata (footer) of the VHD file (a GB is 1024<sup>3</sup> bytes). You can use Storage Spaces in Windows Server 2012 to surpass this limit by pooling together data disks to present logical volumes larger than 1023GB to your VM.
+
+There are some scalability limits when designing your Azure Storage deployments - see [Microsoft Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md#storage-limits) for more details. Also see [Azure storage scalability and performance targets](../storage/storage-scalability-targets.md).
+
+For application storage, you can store unstructured object data such as documents, images, backups, configuration data, logs, etc. using blob storage. Rather than your application writing to a virtual disk attached to the VM, the application can write directly to Azure blob storage. Blob storage also provides the option of [hot and cool storage tiers](../storage/storage-blob-storage-tiers.md) depending on your availability needs and cost constraints.
 
 
-## Várias contas de armazenamento
+## <a name="striped-disks"></a>Striped disks
+Besides allowing you to create disks larger than 1023 GB, in many instances, using striping for data disks enhances performance by allowing multiple blobs to back the storage for a single volume. With striping, the I/O required to write and read data from a single logical disk proceeds in parallel.
 
-Durante a criação do ambiente do Armazenamento do Azure, você poderá usar várias contas de armazenamento conforme o número de VMs implantadas aumentar. Isso ajuda a distribuir a E/S em toda a infraestrutura subjacente do Armazenamento do Azure, para manter o desempenho ideal para suas VMs e aplicativos. Ao projetar os aplicativos que serão implantados, considere os requisitos de E/S que cada VM terá e faça um balanceamento dessas VMs entre as contas do Armazenamento do Azure. Tente evitar agrupar todas as VMs que exigem E/S alta em apenas uma ou duas contas de armazenamento.
+Azure imposes limits on the number of data disks and amount of bandwidth available, depending on the VM size. For details, see [Sizes for virtual machines](virtual-machines-windows-sizes.md).
 
-Para saber mais sobre as funcionalidades de E/S das diferentes opções do Armazenamento do Azure e de alguns limites máximos recomendáveis, veja [Metas de desempenho e escalabilidade do armazenamento do Azure](../storage/storage-scalability-targets.md).
+If you are using disk striping for Azure data disks, consider the following guidelines:
+
+- Data disks should always be the maximum size (1023 GB).
+- Attach the maximum data disks allowed for the VM size.
+- Use Storage Spaces.
+- Avoid using Azure data disk caching options (caching policy = None).
+
+For more information, see [Storage spaces - designing for performance](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
 
-## Próximas etapas
+## <a name="multiple-storage-accounts"></a>Multiple storage accounts
 
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+When designing your Azure Storage environment, you can use multiple storage accounts as the number of VMs you deploy increases. This helps distribute out the I/O across the underlying Azure Storage infrastructure to maintain optimum performance for your VMs and applications. As you design the applications that you are deploying, consider the I/O requirements each VM has and balance out those VMs across Azure Storage accounts. Try to avoid grouping all the high I/O demanding VMs in to just one or two storage accounts.
 
-<!---HONumber=AcomDC_0914_2016-->
+For more information about the I/O capabilities of the different Azure Storage options and some recommend maximums, see [Azure storage scalability and performance targets](../storage/storage-scalability-targets.md).
+
+
+## <a name="next-steps"></a>Next steps
+
+[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)] 
+
+
+<!--HONumber=Oct16_HO2-->
+
+

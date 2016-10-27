@@ -1,382 +1,392 @@
-<properties 
-	pageTitle="Azure Multi-Factor Authentication - O que vem a seguir"
-	description="Esta é a página do Azure Multi-Factor Authentication que descreve o que fazer depois com o MFA. Isso inclui relatórios, alerta de fraude, desvio único, mensagens de voz personalizadas, cache, senhas de ips e aplicativos confiáveis."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtand"/>
+<properties
+    pageTitle="Azure Multi-Factor Authentication - What's Next"
+    description="This is the Azure Multi-factor authentication page that describes what to do next with MFA.  This includes reports, fraud alert, one-time bypass, custom voice messages, caching, trusted ips and app passwords."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2016"
-	ms.author="kgremban"/>
-
-# Configurando o Azure Multi-Factor Authentication
-
-O artigo a seguir lhe ajudará a gerenciar o Azure Multi-Factor Authentication, agora que você já o conhece bem. Ele cobre uma variedade de tópicos que lhe permitirão aproveitar ao máximo o Azure Multi-Factor Authentication. Esteja ciente de que nem todos estes recursos estão disponíveis em todas as versões do Azure Multi-Factor Authentication.
-
-A configuração de alguns dos recursos a seguir pode ser encontrada no Portal de Gerenciamento do Azure Multi-Factor Authentication. Há duas maneiras diferentes de acessar esse portal, ambas pelo portal do Azure. A primeira é gerenciando um Provedor de Autenticação Multifator, se estiver usando um MFA baseado em consumo. A segunda é por configurações do serviço MFA. A segunda opção exige um Provedor de Autenticação Multifator ou uma licença do Azure MFA, do Azure AD Premium ou do Enterprise Mobility Suite.
-
-Para acessar o Portal de Gerenciamento de MFA por meio de um Provedor do Azure Multi-Factor Auth, entre no portal do Azure como administrador e selecione a opção Active Directory. Clique na guia **Provedores de Autenticação Multifator**, selecione o diretório e clique no botão **Gerenciar** na parte inferior.
-
-Para acessar o Portal de Gerenciamento de MFA por meio da página Configurações de Serviço de MFA, entre no Portal do Azure como administrador e selecione a opção Active Directory. Clique em seu diretório e depois na guia **Configurar**. Na seção da autenticação multifator, escolha **Gerenciar configurações de serviço**. Na parte inferior da página Configurações do Serviço do MFA, clique no link **Ir para o portal**.
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/23/2016"
+    ms.author="kgremban"/>
 
 
-Recurso| Descrição| O que é coberto
+# <a name="configuring-azure-multi-factor-authentication"></a>Configuring Azure Multi-Factor Authentication
+
+This article helps you manage Azure Multi-Factor Authentication now that you are up and running.  It covers a variety of topics that help you to get the most out of Azure Multi-Factor Authentication.  Not all of these features are available in every version of Azure Multi-Factor Authentication.
+
+The configuration for some of the features below is found in the Azure Multi-Factor Authentication Management Portal. There are two different ways that you can access the MFA management portal, which are both done via the Azure portal. The first is by managing a Multi-Factor Auth Provider if using consumption-based MFA. The second is via the MFA service settings. The second option requires either a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium or Enterprise Mobility Suite license.
+
+To access the MFA Management Portal via an Azure Multi-Factor Auth Provider, sign into the Azure portal as an administrator and select the Active Directory option. Click the **Multi-Factor Auth Providers** tab, then select your directory and click the **Manage** button at the bottom.
+
+To access the MFA Management Portal via the MFA Service Settings page, sign into the Azure portal as an administrator and select the Active Directory option. Click on your directory and then click the **Configure** tab. Under the multi-factor authentication section, select **Manage service settings**. At the bottom of the MFA Service Settings page, click the **Go to the portal** link.
+
+
+Feature| Description| What is covered
 :------------- | :------------- | :------------- |
-[Alerta de fraude](#fraud-alert)|O alerta de fraude pode ser instalado e configurado para que os usuários possam relatar tentativas fraudulentas de acessar seus recursos.|Como instalar, configurar e relatar fraude
-[Desvio único](#one-time-bypass) |Um desvio único permite que um usuário se autentique uma única vez ao "desviar" a autenticação multifator.|Como instalar e configurar um desvio único
-[Mensagens de voz personalizadas](#custom-voice-messages) |As mensagens de voz personalizadas permitem que você use suas próprias gravações ou saudações com a autenticação multifator. |Como instalar e configurar as mensagens e saudações personalizadas
-[Cache](#caching-in-azure-multi-factor-authentication)|O cache permite que você defina um momento específico período para que tentativas de autenticação subsequentes tenham êxito automaticamente. |Como instalar e configurar o cache de autenticação.
-[IPs Confiáveis](#trusted-ips)|IPs Confiáveis é um recurso de autenticação multifator que permite que os administradores de um inquilino gerenciado ou federado possam ignorar a autenticação multifator para usuários que estão entrando pela intranet local da empresa.|Instalar e configurar endereços IP que estão isentos para autenticação multifator
-[Senhas de aplicativo](#app-passwords)|As senhas de aplicativo permitem que um aplicativo que não tenha reconhecimento de MFA possa se desviar da autenticação multifator e continuar trabalhando.|Informações sobre senhas de aplicativo.
-[Lembrar o Multi-Factor Authentication para dispositivos e navegadores lembrados](#remember-multi-factor-authentication-for-devices-users-trust)|Permite lembrar dispositivos por um número de dias específico após a entrada bem-sucedida de um usuário usando o MFA.|Informações sobre como habilitar esse recurso e configurar o número de dias.
-[Métodos de verificação selecionáveis](#selectable-verification-methods)|Permite que você escolha os métodos de autenticação disponíveis para os usuários usarem.|Informações sobre como habilitar ou desabilitar os métodos de autenticação específicos, como mensagens de texto ou chamada.
+[Fraud alert](#fraud-alert)|Fraud alert can be configured and set up so that your users can report fraudulent attempts to access their resources.|How to set up, configure and report fraud
+[One-time bypass](#one-time-bypass) |A one-time bypass allows a user to authenticate a single time by "bypassing" multi-factor authentication.|How to set up and configure a one-time bypass
+[Custom Voice Messages](#custom-voice-messages) |Custom voice messages allow you to use your own recordings or greetings with multi-factor authentication. |How to set up and configure custom greetings and messages
+[Caching](#caching-in-azure-multi-factor-authentication)|Caching allows you to set a specific time period so that subsequent authentication attempts succeed automatically. |How to set up and configure authentication caching.
+[Trusted IPs](#trusted-ips)|Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet.|Configure and set up IP addresses that are exempt for multi-factor authentication
+[App Passwords](#app-passwords)|An app password allows an application that is not MFA-aware to bypass multi-factor authentication and continue working.|Information about app passwords.
+[Remember Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-users-trust)|Allows you to remember devices for a set number of days after a user has successfully signed in using MFA.|Information about enabling this feature and setting up the number of days.
+[Selectable Verification Methods](#selectable-verification-methods)|Allows you to choose the authentication methods that are available for users to use.|Information about enabling or disabling specific authentication methods such as call or text messages.
 
 
 
-## Alerta de fraude
-O alerta de fraude pode ser instalado e configurado para que os usuários possam relatar tentativas fraudulentas de acessar seus recursos. Os usuários podem relatar fraude com o aplicativo móvel ou pelo telefone.
+## <a name="fraud-alert"></a>Fraud Alert
+Fraud alert can be configured and set up so that your users can report fraudulent attempts to access their resources.  Users can report fraud either with the mobile app or through their phone.
 
-### Para instalar e configurar o alerta de fraude
+### <a name="to-set-up-and-configure-fraud-alert"></a>To set up and configure fraud alert
 
-1.	Faça logon no http://azure.microsoft.com
-2.	Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
-3.	No Portal de Gerenciamento do Azure Multi-Factor Authentication, clique em Configurações na seção Configurar.
-4.	Na seção Alerta de Fraude da página Configurações, maque a caixa de seleção Permitir que os usuários enviem alertas de fraudes.
-5.	Se você quiser que os usuários sejam bloqueados quando a fraude for relatada, marque Bloquear usuário quando fraude for relatada.
-6.	Na caixa de texto **Código para relatar fraude durante a saudação inicial**, digite um código numérico que possa ser usado durante a verificação de chamada. Se um usuário digitar esse código mais #, em vez de apenas o sinal #, um alerta de fraude será relatado.
-7.	Na parte inferior, clique em Salvar.
+1.  Log on to http://azure.microsoft.com
+2.  Navigate to the MFA Management Portal per the instructions at the top of this page.
+3.  In the Azure Multi-Factor Authentication Management Portal, click Settings under the Configure section.
+4.  Under the Fraud Alert section of the Settings page, check the Allow users to submit Fraud Alerts checkbox.
+5.  If you want users to be blocked when fraud is reported, place a check in Block user when fraud is reported.
+6.  In the **Code To Report Fraud During Initial Greeting** textbox, enter a number code that can be used during call verification. If a user enters this code plus # instead of just the # sign, then a fraud alert will be reported.
+7.  At the bottom, click Save.
 
 >[AZURE.NOTE]
-As saudações de voz padrão da Microsoft instruem os usuários a pressionar 0# para enviar um alerta de fraude. Se você usar um código diferente de 0, será necessário gravar e carregar suas próprias saudações de voz personalizadas com instruções apropriadas.
+>Microsoft’s default voice greetings instruct users to press 0# to submit a fraud alert. If you want to use a code other than 0, you should record and upload your own custom voice greetings with appropriate instructions.
 
 
-![Nuvem](./media/multi-factor-authentication-whats-next/fraud.png)
+![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)
 
-### Para relatar um alerta de fraude
-O alerta de fraude pode ser informado de duas maneiras. Seja por meio do aplicativo móvel ou telefone.
+### <a name="to-report-fraud-alert"></a>To report fraud alert
+Fraud alert can be reported two ways.  Either through the mobile app or through the phone.  
 
-### Para relatar o alerta de fraude com o aplicativo móvel
-
-
-
-1. Quando uma verificação é enviada ao seu telefone, clique nele e ele iniciará o aplicativo Microsoft Authenticator.
-2. Para relatar fraudes, clique em Cancelar e Relatar fraude. Isso abrirá uma caixa informando que a equipe de Suporte de TI de suas organizações será notificada.
-3. Clique em Relatar fraude.
-4. No aplicativo, clique em Fechar.
-
-![Nuvem](./media/multi-factor-authentication-whats-next/report1.png)
-
-
-![Nuvem](./media/multi-factor-authentication-whats-next/fraud2.png)
-
-### Para relatar o alerta de fraude com o telefone
-
-1. Ao receber uma chamada de verificação em seu telefone, atenda-a.</li>
-2. Para relatar fraudes, digite o código que foi configurado para corresponder ao relato de fraude pelo telefone e o sinal #. Você será notificado de que um alerta de fraude foi enviado.
-3. Encerre a chamada.
-
-### Para exibir o relatório de fraude
-
-1. Faça logon em [http://azure.microsoft.com](https://azure.microsoft.com/)
-2. Selecione Active Directory à esquerda.
-3. Na parte superior, selecione os Provedores de autenticação multifator. Isso trará uma lista de seus provedores de autenticação multifator.
-4. Se você tiver mais de um Provedor de autenticação multifator, selecione aquele em que você deseja ver o relatório de alertas de fraude e clique em Gerenciar na parte inferior da página. Se você tiver apenas um, clique em Gerenciar. Isso abrirá o Portal de Gerenciamento do Azure Multi-Factor Authentication.
-5. No Portal de Gerenciamento do Azure Multi-Factor Authentication, à esquerda, em Exibir um relatório, clique em Alerta de fraude.
-6. Especifique o intervalo de datas em que você deseja exibir no relatório. Também é possível especificar nomes de usuários específicos, números de telefone e o status de usuários.
-7. Clique em Executar. Isso abrirá um relatório semelhante ao mostrado abaixo. Você também pode clicar em Exportar para CSV se quiser exportar o relatório.
-
-## Desvio único
-
-Um desvio único permite que um usuário se autentique uma única vez ao "desviar" a autenticação multifator. O desvio é temporário e expira após o número especificado de segundos. Portanto, em situações em que o aplicativo móvel ou telefone não está recebendo uma notificação ou chamada telefônica, você pode habilitar um desvio único para que o usuário possa acessar o recurso desejado.
-
-### Para criar um desvio único
-
-1.	Faça logon no http://azure.microsoft.com
-2.	Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
-3.	No Portal de Gerenciamento de Azure Multi-Factor Authentication, se você vir o nome do locatário ou Provedor de Azure MFA à esquerda com um + ao lado dele, clique no + para ver grupos diferentes de replicação do Servidor MFA e o grupo Padrão do Azure. Clique no grupo apropriado.
-4.	Em Administração de Usuário, clique em **Bypass Avulso**. ![Nuvem](./media/multi-factor-authentication-whats-next/create1.png)
-5.	Na página de Bypass Único, clique em **Novo Bypass Único**.
-6.	Digite o nome do usuário, o número de segundos durante os quais o bypass existirá, o motivo do bypass e clique em **Bypass**.![Nuvem](./media/multi-factor-authentication-whats-next/create2.png)
-7.	Neste ponto, o usuário deve se conectar antes que o desvio único expire.
+### <a name="to-report-fraud-alert-with-the-mobile-app"></a>To report fraud alert with the mobile app
 
 
 
-### Para exibir o relatório de desvio único
+1. When a verification is sent to your phone, select it to start the Microsoft Authenticator app.
+2. To report fraud, click the Cancel and Report Fraud. This brings up a box that says your organization's IT Support staff will be notified.
+3. Click report fraud.
+4. On the app, click Close.
 
-1. Faça logon em [http://azure.microsoft.com](https://azure.microsoft.com/)
-2. Selecione Active Directory à esquerda.
-3. Na parte superior, selecione os Provedores de autenticação multifator. Isso trará uma lista de seus provedores de autenticação multifator.
-4. Se você tiver mais de um Provedor de autenticação multifator, selecione aquele em que você deseja ver o relatório de alertas de fraude e clique em Gerenciar na parte inferior da página. Se você tiver apenas um, clique em Gerenciar. Isso abrirá o Portal de Gerenciamento do Azure Multi-Factor Authentication.
-5. No Portal de Gerenciamento do Azure Multi-Factor Authentication, à esquerda, em Exibir um relatório, clique em Desvio Único.
-6. Especifique o intervalo de datas em que você deseja exibir no relatório. Também é possível especificar nomes de usuários específicos, números de telefone e o status de usuários.
-7. Clique em Executar. Isso abrirá um relatório semelhante ao mostrado abaixo. Você também pode clicar em Exportar para CSV se quiser exportar o relatório.
+![Cloud](./media/multi-factor-authentication-whats-next/report1.png)
+
+
+![Cloud](./media/multi-factor-authentication-whats-next/fraud2.png)
+
+### <a name="to-report-fraud-alert-with-the-phone"></a>To report fraud alert with the phone
+
+1. When a verification call comes in to your phone, answer it.  
+2. To report fraud, enter the code that has been configured to correspond with reporting fraud via the phone and then the # sign. You will be notified that a fraud alert has been submitted.
+3. End the call.
+
+### <a name="to-view-the-fraud-report"></a>To view the fraud report
+
+1. Log on to [http://azure.microsoft.com](https://azure.microsoft.com/)
+2. On the left, select Active Directory.
+3. At the top select Multi-Factor Auth Providers. This brings up a list of your Multi-Factor Auth Providers.
+4. If you have more than one Multi-Factor Auth Provider, select the one you wish to view the fraud alert report and click Manage at the bottom of the page. If you have only one, click Manage. This opens the Azure Multi-Factor Authentication Management Portal.
+5. On the Azure Multi-Factor Authentication Management Portal, on the left, under View A Report, click Fraud Alert.
+6. Specify the date range that you wish to view in the report. Also you can specify any specific usernames, phone numbers, and the user's status.
+7. Click Run. This brings up a report similar to the one below. You can also click Export to CSV if you wish to export the report.
+
+## <a name="one-time-bypass"></a>One-time bypass
+
+A one-time bypass allows a user to authenticate a single time by "bypassing" multi-factor authentication. The bypass is temporary and expires after the specified number of seconds.  So in situations where the mobile app or phone is not receiving a notification or phone-call, you can enable a one-time bypass so the user can access the desired resource.
+
+### <a name="to-create-a-one-time-bypass"></a>To create a one-time bypass
+
+1.  Log on to http://azure.microsoft.com
+2.  Navigate to the MFA Management Portal per the instructions at the top of this page.
+3.  In the Azure Multi-Factor Authentication Management Portal, if you see the name of your tenant or Azure MFA Provider on the left with a + next to it, click the + see different MFA Server replication groups and the Azure Default group. Click on the appropriate group.
+4.  Under User Administration, click **One-Time Bypass**.
+![Cloud](./media/multi-factor-authentication-whats-next/create1.png)
+5.  On the One-Time Bypass page, click **New One-Time Bypass**.
+6.  Enter the user’s username, the number of seconds that the bypass will exist, the reason for the bypass and click **Bypass**.
+![Cloud](./media/multi-factor-authentication-whats-next/create2.png)
+7.  At this point, the user must sign in before the one-time bypass expires.
+
+
+
+### <a name="to-view-the-one-time-bypass-report"></a>To view the one-time bypass report
+
+1. Log on to [http://azure.microsoft.com](https://azure.microsoft.com/)
+2. On the left, select Active Directory.
+3. At the top select Multi-Factor Auth Providers. This brings up a list of your Multi-Factor Auth Providers.
+4. If you have more than one Multi-Factor Auth Provider, select the one you wish to view the fraud alert report and click Manage at the bottom of the page. If you have only one, click Manage. This opens the Azure Multi-Factor Authentication Management Portal.
+5. On the Azure Multi-Factor Authentication Management Portal, on the left, under View A Report, click One-Time Bypass.
+6. Specify the date range that you wish to view in the report. Also you can specify any specific usernames, phone numbers, and the user's status.
+7. Click Run. This brings up a report similar to the one below. You can also click Export to CSV if you wish to export the report.
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/report.png)</center>
 
-## Mensagens de voz personalizadas
+## <a name="custom-voice-messages"></a>Custom voice messages
 
-As mensagens de voz personalizadas permitem que você use suas próprias gravações ou saudações com a autenticação multifator. Elas podem ser usadas com os registros da Microsoft ou para substituí-los.
+Custom voice messages allow you to use your own recordings or greetings with multi-factor authentication.  These can be used in addition to or to replace the Microsoft records.
 
-Antes de começar, esteja ciente das seguintes informações:
+Before you begin be aware of the following:
 
-- Os formatos de arquivo compatíveis atualmente são .wav e .mp3.
-- O limite de tamanho de arquivo é de 5 MB.
-- É recomendável que as mensagens de Autenticação não sejam maiores que 20 segundos. Se forem maiores, a verificação pode falhar, porque o usuário pode não responder antes do fim da mensagem e a verificação expira.
-
-
-
-### Para configurar mensagens de voz personalizadas no Azure Multi-Factor Authentication
-1.	Crie uma mensagem de voz personalizada usando um dos formatos de arquivo compatíveis.
-2.	Faça logon no http://azure.microsoft.com
-3.	Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
-4.	No Portal de Gerenciamento do Azure Multi-Factor Authentication, clique em Mensagens de Voz na seção Configurar.
-5.	Na seção Mensagens de Voz, clique em **Nova Mensagem de Voz**.![Nuvem](./media/multi-factor-authentication-whats-next/custom1.png)
-6.	Na página Configurar: Novas Mensagens de Voz, clique em **Gerenciar Arquivos de Som**.![Nuvem](./media/multi-factor-authentication-whats-next/custom2.png)
-7.	Na página Configurar: Arquivos de Som, clique em **Carregar Arquivo de Som**.![Nuvem](./media/multi-factor-authentication-whats-next/custom3.png)
-8.	Na página Configurar: Carregar Arquivo de Som, clique em **Procurar** e navegue até a mensagem de voz e clique em **Abrir**.![Nuvem](./media/multi-factor-authentication-whats-next/custom4.png)
-9.	Adicione uma Descrição e clique em Carregar.
-10.	Quando isso for concluído, você verá uma mensagem de que carregou com êxito o arquivo.
-11.	À esquerda, clique em Mensagens de voz.
-12.	Na seção Mensagens de voz, clique em Nova mensagem de voz.
-13.	No menu suspenso Idioma, selecione um idioma.
-14.	Se esta mensagem for para um aplicativo específico, especifique-o na caixa de Aplicativo.
-15.	No Tipo de mensagem, selecione o tipo de mensagem que será substituído pela nossa nova mensagem personalizada.
-16.	No menu suspenso Arquivo de som, selecione seu arquivo de som.
-17.	Clique em **Criar**. Você verá uma mensagem que diz que você criou com êxito uma mensagem de voz.![Nuvem](./media/multi-factor-authentication-whats-next/custom5.png)</center>
+- The current supported file formats are .wav and .mp3.
+- The file size limit is 5 MB.
+- It is recommended that for Authentication messages that it be no longer than 20 seconds. Anything greater than this could cause the verification to fail because the user may not respond before the message finishes and the verification times out.
 
 
 
-## Cache no Azure Multi-Factor Authentication
+### <a name="to-set-up-custom-voice-messages-in-azure-multi-factor-authentication"></a>To set up custom voice messages in Azure Multi-Factor Authentication
+1.  Create a custom voice message using one of the supported file formats.
+2.  Log on to http://azure.microsoft.com
+3.  Navigate to the MFA Management Portal per the instructions at the top of this page.
+4.  In the Azure Multi-Factor Authentication Management Portal, click Voice Messages under the Configure section.
+5.  Under the Voice Messages section, click **New Voice Message**.
+![Cloud](./media/multi-factor-authentication-whats-next/custom1.png)
+6.  On the Configure: New Voice Messages page, click **Manage Sound Files**.
+![Cloud](./media/multi-factor-authentication-whats-next/custom2.png)
+7.  On the Configure: Sound Files page, click **Upload Sound File**.
+![Cloud](./media/multi-factor-authentication-whats-next/custom3.png)
+8.  On the Configure: Upload Sound File, click **Browse** and navigate to your voice message, click **Open**.
+![Cloud](./media/multi-factor-authentication-whats-next/custom4.png)
+9.  Add a Description and click Upload.
+10. Once this completes, a message confirms that you have successfully uploaded the file.
+11. On the left, click Voice Messages.
+12. Under the Voice Messages section, click New Voice Message.
+13. From the Language drop-down, select a language.
+14. If this message is for a specific application, specify it in the Application box.
+15. From the Message Type, select the message type to be overridden with our new custom message.
+16. From the Sound File drop-down, select your sound file.
+17. Click **Create**. A message confirms that you have successfully created a voice message.
+![Cloud](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
-O cache permite que você defina um momento específico período para que tentativas de autenticação subsequentes tenham êxito automaticamente. Isso é usado principalmente quando os sistemas locais, como VPN, enviam várias solicitações de verificação enquanto a primeira solicitação ainda está em andamento. Isso permite que as solicitações subsequentes tenham êxito automaticamente após a conclusão bem-sucedida da verificação em andamento. Observe que o cache não deve ser usado para entrar no AD do Azure.
 
 
-### Para instalar um cache no Azure Multi-Factor Authentication
+## <a name="caching-in-azure-multi-factor-authentication"></a>Caching in Azure Multi-Factor Authentication
 
-1.	Faça logon no http://azure.microsoft.com
-2.	Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
-3.	No Portal de Gerenciamento do Azure Multi-Factor Authentication, clique em Cache na seção Configurar.
-4.	Na página Configurar cache, clique em Novo cache
-5.	Selecione o tipo de Cache e os segundos de cache. Clique em Criar.
+Caching allows you to set a specific time period so that subsequent authentication attempts succeed automatically. This is primarily used when on-premises systems such as VPN send multiple verification requests while the first request is still in progress. This allows the subsequent requests to succeed automatically after the user succeeds the verification in progress. Note that caching is not intended to be used for sign-ins to Azure AD.
+
+
+### <a name="to-set-up-caching-in-azure-multi-factor-authentication"></a>To set up caching in Azure Multi-Factor Authentication
+
+1.  Log on to http://azure.microsoft.com
+2.  Navigate to the MFA Management Portal per the instructions at the top of this page.
+3.  In the Azure Multi-Factor Authentication Management Portal, click Caching under the Configure section.
+4.  On the Configure caching page click New Cache
+5.  Select the Cache type and the cache seconds. Click create.
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
-## IPs confiáveis
+## <a name="trusted-ips"></a>Trusted IPs
 
-IPs Confiáveis é um recurso de autenticação multifator que permite que os administradores de um inquilino gerenciado ou federado possam ignorar a autenticação multifator para usuários que estão entrando pela intranet local da empresa. Os recursos estão disponíveis para locatários do Azure AD que tenham licenças do Azure AD Premium, Enterprise Mobility Suite ou Azure Multi-Factor Authentication.
+Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet. The features are available for Azure AD tenants that have Azure AD Premium, Enterprise Mobility Suite or Azure Multi-Factor Authentication licenses.
 
 
-Tipo de locatário do Azure AD| Opções disponíveis de IPs confiáveis
+Type of Azure AD Tenant| Available Trusted IP options
 :------------- | :------------- |
-Gerenciada|Intervalos de endereços IP específicos – os administradores podem especificar um intervalo de endereços IP que podem se desviar da autenticação multifator para usuários que estejam entrando pela intranet da empresa.
-Federado|<li>Todos os usuários federados - todos os usuários federados que estão entrando de dentro da organização se desviarão da autenticação multifator utilizando uma declaração emitida pelo AD FS.</li><li>Intervalos de endereços IP específicos – os administradores podem especificar um intervalo de endereços IP que podem se desviar da autenticação multifator para usuários que estejam entrando pela intranet da empresa.
+Managed|Specific IP address ranges – Administrators can specify a range of IP addresses that can bypass multi-factor authentication for users that are signing in from the company’s intranet.
+Federated|<li>All Federated Users - All federated users who are signing-in from inside the organization will bypass multi-factor authentication using a claim issued by AD FS.</li><li>Specific IP address ranges – Administrators can specify a range of IP addresses that can bypass multi-factor authentication for users that are signing in from the company’s intranet.
 
-Esse desvio só funciona dentro da intranet da empresa. Por exemplo, se você selecionou apenas todos os usuários federados e um usuário entrar de fora da intranet da empresa, esse usuário terá de se autenticar usando a autenticação multifator, mesmo se apresentar uma declaração do AD FS. A tabela a seguir descreve quando as senhas de aplicativo e a autenticação multifator são necessárias dentro de sua rede corporativa e fora de sua rede corporativa quando IPs confiáveis estiver habilitado.
+This bypass only works from inside a company’s intranet. So for example, if you only selected all federated users, and a user signs in from outside the company’s intranet, that user has to authenticate using multi-factor authentication even if the user presents an AD FS claim. The following table describes when multi-factor authentication and app passwords are required inside your corpnet and outside your corpnet when Trusted IPs is enabled.
 
 
-|IPs confiáveis habilitados| IPs confiáveis desabilitados
+|Trusted IPs enabled| Trusted IPs disabled
 :------------- | :------------- | :------------- |
-Dentro da rede corporativa|Para fluxos de navegador, a autenticação multifator NÃO é necessária.|Para fluxos de navegador, a autenticação multifator é necessária.
-|Para aplicativos cliente avançados, senhas comuns funcionarão se o usuário não tiver criado nenhuma senha de aplicativo. Quando uma senha de aplicativo for criada, as senhas de aplicativo são necessárias.|Para aplicativos cliente avançados, as senhas de aplicativo são necessárias
-Fora da rede corporativa|Para fluxos de navegador, a autenticação multifator é necessária.|Para fluxos de navegador, a autenticação multifator é necessária.
-|Para aplicativos cliente avançados, as senhas de aplicativo são necessárias.|Para aplicativos cliente avançados, as senhas de aplicativo são necessárias.
+Inside corpnet|For browser flows, multi-factor authentication NOT required.|For browser flows, multi-factor authentication required
+|For rich client apps, regular passwords work if the user has not created any app passwords. Once an app password has been created, app passwords are required.|For rich client apps, app passwords required
+Outside corpnet|For browser flows, multi-factor authentication required.|For browser flows, multi-factor authentication required.
+|For rich client apps, app passwords required.|For rich client apps, app passwords required.
 
-### Para habilitar IPs confiáveis
+### <a name="to-enable-trusted-ips"></a>To enable Trusted IPs
 
-1. Entre no Portal clássico do Azure.
-2. À esquerda, clique no Active Directory.
-3. Em Diretório, clique no diretório em que deseja habilitar IPs confiáveis.
-4. No Diretório que você selecionou, clique em Configurar.
-5. Na seção autenticação multifator, clique em Gerenciar configurações de serviço.
-6. Na página Configurações do Serviço, em IPs Confiáveis, selecione:
+1. Sign-in to the Azure classic portal.
+2. On the left, click Active Directory.
+3. Under, Directory click on the directory you wish to set up Trusted IPsing on.
+4. On the Directory you have selected, click Configure.
+5. In the multi-factor authentication section, click Manage service settings.
+6. On the Service Settings page, under Trusted IPs, select either:
 
-	- Para solicitações de usuários federados provenientes da minha intranet – todos os usuários federados que estiverem entrando pela rede corporativa ignorarão a autenticação multifator usando uma declaração emitida pelo AD FS.
-	- Para solicitações de um intervalo específico de IPs públicos – insira os endereços IP nas caixas fornecidas usando a notação CIDR. Por exemplo: xxx.xxx.xxx.0/24 para endereços IP no intervalo xxx.xxx.xxx.1 – xxx.xxx.xxx.254, ou xxx.xxx.xxx.xxx/32 para um único endereço IP. Você pode inserir até 50 intervalos de endereços IP.
+    - For requests from federated users originating from my intranet – All federated users who are signing in from the corporate network will bypass multi-factor authentication using a claim issued by AD FS.
+    - For requests from a specific range of public IPs – enter the IP addresses in the boxes provided using CIDR notation. For example: xxx.xxx.xxx.0/24 for IP addresses in the range xxx.xxx.xxx.1 – xxx.xxx.xxx.254, or xxx.xxx.xxx.xxx/32 for a single IP address. You can enter up to 50 IP address ranges.
 
-7. Clique em Salvar.
-8. Depois que as atualizações forem aplicadas, clique em Fechar.
-
-
-
-![IPs confiáveis](./media/multi-factor-authentication-whats-next/trustedips3.png)
+7. Click save.
+8. Once the updates have been applied, click close.
 
 
 
+![Trusted IPs](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
-## Senhas de aplicativo
 
-Em alguns aplicativos, como o Office 2010 ou mais antigo e o Apple Mail, você não pode usar autenticação multifator. Para usar esses aplicativos, você precisará usar as "senhas de aplicativo" no lugar de sua senha tradicional. A senha de aplicativo permite que um aplicativo se desvie da autenticação multifator e continue funcionando.
 
->[AZURE.NOTE] Autenticação moderna para os clientes do Office 2013
+
+## <a name="app-passwords"></a>App Passwords
+
+In some apps, like Office 2010 or older and Apple Mail you can't use multi-factor authentication.  To use these apps, you'll need to use "app passwords" in place of your traditional password.  The app password allows the application to bypass multi-factor authentication and continue working.
+
+>[AZURE.NOTE] Modern Authentication for the Office 2013 Clients
 >
-> Os clientes do Office 2013 (incluindo o Outlook) agora têm suporte a novos protocolos de autenticação e podem ser habilitados para oferecer suporte ao Multi-Factor Authentication. Isso significa que, uma vez habilitadas, as senhas de aplicativo não são necessárias para usar com os clientes do Office 2013. Para obter mais informações, consulte [Anúncio da visualização pública da autenticação moderna do Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Office 2013 clients (including Outlook) now support new Authentication Protocols and can be enabled to support Multi-Factor Authentication.  This means that once enabled, app passwords are not required for use with Office 2013 clients.  For more information, see [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 
 
-### Coisas importantes a saber sobre senhas de aplicativo
+### <a name="important-things-to-know-about-app-passwords"></a>Important things to know about app passwords
 
-Veja a seguir uma lista de importante das coisas que você deve saber sobre senhas de aplicativo.
+The following is an important list of things that you should know about app passwords.
 
-Experiência de autenticação|Para aplicativos baseados em navegador|Para aplicativos não baseados em navegador
-:------------- | :------------- | :-------------
-|<ul><li>O fator primário de autenticação é realizado no local</li><li>O fator secundário é um método baseado em telefone realizado pela Identidade na Nuvem.</li>|<ul><li>Os administradores e usuários podem usar senhas de aplicativo para entrar.
+- Users can have multiple app passwords, which increases the surface area for theft. Since app passwords are hard to remember, it might encourage people to write this down. This is not recommended and should be discouraged because only one factor is required to login with app password.
+- Apps which cache passwords and use it in on-premises scenarios might start failing since the app password isn't known outside of the organizational id. An example is Exchange emails that are on-premises but the archived mail is in the cloud. The same password doesn't work.
+- The actual password is automatically generated and is not supplied by the user. This is because the automatically generated password, is harder for an attacker to guess and is more secure.
+- Currently there is a limit of 40 passwords per user. You will be prompted to delete one of your existing app passwords in order to create a new one.
+- Once multi-factor authentication is enabled on a user's account, app passwords can be used with most non-browser clients such as Outlook and Lync, but administrative actions cannot be performed using app passwords through non-browser applications such as Windows PowerShell even if that user has an administrative account.  Ensure you create a service account with a strong password to run PowerShell scripts and do not enable that account for multi-factor authentication.
 
-- Os usuários podem ter várias senhas de aplicativo, o que aumenta a área de superfície para roubo. Como senhas de aplicativo são difíceis de lembrar, isso pode incentivar as pessoas anotá-las. Isso não é recomendável e deve ser desencorajado, porque apenas um fator é necessário para fazer logon com a senha de aplicativo.
-- Os aplicativos que armazenam senhas em cache e a usam em cenários locais podem começar a falhar, pois a senha do aplicativo não será conhecida fora da ID organizacional. Um exemplo é o de emails do Exchange que estão no local, mas o email arquivado está na nuvem. A mesma senha não funcionará.
-- A senha real é gerada automaticamente e não é fornecida pelo usuário. Isso ocorre porque a senha gerada automaticamente é mais difícil para um invasor adivinhar e é mais segura.
-- Atualmente, há um limite de 40 senhas por usuário. Você será solicitado a excluir uma de suas senhas de aplicativo existente para criar uma nova.
-- Assim que a multi-factor authentication é habilitada na conta de um usuário, as senhas do aplicativo podem ser usadas com a maioria dos clientes sem navegador, como Outlook e Lync, mas as ações administrativas não podem ser executadas usando senhas do aplicativo por meio de aplicativos sem navegador, como o Windows PowerShell, mesmo se o usuário tiver uma conta administrativa. Certifique-se de criar uma conta de serviço com uma senha segura para executar scripts do PowerShell e não habilite essa conta para multi-factor authentication.
-
->[AZURE.WARNING]  As senhas de aplicativo não funcionam em ambientes híbridos onde os clientes se comunicam com pontos de extremidade de descoberta automática local e na nuvem.
->
->Esteja ciente de que as senhas de aplicativos não funcionarão em ambientes híbridos onde os clientes se comunicam com pontos de extremidade de descoberta automática locais e na nuvem, já que as senhas de domínio são necessárias para autenticação local e as senhas de aplicativo são necessárias para autenticação na nuvem.
+>[AZURE.WARNING]  App passwords don't work in hybrid environments where clients communicate with both on-premises and cloud autodiscover endpoints. This is because domain passwords are required to authenticate on-premises and app passwords are required to authenticate with the cloud.
 
 
-### Nomeando orientação para senhas de aplicativo
-É recomendável que os nomes de senha de aplicativo reflitam o dispositivo no qual eles serão usados. Por exemplo, se você tiver um laptop que tem aplicativos sem navegador, como Outlook, Word e Excel, basta criar uma senha de aplicativo chamada Laptop e usar essa senha em todos esses aplicativos. Embora você possa criar senhas separadas para todos esses aplicativos, isso não é recomendável. A maneira recomendada é usar uma senha de aplicativo por dispositivo.
+### <a name="naming-guidance-for-app-passwords"></a>Naming Guidance for App Passwords
+It is recommended that app password names should reflect the device on which they are used. For instance, if you have a laptop that has non-browser apps such as Outlook, Word, and Excel, you only need to create one app password named Laptop and use that app password in all of these applications. Although you can create separate passwords for all of these applications, it is not recommended. The recommend way is to use one app password per device.
 
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/naming.png)</center>
 
 
-### Senhas de aplicativo federado (SSO)
-O Azure AD oferece suporte à federação com Serviços de Domínio do Active Directory (AD DS) local do Windows Server. Se sua organização for federada (SSO) com o Azure AD e você pretende usar o Azure Multi-Factor Authentication, é importante que você tenha as seguinte informações ao usar senhas de aplicativo. Isso se aplica apenas aos clientes federados (SSO).
+### <a name="federated-(sso)-app-passwords"></a>Federated (SSO) App Passwords
+Azure AD supports federation with on-premises Windows Server Active Directory Domain Services (AD DS). If your organization is federated(SSO) with Azure AD and you are going to be using Azure Multi-Factor Authentication, then the following is important information that you should be aware when using app passwords. This applies only to federated(SSO) customers.
 
-- A Senha de aplicativo é verificada pelo Azure AD e, portanto, se desvia da federação. A federação só é usada ativamente ao configurar a Senha de aplicativo.
-- Para usuários federados (SSO), nós nunca iremos ao Provedor de Identidade (IdP), ao contrário do fluxo passivo. As senhas serão armazenadas na ID organizacional. Se o usuário sair da empresa, essa informação deve ir para a ID organizacional usando o DirSync em tempo real. A desabilitação/exclusão da conta pode levar até 3 horas para sincronizar, atrasando a desabilitação/exclusão da Senha de aplicativo no Azure AD.
-- As configurações do Controle de Acesso do Cliente local não são consideradas pela Senha de aplicativo
-- Nenhum recurso de registro de autenticação local/auditoria recurso está disponível para a Senha de aplicativo
-- É preciso que haja mais treinamento do usuário final é necessário para o cliente Microsoft Lync 2013. Para as etapas obrigatórias, consulte Como alterar a senha em seu email para a senha de aplicativo.
-- Alguns projetos arquitetônicos avançados podem exigir o uso de uma combinação de nome de usuário e senhas da organização e senhas de aplicativo ao usar a autenticação multifator com os clientes, dependendo de onde eles se autenticam. Para clientes que se autenticam em uma infraestrutura local, você usaria um nome e senha da organização. Para clientes que se autenticam no Azure AD, você usaria a senha de aplicativo.
+- The App Password is verified by Azure AD and hence bypasses federation. Federation is only actively used when setting up App Password.
+- For federated(SSO) users, we never go to the Identity Provider (IdP) unlike the passive flow. The passwords are stored in the organizational id. If the user leaves the company, that info has to flow to organizational id using DirSync in real time. Account disable/deletion may take up to three hours to sync, delaying disable/deletion of App Password in Azure AD.
+- On-premises Client Access Control settings are not honored by App Password
+- No on-premises authentication logging / auditing capability is available for App Password
+- More end-user education is required for the Microsoft Lync 2013 client. For the required steps, see How to change the password in your email to the app password.
+- Certain advanced architectural designs may require using a combination of organizational username and passwords and app passwords when using multi-factor authentication with clients, depending on where they authenticate. For clients that authenticate against an on-premise infrastructure, you would use an organizational username and password. For clients that authenticate against Azure AD, you would use the app password.
 
-Por exemplo, suponha que você tenha uma arquitetura que consiste no seguinte:
+For example, suppose you have an architecture that consists of the following:
 
-- Você está associando sua instância local do Active Directory com o Azure AD
-- Você está usando o Exchange online
-- Você está usando o Lync que está especificamente no local
-- Você está usando o Azure Multi-Factor Authentication
-
-
-![Prova](./media/multi-factor-authentication-whats-next/federated.png)
-
- Nesses casos, você deve fazer o seguinte:
-
-- Ao entrar no Lync, use o nome de usuário e a senha de suas organizações.
-- Ao tentar acessar o catálogo de endereços por meio de um cliente Outlook que se conecte ao Exchange online, use uma senha de aplicativo.
-
-### Permitindo a criação de senha de aplicativo
-Por padrão, os usuários não podem criar senhas de aplicativo. Esse recurso deve ser ativado. Para permitir aos usuários possam criar senhas de aplicativo, use o procedimento a seguir.
-
-#### Para permitir que os usuários criem senhas de aplicativo
+- You are federating your on-premise instance of Active Directory with Azure AD
+- You are using Exchange online
+- You are using Lync that is specifically on-premise
+- You are using Azure Multi-Factor Authentication
 
 
+![Proofup](./media/multi-factor-authentication-whats-next/federated.png)
 
-1. Entre no Portal clássico do Azure.
-2. À esquerda, clique no Active Directory.
-3. Em Diretório, clique no diretório do usuário que deseja habilitar.
-4. Na parte superior, clique em Usuários.
-5. Na parte inferior da página, clique em Gerenciar Multi-Factor Auth. Isso abrirá a página da autenticação multifator.
-6. Na parte superior da página de autenticação multifator, clique em Configurações de serviço.
-7. Certifique-se de que o botão de opção ao lado de Permitir que usuários criem senhas de aplicativo para entrarem em aplicativos que não são navegadores esteja selecionado.
+ In these instances, you must do the following:
+
+- When signing-in to Lync, use your organizations’ username and password.
+- When attempting to access the address book via an Outlook client that connects to Exchange online, use an app password.
+
+### <a name="allowing-app-password-creation"></a>Allowing app password creation
+By default, users cannot create app passwords.  This feature must be enabled.  To allow users the ability to create app passwords, use the following procedure.
+
+#### <a name="to-enable-users-to-create-app-passwords"></a>To enable users to create app passwords
 
 
-![Criar senhas de aplicativo](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
-### Criando senhas de aplicativo
-Os usuários podem criar senhas de aplicativo durante o registro inicial. É fornecida uma opção no final do processo de registro que lhes permite criá-las.
+1. Sign in to the Azure classic portal.
+2. On the left, click Active Directory.
+3. Under, Directory click on the directory for the user you wish to enable.
+4. At the top, click Users.
+5. At the bottom of the page, click Manage Multi-Factor Auth.  
+6. At the top of the multi-factor authentication page, click Service Settings.
+7. Ensure that the radio button next to Allow users to create app passwords to sign into non-browser applications is selected.
 
-Além disso, eles também podem criar senhas de aplicativo posteriormente alterando suas configurações no Portal do Azure, o portal do Office 365 ou
 
-### Para criar senhas de aplicativo no portal do Office 365
+![Create App Passwords](./media/multi-factor-authentication-whats-next/trustedips3.png)
+
+### <a name="creating-app-passwords"></a>Creating app passwords
+Users can create app passwords during their initial registration.  They are given an option at the end of the registration process that allows them to create them.
+
+Additionally users can also create app passwords later on by changing their settings in the Azure portal, the Office 365 portal or by
+
+### <a name="to-create-app-passwords-in-the-office-365-portal"></a>To create app passwords in the Office 365 portal
 --------------------------------------------------------------------------------
 
 
-1. Entre no portal do Office 365
-2. No canto superior direito, selecione o widget de configurações
-3. À esquerda, selecione Verificação de Segurança Adicional
-4. À direita, selecione **Atualizar meus números de telefone usados para segurança da conta**
-5. Na parte superior da página de prova, selecione as senhas de aplicativo
-6. Clique em **Criar**
-7. Insira um nome para a senha de aplicativo e clique em **Avançar**
-8. Copie a senha de aplicativo na área de transferência e cole-a no seu aplicativo.
+1. Sign in to the Office 365 portal
+2. In the top right corner, select the settings widget
+3. On the left, select Additional Security Verification
+4. On the right, select **Update my phone numbers used for account security**
+5. On the proofup page, at the top, select app passwords
+6. Click **Create**
+7. Enter a name for the app password and click **Next**
+8. Copy the app password to the clipboard and paste it into your app.
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/security.png)</center>
 
 
-### Para criar senhas de aplicativo no portal do Azure
+### <a name="to-create-app-passwords-in-the-azure-portal"></a>To create app passwords in the Azure portal
 --------------------------------------------------------------------------------
-1. Entre no Portal clássico do Azure.
-3. Na parte superior, clique com o botão direito do mouse no nome do usuário e selecione Verificação de Segurança Adicional.
-5. Na parte superior da página de prova, selecione as senhas de aplicativo
-6. Clique em **Criar**
-7. Insira um nome para a senha de aplicativo e clique em **Avançar**
-8. Copie a senha de aplicativo na área de transferência e cole-a no seu aplicativo.
+1. Sign in to the Azure classic portal.
+3. At the top, right-click on your user name and select Additional Security Verification.
+5. On the proofup page, at the top, select app passwords
+6. Click **Create**
+7. Enter a name for the app password and click **Next**
+8. Copy the app password to the clipboard and paste it into your app.
 
 
-![Senhas de aplicativo](./media/multi-factor-authentication-whats-next/app2.png)
+![App passwords](./media/multi-factor-authentication-whats-next/app2.png)
 
-### Para criar senhas de aplicativo se você não tiver uma assinatura do Office 365 ou Azure
+### <a name="to-create-app-passwords-if-you-do-not-have-an-office-365-or-azure-subscription"></a>To create app passwords if you do not have an Office 365 or Azure subscription
 --------------------------------------------------------------------------------
-1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. Na parte superior, selecione Perfil.
-3. Clique no nome de usuário e selecione Verificação de Segurança Adicional.
-5. Na parte superior da página de prova, selecione as senhas de aplicativo
-6. Clique em **Criar**
-7. Insira um nome para a senha de aplicativo e clique em **Avançar**
-8. Copie a senha de aplicativo na área de transferência e cole-a no seu aplicativo.
+1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com)
+2. At the top, select profile.
+3. Click on your user name and select Additional Security Verification.
+5. On the proofup page, at the top, select app passwords
+6. Click **Create**
+7. Enter a name for the app password and click **Next**
+8. Copy the app password to the clipboard and paste it into your app.
 
-![Senhas de aplicativo](./media/multi-factor-authentication-whats-next/myapp.png)
+![App passwords](./media/multi-factor-authentication-whats-next/myapp.png)
 
-## Lembrar Multi-Factor Authentication para dispositivos de confiança dos usuários
+## <a name="remember-multi-factor-authentication-for-devices-users-trust"></a>Remember Multi-Factor Authentication for devices users trust
 
-Lembrar Multi-Factor Authentication para dispositivos e navegadores de confiança dos usuários é um recurso gratuito para todos os usuários do MFA. Ele permite fornecer aos usuários a opção de ignorar o MFA para um número de dias específico após a entrada bem-sucedida usando o MFA. Isso pode melhorar a usabilidade de seus usuários.
+Remembering Multi-Factor Authentication for devices and browsers that users trust is a free feature for all MFA users.  It allows you to give users the option to by-pass MFA for a set number of days after performing a successful sign-in using MFA. This can enhance the usability for your users.
 
-No entanto, já que os usuários têm permissão para lembrar o MFA para dispositivos confiáveis, esse recurso pode reduzir a segurança da conta. Para garantir que as contas de usuário sejam protegidas, você deve restaurar o Multi-Factor Authentication para seus dispositivos para qualquer um dos seguintes cenários:
+However, since the users are allowed to remember MFA for trusted devices, this feature may reduce account security. To ensure account security, you should restore Multi-Factor Authentication for their devices for either of the following scenarios:
 
-- Se sua conta corporativa estiver comprometida
-- Se um dispositivo lembrado for perdido ou roubado
+- If their corporate account has become compromised
+- If a remembered device is lost or stolen
 
-> [AZURE.NOTE] Esse recurso é implementado como um cache de cookie do navegador. Ele não funcionará se os cookies do navegador não estiverem habilitados.
+> [AZURE.NOTE] This feature is implemented as a browser cookie cache. It doesn't work if your browser cookies are not enabled.
 
-### Como habilitar/desabilitar Lembrar Multi-Factor Authentication
+### <a name="how-to-enable/disable-remember-multi-factor-authentication"></a>How to enable/disable Remember multi-factor authentication
 
-1. Entre no Portal clássico do Azure.
-2. À esquerda, clique no Active Directory.
-3. No Active Directory, clique no diretório em que deseja configurar Lembrar Multi-Factor Authentication para dispositivos.
-4. No Diretório que você selecionou, clique em Configurar.
-5. Na seção autenticação multifator, clique em Gerenciar configurações de serviço.
-6. Na página Configurações do Serviço, em Gerenciar configurações do dispositivo do usuário, marque/desmarque **Permitir que os usuários lembrem a autenticação multifator nos dispositivos confiáveis**.![Lembrar dispositivos](./media/multi-factor-authentication-whats-next/remember.png)
-8. Defina o número de dias que você deseja permitir a suspensão. O padrão é 14 dias.
-9. Clique em Salvar.
-10. Clique em Fechar.
+1. Sign in to the Azure classic portal.
+2. On the left, click Active Directory.
+3. Under Active Directory, click on the directory you wish to set up Remember Multi-Factor Authentication for devices.
+4. On the Directory you have selected, click Configure.
+5. In the multi-factor authentication section, click Manage service settings.
+6. On the Service Settings page, under manage user device settings, select/unselect the **Allow users to remember multi-factor authentication on devices they trust**.
+![Remember devices](./media/multi-factor-authentication-whats-next/remember.png)
+8. Set the number of days that you want to allow the suspension. The default is 14 days.
+9. Click save.
+10. Click close.
 
 
-## Métodos de verificação selecionáveis
-Agora é possível escolher os métodos de autenticação que estão disponíveis para os usuários ao usar a Multi-Factor Authentication. Anteriormente, este recurso só estava disponível na versão do servidor local. A tabela a seguir fornece uma visão geral dos vários métodos de autenticação que podem ser habilitados ou desabilitados para os seus usuários.
+## <a name="selectable-verification-methods"></a>Selectable Verification Methods
+On both the cloud and on-premises versions, you can choose which verification methods are available for your users. The table below provides a brief overview of each method.
 
-Método|Descrição
+When your users enroll their accounts for MFA, they choose their preferred verification method out of the options that you enabled. The guidance for their enrollment process is covered in [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md)
+
+Method|Description
 :------------- | :------------- |
-[Ligue para o telefone](multi-factor-authentication-end-user-first-time-mobile-phone.md)| Faz uma chamada de voz automática para o telefone de Autenticação. O usuário atende à chamada e pressiona # no teclado do telefone para autenticar. Esse número de telefone não será sincronizado com o Active Directory local.
-[Mensagem de texto para telefone](multi-factor-authentication-end-user-first-time-mobile-phone.md)|Envia para o usuário uma mensagem de texto que contém um código de verificação. O usuário é solicitado a responder à mensagem de texto com o código de verificação ou a inserir o código de verificação na interface de entrada.
-[Notificação pelo aplicativo móvel](multi-factor-authentication-end-user-first-time-mobile-app.md)|Nesse modo, o aplicativo Microsoft Authenticator impede o acesso não autorizado a contas e impede transações fraudulentas. Isso é feito usando uma notificação por push para seu telefone ou dispositivo registrado. Basta exibir a notificação e, se ela for legítima, você tocar em Verificar. Caso contrário, você pode escolher Negar ou optar por negar e reportar a notificação fraudulenta. Para obter informações sobre o relatório de notificações fraudulentas, consulte Como usar o recurso Negar e Denunciar fraude para autenticação multifator.</br></br>O Aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).|
-[Código de verificação de aplicativo móvel](multi-factor-authentication-end-user-first-time-mobile-app.md)|Nesse modo, o aplicativo Microsoft Authenticator pode ser usado como um token de software para gerar um código de verificação OATH. Esse código de verificação pode ser inserido juntamente com o nome de usuário e a senha, a fim de fornecer a segunda forma de autenticação.</li><br><p> O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Call to phone |  Places an automated voice call to the Authentication phone. The user answers the call and presses # in the phone keypad to authenticate. This phone number is not synchronized to on-premises Active Directory.
+Text message to phone | Sends a text message containing a verification code to the user. The user is prompted to either reply to the text message with the verification code or to enter the verification code into the sign-in interface.
+Notification through mobile app | In this mode, the Microsoft Authenticator app prevents unauthorized access to accounts and stops fraudulent transactions. This is done using a push notification to your phone or registered device. Simply view the notification and if it is legitimate you tap Verify. Otherwise you may choose Deny or choose to deny and report the fraudulent notification. For information on reporting fraudulent notifications see How to use the Deny and Report Fraud Feature for Multi-Factor Authentication.</br></br>The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).|
+Verification code from mobile app | In this mode, the Microsoft Authenticator app can be used as a software token to generate an OATH verification code. This verification code can then be entered along with the username and password to provide the second form of authentication.</li><br><p> The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
-### Como habilitar/desabilitar métodos de autenticação
+### <a name="how-to-enable/disable-authentication-methods"></a>How to enable/disable authentication methods
 
-1. Entre no Portal clássico do Azure.
-2. À esquerda, clique no Active Directory.
-3. No Active Directory, clique no diretório que você deseja habilitar ou desabilitar os métodos de autenticação.
-4. No Diretório que você selecionou, clique em Configurar.
-5. Na seção autenticação multifator, clique em Gerenciar configurações de serviço.
-6. Na página Configurações do Serviço, em Opções de verificação, marque/desmarque as opções que deseja usar.</br></br> ![Opções de verificação](./media/multi-factor-authentication-whats-next/authmethods.png)
-9. Clique em Salvar.
-10. Clique em Fechar.
+1. Sign in to the Azure classic portal.
+2. On the left, click Active Directory.
+3. Under Active Directory, click on the directory you wish to enable or disable authentication methods.
+4. On the Directory you have selected, click Configure.
+5. In the multi-factor authentication section, click Manage service settings.
+6. On the Service Settings page, under verification options, select/unselect the options you wish to use.</br></br>
+![Verification options](./media/multi-factor-authentication-whats-next/authmethods.png)
+9. Click save.
+10. Click close.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,68 +1,70 @@
-## Como criar uma rede virtual usando um arquivo de configuração de rede do PowerShell
+## <a name="how-to-create-a-vnet-using-a-network-config-file-from-powershell"></a>How to create a VNet using a network config file from PowerShell
 
-O Azure usa um arquivo xml para definir todas as redes virtuais disponíveis para uma assinatura. Você pode baixar esse arquivo e editá-lo para modificar ou excluir redes virtuais existentes e criar novas. Neste documento, você aprenderá a baixar esse arquivo, conhecido como arquivo de configuração de rede (ou netcgf) e editá-lo para criar uma nova rede virtual. Confira [Esquema de configuração de rede virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx) para saber mais sobre o arquivo de configuração de rede.
+Azure uses an xml file to define all VNets available to a subscription. You can download this file, and edit it to modify or delete existing VNets, and create new ones. In this document, you will learn how to download this file, referred to as network configuration (or netcgf) file, and edit it to create a new VNet. Check the [Azure virtual network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) to learn more about the network configuration file.
 
-Para criar uma rede virtual usando o arquivo netcfg com o PowerShell, siga as etapas abaixo.
+To create a VNet using a netcfg file using PowerShell, follow the steps below.
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](../articles/powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
-2. No console do Azure PowerShell, use o cmdlet **Get-AzureVnetConfig** para baixar o arquivo de configuração de rede executando o comando abaixo. 
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../articles/powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+2. From the Azure PowerShell console, use the **Get-AzureVnetConfig** cmdlet to download the network configuration file by running the command below. 
 
-		Get-AzureVNetConfig -ExportToFile c:\NetworkConfig.xml
+        Get-AzureVNetConfig -ExportToFile c:\NetworkConfig.xml
 
-	Saída esperada:
+    Expected output:
 
-		XMLConfiguration                                                                                                     
-		----------------                                                                                                     
-		<?xml version="1.0" encoding="utf-8"?>...  
+        XMLConfiguration                                                                                                     
+        ----------------                                                                                                     
+        <?xml version="1.0" encoding="utf-8"?>...  
 
-3. Abra o arquivo salvo na etapa 2 acima usando qualquer aplicativo de editor de texto ou XML e procure o elemento **<VirtualNetworkSites>**. Se já tiver redes criadas, cada rede será exibida como seu próprio elemento **<VirtualNetworkSite>**.
-4. Para criar a rede virtual descrita neste cenário, adicione o seguinte XML logo abaixo do elemento **<VirtualNetworkSites>**:
+3. Open the file you saved in step 2 above using any XML or text editor application, and look for the **<VirtualNetworkSites>** element. If you have any networks already created, each network will be displayed as its own **<VirtualNetworkSite>** element.
+4. To create the virtual network described in this scenario, add the following XML just under the **<VirtualNetworkSites>** element:
 
-		<VirtualNetworkSite name="TestVNet" Location="Central US">
-		  <AddressSpace>
-		    <AddressPrefix>192.168.0.0/16</AddressPrefix>
-		  </AddressSpace>
-		  <Subnets>
-		    <Subnet name="FrontEnd">
-		      <AddressPrefix>192.168.1.0/24</AddressPrefix>
-		    </Subnet>
-		    <Subnet name="BackEnd">
-		      <AddressPrefix>192.168.2.0/24</AddressPrefix>
-		    </Subnet>
-		  </Subnets>
-		</VirtualNetworkSite>
+        <VirtualNetworkSite name="TestVNet" Location="Central US">
+          <AddressSpace>
+            <AddressPrefix>192.168.0.0/16</AddressPrefix>
+          </AddressSpace>
+          <Subnets>
+            <Subnet name="FrontEnd">
+              <AddressPrefix>192.168.1.0/24</AddressPrefix>
+            </Subnet>
+            <Subnet name="BackEnd">
+              <AddressPrefix>192.168.2.0/24</AddressPrefix>
+            </Subnet>
+          </Subnets>
+        </VirtualNetworkSite>
 
-9.  Salve o arquivo de configuração de rede.
-10. No console do Azure PowerShell, use o cmdlet **Set-AzureVnetConfig** para carregar o arquivo de configuração de rede executando o comando abaixo. Observe a saída no comando; você deve ver **Succeeded** em **OperationStatus**. Se esse não for o caso, verifique o arquivo xml em busca de erros.
+9.  Save the network configuration file.
+10. From the Azure PowerShell console, use the **Set-AzureVnetConfig** cmdlet to upload the network configuration file by running the command below. Notice the output under the command, you should see **Succeeded** under **OperationStatus**. If that is not the case, check the xml file for errors.
 
-		Set-AzureVNetConfig -ConfigurationPath c:\NetworkConfig.xml
+        Set-AzureVNetConfig -ConfigurationPath c:\NetworkConfig.xml
 
-	Este é o resultado esperado para o comando descrito acima:
+    Here is the expected output for the command above:
 
-		OperationDescription OperationId                          OperationStatus
-		-------------------- -----------                          ---------------
-		Set-AzureVNetConfig  49579cb9-3f49-07c3-ada2-7abd0e28c4e4 Succeeded 
-	
-11. No console do Azure PowerShell, use o cmdlet **Get-AzureVnetSite** para verificar se a nova rede foi adicionada executando o comando abaixo.
+        OperationDescription OperationId                          OperationStatus
+        -------------------- -----------                          ---------------
+        Set-AzureVNetConfig  49579cb9-3f49-07c3-ada2-7abd0e28c4e4 Succeeded 
+    
+11. From the Azure PowerShell console, use the **Get-AzureVnetSite** cmdlet to verify that the new network was added by running the command below. 
 
-		Get-AzureVNetSite -VNetName TestVNet
+        Get-AzureVNetSite -VNetName TestVNet
 
-	Este é o resultado esperado para o comando descrito acima:
+    Here is the expected output for the command above:
 
-		AddressSpacePrefixes : {192.168.0.0/16}
-		Location             : Central US
-		AffinityGroup        : 
-		DnsServers           : {}
-		GatewayProfile       : 
-		GatewaySites         : 
-		Id                   : b953f47b-fad9-4075-8cfe-73ff9c98278f
-		InUse                : False
-		Label                : 
-		Name                 : TestVNet
-		State                : Created
-		Subnets              : {FrontEnd, BackEnd}
-		OperationDescription : Get-AzureVNetSite
-		OperationId          : 3f35d533-1f38-09c0-b286-3d07cd0904d8
-		OperationStatus      : Succeeded
+        AddressSpacePrefixes : {192.168.0.0/16}
+        Location             : Central US
+        AffinityGroup        : 
+        DnsServers           : {}
+        GatewayProfile       : 
+        GatewaySites         : 
+        Id                   : b953f47b-fad9-4075-8cfe-73ff9c98278f
+        InUse                : False
+        Label                : 
+        Name                 : TestVNet
+        State                : Created
+        Subnets              : {FrontEnd, BackEnd}
+        OperationDescription : Get-AzureVNetSite
+        OperationId          : 3f35d533-1f38-09c0-b286-3d07cd0904d8
+        OperationStatus      : Succeeded
 
-<!---HONumber=AcomDC_0323_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

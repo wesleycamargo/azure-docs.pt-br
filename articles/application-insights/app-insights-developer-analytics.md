@@ -1,95 +1,102 @@
 <properties
-	pageTitle="Análise para o Desenvolvedor"
-	description="DevOps com Visual Studio, Application Insights e HockeyApp"
-	authors="alancameronwills"
-	services="application-insights"
+    pageTitle="Developer Analytics"
+    description="DevOps with Visual Studio, Application Insights, and HockeyApp"
+    authors="alancameronwills"
+    services="application-insights"
     documentationCenter=""
-	manager="douge"/>
+    manager="douge"/>
 
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="05/18/2016"
-	ms.author="awills"/>
-
-# Análise para o desenvolvedor com o Application Insights e o HockeyApp
-
-*O Application Insights está em modo de visualização.*
-
-Muitos projetos operam um rápido ciclo de [DevOps](https://en.wikipedia.org/wiki/DevOps). Eles criam e distribuem seus aplicativos, obtêm comentários sobre o seu desempenho e sobre o que os usuários fazem com ele e, em seguida, usam esse conhecimento para planejar futuros ciclos de desenvolvimento.
-
-Para monitorar o uso e o desempenho, é importante ter telemetria do aplicativo dinâmico, bem como os comentários dos usuários.
-
-Muitos sistemas são criados de vários componentes: um serviço Web, processadores de back-end ou armazenamentos de dados e software de cliente executado no navegador do usuário ou como um aplicativo em um telefone ou em outro dispositivo. A telemetria desses componentes diferentes deve ser obtida em conjunto.
-
-Algumas versões restringiram a distribuição a testadores designados; também organizamos o pré-lançamento (testes de novos recursos com público restrito) e testes A|B (testes paralelos de interface do usuário alternativa).
-
-O gerenciamento de distribuições e a integração de monitoramento em vários componentes de cliente e de servidor não são tarefas triviais. Esse processo é uma parte essencial da arquitetura do aplicativo: não é possível criar um sistema desse tipo sem um ciclo de desenvolvimento iterativo e boas ferramentas de monitoramento.
-
-Neste artigo, vamos examinar como os aspectos de monitoramentos do ciclo de DevOps se ajusta a outras partes do processo.
-
-Se você quiser examinar um exemplo específico, há [um estudo de caso interessante](http://aka.ms/mydrivingdocs) com vários componentes de cliente e de servidor.
-
-## Um ciclo de DevOps
-
-As Ferramentas de Análise para o Desenvolvedor e do Visual Studio oferecem uma experiência de DevOps bem integrada. Por exemplo, aqui está um ciclo típico para um aplicativo Web (que poderia ser Java, Node.js ou ASP.NET):
-
-![Ciclo de devops de aplicativo Web](./media/app-insights-developer-analytics/040.png)
-
-* Um desenvolvedor faz check-in no repositório de código ou mescla no branch principal. Nesta ilustração, o repositório é o Git, mas também poderia ser o [Controle de Versão do Team Foundation](https://www.visualstudio.com/docs/tfvc/overview).
-* As alterações disparam um teste de unidade e de compilação. O serviço de compilação pode estar no [Visual Studio Team Services ou em seu equivalente local, o Team Foundation Server](https://www.visualstudio.com/docs/vsts-tfs-overview).
-* Um teste de unidade e de compilação bem-sucedido pode [disparar uma implantação automática](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition). O host de aplicativo Web pode ser seu próprio servidor Web ou o Microsoft Azure.
-* A telemetria do aplicativo dinâmico é enviada para o [Application Insights](app-insights-overview.md), tanto do servidor como [de navegadores cliente](app-insights-javascript.md). Lá, você pode analisar o desempenho dos padrões de uso e do aplicativo. As poderosas [ferramentas de pesquisa](app-insights-analytics.md) ajudam você a diagnosticar problemas. Os [alertas](app-insights-alerts.md) garantem que você fique sabendo de um problema assim que ele ocorre.
-* Seu próximo ciclo de desenvolvimento é informado por sua análise da telemetria dinâmica.
-
-### Aplicativos da área de trabalho e de dispositivo
-
-Para aplicativos da área de trabalho e de dispositivo, a parte de distribuição do ciclo é ligeiramente diferente, porque nós não estamos apenas carregando um ou dois servidores. Em vez disso, um teste de unidade e de compilação bem-sucedido pode [disparar o carregamento no HockeyApp](https://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs). O HockeyApp supervisiona a distribuição para sua equipe de usuários de teste (ou para o público em geral, se você preferir).
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="article" 
+    ms.date="05/18/2016"
+    ms.author="awills"/>
 
 
-![Ciclo de devops de dispositivo](./media/app-insights-developer-analytics/030.png)
+# <a name="developer-analytics-with-application-insights-and-hockeyapp"></a>Developer Analytics with Application Insights and HockeyApp
 
-O HockeyApp também coleta dados de desempenho e de uso, nos formatos:
+*Application Insights is in preview.*
 
-* Comentários textuais do usuário com capturas de tela
-* Relatórios de falha
-* Telemetria personalizada codificada por você.
+Many projects operate a rapid [DevOps](https://en.wikipedia.org/wiki/DevOps) cycle. They build and distribute their applications, get feedback about how it performs and what users do with it, and then use that knowledge to plan further development cycles. 
 
-Novamente, o ciclo de DevOps é concluído quando você faz seus planos de desenvolvimento futuros de acordo com os comentários obtidos.
+To monitor usage and performance, it's important to have telemetry from the live application, as well as feedback from the users themselves. 
+
+Many systems are built from multiple components: a web service, backend processors or data stores, and client software running either in the user's browser or as an app in a phone or other device. The telemetry from these different components has to be taken together.
+
+Some releases have restricted distribution to designated testers; we have also organized flighting (tests of new features with restricted audiences), and A|B testing (parallel tests of alternative UI).
+
+Managing distributions and integrating monitoring over multiple client and server components isn’t a trivial task. This process is an essential part of the architecture of the application: we can’t create a system of this kind without an iterative development cycle and good monitoring tools.
+
+In this article, we'll look at how the monitoring aspects of the devOps cycle fit in with the other parts of the process. 
+
+If you'd like to look at a specific example, there's [an interesting case study](http://aka.ms/mydrivingdocs) that has multiple client and server components.
+
+## <a name="a-devops-cycle"></a>A DevOps cycle
+
+Visual Studio and Developer Analytics tools offer a well-integrated devOps experience. For example, here is a typical cycle for a web application (which could be Java, Node.js, or ASP.NET):
+
+![Web app devops cycle](./media/app-insights-developer-analytics/040.png)
+
+* A developer checks in to the code repository, or merges into the main branch. The repository is Git in this illustration, but it could equally be [Team Foundation Version Control](https://www.visualstudio.com/docs/tfvc/overview).
+* The changes trigger a build and unit test. The build service can be in [Visual Studio Team Services or its on-premises counterpart, Team Foundation Server](https://www.visualstudio.com/docs/vsts-tfs-overview). 
+* A successful build and unit test can [trigger an automatic deployment](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition). The web app host can be either your own web server or Microsoft Azure. 
+* Telemetry from the live app is sent to [Application Insights](app-insights-overview.md), both from the server and [from client browsers](app-insights-javascript.md). There, you can analyse both the performance of the app and usage patterns. Powerful [search tools](app-insights-analytics.md) help you diagnose any issues. [Alerts](app-insights-alerts.md) make sure you know about a problem as soon as it arises. 
+* Your next development cycle is informed by your analysis of the live telemetry.
+
+### <a name="device-and-desktop-apps"></a>Device and desktop apps
+
+For device and desktop apps, the distribution part of the cycle is slightly different, because we aren't just uploading to one or two servers. Instead, a successful build and unit test can [trigger uploading to HockeyApp](https://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs). HockeyApp supervises distribution to your team of test users (or to the general public, if you prefer). 
 
 
-## Configuração da Análise para o Desenvolvedor
+![Device devops cycle](./media/app-insights-developer-analytics/030.png)
 
-Para cada componente do aplicativo - móvel ou Web ou da área de trabalho - as etapas são basicamente as mesmas. Para muitos tipos de aplicativo, o Visual Studio executa automaticamente algumas dessas etapas.
+HockeyApp also collects performance and usage data, in the forms of:
 
-1. Adicione o SDK adequado ao seu aplicativo. Para aplicativos de dispositivo, será o HockeyApp, e para os serviços da Web, será o Application Insights. Cada um tem diversas variantes para diferentes plataformas. (Também é possível usar o SDK para aplicativos da área de trabalho, embora o HockeyApp seja recomendável).
-2. Registre seu aplicativo no Application Insights ou no portal do HockeyApp, dependendo do SDK usado. Aqui você verá a análise do seu aplicativo dinâmico. Você obtém uma chave de instrumentação ou a ID que será configurada em seu aplicativo para que o SDK saiba para onde enviar a telemetria.
-3. Adicione código personalizado (se desejado) para registrar em log eventos ou métricas, para ajudá-lo com o diagnóstico ou para analisar o desempenho ou o uso. Há muito monitoramento interno, portanto você não precisará disso em seu primeiro ciclo.
-3. Para aplicativos de dispositivo:
- * Carregue uma compilação de depuração no HockeyApp. Dali, você pode distribuí-lo a uma equipe de usuários de teste. Sempre que você carregar as compilações subsequentes, a equipe será notificada.
- * Quando você configura seu serviço de compilação contínuo, crie uma definição de lançamento que use a etapa de plug-in para carregar no HockeyApp.
+* Verbatim user feedback with screenshots
+* Crash reports
+* Custom telemetry coded by you.
 
-### Análise e exportação de telemetria do HockeyApp
-
-Você pode investigar a telemetria personalizada e de log do HockeyApp usando os recursos de análise e exportação contínua do Application Insights ao [configurar uma ponte](app-insights-hockeyapp-bridge-app.md).
+Once again, the devOps cycle is completed as you make your future development plans in the light of the feedback gained.
 
 
+## <a name="setting-up-developer-analytics"></a>Setting up Developer Analytics
 
-## Próximas etapas
+For each component of your application - mobile or web or desktop - the steps are basically the same. For many types of app, Visual Studio automatically performs some of these steps.
+
+1. Add the appropriate SDK to your app. For device apps, it's HockeyApp, and for web services it's Application Insights. Each has several variants for different platforms. (It's also possible to use either SDK for desktop apps, though we recommend HockeyApp.)
+2. Register your app with the Application Insights or HockeyApp portal, depending on the SDK you used. This is where you'll see analytics from your live app. You get an instrumentation key or ID that you configure into your app so that the SDK knows where to send its telemetry.
+3. Add custom code (if desired) to log events or metrics, to help you with diagnostics or to analyze performance or usage. There's a lot of monitoring built in, so you won't need this on your first cycle.
+3. For device apps:
+ * Upload a debug build to HockeyApp. From there you can distribute it to a team of test users. Whenever you upload subsequent builds, the team will be notified.
+ * When you set up your continuous build service, create a release definition that uses the plug-in step to upload to HockeyApp.
+
+### <a name="analytics-and-export-for-hockeyapp-telemetry"></a>Analytics and Export for HockeyApp telemetry
+
+You can investigate HockeyApp custom and log telemetry using the Analytics and Continuous Export features of Application Insights by [setting up a bridge](app-insights-hockeyapp-bridge-app.md).
+
+
+
+## <a name="next-steps"></a>Next steps
  
-Veja as instruções detalhadas para diferentes tipos de aplicativo:
+Here are the detailed instructions for different types of app:
 
-* [Aplicativo Web ASP.NET](app-insights-asp-net.md)
-* [Aplicativo Web Java](app-insights-java-get-started.md)
-* [Aplicativo Web Node.js](https://github.com/Microsoft/ApplicationInsights-node.js)
-* [Aplicativo iOS](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-ios)
-* [Aplicativo Mac OS X](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x)
-* [Aplicativo Android](https://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk)
-* [Aplicativo Universal do Windows](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp)
-* [Aplicativo do Windows Phone 8 e 8.1](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81)
-* [Aplicativo do Windows Presentation Foundation](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps)
+* [ASP.NET web app](app-insights-asp-net.md) 
+* [Java web app](app-insights-java-get-started.md)
+* [Node.js web app](https://github.com/Microsoft/ApplicationInsights-node.js)
+* [iOS app](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-ios)
+* [Mac OS X app](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x)
+* [Android app](https://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk)
+* [Universal Windows app](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp)
+* [Windows Phone 8 and 8.1 app](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81)
+* [Windows Presentation Foundation app](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

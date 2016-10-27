@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Notas de versão das Atualizações do StorSimple Virtual Array | Microsoft Azure"
-   description="Descreve os problemas em aberto críticos e resoluções para a StorSimple Virtual Array que executa a Atualização 0.3."
+   pageTitle="StorSimple Virtual Array Updates release notes| Microsoft Azure"
+   description="Describes critical open issues and resolutions for the StorSimple Virtual Array running Update 0.3."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,67 +15,73 @@
    ms.date="09/15/2016"
    ms.author="alkohli" />
 
-# Notas de versão da Atualização 0.3 da StorSimple Virtual Array
 
-## Visão geral
+# <a name="storsimple-virtual-array-update-0.3-release-notes"></a>StorSimple Virtual Array Update 0.3 release notes
 
-As notas de versão a seguir identificam as questões críticas em aberto e os problemas resolvidos para as atualizações do Microsoft Azure StorSimple Virtual Array.
+## <a name="overview"></a>Overview
 
-As notas de versão são continuamente atualizadas e, à medida que são descobertas questões críticas que exijam uma solução alternativa, elas são adicionadas. Antes de implantar o StorSimple Virtual Array, examine cuidadosamente as informações contidas nas notas de versão.
+The following release notes identify the critical open issues and the resolved issues for Microsoft Azure StorSimple Virtual Array updates.
 
-A Atualização 0.3 corresponde à versão de software **10.0.10288.0**.
+The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple Virtual Array, carefully review the information contained in the release notes.
 
-> [AZURE.NOTE] As atualizações causam interrupção e reiniciam seu dispositivo. Se processos de E/S estiverem em andamento, o dispositivo sofrerá tempo de inatividade.
+Update 0.3 corresponds to the software version **10.0.10288.0**.
+
+> [AZURE.NOTE] Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime.
 
 
-## Novidades na Atualização 0.3
+## <a name="what's-new-in-the-update-0.3"></a>What's new in the Update 0.3
 
-A Atualização 0.3 é, basicamente, um build de correção de bug. Nesta versão, diversos bugs resultando em falhas de backup na versão anterior foram resolvidos.
+Update 0.3 is primarily a bug-fix build. In this version, several bugs resulting in backup failures in the previous version have been addressed.
 
-## Problemas resolvidos na Atualização 0.3
+## <a name="issues-fixed-in-the-update-0.3"></a>Issues fixed in the Update 0.3
 
-A tabela a seguir fornece um resumo dos problemas corrigidos nesta versão.
+The following table provides a summary of issues fixed in this release.
 
-| Nº | Recurso | Problema |
+| No.  | Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
 |------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1 | Backups |Foi observado um problema na versão anterior em que os backups não podiam ser concluídos para um compartilhamento de arquivo. Se esse problema tiver ocorrido, o trabalho de backup falhará e um alerta crítico será gerado no serviço StorSimple Manager para notificar o usuário. Esse problema não afetou os dados nos compartilhamentos ou acesso aos dados. A causa raiz foi identificada e corrigida nesta versão. <br></br> A correção não se aplica retroativamente a compartilhamentos que já estão observando esse problema. Os clientes que estão vendo esse problema primeiro devem aplicar a Atualização 0.3, contatar o Suporte da Microsoft para executar um backup completo do sistema para corrigir o problema. Em vez de entrar em contato com o Suporte da Microsoft, os clientes também podem restaurar para um novo compartilhamento de um backup íntegro para os compartilhamentos afetados. |
-| 2 | iSCSI | Um problema foi visto na versão anterior em que os volumes desaparecerão ao copiar dados para um volume do StorSimple Virtual Array. Esse problema foi corrigido nesta versão. <br></br> As correções em vigor somente em volumes recém-criados. As correções não se aplicam retroativamente a volumes que já estão observando esse problema. Os clientes são aconselhados a colocar os volumes afetados online por meio do portal clássico do Azure, executar um backup para esses volumes e, em seguida, restaurar esses volumes para novos volumes. |
+| 1    | Backups                                |A problem was seen in the earlier release where the backups would fail to complete for a file share. If this issue occured, the backup job would fail and a critical alert was raised on the StorSimple Manager service to notify the user. This issue did not affect the data on the shares or access to the data. The root cause was identified and fixed in this release. <br></br> The fix does not apply retroactively to shares that are already seeing this issue. Customers who are seeing this issue should first apply Update 0.3, then contact Microsoft Support to perform a full system backup to fix the issue. Instead of contacting Microsoft Support, customers can also restore to a new share from a healthy backup for the affected shares.                                                                                                                                                                                 |
+| 2    | iSCSI                         | An issue was seen in the earlier release where the volumes would disappear when copying data to a volume on the StorSimple Virtual Array. This issue was fixed in this release. <br></br> The fixes take effect only on newly created volumes. The fixes do not apply retroactively to volumes that are already seeing this issue. Customers are advised to bring the affected volumes online via the Azure classic portal, perform a backup for these volumes, and then restore these volumes to new volumes.                                                               |
 
 
-## Problemas conhecidos na Atualização 0.3
+## <a name="known-issues-in-the-update-0.3"></a>Known issues in the Update 0.3
 
-A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple Virtual Array e inclui os problemas observados das versões anteriores.
+The following table provides a summary of known issues for the StorSimple Virtual Array and includes the issues release-noted from the previous releases. 
 
 
-| Nº | Recurso | Problema | Solução alternativa/comentários |
+| No. | Feature | Issue | Workaround/comments |
 |-----|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **1.** | Atualizações | Os dispositivos virtuais criados na versão de visualização não podem ser atualizados para uma versão de Disponibilidade Geral com suporte. | Esses dispositivos virtuais devem fazer failover para a versão de Disponibilidade Geral usando um fluxo de trabalho de DR (Recuperação de Desastre). |
-| **2.** | Disco de dados provisionado | Após você ter provisionado um disco de dados de um determinado tamanho especificado e criado o dispositivo virtual StorSimple correspondente, você não deve expandir nem reduzir o disco de dados. A tentativa de fazer isso resulta na perda de todos os dados nas camadas locais do dispositivo. | |
-| **3.** | Política de grupo | Quando um dispositivo é associado a um domínio, a aplicação de uma política de grupo pode afetar a operação do dispositivo. | Certifique-se de que a matriz virtual esteja em sua própria OU (unidade organizacional) do Active Directory e que nenhum GPO (objeto de política de grupo) seja aplicado a ela.|
-| **4.** | Interface do Usuário da Web local | Se os recursos de segurança aprimorados estão habilitados no Internet Explorer (IE ESC), algumas páginas da interface do usuário da Web local, como Solução de Problemas ou Manutenção, podem não funcionar corretamente. Os botões nessas páginas também podem não funcionar. | Desligue os recursos de segurança reforçada do Internet Explorer.|
-| **5.** | Interface do Usuário da Web local | Em uma máquina virtual de Hyper-V, as interfaces de rede na interface do usuário da Web são exibidas como interfaces de 10 Gbps. | Esse comportamento é um reflexo do Hyper-V. O Hyper-V sempre mostra 10 Gbps para adaptadores de rede virtual. |
-| **6.** | Compartilhamentos ou volumes em camadas | Não há suporte para bloqueio de intervalo de bytes para aplicativos que funcionam com os volumes em camadas do StorSimple. Se o bloqueio de intervalo de bytes estiver habilitado, a disposição em camadas do StorSimple não funcionará. | As medidas recomendadas incluem: <br></br>Desabilitar o bloqueio de intervalo de bytes na lógica do aplicativo.<br></br>Optar por inserir dados para este aplicativo em volumes fixos localmente em vez de volumes em camadas.<br></br>*Ressalva*: ao usar volumes fixados localmente e o bloqueio de intervalo de bytes estiver habilitado, esteja ciente de que o volume fixo local pode ficar online antes mesmo da restauração ser concluída. Nesses casos, se uma restauração está em andamento, você deve aguardar a restauração ser concluída. |
-| **7.** | Compartilhamentos em camadas | Trabalhar com arquivos grandes pode resultar em uma divisão em camadas lenta. | Ao trabalhar com arquivos grandes, recomendamos que o maior arquivo seja inferior a 3% do tamanho do compartilhamento. |
-| **8.** | Capacidade utilizada para compartilhamentos | Você pode ver o consumo de compartilhamento quando não houver dados no compartilhamento. Isso ocorre porque a capacidade utilizada para compartilhamentos inclui metadados. | |
-| **9.** | Recuperação de desastre | Você só pode executar a recuperação de desastres de um servidor de arquivos no mesmo domínio que o dispositivo de origem. Não há suporte nesta versão para a recuperação de desastres para um dispositivo de destino em outro domínio. | Isso será implementado em uma versão posterior. |
-| **10.** | Azure PowerShell | Os dispositivos virtuais StorSimple não podem ser gerenciados por meio do Azure PowerShell nesta versão. | Todo o gerenciamento dos dispositivos virtuais deve ser feito por meio do portal clássico do Azure e da interface do usuário da Web local. |
-| **11.** | Alteração de senha | O console do dispositivo de matriz virtual só aceita a entrada no formato de teclado pt-BR. | |
-| **12.** | CHAP | Não é possível remover as credenciais CHAP depois de criadas. Além disso, se você modificar as credenciais CHAP, precisará fazer com que os volumes fiquem offline e depois online novamente para que a alteração entre em vigor. | Esse problema será corrigido em uma versão futura. |
-| **13.** | Servidor iSCSI | O 'Armazenamento usado' exibido para um volume iSCSI pode ser diferente no serviço StorSimple Manager e no host iSCSI. | O host iSCSI tem o modo de exibição do sistema de arquivos.<br></br>O dispositivo detecta os blocos atribuídos quando o volume está no tamanho máximo.|
-| **14.** | Servidor de arquivos | Se um arquivo em uma pasta tiver um Fluxo de Dados Alternativo (ADS) associado a ele, o ADS não será copiado ou restaurado por meio da recuperação de desastres, clonagem e Recuperação no Nível do Item.| |
+| **1.** | Updates | The virtual devices created in the preview release cannot be updated to a supported General Availability version. | These virtual devices must be failed over for the General Availability release using a disaster recovery (DR) workflow. |
+| **2.** | Provisioned data disk | Once you have provisioned a data disk of a certain specified size and created the corresponding StorSimple virtual device, you must not expand or shrink the data disk. Attempting to do results in a loss of all the data in the local tiers of the device. |   |
+| **3.** | Group policy | When a device is domain-joined, applying a group policy can adversely affect the device operation. | Ensure that your virtual array is in its own organizational unit (OU) for Active Directory and no group policy objects (GPO) are applied to it.|
+| **4.** | Local web UI | If enhanced security features are enabled in Internet Explorer (IE ESC), some local web UI pages such as Troubleshooting or Maintenance may not work properly. Buttons on these pages may also not work. | Turn off enhanced security features in Internet Explorer.|
+| **5.** | Local web UI | In a Hyper-V virtual machine, the network interfaces in the web UI are displayed as 10 Gbps interfaces. | This behavior is a reflection of Hyper-V. Hyper-V always shows 10 Gbps for virtual network adapters. |
+| **6.** | Tiered volumes or shares | Byte range locking for applications that work with the StorSimple tiered volumes is not supported. If byte range locking is enabled, StorSimple tiering does not work. | Recommended measures include: <br></br>Turn off byte range locking in your application logic.<br></br>Choose to put data for this application in locally pinned volumes as opposed to tiered volumes.<br></br>*Caveat*: When using locally pinned volumes and byte range locking is enabled, the locally pinned volume can be online even before the restore is complete. In such instances, if a restore is in progress, then you must wait for the restore to complete. |
+| **7.** | Tiered shares | Working with large files could result in slow tier out. | When working with large files, we recommend that the largest file is smaller than 3% of the share size. |
+| **8.** | Used capacity for shares | You may see share consumption when there is no data on the share. This is because the used capacity for shares includes metadata. |   |
+| **9.** | Disaster recovery | You can only perform the disaster recovery of a file server to the same domain as that of the source device. Disaster recovery to a target device in another domain is not supported in this release. | This is implemented in a later release. |
+| **10.** | Azure PowerShell | The StorSimple virtual devices cannot be managed through the Azure PowerShell in this release. | All the management of the virtual devices should be done through the Azure classic portal and the local web UI. |
+| **11.** | Password change | The virtual array device console only accepts input in en-US keyboard format. |   |
+| **12.** | CHAP | CHAP credentials once created cannot be removed. Additionally, if you modify the CHAP credentials, you need to take the volumes offline and then bring them online for the change to take effect. | This issue is addressed in a later release. |
+| **13.** | iSCSI server  | The 'Used storage' displayed for an iSCSI volume may be different in the StorSimple Manager service and the iSCSI host. | The iSCSI host has the filesystem view.<br></br>The device sees the blocks allocated when the volume was at the maximum size.|
+| **14.** | File server  | If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery.| |
 
 
-## Próxima etapa
+## <a name="next-step"></a>Next step
 
-[Instale a Atualização 0.3](storsimple-ova-install-update-01.md) em sua StorSimple Virtual Array.
+[Install Update 0.3](storsimple-ova-install-update-01.md) on your StorSimple Virtual Array.
 
-## Referências
+## <a name="references"></a>References
 
-Procurando uma nota de versão mais antiga? Acesse:
+Looking for an older release note? Go to: 
 
-- [Notas de versão as Atualizações 0.1 e 0.2 do StorSimple Virtual Array](storsimple-ova-update-01-release-notes.md)
+- [StorSimple Virtual Array Update 0.1 and 0.2 Release Notes](storsimple-ova-update-01-release-notes.md)
 
-- [Notas de versão de disponibilidade geral do StorSimple Virtual Array](storsimple-ova-pp-release-notes.md)
+- [StorSimple Virtual Array General Availability Release Notes](storsimple-ova-pp-release-notes.md)
  
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,22 +1,22 @@
-#### Limites da Rota Expressa
+#### <a name="expressroute-limits"></a>ExpressRoute Limits
 
-Os limites a seguir se aplicam aos recursos da Rota Expressa por assinatura.
+The following limits apply to ExpressRoute resources per subscription.
 
-| Recurso | Limite padrão |
+| Resource | Default Limit |
 |---|---|
-| Circuitos da Rota Expressa por assinatura | 10 |
-| Circuitos da Rota Expressa por região por assinatura para ARM | 10 |
-| Número máximo de rotas para emparelhamento privado do Azure com o padrão da Rota Expressa | 4\.000 |
-| Número máximo de rotas para emparelhamento privado do Azure com o complemento Premium da Rota Expressa | 10\.000 |
-| Número máximo de rotas para emparelhamento público do Azure com o padrão da Rota Expressa | 200 |
-| Número máximo de rotas para emparelhamento público do Azure com o complemento Premium da Rota Expressa | 200 |
-| Número máximo de rotas para emparelhamento do Microsoft Azure com o padrão da Rota Expressa | 200 |
-| Número máximo de rotas para emparelhamento do Microsoft Azure com o complemento Premium da Rota Expressa | 200 |
-| Número de links de rede virtual permitido por circuito da Rota Expressa | consulte a tabela abaixo |
+| ExpressRoute circuits per subscription | 10 |
+| ExpressRoute circuits per region per subscription for ARM | 10 |
+| Maximum number of routes for Azure private peering with ExpressRoute standard | 4,000 |
+| Maximum number of routes for Azure private peering with ExpressRoute premium add-on | 10,000 |
+| Maximum number of routes for Azure public peering with ExpressRoute standard | 200 |
+| Maximum number of routes for Azure public peering with ExpressRoute premium add-on | 200 |
+| Maximum number of routes for Azure Microsoft peering with ExpressRoute standard | 200 |
+| Maximum number of routes for Azure Microsoft peering with ExpressRoute premium add-on | 200 |
+| Number of virtual network links allowed per ExpressRoute circuit | see table below |
 
-#### Número de Redes Virtuais por circuito da Rota Expressa
+#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Number of Virtual Networks per ExpressRoute circuit
 
-| **Tamanho do circuito** | **Número de links da Rede Virtual para padrão** | **Número de Links da Rede Virtual com complemento Premium** |
+| **Circuit Size** | **Number of VNet links for standard** | **Number of VNet Links with Premium add-on** |
 |---|---|---|
 | 50 Mbps | 10 | 20 |
 | 100 Mbps | 10 | 25 |
@@ -27,4 +27,8 @@ Os limites a seguir se aplicam aos recursos da Rota Expressa por assinatura.
 | 5 Gbps | 10 | 75 |
 | 10 Gbps | 10 | 100 |
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

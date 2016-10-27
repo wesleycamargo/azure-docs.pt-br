@@ -1,68 +1,68 @@
 > [AZURE.SELECTOR]
-- [C em Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
-- [C em Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-- [C em mbed](../articles/iot-suite/iot-suite-connecting-devices-mbed.md)
+- [C on Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
+- [C on Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
+- [C on mbed](../articles/iot-suite/iot-suite-connecting-devices-mbed.md)
 - [Node.js](../articles/iot-suite/iot-suite-connecting-devices-node.md)
 
-## Visão geral do cenário
+## <a name="scenario-overview"></a>Scenario overview
 
-Nesse cenário, você cria um dispositivo que envia a telemetria a seguir para a [solução pré-configurada][lnk-what-are-preconfig-solutions] de monitoramento remoto:
+In this scenario, you create a device that sends the following telemetry to the remote monitoring [preconfigured solution][lnk-what-are-preconfig-solutions]:
 
-- Temperatura externa
-- Temperatura interna
-- Umidade
+- External temperature
+- Internal temperature
+- Humidity
 
-Para simplificar, o código no dispositivo gera valores de exemplo, mas é recomendável estender o exemplo conectando sensores reais aos dispositivos e enviando telemetria real.
+For simplicity, the code on the device generates sample values, but we encourage you to extend the sample by connecting real sensors to your device and sending real telemetry.
 
-Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk-free-trial].
+To complete this tutorial, you need an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
 
-## Antes de começar
+## <a name="before-you-start"></a>Before you start
 
-Antes de escrever qualquer código para o seu dispositivo, você precisa provisionar sua solução pré-configurada de monitoramento remoto e, em seguida, um novo dispositivo personalizado na solução.
+Before you write any code for your device, you must provision your remote monitoring preconfigured solution and then provision a new custom device in that solution.
 
-### Provisionar sua solução pré-configurada de monitoramento remoto
+### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Provision your remote monitoring preconfigured solution
 
-O dispositivo que você criar neste tutorial enviará dados a uma instância da solução pré-configurada de [monitoramento remoto][lnk-remote-monitoring]. Se você já não tiver provisionado a solução pré-configurada de monitoramento remoto em sua conta do Azure, siga as etapas abaixo:
+The device you create in this tutorial sends data to an instance of the [remote monitoring][lnk-remote-monitoring] preconfigured solution. If you haven't already provisioned the remote monitoring preconfigured solution in your Azure account, follow the steps below:
 
-1. Na página <https://www.azureiotsuite.com/>, clique em **+** para criar uma nova solução.
+1. On the <https://www.azureiotsuite.com/> page, click **+** to create a new solution.
 
-2. Clique em **Selecionar** no painel **Monitoramento remoto** para criar a nova solução.
+2. Click **Select** on the **Remote monitoring** panel to create your new solution.
 
-3. Na página **Criar solução de "Monitoramento remoto"**, insira um **Nome da solução** de sua escolha, selecione a **Região** em que deseja implantar e selecione a assinatura do Azure a ser usada. Clique em **Criar solução**.
+3. On the **Create Remote monitoring solution** page, enter a **Solution name** of your choice, select the **Region** you want to deploy to, and select the Azure subscription to want to use. Then click **Create solution**.
 
-4. Aguarde até que o processo de provisionamento seja concluído.
+4. Wait until the provisioning process completes.
 
-> [AZURE.WARNING] As soluções pré-configuradas usam serviços faturáveis do Azure. Certifique-se de remover a solução pré-configurada da sua assinatura quando tiver terminado com ela para evitar encargos desnecessários. Você pode remover completamente uma solução pré-configurada da sua assinatura visitando a página <https://www.azureiotsuite.com/>.
+> [AZURE.WARNING] The preconfigured solutions use billable Azure services. Be sure to remove the preconfigured solution from your subscription when you are done with it to avoid any unnecessary charges. You can completely remove a preconfigured solution from your subscription by visiting the <https://www.azureiotsuite.com/> page.
 
-Quando o processo de provisionamento para a solução de monitoramento remoto for concluído, clique em **Iniciar** para abrir o painel da solução em seu navegador.
+When the provisioning process for the remote monitoring solution finishes, click **Launch** to open the solution dashboard in your browser.
 
 ![][img-dashboard]
 
-### Provisionar o dispositivo na solução de monitoramento remoto
+### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Provision your device in the remote monitoring solution
 
-> [AZURE.NOTE] Se você já configurou um dispositivo em sua solução, poderá ignorar esta etapa. Você precisará conhecer as credenciais do dispositivo quando criar o aplicativo cliente.
+> [AZURE.NOTE] If you have already provisioned a device in your solution, you can skip this step. You will need to know the device credentials when you create the client application.
 
-Para um dispositivo conectar-se à solução pré-configurada, ele deve identificar-se no Hub IoT usando credenciais válidas. Você pode recuperar as credenciais do dispositivo no painel da solução. Você pode incluir as credenciais do dispositivo em seu aplicativo cliente posteriormente neste tutorial.
+For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You can retrieve the device credentials from the solution dashboard. You include the device credentials in your client application later in this tutorial. 
 
-Para adicionar um novo dispositivo à sua solução de monitoramento remoto, conclua as etapas a seguir no painel de solução:
+To add a new device to your remote monitoring solution, complete the following steps in the solution dashboard:
 
-1.  No canto inferior esquerdo do painel, clique em **Adicionar um dispositivo**.
+1.  In the lower left-hand corner of the dashboard, click **Add a device**.
 
     ![][1]
 
-2.  No painel **Dispositivo personalizado**, clique em **Adicionar novo**.
+2.  In the **Custom Device** panel, click on **Add new**.
 
     ![][2]
 
-3.  Escolha **Permita-me definir minha própria ID de dispositivo**, insira uma ID de dispositivo como **mydevice**, clique em **Verificar ID** para verificar se esse nome ainda não está em uso e, em seguida, clique em **Criar** para provisionar o dispositivo.
+3.  Choose **Let me define my own Device ID**, enter a Device ID such as **mydevice**, click **Check ID** to verify that name isn't already in use, and then click **Create** to provision the device.
 
     ![][3]
 
-5. Anote as credenciais de dispositivo (ID do dispositivo, nome de host do Hub IoT e chave do dispositivo), o aplicativo cliente precisa delas para conectar o dispositivo à solução de monitoramento remoto. Em seguida, clique em **Concluído**.
+5. Make a note the device credentials (Device ID, IoT Hub Hostname, and Device Key), your client application needs them to connect to the remote monitoring solution. Then click **Done**.
 
     ![][4]
 
-6. Verifique se o dispositivo é exibido na seção de dispositivos. O status do dispositivo é **Pendente** até que o dispositivo estabeleça uma conexão com a solução de monitoramento remoto.
+6. Make sure your device displays in the devices section. The device status is **Pending** until the device establishes a connection to the remote monitoring solution.
 
     ![][5]
 
@@ -77,4 +77,6 @@ Para adicionar um novo dispositivo à sua solução de monitoramento remoto, con
 [lnk-remote-monitoring]: ../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

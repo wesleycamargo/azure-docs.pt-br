@@ -1,12 +1,15 @@
-Recurso|Limite máximo
+Resource|Maximum Limit
 ---|---
-Usuários do Coleção de Aplicativos|5 por Coleção de Aplicativos
-Média de pontos de dados|200 por Usuário Ativo/Dia
-Média de informações de aplicativo definidas|50 por Usuário Ativo/Dia
-Média de Mensagens enviadas por push|20 por Usuário Ativo/Dia
-Segmentos|100 por aplicativo
-Critérios por segmento|10
-Campanhas de Envio por Push Ativas|50 por aplicativo
-Campanhas de Envio por Push Totais (inclui Ativas e Concluídas)|1\.000 por aplicativo
+App Collection Users|5 per App Collection
+Average Data points|200 per Active User/Day
+Average App-Info set|50 per Active User/Day
+Average Messages pushed|20 per Active User/Day
+Segments|100 per app
+Criteria per segment|10
+Active Push Campaigns|50 per app
+Total Push Campaigns (includes Active & Completed)|1000 per app
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Oct16_HO2-->
+
+

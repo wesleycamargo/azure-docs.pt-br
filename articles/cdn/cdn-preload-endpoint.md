@@ -1,63 +1,68 @@
 <properties
-	pageTitle="Pré-carregar ativos em um ponto de extremidade da CDN do Azure | Microsoft Azure"
-	description="Saiba como pré-carregar o conteúdo armazenado em cache em um ponto de extremidade da CDN."
-	services="cdn"
-	documentationCenter=""
-	authors="camsoper"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Pre-load assets on an Azure CDN endpoint | Microsoft Azure"
+    description="Learn how to pre-load cached content on a CDN endpoint."
+    services="cdn"
+    documentationCenter=""
+    authors="camsoper"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="casoper"/>
+    ms.service="cdn"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2016"
+    ms.author="casoper"/>
 
-# Pré-carregar ativos em um ponto de extremidade da CDN do Azure
+
+# <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Pre-load assets on an Azure CDN endpoint
 
 [AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Por padrão, os ativos são armazenados primeiro em cache à medida que são solicitados. Isso significa que a primeira solicitação de cada região pode demorar mais tempo, pois os servidores de borda não terão o conteúdo armazenado em cache e precisarão encaminhar a solicitação para o servidor de origem. O pré-carregamento de conteúdo evita essa latência de primeiro acesso.
+By default, assets are first cached as they are requested. This means that the first request from each region may take longer, since the edge servers will not have the content cached and will need to forward the request to the origin server. Pre-loading content avoids this first hit latency.
 
-Além de fornecer uma experiência mais adequada ao cliente, o pré-carregamento de seus ativos em cache também pode reduzir o tráfego de rede no servidor de origem.
+In addition to providing a better customer experience, pre-loading your cached assets can also reduce network traffic on the origin server.
 
-> [AZURE.NOTE] O pré-carregamento de ativos é útil para grandes eventos ou para conteúdo disponibilizado simultaneamente a um grande número de usuários, como o lançamento de um novo filme ou uma atualização de software.
+> [AZURE.NOTE] Pre-loading assets is useful for  large events or content that becomes simultaneously available to a large number of users, such as a new movie release or a software update.
 
-Esse tutorial orienta você carregando previamente o conteúdo armazenado em cache em todos os nós de borda da CDN do Azure.
+This tutorial walks you through pre-loading cached content on all Azure CDN edge nodes.
 
-## Passo a passo
+## <a name="walkthrough"></a>Walkthrough
 
-1. No [Portal do Azure](https://portal.azure.com), navegue até o perfil da CDN que contém o ponto de extremidade que você deseja pré-carregar. A folha do perfil é aberta.
+1. In the [Azure Portal](https://portal.azure.com), browse to the CDN profile containing the endpoint you wish to pre-load.  The profile blade opens.
 
-2. Clique no ponto de extremidade na lista. A folha do ponto de extremidade é aberta.
+2. Click the endpoint in the list.  The endpoint blade opens.
 
-3. Na folha do ponto de extremidade da CDN, clique no botão carregar.
+3. From the CDN endpoint blade, click the load button.
 
-	![Folha do ponto de extremidade da CDN](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
+    ![CDN endpoint blade](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
 
-	A folha Carregar é aberta.
+    The Load blade opens.
 
-	![Folha de carregamento da CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
+    ![CDN load blade](./media/cdn-preload-endpoint/cdn-load-blade.png)
 
-4. Insira o caminho completo de cada ativo que você deseja carregar (por exemplo, `/pictures/kitten.png`) na caixa de texto **Caminho**.
+4. Enter the full path of each asset you wish to load (e.g., `/pictures/kitten.png`) in the **Path** textbox.
 
-	> [AZURE.TIP] Outras caixas de texto **Caminho** serão mostradas depois que você digitar um texto, para permitir que crie uma lista com vários ativos. Para excluir ativos da lista, clique no botão de reticências (...).
-	>
-	> Os caminhos devem ser uma URL relativa que atenda à seguinte [expressão regular](https://msdn.microsoft.com/library/az24scfc.aspx): `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$`. Cada ativo deve ter seu próprio caminho. Não há nenhuma funcionalidade de curinga para pré-carregar ativos.
+    > [AZURE.TIP] More **Path** textboxes will appear after you enter text to allow you to build a list of multiple assets.  You can delete assets from the list by clicking the ellipsis (...) button.
+    >
+    > Paths must be a relative URL that fits the following [regular expression](https://msdn.microsoft.com/library/az24scfc.aspx):  `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$`.  Each asset must have its own path.  There is no wildcard functionality for pre-loading assets.
 
-    ![Botão Carregar](./media/cdn-preload-endpoint/cdn-load-paths.png)
+    ![Load button](./media/cdn-preload-endpoint/cdn-load-paths.png)
 
-5. Clique no botão **Carregar**.
+5. Click the **Load** button.
 
-	![Botão Carregar](./media/cdn-preload-endpoint/cdn-load-button.png)
+    ![Load button](./media/cdn-preload-endpoint/cdn-load-button.png)
 
-> [AZURE.NOTE] Há uma limitação de 10 solicitações de carga por minuto para cada perfil CDN.
+> [AZURE.NOTE] There is a limitation of 10 load requests per minute per CDN profile.
 
-## Consulte também
-- [Limpar um ponto de extremidade da CDN do Azure](cdn-purge-endpoint.md)
-- [Referência da API REST da CDN do Azure – limpar ou pré-carregar um ponto de extremidade](https://msdn.microsoft.com/library/mt634451.aspx)
+## <a name="see-also"></a>See also
+- [Purge an Azure CDN endpoint](cdn-purge-endpoint.md)
+- [Azure CDN REST API reference - Purge or Pre-Load an Endpoint](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

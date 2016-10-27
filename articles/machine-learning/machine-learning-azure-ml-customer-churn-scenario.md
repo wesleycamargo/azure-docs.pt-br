@@ -1,236 +1,242 @@
 <properties
-	pageTitle="Analisando a Variação do Cliente usando o Aprendizado de Máquina | Microsoft Azure"
-	description="Estudo de caso do desenvolvimento de um modelo integrado para analisar e pontuar a insatisfação do cliente"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jeannt"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Analyzing Customer Churn using Machine Learning | Microsoft Azure"
+    description="Case study of developing an integrated model for analyzing and scoring customer churn"
+    services="machine-learning"
+    documentationCenter=""
+    authors="jeannt"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/20/2016" 
-	ms.author="jeannt"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/20/2016" 
+    ms.author="jeannt"/>
 
-# Analisando a Variação do Cliente usando o Aprendizado de Máquina do Microsoft Azure
 
-##Visão geral
-Este tópico apresenta uma implementação de referência de um projeto de análise de variação de cliente que é criado usando o Azure Machine Learning Studio. Ele aborda modelos genéricos associados para resolver holisticamente o problema de variação de cliente industrial. Medimos também a precisão dos modelos criados usando o Aprendizado de Máquina e avaliamos as direções para maior desenvolvimento.
+# <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analyzing Customer Churn by using Azure Machine Learning
 
-### Confirmações
+##<a name="overview"></a>Overview
+This topic presents a reference implementation of a customer churn analysis project that is built by using Azure Machine Learning Studio. It discusses associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models that are built by using Machine Learning, and we assess directions for further development.  
 
-Esse experimento foi desenvolvido e testado por Serge Berger, principal cientista de dados na Microsoft, e Roger Barga, ex-gerente de produto para o Aprendizado de Máquina do Microsoft Azure. A equipe de documentação do Azure confirma reconhecidamente a experiência que eles têm e os agradece por compartilhar este white paper.
+### <a name="acknowledgements"></a>Acknowledgements
 
->[AZURE.NOTE] Os dados usados neste experimento não estão publicamente disponíveis. Para obter um exemplo de como criar um modelo de aprendizado de máquina para a análise de variação, confira o [modelo de variação de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) em [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
+This experiment was developed and tested by Serge Berger, Principal Data Scientist at Microsoft, and Roger Barga, formerly Product Manager for Microsoft Azure Machine Learning. The Azure documentation team gratefully acknowledges their expertise and thanks them for sharing this white paper.
+
+>[AZURE.NOTE] The data used for this experiment is not publicly available. For an example of how to build a machine learning model for churn analysis, see: [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##O problema da variação do cliente
-Empresas no mercado consumidor e em todos os setores empresariais precisam lidar com a variação. Algumas vezes a variação é excessiva e influencia decisões de política. A solução tradicional é prever índices de variação de alta propensão e tratar de suas necessidades por meio de um serviço de concierge, campanhas de marketing ou fazendo uso de isenções especiais. Essas abordagens podem variar de setor para setor e até mesmo de um cluster de consumidor específico para outro dentro de um setor (por exemplo, telecomunicações).
+##<a name="the-problem-of-customer-churn"></a>The problem of customer churn
+Businesses in the consumer market and in all enterprise sectors have to deal with churn. Sometimes churn is excessive and influences policy decisions. The traditional solution is to predict high-propensity churners and address their needs via a concierge service, marketing campaigns, or by applying special dispensations. These approaches can vary from industry to industry and even from a particular consumer cluster to another within one industry (for example, telecommunications).
 
-O fator comum é que as empresas precisam minimizar esses esforços especiais para a retenção de clientes. Assim, uma metodologia natural seria classificar cada cliente com a probabilidade de variação e o endereço dos N maiores. Os maiores clientes podem ser os mais lucrativos, por exemplo, em cenários mais sofisticados, uma função de lucro é aplicada durante a seleção de candidatos para isenção especial. Todavia, essas considerações são somente uma parte da estratégia holística para gerenciar a variação. As empresas também precisam levar em consideração o risco (e a tolerância a risco associada), o nível e o custo de intervenção, além da segmentação plausível de clientes.
+The common factor is that businesses need to minimize these special customer retention efforts. Thus, a natural methodology would be to score every customer with the probability of churn and address the top N ones. The top customers might be the most profitable ones; for example, in more sophisticated scenarios, a profit function is employed during the selection of candidates for special dispensation. However, these considerations are only a part of the holistic strategy for dealing with churn. Businesses also have to take into account risk (and associated risk tolerance), the level and cost of the intervention, and plausible customer segmentation.  
 
-##Abordagens e perspectiva industriais
-O gerenciamento sofisticado da variação é um sinal de uma indústria madura. O exemplo clássico é o da indústria de telecomunicações, na qual sabe-se que os assinantes frequentemente mudam de um provedor para outro. Essa variação voluntária é uma preocupação primária. Além disso, os provedores acumularam conhecimento significativo sobre *motivadores de variação*, que são os fatores que levam os clientes a mudar.
+##<a name="industry-outlook-and-approaches"></a>Industry outlook and approaches
+Sophisticated handling of churn is a sign of a mature industry. The classic example is the telecommunications industry where subscribers are known to frequently switch from one provider to another. This voluntary churn is a prime concern. Moreover, providers have accumulated significant knowledge about *churn drivers*, which are the factors that drive customers to switch.
 
-Por exemplo, a escolha de telefone ou dispositivo é um motivador bem conhecido no setor de telefonia móvel. Como resultado, uma política popular é subsidiar o preço de um aparelho para novos assinantes e cobrar o preço total para os clientes existentes para uma atualização. Historicamente, essa política fez com que clientes mudassem de um provedor para outro para obter um novo desconto, o que, por sua vez, fez com que os provedores refinassem suas estratégias.
+For instance, handset or device choice is a well-known driver of churn in the mobile phone business. As a result, a popular policy is to subsidize the price of a handset for new subscribers and charging a full price to existing customers for an upgrade. Historically, this policy has led to customers hopping from one provider to another to get a new discount, which in turn, has prompted providers to refine their strategies.
 
-A alta volatilidade nas ofertas de aparelhos é um fator que invalida muito rapidamente modelos de variação baseados em modelos de aparelhos atuais. Além disso, celulares não são apenas dispositivos de telecomunicações; eles também são acessórios de moda (considere iPhone) e essas previsões sociais estão fora do escopo de conjuntos de dados de telecomunicações regulares.
+High volatility in handset offerings is a factor that very quickly invalidates models of churn that are based on current handset models. Additionally, mobile phones are not only telecommunication devices; they are also fashion statements (consider the iPhone), and these social predictors are outside the scope of regular telecommunications data sets.
 
-O resultado final para a criação de um modelo é que você não pode criar uma política sólida apenas eliminando as causas da variação. Na verdade, uma estratégia de modelagem contínua, incluindo modelos clássicos que quantificam variáveis categóricas (como árvores de decisão), é **obrigatória**.
+The net result for modeling is that you cannot devise a sound policy simply by eliminating known reasons for churn. In fact, a continuous modeling strategy, including classic models that quantify categorical variables (such as decision trees), is **mandatory**.
 
-Usando conjuntos de big data com seus clientes, as organizações estão realizando análises de big data, em particular a detecção de variação baseada em big data, como uma abordagem eficaz para o problema. Você pode saber mais sobre a abordagem de big data para o problema da variação na seção Recomendações de ETL.
+Using big data sets on their customers, organizations are performing big data analytics (in particular, churn detection based on big data) as an effective approach to the problem. You can find more about the big data approach to the problem of churn in the Recommendations on ETL section.  
 
-##Metodologia para modelagem da variação do cliente
-Um processo comum de solução de problemas para resolver variação do cliente é descrito nas Figuras 1 a 3:
+##<a name="methodology-to-model-customer-churn"></a>Methodology to model customer churn
+A common problem-solving process to solve customer churn is depicted in Figures 1-3:  
 
-1.	Um modelo de risco permite que você considere como as ações afetam as probabilidades e o risco.
-2.	Um modelo de intervenção permite que você considere como o nível de intervenção poderia afetar a probabilidade de variação e a quantidade de CLV (valor de vida útil do cliente).
-3.	Essa análise se presta a uma análise qualitativa que será escalada para uma campanha de marketing proativa destinada a segmentos de clientes para oferecer a oferta ideal.
+1.  A risk model allows you to consider how actions affect probability and risk.
+2.  An intervention model allows you to consider how the level of intervention could affect the probability of churn and the amount of customer lifetime value (CLV).
+3.  This analysis lends itself to a qualitative analysis that is escalated to a proactive marketing campaign that targets customer segments to deliver the optimal offer.  
 
 ![][1]
 
-Essa abordagem visionária é a melhor maneira de tratar a variação, mas ela traz complexidade: precisamos desenvolver um arquétipo de vários modelos e rastrear dependências entre os modelos. A interação entre os modelos pode ser encapsulada conforme mostrado no diagrama a seguir:
+This forward looking approach is the best way to treat churn, but it comes with complexity: we have to develop a multi-model archetype and trace dependencies between the models. The interaction among models can be encapsulated as shown in the following diagram:  
 
 ![][2]
 
-*Figura 4: Arquétipo multimodelo unificado*
+*Figure 4: Unified multi-model archetype*  
 
-As interações entre os diferentes modelos são a chave para fornecermos uma abordagem holística para a retenção de clientes. Cada modelo obrigatoriamente degrada-se com o tempo; portanto, a arquitetura é um circuito implícito (semelhante ao arquétipo definido pelo padrão CRISP-DM de prospecção de dados, [***3***]).
+Interaction between the models is key if we are to deliver a holistic approach to customer retention. Each model necessarily degrades over time; therefore, the architecture is an implicit loop (similar to the archetype set by the CRISP-DM data mining standard, [***3***]).  
 
-O ciclo total de segmentação/decomposição de risco-decisão-marketing ainda é uma estrutura generalizada, que é aplicável a muitos problemas empresariais. A análise de variação é somente um exemplo altamente representativo desse grupo de problemas, porque demonstra todas as características de um problema empresarial complexo que não permite uma solução preditiva simplificada. Os aspectos sociais da abordagem moderna para a variação não são especialmente destacados na abordagem, mas os aspectos sociais são encapsulados no arquétipo de modelagem, do mesmo modo que seriam em qualquer modelo.
+The overall cycle of risk-decision-marketing segmentation/decomposition is still a generalized structure, which is applicable to many business problems. Churn analysis is simply a strong representative of this group of problems because it exhibits all the traits of a complex business problem that does not allow a simplified predictive solution. The social aspects of the modern approach to churn are not particularly highlighted in the approach, but the social aspects are encapsulated in the modeling archetype, as they would be in any model.  
 
-Uma adição interessante nesse caso é a análise de big data. As empresas de telecomunicações e varejo coletam dados sobre seus clientes de modo exaustivo, de modo que podemos prever facilmente que a necessidade de uma conectividade multimodelo se tornará uma tendência comum, dadas as tendências emergentes como a “Internet das coisas” e os dispositivos ubíquos, que permitem que a empresa aplique soluções inteligentes em múltiplos níveis.
+An interesting addition here is big data analytics. Today's telecommunication and retail businesses collect exhaustive data about their customers, and we can easily foresee that the need for multi-model connectivity will become a common trend, given emerging trends such as the Internet of Things and ubiquitous devices, which allow business to employ smart solutions at multiple layers.  
 
  
-##Implementando o arquétipo modelagem no Estúdio de Aprendizado de Máquina
-Dado o problema descrito acima, qual é a melhor maneira de implementar uma abordagem integrada de modelagem e pontuação? Nesta seção, demonstraremos como conseguimos isso usando o Estúdio do Aprendizado de Máquina do Azure.
+##<a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>Implementing the modeling archetype in Machine Learning Studio
+Given the problem just described, what is the best way to implement an integrated modeling and scoring approach? In this section, we will demonstrate how we accomplished this by using Azure Machine Learning Studio.  
 
-A abordagem multimodelo é essencial ao projetar um arquétipo global para variação. Até mesmo a parte de pontuação (preditiva) da abordagem deve ser multimodelo.
+The multi-model approach is a must when designing a global archetype for churn. Even the scoring (predictive) part of the approach should be multi-model.  
 
-O diagrama a seguir mostra o protótipo que criamos, que emprega quatro algoritmos de pontuação no Estúdio de Aprendizado de Máquina para prever a variação. O motivo para usar uma abordagem multimodelo não é somente criar um classificador de conjunto para aumentar a precisão, mas também proteger contra over-fitting e aprimorar a seleção prescritiva de recursos.
+The following diagram shows the prototype we created, which employs four scoring algorithms in Machine Learning Studio to predict churn. The reason for using a multi-model approach is not only to create an ensemble classifier to increase accuracy, but also to protect against over-fitting and to improve prescriptive feature selection.  
 
 ![][3]
 
-*Figura 5: Protótipo de uma abordagem de modelagem de variação*
+*Figure 5: Prototype of a churn modeling approach*  
 
-As seções a seguir fornecem mais detalhes sobre o protótipo de modelo de pontuação que implementamos usando o Estúdio de Aprendizado de Máquina.
+The following sections provide more details about the prototype scoring model that we implemented by using Machine Learning Studio.  
 
-###Seleção e preparação de dados
-Os dados usados para criar os modelos e atribuir pontuação aos clientes foram obtidos por meio de uma solução vertical de CRM, com os dados ofuscados para proteger a privacidade dos clientes. Os dados contém informações sobre 8.000 assinaturas nos EUA e combinam três fontes: dados de provisionamento (metadados de assinatura), dados de atividade (uso do sistema) e dados de atendimento ao cliente. Os dados não incluem nenhuma informação relacionada à empresa sobre os clientes; por exemplo, não inclui metadados de fidelidade ou pontuação de crédito.
+###<a name="data-selection-and-preparation"></a>Data selection and preparation
+The data used to build the models and score customers was obtained from a CRM vertical solution, with the data obfuscated to protect customer privacy. The data contains information about 8,000 subscriptions in the U.S., and it combines three sources: provisioning data (subscription metadata), activity data (usage of the system), and customer support data. The data does not include any business related information about the customers; for example, it does not include loyalty metadata or credit scores.  
 
-Para simplificar, os processos de ETL e limpeza dos dados estão fora do escopo porque presumimos que a preparação dos dados já foi realizada em outra instância.
+For simplicity, ETL and data cleansing processes are out of scope because we assume that data preparation has already been done elsewhere.   
 
-A seleção de recursos para modelagem baseia-se na importância preliminar da pontuação do conjunto de prognosticadores, incluídos no processo que usa o módulo de floresta aleatório. Para a implementação no Estúdio de Aprendizado de Máquina, calculamos a média, mediana e intervalos de recursos relevantes. Por exemplo, adicionamos agregações aos dados qualitativos, tais como os valores mínimo e máximo para a atividade do usuário.
+Feature selection for modeling is based on preliminary significance scoring of the set of predictors, included in the process that uses the random forest module. For the implementation in Machine Learning Studio, we calculated the mean, median, and ranges for representative features. For example, we added aggregates for the qualitative data, such as minimum and maximum values for user activity.    
 
-Também capturamos informações temporais para os últimos seis meses. Analisamos dados por um ano e estabelecemos que mesmo que houvesse tendências estatisticamente significativas, o efeito sobre a variação é bastante reduzido depois de seis meses.
+We also captured temporal information for the most recent six months. We analyzed data for one year and we established that even if there were statistically significant trends, the effect on churn is greatly diminished after six months.  
 
-O ponto mais importante é que o processo inteiro, incluindo ETL, a seleção de recursos e a modelagem foi implementado Estúdio de Aprendizado de Máquina, usando fontes de dados no Microsoft Azure.
+The most important point is that the entire process, including ETL, feature selection, and modeling was implemented in Machine Learning Studio, using data sources in Microsoft Azure.   
 
-Os diagramas a seguir ilustram os dados que foram usados.
+The following diagrams illustrate the data that was used.  
 
 ![][4]
 
-*Figura 6: Extrato de fonte de dados (ofuscado)*
+*Figure 6: Excerpt of data source (obfuscated)*  
 
 ![][5]
 
 
-*Figura 7: Recursos extraídos da fonte de dados*  
-> Observe que esses dados são particulares e, portanto, o modelo e os dados não podem ser compartilhados. No entanto, para um modelo semelhante usando dados publicamente disponíveis, confira este experimento de exemplo na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383) (Variação do cliente de telecomunicações).
+*Figure 7: Features extracted from data source*
+ 
+> Note that this data is private and therefore the model and data cannot be shared.
+> However, for a similar model using publicly available data, see this sample experiment in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
-> Para saber mais sobre como você pode implementar um modelo de análise de variação usando o Cortana Intelligence Suite, também recomendamos [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) do gerente de programa sênior Wee Hyong Tok.
+> To learn more about how you can implement a churn analysis model using Cortana Intelligence Suite, we also recommend [this video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) by Senior Program Manager Wee Hyong Tok. 
 > 
 
-###Algoritmos usados no protótipo
+###<a name="algorithms-used-in-the-prototype"></a>Algorithms used in the prototype
 
-Usamos os quatro algoritmos de aprendizado de máquina a seguir para criar o protótipo (sem personalização):
+We used the following four machine learning algorithms to build the prototype (no customization):  
 
-1.	Regressão logística (LR)
-2.	Árvore de decisão aumentada (BT)
-3.	Perceptron médio (AP)
-4.	Máquina de vetor de suporte (SVM)
-
-
-O diagrama a seguir ilustra uma parte da superfície de design do teste, que indica a sequência na qual os modelos foram criados:
-
-![][6]
+1.  Logistic regression (LR)
+2.  Boosted decision tree (BT)
+3.  Averaged perceptron (AP)
+4.  Support vector machine (SVM)  
 
 
-*Figura 8: Criando modelos no Estúdio de Aprendizado de Máquina*
+The following diagram illustrates a portion of the experiment design surface, which indicates the sequence in which the models were created:  
 
-###Métodos de pontuação
-Pontuamos quatro modelos usando um conjunto de dados de treinamento rotulado.
+![][6]  
 
-Também enviamos o conjunto de dados para um modelo comparável criado usando a edição de área de trabalho do SAS Enterprise Miner 12. Medimos a precisão do modelo SAS e todos os quatro modelos do Estúdio de Aprendizado de Máquina.
 
-##Resultados
-Nesta seção, apresentamos nossas descobertas sobre a precisão dos modelos, com base no conjunto de dados de pontuação.
+*Figure 8: Creating models in Machine Learning Studio*  
 
-###Precisão e exatidão da pontuação
-Em geral, a implementação no Aprendizado de Máquina do Azure é inferior ao SAS em precisão em aproximadamente 10% a 15% (Área sob a Curva ou AUC).
+###<a name="scoring-methods"></a>Scoring methods
+We scored the four models by using a labeled training dataset.  
 
-No entanto, a métrica mais importante na variação é a taxa de classificação incorreta, ou seja, dos maiores N variantes previstos pelo classificador, quais deles **não** variaram de fato e ainda assim receberam tratamento especial? O diagrama a seguir compara essa taxa de classificação incorreta em todos os modelos:
+We also submitted the scoring dataset to a comparable model built by using the desktop edition of SAS Enterprise Miner 12. We measured the accuracy of the SAS model and all four Machine Learning Studio models.  
+
+##<a name="results"></a>Results
+In this section, we present our findings about the accuracy of the models, based on the scoring dataset.  
+
+###<a name="accuracy-and-precision-of-scoring"></a>Accuracy and precision of scoring
+Generally, the implementation in Azure Machine Learning is behind SAS in accuracy by about 10-15% (Area Under Curve or AUC).  
+
+However, the most important metric in churn is the misclassification rate: that is, of the top N churners as predicted by the classifier, which of them actually did **not** churn, and yet received special treatment? The following diagram compares this misclassification rate for all the models:  
 
 ![][7]
 
 
-*Figura 9: Área do protótipo de Passau sob a curva*
+*Figure 9: Passau prototype area under curve*
 
-###Usando AUC para comparar resultados
-A área sob a curva (AUC) é uma métrica que representa uma medição global da *separabilidade* entre as distribuições de pontos para populações positivas e negativas. É semelhante ao gráfico ROC (Característica de Operador do Receptor) tradicional, mas uma diferença importante é que a métrica AUC não exige que você escolha um valor de limite. Em vez disso, ela resume os resultados relativos a **todas** as escolhas possíveis. Em contraste, o gráfico ROC tradicional exibe a taxa de resultados positivos no eixo vertical e a taxa de falsos positivos no eixo horizontal, sendo que o limite de classificação varia.
+###<a name="using-auc-to-compare-results"></a>Using AUC to compare results
+Area Under Curve (AUC) is a metric that represents a global measure of *separability* between the distributions of scores for positive and negative populations. It is similar to the traditional Receiver Operator Characteristic (ROC) graph, but one important difference is that the AUC metric does not require you to choose a threshold value. Instead, it summarizes the results over **all** possible choices. In contrast, the traditional ROC graph shows the positive rate on the vertical axis and the false positive rate on the horizontal axis, and the classification threshold varies.   
 
-AUC geralmente é usada como uma medida de valor para algoritmos diferentes (ou sistemas diferentes), porque permite que os modelos sejam comparados por meio do valor de AUC que apresentam. Essa é uma abordagem popular em setores como meteorologia e biociência. Assim, a AUC representa uma ferramenta popular para avaliar o desempenho de um classificador.
+AUC is generally used as a measure of worth for different algorithms (or different systems) because it allows models to be compared by means of their AUC values. This is a popular approach in industries such as meteorology and biosciences. Thus, AUC represents a popular tool for assessing classifier performance.  
 
-###Comparando as taxas de classificação incorreta
-Comparamos as taxas de erro na classificação no conjunto de dados em questão usando os dados de CRM de aproximadamente 8.000 assinaturas.
+###<a name="comparing-misclassification-rates"></a>Comparing misclassification rates
+We compared the misclassification rates on the dataset in question by using the CRM data of approximately 8,000 subscriptions.  
 
--	A taxa de erro na classificação da SAS foi de 10 a 15%.
--	A taxa de classificação incorreta do Estúdio do Aprendizado de Máquina foi 15% a 20% para os maiores 200 a 300 variadores.
+-   The SAS misclassification rate was 10-15%.
+-   The Machine Learning Studio misclassification rate was 15-20% for the top 200-300 churners.  
 
-Na indústria de telecomunicações, é importante tratar somente daqueles clientes que apresentam o maior risco de variação, oferecendo a eles um serviço de concierge ou outro tratamento especial. Nesse ponto, a implementação do Estúdio de Aprendizado de Máquina obtém resultados no modelo de SAS.
+In the telecommunications industry, it is important to address only those customers who have the highest risk to churn by offering them a concierge service or other special treatment. In that respect, the Machine Learning Studio implementation achieves results on par with the SAS model.  
 
-Pelo mesmo token, a exatidão é mais importante que a precisão, porque estamos interessados, principalmente, em classificar corretamente os índices de variação em potencial.
+By the same token, accuracy is more important than precision because we are mostly interested in correctly classifying potential churners.  
 
-O diagrama a seguir, da Wikipédia, representa a relação em um gráfico vívido, fácil de entender:
+The following diagram from Wikipedia depicts the relationship in a lively, easy-to-understand graphic:  
 
 ![][8]
 
-*Figura 10: Troca entre exatidão e precisão*
+*Figure 10: Tradeoff between accuracy and precision*
 
-###Resultados de precisão e exatidão para modelo de árvore de decisão aprimorado  
+###<a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Accuracy and precision results for boosted decision tree model  
 
-O gráfico a seguir exibe os resultados brutos de pontuação usando o protótipo de Aprendizado de Máquina para o modelo de árvore de decisão aprimorado, que vem a ser o mais preciso dentre os quatro modelos:
+The following chart displays the raw results from scoring using the Machine Learning prototype for the boosted decision tree model, which happens to be the most accurate among the four models:  
 
 ![][9]
 
-*Figura 11: Características do modelo de árvore de decisão aprimorado*
+*Figure 11: Boosted decision tree model characteristics*
 
-##Comparação de desempenho
-Comparamos a velocidade na qual os dados foram pontuados usando os modelos do Estúdio de Aprendizado de Máquina e um modelo comparável criado usando a edição de área de trabalho do SAS Enterprise Miner 12.1.
+##<a name="performance-comparison"></a>Performance comparison
+We compared the speed at which data was scored using the Machine Learning Studio models and a comparable model created by using the desktop edition of SAS Enterprise Miner 12.1.  
 
-A tabela a seguir resume o desempenho dos algoritmos:
+The following table summarizes the performance of the algorithms:  
 
-*Tabela 1. Desempenho geral (precisão) dos algoritmos*
+*Table 1. General performance (accuracy) of the algorithms*
 
 | LR|BT|AP|SVM|
 |---|---|---|---|
-|Modelo médio|O melhor modelo|Subdesempenhando|Modelo médio|
+|Average Model|The Best Model|Underperforming|Average Model|
 
-Os modelos hospedados no Estúdio do Aprendizado de Máquina superaram o desempenho de SAS em 15% a 25% para velocidade de execução, mas a precisão permaneceu amplamente no mesmo nível.
+The models hosted in Machine Learning Studio outperformed SAS by 15-25% for speed of execution, but accuracy was largely on par.  
 
-##Discussão e recomendações
-Na indústria de telecomunicações, diversas práticas surgiram para analisar a variação, incluindo:
+##<a name="discussion-and-recommendations"></a>Discussion and recommendations
+In the telecommunications industry, several practices have emerged to analyze churn, including:  
 
--	As métricas se derivam de quatro categorias essenciais:
-	-	**Entidade (por exemplo, uma assinatura)**. Provisione informações básicas sobre a assinatura e/ou cliente sujeito à variação.
-	-	**Atividade**. Obter todas as informações de uso possíveis relacionadas à entidade, por exemplo, o número de logons.
-	-	**Atendimento ao cliente**. Colete informações por meio dos logs de suporte do cliente para indicar se a assinatura teve problemas ou interações com o atendimento ao cliente.
-	-	**Dados empresariais e de concorrência**. Obter todas as informações possíveis sobre o cliente (por exemplo, ele pode estar indisponível ou ser difícil de rastrear).
--	Use a importância como critério para acelerar a seleção de recursos. Isso implica que o modelo de árvore de decisão aprimorado sempre é uma abordagem promissora.
+-   Derive metrics for four fundamental categories:
+    -   **Entity (for example, a subscription)**. Provision basic information about the subscription and/or customer that is the subject of churn.
+    -   **Activity**. Obtain all possible usage information that is related to the entity, for example, the number of logins.
+    -   **Customer support**. Harvest information from customer support logs to indicate whether the subscription had issues or interactions with customer support.
+    -   **Competitive and business data**. Obtain any information possible about the customer (for example, can be unavailable or hard to track).
+-   Use importance to drive feature selection. This implies that the boosted decision tree model is always a promising approach.  
 
-O uso das quatro categorias cria a ilusão de que uma simples abordagem *determinística*, baseada em índices formados por fatores razoáveis divididos por categoria, seria suficiente para identificar os clientes apresentando risco de variação. Infelizmente, apesar de esse conceito parecer plausível, ele não é verdadeiro. O motivo é que a variação é um efeito temporal e os fatores que contribuem para a variação estão, geralmente, em estados transientes. O que leva um cliente a considerar a possibilidade de sair hoje pode ser diferente do motivo de amanhã e, com certeza, será diferente do motivo que ele terá para isso daqui a seis meses. Assim, um modelo *probabilístico* é necessário.
+The use of these four categories creates the illusion that a simple *deterministic* approach, based on indexes formed on reasonable factors per category, should suffice to identify customers at risk for churn. Unfortunately, although this notion seems plausible, it is a false understanding. The reason is that churn is a temporal effect and the factors contributing to churn are usually in transient states. What leads a customer to consider leaving today might be different tomorrow, and it certainly will be different six months from now. Therefore, a *probabilistic* model is a necessity.  
 
-Essa observação importante muitas vezes é ignorada pela empresa, que geralmente prefere uma abordagem orientada por Business Intelligence para a análise, principalmente porque é algo mais fácil de vender e permite automação simples.
+This important observation is often overlooked in business, which generally prefers a business intelligence-oriented approach to analytics, mostly because it is an easier sell and admits straightforward automation.  
 
-No entanto, a promessa de análises de autoatendimento usando Estúdio de Aprendizado de Máquina significa que as quatro categorias de informação, classificadas por divisão ou departamento, tornam-se uma fonte valiosa de aprendizado de máquina sobre variação.
+However, the promise of self-service analytics by using Machine Learning Studio is that the four categories of information, graded by division or department, become a valuable source for machine learning about churn.  
 
-Outro recurso interessante do Aprendizado de Máquina do Azure é a capacidade de adicionar um módulo personalizado ao repositório de módulos predefinidos que já estão disponíveis. Essa capacidade, essencialmente, cria uma oportunidade de selecionar bibliotecas e criar modelos para mercados verticais. Ela é um diferencial importante do Aprendizado de Máquina do Azure no mercado.
+Another exciting capability coming in Azure Machine Learning is the ability to add a custom module to the repository of predefined modules that are already available. This capability, essentially, creates an opportunity to select libraries and create templates for vertical markets. It is an important differentiator of Azure Machine Learning in the market place.  
 
-Esperamos continuar com este tópico no futuro, especialmente relacionado à análise de big data.  
-##Conclusão
-Este documento descreve uma abordagem sensata para lidar com o problema comum de variação do cliente usando uma estrutura genérica. Consideramos um protótipo para modelos de pontuação e o implementamos usando o Aprendizado de Máquina do Azure. Por fim, avaliamos a exatidão e o desempenho do protótipo da solução com relação a algoritmos comparáveis em SAS.
+We hope to continue this topic in the future, especially related to big data analytics.
+  
+##<a name="conclusion"></a>Conclusion
+This paper describes a sensible approach to tackling the common problem of customer churn by using a generic framework. We considered a prototype for scoring models and implemented it by using Azure Machine Learning. Finally, we assessed the accuracy and performance of the prototype solution with regard to comparable algorithms in SAS.  
 
-**Para obter mais informações:**
+**For more information:**  
 
-Este documento foi útil para você? Por favor, nos dê seu feedback. Avalie em uma escala de 1 (ruim) a 5 (excelente), como você classificaria este documento e o porquê de ter dado essa classificação? Por exemplo:
+Did this paper help you? Please give us your feedback. Tell us on a scale of 1 (poor) to 5 (excellent), how would you rate this paper and why have you given it this rating? For example:  
 
--	Você está dando uma classificação alta devido a ter bons exemplos, excelentes capturas de tela, escrita clara ou por outro motivo?
--	Você está dando uma classificação baixa devido a exemplos ruins, capturas de tela distorcidas ou escrita confusa?
+-   Are you rating it high due to having good examples, excellent screen shots, clear writing, or another reason?
+-   Are you rating it low due to poor examples, fuzzy screen shots, or unclear writing?  
 
-Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmos.
+This feedback will help us improve the quality of white papers we release.   
 
-[Enviar comentários](mailto:sqlfback@microsoft.com).  
-##Referências
-[1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, julho/agosto de 2011, p. 18 a 20.
+[Send feedback](mailto:sqlfback@microsoft.com).
+ 
+##<a name="references"></a>References
+[1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.  
 
-[2] Artigo na Wikipédia: [Precisão e exatidão](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Wikipedia article: [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [CRISP-DM 1.0: Guia de mineração de dados passo a passo](http://www.the-modeling-agency.com/crisp-dm.pdf)
+[3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn) \(Marketing de Big Data: envolva seus clientes com mais eficiência e agregue valor)
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modelo de variação de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)  
-##Apêndice
+[5] [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) 
+ 
+##<a name="appendix"></a>Appendix
 
 ![][10]
 
-*Figura 12: Instantâneo de uma apresentação de protótipo de variação*
+*Figure 12: Snapshot of a presentation on churn prototype*
 
 
 [1]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
@@ -244,4 +250,8 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!----HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

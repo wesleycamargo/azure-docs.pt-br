@@ -1,15 +1,18 @@
-A [Biblioteca do Gerenciador de Configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) fornece uma classe para analisar uma cadeia de conexão de um arquivo de configuração. A [classe CloudConfigurationManager](https://msdn.microsoft.com/library/azure/mt634650.aspx) analisa as definições de configuração independentemente do aplicativo cliente estar em execução na área de trabalho, em um dispositivo móvel, uma máquina virtual do Azure ou um serviço de nuvem do Azure.
+The [Microsoft Azure Configuration Manager Library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) provides a class for parsing a connection string from a configuration file. The [CloudConfigurationManager class](https://msdn.microsoft.com/library/azure/mt634650.aspx) parses configuration settings regardless of whether the client application is running on the desktop, on a mobile device, in an Azure virtual machine, or in an Azure cloud service.
 
-Para fazer referência ao pacote CloudConfigurationManager, adicione a seguinte instrução `using` à sua classe:
+To reference the CloudConfigurationManager package, add the following `using` statement to your class:
 
-	using Microsoft.Azure;	//Namespace for CloudConfigurationManager
+    using Microsoft.Azure;  //Namespace for CloudConfigurationManager
 
-Aqui está um exemplo que mostra como recuperar uma cadeia de conexão de um arquivo de configuração:
+Here's an example that shows how to use retrieve a connection string from a configuration file:
 
     // Parse the connection string and return a reference to the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-O uso do Gerenciador de Configurações do Azure é opcional. Você também pode usar uma API como a [classe ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) do .NET Framework.
+Using Azure Configuration Manager is optional. You can also use an API such as the .NET Framework's [ConfigurationManager class](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

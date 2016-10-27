@@ -1,5 +1,7 @@
-As Funções do Azure consistem em uma experiência de computação sob demanda controlada por eventos que estende a plataforma de aplicativos existente do Azure com recursos para implementar código disparado por eventos ocorrendo em outros serviços do Azure, produtos de SaaS e sistemas locais. Com as Funções do Azure, seus aplicativos são dimensionados sob demanda e você paga apenas pelos recursos que consome. As Funções do Azure fornecem uma interface do usuário intuitiva baseada em navegador que permitem que você crie trechos de código agendados ou disparados implementados em diversas linguagens de programação.
+Azure Functions is an event-driven, compute-on-demand experience that extends the existing Azure application platform with capabilities to implement code triggered by events occurring in other Azure services, SaaS products, and on-premises systems. With Azure Functions, your applications scale based on demand and you pay only for the resources you consume. Azure Functions provides an intuitive, browser-based user interface allowing you to create scheduled or triggered pieces of code implemented in a variety of programming languages. 
 
-Este vídeo de introdução mostra como criar um aplicativo de função, modificar o código e interagir com os disparadores e as associações.
+This getting started video shows how to create a function app, modify the code, as well as how to interact with the triggers and bindings.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
-## Arquivo de parâmetro.
+## <a name="parameter-file"></a>Parameter file
 
-Se você usar um arquivo de parâmetro para passar os valores de parâmetro durante a implantação, será necessário criar um arquivo JSON com um formato semelhante ao exemplo a seguir.
+If you use a parameter file to pass parameter values during deployment, you need to create a JSON file with a format similar to the following example.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -26,8 +26,11 @@ Se você usar um arquivo de parâmetro para passar os valores de parâmetro dura
        }
     }
 
-Se você precisar fornecer um valor confidencial para um parâmetro (como uma senha), adicione esse valor em um cofre de chaves. Recupere o cofre de chaves durante a implantação, conforme mostrado no exemplo anterior. Para obter mais informações, veja [Transmitir valores seguros durante a implantação](../articles/resource-manager-keyvault-parameter.md).
+If you need to provide a sensitive value for a parameter (such as a password), add that value to a key vault. Retrieve the key vault during deployment as shown in the previous example. For more information, see [Pass secure values during deployment](../articles/resource-manager-keyvault-parameter.md). 
 
-O tamanho do arquivo de parâmetro não pode ser superior a 64 KB.
+The size of the parameter file cannot be more than 64 KB.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Dimensionamento de informações de um VNET no RemoteApp do Azure | Microsoft Azure"
-    description="Saiba mais sobre os requisitos de endereço IP para o RemoteApp do Azure em execução com uma VNET"
+    pageTitle="Sizing information for a VNET in Azure RemoteApp | Microsoft Azure"
+    description="Learn about the IP address requirements for Azure RemoteApp running with a VNET"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,18 +18,23 @@
 
 
 
-# Dimensionamento de informações de um VNET no RemoteApp do Azure
+
+# <a name="sizing-information-for-a-vnet-in-azure-remoteapp"></a>Sizing information for a VNET in Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
-Quando você usa o RemoteApp do Azure com uma rede virtual (VNET), o RemoteApp usa endereços IP dentro da sub-rede. Com base na escala de seu serviço do RemoteApp, você precisa garantir que sua sub-rede tenha endereços IP suficientes disponíveis para máquinas virtuais do RemoteApp. Embora essa orientação de dimensionamento não seja perfeita, visto o modo como o RemoteApp faz a rotação dinâmica de máquinas virtuais para cima e para baixo dentro de uma coleção, ele ajudará a calcular o intervalo de sub-rede. Isso é especialmente importante já que, quando um serviço do RemoteApp é colocado em uma VNET, você não pode aumentar o tamanho da sub-rede sem remover o RemoteApp.
+When you use Azure RemoteApp with a virtual network (VNET), RemoteApp uses IP addresses within the subnet. Based on the scale of your RemoteApp service, you need to ensure that your subnet has enough IP addresses available for RemoteApp virtual machines. While this sizing guidance isn’t perfect given how RemoteApp dynamically spins up and spins down virtual machines within a collection, it will help you estimate your subnet range. This is especially important as, once a RemoteApp service is placed in a VNET, you cannot increase the subnet size without removing RemoteApp.
 
-Para cada coleção de RemoteApp que você deseja executar em capacidade máxima você deve ter 100 endereços IP disponíveis. Por exemplo, se você tiver uma coleção do RemoteApp no plano Padrão desejar ter no máximo 500 usuários, você deve ter 100 endereços IP para essa coleção. Do mesmo modo, você precisa de 100 endereços IP para uma coleção de RemoteApp no plano Básico com 800 usuários. Se você planeja ter menos usuários (menos que o máximo), você pode reduzir os endereços IP necessários por coleção. O requisito de tamanho mínimo de sub-rede é 30 endereços IP (/27).
+For each RemoteApp collection that you want to run at maximum capacity, you should have 100 IP addresses available. For example, if you have one RemoteApp collection in the Standard plan and you want to have the maximum 500 users, you should have 100 IP addresses for that collection. Similarly, you need 100 IP addresses for a RemoteApp collection in the Basic plan that has 800 users. If you plan to have fewer users (less than the maximum), you can reduce the IP addresses needed per collection. The minimum subnet size requirement is 30 IP addresses (/27).
 
-Confira as informações a seguir para confirmar se sua VNET está configurada e funcionando corretamente:
+Check out the following information to make sure your VNET is configured and working propertly:
 
-- [Migrar de uma VNET pessoal para uma VNET do Azure](remoteapp-migratevnet.md)
-- [Validar o VNET do Azure para usar com o RemoteApp do Azure](remoteapp-vnet.md)
+- [Migrate from a personal VNET to an Azure VNET](remoteapp-migratevnet.md)
+- [Validate the Azure VNET to use with Azure RemoteApp](remoteapp-vnet.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

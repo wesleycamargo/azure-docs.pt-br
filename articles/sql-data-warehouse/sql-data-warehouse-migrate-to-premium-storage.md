@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Migrar seu banco de dados existente do Azure SQL Data Warehouse para o armazenamento premium | Microsoft Azure"
-   description="Instruções para migrar um SQL Data Warehouse existente para o armazenamento premium"
+   pageTitle="Migrate your existing Azure SQL Data Warehouse to premium storage | Microsoft Azure"
+   description="Instructions for migrating an existing SQL Data Warehouse to premium storage"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="happynicolle"
@@ -16,136 +16,137 @@
    ms.date="08/24/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
-# Detalhes de migração para o Armazenamento Premium
-O SQL Data Warehouse introduziu recentemente o [Armazenamento Premium para uma maior previsibilidade de desempenho][]. Agora estamos prontos para migrar os Data Warehouses existentes atualmente no Armazenamento Standard para o Armazenamento Premium. Continue lendo para obter mais detalhes sobre como e quando as migrações automáticas ocorrem e como automigrar se você preferir controlar quando ocorre o tempo de inatividade.
 
-Se você tiver mais de um Data Warehouse, use o [cronograma de migração automática][] abaixo para determinar quando ele será migrado também.
+# <a name="migration-to-premium-storage-details"></a>Migration to Premium Storage Details
+SQL Data Warehouse recently introduced [Premium Storage for greater performance predictability][].  We are now ready to migrate existing Data Warehouses currently on Standard Storage to Premium Storage.  Read on for more details about how and when automatic migrations occur and how to self-migrate if you prefer to control when the downtime occurs.
 
-## Determinar o tipo de armazenamento
-Se você criou um DW antes das datas abaixo, está usando atualmente o Armazenamento Standard. Cada Data Warehouse no Armazenamento Standard que está sujeito à migração automática tem um aviso na parte superior da folha do Data Warehouse no [Portal do Azure][] que diz "*Uma atualização futura para o armazenamento premium irá solicitar uma interrupção. Saiba mais ->*".
+If you have more than one Data Warehouse, use the [automatic migration schedule][] below to determine when it will also be migrated.
 
-| **Região** | **DW criado antes desta data** |
+## <a name="determine-storage-type"></a>Determine storage type
+If you created a DW before the dates below, you are currently using Standard Storage.  Each Data Warehouse on Standard Storage that is subject to automatic migration has a notice at the top of the Data Warehouse blade in the [Azure Portal][] that says "*An upcoming upgrade to premium storage will require an outage.  Learn more ->*."
+
+| **Region**          | **DW Created Before This Date**   |
 | :------------------ | :-------------------------------- |
-| Leste da Austrália | Armazenamento Premium ainda não disponível |
-| Sudeste da Austrália | 5 de agosto de 2016 |
-| Sul do Brasil | 5 de agosto de 2016 |
-| Canadá Central | 25 de maio de 2016 |
-| Leste do Canadá | 26 de maio de 2016 |
-| Centro dos EUA | 26 de maio de 2016 |
-| Leste da China | Armazenamento Premium ainda não disponível |
-| Norte da China | Armazenamento Premium ainda não disponível |
-| Ásia Oriental | 25 de maio de 2016 |
-| Leste dos EUA | 26 de maio de 2016 |
-| Leste dos EUA 2 | 27 de maio de 2016 |
-| Centro da Índia | 27 de maio de 2016 |
-| Sul da Índia | 26 de maio de 2016 |
-| Oeste da Índia | Armazenamento Premium ainda não disponível |
-| Leste do Japão | 5 de agosto de 2016 |
-| Oeste do Japão | Armazenamento Premium ainda não disponível |
-| Centro-Norte dos EUA | Armazenamento Premium ainda não disponível |
-| Norte da Europa | 5 de agosto de 2016 |
-| Centro-Sul dos Estados Unidos | 27 de maio de 2016 |
-| Sudeste Asiático | 24 de maio de 2016 |
-| Europa Ocidental | 25 de maio de 2016 |
-| Centro-Oeste dos EUA | 26 de agosto de 2016 |
-| Oeste dos EUA | 26 de maio de 2016 |
-| Oeste dos EUA 2 | 26 de agosto de 2016 |
+| Australia East      | Premium Storage Not Yet Available |
+| Australia Southeast | August 5, 2016                    |
+| Brazil South        | August 5, 2016                    |
+| Canada Central      | May 25, 2016                      |
+| Canada East         | May 26, 2016                      |
+| Central US          | May 26, 2016                      |
+| China East          | Premium Storage Not Yet Available |
+| China North         | Premium Storage Not Yet Available |
+| East Asia           | May 25, 2016                      |
+| East US             | May 26, 2016                      |
+| East US2            | May 27, 2016                      |
+| India Central       | May 27, 2016                      |
+| India South         | May 26, 2016                      |
+| India West          | Premium Storage Not Yet Available |
+| Japan East          | August 5, 2016                    |
+| Japan West          | Premium Storage Not Yet Available |
+| North Central US    | Premium Storage Not Yet Available |
+| North Europe        | August 5, 2016                    |
+| South Central US    | May 27, 2016                      |
+| Southeast Asia      | May 24, 2016                      |
+| West Europe         | May 25, 2016                      |
+| West Central US     | August 26, 2016                   |
+| West US             | May 26, 2016                      |
+| West US2            | August 26, 2016                   |
 
-## Detalhes da migração automática
-Por padrão, migraremos seu banco de dados para você entre 18h e 6h na hora do local da sua região durante o [cronograma de migração automática][] abaixo. Seu Data Warehouse existente ficará inutilizável durante a migração. Estimamos que a migração levará cerca de uma hora por TB de armazenamento por Data Warehouse. Também vamos garantir que não haja cobrança durante nenhuma parte da migração automática.
+## <a name="automatic-migration-details"></a>Automatic migration details
+By default, we will migrate your database for you during 6pm and 6am in your region's local time during the [automatic migration schedule][] below.  Your existing Data Warehouse will be unusable during the migration.  We estimate that the migration will take around one hour per TB of storage per Data Warehouse.  We will also ensure that you are not charged during any portion of the automatic migration.
 
-> [AZURE.NOTE] Você não poderá usar o Data Warehouse existente durante a migração. Quando a migração for concluída, o Data Warehouse ficará online novamente.
+> [AZURE.NOTE] You will not be able to use your existing Data Warehouse during the migration.  Once the migration is complete, your Data Warehouse will be back online.
 
-Os detalhes abaixo são as etapas que a Microsoft está seguindo por você para concluir a migração e não requer nenhuma atitude da sua parte. Neste exemplo, imagine que o DW existente no Armazenamento Standard atualmente é denominado "MyDW".
+The details below are steps that Microsoft is taking on your behalf to complete the migration and does not require any involvement on your part.  In this example, imagine that your existing DW on Standard Storage is currently named “MyDW.”
 
-1.	A Microsoft renomeia “MyDW” para “MyDW\_DO\_NOT\_USE\_[carimbo de data/hora]”
-2.	A Microsoft pausa o “MyDW\_DO\_NOT\_USE\_[carimbo de data/hora]”. Durante esse tempo, um backup é feito. Você poderá ver várias pausas/retomadas se encontrarmos problemas durante o processo.
-3.	A Microsoft cria um novo DW chamado "MyDW" no Armazenamento Premium do backup feito na etapa 2. "MyDW" não será exibido até a restauração ser concluída.
-4.	Quando a restauração for concluída, "MyDW" retorna para os mesmos DWUs e estado em pausa ou ativo em que estava antes da migração.
-5.	Quando a migração for concluída, a Microsoft excluirá "MyDW\_DO\_NOT\_USE\_ [carimbo de data/hora]"
-	
-> [AZURE.NOTE] Estas configurações não são transferidas como parte da migração:
+1.  Microsoft renames “MyDW” to “MyDW_DO_NOT_USE_[Timestamp]”
+2.  Microsoft pauses “MyDW_DO_NOT_USE_[Timestamp].”  During this time, a backup is taken.  You may see multiple pause/resumes if we encounter any issues during this process.
+3.  Microsoft creates a new DW named “MyDW” on Premium Storage from the backup taken in step 2.  “MyDW” will not appear until after the restore is complete.
+4.  Once the restore is complete, “MyDW” returns to the same DWUs and paused or active state it was before the migration.
+5.  Once the migration is complete, Microsoft deletes “MyDW_DO_NOT_USE_[Timestamp]”
+    
+> [AZURE.NOTE] These settings do not carry over as part of the migration:
 > 
->	-  Auditing at the Database level needs to be re-enabled
->	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
+>   -  Auditing at the Database level needs to be re-enabled
+>   -  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
-### Planejamento de migração automática
-As migrações automáticas ocorrem das 18h às 6h (hora local por região) durante o cronograma de interrupção a seguir.
+### <a name="automatic-migration-schedule"></a>Automatic migration schedule
+Automatic migrations occur from 6pm – 6am (local time per region) during the following outage schedule.
 
-| **Região** | **Data de início estimada** | **Data de término estimada** |
+| **Region**          | **Estimated Start Date**     | **Estimated End Date**       |
 | :------------------ | :--------------------------- | :--------------------------- |
-| Leste da Austrália | Ainda não foi determinado | Ainda não foi determinado |
-| Sudeste da Austrália | 10 de agosto de 2016 | 24 de agosto de 2016 |
-| Sul do Brasil | 10 de agosto de 2016 | 24 de agosto de 2016 |
-| Canadá Central | 23 de junho de 2016 | 1º de julho de 2016 |
-| Leste do Canadá | 23 de junho de 2016 | 1º de julho de 2016 |
-| Centro dos EUA | 23 de junho de 2016 | 4 de julho de 2016 |
-| Leste da China | Ainda não foi determinado | Ainda não foi determinado |
-| Norte da China | Ainda não foi determinado | Ainda não foi determinado |
-| Ásia Oriental | 23 de junho de 2016 | 1º de julho de 2016 |
-| Leste dos EUA | 23 de junho de 2016 | 11 de julho de 2016 |
-| Leste dos EUA 2 | 23 de junho de 2016 | 8 de julho de 2016 |
-| Centro da Índia | 23 de junho de 2016 | 1º de julho de 2016 |
-| Sul da Índia | 23 de junho de 2016 | 1º de julho de 2016 |
-| Oeste da Índia | Ainda não foi determinado | Ainda não foi determinado |
-| Leste do Japão | 10 de agosto de 2016 | 24 de agosto de 2016 |
-| Oeste do Japão | Ainda não foi determinado | Ainda não foi determinado |
-| Centro-Norte dos EUA | Ainda não foi determinado | Ainda não foi determinado |
-| Norte da Europa | 10 de agosto de 2016 | 31 de agosto de 2016 |
-| Centro-Sul dos Estados Unidos | 23 de junho de 2016 | 2 de julho de 2016 |
-| Sudeste Asiático | 23 de junho de 2016 | 1º de julho de 2016 |
-| Europa Ocidental | 23 de junho de 2016 | 8 de julho de 2016 |
-| Centro-Oeste dos EUA | 14 de agosto de 2016 | 31 de agosto de 2016 |
-| Oeste dos EUA | 23 de junho de 2016 | 7 de julho de 2016 |
-| Oeste dos EUA 2 | 14 de agosto de 2016 | 31 de agosto de 2016 |
+| Australia East      | Not determined yet           | Not determined yet           |
+| Australia Southeast | August 10, 2016              | August 24, 2016              |
+| Brazil South        | August 10, 2016              | August 24, 2016              |
+| Canada Central      | June 23, 2016                | July 1, 2016                 |
+| Canada East         | June 23, 2016                | July 1, 2016                 |
+| Central US          | June 23, 2016                | July 4, 2016                 |
+| China East          | Not determined yet           | Not determined yet           |
+| China North         | Not determined yet           | Not determined yet           |
+| East Asia           | June 23, 2016                | July 1, 2016                 |
+| East US             | June 23, 2016                | July 11, 2016                |
+| East US2            | June 23, 2016                | July 8, 2016                 |
+| India Central       | June 23, 2016                | July 1, 2016                 |
+| India South         | June 23, 2016                | July 1, 2016                 |
+| India West          | Not determined yet           | Not determined yet           |
+| Japan East          | August 10, 2016              | August 24, 2016              |
+| Japan West          | Not determined yet           | Not determined yet           |
+| North Central US    | Not determined yet           | Not determined yet           |
+| North Europe        | August 10, 2016              | August 31, 2016              |
+| South Central US    | June 23, 2016                | July 2, 2016                 |
+| Southeast Asia      | June 23, 2016                | July 1, 2016                 |
+| West Europe         | June 23, 2016                | July 8, 2016                 |
+| West Central US     | August 14, 2016              | August 31, 2016              |
+| West US             | June 23, 2016                | July 7, 2016                 |
+| West US2            | August 14, 2016              | August 31, 2016              |
 
-## Automigração para o Armazenamento Premium
-Se desejar controlar quando o tempo de inatividade deverá ocorrer, você poderá usar as etapas a seguir para migrar um Data Warehouse existente no Armazenamento Standard para o Armazenamento Premium. Se você optar por migrar automaticamente, será preciso concluir a migração automática antes de começar a migração automática na região para evitar o risco de a migração automática causar conflito (confira o [agendamento da migração automática][]).
+## <a name="self-migration-to-premium-storage"></a>Self-migration to Premium Storage
+If you would like to control when your downtime will occur, you can use the following steps to migrate an existing Data Warehouse on Standard Storage to Premium Storage.  If you choose to self-migrate, you must complete the self-migration before the automatic migration begins in that region to avoid any risk of the automatic migration causing a conflict (refer to the [automatic migration schedule][]).
 
-### Instruções de automigração
-Se você quiser controlar seu tempo de inatividade, poderá migrar o Data Warehouse por conta própria usando backup e restauração. A parte de restauração da migração deve levar cerca de uma hora por TB de armazenamento por DW. Se você quiser manter o mesmo nome após a conclusão da migração, siga as etapas para [renomear durante a migração][].
+### <a name="self-migration-instructions"></a>Self-migration instructions
+If you would like to control your downtime, you can self-migrate your Data Warehouse by using backup/restore.  The restore portion of the migration is expected to take around one hour per TB of storage per DW.  If you want to keep the same name once migration is complete, follow the steps for [steps to rename during migration][]. 
 
-1.	[Pause][] o DW que fará um backup automático
-2.	[Restaure][] usando o instantâneo mais recente
-3.	Exclua seu DW existente do Armazenamento Standard. **Se você não conseguir fazer isso, será cobrado pelos dois DWs.**
+1.  [Pause][] your DW which takes an automatic backup
+2.  [Restore][] from your most recent snapshot
+3.  Delete your existing DW on Standard Storage. **If you fail to do this step, you will be charged for both DWs.**
 
-> [AZURE.NOTE] Estas configurações não são transferidas como parte da migração:
+> [AZURE.NOTE] These settings do not carry over as part of the migration:
 > 
->	-  Auditing at the Database level needs to be re-enabled
->	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
+>   -  Auditing at the Database level needs to be re-enabled
+>   -  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
-#### Opcional: etapas para renomear durante a migração 
-Dois bancos de dados no mesmo servidor lógico não podem ter o mesmo nome. O SQL Data Warehouse agora dá suporte para a capacidade de renomear um DW.
+#### <a name="optional:-steps-to-rename-during-migration"></a>Optional: steps to rename during migration 
+Two databases on the same logical server cannot have the same name. SQL Data Warehouse now supports the ability to rename a DW.
 
-Neste exemplo, imagine que o DW existente no Armazenamento Standard atualmente é denominado "MyDW".
+In this example, imagine that your existing DW on Standard Storage is currently named “MyDW.”
 
-1.	Renomeie "MyDW" usando o comando ALTER DATABASE, que segue para algo como "MyDW\_BeforeMigration". Esse comando interrompe todas as transações existentes e deve ser feito no banco de dados mestre para ter êxito.
+1.  Rename "MyDW" using the ALTER DATABASE command that follows to something like "MyDW_BeforeMigration."  This command kills all existing transactions and must be done in the master database to succeed.
 ```
 ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 ```
-2.	[Pause][] "MyDW\_BeforeMigration", que usa um backup automático
-3.	[Restaure][], do seu instantâneo mais recente, um novo banco de dados com o nome que costumava usar (ex: "MyDW")
-4.	Exclua "MyDW\_BeforeMigration". **Se você não conseguir fazer isso, será cobrado pelos dois DWs.**
+2.  [Pause][] "MyDW_BeforeMigration" which takes an automatic backup
+3.  [Restore][] from your most recent snapshot a new database with the name you used to have (ex: "MyDW")
+4.  Delete "MyDW_BeforeMigration".  **If you fail to do this step, you will be charged for both DWs.**
 
-> [AZURE.NOTE] Estas configurações não são transferidas como parte da migração:
+> [AZURE.NOTE] These settings do not carry over as part of the migration:
 > 
->	-  Auditing at the Database level needs to be re-enabled
->	-  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
+>   -  Auditing at the Database level needs to be re-enabled
+>   -  Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
 
-## Próximas etapas
-Com a alteração para o Armazenamento Premium, também aumentamos o número de arquivos de blob do banco de dados na arquitetura subjacente do seu Data Warehouse. Para maximizar os benefícios de desempenho dessa mudança, recomendamos que recrie seus Índices Columnstore Clusterizados usando o script a seguir. O script abaixo funciona forçando alguns dos seus dados existentes para os blobs adicionais. Se você não tomar nenhuma ação, os dados serão redistribuídos naturalmente com o tempo, conforme você carregar mais dados nas tabelas do Data Warehouse.
+## <a name="next-steps"></a>Next steps
+With the change to Premium Storage, we have also increased the number of database blob files in the underlying architecture of your Data Warehouse.  To maximize the performance benefits of this change, we recommend that you rebuild your Clustered Columnstore Indexes using the following script.  The script below works by forcing some of your existing data to the additional blobs.  If you take no action, the data will naturally redistribute over time as you load more data into your Data Warehouse tables.
 
-**Pré-requisitos:**
+**Pre-requisites:**
 
-1.	O Data Warehouse deve ser executado com 1.000 DWUs ou mais (consulte [capacidade de computação de escala][])
-2.	O usuário que executa o script deve estar na [função mediumrc][] ou superior
-	1.	Para adicionar um usuário a essa função, execute o seguinte:
-		1.	````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+1.  Data Warehouse should run with 1,000 DWUs or higher (see [scale compute power][])
+2.  User executing the script should be in the [mediumrc role][] or higher
+    1.  To add a user to this role, execute the following: 
+        1.  ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
 -------------------------------------------------------------------------------
--- Etapa 1: Criar Tabela para controlar a Recompilação do Índice
--- Executar como usuário no mediumrc ou superior
+-- Step 1: Create Table to control Index Rebuild
+-- Run as user in mediumrc or higher
 --------------------------------------------------------------------------------
 create table sql_statements
 WITH (distribution = round_robin)
@@ -162,8 +163,8 @@ where
 go
  
 --------------------------------------------------------------------------------
--- Etapa 2: Executar Recompilações do Índice. Se o script falhar, é possível executar novamente para reiniciar onde o último parou
--- Executar como usuário no mediumrc ou superior
+-- Step 2: Execute Index Rebuilds.  If script fails, the below can be rerun to restart where last left off
+-- Run as user in mediumrc or higher
 --------------------------------------------------------------------------------
 
 declare @nbr_statements int = (select count(*) from sql_statements)
@@ -178,34 +179,37 @@ begin
 end;
 go
 -------------------------------------------------------------------------------
--- Etapa 3: Limpar Tabela Criada na Etapa 1
+-- Step 3: Cleanup Table Created in Step 1
 --------------------------------------------------------------------------------
 drop table sql_statements;
 go
 ````
 
-Se você tiver algum problema com o Data Warehouse, [crie um tíquete de suporte][] e faça referência à "Migração para o Armazenamento Premium" como a possível causa.
+If you encounter any issues with your Data Warehouse, [create a support ticket][] and reference “Migration to Premium Storage” as the possible cause.
 
 <!--Image references-->
 
 <!--Article references-->
-[agendamento da migração automática]: #automatic-migration-schedule
-[cronograma de migração automática]: #automatic-migration-schedule
+[automatic migration schedule]: #automatic-migration-schedule
 [self-migration to Premium Storage]: #self-migration-to-premium-storage
-[crie um tíquete de suporte]: sql-data-warehouse-get-started-create-support-ticket.md
+[create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
 [Azure paired region]: best-practices-availability-paired-regions.md
 [main documentation site]: services/sql-data-warehouse.md
 [Pause]: sql-data-warehouse-manage-compute-portal.md/#pause-compute
-[Restaure]: sql-data-warehouse-restore-database-portal.md
-[renomear durante a migração]: #optional-steps-to-rename-during-migration
-[capacidade de computação de escala]: sql-data-warehouse-manage-compute-portal/#scale-compute-power
-[função mediumrc]: sql-data-warehouse-develop-concurrency/#workload-management
+[Restore]: sql-data-warehouse-restore-database-portal.md
+[steps to rename during migration]: #optional-steps-to-rename-during-migration
+[scale compute power]: sql-data-warehouse-manage-compute-portal/#scale-compute-power
+[mediumrc role]: sql-data-warehouse-develop-concurrency/#workload-management
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
-[Armazenamento Premium para uma maior previsibilidade de desempenho]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
-[Portal do Azure]: https://portal.azure.com
+[Premium Storage for greater performance predictability]: https://azure.microsoft.com/en-us/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[Azure Portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0831_2016--->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

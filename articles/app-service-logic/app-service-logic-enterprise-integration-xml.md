@@ -1,37 +1,42 @@
 <properties 
-	pageTitle="Visão geral do processamento de XML no do Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
-	description="Saiba como processar e validar mensagens XML usando o Enterprise Integration Pack e aplicativos lógicos" 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+    pageTitle="Overview of XML processing in the Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
+    description="Learn how to process and validate XML messages using the Enterprise Integration Pack and Logic apps" 
+    services="logic-apps" 
+    documentationCenter=".net,nodejs,java"
+    authors="msftman" 
+    manager="erikre" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2016" 
-	ms.author="deonhe"/>
+    ms.service="logic-apps" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/07/2016" 
+    ms.author="deonhe"/>
 
 
-# Processamento de XML
 
-O Enterprise Integration Pack facilita a validação e o processamento dos documentos XML que você troca com parceiros de negócios. Veja a seguir as maneiras com as quais você pode processar essas mensagens XML usando aplicativos lógicos:
+# <a name="xml-processing"></a>XML processing
 
-- [Validação de XML](./app-service-logic-enterprise-integration-xml-validation.md "Saiba mais sobre a validação de mensagens XML") -A validação de XML fornece a capacidade de validar uma mensagem proveniente de um ponto de extremidade de origem de acordo com um esquema específico.
-- [Transformação XML](./app-service-logic-enterprise-integration-transform.md "Saiba mais sobre mapas e transformações de mensagens XML") -A transformação XML fornece a capacidade de converter uma mensagem XML com base nos requisitos de um ponto de extremidade de destino.
-- [Codificação e decodificação de arquivos simples](./app-service-logic-enterprise-integration-flatfile.md "Saiba mais sobre a codificação/decodificação de arquivos simples") -A codificação/decodificação de arquivos simples fornece a capacidade de codificar ou decodificar um arquivo simples.
-- [XPath](https://msdn.microsoft.com/library/mt643789.aspx) - Fornece a capacidade de aprimorar uma mensagem e extrair propriedades específicas dela. As propriedades extraídas podem ser usadas para rotear a mensagem a um destino ou a um ponto de extremidade intermediário.
+The Enterprise Integration Pack makes it easy to validate and process XML documents that you exchange with business partners. Here are the ways you can process these XML messages using Logic apps:  
 
-## Experimente
+- [XML validation](./app-service-logic-enterprise-integration-xml-validation.md "Learn about XML message validation")  - XML validation provides the ability to validate a message that originates from a source endpoint against a specific schema.
+- [XML transform](./app-service-logic-enterprise-integration-transform.md "Learn about XML message transformations and maps") - XML transform provides the ability to convert an XML message based on the requirements of a destination endpoint.   
+- [Flat file encoding and flat file decoding](./app-service-logic-enterprise-integration-flatfile.md "Learn about flat file encoding/decoding") - Flat file encoding/decoding provides the ability to encode or decode a flat file. 
+- [XPath](https://msdn.microsoft.com/library/mt643789.aspx) - Provides the ability to enrich a message and extract specific properties from the message. The extracted properties can then be used to route the message to a destination or an intermediary endpoint.    
 
-Por que não experimentá-lo? Clique [aqui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) para implantar um aplicativo lógico seu totalmente operacional usando os recursos XML dos Aplicativos Lógicos
+## <a name="try-it-for-yourself"></a>Try it for yourself
 
-## Saiba mais
+Why not give it a try. Click [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) to deploy a fully operational logic app of your own using the XML features of Logic Apps 
 
-[Saiba mais sobre o Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
+## <a name="learn-more"></a>Learn more
 
-<!---HONumber=AcomDC_0817_2016-->
+[Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

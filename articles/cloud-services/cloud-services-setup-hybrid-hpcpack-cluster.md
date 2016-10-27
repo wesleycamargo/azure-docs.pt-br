@@ -1,313 +1,314 @@
 <properties
-	pageTitle="Configurar um cluster HPC híbrido com o Microsoft HPC Pack | Microsoft Azure"
-	description="Aprenda a usar o Microsoft HPC Pack e o Azure para configurar um cluster de computação de alto desempenho (HPC) híbrido e pequeno"
-	services="cloud-services"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management,hpc-pack"/>
+    pageTitle="Set up a hybrid HPC cluster with Microsoft HPC Pack | Microsoft Azure"
+    description="Learn how to use Microsoft HPC Pack and Azure to set up a small, hybrid high performance computing (HPC) cluster"
+    services="cloud-services"
+    documentationCenter=""
+    authors="dlepow"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management,hpc-pack"/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="big-compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="danlep"/>
+    ms.service="cloud-services"
+    ms.workload="big-compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/14/2016"
+    ms.author="danlep"/>
 
 
-# Configurar um cluster HPC (computação de alto desempenho) híbrido com nós de computação do Azure sob demanda e o Microsoft HPC Pack
 
-Use o Microsoft HPC Pack 2012 R2 e o Azure para configurar um cluster HPC (computação de alto desempenho) híbrido e pequeno. O cluster consistirá em um nó de cabeça no local (um computador que execute o sistema operacional Windows Server e o HPC Pack) e alguns nós de computação implantados sob demanda como instâncias de função de trabalho em um serviço de nuvem do Azure. É possível executar trabalhos de computação no cluster híbrido.
+# <a name="set-up-a-hybrid-high-performance-computing-(hpc)-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Set up a hybrid high performance computing (HPC) cluster with Microsoft HPC Pack and on-demand Azure compute nodes
 
-![Cluster híbrido de HPC][Overview]
+Use Microsoft HPC Pack 2012 R2 and Azure to set up a small, hybrid high performance computing (HPC) cluster. The cluster will consist of an on-premises head node (a computer running the Windows Server operating system and HPC Pack) and some compute nodes you deploy on-demand as worker role instances in an Azure cloud service. You can then run compute jobs on the hybrid cluster.
 
-Este tutorial mostra uma abordagem, às vezes chamada de cluster "de estouro para a nuvem", para usar os recursos de computação dimensionáveis e sob demanda no Azure para executar aplicativos com uso intensivo de computação.
+![Hybrid HPC cluster][Overview] 
 
-Este tutorial não pressupõe nenhuma experiência anterior com clusters de cálculo ou com o HPC Pack. Ele destina-se somente para ajudá-lo a implantar um cluster híbrido de cálculo de forma rápida para fins de demonstração. Para obter as considerações e as etapas para implantar um cluster híbrido do HPC Pack em uma escala maior em um ambiente de produção, consulte as [diretrizes detalhadas](http://go.microsoft.com/fwlink/p/?LinkID=200493). Para ver outros cenários com o HPC Pack, incluindo a implantação de cluster automatizada nas máquinas virtuais do Azure, confira [Opções de cluster HPC com o Microsoft HPC Pack no Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md).
+This tutorial shows one approach, sometimes called cluster "burst to the cloud," to use scalable, on-demand compute resources in Azure to run compute-intensive applications.
 
+This tutorial assumes no prior experience with compute clusters or HPC Pack. It is intended only to help you deploy a hybrid compute cluster quickly for demonstration purposes. For considerations and steps to deploy a hybrid HPC Pack cluster at greater scale in a production environment, see the [detailed guidance](http://go.microsoft.com/fwlink/p/?LinkID=200493). For other scenarios with HPC Pack, including automated cluster deployment in Azure virtual machines, see [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md).
 
-## Pré-requisitos
 
-* **Assinatura do Azure** - Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos.
+## <a name="prerequisites"></a>Prerequisites
 
-* **Um computador local executando o Windows Server 2012 R2 ou o Windows Server 2012** - Esse computador será o nó de cabeçalho do cluster HPC. Se você ainda não estiver executando o Windows Server, poderá baixar e instalar uma [versão de avaliação](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2).
+* **Azure subscription** - If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
-	* O computador deve estar ingressado a um domínio do Active Directory. Para um cenário de teste com uma instalação nova do Windows Server, você pode adicionar a função de servidor Serviços de Domínio do Active Directory e promover o computador nó principal como um controlador de domínio em uma nova floresta de domínio (consulte a documentação do Windows Server).
+* **An on-premises computer running Windows Server 2012 R2 or Windows Server 2012** - This computer will be the head node of the HPC cluster. If you aren't already running Windows Server, you can download and install an [evaluation version](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2).
 
-	* Para oferecer suporte ao HPC Pack, o sistema operacional deve ser instalado em um desses idiomas: inglês, japonês ou chinês (simplificado).
+    * The computer must be joined to an Active Directory domain. For a test scenario with a fresh installation of Windows Server, you can add the Active Directory Domain Services server role and promote the head node computer as a domain controller in a new domain forest (see the documentation for Windows Server).
 
-	* Verifique se as atualizações importantes e críticas foram instaladas.
+    * To support HPC Pack, the operating system must be installed in one of these languages: English, Japanese, or Chinese (Simplified).
 
-* **HPC Pack 2012 R2** - [Baixe](http://go.microsoft.com/fwlink/p/?linkid=328024) o pacote de instalação para a versão mais recente gratuita e copie os arquivos para o computador do nó de cabeçalho ou um local de rede. Escolha os arquivos de instalação no mesmo idioma da sua instalação do Windows Server.
+    * Verify that important and critical updates are installed.
 
-* **Conta de domínio** - Esta conta deve ser configurada com as permissões de Administrador local no nó de cabeçalho para instalar o HPC Pack.
+* **HPC Pack 2012 R2** - [Download](http://go.microsoft.com/fwlink/p/?linkid=328024) the installation package for the latest version free of charge and copy the files to the head node computer or to a network location. Choose installation files in the same language as your installation of Windows Server.
 
-* **Conectividade TCP na porta 443** do nó de cabeçalho para o Azure.
+* **Domain account** - This account must be configured with local Administrator permissions on the head node to install HPC Pack.
 
-## Instalar o HPC Pack no nó de cabeça
+* **TCP connectivity on port 443** from the head node to Azure.
 
-Primeiro instale o Microsoft HPC Pack em um computador local executando o Windows Server, que será o nó de cabeçalho do cluster.
+## <a name="install-hpc-pack-on-the-head-node"></a>Install HPC Pack on the head node
 
-1. Faça login no nó de cabeça usando uma conta de domínio que tenha permissões de Administrador local.
+You first install Microsoft HPC Pack on your on-premises computer running Windows Server that will be the head node of the cluster.
 
-2. Inicie o Assistente de Instalação do HPC Pack executando Setup.exe nos arquivos de instalação do HPC Pack.
+1. Log on to the head node by using a domain account that has local Administrator permissions.
 
-3. Na tela **Instalação do HPC Pack 2012 R2**, clique em **Nova instalação ou adicionar novos recursos a uma instalação existente**.
+2. Start the HPC Pack Installation Wizard by running Setup.exe from the HPC Pack installation files.
 
-	![Instalação do HPC Pack 2012][install_hpc1]
+3. On the **HPC Pack 2012 R2 Setup** screen, click **New installation or add new features to an existing installation**.
 
-4. Na **página do Contrato de Usuário do Software da Microsoft**, clique em **Avançar**.
+    ![HPC Pack 2012 Setup][install_hpc1]
 
-5. Na página **Selecionar Tipo de instalação**, clique em **Criar um novo cluster de HPC, criando um nó de cabeça**e, em seguida, clique em **Avançar**.
+4. On the **Microsoft Software User Agreement page**, click **Next**.
 
-	![Selecione o Tipo de instalação][install_hpc2]
+5. On the **Select Installation Type** page, click **Create a new HPC cluster by creating a head node**, and then click **Next**.
 
-6. O assistente executa vários testes de pré-instalação. Clique em **Avançar** na página **Regras de instalação** se todos os testes forem aprovados. Caso contrário, examine as informações fornecidas e faça as alterações necessárias em seu ambiente. Execute os testes novamente ou se necessário inicie o Assistente de Instalação novamente.
+    ![Select Installation Type][install_hpc2]
 
-	![Regras de instalação][install_hpc3]
+6. The wizard runs several pre-installation tests. Click **Next** on the **Installation Rules** page if all tests pass. Otherwise, review the information provided and make any necessary changes in your environment. Then run the tests again or if necessary start the Installation Wizard again.
 
-7. Na página **Configuração do BD de HPC**, certifique-se de que **Nó de cabeça** esteja selecionado para todos os bancos de dados de HPC e, em seguida, clique em **Avançar**.
+    ![Installation Rules][install_hpc3]
 
-	![Configuração do BD][install_hpc4]
+7. On the **HPC DB Configuration** page, make sure **Head Node** is selected for all HPC databases, and then click **Next**.
 
-8. Aceite as seleções padrão nas páginas restantes do assistente. Na página **Instalar Componentes necessários**, clique em **Instalar**.
+    ![DB Configuration][install_hpc4]
 
-	![Instalar][install_hpc6]
+8. Accept default selections on the remaining pages of the wizard. On the **Install Required Components** page, click **Install**.
 
-9. Após a conclusão da instalação, desmarque **Iniciar o Gerenciador de Cluster de HPC** e, em seguida, clique em **Concluir**. (Você iniciará o Gerenciador de Cluster HPC em uma etapa posterior.)
+    ![Install][install_hpc6]
 
-	![Concluir][install_hpc7]
+9. After the installation completes, uncheck **Start HPC Cluster Manager** and then click **Finish**. (You will start HPC Cluster Manager in a later step.)
 
-## Preparar a assinatura do Azure
-Use o [portal clássico do Azure](https://manage.windowsazure.com) para realizar as etapas a seguir com sua assinatura do Azure. Elas são necessárias para implantar posteriormente os nós do Azure no nó de cabeça local. Confira os procedimentos detalhados nas próximas seções.
+    ![Finish][install_hpc7]
 
-- Carregue um certificado de gerenciamento (necessário para proteger conexões entre o nó de cabeça e os serviços do Azure)
+## <a name="prepare-the-azure-subscription"></a>Prepare the Azure subscription
+Use the [Azure classic portal](https://manage.windowsazure.com) to perform the following steps with your Azure subscription. These are needed so you can later deploy Azure nodes from the on-premises head node. Detailed procedures are in the next sections.
 
-- Crie um serviço de nuvem do Azure no qual os nós do Azure (instâncias de função de trabalho) serão executados
+- Upload a management certificate (needed for secure connections between the head node and the Azure services)
 
-- Criar uma conta de armazenamento do Azure
+- Create an Azure cloud service in which Azure nodes (worker role instances) will run
 
-	>[AZURE.NOTE]Anote também sua ID de assinatura do Azure, que será necessária posteriormente. Encontre-a no Portal Clássico, clicando em **Configurações** > **Assinaturas**.
+- Create an Azure storage account
 
-### Carregue o certificado de gerenciamento padrão
-O HPC Pack instala um certificado autoassinado no nó de cabeça, chamado de Certificado de gerenciamento padrão de HPC no Azure da Microsoft, que pode ser carregado como um certificado de gerenciamento do Azure. Este certificado é fornecido para implantações de prova de conceito e fins de teste.
+    >[AZURE.NOTE]Also make a note of your Azure subscription ID, which you will need later. Find this in the classic portal by clicking **Settings** > **Subscriptions**.
 
-1. No computador do nó de cabeçalho, faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
+### <a name="upload-the-default-management-certificate"></a>Upload the default management certificate
+HPC Pack installs a self-signed certificate on the head node, called the Default Microsoft HPC Azure Management certificate, that you can upload as an Azure management certificate. This certificate is provided for testing purposes and proof-of-concept deployments.
 
-2. Clique em **Configurações** > **Certificados de Gerenciamento**.
+1. From the head node computer, sign in to the [Azure classic portal](https://manage.windowsazure.com).
 
-3. Na barra de comandos, clique em **Nova**.
+2. Click **Settings** > **Management Certificates**.
 
-	![Configurações de certificado][upload_cert1]
+3. On the command bar, click **Upload**.
 
-4. Procure no nó de cabeçalho pelo arquivo C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer. Em seguida, clique no botão **Verificar**.
+    ![Certificate Settings][upload_cert1]
 
-	![Carregar um certificado][install_hpc10]
+4. Browse on the head node for the file C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer. Then, click the **Check** button.
 
-Você verá **Gerenciamento padrão de HPC no Azure** na lista de certificados de gerenciamento.
+    ![Upload Certificate][install_hpc10]
 
-### Criar um serviço de nuvem do Azure
+You will see **Default HPC Azure Management** in the list of management certificates.
 
->[AZURE.NOTE]Para melhor desempenho, crie o serviço de nuvem e a conta de armazenamento (em uma etapa posterior) na mesma região geográfica.
+### <a name="create-an-azure-cloud-service"></a>Create an Azure cloud service
 
-1. No portal clássico, na barra de comandos, clique em **Novo**.
+>[AZURE.NOTE]For best performance, create the cloud service and the storage account (in a later step) in the same geographic region.
 
-2. Clique em **Computação** > **Serviço de Nuvem** > **Criação Rápida**.
+1. In the classic portal, on the command bar, click **New**.
 
-3. Digite uma URL para o serviço de nuvem e, em seguida, clique em **Criar Serviço de Nuvem**.
+2. Click **Compute** > **Cloud Service** > **Quick Create**.
 
-	![Criar Serviço][createservice1]
+3. Type a URL for the cloud service, and then click **Create Cloud Service**.
 
-### Criar uma conta de armazenamento do Azure
+    ![Create Service][createservice1]
 
-1. No portal clássico, na barra de comandos, clique em **Novo**.
+### <a name="create-an-azure-storage-account"></a>Create an Azure storage account
 
-2. Clique em **Serviços de Dados** > **Armazenamento** > **Criação Rápida**.
+1. In the classic portal, on the command bar, click **New**.
 
-3. Digite uma URL para a conta e, em seguida, clique em **Criar Conta de armazenamento**.
+2. Click **Data Services** > **Storage** > **Quick Create**.
 
-	![Criar Armazenamento][createstorage1]
+3. Type a URL for the account, and then click **Create Storage Account**.
 
-## Configurar o nó de cabeça
+    ![Create Storage][createstorage1]
 
-Para usar o Gerenciador de Cluster de HPC para implantar nós do Azure e para enviar trabalhos, primeiro realize algumas etapas de configuração necessárias do cluster.
+## <a name="configure-the-head-node"></a>Configure the head node
 
-1. No nó de cabeça, inicie o Gerenciador de Cluster de HPC. Se a caixa de diálogo **Selecione Nó de cabeça** for exibida, clique em **Computador Local**. A **Lista de tarefas de implantação** é exibida.
+To use HPC Cluster Manager to deploy Azure nodes and to submit jobs, first perform some required cluster configuration steps.
 
-2. Em **Tarefas de implantação necessárias**, clique em **Configurar sua rede**.
+1. On the head node, start HPC Cluster Manager. If the **Select Head Node** dialog box appears, click **Local Computer**. The **Deployment To-do List** appears.
 
-	![Configurar Rede][config_hpc2]
+2. Under **Required deployment tasks**, click **Configure your network**.
 
-3. No Assistente de Configuração de Rede, selecione **Todos os nós somente em uma rede corporativa** (Topologia 5).
+    ![Configure Network][config_hpc2]
 
-	![Topologia 5][config_hpc3]
+3. In the Network Configuration Wizard, select **All nodes only on an enterprise network** (Topology 5).
 
-	>[AZURE.NOTE]Essa é a configuração mais simples para fins de demonstração, pois o nó de cabeçalho só precisa de um adaptador de rede para se conectar ao Active Directory e à Internet. Este tutorial não abrange cenários de cluster que exigem redes adicionais.
+    ![Topology 5][config_hpc3]
 
-4. Clique em **Avançar** para aceitar os valores padrão nas páginas restantes do assistente. Em seguida, na guia **Examinar**, clique em **Configurar** para concluir a configuração de rede.
+    >[AZURE.NOTE]This is the simplest configuration for demonstration purposes, because the head node only needs a single network adapter to connect to Active Directory and the Internet. This tutorial does not cover cluster scenarios that require additional networks.
 
-5. Na **Lista de tarefas de implantação**, clique em **Fornecer credenciais de instalação**.
+4. Click **Next** to accept default values on the remaining pages of the wizard. Then, on the **Review** tab, click **Configure** to complete the network configuration.
 
-6. Na caixa de diálogo **Credenciais de instalação**, digite as credenciais da conta de domínio usada para instalar o HPC Pack. Em seguida, clique em **OK**.
+5. In the **Deployment To-do List**, click **Provide installation credentials**.
 
-	![Credenciais de instalação][config_hpc6]
+6. In the **Installation Credentials** dialog box, type the credentials of the domain account that you used to install HPC Pack. Then click **OK**.
 
-	>[AZURE.NOTE]Os serviços do HPC Pack só usam credenciais de instalação para implantar nós de computação que ingressaram em um domínio. Os nós do Azure que você adiciona neste tutorial não são ingressaram em um domínio.
+    ![Installation Credentials][config_hpc6]
 
-7. Na **Lista de tarefas de implantação**, clique em **Configurar a nomeação dos novos nós**.
+    >[AZURE.NOTE]HPC Pack services only use installation credentials to deploy domain-joined compute nodes. The Azure nodes you add in this tutorial are not domain-joined.
 
-8. Na caixa de diálogo **Especificar Série de nomeação de nós**, aceite a série de nomeação padrão e clique em **OK**.
+7. In the **Deployment To-do List**, click **Configure the naming of new nodes**.
 
-	![Nomeação de nós][config_hpc8]
+8. In the **Specify Node Naming Series** dialog box, accept the default naming series and click **OK**.
 
-	>[AZURE.NOTE]A série de nomeação apenas gera nomes para nós de computação que ingressaram em um domínio. Os nós de trabalho do Azure são nomeados automaticamente.
+    ![Node Naming][config_hpc8]
 
-9. Na **Lista de tarefas de implantação**, clique em **Criar um modelo de nó**. Você usará o modelo de nó para adicionar nós do Azure ao cluster.
+    >[AZURE.NOTE]The naming series only generates names for domain-joined compute nodes. Azure worker nodes are named automatically.
 
-10. Em Criar Assistente do modelo de nó, faça o seguinte:
+9. In the **Deployment To-do List**, click **Create a node template**. You will use the node template to add Azure nodes to the cluster.
 
-	a. Na página **Escolher Tipo de modelo de nó**, clique em **Modelo de nó do Azure** e, em seguida, clique em **Avançar**.
+10. In the Create Node Template Wizard, do the following:
 
-	![Modelo do nó][config_hpc10]
+    a. On the **Choose Node Template Type** page, click **Azure node template**, and then click **Next**.
 
-	b. Clique em **Avançar** para aceitar o nome do modelo padrão.
+    ![Node Template][config_hpc10]
 
-	c. Na página **Fornecer Informações sobre Assinatura**, insira a ID de assinatura do Azure (disponível em informações sobre a conta do Azure). Em seguida, em **Certificado de gerenciamento**, clique em **Procurar** e selecione **Gerenciamento de HPC no Azure padrão**. Em seguida, clique em **Próximo**.
+    b. Click **Next** to accept the default template name.
 
-	![Modelo do nó][config_hpc12]
+    c. On the **Provide Subscription Information** page, enter your Azure subscription ID (available in your Azure account information). Then, in **Management certificate**, click **Browse** and select **Default HPC Azure Management.** Then click **Next**.
 
-	d. Na página **Fornecer informações sobre serviço**, selecione o serviço de nuvem e a conta de armazenamento criados na etapa anterior. Em seguida, clique em **Próximo**.
+    ![Node Template][config_hpc12]
 
-	![Modelo do nó][config_hpc13]
+    d. On the **Provide Service Information** page, select the cloud service and the storage account that you created in a previous step. Then click **Next**.
 
-	e. Clique em **Avançar** para aceitar os valores padrão nas páginas restantes do assistente. Em seguida, na guia **Examinar**, clique em **Criar** para criar o modelo de nó.
+    ![Node Template][config_hpc13]
 
-	>[AZURE.NOTE]Por padrão, o modelo de nó do Azure inclui configurações para iniciar (provisionar) e interromper os nós manualmente, usando o Gerenciador de Cluster HPC. Como opção, você também pode configurar uma agenda para iniciar e interromper os nós do Azure automaticamente.
+    e. Click **Next** to accept default values on the remaining pages of the wizard. Then, on the **Review** tab, click **Create** to create the node template.
 
-## Adicionar nós do Azure ao cluster
+    >[AZURE.NOTE]By default, the Azure node template includes settings for you to start (provision) and stop the nodes manually, using HPC Cluster Manager. You can optionally configure a schedule to start and stop the Azure nodes automatically.
 
-Agora você usará o modelo do nó para adicionar nós do Azure ao cluster. Adicionar os nós ao cluster armazena suas informações de configuração para que você possa iniciá-los (provisioná-los) a qualquer momento como instâncias de função no serviço de nuvem. Sua assinatura somente é cobrada pelos nós do Azure depois que as instâncias de função estiverem sendo execucatas no serviço de nuvem.
+## <a name="add-azure-nodes-to-the-cluster"></a>Add Azure nodes to the cluster
 
-Para este tutorial, você adicionará dois nós Pequenos.
+You now use the node template to add Azure nodes to the cluster. Adding the nodes to the cluster stores their configuration information so that you can start (provision) them at any time as role instances in the cloud service. Your subscription only gets charged for Azure nodes after the role instances are running in the cloud service.
 
-1. No Gerenciador de Cluster HPC, em **Gerenciamento de Nós**, (chamado de **Gerenciamento de Recursos** em versões recentes do HPC Pack), no painel **Ações**, clique em **Adicionar Nó**.
+For this tutorial you will add two Small nodes.
 
-	![Adicionar nó][add_node1]
+1. In HPC Cluster Manager, in **Node Management** (called **Resource Management** in recent versions of HPC Pack), in the **Actions** pane, click **Add Node**.
 
-2. No Assistente de Adição de Nó, na página **Selecionar Método de implantação**, clique **Adicionar Nós do Azure**e em **Avançar**.
+    ![Add Node][add_node1]
 
-	![Adicionar Nó do Azure][add\_node1_1]
+2. In the Add Node Wizard, on the **Select Deployment Method** page, click **Add Azure nodes**, and then click **Next**.
 
-3. Na página **Especificar Novos nós**, selecione o modelo do nó do Azure criado anteriormente (chamado por padrão **Modelo de nós do Azure padrão**). Em seguida, especifique **2** nós de tamanho **Pequeno**e clique em **Avançar**.
+    ![Add Azure Node][add_node1_1]
 
-	![Especificar nós][add_node2]
+3. On the **Specify New Nodes** page, select the Azure node template you created previously (called by default **Default AzureNode Template**). Then specify **2** nodes of size **Small**, and then click **Next**.
 
-	Para obter detalhes sobre os tamanhos disponíveis, confira [Tamanhos para os Serviços de Nuvem](cloud-services-sizes-specs.md).
+    ![Specify Nodes][add_node2]
 
-4. Na página de **Conclusão do Assistente de Adição de Nós**, clique em **Concluir**.
+    For details about the available sizes, see [Sizes for Cloud Services](cloud-services-sizes-specs.md).
 
-	 Dois nós do Azure, chamados **AzureCN-0001** e **AzureCN-0002**, agora são exibidos no Gerenciador de Cluster de HPC. Ambos estão no estado **Não Implantado**.
+4. On the **Completing the Add Node Wizard** page, click **Finish**.
 
-	![Nós adicionados][add_node3]
+     Two Azure nodes, named **AzureCN-0001** and **AzureCN-0002**, now appear in HPC Cluster Manager. Both are in the **Not-Deployed** state.
 
-## Iniciar os nós do Azure
-Quando desejar usar os recursos de cluster no Azure, use o Gerenciador de Cluster de HPC para iniciar (provisionar) os nós no Azure e colocá-los on-line.
+    ![Added Nodes][add_node3]
 
-1.	No Gerenciador de Cluster HPC, em **Gerenciamento de Nós**, (chamado de **Gerenciamento de Recursos** em versões recentes do HPC Pack), clique em um ou nos dois nós e, em seguida, no painel **Ações**, clique em **Iniciar**.
+## <a name="start-the-azure-nodes"></a>Start the Azure nodes
+When you want to use the cluster resources in Azure, use HPC Cluster Manager to start (provision) the Azure nodes and bring them online.
 
-	![Iniciar nós][add_node4]
+1.  In HPC Cluster Manager, in **Node Management** (called **Resource Management** in recent versions of HPC Pack), click one or both nodes and then, in the **Actions** pane, click **Start**.
 
-2. Na caixa de diálogo **Iniciar nós do Azure**, clique em **Iniciar**.
+    ![Start Nodes][add_node4]
 
-	![Iniciar nós][add_node5]
+2. In the **Start Azure Nodes** dialog box, click **Start**.
 
-	Os nós farão a transição para o **Provisionamento**. Exiba o log de provisionamento para controlar o progresso do provisionamento.
+    ![Start Nodes][add_node5]
 
-	![Provisionar nós][add_node6]
+    The nodes transition to the **Provisioning** state. View the provisioning log to track the provisioning progress.
 
-3. Depois de alguns minutos, os nós do Azure concluirão o provisionamento e estarão no estado **Off-line**. Nesse estado, as instâncias de função estarão sendo executadas, mas ainda não aceitarão trabalhos de cluster.
+    ![Provision Nodes][add_node6]
 
-4. Para confirmar se as instâncias de função estão sendo executadas, no [portal clássico](https://manage.windowsazure.com), clique em **Serviços de Nuvem** > *nome\_do\_serviço\_de\_nuvem* e em **Instâncias**.
+3. After a few minutes, the Azure nodes finish provisioning and are in the **Offline** state. In this state the role instances are running but will not yet accept cluster jobs.
 
-	![Executando instâncias][view_instances1]
+4. To confirm that the role instances are running, in the [classic portal](https://manage.windowsazure.com), click **Cloud Services** > *your_cloud_service_name* > **Instances**.
 
-	Você visualizará duas instâncias de função de trabalho sendo executadas no serviço. O HPC Pack implanta automaticamente duas instâncias **HpcProxy** (de tamanho Médio) para manipular as comunicações entre o nó de cabeça e o Azure.
+    ![Running Instances][view_instances1]
 
-5. Para colocar os nós do Azure on-line para executar trabalhos de cluster, selecione os nós, clique com o botão direito e clique em **Colocar on-line**.
+    You will see two worker role instances are running in the service. HPC Pack also automatically deploys two **HpcProxy** instances (size Medium) to handle communication between the head node and Azure.
 
-	![Nós off-line][add_node7]
+5. To bring the Azure nodes online to run cluster jobs, select the nodes, right-click, and then click **Bring Online**.
 
-	O Gerenciador de Cluster de HPC indica que os nós estão no estado **On-line**.
+    ![Offline Nodes][add_node7]
 
-## Executar um comando no cluster
+    HPC Cluster Manager indicates that the nodes are in the **Online** state.
 
-Para verificar a instalação, use o comando **clusrun** do HPC Pack para executar um comando ou aplicativo em um ou mais nós do cluster. Como um exemplo simples, use **clusrun** para obter a configuração de IP dos nós do Azure.
+## <a name="run-a-command-across-the-cluster"></a>Run a command across the cluster
 
-1. No nó de cabeça, abra um prompt de comando.
+To check the installation, use the HPC Pack **clusrun** command to run a command or application on one or more cluster nodes. As a simple example, use **clusrun** to get the IP configuration of the Azure nodes.
 
-2. Digite o seguinte comando:
+1. On the head node, open a command prompt.
 
-	`clusrun /nodes:azurecn* ipconfig`
+2. Type the following command:
 
-3. Você verá saídas semelhantes ao seguinte.
+    `clusrun /nodes:azurecn* ipconfig`
 
-	![Clusrun][clusrun1]
+3. You will see output similar to the following.
 
-## Executar um trabalho de teste
+    ![Clusrun][clusrun1]
 
-Você pode enviar um trabalho de teste que é executado no cluster híbrido. Este exemplo é um trabalho muito simples de limpeza paramétrica (um tipo de computação intrinsecamente paralela). Este exemplo executa as subtarefas que adicionam um número inteiro a si mesmo usando o comando **set /a**. Todos os nós no cluster contribuem para concluir as subtarefas para números inteiros de 1 a 100.
+## <a name="run-a-test-job"></a>Run a test job
 
-1. No Gerenciador de Cluster de HPC, em **Gerneciamento de trabalho**, no painel **Ações**, clique em **Novo trabalho de limpeza paramétrica**.
+Now submit a test job that runs on the hybrid cluster. This example is a very simple parametric sweep job (a type of intrinsically parallel computation). This example runs subtasks that add an integer to itself by using the **set /a** command. All the nodes in the cluster contribute to finishing the subtasks for integers from 1 to 100.
 
-	![Novo trabalho][test_job1]
+1. In HPC Cluster Manager, in **Job Management**, in the **Actions** pane, click **New Parametric Sweep Job**.
 
-2. Na caixa de diálogo **Novo Trabalho de limpeza paramétrica** em **Linha de comando**, digite `set /a *+*` (substituindo a linha de comando padrão que é exibida). Deixe os valores padrão para o restante das configurações e clique em **Enviar** para enviar o trabalho.
+    ![New Job][test_job1]
 
-	![Limpeza paramétrica][param_sweep1]
+2. In the **New Parametric Sweep Job** dialog box, in **Command line**, type `set /a *+*` (overwriting the default command line that appears). Leave default values for the remaining settings, and then click **Submit** to submit the job.
 
-3. Quando o trabalho estiver concluído, clique duas vezes no trabalho **Minhas tarefas de limpeza**.
+    ![Parametric Sweep][param_sweep1]
 
-4. Clique em **Exibir tarefas** e em uma subtarefa para exibir a saída calculada dessa subtarefa.
+3. When the job is finished, double-click the **My Sweep Task** job.
 
-	![Resultados da tarefa][view_job361]
+4. Click **View Tasks**, and then click a subtask to view the calculated output of that subtask.
 
-5. Para visualizar qual nó executou o cálculo para dessa subtarefa, clique em **Nós alocados**. (Seu cluster pode mostrar um nome de nó diferente).
+    ![Task Results][view_job361]
 
-	![Resultados da tarefa][view_job362]
+5. To see which node performed the calculation for that subtask, click **Allocated Nodes**. (Your cluster might show a different node name.)
 
-## Parar os nós do Azure
+    ![Task Results][view_job362]
 
-Depois de testar o cluster, interrompa os nós do Azure para evitar cobranças desnecessárias em sua conta. Isso interromperá o serviço de nuvem e removerá as instâncias de função do Azure.
+## <a name="stop-the-azure-nodes"></a>Stop the Azure nodes
 
-1. No Gerenciador de Cluster HPC, em **Gerenciamento de Nós**, (chamado de **Gerenciamento de Recursos** em versões recentes do HPC Pack), selecione amos os nós do Azure. Em seguida, no painel **Ações**, clique **Parar**.
+After you try out the cluster, stop the Azure nodes to avoid unnecessary charges to your account. This stops the cloud service and removes the Azure role instances.
 
-	![Parar os nós][stop_node1]
+1. In HPC Cluster Manager, in **Node Management** (called **Resource Management** in recent versions of HPC Pack), select both Azure nodes. Then, in the **Actions** pane, click **Stop**.
 
-2. Na caixa de diálogo **Parar nós do Azure**, clique em **Parar**.
+    ![Stop Nodes][stop_node1]
 
-	![Parar os nós][stop_node2]
+2. In the **Stop Azure Nodes** dialog box, click **Stop**.
 
-3. Os nós farão a transição para a **Parada**. Depois de alguns minutos, o Gerenciador de Cluster de HPC mostra o estado dos nós como **Não implantados**.
+    ![Stop Nodes][stop_node2]
 
-	![Nós não implantados][stop_node4]
+3. The nodes transition to the **Stopping** state. After a few minutes, HPC Cluster Manager shows that the nodes are **Not-Deployed**.
 
-4. Para confirmar que as instâncias de função não estão mais sendo executadas no Azure, no [portal clássico](https://manage.windowsazure.com), clique em **Serviços de Nuvem** > *nome\_do\_serviço\_de\_nuvem* > **Instâncias**. Nenhuma instância será implantada no ambiente de produção.
+    ![Not Deployed Nodes][stop_node4]
 
-	![Nenhuma instância][view_instances2]
+4. To confirm that the role instances are no longer running in Azure, in the [classic portal](https://manage.windowsazure.com), click **Cloud Services** > *your_cloud_service_name* > **Instances**. No instances will be deployed in the production environment.
 
-	Assim, concluímos o tutorial.
+    ![No Instances][view_instances2]
 
-## Próximas etapas
+    This completes the tutorial.
 
-* Explorar a documentação para [HPC Pack 2012 R2 e HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697).
+## <a name="next-steps"></a>Next steps
 
-* Para configurar uma implantação de cluster de HPC Pack hibrida em uma escala maior, consulte [Intermitência para Instâncias de Função de Trabalho do Azure com Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+* Explore the documentation for [HPC Pack 2012 R2 and HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697).
 
-* Para outras maneiras de criar um cluster de HPC Pack no Azure, inclusive usando modelos do Azure Resource Manager, consulte [Opções de cluster HPC com Microsoft HPC Pack no Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md).
-* Consulte [Big Compute no Azure: Recursos Técnicos para HPC (Computação de Alto Desempenho) e Lote](../batch/big-compute-resources.md) para obter mais informações sobre o alcance de soluções de nuvem HPT e Big Compute no Azure.
+* To set up a hybrid HPC Pack cluster deployment at greater scale, see [Burst to Azure Worker Role Instances with Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+
+* For other ways to create an HPC Pack cluster in Azure, including using Azure Resource Manager templates, see [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md).
+* See [Big Compute in Azure: Technical Resources for Batch and High Performance Computing (HPC)](../batch/big-compute-resources.md) for more about the range of Big Compute and HPC cloud solutions in Azure.
 
 
 [Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
@@ -329,7 +330,7 @@ Depois de testar o cluster, interrompa os nós do Azure para evitar cobranças d
 [config_hpc12]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/config_hpc12.png
 [config_hpc13]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/config_hpc13.png
 [add_node1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node1.png
-[add\_node1_1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node1_1.png
+[add_node1_1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node1_1.png
 [add_node2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node2.png
 [add_node3]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node3.png
 [add_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/add_node4.png
@@ -347,4 +348,8 @@ Depois de testar o cluster, interrompa os nós do Azure para evitar cobranças d
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!-----HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

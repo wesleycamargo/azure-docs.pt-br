@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integração do Active Directory do Azure ao Abintegro | Microsoft Azure" 
-    description="Saiba como usar o Abintegro com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
+    pageTitle="Tutorial: Azure Active Directory integration with Abintegro | Microsoft Azure" 
+    description="Learn how to use Abintegro with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,105 +11,113 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/11/2016" 
+    ms.date="09/29/2016" 
     ms.author="jeedes" />
 
-#Tutorial: Integração do Active Directory do Azure ao Abintegro
 
-O objetivo deste tutorial é mostrar a integração do Azure ao Abintegro. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+#<a name="tutorial:-azure-active-directory-integration-with-abintegro"></a>Tutorial: Azure Active Directory integration with Abintegro
 
--   Uma assinatura válida do Azure
--   Uma assinatura habilitada para logon único do Abintegro
+The objective of this tutorial is to show the integration of Azure and Abintegro.  
+The scenario outlined in this tutorial assumes that you already have the following items:
 
-Depois de concluir este tutorial, os usuários do AD do Azure atribuídos ao Abintegro poderão fazer logon único no aplicativo em seu site de empresa do Abintegro (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+-   A valid Azure subscription
+-   An Abintegro single sign-on enabled subscription
 
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+After completing this tutorial, the Azure AD users you have assigned to Abintegro will be able to single sign into the application at your Abintegro company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-1.  Habilitando a integração do aplicativo para o Abintegro
-2.  Configurando o logon único
-3.  Configurando o provisionamento de usuários
-4.  Atribuindo usuários
+The scenario outlined in this tutorial consists of the following building blocks:
 
-![Cenário](./media/active-directory-saas-abintegro-tutorial/IC790076.png "Cenário")
-##Habilitando a integração do aplicativo para o Abintegro
+1.  Enabling the application integration for Abintegro
+2.  Configuring single sign-on
+3.  Configuring user provisioning
+4.  Assigning users
 
-O objetivo desta seção é descrever como habilitar a integração de aplicativos para Abintegro.
+![Scenario](./media/active-directory-saas-abintegro-tutorial/IC790076.png "Scenario")
+##<a name="enabling-the-application-integration-for-abintegro"></a>Enabling the application integration for Abintegro
 
-###Para habilitar a integração de aplicativos para Abintegro, execute as seguintes etapas:
+The objective of this section is to outline how to enable the application integration for Abintegro.
 
-1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
+###<a name="to-enable-the-application-integration-for-abintegro,-perform-the-following-steps:"></a>To enable the application integration for Abintegro, perform the following steps:
+
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-abintegro-tutorial/IC700993.png "Active Directory")
 
-2.  Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+2.  From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3.  Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
+3.  To open the applications view, in the directory view, click **Applications** in the top menu.
 
-    ![Aplicativos](./media/active-directory-saas-abintegro-tutorial/IC700994.png "Aplicativos")
+    ![Applications](./media/active-directory-saas-abintegro-tutorial/IC700994.png "Applications")
 
-4.  Clique em **Adicionar** na parte inferior da página.
+4.  Click **Add** at the bottom of the page.
 
-    ![Adicionar aplicativo](./media/active-directory-saas-abintegro-tutorial/IC749321.png "Adicionar aplicativo")
+    ![Add application](./media/active-directory-saas-abintegro-tutorial/IC749321.png "Add application")
 
-5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-abintegro-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
+    ![Add an application from gallerry](./media/active-directory-saas-abintegro-tutorial/IC749322.png "Add an application from gallerry")
 
-6.  Na **caixa de pesquisa**, digite **abintegro**.
+6.  In the **search box**, type **abintegro**.
 
-    ![Galeria de Aplicativos](./media/active-directory-saas-abintegro-tutorial/IC790077.png "Galeria de Aplicativos")
+    ![Application Gallery](./media/active-directory-saas-abintegro-tutorial/IC790077.png "Application Gallery")
 
-7.  No painel de resultados, selecione **Abintegro** e clique em **Concluir** para adicionar o aplicativo.
+7.  In the results pane, select **Abintegro**, and then click **Complete** to add the application.
 
     ![Abintegro](./media/active-directory-saas-abintegro-tutorial/IC790078.png "Abintegro")
-##Configurando o logon único
+##<a name="configuring-single-sign-on"></a>Configuring single sign-on
 
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Abintegro com a respectiva conta do AD do Azure usando federação baseada em protocolo SAML.
+The objective of this section is to outline how to enable users to authenticate to Abintegro with their account in Azure AD using federation based on the SAML protocol.
 
-###Para configurar o logon único, execute as seguintes etapas:
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
 
-1.  No portal clássico do Azure, na página de integração do aplicativo **Abintegro**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  In the Azure classic portal, on the **Abintegro** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
-    ![Configurar o Logon Único](./media/active-directory-saas-abintegro-tutorial/IC790079.png "Configurar o logon único")
+    ![Configure Single SignOn](./media/active-directory-saas-abintegro-tutorial/IC790079.png "Configure Single SignOn")
 
-2.  Na página **Como você deseja que os usuários façam logon no Abintegro**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
+2.  On the **How would you like users to sign on to Abintegro** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
-    ![Configurar o logon único](./media/active-directory-saas-abintegro-tutorial/IC790080.png "Configurar o logon único")
+    ![Configure Single SignOn](./media/active-directory-saas-abintegro-tutorial/IC790080.png "Configure Single SignOn")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Abintegro**, digite a URL usada pelos usuários para fazer logon no Abintegro (por exemplo: `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`) e clique em **Avançar**.
+3.  On the **Configure App URL** page, in the **Abintegro Sign On URL** textbox, type the URL used by your users to sign on to Abintegro (e.g.: `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`), and then click **Next**.
 
-    ![Configurar a URL do Aplicativo](./media/active-directory-saas-abintegro-tutorial/IC790081.png "Configurar a URL do Aplicativo")
+    ![Configure App URL](./media/active-directory-saas-abintegro-tutorial/IC790081.png "Configure App URL")
 
-4.  Na página **Configurar o logon único no Abintegro**, clique em **Baixar metadados** e salve o arquivo de metadados no computador.
+4.  On the **Configure single sign-on at Abintegro** page, click **Download metadata**, and then save the metadata file on your computer.
 
-    ![Configurar o logon único](./media/active-directory-saas-abintegro-tutorial/IC790082.png "Configurar o logon único")
+    ![Configure Single SignOn](./media/active-directory-saas-abintegro-tutorial/IC790082.png "Configure Single SignOn")
 
-5.  Envie o arquivo de metadados para a equipe de suporte do Abintegro.
+5.  Send the metadatafile to the Abintegro support team.
 
-    >[AZURE.NOTE] A configuração de logon único deve ser executada pela equipe de suporte do Abintegro. Assim que a configuração for concluída, você receberá uma notificação.
+    >[AZURE.NOTE] The single sign-on configuration has to be performed by the Abintegro support team. You will get a notification as soon as the configuration has been completed.
 
-6.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+6.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
-    ![Configurar o logon único](./media/active-directory-saas-abintegro-tutorial/IC790083.png "Configurar o Logon Único")
-##Configurando o provisionamento de usuários
+    ![Configure Single SignOn](./media/active-directory-saas-abintegro-tutorial/IC790083.png "Configure Single SignOn")
+##<a name="configuring-user-provisioning"></a>Configuring user provisioning
 
-Não há nenhum item de ação para a configuração de provisionamento de usuário para o Abintegro. Quando um usuário atribuído tenta fazer logon no Abintegro usando o painel de acesso, o Abintegro verifica se o usuário existe. Se ainda não houver conta de usuário disponível, ela será criada automaticamente pelo Abintegro.
-##Atribuindo usuários
+There is no action item for you to configure user provisioning to Abintegro.  
+When an assigned user tries to log into Abintegro using the access panel, Abintegro checks whether the user exists.  
+If there is no user account available yet, it is automatically created by Abintegro.
+##<a name="assigning-users"></a>Assigning users
 
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
+To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-###Para atribuir usuários ao Abintegro, execute as seguintes etapas:
+###<a name="to-assign-users-to-abintegro,-perform-the-following-steps:"></a>To assign users to Abintegro, perform the following steps:
 
-1.  No Portal clássico do Azure, crie uma conta de teste.
+1.  In the Azure classic portal, create a test account.
 
-2.  Na página de integração do aplicativo **Abintegro**, clique em **Atribuir usuários**.
+2.  On the **Abintegro **application integration page, click **Assign users**.
 
-    ![Atribuir Usuários](./media/active-directory-saas-abintegro-tutorial/IC790084.png "Atribuir Usuários")
+    ![Assign Users](./media/active-directory-saas-abintegro-tutorial/IC790084.png "Assign Users")
 
-3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
+3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
-    ![Sim](./media/active-directory-saas-abintegro-tutorial/IC767830.png "Sim")
+    ![Yes](./media/active-directory-saas-abintegro-tutorial/IC767830.png "Yes")
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

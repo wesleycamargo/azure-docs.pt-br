@@ -1,167 +1,172 @@
 <properties
-	pageTitle="Associação do Hub de Notificação do Azure Functions | Microsoft Azure"
-	description="Entenda como usar a associação de Hub de Notificação do Azure no Azure Functions."
-	services="functions"
-	documentationCenter="na"
-	authors="wesmc7777"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"/>
+    pageTitle="Azure Functions Notification Hub binding | Microsoft Azure"
+    description="Understand how to use Azure Notification Hub binding in Azure Functions."
+    services="functions"
+    documentationCenter="na"
+    authors="wesmc7777"
+    manager="erikre"
+    editor=""
+    tags=""
+    keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
 
 <tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/19/2016"
-	ms.author="wesmc"/>
+    ms.service="functions"
+    ms.devlang="multiple"
+    ms.topic="reference"
+    ms.tgt_pltfrm="multiple"
+    ms.workload="na"
+    ms.date="08/19/2016"
+    ms.author="wesmc"/>
 
-# Associação de saída do Hub de Notificação do Azure Functions
+
+# <a name="azure-functions-notification-hub-output-binding"></a>Azure Functions Notification Hub output binding
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e codificar associações do Hub de Notificação no Azure Functions.
+This article explains how to configure and code Azure Notification Hub bindings in Azure Functions. 
 
-[AZURE.INCLUDE [introdução](../../includes/functions-bindings-intro.md)]
+[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
-Suas funções podem enviar notificações por push usando um Hub de Notificação do Azure configurado com muito poucas linhas de código. No entanto, o hub de notificação deve estar configurado para os PNS (Serviços de Notificações de Plataforma) que você deseja usar. Para saber mais sobre a configuração de um Hub de Notificação do Azure e sobre o desenvolvimento de aplicativos cliente que se registram para receber notificações, consulte [Introdução aos Hubs de Notificação](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) e clique em sua plataforma de cliente de destino na parte superior.
+Your functions can send push notifications using a configured Azure Notification Hub with a very few lines of code. However, the notification hub must be configured for the Platform Notifications Services (PNS) you want to use. For more information on configuring an Azure Notification Hub and developing a client applications that register to receive notifications, see [Getting started with Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) and click your target client platform at the top.
 
-## function.json para associação de saída do Hub de Notificação do Azure
+## <a name="function.json-for-azure-notification-hub-output-binding"></a>function.json for Azure Notification Hub output binding
 
-O arquivo function.json fornece as seguintes propriedades:
+The function.json file provides the following properties:
 
-- `name`: nome da variável usada no código de função para a mensagem do hub de notificação.
-- `type`: deve ser definido como *"notificationHub"*.
-- `tagExpression`: as expressões de marca permitem que você especifique que as notificações sejam entregues a um conjunto de dispositivos que se registraram para receber notificações que correspondem à expressão de marca. Para saber mais, veja [Expressões de marca e de roteamento](../notification-hubs/notification-hubs-tags-segment-push-message.md).
-- `hubName`: nome do recurso de hub de notificação no portal do Azure.
-- `connection`: essa cadeia de conexão deve ser uma cadeia de conexão de **Configuração de Aplicativo** definida com o valor *DefaultFullSharedAccessSignature* para seu hub de notificação.
-- `direction`: deve ser definido como *out*.
+- `name` : Variable name used in function code for the notification hub message.
+- `type` : must be set to *"notificationHub"*.
+- `tagExpression` : Tag expressions allow you to specify that notifications be delivered to a set of devices who have registered to receive notifications that match the tag expression.  For more information, see [Routing and tag expressions](../notification-hubs/notification-hubs-tags-segment-push-message.md).
+- `hubName` : Name of the notification hub resource in the Azure portal.
+- `connection` : This connection string must be an **Application Setting** connection string set to the *DefaultFullSharedAccessSignature* value for your notification hub.
+- `direction` : must be set to *"out"*. 
  
-function.json de exemplo:
+Example function.json:
 
-	{
-	  "bindings": [
-	    {
-	      "name": "notification",
-	      "type": "notificationHub",
-	      "tagExpression": "",
-	      "hubName": "my-notification-hub",
-	      "connection": "MyHubConnectionString",
-	      "direction": "out"
-	    }
-	  ],
-	  "disabled": false
-	}
+    {
+      "bindings": [
+        {
+          "name": "notification",
+          "type": "notificationHub",
+          "tagExpression": "",
+          "hubName": "my-notification-hub",
+          "connection": "MyHubConnectionString",
+          "direction": "out"
+        }
+      ],
+      "disabled": false
+    }
 
-## Configuração da cadeia de conexão do Hub de Notificação do Azure
+## <a name="azure-notification-hub-connection-string-setup"></a>Azure Notification Hub connection string setup
 
-Para usar uma associação de saída de um hub de notificação, você deve configurar a cadeia de conexão para o hub. Você pode fazer isso na guia *Integrar* simplesmente selecionando seu hub de notificação ou criando um novo.
+To use a Notification hub output binding you must configure the connection string for the hub. You can do this on the *Integrate* tab by simply selecting your notification hub or creating a new one. 
 
-Você também pode adicionar manualmente uma cadeia de conexão a um hub existente adicionando uma cadeia de conexão à *DefaultFullSharedAccessSignature* para seu hub de notificação. Essa cadeia de conexão fornece sua permissão de acesso à função para enviar mensagens de notificação. O valor da cadeia de conexão *DefaultFullSharedAccessSignature* pode ser acessado do botão **chaves** na folha principal do seu recurso de hub de notificação no portal do Azure. Para adicionar manualmente uma cadeia de conexão ao hub, use estas etapas:
+You can also manually add a connection string for an existing hub by adding a connection string for the *DefaultFullSharedAccessSignature* to your notification hub. This connection string provides your function access permission to send notification messages. The *DefaultFullSharedAccessSignature* connection string value can be accessed from the **keys** button in the main blade of your notification hub resource in the Azure portal. To manually add a connection string for your hub, use the following steps: 
 
-1. Na folha **Aplicativo de funções** do portal do Azure, clique em **Configurações do Aplicativo de funções > Vá para as configurações do Serviço de Aplicativo**.
+1. On the **Function app** blade of the Azure portal, click **Function App Settings > Go to App Service settings**.
 
-2. Na folha **Configurações**, clique em **Configurações do Aplicativo**.
+2. In the **Settings** blade, click **Application Settings**.
 
-3. Role para baixo até a seção **Cadeias de conexão** e adicione uma entrada nomeada para o valor *DefaultFullSharedAccessSignature* para o hub de notificação. Altere o tipo para **Personalizado**.
-4. Faça referência ao nome da sua cadeia de conexão nas associações de saída. Semelhante à **MyHubConnectionString** usada no exemplo acima.
+3. Scroll down to the **Connection strings** section, and add an named entry for *DefaultFullSharedAccessSignature* value for you notification hub. Change the type to **Custom**.
+4. Reference your connection string name in the output bindings. Similar to **MyHubConnectionString** used in the example above.
 
-## Exemplo de código de Hub de Notificação do Azure para um gatilho de temporizador do Node.js 
+## <a name="azure-notification-hub-code-example-for-a-node.js-timer-trigger"></a>Azure Notification Hub code example for a Node.js timer trigger 
 
-Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém `location` e `message`.
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
 
-	module.exports = function (context, myTimer) {
-	    var timeStamp = new Date().toISOString();
-	   
-	    if(myTimer.isPastDue)
-	    {
-	        context.log('Node.js is running late!');
-	    }
-	    context.log('Node.js timer trigger function ran!', timeStamp);  
-	    context.bindings.notification = {
-	        location: "Redmond",
-	        message: "Hello from Node!"
-	    };
-	    context.done();
-	};
+    module.exports = function (context, myTimer) {
+        var timeStamp = new Date().toISOString();
+       
+        if(myTimer.isPastDue)
+        {
+            context.log('Node.js is running late!');
+        }
+        context.log('Node.js timer trigger function ran!', timeStamp);  
+        context.bindings.notification = {
+            location: "Redmond",
+            message: "Hello from Node!"
+        };
+        context.done();
+    };
 
-## Exemplo de código de Hub de Notificação do Azure para um gatilho de temporizador do F#
+## <a name="azure-notification-hub-code-example-for-a-f#-timer-trigger"></a>Azure Notification Hub code example for a F# timer trigger
 
-Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém `location` e `message`.
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
 
-	let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
-	    notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
+    let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
+        notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
 
-## Exemplo de código de Hub de Notificação do Azure para um gatilho de fila do C#
+## <a name="azure-notification-hub-code-example-for-a-c#-queue-trigger"></a>Azure Notification Hub code example for a C# queue trigger
 
-Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém `message`.
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `message`.
 
 
-	using System;
-	using System.Threading.Tasks;
-	using System.Collections.Generic;
-	 
-	public static void Run(string myQueueItem,  out IDictionary<string, string> notification, TraceWriter log)
-	{
-	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    using System;
+    using System.Threading.Tasks;
+    using System.Collections.Generic;
+     
+    public static void Run(string myQueueItem,  out IDictionary<string, string> notification, TraceWriter log)
+    {
+        log.Info($"C# Queue trigger function processed: {myQueueItem}");
         notification = GetTemplateProperties(myQueueItem);
-	}
-	 
-	private static IDictionary<string, string> GetTemplateProperties(string message)
-	{
-	    Dictionary<string, string> templateProperties = new Dictionary<string, string>();
-	    templateProperties["message"] = message;
-	    return templateProperties;
-	}
+    }
+     
+    private static IDictionary<string, string> GetTemplateProperties(string message)
+    {
+        Dictionary<string, string> templateProperties = new Dictionary<string, string>();
+        templateProperties["message"] = message;
+        return templateProperties;
+    }
 
-Este exemplo envia uma notificação para um [registro de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém `message` usando uma cadeia de caracteres JSON válida.
+This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `message` using a valid JSON string.
 
-	using System;
-	 
-	public static void Run(string myQueueItem,  out string notification, TraceWriter log)
-	{
-		log.Info($"C# Queue trigger function processed: {myQueueItem}");
-		notification = "{"message":"Hello from C#. Processed a queue item!"}";
-	}
+    using System;
+     
+    public static void Run(string myQueueItem,  out string notification, TraceWriter log)
+    {
+        log.Info($"C# Queue trigger function processed: {myQueueItem}");
+        notification = "{\"message\":\"Hello from C#. Processed a queue item!\"}";
+    }
 
-## Exemplo de código C# de gatilho de fila do Hub de Notificação do Azure usando o tipo Notificação
+## <a name="azure-notification-hub-queue-trigger-c#-code-example-using-notification-type"></a>Azure Notification Hub queue trigger C# code example using Notification type
 
-Este exemplo mostra como usar o tipo `Notification` definido na [Biblioteca de Hubs de Notificações do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). Para usar esse tipo e a biblioteca, você deve carregar um arquivo *project.json* para seu aplicativo de funções. O arquivo project.json é um arquivo de texto JSON que terá esta aparência:
+This example shows how to use the `Notification` type that is defined in the [Microsoft Azure Notification Hubs Library](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). In order to use this type, and the library, you must upload a *project.json* file for your function app. The project.json file is a JSON text file which will look similar to the follow:
 
-	{
-	  "frameworks": {
-	    ".NETFramework,Version=v4.6": {
-	      "dependencies": {
-	        "Microsoft.Azure.NotificationHubs": "1.0.4"
-	      }
-	    }
-	  }
-	}
+    {
+      "frameworks": {
+        ".NETFramework,Version=v4.6": {
+          "dependencies": {
+            "Microsoft.Azure.NotificationHubs": "1.0.4"
+          }
+        }
+      }
+    }
 
-Para obter mais informações sobre o carregamento do seu arquivo project.json, confira [carregando um arquivo project.json](functions-reference.md#fileupdate).
+For more information on uploading your project.json file, see [uploading a project.json file](functions-reference.md#fileupdate).
 
-Código de exemplo:
+Example code:
 
-	using System;
-	using System.Threading.Tasks;
-	using Microsoft.Azure.NotificationHubs;
-	 
-	public static void Run(string myQueueItem,  out Notification notification, TraceWriter log)
-	{
-	   log.Info($"C# Queue trigger function processed: {myQueueItem}");
-	   notification = GetTemplateNotification(myQueueItem);
-	}
-	private static TemplateNotification GetTemplateNotification(string message)
-	{
-	    Dictionary<string, string> templateProperties = new Dictionary<string, string>();
-	    templateProperties["message"] = message;
-	    return new TemplateNotification(templateProperties);
-	}
+    using System;
+    using System.Threading.Tasks;
+    using Microsoft.Azure.NotificationHubs;
+     
+    public static void Run(string myQueueItem,  out Notification notification, TraceWriter log)
+    {
+       log.Info($"C# Queue trigger function processed: {myQueueItem}");
+       notification = GetTemplateNotification(myQueueItem);
+    }
+    private static TemplateNotification GetTemplateNotification(string message)
+    {
+        Dictionary<string, string> templateProperties = new Dictionary<string, string>();
+        templateProperties["message"] = message;
+        return new TemplateNotification(templateProperties);
+    }
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-[AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
+[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

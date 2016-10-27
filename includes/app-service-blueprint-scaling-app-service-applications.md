@@ -1,17 +1,20 @@
-* [Dimensionar Serviço de Aplicativo do Azure](../articles/app-service-web/web-sites-scale.md)
-	* Noções Básicas Sobre Confiabilidade e Redundância
-	* Aplicativos Com monitoração de estado vs aplicativos Sem monitoração de estado
-		* [Configurando seu aplicativo Sem monitoração de Estado](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
+* [Scale Azure App Service](../articles/app-service-web/web-sites-scale.md)
+    * Understanding Redundancy and Reliability
+    * StateFULL vs StateLESS applications
+        * [Configuring your Stateless app](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
 
-* Realizando Teste de Carga no Serviço de Aplicativo
+* Load Testing apps in App Service   
 
-* Melhores práticas para colocação de escala do Serviço de Aplicativo
-	* Esgotamento de porta e pooling de conexões
-	* [Utilização do Armazenamento do Azure do seu aplicativo do Serviço de Aplicativo](../articles/storage/storage-dotnet-how-to-use-blobs.md)
-	* [Utilização do CDN do Azure do seu aplicativo do Serviço de Aplicativo](../articles/cdn/cdn-overview.md)
-	* [Utilização do Cache Redis do Azure do seu aplicativo do Serviço de Aplicativo](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
+* App Service scaling best practices
+    * Port exhaustion and connection pooling
+    * [Leveraging Azure Storage from your App Service app](../articles/storage/storage-dotnet-how-to-use-blobs.md)
+    * [Leveraging Azure CDN from your App Service app](../articles/cdn/cdn-overview.md)
+    * [Leveraging Azure Redis Cache from your App Service app](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
 
-* Distribuição geográfica
-	* [Utilizando o Gerenciador de Tráfego para atingir escala global](../articles/traffic-manager/traffic-manager-overview.md)
+* Geo distribution
+    * [Leveraging Traffic Manager to achive global scale](../articles/traffic-manager/traffic-manager-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

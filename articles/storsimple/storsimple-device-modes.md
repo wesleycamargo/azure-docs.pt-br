@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Altere o modo de dispositivo StorSimple | Microsoft Azure"
-   description="Descreve os modos de dispositivo StorSimple e explica como usar o Windows PowerShell para StorSimple para alterar o modo de dispositivo."
+   pageTitle="Change the StorSimple device mode | Microsoft Azure"
+   description="Describes the StorSimple device modes and explains how to use Windows PowerShell for StorSimple to change the device mode."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,87 +15,94 @@
    ms.date="06/17/2016"
    ms.author="alkohli" />
 
-# Alterar o modo do dispositivo StorSimple
 
-Este artigo fornece uma breve descrição dos diversos modos em que o dispositivo StorSimple pode operar. O dispositivo StorSimple pode funcionar em três modos: normal, manutenção e recuperação.
+# <a name="change-the-device-mode-on-your-storsimple-device"></a>Change the device mode on your StorSimple device
 
-Após ler este artigo, você conhecerá:
+This article provides a brief description of the various modes in which your StorSimple device can operate. Your StorSimple device can function in three modes: normal, maintenance, and recovery. 
 
-- O que são os modos de dispositivo StorSimple
-- Como descobrir em qual modo o dispositivo StorSimple está
-- Como alterar do modo normal para o modo de manutenção e *vice-versa*
+After reading this article, you will know:
 
-
-As tarefas de gerenciamento acima só podem ser executadas por meio da interface do Windows PowerShell do dispositivo StorSimple.
-
-## Sobre os modos do dispositivo StorSimple
-
-O dispositivo StorSimple pode operar nos modos normal, de manutenção ou de recuperação. Cada um desses modos é descrito resumidamente abaixo.
-
-### Modo Normal
-
-É definido como o modo operacional normal para um dispositivo StorSimple totalmente configurado. Por padrão, o dispositivo deve estar no modo normal.
-
-### Modo de Manutenção
-
-Às vezes, o dispositivo StorSimple pode precisar ser colocado no modo de manutenção. Esse modo permite realizar a manutenção no dispositivo e instalar atualizações sem interrupção, como aquelas relacionadas ao firmware do disco.
-
-Você pode colocar o sistema no modo de manutenção somente por meio do Windows PowerShell para StorSimple. Todas as solicitações de E/S são pausadas neste modo. Serviços como NVRAM (memória de acesso aleatório não volátil) ou o serviço de cluster também são interrompidos. Ambos os controladores são reiniciados quando você entra ou sai desse modo. Quando você sair do modo de manutenção, todos os serviços continuarão e deverão estar íntegros. Isso pode levar alguns minutos.
-
->[AZURE.NOTE] **Só há suporte ao modo de Manutenção em um dispositivo que esteja funcionando corretamente. Não há suporte a ele em um dispositivo no qual um dos controladores ou ambos não estejam funcionando.**</br>
-
-### Modo de recuperação
-
-O modo de recuperação pode ser descrito como "Modo Seguro do Windows com suporte de rede". O modo de recuperação envolve a equipe de Suporte da Microsoft e permite que ela execute o diagnóstico do sistema. O objetivo principal do modo de recuperação é recuperar os logs do sistema.
-
-Se o sistema entrar no modo de recuperação, você deverá contatar o Suporte da Microsoft para obter as próximas etapas. Para obter mais informações, vá para [Contatar o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
-
->[AZURE.NOTE] **Você não pode colocar o dispositivo no modo de recuperação. Se o dispositivo estiver em um estado inválido, o modo de recuperação tentará colocá-lo em um estado em que a equipe de Suporte da Microsoft possa examiná-lo.**
-
-## Determinar o modo do dispositivo StorSimple
-
-#### Para determinar o modo atual do dispositivo
-
-1. Faça logon no console serial do dispositivo seguindo as etapas em [Usar o PuTTY para conectar-se ao console serial do dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
-
-2. Examine a mensagem do cabeçalho no menu do console serial do dispositivo. A mensagem indica explicitamente se o dispositivo está no modo de manutenção ou de recuperação. Se a mensagem não contiver informações específicas sobre o modo do sistema, o dispositivo está no modo normal.
-
-## Alterar o modo de dispositivo StorSimple 
-
-Você pode colocar o dispositivo StorSimple no modo de manutenção (do modo normal) para realizar a manutenção ou instalar atualizações do modo de manutenção. Execute os seguintes procedimentos para entrar ou sair do modo de manutenção.
-
-> [AZURE.IMPORTANT] Antes de entrar no modo de manutenção, verifique se ambos os controladores de dispositivo estão íntegros, acessando o **Status de Hardware** na página **Manutenção** no Portal clássico do Azure. Se um ou ambos os controladores não estiverem íntegros, contate o Suporte da Microsoft para as próximas etapas. Para obter mais informações, vá para [Contatar o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
-
-#### Para entrar no modo de manutenção
-
-1. Faça logon no console serial do dispositivo seguindo as etapas em [Usar o PuTTY para conectar-se ao console serial do dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
-
-2. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**. Quando solicitado, forneça a **senha de administrador do dispositivo**. A senha padrão é: `Password1`.
-
-3. No prompt de comando, digite
-
-	`Enter-HcsMaintenanceMode`
-
-4. Você verá uma mensagem de aviso informando que o modo de Manutenção interromperá todas as solicitações de E/S e a conexão com o portal clássico do Azure, e você será solicitado a confirmar. Digite **Y** para entrar no modo de manutenção.
-
-5. Ambos os controladores serão reiniciados. Quando a reinicialização estiver concluída, outra mensagem será exibida indicando que o dispositivo está em modo de manutenção.
+- What the StorSimple device modes are
+- How to figure out which mode the StorSimple device is in
+- How to change from normal to maintenance mode and *vice versa*
 
 
-#### Para sair do modo de manutenção
+The above management tasks can only be performed via the Windows PowerShell interface of your StorSimple device.
 
-1. Faça logon no console serial do dispositivo. Verifique na mensagem do cabeçalho se o dispositivo está no modo de manutenção.
+## <a name="about-storsimple-device-modes"></a>About StorSimple device modes
 
-2. No prompt de comando, digite:
+Your StorSimple device can operate in normal, maintenance, or recovery mode. Each of these modes is briefly described below.
 
-	`Exit-HcsMaintenanceMode`
+### <a name="normal-mode"></a>Normal mode
 
-3. Uma mensagem de aviso e uma mensagem de confirmação serão exibidas. Digite **Y** para sair do modo de manutenção.
+This is defined as the normal operational mode for a fully configured StorSimple device. By default, your device should be in normal mode.
 
-4. Ambos os controladores serão reiniciados. Quando a reinicialização estiver concluída, outra mensagem será exibida indicando que o dispositivo está em modo normal.
+### <a name="maintenance-mode"></a>Maintenance mode
+
+Sometimes the StorSimple device may need to be placed into maintenance mode. This mode allows you to perform maintenance on the device and install disruptive updates, such as those related to disk firmware.
+
+You can put the system into maintenance mode only via the Windows PowerShell for StorSimple. All I/O requests are paused in this mode. Services such as non-volatile random access memory (NVRAM) or the clustering service are also stopped. Both the controllers are restarted when you enter or exit this mode. When you exit the maintenance mode, all the services will resume and should be healthy. This may take a few minutes.
+
+>[AZURE.NOTE] **Maintenance mode is only supported on a properly functioning device. It is not supported on a device in which one or both of the controllers are not functioning.**
+</br>
+
+### <a name="recovery-mode"></a>Recovery mode
+
+Recovery mode can be described as "Windows Safe Mode with network support". Recovery mode engages the Microsoft Support team and allows them to perform diagnostics on the system. The primary goal of recovery mode is to retrieve the system logs.
+
+If your system goes into recovery mode, you should contact Microsoft Support for next steps. For more information, go to [Contact Microsoft Support](storsimple-contact-microsoft-support.md).
+
+>[AZURE.NOTE] **You cannot place the device in recovery mode. If the device is in a bad state, recovery mode tries to get the device into a state in which Microsoft Support personnel can examine it.**
+
+## <a name="determine-storsimple-device-mode"></a>Determine StorSimple device mode
+
+#### <a name="to-determine-the-current-device-mode"></a>To determine the current device mode
+
+1. Log on to the device serial console by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+
+2. Look at the banner message in the serial console menu of the device. This message explicitly indicates whether the device is in maintenance or recovery mode. If the message does not contain any specific information pertaining to the system mode, the device is in normal mode.
+
+## <a name="change-the-storsimple-device-mode"></a>Change the StorSimple device mode 
+
+You can place the StorSimple device into maintenance mode (from normal mode) to perform maintenance or install maintenance mode updates. Perform the following procedures to enter or exit maintenance mode.
+
+> [AZURE.IMPORTANT] Before entering maintenance mode, verify that both device controllers are healthy by accessing the **Hardware Status** on the **Maintenance** page in the Azure classic portal. If one or both the controllers are not healthy, contact Microsoft Support for the next steps. For more information, go to [Contact Microsoft Support](storsimple-contact-microsoft-support.md).
+
+#### <a name="to-enter-maintenance-mode"></a>To enter maintenance mode
+
+1. Log on to the device serial console by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+
+2. In the serial console menu, choose option 1, **Log in with full access**. When prompted, provide the **device administrator password**. The default password is: `Password1`.
+
+3. At the command prompt, type 
+
+    `Enter-HcsMaintenanceMode`
+
+4. You will see a warning message telling you that maintenance mode will disrupt all I/O requests and sever the connection to the Azure classic portal, and you will be prompted for confirmation. Type **Y** to enter maintenance mode.
+
+5. Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in maintenance mode.
 
 
-## Próximas etapas
+#### <a name="to-exit-maintenance-mode"></a>To exit maintenance mode
 
-Saiba como [aplicar atualizações do modo normal e de manutenção](storsimple-update-device.md) no dispositivo StorSimple.
+1. Log on to the device serial console. Verify from the banner message that your device is in maintenance mode.
 
-<!---HONumber=AcomDC_0622_2016-->
+2. At the command prompt, type:
+
+    `Exit-HcsMaintenanceMode`
+
+3. A warning message and a confirmation message will appear. Type **Y** to exit maintenance mode.
+
+4. Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in normal mode.
+
+
+## <a name="next-steps"></a>Next steps
+
+Learn how to [apply normal and maintenance mode updates](storsimple-update-device.md) on your StorSimple device.
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

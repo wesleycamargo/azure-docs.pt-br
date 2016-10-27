@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Práticas recomendadas para o StorSimple Virtual Array | Microsoft Azure"
-   description="Descreve as práticas recomendadas para implantar e gerenciar o StorSimple Virtual Array."
+   pageTitle="Best practices for StorSimple Virtual Array | Microsoft Azure"
+   description="Describes the best practices for deploying and managing the StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,338 +15,344 @@
    ms.date="08/09/2016"
    ms.author="alkohli" />
 
-# Práticas recomendadas do StorSimple Virtual Array
 
-## Visão geral
+# <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array best practices
 
-A Matriz Virtual Microsoft Azure StorSimple é uma solução de armazenamento integrado que gerencia as tarefas de armazenamento entre um dispositivo virtual local executando em um hipervisor e o armazenamento em nuvem do Microsoft Azure. O StorSimple Virtual Array é uma alternativa eficiente e econômica para a matriz física da série 8000. A matriz virtual pode ser executada em sua infraestrutura de hipervisor existente, oferece suporte ao iSCSI e aos protocolos SMB, além de ser adequada a cenários de filiais/escritórios remotos. Para saber mais sobre as soluções do StorSimple, vá para [Visão geral do Microsoft Azure StorSimple](https://www.microsoft.com/pt-BR/server-cloud/products/storsimple/overview.aspx).
+## <a name="overview"></a>Overview
 
-Este artigo aborda as práticas recomendadas implementadas durante a configuração inicial, a implantação e o gerenciamento do StorSimple Virtual Array. Essas práticas recomendadas oferecem diretrizes validadas para a instalação e o gerenciamento da sua matriz virtual. Este artigo é destinado a administradores de TI que implantam e gerenciam as matrizes virtuais em seus datacenters.
+Microsoft Azure StorSimple Virtual Array is an integrated storage solution that manages storage tasks between an on-premises virtual device running in a hypervisor and Microsoft Azure cloud storage. StorSimple Virtual Array is an efficient, cost-effective alternative to the 8000 series physical array. The virtual array can run on your existing hypervisor infrastructure, supports both the iSCSI and the SMB protocols, and is well-suited for remote office/branch office scenarios. For more information on the StorSimple solutions, go to [Microsoft Azure StorSimple Overview](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
 
-É recomendável uma revisão periódica das práticas recomendadas para ajudar a garantir que seu dispositivo ainda esteja em conformidade quando forem feitas alterações no fluxo de instalação ou de operação. Se você encontrar problemas ao implementar essas práticas recomendadas em sua matriz virtual, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para obter assistência.
+This article covers the best practices implemented during the initial setup, deployment, and management of the StorSimple Virtual Array. These best practices provide validated guidelines for the setup and management of your virtual array. This article is targeted towards the IT administrators who deploy and manage the virtual arrays in their datacenters.
 
-## Práticas recomendadas de configuração 
+We recommend a periodic review of the best practices to help ensure your device is still in compliance when changes are made to the setup or operation flow. Should you encounter any issues while implementing these best practices on your virtual array, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance.
 
-Essas práticas recomendadas abrangem as diretrizes que precisam ser seguidas durante a instalação inicial e a implantação das matrizes virtuais. As práticas recomendadas incluem aquelas relacionadas ao provisionamento da máquina virtual, às configurações da política de grupo, ao dimensionamento, à configuração da rede, à configuração de contas de armazenamento e à criação de compartilhamentos e volumes para a matriz virtual.
+## <a name="configuration-best-practices"></a>Configuration best practices 
 
-### Provisionamento 
+These best practices cover the guidelines that need to be followed during the initial setup and deployment of the virtual arrays. These best practices include those related to the provisioning of the virtual machine, group policy settings, sizing, setting up the networking, configuring storage accounts, and creating shares and volumes for the virtual array. 
 
-O StorSimple Virtual Array é uma máquina virtual (VM) provisionada no hipervisor (Hyper-V ou VMware) do seu servidor host. Ao provisionar a máquina virtual, verifique se seu host é capaz de dedicar recursos suficientes. Para saber mais, vá para [requisitos mínimos de recurso](storsimple-ova-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements) para provisionar uma matriz.
+### <a name="provisioning"></a>Provisioning 
 
-Implemente as seguintes práticas recomendadas ao provisionar a matriz virtual:
+StorSimple Virtual Array is a virtual machine (VM) provisioned on the hypervisor (Hyper-V or VMware) of your host server. When provisioning the virtual machine, ensure that your host is able to dedicate sufficient resources. For more information, go to [minimum resource requirements](storsimple-ova-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements) to provision an array. 
+
+Implement the following best practices when provisioning the virtual array:
 
 
-| | Hyper-V | VMware |
+|                        | Hyper-V                                                                                                                                        | VMware                                                                                                               |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| **Tipo de máquina virtual** | A VM de **geração 2** a ser usada com o Windows Server 2012 ou posterior e uma imagem *.vhdx*. <br></br> A VM de **geração 1** a ser usada com um Windows Server 2008 ou posterior e uma imagem *.vhd*. | Use a máquina virtual versão 8 a 11 ao usar a imagem *.vmdk*. |
-| **Tipo de memória** | Configurar como **memória estática**. <br></br> Não use a opção **memória dinâmica**. | |
-| **Tipo de disco de dados** | Provisione como **expandindo dinamicamente**.<br></br> O **tamanho fixo** leva muito tempo. <br></br> Não use a opção de **diferenciação**. | Use a opção **provisionamento dinâmico**. |
-| **Modificação de disco de dados** | A expansão ou a redução não é permitida. Uma tentativa de fazer isso resulta na perda de todos os dados locais no dispositivo. | A expansão ou a redução não é permitida. Uma tentativa de fazer isso resulta na perda de todos os dados locais no dispositivo. |
+| **Virtual machine type**   | **Generation 2** VM for use with Windows Server 2012 or later and a *.vhdx* image. <br></br> **Generation 1** VM for use with a Windows Server 2008 or later and a *.vhd* image.                                                                                                              | Use virtual machine version 8 - 11 when using *.vmdk* image.                                                                      |
+| **Memory type**            | Configure as **static memory**. <br></br> Do not use the **dynamic memory** option.            |                                                    |
+| **Data disk type**         | Provision as **dynamically expanding**.<br></br> **Fixed size** takes a long time. <br></br> Do not use the **differencing** option.                                                                                                                   | Use the **thin provision** option.                                                                                      |
+| **Data disk modification** | Expansion or shrinking is not allowed. An attempt to do so results in the loss of all the local data on device.                       | Expansion or shrinking is not allowed. An attempt to do so results in the loss of all the local data on device. |
 
-### Dimensionamento
+### <a name="sizing"></a>Sizing
 
-Ao dimensionar seu StorSimple Virtual Array, considere os seguintes fatores:
+When sizing your StorSimple Virtual Array, consider the following factors:
 
-- Reserva de local de volumes ou de compartilhamentos. Aproximadamente 12% do espaço é reservado na camada local para cada volume ou compartilhamento em camadas provisionado. Aproximadamente 10% do espaço também é reservado para um volume fixado localmente para o sistema de arquivos.
-- Sobrecarga de instantâneo. Aproximadamente 15% do espaço na camada local é reservado para instantâneos.
-- Necessidade de restaurações. Se a restauração for feita como uma nova operação, o dimensionamento deverá considerar o espaço necessário para a restauração. A restauração é feita para um compartilhamento ou um volume do mesmo tamanho ou maior.
-- Parte do buffer deve ser alocada para qualquer crescimento inesperado.
+- Local reservation for volumes or shares. Approximately 12% of the space is reserved on the local tier for each provisioned tiered volume or share. Roughly 10% of the space is also reserved for a locally pinned volume for file system.
+- Snapshot overhead. Roughly 15% space on the local tier is reserved for snapshots.
+- Need for restores. If doing restore as a new operation, sizing should account for the space needed for restore. Restore is done to a share or volume of the same size or larger.
+- Some buffer should be allocated for any unexpected growth.
 
-Com base nos fatores citados, os requisitos de dimensionamento podem ser representados pela seguinte equação:
+Based on the preceding factors, the sizing requirements can be represented by the following equation:
 
 `Total usable local disk size = (Total provisioned locally pinned volume/share size including space for file system) + (Max (local reservation for a volume/share) for all tiered volumes/share) + (Local reservation for all tiered volumes/shares)`
 
 `Data disk size = Total usable local disk size + Snapshot overhead + buffer for unexpected growth or new share or volume`
 
 
-Os exemplos a seguir ilustram como você pode dimensionar uma matriz virtual com base em seus requisitos.
+The following examples illustrate how you can size a virtual array based on your requirements.
 
-#### Exemplo 1:
-Em sua matriz virtual, você deseja ser capaz de
+#### <a name="example-1:"></a>Example 1:
+On your virtual array, you want to be able to 
 
-- provisionar um volume ou um compartilhamento em camadas de 2 TB.
-- provisionar um volume ou um compartilhamento em camadas de 1 TB.
-- provisionar um volume ou um compartilhamento fixado localmente de 300 GB.
-
-
-Para os volumes ou os compartilhamentos citados, vamos calcular os requisitos de espaço na camada local.
-
-Primeiro, para cada volume/compartilhamento em camadas, a reserva local seria igual a 12% do tamanho do volume/compartilhamento. Para cada volume/compartilhamento fixado localmente, a reserva local seria de 10% do tamanho do volume/compartilhamento. Nesse exemplo, você precisa de
-
-- reserva local de 240 GB (para um volume/compartilhamento em camadas de 2 TB)
-- reserva local de 120 GB (para um volume/compartilhamento em camadas de 1 TB)
-- 330 GB para volume ou compartilhamento afixado localmente
-
-O espaço total necessário na camada local até o momento é de: 240 GB + 120 GB + 330 GB = 690 GB.
-
-Em segundo lugar, precisamos de pelo menos um espaço na camada local do tamanho da maior reserva única. Esse valor extra será usado caso você precise restaurar de um instantâneo de nuvem. Neste exemplo, a maior reserva local é 330 GB (incluindo a reserva para o sistema de arquivos) e, portanto, você adicionaria isso aos 660 GB: 660 GB + 330 GB = 990 GB. Se executamos as restaurações adicionais subsequentes, sempre será possível liberar o espaço da operação de restauração anterior.
-
-Em terceiro lugar, precisamos de 15% do espaço total local até o momento para armazenar os instantâneos locais, de modo que apenas 85% disso esteja disponível. Nesse exemplo, isso seria em torno de 990 GB = 0,85&ast;TB de disco de dados provisionado. Portanto, o disco de dados provisionado seria (990&ast;(1/0,85))= 1164 GB = 1,16 TB ~ 1,25 TB (arredondamento para o quartil mais próximo)
-
-Incluindo o crescimento inesperado e novas restaurações, você deverá provisionar um disco local de aproximadamente 1,25 a 1,5 TB.
-
-> [AZURE.NOTE] Também é recomendável que o disco local seja escassamente provisionado. Isso porque o espaço de restauração será necessário apenas quando você quiser restaurar dados com mais de cinco dias. A recuperação no nível do item permite que você restaure os dados dos últimos cinco dias sem exigir espaço extra para a restauração.
-
-#### Exemplo 2: 
-Em sua matriz virtual, você deseja ser capaz de
-
-- provisionar um volume em camadas de 2 TB
-- provisionar um volume fixado localmente de 300 GB
-
-Com base em 12% de reserva do espaço local para volumes/compartilhamentos em camadas e 10% para volumes/compartilhamentos fixados localmente, precisamos de
-
-- uma reserva local de 240 GB (para um volume/compartilhamento em camadas de 2 TB)
-- 330 GB para volume ou compartilhamento afixado localmente
-
-O espaço total necessário na camada local é de: 240 GB + 330 GB = 570 GB
-
-O espaço local mínimo necessário para restauração é de 330 GB.
-
-15% do disco total é usado para armazenar instantâneos, de forma que somente 0,85 esteja disponível. Portanto, o tamanho do disco é (900&ast;(1/0,85)) = 1,06 TB ~ 1,25 TB (arredondamento para o quartil mais próximo)
-
-Incluindo qualquer crescimento inesperado, você poderá provisionar um disco local de 1,25-1,5 TB.
+- provision a 2 TB tiered volume or share.
+- provision a 1 TB tiered volume or share.
+- provision a 300 GB of locally pinned volume or share.
 
 
-### Política de grupo
+For the preceding volumes or shares, let us calculate the space requirements on the local tier. 
 
-A Política de Grupo é uma infraestrutura que permite a você implementar configurações específicas para usuários e computadores. As configurações de Política de Grupo estão contidas em GPOs (objetos de Política de Grupo), vinculados aos seguintes contêineres do AD DS (Serviços de Domínio do Active Directory): sites, domínios ou UOs (unidades organizacionais).
+First, for each tiered volume/share, local reservation would be equal to 12% of the volume/share size. For the locally pinned volume/share, local reservation would be 10 % of the volume/share size. In this example, you need
 
-Se a matriz virtual estiver associada a um domínio, os GPOs poderão ser aplicados a ela. Esses GPOs podem instalar aplicativos como um software antivírus que possa afetar negativamente a operação do StorSimple Virtual Array.
+- 240 GB local reservation (for a 2 TB tiered volume/share)
+- 120 GB local reservation (for a 1 TB tiered volume/share)
+- 330 GB for locally pinned volume or share
 
-Portanto, recomendamos que você:
+The total space required on the local tier so far is: 240 GB + 120 GB + 330 GB = 690 GB.
 
--   Certifique-se de que a matriz virtual esteja em sua própria OU (unidade organizacional) do Active Directory.
+Second, we need at least as much space on the local tier as the largest single reservation. This extra amount is used in case you need to restore from a cloud snapshot. In this example, the largest local reservation is 330 GB (including reservation for file system), so you would add that to the 660 GB: 660 GB + 330 GB = 990 GB.
+If we performed subsequent additional restores, we can always free up the space from the previous restore operation.
 
--   Certifique-se de que nenhum GPO (objeto de política de grupo) seja aplicado à matriz virtual. Você pode bloquear a herança para garantir que a matriz virtual (nó filho) não herde automaticamente qualquer GPO do pai. Para saber mais, acesse [bloquear herança](https://technet.microsoft.com/library/cc731076.aspx).
+Third, we need 15 % of your total local space so far to store local snapshots, so that only 85% of it is available. In this example, that would be around 990 GB = 0.85&ast;provisioned data disk TB. So, the provisioned data disk would be (990&ast;(1/0.85))= 1164 GB = 1.16 TB ~ 1.25 TB (rounding off to nearest quartile)
 
+Factoring in unexpected growth and new restores, you should provision a local disk of around 1.25 - 1.5 TB.
 
-### Rede
+> [AZURE.NOTE] We also recommend that the local disk is thinly provisioned. This recommendation is because the restore space is only needed when you want to restore data that is older than five days. Item-level recovery allows you to restore data for the last five days without requiring the extra space for restore.
 
-A configuração de rede para sua matriz virtual é feita por meio da interface do usuário da Web local. Uma interface de rede virtual é habilitada por meio do hipervisor em que a matriz virtual é provisionada. Use a página [Configurações de Rede](storsimple-ova-deploy3-fs-setup.md) para configurar o endereço IP da interface de rede virtual, a sub-rede e o gateway. Você também pode configurar o servidor DNS primário e secundário, as configurações de hora e as configurações de proxy opcionais para o seu dispositivo. A maior parte da configuração de rede é uma configuração única. Examine os [requisitos de rede do StorSimple](storsimple-ova-system-requirements.md#networking-requirements) antes de implantar a matriz virtual.
+#### <a name="example-2:"></a>Example 2: 
+On your virtual array, you want to be able to 
 
-Ao implantar sua matriz virtual, recomendamos que você siga estas práticas recomendadas:
+- provision a 2 TB tiered volume
+- provision a 300 GB locally pinned volume
 
--   Certifique-se de que a rede na qual a matriz virtual está implantada sempre tenha a capacidade de dedicar uma largura de banda de Internet de 5 Mbps (ou mais).
+Based on 12 % of local space reservation for tiered volumes/shares and 10 % for locally pinned volumes/shares, we need
 
-    -   A largura de banda da Internet necessária varia de acordo com as características da carga de trabalho e com a taxa de alteração de dados.
+- 240 GB local reservation (for 2 TB tiered volume/share)
+- 330 GB for locally pinned volume or share
 
-    -   A alteração de dados que pode ser tratada é diretamente proporcional à sua largura de banda da Internet. Como um exemplo, ao fazer um backup, uma largura de banda de 5 Mbps pode acomodar uma alteração de dados de cerca de 18 GB em 8 horas. Com quatro vezes mais largura de banda (20 Mbps), você poderá lidar com uma alteração de dados quatro vezes maior (72 GB).
+Total space required on the local tier is: 240 GB + 330 GB = 570 GB
 
--   Verifique se a conectividade com a Internet está sempre disponível. As conexões da Internet esporádicas ou não confiáveis com os dispositivos podem resultar em perda de acesso aos dados na nuvem e podem resultar em uma configuração sem suporte.
+The minimum local space needed for restore is 330 GB. 
 
--   Se você planeja implantar o dispositivo como um servidor iSCSI:
-	-   É recomendável desabilitar a opção **Obter endereço IP automaticamente** (DHCP).
-	-   Configure endereços IP estáticos. Você deve configurar um servidor DNS principal e um secundário.
+15 % of your total disk is used to store snapshots so that only 0.85 is available. So, the disk size is (900&ast;(1/0.85)) = 1.06 TB ~ 1.25 TB (rounding off to nearest quartile) 
 
-	-   Se você estiver definindo várias interfaces de rede na matriz virtual, apenas a primeira interface de rede (por padrão, essa interface é **Ethernet**) poderá acessar a nuvem. Para controlar o tipo de tráfego, você poderá criar várias interfaces de rede virtual na matriz virtual (configurada como um servidor iSCSI) e conectá-las a sub-redes diferentes.
-
--   Para limitar somente a largura de banda da nuvem (usada pela matriz virtual), configure a limitação no roteador ou no firewall. Se você definir a limitação em seu hipervisor, ele limitará todos os protocolos, incluindo iSCSI e SMB, em vez de apenas a largura de banda de nuvem.
-
--   Verifique se a sincronização de hora para hipervisores está ativada. Se estiver usando o Hyper-V, escolha a matriz virtual no Gerenciador do Hyper-V, vá para **Configurações &gt; Serviços de Integração** e verifique se a **Sincronização de data/hora** está marcada.
-
-### Contas de armazenamento
-
-O StorSimple Virtual Array pode ser associado a uma única conta de armazenamento. Essa conta de armazenamento pode ser uma conta de armazenamento gerada automaticamente, uma conta na mesma assinatura que o serviço ou uma conta de armazenamento relacionada a outra assinatura. Para saber mais, confira como [gerenciar contas de armazenamento para sua matriz virtual](storsimple-ova-manage-storage-accounts.md).
-
-Use as seguintes recomendações para contas de armazenamento associadas à sua matriz virtual.
-
--   Ao vincular várias matrizes virtuais a uma única conta de armazenamento, inclua a capacidade máxima (64 TB) em uma matriz virtual e o tamanho máximo (500 TB) de uma conta de armazenamento. Isso limita o número de matrizes virtuais de tamanho máximo que podem ser associadas à conta de armazenamento a cerca de 7.
-
--   Ao criar uma nova conta de armazenamento
-	-   É recomendável que você a crie na região mais próxima ao escritório remoto/filial onde o StorSimple Virtual Array foi implantado para minimizar as latências.
-
-	-   Tenha em mente que você não pode mover uma conta de armazenamento entre regiões diferentes. Também é possível mover um serviço entre assinaturas.
-
-	-   Use uma conta de armazenamento que implemente a redundância entre os data centers. O GRS (Armazenamento com Redundância Geográfica), o ZRS (Armazenamento com Redundância Local) e o LRS (Armazenamento Localmente Redundante) têm suporte para serem usados com a matriz virtual. Para saber mais sobre os diferentes tipos de contas de armazenamento, vá para [replicação de armazenamento do Azure](../storage/storage-redundancy.md).
+Factoring in any unexpected growth, you can provision a 1.25 - 1.5 TB local disk.
 
 
-### Compartilhamentos e volumes
+### <a name="group-policy"></a>Group policy
 
-Para seu StorSimple Virtual Array, você pode provisionar compartilhamentos quando ele estiver configurado como um servidor de arquivos e volumes como um servidor iSCSI. As práticas recomendadas para a criação de compartilhamentos e volumes estão relacionadas ao tamanho e ao tipo configurados.
+Group Policy is an infrastructure that allows you to implement specific configurations for users and computers. Group Policy settings are contained in Group Policy objects (GPOs), which are linked to the following Active Directory Domain Services (AD DS) containers: sites, domains, or organizational units (OUs). 
 
-#### Tamanho de volume/compartilhamento
+If your virtual array is domain-joined, GPOs can be applied to it. These GPOs can install applications such as an antivirus software that can adversely impact the operation of the StorSimple Virtual Array.
 
-Em sua matriz virtual, você pode provisionar compartilhamentos quando ele estiver configurado como um servidor de arquivos e volumes quando ele estiver configurado como um servidor iSCSI. As práticas recomendadas para a criação de compartilhamentos e volumes estão relacionadas ao tamanho e ao tipo configurados.
+Therefore, we recommend that you:
 
-Tenha em mente as seguintes práticas recomendadas ao provisionar compartilhamentos ou volumes em seu dispositivo virtual.
+-   Ensure that your virtual array is in its own organizational unit (OU) for Active Directory. 
 
--   Os tamanhos de arquivo relativos ao tamanho provisionado de um compartilhamento em camadas pode afetar o desempenho em camadas. Trabalhar com arquivos grandes pode resultar em uma divisão lenta em camadas. Ao trabalhar com arquivos grandes, recomendamos que o maior arquivo seja inferior a 3% do tamanho do compartilhamento.
+-   Make sure that no group policy objects (GPOs) are applied to your virtual array. You can block inheritance to ensure that the virtual array (child node) does not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
 
--   Um máximo de 16 volumes/compartilhamentos pode ser criado na matriz virtual. Se fixados localmente, os volumes/compartilhamentos poderão ter entre 50 GB a 2 TB. Se estiverem em camadas, os volumes/compartilhamentos deverão ter entre 500 GB e 20 TB.
 
--   Ao criar um volume, inclua o consumo de dados esperado, bem como o crescimento futuro. Embora o volume não possa ser expandido posteriormente, você sempre pode restaurar para um volume maior.
+### <a name="networking"></a>Networking
 
--   Assim que o volume tiver sido criado, não será possível reduzir o tamanho do volume no StorSimple.
+The network configuration for your virtual array is done through the local web UI. A virtual network interface is enabled through the hypervisor in which the virtual array is provisioned. Use the [Network Settings](storsimple-ova-deploy3-fs-setup.md) page to configure the virtual network interface IP address, subnet, and gateway.  You can also configure the primary and secondary DNS server, time settings, and optional proxy settings for your device. Most of the network configuration is a one-time setup. Review the [StorSimple networking requirements](storsimple-ova-system-requirements.md#networking-requirements) prior to deploying the virtual array.
+
+When deploying your virtual array, we recommend that you follow these best practices:
+
+-   Ensure that the network in which the virtual array is deployed always has the capacity to dedicate 5 Mbps Internet bandwidth (or more). 
+
+    -   Internet bandwidth need varies depending on your workload characteristics and the rate of data change.
+
+    -   The data change that can be handled is directly proportional to your Internet bandwidth. As an example when taking a backup, a 5 Mbps bandwidth can accommodate a data change of around 18 GB in 8 hours. With four times more bandwidth (20 Mbps), you can handle four times more data change (72 GB). 
+
+-   Ensure connectivity to the Internet is always available. Sporadic or unreliable Internet connections to the devices may result in a loss of access to data in the cloud and could result in an unsupported configuration.
+
+-   If you plan to deploy your device as an iSCSI server: 
+    -   We recommend that you disable the **Get IP address automatically** option (DHCP). 
+    -   Configure static IP addresses. You must configure a primary and a secondary DNS server.
+
+    -   If defining multiple network interfaces on your virtual array, only the first network interface (by default, this interface is **Ethernet**) can reach the cloud. To control the type of traffic, you can create multiple virtual network interfaces on your virtual array (configured as an iSCSI server) and connect those interfaces to different subnets.
+
+-   To throttle the cloud bandwidth only (used by the virtual array), configure throttling on the router or the firewall. If you define throttling in your hypervisor, it will throttle all the protocols including iSCSI and SMB instead of just the cloud bandwidth. 
+
+-   Ensure that time synchronization for hypervisors is enabled. If using Hyper-V, select your virtual array in the Hyper-V Manager, go to **Settings &gt; Integration Services**, and ensure that the **Time synchronization** is checked.
+
+### <a name="storage-accounts"></a>Storage accounts
+
+StorSimple Virtual Array can be associated with a single storage account. This storage account could be an automatically generated storage account, an account in the same subscription as the service, or a storage account related to another subscription. For more information, see how to [manage storage accounts for your virtual array](storsimple-ova-manage-storage-accounts.md).
+
+Use the following recommendations for storage accounts associated with your virtual array.
+
+-   When linking multiple virtual arrays with a single storage account, factor in the maximum capacity (64 TB) for a virtual array and the maximum size (500 TB) for a storage account. This limits the number of full-sized virtual arrays that can be associated with that storage account to about 7.
+
+-   When creating a new storage account
+    -   We recommend that you create it in the region closest to the remote office/branch office where your StorSimple Virtual Array is deployed to minimize latencies.
+
+    -   Bear in mind that you cannot move a storage account across different regions. Also you cannot move a service across subscriptions.
+
+    -   Use a storage account that implements redundancy between the datacenters. Geo-Redundant Storage (GRS), Zone Redundant Storage (ZRS), and Locally Redundant Storage (LRS) are all supported for use with your virtual array. For more information on the different types of storage accounts, go to [Azure storage replication](../storage/storage-redundancy.md).
+
+
+### <a name="shares-and-volumes"></a>Shares and volumes
+
+For your StorSimple Virtual Array, you can provision shares when it is configured as a file server and volumes when configured as an iSCSI server. The best practices for creating shares and volumes are related to the size and the type configured.
+
+#### <a name="volume/share-size"></a>Volume/Share size
+
+On your virtual array, you can provision shares when it is configured as a file server and volumes when configured as an iSCSI server. The best practices for creating shares and volumes relate to the size and the type configured. 
+
+Keep in mind the following best practices when provisioning shares or volumes on your virtual device.
+
+-   The file sizes relative to the provisioned size of a tiered share can impact the tiering performance. Working with large files could result in a slow tier out. When working with large files, we recommend that the largest file is smaller than 3% of the share size.
+
+-   A maximum of 16 volumes/shares can be created on the virtual array. If locally pinned, the volumes/shares can be between 50 GB to 2 TB. If tiered, the volumes/shares must be between 500 GB to 20 TB. 
+
+-   When creating a volume, factor in the expected data consumption as well as future growth. While the volume cannot be expanded later, you can always restore to a larger volume.
+
+-   Once the volume has been created, you cannot shrink the size of the volume on StorSimple.
    
--   Ao gravar em um volume em camadas no StorSimple, quando os dados do volume atingirem um certo limite (em relação ao espaço local reservado para o volume), a E/S será restringida. Continuar gravando nesse volume reduz significativamente a E/S. Embora seja possível gravar em um volume em camadas além da sua capacidade provisionada (nós não impedimos ativamente o usuário de gravar além da capacidade provisionada), você verá uma notificação de alerta informando que há um excesso de assinaturas. Quando você vir o alerta, será imperativo que você tome medidas corretivas, como excluir dados do volume ou restaurar o volume em um volume maior (atualmente, a expansão de volume não tem suporte).
+-   When writing to a tiered volume on StorSimple, when the volume data reaches a certain threshold (relative to the local space reserved for the volume), the IO is throttled. Continuing to write to this volume slows down the IO significantly. Though you can write to a tiered volume beyond its provisioned capacity (we do not actively stop the user from writing beyond the provisioned capacity), you see an alert notification to the effect that you have oversubscribed. Once you see the alert, it is imperative that you take remedial measures such as delete the volume data or restore the volume to a larger volume (volume expansion is currently not supported).
 
--   Para casos de uso da recuperação de desastre, como o número de compartilhamentos/volumes permitidos é 16 e o número máximo de compartilhamentos/volumes que podem ser processados em paralelo também é 16, o número de compartilhamentos/volumes não influenciará o RPO e os RTOs.
+-   For disaster recovery use cases, as the number of allowable shares/volumes is 16 and the maximum number of shares/volumes that can be processed in parallel is also 16, the number of shares/volumes does not have a bearing on your RPO and RTOs. 
 
-#### Tipo de volume/compartilhamento
+#### <a name="volume/share-type"></a>Volume/Share type
 
-O StorSimple oferece suporte a dois tipos de volume/compartilhamento baseados no uso: fixados localmente e em camadas. Os volumes/compartilhamentos localmente fixados são fortemente provisionados, enquanto os volumes/compartilhamentos em camadas têm provisionamento dinâmico.
+StorSimple supports two volume/share types based on the usage: locally pinned and tiered. Locally pinned volumes/shares are thickly provisioned whereas the tiered volumes/shares are thinly provisioned. 
 
-É recomendável que você implemente as seguintes práticas recomendadas ao configurar volumes/compartilhamentos do StorSimple:
+We recommend that you implement the following best practices when configuring StorSimple volumes/shares:
 
--   Identifique o tipo de volume com base em cargas de trabalho que você pretende implantar antes de criar um volume. Use volumes localmente fixos para cargas de trabalho que exigem garantias locais de dados (mesmo durante uma interrupção de nuvem) e que exigem latências de nuvem baixas. Ao criar um volume em sua matriz virtual, você não pode alterar o tipo de volume de fixado localmente para em camadas ou *vice-versa*. Por exemplo, crie volumes localmente fixos ao implantar cargas de trabalho do SQL ou cargas de trabalho que hospedam máquinas virtuais (VMs); use volumes em camadas para cargas de trabalho de compartilhamento de arquivo.
+-   Identify the volume type based on the workloads that you intend to deploy before you create a volume. Use locally pinned volumes for workloads that require local guarantees of data (even during a cloud outage) and that require low cloud latencies. Once you create a volume on your virtual array, you cannot change the volume type from locally pinned to tiered or *vice-versa*. As an example, create locally pinned volumes when deploying SQL workloads or workloads hosting virtual machines (VMs); use tiered volumes for file share workloads.
 
--   Marque a opção para dados de arquivamento usados com menos frequência ao lidar com arquivos de tamanho grande. Um tamanho maior de bloco de eliminação de duplicação de 512 K é usado quando essa opção é habilitada para acelerar a transferência de dados para a nuvem.
+-   Check the option for less frequently used archival data when dealing with large file sizes. A larger deduplication chunk size of 512 K is used when this option is enabled to expedite the data transfer to the cloud.
 
-#### Formato de volume
+#### <a name="volume-format"></a>Volume format
 
-Depois de criar volumes do StorSimple em seu servidor iSCSI, você precisa inicializar, montar e formatar os volumes. Essa operação é executada no host conectado ao seu dispositivo StorSimple. As práticas recomendadas a seguir são recomendadas ao montar e formatar volumes no host do StorSimple.
+After you create StorSimple volumes on your iSCSI server, you need to initialize, mount, and format the volumes. This operation is performed on the host connected to your StorSimple device. Following best practices are recommended when mounting and formatting volumes on the StorSimple host.
 
--   Execute uma formatação rápida em todos os volumes do StorSimple.
+-   Perform a quick format on all StorSimple volumes.
 
--   Ao formatar um volume do StorSimple, use um tamanho de unidade de alocação (AUS) de 64 KB (o padrão é 4 KB). O AUS de 64 KB baseia-se em testes realizados internamente para cargas de trabalho comuns do StorSimple e outras cargas de trabalho.
+-   When formatting a StorSimple volume, use an allocation unit size (AUS) of 64 KB (default is 4 KB). The 64 KB AUS is based on testing done in-house for common StorSimple workloads and other workloads.
 
--   Ao usar o StorSimple Virtual Array configurado como um servidor iSCSI, não use volumes estendidos ou discos dinâmicos, pois eles não são suportados pelo StorSimple.
+-   When using the StorSimple Virtual Array configured as an iSCSI server, do not use spanned volumes or dynamic disks as these volumes or disks are not supported by StorSimple.
 
-#### Acesso ao compartilhamento
+#### <a name="share-access"></a>Share access
 
-Ao criar compartilhamentos em seu servidor de arquivo de matriz virtual, siga estas diretrizes:
+When creating shares on your virtual array file server, follow these guidelines:
 
--   Ao criar um compartilhamento, atribua um grupo de usuários como um administrador de compartilhamento em vez de um único usuário.
+-   When creating a share, assign a user group as a share administrator instead of a single user.
 
--   Você pode gerenciar as permissões de NTFS depois que o compartilhamento for criado por meio da edição dos compartilhamentos no Windows Explorer.
+-   You can manage the NTFS permissions after the share is created by editing the shares through Windows Explorer.
 
-#### Acesso ao volume
+#### <a name="volume-access"></a>Volume access
 
-Ao configurar os volumes iSCSI no Array Virtual StorSimple, é importante controlar o acesso sempre que necessário. Para determinar quais servidores host podem acessar volumes, crie e associe ACRs (registros de controle de acesso) aos volumes do StorSimple.
+When configuring the iSCSI volumes on your StorSimple Virtual Array, it is important to control access wherever necessary. To determine which host servers can access volumes, create, and associate access control records (ACRs) with StorSimple volumes.
 
-Use as seguintes práticas recomendadas ao configurar ACRs para volumes do StorSimple:
+Use the following best practices when configuring ACRs for StorSimple volumes:
 
--   Sempre associe pelo menos um ACR a um volume.
+-   Always associate at least one ACR with a volume.
 
--   Defina vários ACRs somente em um ambiente clusterizado.
+-   Define multiple ACRs only in a clustered environment.
 
--   Ao atribuir mais de um ACR a um volume, verifique se o volume não está exposto de uma maneira em que possa ser acessado simultaneamente por mais de um host não clusterizado. Se vários ACRs tiverem sido atribuídos a um volume, uma mensagem de aviso será exibida para você verificar sua configuração.
+-   When assigning more than one ACR to a volume, ensure that the volume is not exposed in a way where it can be concurrently accessed by more than one non-clustered host. If you have assigned multiple ACRs to a volume, a warning message pops up for you to review your configuration.
 
-### Segurança e criptografia de dados
+### <a name="data-security-and-encryption"></a>Data security and encryption
 
-O StorSimple Virtual Array tem recursos de segurança e criptografia de dados que garantem a confidencialidade e a integridade dos dados. Ao usar esses recursos, é recomendável que você siga estas práticas recomendadas:
+Your StorSimple Virtual Array has data security and encryption features that ensure the confidentiality and integrity of your data. When using these features, it is recommended that you follow these best practices: 
 
--   Defina uma chave de criptografia de armazenamento de nuvem para gerar a criptografia AES-256 antes que os dados sejam enviados da sua matriz virtual para a nuvem. Essa chave não será necessária se seus dados forem criptografados inicialmente. A chave pode ser gerada e mantida segura usando um sistema de gerenciamento de chaves como o [Cofre de Chaves do Azure](../key-vault/key-vault-whatis.md).
+-   Define a cloud storage encryption key to generate AES-256 encryption before the data is sent from your virtual array to the cloud. This key is not required if your data is encrypted to begin with. The key can be generated and kept safe using a key management system such as [Azure key vault](../key-vault/key-vault-whatis.md).
 
--   Ao configurar a conta de armazenamento por meio do serviço StorSimple Manager, habilite o modo SSL para criar um canal seguro para comunicação de rede entre seu dispositivo StorSimple e a nuvem.
+-   When configuring the storage account via the StorSimple Manager service, make sure that you enable the SSL mode to create a secure channel for network communication between your StorSimple device and the cloud.
 
--   Regenere as chaves para suas contas de armazenamento (acessando o serviço de armazenamento do Azure) periodicamente para ser responsável por todas as alterações no acesso com base na lista de administradores alterada.
+-   Regenerate the keys for your storage accounts (by accessing the Azure Storage service) periodically to account for any changes to access based on the changed list of administrators.
 
--   Os dados em sua matriz virtual são compactados e a eliminação de duplicação acontece antes que os dados sejam enviados para o Azure. Não recomendamos usar o serviço de função Eliminação de Duplicação de Dados no host do Windows Server.
+-   Data on your virtual array is compressed and deduplicated before it is sent to Azure. We don't recommend using the Data Deduplication role service on your Windows Server host.
 
 
-## Práticas recomendadas operacionais
+## <a name="operational-best-practices"></a>Operational best practices
 
-As práticas recomendadas operacionais são diretrizes que devem ser seguidas durante a operação da matriz virtual ou no gerenciamento diário. Essas práticas incluem tarefas de gerenciamento específicas, como fazer backups, restaurar de um conjunto de backups, realizar um failover, desativar e excluir a matriz, monitorar o uso e a integridade do sistema e executar verificações de vírus na matriz virtual.
+The operational best practices are guidelines that should be followed during the day-to-day management or operation of the virtual array. These practices cover specific management tasks such as taking backups, restoring from a backup set, performing a failover, deactivating and deleting the array, monitoring system usage and health, and running virus scans on your virtual array.
 
-### Backups
+### <a name="backups"></a>Backups
 
-É feito backup dos dados em sua matriz virtual para a nuvem de duas maneiras: um backup padrão diário automatizado do dispositivo inteiro começando às 22:30 ou por meio de um backup manual sob demanda. Por padrão, o dispositivo cria automaticamente instantâneos de nuvem diários de todos os dados que residem nela. Para saber mais, acesse [fazer backup do seu StorSimple Virtual Array](storsimple-ova-backup.md).
+The data on your virtual array is backed up to the cloud in two ways, a default automated daily backup of the entire device starting at 22:30 or via a manual on-demand backup. By default, the device automatically creates daily cloud snapshots of all the data residing on it. For more information, go to [back up your StorSimple Virtual Array](storsimple-ova-backup.md).
 
-A frequência e a retenção associadas aos backups padrão não podem ser alteradas, mas você pode configurar a hora em que os backups diários são iniciados todos os dias. Ao configurar a hora de início para os backups automatizados, recomendamos que:
+The frequency and retention associated with the default backups cannot be changed but you can configure the time at which the daily backups are initiated every day. When configuring the start time for the automated backups, we recommend that:
 
--   Agende os backups fora dos horários de pico. A hora de início de backup não deve coincidir com várias E/S do host.
+-   Schedule your backups for off-peak hours. Backup start time should not coincide with numerous host IO.
 
--   Inicie um backup manual sob demanda ao planejar a execução de um failover de dispositivo ou antes da janela de manutenção para proteger os dados em sua matriz virtual.
+-   Initiate a manual on-demand backup when planning to perform a device failover or prior to the maintenance window, to protect the data on your virtual array.
 
-### Restaurar
+### <a name="restore"></a>Restore
 
-Você pode restaurar de um conjunto de backup de duas maneiras: restaure para outro volume ou compartilhamento ou realize uma recuperação no nível de item (disponível apenas em uma matriz virtual configurada como um servidor de arquivos). A recuperação no nível do item permite fazer uma recuperação granular de arquivos e pastas de um backup de nuvem de todos os compartilhamentos no dispositivo StorSimple. Para saber mais, vá para [restaurar de um backup](storsimple-ova-restore.md).
+You can restore from a backup set in two ways: restore to another volume or share or perform an item-level recovery (available only on a virtual array configured as a file server). Item-level recovery allows you to do a granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. For more information, go to [restore from a backup](storsimple-ova-restore.md).
 
-Ao realizar uma restauração, lembre-se das seguintes diretrizes:
+When performing a restore, keep the following guidelines in mind:
 
--   Seu StorSimple Virtual Array não oferece suporte à restauração no local. Entretanto, isso pode ser facilmente obtido em um processo de duas etapas: abra espaço na matriz virtual e restaure em outro volume/compartilhamento.
+-   Your StorSimple Virtual Array does not support in-place restore. This can however be readily achieved by a two-step process: make space on the virtual array and then restore to another volume/share.
 
--   Ao restaurar de um volume local, tenha em mente que a restauração será uma operação demorada. Embora o volume possa ficar online rapidamente, os dados continuam sendo alimentados no plano de fundo.
+-   When restoring from a local volume, keep in mind the restore will be a long running operation. Though the volume may quickly come online, the data continues to be hydrated in the background.
 
--   O tipo de volume permanece o mesmo durante o processo de restauração. Um volume em camadas é restaurado para outro volume em camadas e um volume fixado localmente é restaurado para outro volume fixado localmente.
+-   The volume type remains the same during the restore process. A tiered volume is restored to another tiered volume and a locally pinned volume to another locally pinned volume.
 
--   Ao tentar restaurar um volume ou um compartilhamento de um conjunto de backup, se o trabalho de restauração falhar, um volume de destino ou compartilhamento ainda poderá ser criado no portal. É importante excluir este volume de destino não utilizado ou compartilhá-lo no portal para minimizar quaisquer problemas futuros causado por esse elemento.
+-   When trying to restore a volume or a share from a backup set, if the restore job fails, a target volume or share may still be created in the portal. It is important that you delete this unused target volume or share in the portal to minimize any future issues arising from this element.
 
-### Failover e recuperação de desastres
+### <a name="failover-and-disaster-recovery"></a>Failover and disaster recovery
 
-Um failover de dispositivo permitirá que você migre os dados de um dispositivo de *origem* no datacenter para outro dispositivo de *destino* localizado no mesmo local geográfico ou em outro. O failover de dispositivo é para todo o dispositivo. Durante o failover, a propriedade dos dados de nuvem para o dispositivo de origem é alterada para aquela do dispositivo de destino.
+A device failover allows you to migrate your data from a *source* device in the datacenter to another *target* device located in the same or a different geographical location. The device failover is for the entire device. During failover, the cloud data for the source device changes ownership to that of the target device.
 
-Para seu StorSimple Virtual Array, só será possível fazer failover para outra matriz virtual gerenciada pelo mesmo serviço do StorSimple Manager. Não é permitido um failover para um dispositivo da série 8000 ou para uma matriz gerenciada por um serviço do StorSimple Manager diferente (daquele para o dispositivo de origem). Para saber mais sobre as considerações de failover, acesse os [pré-requisitos para failover de dispositivo](storsimple-ova-failover-dr.md).
+For your StorSimple Virtual Array, you can only fail over to another virtual array managed by the same StorSimple Manager service. A failover to an 8000 series device or an array managed by a different StorSimple Manager service (than the one for the source device) is not allowed. To learn more about the failover considerations, go to [prerequisites for the device failover](storsimple-ova-failover-dr.md).
 
-Ao fazer um failover para sua matriz virtual, tenha o seguinte em mente:
+When performing a fail over for your virtual array, keep the following in mind:
 
--   Para um failover planejado, é uma prática recomendada colocar todos os volumes/compartilhamentos offline antes de iniciar o failover. Siga as instruções específicas do sistema operacional para colocar primeiro os volumes/compartilhamentos offline no host e depois colocá-los offline em seu dispositivo virtual.
+-   For a planned failover, it is a recommended best practice to take all the volumes/shares offline prior to initiating the failover. Follow the operating system-specific instructions to take the volumes/shares offline on the host first and then take those offline on your virtual device.
 
--   Para uma DR (recuperação de desastre) de um servidor de arquivos, é recomendável ingressar o dispositivo de destino no mesmo domínio que o dispositivo de origem para que as permissões de compartilhamento sejam resolvidas automaticamente. Nesta versão, há suporte apenas para o failover de um dispositivo de destino no mesmo domínio.
+-   For a file server disaster recovery (DR), we recommend that you join the target device to the same domain as the source so that the share permissions are automatically resolved. Only the failover to a target device in the same domain is supported in this release.
 
--   Depois que a recuperação de desastre for concluída com êxito, o dispositivo de origem será automaticamente excluído. Embora o dispositivo não esteja mais disponível, a máquina virtual que você provisionou no sistema host ainda está consumindo recursos. É recomendável que você exclua esta máquina virtual do sistema host para impedir o acúmulo de todos os encargos.
+-   Once the DR is successfully completed, the source device is automatically deleted. Though the device is no longer available, the virtual machine that you provisioned on the host system is still consuming resources. We recommend that you delete this virtual machine from your host system to prevent any charges from accruing.
 
--   Observe que, mesmo se o failover não for bem-sucedido, **os dados estarão sempre seguros na nuvem**. Considere os três cenários a seguir em que o failover não foi concluído com êxito:
+-   Do note that even if the failover is unsuccessful, **the data is always safe in the cloud**. Consider the following three scenarios in which the failover did not complete successfully:
 
-    -   Ocorreu uma falha nos estágios iniciais do failover, como quando as pré-verificações de DR estão sendo executadas. Nessa situação, o dispositivo de destino ainda é utilizável. Você pode repetir o failover no mesmo dispositivo de destino.
+    -   A failure occurred in the initial stages of the failover such as when the DR pre-checks are being performed. In this situation, your target device is still usable. You can retry the failover on the same target device.
 
-    -   Ocorreu uma falha durante o processo de failover real. Nesse caso, o dispositivo de destino é marcado como inutilizável. Você deve provisionar e configurar outra matriz virtual de destino e usá-la para failover.
+    -   A failure occurred during the actual failover process. In this case, the target device is marked unusable. You must provision and configure another target virtual array and use that for failover.
 
-    -   O failover foi concluído e depois dele o dispositivo de origem foi excluído, mas o dispositivo de destino tem problemas e não é possível acessar os dados. Os dados ainda estão seguros na nuvem e podem ser facilmente recuperados por meio da criação de outra matriz virtual ; depois eles serão usados como um dispositivo de destino para a recuperação de desastre.
+    -   The failover was complete following which the source device was deleted but the target device has issues and you cannot access any data. The data is still safe in the cloud and can be easily retrieved by creating another virtual array and then using it as a target device for the DR.
 
-### Desativar
+### <a name="deactivate"></a>Deactivate
 
-Quando você desativar uma Matriz Virtual StorSimple, você dividirá a conexão entre o dispositivo e o serviço StorSimple Manager correspondente. A desativação é uma operação **permanente** e não pode ser desfeita. Um dispositivo desativado não pode ser registrado com o serviço StorSimple Manager novamente. Para saber mais, acesse [desativar e excluir um dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
+When you deactivate a StorSimple Virtual Array, you sever the connection between the device and the corresponding StorSimple Manager service. Deactivation is a **permanent** operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service again. For more information, go to [deactivate and delete your StorSimple Virtual Array](storsimple-deactivate-and-delete-device.md).
 
-Lembre-se das seguintes práticas recomendadas ao desativar sua matriz virtual:
+Keep the following best practices in mind when deactivating your virtual array:
 
--   Tire um instantâneo de nuvem de todos os dados antes de desativar um dispositivo virtual. Quando você desativa uma matriz virtual, todos os dados do dispositivo local são perdidos. Tirar um instantâneo de nuvem permitirá que você recupere os dados em um estágio posterior.
+-   Take a cloud snapshot of all the data prior to deactivating a virtual device. When you deactivate a virtual array, all the local device data is lost. Taking a cloud snapshot will allow you to recover data at a later stage.
 
--   Antes de desativar um StorSimple Virtual Array, certifique-se de interromper ou excluir clientes e hosts que dependem desse dispositivo virtual.
+-   Before you deactivate a StorSimple Virtual Array, make sure to stop or delete clients and hosts that depend on that device.
 
--   Exclua um dispositivo desativado se ele não estiver sendo usado para que ele não acumule cobranças.
+-   Delete a deactivated device if you are no longer using so that it doesn't accrue charges.
 
-### Monitoramento
+### <a name="monitoring"></a>Monitoring
 
-Para garantir que seu StorSimple Virtual Array esteja em um estado de integridade contínuo, você precisará monitorar a matriz e garantir que receberá informações do sistema, incluindo alertas. Para monitorar a integridade geral da matriz virtual, implemente as seguintes práticas recomendadas:
+To ensure that your StorSimple Virtual Array is in a continuous healthy state, you need to monitor the array and ensure that you receive information from the system including alerts. To monitor the overall health of the virtual array, implement the following best practices:
 
-- Configure o monitoramento para acompanhar o uso do disco de dados da matriz virtual, bem como o disco do sistema operacional. Se você estiver executando o Hyper-V, poderá usar uma combinação do SCVMM (System Center Virtual Machine Manager) e do SCOM (System Center Operations Manager) para monitorar seus hosts de virtualização.
+- Configure monitoring to track the disk usage of your virtual array data disk as well as the OS disk. If running Hyper-V, you can use a combination of System Center Virtual Machine Manager (SCVMM) and System Center Operations Manager (SCOM) to monitor your virtualization hosts.   
 
-- Configure notificações por email em sua matriz virtual para enviar alertas em determinados níveis de uso.
+- Configure email notifications on your virtual array to send alerts at certain usage levels.                                                                                                                                                                                                
 
-### Aplicativos de pesquisa de índice e de verificação de vírus
+### <a name="index-search-and-virus-scan-applications"></a>Index search and virus scan applications
 
-Um StorSimple Virtual Array pode colocar automaticamente os dados em camadas da camada local para a nuvem do Microsoft Azure. Quando um aplicativo como a pesquisa de índice ou uma verificação de vírus é usado para varrer os dados armazenados no StorSimple, você precisará tomar cuidado para que os dados de nuvem não sejam acessados e obtidos na camada local.
+A StorSimple Virtual Array can automatically tier data from the local tier to the Microsoft Azure cloud. When an application such as an index search or a virus scan is used to scan the data stored on StorSimple, you need to take care that the cloud data does not get accessed and pulled back to the local tier.
 
-É recomendável que você implemente as práticas recomendadas a seguir ao configurar a verificação de vírus ou a pesquisa de índice em sua matriz virtual:
+We recommend that you implement the following best practices when configuring the index search or virus scan on your virtual array:
 
--   Desabilite todas as operações de verificação completa configuradas automaticamente.
+-   Disable any automatically configured full scan operations.
 
--   Para os volumes em camadas, configure a pesquisa de índice ou o aplicativo de verificação de vírus para executar uma verificação incremental. Isso examinaria apenas os novos dados, provavelmente residentes na camada local. Os dados que estão em camadas na nuvem não são acessados durante uma operação incremental.
+-   For tiered volumes, configure the index search or virus scan application to perform an incremental scan. This would scan only the new data likely residing on the local tier. The data that is tiered to the cloud is not accessed during an incremental operation.
 
--   Verifique se as configurações e os filtros de pesquisa corretos foram definidos de forma que somente os tipos de arquivo sejam verificados. Por exemplo, os arquivos de imagem (JPEG, GIF e TIFF) e os desenhos de engenharia não devem ser verificados durante a recriação de índice completo ou incremental.
+-   Ensure the correct search filters and settings are configured so that only the intended types of files get scanned. For example, image files (JPEG, GIF, and TIFF) and engineering drawings should not be scanned during the incremental or full index rebuild.
 
-Se você estiver usando o processo de indexação do Windows, siga estas diretrizes:
+If using Windows indexing process, follow these guidelines:
 
--   Não use o Indexador do Windows para volumes em camadas, já que isso cancela grandes quantidades de dados (TBs) da nuvem caso o índice tenha de ser recriado com frequência. A recriação do índice poderia recuperar todos os tipos de arquivo para indexar seu conteúdo.
+-   Do not use the Windows Indexer for tiered volumes as it recalls large amounts of data (TBs) from the cloud if the index needs to be rebuilt frequently. Rebuilding the index would retrieve all file types to index their content.
 
--   Use o processo de indexação do Windows para volumes fixados localmente, já que eles só acessariam dados nas camadas locais para criar os índices (os dados da nuvem não serão acessados).
+-   Use the Windows indexing process for locally pinned volumes as this would only access data on the local tiers to build the index (the cloud data will not be accessed).
 
-### Bloqueio de intervalo de bytes
+### <a name="byte-range-locking"></a>Byte range locking
 
-Os aplicativos podem bloquear um intervalo de bytes especificado nos arquivos. Se o bloqueio de intervalos de bytes for habilitado nos aplicativos que estejam gravando no StorSimple, as camadas não funcionarão em sua matriz virtual. Para que as camadas funcionem, todas as áreas dos arquivos acessados deverão estar desbloqueadas. Não há suporte para o bloqueio de intervalo de bytes com volumes em camadas em sua matriz virtual.
+Applications can lock a specified range of bytes within the files. If byte range locking is enabled on the applications that are writing to your StorSimple, then tiering does not work on your virtual array. For the tiering to work, all areas of the files accessed should be unlocked. Byte range locking is not supported with tiered volumes on your virtual array.
 
-As medidas recomendadas para aliviar o bloqueio de intervalos de bytes incluem:
+Recommended measures to alleviate byte range locking include:
 
--   Desligar o bloqueio de intervalo de bytes em sua lógica de aplicativo.
+-   Turn off byte range locking in your application logic.
 
--   Usar volumes fixados localmente (em vez de em camadas) para os dados associados a este aplicativo. Os volumes fixados localmente não ficam em camadas na nuvem.
+-   Use locally pinned volumes (instead of tiered) for the data associated with this application. Locally pinned volumes do not tier into the cloud.
 
--   Ao usar volumes fixados localmente com o bloqueio de intervalos de bytes habilitado, o volume poderá ficar online antes da conclusão da restauração. Nestas instâncias, você deverá aguardar a conclusão da restauração.
+-   When using locally pinned volumes with byte range locking enabled, the volume can come online before the restore is complete. In these instances, you must wait for the restore to be complete.
 
-## Várias matrizes
+## <a name="multiple-arrays"></a>Multiple arrays
 
-Talvez seja necessário implantar várias matrizes virtuais para responder por um crescente conjunto de dados de trabalho que poderia derramar para a nuvem, afetando o desempenho do dispositivo. Nesses casos, é melhor dimensionar dispositivos à medida que o conjunto de trabalho aumentar. Isso exige que um ou mais dispositivos sejam adicionados ao data center local. Ao adicionar os dispositivos, você poderia:
+Multiple virtual arrays may need to be deployed to account for a growing working set of data that could spill onto the cloud thus affecting the performance of the device. In these instances, it is best to scale devices as the working set grows. This requires one or more devices to be added in the on-premises data center. When adding the devices, you could:
 
--   Dividir o conjunto de dados atual.
--   Implantar novas cargas de trabalho em novos dispositivos.
--   Se você estiver implantando várias matrizes, recomendamos que, da perspectiva do balanceamento de carga, distribua a matriz por vários hosts de hipervisor diferentes.
+-   Split the current set of data.
+-   Deploy new workloads to new device(s).
+-   If deploying multiple virtual arrays, we recommend that from load-balancing perspective, distribute the array across different hypervisor hosts.
 
--  Várias matrizes virtuais (quando configuradas como um servidor de arquivos ou como um servidor iSCSI) podem ser implantadas em um Namespace de Sistema de Arquivos Distribuído . Para ver as etapas detalhadas, acesse [Distributed File System Namespace Solution with Hybrid Cloud Storage Deployment Guide (Guia de solução de namespace de sistema de arquivos distribuído com armazenamento em nuvem híbrida)](https://www.microsoft.com/download/details.aspx?id=45507). Atualmente, a replicação DFS não é recomendada para uso com a matriz virtual.
+-  Multiple virtual arrays (when configured as a file server or an iSCSI server) can be deployed in a Distributed File System Namespace. For detailed steps, go to [Distributed File System Namespace Solution with Hybrid Cloud Storage Deployment Guide](https://www.microsoft.com/download/details.aspx?id=45507). Distributed File System Replication is currently not recommended for use with the virtual array. 
 
 
-## Confira também
-Saiba como [administrar o StorSimple Virtual Array](storsimple-ova-manager-service-administration.md) por meio do serviço StorSimple Manager.
+## <a name="see-also"></a>See also
+Learn how to [administer your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md) via the StorSimple Manager service.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

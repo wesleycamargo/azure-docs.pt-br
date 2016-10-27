@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Gerenciando funções nos projetos de serviços de nuvem do Azure com o Visual Studio | Microsoft Azure"
-   description="Saiba como adicionar novas funções ao projeto de serviço de nuvem do Azure ou remover funções existentes usando o Visual Studio."
+   pageTitle="Managing roles in the Azure cloud services projects with Visual Studio | Microsoft Azure"
+   description="Learn how to add new roles to your Azure cloud service project or remove existing roles from it by using Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,47 +15,52 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
-# Gerenciar funções nos projetos de serviços de nuvem do Azure com o Visual Studio
 
-Depois de criar o projeto de serviço de nuvem do Azure, você pode adicionar novas funções a ele ou remover funções existentes. Você também pode importar um projeto existente e convertê-lo em uma função. Por exemplo, você pode importar um aplicativo Web ASP.NET e designá-lo como uma função web.
+# <a name="managing-roles-in-the-azure-cloud-services-projects-with-visual-studio"></a>Managing roles in the Azure cloud services projects with Visual Studio
 
-## Adicionando ou removendo funções
+After you have created your Azure cloud service project, you can add new roles to it or remove existing roles from it. You can also import an existing project and convert it to a role. For example, you can import an ASP.NET web application and designate it as a web role.
 
-**Para adicionar uma função**
+## <a name="adding-or-removing-roles"></a>Adding or removing roles
 
-No **Gerenciador de Soluções**, abra o menu de atalho do nó **Funções** no seu projeto de serviço de nuvem e escolha **Adicionar**. Você pode selecionar uma função web existente ou uma função de trabalho da solução atual ou criar um novo projeto de função web ou de trabalho. Ou você pode selecionar um projeto apropriado, como um projeto de aplicativo Web ASP.NET e associá-lo a um projeto de função.
+**To add a role**
 
-**Para remover uma associação de função**
+In **Solution Explorer**, open the shortcut menu for the **Roles** node in your cloud service project and choose **Add**. You can select an existing web role or worker role from the current solution or create a new web or worker role project. Or you can select an appropriate project, such as an ASP.NET web application project, and associate it with a role project.
 
-No nó **Funções** do projeto de serviço de nuvem no Gerenciador de Soluções, abra o menu de atalho da função para remover e escolha **Remover**.
+**To remove a role association**
 
-## Removendo e adicionando funções no serviço de nuvem
+In the **Roles** node of the cloud service project in Solution Explorer, open the shortcut menu for the role to remove and choose **Remove**.
 
-Se você remove uma função de seu projeto de serviço de nuvem, mas decide posteriormente adicionar a função de volta ao projeto, somente a declaração de função e os atributos básicos, como informações de diagnóstico e pontos de extremidade são adicionados. Nenhuma referência ou recursos adicionais são adicionados ao arquivo ServiceDefinition.csdef ou ServiceConfiguration.cscfg. Se você quiser adicionar essas informações, você precisará adicioná-las manualmente nesses arquivos.
+## <a name="removing-and-adding-roles-in-your-cloud-service"></a>Removing and adding roles in your cloud service
 
-Por exemplo, você pode remover uma função de serviço Web e decidir posteriormente adicionar essa função de volta em sua solução. Se você fizer isso, ocorrerá um erro. Para evitar esse erro, você deve adicionar o elemento `<LocalResources>` mostrado no seguinte XML no arquivo ServiceDefinition.csdef. Use o nome da função de serviço Web que você adicionou novamente ao projeto como parte do atributo de nome para o elemento **<LocalStorage>**. Neste exemplo, o nome da função de serviço Web é **WCFServiceWebRole1**.
+If you remove a role from your cloud service project but later decide to add the role back to the project, only the role declaration and basic attributes, such as endpoints and diagnostics information, are added. No additional resources or references are added to the ServiceDefinition.csdef file or to the ServiceConfiguration.cscfg file. If you want to add this information, you’ll have to manually add it back into these files.
 
-	<WebRole name="WCFServiceWebRole1">
-	    <Sites>
-	      <Site name="Web">
-	        <Bindings>
-	          <Binding name="Endpoint1" endpointName="Endpoint1" />
-	        </Bindings>
-	      </Site>
-	    </Sites>
-	    <Endpoints>
-	      <InputEndpoint name="Endpoint1" protocol="http" port="80" />
-	    </Endpoints>
-	    <Imports>
-	      <Import moduleName="Diagnostics" />
-	    </Imports>
-	   <LocalResources>
-	      <LocalStorage name="WCFServiceWebRole1.svclog" sizeInMB="1000" cleanOnRoleRecycle="false" />
-	   </LocalResources>
-	</WebRole>
+For example, you might remove a web service role and later you decide to add this role back into your solution. If you do this, an error will occur. To prevent this error, you have to add the `<LocalResources>` element shown in the following XML back into the ServiceDefinition.csdef file. Use the name of the web service role that you added back into the project as part of the name attribute for the **<LocalStorage>** element. In this example the name of the web service role is **WCFServiceWebRole1**.
 
-## Próximas etapas
+    <WebRole name="WCFServiceWebRole1">
+        <Sites>
+          <Site name="Web">
+            <Bindings>
+              <Binding name="Endpoint1" endpointName="Endpoint1" />
+            </Bindings>
+          </Site>
+        </Sites>
+        <Endpoints>
+          <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+        </Endpoints>
+        <Imports>
+          <Import moduleName="Diagnostics" />
+        </Imports>
+       <LocalResources>
+          <LocalStorage name="WCFServiceWebRole1.svclog" sizeInMB="1000" cleanOnRoleRecycle="false" />
+       </LocalResources>
+    </WebRole>
 
-Saiba como configurar funções no Visual Studio lendo [Configurar as funções para um serviço de nuvem do Azure com o Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md),
+## <a name="next-steps"></a>Next steps
 
-<!---HONumber=AcomDC_0817_2016-->
+Learn about how to configure roles in Visual Studio by reading [Configure the Roles for an Azure Cloud Service with Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

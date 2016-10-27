@@ -1,19 +1,22 @@
 
-## Análise
+## <a name="analytics"></a>Analytics
 
-- [Visão geral](../articles/application-insights/app-insights-analytics.md)
-- [Tour da Análise](../articles/application-insights/app-insights-analytics-tour.md)
- - Comece por aqui. Um tutorial que abrange os principais recursos.
-- [Consultas](../articles/application-insights/app-insights-analytics-reference.md#queries)
- - Usam operadores como `where` e `count` para compilar consultas.
-- [Agregação](../articles/application-insights/app-insights-analytics-reference.md#aggregations)
- - Usada para calcular estatísticas sobre grupos de registros
-- [Escalares](../articles/application-insights/app-insights-analytics-reference.md#scalars)
- - Números, cadeias de caracteres e outras expressões usadas para formar parâmetros de consulta.
-- [Usando a Análise](../articles/application-insights/app-insights-analytics-using.md)
- - Usando a Análise.
-- [Referência da linguagem](../articles/application-insights/app-insights-analytics-reference.md)
- - Referência de uma página.
-- [Solucionar problemas](../articles/application-insights/app-insights-analytics-troubleshooting.md)
+- [Overview](../articles/application-insights/app-insights-analytics.md)
+- [Tour of Analytics](../articles/application-insights/app-insights-analytics-tour.md)
+ - Start here. A tutorial covering the main features.
+- [Queries](../articles/application-insights/app-insights-analytics-reference.md#queries)
+ - Use operators such as `where` and `count` to build queries.
+- [Aggregation](../articles/application-insights/app-insights-analytics-reference.md#aggregations)
+ - Used to compute statistics over groups of records
+- [Scalars](../articles/application-insights/app-insights-analytics-reference.md#scalars)
+ - Numbers, strings, and other expressions used to form query parameters.
+- [Using Analytics](../articles/application-insights/app-insights-analytics-using.md)
+ - Using Analytics.
+- [Language Reference](../articles/application-insights/app-insights-analytics-reference.md)
+ - One-page reference.
+- [Troubleshooting](../articles/application-insights/app-insights-analytics-troubleshooting.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

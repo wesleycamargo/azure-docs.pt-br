@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Controlar o roteamento e usar dispositivos virtuais usando o Azure CLI no modelo de implantação clássico | Microsoft Azure"
-   description="Aprenda a controlar o roteamento em VNets usando o Azure CLI no modelo de implantação clássico"
+   pageTitle="Control routing and use virtual appliances using the Azure CLI in the classic deployment model | Microsoft Azure"
+   description="Learn how to control routing in VNets using the Azure CLI in the classic deployment model"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,99 +17,105 @@
    ms.date="03/15/2016"
    ms.author="jdial" />
 
-#Controlar o roteamento e usar dispositivos virtuais (clássico) usando o Azure CLI
+
+#<a name="control-routing-and-use-virtual-appliances-(classic)-using-the-azure-cli"></a>Control routing and use virtual appliances (classic) using the Azure CLI
 
 [AZURE.INCLUDE [virtual-network-create-udr-classic-selectors-include.md](../../includes/virtual-network-create-udr-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] Este artigo aborda o modelo de implantação clássico. Você também pode [controlar o roteamento e usar dispositivos virtuais no modelo de implantação do Gerenciador de Recursos](virtual-network-create-udr-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the classic deployment model. You can also [control routing and use virtual appliances in the Resource Manager deployment model](virtual-network-create-udr-arm-cli.md).
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-Os comandos da CLI do Azure de exemplo abaixo esperam um ambiente simples já criado com base no cenário acima. Se você quiser executar os comandos da forma como eles aparecem neste documento, crie o ambiente descrito em [criar uma VNet (clássica) usando o Azure CLI](virtual-networks-create-vnet-classic-cli.md).
+The sample Azure CLI commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, create the environment shown in [create a VNet (classic) using the Azure CLI](virtual-networks-create-vnet-classic-cli.md).
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## Criar o UDR para a sub-rede de front-end
-Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end com base no cenário acima, siga as etapas abaixo.
+## <a name="create-the-udr-for-the-front-end-subnet"></a>Create the UDR for the front end subnet
+To create the route table and route needed for the front end subnet based on the scenario above, follow the steps below.
 
-1. Execute o **`azure config mode`** para alternar para o modo clássico.
+1. Run the **`azure config mode`** to switch to classic mode.
 
-		azure config mode asm
+        azure config mode asm
 
-	Saída:
+    Output:
 
-		info:    New mode is asm
+        info:    New mode is asm
 
-3. Execute o comando **`azure network route-table create`** para criar uma tabela de rota para a sub-rede de front-end.
+3. Run the **`azure network route-table create`** command to create a route table for the front end subnet.
 
-		azure network route-table create -n UDR-FrontEnd -l uswest
+        azure network route-table create -n UDR-FrontEnd -l uswest
 
-	Saída:
+    Output:
 
-		info:    Executing command network route-table create
-		info:    Creating route table "UDR-FrontEnd"
-		info:    Getting route table "UDR-FrontEnd"
-		data:    Name                            : UDR-FrontEnd
-		data:    Location                        : West US
-		info:    network route-table create command OK
+        info:    Executing command network route-table create
+        info:    Creating route table "UDR-FrontEnd"
+        info:    Getting route table "UDR-FrontEnd"
+        data:    Name                            : UDR-FrontEnd
+        data:    Location                        : West US
+        info:    network route-table create command OK
 
-	Parâmetros:
-	- **-l (or --location)**. A região do Azure em que o novo NSG será criado. Para o nosso cenário, *westus*.
-	- **-n (or --name)**. Nome para o novo NGS. Para o nosso cenário, *NSG-FrontEnd*.
+    Parameters:
+    - **-l (or --location)**. Azure region where the new NSG will be created. For our scenario, *westus*.
+    - **-n (or --name)**. Name for the new NSG. For our scenario, *NSG-FrontEnd*.
 
-4. Execute o comando **`azure network route-table route set`** para criar uma rota na tabela de rotas criada acima para enviar todo o tráfego destinado à sub-rede de back-end (192.168.2.0/24) para a VM **FW1** (192.168.0.4).
+4. Run the **`azure network route-table route set`** command to create a route in the route table created above to send all traffic destined to the back end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4).
 
-		azure network route-table route set -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -t VirtualAppliance -p 192.168.0.4
+        azure network route-table route set -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -t VirtualAppliance -p 192.168.0.4
 
-	Saída:
+    Output:
 
-		info:    Executing command network route-table route set
-		info:    Getting route table "UDR-FrontEnd"
-		info:    Setting route "RouteToBackEnd" in a route table "UDR-FrontEnd"
-		info:    network route-table route set command OK
+        info:    Executing command network route-table route set
+        info:    Getting route table "UDR-FrontEnd"
+        info:    Setting route "RouteToBackEnd" in a route table "UDR-FrontEnd"
+        info:    network route-table route set command OK
 
-	Parâmetros:
-	- **-r (ou --route-table-name)**. Nome da tabela de rotas à qual a rota será adicionada. Para nosso cenário, *UDR-FrontEnd*.
-	- **-a (ou --address-prefix)**. Prefixo de endereço para a sub-rede à qual os pacotes são destinados. Para nosso cenário, *192.168.2.0/24*.
-	- **-t (ou --next-hop-type)**. Tipo de objeto ao qual o tráfego será enviado. Os valores possíveis são *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* ou *None*.
-	- **-p (ou --next-hop-ip-address**). Endereço IP do próximo salto. Para o nosso cenário, *192.168.0.4*.
+    Parameters:
+    - **-r (or --route-table-name)**. Name of the route table where the route will be added. For our scenario, *UDR-FrontEnd*.
+    - **-a (or --address-prefix)**. Address prefix for the subnet where packets are destined to. For our scenario, *192.168.2.0/24*.
+    - **-t (or --next-hop-type)**. Type of object traffic will be sent to. Possible values are *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, or *None*.
+    - **-p (or --next-hop-ip-address**). IP address for next hop. For our scenario, *192.168.0.4*.
 
-5. Execute o comando **`azure network vnet subnet route-table add`** para associar a tabela de rotas criada acima à sub-rede de **FrontEnd**.
+5. Run the **`azure network vnet subnet route-table add`** command to associate the route table created above with the **FrontEnd** subnet.
 
-		azure network vnet subnet route-table add -t TestVNet -n FrontEnd -r UDR-FrontEnd
+        azure network vnet subnet route-table add -t TestVNet -n FrontEnd -r UDR-FrontEnd
 
-	Saída:
+    Output:
 
-		info:    Executing command network vnet subnet route-table add
-		info:    Looking up the subnet "FrontEnd"
-		info:    Looking up network configuration
-		info:    Looking up network gateway route tables in virtual network "TestVNet" subnet "FrontEnd"
-		info:    Associating route table "UDR-FrontEnd" and subnet "FrontEnd"
-		info:    Looking up network gateway route tables in virtual network "TestVNet" subnet "FrontEnd"
-		data:    Route table name                : UDR-FrontEnd
-		data:      Location                      : West US
-		data:      Routes:
-		info:    network vnet subnet route-table add command OK	
+        info:    Executing command network vnet subnet route-table add
+        info:    Looking up the subnet "FrontEnd"
+        info:    Looking up network configuration
+        info:    Looking up network gateway route tables in virtual network "TestVNet" subnet "FrontEnd"
+        info:    Associating route table "UDR-FrontEnd" and subnet "FrontEnd"
+        info:    Looking up network gateway route tables in virtual network "TestVNet" subnet "FrontEnd"
+        data:    Route table name                : UDR-FrontEnd
+        data:      Location                      : West US
+        data:      Routes:
+        info:    network vnet subnet route-table add command OK 
 
-	Parâmetros:
-	- **-t (ou --vnet-name)**. Nome da VNet na qual a sub-rede está localizada. Para nosso cenário, *TestVNet*.
-	- **-n (ou --subnet-name**. Nome da sub-rede à qual a tabela de rotas será adicionada. Para o nosso cenário, *FrontEnd*.
+    Parameters:
+    - **-t (or --vnet-name)**. Name of the VNet where the subnet is located. For our scenario, *TestVNet*.
+    - **-n (or --subnet-name**. Name of the subnet the route table will be added to. For our scenario, *FrontEnd*.
  
-## Criar o UDR para a sub-rede de back-end
-Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end com base no cenário acima, siga as etapas abaixo.
+## <a name="create-the-udr-for-the-back-end-subnet"></a>Create the UDR for the back end subnet
+To create the route table and route needed for the back end subnet based on the scenario above, follow the steps below.
 
-3. Execute o comando **`azure network route-table create`** para criar uma tabela de rotas para a sub-rede de back-end.
+3. Run the **`azure network route-table create`** command to create a route table for the back end subnet.
 
-		azure network route-table create -n UDR-BackEnd -l uswest
+        azure network route-table create -n UDR-BackEnd -l uswest
 
-4. Execute o comando **`azure network route-table route set`** para criar uma rota na tabela de rotas criada acima para enviar todo o tráfego destinado à sub-rede de front-end (192.168.1.0/24) para a VM **FW1** (192.168.0.4).
+4. Run the **`azure network route-table route set`** command to create a route in the route table created above to send all traffic destined to the front end subnet (192.168.1.0/24) to the **FW1** VM (192.168.0.4).
 
-		azure network route-table route set -r UDR-BackEnd -n RouteToFrontEnd -a 192.168.1.0/24 -t VirtualAppliance -p 192.168.0.4
+        azure network route-table route set -r UDR-BackEnd -n RouteToFrontEnd -a 192.168.1.0/24 -t VirtualAppliance -p 192.168.0.4
 
-5. Execute o comando **`azure network vnet subnet route-table add`** para associar a tabela de rotas criada acima à sub-rede de **BackEnd**.
+5. Run the **`azure network vnet subnet route-table add`** command to associate the route table created above with the **BackEnd** subnet.
 
-		azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
+        azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

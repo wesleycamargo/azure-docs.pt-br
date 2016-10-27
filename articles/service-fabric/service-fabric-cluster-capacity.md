@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Planejamento da capacidade de cluster do Service Fabric | Microsoft Azure"
-   description="Considerações de planejamento de capacidade de cluster do Service Fabric. Níveis de confiabilidade, durabilidade e nodetypes"
+   pageTitle="Planning the Service Fabric cluster capacity | Microsoft Azure"
+   description="Service Fabric cluster capacity planning considerations. Nodetypes, Durability and Reliability tiers"
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -17,94 +17,99 @@
    ms.author="chackdan"/>
 
 
-# Considerações de planejamento de capacidade de cluster do Service Fabric
 
-Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns dos itens que você precisa considerar como parte desse processo.
+# <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric cluster capacity planning considerations
 
-- O número de tipos de nós com os quais o cluster precisa começar
-- As propriedades de cada tipo de nó (tamanho, primário, voltado para a Internet, número de VMs etc.)
-- As características de confiabilidade e durabilidade do cluster
+For any production deployment, capacity planning is an important step. Here are some of the items that you have to consider as a part of that process.
 
-Vamos examinar rapidamente cada um desses itens.
+- The number of node types your cluster needs to start out with
+- The properties of each of node type (size, primary, internet facing, number of VMs, etc.)
+- The reliability and durability characteristics of the cluster
 
-## O número de tipos de nós com os quais o cluster precisa começar
+Let us briefly review each of these items.
 
-Primeiro, você precisa descobrir para que o cluster que está criando será usado e que tipos de aplicativos você planeja implantar no cluster. Se não tem certeza quanto à finalidade do cluster, você provavelmente ainda não está pronto para iniciar o processo de planejamento de capacidade.
+## <a name="the-number-of-node-types-your-cluster-needs-to-start-out-with"></a>The number of node types your cluster needs to start out with
 
-Estabeleça o número de tipos de nós com os quais o cluster precisa começar. Cada tipo de nó é mapeado para um Conjunto de Escala de Máquina Virtual. Cada tipo de nó pode ser escalado verticalmente para cima ou para baixo de forma independente, tem conjuntos diferentes de portas abertas e pode ter métricas de capacidade diferente. Portanto, a decisão quanto ao número de tipos de nós essencialmente se resume às seguintes considerações:
+First, you need to figure out what the cluster you are creating is going to be used for and what kinds of applications you are planning to deploy into this cluster. If you are not clear on the purpose of the cluster, you are most likely not yet ready to enter the capacity planning process.
 
-- O aplicativo tem vários serviços, e algum deles precisa ser público ou voltado para a Internet? Os aplicativos típicos contêm um serviço de gateway de front-end que recebe entrada de um cliente e um ou mais serviços de back-end que se comunicam com os serviços de front-end. Nesse caso, você acaba tendo pelo menos dois tipos de nó.
+Establish the number of node types your cluster needs to start out with.  Each node type is mapped to a Virtual Machine Scale Set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. So the decision of the number of node types essentially comes down to the following considerations:
 
-- Os serviços (que compõem o aplicativo) têm necessidades de infraestrutura diferentes, como maior RAM ou mais ciclos de CPU? Por exemplo, vamos supor que o aplicativo que você deseja implantar contenha um serviço de front-end e um serviço de back-end. O serviço de front-end pode ser executado em VMs menores (com tamanhos de VM como D2) que têm portas abertas para a Internet. No entanto, o serviço de back-end faz uso intensivo de computação e precisa ser executado em VMs maiores (com tamanhos de VM como D4, D6, D15) que não são voltadas para a Internet.
+- Does your application have multiple services, and do any of them need to be public or internet facing? Typical applications contain a front-end gateway service that receives input from a client, and one or more back-end services that communicate with the front-end services. So in this case, you end up having at least two node types.
 
- No exemplo, embora você possa optar por colocar todos os serviços em um tipo de um nó, é recomendável colocá-los em um cluster com dois tipos de nó. Isso permite que cada tipo de nó tenha propriedades distintas, como conectividade com a Internet ou tamanho de VM. O número de VMs também pode ser dimensionado independentemente.
+- Do your services (that make up your application) have different infrastructure needs such as greater RAM or higher CPU cycles? For example, let us assume that the application that you want to deploy contains a front-end service and a back-end service. The front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet.  The back-end service, however, is computation intensive and needs to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet facing.
 
-- Como você não pode prever o futuro, baseie-se no que já sabe e decida com quantos tipos de nós os aplicativos precisam começar. Você sempre pode adicionar ou remover tipos de nós posteriormente. Um cluster do Service Fabric deve ter pelo menos um tipo de nó.
+ In this example, although you can decide to put all the services on one node type, we recommended that you place them in a cluster with two node types.  This allows for each node type to have distinct properties such as internet connectivity or VM size. The number of VMs can be scaled independently, as well.  
 
-## As propriedades de cada tipo de nó
+- Since you cannot predict the future, go with facts you know of and decide on the number of node types that your applications need to start with. You can always add or remove node types later. A Service Fabric cluster must have at least one node type.
 
-O **tipo de nó** pode ser visto como algo equivalente a funções nos Serviços de Nuvem. Os tipos de nó definem os tamanhos e o número de VMs e suas propriedades. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um Conjunto de Escala de Máquina Virtual separado. Os Conjuntos de Escala de VM são um recurso de computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Sendo definidos como Conjuntos de Escala de VM distintos, cada tipo de nó pode ser escalado verticalmente ou horizontalmente de forma independente, ter diferentes conjuntos de portas abertas e ter métricas de capacidade diferentes.
+## <a name="the-properties-of-each-node-type"></a>The properties of each node type
 
-O cluster pode ter mais de um tipo de nó, mas o tipo de nó primário (o primeiro que você define no portal) deve ter pelo menos cinco VMs para clusters usados para cargas de trabalho de produção (ou pelo menos três VMs para clusters de teste). Se estiver criando o cluster usando um modelo do Resource Manager, você encontrará um atributo **É Primário** na definição do tipo de nó. O tipo de nó primário é o tipo de nó em que os serviços do sistema do Service Fabric são colocados.
+The **node type** can be seen as equivalent to roles in Cloud Services. Node types define the VM sizes, the number of VMs, and their properties. Every node type that is defined in a Service Fabric cluster is set up as a separate Virtual Machine Scale Set. VM Scale Sets are an Azure compute resource you can use to deploy and manage a collection of virtual machines as a set. Being defined as distinct VM Scale Sets, each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.
 
-### Tipo de nó primário
-Para um cluster com vários tipos de nó, você precisará escolher um deles como primário. Aqui estão as características de um tipo de nó primário:
+Your cluster can have more than one node type, but the primary node type (the first one that you define on the portal) must have at least five VMs for clusters used for production workloads (or at least three VMs for test clusters). If you are creating the cluster using an Resource Manager template, then you will find a **is Primary** attribute under the node type definition. The primary node type is the node type where Service Fabric system services are placed.  
 
-- O tamanho mínimo de VMs para o tipo de nó primário é determinado pela camada de durabilidade que você escolhe. O padrão para a camada de durabilidade é Bronze. Role para baixo para obter detalhes sobre o que é a camada de durabilidade e os valores que ela pode ter.
+### <a name="primary-node-type"></a>Primary node type
+For a cluster with multiple node types, you will need to choose one of them to be primary. Here are the characteristics of a primary node type:
 
-- O número mínimo de VMs para o tipo de nó primário é determinado pela camada de confiabilidade que você escolhe. O padrão para a camada de confiabilidade é Prata. Role para baixo para obter detalhes sobre o que é a camada de confiabilidade e os valores que ela pode ter.
+- The minimum size of VMs for the primary node type is determined by the durability tier you choose. The default for the durability tier is Bronze. Scroll down for details on what the durability tier is and the values it can take.  
 
-- Os serviços do sistema do Service Fabric (por exemplo, o serviço Gerenciador de Cluster ou o Serviço de Armazenamento de Imagens) são colocados no tipo de nó primário. Assim, a confiabilidade e a durabilidade do cluster são determinadas pelos valores de camadas de confiabilidade e durabilidade selecionados para o tipo de nó primário.
+- The minimum number of VMs for the primary node type is determined by the reliability tier you choose. The default for the reliability tier is Silver. Scroll down for details on what the reliability tier is and the values it can take.
 
-![Captura de tela de um cluster com dois tipos de nó][SystemServices]
+- The Service Fabric system services (for example, the Cluster Manager service or Image Store service) are placed on the primary node type and so the reliability and durability of the cluster is determined by the reliability tier value and durability tier value you select for the primary node type.
 
-
-### Tipo de nó não primário
-Para um cluster com vários tipos de nó, há um tipo de nó primário, e os demais serão não primários. Aqui estão as características de um tipo de nó não primário:
-
-- O tamanho mínimo de VMs para o tipo de nó é determinado pela camada de durabilidade que você escolhe. O padrão para a camada de durabilidade é Bronze. Role para baixo para obter detalhes sobre o que é a camada de durabilidade e os valores que ela pode ter.
-
-- O número mínimo de VMs para esse tipo de nó pode ser um. No entanto, você deve escolher esse número com base no número de réplicas do aplicativo/serviços que deseja executar nesse tipo de nó. O número de VMs em um tipo de nó pode ser aumentado após a implantação do cluster.
+![Screen shot of a cluster that has two Node Types ][SystemServices]
 
 
-## As características de durabilidade do cluster
+### <a name="non-primary-node-type"></a>Non-primary node type
+For a cluster with multiple node types, there is one primary node type and the rest of them are non-primary. Here are the characteristics of a non-primary node type:
 
-A camada de durabilidade é usada para indicar ao sistema os privilégios que as VMs têm com a infraestrutura subjacente do Azure. No tipo de nó primário, esse privilégio permite que o Service Fabric pause qualquer solicitação de infraestrutura de nível de VM (por exemplo, reinicialização de VM, recriação de imagem de VM ou migração de VM) que afete os requisitos de quorum para os serviços do sistema e os serviços com estado. Nos tipos de nó não primários, esse privilégio permite que o Service Fabric pause qualquer solicitação de infraestrutura de nível de VM (como reinicialização de VM, recriação de imagem de VM, migração de VM etc.) que afete os requisitos de quorum para os serviços com estado em execução.
+- The minimum size of VMs for this node type is determined by the durability tier you choose. The default for the durability tier is Bronze. Scroll down for details on what the durability tier is and the values it can take.  
 
-Esse privilégio é expresso nos seguintes valores:
+- The minimum number of VMs for this node type can be one. However you should choose this number based on the number of replicas of the application/services that you would like to run in this node type. The number of VMs in a node type can be increased after you have deployed the cluster.
 
-- Ouro - os Trabalhos de Infraestrutura podem ser pausados por uma duração de duas horas por UD
 
-- Prata – os Trabalhos de Infraestrutura podem ser pausados por uma duração de 30 minutos por UD (Isso não está habilitado para uso atualmente. Uma vez habilitado, isso estará disponível em todas as VMs padrão de núcleo único e acima).
+## <a name="the-durability-characteristics-of-the-cluster"></a>The durability characteristics of the cluster
 
-- Bronze - sem privilégios. Esse é o padrão.
+The durability tier is used to indicate to the system the privileges that your VMs have with the underlying Azure infrastructure. In the primary node type, this privilege allows Service Fabric to pause any VM level infrastructure request (such as a VM reboot, VM reimage, or VM migration) that impact the quorum requirements for the system services and your stateful services. In the non-primary node types, this privilege allows Service Fabric to pause any VM level infrastructure request like VM reboot, VM reimage, VM migration etc., that impact the quorum requirements for your stateful services running in it.
 
-## As características de confiabilidade do cluster
+This privilege is expressed in the following values:
 
-A camada de confiabilidade é usada para definir o número de réplicas dos serviços do sistema que você deseja executar nesse cluster no tipo de nó primário. Quanto maior for o número de réplicas, mais confiáveis os serviços do sistema serão no cluster.
+- Gold - The infrastructure Jobs can be paused for a duration of 2 hours per UD
 
-A camada de confiabilidade pode ter os valores a seguir.
+- Silver - The infrastructure Jobs can be paused for a duration of 30 minutes per UD (This is currently not enabled for use. Once enabled this will be available on all standard VMs of single core and above).
 
-- Platina - executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de 9
+- Bronze - No privileges. This is the default.
 
-- Ouro - executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de 7
+## <a name="the-reliability-characteristics-of-the-cluster"></a>The reliability characteristics of the cluster
 
-- Prata - executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de 5
+The reliability tier is used to set the number of replicas of the system services that you want to run in this cluster on the primary node type. The more the number of replicas, the more reliable the system services are in your cluster.  
 
-- Bronze - executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de 3
+The reliability tier can take the following values.
 
->[AZURE.NOTE] A camada de confiabilidade que você escolhe determina o número mínimo de nós que o tipo de nó primário deve ter. A camada de confiabilidade não influencia o tamanho máximo do cluster. Portanto, você pode ter um cluster com 20 nós, em execução com a confiabilidade Bronze.
+- Platinum - Run the System services with a target replica set count of 9
 
- Você pode optar por atualizar a confiabilidade do cluster de uma camada para outra. Isso disparará as atualizações de cluster necessárias para alterar a contagem de conjuntos de réplicas dos serviços do sistema. Aguarde a conclusão da atualização em andamento antes de fazer outras alterações no cluster, como adicionar nós etc. Você pode monitorar o andamento da atualização no Service Fabric Explorer ou executando [Get-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx)
+- Gold - Run the System services with a target replica set count of 7
+
+- Silver - Run the System services with a target replica set count of 5
+
+- Bronze - Run the System services with a target replica set count of 3
+
+>[AZURE.NOTE] The reliability tier you choose determines the minimum number of nodes your primary node type must have. The reliability tier has no bearing on the max size of the cluster. So you can have a 20 node cluster, that is running at Bronze reliability.
+
+ You can choose to update the reliability of your cluster from one tier to another. Doing this will trigger the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes etc.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx)
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Após concluir o planejamento de capacidade e configurar um cluster, leia o seguinte:
-- [Segurança do Cluster do Service Fabric](service-fabric-cluster-security.md)
-- [Introdução ao modelo de Integridade do Service Fabric](service-fabric-health-introduction.md)
+Once you finish your capacity planning and set up a cluster, please read the following:
+- [Service Fabric cluster security](service-fabric-cluster-security.md)
+- [Service Fabric health model introduction](service-fabric-health-introduction.md)
 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

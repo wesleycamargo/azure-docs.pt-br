@@ -1,91 +1,96 @@
 <properties
-	pageTitle="Como configurar o Glossário de Negócios para marcação governada | Microsoft Azure"
-	description="O artigo de instruções destaca o glossário de negócios no Catálogo de Dados do Azure para definir e usar um vocabulário de negócios comum para marcar ativos de dados registrados."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+    pageTitle="How to set up the Business Glossary for governed tagging | Microsoft Azure"
+    description="How-to article highlighting the business glossary in Azure Data Catalog for defining and using a common business vocabulary to tag registered data assets."
+    services="data-catalog"
+    documentationCenter=""
+    authors="steelanddata"
+    manager="NA"
+    editor=""
+    tags=""/>
 <tags
-	ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="09/21/2016"
-	ms.author="maroche"/>
-
-# Como configurar o glossário de negócios para Marcação Governada
-
-## Introdução
-
-O Catálogo de Dados do Azure fornece recursos para descoberta de fonte de dados, habilitando os usuários a descobrir e entender facilmente as fontes de dados de que precisam para executar análises e tomar decisões. Esses recursos de descoberta têm maior impacto quando os usuários podem localizar e compreender a mais ampla variedade de fontes de dados disponíveis.
-
-Um recurso do Catálogo de Dados que promove maior compreensão dos dados dos ativos é a marcação. A marcação permite que os usuários associem palavras-chave a um ativo ou uma coluna, o que torna mais fácil de descobrir o ativo ao procurar ou navegar, e permite que os usuários entendam mais facilmente o contexto e a intenção do ativo.
-
-No entanto, a marcação às vezes pode causar seus próprios problemas. Alguns exemplos dos problemas que podem ser introduzidos pela marcação são:
-
-1.	Usuários usando abreviações de alguns ativos e texto expandido em outros durante a marcação. Essa inconsistência impede a descoberta de ativos, mesmo que o objetivo tenha sido marcar os ativos com a mesma marca.
-2.	Marcas que significam coisas diferentes em diferentes contextos. Por exemplo, uma marca chamada "Receita" em um conjunto de dados do cliente pode significar a receita por cliente, mas a mesma marca em um conjunto de dados de vendas trimestral pode significar a receita trimestral da empresa.
-
-Para ajudar a resolver esses e outros desafios semelhantes, o Catálogo de Dados inclui um Glossário de Negócios.
-
-O Glossário de Negócios do Catálogo de Dados permite que às organizações documentar os principais termos de negócios e suas definições para criar um vocabulário comum de negócios. Esse controle proporciona consistência no uso de dados em toda a organização. Uma vez definidos os termos no glossário de negócios, eles podem ser atribuídos a ativos de dados no catálogo, usando a mesma abordagem que a marcação, habilitando assim a _marcação governada_.
-
-> [AZURE.NOTE] A funcionalidade descrita neste artigo está disponível apenas na Edição Standard do Catálogo de Dados do Azure. A Edição Gratuita não fornece recursos para marcação controlada ou um glossário de negócios.
-
-## Disponibilidade de glossário e privilégios
-
-/*O glossário de negócios está disponível na Edição Standard do Catálogo de Dados do Azure. A Edição Gratuita do Catálogo de Dados não inclui um glossário.*/
-
-O glossário de negócios pode ser acessado por meio da opção "Glossário" no menu de navegação do portal do Catálogo de Dados.
-
-![Acessando o glossário de negócios](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+    ms.service="data-catalog"
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="data-catalog"
+    ms.date="09/21/2016"
+    ms.author="maroche"/>
 
 
-Os administradores do Catálogo de Dados e membros da função Administradores do Glossário podem criar, editar e excluir os termos do glossário no glossário de negócios. Todos os usuários do Catálogo de Dados podem exibir as definições de termos e podem marcar os ativos com os termos do glossário.
+# <a name="how-to-set-up-the-business-glossary-for-governed-tagging"></a>How to set up the Business Glossary for Governed Tagging
 
-![Adicionar um novo termo de glossário](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+## <a name="introduction"></a>Introduction
+
+Azure Data Catalog provides capabilities for data source discovery, enabling users to easily discover and understand the data sources they need to perform analysis and make decisions. These discovery capabilities make the biggest impact when users can find and understand the broadest range of available data sources.
+
+One Data Catalog feature that promotes greater understanding of assets data is tagging. Tagging allows users to associate keywords with an asset or a column, which in turn makes it easier to discover the asset via searching or browsing, and allows users to more easily understand the context and intent of the asset.
+
+However, tagging can sometimes cause problems of its own. Some examples of problems that can be introduced by tagging are:
+
+1.  Users using abbreviations on some assets and expanded text on others while tagging. This inconsistency hinders the discovery of assets even though the intent was to tag the assets with the same tag.
+2.  Tags which mean different things in different contexts. For example, a tag called "Revenue" on a customer data set might mean revenue by customer, but the same tag on a quarterly sales dataset could mean quarterly revenue for the company.  
+
+To help address these and other similar challenges, Data Catalog includes a Business Glossary.
+
+The Data Catalog Business Glossary allows organizations to document key business terms and their definitions to create a common business vocabulary. This governance enables consistency in data usage across the organization. Once terms are defined in the business glossary, they can be assigned to data assets in the catalog, using the same approach as tagging, thereby enabling _governed tagging_.
+
+> [AZURE.NOTE] The functionality described in this article are available only in the Standard Edition of Azure Data Catalog. The Free Edition does not provide capabilities for governed tagging or a business glossary.
+
+## <a name="glossary-availability-and-privileges"></a>Glossary availability and privileges
+
+/*The business glossary is available in the Standard Edition of Azure Data Catalog. The Free Edition of Data Catalog does not include a glossary.*/
+
+The business glossary can be accessed via the "Glossary" option in the Data Catalog portal's navigation menu.  
+
+![Accessing the business glossary](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
 
-## Criar termos do glossário
+Data Catalog administrators and members of the Glossary Administrators role can create, edit and delete glossary terms in the business glossary. All Data Catalog users can view the term definitions, and can tag assets with glossary terms.
 
-Os administradores do Catálogo de Dados e administradores do Glossário podem criar novos termos do glossário clicando no botão Novo Termo para criar termos de glossário com os seguintes campos:
-
-* Uma definição de negócios para o termo
-* Uma descrição que captura o uso pretendido ou regras de negócios para o ativo/coluna
-* Uma lista de participantes sabem mais sobre o termo
-* O termo pai, que define a hierarquia na qual o termo é organizado
+![Adding a new glossary term](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 
-## Hierarquias de termos do glossário
+## <a name="creating-glossary-terms"></a>Creating glossary terms
 
-O glossário de negócios do Catálogo de Dados fornece a capacidade de descrever seu vocabulário de negócios como uma hierarquia de termos. Isso permite que as organizações criem uma classificação de termos que melhor representa a taxonomia de seus negócios.
+Data Catalog administrators and Glossary administrators can create new glossary terms by clicking on the New Term’ button to create glossary terms with the following fields:
 
-O nome de um termo deve ser exclusivo em um determinado nível da hierarquia; não são permitidos nomes duplicados. Não há nenhum limite para o número de níveis em uma hierarquia, mas uma hierarquia geralmente é mais facilmente compreendida quando há três níveis ou menos.
+* A business definition for the term
+* A description which captures the intended use or business rules for the asset/column
+* A list of stakeholders who know the most about the term
+* The parent term, which defines the hierarchy in which the term is organized
 
-O uso de hierarquias no glossário de negócios é opcional. Deixar o campo de termo pai em branco para termos de glossário criará uma lista plana (não hierárquica) dos termos no glossário.
 
-## Marcar ativos com os termos de glossário
+## <a name="glossary-term-hierarchies"></a>Glossary term hierarchies
 
-Depois que termos glossário tiverem sido definidos no catálogo, a experiência de ativos de marcação é otimizada para pesquisar o glossário à medida que o usuário digita sua marca. O portal do Catálogo de Dados exibe uma lista de termos de glossário correspondentes para o usuário escolher. Se o usuário selecionar um termo da lista, ele será adicionado ao ativo como uma marca (também conhecido como marca de glossário). O usuário também pode optar por criar uma nova marca digitando um termo que não está no glossário (também conhecido como marca de usuário).
+The Data Catalog business glossary provides the ability to describe your business vocabulary as a hierarchy of terms. This allows organizations to create a classification of terms which better represents their business taxonomy.
 
-![Ativo de dados marcado com uma marca de usuário e duas de glossário](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
+The name of a term must be unique at a given level of hierarchy - duplicate names are not allowed. There is no limit to the number of levels in a hierarchy, but a hierarchy is often more easily understood when there are three levels or fewer.
 
-> [AZURE.NOTE] Marcas de usuário são o único tipo de marca com suporte na Edição Gratuita do Catálogo de Dados.
+The use of hierarchies in the business glossary is optional. Leaving the parent term field blank for glossary terms will create a flat (non-hierarchical) list of terms in the glossary.  
 
-### Comportamento ao passar o mouse sobre marcas
-No portal do Catálogo de Dados, os dois tipos de marcas são visualmente distintas, com comportamentos diferentes ao passar o mouse sobre elas. Quando o usuário passa o mouse sobre uma marca de usuário, ele pode ver o texto da marca e o usuário que a adicionou. Quando o usuário passa o mouse sobre uma marca de glossário, ele também vê a definição do termo e um link para abrir o glossário de negócios para exibir a definição completa do termo.
+## <a name="tagging-assets-with-glossary-terms"></a>Tagging assets with glossary terms
 
-### Filtros de pesquisa para marcas
-Ambas as marcas de glossário e de usuário podem ser pesquisadas e aplicadas como filtros em uma pesquisa.
+Once glossary terms have been defined within the catalog, the experience of tagging assets is optimized to search the glossary as the user types their tag. The Data Catalog portal displays a list of matching glossary terms for the user to choose from. If the user selects a glossary term from the list it is added to the asset as a tag (a.k.a. glossary tag). The user can also choose to create a new tag by typing a term which is not in the glossary (a.k.a. user tag).
 
-## Resumo
-O glossário de negócios no Catálogo de Dados do Azure, e a marcação habilitada por ele, permite que os ativos de dados sejam identificados, gerenciados e descobertos de maneira consistente. O glossário de negócios pode promover a aprendizagem do vocabulário de negócios entre usuários de uma organização e dar suporte à captura de metadados significativos, facilitando muito a descoberta e a compreensão dos ativos.
+![Data asset tagged with one user tag and two glossary tags](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
 
-## Consulte também
+> [AZURE.NOTE] User Tags are the only type of tag supported in the Free Edition of Data Catalog.
 
-- [Documentação da API REST para operações de glossário de negócios](https://msdn.microsoft.com/library/mt708855.aspx)
+### <a name="hover-behavior-on-tags"></a>Hover behavior on tags
+In the Data Catalog portal the two types of tags are visually distinct, with different hover behaviors. When the user hovers over a user tag they can see the tag text and the user or users who have added the tag. When the user hovers over a glossary tag, they also see the definition of the glossary term and a link to open the business glossary to view the full definition of the term.
 
-<!---HONumber=AcomDC_0921_2016-->
+### <a name="search-filters-for-tags"></a>Search filters for tags
+Both glossary tags and user tags are searchable, and can be applied as filters in a search.
+
+## <a name="summary"></a>Summary
+The business glossary in Azure Data Catalog, and the governed tagging it enables, allow data assets to be identified, managed, and discovered in a consistent manner. The business glossary can promote learning of the business vocabulary amongst users of an organization and supports meaningful meta-data to be captured, making asset discovery and understanding a breeze.
+
+## <a name="see-also"></a>See Also
+
+- [REST API documentation for business glossary operations](https://msdn.microsoft.com/library/mt708855.aspx)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

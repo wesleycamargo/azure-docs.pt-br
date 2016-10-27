@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Criar um conjunto de registros e registros para uma zona DNS usando o portal do Azure | Microsoft Azure"
-   description="Como criar registros de host para o DNS do Azure e criar conjuntos de registros e registros usando o portal do Azure"
+   pageTitle="Create a record set and records for a DNS Zone using the Azure portal | Microsoft Azure"
+   description="How to create host records for Azure DNS and create record sets and records using the Azure portal"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
@@ -15,53 +15,58 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 
 
-# Criar registros e conjuntos de registros DNS usando o portal do Azure
+
+# <a name="create-dns-record-sets-and-records-by-using-the-azure-portal"></a>Create DNS record sets and records by using the Azure portal
 
 
 > [AZURE.SELECTOR]
-- [Portal do Azure](dns-getstarted-create-recordset-portal.md)
+- [Azure Portal](dns-getstarted-create-recordset-portal.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
-- [CLI do Azure](dns-getstarted-create-recordset-cli.md)
+- [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
 
-Este artigo o guiará durante o processo de criação de registros e conjuntos de registros usando o portal do Azure. Depois de criar sua zona DNS, você adiciona os registros DNS para seu domínio. Para fazer isso, primeiro você precisa entender os registros DNS e conjuntos de registros.
+This article walks you through the process of creating records and records sets by using the Azure portal. After you create your DNS zone, you add the DNS records for your domain. To do this, you first need to understand DNS records and record sets.
 
 [AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
 
-## Criar registro e um conjunto de registros
+## <a name="create-a-record-set-and-record"></a>Create a record set and record
 
-O exemplo a seguir explica o processo de criação de um registro e conjunto de registros usando o portal do Azure. Usaremos o tipo de registro DNS “A”.
+The following example walks you through the process of creating a record set and record by using the Azure portal. We'll use the DNS "A" record type.
 
-1. Entre no portal.
+1. Sign in to the portal.
 
-2. Vá para a folha da **zona DNS** na qual você deseja criar um conjunto de registros.
+2. Go to the **DNS zone** blade in which you want to create a record set.
 
-3. Na parte superior da folha **zona DNS**, selecione **Conjunto de registros** para abrir a folha **Adicionar conjunto de registros**.
+3. At the top of the **DNS zone** blade, select **Record set** to open the **Add record set** blade.
 
-	![Novo conjunto de registros](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
+    ![New record set](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
 
-4. Na folha **Adicionar conjunto de registros**, nomeie o conjunto de registros. Por exemplo, você pode nomear o conjunto de registros “**www**”.
+4. On the **Add record set** blade, name your record set. For example, you could name your record set "**www**".
 
-	![Adicionar conjunto de registros](./media/dns-getstarted-create-recordset-portal/addrecordset500.png)
+    ![Add record set](./media/dns-getstarted-create-recordset-portal/addrecordset500.png)
 
-5. Selecione o tipo de registro que você deseja criar. Por exemplo, selecione **A**.
+5. Select the type of record you want to create. For example, select **A**.
 
-6. Defina o **TTL**. A vida útil padrão no portal é de uma hora.
+6. Set the **TTL**. The default time to live in the portal is one hour.
 
-7. Adicione os endereços IP, um endereço IP por linha. Quando você usa o nome do conjunto de registros e o tipo de registro sugeridos descritos anteriormente, você adiciona os endereços IP IPv4 ao registro **A** ao conjunto de registros www.
+7. Add the IP addresses, one IP address per line. When you use the suggested record set name and record type described earlier, you add the IPv4 IP addresses to the **A** record for the www record set.
 
-8. Depois de concluir a inclusão de endereços IP, selecione **OK** na parte inferior da folha. O conjunto de registros DNS será criado.
+8. After you finish adding IP addresses, select **OK** at the bottom of the blade. The DNS record set will be created.
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Para gerenciar seus registros e seu conjunto de registros, confira [Gerenciar registros DNS e conjuntos de registros usando o portal do Azure](dns-operations-recordsets-portal.md).
+To manage your record set and records, see [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md).
 
-Para obter mais informações sobre o DNS do Azure, confira [Visão geral do DNS do Azure](dns-overview.md).
+For more information about Azure DNS, see the [Azure DNS overview](dns-overview.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -3,7 +3,7 @@
    description="Saiba mais sobre como a Daxko/CSI usa o Banco de Dados SQL para acelerar o ciclo de desenvolvimento e aprimorar os serviços de atendimento ao cliente e o desempenho"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -16,7 +16,8 @@
    ms.date="09/08/2016"
    ms.author="carlrab"/>
    
-# Daxko/CSI usou o Azure para acelerar o ciclo de desenvolvimento e aprimorar o serviço de atendimento ao cliente e o desempenho
+
+# <a name="daxko/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI usou o Azure para acelerar o ciclo de desenvolvimento e aprimorar o serviço de atendimento ao cliente e o desempenho
 
 ![Logotipo da CSI/Daxko](./media/sql-database-implementation-daxko/csidaxkologo25.png)
 
@@ -32,13 +33,13 @@ Além de melhorar o desempenho para os clientes, os pools de banco de dados elá
 
 O Azure também ajudou a CSI Software a acelerar e melhorar o ciclo de desenvolvimento e QA (garantia de qualidade) habilitando opções de automação. Com a implementação do Azure na empresa, os gerentes de compilação podem empacotar componentes com o clique de um botão. Como Molina descreve, "Como parte do ciclo de liberação, o QA agora é capaz de implantar em um ambiente de teste no Azure, imitando de modo bem próximo nossa pilha de produção. Podemos implantar compilações imediatamente em nosso ambiente de desenvolvimento para verificar as alterações. Uma grande vitória para nós, pois não tínhamos paridade para testar antes disso".
 
-## Descarregando na nuvem
+## <a name="offloading-to-the-cloud"></a>Descarregando na nuvem
 
 Antes de passar para a nuvem, a CSI Software tinha criado com sucesso sua própria infraestrutura multilocatária em um datacenter local em Houston. À medida que a empresa expandia, ela enfrentava cada vez mais dificuldades com a compra, o provisionamento e a manutenção de todos os componentes de hardware e software necessários para atender aos clientes. A equipe de TI se tornou outro obstáculo ao lidar com operações, o que diminuiu a velocidade do provisionamento de novos recursos e da distribuição de novos serviços aos clientes.
 
 A CSI Software investigou as opções de nuvem para eliminar essa sobrecarga, de modo que ela pudesse focar em seu código, e não nas operações. A empresa descobriu que muitos dos mais importantes provedores de nuvem oferecem apenas soluções IaaS (infraestrutura como serviço), o que ainda exige uma grande equipe de TI para gerenciar a pilha IaaS. No fim, a CSI Software determinou que a solução PaaS do Azure foi a melhor opção para suas necessidades. Molina explica, "O Azure tira do caminho o hardware e o software de sistema para que possamos nos concentrar em nossas ofertas de software, ao mesmo tempo que reduzimos nossa sobrecarga de TI".
 
-## Fazendo a transição para o Azure
+## <a name="making-the-transition-to-azure"></a>Fazendo a transição para o Azure
 
 Depois de escolher o Azure para sua solução de PaaS, a CSI Software começou a migrar a infraestrutura de back-end e os bancos de dados para a nuvem. Antes do Azure, os clientes do SpectrumNG precisavam instalar um aplicativo cliente que se comunicava com um serviço do WCF (Windows Communication Foundation) no back-end. De acordo com Molina, "Embora alguns clientes hospedassem tudo em seus próprios datacenters, criamos o produto para ser multilocatário. Hospedávamos tudo em um datacenter em Houston, usando o SQL Server como o repositório de dados.
 
@@ -46,29 +47,30 @@ Depois de escolher o Azure para sua solução de PaaS, a CSI Software começou a
 
 A migração para a nuvem não demorou muito para a arquitetura. De acordo com Molina, "O maior esforço foi modificar como lemos as informações do arquivos de configuração, a modificação centralizada da cadeia de conexão, e automatizar o empacotamento, o carregamento e a implantação de nossos lançamentos".
 
-Para desenvolver a automação de compilação, os engenheiros da CSI Software usaram o Azure PowerShell e as APIs REST para criar pacotes e carregá-los em um ambiente de preparo para liberação toda noite. A transição geral para uma implantação baseada em nuvem do Azure ocorreu de forma rápida e tranquila para a equipe de TI da CSI Software. Molina explica, "No geral, tivemos um ambiente beta na nuvem em três ou quatro semanas depois de iniciar o projeto. Foi uma surpreendente vitória para nós".
+Para desenvolver a automação de compilação, os engenheiros da CSI Software usaram o Azure PowerShell e as APIs REST para criar pacotes e carregá-los em um ambiente de preparo para liberação toda noite.
+A transição geral para uma implantação baseada em nuvem do Azure ocorreu de forma rápida e tranquila para a equipe de TI da CSI Software. Molina explica, "No geral, tivemos um ambiente beta na nuvem em três ou quatro semanas depois de iniciar o projeto. Foi uma surpreendente vitória para nós".
 
 Depois de configurar e testar o ambiente, a CSI Software começou a migrar os clientes. Para os clientes que já estavam usando a hospedagem da CSI Software, a transição foi praticamente imperceptível. Migrando de uma implantação local, a transição para a nuvem levou um pouco mais de tempo, mas ainda assim não houve complicações, nem para os clientes, nem para a CSI Software.
 
 Quanto aos clientes novos, a equipe de TI da CSI Software usa o seguinte processo para integrá-los ao Azure:
 
-1.	Os scripts do Azure PowerShell são usados para gerar um novo banco de dados para o cliente; todos os clientes começam em uma camada premium, de modo a garantir produtividade inicial suficiente para a transição.
-2.	Quando possível, a CSI Software usa o Assistente de Migração de SQL do Azure para mover dados existentes para uma instância do Banco de Dados SQL do Azure.
-3.	Por fim, os SSIS (SQL Server Integration Services) da Microsoft são usados para reconciliar todas as discrepâncias nos dados ou executar qualquer limpeza de dados, conforme exigido.
+1.  Os scripts do Azure PowerShell são usados para gerar um novo banco de dados para o cliente; todos os clientes começam em uma camada premium, de modo a garantir produtividade inicial suficiente para a transição.
+2.  Quando possível, a CSI Software usa o Assistente de Migração de SQL do Azure para mover dados existentes para uma instância do Banco de Dados SQL do Azure.
+3.  Por fim, os SSIS (SQL Server Integration Services) da Microsoft são usados para reconciliar todas as discrepâncias nos dados ou executar qualquer limpeza de dados, conforme exigido.
 
 Hoje, aproximadamente 99% dos clientes da CSI Software são hospedados no Azure, distribuídos em quatro datacenters regionais (Centro-Norte, Centro-Sul, Leste e Oeste). Com datacenters na região geográfica de cada cliente, a latência é mantida no mínimo.
 
-## Pools de banco de dados elástico do Azure libera recursos de TI
+## <a name="azure-elastic-database-pools-free-up-it-resources"></a>Pools de banco de dados elástico do Azure libera recursos de TI
 
 Vários recursos do Azure ajudaram a CSI Software a mudar: do foco na infraestrutura e nas operações para o foco nos recursos e no desenvolvimento. Talvez o maior benefício tenha sido dos pools de banco de dados elásticos.
 
 Atualmente, a CSI Software fornece aproximadamente 550 bancos de dados para os clientes. Antes dos pools elásticos, era difícil gerenciar muitos bancos de dados em uma estrutura em camadas. Os gerentes de operações precisavam atribuir camadas de desempenho com base nas necessidades dos clientes, o que sobrecarregava significativamente os recursos de TI. Com os pools de banco de dados elásticos, os gerentes podem atribuir locatários a um pool premium ou standard, conforme apropriado, e mover os clientes com base no tamanho e na necessidade. Os clientes sentiram os efeitos dos pools de banco de dados elásticos quase que instantaneamente; antes dos pools elásticos, os clientes tinham tempos limite e outros problemas durante os períodos de maior uso, mas com os pools elásticos, eles podem realizar uma grande quantidade de atividades, conforme a necessidade, e podem continuar usando o SpectrumNG sem problemas.
 
-## A Replicação Geográfica Ativa do Azure acelere a geração de relatórios
+## <a name="azure-active-geo-replication-accelerates-reporting"></a>A Replicação Geográfica Ativa do Azure acelere a geração de relatórios
 
 Vários clientes da CSI Software também estão se beneficiando com a Replicação Geográfica Ativa do Azure. Com a Replicação Geográfica Ativa, é possível configurar até quatro bancos de dados secundários legíveis na mesma região ou em regiões diferentes de datacenter. A CSI Software usa a Replicação Geográfica Ativa de duas maneiras: primeira, os bancos de dados secundários são disponibilizados no caso de interrupção de um datacenter ou de incapacidade de conexão com o banco de dados primário; segunda, os bancos de dados secundários são legíveis e podem ser usados para transferir cargas de trabalho somente leitura, como trabalhos de geração de relatórios. Alguns clientes da CSI Software usam esse benefício para acelerar os fluxos de trabalho de relatório.
 
-## Arquitetura e lógica de aplicativo da CSI Software
+## <a name="csi-software-application-logic-and-architecture"></a>Arquitetura e lógica de aplicativo da CSI Software
 
 O SpectrumNG usa funções web. Como o aplicativo é multilocatário, um serviço do WCF é usado para tratar da solicitação de conexão inicial dos clientes. Como Molina declara, "A solicitação identifica cada cliente, o que nos permite criar uma cadeia de conexão com seus bancos de dados para fazer tudo o que precisamos fazer".
 
@@ -79,17 +81,17 @@ Para a camada Web de seu serviço, a CSI Software aproveita o dimensionamento au
 
 Figura 1. Uma função de trabalho dos serviços de nuvem extrai dados estruturados do Banco de Dados SQL do Azure e dados semiestruturados do armazenamento de tabelas. Os usuários do SpectrumNG interagem com esses dados por meio de uma função web dos serviços de nuvem.
 
-## Usando aplicativos Web e uma camada de plano da Web para aplicativos móveis
+## <a name="using-web-apps-and-a-web-plan-tier-for-mobile-apps"></a>Usando aplicativos Web e uma camada de plano da Web para aplicativos móveis
 
 Usar o Banco de Dados SQL do Azure liberou os recursos para que a CSI Software permitisse novas iniciativas, incluindo uma plataforma móvel completa baseada em uma API personalizada hospedada nos aplicativos Web do Azure. A plataforma permite que membros e a equipe de academia usem dispositivos móveis para verificar programações, agendar aulas e receber mensagens.
 
 A plataforma usa a SOA (arquitetura orientada a serviços) para obter um único componente — como um POS (sistema de ponto de venda) ou um sistema de vendas — movê-lo dinamicamente para outro plano da Web e criar um serviço que dê suporte a esse componente, enquanto deixa o restante no plano da Web original. Essa capacidade proporciona uma enorme flexibilidade à CSI Software, além de ajudar a reduzir os custos.
 
-## O Azure permite que os desenvolvedores da CSI Software se concentram em aplicativos e serviços
+## <a name="azure-lets-csi-software-developers-focus-on-apps-and-services"></a>O Azure permite que os desenvolvedores da CSI Software se concentram em aplicativos e serviços
 
 O Banco de Dados SQL do Azure não é apenas uma dádiva para os clientes do SpectrumNG, que aproveitam o serviço rápido e confiável, mas também uma grande conquista para a equipe de TI e os desenvolvedores da CSI Software. Ao transferir as operações para o Azure na nuvem, a CSI Software reduziu sua sobrecarga em recursos e infraestrutura, acelerou consideravelmente os ciclos de desenvolvimento e não precisa mais gerenciar minuciosamente os bancos de dados a fim de otimizar o desempenho para seus locatários.
 
-## Mais informações
+## <a name="more-information"></a>Mais informações
 
 - Para saber mais sobre os pools de bancos de dados elásticos do Azure, confira os [pools de bancos de dados elásticos](sql-database-elastic-pool.md).
 
@@ -99,10 +101,14 @@ O Banco de Dados SQL do Azure não é apenas uma dádiva para os clientes do Spe
 
 - Para saber mais sobre a Replicação Geográfica Ativa, confira [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md).
 
-- Para saber mais sobre funções web e funções de trabalho, confira [funções de trabalho](../fundamentals-introduction-to-azure.md#compute).
+- Para saber mais sobre funções web e funções de trabalho, confira [funções de trabalho](../fundamentals-introduction-to-azure.md#compute). 
 
 - Para saber mais sobre o Barramento de Serviço, confira [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/).
 
 - Para saber mais sobre dimensionamento automático, confira o artigo sobre o [dimensionamento de serviços de nuvem](../cloud-services/cloud-services-how-to-scale.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

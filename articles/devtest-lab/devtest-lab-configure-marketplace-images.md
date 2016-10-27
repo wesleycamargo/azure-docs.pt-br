@@ -1,55 +1,61 @@
 <properties
-	pageTitle="Definir configurações de imagem do Azure Marketplace no Azure DevTest Labs | Microsoft Azure"
-	description="Configure quais imagens do Azure Marketplace podem ser usadas ao criar uma VM no Azure DevTest Labs"
-	services="devtest-lab,virtual-machines"
-	documentationCenter="na"
-	authors="tomarcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Configure Azure Marketplace image settings in Azure DevTest Labs | Microsoft Azure"
+    description="Configure which Azure Marketplace images can be used when creating a VM in Azure DevTest Labs"
+    services="devtest-lab,virtual-machines"
+    documentationCenter="na"
+    authors="tomarcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="devtest-lab"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/06/2016"
-	ms.author="tarcher"/>
+    ms.service="devtest-lab"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/06/2016"
+    ms.author="tarcher"/>
 
-# Definir configurações de imagem do Azure Marketplace no Azure DevTest Labs
 
-O DevTest Labs dá suporte à criação de VMs com base em imagens do Azure Marketplace, dependendo de como você tiver configurado o uso de imagens do Azure Marketplace em seu laboratório. Este artigo mostra como especificar quais imagens (caso haja alguma) do Azure Marketplace podem ser usadas durante a criação de VMs em um laboratório.
+# <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Configure Azure Marketplace image settings in Azure DevTest Labs
 
-## Selecionar quais imagens do Azure Marketplace são permitidas durante a criação de uma VM
+DevTest Labs supports creating VMs based on Azure Marketplace images depending on how you have configured Azure Marketplace images to be used in your lab. This article shows you how to specify which, if any, Azure Marketplace images can be used when creating VMs in a lab.
 
-1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+## <a name="select-which-azure-marketplace-images-are-allowed-when-creating-a-vm"></a>Select which Azure Marketplace images are allowed when creating a VM
 
-1. Selecione **Mais Serviços** e selecione **DevTest Labs** na lista.
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Na lista de laboratórios, selecione o laboratório desejado.
+1. Select **More Services**, and then select **DevTest Labs** from the list.
 
-1. Na folha do laboratório, selecione **Configuração**.
-	
-1. Na folha **Configuração** do laboratório, selecione **imagens do Marketplace**
+1. From the list of labs, select the desired lab. 
 
-1. Especifique se você deseja que todas as imagens qualificadas do Azure Marketplace estejam disponíveis para uso como uma base de uma nova VM. Se você selecionar **Sim**, todas as imagens do Azure Marketplace que atenderem a todos os critérios a seguir serão permitidas no laboratório:
+1. On the lab's blade, select **Configuration**.
+    
+1. On lab's **Configuration** blade, select **Marketplace images**
 
-	- A imagem cria uma única VM **e**
-	- A imagem usa o Azure Resource Manager para provisionar VMs **e**
-	- A imagem não exige a compra de um plano de licenciamento extra
-	
-	Se você não quiser permitir qualquer imagem, ou se quiser especificar quais imagens poderão ser usadas, selecione **Não**.
+1. Specify whether you want all the qualified Azure Marketplace images to be available for use as a base of a new VM. If you select **Yes**, then all the Azure Marketplace images that meet all the following criteria are allowed in the lab:
+
+    - The image creates a single VM, **and**
+    - The image uses Azure Resource Manager to provision VMs, **and**
+    - The image doesn't require purchasing an extra licensing plan
+    
+    If you want no images to be allowed, or you want to specify which images can be used, select **No**.
  
-	![Opção para permitir que todas as imagens do Marketplace sejam usadas como imagens base para VMs](./media/devtest-lab-configure-marketplace-images/allow-all-marketplace-images.png)
+    ![Option to allow all Marketplace images to be used as base images for VMs](./media/devtest-lab-configure-marketplace-images/allow-all-marketplace-images.png)
  
-1. Se você tiver selecionado **Não** na etapa anterior, a caixa de seleção **Imagens permitidas/Selecionar todas** será habilitada. Você pode usar essa opção junto com a caixa de pesquisa para marcar ou desmarcar rapidamente todos os itens exibidos na lista. Você também pode selecionar individualmente as imagens do Azure Marketplace que deseja permitir para a criação da VM, marcando a caixa de seleção correspondente à cada imagem. Não selecione nada na lista se não quiser permitir que as imagens do Azure Marketplace sejam usadas no laboratório.
+1. If you select **No** to the previous step, the **Allowed images/Select all** checkbox is enabled. You can use this option together with the search box to quickly select or deselect all the items displayed in the list.
+You can also select the Azure Marketplace images you want to allow for VM creation individually by checking each image's corresponding checkbox.
+Select nothing from the list if you don't want to allow any Azure Marketplace images to be used in the lab.
 
-	![Você pode especificar quais imagens do Marketplace podem ser usadas como imagens base para VMs](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)
+    ![You can specify which Azure Marketplace images can be used as base images for VMs](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Depois de configurar como as imagens do Azure Marketplace são permitidas durante a criação de uma VM, a próxima etapa será [adicionar uma VM ao seu laboratório](./devtest-lab-add-vm-with-artifacts.md).
+Once you have configured how Azure Marketplace images are allowed when creating a VM, the next step is to [add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

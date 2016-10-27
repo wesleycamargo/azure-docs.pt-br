@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Carregar dados do SQL Server no SQL Data Warehouse do Azure (SSIS) | Microsoft Azure"
-   description="Mostra a você como criar um pacote do SSIS (SQL Server Integration Services) para mover dados de uma ampla variedade de fontes de dados para o SQL Data Warehouse."
+   pageTitle="Load data from SQL Server into Azure SQL Data Warehouse (SSIS) | Microsoft Azure"
+   description="Shows you how to create a SQL Server Integration Services (SSIS) package to move data from a wide variety of data sources to SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -16,7 +16,8 @@
    ms.date="08/08/2016"
    ms.author="lodipalm;sonyama;barbkess"/>
 
-# Carregar dados do SQL Server no Azure SQL Data Warehouse (SSIS)
+
+# <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-(ssis)"></a>Load data from SQL Server into Azure SQL Data Warehouse (SSIS)
 
 > [AZURE.SELECTOR]
 - [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
@@ -24,204 +25,208 @@
 - [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
 
 
-Crie um pacote SSIS (SQL Server Integration Services) para carregar dados do SQL Server no SQL Data Warehouse do Azure. Opcionalmente, você pode reestruturar, transformar e limpar os dados conforme eles passam pelo fluxo de dados do SSIS.
+Create a SQL Server Integration Services (SSIS) package to load data from SQL Server into Azure SQL Data Warehouse. You can optionally restructure, transform, and cleanse the data as it passes through the SSIS data flow.
 
-Neste tutorial, você irá:
+In this tutorial, you will:
 
-- Criar um novo projeto do Integration Services no Visual Studio.
-- Conectar-se a fontes de dados, incluindo SQL Server (como uma fonte) e o SQL Data Warehouse (como um destino).
-- Criar um pacote do SSIS que carregue os dados da fonte para o destino.
-- Executar o pacote do SSIS para carregar os dados.
+- Create a new Integration Services project in Visual Studio.
+- Connect to data sources, including SQL Server (as a source) and SQL Data Warehouse (as a destination).
+- Design an SSIS package that loads data from the source into the destination.
+- Run the SSIS package to load the data.
 
-Este tutorial usa o SQL Server como a fonte de dados. O SQL Server pode estar em execução local ou em uma máquina virtual do Azure.
+This tutorial uses SQL Server as the data source. SQL Server could be running on premises or in an Azure virtual machine.
 
-## Conceitos básicos
+## <a name="basic-concepts"></a>Basic concepts
 
-O pacote é a unidade de trabalho no SSIS. Os pacotes relacionados são agrupados em projetos. Você cria projetos e pacotes de design no Visual Studio com o SQL Server Data Tools. O processo de design é um processo visual no qual você arrasta e solta componentes da Caixa de Ferramentas para a superfície de design, conecta-os e define suas propriedades. Depois de concluir seu pacote, você pode, opcionalmente, implantá-lo no SQL Server para gerenciamento, monitoramento e segurança abrangentes.
+The package is the unit of work in SSIS. Related packages are grouped in projects. You create projects and design packages in Visual Studio with SQL Server Data Tools. The design process is a visual process in which you drag and drop components from the Toolbox to the design surface, connect them, and set their properties. After you finish your package, you can optionally deploy it to SQL Server for comprehensive management, monitoring, and security.
 
-## Opções de carregamento de dados com o SSIS
+## <a name="options-for-loading-data-with-ssis"></a>Options for loading data with SSIS
 
-O SSIS (SQL Server Integration Services) é um conjunto flexível de ferramentas que fornece uma variedade de opções para se conectar a e carregar dados no SQL Data Warehouse.
+SQL Server Integration Services (SSIS) is a flexible set of tools that provides a variety of options for connecting to, and loading data into, SQL Data Warehouse.
 
-1. Use um destino do ADO NET para conectar-se ao SQL Data Warehouse. Este tutorial usa um Destino do ADO NET porque ele é o que tem o menor número de opções de configuração.
-2. Use um Destino OLE DB para conectar-se ao SQL Data Warehouse. Esta opção pode fornecer desempenho um pouco melhor do que o Destino ADO NET.
-3. Use a Tarefa de Upload de Blob do Azure para preparar os dados no Armazenamento de Blobs do Azure. Em seguida, use a tarefa Executar SQL do SSIS para iniciar um script do Polybase que carrega os dados no SQL Data Warehouse. Essa opção oferece o melhor desempenho das três opções listadas aqui. Para obter a Tarefa de Upload de Blob do Azure, baixe o [Feature Pack do Microsoft SQL Server 2016 Integration Services para o Azure][]. Para saber mais sobre o Polybase, veja o [Guia do PolyBase][].
+1. Use an ADO NET Destination to connect to SQL Data Warehouse. This tutorial uses an ADO NET Destination because it has the fewest configuration options.
+2. Use an OLE DB Destination to connect to SQL Data Warehouse. This option may provide slightly better performance than the ADO NET Destination.
+3. Use the Azure Blob Upload Task to stage the data in Azure Blob Storage. Then use the SSIS Execute SQL task to launch a Polybase script that loads the data into SQL Data Warehouse. This option provides the best performance of the three options listed here. To get the Azure Blob Upload task, download the [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure][]. To learn more about Polybase, see [PolyBase Guide][].
 
-## Antes de começar
+## <a name="before-you-start"></a>Before you start
 
-Para acompanhar este tutorial, você precisará:
+To step through this tutorial, you need:
 
-1. **SSIS (SQL Server Integration Services)**. O SSIS é um componente do SQL Server e requer uma versão de avaliação ou uma versão licenciada do SQL Server. Para obter uma versão de avaliação do SQL Server 2016 Preview, consulte [Avaliações do SQL Server][].
-2. **Visual Studio**. Para obter o Visual Studio 2015 Community Edition gratuito, consulte [Visual Studio Community][].
-3. **SSDT (SQL Server Data Tools) para Visual Studio**. Para obter o SQL Server Data Tools para Visual Studio 2015, consulte [Baixar o SSDT (SQL Server Data Tools)][].
-4. **Dados de exemplo**. Este tutorial usa dados de exemplo armazenados no SQL Server no banco de dados de exemplo do AdventureWorks como os dados de origem a serem carregados no SQL Data Warehouse. Para obter o banco de dados de exemplo do AdventureWorks, consulte [Bancos de Dados de Exemplo do AdventureWorks 2014][].
-5. **Um banco de dados e permissões do SQL Data Warehouse**. Este tutorial conecta-se a uma instância do SQL Data Warehouse e carrega dados nela. Você precisa ter permissões para criar uma tabela e para carregar dados.
-6. **Uma regra de firewall**. Antes que você possa carregar dados no SQL Data Warehouse, você precisará criar uma regra de firewall no SQL Data Warehouse com o endereço IP do computador local.
+1. **SQL Server Integration Services (SSIS)**. SSIS is a component of SQL Server and requires an evaluation version or a licensed version of SQL Server. To get an evaluation version of SQL Server 2016 Preview, see [SQL Server Evaluations][].
+2. **Visual Studio**. To get the free Visual Studio 2015 Community Edition, see [Visual Studio Community][].
+3. **SQL Server Data Tools for Visual Studio (SSDT)**. To get SQL Server Data Tools for Visual Studio 2015, see [Download SQL Server Data Tools (SSDT)][].
+4. **Sample data**. This tutorial uses sample data stored in SQL Server in the AdventureWorks sample database as the source data to be loaded into SQL Data Warehouse. To get the AdventureWorks sample database, see [AdventureWorks 2014 Sample Databases][].
+5. **A SQL Data Warehouse database and permissions**. This tutorial connects to a SQL Data Warehouse instance and loads data into it. You have to have permissions to create a table and to load data.
+6. **A firewall rule**. You have to create a firewall rule on SQL Data Warehouse with the IP address of your local computer before you can upload data to the SQL Data Warehouse.
 
-## Etapa 1: Criar um novo projeto do Integration Services
+## <a name="step-1:-create-a-new-integration-services-project"></a>Step 1: Create a new Integration Services project
 
-1. Inicie o Visual Studio 2015.
-2. No menu **Arquivo**, selecione **Novo| Project**.
-3. Navegue até **Instalado| Templates | Business Intelligence | Integration Services** project types.
-4. Selecione **Projeto dos Serviços de Integração**. Forneça valores para **Nome** e **Local**, em seguida, selecione **OK**.
+1. Launch Visual Studio 2015.
+2. On the **File** menu, select **New | Project**.
+3. Navigate to the **Installed | Templates | Business Intelligence | Integration Services** project types.
+4. Select **Integration Services Project**. Provide values for **Name** and **Location**, and then select **OK**.
 
-O Visual Studio abre e cria um novo projeto do SSIS (Integration Services). Em seguida, o Visual Studio abre o designer para o único novo pacote SSIS (Package.dtsx) no projeto. Você vê as seguintes áreas de tela:
+Visual Studio opens and creates a new Integration Services (SSIS) project. Then Visual Studio opens the designer for the single new SSIS package (Package.dtsx) in the project. You see the following screen areas:
 
-- À esquerda, a **Caixa de Ferramentas** dos componentes do SSIS.
-- No meio, a superfície de design, com várias guias. Normalmente, você usa pelo menos as guias **Fluxo de Controle** e **Fluxo de Dados**.
-- À direita, os painéis **Gerenciador de Soluções** e **Propriedades**.
+- On the left, the **Toolbox** of SSIS components.
+- In the middle, the design surface, with multiple tabs. You typically use at least the **Control Flow** and the **Data Flow** tabs.
+- On the right, the **Solution Explorer** and the **Properties** panes.
 
     ![][01]
 
-## Etapa 2: Criar o fluxo de dados básico
+## <a name="step-2:-create-the-basic-data-flow"></a>Step 2: Create the basic data flow
 
-1. Arraste uma Tarefa do Fluxo de Dados da Caixa de Ferramentas para o centro da superfície de design (na guia **Fluxo de Controle**).
+1. Drag a Data Flow Task from the Toolbox to the center of the design surface (on the **Control Flow** tab).
 
     ![][02]
 
-2. Clique duas vezes na Tarefa de Fluxo de Dados para alternar para a guia Fluxo de Dados.
-3. Na lista Outras Fontes na Caixa de Ferramentas, arraste uma Fonte do ADO.NET para a superfície de design. Com o adaptador de fonte ainda selecionado, altere seu nome para **Fonte do SQL Server** no painel **Propriedades**.
-4. Na lista Outros Destinos na caixa de ferramentas, arraste um Destino ADO.NET para a superfície de design na Fonte do ADO.NET. Com o adaptador de destino ainda selecionado, altere seu nome para **Destino do SQL DW** no painel **Propriedades**.
+2. Double-click the Data Flow Task to switch to the Data Flow tab.
+3. From the Other Sources list in the Toolbox, drag an ADO.NET Source to the design surface. With the source adapter still selected, change its name to **SQL Server source** in the **Properties** pane.
+4. From the Other Destinations list in the Toolbox, drag an ADO.NET Destination to the design surface under the ADO.NET Source. With the destination adapter still selected, change its name to **SQL DW destination** in the **Properties** pane.
 
     ![][09]
 
-## Etapa 3: Configurar o adaptador de fonte
+## <a name="step-3:-configure-the-source-adapter"></a>Step 3: Configure the source adapter
 
-1. Clique duas vezes no adaptador de fonte para abrir o **Editor de Fonte do ADO.NET**.
+1. Double-click the source adapter to open the **ADO.NET Source Editor**.
 
     ![][03]
 
-2. Na guia **Gerenciador de Conexões** do **Editor de Fonte do ADO.NET**, clique no botão **Novo** ao lado da lista **Gerenciador de conexões ADO.NET** para abrir a caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET** e crie as configurações de conexão para o banco de dados do SQL Server a partir do qual este tutorial carrega os dados.
+2. On the **Connection Manager** tab of the **ADO.NET Source Editor**, click the **New** button next to the **ADO.NET connection manager** list to open the **Configure ADO.NET Connection Manager** dialog box and create connection settings for the SQL Server database from which this tutorial loads data.
 
     ![][04]
 
-3. Na caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET**, clique no botão **Novo** para abrir a caixa de diálogo **Gerenciador de Conexões** e crie uma nova conexão de dados.
+3. In the **Configure ADO.NET Connection Manager** dialog box, click the **New** button to open the **Connection Manager** dialog box and create a new data connection.
 
     ![][05]
 
-4. Na caixa de diálogo **Gerenciador de Conexões**, realize as ações descritas a seguir.
+4. In the **Connection Manager** dialog box, do the following things.
 
-    1. Para **Provedor**, selecione o Provedor de Dados SqlClient.
-    2. Para o **Nome do servidor**, insira o nome do SQL Server.
-    3. Na seção **Fazer logon no servidor**, selecione ou insira as informações de autenticação.
-    4. Na seção **Conectar um banco de dados**, selecione o banco de dados de exemplo AdventureWorks.
-    5. Clique em **Testar conexão**.
+    1. For **Provider**, select the SqlClient Data Provider.
+    2. For **Server name**, enter the SQL Server name.
+    3. In the **Log on to the server** section, select or enter authentication information.
+    4. In the **Connect to a database** section, select the AdventureWorks sample database.
+    5. Click **Test Connection**.
     
         ![][06]
     
-    6. Na caixa de diálogo que relata os resultados do teste de conexão, clique em **OK** para retornar à caixa de diálogo **Gerenciador de Conexões**.
-    7. Na caixa de diálogo **Gerenciador de Conexões**, clique em **OK** para retornar à caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET**.
+    6. In the dialog box that reports the results of the connection test, click **OK** to return to the **Connection Manager** dialog box.
+    7. In the **Connection Manager** dialog box, click **OK** to return to the **Configure ADO.NET Connection Manager** dialog box.
  
-5. Na caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET**, clique em **OK** para retornar ao **Editor de Fonte do ADO.NET**.
-6. No **Editor de Fonte do ADO.NET**, na lista **Nome da tabela ou exibição**, selecione a tabela **Sales.SalesOrderDetail**.
+5. In the **Configure ADO.NET Connection Manager** dialog box, click **OK** to return to the **ADO.NET Source Editor**.
+6. In the **ADO.NET Source Editor**, in the **Name of the table or the view** list, select the **Sales.SalesOrderDetail** table.
 
     ![][07]
 
-7. Clique em **Visualização** para ver as primeiras 200 linhas de dados na tabela de origem na caixa de diálogo **Visualizar Resultados da Consulta**.
+7. Click **Preview** to see the first 200 rows of data in the source table in the **Preview Query Results** dialog box.
 
     ![][08]
 
-8. Na caixa de diálogo **Visualizar Resultados da Consulta**, clique em **Fechar** para retornar para o **Editor de Fonte do ADO.NET**.
-9. No **Editor de Fonte do ADO.NET**, clique em **OK** para concluir a configuração da fonte de dados.
+8. In the **Preview Query Results** dialog box, click **Close** to return to the **ADO.NET Source Editor**.
+9. In the **ADO.NET Source Editor**, click **OK** to finish configuring the data source.
 
-## Etapa 4: Conectar o adaptador de fonte ao adaptador de destino
+## <a name="step-4:-connect-the-source-adapter-to-the-destination-adapter"></a>Step 4: Connect the source adapter to the destination adapter
 
-1. Selecione o adaptador de fonte na superfície de design.
-2. Selecione a seta azul que se estende do adaptador de fonte e arraste-a para o editor de destino até que ela se encaixe.
+1. Select the source adapter on the design surface.
+2. Select the blue arrow that extends from the source adapter and drag it to the destination editor until it snaps into place.
 
     ![][10]
 
-    Em um pacote SSIS típico, você pode usar um número de outros componentes da Caixa de Ferramentas do SSIS entre a fonte e o destino para reestruturar, transformar e limpar seus dados conforme eles passam pelo fluxo de dados do SSIS. Para manter esse exemplo o mais simples possível, estamos conectando a fonte diretamente ao destino.
+    In a typical SSIS package, you use a number of other components from the SSIS Toolbox in between the source and the destination to restructure, transform, and cleanse your data as it passes through the SSIS data flow. To keep this example as simple as possible, we’re connecting the source directly to the destination.
 
-## Etapa 5: Configurar o adaptador de destino
+## <a name="step-5:-configure-the-destination-adapter"></a>Step 5: Configure the destination adapter
 
-1. Clique duas vezes no adaptador de destino para abrir o **Editor de Destino do ADO.NET**.
+1. Double-click the destination adapter to open the **ADO.NET Destination Editor**.
 
     ![][11]
 
-2. Na guia **Gerenciador de Conexões** do **Editor de Destino do ADO.NET**, clique no botão **Novo** ao lado da lista **Gerenciador de conexões** para abrir a caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET** e crie as configurações de conexão para o banco de dados do SQL Data Warehouse no qual este tutorial carrega os dados.
-3. Na caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET**, clique no botão **Novo** para abrir a caixa de diálogo **Gerenciador de Conexões** e crie uma nova conexão de dados.
-4. Na caixa de diálogo **Gerenciador de Conexões**, realize as ações descritas a seguir.
-    1. Para **Provedor**, selecione o Provedor de Dados SqlClient.
-    2. Para **Nome do servidor**, digite o nome do SQL Data Warehouse.
-    3. Na seção **Fazer logon no servidor**, selecione **Usar autenticação do SQL Server** e insira as informações de autenticação.
-    4. Na seção **Conectar um banco de dados**, selecione um banco de dados do SQL Data Warehouse existente.
-    5. Clique em **Testar conexão**.
-    6. Na caixa de diálogo que relata os resultados do teste de conexão, clique em **OK** para retornar à caixa de diálogo **Gerenciador de Conexões**.
-    7. Na caixa de diálogo **Gerenciador de Conexões**, clique em **OK** para retornar à caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET**.
-5. Na caixa de diálogo **Configurar Gerenciador de Conexões do ADO.NET**, clique em **OK** para retornar ao **Editor de Destino do ADO.NET**.
-6. No **Editor de Destino do ADO.NET**, clique em **Novo** ao lado da lista **Usar uma tabela ou exibição** para abrir a caixa de diálogo **Criar Tabela** para criar uma nova tabela de destino com uma lista de colunas que corresponde à tabela de origem.
+2. On the **Connection Manager** tab of the **ADO.NET Destination Editor**, click the **New** button next to the **Connection manager** list to open the **Configure ADO.NET Connection Manager** dialog box and create connection settings for the Azure SQL Data Warehouse database into which this tutorial loads data.
+3. In the **Configure ADO.NET Connection Manager** dialog box, click the **New** button to open the **Connection Manager** dialog box and create a new data connection.
+4. In the **Connection Manager** dialog box, do the following things.
+    1. For **Provider**, select the SqlClient Data Provider.
+    2. For **Server name**, enter the SQL Data Warehouse name.
+    3. In the **Log on to the server** section, select **Use SQL Server authentication** and enter authentication information.
+    4. In the **Connect to a database** section, select an existing SQL Data Warehouse database.
+    5. Click **Test Connection**.
+    6. In the dialog box that reports the results of the connection test, click **OK** to return to the **Connection Manager** dialog box.
+    7. In the **Connection Manager** dialog box, click **OK** to return to the **Configure ADO.NET Connection Manager** dialog box.
+5. In the **Configure ADO.NET Connection Manager** dialog box, click **OK** to return to the **ADO.NET Destination Editor**.
+6. In the **ADO.NET Destination Editor**, click **New** next to the **Use a table or view** list to open the **Create Table** dialog box to create a new destination table with a column list that matches the source table.
 
     ![][12a]
 
-7. Na caixa de diálogo **Criar Tabela**, realize as ações a seguir.
+7. In the **Create Table** dialog box, do the following things.
 
-    1. Altere o nome da tabela de destino para **SalesOrderDetail**.
-    2. Remova a coluna **rowguid**. Não há suporte para o tipo de dados **uniqueidentifier** no SQL Data Warehouse.
-    3. Altere o tipo de dados da coluna **LineTotal** para **money**. Não há suporte para o tipo de dados **decimal** no SQL Data Warehouse. Para obter informações sobre os tipos de dados com suporte, consulte [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][].
+    1. Change the name of the destination table to **SalesOrderDetail**.
+    2. Remove the **rowguid** column. The **uniqueidentifier** data type is not supported in SQL Data Warehouse.
+    3. Change the data type of the **LineTotal** column to **money**. The **decimal** data type is not supported in SQL Data Warehouse. For info about supported data types, see [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][].
     
         ![][12b]
     
-    4. Clique em **OK** para criar a tabela e retornar para o **Editor de Destino do ADO.NET**.
+    4. Click **OK** to create the table and return to the **ADO.NET Destination Editor**.
 
-8. No **Editor de Destino do ADO.NET**, selecione a guia **Mapeamentos** para ver como as colunas na fonte são mapeadas para as colunas no destino.
+8. In the **ADO.NET Destination Editor**, select the **Mappings** tab to see how columns in the source are mapped to columns in the destination.
 
     ![][13]
 
-9. Clique em **OK** para concluir a configuração da fonte de dados.
+9. Click **OK** to finish configuring the data source.
 
-## Etapa 6: Executar o pacote para carregar os dados
+## <a name="step-6:-run-the-package-to-load-the-data"></a>Step 6: Run the package to load the data
 
-Execute o pacote clicando no botão **Iniciar** na barra de ferramentas ou selecionando uma das opções **Executar** no menu **Depurar**.
+Run the package by clicking the **Start** button on the toolbar or by selecting one of the **Run** options on the **Debug** menu.
 
-O pacote começa a executar e você vê rodas amarelas girando para indicar atividade, bem como o número de linhas processadas até o momento.
+As the package begins to run, you see yellow spinning wheels to indicate activity as well as the number of rows processed so far.
 
 ![][14]
 
-Quando a execução do pacote for concluída, você verá marcas de seleção verdes para indicar êxito, bem como o número total de linhas de dados carregados da fonte para o destino.
+When the package has finished running, you see green check marks to indicate success as well as the total number of rows of data loaded from the source to the destination.
 
 ![][15]
 
-Parabéns! Você usou com êxito o SQL Server Integration Services para carregar dados no SQL Data Warehouse do Azure.
+Congratulations! You’ve successfully used SQL Server Integration Services to load data into Azure SQL Data Warehouse.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- Saiba mais sobre o fluxo de dados do SSIS. Comece aqui: [Fluxo de Dados][].
-- Saiba como depurar e solucionar problemas de seus pacotes direto do ambiente de design. Comece aqui: [Solução de Problemas das Ferramentas para o Desenvolvimento de Pacotes][].
-- Saiba como implantar seus pacotes e projetos do SSIS no servidor do Integration Services ou em outro local de armazenamento. Comece aqui: [Implantação de Projetos e Pacotes][].
+- Learn more about the SSIS data flow. Start here: [Data Flow][].
+- Learn how to debug and troubleshoot your packages right in the design environment. Start here: [Troubleshooting Tools for Package Development][].
+- Learn how to deploy your SSIS projects and packages to Integration Services Server or to another storage location. Start here: [Deployment of Projects and Packages][].
 
 <!-- Image references -->
-[01]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-designer-01.png
-[02]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-data-flow-task-02.png
-[03]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-source-03.png
-[04]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-connection-manager-04.png
-[05]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-connection-05.png
-[06]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/test-connection-06.png
-[07]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-source-07.png
-[08]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/preview-data-08.png
-[09]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/source-destination-09.png
-[10]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/connect-source-destination-10.png
-[11]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-destination-11.png
+[01]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-designer-01.png
+[02]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-data-flow-task-02.png
+[03]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-source-03.png
+[04]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-connection-manager-04.png
+[05]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-connection-05.png
+[06]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/test-connection-06.png
+[07]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-source-07.png
+[08]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/preview-data-08.png
+[09]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/source-destination-09.png
+[10]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/connect-source-destination-10.png
+[11]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-destination-11.png
 [12a]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/destination-query-before-12a.png
 [12b]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/destination-query-after-12b.png
-[13]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/column-mapping-13.png
-[14]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/package-running-14.png
-[15]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/package-success-15.png
+[13]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/column-mapping-13.png
+[14]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/package-running-14.png
+[15]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/package-success-15.png
 
 <!-- Article references -->
 
 <!-- MSDN references -->
-[Guia do PolyBase]: https://msdn.microsoft.com/library/mt143171.aspx
-[Baixar o SSDT (SQL Server Data Tools)]: https://msdn.microsoft.com/library/mt204009.aspx
+[PolyBase Guide]: https://msdn.microsoft.com/library/mt143171.aspx
+[Download SQL Server Data Tools (SSDT)]: https://msdn.microsoft.com/library/mt204009.aspx
 [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
-[Fluxo de Dados]: https://msdn.microsoft.com/library/ms140080.aspx
-[Solução de Problemas das Ferramentas para o Desenvolvimento de Pacotes]: https://msdn.microsoft.com/library/ms137625.aspx
-[Implantação de Projetos e Pacotes]: https://msdn.microsoft.com/library/hh213290.aspx
+[Data Flow]: https://msdn.microsoft.com/library/ms140080.aspx
+[Troubleshooting Tools for Package Development]: https://msdn.microsoft.com/library/ms137625.aspx
+[Deployment of Projects and Packages]: https://msdn.microsoft.com/library/hh213290.aspx
 
 <!--Other Web references-->
-[Feature Pack do Microsoft SQL Server 2016 Integration Services para o Azure]: http://go.microsoft.com/fwlink/?LinkID=626967
-[Avaliações do SQL Server]: https://www.microsoft.com/pt-BR/evalcenter/evaluate-sql-server-2016
-[Visual Studio Community]: https://www.visualstudio.com/pt-BR/products/visual-studio-community-vs.aspx
-[Bancos de Dados de Exemplo do AdventureWorks 2014]: https://msftdbprodsamples.codeplex.com/releases/view/125550
+[Microsoft SQL Server 2016 Integration Services Feature Pack for Azure]: http://go.microsoft.com/fwlink/?LinkID=626967
+[SQL Server Evaluations]: https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016
+[Visual Studio Community]: https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx
+[AdventureWorks 2014 Sample Databases]: https://msftdbprodsamples.codeplex.com/releases/view/125550
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

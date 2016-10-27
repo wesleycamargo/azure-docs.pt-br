@@ -1,342 +1,347 @@
 <properties
-	pageTitle="Lista de compatibilidade de federação do AD do Azure"
-	description="Esta página contém provedores de identidade de terceiros que podem ser usados para implementar o logon único."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Azure AD federation compatibility list"
+    description="This page has non-Microsoft identity providers that can be used to implement single sign-on."
+    services="active-directory"
+    documentationCenter=""
+    authors="billmath"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="billmath"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/12/2016"
+    ms.author="billmath"/>
 
-# Lista de compatibilidade de federação do AD do Azure
-O Azure Active Directory fornece logon único e segurança aprimorada de acesso ao aplicativo para o Office 365 e outros serviços do Microsoft Online para implementações híbridas e apenas de nuvem, sem a necessidade de qualquer solução de terceiros. O Office 365, como a maioria dos serviços online da Microsoft, é integrado ao Azure Active Directory para autorização, autenticação e serviços de diretório. O Azure Active Directory também fornece logon único a milhares de aplicativos SaaS e aplicativos Web locais. Consulte a galeria de aplicativos do Azure Active Directory para aplicativos SaaS com suporte.
 
-Para organizações que investiram em soluções de federação de terceiros, este tópico contém orientações sobre como configurar o logon único para seus usuários do Active Directory do Windows Server com os serviços do Microsoft Online usando provedores de identidade de terceiros na "Lista de compatibilidade de federação do Azure Active Directory" abaixo.
+# <a name="azure-ad-federation-compatibility-list"></a>Azure AD federation compatibility list
+Azure Active Directory provides single-sign on and enhanced application access security for Office 365 and other Microsoft Online services for hybrid and cloud-only implementations without requiring any non-Microsoft solution. Office 365, like most of Microsoft’s Online services, is integrated with Azure Active Directory for directory services, authentication and authorization. Azure Active Directory also provides single sign-on to thousands of SaaS applications and on-premises web applications. Please see the Azure Active Directory application gallery for supported SaaS applications.
+
+For organizations that have invested in non-Microsoft federation solutions, this topic contains guidance for configuring single sign-on for their Windows Server Active Directory users with Microsoft Online services by using non-Microsoft identity providers from the “Azure Active Directory federation compatibility list” below. 
 
 
 ![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)   
-O [Oxford Computer Group](http://oxfordcomputergroup.com/), um terceiro, em nome da Microsoft, testou essas experiências de logon único usando provedores de identidade de terceiros com base em um conjunto de casos de uso comuns com o Azure Active Directory.
+[Oxford Computer Group](http://oxfordcomputergroup.com/), a third-party, on behalf of Microsoft, tested these single sign-on experiences using non-Microsoft identity providers against a set of use cases common with Azure Active Directory.
 
-Para obter informações sobre como você pode obter o provedor de identidade do terceiro listado aqui, contate o Oxford Computer Group em [idp@oxfordcomputergroup.com](mailto:idp@oxfordcomputergroup.com).
+For information on how you can get your third-party identity provider listed here, contact Oxford Computer Group at [idp@oxfordcomputergroup.com](mailto:idp@oxfordcomputergroup.com).
 
->[AZURE.IMPORTANT] O Oxford Computer Group testou apenas a funcionalidade de federação desses cenários de logon único. O Oxford Computer Group não realizou qualquer teste de sincronização, autenticação de dois fatores, etc., que são componentes desses cenários de logon único.
+>[AZURE.IMPORTANT] Oxford Computer Group tested only the federation functionality of these single sign-on scenarios. Oxford Computer Group did not perform any testing of the synchronization, two-factor authentication, etc. components of these single sign-on scenarios.
 
->O uso da Entrada com ID Alternativa ao UPN também não foi testado neste programa.
+>Use of Sign-in by Alternate ID to UPN is also not tested in this program.
 
 
 
-- [Active Directory do Azure](#azure-active-directory)
-- [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services)
-- [PingFederate 6.11](#pingfederate-611)
-- [PingFederate 7.2](#pingfederate-72)
+- [Azure Active Directory](#azure-active-directory)
+- [Optimal IDM Virtual Identity Server Federation Services](#optimal-idm-virtual-identity-server-federation-services) 
+- [PingFederate 6.11](#pingfederate-611) 
+- [PingFederate 7.2](#pingfederate-72) 
 - [PingFederate 8.x](#pingfederate-8x)
-- [Centrify](#centrify)
-- [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622)
-- [SecureAuth IdP 7.2.0](#secureauth-idp-720)
-- [CA SiteMinder 12.52](#ca-siteminder-1252-sp1-cumulative-release-4)
-- [RadiantOne CFS 3.0](#radiantone-cfs-30)
-- [Okta](#okta)
-- [OneLogin](#onelogin)
-- [NetIQ Access Manager 4.0.1](#netiq-access-manager-401)
-- [BIG-IP com Access Policy Manager BIG-IP ver. 11.3x – 11.6x](#big-ip-with-access-policy-manager-big-ip-ver-113x-116x)
-- [VMware Workspace Portal versão 2.1](#vmware-workspace-portal-version-21)
-- [Sign&go 5.3](#signampgo-53)
-- [IceWall Federation versão 3.0](#icewall-federation-version-30)
-- [CA Secure Cloud](#ca-secure-cloud)
-- [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71)
-- [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45)
+- [Centrify](#centrify) 
+- [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
+- [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
+- [CA SiteMinder 12.52](#ca-siteminder-1252-sp1-cumulative-release-4) 
+- [RadiantOne CFS 3.0](#radiantone-cfs-30) 
+- [Okta](#okta) 
+- [OneLogin](#onelogin) 
+- [NetIQ Access Manager 4.0.1](#netiq-access-manager-401) 
+- [BIG-IP with Access Policy Manager BIG-IP ver. 11.3x – 11.6x](#big-ip-with-access-policy-manager-big-ip-ver-113x-116x) 
+- [VMware  Workspace Portal version 2.1](#vmware-workspace-portal-version-21) 
+- [Sign&go 5.3](#signampgo-53) 
+- [IceWall Federation Version 3.0](#icewall-federation-version-30) 
+- [CA Secure Cloud](#ca-secure-cloud) 
+- [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
+- [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45) 
 
->[AZURE.IMPORTANT] Como esses são produtos de terceiros, a Microsoft não fornece suporte à implantação, configuração, solução de problemas, práticas recomendadas etc. problemas e questões relacionadas a esses provedores de identidade. Para obter suporte e consultar perguntas sobre esses provedores de identidade, entre em contato diretamente com os terceiros.
+>[AZURE.IMPORTANT] Since these are third-party products, Microsoft does not provide support for the deployment, configuration, troubleshooting, best practices, etc. issues and questions regarding these identity providers. For support and questions regarding these identity providers, contact the supported third-parties directly.
 
->Esses provedores de identidade de terceiros foram testados quanto à interoperabilidade com os serviços de nuvem da Microsoft usando apenas os protocolos WS-Federation e WS-Trust. Os testes não incluíram a utilização do protocolo SAML.
+>These third-party identity providers were tested for interoperability with Microsoft cloud services using WS-Federation and WS-Trust protocols only. Testing did not include using the SAML protocol.
 
-## Azure Active Directory 
-O Azure Active Directory pode autenticar usuários ao estabelecer uma federação com seu Active Directory local ou sem um servidor de federação local com o uso de sincronização de senha.
+## <a name="azure-active-directory"></a>Azure Active Directory 
+Azure Active Directory can authenticate users by federating with your on-premises Active-Directory or without an on-premises federation server through the use of password sync. 
 
-Veja a seguir a matriz de suporte de cenário para esta experiência de logon:
+The following is the scenario support matrix for this sign-on experience: 
 
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Nenhum|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
-|Aplicativos modernos com ADAL, como Office 2016| Suportado|Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
+|Modern Applications using ADAL such as Office 2016| Supported|None|
 
-Para saber mais sobre como usar o Azure Active Directory com o AD FS, confira [ADFS (Serviços de Federação do Active Directory)](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+For more information about using Azure Active Directory with AD FS see [Active Directory Federation Services (ADFS)](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 
-Para saber mais sobre como usar o Azure Active Directory com sincronização de senha, confira [Azure AD Connect](active-directory-aadconnect.md).
-
-
-## Optimal IDM Virtual Identity Server Federation Services 
-O Optimal IDM Virtual Identity Server Federation Services pode autenticar usuários que residem nos Active Directories locais do cliente.
-
-Veja a seguir a matriz de suporte de cenário nesta experiência de logon único:
+For more information about using Azure Active Directory with Password sync see [Azure AD Connect](active-directory-aadconnect.md).
 
 
-| Cliente |Suporte |Exceções|
+## <a name="optimal-idm-virtual-identity-server-federation-services"></a>Optimal IDM Virtual Identity Server Federation Services 
+Optimal IDM Virtual Identity Server Federation Services can authenticate users that reside in customers’ on-premises Active Directories.
+
+The following is the scenario support matrix this single sign-on experience:
+
+
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Autenticação Integrada do Windows|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Para saber mais sobre as políticas de acesso do cliente, confira [Limitando o acesso aos Serviços do Office 365 baseado no Local do cliente](https://technet.microsoft.com/library/hh526961.aspx).|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Integrated Windows Authentication|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |For more information about client access polices see [Limiting Access to Office 365 Services Based on the Location of the Client.](https://technet.microsoft.com/library/hh526961.aspx)|
 
 
 
-## PingFederate 6.11 
+## <a name="pingfederate-6.11"></a>PingFederate 6.11 
 
-O PingFederate 6.11 implementa o padrão de identidade amplamente utilizado, WS Federation, para fornecer uma estrutura de logon único e de troca de atributos.
+PingFederate 6.11 implements the widely used WS Federation identity standard to provide a single sign-on and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience:
 
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Nenhum (versões anteriores devem ser atualizadas para 6.11)|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None (earlier versions must upgrade to 6.11|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
-Para obter instruções do PingFederate sobre como configurar esse STS a fim de fornecer a experiência de logon único para seus usuários do Active Directory, baixe o pdf [aqui.](http://go.microsoft.com/fwlink/?LinkID=266321)
+For the PingFederate instructions on how to configure this STS to provide the single sign-on experience to your Active Directory users, download the pdf [here.](http://go.microsoft.com/fwlink/?LinkID=266321)
 
-## PingFederate 7.2 
-O PingFederate 7.2 implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
+## <a name="pingfederate-7.2"></a>PingFederate 7.2 
+PingFederate 7.2 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience:
 
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Nenhum|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
-Para obter instruções do PingFederate sobre como configurar esse STS a fim de fornecer a experiência de logon único para seus usuários do Active Directory, clique [aqui.](http://documentation.pingidentity.com/display/PF72/PingFederate+7.2)
+For the PingFederate instructions on how to configure this STS to provide the single sign-on experience to your Active Directory users, see [here.](http://documentation.pingidentity.com/display/PF72/PingFederate+7.2)
 
-## PingFederate 8.x 
-O PingFederate 8 implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
+## <a name="pingfederate-8.x"></a>PingFederate 8.x 
+PingFederate 8.x implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience:
 
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Nenhum|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
-Para obter instruções do PingFederate sobre como configurar esse STS a fim de fornecer a experiência de logon único para seus usuários do Active Directory, clique [aqui.](http://documentation.pingidentity.com/display/PFS/SSO+to+Office+365+Introduction)
+For the PingFederate instructions on how to configure this STS to provide the single sign-on experience to your Active Directory users, see [here.](http://documentation.pingidentity.com/display/PFS/SSO+to+Office+365+Introduction)
 
-## Centrify 
-O Centrify ajuda a fornecer uma experiência de logon único federado para o Office 365, sem a necessidade de hospedar um servidor de federação local.
+## <a name="centrify"></a>Centrify 
+Centrify helps provide a federated single sign-on experience for Office 365 without the requirement of hosting an on-premises Federation server.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience:
 
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Nenhum|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Não há suporte para o Controle de Acesso do cliente 
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |Client Access Control is not supported 
 
-Para saber mais sobre o Centrify, clique [aqui.](http://www.centrify.com/cloud/apps/single-sign-on-for-office-365.asp)|
+For more information about Centrify, see [here.](http://www.centrify.com/cloud/apps/single-sign-on-for-office-365.asp)|
 
-## IBM Tivoli Federated Identity Manager 6.2.2 
-O IBM Tivoli Federated Identity Manager 6.2.2 com o IBM Security Access Manager for Microsoft Applications 1.4 implementa o padrão de identidade amplamente usado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
+## <a name="ibm-tivoli-federated-identity-manager-6.2.2"></a>IBM Tivoli Federated Identity Manager 6.2.2 
+IBM Tivoli Federated Identity Manager 6.2.2 with IBM Security Access Manager for Microsoft Applications 1.4 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience: 
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Nenhum|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
-Para saber mais sobre o IBM Tivoli Federated Identity Manager, confira [IBM Security Access Manager for Microsoft Applications.](http://www-01.ibm.com/support/docview.wss?uid=swg24029517)
+For more information about IBM Tivoli Federated Identity Manager, see [IBM Security Access Manager for Microsoft Applications.](http://www-01.ibm.com/support/docview.wss?uid=swg24029517)
 
-## SecureAuth IdP 7.2.0 
-O SecureAuth IdP 7.2.0 implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma experiência de logon único e uma estrutura de troca de atributos.
+## <a name="secureauth-idp-7.2.0"></a>SecureAuth IdP 7.2.0 
+SecureAuth IdP 7.2.0 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on experience and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience: 
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Nenhum|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
-Para saber mais sobre o SecureAuth, confira [SecureAuth IdP](http://go.microsoft.com/?linkid=9845293).
+For more information about SecureAuth, see [SecureAuth IdP](http://go.microsoft.com/?linkid=9845293).
 
-## Versão cumulativa 4 do CA SiteMinder 12.52 SP1
-O CA SiteMinder Federation 12.52 implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
+## <a name="ca-siteminder-12.52-sp1-cumulative-release-4"></a>CA SiteMinder 12.52 SP1 Cumulative Release 4
+CA SiteMinder Federation 12.52 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience: 
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Nenhum|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
-Para saber mais sobre o CA SiteMinder, confira [CA SiteMinder Federation.](http://www.ca.com/us/products/ca-single-sign-on.html)
+For more information about CA SiteMinder, see [CA SiteMinder Federation.](http://www.ca.com/us/products/ca-single-sign-on.html) 
 
-## RadiantOne CFS 3.0 
-O RadiantOne Cloud Federation Service (CFS) 3.0 implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
+## <a name="radiantone-cfs-3.0"></a>RadiantOne CFS 3.0 
+RadiantOne Cloud Federation Service (CFS) 3.0 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience: 
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Autenticação Integrada do Windows|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Integrated Windows Authentication|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
-Para saber mais sobre o RadiantOne CFS, confira [RadiantOne CFS.](http://www.radiantlogic.com/products/radiantone-cfs/)
-
-
-## Okta 
-O Okta implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
-
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+For more information about RadiantOne CFS, see [RadiantOne CFS.](http://www.radiantlogic.com/products/radiantone-cfs/)
 
 
-| Cliente |Suporte |Exceções|
+## <a name="okta"></a>Okta 
+Okta implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
+
+The following is the scenario support matrix for this single sign-on experience: 
+
+
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |A Autenticação Integrada do Windows exige a instalação de um servidor Web adicional e do aplicativo Okta.|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Autenticação Integrada do Windows|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication requires setup of additional web server and Okta application.|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Integrated Windows Authentication|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
-Para saber mais sobre o Okta, confira [Okta.](https://www.okta.com/)
+For more information about Okta, see [Okta.](https://www.okta.com/)
  
-## OneLogin 
-O OneLogin, conforme teste em maio de 2014, implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
+## <a name="onelogin"></a>OneLogin 
+OneLogin as tested in May 2014 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience: 
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Autenticação Integrada do Windows|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Autenticação Integrada do Windows|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Integrated Windows Authentication|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
-Para saber mais sobre o OneLogin, confira [OneLogin.](https://www.onelogin.com/)
+For more information about OneLogin, see [OneLogin.](https://www.onelogin.com/)
 
-## NetIQ Access Manager 4.0.1 
-O NetIQ Access Manager 4.0.1 implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
+## <a name="netiq-access-manager-4.0.1"></a>NetIQ Access Manager 4.0.1 
+NetIQ Access Manager 4.0.1 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience:
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |*Contratos Kerberos com suporte|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a Autenticação Integrada do Windows|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |*Kerberos Contracts supported|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |Integrated Windows Authentication is not supported|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
-*O NetIQ oferece suporte à autenticação Kerberos por meio da configuração de um Contrato Kerberos. Para obter assistência com essa configuração, entre em contato com a NetIQ ou leia o guia de instalação. Para saber mais sobre o NetIQ Access Manager, confira [NetIQ Access Manager.](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)
+*NetIQ support Kerberos authentication via configuration of a Kerberos Contract.  For assistance with this configuration, please contact NetIQ or view the setup guide. For more information about NetIQ Access Manager, see [NetIQ Access Manager.](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)
 
-## BIG-IP com Access Policy Manager BIG-IP ver. 11.3x – 11.6x 
-O BIG-IP com Access Policy Manager, (APM) BIG-IP ver. 11.3x – 11.6x implementa o padrão de identidade amplamente utilizado, SAML, para fornecer uma experiência de logon único e uma estrutura de troca de atributos.
+## <a name="big-ip-with-access-policy-manager-big-ip-ver.-11.3x-–-11.6x"></a>BIG-IP with Access Policy Manager BIG-IP ver. 11.3x – 11.6x 
+The BIG-IP with Access Policy Manager, (APM) BIG-IP ver. 11.3x – 11.6x implements the widely used SAML identity standard to provide a single sign-on experience and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience: 
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Sem suporte |Sem suporte|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |  Not Supported |Not Supported|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
-Para saber mais sobre o BIG-IP Access Policy Manager, confira [BIG-IP Access Policy Manager.](https://f5.com/products/modules/access-policy-manager)
+For more information about BIG-IP Access Policy Manager, see [BIG-IP Access Policy Manager.](https://f5.com/products/modules/access-policy-manager) 
 
-Para obter instruções do BIG-IP Access Policy Manager sobre como configurar esse STS a fim de fornecer a experiência de logon único para seus usuários do Active Directory, baixe o pdf [aqui.](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf)
+For the BIG-IP Access Policy Manager instructions on how to configure this STS to provide the single sign-on experience to your Active Directory Users, download the pdf [here.](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf)
 
-## VMware Workspace Portal versão 2.1 
-O VMware Workspace Portal versão 2.1 implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
+## <a name="vmware-workspace-portal-version-2.1"></a>VMware  Workspace Portal version 2.1 
+VMware  Workspace Portal version 2.1 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience:
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Não há suporte para a Autenticação Integrada do Windows|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a Autenticação Integrada do Windows|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication is not supported|
+| Rich client applications such as Lync, Office Subscription, CRM | Supported |Integrated Windows Authentication is not supported|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
-Para saber mais sobre o VMware Workspace Portal versão 2.1, baixe o pdf [aqui.](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)
+For more information about VMware  Workspace Portal version 2.1, download the pdf [here.](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)
 
-## Sign&go 5.3 
-O Sign&go 5.3 implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
+## <a name="sign&go-5.3"></a>Sign&go 5.3 
+Sign&go 5.3 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience:
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Contratos Kerberos com suporte |
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Nenhum|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Kerberos Contracts supported |
+| Rich client applications such as Lync, Office Subscription, CRM | Supported |None|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
 
-O Sign&go 5.3 oferece suporte à autenticação Kerberos por meio da configuração de um Kerberos Contract. Para obter assistência com essa configuração, contate a Ilex ou leia o guia de instalação [aqui.](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
+Sign&go 5.3 supports Kerberos authentication via configuration of a Kerberos Contract.  For assistance with this configuration, please contact Ilex or view the setup guide [here.](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
 
 
-## IceWall Federation versão 3.0 
-O IceWall Federation Version 3.0 implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
+## <a name="icewall-federation-version-3.0"></a>IceWall Federation Version 3.0 
+IceWall Federation Version 3.0 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience:
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Não há suporte para a Autenticação Integrada do Windows|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a Autenticação Integrada do Windows|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication is not supported|
+| Rich client applications such as Lync, Office Subscription, CRM | Supported |Integrated Windows Authentication is not supported|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
-Para saber mais sobre a IceWall Federation, veja [aqui](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) e [aqui.](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html)
+For more information about IceWall Federation, see [here](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) and [here.](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html)
 
-## CA Secure Cloud 
+## <a name="ca-secure-cloud"></a>CA Secure Cloud 
 
-O CA Secure Cloud implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
+CA Secure Cloud implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience:
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Não há suporte para a Autenticação Integrada do Windows|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a Autenticação Integrada do Windows|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication is not supported|
+| Rich client applications such as Lync, Office Subscription, CRM | Supported |Integrated Windows Authentication is not supported|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
-Para saber mais sobre o CA Secure Cloud, confira [CA Secure Cloud.](http://www.ca.com/us/products/security-as-a-service.aspx)
+For more information about CA Secure Cloud, see [CA Secure Cloud.](http://www.ca.com/us/products/security-as-a-service.aspx)
 
-## Dell One Identity Cloud Access Manager v7.1 
-O Dell One Identity Cloud Access Manager implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
+## <a name="dell-one-identity-cloud-access-manager-v7.1"></a>Dell One Identity Cloud Access Manager v7.1 
+Dell One Identity Cloud Access Manager implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience:
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Nenhum|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Nenhum|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |  Supported |None|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
-Para saber mais sobre o Dell One Identity Cloud Access Manager, confira [Dell One Identity Cloud Access Manager.](http://software.dell.com/products/cloud-access-manager)
+For more information about Dell One Identity Cloud Access Manager, see [Dell One Identity Cloud Access Manager.](http://software.dell.com/products/cloud-access-manager)
 
- Para obter instruções sobre como configurar esse STS a fim de fornecer a experiência de logon único para seus usuários do Office 365, confira como [configurar usuários do Office 365.](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365)
+ For the instructions on how to configure this STS to provide the single sign-on experience to your Office 365 Users, see [Configure Office 365 Users.](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365) 
 
-## AuthAnvil Single Sign On 4.5 
-O AuthAnvil Single Sign On 4.5 implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
+## <a name="authanvil-single-sign-on-4.5"></a>AuthAnvil Single Sign On 4.5 
+AuthAnvil Single Sign On 4.5 implements the widely used WS Federation/WS-Trust identity standard to provide a single sign-on and attribute exchange framework.
 
-A seguir, a matriz de suporte de cenário para esta experiência de logon único:
+The following is the scenario support matrix for this single sign-on experience:
 
-| Cliente |Suporte |Exceções|
+| Client |Support  |Exceptions|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |Não há suporte para a Autenticação Integrada do Windows|
-| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM | Suportado |Não há suporte para a Autenticação Integrada do Windows|
-| Clientes de email avançados, como o Outlook e o ActiveSync | Suportado |Nenhum|
+| Web-based clients such as Exchange Web Access and SharePoint Online | Supported |Integrated Windows Authentication is not supported|
+| Rich client applications such as Lync, Office Subscription, CRM | Supported |Integrated Windows Authentication is not supported|
+| Email-rich clients such as Outlook and ActiveSync |  Supported |None|
 
 
-Para saber mais, confira o artigo sobre o [logon único do AuthAnvil](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
+For more information, see [AuthAnvil Single Sign On.](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,175 +1,86 @@
 <properties 
-	pageTitle="Como Criar um Ambiente do Serviço de Aplicativo" 
-	description="Descrição do fluxo de criação para ambientes do serviço de aplicativo" 
-	services="app-service" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="stefsch" 
-	editor=""/>
+    pageTitle="How to Create an App Service Environment" 
+    description="Creation flow description for app service environments" 
+    services="app-service" 
+    documentationCenter="" 
+    authors="ccompy" 
+    manager="stefsch" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2016" 
-	ms.author="ccompy"/>
-
-# Como Criar um Ambiente do Serviço de Aplicativo #
-
-Ambientes de Serviço de Aplicativo (ASE) são uma opção de serviço Premium do Serviço de Aplicativo do Azure que fornece um recurso de configuração avançada não disponível em carimbos com vários locatários. O recurso ASE essencialmente implanta o Serviço de Aplicativo do Azure na rede virtual de um cliente. Para obter uma maior compreensão dos recursos oferecidos pelos ambientes do serviço de aplicativo, leia a documentação [O que é um ambiente do serviço de aplicativo][WhatisASE].
+    ms.service="app-service" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/22/2016" 
+    ms.author="ccompy"/>
 
 
-### Visão geral ###
+# <a name="how-to-create-an-app-service-environment"></a>How to Create an App Service Environment #
 
-Um ASE consiste nos recursos de computação de Front-End e de Trabalho. Os Front-Ends atuam como os pontos de extremidade HTTP/HTTPS e enviam tráfego para as Funções de Trabalho, que são funções que hospedam seus aplicativos.
+### <a name="overview"></a>Overview ###
 
-A criação do ASE requer que os clientes forneçam as seguintes informações:
+App Service Environments (ASE) are a Premium service option of Azure App Service that delivers an enhanced configuration capability that is not available in the multi-tenant stamps.  The ASE feature essentially deploys the Azure App Service into a customer’s virtual network.  To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.
 
-- nome do ASE
-- assinatura a ser usada para o ASE
-- grupo de recursos
-- Uma VNet (Rede Virtual do Azure) com 8 ou mais endereços e uma sub-rede que será usada pelo ASE
-- Tipo de VIP, interno ou externo
-- Definição do pool de recursos do ASE
+### <a name="before-you-create-your-ase"></a>Before you create your ASE ###
 
+It is important to be aware of the things you cannot change.  Those aspects you cannot change about your ASE are:
 
-Há alguns detalhes importantes referentes a cada um desses itens.
+- Location
+- Subscription
+- Resource Group
+- VNet used
+- Subnet used 
+- Subnet size
 
-- O nome do ASE será usado no subdomínio para quaisquer aplicativos feitos no ASE, se configurado com um VIP externo
-- Um ASE Externo hospeda aplicativos acessíveis da Internet. Um ASE com um VIP Interno usa um ILB (Balanceador de Carga Interno)
-- Todos os aplicativos feitos em um ASE estarão na mesma assinatura que o próprio ASE
-- Se você não tiver acesso à assinatura usada para fazer o ASE, o ASE não poderá ser usado para criar aplicativos
-- VNets usadas para hospedar um ASE devem ser VNets Regionais. Você pode usar VNets Clássicas ou do Resource Manager
-- **A sub-rede usada para hospedar o ASE não deve conter outros recursos de computação**
-- Somente um ASE pode existir em uma sub-rede
-- Os ASEs agora podem ser implantados em redes virtuais que usam os intervalos de endereço público *ou* espaços de endereço RFC1918 (ou seja, endereços privados). Para usar uma rede virtual com um intervalo de endereços públicos, você precisará criar a VNet e a sub-rede antecipadamente, e selecioná-las na UX de criação do ASE.
+When picking a VNet and specifying a subnet, make sure it is large enough to accomodate any future growth.  
 
+### <a name="creating-an-app-service-environment"></a>Creating an App Service Environment ###
 
-Cada implantação de ASE é um serviço hospedado que o Azure gerencia e mantém. Os recursos de computação hospedando as funções de sistema ASE não podem ser acessadas pelo cliente, embora o cliente gerencie a quantidade de instâncias e seus tamanhos.
+There are two ways to access the ASE creation UI.  It can be found by searching in the Azure Marketplace for ***App Service Environment*** or by going through New -> Web + Mobile -> App Service Environment.  To create an ASE:
 
-Há duas maneiras de acessar a interface do usuário de criação do ASE. Ela pode ser encontrada pesquisando no Azure Marketplace por ***ambiente de serviço de aplicativo*** ou acessando as opções de menu Novo -> Web + Móvel.
+1. Provide the name of your ASE.  The name that is specified for the ASE will be used for the apps created in the ASE.  If name of the ASE is appsvcenvdemo then the subdomain name would be .*appsvcenvdemo.p.azurewebsites.net*.  If you thus created an app named *mytestapp* then it would be addressable at *mytestapp.appsvcenvdemo.p.azurewebsites.net*.  You cannot use white space in the name of your ASE.  If you use upper case characters in the name, the domain name will be the total lowercase version of that name.  If you use an ILB then your ASE name is not used in your subdomain but is instead explicitly stated during ASE creation
 
-Se você quiser que a VNet tenha um grupo de recursos separado do ASE, precisará criar primeiro a VNet separadamente e então selecioná-la durante a criação do ASE. Além disso, se você quiser criar uma sub-rede em uma VNet existente durante a criação do ASE, este deverá ficar no mesmo grupo de recursos que a VNet.
+    ![][1]
 
+2. Select your subscription.  The subscription used for your ASE is also the one that all apps in that ASE will be created with.  You cannot place your ASE in a VNet that is in another subscription
 
-### Criação Rápida ###
-A experiência de criação para um ASE não tem um conjunto de padrões para habilitar a experiência de criação rápida. Você pode criar rapidamente um ASE simplesmente inserindo um nome para a implantação. Por sua vez, isso criará um ASE na região mais próxima a você com:
+3. Select or specify a new resource group.  The resource group used for your ASE must be the same that is used for your VNet.  If you select a pre-existing VNet then the resource group selection for your ASE will be updated to reflect that of your VNet.
 
-- VNet com 512 endereços usando um espaço de endereço privado RFC1918
-- sub-rede com 256 endereços
-- VIP Externo
-- Pool de front-end com dois recursos de computação P2
-- Pool de trabalho com dois recursos de computação P1
-- endereço IP único a ser usado para SSL de IP
+    ![][2]
 
-Os pools do Front End exigem P2 ou maior. Tenha cuidado ao selecionar a assinatura em que você deseja que ASE esteja. As únicas contas que podem usar o ASE para hospedar o conteúdo devem estar na assinatura usada para criá-lo.
+4. Make your Virtual Network and Location selections.  You can choose to create a new VNet or select a pre-existing VNet.  If you select a new VNet then you can specify a name and location. The new VNet will have the address range 192.268.250.0/23 and a subnet named **default** that is defined as 192.168.250.0/24.  You can also simply select a pre-existing Classic or Resource Manager VNet.  The VIP Type selection determines if your ASE can be directly accessed from the internet (External) or if it uses an Internal Load Balancer (ILB).  To learn more about them read [Using an Internal Load Balancer with an App Service Environment][ILBASE].  If you select a VIP type of External then you can select how many external IP addresses the system is created with for IPSSL purposes.  If you select Internal then you need to specify the subdomain that your ASE will use.  ASEs can be deployed into virtual networks that use *either* public address ranges, *or* RFC1918 address spaces (i.e. private addresses).  In order to use a virtual network with a public address range, you will need to create the VNet ahead of time.  When you select a pre-existing VNet you will need to create a new subnet during ASE creation.  **You cannot use a pre-created subnet in the portal.  You can create an ASE with a pre-existing subnet if you create your ASE using a resource manager template.**
 
-![][1]
+### <a name="details"></a>Details ###
 
-O nome especificado para o ASE será usado para os aplicativos Web criados no ASE. Se o nome do ASE for appsvcenvdemo, o nome do subdomínio será .*appsvcenvdemo.p.azurewebsites.net*. Se você tiver criado, portanto, um aplicativo Web chamado *meuaplicativodeteste*, ele seria endereçável em *meuaplicativodeteste.appsvcenvdemo.p.azurewebsites.net*. Você não pode usar espaços em branco no nome do ASE. Se você usar letras maiúsculas entre os caracteres do nome, o nome de domínio será a versão total em letras minúsculas desse nome. Se você usar um ILB, seu nome do ASE não será usado no subdomínio, mas sim declarado explicitamente durante a criação do ASE.
+An ASE is created with 2 Front Ends and 2 Workers.  The Front Ends act as the HTTP/HTTPS endpoints and send traffic to the Workers which are the roles that host your apps.   You can adjust the quantity after ASE creation and can even set up autoscale rules on these resource pools.  For more details around manual scaling, management and monitoring of an App Service Environment go here: [How to configure an App Service Environment][ASEConfig] 
 
-Ter os padrões será muito útil para um determinado número de situações, mas muitas vezes você precisará ajustar algo. As próximas seções percorrerão cada uma das seções de configuração relacionadas ao ASE.
+Only the one ASE can exist in the subnet used by the ASE.  The subnet cannot be used for anything other than the ASE
 
+### <a name="after-app-service-environment-creation"></a>After App Service Environment creation ###
 
-### Rede Virtual ###
-O processo de criação do ASE dá suporte à seleção de uma VNet Clássica ou do Resource Manager existente, bem como a criação de uma nova VNet Clássica.
+After ASE creation you can adjust:
 
-Ao selecionar uma VNet existente, você verá suas VNets Clássicas e do Resource Manager listadas juntas. As VNets Clássicas indicam a palavra Clássica ao lado da localização. Se isso não for indicado, ela será uma VNet do Resource Manager.
-
-![][2]
+- Quantity of Front Ends (minimum: 2)
+- Quantity of  Workers (minimum: 2)
+- Quantity of IP addresses available for IP SSL
+- Compute resource sizes used by the Front Ends or Workers (Front End minimum size is P2)
 
 
-Se utilizar a interface do usuário de criação da VNet, você precisará fornecer:
+There are more details around manual scaling, management and monitoring of App Service Environments here: [How to configure an App Service Environment][ASEConfig] 
 
-- Nome da VNet
-- Intervalo de endereços VNet na notação CIDR
-- Local
+For information on autoscaling there is a guide here: [How to configure autoscale for an App Service Environment][ASEAutoscale]
 
-A localização de VNet é a localização do ASE. Lembre-se de que isso cria uma VNet Clássica, não uma VNet do Resource Manager.
-
-Os ASEs podem ser implantados em redes virtuais que usam os intervalos de endereço público *ou* espaços de endereço RFC1918 (ou seja, endereços privados). Para usar uma rede virtual com um intervalo de endereços públicos, você precisará criar a sub-rede antecipadamente e selecioná-la na UX de criação do ASE.
-
-Se você selecionar uma VNET pré-existente, você também terá que especificar uma sub-rede para usar ou então criar uma nova. A sub-rede precisa ter oito endereços ou mais e não pode ter qualquer outro recurso. A criação do ASE falhará se você tentar usar uma sub-rede que já tenha VMs alocadas para ele.
-
-Depois de criar sua VNet especificada ou selecionada, você precisará criar ou selecionar uma sub-rede conforme apropriado. Os detalhes que devem ser fornecidos aqui são os seguintes:
-
-- Nome da sub-rede
-- Intervalo de sub-rede em notação CIDR
-
-Se você não estiver familiarizado com a notação CIDR (Classless Inter-Domain Routing), ela terá a forma de um Endereço IP, que é a barra invertida separada do valor CIDR. Ela se parece com *10.0.0.0/22*. O valor da CIDR indica o número de bits iniciais mascarados em comparação ao endereço IP mostrado. Uma maneira mais fácil de expressar o conceito aqui é que os valores CIDR fornecem um intervalo de IPs. Neste exemplo, um 10.0.0.0/22 significa um intervalo de 1024 endereços ou de 10.0.0.0 a 10.0.3.255. Um “/23” significa 512 endereços, e assim por diante.
-
-Lembre-se que, se você quiser criar uma sub-rede em uma VNet existente, o ASE estará no mesmo grupo de recursos que a VNet. Para manter o ASE em um grupo de recursos separado da sua VNet, simplesmente crie sua VNet e sua sub-rede separadamente antes da criação do ASE.
+There are additional dependencies that are not available for customization such as the database and storage.  These are handled by Azure and come with the system.  The system storage supports up to 500 GB for the entire App Service Environment and the database is adjusted by Azure as needed by the scale of the system.
 
 
-#### VIP Interno ou Externo ####
+## <a name="getting-started"></a>Getting started
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
-Por padrão, a configuração de VNet é definida com um tipo de VIP Externo e 1 endereço IP. Se você quiser usar um ILB em vez de um VIP externo, vá para Configuração de VNet e altere o Tipo de VIP para Interno. Um VIP Externo é usado por padrão. Quando você altera o Tipo de VIP para Interno, você precisará especificar um subdomínio para o ASE. Há algumas compensações ao usar um ILB como o VIP para um ASE. Para saber mais sobre eles, leia [Usando um Balanceador de Carga Interno com um Ambiente de Serviço de Aplicativo][ILBASE].
+To get started with App Service Environments, see [Introduction to App Service Environments][WhatisASE]
 
-![][4]
-
-### Pools de recursos de computação ###
-
-Durante a criação do ASE, você pode definir o número de recursos de cada pool de recursos junto com seu tamanho. Embora você possa definir os tamanhos dos seus pools de recursos na criação do ASE, também poderá ajustá-los depois com opções manuais de dimensionamento ou opções de dimensionamento automático.
-
-Como observado anteriormente, o ASE consiste em servidores e trabalhadores de Front-end. Os servidores Front-End lidam com a carga de conexão do aplicativo e os processadores executam o código do aplicativo. Os servidores Front-End são gerenciados em um pool de recursos de computação dedicado. Os processadores, por sua vez, são gerenciados em 3 pools de recursos de computação separado chamados
-
-- Pool de trabalho 1
-- Pool de trabalho 2
-- Pool de trabalho 3
-
-Se você tiver um grande número de solicitações para aplicativos Web simples, provavelmente aumentará seu número de Front-Ends e utilizará menos processadores. Se você tiver aplicativos de Web que façam uso intenso de CPU ou memória com tráfego leve, então você não precisa de muitos Front-Ends, mas provavelmente terá maiores ou mais processadores.
-
-![][3]
-
-Independentemente do tamanho dos recursos de computação, os requisitos mínimos são 2 servidores Front-End e 2 processadores. Um ASE pode ser configurado para usar até um total de 55 recursos de computação. Desses 55 recursos de computação, apenas 50 podem ser usados para cargas de trabalho do host. Há duas razões para isso. Há um mínimo de 2 recursos de computação Front-End. Com isso, restam até 53 para dar suporte a alocação do pool de trabalho. Para oferecer tolerância a falhas, você precisa ter um recurso de computação adicional alocado de acordo com as seguintes regras:
-
-- cada pool de trabalho precisa de pelo menos um recurso de computação adicional ao qual nenhuma carga de trabalho pode ser atribuída
-- quando a quantidade de recursos de computação em um pool ultrapassa um determinado valor, outro recurso de computação torna-se necessário
-
-Dentro de qualquer pool de trabalho individual, os requisitos de tolerância a falhas são aqueles para um determinado valor de X recursos atribuídos a um pool de trabalho:
-
-- se X estiver entre 2 a 20, a quantidade de recursos de computação utilizáveis que você pode usar para cargas de trabalho é X-1
-- se X estiver entre 21 a 40, a quantidade de recursos de computação utilizáveis que você pode usar para cargas de trabalho é X-2
-- se X estiver entre 41 a 53, a quantidade de recursos de computação utilizáveis que você pode usar para cargas de trabalho é X-3
-
-Além de ser capaz de gerenciar a quantidade de recursos de computação que você pode atribuir a um determinado pool, você também tem controle sobre o tamanho. Com ambientes de serviços de aplicativo, você pode escolher entre 4 tamanhos diferentes rotulados de P1 a P4. Para obter detalhes sobre esses tamanhos e seus preços, consulte aqui o documento [Preços do Serviço de Aplicativo][AppServicePricing]. Os tamanhos P1 a P3 de recursos de computação são os mesmos que aqueles disponíveis em ambientes multilocatário. O recurso de computação P4 proporciona 8 núcleos com 14 GB de RAM e só está disponível em um ambiente do serviço de aplicativo.
-
-Os preços para ambientes do serviço de aplicativo dependem dos recursos de computação atribuídos. Você paga pelos recursos de computação alocados para seu ambiente do serviço de aplicativo independentemente de eles estarem hospedando cargas de trabalho ou não.
-
-Por padrão, um ASE vem com 1 endereço IP que está disponível para o SSL de IP. Se você souber que precisará de mais, você pode especificar isso aqui ou gerenciá-lo após a criação.
-  
-### Após a criação de um Ambiente do Serviço de Aplicativo ###
-
-Após a criação do ASE é possível ajustar:
-
-- Quantidade de Front-Ends (mínimo: 2)
-- Quantidade de processadores (mínimo: 2)
-- Quantidade de endereços IP disponíveis para SSL de IP
-- Tamanho de recursos de computação usados pelos Front-Ends ou Processadores (o tamanho mínimo de Front-End é P2)
-
-Você não pode alterar:
-
-- Local
-- Assinatura
-- Grupo de recursos
-- VNET usada
-- Sub-rede usada
-
-Há mais detalhes sobre o gerenciamento do dimensionamento manual e monitoramento de Ambientes de Serviço de Aplicativo aqui: [Como configurar um Ambiente de Serviço de Aplicativo][ASEConfig]
-
-Para saber mais sobre o dimensionamento automático, há um guia aqui: [Como configurar o dimensionamento automático para um Ambiente de Serviço de Aplicativo][ASEAutoscale]
-
-Há dependências adicionais que não estão disponíveis para personalização, como o banco de dados e o armazenamento. Esses são gerenciados pelo Azure e fornecidos com o sistema. O armazenamento do sistema dá suporte a até 500 GB para todo o Ambiente de Serviço do Aplicativo e o banco de dados é ajustado pelo Azure como necessário, por meio do dimensionamento do sistema.
-
-
-## Introdução
-Todos os artigos e os Como fazer para Ambientes de Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes de Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
-
-Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Introdução ao ambiente de Serviço de Aplicativo][WhatisASE]
-
-Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][AzureAppService].
+For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -179,15 +90,17 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 <!--Image references-->
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-basecreateblade.png
 [2]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-vnetcreation.png
-[3]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-resources.png
-[4]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-externalvip.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ASEConfig]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
-[AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
+[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
+[AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/ 
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

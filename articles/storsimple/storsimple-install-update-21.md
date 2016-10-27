@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Instalar a Atualização 2.2 no dispositivo StorSimple | Microsoft Azure"
-   description="Explica como instalar a Atualização 2.2 do StorSimple Série 8000 em seu dispositivo StorSimple série 8000."
+   pageTitle="Install Update 2.2 on your StorSimple device | Microsoft Azure"
+   description="Explains how to install StorSimple 8000 Series Update 2.2 on your StorSimple 8000 series device."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,125 +15,132 @@
    ms.date="08/02/2016"
    ms.author="alkohli" />
 
-# Instalar a Atualização 2.2 no dispositivo StorSimple
 
-## Visão geral
+# <a name="install-update-2.2-on-your-storsimple-device"></a>Install Update 2.2 on your StorSimple device
 
-Este tutorial explica como instalar a Atualização 2.2 em um dispositivo StorSimple que executa uma versão de software anterior por meio do portal clássico do Azure e usando o método de hotfix. O método de hotfix é usado quando um gateway é configurado em uma interface de rede que não seja DATA 0 do dispositivo StorSimple e quando você está tentando atualizar de uma versão de software anterior à Atualização 1.
+## <a name="overview"></a>Overview
 
-A Atualização 2.2 inclui o software do dispositivo, o WMI e as atualizações do iSCSI. Se estiver atualizando da versão 2.1, somente a atualização de software do dispositivo precisará ser aplicada. Se estiver atualizando de uma versão anterior à Atualização 2, você também precisará aplicar o LSI driver, Spaceport, Storport e as atualizações de firmware de disco. O software do dispositivo e as correções de WMI, iSCSI, LSI driver, Spaceport e Storport são atualizações sem interrupções e podem ser aplicadas por meio do Portal Clássico do Azure. As atualizações de firmware de disco são as atualizações de interrupção e só podem ser aplicadas por meio da interface do Windows PowerShell do dispositivo.
+This tutorial explains how to install Update 2.2 on a StorSimple device running an earlier software version via the Azure classic portal and using the hotfix method. The hotfix method is used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.
+
+Update 2.2 includes device software, WMI, and iSCSI updates. If updating from version 2.1, only the device software update will need to be applied. If updating from a pre-Update 2 version, you will also be required to apply LSI driver, Spaceport, Storport, and disk firmware updates. The device software, WMI, iSCSI, LSI driver, Spaceport, and Storport fixes are non-disruptive updates and can be applied via the Azure classic portal. The disk firmware updates are disruptive updates and can only be applied via the Windows PowerShell interface of the device. 
 
 > [AZURE.IMPORTANT]
 
-> - Um conjunto de verificações prévias manuais e automáticas para são realizadas antes da instalação para determinar a integridade do dispositivo em termos de conectividade de rede e estado do hardware. Essas pré-verificações são executadas somente se você aplicar as atualizações no portal clássico do Azure.
-> - Recomendamos que você instale as atualizações de software e driver através do Portal clássico do Azure. Você só deve ir para a interface do Windows PowerShell do dispositivo (para instalar atualizações) se a verificação de pré-atualização de gateway falhar no portal. Dependendo da versão da qual você está atualizando, as atualizações podem levar de 1,5 a 2,5 horas para serem instaladas. As atualizações do modo de manutenção devem ser instaladas por meio da interface do Windows PowerShell do dispositivo. Como as atualizações do modo de manutenção são atualizações com interrupção, elas resultarão em um tempo de inatividade para seu dispositivo.
-> - Se você estiver executando o StorSimple Snapshot Manager opcional, verifique se atualizou sua versão do Snapshot Manager para a Atualização 2.2 antes de atualizar o dispositivo.
+> - A set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure classic portal.
+> - We recommend that you install the software and driver updates via the Azure  classic portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. Depending upon the version you are updating from, the updates may take 1.5-2.5 hours to install. The maintenance mode updates must be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these will result in a down time for your device.
+> - If running the optional StorSimple Snapshot Manager, ensure that you have upgraded your Snapshot Manager version to Update 2.2 prior to updating the device.
 
 [AZURE.INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
-## Instalar a Atualização 2.2 por meio do portal clássico do Azure
+## <a name="install-update-2.2-via-the-azure-classic-portal"></a>Install Update 2.2 via the Azure classic portal
 
-Realize as etapas a seguir para atualizar seu dispositivo para a [Atualização 2.2](storsimple-update21-release-notes.md).
+Perform the following steps to update your device to [Update 2.2](storsimple-update21-release-notes.md).
 
 
 > [AZURE.NOTE]
-Se você estiver aplicando a Atualização 2 ou posterior (incluindo a Atualização 2.1), a Microsoft poderá receber informações adicionais de diagnóstico do dispositivo. Como resultado, quando nossa equipe de operações identifica dispositivos com problemas, estamos mais bem equipados para coletar informações do dispositivo e diagnosticar problemas. Ao aceitar a Atualização 2 ou posterior, você nos permite oferecer esse suporte proativo.
+If you are applying Update 2 or later (including Update 2.1), Microsoft will be able to pull additional diagnostic information from the device. As a result, when our operations team identifies devices that are having problems, we are better equipped to collect information from the device and diagnose issues. By accepting Update 2 or later, you allow us to provide this proactive support.
 
 [AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-12. Verifique se o dispositivo está executando a **Atualização 2.2 do StorSimple Série 8000 (6.3.9600.17708)**. A **Data da última atualização** também deve ser modificada.
+12. Verify that your device is running **StorSimple 8000 Series Update 2.2 (6.3.9600.17708)**. The **Last updated date** should also be modified. 
 
-	Se você estiver atualizando de uma versão anterior à Atualização 2, você também verá que as atualizações do modo de manutenção estarão disponíveis (essa mensagem poderá continuar a ser exibida por até 24 horas após a instalação das atualizações).
+    If you are updating from a version prior to Update 2, you will also see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates).
 
-    As atualizações do modo de manutenção são atualizações interrompidas que resultam em tempo de inatividade do dispositivo e podem ser aplicadas apenas por meio da interface do Windows PowerShell de seu dispositivo. Em alguns casos quando a Atualização 1.2 estiver sendo executada, o firmware de disco poderá já estar atualizado; nesse caso, não é necessário instalar quaisquer atualizações do modo de manutenção.
+    Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. In some cases when you are running Update 1.2, your disk firmware might already be up-to-date, in which case you don't need to install any maintenance mode updates.
 
-	Se você estiver atualizando da Atualização 2, seu dispositivo agora deverá estar atualizado. Você pode ignorar as etapas restantes.
+    If you are updating from Update 2, your device should now be up-to-date. You can skip the remaining steps.
 
-13. Baixe as atualizações do modo de manutenção usando as etapas listadas em [Para baixar os hotfixes](#to-download-hotfixes) para pesquisar e baixar a KB3121899, que instala atualizações de firmware de disco (as outras atualizações já devem estar instaladas agora).
+13. Download the maintenance mode updates by using the steps listed in [to download hotfixes](#to-download-hotfixes) to search for and download KB3121899, which installs disk firmware updates (the other updates should already be installed by now).
 
-13. Siga as etapas listadas em [instalar e verificar hotfixes do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes) para instalar as atualizações do modo de manutenção.
+13. Follow the steps listed in [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes) to install the maintenance mode updates. 
 
   
 
-## Instalar a Atualização 2.2 como um hotfix
+## <a name="install-update-2.2-as-a-hotfix"></a>Install Update 2.2 as a hotfix
 
-Use este procedimento se a verificação de gateway falhar ao tentar instalar as atualizações por meio do portal clássico do Azure. A verificação falha pois você tem um gateway atribuído a uma interface de rede diferente de DATA 0 e o dispositivo está executando uma versão de software anterior à Atualização 1.
+Use this procedure if you fail the gateway check when trying to install the updates through the Azure classic portal. The check fails as you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version prior to Update 1.
 
-As versões de software que podem ser atualizadas usando o método de hotfix são:
+The software versions that can be upgraded using the hotfix method are:
 
-- Atualização 0.1, 0.2, 0.3
-- Atualização 1, 1.1, 1.2
-- Atualização 2, 2.1
+- Update 0.1, 0.2, 0.3
+- Update 1, 1.1, 1.2
+- Update 2, 2.1 
 
 > [AZURE.IMPORTANT]
 >
-> - Se o dispositivo estiver executando a versão de lançamento (GA), contate o [ Suporte da Microsoft](storsimple-contact-microsoft-support.md) para ajudar na instalação dessa atualização.
+> - If your device is running Release (GA) version, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) to assist you with the update.
 
-O método de hotfix envolve as três etapas a seguir:
+The hotfix method involves the following three steps:
 
-- Baixe os hotfixes do Catálogo do Microsoft Update.
-- Instale e verifique os hotfixes do modo normal.
-- Instale e verifique o hotfix do modo de manutenção (somente ao atualizar o software anterior à Atualização 2).
+- Download the hotfixes from the Microsoft Update Catalog.
+- Install and verify the regular mode hotfixes.
+- Install and verify the maintenance mode hotfix (only when updating from pre-Update 2 software).
 
-#### Baixe as atualizações para um dispositivo que executa o software da Atualização 2.1
+#### <a name="download-updates-for-a-device-running-update-2.1-software"></a>Download updates for a device running Update 2.1 software
 
-**Se o dispositivo estiver executando a Atualização 2.1**, baixe apenas a atualização de software do dispositivo KB3179904. Instale apenas o arquivo binário precedido por “all-hcsmdssoftwareudpate”. Não instale a atualização do agente CIS e MDS precedido por `all-cismdsagentupdatebundle`. Se você não fizer isso, receberá um erro. Esta é uma atualização não interruptiva, E/S não será interrompida e o dispositivo não terá nenhum tempo de inatividade.
+**If your device is running Update 2.1**, you must download only the device software update KB3179904. Only install the binary file prefaced with 'all-hcsmdssoftwareudpate'. Do not install the Cis and the MDS agent update prefaced with `all-cismdsagentupdatebundle`. Failure to do so will result in an error. This is a non-disruptive update, IO will not be disrupted and the device will not have any downtime.
 
 
-#### Baixe as atualizações para um dispositivo que executa o software da Atualização 2
+#### <a name="download-updates-for-a-device-running-update-2-software"></a>Download updates for a device running Update 2 software
 
-**Se o dispositivo estiver executando a Atualização 2**, baixe e instale os seguintes hotfixes na ordem recomendada:
+**If your device is running Update 2**, you must download and install the following hotfixes in the prescribed order:
 
-| Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |
+| Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1\. | KB3179904 | Atualização de software &#42; | Regular <br></br>Não Interruptiva | ~ 45 Min. |
-| 2\. | KB3146621 | Pacote iSCSI | Regular <br></br>Não Interruptiva | ~ 20 Min. |
-| 3\. | KB3103616 | Pacote WMI | Regular <br></br>Não Interruptiva | ~ 12 Min. |
+| 1.      | KB3179904 | Software update &#42;  |  Regular <br></br>Non-disruptive     | ~ 45 mins |
+| 2.      | KB3146621 | iSCSI package | Regular <br></br>Non-disruptive  | ~ 20 mins |
+| 3.      | KB3103616 | WMI package |  Regular <br></br>Non-disruptive      | ~ 12 mins |
 
 
- &#42; *Observe que a atualização de software consiste em dois arquivos binários: atualização de software do dispositivo precedida por `all-hcsmdssoftwareupdate` e o agente CIS e MDS precedido por `all-cismdsagentupdatebundle`. A atualização de software do dispositivo deve ser instalada antes do agente CIS e MDS. Também será preciso reiniciar o controlador ativo por meio do cmdlet `Restart-HcsController` após aplicar a atualização de agente Cis e MDS (e antes de aplicar as atualizações restantes).*
+ &#42;  *Note, software update consists of two binary files: device software update prefaced with `all-hcsmdssoftwareupdate` and the Cis and Mds agent prefaced with `all-cismdsagentupdatebundle`. The device software update must be installed before the Cis and Mds agent. You must also restart the active controller via the `Restart-HcsController` cmdlet after you apply the Cis and MDS agent update (and before applying the remaining updates).* 
 
-#### Baixe as atualizações para um dispositivo que executa um software anterior à Atualização 2
+#### <a name="download-updates-for-a-device-running-pre-update-2-software"></a>Download updates for a device running pre-Update 2 software
 
-**Se o dispositivo estiver executando as versões 0.2, 0.3, 1.0 e 1.1**, você deverá baixar e instalar a atualização do LSI driver e do firmware, além de atualizações de software, iSCSI e de WMI. Se você estiver executando a Atualização 1.2 ou 2, essa atualização já estará instalada.
+**If your device is running versions 0.2, 0.3, 1.0, and 1.1**, you must download and install the LSI driver and firmware update in addition to the software, iSCSI, and WMI updates. This update is already installed if you are running Update 1.2 or 2. 
  
-| Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |
+| Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 4\. | KB3121900 | Driver LSI e firmware | Regular <br></br>Não Interruptiva | ~ 20 Min. |
+| 4.      | KB3121900 | LSI driver and firmware             |  Regular <br></br>Non-disruptive      | ~ 20 mins |
 
 
-<br></br> **Se o dispositivo estiver executando as versões 0.2, 0.3, 1.0, 1.1 e 1.2**, você deverá baixar e instalar o Spaceport e a correção do Storport. Se você estiver executando a Atualização 2, eles já estarão instalados.
+<br></br>
+**If your device is running versions 0.2, 0.3, 1.0, 1.1, and 1.2**, you must download and install the Spaceport and the Storport fix. These are already installed if you are running Update 2.
 
-| Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |
+| Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 5\. | KB3090322 | Correção do Spaceport </br> Windows Server 2012 R2 | Regular <br></br>Não Interruptiva | ~ 20 Min. |
-| 6\. | KB3080728 | Correção do Storport </br> Windows Server 2012 R2 | Regular <br></br>Não Interruptiva | ~ 20 Min. |
+| 5.      | KB3090322 | Spaceport fix </br> Windows Server 2012 R2 |  Regular <br></br>Non-disruptive      | ~ 20 mins |
+| 6.      | KB3080728 | Storport fix </br> Windows Server 2012 R2 |  Regular <br></br>Non-disruptive      | ~ 20 mins |
 
 
 
-<br></br> Talvez você precise instalar as atualizações de firmware de disco. Você pode verificar se precisa de atualizações de firmware de disco executando o cmdlet `Get-HcsFirmwareVersion`. Se estiver executando as versões de firmware `XMGG`, `XGEG`, `KZ50`, `F6C2`, `VR08`, você não precisará instalar essas atualizações.
+<br></br>
+You may also need to install disk firmware updates. You can verify whether you need the disk firmware updates by running the `Get-HcsFirmwareVersion` cmdlet. If you are running these firmware versions: `XMGG`, `XGEG`, `KZ50`, `F6C2`, `VR08`, then you do not need to install these updates.
 
 
-| Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |
+| Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 7\. | KB3121899 | Firmware de disco | Manutenção <br></br>Interruptiva | ~ 30 Min. |
+| 7.      | KB3121899 | Disk firmware              |  Maintenance <br></br>Disruptive      | ~ 30 mins |
  
 <br></br>
 
 > [AZURE.IMPORTANT]
 >
-> - Esse procedimento deve ser executado apenas uma vez para que a Atualização 2.2 seja aplicada. É possível usar o portal clássico do Azure para aplicar atualizações subsequentes.
-> - Se você estiver atualizando da Atualização 2, o tempo total de instalação será próximo de 1,5 hora.
-> - Antes de usar este procedimento para aplicar a atualização, certifique-se de que ambos os controladores de dispositivo estão online e todos os componentes de hardware estão íntegros.
+> - This procedure needs to be performed only once to apply Update 2.2. You can use the Azure classic portal to apply subsequent updates.
+> - If updating from Update 2, the total install time is close to 1.5 hours.
+> - Before using this procedure to apply the update, make sure that both the device controllers are online and all the hardware components are healthy.
 
-Execute as seguintes etapas para baixar e instalar os hotfixes.
+Perform the following steps to download and install the hotfixes.
 
 [AZURE.INCLUDE [storsimple-install-update21-hotfix](../../includes/storsimple-install-update21-hotfix.md)]
 
 [AZURE.INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Saiba mais sobre a [versão da Atualização 2.1](storsimple-update21-release-notes.md).
+Learn more about the [Update 2.1 release](storsimple-update21-release-notes.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

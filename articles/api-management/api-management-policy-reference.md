@@ -1,125 +1,130 @@
 <properties 
-	pageTitle="Referência de políticas do Gerenciamento de API do Azure" 
-	description="Saiba mais sobre as políticas disponíveis para configurar o Gerenciamento de API." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="vladvino" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Azure API Management Policy Reference" 
+    description="Learn about the policies available to configure API Management." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="vladvino" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/29/2016" 
-	ms.author="apimpm"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/25/2016" 
+    ms.author="apimpm"/>
 
-# Referência de políticas do Gerenciamento de API do Azure
 
-Esta seção fornece um índice para as políticas de [referência de política de Gerenciamento de API][]. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API][].
+# <a name="azure-api-management-policy-reference"></a>Azure API Management Policy Reference
 
-Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][] e [Definir variável][] se baseiam em expressões de políticas. Para obter mais informações, confira [Políticas avançadas][] e [Expressões de política][].
+This section provides an index for the policies in the [API Management policy reference][]. For information on adding and configuring policies, see [Policies in API Management][].
 
-## Índice de referência de política
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow][] and [Set variable][] policies are based on policy expressions. For more information, see [Advanced policies][] and [Policy expressions][]
 
--	[Políticas de restrição de acesso][]
-	-	[Verificar cabeçalho HTTP][] - Impõe a existência e/ou valor de um cabeçalho HTTP.
-	-	[Limitar a taxa de chamada por assinatura][] - Previne picos de uso da API limitando a taxa de chamada, baseado em assinatura.
-	-	[Limitar a taxa de chamada por chave](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) - Previne picos de uso da API limitando a taxa de chamada, baseado em chave.
-	-	[Restringir IP do autor da chamada][] - Filtra (permite/recusa) chamadas de endereços IP específicos e/ou intervalos de endereços.
-	-	[Definir a cota de uso por assinatura][] - Permite que você aplique uma cota renovável ou permanente de volume de chamada e/ou largura de banda, baseado em assinatura.
-	-	[Definir a cota de uso por chave](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) - Permite que você aplique uma cota renovável ou permanente de volume de chamada e/ou largura de banda, baseado em chave.
-	-	[Validar JWT][] - Impõe a existência e a validade de JWT extraída de um cabeçalho HTTP especificado ou um parâmetro de consulta especificado.
--	[Políticas avançadas][]
-	-	[Controlar fluxo][] - Aplica-se condicionalmente a instruções de políticas com base nos resultados da avaliação do booliano [expressions][].
-	-	[Encaminhar solicitação][] -Encaminha a solicitação ao serviço de back-end.
-	-	[Registrar em log no Hub de Eventos][] - Envia mensagens no formato especificado para um destino de mensagem definido por uma entidade [Agente](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger).
-	-	[Repetir](https://msdn.microsoft.com/pt-BR/library/dn894085.aspx#Retry) - repete a execução das instruções de política, se e até que a condição seja atendida. A execução será repetida em intervalos de tempo especificados até e a contagem de repetições especificada.
-	-	[Retornar resposta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - Anula a execução de pipeline e retorna a resposta especificada diretamente para o autor da chamada.
-	-	[Enviar solicitação unidirecional](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - Envia uma solicitação para a URL especificada sem aguardar uma resposta.
-	-	[Enviar solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - Envia uma solicitação para a URL especificada.
-	-	[Definir método de solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - Permite alterar o método HTTP de uma solicitação.
-	-	[Definir status](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - Altera o código de status de HTTP para o valor especificado.
-	-	[Definir variável][] - Mantém um valor em uma variável [contexto][] para acesso posterior.
-	-	[Rastreamento](https://msdn.microsoft.com/pt-BR/library/dn894085.aspx#Trace) - adiciona uma cadeia de caracteres para a saída do [Inspetor de API](../api-management/api-management-howto-api-inspector.md).
-	-	[Aguardar](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) - Aguarda a conclusão da solicitação de Envio embutida, Obtenção do valor do cache ou Controle de políticas de fluxo antes de continuar.
--	[Políticas de autenticação][]
-	-	[Autenticar com o Basic][] - Autenticar com um serviço de back-end usando a autenticação Básica.
-	-	[Autenticar com o certificado de cliente][] - Autenticar com um serviço de back-end usando certificados de cliente.
--	[Políticas de cache][]
-	-	[Obter do cache][] - Executa a pesquisa em cache e retorna uma resposta válida armazenada em cache quando uma estiver disponível.
-	-	[Armazenar em cache][] - Armazena a resposta em cache de acordo com a configuração de controle de cache especificada.
-	-	[Obter valor do cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) - Recupere um item em cache por chave.
-	-	[Armazenar valor em cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) -Armazene um item no cache por chave.
-	-	[Remover o valor do cache](https://msdn.microsoft.com/pt-BR/library/dn894086.aspx#RemoveCacheByKey) - remove um item no cache por chave.
--	[Políticas entre domínios][]
-	-	[Permitir chamadas entre domínios][] - Torna a API acessível por meio de clientes Adobe Flash e Microsoft Silverlight baseados em navegadores.
-	-	[CORS][] - Adicionar suporte de compartilhamento de recursos entre origens (CORS) a uma operação ou a uma API para permitir chamadas entre domínios de clientes baseados em navegadores.
-	-	[JSONP][] - Adiciona suporte JSON com preenchimento (JSONP) a uma operação ou a uma API para permitir chamadas entre domínios de clientes JavaScript baseados em navegadores.
--	[Políticas de transformação][]
-	-	[Converter JSON para XML][] - Converte o corpo da solicitação ou da resposta de JSON para XML.
-	-	[Converter XML para JSON][] - Converte o corpo da solicitação ou da resposta de XML para JSON.
-	-	[Localizar e substituir cadeia no corpo][] - Encontra uma subcadeia de uma solicitação ou resposta e a substitui por outra subcadeia.
-	-	[Mascarar URLs no conteúdo][] – Reescreve (mascara) os links no corpo da resposta, para que eles apontem para o link equivalente por meio do gateway.
-	-	[Definir o serviço de back-end][] - Altera o serviço de back-end para uma solicitação de entrada.
-	-	[Definir corpo][] - Define o corpo da mensagem para solicitações de entrada e saída.
-	-	[Definir cabeçalho HTTP][] - Atribui um valor a uma resposta e/ou cabeçalho de resposta existente ou adiciona uma nova resposta e/ou cabeçalho de resposta.
-	-	[Definir parâmetro de cadeia de consulta][] - Adiciona, substitui o valor ou exclui parâmetros de cadeias de consulta de solicitação.
-	-	[Reescrever URL][] - Converte a URL de uma solicitação de sua forma pública em sua forma esperada pelo serviço Web.
+## <a name="policy-reference-index"></a>Policy reference index
 
-## Próximas etapas
+-   [Access restriction policies][]
+    -   [Check HTTP header][] - Enforces existence and/or value of a HTTP Header.
+    -   [Limit call rate by subscription][] - Prevents API usage spikes by limiting call rate, on a per subscription basis.
+    -   [Limit call rate by key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) - Prevents API usage spikes by limiting call rate, on a per key basis.
+    -   [Restrict caller IPs][] - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
+    -   [Set usage quota by subscription][] - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
+    -   [Set usage quota by key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
+    -   [Validate JWT][] - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
+-   [Advanced policies][]
+    -   [Control flow][] - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions][].
+    -   [Forward request][] - Forwards the request to the backend service.
+    -   [Log to Event Hub][] - Sends messages in the specified format to a message target defined by a [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger) entity.
+    -   [Retry](https://msdn.microsoft.com/en-us/library/dn894085.aspx#Retry) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
+    -   [Return response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - Aborts pipeline execution and returns the specified response directly to the caller.
+    -   [Send one way request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - Sends a request to the specified URL without waiting for a response.
+    -   [Send request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - Sends a request to the specified URL.
+    -   [Set request method](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - Allows you to change the HTTP method for a request.
+    -   [Set status](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - Changes the HTTP status code to the specified value.
+    -   [Set variable][] - Persist a value in a named [context][] variable for later access.
+    -   [Trace](https://msdn.microsoft.com/en-us/library/dn894085.aspx#Trace) - Adds a string into the [API Inspector](../api-management/api-management-howto-api-inspector.md) output.
+    -   [Wait](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) - Waits for enclosed Send request, Get value from cache, or Control flow policies to complete before proceeding.
+-   [Authentication policies][]
+    -   [Authenticate with Basic][] - Authenticate with a backend service using Basic authentication.
+    -   [Authenticate with client certificate][] - Authenticate with a backend service using client certificates.
+-   [Caching policies][] 
+    -   [Get from cache][] - Perform cache look up and return a valid cached response when available.
+    -   [Store to cache][] - Caches response according to the specified cache control configuration.
+    -   [Get value from cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) - Retrieve a cached item by key.
+    -   [Store value in cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) - Store an item in the cache by key.
+    -   [Remove value from cache](https://msdn.microsoft.com/en-us/library/dn894086.aspx#RemoveCacheByKey) - Remove an item in the cache by key.
+-   [Cross domain policies][] 
+    -   [Allow cross-domain calls][] - Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.
+    -   [CORS][] - Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
+    -   [JSONP][] - Adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients.
+-   [Transformation policies][] 
+    -   [Convert JSON to XML][] - Converts request or response body from JSON to XML.
+    -   [Convert XML to JSON][] - Converts request or response body from XML to JSON.
+    -   [Find and replace string in body][] - Finds a request or response substring and replaces it with a different substring.
+    -   [Mask URLs in content][] - Re-writes (masks) links in the response body so that they point to the equivalent link via the gateway.
+    -   [Set backend service][] - Changes the backend service for an incoming request.
+    -   [Set body][] - Sets the message body for incoming and outgoing requests.
+    -   [Set HTTP header][] - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
+    -   [Set query string parameter][] - Adds, replaces value of, or deletes request query string parameter.
+    -   [Rewrite URL][] - Converts a request URL from its public form to the form expected by the web service.
 
-Para obter mais informações sobre expressões de política, consulte o vídeo a seguir.
+## <a name="next-steps"></a>Next steps
+
+For more information on policy expressions, see the following video.
 
 > [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
-[Políticas de restrição de acesso]: https://msdn.microsoft.com/library/azure/dn894078.aspx
-[Verificar cabeçalho HTTP]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader
-[Limitar a taxa de chamada por assinatura]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate
-[Restringir IP do autor da chamada]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#RestrictCallerIPs
-[Definir a cota de uso por assinatura]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota
-[Validar JWT]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT
+[Access restriction policies]: https://msdn.microsoft.com/library/azure/dn894078.aspx
+[Check HTTP header]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader
+[Limit call rate by subscription]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate
+[Restrict caller IPs]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#RestrictCallerIPs
+[Set usage quota by subscription]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota
+[Validate JWT]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT
 
-[Políticas avançadas]: https://msdn.microsoft.com/library/azure/dn894085.aspx
-[Controlar fluxo]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
-[Definir variável]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
+[Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
+[Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
+[Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
 [expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
-[contexto]: https://msdn.microsoft.com/library/azure/ea160028-fc04-4782-aa26-4b8329df3448#ContextVariables
-[Encaminhar solicitação]: https://msdn.microsoft.com/library/azure/dn894085.aspx#ForwardRequest
-[Registrar em log no Hub de Eventos]: https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub
+[context]: https://msdn.microsoft.com/library/azure/ea160028-fc04-4782-aa26-4b8329df3448#ContextVariables
+[Forward request]: https://msdn.microsoft.com/library/azure/dn894085.aspx#ForwardRequest
+[Log to Event Hub]: https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub
 
-[Políticas de autenticação]: https://msdn.microsoft.com/library/azure/dn894079.aspx
-[Autenticar com o Basic]: https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#Basic
-[Autenticar com o certificado de cliente]: https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#ClientCertificate
-[Políticas de cache]: https://msdn.microsoft.com/library/azure/dn894086.aspx
-[Obter do cache]: https://msdn.microsoft.com/library/azure/8147199c-24d8-439f-b2a9-da28a70a890c#GetFromCache
-[Armazenar em cache]: https://msdn.microsoft.com/library/azure/8147199c-24d8-439f-b2a9-da28a70a890c#StoreToCache
+[Authentication policies]: https://msdn.microsoft.com/library/azure/dn894079.aspx
+[Authenticate with Basic]: https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#Basic
+[Authenticate with client certificate]: https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#ClientCertificate
+[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[Get from cache]: https://msdn.microsoft.com/library/azure/8147199c-24d8-439f-b2a9-da28a70a890c#GetFromCache
+[Store to cache]: https://msdn.microsoft.com/library/azure/8147199c-24d8-439f-b2a9-da28a70a890c#StoreToCache
 
-[Políticas entre domínios]: https://msdn.microsoft.com/library/azure/dn894084.aspx
-[Permitir chamadas entre domínios]: https://msdn.microsoft.com/library/azure/7689d277-8abe-472a-a78c-e6d4bd43455d#AllowCrossDomainCalls
+[Cross domain policies]: https://msdn.microsoft.com/library/azure/dn894084.aspx
+[Allow cross-domain calls]: https://msdn.microsoft.com/library/azure/7689d277-8abe-472a-a78c-e6d4bd43455d#AllowCrossDomainCalls
 [CORS]: https://msdn.microsoft.com/library/azure/7689d277-8abe-472a-a78c-e6d4bd43455d#CORS
 [JSONP]: https://msdn.microsoft.com/library/azure/7689d277-8abe-472a-a78c-e6d4bd43455d#JSONP
 
-[Políticas de transformação]: https://msdn.microsoft.com/library/azure/dn894083.aspx
-[Converter JSON para XML]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#ConvertJSONtoXML
-[Converter XML para JSON]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#ConvertXMLtoJSON
-[Localizar e substituir cadeia no corpo]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#Findandreplacestringinbody
-[Mascarar URLs no conteúdo]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#MaskURLSContent
-[Definir o serviço de back-end]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetBackendService
-[Definir corpo]: https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBody
-[Definir cabeçalho HTTP]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetHTTPheader
-[Definir parâmetro de cadeia de consulta]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetQueryStringParameter
-[Reescrever URL]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL
+[Transformation policies]: https://msdn.microsoft.com/library/azure/dn894083.aspx
+[Convert JSON to XML]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#ConvertJSONtoXML
+[Convert XML to JSON]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#ConvertXMLtoJSON
+[Find and replace string in body]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#Findandreplacestringinbody
+[Mask URLs in content]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#MaskURLSContent
+[Set backend service]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetBackendService
+[Set body]: https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBody
+[Set HTTP header]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetHTTPheader
+[Set query string parameter]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetQueryStringParameter
+[Rewrite URL]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL
 
 
 
-[Políticas de Gerenciamento de API]: api-management-howto-policies.md
-[referência de política de Gerenciamento de API]: https://msdn.microsoft.com/library/azure/dn894081.aspx
+[Policies in API Management]: api-management-howto-policies.md
+[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 
-[Expressões de política]: https://msdn.microsoft.com/library/azure/dn910913.aspx
+[Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 
  
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,15 +1,17 @@
-Todos os blobs no armazenamento do Azure devem residir em um contêiner. O contêiner faz parte do nome do blob. Por exemplo, `mycontainer` é o nome do contêiner nesses URIs do blob de exemplo:
+Every blob in Azure storage must reside in a container. The container forms part of the blob name. For example, `mycontainer` is the name of the container in these sample blob URIs:
 
-	https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
-	https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
+    https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
+    https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
 
-Um nome de contêiner deve ser um nome DNS válido e estar em conformidade com as seguintes regras de nomenclatura:
+A container name must be a valid DNS name, conforming to the following naming rules:
 
-1. Os nomes de contêiner devem começar com uma letra ou número e podem conter apenas letras, números e o caractere traço (-).
-1. Cada caractere traço (-) deve ser imediatamente precedido e seguido por uma letra ou número. Não são permitidos traços consecutivos em nomes de contêiner.
-1. Todas as letras do nome de um contêiner devem ser minúsculas.
-1. Os nomes de contêiner devem ter de 3 a 63 caracteres.
+1. Container names must start with a letter or number, and can contain only letters, numbers, and the dash (-) character.
+1. Every dash (-) character must be immediately preceded and followed by a letter or number; consecutive dashes are not permitted in container names.
+1. All letters in a container name must be lowercase.
+1. Container names must be from 3 through 63 characters long.
 
-> [AZURE.IMPORTANT]Observe que o nome de um contêiner deve sempre estar em minúsculas. Se você incluir uma letra maiúscula em um nome de contêiner ou de alguma forma violar as regras de nomenclatura do contêiner, você receberá um erro 400 (solicitação incorreta).
+> [AZURE.IMPORTANT] Note that the name of a container must always be lowercase. If you include an upper-case letter in a container name, or otherwise violate the container naming rules, you may receive a 400 error (Bad Request). 
 
-<!---HONumber=Oct15_HO3-->
+<!--HONumber=Oct16_HO2-->
+
+

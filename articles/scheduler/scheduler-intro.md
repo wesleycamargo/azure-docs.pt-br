@@ -1,6 +1,6 @@
 <properties
- pageTitle="O que é o Agendador do Azure? | Microsoft Azure"
- description="O Agendador do Azure permite que você descreva declarativamente ações a serem executadas na nuvem. Em seguida, ele agenda e executa essas ações automaticamente."
+ pageTitle="What is Azure Scheduler? | Microsoft Azure"
+ description="Azure Scheduler allows you to declaratively describe actions to run in the cloud. It then schedules and runs those actions automatically."
  services="scheduler"
  documentationCenter=".NET"
  authors="derek1ee"
@@ -15,39 +15,44 @@
  ms.date="08/18/2016"
  ms.author="deli"/>
 
-# O que é o Agendador do Azure?
 
-O Agendador do Azure permite que você descreva declarativamente ações a serem executadas na nuvem. Em seguida, ele agenda e executa essas ações automaticamente. O Agendador do Azure faz isso usando [o portal do Azure](scheduler-get-started-portal.md), código, a [API REST](https://msdn.microsoft.com/library/mt629143.aspx) ou o Azure PowerShell.
+# <a name="what-is-azure-scheduler?"></a>What is Azure Scheduler?
 
-O Agendador cria, mantém e invoca o trabalho agendado. O Agendador não hospeda qualquer carga de trabalho ou executar qualquer código. Ele apenas _invoca_ código hospedado em outro lugar—no Azure, no local ou em outro provedor. Ele invoca via HTTP, HTTPS, uma fila de armazenamento, uma fila do barramento de serviço ou um tópico do barramento de serviço.
+Azure Scheduler allows you to declaratively describe actions to run in the cloud. It then schedules and runs those actions automatically.  Scheduler does this by using [the Azure portal](scheduler-get-started-portal.md), code, [REST API](https://msdn.microsoft.com/library/mt629143.aspx), or Azure PowerShell.
 
-O Agendador agenda [trabalhos](scheduler-concepts-terms.md), mantém um histórico do trabalho de resultados de execução que alguém pode revisar, e agenda de forma determinista e confiável agenda cargas de trabalho a serem executadas. Trabalhos Web do Azure (parte do recurso de aplicativos Web no serviço de aplicativo do Azure) e outro recursos de agendamento do Azure usam o Agendador em segundo plano. A [API REST do Agendador](https://msdn.microsoft.com/library/mt629143.aspx) ajuda a gerenciar a comunicação para essas ações. Dessa forma, o Agendador oferece suporte para [agendas complexas e recorrência avançadas](scheduler-advanced-complexity.md) facilmente.
+Scheduler creates, maintains, and invokes scheduled work.  Scheduler does not host any workloads or run any code. It only _invokes_ code hosted elsewhere—in Azure, on-premises, or with another provider. It invokes via HTTP, HTTPS, a storage queue, a service bus queue, or a service bus topic.
 
-Há vários cenários em que o Agendador pode ser usado. Por exemplo:
+Scheduler schedules [jobs](scheduler-concepts-terms.md), keeps a history of job execution results that one can review, and deterministically and reliably schedules workloads to be run. Azure WebJobs (part of the Web Apps feature in Azure App Service) and other Azure scheduling capabilities use Scheduler in the background. The [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx) helps manage the communication for these actions. As such, Scheduler supports [complex schedules and advanced recurrence](scheduler-advanced-complexity.md) easily.
 
-+ _Ações do aplicativo recorrente_: coleta periódica de dados do Twitter no feed.
-+ _Manutenção diária:_ redução diária de logs, realização de backups e outras tarefas de manutenção. Por exemplo, um administrador pode escolher realizar o backup de seu banco de dados à 1h da manhã, todos os dias, pelos próximos nove meses.
+There are several scenarios that lend themselves to the usage of Scheduler. For example:
 
-O Agendador permite criar, atualizar, excluir, exibir e gerenciar trabalhos e [coleções de trabalhos](scheduler-concepts-terms.md) programaticamente, usando scripts e no portal.
++ _Recurring application actions:_ Periodically gathering data from Twitter into a feed.
++ _Daily maintenance:_ Daily pruning of logs, performing backups, and other maintenance tasks. For example, an administrator may choose to back up the database at 1:00 A.M. every day for the next nine months.
 
-## Confira também
+Scheduler allows you to create, update, delete, view, and manage jobs and [job collections](scheduler-concepts-terms.md) programmatically, by using scripts, and in the portal.
 
- [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
+## <a name="see-also"></a>See also
 
- [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [Como criar agendas complexas e recorrência avançada com o Agendador do Azure](scheduler-advanced-complexity.md)
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143)
+ [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
 
- [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
- [Alta disponibilidade e confiabilidade do Agendador do Azure](scheduler-high-availability-reliability.md)
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

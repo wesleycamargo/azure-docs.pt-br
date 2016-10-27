@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Endereçamento IP público e privado (clássico) no Azure | Microsoft Azure"
-   description="Saiba mais sobre endereçamento IP público e privado no Azure"
+   pageTitle="Public and private IP addressing (classic) in Azure | Microsoft Azure"
+   description="Learn about public and private IP addressing in Azure"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -16,154 +16,159 @@
    ms.date="02/11/2016"
    ms.author="jdial" />
 
-# Endereços IP (clássico) no Azure
-Você pode atribuir endereços IP aos recursos do Azure para se comunicar com outros recursos do Azure, sua rede local e a Internet. Há dois tipos de endereços IP que você pode usar no Azure: público e privado.
 
-Endereços IP públicos são usados para comunicação com a Internet, incluindo serviços públicos do Azure.
+# <a name="ip-addresses-(classic)-in-azure"></a>IP addresses (classic) in Azure
+You can assign IP addresses to Azure resources to communicate with other Azure resources, your on-premises network, and the Internet. There are two types of IP addresses you can use in Azure: public and private.
 
-Endereços IP privados são usados para comunicação em uma VNet (rede virtual) do Azure, um serviço de nuvem e na sua rede local quando você usa um gateway de VPN ou circuito de Rota Expressa para estender sua rede para o Azure.
+Public IP addresses are used for communication with the Internet, including Azure public-facing services.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo de implantação do Resource Manager](virtual-network-ip-addresses-overview-arm.md).
+Private IP addresses are used for communication within an Azure virtual network (VNet), a cloud service, and your on-premises network when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure.
 
-## Endereços IP públicos
-Endereços IP públicos permitem que os recursos do Azure comuniquem-se com os serviços públicos do Azure, como [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [bancos de dados SQL](../sql-database/sql-database-technical-overview.md) e [armazenamento do Azure](../storage/storage-introduction.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
 
-Um endereço IP público é associado aos seguintes tipos de recursos:
+## <a name="public-ip-addresses"></a>Public IP addresses
+Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL databases](../sql-database/sql-database-technical-overview.md), and [Azure storage](../storage/storage-introduction.md).
 
-- Serviços de Nuvem
-- VMs (Máquinas Virtuais) de IaaS
-- Instâncias de função de PaaS
-- Gateways VPN
+A public IP address is associated with the following resource types:
+
+- Cloud services
+- IaaS Virtual Machines (VMs)
+- PaaS role instances
+- VPN gateways
 - Application gateways
 
-### Método de alocação
-Quando precisa de um endereço IP público precisa ser atribuído a um recurso do Azure, ele é *dinamicamente* alocado de um pool de endereço IP público disponível no local em que o recurso é criado. Esse endereço IP é liberado quando o recurso é interrompido. No caso de um serviço de nuvem, isso acontece quando todas as instâncias de função são interrompidas, o que pode ser evitado usando um endereço IP *estático* (reservado) (consulte [Serviços de Nuvem](#Cloud-services)).
+### <a name="allocation-method"></a>Allocation method
+When a public IP address needs to be assigned to an Azure resource, it is *dynamically* allocated from a pool of available public IP address within the location the resource is created. This IP address is released when the resource is stopped. In case of a cloud service, this happens when all the role instances are stopped, which can be avoided by using a *static* (reserved) IP address (see [Cloud Services](#Cloud-services)).
 
->[AZURE.NOTE] A lista de intervalos IP do qual os endereços IP públicos são alocados a recursos do Azure é publicada em [intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+>[AZURE.NOTE] The list of IP ranges from which public IP addresses are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
-### Resolução de nome de host DNS
-Quando você cria um serviço de nuvem ou em uma VM de IaaS, precisa fornecer um nome DNS do serviço de nuvem que seja exclusivo entre todos os recursos no Azure. Isso cria um mapeamento nos servidores DNS gerenciados do Azure para *dnsname*. cloudapp.net para o endereço IP público do recurso. Por exemplo, ao criar um serviço de nuvem com um nome DNS do serviço de nuvem de **contoso**, o FQDN (nome de domínio totalmente qualificado) **contoso.cloudapp.net** será resolvido para um endereço VIP (IP público) do serviço de nuvem. Você pode usar o FQDN para criar um registro CNAME do domínio personalizado apontando para o endereço IP público no Azure.
+### <a name="dns-hostname-resolution"></a>DNS hostname resolution
+When you create a cloud service or an IaaS VM, you need to provide a cloud service DNS name which is unique across all resources in Azure. This creates a mapping in the Azure-managed DNS servers for *dnsname*.cloudapp.net to the public IP address of the resource. For instance, when you create a cloud service with a cloud service DNS name of **contoso**, the fully-qualified domain name (FQDN) **contoso.cloudapp.net** will resolve to a public IP address (VIP) of the cloud service. You can use this FQDN to create a custom domain CNAME record pointing to the public IP address in Azure.
 
-### Serviços de Nuvem
-Um serviço de nuvem sempre tem um endereço IP público, conhecido como VIP (endereço IP virtual). Você pode criar pontos de extremidade em um serviço de nuvem para associar portas diferentes no VIP para portas internas em VMs e instâncias de função no serviço de nuvem.
+### <a name="cloud-services"></a>Cloud services
+A cloud service always has a public IP address referred to as a virtual IP address (VIP). You can create endpoints in a cloud service to associate different ports in the VIP to internal ports on VMs and role instances within the cloud service. 
 
-Um serviço de nuvem pode conter várias VMs de IaaS ou instâncias de função de PaaS, todos expostos por meio do mesmo VIP de serviço de nuvem. Você também pode atribuir [vários VIPs a um serviço de nuvem](../load-balancer/load-balancer-multivip.md), o que permite cenários multiVIP como um ambiente multilocatário com sites baseados em SSL.
+A cloud service can contain multiple IaaS VMs, or PaaS role instances, all exposed through the same cloud service VIP. You can also assign [multiple VIPs to a cloud service](../load-balancer/load-balancer-multivip.md), which enables multi-VIP scenarios like multi-tenant environment with SSL-based websites.
 
-Você pode garantir que o endereço IP público de um serviço de nuvem permaneça igual, mesmo quando todas as instâncias de função são interrompidas, usando um endereço IP público *estático*, conhecido como [IP Reservado](virtual-networks-reserved-public-ip.md). Você pode criar um recurso IP (reservado) estático em um local específico e atribuí-lo a qualquer serviço de nuvem naquele local. Não é possível especificar o endereço IP real para o IP reservado, ele é alocado do pool de endereços IP disponíveis no local em que é criado. Esse endereço IP não é liberado até você explicitamente excluí-lo.
+You can ensure the public IP address of a cloud service remains the same, even when all the role instances are stopped, by using a *static* public IP address, referred to as [Reserved IP](virtual-networks-reserved-public-ip.md). You can create a static (reserved) IP resource in a specific location and assign it to any cloud service in that location. You cannot specify the actual IP address for the reserved IP, it is allocated from pool of available IP addresses in the location it is created. This IP address is not released until you explicitly delete it.
 
-Endereços IP públicos (reservados) estáticos são usados nos cenários em que um serviço de nuvem:
+Static (reserved) public IP addresses are commonly used in the scenarios where a cloud service:
 
-- requer regras de firewall para ser configurado por usuários finais.
-- depende da resolução de nome DNS externa, e um IP dinâmico exigiria atualizar registros A.
-- consome serviços Web externos que usam o modelo de segurança com base em IP.
-- usa certificados SSL vinculados a um endereço IP.
+- requires firewall rules to be setup by end-users.
+- depends on external DNS name resolution, and a dynamic IP would require updating A records.
+- consumes external web services which use IP based security model.
+- uses SSL certificates linked to an IP address.
 
->[AZURE.NOTE] Quando você cria uma VM clássica, um contêiner *serviço de nuvem* é criado pelo Azure, que tem um endereço IP virtual (VIP). Quando a criação é feita por meio do portal, um padrão de *ponto de extremidade* RDP ou SSH é configurado pelo portal para conectar-se à VM por meio do VIP de serviço de nuvem. Este VIP de serviço de nuvem pode ser reservado, o que efetivamente fornece um endereço IP reservado para se conectar à VM. Você pode abrir portas adicionais configurando mais pontos de extremidade.
+>[AZURE.NOTE] When you create a classic VM, a container *cloud service* is created by Azure, which has a virtual IP address (VIP). When the creation is done through portal, a default RDP or SSH *endpoint* is configured by the portal so you can connect to the VM through the cloud service VIP. This cloud service VIP can be reserved, which effectively provides a reserved IP address to connect to the VM. You can open additional ports by configuring more endpoints.
 
-### VMs de IaaS e instâncias de função PaaS
-É possível atribuir um endereço IP público diretamente a uma [VM](../virtual-machines/virtual-machines-linux-about.md) IaaS ou a uma instância de função PaaS em um serviço de nuvem. Isso é conhecido como [ILPIP](virtual-networks-instance-level-public-ip.md) (endereço IP público em nível de instância). Esse endereço IP público pode ser apenas dinâmico.
+### <a name="iaas-vms-and-paas-role-instances"></a>IaaS VMs and PaaS role instances
+You can assign a public IP address directly to an IaaS [VM](../virtual-machines/virtual-machines-linux-about.md) or PaaS role instance within a cloud service. This is referred to as an instance-level public IP address ([ILPIP](virtual-networks-instance-level-public-ip.md)). This public IP address can be dynamic only.
 
->[AZURE.NOTE] Isso é diferente do VIP do serviço em nuvem, que é um contêiner para VMs de instâncias de função IaaS ou PaaS, como um serviço de nuvem pode conter várias VMs de IaaS ou instâncias de função de PaaS, expostos por meio do mesmo VIP de serviço de nuvem.
+>[AZURE.NOTE] This is different from the VIP of the cloud service, which is a container for IaaS VMs or PaaS role instances, since a cloud service can contain multiple IaaS VMs, or PaaS role instances, all exposed through the same cloud service VIP.
 
-### Gateways VPN
-Um [gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) pode ser usado para conectar uma VNet do Azure a outra VNet do Azure ou a redes locais. Um gateway de VPN recebe um endereço IP público *dinamicamente*, que permite a comunicação com a rede remota.
+### <a name="vpn-gateways"></a>VPN gateways
+A [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) can be used to connect an Azure VNet to other Azure VNets or on-premises networks. A VPN gateway is assigned a public IP address *dynamically*, which enables communication with the remote network.
 
-### Application gateways
-O [Application Gateway](../application-gateway/application-gateway-introduction.md) do Azure pode ser usado para balanceamento de carga Layer7 para rotear tráfego de rede com base em HTTP. O Application Gateway recebe um endereço IP público *dinamicamente*, que serve como o VIP com balanceamento de carga.
+### <a name="application-gateways"></a>Application gateways
+An Azure [Application gateway](../application-gateway/application-gateway-introduction.md) can be used for Layer7 load-balancing to route network traffic based on HTTP. Application gateway is assigned a public IP address *dynamically*, which serves as the load-balanced VIP.
 
-### Visão rápida
-A tabela a seguir mostra cada tipo de recurso com os métodos de alocação possíveis (dinâmico/estático) e capacidade de atribuir vários endereços IP públicos.
+### <a name="at-a-glance"></a>At a glance
+The table below shows each resource type with the possible allocation methods (dynamic/static), and ability to assign multiple public IP addresses.
 
-|Recurso|Dinâmico|Estático|Vários endereços IP|
+|Resource|Dynamic|Static|Multiple IP addresses|
 |---|---|---|---|
-|Serviço de nuvem|Sim|Sim|Sim|
-|Instância de função de PaaS ou VM de IaaS|Sim|Não|Não|
-|Gateway de VPN|Sim|Não|Não|
-|Application Gateway|Sim|Não|Não|
+|Cloud service|Yes|Yes|Yes|
+|IaaS VM or PaaS role instance|Yes|No|No|
+|VPN gateway|Yes|No|No|
+|Application gateway|Yes|No|No|
 
-## Endereços IP privados
-Endereços IP privados permitem que os recursos do Azure comuniquem-se com outros recursos em um serviço de nuvem ou em uma VNet ([rede virtual](virtual-networks-overview.md)), ou na rede local (por meio de um gateway de VPN ou circuito de Rota Expressa), sem usar um endereço IP acessível pela Internet.
+## <a name="private-ip-addresses"></a>Private IP addresses
+Private IP addresses allow Azure resources to communicate with other resources in a cloud service or a [virtual network](virtual-networks-overview.md)(VNet), or to on-premises network (through a VPN gateway or ExpressRoute circuit), without using an Internet-reachable IP address.
 
-No modelo de implantação clássico do Azure, um endereço IP privado pode ser atribuído aos seguintes recursos do Azure:
+In Azure classic deployment model, a private IP address can be assigned to the following Azure resources:
 
-- VMs de IaaS e instâncias de função PaaS
-- Balanceador de carga interno
-- Application Gateway
+- IaaS VMs and PaaS role instances
+- Internal load balancer
+- Application gateway
 
-### VMs de IaaS e instâncias de função PaaS
-As VMs (máquinas virtuais) criadas com o modelo de implantação clássico sempre são colocadas em um serviço de nuvem, semelhante às instâncias de função de PaaS. O comportamento de endereços IP privados, portanto, é semelhante para esses recursos.
+### <a name="iaas-vms-and-paas-role-instances"></a>IaaS VMs and PaaS role instances
+Virtual machines (VMs) created with the classic deployment model are always placed in a cloud service, similar to PaaS role instances. The behavior of private IP addresses are thus similar for these resources.
 
-É importante observar que um serviço de nuvem pode ser implantado de duas maneiras:
+It is important to note that a cloud service can be deployed in two ways:
 
-- Como um serviço de nuvem *autônomo*, em que ele não está dentro de uma rede virtual.
-- Como parte de uma rede virtual.
+- As a *standalone* cloud service, where it is not within a virtual network.
+- As part of a virtual network.
 
-#### Método de alocação
-No caso de um serviço de nuvem *autônomo*, os recursos recebem um endereço IP privado *dinamicamente* do intervalo de endereços IP privados do datacenter do Azure. Ele pode ser usado apenas para comunicação com outras VMs no mesmo serviço de nuvem. Esse endereço IP pode mudar quando o recurso for interrompido e iniciado.
+#### <a name="allocation-method"></a>Allocation method
+In case of a *standalone* cloud service, resources get a private IP address allocated *dynamically* from the Azure datacenter private IP address range. It can be used only for communication with other VMs within the same cloud service. This IP address can change when the resource is stopped and started.
 
-No caso de um serviço de nuvem implantado em uma rede virtual, os recursos recebem endereços IP privados do intervalo de endereços das sub-redes associadas (conforme especificado na configuração de rede). Esses endereços IP privados podem ser usados para comunicação entre todas as VMs na VNet.
+In case of a cloud service deployed within a virtual network, resources get private IP address(es) allocated from the address range of the associated subnet(s) (as specified in its network configuration). This private IP address(es) can be used for communication between all VMs within the VNet.
 
-Além disso, no caso de serviços de nuvem em uma rede virtual, um endereço IP privado é alocado *dinamicamente* (usando DHCP) por padrão. Ele pode mudar quando o recurso for interrompido e iniciado. Para garantir que o endereço IP permaneça o mesmo, defina o método de alocação para *estático* e forneça um endereço IP válido dentro do intervalo de endereços correspondente.
+Additionally, in case of cloud services within a VNet, a private IP address is allocated *dynamically* (using DHCP) by default. It can change when the resource is stopped and started. To ensure the IP address remains the same, you need to set the allocation method to *static*, and provide a valid IP address within the corresponding address range.
 
-Os endereços IP privados estáticos costumam ser usados para:
+Static private IP addresses are commonly used for:
 
- - VMs que atuam como controladores de domínio ou servidores DNS.
- - VMs que exigem regras de firewall usando endereços IP.
- - VMs executando serviços acessados por outros aplicativos por meio de um endereço IP.
+ - VMs that act as domain controllers or DNS servers.
+ - VMs that require firewall rules using IP addresses.
+ - VMs running services accessed by other apps through an IP address.
 
-#### Resolução do nome do host DNS interno
-Todas as VMs do Azure e instâncias de função de PaaS são configuradas com [servidores DNS gerenciados pelo Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) por padrão, a menos que você explicitamente configure servidores DNS personalizados. Esses servidores DNS fornecem resolução de nomes interna para VMs e instâncias de função que residem no mesmo serviço de nuvem ou rede virtual.
+#### <a name="internal-dns-hostname-resolution"></a>Internal DNS hostname resolution
+All Azure VMs and PaaS role instances are configured with [Azure-managed DNS servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default, unless you explicitly configure custom DNS servers. These DNS servers provide internal name resolution for VMs and role instances that reside within the same VNet or cloud service.
 
-Quando você cria uma VM, um mapeamento para o nome de host para seu endereço IP privado é adicionado aos servidores DNS gerenciados pelo Azure. No caso de uma VM com várias NICs, o nome do host é mapeado para o endereço IP privado da NIC principal. No entanto, essa informação de mapeamento é restrita a recursos dentro do mesmo serviço de nuvem ou rede virtual.
+When you create a VM, a mapping for the hostname to its private IP address is added to the Azure-managed DNS servers. In case of a multi-NIC VM, the hostname is mapped to the private IP address of the primary NIC. However, this mapping information is restricted to resources within the same cloud service or VNet.
 
-No caso de um serviço de nuvem *autônomo*, você será capaz de resolver nomes de host de todas as instâncias de VMs/função dentro do mesmo serviço de nuvem apenas. No caso de um serviço de nuvem em uma rede virtual, você será capaz de resolver nomes de host de todas as instâncias de função/VMs na rede virtual.
+In case of a *standalone* cloud service, you will be able to resolve hostnames of all VMs/role instances within the same cloud service only. In case of a cloud service within a VNet, you will be able to resolve hostnames of all the VMs/role instances within the VNet.
 
-### Balanceadores de carga internos (ILB) e gateways de aplicativo
-Você pode atribuir um endereço IP privado para a configuração de **front-end** de um [balanceador de carga interno do Azure](../load-balancer/load-balancer-internal-overview.md) (ILB) ou um [Azure Application Gateway](../application-gateway/application-gateway-introduction.md). Esse endereço IP privado serve como ponto de extremidade interno, acessível somente aos recursos dentro da sua rede virtual (VNet) e de redes remotas conectadas à VNet. Você pode atribuir a um endereço IP privado dinâmico ou estático à configuração de front-end. Você também pode atribuir vários endereços IP privados para habilitar cenários de multi-vip.
+### <a name="internal-load-balancers-(ilb)-&-application-gateways"></a>Internal load balancers (ILB) & Application gateways
+You can assign a private IP address to the **front end** configuration of an [Azure Internal Load Balancer](../load-balancer/load-balancer-internal-overview.md) (ILB) or an [Azure Application Gateway](../application-gateway/application-gateway-introduction.md). This private IP address serves as an internal endpoint, accessible only to the resources within its virtual network (VNet) and the remote networks connected to the VNet. You can assign either a dynamic or static private IP address to the front end configuration. You can also assign multiple private IP addresses to enable multi-vip scenarios.
 
-### Visão rápida
-A tabela a seguir mostra cada tipo de recurso com os métodos de alocação possíveis (dinâmico/estático) e capacidade de atribuir vários endereços IP privados.
+### <a name="at-a-glance"></a>At a glance
+The table below shows each resource type with the possible allocation methods (dynamic/static), and ability to assign multiple private IP addresses.
 
-|Recurso|Dinâmico|Estático|Vários endereços IP|
+|Resource|Dynamic|Static|Multiple IP addresses|
 |---|---|---|---|
-|VM (em um serviço de nuvem *autônomo*)|Sim|Sim|Sim|
-|Instância de função de PaaS (em um serviço de nuvem *autônomo*)|Sim|Não|Sim|
-|Instância de função VM ou PaaS (em uma rede virtual)|Sim|Sim|Sim|
-|Front-end do balanceador de carga interno|Sim|Sim|Sim|
-|Front-end do Application Gateway|Sim|Sim|Sim|
+|VM (in a *standalone* cloud service)|Yes|Yes|Yes|
+|PaaS role instance (in a *standalone* cloud service)|Yes|No|Yes|
+|VM or PaaS role instance (in a VNet)|Yes|Yes|Yes|
+|Internal load balancer front end|Yes|Yes|Yes|
+|Application gateway front end|Yes|Yes|Yes|
 
-## Limites
+## <a name="limits"></a>Limits
 
-A tabela abaixo mostra os limites impostos ao endereçamento IP no Azure por assinatura. Você pode [entrar em contato com o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites padrão até os limites máximos com base nas necessidades de sua empresa.
+The table below shows the limits imposed on IP addressing in Azure per subscription. You can [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
 
-||Limite padrão|Limite máximo|
+||Default limit|Maximum limit|
 |---|---|---|
-|Endereços IP públicos (dinâmicos)|5|entre em contato com o suporte|
-|Endereços IP públicos reservados|20|entre em contato com o suporte|
-|VIP público por implantação (serviço de nuvem)|5|entre em contato com o suporte|
-|VIP privado (ILB) por implantação (serviço de nuvem)|1|1|
+|Public IP addresses (dynamic)|5|contact support|
+|Reserved public IP addresses|20|contact support|
+|Public VIP per deployment (cloud service)|5|contact support|
+|Private VIP (ILB) per deployment (cloud service)|1|1|
 
-Leia o conjunto completo de [limites de rede](azure-subscription-service-limits.md#networking-limits) do Azure.
+Make sure you read the full set of [limits for Networking](azure-subscription-service-limits.md#networking-limits) in Azure.
 
-## Preços
+## <a name="pricing"></a>Pricing
 
-Na maioria dos casos, endereços IP públicos são gratuitos. Há um custo nominal para usar endereços IP públicos adicionais e/ou estáticos. Certifique-se de compreender a [estrutura de preços para IPs públicos](https://azure.microsoft.com/pricing/details/ip-addresses/).
+In most cases, public IP addresses are free. There is a nominal charge to use additional and/or static public IP addresses. Make sure you understand the [pricing structure for public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
-## Diferenças entre as implantações do Gerenciador de recursos e clássica
-A seguir está uma comparação dos recursos de endereçamento IP no Gerenciador de Recursos com o modelo de implantação clássico.
+## <a name="differences-between-resource-manager-and-classic-deployments"></a>Differences between Resource Manager and classic deployments
+Below is a comparison of IP addressing features in Resource Manager and the classic deployment model.
 
-||Recurso|Clássico|Gerenciador de Recursos|
+||Resource|Classic|Resource Manager|
 |---|---|---|---|
-|**Endereço IP público**|VM|Conhecido como um ILPIP (somente dinâmico)|Conhecido como um IP público (dinâmico ou estático)|
-|||Atribuído a uma VM IaaS ou a uma instância de função de PaaS|Associado à NIC da VM|
-||Balanceador de Carga para a Internet|Conhecido como VIP (dinâmico) ou IP Reservado (estático)|Conhecido como um IP público (dinâmico ou estático)|
-|||Atribuído a um serviço de nuvem|Associado à configuração de front-end do Balanceador de Carga|
+|**Public IP Address**|VM|Referred to as an ILPIP (dynamic only)|Referred to as a public IP (dynamic or static)|
+|||Assigned to an IaaS VM or a PaaS role instance|Associated to the VM's NIC|
+||Internet facing load balancer|Referred to as VIP (dynamic) or Reserved IP (static)|Referred to as a public IP (dynamic or static)|
+|||Assigned to a cloud service|Associated to the load balancer's front end config|
 ||||
-|**Endereço IP privado**|VM|Conhecido como um DIP|Conhecido como um endereço IP privado|
-|||Atribuído a uma VM IaaS ou a uma instância de função de PaaS|Atribuído à NIC da VM|
-||Balanceador de Carga Interno (ILB)|Atribuído ao ILB (dinâmico ou estático)|Atribuído à configuração de front-end do ILB (dinâmico ou estático)|
+|**Private IP Address**|VM|Referred to as a DIP|Referred to as a private IP address|
+|||Assigned to an IaaS VM or a PaaS role instance|Assigned to the VM's NIC|
+||Internal load balancer (ILB)|Assigned to the ILB (dynamic or static)|Assigned to the ILB's front end configuration (dynamic or static)|
 
-## Próximas etapas
-- [Implante uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-classic-pportal.md) usando o portal clássico.
+## <a name="next-steps"></a>Next steps
+- [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md) using the classic portal.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

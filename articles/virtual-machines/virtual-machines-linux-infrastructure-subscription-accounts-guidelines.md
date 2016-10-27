@@ -1,72 +1,76 @@
 <properties
-	pageTitle="Diretrizes para assinatura e contas | Microsoft Azure"
-	description="Saiba mais sobre as principais diretrizes de design e de implementação para assinaturas e contas no Azure."
-	documentationCenter=""
-	services="virtual-machines-linux"
-	authors="iainfoulds"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Subscription and Accounts Guidelines | Microsoft Azure"
+    description="Learn about the key design and implementation guidelines for subscriptions and accounts on Azure."
+    documentationCenter=""
+    services="virtual-machines-linux"
+    authors="iainfoulds"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2016"
-	ms.author="iainfou"/>
-
-# Diretrizes para contas e assinaturas
-
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
-
-Este artigo se concentra em explicar como abordar o gerenciamento de assinaturas e de contas à medida que seu ambiente e sua base de usuários aumentam.
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/08/2016"
+    ms.author="iainfou"/>
 
 
-## Diretrizes de implementação para contas e assinaturas
+# <a name="subscription-and-accounts-guidelines"></a>Subscription and accounts guidelines
 
-Decisões:
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
 
-- De que conjunto de assinaturas e contas você precisa para hospedar a infraestrutura ou carga de trabalho de TI?
-- Como dividir a hierarquia de acordo com sua organização?
-
-Tarefas:
-
-- Defina a hierarquia da organização lógica como você gostaria de gerenciá-la em um nível de assinatura.
-- Para corresponder a essa hierarquia lógica, defina as contas e as assinaturas necessárias em cada conta.
-- Crie o conjunto de assinaturas e contas usando sua convenção de nomenclatura.
+This article focuses on understanding how to approach subscription and account management as your environment and user base grows.
 
 
-## Assinaturas e contas
+## <a name="implementation-guidelines-for-subscriptions-and-accounts"></a>Implementation guidelines for subscriptions and accounts
 
-Para trabalhar com o Azure, você precisa de uma ou mais assinaturas do Azure. Recursos como VMs (máquinas virtuais) ou redes virtuais existem em todas essas assinaturas.
+Decisions:
 
-- Os clientes corporativos normalmente têm um Registro Enterprise, que é o recurso mais alto na hierarquia e está associado a uma ou mais contas.
-- Para consumidores e clientes sem um Registro Enterprise, o recurso mais alto é a Conta.
-- As assinaturas estão associadas a contas, e pode haver uma ou mais assinaturas por conta. O Azure registra as informações de cobrança no nível de assinatura.
+- What set of subscriptions and accounts do you need to host your IT workload or infrastructure?
+- How to break down the hierarchy to fit your organization?
 
-Devido ao limite de dois níveis de hierarquia na relação de Conta/Assinatura, é importante alinhar a convenção de nomenclatura das contas e assinaturas às necessidades de cobrança. Por exemplo, se uma empresa global usar o Azure, poderá optar por ter uma conta por região e gerenciar as assinaturas no nível de região:
+Tasks:
+
+- Define your logical organization hierarchy as you would like to manage it from a subscription level.
+- To match this logical hierarchy, define the accounts required and subscriptions under each account.
+- Create the set of subscriptions and accounts using your naming convention.
+
+
+## <a name="subscriptions-and-accounts"></a>Subscriptions and accounts
+
+To work with Azure, you need one or more Azure subscriptions. Resources like virtual machines (VMs) or virtual networks exist in of those subscriptions.
+
+- Enterprise customers typically have an Enterprise Enrollment, which is the top-most resource in the hierarchy, and is associated to one or more accounts.
+- For consumers and customers without an Enterprise Enrollment, the top-most resource is the account.
+- Subscriptions are associated to accounts, and there can be one or more subscriptions per account. Azure records billing information at the subscription level.
+
+Due to the limit of two hierarchy levels on the Account/Subscription relationship, it is important to align the naming convention of accounts and subscriptions to the billing needs. For instance, if a global company uses Azure, they might choose to have one account per region, and have subscriptions managed at the region level:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
 
-Por exemplo, você pode usar a seguinte estrutura:
+For instance, you might use the following structure:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
 
-Se uma região decide ter mais de uma assinatura associada a um determinado grupo, a convenção de nomenclatura deve incorporar uma forma de codificar os dados adicionais no nome da conta ou da assinatura. Essa organização permite manipular os dados de faturamento para gerar os novos níveis de hierarquia durante os relatórios de cobrança:
+If a region decides to have more than one subscription associated to a particular group, the naming convention should incorporate a way to encode the extra data on either the account or the subscription name. This organization allows massaging billing data to generate the new levels of hierarchy during billing reports:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
-A organização pode ser semelhante a:
+The organization could look like the following:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
-Fornecemos cobrança detalhada por meio de um arquivo para download, para uma única conta ou para todas as contas em um contrato empresarial.
+We provide detailed billing via a downloadable file for a single account, or for all accounts in an enterprise agreement.
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)] 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

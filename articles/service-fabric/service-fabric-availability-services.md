@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Disponibilidade de serviços do Service Fabric | Microsoft Azure"
-   description="Descreve a detecção de falhas, failover e recuperação para serviços"
+   pageTitle="Availability of Service Fabric services | Microsoft Azure"
+   description="Describes fault detection, failover, and recovery for services"
    services="service-fabric"
    documentationCenter=".net"
    authors="appi101"
@@ -16,38 +16,43 @@
    ms.date="08/10/2016"
    ms.author="aprameyr"/>
 
-# Disponibilidade dos serviços de malha do serviço
-Os serviços do Service Fabric do Azure podem ser com ou sem estado. Este artigo fornece uma visão geral de como a malha do serviço mantém a disponibilidade de um serviço no caso de falhas.
 
-## Disponibilidade dos serviços de malha do serviço sem monitoração do estado
-Um serviço sem monitoração de estado é um serviço de aplicativo que não tem nenhum [estado persistente local](service-fabric-concepts-state.md).
+# <a name="availability-of-service-fabric-services"></a>Availability of Service Fabric services
+Azure Service Fabric services can be either stateful or stateless. This article gives an overview of how Service Fabric maintains availability of a service in the event of failures.
 
-A criação de um serviço sem estado exige a definição de uma contagem de instância, que é o número de instâncias do serviço sem estado que devem ser executadas no cluster. Este é o número de cópias da lógica do aplicativo que será instanciada no cluster. Aumentar o número de instâncias é a maneira recomendada de ampliar serviços sem estado.
+## <a name="availability-of-service-fabric-stateless-services"></a>Availability of Service Fabric stateless services
+A stateless service is an application service that does not have any [local persistent state](service-fabric-concepts-state.md).
 
-Quando é detectada uma falha em qualquer instância do serviço sem estado, uma nova instância é criada em outro nó elegível no cluster.
+Creating a stateless service requires defining an instance count, which is the number of instances of the stateless service that should be running in the cluster. This is the number of copies of the application logic that will be instantiated in the cluster. Increasing the number of instances is the recommended way of scaling up a stateless service.
 
-## Disponibilidade dos serviços de malha do serviço com monitoração do estado
-Um serviço com estado tem algum estado associado a ele. Na malha de serviço, um serviço com monitoração de estado é modelado como um conjunto de réplicas. Cada réplica é uma instância do código do serviço que tem uma cópia do estado. Operações de leitura e gravação são realizadas em uma réplica (chamada de primária). Alterações no estado devido a operações de gravação são *replicadas* para várias outras réplicas (chamadas de secundárias ativas). Essa combinação de réplicas primária e secundárias ativas é o conjunto de réplicas do serviço.
+When a fault is detected on any instance of a stateless service, a new instance is created on some other eligible node in the cluster.
 
-Pode haver apenas uma réplica primária atendendo a solicitações de gravação e de leitura, mas pode haver várias réplicas secundárias ativas. O número de réplicas secundárias ativas pode ser configurado, e um número maior de réplicas tolera um número maior de falhas simultâneas de hardware e de software.
+## <a name="availability-of-service-fabric-stateful-services"></a>Availability of Service Fabric stateful services
+A stateful service has some state associated with it. In Service Fabric, a stateful service is modeled as a set of replicas. Each replica is an instance of the code of the service that has a copy of the state. Read and write operations are performed at one replica (called the primary). Changes to state from write operations are *replicated* to multiple other replicas (called active secondaries). The combination of primary and active secondary replicas is the replica set of the service.
 
-No caso de uma falha (quando a réplica primária falhar), o Service Fabric torna uma das réplicas secundárias ativas a nova réplica primária. Esta réplica secundária ativa já tem a versão atualizada do estado (via *replicação*) e pode continuar processando operações de leitura e de gravação posteriores.
+There can be only one primary replica servicing read and write requests, but there can be multiple active secondary replicas. The number of active secondary replicas is configurable, and a higher number of replicas can tolerate a greater number of concurrent software and hardware failures.
 
-Esse conceito de réplica como primária ou secundária ativa é conhecido como a função de réplica.
+In the event of a fault (when the primary replica goes down), Service Fabric makes one of the active secondary replicas the new primary replica. This active secondary replica already has the updated version of the state (via *replication*), and it can continue processing further read and write operations.
 
-### Funções de réplica
-A função de uma réplica é usada para gerenciar o ciclo de vida do estado que está sendo gerenciado por essa réplica. Uma réplica cuja função é primária atende a solicitações de leitura. Ela também atende a solicitações de gravação atualizando seu estado e replicando as alterações para as secundárias ativas em seu conjunto de réplicas. Uma réplica secundária ativa é responsável por receber alterações de estado que a réplica primária replicou e por atualizar sua exibição do estado.
+This concept--of a replica being either a primary or active secondary--is known as the replica role.
 
->[AZURE.NOTE] Modelos de programação de alto nível, como a [Estrutura de reliable actors](service-fabric-reliable-actors-introduction.md) abstrai o conceito de função da réplica do desenvolvedor.
+### <a name="replica-roles"></a>Replica roles
+The role of a replica is used to manage the life cycle of the state being managed by that replica. A replica whose role is primary services read requests. It also services write requests by updating its state and replicating the changes to the active secondaries in its replica set. The role of an active secondary is to receive state changes that the primary replica has replicated and update its view of the state.
 
-## Próximas etapas
+>[AZURE.NOTE] Higher-level programming models such as the [reliable actors framework](service-fabric-reliable-actors-introduction.md) abstract away the concept of replica role from the developer.
 
-Para obter informações sobre os conceitos do Service Fabric, consulte o seguinte:
+## <a name="next-steps"></a>Next steps
 
-- [Escalabilidade de serviços da Malha do Serviço](service-fabric-concepts-scalability.md)
+For more information on Service Fabric concepts, see the following:
 
-- [Particionando serviços da Malha do Serviço](service-fabric-concepts-partitioning.md)
+- [Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
 
-- [Definindo e gerenciando o estado](service-fabric-concepts-state.md)
+- [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+- [Defining and managing state](service-fabric-concepts-state.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+
