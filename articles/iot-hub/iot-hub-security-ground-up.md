@@ -1,6 +1,6 @@
 <properties
- pageTitle="Secure your IoT solution from the ground up | Microsoft Azure"
- description="This article describes the built-in security features of the Microsoft Azure IoT Suite"
+ pageTitle="Proteger sua solução de IoT desde o início | Microsoft Azure"
+ description="Este artigo descreve os recursos de segurança internos do Microsoft Azure IoT Suite"
  services="iot-hub"
  documentationCenter=""
  authors="YuriDio"
@@ -16,28 +16,30 @@
  ms.date="08/16/2016"
  ms.author="yurid"/>
 
-
 [AZURE.INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-To learn more about securing your IoT solution, see:
+Para saber mais sobre como proteger sua solução IoT, confira:
 
-- [IoT Security Best Practices][lnk-security-best-practices]
-- [IoT Security Architecture][lnk-security-architecture]
-- [Secure your IoT deployment][lnk-security-deployment]
+- [Melhores Práticas de Segurança de IoT][lnk-security-best-practices]
+- [Arquitetura de segurança IoT][lnk-security-architecture]
+- [Proteger sua implantação de IoT][lnk-security-deployment]
 
-To further explore the capabilities of IoT Hub, see:
+Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Projetar sua solução][lnk-design]
+- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
+- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
+- [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
 
 [lnk-security-best-practices]: iot-hub-security-best-practices.md
 [lnk-security-architecture]: iot-hub-security-architecture.md
 [lnk-security-deployment]: iot-hub-security-deployment.md
 
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

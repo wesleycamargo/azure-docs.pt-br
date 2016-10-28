@@ -1,101 +1,96 @@
 <properties
-    pageTitle="How to create a DocumentDB account | Microsoft Azure"
-    description="Build a NoSQL database with Azure DocumentDB. Follow these instructions to create a DocumentDB account and start building your blazing fast, global-scale NoSQL database." 
-    keywords="build a database"
-    services="documentdb"
-    documentationCenter=""
-    authors="mimig1"
-    manager="jhubbard"
-    editor="monicar"/>
+	pageTitle="Como criar uma conta do DocumentDB | Microsoft Azure"
+	description="Criar um banco de dados NoSQL com o DocumentDB do Azure. Siga as instruções para criar uma conta do DocumentDB e comece a criar seu banco de dados NoSQL de dimensões globais e incrivelmente rápido." 
+	keywords="criar um banco de dados"
+	services="documentdb"
+	documentationCenter=""
+	authors="mimig1"
+	manager="jhubbard"
+	editor="monicar"/>
 
 <tags
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/12/2016"
-    ms.author="mimig"/>
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/12/2016"
+	ms.author="mimig"/>
 
-
-# <a name="how-to-create-a-documentdb-nosql-account-using-the-azure-portal"></a>How to create a DocumentDB NoSQL account using the Azure portal
+# Como criar uma conta do DocumentDB NoSQL usando o portal do Azure
 
 > [AZURE.SELECTOR]
-- [Azure portal](documentdb-create-account.md)
-- [Azure CLI and Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+- [Portal do Azure](documentdb-create-account.md)
+- [CLI do Azure e Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
 
-To build a database with Microsoft Azure DocumentDB, you must:
+Para criar um banco de dados com o Microsoft Azure DocumentDB, você deverá:
 
-- Have an Azure account. You can get a [free Azure account](https://azure.microsoft.com/free) if you don't have one already. 
-- Create a DocumentDB account.  
+- Ter uma conta do Azure. Se ainda não tiver uma, você poderá obter uma [conta gratuita do Azure](https://azure.microsoft.com/free).
+- Criar uma conta do DocumentDB.
 
-You can create a DocumentDB account using either the Azure portal, Azure Resource Manager templates, or Azure command-line interface (CLI). This article shows how to create a DocumentDB account using the Azure portal. To create an account using Azure Resource Manager or Azure CLI, see [Automate DocumentDB database account creation](documentdb-automation-resource-manager-cli.md).
+Você pode criar uma conta do DocumentDB usando o portal do Azure, os modelos do Azure Resource Manager ou a CLI (interface de linha de comando) do Azure. Este artigo mostra como criar uma conta do DocumentDB usando o portal do Azure. Para criar uma conta usando o Azure Resource Manager ou a CLI do Azure, confira [Automatizar a criação da conta do DocumentDB](documentdb-automation-resource-manager-cli.md).
 
-Are you new to DocumentDB? Watch [this](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) four-minute video by Scott Hanselman to see how to complete the most common tasks in the online portal.
+Você é novo no DocumentDB? Assista a [este](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) vídeo de Scott Hanselman com duração de quatro minutos para saber como concluir as tarefas mais comuns no portal online.
 
-1.  Sign in to the [Azure portal](https://portal.azure.com/).
-2.  In the Jumpbar, click **New**, click **Data + Storage**, and then click **DocumentDB (NoSQL)**.
+1.	Entre no [portal do Azure](https://portal.azure.com/).
+2.	Na barra de navegação, clique em **Novo**, em **Dados + Armazenamento** e em **Base de Dados de Documentos (NoSQL)**.
 
-    ![Screen shot of the Azure portal, highlighting More Services, and DocumentDB (NoSQL)](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
+	![Captura de tela do portal do Azure, realçando Mais Serviços e DocumentDB (NoSQL)](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)
 
-3. In the **New account** blade, specify the desired configuration for the DocumentDB account.
+3. Na folha **Nova conta**, especifique a configuração desejada para a conta do DocumentDB.
 
-    ![Screen shot of the New DocumentDB blade](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-2.png)
+	![Captura de tela da folha Novo DocumentDB](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-2.png)
 
-    - In the **ID** box, enter a name to identify the DocumentDB account.  When the **ID** is validated, a green check mark appears in the **ID** box. The **ID** value becomes the host name within the URI. The **ID** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. Note that *documents.azure.com* is appended to the endpoint name you choose, the result of which becomes your DocumentDB account endpoint.
+	- No campo **ID**, digite um nome para identificar a conta do DocumentDB. Quando a **ID** for validada, uma marca de seleção verde será exibida na caixa de **ID**. Esse valor de **ID** torna-se o nome de host no URI. A **ID** pode conter somente letras minúsculas, números e o caractere '-', e deve ter entre 3 e 50 caracteres. Observe que *documents.azure.com* é anexado ao nome do ponto de extremidade que você escolher, e seu resultado se torna o ponto de extremidade da sua conta do DocumentDB.
 
-    - In the **NoSQL API** box, select the programming model to use:
-        - **DocumentDB**: The DocumentDB API is available via .NET, Java, Node.js, Python and JavaScript [SDKs](documentdb-sdk-dotnet.md), as well as HTTP [REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), and offers programmatic access to all the DocumentDB functionality. 
+    - Na caixa **API NoSQL**, selecione o modelo de programação a ser usado:
+        - **DocumentDB**: a API do DocumentDB está disponível por meio dos [SDKs](documentdb-sdk-dotnet.md) do .NET, Java, Node.js, Python e JavaScript, além do HTTP [REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), e oferece acesso programático a toda a funcionalidade do DocumentDB.
        
-        - **MongoDB**: DocumentDB also offers [protocol-level support](documentdb-protocol-mongodb.md) for **MongoDB** APIs. When you choose the MongoDB API option, you can use existing MongoDB SDKs and [tools](documentdb-mongodb-mongochef.md) to talk to DocumentDB. You can [move](documentdb-import-data.md) your existing MongoDB apps to use DocumentDB, with [no code changes needed](documentdb-connect-mongodb-account.md), and take advantage of a fully managed database as a service, with limitless scale, global replication, and other capabilities.
+        - **MongoDB**: o DocumentDB também dá [suporte em nível de protocolo](documentdb-protocol-mongodb.md) para APIs **MongoDB**. Quando você escolhe a opção API do MongoDB, pode usar os SDKs e [ferramentas](documentdb-mongodb-mongochef.md) existentes do MongoDB para falar com o DocumentDB. Você pode [mover](documentdb-import-data.md) os aplicativos do MongoDB existentes para usar o DocumentDB, [sem precisar alterar o código](documentdb-connect-mongodb-account.md), e se beneficiar de um banco de dados como serviço gerenciado, com dimensionamento ilimitado, replicação global e outros recursos.
 
-    - For **Subscription**, select the Azure subscription that you want to use for the DocumentDB account. If your account has only one subscription, that account is selected by default.
+	- Em **Assinatura**, selecione a assinatura do Azure que deseja usar para a conta do DocumentDB. Se a conta tiver apenas uma assinatura, ela será selecionada por padrão.
 
-    - In **Resource Group**, select or create a resource group for your DocumentDB account.  By default, a new resource group is created. For more information, see [Using the Azure portal to manage your Azure resources](../articles/azure-portal/resource-group-portal.md).
+	- Em **Grupo de Recursos**, selecione ou crie um grupo de recursos para sua conta do DocumentDB. Um novo grupo de recursos é criado por padrão. Para saber mais, confira [Usando o portal do Azure para gerenciar os recursos do Azure](../articles/azure-portal/resource-group-portal.md).
 
-    - Use **Location** to specify the geographic location in which to host your DocumentDB account. 
+	- Use **Local** para especificar a localização geográfica na qual hospedar a conta do DocumentDB.
 
-4.  Once the new DocumentDB account options are configured, click **Create**. To check the status of the deployment, check the Notifications hub.  
+4.	Depois que as opções da nova conta do DocumentDB forem configuradas, clique em **Criar**. Para verificar o status da implantação, verifique o hub de Notificações.
 
-    ![Create databases quickly - Screen shot of the Notifications hub, showing that the DocumentDB account is being created](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-4.png)  
+	![Crie bancos de dados rapidamente - Captura de tela do Hub de notificações mostrando que a conta do DocumentDB está sendo criada](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-4.png)
 
-    ![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deployed to a resource group - Online database creator notification](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-5.png)
+	![Captura de tela do Hub de notificações mostrando que a conta do DocumentDB foi criada com êxito e implantada em um grupo de recursos - Notificação do criador de banco de dados online](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-5.png)
 
-5.  After the DocumentDB account is created, it is ready for use with the default settings. The default consistency of the DocumentDB account is set to **Session**.  You can adjust the default consistency by clicking **Default Consistency** in the resource menu. To learn more about the consistency levels offered by DocumentDB, see [Consistency levels in DocumentDB](documentdb-consistency-levels.md).
+5.	Depois que a conta do DocumentDB for criada, ela estará pronta para ser usada com as configurações padrão. A consistência padrão da conta do DocumentDB é definida como **Sessão**. Você pode ajustar a consistência padrão clicando em **Consistência Padrão** no menu de recursos. Para saber mais sobre os níveis de consistência oferecidos pelo DocumentDB, confira [Níveis de consistência no DocumentDB](documentdb-consistency-levels.md).
 
-    ![Screen shot of the Resource Group blade - begin application development](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-6.png)  
+    ![Captura de tela da folha Grupo de Recursos - começar o desenvolvimento do aplicativo](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-6.png)
 
-    ![Screen shot of the Consistency Level blade - Session Consistency](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-7.png)  
+    ![Captura de tela da folha Nível de Consistência - Consistência da Sessão](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-7.png)
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
-[documentdb-manage]:../articles/documentdb/documentdb-manage.md
+[documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-Now that you have a DocumentDB account, the next step is to create a DocumentDB database. 
+Agora que você tem uma conta do DocumentDB, a próxima etapa é criar um banco de dados do DocumentDB.
 
-You can create a new database by using one of the following:
+Você pode criar um novo banco de dados usando:
 
-- The Azure portal, as described in [Create a DocumentDB database using the Azure portal](documentdb-create-database.md).
-- The all-inclusive tutorials, which include sample data: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md), or [Python](documentdb-python-application.md).
-- The [.NET](documentdb-dotnet-samples.md#database-examples), [Node.js](documentdb-nodejs-samples.md#database-examples), or [Python](documentdb-python-samples.md#database-examples) sample code available in GitHub.
-- The [.NET](documentdb-sdk-dotnet.md), [Node.js](documentdb-sdk-node.md), [Java](documentdb-sdk-java.md), [Python](documentdb-sdk-python.md), and [REST](https://msdn.microsoft.com/library/azure/mt489072.aspx) SDKs.
+- O portal do Azure, como descrito em [Criar um banco de dados do DocumentDB usando o portal do Azure](documentdb-create-database.md).
+- Os tutoriais completos, que incluem dados de exemplo: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node js](documentdb-nodejs-application.md) ou [Python](documentdb-python-application.md).
+- O código de exemplo do [.NET](documentdb-dotnet-samples.md#database-examples), do [Node.js](documentdb-nodejs-samples.md#database-examples) ou do [Python](documentdb-python-samples.md#database-examples) disponível no GitHub.
+- Os SDKs de [.NET](documentdb-sdk-dotnet.md), [Node.js](documentdb-sdk-node.md), [Java](documentdb-sdk-java.md), [Python](documentdb-sdk-python.md) e [REST](https://msdn.microsoft.com/library/azure/mt489072.aspx).
 
-After creating your database, you need to [add one or more collections](documentdb-create-collection.md) to the database, then [add documents](documentdb-view-json-document-explorer.md) to the collections.
+Depois de criar seu banco de dados, você precisará [adicionar uma ou mais coleções](documentdb-create-collection.md) ao banco de dados e [adicionar documentos](documentdb-view-json-document-explorer.md) às coleções.
 
-After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#executing-queries) against your documents. You can execute queries by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](documentdb-sdk-dotnet.md).
+Com documentos em uma coleção, você pode usar o [SQL do DocumentDB](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-queries) em seus documentos. Você pode executar consultas usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no portal, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou um dos [SDKs](documentdb-sdk-dotnet.md).
 
-### <a name="learn-more"></a>Learn more
+### Saiba mais
 
-To learn more about DocumentDB, explore these resources:
+Para saber mais sobre o DocumentDB, explore estes recursos:
 
--   [Learning path for DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
--   [DocumentDB hierarchical resource model and concepts](documentdb-resources.md)
+-	[Roteiro de aprendizagem para o DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
+-	[Conceitos e modelo de recursos hierárquico do DocumentDB](documentdb-resources.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

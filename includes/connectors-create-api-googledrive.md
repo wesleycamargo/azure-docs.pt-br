@@ -1,26 +1,16 @@
-### <a name="prerequisites"></a>Prerequisites
+### Pré-requisitos
 
-- A [GoogleDrive](https://www.google.com/drive/) account  
-
-
-Before you can use your GoogleDrive account in a Logic app, you must authorize the Logic app to connect to your GoogleDrive account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
-
-Here are the steps to authorize your Logic app to connect to your GoogleDrive account:  
-1. To create a connection to GoogleDrive, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *GoogleDrive* in the search box. Select the trigger or action you'll like to use:  
-![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-1.png)  
-2. If you haven't created any connections to GoogleDrive before, you'll get prompted to provide your GoogleDrive credentials. These credentials will be used to authorize your Logic app to connect to, and access your GoogleDrive account's data:  
-![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-2.png)  
-3. Provide your GoogleDrive email address:  
- ![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-3.png)  
-4. Provide your GoogleDrive password to authorize your Logic app:  
-![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-4.png)
-5. Allow the connection to GoogleDrive  
-![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-5.png)  
-6. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-![GoogleDrive connection creation step](./media/connectors-create-api-googledrive/googledrive-6.png)  
+- Uma conta do [GoogleDrive](https://www.google.com/drive/)  
 
 
+Antes de usar a conta do GoogleDrive em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do GoogleDrive. Felizmente, você pode fazer isso facilmente dentro do seu aplicativo lógico no Portal do Azure.
 
-<!--HONumber=Oct16_HO2-->
+Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do GoogleDrive:
+1. Para criar uma conexão com o GoogleDrive, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa, em seguida, digite *GoogleDrive* na caixa de pesquisa. Selecione o gatilho ou ação que gostaria de usar: ![Etapa de criação da conexão com o GoogleDrive](./media/connectors-create-api-googledrive/googledrive-1.png)  
+2. Se você não tiver criado quaisquer conexões com o GoogleDrive antes, suas credenciais do GoogleDrive serão solicitadas. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta do GoogleDrive e usá-los: ![Etapa de criação da conexão com o GoogleDrive](./media/connectors-create-api-googledrive/googledrive-2.png)  
+3. Forneça seu endereço de email do GoogleDrive: ![Etapa de criação da conexão com o GoogleDrive](./media/connectors-create-api-googledrive/googledrive-3.png)  
+4. Forneça sua senha do GoogleDrive para autorizar seu aplicativo lógico: ![Etapa de criação da conexão com o GoogleDrive](./media/connectors-create-api-googledrive/googledrive-4.png)
+5. Permita a conexão com o GoogleDrive ![Etapa de criação da conexão com o GoogleDrive](./media/connectors-create-api-googledrive/googledrive-5.png)  
+6. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico: ![Etapa de criação da conexão com o GoogleDrive](./media/connectors-create-api-googledrive/googledrive-6.png)  
 
-
+<!---HONumber=AcomDC_0525_2016-->

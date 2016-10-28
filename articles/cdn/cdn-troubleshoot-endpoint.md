@@ -1,105 +1,100 @@
 <properties
-    pageTitle="Troubleshooting Azure CDN endpoints returning 404 status | Microsoft Azure"
-    description="Troubleshoot 404 response codes with Azure CDN endpoints."
-    services="cdn"
-    documentationCenter=""
-    authors="camsoper"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Solucionando problemas dos pontos de extremidade da CDN do Azure retornando o status 404 | Microsoft Azure"
+	description="Solucione problemas nos códigos de resposta 404 com pontos de extremidade da CDN do Azure."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="cdn"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/28/2016"
-    ms.author="casoper"/>
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="casoper"/>
     
+# Solucionando problemas de pontos de extremidade CDN que retornam o status 404
 
-# <a name="troubleshooting-cdn-endpoints-returning-404-statuses"></a>Troubleshooting CDN endpoints returning 404 statuses
+Este artigo ajuda a solucionar problemas com [pontos de extremidade CDN](cdn-create-new-endpoint.md) que retornam erros 404.
 
-This article helps you troubleshoot issues with [CDN endpoints](cdn-create-new-endpoint.md) returning 404 errors.
+Se precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
+## Sintoma
 
-## <a name="symptom"></a>Symptom
+Você criou um perfil CDN e um ponto de extremidade, mas seu conteúdo não parece estar disponível na CDN. Os usuários que tentam acessar seu conteúdo por meio da URL da CDN recebem códigos de status HTTP 404.
 
-You've created a CDN profile and an endpoint, but your content doesn't seem to be available on the CDN.  Users who attempt to access your content via the CDN URL receive HTTP 404 status codes. 
+## Causa
 
-## <a name="cause"></a>Cause
+Há várias causas possíveis, incluindo:
 
-There are several possible causes, including:
+- A origem do arquivo não é visível para a CDN
+- O ponto de extremidade está configurado incorretamente, fazendo com que a CDN faça uma pesquisa no lugar errado
+- O host está rejeitando o cabeçalho de host da CDN
+- O ponto de extremidade não teve tempo para ser propagado por toda a CDN
 
-- The file's origin isn't visible to the CDN
-- The endpoint is misconfigured, causing the CDN to look in the wrong place
-- The host is rejecting the host header from the CDN
-- The endpoint hasn't had time to propagate throughout the CDN
+## Etapas para solucionar problemas
 
-## <a name="troubleshooting-steps"></a>Troubleshooting steps
+> [AZURE.IMPORTANT] Depois de criar um ponto de extremidade CDN, ele não estará imediatamente disponível para uso, pois o registro demora um pouco para ser propagado pela CDN. Para perfis da <b>CDN do Azure da Akamai</b>, a propagação normalmente é concluída em um minuto. Para perfis da <b>CDN do Azure da Verizon</b>, a propagação geralmente é concluída em 90 minutos, mas em alguns casos pode levar mais tempo. Se você concluir as etapas descritas neste documento e ainda obter respostas 404, considere aguardar algumas horas para verificar novamente antes de abrir um tíquete de suporte.
 
-> [AZURE.IMPORTANT] After creating a CDN endpoint, it will not immediately be available for use, as it takes time for the registration to propagate through the CDN.  For <b>Azure CDN from Akamai</b> profiles, propagation usually completes within one minute.  For <b>Azure CDN from Verizon</b> profiles, propagation will usually complete within 90 minutes, but in some cases can take longer.  If you complete the steps in this document and you're still getting 404 responses, consider waiting a few hours to check again before opening a support ticket.
+### Verificar o arquivo de origem
 
-### <a name="check-the-origin-file"></a>Check the origin file
+Primeiro, devemos verificar se o arquivo que desejamos armazenar em cache está disponível em nossa origem e se está acessível publicamente. A maneira mais rápida de fazer isso é abrir um navegador em uma sessão In-Private ou anônima e navegar diretamente até o arquivo. Basta digitar ou colar a URL na caixa de endereço e ver se isso resulta no arquivo esperado. Neste exemplo, vou usar um arquivo existente em uma conta do Armazenamento do Azure, disponível em `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`. Como você pode ver, ele é aprovado no teste.
 
-First, we should verify the that the file we want cached is available on our origin and is publicly accessible.  The quickest way to do that is to open a browser in an In-Private or Incognito session and browse directly to the file.  Just type or paste the URL into the address box and see if that results in the file you expect.  For this example, I'm going to use a file I have in an Azure Storage account, accessible at `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`.  As you can see, it successfully passes the test.
+![Sucesso!](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
 
-![Success!](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
+> [AZURE.WARNING] Embora essa seja a maneira mais rápida e fácil de verificar se o arquivo está disponível publicamente, algumas configurações de rede em sua organização poderiam dar a impressão de que esse arquivo está publicamente disponível quando, na verdade, só está visível para os usuários de sua rede (mesmo que ele esteja hospedado no Azure). Se você tiver um navegador externo no qual você poderá realizar esse teste, como um dispositivo móvel que não está conectado à rede de sua organização ou uma máquina virtual no Azure, isso será melhor.
 
-> [AZURE.WARNING] While this is the quickest and easiest way to verify your file is publicly available, some network configurations in your organization could give you the illusion that this file is publicly available when it is, in fact, only visible to users of your network (even if it's hosted in Azure).  If you have an external browser from which you can test, such as a mobile device that is not connected to your organization's network, or a virtual machine in Azure, that would be best.
+### Verificar as configurações de origem
 
-### <a name="check-the-origin-settings"></a>Check the origin settings
+Agora que verificamos se o arquivo está disponível publicamente na Internet, devemos verificar nossas configurações de origem. No [Portal do Azure](https://portal.azure.com), navegue até o seu perfil CDN e clique no ponto de extremidade que você está solucionando. Na folha **Ponto de Extremidade** resultante, clique na origem.
 
-Now that we've verified the file is publicly available on the internet, we should verify our origin settings.  In the [Azure Portal](https://portal.azure.com), browse to your CDN profile and click the endpoint you're troubleshooting.  In the resulting **Endpoint** blade, click the origin.  
+![Folha do ponto de extremidade com a origem realçada](./media/cdn-troubleshoot-endpoint/cdn-endpoint.png)
 
-![Endpoint blade with origin highlighted](./media/cdn-troubleshoot-endpoint/cdn-endpoint.png)
+A folha **Origem** é exibida.
 
-The **Origin** blade appears. 
+![Folha da origem](./media/cdn-troubleshoot-endpoint/cdn-origin-settings.png)
 
-![Origin blade](./media/cdn-troubleshoot-endpoint/cdn-origin-settings.png)
+#### Tipo e nome do host da origem
 
-#### <a name="origin-type-and-hostname"></a>Origin type and hostname
+Verifique se o **Tipo de origem** está correto e verifique também o **Nome do host da origem**. No meu exemplo, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, a parte do nome do host da URL é `cdndocdemo.blob.core.windows.net`. Como você pode ver na captura de tela, isso está correto. Para as origens do Armazenamento do Azure, Aplicativo Web e Serviço de Nuvem, o campo **Nome do host da origem** é uma lista suspensa e, portanto, não precisamos nos preocupar em escrevê-lo com a ortografia correta. No entanto, se você estiver usando uma origem personalizada, será *importantíssimo* escrever o nome do host corretamente.
 
-Verify the **Origin type** is correct, and verify the **Origin hostname**.  In my example, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, the hostname portion of the URL is `cdndocdemo.blob.core.windows.net`.  As you can see in the screenshot, this is correct.  For Azure Storage, Web App, and Cloud Service origins, the **Origin hostname** field is a dropdown, so we don't need to worry about spelling it correctly.  However, if you're using a custom origin, it is *absolutely critical* your hostname is spelled correctly!
+#### Portas HTTP e HTTPS
 
-#### <a name="http-and-https-ports"></a>HTTP and HTTPS ports
+O outro item a ser verificado aqui são as portas **HTTP** e **HTTPS**. Na maioria dos casos, as portas 80 e 443 estão corretas e não será necessária nenhuma alteração. No entanto, se o servidor de origem estiver escutando em uma porta diferente, isso precisará ser representado aqui. Caso você não tenha certeza disso, basta examinar a URL do arquivo de origem. As especificações de HTTP e HTTPS especificam as portas 80 e 443 como os padrões. Em minha URL, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, uma porta não é especificada, o padrão de 443 é adotado e minhas configurações estão corretas.
 
-The other thing to check here is your **HTTP** and **HTTPS ports**.  In most cases, 80 and 443 are correct, and you will require no changes.  However, if the origin server is listening on a different port, that will need to be represented here.  If you're not sure, just look at the URL for your origin file.  The HTTP and HTTPS specifications specify ports 80 and 443 as the defaults. In my URL, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, a port is not specified, so the default of 443 is assumed and my settings are correct.  
+No entanto, digamos que a URL do arquivo de origem testado anteriormente seja `http://www.contoso.com:8080/file.txt`. Observe o `:8080` no final do segmento do nome do host. Isso informa ao navegador que ele deverá usar a porta `8080` para se conectar ao servidor Web em `www.contoso.com`; portanto, você precisará inserir 8080 no campo **Porta HTTP**. É importante observar que essas configurações de porta só afetam a porta usada pelo ponto de extremidade para recuperar informações da origem.
 
-However, say the URL for your origin file that you tested earlier is `http://www.contoso.com:8080/file.txt`.  Note the `:8080` at the end of the hostname segment.  That tells the browser to use port `8080` to connect to the web server at `www.contoso.com`, so you'll need to enter 8080 in the **HTTP port** field.  It's important to note that these port settings only affect what port the endpoint uses to retrieve information from the origin.
-
-> [AZURE.NOTE] **Azure CDN from Akamai** endpoints do not allow the full TCP port range for origins.  For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx).  
+> [AZURE.NOTE] Os pontos de extremidade da **CDN do Azure da Akamai** não permitem o intervalo de portas TCP completo para origens. Para obter uma lista das portas de origem que não são permitidas, consulte [CDN do Azure a partir das Portas de Origem Permitidas Akamai](https://msdn.microsoft.com/library/mt757337.aspx).
   
-### <a name="check-the-endpoint-settings"></a>Check the endpoint settings
+### Verificar as configurações de ponto de extremidade
 
-Back on the **Endpoint** blade, click the **Configure** button.
+Novamente na folha **ponto de extremidade**, clique no botão **Configurar**.
 
-![Endpoint blade with configure button highlighted](./media/cdn-troubleshoot-endpoint/cdn-endpoint-configure-button.png)
+![Folha do ponto de extremidade com o botão Configurar realçado](./media/cdn-troubleshoot-endpoint/cdn-endpoint-configure-button.png)
 
-The endpoint's **Configure** blade appears.
+A folha **Configurar** do ponto de extremidade é exibida.
 
-![Configure blade](./media/cdn-troubleshoot-endpoint/cdn-configure.png)
+![Configurar folha](./media/cdn-troubleshoot-endpoint/cdn-configure.png)
 
-#### <a name="protocols"></a>Protocols
+#### Protocolos
 
-For **Protocols**, verify that the protocol being used by the clients is selected.  The same protocol used by the client will be the one used to access the origin, so it's important to have the origin ports configured correctly in the previous section.  The endpoint only listens on the default HTTP and HTTPS ports (80 and 443), regardless of the origin ports.
+Para **Protocolos**, verifique se o protocolo usado pelos clientes está selecionado. O mesmo protocolo usado pelo cliente será usado para acessar a origem; portanto, é importante ter as portas de origem configuradas corretamente na seção anterior. O ponto de extremidade ouve apenas as portas HTTP e HTTPS (80 e 443) padrão, independentemente das portas de origem.
 
-Let's return to our hypothetical example with `http://www.contoso.com:8080/file.txt`.  As you'll remember, Contoso specified `8080` as their HTTP port, but let's also assume they specified `44300` as their HTTPS port.  If they created an endpoint named `contoso`, their CDN endpoint hostname would be `contoso.azureedge.net`.  A request for `http://contoso.azureedge.net/file.txt` is an HTTP request, so the endpoint would use HTTP on port 8080 to retrieve it from the origin.  A secure request over HTTPS, `https://contoso.azureedge.net/file.txt`, would cause the endpoint to use HTTPS on port 44300 when retriving the file from the origin.
+Vamos voltar ao nosso exemplo hipotético com `http://www.contoso.com:8080/file.txt`. Como você se lembrará, a Contoso especificou `8080` como sua porta HTTP, mas suponhamos também que eles especificaram `44300` como sua porta HTTPS. Se eles criaram um ponto de extremidade chamado `contoso`, seu nome do host do ponto de extremidade CDN será `contoso.azureedge.net`. Uma solicitação de `http://contoso.azureedge.net/file.txt` é uma solicitação HTTP, portanto o ponto de extremidade usará HTTP na porta 8080 para recuperá-la da origem. Uma solicitação segura via HTTPS, `https://contoso.azureedge.net/file.txt`, faria com que o ponto de extremidade usasse HTTPS na porta 44300 ao recuperar o arquivo da origem.
 
-#### <a name="origin-host-header"></a>Origin host header
+#### Cabeçalho de host de origem
 
-The **Origin host header** is the host header value sent to the origin with each request.  In most cases, this should be the same as the **Origin hostname** we verified earlier.  An incorrect value in this field won't generally cause 404 statuses, but is likely to cause other 4xx statuses, depending on what the origin expects.
+O **Cabeçalho de host de origem** é o valor do cabeçalho de host enviado para a origem com cada solicitação. Na maioria dos casos, ele deverá ser igual ao **Nome do host de origem** verificado anteriormente. Em geral, um valor incorreto nesse campo não causará o status 404, mas, provavelmente, causará outros status 4xx, dependendo do que for esperado pela origem.
 
-#### <a name="origin-path"></a>Origin path
+#### Caminho de origem
 
-Lastly, we should verify our **Origin path**.  By default this is blank.  You should only use this field if you want to narrow the scope of the origin-hosted resources you want to make available on the CDN.  
+Por fim, devemos verificar nosso **Caminho de origem**. Por padrão, ele está em branco. Esse campo apenas deverá ser usado se você quiser restringir o escopo dos recursos hospedados na origem que deseja disponibilizar na CDN.
 
-For example, in my endpoint, I wanted all resources on my storage account to be available, so I left **Origin path** blank.  This means that a request to `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` results in a connection from my endpoint to `cdndocdemo.core.windows.net` that requests `/publicblob/lorem.txt`.  Likewise, a request for `https://cdndocdemo.azureedge.net/donotcache/status.png` results in the endpoint requesting `/donotcache/status.png` from the origin.
+Por exemplo, em meu ponto de extremidade, como eu queria que todos os recursos em minha conta de armazenamento estivessem disponíveis, deixei o **Caminho de origem** em branco. Isso significa que uma solicitação para `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` resulta em uma conexão do meu ponto de extremidade a `cdndocdemo.core.windows.net` que solicita `/publicblob/lorem.txt`. Da mesma forma, uma solicitação de `https://cdndocdemo.azureedge.net/donotcache/status.png` resulta na solicitação de `/donotcache/status.png` da origem pelo ponto de extremidade.
 
-But what if I don't want to use the CDN for every path on my origin?  Say I only wanted to expose the `publicblob` path.  If I enter */publicblob* in my **Origin path** field, that will cause the endpoint to insert */publicblob* before every request being made to the origin.  This means that the request for `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` will now actually take the request portion of the URL, `/publicblob/lorem.txt`, and append `/publicblob` to the beginning. This results in a request for `/publicblob/publicblob/lorem.txt` from the origin.  If that path doesn't resolve to an actual file, the origin will return a 404 status.  The correct URL to retrieve lorem.txt in this example would actually be `https://cdndocdemo.azureedge.net/lorem.txt`.  Note that we don't include the */publicblob* path at all, because the request portion of the URL is `/lorem.txt` and the endpoint adds `/publicblob`, resulting in `/publicblob/lorem.txt` being the request passed to the origin.
+Mas e se não quiser usar a CDN para cada caminho na origem? Digamos que eu quisesse apenas expor o caminho `publicblob`. Se eu inserir */publicblob* no campo **Caminho de origem**, isso fará com que o ponto de extremidade insira */publicblob* antes de todas as solicitações feitas para a origem. Isso significa que a solicitação de `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` agora usará, na verdade, a parte da solicitação da URL, `/publicblob/lorem.txt`, e acrescentará `/publicblob` ao início. Isso resulta em uma solicitação de `/publicblob/publicblob/lorem.txt` da origem. Se esse caminho não for resolvido para um arquivo real, a origem retornará um status 404. Na verdade, a URL correta para recuperar lorem.txt neste exemplo seria `https://cdndocdemo.azureedge.net/lorem.txt`. Observe que não incluímos o caminho */publicblob*, porque a parte da solicitação da URL é `/lorem.txt` e o ponto de extremidade adiciona `/publicblob`, fazendo com que `/publicblob/lorem.txt` seja a solicitação transmitida para a origem.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

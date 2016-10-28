@@ -1,172 +1,167 @@
 <properties
-    pageTitle="DocumentDB Document Explorer, to view JSON | Microsoft Azure"
-    description="Learn about the DocumentDB Document Explorer, an Azure Portal tool to view JSON, edit, create, and upload JSON documents with DocumentDB, a NoSQL document database."
-    keywords="view json"
-    services="documentdb"
-    authors="kirillg"
-    manager="jhubbard"
-    editor="monicar"
-    documentationCenter=""/>
+	pageTitle="Gerenciador de Documentos do Banco de Dados de Documentos para exibir JSON | Microsoft Azure"
+	description="Saiba mais sobre o Gerenciador de Documentos do Banco de Dados de Documentos, uma ferramenta do Portal do Azure para exibir JSON, editar, criar e carregar documentos JSON com o Banco de Dados de Documentos, um banco de dados de documentos NoSQL."
+    keywords="exibir json"
+	services="documentdb"
+	authors="AndrewHoh"
+	manager="jhubbard"
+	editor="monicar"
+	documentationCenter=""/>
 
 <tags
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/30/2016"
-    ms.author="kirillg"/>
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/30/2016"
+	ms.author="anhoh"/>
 
+# Exibir, editar, criar e carregar documentos JSON usando o Gerenciador de Documentos do Banco de Dados de Documentos
 
-# <a name="view,-edit,-create,-and-upload-json-documents-using-documentdb-document-explorer"></a>View, edit, create, and upload JSON documents using DocumentDB Document Explorer
+Este artigo fornece uma visão geral do Gerenciador de Documentos do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/), uma ferramenta do portal do Azure que o habilita a exibir, editar, criar, carregar documentos e filtrar JSON com o Banco de Dados de Documentos.
 
-This article provides an overview of the [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) Document Explorer, an Azure portal tool that enables you to view, edit, create, upload, and filter JSON documents with DocumentDB. 
+Observe que o Gerenciador de documentos não está habilitado em contas do Banco de Dados de Documentos com suporte ao protocolo para MongoDB. Esta página será atualizada quando esse recurso estiver habilitado.
 
-Note that Document Explorer is not enabled on DocumentDB accounts with protocol support for MongoDB. This page will be updated when this feature is enabled.
+## Iniciar o Gerenciador de Documentos
 
-## <a name="launch-document-explorer"></a>Launch Document Explorer
+1. No portal do Azure, na barra de navegação, clique em **DocumentDB (NoSQL)**. Se **DocumentDB (NoSQL)** não estiver visível, clique em **Mais Serviços** e clique em **DocumentDB (NoSQL)**.
 
-1. In the Azure portal, in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB (NoSQL)** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
-
-2. In the resource menu, click **Document Explorer**. 
+2. No menu de recursos, clique em **Gerenciador de Documentos**.
  
-    ![Screenshot of the Document Explorer command](./media/documentdb-view-JSON-document-explorer/documentexplorercommand.png)
+	![Captura de tela do comando do Gerenciador de Documentos](./media/documentdb-view-json-document-explorer/documentexplorercommand.png)
 
-    In the **Document Explorer** blade, the **Databases** and **Collections** drop-down lists are pre-populated depending on the context in which you launched Document Explorer. 
+    Na folha **Gerenciador de Documentos**, as listas suspensas **Bancos de dados** e **Coleções** são preenchidas com antecedência, dependendo do contexto no qual você tiver iniciado o Gerenciador de Documentos.
 
-## <a name="create-a-document"></a>Create a document
+## Criar um documento
 
-1. [Launch Document Explorer](#launch-document-explorer).
+1. [Inicie o Gerenciador de Documentos](#launch-document-explorer).
 
-2. In the **Document Explorer** blade, click **Create Document**. 
+2. Na folha **Gerenciador de Documentos**, clique em **Criar Documento**.
 
-    A minimal JSON snippet is provided in the **Document** blade.
+    Um trecho mínimo de JSON é fornecido na folha **Documento**.
 
-    ![Screenshot of Document Explorer create document experience, where you can view JSON and edit JSON](./media/documentdb-view-JSON-document-explorer/createdocument.png)
+	![Captura de tela da experiência de criação de documentos do Gerenciador de Documentos, onde você pode exibir JSON e editar JSON](./media/documentdb-view-json-document-explorer/createdocument.png)
 
-2. In the **Document** blade, type or paste in the content of the JSON document you wish to create, and then click **Save** to commit your document to the database and collection specified in the **Document Explorer** blade.
+2. Na folha **Documento**, digite ou cole o conteúdo do documento JSON que você deseja criar e clique em **Salvar** para confirmar o documento para o banco de dados e a coleção especificados na folha **Gerenciador de Documentos**.
 
-    ![Screenshot of Document Explorer save command](./media/documentdb-view-JSON-document-explorer/savedocument1.png)
+	![Captura de tela do comando salvar do Gerenciador de Documentos](./media/documentdb-view-json-document-explorer/savedocument1.png)
 
-    > [AZURE.NOTE] If you do not provide an "id" property, then Document Explorer automatically adds an id property and generates a GUID as the id value.
+	> [AZURE.NOTE] Se você não fornecer uma propriedade de "id", o Gerenciador de Documentos adiciona automaticamente uma propriedade de ID e gera um GUID como o valor da ID.
 
-    If you already have data from JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, Amazon DynamoDB, HBase, or from other DocumentDB collections, you can use DocumentDB's [data migration tool](documentdb-import-data.md) to quickly import your data.
+    Se já tiver dados de arquivos JSON, MongoDB, SQL Server, arquivos CSV, armazenamento de Tabela do Azure, Amazon DynamoDB, HBase ou de outras coleções do Banco de Dados de Documentos, você poderá usar a [ferramenta de migração de dados](documentdb-import-data.md) do Banco de Dados de Documentos para importar rapidamente os dados.
 
-## <a name="edit-a-document"></a>Edit a document
+## Editar um documento
 
-1. [Launch Document Explorer](#launch-document-explorer).
+1. [Inicie o Gerenciador de Documentos](#launch-document-explorer).
 
-2. To edit an existing document, select it in the **Document Explorer** blade, edit the document in the **Document** blade, and then click **Save**.
+2. Para editar um documento existente, selecione-o na folha **Gerenciador de Documentos**, edite o documento na folha **Documento** e clique em **Salvar**.
 
-    ![Screenshot of Document Explorer edit document functionality used to view JSON](./media/documentdb-view-JSON-document-explorer/editdocument.png)
+    ![Captura de tela da funcionalidade de edição de documentos do Gerenciador de Documentos usada para exibir JSON](./media/documentdb-view-json-document-explorer/editdocument.png)
 
-    If you're editing a document and decide that you want to discard the current set of edits, simply click **Discard** in the **Document** blade, confirm the discard action, and the previous state of the document is reloaded.
+    Se você estiver editando um documento e decidir que quer descartar as edições feitas, basta clicar em **Descartar** na folha **Documento**, confirmar a ação de descarte e o estado anterior do documento será carregado novamente.
 
-    ![Screenshot of Document Explorer discard command](./media/documentdb-view-JSON-document-explorer/discardedit.png)
+    ![Captura de tela do comando descartar do Gerenciador de Documentos](./media/documentdb-view-json-document-explorer/discardedit.png)
 
-## <a name="delete-a-document"></a>Delete a document
+## Excluir um documento
 
-1. [Launch Document Explorer](#launch-document-explorer).
+1. [Inicie o Gerenciador de Documentos](#launch-document-explorer).
 
-2. Select the document in **Document Explorer**, click **Delete**, and then confirm the delete. After confirming, the document is immediately removed from the Document Explorer list.
+2. Selecione o documento no **Gerenciador de Documentos**, clique em **Excluir** e confirme a exclusão. Após a confirmação, o documento será removido imediatamente da lista do Gerenciador de Documentos.
 
-    ![Screenshot of Document Explorer delete command](./media/documentdb-view-JSON-document-explorer/deletedocument.png)
+	![Captura de tela do comando excluir do Gerenciador de Documentos](./media/documentdb-view-json-document-explorer/deletedocument.png)
 
-## <a name="work-with-json-documents"></a>Work with JSON documents
+## Trabalhar com documentos JSON
 
-Document Explorer validates that any new or edited document contains valid JSON.  You can even view JSON errors by hovering over the incorrect section to get details about the validation error.
+Observe que o Gerenciador de Documentos valida que qualquer documento novo ou editado contém JSON válido. Você pode até exibir erros do JSON ao passar o mouse sobre a seção incorreta para obter detalhes sobre o erro de validação.
 
-![Screenshot of Document Explorer with invalid JSON highlighting](./media/documentdb-view-JSON-document-explorer/invalidjson1.png)
+![Captura de tela do Gerenciador de Documentos com realce de JSON inválido](./media/documentdb-view-json-document-explorer/invalidjson1.png)
 
-Additionally, Document Explorer prevents you from saving a document with invalid JSON content.
+Além disso, o Gerenciador de Documentos impede que você salve um documento com conteúdo JSON inválido.
 
-![Screenshot of Document Explorer with invalid JSON save error](./media/documentdb-view-JSON-document-explorer/invalidjson2.png)
+![Captura de tela do Gerenciador de Documentos com erro de salvamento de JSON inválido](./media/documentdb-view-json-document-explorer/invalidjson2.png)
 
-Finally, Document Explorer allows you to easily view the system properties of the currently loaded document by clicking the **Properties** command.
+Por fim, o Gerenciador de Documentos permite que você veja facilmente as propriedades de sistema do documento carregado clicando no comando **Propriedades**.
 
-![Screenshot of Document Explorer document properties view](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
+![Captura de tela da exibição de propriedades de documento do Gerenciador de Documentos](./media/documentdb-view-json-document-explorer/documentproperties.png)
 
-> [AZURE.NOTE] The timestamp (_ts) property is internally represented as epoch time, but Document Explorer displays the value in a human readable GMT format.
+> [AZURE.NOTE] A propriedade do carimbo de data/hora (\_ts) é representada internamente como um tempo de época, mas o Gerenciador de Documentos exibe o valor em um formato GMT legível.
 
-## <a name="filter-documents"></a>Filter documents
-Document Explorer supports a number of navigation options and advanced settings.
+## Filtrar documentos
+O Gerenciador de Documentos oferece suporte a várias opções de navegação e configurações avançadas
 
-By default, Document Explorer loads up to the first 100 documents in the selected collection, by their created date from earliest to latest.  You can load additional documents (in batches of 100) by selecting the **Load more** option at the bottom of the Document Explorer blade. You can choose which documents to load through the **Filter** command.
+Por padrão, o Gerenciador de Documentos carrega os 100 primeiros documentos na coleção selecionada, por sua data de criação, do antigo ao mais recente. Você pode carregar documentos adicionais (em lotes de 100), selecionando a opção **Carregar mais** na parte inferior da folha do Gerenciador de Documentos. Você pode escolher quais documentos serão carregados por meio do comando **Filtrar**.
 
-1. [Launch Document Explorer](#launch-document-explorer).
+1. [Inicie o Gerenciador de Documentos](#launch-document-explorer).
 
-2. At the top of the **Document Explorer** blade, click **Filter**.  
+2. Na parte superior da folha **Gerenciador de Documentos**, clique em **Filtrar**.
 
-    ![Screenshot of Document Explorer Filter Settings](./media/documentdb-view-JSON-document-explorer/documentexplorerfiltersettings.png)
+    ![Captura de tela das Configurações de Filtro do Gerenciador de Documentos](./media/documentdb-view-json-document-explorer/documentexplorerfiltersettings.png)
   
-3.  The filter settings appear below the command bar. In the filter settings, provide a WHERE clause and/or an ORDER BY clause, and then click **Filter**.
+3.  As configurações de filtro aparecem abaixo da barra de comandos. Nas configurações do filtro, forneça uma cláusula WHERE e/ou uma cláusula ORDER BY e clique em **Filtrar**.
 
-    ![Screenshot of Document Explorer Settings blade](./media/documentdb-view-JSON-document-explorer/documentexplorerfiltersettings2.png)
+	![Captura de tela da folha Configurações do Gerenciador de Documentos](./media/documentdb-view-json-document-explorer/documentexplorerfiltersettings2.png)
 
-    Document Explorer automatically refreshes the results with documents matching the filter query. Read more about the DocumentDB SQL grammar in the [SQL query and SQL syntax](documentdb-sql-query.md) article or print a copy of the [SQL query cheat sheet](documentdb-sql-query-cheat-sheet.md).
+	O Gerenciador de Documentos atualiza automaticamente os resultados com os documentos que correspondem à consulta de filtro. Leia mais sobre a gramática SQL do DocumentDB no artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima uma cópia da [referência rápida de consulta SQL](documentdb-sql-query-cheat-sheet.md).
 
-    The **Database** and **Collection** drop-down list boxes can be used to easily change the collection from which documents are currently being viewed without having to close and re-launch Document Explorer.  
+    As caixas das listas suspensas **Banco de Dados** e **Coleção** podem ser usadas para alterar a coleção cujos documentos estão sendo exibidos sem precisar fechar e iniciar o Gerenciador de Documentos novamente.
 
-    Document Explorer also supports filtering the currently loaded set of documents by their id property.  Simply type in the Documents Filter by id box.
+    O Gerenciador de Documentos também dá suporte à filtragem do conjunto de documentos carregados atualmente segundo a propriedade de ID. Simplesmente digite na caixa Filtrar Documentos por id.
 
-    ![Screenshot of Document Explorer with filter highlighted](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)
+	![Captura de tela do Gerenciador de Documentos com filtro realçado](./media/documentdb-view-json-document-explorer/documentexplorerfilter.png)
 
-    The results in the Document Explorer list are filtered based on your supplied criteria.
+	Os resultados da lista do Gerenciador de Documentos são filtrados com base nos critérios fornecidos.
 
-    ![Screenshot of Document Explorer with filtered results](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
+	![Captura de tela do Gerenciador de Documentos com resultados filtrados](./media/documentdb-view-json-document-explorer/documentexplorerfilterresults.png)
 
-    > [AZURE.IMPORTANT] The Document Explorer filter functionality only filters from the ***currently*** loaded set of documents and does not perform a query against the currently selected collection.
+	> [AZURE.IMPORTANT] A funcionalidade de filtro do Gerenciador de Documentos filtra somente o conjunto de documentos carregado ***atualmente*** e não consulta a coleção selecionada.
 
-4. To refresh the list of documents loaded by Document Explorer, click **Refresh** at the top of the blade.
+4. Para atualizar a lista de documentos carregada pelo Gerenciador de Documentos, clique em **Atualizar** na parte superior da folha.
 
-    ![Screenshot of Document Explorer refresh command](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
+	![Captura de tela do comando de atualização do Gerenciador de Documentos](./media/documentdb-view-json-document-explorer/documentexplorerrefresh.png)
 
-## <a name="bulk-add-documents"></a>Bulk add documents
+## Adicionar documentos em massa
 
-Document Explorer supports bulk ingestion of one or more existing JSON documents, up to 100 JSON files per upload operation.  
+O Gerenciador de Documentos dá suporte à ingestão em massa de um ou mais documentos JSON existentes, até 100 arquivos JSON por operação de upload.
 
-1. [Launch Document Explorer](#launch-document-explorer).
+1. [Inicie o Gerenciador de Documentos](#launch-document-explorer).
 
-2. To start the upload process, click **Upload Document**.
+2. Para iniciar o processo de upload, clique em **Carregar Documento**.
 
-    ![Screenshot of Document Explorer bulk ingestion functionality](./media/documentdb-view-JSON-document-explorer/uploaddocument1.png)
+	![Captura de tela da funcionalidade de ingestão em massa do Gerenciador de Documentos](./media/documentdb-view-json-document-explorer/uploaddocument1.png)
 
-    The **Upload Document** blade opens. 
+    A folha **Carregar Documento** será aberta.
 
-2. Click the browse button to open a file explorer window, select one or more JSON documents to upload, and then click **Open**.
+2. Clique no botão Procurar para abrir uma janela do gerenciador de arquivos, selecione um ou mais documentos JSON a serem carregados e clique em **Abrir**.
 
-    ![Screenshot of Document Explorer bulk ingestion process](./media/documentdb-view-JSON-document-explorer/uploaddocument2.png)
+	![Captura de tela do processo de ingestão em massa do Gerenciador de Documentos](./media/documentdb-view-json-document-explorer/uploaddocument2.png)
 
-    > [AZURE.NOTE] Document Explorer currently supports up to 100 JSON documents per individual upload operation.
+	> [AZURE.NOTE] Atualmente, o Gerenciador de Documentos dá suporte a até 100 documentos JSON por operação de carregamento.
 
-3. Once you're satisfied with your selection, click the **Upload** button.  The documents are automatically added to the Document Explorer grid and the upload results are displayed as the operation progresses. Import failures are reported for individual files.
+3. Quando estiver satisfeito com sua seleção, clique no botão **Carregar**. Os documentos são adicionados automaticamente à grade do Gerenciador de Documentos e os resultados do carregamento são exibidos conforme o andamento da operação. Falhas na importação são informadas por arquivo individual.
 
-    ![Screenshot of Document Explorer bulk ingestion results](./media/documentdb-view-JSON-document-explorer/uploaddocument3.png)
+	![Captura de tela dos resultados de ingestão em massa do Gerenciador de Documentos](./media/documentdb-view-json-document-explorer/uploaddocument3.png)
 
-4. Once the operation is complete, you can select up to another 100 documents to upload.
+4. Após a conclusão da operação, você poderá selecionar até 100 documentos adicionais para upload.
 
-## <a name="work-with-json-documents-outside-the-portal"></a>Work with JSON documents outside the portal
+## Trabalhar com documentos JSON fora do portal
 
-The Document Explorer in the Azure portal is just one way to work with documents in DocumentDB. You can also work with documents using the [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) or the [client SDKs](documentdb-sdk-dotnet.md). For example code, see the [.NET SDK document examples](documentdb-dotnet-samples.md#document-examples) and the [Node.js SDK document examples](documentdb-nodejs-samples.md#document-examples).
+O Gerenciador de Documentos no portal do Azure é apenas uma maneira de trabalhar com documentos no Banco de Dados de Documentos. Você também pode trabalhar com documentos usando a [API REST](https://msdn.microsoft.com/library/azure/mt489082.aspx) ou os [SDKs de cliente](documentdb-sdk-dotnet.md). Para obter um exemplo de código, consulte os [exemplos de documento do SDK do .NET](documentdb-dotnet-samples.md#document-examples) e os [exemplos de documento do SDK do Node.js](documentdb-nodejs-samples.md#document-examples).
 
-If you need to import or migrate files from another source (JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, Amazon DynamoDB, or HBase), you can use the DocumentDB [data migration tool](documentdb-import-data.md) to quickly import your data to DocumentDB.
+Se você precisar importar ou migrar arquivos de outra fonte (arquivos JSON, MongoDB, SQL Server, arquivos CSV, armazenamento de Tabelas do Azure, Amazon DynamoDB ou HBase), poderá usar a [ferramenta de migração de dados](documentdb-import-data.md) do DocumentDB para importar rapidamente os dados para o DocumentDB.
 
-## <a name="troubleshoot"></a>Troubleshoot
+## Solucionar problemas
 
-**Symptom**: Document Explorer returns **No documents found**.
+**Sintoma**: o Gerenciador de Documentos retorna **Nenhum documento encontrado**.
 
-**Solution**: Ensure that you have selected the correct subscription, database and collection in which the documents were inserted. Also, check to ensure that you are operating within your throughput quotas. If you are operating at your maximum throughput level and getting throttled, lower application usage to operate under the maximum throughput quota for the collection.
+**Solução**: verifique se você selecionou a assinatura, o banco de dados e a coleção correta na qual os documentos foram inseridos. Além disso, verifique se você está operando dentro de suas cotas de taxa de transferência. Se você estiver operando com seu nível máximo de taxa de transferência e estiver sofrendo limitação, reduza o uso do aplicativo a fim de operar com a cota máxima de taxa de transferência para a coleção.
 
-**Explanation**: The portal is an application like any other, making calls to your DocumentDB database and collection. If your requests are currently being throttled due to calls being made from a separate application, the portal may also be throttled, causing resources not to appear in the portal. To resolve the issue, address the cause of the high throughput usage, and then refresh the portal blade. Information on how to measure and lower throughput usage can be found in the [Throughput](documentdb-performance-tips.md#throughput) section of the [Performance tips](documentdb-performance-tips.md) article.
+**Explicação**: o portal é um aplicativo como qualquer outro, fazendo chamadas para o banco de dados e a coleção do seu DocumentDB. Se as suas solicitações estiverem sofrendo restrições no momento devido a chamadas feitas de um aplicativo separado, o portal também poderá sofrer restrições, fazendo com que os recursos não apareçam no portal. Para solucionar o problema, resolva a causa do alto uso de produtividade e, em seguida, atualize a folha do portal. Informações sobre como medir e reduzir o uso da produtividade podem ser encontradas na seção [Produtividade](documentdb-performance-tips.md#throughput) do artigo [Dicas de desempenho](documentdb-performance-tips.md).
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-To learn more about the DocumentDB SQL grammar supported in Document Explorer, see the [SQL query and SQL syntax](documentdb-sql-query.md) article or print out the [SQL query cheat sheet](documentdb-sql-query-cheat-sheet.md).
+Para saber mais sobre a gramática SQL do DocumentDB com suporte no Gerenciador de Documentos, veja o artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima a [referência rápida de consulta SQL](documentdb-sql-query-cheat-sheet.md).
 
-The [Learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) is also a useful resource to guide you as you learn more about DocumentDB. 
+O [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) também é um recurso útil para orientar você à medida que for aprendendo mais sobre o DocumentDB.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

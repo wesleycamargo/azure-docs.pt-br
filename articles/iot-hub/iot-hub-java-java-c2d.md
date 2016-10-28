@@ -1,11 +1,11 @@
 <properties
-    pageTitle="Send cloud-to-device messages with IoT Hub | Microsoft Azure"
-    description="Follow this tutorial to learn how to send cloud-to-device messages using Azure IoT Hub with Java."
-    services="iot-hub"
-    documentationCenter="java"
-    authors="dominicbetts"
-    manager="timlt"
-    editor=""/>
+	pageTitle="Enviar mensagens da nuvem para o dispositivo com o Hub IoT| Microsoft Azure"
+	description="Siga este tutorial para aprender a enviar mensagens da nuvem para o dispositivo usando o Hub IoT do Azure com Java."
+	services="iot-hub"
+	documentationCenter="java"
+	authors="dominicbetts"
+	manager="timlt"
+	editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -16,45 +16,44 @@
      ms.date="09/13/2016"
      ms.author="dobett"/>
 
-
-# <a name="tutorial:-how-to-send-cloud-to-device-messages-with-iot-hub-and-java"></a>Tutorial: How to send cloud-to-device messages with IoT Hub and Java
+# Tutorial: Como enviar mensagens da nuvem para o dispositivo com o Hub IoT e Java
 
 [AZURE.INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-## <a name="introduction"></a>Introduction
+## Introdução
 
-Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of IoT devices and an application back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a simulated device that sends device-to-cloud messages.
+O Hub IoT do Azure é um serviço totalmente gerenciado que ajuda a permitir comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos IoT e um back-end de aplicativo. O tutorial [Introdução ao Hub IoT] mostra como criar um hub IoT, provisionar uma identidade do dispositivo e codificar um dispositivo simulado que envia mensagens do dispositivo para a nuvem.
 
-This tutorial builds on [Get started with IoT Hub]. It shows you how to:
+Esse tutorial se baseia na [Introdução ao Hub IoT]. Ele mostra como:
 
-- From your application cloud back end, send cloud-to-device messages to a single device through IoT Hub.
-- Receive cloud-to-device messages on a device.
-- From your application cloud back end, request delivery acknowledgement (*feedback*) for messages sent to a device from IoT Hub.
+- Do seu aplicativo de nuvem de back-end, envie mensagens da nuvem para o dispositivo em um único dispositivo por meio do Hub IoT.
+- Receber mensagens da nuvem para o dispositivo em um dispositivo.
+- Do seu aplicativo de nuvem de back-end, solicitar confirmação de entrega (*comentários*) para as mensagens enviadas a um dispositivo do Hub IoT.
 
-You can find more information on cloud-to-device messages in the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
+Encontre mais informações sobre as mensagens da nuvem para o dispositivo no [Guia do Desenvolvedor do Hub IoT][IoT Hub Developer Guide - C2D].
 
-At the end of this tutorial, you run two Java console applications:
+No final deste tutorial, você executará dois aplicativos de console do Java:
 
-* **simulated-device**, a modified version of the app created in [Get started with IoT Hub], which connects to your IoT hub and receives cloud-to-device messages.
-* **send-c2d-messages**, which sends a cloud-to-device message to the simulated device through IoT Hub, and then receives its delivery acknowledgement.
+* **simulated-device**, uma versão modificada do aplicativo criado na [Introdução ao Hub IoT], que se conecta a seu Hub IoT e recebe mensagens da nuvem para o dispositivo.
+* **send-c2d-messages**, que envia uma mensagem da nuvem ao dispositivo simulado por meio do Hub IoT e recebe sua confirmação de entrega.
 
-> [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center].
+> [AZURE.NOTE] O Hub IoT tem suporte a SDK para várias plataformas de dispositivo e linguagens (incluindo C, Java e Javascript) nos SDKs do dispositivo IoT do Azure. Para obter instruções passo a passo sobre como conectar seu dispositivo ao código deste tutorial e, em geral, ao Hub IoT do Azure, veja o [Centro de Desenvolvedores do IoT do Azure].
 
-To complete this tutorial, you need the following:
+Para concluir este tutorial, você precisará do seguinte:
 
-+ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Java for this tutorial on either Windows or Linux.
++ Java SE 8. <br/> [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Java para este tutorial no Windows ou no Linux.
 
-+ Maven 3.  <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Maven for this tutorial on either Windows or Linux.
++ Maven 3. <br/> [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Maven para este tutorial no Windows ou no Linux.
 
-+ An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
++ Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure][lnk-free-trial].)
 
-## <a name="receive-messages-on-the-simulated-device"></a>Receive messages on the simulated device
+## Receber mensagens no dispositivo simulado
 
-In this section, you modify the simulated device application you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
+Nesta seção, você modificará o aplicativo do dispositivo simulado criado na [Introdução ao Hub IoT] para receber mensagens da nuvem para o dispositivo do hub IoT.
 
-1. Using a text editor, open the simulated-device\src\main\java\com\mycompany\app\App.java file.
+1. Usando um editor de texto, abra o arquivo simulated-device\\src\\main\\java\\com\\mycompany\\app\\App.java.
 
-2. Add the following **MessageCallback** class as a nested class inside the **App** class. The **execute** method is invoked when the device receives a message from IoT Hub. In this example, the device always notifies the hub that it has completed the message:
+2. Adicione a classe **MessageCallback** a seguir como uma classe aninhada dentro da class **App**. O método **execute** é invocado quando o dispositivo recebe uma mensagem do Hub IoT. Neste exemplo, o dispositivo sempre notifica o hub que concluiu a mensagem:
 
     ```
     private static class MessageCallback implements
@@ -68,7 +67,7 @@ In this section, you modify the simulated device application you created in [Get
     }
     ```
 
-3. Modify the **main** method to create a **MessageCallback** instance and call the **setMessageCallback** method before it opens the client as follows:
+3. Modifique o método **main** para criar uma instância **MessageCallback** e chame o método **setMessageCallback** antes de abrir o cliente da seguinte maneira:
 
     ```
     client = new DeviceClient(connString, protocol);
@@ -78,21 +77,21 @@ In this section, you modify the simulated device application you created in [Get
     client.open();
     ```
 
-    > [AZURE.NOTE] If you use HTTP/1 instead of AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between AMQP and HTTP/1 support, and IoT Hub throttling, see the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
+    > [AZURE.NOTE] Se você usar HTTP/1 em vez de AMQP como transporte, a instância **DeviceClient** verificará se há mensagens do Hub IoT com pouca frequência (menos de cada 25 minutos). Para obter mais informações sobre as diferenças entre o suporte do AMQP e HTTP/1 e a limitação do Hub IoT, confira o [Guia do desenvolvedor do Hub IoT][IoT Hub Developer Guide - C2D].
 
-## <a name="send-a-cloud-to-device-message"></a>Send a cloud-to-device message
+## Envie uma mensagem da nuvem para o dispositivo
 
-In this section, you create a Java console app that sends cloud-to-device messages to the simulated device app. You need the device Id of the device you added in the [Get started with IoT Hub] tutorial. You also need the connection string for your IoT hub that you can find in the [Azure portal].
+Nesta seção, você criará um aplicativo do console do Java que envia mensagens da nuvem para o dispositivo para o aplicativo do dispositivo simulado. Você precisa da Id do dispositivo que você adicionou no tutorial [Introdução ao Hub IoT]. Você também precisa da cadeia de conexão do Hub IoT, que você pode encontrar no [Portal do Azure].
 
-1. Create a Maven project called **send-c2d-messages** using the following command at your command-prompt. Note this is a single, long command:
+1. Crie um projeto Maven chamado **send-c2d-messages** usando o comando a seguir no prompt de comando. Observe que este é um comando único e longo:
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=send-c2d-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-2. At your command prompt, navigate to the new send-c2d-messages folder.
+2. No prompt de comando, navegue até a nova pasta send-c2d-messages.
 
-3. Using a text editor, open the pom.xml file in the send-c2d-messages folder and add the following dependency to the **dependencies** node. Adding the dependency enables you to use the **iothub-java-service-client** package in your application to communicate with your IoT hub service:
+3. Usando um editor de texto, abra o arquivo pom.xml na pasta send-c2d-messages e adicione a dependência a seguir ao nó **dependencies**. A adição da dependência permite que você use o pacote **iothub-java-service-client** no aplicativo para se comunicar com o serviço do Hub IoT:
 
     ```
     <dependency>
@@ -102,11 +101,11 @@ In this section, you create a Java console app that sends cloud-to-device messag
     </dependency>
     ```
 
-4. Save and close the pom.xml file.
+4. Salve e feche o arquivo pom.xml.
 
-5. Using a text editor, open the send-c2d-messages\src\main\java\com\mycompany\app\App.java file.
+5. Usando um editor de texto, abra o arquivo send-c2d-messages\\src\\main\\java\\com\\mycompany\\app\\App.java.
 
-6. Add the following **import** statements to the file:
+6. Adicione as seguintes instruções **import** ao arquivo:
 
     ```
     import com.microsoft.azure.iot.service.sdk.*;
@@ -114,7 +113,7 @@ In this section, you create a Java console app that sends cloud-to-device messag
     import java.net.URISyntaxException;
     ```
 
-7. Add the following class-level variables to the **App** class, replacing **{yourhubconnectionstring}** and **{yourdeviceid}** with the values your noted earlier:
+7. Adicione as seguintes variáveis do nível da classe à classe **App**, substituindo **{yourhubconnectionstring}** e **{yourdeviceid}** pelos valores anotados anteriormente:
 
     ```
     private static final String connectionString = "{yourhubconnectionstring}";
@@ -122,7 +121,7 @@ In this section, you create a Java console app that sends cloud-to-device messag
     private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
     ```
     
-8. Replace the **main** method with the following code that connects to your IoT hub, sends a message to your device, and then waits for an acknowledgment that the device received and processed the message:
+8. Substitua o método **main** pelo código a seguir que se conecta ao Hub IoT, envia uma mensagem ao dispositivo e aguarda uma confirmação de que o dispositivo recebeu e processou a mensagem:
 
     ```
     public static void main(String[] args) throws IOException,
@@ -154,53 +153,50 @@ In this section, you create a Java console app that sends cloud-to-device messag
     }
     ```
 
-    > [AZURE.NOTE] For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].
+    > [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugestão no artigo [Tratamento de Falhas Transitórias] do MSDN.
 
-## <a name="run-the-applications"></a>Run the applications
+## Executar os aplicativos
 
-You are now ready to run the applications.
+Agora você está pronto para executar os aplicativos.
 
-1. At a command-prompt in the simulated-device folder, run the following command to begin sending telemetry to your IoT hub and to listen for cloud-to-device messages sent from your hub:
+1. Em um prompt de comando na pasta do dispositivo simulado, execute o seguinte comando para iniciar o envio de dados de telemetria para seu Hub IoT e escutar mensagens da nuvem para o dispositivo enviadas do hub:
 
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![Run the simulated device app][img-simulated-device]
+    ![Executar um aplicativo de dispositivo simulado][img-simulated-device]
 
-2. At a command-prompt in the send-c2d-messages folder, run the following command to send a cloud-to-device message and wait for a feedback acknowledgment:
+2. Em um prompt de comando na pasta send-c2d-messages, execute o seguinte comando para enviar uma mensagem da nuvem para o dispositivo e esperar uma confirmação de comentário:
 
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Run the command to send the cloud-to-device message][img-send-command]
+    ![Executar o comando para enviar a mensagem da nuvem para o dispositivo][img-send-command]
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-In this tutorial, you learned how to send and receive cloud-to-device messages. 
+Neste tutorial você aprendeu a enviar e receber mensagens da nuvem para o dispositivo.
 
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite].
+Para ver exemplos de soluções completas que usam o Hub IoT, consulte [Azure IoT Suite].
 
-To learn more about developing solutions with IoT Hub, see the [IoT Hub Developer Guide].
+Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Guia do desenvolvedor do Hub IoT].
 
 
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-java-java-c2d/receivec2d.png
-[img-send-command]:  media/iot-hub-java-java-c2d/sendc2d.png
+[img-send-command]: media/iot-hub-java-java-c2d/sendc2d.png
 <!-- Links -->
 
-[Get started with IoT Hub]: iot-hub-java-java-getstarted.md
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide-messaging.md
-[IoT Hub Developer Guide]: iot-hub-devguide.md
-[Azure IoT Developer Center]: http://www.azure.com/develop/iot
+[Introdução ao Hub IoT]: iot-hub-java-java-getstarted.md
+[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
+[Guia do desenvolvedor do Hub IoT]: iot-hub-devguide.md
+[Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure portal]: https://portal.azure.com
+[Tratamento de Falhas Transitórias]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Portal do Azure]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

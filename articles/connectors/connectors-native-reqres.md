@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Use request and response actions | Microsoft Azure"
-    description="Overview of the request and response trigger and action in an Azure logic app"
-    services=""
-    documentationCenter=""
-    authors="jeffhollan"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+	pageTitle="Usar ações de solicitação e resposta | Microsoft Azure"
+	description="Visão geral do gatilho e da ação da solicitação e da resposta em um aplicativo lógico do Azure"
+	services=""
+	documentationCenter=""
+	authors="jeffhollan"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,105 +17,100 @@
    ms.date="07/18/2016"
    ms.author="jehollan"/>
 
+# Introdução aos componentes de solicitação e resposta
 
-# <a name="get-started-with-the-request-and-response-components"></a>Get started with the request and response components
+Com os componentes de solicitação e resposta em um aplicativo lógico, você pode responder em tempo real a eventos.
 
-With the request and response components in a logic app, you can respond in real time to events.
+Por exemplo, você pode:
 
-For example, you can:
+- Responder a uma solicitação HTTP com dados de um banco de dados local por meio de um aplicativo lógico.
+- Dispare um aplicativo lógico de um evento de webhook externo.
+- Chamar um aplicativo lógico com uma ação de solicitação e resposta de dentro de outro aplicativo lógico.
 
-- Respond to an HTTP request with data from an on-premises database through a logic app.
-- Trigger a logic app from an external webhook event.
-- Call a logic app with a request and response action from within another logic app.
+Para começar a usar as ações de solicitação e resposta em um aplicativo lógico, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To get started using the request and response actions in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Usar o gatilho de Solicitação HTTP
 
-## <a name="use-the-http-request-trigger"></a>Use the HTTP Request trigger
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
 
-A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
+Veja uma sequência de exemplo de como configurar uma solicitação HTTP no Designer de Aplicativo Lógico.
 
-Here’s an example sequence of how to set up an HTTP request in the Logic App Designer.
+1. Adicione o gatilho **Solicitação — quando uma solicitação HTTP é recebida** no seu aplicativo lógico. Como opção, você pode fornecer um esquema JSON (usando uma ferramenta como [JSONSchema.net](http://jsonschema.net)) para o corpo da solicitação. Isso permite que o designer gere tokens para propriedades na solicitação HTTP.
+2. Adicione outra ação para que seja possível salvar o aplicativo lógico.
+3. Depois de salvar o aplicativo lógico, você pode obter a URL da solicitação HTTP do cartão de solicitação.
+4. Um HTTP POST (você pode usar uma ferramenta como [Postman](https://www.getpostman.com/)) para a URL que dispara o aplicativo lógico.
 
-1. Add the trigger **Request - When an HTTP request is received** in your logic app. You can optionally provide a JSON schema (by using a tool like [JSONSchema.net](http://jsonschema.net)) for the request body. This allows the designer to generate tokens for properties in the HTTP request.
-2. Add another action so that you can save the logic app.
-3. After saving the logic app, you can get the HTTP request URL from the request card.
-4. An HTTP POST (you can use a tool like [Postman](https://www.getpostman.com/)) to the URL triggers the logic app.
+>[AZURE.NOTE] Se você não definir uma ação de resposta, uma resposta `202 ACCEPTED` será retornada imediatamente ao chamador. Você pode usar a ação de resposta para personalizar uma resposta.
 
->[AZURE.NOTE] If you don't define a response action, a `202 ACCEPTED` response is immediately returned to the caller. You can use the response action to customize a response.
+![Gatilho de resposta](./media/connectors-native-reqres/using-trigger.png)
 
-![Response trigger](./media/connectors-native-reqres/using-trigger.png)
+## Usar a ação de Resposta HTTP
 
-## <a name="use-the-http-response-action"></a>Use the HTTP Response action
+A ação de Resposta HTTP só será válida quando usada em um fluxo de trabalho disparado por uma solicitação HTTP. Se você não definir uma ação de resposta, uma resposta `202 ACCEPTED` será retornada imediatamente ao chamador. Você pode adicionar uma ação de resposta a qualquer etapa do fluxo de trabalho. O aplicativo lógico só mantém a solicitação de entrada aberta por um minuto para uma resposta. Após um minuto, se nenhuma resposta for enviada do fluxo de trabalho (e se existir uma ação de resposta na definição), um `504 GATEWAY TIMEOUT` será retornado ao chamador.
 
-The HTTP Response action is only valid when you use it in a workflow that is triggered by an HTTP request. If you don't define a response action, a `202 ACCEPTED` response is immediately returned to the caller.  You can add a response action at any step within the workflow. The logic app only keeps the incoming request open for one minute for a response.  After one minute, if no response was sent from the workflow (and a response action exists in the definition), a `504 GATEWAY TIMEOUT` is returned to the caller.
+Veja como adicionar uma ação de Resposta HTTP:
 
-Here's how to add an HTTP Response action:
+1. Selecione o botão **Nova Etapa**.
+2. Escolha **Adicionar uma ação**.
+3. Na caixa de pesquisa de ação, digite **resposta** para listar a ação de Resposta.
 
-1. Select the **New Step** button.
-2. Choose **Add an action**.
-3. In the action search box, type **response** to list the Response action.
+	![Selecionar a ação de resposta](./media/connectors-native-reqres/using-action-1.png)
 
-    ![Select the response action](./media/connectors-native-reqres/using-action-1.png)
+4. Adicione todos os parâmetros necessários para a mensagem de resposta HTTP.
 
-4. Add in any parameters that are required for the HTTP response message.
+	![Concluir a ação de resposta](./media/connectors-native-reqres/using-action-2.png)
 
-    ![Complete the response action](./media/connectors-native-reqres/using-action-2.png)
+5. Clique no canto superior esquerdo da barra de ferramentas para salvar e seu aplicativo lógico será salvo e publicado (ativado).
 
-5. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
+## Gatilho de solicitação
 
-## <a name="request-trigger"></a>Request trigger
+Veja os detalhes do gatilho com suporte deste conector. Há um único gatilho de solicitação.
 
-Here are the details for the trigger that this connector supports. There is a single request trigger.
-
-|Trigger|Description|
+|Gatilho|Descrição|
 |---|---|
-|Request|Occurs when an HTTP request is received|
+|Solicitação|Ocorre quando uma solicitação HTTP é recebida|
 
-## <a name="response-action"></a>Response action
+## Ação de resposta
 
-Here are the details for the action that this connector supports. There is a single response action that can only be used when it is accompanied by a request trigger.
+Veja os detalhes da ação com suporte deste conector. Há uma única ação de resposta que pode ser usada apenas quando acompanhada por um gatilho de solicitação.
 
-|Action|Description|
+|Ação|Descrição|
 |---|---|
-|Response|Returns a response to the correlated HTTP request|
+|Response|Retorna uma resposta à solicitação HTTP correlacionada|
 
-### <a name="trigger-and-action-details"></a>Trigger and action details
+### Detalhes de gatilho e da ação
 
-The following tables describe the input fields for the trigger and action, and the corresponding output details.
+As tabelas a seguir descrevem os campos de entrada para o gatilho e a ação e os detalhes de saída correspondentes.
 
-#### <a name="request-trigger"></a>Request trigger
-The following is an input field for the trigger from an incoming HTTP request.
+#### Gatilho de solicitação
+A seguir, um campo de entrada para o gatilho de uma solicitação HTTP de entrada.
 
-|Display name|Property name|Description|
+|Nome de exibição|Nome da propriedade|Descrição|
 |---|---|---|
-|JSON Schema|schema|The JSON schema of the HTTP request body|
+|Esquema JSON|schema|O esquema JSON do corpo da solicitação HTTP|
 <br>
 
-**Output details**
+**Detalhes de saída**
 
-The following are output details for the request.
+A seguir, os detalhes de saída para a solicitação.
 
-|Property name|Data type|Description|
+|Nome da propriedade|Tipo de dados|Descrição|
 |---|---|---|
-|Headers|object|Request headers|
-|Body|object|Request object|
+|Cabeçalhos|objeto|Cabeçalhos da solicitação|
+|Corpo|objeto|Objeto da solicitação|
 
-#### <a name="response-action"></a>Response action
+#### Ação de resposta
 
-The following are input fields for the HTTP Response action. A * means that it is a required field.
+Estes são os campos de entrada da ação de Resposta HTTP. Um * significa que é um campo obrigatório.
 
-|Display name|Property name|Description|
+|Nome de exibição|Nome da propriedade|Descrição|
 |---|---|---|
-|Status Code*|statusCode|The HTTP status code|
-|Headers|headers|A JSON object of any response headers to include|
-|Body|body|The response body|
+|Código de status*|statusCode|O código de status HTTP|
+|Cabeçalhos|headers|Um objeto JSON de cabeçalhos de resposta a serem incluídos|
+|Corpo|body|O corpo da resposta|
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Agora, experimente a plataforma e [crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

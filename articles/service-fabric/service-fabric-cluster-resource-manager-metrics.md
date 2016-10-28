@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Managing Metrics with the Azure Service Fabric Cluster Resource Manager | Microsoft Azure"
-   description="Learn about how to configure and use metrics in Service Fabric."
+   pageTitle="Gerenciando métricas com o Gerenciador de Recursos de Cluster do Azure Service Fabric | Microsoft Azure"
+   description="Saiba mais sobre como configurar e usar métricas no Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,47 +16,46 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
+# Gerenciando o consumo e a carga de recursos no Service Fabric com métricas
+As métricas são o termo genérico do Service Fabric para os recursos que são importantes para seus serviços e que são fornecidas pelo nós no cluster. Em geral, uma métrica é tudo o que você deseja gerenciar para lidar com o desempenho de seus serviços.
 
-# <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Managing resource consumption and load in Service Fabric with metrics
-Metrics are the generic term within Service Fabric for the resources that your services care about and which are provided by the nodes in the cluster. Generally, a metric is anything that you want to manage in order to deal with the performance of your services.
+Coisas como memória, disco, o uso da CPU, todos esses são exemplos de métricas. Elas são métricas físicas, recursos que correspondem aos recursos físicos no nó que precisam ser gerenciados. As métricas também podem ser (e normalmente são) lógicas, coisas como "MyWorkQueueDepth", que são definidas pelo aplicativo e que correspondem a algum nível de consumo de recursos (mas que o aplicativo realmente não conhece ou sabe como medi-los). A maioria das métricas usadas são métricas lógicas. Há vários motivos para isso, mas o mais comum é que hoje muitos de nossos clientes criam seus serviços em código gerenciado e de dentro de uma instância de determinado serviço sem estado ou o objeto da réplica de serviço com estado é realmente difícil de medir e relatar o consumo de recursos físicos reais. A complexidade de métricas de relatórios próprias também é o porquê de fornecermos algumas métricas padrão prontas.
 
-Things like Memory, Disk, CPU usage – all of these are examples of metrics. These are physical metrics, resources that correspond to physical resources on the node that need to be managed. Metrics can also be (and commonly are) logical metrics, things like “MyWorkQueueDepth” that are application-defined and which correspond to some level of resource consumption (but where the application don’t really know it or know how to measure it). Most metrics that we see people use are logical metrics. There's a variety of reasons for this, but the most common is that today many of our customers write their services in managed code, and from within a given stateless service instance or stateful service replica object it is actually quite hard to measure and report your consumption of actual physical resources. The complexity of reporting your own metrics is also why we provide some default metrics out of the box.
+## Métricas padrão
+Vamos supor que você queira apenas começar e não saiba quais recursos pretende consumir ou até mesmo quais seriam importantes. Portanto, você vai implementar e criar seus serviços sem especificar as métricas. Sem problemas! Vamos escolher algumas métricas para você. As métricas padrão que usaremos para você no momento se você não especificar os seus próprios são chamadas PrimaryCount, ReplicaCount e (um pouco vagamente, sabemos) Count. A tabela abaixo mostra o quanto de carga para cada uma dessas métricas associadas com cada objeto de serviço:
 
-## <a name="default-metrics"></a>Default metrics
-Let’s say that you just want to get started and don’t know what resources you are going to consume or even which ones would be important to you. So you go implement and then create your services without specifying any metrics. That’s fine! We’ll pick some metrics for you. The default metrics that we use for you today if you don’t specify any of your own are called PrimaryCount, ReplicaCount, and (somewhat vaguely, we realize) Count. The table below shows how much load for each of these metrics is associated with each service object:
-
-| Metric | Stateless Instance Load |    Stateful Secondary Load |   Stateful Primary Load |
+| Métrica | Carga de Instância Sem Estado |	Carga Secundária com Estado |	Carga Primária com Estado |
 |--------|--------------------------|-------------------------|-----------------------|
-| PrimaryCount | 0 |    0 | 1 |
-| ReplicaCount | 0  | 1 | 1 |
-| Count |   1 | 1 | 1 |
+| PrimaryCount | 0 |	0 |	1 |
+| ReplicaCount | 0 | 1 | 1 |
+| Contagem |	1 |	1 |	1 |
 
-Ok, so with these default metrics, what do you get? Well it turns out that for basic workloads you get a pretty good distribution of work. In this example below let’s see what happens when we create one stateful service with three partitions and a target replica set size of three, and also a single stateless service with an instance count of three - you’ll get something like this!
+OK. Com essas métricas padrão, o que você obtém? Bem, para cargas de trabalho básicas, você obtém uma boa distribuição de trabalho. No exemplo a seguir, vamos ver o que acontece quando criamos um serviço com estado com três partições e um tamanho de conjunto de réplicas de destino de três, além de um único serviço sem estado com uma contagem de três instâncias. Você obterá algo assim.
 
-![Cluster Layout with Default Metrics][Image1]
+![Layout de cluster com métricas padrão][Image1]
 
-In this example we see
--   Primary replicas for the stateful service are not stacked up on a single node
--   Replicas for the same partition are not on the same node
--   The total number of primaries and secondaries is well distributed in the cluster
--   The total number of service objects (stateless and stateful) are evenly allocated on each node
+Neste exemplo, vemos que
+-	As réplicas primárias para o serviço com estado não ficam empilhadas em um único nó
+-	As réplicas da mesma partição não estão no mesmo nó
+-	O número total de primários e de secundários está bem distribuído no cluster
+-	O número total de objetos de serviço (com e sem estado) é alocado uniformemente em cada nó
 
-Pretty good!  
+Muito bom!
 
-This works great until you start to think about it: What's the likelihood that the partitioning scheme you picked will result in perfectly even utilization by all partitions over time? Coupled with that, what’s the chance that the load for a given service is constant over time, or even just the same right now? Turns, out for any serious workload the odds of all replicas being equivalent is actually rather low, so if you're interested in getting the most out of your cluster you'll probably want to start looking into custom metrics.
+Isso funciona muito bem até você começar a pensar: qual é a probabilidade de que o esquema de particionamento selecionado resulte em utilização perfeitamente uniforme em todas as partições ao longo do tempo? Além disso, qual é a chance da carga de um determinado serviço ficar constante ao longo do tempo, ou até agora mesmo? Parece que para qualquer carga de trabalho séria a probabilidade de todas as réplicas serem equivalentes é, na verdade, bastante baixa, portanto, se você estiver interessado em obter o máximo do seu cluster, provavelmente será útil começar analisando as métricas personalizadas.
 
-Realistically, you could absolutely run with just the default metrics but doing so usually means that your cluster utilization is lower than you’d like (since reporting isn’t adaptive and presumes everything is equivalent); in the worst case it can also result in overscheduled nodes resulting in performance issues. We can do better with custom metrics and dynamic load reports, which we'll cover next.
+Pensando de maneira realista, você pode executar somente com as métricas padrão ou, mas isso normalmente significa que o uso do seu cluster é mais baixo do que você gostaria (já que relatar não é adaptativo e presume que tudo é equivalente). Na pior das hipóteses, isso pode resultar em nós com muito agendamento, o que levaria a problemas de desempenho. Podemos melhorar com métricas personalizadas e relatórios de carga dinâmica, dos quais falaremos a seguir.
 
-## <a name="custom-metrics"></a>Custom metrics
-We’ve already discussed that there can be both physical and logical metrics, and that people can define their own metrics. Great! But how? Well, it's actually pretty easy! Just configure the metric and the default initial load when creating the service and you’re done! Any set of metrics and default values representing how much the service is expected to consume can be configured on a per-named-service-instance basis when you’re creating the service.
+## Métricas personalizadas
+Já discutimos que pode haver métricas físicas e lógica e que é possível definir suas próprias métricas. Ótimo! Mas como? Bem, é muito fácil! Basta configurar a métrica e o carregamento inicial padrão ao criar o serviço e pronto! Os conjunto de métricas e os valores padrão que representam a expectativa de consumo do serviço podem ser configurados com base em cada instância de serviço nomeado quando você estiver criando o serviço.
 
-Note that when you start defining custom metrics you need to explicitly add back in the default metrics if you want us to use them to balance your service as well. This is because we want you to be clear about the relationship between the default metrics and your custom metrics – maybe you care about Memory consumption or WorkQueueDepth way more than you care about Primary distribution.
+Observe que quando você começar a definir as métricas personalizadas, precisará adicioná-las explicitamente às métricas padrão se quiser usá-las para balancear seu serviço também. Isso ocorre porque queremos que você seja claro sobre a relação entre as métricas padrão e suas métricas personalizadas. Talvez nos preocupemos com o consumo de memória ou WorkQueueDepth mais do que você com a distribuição de primários.
 
-Let’s say you wanted to configure a service which would report a metric called “Memory” (in addition to the default metrics). For memory, let’s say that you’ve done some basic measurements and know that normally a primary replica of that service takes up 20Mb of Memory, while secondaries of that same service will take up 5Mb. You know that Memory is the most important metric in terms of managing the performance of this particular service, but you still want primary replicas to be balanced so that the loss of some node or fault domain doesn’t take an inordinate number of primary replicas along with it. Other than that you’ll take the defaults.
+Digamos que você queira configurar um serviço que poderia informar uma métrica chamada "Memory" (além das métricas padrão). Para a memória, vamos dizer que você tomou algumas medidas básicas e sabe que normalmente uma réplica primária desse serviço usará 20 MB de memória e secundários do mesmo serviço ocuparão 5 MB. Você sabe que Memory é a métrica mais importante em termos de gerenciamento de desempenho desse serviço específico, mas ainda deseja que as réplicas principais fiquem balanceadas para que a perda de alguns nós ou domínios de falha não levem um número excessivo de réplicas primárias junto com eles. Fora isso, você usará os padrões.
 
-Here’s what you’d do:
+Eis o que você deveria fazer:
 
-Code:
+Código:
 
 ```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
@@ -98,45 +97,45 @@ Powershell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("Memory,High,20,5”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
 ```
 
-(Reminder: if you just want to use the default metrics, you don’t need to touch the metrics collection at all or do anything special when creating your service.)
+(Lembre-se: se você quiser usar as métricas padrão, não precisará sequer encostar na coleção de métricas ou fazer algo especial ao criar o seu serviço)
 
-Now that we’ve shown you how to define your own metrics, let’s talk about the different properties that metrics can have. We’ve already shown them to you, but it’s time to talk about what they actually mean! There are four different properties a metric can have today:
+Agora que mostramos a você como definir suas próprias métricas, vamos falar sobre as diferentes propriedades que as métricas podem ter. Já as mostramos a você, mas está na hora de falar sobre o que elas realmente significam! Há quatro propriedades diferentes que uma métrica pode ter hoje:
 
--   Metric Name: This is the name of the metric. This is a unique identifier for the metric within the cluster from the Resource Manager’s perspective.
-- Default Load: The default load is represented differently depending on whether the service is stateless or stateful.
-  - For stateless services each metric just has a single property named Default Load
-  - For stateful services you define
-    -   PrimaryDefaultLoad: The default amount of load that this service will exert for this metric as a Primary
-    -   SecondaryDefaultLoad: The default amount of load that this service will exert for this metric as a Secondary replica  
--   Weight: This is how important the metric is relative to the other configured metrics for this service.
+-	MetricName: esse é o nome da métrica. É um identificador exclusivo para a métrica do cluster da perspectiva do Gerenciador de Recursos.
+- Default Load: A carga padrão é representada de maneira diferente dependendo se o serviço está com ou sem estado.
+  - Para serviços sem estado cada métrica tem apenas uma propriedade única chamada Deafult Load
+  - Para serviços com estado você define
+    -	PrimaryDefaultLoad: o valor padrão de carga que esse serviço vai exercer para a métrica como Primário
+    -	SecondaryDefaultLoad: o valor padrão de carga que o serviço vai exercer para a métrica como uma réplica Secundária
+-	Weight: é quão importante a métrica é em relação a outras métricas configuradas para esse serviço.
 
-## <a name="load"></a>Load
-Load is the general notion of how much of a given metric is consumed by some service instance or replica on a given node.
+## Carregar
+A carga é a noção geral de quanto uma determinada métrica é consumida por uma instância de serviço ou por uma réplica em um determinado nó.
 
-## <a name="default-load"></a>Default load
-Default load is how much load the Cluster Resource Manager should assume each service instance or replica of this service will consume until it receives any updates from the actual service instances or replicas. For simpler services, this ends up being a static definition that is never updated dynamically and hence will be used for the lifetime of the service. This works great for simple capacity planning because it’s exactly what we are used to doing – dedicating certain resources to certain workloads, but the benefit is that at least now we’re operating in the microservices mindset where resources aren’t actually statically assigned to particular workloads and where people aren’t in the decision-making loop.
+## Carga padrão
+A carga padrão é quanto de carga o Resource Manager de Cluster deve assumir que cada instância de serviço ou réplica do serviço consumirá até receber as atualizações das instâncias reais ou réplicas do serviço. Para os serviços mais simples, isso acaba sendo uma definição estática que nunca é atualizada dinamicamente e, portanto, será usada pelo tempo de vida do serviço. Isso funciona muito bem com um planejamento de capacidade simples porque é exatamente o que estamos acostumados a fazer, dedicar determinados recursos para determinadas cargas de trabalho, mas a vantagem é que pelo menos agora estamos operando com a mentalidade de microsserviços, em que os recursos não são realmente atribuídos estaticamente a cargas de trabalho específicas e em que não há pessoas no loop de tomada de decisão.
 
-We allow stateful services to specify default load for both their Primaries and Secondaries – realistically for a lot of services these numbers are different due to the different workloads executed by primary replicas and secondary replicas, and since primaries usually serve both reads and writes (as well as most of the computational burden) the default load for a primary replica is higher than for secondary replicas.
+Permitimos que serviços com estado para especifiquem cargas padrão para seus Primários e Secundários. Pensando de forma realista, para vários serviços, esses números são diferentes por conta das cargas de trabalho diferentes executadas por réplicas primárias e secundárias, e já que as primárias servem tanto para leitura quanto para gravação (como a maioria da carga computacional), a carga padrão para uma réplica primária é mais alta do que para réplicas secundárias.
 
-But now let’s say that you’ve been running your service for a while and you’ve noticed that some instances or replicas of your service consume way more resources than others or that their consumption varies over time – maybe they’re associated with a particular customer, maybe they just correspond to workloads that vary over the course of the day like messaging traffic, phone calls, or stock trades. At any rate, you notice that there’s no “single number” that you can use for the load without being off by a significant amount for at least some portion of the time. You also notice that “being off” in your initial estimate results in the Cluster Resource Manager either over or under allocating resources to your service, and consequently you have nodes which are over or under utilized.
+Mas agora vamos supor que você esteja executando o serviço por algum tempo e tenha notado que algumas instâncias ou réplicas do seu serviço consomem mais recursos que outras ou que seu consumo varia ao longo do tempo; talvez elas estejam associadas a um determinado cliente, talvez apenas correspondam às cargas de trabalho que variam ao longo do dia, como mensagens de tráfego, ligações telefônicas ou transações. De qualquer forma, você nota que há um "número específico" que você pode usar para a carga sem representar um desvio muito grande durante pelo menos uma parte do tempo. Você também observará um "desvio muito grande" na estimativa resulta na falta ou no excesso de alocação de recursos pelo Gerenciador de Recursos de Cluster para o seu serviço e, consequentemente, haverá nós sobrecarregados ou sem muito uso.
 
-What to do? Well, your service could be reporting load on the fly!
+O que fazer? Bem, o serviço podia estar relatando cargas dinamicamente!
 
-## <a name="dynamic-load"></a>Dynamic load
-Dynamic load reports allow replicas or instances to adjust their allocation/reported use of metrics in the cluster over their lifetime. A service replica or instance that was cold and not doing any work would usually report that it was using low amounts of a given metric, while busy replicas or instances report that they are using more. This general level of churn in the cluster allows us to reorganize the service replicas and instances in the cluster on the fly in order to ensure that the get the resources they require – in effect that busy services are able to reclaim resources from other replicas or instances which are currently cold or doing less work. Reporting load on the fly can be done via the ReportLoad method, available on the ServicePartition, available as a property on the base StatefulService or StatelessService class via the Reliable Services programming model. Within your service the code would look like this:
+## Carga dinâmica
+Os relatórios de carga dinâmica permitem às réplicas ou instâncias ajustar suas alocações/uso relatado de métricas no cluster durante seu ciclo de vida. Uma réplica de serviço ou uma instância fria e sem trabalho normalmente informaria estar usando valores baixos de uma determinada métrica, e as réplicas ou instâncias ocupadas indicariam estar usando mais recursos. Esse nível geral de variação do cluster permite reorganizar as réplicas de serviço e instâncias do cluster em tempo real para garantir que eles obtenham os recursos que exigem, no sentido de que os serviços ocupados são capazes de recuperar recursos de outras réplicas ou instâncias que estão atualmente frios ou com menos trabalho. O relatório em tempo real pode ser feito por meio do método ReportLoad, disponível em ServicePartition como uma propriedade no na classe StatefulService ou StatelessService clássica através do modelo de programação Reliable Services. Em seu serviço, o código ficaria assim:
 
-Code:
+Código:
 
 ```csharp
 this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("metric1", 42) });
 ```
 
-Services replicas or instances may only report load for the metrics that they have been configured to use. The metric list is set when each service is created and may be updated later. If a service replica or instance tries to report load for a metric that it is not currently configured to use, Service Fabric logs the report but ignores it, meaning that we won’t use it when calculating or reporting on the state of the cluster. This is neat because it allows for greater experimentation – the code can measure and report on everything it knows how to, and the operator can configure, tweak, and update the resource balancing rules for that service on the fly without ever having to change the code. This can include for example, disabling a metric with a buggy report, reconfiguring the weights of metrics based on behavior, or enabling a new metric only after the code has already been deployed and validated via other mechanisms.
+As réplicas ou instâncias de serviço somente podem relatar carga para as métricas que estão configuradas para uso. A lista de métricas é definida quando cada serviço é criado e pode ser atualizada posteriormente. Se uma réplica ou instância de serviço tenta relatar carga de uma métrica que não está atualmente configurada para uso, o Service Fabric registra o relatório em log, mas o ignora, o que significa que não vamos usá-lo durante o cálculo ou o relatório do estado do cluster. Isso é legal porque permite maior experimentação: o código pode medir e relatar tudo o que ele sabe, e o operador pode configurar, ajustar e atualizar as regras de balanceamento de recurso para o serviço em tempo real sem ter de alterar o código. Isso pode incluir, por exemplo, desabilitar uma métrica com um relatório com bug, reconfigurar os pesos de métricas com base no comportamento ou habilitar uma nova métrica somente depois que o código já foi implantado e validado através de outros mecanismos.
 
-## <a name="mixing-default-load-values-and-dynamic-load-reports"></a>Mixing default load values and dynamic load reports
-Does it make sense to have a default load specified for a service which is going to be reporting load dynamically? Absolutely! In this case the default load serves as an estimate until the real reports start to show up from the actual service replica or instance. This is great because it gives the Cluster Resource Manager something to work with - the default load estimate allows it to place the service instances or replicas in good places right from the start. When no default load information is provided the placement of services is effectively random at creation time, and if loads change later the Cluster Resource Manager would almost certainly have to move things around.
+## Combinando valores de carga padrão e relatórios de carga dinâmica
+Faz sentido ter uma carga padrão especificada para um serviço que irá relatar carga dinamicamente? Claro que não! Nesse caso, a carga padrão serve como uma estimativa até que os relatórios reais comecem a aparecer na réplica ou instância de serviço real. Isso é ótimo porque ela fornece ao Gerenciador de Recursos de Cluster algo para se trabalhar com, a estimativa de carga padrão permite colocar as instâncias de serviço ou réplicas em locais bons desde o início. Quando nenhuma informação de carga padrão é fornecida a colocação de serviços é efetivamente aleatória no momento da criação, e caso as cargas sejam alteradas posteriormente o Gerenciador de Recursos de Cluster precisaria quase que certamente mover as coisas.
 
-So let’s take our previous example and see what happens when we add some custom load and then when after the service is created it gets updated dynamically. In this example, we’ll use “Memory” as an example, and let’s presume that we initially created the stateful service with the following command:
+Então, vamos pegar nosso exemplo anterior e ver o que acontece quando adicionamos uma carga personalizada e o serviço é atualizado dinamicamente depois de ser criado. Neste exemplo, vamos usar "Memory" como um exemplo e vamos assumir que criamos o serviço com estado usando o seguinte comando:
 
 Powershell:
 
@@ -144,66 +143,62 @@ Powershell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("Memory,High,21,11”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
 ```
 
-We talked about this syntax earlier (MetricName, MetricWeight, PrimaryDefaultLoad, SecondaryDefaultLoad), but we’ll talk more about what the specific value for Weight means later.
+Falamos sobre essa sintaxe anteriormente (MetricName, MetricWeight, PrimaryDefaultLoad, SecondaryDefaultLoad), mas falaremos mais sobre o que significa o valor específico de Weight mais tarde.
 
-Let's see what one possible cluster layout could look like:
+Vamos ver qual poderia ser a aparência de um layout de cluster:
 
-![Cluster Balanced with both Default and Custom metrics][Image2]
+![Cluster equilibrado com métricas padrão e personalizadas][Image2]
 
-Some things that are worth noting:
+Algumas coisas que vale a pena observar:
 
--   Since replicas or instances use the service’s default load until they report their own load, we know that the replicas inside of partition 1 of the stateful service haven’t reported load on their own
--   Secondary replicas within a partition can have their own load
--   Overall the metrics look pretty good, with the difference between the maximum and minimum load on a node (for memory – the custom metric we said we cared the most about) of only a factor of 1.75 (the node with the most load for the memory is N3, the least is N2, and 28/16 = 1.75) – pretty balanced!
+-	Como as réplicas ou instâncias usam a carga padrão do serviço até relatar suas próprias cargas, sabemos que as réplicas dentro da partição 1 do serviço com estado ainda não relatou carga por conta própria
+-	As réplicas secundárias dentro de uma partição podem ter sua própria carga
+-	Em geral, as métricas parecem muito boas, com a diferença entre as cargas mínima e máxima em um nó (para memória, a métrica personalizada que seria a mais importante para nós) de 1,75 (o nó com o máximo de carga para a memória é N3, mínimo é N2 e 28/16 = 1,75): bem equilibrada!
 
-There are some things that we still need to explain
+Há algumas coisas que precisamos explicar
 
--   What determined whether a ratio of 1.75 was reasonable or not? How do we know that’s good enough or if there is more work to do?
--   When does balancing happen?
--   What does it mean that Memory was weighted “High”?
+-	O que determinou se uma taxa de 1,75 é razoável ou não? Como sabemos que é bom o suficiente ou se há mais a melhorar?
+-	Quando o balanceamento acontece?
+-	O que significa que a memória foi ponderada como "Alta"?
 
-## <a name="metric-weights"></a>Metric weights
-Metric Weights are what allows two different services to report the same metrics but to view the importance of balancing that metric differently. For example, consider an in-memory analytics engine and a persistent database; both probably care about the “Memory” metric, but the in-memory service probably doesn’t care much about the “Disk” metric – it might consume a little of it, but it is not critical to the service’s performance, so it probably doesn't even report it. Being able to track the same metrics across different services is great since that’s what allows the Cluster Resource Manager to track real consumption in the cluster, ensure that nodes don’t go over capacity, etc.
+## Pesos de métrica
+Pesos de métrica são o que permite que dois serviços diferentes relatem a mesma métrica, mas exibam a importância diferente de balancear tal métrica. Por exemplo, considere um mecanismo analítico na memória e um banco de dados persistente: ambos provavelmente se importam com a métrica "Memory", mas o serviço na memória interna provavelmente não se preocupa muito com a métrica "Disk"; ela pode consumir um pouco dessa, mas não é essencial para o desempenho do serviço, então provavelmente a mesma não seria relatada. A capacidade de controlar as mesmas métricas entre diferentes serviços é ótima, pois isso é o que permite que o Gerenciador de Recursos de Cluster controle o consumo real no cluster, garanta que os nós não fiquem sobrecarregados, etc.
 
-Metric weights also allow the Cluster Resource Manager to make decisions about how to balance the cluster when there’s no perfect answer (which is a lot of the time). Metrics can have four different weight levels: Zero, Low, Medium, and High. A metric with a weight of Zero contributes nothing when considering whether things are balanced or not, but its load does still contribute to things like capacity measurement.
+Os pesos de métrica também permitem que o Gerenciador de Recursos de Cluster tome decisões sobre como balancear cluster quando não há uma resposta perfeita (o que ocorre muito). As métricas podem ter quatro níveis de peso diferente: zero, baixa, média e alta. Uma métrica com um peso Zero não contribui em nada ao considerar se as coisas estão balanceadas ou não, mas sua carga ainda contribui para coisas como medida de capacidade.
 
-The real impact of different metric weights in the cluster is that we arrive at different arrangements of the services since the Cluster Resource Manager has been told, in aggregate, that certain metrics are more important than others. Because it knows this, when metrics which have different weights conflict with other the Cluster Resource Manager can prefer solutions which balance the higher weighted metrics better.
+O impacto real de pesos de métrica diferentes no cluster é o que vemos com disposições diferentes dos serviços, já que o Gerenciador de Recursos ouviu, ao todo, que algumas métricas são mais importantes que outras. Porque ele sabe isso, quando as métricas entram em conflito com outras métricas que possuem diferentes pesos o Gerenciador de Recursos de Cluster pode preferir soluções que equilibrem melhor as métricas ponderadas mais altas.
 
-Let’s take a look at a simple example of some load reports and how different metric weights can result in different allocations in the cluster. In this example we see that switching the relative weight of the metrics results in the Resource Manager preferring certain solutions by creating different arrangements of services.
+Vamos dar uma olhada em um exemplo simples de alguns relatórios de carga para ver como os pesos de métrica diferentes podem resultar em alocações diferentes no cluster. Neste exemplo, podemos ver que alternar o peso relativo das métricas resulta na preferência do Gerenciador de Recursos por determinadas soluções criando diferentes disposições dos serviços.
 
-![Metric Weight Example and Its Impact on Balancing Solutions][Image3]
+![Exemplo de ponderação da métrica e seu impacto sobre as soluções de balanceamento][Image3]
 
-In this example there are four different services, all reporting different values for two different metrics A and B. In one case all the services define Metric A is the most important one (Weight = High) and MetricB as relatively unimportant (Weight = Low), and indeed we see that the Cluster Resource Manager places the services so that MetricA is better balanced (has a lower standard deviation) than MetricB. In the second case, we reverse the metric weights, and we see that the Cluster Resource Manager would probably swap services A and B in order to come up with an allocation where MetricB is better balanced than MetricA.
+Neste exemplo existem quatro serviços diferentes, todos relatando diferentes valores para métricas A e B diferentes. Em uma hipótese definida por todos os serviços, a Métrica A é a mais importante (Peso = Alto) e a Métrica B é relativamente sem importância (Peso = Baixo). Vamos que o Gerenciador de Recursos de Cluster posiciona os serviços de forma que a Métrica A fique mais equilibrada (possui um desvio padrão menor) que a Métrica B. No segundo caso, revertemos os pesos e vemos que o Gerenciador de Recursos de Cluster provavelmente trocaria os serviços A e B para apresentar uma alocação onde a Métrica B é mais equilibrada que a Métrica A.
 
-### <a name="global-metric-weights"></a>Global metric weights
-So if ServiceA defines MetricA as most important, and ServiceB doesn’t care about it at all, what’s the actual weight that ends up getting used?
+### Pesos de métrica global
+Se o Serviço A define a Métrica A como mais importante e o Serviço B não se importa com isso, qual é o peso real que acaba sendo usado?
 
-Well there are actually two weights we keep track of for every metric – the weight the service itself defined and the global average weight across all of the services that care about that metric. We use both these weights when calculating the scores of the solutions we generate, since it is important to ensure that both a service is balanced with regard to its own priorities, but also that the cluster as a whole is allocated correctly.
+Há realmente dois pesos que podemos controlar para cada métrica: o peso do próprio serviço definido e o peso médio global entre todos os serviços que se importam com essa métrica. Nós usamos ambos ao calcularmos as pontuações das soluções que geramos, já que é importante garantir que um serviço esteja equilibrado com relação às suas próprias prioridades, mas também que o cluster como um todo esteja alocado corretamente.
 
-What would happen if we didn’t care about both global and local balance? Well, it’s trivial to construct solutions that are globally balanced but which result in very poor balance and resource allocation for individual services. In the example below let’s consider the default metrics that a stateful service is configured with, PrimaryCount, ReplicaCount, and Count, and see what happens when we only consider global balance:
+O que aconteceria se não nos importássemos com equilíbrio global e local? Bem, é comum construir soluções globalmente equilibradas, mas que resultam em equilíbrio e alocação de recursos ruins no caso de serviços individuais. No exemplo a seguir vamos considerar as métricas padrão configuradas para um serviço com estado, PrimaryCount, ReplicaCount e Count, e ver o que acontece quando consideramos apenas o equilíbrio global:
 
-![The Impact of a Global Only Solution][Image4]
+![O impacto de uma única solução global][Image4]
 
-In the top example where we only looked at global balance, the cluster as a whole is indeed balanced – all nodes have the same count of primaries, and total replicas. However if you look at the actual impact of this allocation it’s not so good: the loss of any node impacts a particular workload disproportionally, as it takes out all of its primaries. Take for example if we were to lose the first node. If this happened the three primaries for the three different partitions of the Circle service would all be lost simultaneously. Conversely, the other two services (Triangle and Hexagon) have their partitions lose a replica, which causes no disruption (other than having to recover the down replica).
+No exemplo superior, em que só vimos o equilíbrio global, o cluster como um todo, de fato, está balanceado: todos os nós têm a mesma contagem de primárias e réplicas totais. Entretanto, se você examinar o impacto real dessa alocação, isso não é tão bom: a perda de qualquer nó afeta uma determinada carga de trabalho desproporcionalmente, já que leva todos os seus primários. Suponhamos, por exemplo, que fôssemos perder o primeiro nó. Se isso acontecesse, os três primários das três partições diferentes do serviço Círculo seriam perdidos ao mesmo tempo. Por outro lado, os outros dois serviços (Triângulo e Hexágono) perdem uma réplica em suas partições, o que não causa interrupção (além de precisar recuperar a réplica inoperante).
 
-In the bottom example we have distributed the replicas based on both the global and per-service balance. When calculating the score of the solution we give a majority of the weight to the global solution, but a (configurable) portion does go to ensuring that the services are balanced within themselves as much as possible as well. As a result, if we were to lose the same first node, we see that the loss of primaries (and secondaries) is distributed across all partitions of all services and the impact to each is the same.
+No exemplo inferior, distribuímos as réplicas com base no balanceamento global e por serviço. Ao calcular a pontuação da solução, colocamos a maioria do peso na solução global, mas uma parte (configurável) serve para garantir que os serviços estejam equilibrados neles mesmos tanto quanto possível. Como resultado, se perdermos o primeiro nó, poderemos ver que a perda da primários (e secundários) é distribuída por todas as partições de todos os serviços e o impacto de cada um é o mesmo.
 
-Taking metric weights into account, the global balance is calculated based on the average of the metric weights configured for each of the services. We balance a service with regard to its own defined metric weights.
+Considerando os pesos de métrica, o balanceamento global é calculado com base na média dos pesos de métrica configurados para cada um dos serviços. Podemos balancear um serviço em relação a seus próprios pesos de métrica definidos.
 
-## <a name="next-steps"></a>Next steps
-- For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
-- Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
-- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-- Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. To learn more about movement cost, refer to [this article](service-fabric-cluster-resource-manager-movement-cost.md)
+## Próximas etapas
+- Para saber mais sobre outras opções disponíveis para a configuração de serviços, confira o tópico sobre outras configurações disponíveis do Gerenciador de Recursos de Cluster em [Saiba mais sobre a configuração de serviços](service-fabric-cluster-resource-manager-configure-services.md)
+- Definir as Métricas de Desfragmentação é uma forma de consolidar a carga em nós, em vez de distribuí-la. Para saber como configurar a desfragmentação, leia [este artigo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md)
+- Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+- O Custo de Movimento é uma forma de sinalizar para o Gerenciador de Recursos de Cluster que a movimentação de determinados serviços é mais cara do que para outros. Para saber mais sobre o custo de movimento, consulte [este artigo](service-fabric-cluster-resource-manager-movement-cost.md)
 
-[Image1]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
-[Image2]:./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
-[Image3]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
-[Image4]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
+[Image1]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
+[Image2]: ./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
+[Image3]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
+[Image4]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

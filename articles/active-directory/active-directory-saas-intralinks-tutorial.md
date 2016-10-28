@@ -1,300 +1,299 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with Intralinks | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and Intralinks."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Tutorial: Integração do Azure Active Directory com o Intralinks | Microsoft Azure"
+	description="Saiba como configurar o logon único entre o Azure Active Directory e o Intralinks."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/29/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/11/2016"
+	ms.author="jeedes"/>
 
 
+# Tutorial: Integração do Azure Active Directory com o Intralinks
 
-# <a name="tutorial:-azure-active-directory-integration-with-intralinks"></a>Tutorial: Azure Active Directory integration with Intralinks
+Neste tutorial, você aprenderá como integrar o Intralinks ao Azure AD (Azure Active Directory).
 
-In this tutorial, you learn how to integrate Intralinks with Azure Active Directory (Azure AD).
+A integração do Intralinks ao Azure AD oferece os seguintes benefícios:
 
-Integrating Intralinks with Azure AD provides you with the following benefits:
+- Você pode controlar no Azure AD quem terá acesso ao Intralinks
+- Você pode permitir que seus usuários façam logon automaticamente no Intralinks (logon único) com suas contas do Azure AD
+- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
 
-- You can control in Azure AD who has access to Intralinks
-- You can enable your users to automatically get signed-on to Intralinks (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## Pré-requisitos
 
-## <a name="prerequisites"></a>Prerequisites
+Para configurar a integração do Azure AD ao Intralinks, você precisa dos seguintes itens:
 
-To configure Azure AD integration with Intralinks, you need the following items:
-
-- An Azure AD subscription
-- A Intralinks single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- Uma assinatura do AD do Azure
+- Uma assinatura habilitada para logon único do Intralinks
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
-## <a name="scenario-description"></a>Scenario Description
-In this tutorial, you test Azure AD single sign-on in a test environment.
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
-The scenario outlined in this tutorial consists of two main building blocks:
-
-1. Adding Intralinks from the gallery
-2. Configuring and testing Azure AD single sign-on
+- Não use o ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## <a name="adding-intralinks-from-the-gallery"></a>Adding Intralinks from the gallery
-To configure the integration of Intralinks into Azure AD, you need to add Intralinks from the gallery to your list of managed SaaS apps.
+## Descrição do cenário
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
 
-**To add Intralinks from the gallery, perform the following steps:**
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-
-    ![Active Directory][1]
-
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Applications][2]
-
-4. Click **Add** at the bottom of the page.
-
-    ![Applications][3]
-
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-
-    ![Applications][4]
-
-6. In the search box, type **Intralinks**.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_01.png)
-
-7. In the results pane, select **Intralinks**, and then click **Complete** to add the application.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_02.png)
+1. Adicionando o Intralinks da galeria
+2. Configurar e testar o logon único do AD do Azure
 
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
+## Adicionando o Intralinks da galeria
+Para configurar a integração do Intralinks ao Azure AD, você precisará adicionar o Intralinks da galeria à sua lista de aplicativos SaaS gerenciados.
 
-In this section, you configure and test Azure AD single sign-on with Intralinks based on a test user called "Britta Simon".
+**Para adicionar o Intralinks da galeria, execute as seguintes etapas:**
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Intralinks is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Intralinks needs to be established.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Intralinks.
+	![Active Directory][1]
 
-To configure and test Azure AD single sign-on with Intralinks, you need to complete the following building blocks:
+2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating an Intralinks test user](#creating-an-intralinks-test-user)** - to have a counterpart of Britta Simon in Intralinks that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
+	![Aplicativos][2]
 
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Intralinks application.
+4. Clique em **Adicionar** na parte inferior da página.
 
+	![Aplicativos][3]
 
-**To configure Azure AD single sign-on with Intralinks, perform the following steps:**
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
-1. In the classic portal, on the **Intralinks** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
-     
-    ![Configure Single Sign-On][6] 
+	![Aplicativos][4]
 
-2. On the **How would you like users to sign on to Intralinks** page, select **Azure AD Single Sign-On**, and then click **Next**.
+6. Na caixa de pesquisa, digite **Intralinks**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_03.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_01.png)
 
-3. On the **Configure App Settings** dialog page, perform the following steps:.
+7. No painel de resultados, selecione **Intralinks**. e clique em **Concluir** para adicionar o aplicativo.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_04.png) 
-
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Intralinks application using the following pattern: **https://\<company name\>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/\<Azure AD Tenant ID\>/**.
-
-    b. Click **Next**.
-    
-4. On the **Configure single sign-on at Intralinks** page, perform the following steps:
-
-    ![Configure Single Sign-On](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_05.png)
-
-    a. Click **Download metadata**, and then save the file on your computer.
-
-    b. Click **Next**.
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_02.png)
 
 
-5. To get SSO configured for your application, contact Intralinks support team and email the attach downloaded metadata file.
+##  Configurar e testar o logon único do AD do Azure
+
+Nesta seção, você configurará e testará o logon único do Azure AD com o Intralinks, com base em uma usuária de teste chamada "Brenda Fernandes".
+
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Intralinks é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Intralinks.
+
+Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no Azure AD como o valor do **Nome de Usuário** no Intralinks.
+
+Para configurar e testar o logon único do Azure AD com o Intralinks, você precisará concluir os seguintes blocos de construção:
+
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+4. **[Criação de um usuário de teste do Intralinks](#creating-an-intralinks-test-user)**: para ter um equivalente de Brenda Fernandes no Intralinks, que esteja vinculado à representação dela no Azure AD.
+5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
+
+### Configuração do logon único do AD do Azure
+
+Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único em seu aplicativo Intralinks.
 
 
-6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
-    
-    ![Azure AD Single Sign-On][10]
+**Para configurar o logon único do Azure AD com o Intralinks, execute as seguintes etapas:**
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+1. No portal clássico, na página de integração de aplicativos do **Intralinks**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+	 
+	![Configurar o logon único][6]
+
+2. Na página **Como você deseja que os usuários façam logon no Intralinks**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
+
+	![Configurar o logon único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_03.png)
+
+3. Na página do diálogo **Definir Configurações do Aplicativo**, realize as seguintes etapas:
+
+	![Configurar o logon único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_04.png)
+
+    a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Intralinks usando o seguinte padrão: **https://\<nome da empresa>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<ID do locatário do Azure AD>/**.
+
+    b. Clique em **Próximo**.
+	
+4. Na página **Configurar logon único no Intralinks**, execute as seguintes etapas:
+
+	![Configurar o logon único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_05.png)
+
+    a. Clique em **Baixar metadados** e salve o arquivo no computador.
+
+    b. Clique em **Próximo**.
+
+
+5. Para configurar o SSO para seu aplicativo, entre em contato com a equipe de suporte do Intralinks e envie o arquivo de metadados baixado anexado ao email.
+
+
+6. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+	
+	![Logon único do AD do Azure][10]
+
+7. Na página **Confirmação de logon único**, clique em **Concluir**.
  
-    ![Azure AD Single Sign-On][11]
+	![Logon único do AD do Azure][11]
 
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
+### Criação de um usuário de teste do AD do Azure
+Nesta seção, você criará uma usuária de teste no portal clássico chamada Brenda Fernandes.
 
-In the Users list, select **Britta Simon**.
+Na lista de usuários, selecione **Brenda Fernandes**.
 
-![Create Azure AD User][20]
+![Criar um usuário do AD do Azure][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-intralinks-tutorial/create_aaduser_09.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/create_aaduser_09.png)
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. To display the list of users, in the menu on the top, click **Users**.
+3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-intralinks-tutorial/create_aaduser_03.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/create_aaduser_03.png)
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-intralinks-tutorial/create_aaduser_04.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/create_aaduser_04.png)
 
-5. On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-intralinks-tutorial/create_aaduser_05.png) 
+5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Click **Next**.
+    c. Clique em **Próximo**.
 
-6.  On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-intralinks-tutorial/create_aaduser_06.png) 
+6.  Na página do diálogo **Perfil do Usuário**, realize as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    a. Na caixa de texto **Nome**, digite **Brenda**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
 
-    d. In the **Role** list, select **User**.
+    d. Na lista **Função**, selecione **Usuário**.
 
-    e. Click **Next**.
+    e. Clique em **Próximo**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-intralinks-tutorial/create_aaduser_07.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-intralinks-tutorial/create_aaduser_08.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    a. Anote o valor da **Nova Senha**.
 
-    b. Click **Complete**.   
+    b. Clique em **Concluído**.
 
 
 
-### <a name="creating-an-intralinks-test-user"></a>Creating an Intralinks test user
+### Criação de um usuário de teste do Intralinks
 
-In this section, you create a user called Britta Simon in Intralinks. Please work with Intralinks support team to add the users in the Intralinks platform.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Intralinks. Trabalhe com a equipe de suporte do Intralinks para adicionar os usuários à plataforma do Intralinks.
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+### Atribuição do usuário de teste do AD do Azure
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Intralinks.
+Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure concedendo-lhe acesso ao Intralinks.
 
-![Assign User][200] 
+![Atribuir usuário][200]
 
-**To assign Britta Simon to Intralinks, perform the following steps:**
+**Para atribuir Brenda Fernandes ao Intralinks, execute as seguintes etapas:**
 
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. No portal clássico, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
 
-    ![Assign User][201] 
+	![Atribuir usuário][201]
 
-2. In the applications list, select **Intralinks**.
+2. Na lista de aplicativos, selecione **Intralinks**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_50.png) 
+	![Configurar o logon único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_50.png)
 
-3. In the menu on the top, click **Users**.
+3. No menu na parte superior, clique em **Usuários**.
 
-    ![Assign User][203]
+	![Atribuir usuário][203]
 
-4. In the Users list, select **Britta Simon**.
+4. Na lista de usuários, selecione **Brenda Fernandes**.
 
-5. In the toolbar on the bottom, click **Assign**.
+5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
 
-    ![Assign User][205]
+	![Atribuir usuário][205]
 
-### <a name="adding-intralinks-via-or-elite-application"></a>Adding Intralinks VIA or Elite application
-Intralinks uses the same Single Sign On Identity platform for all other Intralinks applications excluding Deal Nexus application. So if you plan to use any other Intralinks application then first you have to configure the Single Sign On for one Primary Intralinks application using the procedure described above.
+### Adicionar o aplicativo Intralinks VIA ou Elite
+O Intralinks usa a mesma plataforma de Identidade de Logon Único para todos os outros aplicativos Intralinks excluindo o aplicativo Deal Nexus. Portanto, se você planeja usar qualquer outro aplicativo Intralinks, primeiro você precisa configurar o Logon Único para um aplicativo Intralinks primário usando o procedimento descrito acima.
 
-After that you can follow the below procedure to add another Intralinks application in your tenant which can leverage this primary application for Single Sign On. 
+Depois disso, você pode seguir o procedimento abaixo para adicionar outro aplicativo Intralinks em seu locatário, que pode aproveitar esse aplicativo principal para o Logon Único.
 
-> [AZURE.NOTE] Please note that this feature is available only to Azure AD Premium SKU Customers and not available for Free or Basic SKU customers.
+> [AZURE.NOTE] Observe que esse recurso está disponível somente para clientes de SKU do Azure AD Premium e não está disponível para clientes de SKU Gratuito ou Básico.
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
-    ![Active Directory][1]
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+	![Active Directory][1]
+2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
 
-    ![Applications][2]
+	![Aplicativos][2]
 
-4. Click **Add** at the bottom of the page.
+4. Clique em **Adicionar** na parte inferior da página.
 
-    ![Applications][3]
+	![Aplicativos][3]
 
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
-    ![Applications][4]
+	![Aplicativos][4]
 
-6. From the left tab click on **Custom** tab
+6. Na guia à esquerda, clique na guia **Personalizado**
 
-    ![Adding Intralinks VIA or Elite application](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_51.png)
+	![Adicionar o aplicativo Intralinks VIA ou Elite](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_51.png)
 
-7. Give appropriate name to the application e.g. **Intralinks Elite** and click finish button.
+7. Forneça o nome apropriado para o aplicativo, por exemplo, **Intralinks Elite** e clique no botão Concluir.
 
-8. Click on **Configure Single Sign** button
+8. Clique no botão **Configurar o Logon Único**
 
-9. Select the **Existing Single Sign On** option
+9. Selecione a opção **Logon Único Existente**
 
-    ![Adding Intralinks VIA or Elite application](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_52.png)
+	![Adicionar o aplicativo Intralinks VIA ou Elite](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_52.png)
 
-10. Get the the SP Initiated SSO URL from Intralinks team for the other Intralinks application and enter it as shown below. 
+10. Obtenha a URL de SSO Iniciada do SP da equipe do Intralinks para o outro aplicativo Intralinks e insira-a como mostrado abaixo.
 
-    ![Adding Intralinks VIA or Elite application](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_53.png)
+	![Adicionar o aplicativo Intralinks VIA ou Elite](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_53.png)
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Intralinks application using the following pattern: **https://\<CompanyName\>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/\<AzureADTenantID\>/**
+	a. Na caixa de texto URL de Logon, digite a URL usada pelos usuários para fazer logon em seu aplicativo Intralinks usando o seguinte padrão: **https://\<NomedaEmpresa>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<IDdoLocatáriodoAzureAD>/**
 
 
-11. Click **Next**.
+11. Clique em **Próximo**.
 
-12. Assign the application to user or groups as shown in the section **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)**
+12. Atribua o aplicativo para usuários ou grupos, como mostrado na seção **[Atribuição do usuário de teste do Azure AD](#assigning-the-azure-ad-test-user)**
 
 
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+### Teste do logon único
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-When you click the Intralinks tile in the Access Panel, you should get automatically signed-on to your Intralinks application.
+Ao clicar no bloco Intralinks no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Intralinks.
 
 
-## <a name="additional-resources"></a>Additional Resources
+## Recursos adicionais
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 
@@ -316,8 +315,4 @@ When you click the Intralinks tile in the Access Panel, you should get automatic
 [204]: ./media/active-directory-saas-intralinks-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-intralinks-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

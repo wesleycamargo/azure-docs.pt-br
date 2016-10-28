@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Virtual Machines Security Overview | Microsoft Azure"
-   description=" Azure Virtual Machines give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine.  This article provides an overview of the core Azure security features that can be used with Azure Virtual Machines. "
+   pageTitle="Visão geral de segurança de máquinas virtuais do Azure | Microsoft Azure"
+   description=" As máquinas virtuais do Azure proporcionam a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que executa a máquina virtual. Este artigo fornece uma visão geral dos recursos de segurança centrais do Azure que podem ser usados com máquinas virtuais do Azure. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,150 +16,145 @@
    ms.date="08/16/2016"
    ms.author="terrylan"/>
 
+# Visão geral de segurança de máquinas virtuais do Azure
 
-# <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines security overview
+As máquinas virtuais do Azure permitem que você implante uma ampla gama de soluções de computação de forma ágil. Com suporte para o Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP e Serviços BizTalk do Azure, você pode implantar qualquer carga de trabalho e qualquer linguagem em praticamente qualquer sistema operacional.
 
-Azure Virtual Machines lets you deploy a wide range of computing solutions in an agile way. With support for Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP, and Azure BizTalk Services, you can deploy any workload and any language on nearly any operating system.
+Uma máquina virtual do Azure oferece a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que executa a máquina virtual. Você pode compilar e implantar seus aplicativos com a garantia de que os dados estão protegidos e seguros em nossos datacenters altamente seguros.
 
-An Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine.  You can build and deploy your applications with the assurance that your data is protected and safe in our highly secure datacenters.
+Com o Azure, você pode compilar soluções compatíveis, com segurança avançada, que:
 
-With Azure, you can build security-enhanced, compliant solutions that:
+- Protegem suas máquinas virtuais contra vírus e malwares
+- Criptografam seus dados confidenciais
+- Protegem o tráfego de rede
+- Identificam e detectam ameaças
+- Atendem os requisitos de conformidade
 
-- Protect your virtual machines from viruses and malware
-- Encrypt your sensitive data
-- Secure network traffic
-- Identify and detect threats
-- Meet compliance requirements
+O objetivo deste artigo é fornecer uma visão geral dos recursos de segurança centrais do Azure que podem ser usados com máquinas virtuais. Também fornecemos links para artigos que dão os detalhes de cada recurso para que você possa saber mais.
 
-The goal of this article is to provide an overview of the core Azure security features that can be used with virtual machines. We also provide links to articles that give details of each feature so you can learn more.  
-
-The core Azure Virtual Machine security capabilities to be covered in this article:
+As funcionalidades de segurança de máquina virtual centrais do Azure a serem abordadas nesse artigo:
 
 - Antimalware
-- Hardware Security Module
-- Virtual machine disk encryption
-- Virtual machine backup
+- Módulos de segurança de hardware
+- Criptografia de disco da máquina virtual
+- Backup de máquinas virtuais
 - Azure Site Recovery
-- Virtual networking
-- Security policy management and reporting
-- Compliance
+- Rede Virtual
+- Gerenciamento de política de segurança e emissão de relatórios
+- Conformidade
 
-## <a name="antimalware"></a>Antimalware
+## Antimalware
 
-With Azure, you can use antimalware software from security vendors such as Microsoft, Symantec, Trend Micro, McAfee, and Kaspersky to protect your virtual machines from malicious files, adware, and other threats. See the Learn More section below to find articles on partner solutions.
+Com o Azure, você pode usar o software antimalware dos fornecedores de segurança, como Microsoft, Symantec, Trend Micro, McAfee e Kaspersky, para proteger suas máquinas virtuais contra arquivos maliciosos, adware e outras ameaças. Consulte a seção Saiba mais abaixo para encontrar artigos sobre soluções de parceiros.
 
-Microsoft Antimalware for Azure Cloud Services and Virtual Machines is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software.  Microsoft Antimalware provides configurable alerts when known malicious or unwanted software attempts to install itself or run on your Azure systems.
+O Microsoft Antimalware para Serviços de Nuvem e Máquinas Virtuais do Azure é uma funcionalidade de proteção em tempo real que ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. O Microsoft Antimalware fornece alertas configuráveis quando um software mal-intencionado ou indesejado conhecido tenta se instalar ou executar nos sistemas do Azure.
 
-Microsoft Antimalware is a single-agent solution for applications and tenant environments, designed to run in the background without human intervention. You can deploy protection based on the needs of your application workloads, with either basic secure-by-default or advanced custom configuration, including antimalware monitoring.
+O Microsoft Antimalware é uma solução de agente único para aplicativos e ambientes de locatário, projetada para ser executada em segundo plano sem intervenção humana. Você pode implantar a proteção baseada nas necessidades de suas cargas de trabalho do aplicativo, com configuração básica padronizada ou personalizada avançada, incluindo monitoramento de antimalware.
 
-When you deploy and enable Microsoft Antimalware, the following core features are available:
+Quando você implanta e habilita o Microsoft Antimalware, os seguintes recursos principais ficam disponíveis:
 
-- Real-time protection - monitors activity in Cloud Services and on Virtual Machines to detect and block malware execution.
-- Scheduled scanning - periodically performs targeted scanning to detect malware, including actively running programs.
-- Malware remediation - automatically takes action on detected malware, such as deleting or quarantining malicious files and cleaning up malicious registry entries.
-- Signature updates - automatically installs the latest protection signatures (virus definitions) to ensure protection is up-to-date on a pre-determined frequency.
-- Antimalware Engine updates – automatically updates the Microsoft Antimalware engine.
-- Antimalware Platform updates – automatically updates the Microsoft Antimalware platform.
-- Active protection - reports to Azure telemetry metadata about detected threats and suspicious resources to ensure rapid response and enables real-time synchronous signature delivery through the Microsoft Active Protection System (MAPS).
-- Samples reporting - provides and reports samples to the Microsoft Antimalware service to help refine the service and enable troubleshooting.
-- Exclusions – allows application and service administrators to configure certain files, processes, and drives to exclude them from protection and scanning for performance and other reasons.
-- Antimalware event collection - records the antimalware service health, suspicious activities, and remediation actions taken in the operating system event log and collects them into the customer’s Azure Storage account.
+- Proteção em tempo real: monitora a atividade em Serviços de Nuvem e em máquinas virtuais para detectar e bloquear a execução de malware.
+- Varredura programada: executa periodicamente uma varredura direcionada para detectar malware, incluindo programas ativamente em execução.
+- Remediação de Malware: atua automaticamente sobre o malware detectado, por exemplo, excluindo ou colocando arquivos mal-intencionados em quarentena e limpando entradas de Registro mal-intencionadas.
+- Atualizações de assinatura: instala automaticamente as últimas assinaturas de proteção (definições de vírus) para garantir que a proteção seja atualizada em uma frequência predeterminada.
+- Atualizações de mecanismo Antimalware: atualiza automaticamente o mecanismo Microsoft Antimalware.
+- Atualizações da plataforma Antimalware: atualiza automaticamente a plataforma Microsoft Antimalware.
+- Proteção ativa: relatórios para os metadados de telemetria do Azure sobre as ameaças detectadas e recursos suspeitos para garantir uma resposta rápida e permite a entrega de assinatura síncrona em tempo real por meio do Microsoft Active Protection System (MAPS).
+- Relatórios de exemplos: fornece e relata exemplos para o serviço Microsoft Antimalware para ajudar a aprimorar o serviço e a habilitar a solução de problemas.
+- Exclusões: permite que os administradores de serviço e aplicativo configurem determinados arquivos, processos e unidades para excluí-los da proteção e da verificação por motivos de desempenho e outros.
+- Coleta de eventos de Antimalware: registra a integridade do serviço de antimalware, atividades suspeitas e ações de remediação realizadas no log de eventos do sistema operacional e os coleta na conta de armazenamento do Azure do cliente.
 
-Learn more: To learn more about antimalware software to protect your virtual machines, see:
+Saiba mais: para saber mais sobre o software antimalware para proteger as máquinas virtuais, consulte:
 
-- [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/azure-security-antimalware.md)
-- [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-- [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
-- [How to install and configure Symantec Endpoint Protection on a Windows VM](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
-- [New Antimalware Options for Protecting Azure Virtual Machines – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
-- [Security solutions in the Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
+- [Microsoft Antimalware para Serviços de Nuvem do Azure e máquinas virtuais](../security/azure-security-antimalware.md)
+- [Implantando soluções antimalware em máquinas virtuais do Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
+- [Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
+- [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Windows](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
+- [New Antimalware Options for Protecting Azure Virtual Machines – McAfee Endpoint Protection (Novas opções de antimalware para proteção das Máquinas Virtuais do Azure – McAfee Endpoint Protection)](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
+- [Soluções de segurança no Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
-## <a name="hardware-security-module"></a>Hardware security Module
+## Módulos de segurança de hardware
 
-Encryption and authentication do not improve security unless the keys themselves are protected. You can simplify the management and security of your critical secrets and keys by storing them in Azure Key Vault. Key Vault provides the option to store your keys in hardware security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](https://msdn.microsoft.com/library/bb934049.aspx) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+A autenticação e a criptografia não melhoram a segurança, a menos que as próprias chaves estejam bem protegidas. Você pode simplificar o gerenciamento e a segurança dos seus principais segredos e chaves armazenando-os no Cofre de Chaves do Azure. O Cofre de Chaves oferece a opção de armazenar as chaves em HSMs (módulos de segurança de hardware) certificados para os padrões FIPS 140-2 nível 2. Suas chaves de criptografia do SQL Server para backup ou [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx) podem ser armazenadas no Cofre de Chaves com quaisquer chaves ou segredos dos seus aplicativos. As permissões e o acesso a esses itens protegidos são gerenciados pelo [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
-Learn more:
+Saiba mais:
 
-- [What is Azure Key Vault?](../key-vault/key-vault-whatis.md)
-- [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md)
-- [Azure Key Vault blog](https://blogs.technet.microsoft.com/kv/)
+- [O que é o Cofre da Chave do Azure?](../key-vault/key-vault-whatis.md)
+- [Introdução ao Cofre da Chave do Azure](../key-vault/key-vault-get-started.md)
+- [Blog do Cofre de Chaves do Azure](https://blogs.technet.microsoft.com/kv/)
 
-## <a name="virtual-machine-disk-encryption"></a>Virtual machine disk encryption
+## Criptografia de disco da máquina virtual
 
-Azure Disk Encryption is a new capability that lets you encrypt your Windows and Linux Azure Virtual Machine disks. Azure Disk Encryption uses the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks.
+O Azure Disk Encryption é uma nova funcionalidade que permite criptografar os discos de suas máquinas virtuais Windows e Linux do Azure. O Azure Disk Encryption usa o recurso padrão da indústria [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) do Windows e o recurso [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer uma criptografia do volume para o SO e os discos de dados.
 
-The solution is integrated with Azure Key Vault to help you control and manage the disk encryption keys and secrets in your key vault subscription, while ensuring that all data in the virtual machine disks are encrypted at rest in your Azure storage.
+A solução é integrada ao Cofre de Chaves do Azure para ajudá-lo a controlar e a gerenciar as chaves de criptografia de disco e segredos em sua assinatura de cofre de chaves, garantindo ao mesmo tempo que todos os dados nos discos de máquina virtual sejam criptografados em repouso no armazenamento do Azure.
 
-Learn more:
+Saiba mais:
 
-- [Azure Disk Encryption for Windows and Linux IaaS VMs](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
-- [Azure Disk Encryption for Linux and Windows Virtual Machines](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/)
-- [Encrypt a virtual machine](../security-center/security-center-disk-encryption.md)
+- [Criptografia de Disco do Azure para VMs IaaS Windows e Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+- [Azure Disk Encryption for Linux and Windows Virtual Machines (Azure Disk Encryption para máquinas virtuais Windows e Linux)](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/)
+- [Criptografar uma máquina virtual](../security-center/security-center-disk-encryption.md)
 
-## <a name="virtual-machine-backup"></a>Virtual machine backup
+## Backup de máquinas virtuais
 
-Azure Backup is a scalable solution that protects your application data with zero capital investment and minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs into your applications. With Azure Backup, your virtual machines running Windows and Linux are protected.
+O Backup do Azure é uma solução escalonável que protege os dados do seu aplicativo com zero investimento de capital e custos operacionais mínimos. Erros de aplicativo podem corromper seus dados e erros humanos podem introduzir bugs em seus aplicativos. Com o Backup do Azure, suas máquinas virtuais executando Windows e Linux estão protegidas.
 
-Learn more:
+Saiba mais:
 
-- [What is Azure Backup?](../backup/backup-introduction-to-azure-backup.md)
-- [Azure Backup Learning Path](https://azure.microsoft.com/documentation/learning-paths/backup/)
-- [Azure Backup Service - FAQ](../backup/backup-azure-backup-faq.md)
+- [O que é o Backup do Azure?](../backup/backup-introduction-to-azure-backup.md)
+- [Roteiro de aprendizagem do Backup do Azure](https://azure.microsoft.com/documentation/learning-paths/backup/)
+- [Serviço de Backup do Azure - Perguntas frequentes](../backup/backup-azure-backup-faq.md)
 
-## <a name="azure-site-recovery"></a>Azure Site Recovery
+## Azure Site Recovery
 
-An important part of your organization's BCDR strategy is figuring out how to keep corporate workloads and apps up and running when planned and unplanned outages occur. Azure Site Recovery helps orchestrate replication, failover, and recovery of workloads and apps so that they are available from a secondary location if your primary location goes down.
+Uma parte importante da estratégia de BCDR de sua organização é descobrir como manter as cargas de trabalho corporativas e aplicativos em execução durante interrupções planejadas e não planejadas. O Azure Site Recovery ajuda a orquestrar a replicação, failover e recuperação dos aplicativos e cargas de trabalho para que eles estejam disponíveis a partir de um local secundário, caso o local principal fique inativo.
 
-Site Recovery:
+Recuperação de Site:
 
-- **Simplifies your BCDR strategy** — Site Recovery makes it easy to handle replication, failover, and recovery of multiple business workloads and apps from a single location. Site recovery orchestrates replication and failover but doesn't intercept your application data or have any information about it.
-- **Provides flexible replication** — Using Site Recovery you can replicate workloads running on Hyper-V virtual machines, VMware virtual machines, and Windows/Linux physical servers.
-- **Supports failover and recovery** — Site Recovery provides test failovers to support disaster recovery drills without affecting production environments. You can also run planned failovers with a zero-data loss for expected outages, or unplanned failovers with minimal data loss (depending on replication frequency) for unexpected disasters. After failover, you can failback to your primary sites. Site Recovery provides recovery plans that can include scripts and Azure automation workbooks so that you can customize failover and recovery of multi-tier applications.
-- **Eliminates secondary datacenter** — You can replicate to a secondary on-premises site, or to Azure. Using Azure as a destination for disaster recovery eliminates the cost and complexity of maintaining a secondary site. Replicated data is stored in Azure Storage.
-- **Integrates with existing BCDR technologies** — Site Recovery partners with other application BCDR features. For example, you can use Site Recovery to protect the SQL Server back end of corporate workloads. This includes native support for SQL Server AlwaysOn to manage the failover of availability groups.
+- **Simplifica sua estratégia de BCDR**: a Recuperação de Site facilita lidar com a replicação, failover e recuperação de várias cargas de trabalho e aplicativos corporativos a partir de um único local. A Recuperação de Site orquestra a replicação e o failover, mas não intercepta os dados do aplicativo ou tem quaisquer informações sobre ele.
+- **Fornece replicação flexível**: com a Recuperação de Site, você pode replicar cargas de trabalho em execução em máquinas virtuais Hyper-V, máquinas virtuais VMware e servidores físicos com Windows/Linux.
+- **Dá suporte ao failover e à recuperação**: a Recuperação de Site fornece failovers de teste para dar suporte a simulações de recuperação de desastre sem afetar os ambientes de produção. Você também pode executar failovers planejados sem perder qualquer dado durante interrupções esperadas, ou failovers não planejados com perda mínima de dados (dependendo da frequência de replicação) para desastres inesperados. Após o failover, você pode realizar o failback para seus sites principais. A Recuperação de Site fornece planos de recuperação que podem incluir scripts e pastas de trabalho de automação do Azure, para que você possa personalizar o failover e a recuperação de aplicativos de várias camadas.
+- **Elimina o datacenter secundário**: você pode replicar para um site secundário local ou para o Azure. Usar o Azure como um destino de recuperação de desastres elimina o custo e a complexidade de manter um site secundário. Os dados replicados são colocados no Armazenamento do Azure.
+- **Integra com tecnologias de BCDR existentes**: a Recuperação de Site estabelece uma parceria com outros recursos de BCDR do aplicativo. Por exemplo, você pode usar a Recuperação de Site para proteger o back-end do SQL Server das cargas de trabalho corporativas. Isso inclui o suporte nativo para o SQL Server AlwaysOn gerenciar o failover dos grupos de disponibilidade.
 
-Learn more:
+Saiba mais:
 
-- [What is Azure Site Recovery?](../site-recovery/site-recovery-overview.md)
-- [How Does Azure Site Recovery Work?](../site-recovery/site-recovery-components.md)
-- [What Workloads are Protected by Azure Site Recovery?](../site-recovery/site-recovery-workload.md)
+- [O que é o Azure Site Recovery?](../site-recovery/site-recovery-overview.md)
+- [Como funciona o Azure Site Recovery?](../site-recovery/site-recovery-components.md)
+- [Quais cargas de trabalho são protegidas pelo Azure Site Recovery?](../site-recovery/site-recovery-workload.md)
 
-## <a name="virtual-networking"></a>Virtual networking
+## Rede Virtual
 
-Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical Azure Virtual Network is isolated from all other Azure Virtual Networks. This isolation helps insure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
+As máquinas virtuais precisam de conectividade de rede. Para dar suporte a esse requisito, o Azure exige que as máquinas virtuais sejam conectadas a uma Rede Virtual do Azure. Uma Rede Virtual do Azure é um constructo lógico criado na malha de rede física do Azure. Cada Rede Virtual do Azure lógica é isolada das todas as outras Redes Virtuais do Azure. Esse isolamento ajuda a garantir que o tráfego da rede nas implantações não seja acessível para os outros clientes do Microsoft Azure.
 
-Learn more:
+Saiba mais:
 
-- [Azure Network Security Overview](security-network-overview.md)
-- [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
-- [Networking features and partnerships for Enterprise scenarios](https://azure.microsoft.com/blog/networking-enterprise/)
+- [Azure Network Security Overview (Visão geral da segurança de rede do Azure)](security-network-overview.md)
+- [Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md)
+- [Networking features and partnerships for Enterprise scenarios (Recursos de rede e parcerias para cenários empresariais)](https://azure.microsoft.com/blog/networking-enterprise/)
 
-## <a name="security-policy-management-and-reporting"></a>Security policy management and reporting
+## Gerenciamento de política de segurança e emissão de relatórios
 
-Azure Security Center helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+A Central de Segurança do Azure ajuda você a impedir, detectar e responder a ameaças e oferece maior visibilidade e controle sobre a segurança dos recursos do Azure Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
-Azure Security Center helps you optimize and monitor virtual machine security by:
+A Central de Segurança do Azure ajuda a otimizar e a monitorar a segurança da máquina virtual:
 
-- Providing virtual machine [security recommendations](../security-center/security-center-recommendations.md) such as apply system updates, configure ACLs endpoints, enable antimalware, enable network security groups, and apply disk encryption.
-- Monitoring the state of your virtual machines
+- Fornecendo [recomendações de segurança](../security-center/security-center-recommendations.md) para a máquina virtual, como aplicar atualizações do sistema, configurar pontos de extremidade de ACLs, habilitar o antimalware, habilitar grupos de segurança de rede e aplicar a criptografia de disco.
+- Monitorando o estado de suas máquinas virtuais
 
-Learn more:
+Saiba mais:
 
-- [Introduction to Azure Security Center](../security-center/security-center-intro.md)
-- [Azure Security Center Frequently Asked Questions](../security-center/security-center-faq.md)
-- [Azure Security Center Planning and Operations](../security-center/security-center-planning-and-operations-guide.md)
+- [Introdução à Central de Segurança do Azure](../security-center/security-center-intro.md)
+- [Perguntas frequentes sobre a Central de Segurança do Azure](../security-center/security-center-faq.md)
+- [Planejamento e operações da Central de Segurança do Azure](../security-center/security-center-planning-and-operations-guide.md)
 
-## <a name="compliance"></a>Compliance
+## Conformidade
 
-Azure Virtual Machines is certified for FISMA, FedRAMP, HIPAA, PCI DSS Level 1, and other key compliance programs. This certification makes it easier for your own Azure applications to meet compliance requirements and for your business to address a wide range of domestic and international regulatory requirements.
+As Máquinas Virtuais do Azure são certificados para FISMA, FedRAMP, HIPAA, PCI DSS Nível 1 e outros programas de conformidade de chaves. Essa certificação facilita que seus próprios aplicativos do Azure atendam aos requisitos de conformidade e que sua empresa enderece uma ampla variedade de requisitos normativos nacionais e internacionais.
 
-Learn more:
+Saiba mais:
 
-- [Microsoft Trust Center: Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
-- [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+- [Microsoft Trust Center: Compliance (Central de Confiabilidade da Microsoft: conformidade)](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
+- [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance (A nuvem confiável: segurança, privacidade e conformidade do Microsoft Azure)](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

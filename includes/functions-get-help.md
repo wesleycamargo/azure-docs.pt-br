@@ -1,9 +1,7 @@
-### <a name="need-some-help?"></a>Need some help?
+### Precisa de ajuda?
 
-Post questions in the Azure forums. - [Visit MSDN](http://go.microsoft.com/fwlink/?LinkId=780719)
+Poste perguntas nos fóruns do Azure. – [Visite o MSDN](http://go.microsoft.com/fwlink/?LinkId=780719)
 
-Tag questions with the keyword `azure-functions`. - [Visit Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+Marque as perguntas com a palavra-chave `azure-functions`.- [Visite o Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0912_2016-->

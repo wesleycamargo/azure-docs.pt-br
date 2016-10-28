@@ -1,191 +1,190 @@
 <properties
-    pageTitle="Node.js Getting Started Guide | Microsoft Azure"
-    description="Learn how to create a simple Node.js web application and deploy it to an Azure cloud service."
-    services="cloud-services"
-    documentationCenter="nodejs"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Guia de introdução ao Node.js | Microsoft Azure"
+	description="Saiba como criar um aplicativo Web simples do Node.js e implantá-lo em um serviço de nuvem do Azure."
+	services="cloud-services"
+	documentationCenter="nodejs"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="cloud-services"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na" 
-    ms.devlang="nodejs"
-    ms.topic="hero-article"
-    ms.date="08/11/2016" 
-    ms.author="robmcm"/>
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs"
+	ms.topic="hero-article"
+	ms.date="08/11/2016" 
+	ms.author="robmcm"/>
 
-
-# <a name="build-and-deploy-a-node.js-application-to-an-azure-cloud-service"></a>Build and deploy a Node.js application to an Azure Cloud Service
+# Criar e implantar um aplicativo Node.jc para um Serviço de Nuvem do Azure
 
 > [AZURE.SELECTOR]
 - [Node.js](cloud-services-nodejs-develop-deploy-app.md)
 - [.NET](cloud-services-dotnet-get-started.md)
 
-This tutorial shows how to create a simple Node.js application running in an Azure Cloud Service. Cloud Services are the building blocks of scalable cloud applications in Azure. They allow the separation and independent management and scale-out of front-end and back-end components of your application.  Cloud Services provide a robust dedicated virtual machine for hosting each role reliably.
+Este tutorial mostra como criar um aplicativo simples do Node.js em execução em um Serviço de Nuvem do Azure. Os Serviços de Nuvem são os blocos de construção de aplicativos de nuvem escalonáveis no Azure. Eles permitem a separação e o gerenciamento independente e o dimensionamento dos componentes de front-end e back-end de seu aplicativo. Os serviços de nuvem fornecem uma máquina virtual exclusiva robusta para hospedar cada função confiável.
 
-For more information on Cloud Services, and how they compare to Azure Websites and Virtual machines, see [Azure Websites, Cloud Services and Virtual Machines comparison].
+Para saber mais sobre serviços de nuvem e como eles são comparados aos Sites do Azure e máquinas virtuais, consulte [Comparação de Sites do Azure, Serviços de Nuvem e Máquinas virtuais].
 
->[AZURE.TIP] Looking to build a simple website? If your scenario involves just a simple website front-end, consider [using a lightweight web app]. You can easily upgrade to a Cloud Service as your web app grows and your requirements change.
+>[AZURE.TIP] Procurando desenvolver um site simples? Se o seu cenário envolver apenas um site de front-end simples, [considere usar um aplicativo Web leve]. Você pode atualizar facilmente para um serviço de nuvem conforme o aplicativo Web cresce e suas necessidades mudam.
 
-By following this tutorial, you will build a simple web application hosted inside a web role. You will use the compute emulator to test your application locally, then deploy it using PowerShell command-line tools.
+Seguindo este tutorial, você irá criar um aplicativo da Web simples hospedado dentro de uma função Web. Você usará o emulador de computação para testar o aplicativo localmente e, em seguida, o implantará usando ferramentas de linha de comando do PowerShell.
 
-The application is a simple "hello world" application:
+O aplicativo é um aplicativo simples "hello world":
 
-![A web browser displaying the Hello World web page][A web browser displaying the Hello World web page]
+![Um navegador exibindo a página da Web Hello World][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>Prerequisites
+## Pré-requisitos
 
-> [AZURE.NOTE] This tutorial uses Azure PowerShell, which requires Windows.
+> [AZURE.NOTE] Este tutorial usa o PowerShell do Azure, que requer o Windows.
 
-- Install and configure [Azure Powershell].
-- Download and install the [Azure SDK for .NET 2.7]. In the install setup, select:
+- Instalar e configurar o [Powershell do Azure].
+- Baixe e instale o [SDK do Azure para .NET 2.7]. Na configuração da instalação, selecione:
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
 
 
-## <a name="create-an-azure-cloud-service-project"></a>Create an Azure Cloud Service project
+## Criar um projeto de Serviço de Nuvem do Azure
 
-Perform the following tasks to create a new Azure Cloud Service project, along with basic Node.js scaffolding:
+Execute as tarefas a seguir para criar um novo projeto do Serviço de Nuvem do Azure, juntamente com a estrutura básica do Node.js:
 
-1. Run **Windows PowerShell** as Administrator; from the **Start Menu** or **Start Screen**, search for **Windows PowerShell**.
+1. Execute **Windows PowerShell** como administrador. No **Menu Iniciar** ou na **tela Início**, procure o **Windows PowerShell**.
 
-2. [Connect PowerShell] to your subscription.
+2. [Conecte o PowerShell] à sua assinatura.
 
-3. Enter the following PowerShell cmdlet to create to create the project:
+3. Insira o seguinte cmdlet do PowerShell para criar o projeto:
 
         New-AzureServiceProject helloworld
 
-    ![The result of the New-AzureService helloworld command][The result of the New-AzureService helloworld command]
+	![O resultado do comando New-AzureService helloworld][The result of the New-AzureService helloworld command]
 
-    The **New-AzureServiceProject** cmdlet generates a basic structure for publishing a Node.js application to a Cloud Service. It contains configuration files necessary for publishing to Azure. The cmdlet also changes your working directory to the directory for the service.
+	O cmdlet **New-AzureServiceProject** gera uma estrutura básica para publicar um aplicativo do Node.js para um Serviço de Nuvem. Ele contém arquivos de configuração necessários para publicar no Azure. O cmdlet também altera o diretório de trabalho para o diretório de serviço.
 
-    The cmdlet creates the following files:
+	O cmdlet cria os seguintes arquivos:
 
-    -   **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef**: Azure-specific files necessary for publishing your application. For more information, see [Overview of Creating a Hosted Service for Azure].
+	-   **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** e **ServiceDefinition.csdef**: são arquivos específicos do Azure necessários para publicar seu aplicativo. Para saber mais, consulte [Visão geral da criação de um serviço hospedado para o Azure].
 
-    -   **deploymentSettings.json**: Stores local settings that are used by the Azure PowerShell deployment cmdlets.
+	-   **deploymentSettings.json**: armazena configurações locais que são usadas pelos cmdlets de implantação do Azure PowerShell.
 
-4.  Enter the following command to add a new web role:
+4.  Digite o seguinte comando para adicionar uma nova função da Web:
 
         Add-AzureNodeWebRole
 
-    ![The output of the Add-AzureNodeWebRole command][The output of the Add-AzureNodeWebRole command]
+	![A saída do comando Add-AzureNodeWebRole.][The output of the Add-AzureNodeWebRole command]
 
-    The **Add-AzureNodeWebRole** cmdlet creates a basic Node.js application. It also modifies the **.csfg** and **.csdef** files to add configuration entries for the new role.
+	O cmdlet **Add-AzureNodeWebRole** cria um aplicativo básico do Node.js. Ele também modifica os arquivos **.csfg** e **.csdef** para adicionar entradas de configuração para a nova função.
 
-    > [AZURE.NOTE] If you do not specify a role name, a default name is used. You can provide a name as the first cmdlet parameter: `Add-AzureNodeWebRole MyRole`
+	> [AZURE.NOTE] Se você não especificar um nome de função, um nome padrão será usado. Você pode fornecer um nome como o primeiro parâmetro do cmdlet: `Add-AzureNodeWebRole MyRole`
 
-The Node.js app is defined in the file **server.js**, located in the directory for the web role (**WebRole1** by default). Here is the code:
+O aplicativo do Node.js é definido no arquivo **server.js**, localizado no diretório da função Web (**WebRole1**, por padrão). Eis o código:
 
-    var http = require('http');
-    var port = process.env.port || 1337;
-    http.createServer(function (req, res) {
-        res.writeHead(200, { 'Content-Type': 'text/plain' });
-        res.end('Hello World\n');
-    }).listen(port);
+	var http = require('http');
+	var port = process.env.port || 1337;
+	http.createServer(function (req, res) {
+	    res.writeHead(200, { 'Content-Type': 'text/plain' });
+	    res.end('Hello World\n');
+	}).listen(port);
 
-This code is essentially the same as the "Hello World" sample on the [nodejs.org] website, except it uses the port number assigned by the cloud environment.
+Esse código é basicamente o mesmo código do exemplo "Hello World" no site [nodejs.org], com a exceção de que ele usa o número de porta atribuído pelo ambiente de nuvem.
 
-## <a name="deploy-the-application-to-azure"></a>Deploy the application to Azure
+## Implantar o aplicativo no Azure
 
-    [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+	[AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-### <a name="download-the-azure-publishing-settings"></a>Download the Azure publishing settings
+### Baixar as configurações de publicação do Azure
 
-To deploy your application to Azure, you must first download the publishing settings for your Azure subscription.
+Para implantar seu aplicativo do Azure, você deve primeiro baixar as definições de publicação para sua assinatura do Azure.
 
-1.  Run the following Azure PowerShell cmdlet:
+1.  Execute o seguinte cmdlet do PowerShell do Azure:
 
         Get-AzurePublishSettingsFile
 
-    This will use your browser to navigate to the publish settings download page. You may be prompted to log in with a Microsoft Account. If so, use the account associated with your Azure subscription.
+	Isso irá usar o navegador para navegar para a página de download de configurações de publicação. Você precisará fazer logon com uma conta da Microsoft. Se fizer, use a conta associada com sua assinatura do Azure.
 
-    Save the downloaded profile to a file location you can easily access.
+	Salve o perfil baixado para um local de arquivo, que você pode acessar facilmente.
 
-2.  Run following cmdlet to import the publishing profile you downloaded:
+2.  Execute o seguinte cmdlet para importar o perfil de publicação que você baixou:
 
         Import-AzurePublishSettingsFile [path to file]
 
 
-    > [AZURE.NOTE] After importing the publish settings, consider deleting the downloaded .publishSettings file, because it contains information that could allow someone to access your account.
+	> [AZURE.NOTE] Depois de importar as configurações de publicação, considere a exclusão do arquivo .publishsettings baixado, pois ele contém informações que podem permitir que alguém acesse sua conta.
 
-### <a name="publish-the-application"></a>Publish the application
+### Publicar o aplicativo
 
-To publish, run the following commands:
+Para publicar, execute os seguintes comandos:
 
-    $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
-    Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
+  	$ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+	Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
-- **-ServiceName** specifies the name for the deployment. This must be a unique name, otherwise the publish process will fail. The **Get-Date** command tacks on a date/time string that should make the name unique.
+- **-ServiceName** especifica o nome para a implantação. Esse deve ser um nome exclusivo, caso contrário, o processo de publicação falhará. O comando **Get-Date** usa uma cadeia de caracteres de data/hora que deve tornar o nome exclusivo.
 
-- **-Location** specifies the datacenter that the application will be hosted in. To see a list of available datacenters, use the **Get-AzureLocation** cmdlet.
+- **-Location** especifica o datacenter no qual o aplicativo será hospedado. Para ver uma lista dos centros de dados disponíveis, use o cmdlet **Get-AzureLocation**.
 
-- **-Launch** opens a browser window and navigates to the hosted service after deployment has completed.
+- **-Launch** abre uma janela do navegador e navega para o serviço hospedado após a conclusão da implantação.
 
-After publishing succeeds, you will see a response similar to the following:
+Após a publicação for bem-sucedida, você verá uma resposta semelhante à seguinte:
 
-![The output of the Publish-AzureService command][The output of the Publish-AzureService command]
+![A saída do comando Publish-AzureService][The output of the Publish-AzureService command]
 
 > [AZURE.NOTE]
-> It can take several minutes for the application to deploy and become available when first published.
+Pode levar alguns minutos para o aplicativo ser implantado e tornar-se disponível quando for publicado pela primeira vez.
 
-Once the deployment has completed, a browser window will open and navigate to the cloud service.
+Depois que a implantação for concluída, uma janela do navegador será aberta e irá navegar para o serviço de nuvem.
 
-![A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.][A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]
+![Uma janela do navegador exibindo a página hello world; a URL indica que a página está hospedada no Azure.][A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]
 
-Your application is now running on Azure.
+Seu aplicativo está em execução no Azure.
 
-The **Publish-AzureServiceProject** cmdlet performs the following steps:
+O cmdlet **Publish-AzureServiceProject** executa as seguintes etapas:
 
-1.  Creates a package to deploy. The package contains all the files in your application folder.
+1.  Cria um pacote a ser implantado. O pacote contém todos os arquivos em sua pasta de aplicativos.
 
-2.  Creates a new **storage account** if one does not exist. The Azure storage account is used to store the application package during deployment. You can safely delete the storage account after deployment is done.
+2.  Cria uma nova **conta de armazenamento** se não existir. A conta de armazenamento do Azure é usada para armazenar o pacote de aplicativos durante a implantação. Você pode excluir com segurança a conta de armazenamento após a conclusão da implantação.
 
-3.  Creates a new **cloud service** if one does not already exist. A **cloud service** is the container in which your application is hosted when it is deployed to Azure. For more information, see [Overview of Creating a Hosted Service for Azure].
+3.  Cria um novo **serviço de nuvem** se não existir. Um **serviço de nuvem** é o contêiner no qual seu aplicativo é hospedado quando é implantado no Azure. Para saber mais, consulte [Visão geral da criação de um serviço hospedado para o Azure].
 
-4.  Publishes the deployment package to Azure.
+4.  Publica o pacote de implantação do Azure.
 
 
-## <a name="stopping-and-deleting-your-application"></a>Stopping and deleting your application
+## Parando e excluindo seu aplicativo
 
-After deploying your application, you may want to disable it so you can avoid extra costs. Azure bills web role instances per hour of server time consumed. Server time is consumed once your application is deployed, even if the instances are not running and are in the stopped state.
+Depois de implantar seu aplicativo, convém desativá-lo para que você possa evitar custos extras. O Azure cobra as instâncias de função web por hora de acordo com o tempo consumido do servidor. O tempo do servidor é consumido quando seu aplicativo é implantado, mesmo se as instâncias não estiverem sendo executadas e estiverem no estado parado.
 
-1.  In the Windows PowerShell window, stop the service deployment created in the previous section with the following cmdlet:
+1.  Na janela do Windows PowerShell, interrompa a implantação do serviço criada na seção anterior com o seguinte cmdlet:
 
         Stop-AzureService
 
-    Stopping the service may take several minutes. When the service is stopped, you receive a message indicating that it has stopped.
+	Interromper o serviço pode levar alguns minutos. Quando o serviço for interrompido, você recebe uma mensagem indicando que foi interrompido.
 
-    ![The status of the Stop-AzureService command][The status of the Stop-AzureService command]
+	![O status do comando Stop-AzureService][The status of the Stop-AzureService command]
 
-2.  To delete the service, call the following cmdlet:
+2.  Para excluir o serviço, chame o seguinte cmdlet:
 
         Remove-AzureService
 
-    When prompted, enter **Y** to delete the service.
+	Quando solicitado, insira **Y** para excluir o serviço.
 
-    Deleting the service may take several minutes. After the service has been deleted you receive a message indicating that the service was deleted.
+	Excluir o serviço pode levar alguns minutos. Após o serviço ter sido excluído, você recebe uma mensagem indicando que o serviço foi excluído.
 
-    ![The status of the Remove-AzureService command][The status of the Remove-AzureService command]
+	![O status do comando Remove-AzureService][The status of the Remove-AzureService command]
 
-    > [AZURE.NOTE] Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. If nothing else is using the storage, you may want to delete it.
+	> [AZURE.NOTE] Excluir o serviço não exclui a conta de armazenamento criada quando o serviço foi inicialmente publicado e você continuará a ser cobrado pelo armazenamento usado. Se ninguém mais está usando o repositório, convém excluí-lo.
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-For more information, see the [Node.js Developer Center].
+Para saber mais, confira o [Centro de desenvolvedores do Node.js].
 
 <!-- URL List -->
 
-[Azure Websites, Cloud Services and Virtual Machines comparison]: ../app-service-web/choose-web-site-cloud-service-vm.md
-[using a lightweight web app]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md">
-[Azure Powershell]: ../powershell-install-configure.md
-[Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[Connect PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
+[Comparação de Sites do Azure, Serviços de Nuvem e Máquinas virtuais]: ../app-service-web/choose-web-site-cloud-service-vm.md
+[considere usar um aplicativo Web leve]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md">
+[Powershell do Azure]: ../powershell-install-configure.md
+[SDK do Azure para .NET 2.7]: http://www.microsoft.com/pt-BR/download/details.aspx?id=48178
+[Conecte o PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
-[Overview of Creating a Hosted Service for Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
-[Node.js Developer Center]: https://azure.microsoft.com/develop/nodejs/
+[Visão geral da criação de um serviço hospedado para o Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
+[Centro de desenvolvedores do Node.js]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 
@@ -197,8 +196,4 @@ For more information, see the [Node.js Developer Center].
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

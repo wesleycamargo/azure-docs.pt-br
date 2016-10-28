@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Monitor your StorSimple device | Microsoft Azure"
-   description="Describes how to use the StorSimple Manager service to monitor I/O performance, capacity utilization, network throughput, and device performance."
+   pageTitle="Monitorar seu dispositivo StorSimple | Microsoft Azure"
+   description="Descreve como usar o serviço StorSimple Manager para monitorar o desempenho de E/S, utilização da capacidade, taxa de transferência de rede e desempenho do dispositivo."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,126 +15,121 @@
    ms.date="08/16/2016"
    ms.author="alkohli" />
 
+# Usar o serviço StorSimple Manager para monitorar seu dispositivo StorSimple 
 
-# <a name="use-the-storsimple-manager-service-to-monitor-your-storsimple-device"></a>Use the StorSimple Manager service to monitor your StorSimple device 
+## Visão geral
 
-## <a name="overview"></a>Overview
+Você pode usar o serviço StorSimple Manager para monitorar dispositivos específicos na sua solução do StorSimple. Você pode criar gráficos personalizados com base no desempenho de E/S, utilização da capacidade, taxa de transferência de rede e métricas de desempenho do dispositivo.
 
-You can use the StorSimple Manager service to monitor specific devices within your StorSimple solution. You can create custom charts based on I/O performance, capacity utilization, network throughput, and device performance metrics. 
+Para exibir as informações de monitoramento de um dispositivo específico, no portal clássico do Azure, selecione o serviço StorSimple Manager. Clique na guia **Monitor** e selecione na lista de dispositivos. A página **Monitor** contém as seguintes informações.
 
-To view the monitoring information for a specific device, in the Azure classic portal, select the StorSimple Manager service. Click the **Monitor** tab, and then select from the list of devices. The **Monitor** page contains the following information.
+## Desempenho de E/S 
 
-## <a name="i/o-performance"></a>I/O performance 
+O **desempenho de E/S** acompanha as métricas relacionadas ao número de operações de leitura e gravação entre as interfaces do iniciador iSCSI no servidor host e o dispositivo ou o dispositivo e a nuvem. Esse desempenho pode ser medido para um volume específico, um contêiner de volume específico ou todos os contêineres de volume.
 
-**I/O performance** tracks metrics related to the number of read and write operations between either the iSCSI initiator interfaces on the host server and the device or the device and the cloud. This performance can be measured for a specific volume, a specific volume container, or all volume containers.
+A tabela abaixo mostra as E/Ss para o iniciador do dispositivo para todos os volumes de um dispositivo de produção. As métricas plotadas são bytes de leitura e gravação por segundo, operações de E/S de leitura e gravação por segundo e latências de leitura e gravação.
 
-The chart below shows the I/O for the initiator to your device for all the volumes for a production device. The metrics plotted are read and write bytes per second, read and write IO operations per second, and read and write latencies.
+![Desempenho de E/S do iniciador para o dispositivo](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_InitiatorTODevice_For_AllVolumesM.png)
 
-![IO performance from initiator to device](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_InitiatorTODevice_For_AllVolumesM.png)
+Para o mesmo dispositivo, as operações de E/S são plotadas para os dados do dispositivo para a nuvem para todos os contêineres de volume. Nesse dispositivo, os dados estão apenas na camada de linear e nada vazou para a nuvem. Não há nenhuma operação de leitura/gravação ocorrendo do dispositivo para a nuvem. Portanto, os picos no gráfico estão a um intervalo de 5 minutos, o que corresponde à frequência na qual a pulsação é verificada entre o dispositivo e o serviço.
 
-For the same device, the I/O operations are plotted for the data from the device to the cloud for all the volume containers. On this device, the data is only in the linear tier and nothing has spilled to the cloud. There are no read-write operations occurring from device to the cloud. Therefore, the peaks in the chart are at an interval of 5 minutes that corresponds to the frequency at which the heartbeat is checked between the device and the service. 
-
-![IO performance from device to cloud](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainersM.png)
-
-
-For the same device, a cloud snapshot was taken for volume data starting at 2:00 pm. This resulted in data flowing from the device to the cloud. Reads-writes were served to the cloud in this duration. The IO chart shows a peak in the various metrics corresponding to the time when the snapshot was taken. 
-
-![IO performance for device to cloud after cloud snapshot](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainers2M.png)
+![Desempenho de E/S do dispositivo para a nuvem](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainersM.png)
 
 
-## <a name="capacity-utilization"></a>Capacity utilization 
+Para o mesmo dispositivo, um instantâneo de nuvem foi capturado para dados de volume começando às 14h. Isso resultou em fluxo de dados do dispositivo para a nuvem. Leituras e gravações foram veiculadas para a nuvem essa duração. O gráfico de E/S mostra um pico em várias métricas que corresponde à hora em que o instantâneo foi capturado.
 
-**Capacity utilization** tracks metrics related to the amount of data storage space that is used by the volumes, volume containers, or device. You can create reports based on the capacity utilization of your primary storage, your cloud storage, or your device storage. Capacity utilization can be measured on a specific volume, a specific volume container, or all volume containers.
+![Desempenho de E/S do dispositivo para a nuvem após o instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainers2M.png)
 
 
-The primary, cloud, and device storage capacity can be described as follows:
+## Utilização da capacidade 
 
-###<a name="primary-storage-capacity-utilization"></a>Primary storage capacity utilization
+A **utilização da capacidade** acompanha as métricas relacionadas à quantidade de espaço de armazenamento de dados usada por volumes, contêineres de volume ou dispositivo. Você pode criar relatórios com base na utilização de capacidade do armazenamento principal, armazenamento em nuvem ou armazenamento do dispositivo. A utilização da capacidade pode ser medida em um volume específico, um contêiner de volume específico ou todos os contêineres de volume.
+
+
+É possível descrever as capacidades de armazenamento primária, de nuvem e do dispositivo da seguinte maneira:
+
+###Utilização da capacidade de armazenamento primário
  
-These charts show the amount of data written to StorSimple volumes before the data is deduplicated and compressed. You can view the primary storage utilization by all volumes or for a single volume.
+Esses gráficos mostram a quantidade de dados gravados em volumes StorSimple antes desses dados passarem pela eliminação de duplicação e serem compactados. Você pode exibir a utilização de armazenamento primário por todos os volumes ou para um único volume.
 
-When you view the primary storage volume capacity utilization charts for all volumes versus each of the individual volumes and sum up the primary data in both these cases, there may be a mismatch between the two numbers. The total primary data on all volumes may not add up to the sum total of the primary data of the individual volumes. This may be due to one of the following:
+Quando você exibir os gráficos de utilização de capacidade de volume do armazenamento primário para todos os volumes em relação a cada um dos volumes individuais e somar os dados primários em ambos os casos, pode haver uma divergência entre os dois números. O total de dados primários em todos os volumes pode não se igualar à soma total dos dados primários dos volumes individuais. Isso pode ser por um dos seguintes motivos:
 
-- **Snapshot data included for all volumes**: This behavior is seen only if you are running version earlier than Update 3. The primary data shown for all the volumes is the sum of the primary data for each volume and the snapshot data. The primary data shown for a given volume corresponds to only the amount of data allocated on the volume (and does not include the corresponding volume snapshot data).
+- **Dados de instantâneo incluídos para todos os volumes**: esse comportamento será visto somente se você estiver executando uma versão anterior à Atualização 3. Os dados primários mostrados para todos os volumes são a soma dos dados primários para cada volume e dos dados de instantâneos. Os dados primários mostrados para um determinado volume correspondem apenas à quantidade de dados alocados no volume (e não incluem os dados de instantâneo de volume correspondentes).
 
-    This can also be explained by the following equation:
+	Isso também pode ser explicado pela seguinte equação:
 
-    *Primary data (All volumes) = Sum of (Primary data (volume i) + Size of snapshot data (volume i))*
+	*Dados primários (todos os volumes) = Soma de (Dados primários (volume i) + Tamanho dos dados de instantâneo (volume i))*
+	
+	*em que Dados primários (volume i) = Tamanho dos dados primários alocados para o volume i*
+ 
+	Se os instantâneos são excluídos por meio do serviço, a exclusão é feita de forma assíncrona em segundo plano. Pode levar algum tempo para o tamanho dos dados do volume seja atualizado após a exclusão dos instantâneos.
+
+    Caso você esteja executando a Atualização 3 ou posterior, os dados de instantâneo não estão incluídos nos dados de volume. E a utilização primária é calculada da seguinte maneira:
+
+    *Dados primários (todos os volumes) = Soma de (Dados primários (volume i))
     
-    *where, Primary data (volume i) = Size of primary data allocated to volume i*
+    *em que Dados primários (volume i) = Tamanho dos dados primários alocados para o volume i*
  
-    If the snapshots are deleted through the service, the deletion is done asynchronously in the background. It may take some time for the volume data size to be updated following the snapshot deletion. 
-
-    If running Update 3 or later, then the snapshot data is not included in the volume data. And the primary utilization is calculated as follows:
-
-    *Primary data (All volumes) = Sum of (Primary data (volume i)
-    
-    *where, Primary data (volume i) = Size of primary data allocated to volume i*
+- **Volumes com monitoramento desabilitado incluídos em todos os volumes**: se você tiver volumes no dispositivo para os quais o monitoramento está desabilitado, os dados de monitoramento para esses volumes individuais não estarão disponíveis nos gráficos. No entanto, os dados de todos os volumes no gráfico incluem os volumes para os quais o monitoramento está desativado.
  
-- **Volumes with monitoring disabled included in all volumes**: If you have volumes on your device for which monitoring is turned off, the monitoring data for these individual volumes will not be available in the charts. However, the data for all volumes in the chart includes the volumes for which monitoring is turned off. 
- 
-- **Deleted volumes with live associated backups included for all volumes**: If volumes containing snapshot data are deleted but the associated snapshots still exist, then you may see a mismatch.
+- **Volumes excluídos com backups associados dinamicamente incluídos em todos os volumes**: se volumes que contêm dados do instantâneo são excluídos mas os instantâneos associados ainda existem, você poderá ver uma divergência.
 
-- **Deleted volumes included for all volumes**: In some instances, old volumes may exist even though these were deleted. The effect of deletion is not seen and the device may show lower available capacity. You need to contact Microsoft Support to remove these volumes.
+- **Excluído volumes incluídos em todos os volumes**: em alguns casos, os volumes antigos podem existir mesmo que eles tenham sido excluídos. O efeito de exclusão não é visto e o dispositivo pode mostrar menos capacidade disponível. Você precisa contatar o Suporte da Microsoft para remover esses volumes.
 
-The following charts show the primary storage capacity utilization of a StorSimple device before and after a cloud snapshot was taken. As this is just volume data, a cloud snapshot should not change the primary storage. As you can see, the chart shows no difference in the primary capacity utilization as a result of taking a cloud snapshot. The cloud snapshot started at around 2:00 pm on that device.
+Os gráficos a seguintes mostram o uso da capacidade de armazenamento principal de um dispositivo StorSimple antes e depois de um instantâneo de nuvem ter sido capturado. Como esses são apenas dados de volume, um instantâneo de nuvem não deve alterar o armazenamento primário. Como você pode ver, o gráfico não mostra nenhuma diferença na utilização da capacidade primária como resultado de fazer um instantâneo da nuvem. O instantâneo de nuvem iniciou aproximadamente às 14h no dispositivo.
 
-![Primary capacity utilization before cloud snapshot](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
+![Utilização da capacidade primária antes do instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
 
-![Primary capacity utilization after cloud snapshot](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
+![Utilização da capacidade primária após o instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
 
-If you are running Update 2 or higher, you can break down the primary storage capacity utilization by an individual volume, all volumes, all tiered volumes, and all locally pinned volumes as shown below. Breaking down by all locally pinned volumes will allow you to quickly ascertain how much of the local tier is used up.
+Se estiver executando a Atualização 2 ou superior, você poderá dividir a utilização da capacidade principal do armazenamento por um volume individual, todos os volumes, todos os volumes em camadas e todos os volumes fixados localmente, conforme mostrado abaixo. Dividir por todos os volumes fixados localmente permitirá que você verifique rapidamente o volume da camada local que foi usado.
 
-![Primary capacity utilization for all locally pinned volumes](./media/storsimple-monitor-device/localvolumes.png)
+![Utilização da capacidade principal para todos os volumes fixados localmente](./media/storsimple-monitor-device/localvolumes.png)
 
 
-###<a name="cloud-storage-capacity-utilization"></a>Cloud storage capacity utilization
+###Utilização da capacidade de armazenamento em nuvem
 
-These charts show the amount of cloud storage used. This data is deduplicated and compressed. This amount includes cloud snapshots which might contain data that isn't reflected in any primary volume and is kept for legacy or required retention purposes. You can compare the primary and cloud storage consumption figures to get an idea of the data reduction rate, although the number will not be exact. The following charts show the cloud storage capacity utilization of a StorSimple device before and after a cloud snapshot was taken. The cloud snapshot started at around 2:00 pm on that device and you can see the cloud capacity utilization shot up at the same time, increasing from 5.73 MB to 4.04 GB.
+Esses gráficos mostram a quantidade de armazenamento em nuvem usado. Esses dados passam pela eliminação de duplicação e são compactados. O valor inclui instantâneos de nuvem que podem conter dados que não serão refletidos em nenhum volume primário e são mantidos para fins de retenção obrigatória ou herança. Você pode comparar os valores de consumo de armazenamento de nuvem e principal para obter uma ideia da taxa de redução dos dados, embora o número não vá ser exato. Os gráficos a seguintes mostram o uso da capacidade de armazenamento em nuvem de um dispositivo StorSimple antes e depois da captura de um instantâneo de nuvem. O instantâneo de nuvem iniciou aproximadamente às 14h no dispositivo e você pode ver a captura de utilização da capacidade de nuvem ao mesmo tempo, aumentando de 5,73 MB para 4,04 GB.
 
-![Cloud capacity utilization before cloud snapshot](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers2M.png)
+![Utilização da capacidade da nuvem antes do instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers2M.png)
 
-![Cloud capacity utilization after cloud snapshot](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers1M.png)
-
-
-###<a name="device-storage-capacity-utilization"></a>Device storage capacity utilization
-
-These charts show the total utilization for the device, which will be more than primary storage utilization because it includes the SSD linear tier. This tier contains an amount of data that also exists on the device's other tiers. The capacity in the SSD linear tier is cycled so that when new data comes in, the old data is moved to the HDD tier (at which time it is deduplicated and compressed) and subsequently to the cloud.
-
-Over time, primary capacity utilization and device capacity utilization will most likely increase together until the data begins to be tiered to the cloud. At that point, the device capacity utilization will probably begin to plateau, but the primary capacity utilization will increase as more data is written.
-
-The following charts show the primary storage capacity utilization of a StorSimple device before and after a cloud snapshot was taken. The cloud snapshot started at 2:00 pm and the device capacity utilization started decreasing at that time. The device storage capacity utilization went down from 11.58 GB to 7.48 GB. This indicates that most likely the uncompressed data in the linear SSD tier was deduplicated, compressed, and moved into the HDD tier. Note that if the device already has a large amount of data in both the SSD and HDD tiers, you may not see this decrease. In this example, the device has a small amount of data.
-
-![Device capacity utilization before cloud snapshot](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil2M.png)
-
-![Device capacity utilization after cloud snapshot](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil1M.png)
+![Utilização da capacidade da nuvem após o instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers1M.png)
 
 
-## <a name="network-throughput"></a>Network throughput
+###Utilização da capacidade de armazenamento do dispositivo
 
-**Network throughput** tracks metrics related to the amount of data transferred from the iSCSI initiator network interfaces on the host server and the device and between the device and the cloud. You can monitor this metric for each of the iSCSI network interfaces on your device.
+Esses gráficos mostram a utilização total para o dispositivo mostra a utilização total para o dispositivo, que será maior do que a utilização do armazenamento principal porque inclui a camada SSD linear. Essa camada contém uma quantidade de dados que também existe nas outras camadas do dispositivo. A capacidade na camada SSD linear é alternada para que quando novos dados chegam, os dados antigos sejam movidos para a camada HDD (momento no qual eles passam por eliminação de duplicação e são compactados) e subsequentemente para a nuvem.
 
-The following charts show the network throughput for the Data 0 and Data 4, both 1 GbE network interfaces on your device. In this instance, Data 0 was cloud-enabled whereas Data 4 was iSCSI-enabled. You can see both the inbound and the outbound traffic for your StorSimple device. The flat line in the chart starting from 3:24 pm is owing to the fact that we gather data only every 5 minutes and should be ignored. 
+Ao longo do tempo, utilização da capacidade principal e utilização da capacidade do dispositivo provavelmente aumentarão juntas até que os dados comecem a ser organizados em camadas na nuvem. Nesse ponto, a utilização da capacidade do dispositivo provavelmente começará a atingir a estabilidade, mas a utilização da capacidade principal aumentará conforme mais dados forem gravados.
 
-![Network throughput for Data4](./media/storsimple-monitor-device/StorSimple_NetworkThroughput_Data0M.png)
+Os gráficos a seguintes mostram o uso da capacidade de armazenamento principal de um dispositivo StorSimple antes e depois de um instantâneo de nuvem ter sido capturado. O instantâneo de nuvem iniciou às 14h e a utilização da capacidade do dispositivo começou a diminuir naquela hora. O uso da capacidade de armazenamento do dispositivo diminuiu de 11,58 GB para 7,48 GB. Isso indica que provavelmente os dados descompactados na camada SSD linear tiveram a duplicação eliminada e foram compactados e movidos para a camada de unidade de disco rígido. Observe que, se o dispositivo já tiver uma grande quantidade de dados nas camadas de SSD e unidade de disco rígido, você poderá não ver essa redução. Neste exemplo, o dispositivo tem uma pequena quantidade de dados.
 
-![Network throughput for Data4](./media/storsimple-monitor-device/StorSimple_NetworkThroughput_Data4M.png)
+![Utilização da capacidade do dispositivo antes do instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil2M.png)
 
-
-## <a name="device-performance"></a>Device performance 
-
-**Device performance** tracks metrics related to the performance of your device. The following chart shows the CPU utilization stats for a device in production.
-
-![CPU utilization for device](./media/storsimple-monitor-device/StorSimple_DeviceMonitor_DevicePerformance1M.png)
-
-## <a name="next-steps"></a>Next steps
-
-- Learn how to [use the StorSimple Manager service device dashboard](storsimple-device-dashboard.md).
-
-- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+![Utilização da capacidade do dispositivo após o instantâneo da nuvem](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil1M.png)
 
 
+## Taxa de transferência de rede
 
-<!--HONumber=Oct16_HO2-->
+A **taxa de transferência de rede** acompanha as métricas relacionadas à quantidade de dados transferidos de interfaces de rede do iniciador iSCSI no servidor host e o dispositivo e entre o dispositivo e a nuvem. Você pode monitorar essa métrica para cada uma das interfaces de rede iSCSI em seu dispositivo.
+
+Os gráficos a seguir mostram a taxa de transferência de rede para Dado 0 e Dado 4, ambas interfaces de rede de 1 GbE em seu dispositivo. Neste exemplo, Dado 0 estava habilitado para nuvem, enquanto Dado 4 estava habilitado para iSCSI. Você pode ver a entrada e a saída de tráfego para o seu dispositivo StorSimple. A linha reta no gráfico a partir das 15h24 se deve ao fato de que coletamos dados somente a cada 5 minutos e deve ser ignorada.
+
+![Taxa de transferência de rede para Data4](./media/storsimple-monitor-device/StorSimple_NetworkThroughput_Data0M.png)
+
+![Taxa de transferência de rede para Data4](./media/storsimple-monitor-device/StorSimple_NetworkThroughput_Data4M.png)
 
 
+## Desempenho do dispositivo 
+
+O **desempenho do dispositivo** acompanha métricas relacionadas ao desempenho do seu dispositivo. O gráfico a seguir mostra as estatísticas de utilização de CPU para um dispositivo em produção.
+
+![Utilização da CPU do dispositivo](./media/storsimple-monitor-device/StorSimple_DeviceMonitor_DevicePerformance1M.png)
+
+## Próximas etapas
+
+- Saiba como [usar o painel de dispositivo do serviço StorSimple Manager](storsimple-device-dashboard.md).
+
+- Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=AcomDC_0914_2016-->

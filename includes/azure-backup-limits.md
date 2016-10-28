@@ -1,35 +1,24 @@
- (backup vaults<properties
-   pageTitle="Azure Backup limits table"
-   description="Describes system limits for Azure Backup."
+<properties
+   pageTitle="Tabela de limites de Backup do Azure"
+   description="Descreve os limites do sistema para Backup do Azure."
    services="backup"
    documentationCenter="NA"
    authors="Jim-Parker"
    manager="jwhit"
    editor="" />
-<tags
-   ms.service="backup"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="10/05/2015"
-   ms.author="trinadhk";"jimpark"; "aashishr" />
+<tags  ms.service="backup" ms.devlang="NA" ms.topic="article" ms.tgt_pltfrm="NA" ms.workload="TBD" ms.date="10/05/2015" ms.author="trinadhk";"jimpark"; "aashishr" />
 
 
-The following limits apply to Azure Backup.
+Os limites a seguir se aplicam ao Backup do Azure.
 
-| Limit Identifier | Default Limit |
+| Identificador de limite | Limite padrão |
 |---|---|
-|Number of servers/machines that can be registered against each vault|50 for Windows Server/Client/SCDPM <br/> 200 for IaaS VMs|
-|Size of a data source for data stored in Azure vault storage|54400 GB max<sup>1</sup>|
-|Number of backup vaults that can be created in each Azure subscription|25(Backup vaults) <br/> 25 Recovery Services vault per region|
-|Number of times backup can be scheduled per day|3 per day for Windows Server/Client <br/> 2 per day for SCDPM <br/> Once a day for IaaS VMs|
-|Data disks attached to an Azure virtual machine for backup|16|
+|Número de servidores/computadores que podem ser registrados em cada cofre|50 por Windows Server/Client/SCDPM <br/> 200 para VMs de IaaS|
+|Tamanho de uma fonte de dados para dados armazenados no armazenamento de cofre do Azure|Máximo de 54400 GB <sup>1</sup>|
+|Número de cofres de backup que podem ser criados em cada assinatura do Azure|25|
+|Número de vezes que o backup pode ser agendado por dia|Três vezes por dia para Windows Server/Cliente <br/> Duas vezes por dia para SCDPM <br/> Uma vez por dia para VMs de IaaS|
+|Discos de dados conectados a uma máquina virtual do Azure para backup|16|
 
-- <sup>1</sup>The 54400 GB limit does not apply to IaaS VM backup.
+- <sup>1</sup>O limite de 54400 GB não se aplica ao backup de VM de IaaS.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

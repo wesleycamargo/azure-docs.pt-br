@@ -1,27 +1,25 @@
-#### <a name="vpn-type---resource-manager-deployment-model"></a>VPN type - Resource Manager deployment model
+#### Tipo de VPN – modelo de implantação do Gerenciador de Recursos:
 
-|      | **RouteBased**    | **PolicyBased** |
+| | **RouteBased** | **PolicyBased** |
 |-----------------------------------|-------------|------------------|
-| **Site-to-Site**                  | Supported   | Supported        |
-| **VNet-to-VNet**                  | Supported   | Not Supported    |
-| **Multi-Site**                    | Supported   | Not Supported    |
-| **S2S and ExpressRoute coexist**  | Supported   | Not Supported    |
-| **Point-to-Site**                 | Supported   | Not Supported    |
-| **Classic to Resource Manager**   | Supported   | Not Supported    |
+| **Site a site** | Suportado | Suportado |
+| **Rede Virtual a Rede Virtual** | Suportado | Sem suporte |
+| **Multissite** | Suportado | Sem suporte |
+| **Coexistência do S2S e da Rota Expressa** | Suportado | Sem suporte |
+| **Ponto a Site** | Suportado | Sem suporte |
+| **Clássico para o Gerenciador de Recursos** | Suportado | Sem suporte |
 
 
-#### <a name="vpn-type---classic-deployment-model"></a>VPN type - classic deployment model
+#### Tipo de VPN – modelo de implantação clássico.
 
 
-|       | **Dynamic**        | **Static**   |
+| | **Dinâmico** | **Estático** |
 |---------------------------------------------|--------------|--------------|
-| **Site-to-Site**                            | Supported    | Supported      |
-| **VNet-to-VNet**                            | Supported    | Not Supported  |
-| **Multi-Site**                              | Supported    | Not Supported  |
-| **S2S and ExpressRoute coexist**            | Supported    | Not Supported  |
-| **Point-to-Site**                           | Supported    | Not Supported  |
-| **Classic to Resource Manager**             | Supported    | Not Supported  |
+| **Site a site** | Suportado | Suportado |
+| **Rede Virtual a Rede Virtual** | Suportado | Sem suporte |
+| **Multissite** | Suportado | Sem suporte |
+| **Coexistência do S2S e da Rota Expressa** | Suportado | Sem suporte |
+| **Ponto a Site** | Suportado | Sem suporte |
+| **Clássico para o Gerenciador de Recursos** | Suportado | Sem suporte |
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

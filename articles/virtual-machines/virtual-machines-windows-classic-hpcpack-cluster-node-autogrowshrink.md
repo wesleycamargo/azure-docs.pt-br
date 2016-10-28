@@ -1,6 +1,6 @@
 <properties
- pageTitle="Autoscale HPC Pack cluster nodes | Microsoft Azure"
- description="Automatically grow and shrink the number of HPC Pack cluster compute nodes in Azure"
+ pageTitle="Dimensionar automaticamente nós de cluster do HPC Pack | Microsoft Azure"
+ description="Aumentar e reduzir automaticamente o número de nós de computação de cluster do HPC Pack no Azure"
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -16,104 +16,102 @@ ms.service="virtual-machines-windows"
  ms.date="07/22/2016"
  ms.author="danlep"/>
 
-
-# <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Automatically grow and shrink the HPC Pack cluster resources in Azure according to the cluster workload
-
+# Aumentar e reduzir automaticamente os recursos de cluster do HPC Pack no Azure conforme a carga de trabalho de cluster
 
 
 
-If you deploy Azure “burst” nodes in your HPC Pack cluster, or you create an HPC Pack cluster in Azure VMs, you may want a way to automatically grow or shrink the number of Azure compute resources such as nodes or cores according to the current workload on the cluster. This allows you to use your Azure resources more efficiently and control their costs.
-To do this, set up the HPC Pack cluster property **AutoGrowShrink**. Alternatively, run the **AzureAutoGrowShrink.ps1** HPC PowerShell script that is installed with HPC Pack.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Also, currently you can only automatically grow and shrink HPC Pack compute nodes that are running a Windows Server operating system.
+Se você implantar nós de “disparo contínuo” no seu cluster do HPC Pack ou criar um cluster HPC Pack em VMs do Azure, poderá ser conveniente encontrar uma maneira de aumentar ou reduzir automaticamente o número de recursos de computação do Azure como nós ou núcleos, de acordo com a atual carga de trabalho atual no cluster. Isso permite usar os recursos do Azure com mais eficiência e controlar seus custos. Para fazer isso, configure a propriedade de cluster de HPC Pack **AutoGrowShrink**. Ou então, use o script **AzureAutoGrowShrink.ps1** do script HPC PowerShell que é instalado com o HPC Pack.
 
-## <a name="set-the-autogrowshrink-cluster-property"></a>Set the AutoGrowShrink cluster property
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Além disso, no momento somente é possível aumentar ou reduzir automaticamente nós de computação HPC Pack que estão em execução em um sistema operacional Windows Server.
 
-### <a name="prerequisites"></a>Prerequisites
+## Definir a propriedade de cluster AutoGrowShrink
 
-* **HPC Pack 2012 R2 Update 2 or later cluster** - The cluster head node can be deployed either on-premises or in an Azure VM. See [Set up a hybrid cluster with HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) to get started with an on-premises head node and Azure "burst" nodes. See the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to quickly deploy a HPC Pack cluster in Azure VMs.
+### Pré-requisitos
 
-
-* **For a cluster with a head node in Azure** - If you use the HPC Pack IaaS deployment script to create the cluster, enable the **AutoGrowShrink** cluster property by setting the AutoGrowShrink option in the cluster configuration file. For details, see the documentation accompanying the [script download](https://www.microsoft.com/download/details.aspx?id=44949). 
-
-    Alternatively, enable the **AutoGrowShrink** cluster property after you deploy the cluster by using HPC PowerShell commands described in the following section. To prepare for this, first complete the following steps:
-    1. Configure an Azure management certificate on the head node and in the Azure subscription. For a test deployment you can use the Default Microsoft HPC Azure self-signed certificate that HPC Pack installs on the head node, and simply upload that certificate to your Azure subscription. For options and steps, see the [TechNet Library guidance](https://technet.microsoft.com/library/gg481759.aspx).
-    2. Run **regedit** on the head node, go to HKLM\SOFTWARE\Micorsoft\HPC\IaasInfo, and add a new string value. Set the Value name to “ThumbPrint”, and Value data to the thumbprint of the certificate in Step 1.
+* **Cluster do HPC Pack 2012 R2 Atualização 2 ou posterior**: o nó de cabeçalho do cluster pode ser implantado localmente ou em uma VM do Azure. Veja [Configurar um cluster híbrido com o HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) para começar com um nó de cabeçalho local e os nós de “disparo contínuo” do Azure. Consulte o [script de implantação de IaaS do HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) para implantar rapidamente um cluster HPC Pack em VMs do Azure.
 
 
-### <a name="hpc-powershell-commands-to-set-the-autogrowshrink-property"></a>HPC PowerShell commands to set the AutoGrowShrink property
+* **Para um cluster com um nó principal no Azure**: se você usar o script de implantação do IaaS HPC Pack para criar o cluster, habilite a propriedade de cluster **AutoGrowShrink** definindo a opção AutoGrowShrink no arquivo de configuração do cluster. Para obter detalhes, consulte a documentação que acompanha o [download do script](https://www.microsoft.com/download/details.aspx?id=44949).
 
-Following are sample HPC PowerShell commands to set **AutoGrowShrink** and to tune its behavior with additional parameters. See [AutoGrowShrink parameters](#AutoGrowShrink-parameters) later in this article for the complete list of settings. 
+    Como alternativa, habilite a propriedade de cluster **AutoGrowShrink** depois de implantá-lo usando os comandos do PowerShell HPC descritos na seção a seguir. Para se preparar para isso, primeiro conclua as seguintes etapas:
+    1. Configure o certificado de gerenciamento do Azure no nó de cabeçalho na assinatura do Azure. Para uma implantação de teste, você pode usar o certificado autoassinado padrão do Microsoft HPC Azure que instala o HPC Pack no nó principal e simplesmente carregar esse certificado para sua assinatura do Azure. Para ver as opções e as etapas, consulte a [diretriz da Biblioteca do TechNet](https://technet.microsoft.com/library/gg481759.aspx).
+    2. Execute **regedit** no nó principal, vá para HKLM\\SOFTWARE\\Micorsoft\\HPC\\IaasInfo e adicione um novo valor de cadeia de caracteres. Defina o nome do valor como "Impressão digital" e dados de Valor para a impressão digital do certificado na Etapa 1.
 
-To run these commands, start HPC PowerShell on the cluster head node as an administrator.
 
-**To enable the AutoGrowShrink property**
+### Comandos do PowerShell HPC para definir a propriedade AutoGrowShrink
+
+A seguir estão exemplos de comandos do PowerShell HPC para definir **AutoGrowShrink** e ajustar seu comportamento com parâmetros adicionais. Consulte [parâmetros de AutoGrowShrink](#AutoGrowShrink-parameters) posteriormente neste artigo para obter uma lista de configurações.
+
+Para executar esses comandos, inicie o PowerShell HPC no nó principal do cluster como um administrador.
+
+**Para habilitar a propriedade AutoGrowShrink**
 
     Set-HpcClusterProperty –EnableGrowShrink 1
 
-**To disable the AutoGrowShrink property**
+**Para desabilitar a propriedade AutoGrowShrink**
 
     Set-HpcClusterProperty –EnableGrowShrink 0
 
-**To change the grow interval in minutes**
+**Para alterar o intervalo de crescimento em minutos**
 
     Set-HpcClusterProperty –GrowInterval <interval>
 
-**To change the shrink interval in minutes**
+**Para alterar o intervalo de diminuição em minutos**
 
     Set-HpcClusterProperty –ShrinkInterval <interval>
 
-**To view the current configuration of AutoGrowShrink**
+**Para exibir a configuração atual de AutoGrowShrink**
 
     Get-HpcClusterProperty –AutoGrowShrink
 
-### <a name="autogrowshrink-parameters"></a>AutoGrowShrink parameters
+### Parâmetros de AutoGrowShrink
 
-The following are AutoGrowShrink parameters that you can modify by using the **Set-HpcClusterProperty** command.
+A seguir estão os parâmetros de AutoGrowShrink que podem ser modificados usando o comando **Set-HpcClusterProperty**.
 
-* **EnableGrowShrink** - Switch to enable or disable the **AutoGrowShrink** property.
-* **ParamSweepTasksPerCore** - Number of parametric sweep tasks to grow one core. The default is to grow one core per task. 
+* **EnableGrowShrink**: alterne para habilitar ou desabilitar a propriedade **AutoGrowShrink**.
+* **ParamSweepTasksPerCore**: número de tarefas de limpeza paramétrica para aumentar um núcleo. O padrão é a aumentar um núcleo por tarefa.
  
-    >[AZURE.NOTE] HPC Pack QFE KB3134307 changes **ParamSweepTasksPerCore** to **TasksPerResourceUnit**. It is based on the job resource type and can be node, socket, or core.
+    >[AZURE.NOTE] O QFE KB3134307 do HPC Pack altera o **ParamSweepTasksPerCore** para **TasksPerResourceUnit**. Ele se baseia no tipo de recurso de trabalho e pode ser nó, soquete ou núcleo.
     
-* **GrowThreshold** - Threshold of queued tasks to trigger automatic growth. The default is 1, which means that if there are 1 or more tasks in the queued state, automatically grow nodes.
-* **GrowInterval** - Interval in minutes to trigger automatic growth. The default interval is 5 minutes.
-* **ShrinkInterval** - Interval in minutes to trigger automatic shrinking. The default interval is 5 minutes.|
-* **ShrinkIdleTimes** - Number of continuous checks to shrink to indicate the nodes are idle. The default is 3 times. For example, if the **ShrinkInterval** is 5 minutes, HPC Pack checks whether the node is idle every 5 minutes. If the nodes are in the idle state after 3 continuous checks (15 minutes), then HPC Pack shrinks that node.
-* **ExtraNodesGrowRatio** - Additional percentage of nodes to grow for Message Passing Interface (MPI) jobs. The default value is 1, which means that HPC Pack grows nodes 1% for MPI jobs. 
-* **GrowByMin** - Switch to indicate whether the autogrow policy is based on the minimum resources required for the job. The default is false, which means that HPC Pack grows nodes for jobs based on the maximum resources required for the jobs.
-* **SoaJobGrowThreshold** - Threshold of incoming SOA requests to trigger the automatic grow process. The default value is 50000.  
+* **GrowThreshold**: limite de tarefas em fila para disparar o crescimento automático. O padrão é 1, o que significa que, se houver 1 ou mais tarefas no estado em fila, os nós aumentarão automaticamente.
+* **GrowInterval**: intervalo em minutos para disparar o crescimento automático. O intervalo padrão é 5 minutos.
+* **ShrinkInterval**: intervalo em minutos para disparar a redução automática. O intervalo padrão é 5 minutos.
+* **ShrinkIdleTimes**: o número de verificações contínuas para reduzir para indicar que os nós estão ociosos. O padrão é 3. Por exemplo, se o **ShrinkInterval** for de 5 minutos, o HPC Pack verifica se o nó está ocioso a cada 5 minutos. Se os nós estiverem no estado ocioso após 3 verificações contínuas (15 minutos), o HPC Pack reduzirá esse nó.
+* **ExtraNodesGrowRatio**: percentual adicional de nós para crescimento de trabalhos de MPI (Interface Transferência de Mensagens). O valor padrão é 1, o que significa que o HPC Pack aumenta 1% dos nós para trabalhos MPI.
+* **GrowByMin**: alterne para indicar se a política de crescimento automático se baseia nos recursos mínimos necessários para o trabalho. O padrão é false, o que significa que o HPC Pack aumenta os nós para trabalhos com base nos recursos máximo necessários para os trabalhos.
+* **SoaJobGrowThreshold**: limite de solicitações SOA de entrada para disparar o processo de crescimento automático. O valor padrão é 50000.
     
-    >[AZURE.NOTE] This parameter is supported starting in HPC Pack 2012 R2 Update 3.
+    >[AZURE.NOTE] Esse parâmetro tem suporte a partir do HPC Pack 2012 R2 Atualização 3.
     
-* **SoaRequestsPerCore** -Number of incoming SOA requests to grow one core. The default value is 20000.  
+* **SoaRequestsPerCore**: o número de solicitações SOA de entrada para aumentar um núcleo. O valor padrão é 20000.
 
-    >[AZURE.NOTE] This parameter is supported starting in HPC Pack 2012 R2 Update 3.
+    >[AZURE.NOTE] Esse parâmetro tem suporte a partir do HPC Pack 2012 R2 Atualização 3.
 
-### <a name="mpi-example"></a>MPI example
+### Exemplo de MPI
 
-By default HPC Pack grows 1% extra nodes for MPI jobs (**ExtraNodesGrowRatio** is set to 1). The reason is that MPI may require multiple nodes, and the job can only run when all nodes are ready. When Azure starts nodes, occasionally one node might need more time to start than others, causing other nodes to be idle while waiting for that node to get ready. By growing extra nodes, HPC Pack reduces this resource waiting time, and potentially saves costs. To increase the percentage of extra nodes for MPI jobs (for example, to 10%), run a command similar to
+Por padrão, o HPC Pack aumenta 1% de nós extras para trabalhos MPI (**ExtraNodesGrowRatio** está definido como 1). O motivo é que MPI pode exigir vários nós e o trabalho pode ser executado somente quando todos os nós estiverem prontos. Quando o Azure inicia os nós, ocasionalmente, um nó pode precisar de mais tempo para iniciar que os outros, fazendo com que outros nós fiquem ociosos enquanto aguardam esse nó ficar pronto. Ao aumentar nós extras, o HPC Pack reduz o tempo de espera desse recurso e potencialmente reduz os custos. Para aumentar o percentual de nós extras para trabalhos de MPI (por exemplo, para 10%), execute um comando semelhante a
 
     Set-HpcClusterProperty -ExtraNodesGrowRatio 10
 
-### <a name="soa-example"></a>SOA example
+### Exemplo de SOA
 
-By default, **SoaJobGrowThreshold** is set to 50000 and **SoaRequestsPerCore** is set to 200000. If you submit one SOA job with 70000 requests, there will be one queued task and incoming requests are 70000. In this case HPC Pack grows 1 core for the queued task, and for incoming requests, will grow (70000 - 50000)/20000 = 1 core, so in total will grow 2 cores for this SOA job.
+Por padrão, **SoaJobGrowThreshold** é definido como 50000 e **SoaRequestsPerCore** é definido como 200000. Se você enviar um trabalho SOA com 70000 solicitações, haverá uma tarefa na fila e as solicitações de entrada serão 70000. Nesse caso, o HPC Pack aumenta 1 núcleo para a tarefa em fila, e para solicitações de entrada aumentará (70000 - 50000)/20000 = 1 núcleo, portanto o total aumentará em 2 núcleos para este trabalho SOA.
 
-## <a name="run-the-azureautogrowshrink.ps1-script"></a>Run the AzureAutoGrowShrink.ps1 script
+## Executar o script AzureAutoGrowShrink.ps1
 
-### <a name="prerequisites"></a>Prerequisites
+### Pré-requisitos
 
-* **HPC Pack 2012 R2 Update 1 or later cluster** - The **AzureAutoGrowShrink.ps1** script is installed in the %CCP_HOME%bin folder. The cluster head node can be deployed either on-premises or in an Azure VM. See [Set up a hybrid cluster with HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) to get started with an on-premises head node and Azure "burst" nodes. See the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to quickly deploy a HPC Pack cluster in Azure VMs, or use an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
+* **Cluster HPC Pack 2012 R2 Atualização 1 ou posterior** - O script **AzureAutoGrowShrink.ps1** está instalado na pasta %CCP\_HOME%bin. O nó de cabeçalho do cluster pode ser implantado localmente ou em uma VM do Azure. Veja [Configurar um cluster híbrido com o HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) para começar com um nó de cabeçalho local e os nós de “disparo contínuo” do Azure. Consulte o [script de implantação IaaS do HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) para implantar rapidamente um cluster HPC Pack em VMs do Azure ou use um [modelo de início rápido do Azure](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
 
-* **Azure PowerShell 0.8.12** - The script currently depends on this specific version of Azure PowerShell. If you are running a later version on the head node, you might have to downgrade Azure PowerShell to [version 0.8.12](http://az412849.vo.msecnd.net/downloads03/azure-powershell.0.8.12.msi) to run the script. 
+* **Azure PowerShell 0.8.12**: o script depende atualmente desta versão específica do Azure PowerShell. Se você estiver executando uma versão mais recente no nó principal, terá que fazer downgrade do Azure PowerShell para a [versão 0.8.12](http://az412849.vo.msecnd.net/downloads03/azure-powershell.0.8.12.msi) para executar o script.
 
-* **For a cluster with Azure burst nodes** - Run the script on a client computer where HPC Pack is installed, or on the head node. If running on a client computer, ensure that you set the variable $env:CCP_SCHEDULER properly to point to the head node. The Azure “burst” nodes must already be added to the cluster, but they may be in the Not-Deployed state.
+* **Para um cluster com nós de disparo contínuo do Azure** - Execute o script em um computador cliente em que o HPC Pack está instalado ou no nó de cabeçalho. Se executado em um computador cliente, certifique-se de que você defina a variável $env:CCP\_SCHEDULER corretamente para apontar para o nó de cabeçalho. Os nós de “disparo contínuo” do Azure já devem ter sido adicionados ao cluster, mas podem estar no estado Não Implantado.
 
 
-* **For a cluster deployed in Azure VMs** - Run the script on the head node VM, because it depends on the **Start-HpcIaaSNode.ps1** and **Stop-HpcIaaSNode.ps1** scripts that are installed there. Those scripts additionally require an Azure management certificate or publish settings file (see [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md)). Make sure all the compute node VMs you need are already added to the cluster. They may be in the Stopped state.
+* **Para um cluster implantado em VMs do Azure** - Execute o script no nó de cabeçalho da VM, pois ele depende dos scripts **Start-HpcIaaSNode.ps1** e **Stop-HpcIaaSNode.ps1** que estão instalados ali. Além disso, esses scripts exigem um certificado de gerenciamento ou um arquivo de configurações de publicação do Azure (veja [Gerenciar nós de computação em um cluster HPC Pack no Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md)). Verifique se todas as VMs de nó de computação necessárias já foram adicionadas ao cluster. Eles podem estar no estado Parado.
 
-### <a name="syntax"></a>Syntax
+### Sintaxe
 
 ```
 AzureAutoGrowShrink.ps1
@@ -128,43 +126,43 @@ AzureAutoGrowShrink.ps1
 [<CommonParameters>]
 
 ```
-### <a name="parameters"></a>Parameters
+### Parâmetros
 
- * **NodeTemplates** - Names of the node templates to define the scope for the nodes to grow and shrink. If not specified (the default value is @()), all nodes in the **AzureNodes** node group are in scope when **NodeType** has a value of AzureNodes, and all nodes in the **ComputeNodes** node group are in scope when **NodeType** has a value of ComputeNodes.
+ * **NodeTemplates** - Nomes dos modelos de nó para definir o escopo para que os nós sejam aumentados ou reduzidos. Se não for especificado (o valor padrão é @()), todos os nós no grupo de nós **AzureNodes** estarão no escopo quando **NodeType** tiver um valor de AzureNodes, e todos os nós do grupo de nós **ComputeNodes** estarão no escopo quando **NodeType** tiver um valor de ComputeNodes.
 
- * **JobTemplates** - Names of the job templates to define the scope for the nodes to grow.
+ * **JobTemplates** - Nomes dos modelos de trabalho para definir o escopo para que os nós sejam aumentados.
 
- * **NodeType** - The type of node to grow and shrink. Supported values are:
+ * **NodeType** - O tipo de nó para ser aumentado ou reduzido. Os valores para os quais há suporte são:
 
-     * **AzureNodes** – for Azure PaaS (burst) nodes in an on-premises or Azure IaaS cluster.
+     * **AzureNodes** – para os nós (de disparo contínuo) de PaaS do Azure em cluster local ou de IaaS do Azure.
 
-     * **ComputeNodes** - for compute node VMs only in an Azure IaaS cluster.
+     * **ComputeNodes** - para VMs de nó de computação apenas em um cluster de IaaS do Azure.
 
-* **NumOfQueuedJobsPerNodeToGrow** - Number of queued jobs required to grow one node.
+* **NumOfQueuedJobsPerNodeToGrow** - Número de trabalhos em fila necessários para aumentar um nó.
 
-* **NumOfQueuedJobsToGrowThreshold** - The threshold number of queued jobs to start the grow process.
+* **NumOfQueuedJobsToGrowThreshold** - O número de trabalhos em fila para iniciar o processo de aumento.
 
-* **NumOfActiveQueuedTasksPerNodeToGrow** - The number of active queued tasks required to grow one node. If **NumOfQueuedJobsPerNodeToGrow** is specified with a value greater than 0, this parameter is ignored.
+* **NumOfActiveQueuedTasksPerNodeToGrow** - O número de tarefas em fila ativas necessárias para aumentar um nó. Se **NumOfQueuedJobsPerNodeToGrow** for especificado com um valor maior que 0, esse parâmetro será ignorado.
 
-* **NumOfActiveQueuedTasksToGrowThreshold** - The threshold number of active queued tasks to start the grow process.
+* **NumOfActiveQueuedTasksToGrowThreshold** - O número de tarefas em fila ativas para iniciar o processo de aumento.
 
-* **NumOfInitialNodesToGrow** - The initial minimum number of nodes to grow if all the nodes in scope are **Not-Deployed** or **Stopped (Deallocated)**.
+* **NumOfInitialNodesToGrow** - O número mínimo inicial de nós a ser aumentado se todos os nós no escopo forem **Não Implantados** ou **Interrompidos (Desalocados)**.
 
-* **GrowCheckIntervalMins** - The interval in minutes between checks to grow.
+* **GrowCheckIntervalMins** - O intervalo em minutos entre as verificações a ser aumentado.
 
-* **ShrinkCheckIntervalMins** - The interval in minutes between checks to shrink.
+* **ShrinkCheckIntervalMins** - O intervalo em minutos entre as verificações a ser reduzido.
 
-* **ShrinkCheckIdleTimes** - The number of continuous shrink checks (separated by **ShrinkCheckIntervalMins**) to indicate the nodes are idle.
+* **ShrinkCheckIdleTimes**: o número de verificações de redução contínuas (separado por **ShrinkCheckIntervalMins**) para indicar que os nós estão ociosos.
 
-* **UseLastConfigurations** - The previous configurations saved in the argument file.
+* **UseLastConfigurations**: as configurações anteriores salvas no arquivo de argumento.
 
-* **ArgFile**- The name of the argument file used to save and update the configurations to run the script.
+* **ArgFile**- O nome do arquivo argumento usado para salvar e atualizar as configurações para executar o script.
 
-* **LogFilePrefix** - The prefix name of the log file. You can specify a path. By default the log is written to the current working directory.
+* **LogFilePrefix** - O nome do prefixo do arquivo de log. Você pode especificar um caminho. Por padrão, o log é gravado no atual diretório de trabalho.
 
-### <a name="example-1"></a>Example 1
+### Exemplo 1
 
-The following example configures the Azure burst nodes deployed with the Default AzureNode Template to grow and shrink automatically. If all the nodes are initially in the **Not-Deployed** state, at least 3 nodes are started. If the number of queued jobs exceeds 8, the script starts nodes until their number exceeds the ratio of queued jobs to **NumOfQueuedJobsPerNodeToGrow**. If a node is found to be idle in 3 consecutive idle times, it is stopped.
+O exemplo a seguir configura os nós de disparo contínuo do Azure implantados com o Modelo Padrão AzureNode para aumentar ou reduzir automaticamente. Se todos os nós estiverem inicialmente no estado **Não Implantado**, pelo menos três nós serão iniciados. Se o número de trabalhos em fila exceder oito, o script iniciará os nós até seu número exceder a taxa de trabalhos em fila para **NumOfQueuedJobsPerNodeToGrow**. Se for descoberto que um nó está ocioso em 3 tempos ociosos consecutivos, ele será interrompido.
 
 ```
 .\AzureAutoGrowShrink.ps1 -NodeTemplates @('Default AzureNode
@@ -173,17 +171,12 @@ The following example configures the Azure burst nodes deployed with the Default
  -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 3
 ```
 
-### <a name="example-2"></a>Example 2
+### Exemplo 2
 
-The following example configures the Azure compute node VMs deployed with the Default ComputeNode Template to grow and shrink automatically.
-The jobs configured by the Default job template define the scope of the workload on the cluster. If all the nodes are initially stopped, at least 5 nodes are started. If the number of active queued tasks exceeds 15, the script starts nodes until their number exceeds the ratio of active queued tasks to **NumOfActiveQueuedTasksPerNodeToGrow**. If a node is found to be idle in 10 consecutive idle times, it is stopped.
+O exemplo a seguir configura as VMs de nó de computação do Azure implantadas com o Modelo Padrão ComputeNode para serem aumentadas ou reduzidas automaticamente. Os trabalhos configurados pelo modelo de trabalho Padrão definem o escopo da carga de trabalho no cluster. Se todos os nós forem interrompidos inicialmente, pelo menos cinco nós serão iniciados. Se o número de tarefas em fila ativas exceder quinze, o script iniciará os nós até seu número exceder a taxa de tarefas em fila ativas para **NumOfActiveQueuedTasksPerNodeToGrow**. Se for descoberto que um nó está ocioso em 10 tempos ociosos consecutivos, ele será interrompido.
 
 ```
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

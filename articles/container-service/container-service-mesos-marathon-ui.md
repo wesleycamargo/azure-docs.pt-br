@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Azure Container Service container management through the web UI | Microsoft Azure"
-   description="Deploy containers to an Azure Container Service cluster service by using the Marathon web UI."
+   pageTitle="Gerenciamento de contêiner do Serviço de Contêiner do Azure por meio da interface do usuário da Web | Microsoft Azure"
+   description="Implante contêineres para um serviço de cluster do Serviço de Contêiner do Azure usando a interface do usuário da Web do Marathon."
    services="container-service"
    documentationCenter=""
    authors="neilpeterson"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   keywords="Docker, Contêineres, Microsserviços, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -16,94 +16,89 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/19/2016"
-   ms.author="timlt"/>
+   ms.author="nepeters"/>
 
+# Gerenciamento de contêiner por meio da interface do usuário da Web
 
-# <a name="container-management-through-the-web-ui"></a>Container management through the web UI
+O DC/OS fornece um ambiente de implantação e dimensionamento de cargas de trabalho clusterizadas e, ao mesmo tempo, abstrai o hardware subjacente. Sobre o DC/OS, há uma estrutura que gerencia o agendamento e a execução das cargas de trabalho de computação.
 
-DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.
+Embora haja estruturas disponíveis para várias cargas de trabalho populares, este documento descreverá como você pode criar e dimensionar implantações de contêiner com o Marathon. Antes de trabalhar nos exemplos, você precisará de um cluster DC/OS configurado no Serviço de Contêiner do Azure. Você também precisa ter conectividade remota com esse cluster. Para saber mais sobre esses itens, confira os artigos a seguir:
 
-While frameworks are available for many popular workloads, this document will describe how you can create and scale container deployments with Marathon. Before working through these examples, you will need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
+- [Implantar um cluster do Serviço de Contêiner do Azure](container-service-deployment.md)
+- [Conectar a um cluster do Serviço de Contêiner do Azure](container-service-connect.md)
 
-- [Deploy an Azure Container Service cluster](container-service-deployment.md)
-- [Connect to an Azure Container Service cluster](container-service-connect.md)
+## Explorar a interface do usuário do DC/OS
 
-## <a name="explore-the-dc/os-ui"></a>Explore the DC/OS UI
+Com um túnel SSH (Secure Shell) estabelecido, navegue até http://localhost/. Isso carrega a interface do usuário da Web do DC/OS e mostrará informações sobre o cluster, como recursos usados, agentes ativos e serviços em execução.
 
-With a Secure Shell (SSH) tunnel established, browse to http://localhost/. This loads the DC/OS web UI and shows information about the cluster, such as used resources, active agents, and running services.
+![Interface do usuário do DC/OS](media/dcos/dcos2.png)
 
-![DC/OS UI](media/dcos/dcos2.png)
+## Explorar a interface do usuário do Marathon
 
-## <a name="explore-the-marathon-ui"></a>Explore the Marathon UI
+Para ver a interface do usuário do Marathon, navegue até http://localhost/Marathon. Nessa tela, você pode iniciar um novo contêiner ou outro aplicativo no cluster DC/OS do Serviço de Contêiner do Azure. Você também pode ver informações sobre a execução de aplicativos e de contêineres.
 
-To see the Marathon UI, browse to http://localhost/Marathon. From this screen, you can start a new container or another application on the Azure Container Service DC/OS cluster. You can also see information about running containers and applications.  
+![Interface do usuário do Marathon](media/dcos/dcos3.png)
 
-![Marathon UI](media/dcos/dcos3.png)
+## Implantar um contêiner formatado pelo Docker
 
-## <a name="deploy-a-docker-formatted-container"></a>Deploy a Docker-formatted container
+Para implantar um novo contêiner usando o Marathon, clique no botão **Criar Aplicativo** e insira as informações a seguir no formulário.
 
-To deploy a new container by using Marathon, click the **Create Application** button, and enter the following information into the form:
-
-Field           | Value
+Campo | Valor
 ----------------|-----------
-ID              | nginx
-Image           | nginx
-Network         | Bridged
-Host Port       | 80
-Protocol        | TCP
+ID | nginx
+Imagem | nginx
+Rede | Com ponte
+Porta de host | 80
+Protocolo | TCP
 
-![New Application UI--General](media/dcos/dcos4.png)
+![Interface do usuário do novo aplicativo – geral](media/dcos/dcos4.png)
 
-![New Application UI--Docker Container](media/dcos/dcos5.png)
+![Interface do usuário do novo aplicativo – contêiner do Docker](media/dcos/dcos5.png)
 
-![New Application UI--Ports and Service Discovery](media/dcos/dcos6.png)
+![Interface do usuário do novo aplicativo - descoberta de serviço e portas](media/dcos/dcos6.png)
 
-If you want to statically map the container port to a port on the agent, you need to use JSON Mode. To do so, switch the New Application wizard to **JSON Mode** by using the toggle. Then enter the following under the `portMappings` section of the application definition. This example binds port 80 of the container to port 80 of the DC/OS agent. You can switch this wizard out of JSON Mode after you make this change.
+Se você deseja mapear estaticamente a porta do contêiner para uma porta no agente, precisa usar o Modo JSON. Para fazer isso, alterne o assistente de Novo Aplicativo para **Modo JSON** usando o botão de alternância. Em seguida, digite o seguinte na seção `portMappings` da definição do aplicativo. Este exemplo associa a porta 80 do contêiner à porta 80 do agente DC/OS. Depois de fazer essa alteração, você pode remover o assistente do Modo JSON.
 
 ```none
 "hostPort": 80,
 ```
 
-![New Application UI--port 80 example](media/dcos/dcos13.png)
+![Interface do usuário do novo aplicativo – exemplo de porta 80](media/dcos/dcos13.png)
 
-The DC/OS cluster is deployed with set of private and public agents. For the cluster to be able to access applications from the Internet, you need to deploy the applications to a public agent. To do so, select the **Optional** tab of the New Application wizard and enter **slave_public** for the **Accepted Resource Roles**.
+O cluster DC/OS é implantado com um conjunto de agentes privados e públicos. Para que o cluster possa acessar aplicativos da Internet, você precisa implantar os aplicativos em um agente público. Para fazer isso, selecione a guia **opcional** do assistente de Novo Aplicativo e insira **slave\_public** em **Funções de Recurso Aceitas**.
 
-![New Application UI--public agent setting](media/dcos/dcos14.png)
+![Interface do usuário do novo aplicativo - configuração do agente público](media/dcos/dcos14.png)
 
-Back on the Marathon main page, you can see the deployment status for the container.
+Novamente na página principal do Marathon, você poderá ver o status da implantação para o contêiner.
 
-![Marathon main page UI--container deployment status](media/dcos/dcos7.png)
+![Interface do usuário da página principal do Marathon – status da implantação do contêiner](media/dcos/dcos7.png)
 
-When you switch back to the DC/OS web UI (http://localhost/), you will see that a task (in this case, a Docker-formatted container) is running on the DC/OS cluster.
+Ao alternar de volta para a interface do usuário Web DC/OS (http://localhost/), você verá que uma tarefa (nesse caso, um contêiner formatado do Docker) está em execução no cluster DC/OS.
 
-![DC/OS web UI--task running on the cluster](media/dcos/dcos8.png)
+![Interface do usuário Web DC/OS – tarefa em execução no cluster](media/dcos/dcos8.png)
 
-You can also see the cluster node that the task is running on.
+Você também pode ver o nó de cluster no qual a tarefa está em execução.
 
-![DC/OS web UI--task cluster node](media/dcos/dcos9.png)
+![Interface do usuário Web DC/OS - nó do cluster de tarefa](media/dcos/dcos9.png)
 
-## <a name="scale-your-containers"></a>Scale your containers
+## Dimensionar seus contêineres
 
-You can use the Marathon UI to scale the instance count of a container. To do so, navigate to the **Marathon** page, select the container that you want to scale, and click the **Scale** button. In the **Scale Application** dialog box, enter the number of container instances that you want, and select **Scale Application**.
+Você pode usar a interface do usuário do Marathon para dimensionar a contagem de instâncias de um contêiner. Para fazer isso, navegue até a página **Marathon**, selecione o contêiner que deseja dimensionar e clique no botão **Dimensionar**. Na caixa de diálogo **Dimensionar Aplicativo**, insira o número da instância de contêiner desejado e selecione **Dimensionar Aplicativo**.
 
-![Marathon UI--Scale Application dialog box](media/dcos/dcos10.png)
+![Interface do usuário do Maratona - caixa de diálogo Dimensionar Aplicativo](media/dcos/dcos10.png)
 
-After the scale operation finishes, you will see multiple instances of the same task spread across DC/OS agents.
+Após a conclusão da operação de dimensionamento, você verá várias instâncias da mesma tarefa espalhados pelos agentes DC/OS.
 
-![DC/OS web UI dashboard--task spread across agents](media/dcos/dcos11.png)
+![Painel de interface do usuário Web DC/OS – espalhamento de tarefa entre agentes](media/dcos/dcos11.png)
 
-![DC/OS web UI--nodes](media/dcos/dcos12.png)
+![Interface do usuário Web DC/OS - nós](media/dcos/dcos12.png)
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-- [Work with DC/OS and the Marathon API](container-service-mesos-marathon-rest.md)
+- [Trabalhar com DC/SO e a API do Marathon](container-service-mesos-marathon-rest.md)
 
-Deep dive on the Azure Container Service with Mesos
+Aprofunde seus conhecimentos sobre o Serviço de Contêiner do Azure com o Mesos
 
 > [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

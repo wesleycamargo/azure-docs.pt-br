@@ -1,87 +1,69 @@
 <properties
-    pageTitle="Working with Custom Domains in Azure AD Application Proxy | Microsoft Azure"
-    description="Covers how work with custom domains in Azure AD Application Proxy."
-    services="active-directory"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor=""/>
+	pageTitle="Trabalhando com Domínios Personalizados no Proxy de Aplicativo do AD do Azure | Microsoft Azure"
+	description="Aborda como trabalhar com domínios personalizados no Proxy de Aplicativo do AD do Azure."
+	services="active-directory"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/22/2016"
-    ms.author="kgremban"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/22/2016"
+	ms.author="kgremban"/>
+
+# Trabalhando com domínios personalizados no Proxy de Aplicativo do AD do Azure
+
+Usando um domínio padrão permite que você defina a mesma URL como URL interna e externa para acessar o aplicativo, para que seus usuários tenham que lembrar de apenas uma URL para acessar o aplicativo, independentemente de onde eles estejam acessando. Isso também permite criar um único atalho no Painel de Acesso para o aplicativo. Se você usar o domínio padrão fornecido pelo Proxy de Aplicativo do AD do Azure, não há nenhuma configuração adicional que seja necessária para habilitar o seu domínio. Se você usar um domínio personalizado, há algumas coisas que você precisa fazer para certificar-se de que o Proxy do Aplicativo reconheça seu domínio e valide seus certificados.
+
+## Selecionando o domínio personalizado
+
+1. Publique seu aplicativo seguindo as instruções em [Publicar aplicativos com o Proxy de Aplicativo](active-directory-application-proxy-publish.md).
+2. Depois que o aplicativo aparecer na lista de aplicativos, selecione-o e clique em **Configurar**.
+3. Em **URL Externa**, digite seu domínio personalizado.
+4. Se a URL externa for https, você deverá carregar um certificado para que o Azure possa validar a URL do aplicativo. Você também pode carregar um certificado curinga que corresponda a URL Externa do aplicativo. Esse domínio deve estar na lista do seu [Domínios verificado do Azure](https://msdn.microsoft.com/library/azure/jj151788.aspx). O Azure deve ter um certificado para o domínio da URL do aplicativo ou um certificado curinga que corresponda à URL externa para o aplicativo.
+5. Certifique-se de adicionar um registro DNS que roteie a URL interna para o aplicativo, que permite que você tenha a mesma URL para acesso interno e externo e um único atalho para o aplicativo na lista de aplicativos do usuário.
+
+## Perguntas frequentes sobre como trabalhar com domínios personalizados
+
+P: Posso selecionar um certificado já carregado sem carregá-lo novamente? R: Certificados carregados previamente são vinculados automaticamente a um aplicativo e há exatamente um certificado que corresponde ao nome de host do aplicativo.
+
+P: Como fazer para adicionar um certificado e em que formato o certificado exportado deve ser carregado? R: O certificado deve ser carregado por meio da página de configuração do aplicativo. O certificado deve ser um arquivo PFX.
+
+P: Certificados ECC podem ser usados? R: Não há nenhuma limitação explícita para os métodos de assinatura.
+
+P: Certificados SAN podem ser usados? R: Sim.
+
+P: Certificados curinga podem ser usados? R: Sim.
+
+P: É possível usar um certificado diferente em cada aplicativo? R: Sim, a menos que os dois aplicativos compartilhem o mesmo host externo.
+
+P: Se eu registrar um novo domínio, posso usar esse domínio? R: Sim, a lista de domínios é alimentada por meio da lista de domínios verificados do locatário.
+
+P: O que acontece quando um certificado expira? R: Você receberá um aviso na seção do certificado na página de configuração do aplicativo. Quando um usuário tenta acessar o aplicativo, um aviso de segurança é exibido.
+
+P: O que devo fazer se eu quiser substituir um certificado para um determinado aplicativo? R: Carregar um novo certificado da página de configuração de aplicativo.
+
+P: Posso excluir um certificado e substituí-lo? R: Quando você carregar um novo certificado, se o certificado antigo não estiver em uso por outro aplicativo, ele será excluído automaticamente.
+
+P: O que acontece quando um certificado é revogado? R: Verificações de revogação não são realizadas para certificados. Quando um usuário tenta acessar o aplicativo, dependendo do navegador, um aviso de segurança deve aparecer.
+
+P: Posso usar um certificado autoassinado? A: Sim, os certificados autoassinados são permitidos. Observe que, se você estiver usando uma autoridade de certificação privada, o CDP (ponto de distribuição de lista de revogação de certificados) para o certificado deverá ser público.
+
+P: Existe um lugar para ver todos os certificados para o meu locatário? R: Não há suporte para isso na versão atual.
 
 
-# <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Working with custom domains in Azure AD Application Proxy
+## Consulte também
 
-Using a default domain enables you to set the same URL as the internal and external URL for accessing the application so that your users only have one URL to remember to access the app, no matter where they are accessing from. This also lets you create a single shortcut in the Access Panel for the application. If you use the default domain provided by Azure AD Application Proxy, there’s no additional configuration you need to enable your domain. In the event that you use a custom domain, there are a few things you need to do to make sure that Application Proxy recognizes your domain and validates its certificates.
+- [Publique aplicativos com proxy de aplicativo](active-directory-application-proxy-publish.md)
+- [Habilitar logon único](active-directory-application-proxy-sso-using-kcd.md)
+- [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
+- [Adicionar seu nome de domínio personalizado ao Azure AD](active-directory-add-domain.md)
 
-## <a name="selecting-your-custom-domain"></a>Selecting your custom domain
+Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
 
-1. Publish your application according to the instructions in [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
-2. After the application appears in the list of applications, select it and click **Configure**.
-3. Under **External URL**, enter your custom domain.
-4. If your external URL is https, you will be prompted to upload a certificate so that Azure can validate the URL of the application. You can also upload a wildcard certificate that matches the External URL of the application. This domain must be within the list of your [Azure verified domains](https://msdn.microsoft.com/library/azure/jj151788.aspx). Azure must have a certificate for the domain URL of the application or a wildcard certificate that matches the External URL for the application.
-5. Make sure to add a DNS record that routes the internal URL to the application that enables you to have the same URL for internal and external access and a single shortcut to the application in the user’s applications list.
-
-## <a name="frequently-asked-questions-about-working-with-custom-domains"></a>Frequently asked questions about working with custom domains
-
-Q: Can I select an already-uploaded certificate without uploading it again?  
-A: Previously uploaded certificates are automatically bound to an application, and there is exactly one certificate matching the application’s host name.  
-
-Q: How do I add a certificate and what format should the exported certificate be uploaded in?  
-A: The certificate should be uploaded from the application configuration page. The certificate should be a PFX file.  
-
-Q: Can ECC certs be used?  
-A: There is no explicit limitation on signature methods.  
-
-Q: Can SAN certs be used?  
-A: Yes.  
-
-Q: Can wildcard certs be used?  
-A: Yes.  
-
-Q: Can a different certificate be used on each application?  
-A: Yes, unless the two applications share the same external host.  
-
-Q: If I register a new domain, can I use that domain?  
-A: Yes, the list of domains is fed from the tenant’s verified domain list.  
-
-Q: What happens when a cert expires?  
-A: You will get a warning in the certificate section in the application configuration page. When a user tries to access the application, a security warning will pop up.  
-
-Q: What should I do if I want to replace a cert for a given app?  
-A: Upload a new certificate from the application configuration page.  
-
-Q: Can I delete a cert and replace it?  
-A: When you upload a new certificate, if the old certificate is not in use by another application, it will be automatically deleted.  
-
-Q: What happens when a cert is revoked?  
-A: Revocation checks are not performed for certificates. When a user tries to access the application, depending on the browser, a security warning might appear.  
-
-Q: Can I use a self-signed certificate?  
-A: Yes, self-signed certificates are allowed. Note that if you’re using a private certificate authority, the CDP (certificate revocation point distribution point) for the certificate should be public.  
-
-Q: Is there a place to see all the certificates for my tenant?  
-A: This is not supported in the current version.  
-
-
-## <a name="see-also"></a>See also
-
-- [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
-- [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md)
-- [Enable conditional access](active-directory-application-proxy-conditional-access.md)
-- [Add your custom domain name to Azure AD](active-directory-add-domain.md)
-
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

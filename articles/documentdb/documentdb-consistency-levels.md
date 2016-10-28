@@ -1,133 +1,122 @@
 <properties
-    pageTitle="Consistency levels in DocumentDB | Microsoft Azure"
-    description="DocumentDB has four consistency levels to help balance eventual consistency, availability, and latency trade-offs."
-    keywords="eventual consistency, documentdb, azure, Microsoft azure"
-    services="documentdb"
-    authors="syamkmsft"
-    manager="jhubbard"
-    editor="cgronlun"
-    documentationCenter=""/>
+	pageTitle="Níveis de consistência no Banco de Dados de Documentos | Microsoft Azure"
+	description="O Banco de Dados de Documentos tem quatro níveis de consistência que ajudam a equilibrar as trocas entre consistência eventual, disponibilidade e latência."
+	keywords="consistência eventual, banco de dados de documentos, azure, Microsoft azure"
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="cgronlun"
+	documentationCenter=""/>
 
 <tags
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/24/2016"
-    ms.author="syamk"/>
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2016"
+	ms.author="mimig"/>
 
+# Níveis de consistência no Banco de Dados de Documentos
 
-# <a name="consistency-levels-in-documentdb"></a>Consistency levels in DocumentDB
+O Banco de Dados de Documentos do Azure foi desenvolvido desde o início com foco na distribuição global. Ele se destina a oferecer garantias de baixa latência previsível, um SLA de disponibilidade de 99,99% e vários modelos flexíveis de consistência bem definidos. Atualmente, o Banco de Dados de Documentos fornece quatro níveis de consistência: strong, bounded staleness, session e eventual. Além dos modelos de consistência **strong** e **eventual** frequentemente oferecidos por outros bancos de dados NoSQL, o Banco de Dados de Documentos também oferece dois modelos de consistência cuidadosamente codificados e operacionalizados — **bounded staleness** e **session**, tendo validado sua utilidade em casos de uso verídicos. Coletivamente, esses quatro níveis de consistência permitem que você faça trocas ponderadas entre consistência, disponibilidade e latência.
 
-Azure DocumentDB is designed from the ground up with global distribution in mind. It is designed to offer predictable low latency guarantees, a 99.99% availability SLA, and multiple well-defined relaxed consistency models. Currently, DocumentDB provides four consistency levels: strong, bounded-staleness, session, and eventual. Besides the **strong** and the **eventual consistency** models commonly offered by other NoSQL databases, DocumentDB also offers two carefully codified and operationalized consistency models – **bounded staleness** and **session**, and has validated their usefulness against real world use cases. Collectively these four consistency levels enable you to make well-reasoned trade-offs between consistency, availability, and latency. 
+## Escopo de consistência
 
-## <a name="scope-of-consistency"></a>Scope of consistency
+A granularidade da consistência engloba uma única solicitação de usuário. Uma solicitação de gravação pode corresponder a uma transação de inserção, substituição, upsert ou exclusão (como ou sem a execução de um pré ou pós-gatilho associado). Ou uma solicitação de gravação pode corresponder à execução transacional de um procedimento armazenado JavaScript que opera em vários documentos em uma partição. Assim como nas gravações, uma transação de leitura/consulta também engloba uma única solicitação de usuário. O usuário pode ter que paginar um amplo conjunto de resultados, abrangendo várias partições, mas cada transação de leitura engloba uma única página e é servida de dentro de uma única partição.
 
-The granularity of consistency is scoped to a single user request. A write request may correspond to an insert, replace, upsert, or delete transaction (with or without the execution of an associated pre or post trigger). Or a write request may correspond to the transactional execution of a JavaScript stored procedure operating over multiple documents within a partition. As with the writes, a read/query transaction is also scoped to a single user request. The user may be required to paginate over a large result-set, spanning multiple partitions, but each read transaction is scoped to a single page and served from within a single partition.
+## Níveis de consistência
 
-## <a name="consistency-levels"></a>Consistency levels
+Você pode configurar um nível de consistência padrão, na conta do banco de dados, que se aplique a todas as coleções (em todos os bancos de dados) na sua conta de banco de dados. Por padrão, todas as leituras e consultas executadas nos recursos definidos pelo usuário usarão o nível de consistência padrão especificado na conta do banco de dados. No entanto, você pode diminuir o nível de consistência de uma determinada solicitação de leitura/consulta, especificando o cabeçalho de solicitação [[x-ms-consistency-level]](https://msdn.microsoft.com/library/azure/mt632096.aspx). Há quatro tipos de nível de consistência compatíveis com o protocolo de replicação do Banco de Dados de Documentos que fornecem uma clara compensação entre garantias de consistência específica e desempenho, conforme descrito abaixo.
 
-You can configure a default consistency level on your database account that applies to all the collections (across all of the databases) under your database account. By default, all reads and queries issued against the user defined resources will use the default consistency level specified on the database account. However, you can relax the consistency level of a specific read/query request by specifying the [[x-ms-consistency-level]](https://msdn.microsoft.com/library/azure/mt632096.aspx) request header. There are four types of consistency levels supported by the DocumentDB replication protocol that provide a clear trade-off between specific consistency guarantees and performance, as described below.
+![O Banco de Dados de Documentos oferece várias opções de modelos de consistência bem definidos (flexíveis) para sua escolha][1]
 
-![DocumentDB offers multiple, well defined (relaxed) consistency models to choose from][1]
+**Strong**:
 
-**Strong**: 
-
-- Strong consistency offers a [linearizability](https://aphyr.com/posts/313-strong-consistency-models) guarantee with the reads guaranteed to return the most recent version of a document. 
-- Strong consistency guarantees that a write is only visible after it is committed durably by the majority quorum of replicas. A write is either synchronously committed durably by both the primary and the quorum of secondaries, or it is aborted. A read is always acknowledged by the majority read quorum, a client can never see an uncommitted or partial write and is always guaranteed to read the latest acknowledged write. 
-- DocumentDB accounts that are configured to use strong consistency cannot associate more than one Azure region with their DocumentDB account. 
-- The cost of a read operation (in terms of [request units](documentdb-request-units.md) consumed) with strong consistency is higher than session and eventual, but the same as bounded staleness.
+- A consistência Strong oferece uma garantia de [linearidade](https://aphyr.com/posts/313-strong-consistency-models) com garantia de que as leituras retornem a versão mais recente de um documento.
+- a consistência Strong garante que uma gravação fique visível somente depois de confirmada permanentemente pela maioria do quorum de réplicas. Uma gravação é confirmada de modo síncrono e permanente pelo quorum primário e secundário, ou é anulada. Uma leitura sempre é confirmada pela maioria do quorum de leitura. Um cliente nunca pode ver uma gravação não confirmada ou parcial, e sempre há a garantia de leitura da última gravação confirmada.
+- As contas do Banco de Dados de Documentos que são configuradas para usar consistência strong não podem associar mais de uma região do Azure à respectiva conta do Banco de Dados de Documentos.
+- O custo de uma operação de leitura (em termos de [unidades de solicitação](documentdb-request-units.md) consumidas) com coerência forte é maior do que com sessão e eventual, mas igual ao de obsolescência vinculada.
  
 
-**Bounded staleness**: 
+**Bounded staleness**:
 
-- Bounded staleness consistency guarantees that the reads may lag behind writes by at most *K* versions or prefixes of a document or *t* time-interval. 
-- Consequently, when choosing bounded staleness, the “staleness” can be configured in two ways: 
-    - Number of versions *K* of the document by which the reads lag behind the writes
-    - Time interval *t* 
-- Bounded staleness offers total global order except within the “staleness window”. Note that the monotonic read guarantees exists within a region both inside and outside the “staleness window”. 
-- Bounded staleness provides a stronger consistency guarantee than session or eventual consistency. For globally distributed applications, we recommend you use bounded staleness for scenarios where you would like to have strong consistency but also want 99.99% availability and low latency. 
-- DocumentDB accounts that are configured with bounded staleness consistency can associate any number of Azure regions with their DocumentDB account. 
-- The cost of a read operation (in terms of RUs consumed) with bounded staleness is higher than session and eventual consistency, but the same as strong consistency.
+- A consistência bounded staleness garante que as leituras podem não acompanhar as gravações até, no máximo, as versões *K*, ou prefixos de um documento ou intervalo de tempo *t*.
+- Consequentemente, ao escolher bounded staleness, "staleness" pode ser configurado de duas maneiras:
+    - Número de versões *K* do documento pelas quais as leituras não acompanham as gravações
+    - Intervalo de tempo *t*
+- A consistência bounded staleness oferece total de ordem global, exceto na "janela staleness". Observe que a leitura monotônica garante existência em uma região dentro e fora da "janela staleness".
+- A bounded staleness oferece garantia de consistência mais forte do que session ou eventual. Para aplicativos distribuídos globalmente, é recomendável usar bounded staleness para cenários em que deseja ter consistência forte, mas também 99,99% de disponibilidade e baixa latência.
+- As contas do Banco de Dados de Documentos que são configuradas com a consistência bounded staleness podem associar qualquer número de regiões do Azure à respectiva conta do Banco de Dados de Documentos.
+- O custo de uma operação de leitura (em termos de RUs consumidas) com obsolescência vinculada é maior do que com sessão e eventual, mas igual ao da coerência forte.
 
-**Session**: 
+**Session**:
 
-- Unlike the global consistency models offered by strong and bounded staleness consistency levels, session consistency is scoped to a client session. 
-- Session consistency is ideal for all scenarios where a device or user session is involved since it guarantees monotonic reads, monotonic writes, and read your own writes (RYW) guarantees. 
-- Session consistency provides predictable consistency for a session, and maximum read throughput while offering the lowest latency writes and reads. 
-- DocumentDB accounts that are configured with session consistency can associate any number of Azure regions with their DocumentDB account. 
-- The cost of a read operation (in terms of RUs consumed) with session consistency level is less than strong and bounded staleness, but more than eventual consistency
+- Ao contrário dos modelos globais de consistência oferecidos pelos níveis de consistência strong e bounded staleness, a consistência session engloba uma sessão de cliente.
+- A consistência session é ideal para todos os cenários em que há o envolvimento de um dispositivo ou uma sessão de usuário, uma vez que ela garante leituras monotônicas, gravações monotônicas e RYW (leitura de suas próprias gravações).
+- A consistência session oferece consistência previsível para uma sessão, além de taxa de transferência de leitura máxima, ao mesmo tempo que oferece gravações e leituras de latência mais baixa.
+- As contas do Banco de Dados de Documentos que são configuradas com a consistência session podem associar qualquer número de regiões do Azure à respectiva conta do Banco de Dados de Documentos.
+- O custo de uma operação de leitura (em termos de RUs consumidas) com nível de consistência session é menor do que com strong e bounded staleness, mas maior do que com a consistência eventual
  
 
-**Eventual**: 
+**Eventual**:
 
-- Eventual consistency guarantees that in absence of any further writes, the replicas within the group will eventually converge. 
-- Eventual consistency is the weakest form of consistency where a client may get the values that are older than the ones it had seen before.
-- Eventual consistency provides the weakest read consistency but offers the lowest latency for both reads and writes.
-- DocumentDB accounts that are configured with eventual consistency can associate any number of Azure regions with their DocumentDB account. 
-- The cost of a read operation (in terms of RUs consumed) with the eventual consistency level is the lowest of all the DocumentDB consistency levels.
+- A consistência eventual garante que, na ausência de qualquer gravação adicional, as réplicas no grupo sejam convergidas.
+- A consistência eventual é a forma mais fraca de consistência, em que um cliente pode obter valores que sejam mais antigos do que aqueles que tinha visto antes.
+- A consistência Eventual oferece a consistência de leitura mais fraca, mas oferece a menor latência para leituras e gravações.
+- As contas do Banco de Dados de Documentos que são configuradas com a consistência eventual podem associar qualquer número de regiões do Azure à respectiva conta do Banco de Dados de Documentos.
+- O custo de uma operação de leitura (em termos de RUs consumidas) com o nível de consistência eventual é o mais baixo de todos os níveis de consistência do Banco de Dados de Documentos.
 
 
-## <a name="consistency-guarantees"></a>Consistency guarantees
+## Garantias de consistência
 
-The following table captures various consistency guarantees corresponding to the four consistency levels.
+A tabela a seguir captura várias garantias de consistência correspondentes aos quatro níveis de consistência.
 
-| Guarantee                                                         |    Strong                                       |    Bounded Staleness                                                                           |    Session                                       |    Eventual                                 |
+| Garantia | Strong | Bounded Staleness | Session | Eventual |
 |----------------------------------------------------------|-------------------------------------------------|------------------------------------------------------------------------------------------------|--------------------------------------------------|--------------------------------------------------|
-|    **Total global order**                                |    Yes                                          |    Yes, outside of the “staleness window”                                                      |    No, partial “session” order                   |    No                                            |
-|    **Consistent prefix guarantee**                       |    Yes                                          |    Yes                                                                                         |    Yes                                           |    Yes                                           |
-|    **Monotonic reads**                                   |    Yes                                          |    Yes, across   regions outside of the staleness window and within a region all the time.     |    Yes, for the given session                    |    No                                            |
-|    **Monotonic writes**                                  |    Yes                                          |    Yes                                                                                         |    Yes                                           |    Yes                                           |
-|    **Read your writes**                                  |    Yes                                          |    Yes                                                                                         |    Yes (in the write region)                      |    No                                            |
+| **Total de ordem global** | Sim | Sim, fora da "janela staleness" | Não, ordem parcial de "session" | Não |
+| **Garantia de prefixo consistente** | Sim | Sim | Sim | Sim |
+| **Leituras monotônicas** | Sim | Sim, entre regiões fora da janela staleness e dentro de uma região o tempo todo. | Sim, para a sessão determinada | Não |
+| **Gravações monotônicas** | Sim | Sim | Sim | Sim |
+| **Leitura de suas gravações** | Sim | Sim | Sim (na região de gravação) | Não |
 
 
-## <a name="configuring-the-default-consistency-level"></a>Configuring the default consistency level
+## Configurando o nível de consistência padrão
 
-1.  In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB (NoSQL)**.
+1.  No [portal do Azure](https://portal.azure.com/), na barra de atalhos, clique em **DocumentDB (NoSQL)**.
 
-2. In the **DocumentDB (NoSQL)** blade, select the database account to modify.
+2. Na folha **DocumentDB (NoSQL)**, escolha a conta do banco de dados a ser modificada.
 
-3. In the account blade, click **Default consistency**.
+3. Na folha da conta, clique em **Consistência padrão**.
 
 
-4. In the **Default Consistency** blade, select the new consistency level and click **Save**.
+4. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **Salvar**.
 
-    ![Screen shot highlighting the Settings icon and Default Consistency entry](./media/documentdb-consistency-levels/database-consistency-level-1.png)
+	![Captura de tela realçando o ícone Configurações e a entrada Consistência Padrão](./media/documentdb-consistency-levels/database-consistency-level-1.png)
 
-## <a name="consistency-levels-for-queries"></a>Consistency levels for queries
+## Níveis de consistência para consultas
 
-By default, for user defined resources, the consistency level for queries is the same as the consistency level for reads. By default, the index is updated synchronously on each insert, replace, or delete of a document to the collection. This enables the queries to honor the same consistency level as that of the document reads. While DocumentDB is write optimized and supports sustained volumes of document writes, synchronous index maintenance and serving consistent queries, you can configure certain collections to update their index lazily. Lazy indexing further boosts the write performance and is ideal for bulk ingestion scenarios when a workload is primarily read-heavy.  
+Por padrão, para recursos definidos pelo usuário, o nível de consistência para consultas é o mesmo nível de consistência para leituras. Por padrão, o índice é atualizado sincronamente em cada inserção, substituição ou exclusão de um documento para a coleção. Isso permite que as consultas obedeçam ao mesmo nível de consistência das leituras de documentos. Embora o Banco de Dados de Documentos seja otimizado para gravação e permita volumes constantes de gravações de documentos, manutenção síncrona de índice e atendimento a consultas consistentes, você pode configurar determinadas coleções para atualizar seu índice, sem pressa. A indexação lenta aumenta ainda mais o desempenho de gravação, sendo ideal para cenários de ingestão em massa em que uma carga de trabalho é basicamente de leitura intensa.
 
-Indexing Mode|  Reads|  Queries  
+Modo de indexação|	Leituras|	Consultas  
 -------------|-------|---------
-Consistent (default)|   Select from strong, bounded staleness, session, or eventual|    Select from strong, bounded staleness, session, or eventual|
-Lazy|   Select from strong, bounded staleness, session, or eventual|    Eventual  
+Consistente (padrão)|	Escolher entre strong, bounded staleness, session ou eventual|	Escolher entre strong, bounded staleness, session ou eventual|
+Lentidão|	Escolher entre strong, bounded staleness, session ou eventual|	Eventual  
 
-As with read requests, you can lower the consistency level of a specific query request by specifying the [x-ms-consistency-level](https://msdn.microsoft.com/library/azure/mt632096.aspx) request header.
+Assim como nas solicitações de leitura, você pode diminuir o nível de consistência de uma solicitação de consulta específica determinando o cabeçalho de solicitação [x-ms-consistency-level](https://msdn.microsoft.com/library/azure/mt632096.aspx).
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-If you'd like to do more reading about consistency levels and tradeoffs, we recommend the following resources:
+Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamos os seguintes recursos:
 
--   Doug Terry. Replicated Data Consistency explained through baseball (video).   
-[https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
--   Doug Terry. Replicated Data Consistency explained through baseball.   
-[http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
--   Doug Terry. Session Guarantees for Weakly Consistent Replicated Data.   
-[http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
--   Daniel Abadi. Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story”.   
-[http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
--   Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums.   
-[http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
--   Werner Vogels. Eventual Consistent - Revisited.    
-[http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+-	Doug Terry. Replicated Data Consistency explained through baseball (vídeo). [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
+-	Doug Terry. Replicated Data Consistency explained through baseball. [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+-	Doug Terry. Session Guarantees for Weakly Consistent Replicated Data. [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
+-	Daniel Abadi. Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story”. [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+-	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums. [http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+-	Werner Vogels. Eventual Consistent - Revisited. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

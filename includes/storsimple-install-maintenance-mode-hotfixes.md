@@ -1,24 +1,21 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-maintenance-mode-hotfixes-via-windows-powershell-for-storsimple"></a>To install Maintenance mode hotfixes via Windows PowerShell for StorSimple
+#### Para instalar os hotfixes do modo de manutenção por meio do Windows PowerShell para StorSimple
 
-> [AZURE.IMPORTANT] In Maintenance mode, you need to apply the hotfix first on one controller and then on the other controller.
+> [AZURE.IMPORTANT]Quando você estiver no modo de Manutenção, precisará aplicar a atualização primeiro em um controlador e, em seguida, no outro controlador.
 
-1. Place the device into Maintenance mode. See [Step 2: Enter Maintenance mode](storsimple-update-device.md#step2) for instructions on how to enter Maintenance mode.
+1. Coloque o dispositivo no modo de Manutenção. Consulte [Etapa 2: Entrar no modo de manutenção](storsimple-update-device.md#step2) para obter instruções sobre como entrar no modo de Manutenção.
 
-2. To apply the hotfix, type:
+2. Para aplicar o hotfix, digite:
 
-     `Start-HcsHotfix` 
+     `Start-HcsHotfix`
 
-3. When prompted, supply the path to the network shared folder that contains the hotfix files.
+3. Quando solicitado, forneça o caminho para a pasta compartilhada que contém os arquivos de hotfix.
 
-4. You will be prompted for confirmation. Type **Y** to proceed with the hotfix installation.
+4. Será solicitada a sua confirmação. Digite **Y** para prosseguir com a instalação do hotfix.
 
-5. After you have applied the hotfix on one controller, log on to the other controller. Apply the hotfix as you did for the previous controller.
+5. Após aplicar o hotfix em um controlador, faça logon no outro controlador. Aplique o hotfix da mesma forma que você fez para o controlador anterior.
 
-6. After the hotfixes are applied, exit Maintenance mode. See [Step 4: Exit Maintenance mode](storsimple-update-device.md#step4) for instructions.
+6. Após a aplicação dos hotfixes, saia do modo de Manutenção. Consulte [Etapa 4: Sair do modo de manutenção](storsimple-update-device.md#step4) para obter instruções.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

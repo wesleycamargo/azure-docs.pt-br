@@ -1,6 +1,6 @@
 <properties
-   pageTitle="How to manage reverse DNS records for your services using Azure CLI in Resource Manager | Microsoft Azure"
-   description="How to manage reverse DNS records or PTR records for Azure services using the Azure CLI in Resource Manager"
+   pageTitle="Como gerenciar registros DNS reversos para seus serviços usando a CLI do Azure no Gerenciador de Recursos | Microsoft Azure"
+   description="Como gerenciar registros DNS reversos ou registros PTR para os serviços do Azure usando a CLI do Azure no Gerenciador de Recursos"
    services="DNS"
    documentationCenter="na"
    authors="s-malone"
@@ -17,8 +17,7 @@
    ms.date="09/05/2016"
    ms.author="smalone" />
 
-
-# <a name="how-to-manage-reverse-dns-records-for-your-services-using-the-azure-cli"></a>How to manage reverse DNS records for your services using the Azure CLI
+# Como gerenciar registros DNS reversos para seus serviços usando a CLI do Azure
 
 [AZURE.INCLUDE [DNS-reverse-dns-record-operations-arm-selectors-include.md](../../includes/dns-reverse-dns-record-operations-arm-selectors-include.md)]
 <BR>
@@ -26,43 +25,39 @@
 <BR>
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](dns-reverse-dns-record-operations-classic-ps.md).
 
-## <a name="validation-of-reverse-dns-records"></a>Validation of reverse DNS records
-To ensure a third party can’t create reverse DNS records mapping to your DNS domains, Azure only allows the creation of a reverse DNS record where one of the following is true:
+## Validação de registros DNS reversos
+Para garantir que um terceiro não crie registros DNS reversos que sejam mapeados para seus domínios DNS, o Azure permite apenas a criação de um registro DNS reverso, em que uma das seguintes opções é verdadeira:
 
-- The “ReverseFqdn” is the same as the “Fqdn” for the Public IP Address resource for which it has been specified, or the “Fqdn” for any Public IP Address within the same subscription e.g., “ReverseFqdn” is “contosoapp1.northus.cloudapp.azure.com.”.
+- O “ReverseFqdn” é o mesmo que o “Fqdn” do recurso de Endereço IP Público para o qual foi especificado, ou o “Fqdn” de qualquer Endereço IP Público na mesma assinatura; por exemplo, “ReverseFqdn” é “contosoapp1.northus.cloudapp.azure.com.”.
 
-- The “ReverseFqdn” forward resolves to the name or IP of the Public IP Address for which it has been specified, or to any Public IP Address “Fqdn” or IP within the same subscription e.g., “ReverseFqdn” is “app1.contoso.com.” which is a CName alias for “contosoapp1.northus.cloudapp.azure.com.”
+- O encaminhamento de “ReverseFqdn” é resolvido no nome ou IP do Endereço IP Público para o qual foi especificado, ou como qualquer “Fqdn” ou IP do Endereço IP Público contido na mesma assinatura; por exemplo, “ReverseFqdn” é “app1.contoso.com.”, que é um alias de CName para “contosoapp1.northus.cloudapp.azure.com”.
 
-Validation checks are only performed when the reverse DNS property for a Public IP Address is set or modified. Periodic re-validation is not performed.
+Verificações de validação são executadas somente quando a propriedade de DNS reverso de um Endereço IP Público é definida ou modificada. Uma nova validação periódica não é executada.
 
-## <a name="add-reverse-dns-to-existing-public-ip-addresses"></a>Add reverse DNS to existing Public IP addresses
-You can add reverse DNS to an existing Public IP address using the azure network public-ip set:
+## Adicionar o DNS reverso aos endereços IP Públicos existentes
+É possível adicionar um DNS reverso a um endereço IP público existente usando azure network public-ip set:
 
-    azure network public-ip set -n PublicIp -g NRP-DemoRG-PS -f contosoapp1.westus.cloudapp.azure.com.
+	azure network public-ip set -n PublicIp -g NRP-DemoRG-PS -f contosoapp1.westus.cloudapp.azure.com.
 
-If you wish to add reverse DNS to an existing Public IP Address that doesn't already have a DNS name, you must also specify a DNS name. You can add achieve this using the azure network public-ip set:
+Se você quiser adicionar o DNS reverso a um Endereço IP Público existente que ainda não tenha um nome DNS, também deverá especificar um nome DNS. Você pode conseguir isso usando azure network public-ip set:
 
-    azure network public-ip set -n PublicIp -g NRP-DemoRG-PS -d contosoapp1 -f contosoapp1.westus.cloudapp.azure.com.
+	azure network public-ip set -n PublicIp -g NRP-DemoRG-PS -d contosoapp1 -f contosoapp1.westus.cloudapp.azure.com.
 
-## <a name="create-a-public-ip-address-with-reverse-dns"></a>Create a Public IP Address with reverse DNS
-You can add a new Public IP Address with the reverse DNS property specified using the azure network public-ip create:
+## Criar um Endereço IP Público com DNS reverso
+É possível adicionar um novo Endereço IP Público com a propriedade de DNS reverso especificada usando azure network public-ip create:
 
-    azure network public-ip create -n PublicIp3 -g NRP-DemoRG-PS -l westus -d contosoapp3 -f contosoapp3.westus.cloudapp.azure.com.
+	azure network public-ip create -n PublicIp3 -g NRP-DemoRG-PS -l westus -d contosoapp3 -f contosoapp3.westus.cloudapp.azure.com.
 
-## <a name="view-reverse-dns-for-existing-public-ip-addresses"></a>View reverse DNS for existing Public IP Addresses
-You can view the configured value for an existing Public IP Address using the azure network public-ip show:
+## Exibir o DNS reverso dos Endereços IP Públicos existentes
+É possível exibir o valor configurado para um Endereço IP Público usando azure network public-ip show:
 
-    azure network public-ip show -n PublicIp3 -g NRP-DemoRG-PS
+	azure network public-ip show -n PublicIp3 -g NRP-DemoRG-PS
 
-## <a name="remove-reverse-dns-from-existing-public-ip-addresses"></a>Remove reverse DNS from existing Public IP Addresses
-You can remove a reverse DNS property from an existing Public IP Address using azure network public-ip set. This is done by setting the ReverseFqdn property value to blank:
+## Remover o DNS reverso de Endereços IP Públicos existentes
+É possível remover uma propriedade de DNS reverso de um Endereço IP Público existente usando azure network public-ip set. Isso é feito definindo o valor da propriedade ReverseFqdn como em branco:
 
-    azure network public-ip set -n PublicIp3 -g NRP-DemoRG-PS –f “”
+	azure network public-ip set -n PublicIp3 -g NRP-DemoRG-PS –f “”
 
-[AZURE.INCLUDE [FAQ](../../includes/dns-reverse-dns-record-operations-faq-arm-include.md)]
+[AZURE.INCLUDE [PERGUNTAS FREQUENTES](../../includes/dns-reverse-dns-record-operations-faq-arm-include.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

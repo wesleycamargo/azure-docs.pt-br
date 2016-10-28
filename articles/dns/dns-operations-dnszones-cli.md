@@ -1,10 +1,10 @@
-<properties
-   pageTitle="Manage DNS zones using CLI | Microsoft Azure"
-   description="You can manage DNS zones using Azure CLI. How to update, delete and create DNS zones on Azure DNS"
-   services="dns"
-   documentationCenter="na"
-   authors="sdwheeler"
-   manager="carmonm"
+<properties 
+   pageTitle="Gerenciar zonas DNS usando a CLI | Microsoft Azure" 
+   description="Você pode gerenciar zonas DNS usando a CLI do Azure. Como atualizar, excluir e criar zonas DNS no DNS do Azure" 
+   services="dns" 
+   documentationCenter="na" 
+   authors="cherylmc" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -12,65 +12,59 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
+   ms.workload="infrastructure-services" 
    ms.date="08/16/2016"
-   ms.author="sewhee"/>
+   ms.author="cherylmc"/>
 
-
-# <a name="how-to-manage-dns-zones-using-cli"></a>How to manage DNS Zones using CLI
+# Como gerenciar as zonas DNS usando a CLI
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-operations-dnszones-cli.md)
+- [CLI do Azure](dns-operations-dnszones-cli.md)
 - [PowerShell](dns-operations-dnszones.md)
 
 
-This guide will show how to manage your DNS zone resources using the cross-platform Azure CLI.
+Este guia mostrará como gerenciar seus recursos de zona DNS usando a CLI do Azure de plataforma cruzada.
 
-These instructions use Microsoft Azure CLI. Be sure to update to the latest Azure CLI (0.9.8 or later) to use the Azure DNS commands. Type `azure -v` to check which Azure CLI version is currently installed in your computer. You can install Azure CLI for Windows, Linux, or MAC. More information is available at [Install the Azure CLI](../xplat-cli-install.md).
+Essas instruções usam a CLI do Microsoft Azure. Certifique-se de atualizar para a versão mais recente da CLI (0.9.8 ou posterior) do Azure para usar os comandos do DNS do Azure. Digite `azure -v`para verificar qual versão da CLI do Azure está instalada atualmente em seu computador. Você pode instalar a CLI do Azure para Windows, Linux ou Mac. Mais informações estão disponíveis em [Instalar a CLI do Azure](../xplat-cli-install.md).
 
-Azure DNS is an Azure Resource Manager-only service. It does not have an ASM API. You will need to make sure the Azure CLI is configured to use Resource Manager mode. You can do this by using the `azure config mode arm` command.<BR>
-If you see the message "*error: 'dns' is not an azure command*", it's most likely because you are using Azure CLI in ASM mode, not Resource Manager mode.
+O Azure DNS é um serviço somente do Gerenciador de Recursos do Azure. Ele não tem uma API do ASM. Você precisará verificar se a CLI do Azure está configurada para usar o modo do Gerenciador de Recursos. Você pode fazer isso usando o comando `azure config mode arm`.<BR> Se você vir a mensagem *Erro: 'dns' não é um comando do Azure*, isso provavelmente significa que você está usando a CLI do Azure no modo ASM, não no modo do Gerenciador de Recursos.
 
-## <a name="create-a-new-dns-zone"></a>Create a new DNS zone
+## Criar uma nova zona DNS
 
-To create a new DNS zone to host your domain, see [Create an Azure DNS zone using CLI](dns-getstarted-create-dnszone-cli.md).
+Para criar uma nova zona DNS para hospedar seu domínio, consulte [Criar uma zona DNS do Azure usando a CLI](dns-getstarted-create-dnszone-cli.md).
 
-## <a name="get-a-dns-zone"></a>Get a DNS zone
+## Obter uma zona DNS
 
-To retrieve a DNS zone, use `azure network dns zone show`:
+Para recuperar uma zona DNS, use `azure network dns zone show`:
 
-    azure network dns zone show myresourcegroup contoso.com
+	azure network dns zone show myresourcegroup contoso.com
 
-The operation returns a DNS zone with its id, number of record sets and tags.
-
-
-## <a name="list-dns-zones"></a>List DNS zones
-
-To retrieve DNS zones within a resource group, use `azure network dns zone list`.
-
-    azure network dns zone list myresourcegroup
-
-## <a name="update-a-dns-zone"></a>Update a DNS zone
-
-Changes to a DNS zone resource can be made using `azure network dns zone set`. This does not update any of the DNS record sets within the zone (see [How to Manage DNS records](dns-operations-recordsets.md)). It's only used to update properties of the zone resource itself. This is currently limited to the Azure Resource Manager ‘tags’ for the zone resource. See [Etags and Tags](dns-getstarted-create-dnszone.md#tagetag) for more information.
-
-    azure network dns zone set myresourcegroup contoso.com -t prod=value2
-
-## <a name="delete-a-dns-zone"></a>Delete a DNS Zone
-
-DNS zones can be deleted using `azure network dns zone delete`. This operation has an optional *-q* switch which suppresses the prompt to confirm you want to remove the DNS zone.
-
-Before deleting a DNS zone in Azure DNS, you will need to delete all records sets, except for the NS and SOA records at the root of the zone that were created automatically when the zone was created.
-
-    azure network dns zone delete myresourcegroup contoso.com
+A operação retorna uma zona DNS com sua id, o número de conjuntos de registros e marcas.
 
 
+## Listar as zonas DNS
 
-## <a name="next-steps"></a>Next steps
-After creating a DNS zone, create [record sets and records](dns-getstarted-create-recordset-cli.md) to start resolving names for your Internet domain.
+Para recuperar as zonas DNS em um grupo de recursos, use `azure network dns zone list`.
+
+	azure network dns zone list myresourcegroup
+
+## Atualizar uma zona DNS
+
+As alterações a um recurso da zona DNS podem ser feitas usando o `azure network dns zone set`. Isso não atualiza nenhum dos conjuntos de registros DNS dentro da zona (consulte [Como gerenciar registros DNS](dns-operations-recordsets.md)). Ele só é usado para atualizar as propriedades do recurso da zona em si. Isso é atualmente limitado às “marcas” do Gerenciador de Recursos do Azure para o recurso de zona. Consulte [Etags e marcas](dns-getstarted-create-dnszone.md#tagetag) para obter mais informações.
+
+	azure network dns zone set myresourcegroup contoso.com -t prod=value2
+
+## Excluir uma zona DNS
+
+As zonas DNS podem ser excluídas por meio do `azure network dns zone delete`. Esta operação tem um comutador opcional *-q* que suprime o prompt para confirmar que deseja remover a zona DNS.
+ 
+Antes de excluir uma zona DNS no DNS do Azure, você precisará excluir todos os conjuntos de registros, exceto os registros NS e SOA na raiz da zona, que foram criados automaticamente quando a zona foi criada.
+
+	azure network dns zone delete myresourcegroup contoso.com 
 
 
 
-<!--HONumber=Oct16_HO2-->
+## Próximas etapas
+Após criar uma zona DNS, crie [conjuntos de registros e registros](dns-getstarted-create-recordset-cli.md) para iniciar a resolução de nomes do seu domínio da Internet.
 
-
+<!---HONumber=AcomDC_0817_2016-->

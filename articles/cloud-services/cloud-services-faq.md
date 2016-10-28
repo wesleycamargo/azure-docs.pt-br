@@ -1,79 +1,70 @@
 <properties
-    pageTitle="Cloud Services FAQ | Microsoft Azure"
-    description="Frequently asked questions about Cloud Services."
-    services="cloud-services"
-    documentationCenter=""
-    authors="Thraka"
-    manager="timlt"
-    editor=""/>
+	pageTitle="Perguntas frequentes sobre Serviços de Nuvem | Microsoft Azure"
+	description="Perguntas frequentes sobre os Serviços de Nuvem."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
+	editor=""/>
 
 <tags
-    ms.service="cloud-services"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/19/2016"
-    ms.author="adegeo"/>
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/19/2016"
+	ms.author="adegeo"/>
 
+# Perguntas frequentes sobre Serviços de Nuvem
+Este artigo responde a algumas perguntas frequentes sobre os Serviços de Nuvem do Microsoft Azure. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para informações gerais sobre preços e suporte do Azure. Você também pode consultar a [página de tamanho de VM de Serviços de Nuvem](cloud-services-sizes-specs.md) para obter informações de tamanho.
 
-# <a name="cloud-services-faq"></a>Cloud Services FAQ
-This article answers some frequently asked questions about Microsoft Azure Cloud Services. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information. You can also consult the [Cloud Services VM Size page](cloud-services-sizes-specs.md) for size information.
+## Certificados
 
-## <a name="certificates"></a>Certificates
+### Onde devo instalar o certificado?
 
-### <a name="where-should-i-install-my-certificate?"></a>Where should I install my certificate?
+- **Meu** Certificado de Aplicativo com chave privada (*.pfx, *.p12).
 
-- **My**  
-Application Certificate with private key (\*.pfx, \*.p12).
+- **AC** Todos os certificados intermediários ficam neste repositório (política e Sub ACs).
 
-- **CA**  
-All your intermediate certificates go in this store (Policy and Sub CAs).
+- **RAIZ** O repositório de AC raiz, para que seu certificado de AC raiz seja inserido aqui.
 
-- **ROOT**  
-The root CA store, so your main root CA cert should go here.
+### Não é possível remover o certificado expirado
 
-### <a name="i-can't-remove-expired-certificate"></a>I can't remove expired certificate
+Azure impede a remoção de um certificado enquanto ele está em uso. É necessário excluir a implantação que usa o certificado ou atualizá-la com um certificado diferente ou renovado.
 
-Azure prevents you from removing a certificate while it is in use. You need to either delete the deployment that uses the certificate, or update the deployment with a different or renewed certificate.
+### Excluir um certificado expirado
 
-### <a name="delete-an-expired-certificate"></a>Delete an expired certificate
+Enquanto o certificado não está em uso, você pode usar o cmdlet do PowerShell [AzureCertificate remover](https://msdn.microsoft.com/library/azure/mt589145.aspx) para remover um certificado.
 
-As long as the certificate is not in use, you can use the [Remove-AzureCertificate](https://msdn.microsoft.com/library/azure/mt589145.aspx) PowerShell cmdlet to remove a certificate.
+### Tenho certificados expirados denominados Gerenciamento de Serviço do Microsoft Azure para Extensões
 
-### <a name="i-have-expired-certificates-named-windows-azure-service-management-for-extensions"></a>I have expired certificates named Windows Azure Service Management for Extensions
+Esses certificados são criados sempre que uma extensão é adicionada ao serviço de nuvem, como a extensão de área de trabalho remota. Esses certificados são usados apenas para criptografar e descriptografar a configuração privada da extensão. Não importa se esses certificados expiram. A data de validade não é verificada.
 
-These certificates are created whenever an extension is added to the cloud service such as the Remote Desktop extension. These certificates are only used for encrypting and decrypting the private configuration of the extension. It does not matter if these certificates expire. The expiration date is not checked.
+### Certificados que excluí continuam reaparecendo
 
-### <a name="certificates-i-have-deleted-keep-reappearing"></a>Certificates I have deleted keep reappearing
+Eles continuam reaparecendo muito provavelmente devido a uma ferramenta que você está usando, como o Visual Studio. Sempre que você se reconectar com uma ferramenta que está usando um certificado, ele será carregado novamente no Azure.
 
-These keep reappearing most likely because of a tool you're using, such as Visual Studio. Whenever you reconnect with a tool that is using a certificate, it will again be uploaded to Azure.
+### Meus certificados continuam desaparecendo
 
-### <a name="my-certificates-keep-disappearing"></a>My certificates keep disappearing
+Quando a instância de máquina virtual for reciclada, todas as alterações locais serão perdidas. Use um [tarefa de inicialização](cloud-services-startup-tasks.md) para instalar certificados na máquina virtual sempre que a função for iniciada.
 
-When the virtual machine instance recycles, all local changes are lost. Use a [startup task](cloud-services-startup-tasks.md) to install certificates to the virtual machine each time the role starts.
+### Não consigo encontrar meus certificados de gerenciamento no portal
 
-### <a name="i-cannot-find-my-management-certificates-in-the-portal"></a>I cannot find my management certificates in the portal
+Os [certificados de gerenciamento](..\azure-api-management-certs.md) estão disponíveis apenas no Portal Clássico do Azure. O Portal do Azure atual não usa certificados de gerenciamento.
 
-[Management certificates](..\azure-api-management-certs.md) are only avialable in the Azure Classic Portal. The current Azure portal does not use management certificates. 
+### Como desabilitar um certificado de gerenciamento?
 
-### <a name="how-can-i-disable-a-management-certificate?"></a>How can I disable a management certificate?
+Os [certificados de gerenciamento](..\azure-api-management-certs.md) não podem ser desabilitados. Exclua-os no Portal Clássico do Azure quando você não quiser mais usá-los.
 
-[Management certificates](..\azure-api-management-certs.md) cannot be disabled. You delete them through the Azure Classic Portal when you do not want them to be used anymore.
+### Como criar um certificado SSL para um endereço IP específico?
 
-### <a name="how-do-i-create-an-ssl-certificate-for-a-specific-ip-address?"></a>How do I create an SSL certificate for a specific IP address?
+Siga as instruções no [tutorial Criar um certificado](cloud-services-certs-create.md). Use o endereço IP como o nome DNS.
 
-Follow the directions in the [create a certificate tutorial](cloud-services-certs-create.md). Use the IP address as the DNS Name.
+## Solucionar problemas
 
-## <a name="troubleshooting"></a>Troubleshooting
+### Eu não consigo reservar um IP em um serviço de nuvem de vários VIPs
 
-### <a name="i-can't-reserve-an-ip-in-a-multi-vip-cloud-service"></a>I can't reserve an IP in a multi-VIP cloud service
+Primeiro, certifique-se de que a instância de máquina virtual que você está tentando reservar o IP esteja ativada. Segundo, certifique-se de que você esteja usando IPs reservados para as implantações de preparo e produção. **Não** altere as configurações enquanto a implantação é atualizada.
 
-First, make sure that the virtual machine instance that you're trying to reserve the IP for is turned on. Second, make sure that you're using Reserved IPs for bother the staging and production deployments. **Do not** change the settings while the deployment is upgrading.
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

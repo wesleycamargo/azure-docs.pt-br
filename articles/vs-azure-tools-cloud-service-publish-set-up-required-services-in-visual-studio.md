@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Prepare to publish or deploy an Azure application from Visual Studio | Microsoft Azure"
-   description="Learn the procedures to set up cloud and storage account services and configure your Azure application."
+   pageTitle="Preparar para publicar ou implantar um aplicativo do Azure do Visual Studio | Microsoft Azure"
+   description="Conheça os procedimentos para configurar serviços de conta de armazenamento e de nuvem e configurar seu aplicativo do Azure."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,148 +15,142 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Preparar para publicar ou implantar um aplicativo do Azure do Visual Studio
 
-# <a name="prepare-to-publish-or-deploy-an-azure-application-from-visual-studio"></a>Prepare to Publish or Deploy an Azure Application from Visual Studio
+## Visão geral
 
-## <a name="overview"></a>Overview
+Antes de publicar um projeto de serviço de nuvem, você deve configurar os seguintes serviços:
 
-Before you can publish a cloud service project, you must set up the following services:
+- Um **serviço de nuvem** para executar suas funções no ambiente do Azure
 
-- A **cloud service** to run your roles in the Azure environment
+- Uma **conta de armazenamento** que forneça acesso aos serviços de blob, fila e tabela.
 
-- A **storage account** that provides access to the Blob, Queue, and Table services.
+Use os procedimentos a seguir para configurar esses serviços e configurar seu aplicativo
 
-Use the following procedures to set up these services and configure your application
 
+## Criar um Serviço de Nuvem
 
-## <a name="create-a-cloud-service"></a>Create a cloud service
+Para publicar um serviço de nuvem no Azure, crie primeiro um serviço de nuvem que executa suas funções no ambiente do Azure. Você pode criar um serviço de nuvem no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), conforme descrito na seção **Para criar um serviço de nuvem usando o Portal Clássico do Azure** mais adiante neste tópico. Você também pode criar um serviço de nuvem no Visual Studio usando o Assistente de publicação.
 
-To publish a cloud service to Azure, you must first create a cloud service, which runs your roles in the Azure environment. You can create a cloud service in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), as described in the section **To create a cloud service by using the Azure classic portal**, later in this topic. You can also create a cloud service in Visual Studio by using the publishing wizard.
+### Criar um serviço de nuvem usando o Visual Studio
 
-### <a name="to-create-a-cloud-service-by-using-visual-studio"></a>To create a cloud service by using Visual Studio
+1. Abra o menu de atalho do projeto do Azure e escolha **publicar**.
 
-1. Open the shortcut menu for the Azure project, and choose **Publish**.
+    ![VST\_PublishMenu](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/vst-publish-menu.png)
 
-    ![VST_PublishMenu](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/vst-publish-menu.png)
+1. Se você ainda não tiver entrado, entre com seu nome de usuário e senha da conta da Microsoft ou conta organizacional associada à sua assinatura do Azure.
 
-1. If you haven't signed in, sign in with your username and password for the Microsoft account or organizational account that's associated with your Azure subscription.
+1. Escolha o botão **próximo** para avançar para a página de **configurações**.
 
-1. Choose the **Next** button to advance to the **Settings** page.
+    ![Configurações comuns de assistente de publicação](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/publish-settings-page.png)
 
-    ![Publishing Wizard Common Settings](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/publish-settings-page.png)
+1. No **Serviços de nuvem** escolha **Criar novo**. A caixa de diálogo **Criar serviços do Azure** é exibida.
 
-1. In the **Cloud Services** list, choose **Create New**. The **Create Azure Services** dialog appears.
+1. Insira o nome de seu serviço de nuvem. O nome faz parte da URL do serviço e, portanto, deve ser globalmente exclusivo. O nome não diferencia maiúsculas de minúsculas.
 
-1. Enter the name of your cloud service. The name forms part of the URL for your service and therefore must be globally unique. The name is not case-sensitive.
+### Para criar um serviço de nuvem usando o Portal Clássico do Azure
 
-### <a name="to-create-a-cloud-service-by-using-the-azure-classic-portal"></a>To create a cloud service by using the Azure classic portal
+1. Entre no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkId=253103) no site da Microsoft.
 
-1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkId=253103) on the Microsoft website.
+1. (opcional) Para exibir uma lista de serviços de nuvem que você criou, escolha o link Serviços de Nuvem no lado esquerdo da página.
 
-1. (optional) To display a list of cloud services that you've already created, choose the Cloud Services link on the left side of the page.
+1. Selecione o **+** ícone no canto inferior esquerdo e, em seguida, selecione **serviço de nuvem** no menu que é exibido. Outra tela com duas opções, **Criação rápida** e **Criação personalizada**, é exibida. Se escolher **Criação rápida**, você poderá criar um serviço de nuvem apenas especificando a URL e a região onde ele será fisicamente hospedado. Se você escolher **Criação personalizada**, você pode imediatamente publicar um serviço de nuvem, especificando um pacote (arquivo .cspkg), um arquivo de configuração (.cscfg), e um certificado. Criação personalizada não é necessária se você pretende publicar seu serviço de nuvem usando o comando **Publicar** em um projeto do Azure. O comando **Publicar** está disponível no menu de atalho para um projeto do Azure.
 
-1. Choose the **+** icon in the lower-left corner, and then choose **Cloud Service** on the menu that appears. Another screen with two options, **Quick Create** and **Custom Create**, appears. If you choose **Quick Create**, you can create a cloud service just by specifying its URL and the region where it will be physically hosted. If you choose **Custom Create**, you can immediately publish a cloud service by specifying a package (.cspkg file), a configuration (.cscfg) file, and a certificate. Custom Create isn’t required if you intend to publish your cloud service by using the **Publish** command in an Azure project. The **Publish** command is available on the shortcut menu for an Azure project.
+1. Escolha **criação rápida** para publicar posteriormente seu serviço de nuvem usando o Visual Studio.
 
-1. Choose **Quick Create** to later publish your cloud service by using Visual Studio.
+1. Especifique um nome para seu serviço de nuvem. A URL completa é exibida ao lado do nome.
 
-1. Specify a name for your cloud service.The complete URL appears next to the name.
+1. Na lista, escolha a região onde se encontra a maioria dos usuários.
 
-1. In the list, choose the region where most of your users are located.
+1. Na parte inferior da janela, escolha o link **Criar serviço de nuvem**.
 
-1. At the bottom of the window, choose the **Create Cloud Service** link.
+## Criar uma conta de armazenamento
 
-## <a name="create-a-storage-account"></a>Create a storage account
+Uma conta de armazenamento fornece acesso aos serviços de blob, fila e tabela. Você pode criar uma conta de armazenamento usando o Visual Studio ou o [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkId=253103).
 
-A storage account provides access to the Blob, Queue, and Table services. You can create a storage account by using Visual Studio or the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkId=253103).
+### Para criar uma conta de armazenamento usando o Visual Studio
 
-### <a name="to-create-a-storage-account-by-using-visual-studio"></a>To create a storage account by using Visual Studio
+1. Em **Gerenciador de Soluções**, abra o menu de atalho para o nó de **armazenamento** e selecione **Criar Conta de Armazenamento**.
 
-1. In **Solution Explorer**, open the shortcut menu for the **Storage** node, and then choose **Create Storage Account**.
+    ![Como criar uma nova conta de armazenamento do Azure](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/IC744166.png)
 
-    ![Create a new Azure storage account](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/IC744166.png)
+1. Selecione ou insira as seguintes informações para a nova conta de armazenamento na caixa de diálogo **Criar Conta de Armazenamento**.
+    - A assinatura do Azure à qual você deseja adicionar a conta de armazenamento.
+    - O nome que você deseja usar para a nova conta de armazenamento.
+    - A região ou o grupo de afinidade (como Oeste dos EUA ou Leste Asiático).
+    - O tipo de replicação que você deseja usar para a conta de armazenamento, como redundância geográfica.
 
-1. Select or enter the following information for the new storage account in the **Create Storage Account** dialog box.
-    - The Azure subscription to which you want to add the storage account.
-    - The name you want to use for the new storage account.
-    - The region or affinity group (such as West US or East Asia).
-    - The type of replication you want to use for the storage account, such as Geo-Redundant.
+1. Quando terminar, selecione **Criar**. A nova conta de armazenamento é exibida na lista **armazenamento** no **Gerenciador de Servidores**.
 
-1. When you’re done, choose **Create**.The new storage account appears in the **Storage** list in **Server Explorer**.
+### Para criar uma conta de armazenamento usando o Portal Clássico do Azure
 
-### <a name="to-create-a-storage-account-by-using-the-azure-classic-portal"></a>To create a storage account by using the Azure classic portal
+1. Entre no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkId=253103) no site da Microsoft.
 
-1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkId=253103) on the Microsoft website.
+1. (Opcional) Para exibir suas contas de armazenamento, selecione o link **Armazenamento** no painel à esquerda da página.
 
-1. (Optional) To view your storage accounts, choose the **Storage** link in the panel on the left side of the page.
+1. No canto inferior esquerdo da página, selecione o ícone **+**.
 
-1. In the lower-left corner of the page, choose the **+** icon.
+1. No menu que é exibido, selecione **armazenamento**, e, em seguida, selecione **criação rápida**.
 
-1. In the menu that appears, choose **Storage**, and then choose **Quick Create**.
+1. Nomeie a conta de armazenamento que resulta em uma URL exclusiva.
 
-1. Give the storage account a name that will result in a unique url.
+1. Dê um nome ao serviço de nuvem. A URL completa é exibida ao lado do nome.
 
-1. Give your cloud service a name. The complete URL appears next to the name.
+1. Na lista de regiões, escolha a região onde se encontra a maioria dos usuários.
 
-1. In the list of regions, choose a region where most of your users are located.
+1. Especifique se deseja habilitar a replicação geográfica. Se você habilitar a replicação geográfica, seus dados serão salvos em vários locais físicos para reduzir a possibilidade de perda. Esse recurso torna o armazenamento mais caro, mas você pode reduzir o custo, permitindo a localização geográfica ao criar a conta de armazenamento em vez de adicionar o recurso mais tarde. Para obter mais informações, consulte [Replicação geográfica](http://go.microsoft.com/fwlink/?LinkId=253108).
 
-1. Specify whether you want to enable geo-replication. If you enable geo-replication, your data will be saved in multiple physical locations to reduce the chance of loss. This feature makes storage more expensive, but you can reduce the cost by enabling geo-location when you create the storage account instead of adding the feature later. For more information, see [Geo-replication](http://go.microsoft.com/fwlink/?LinkId=253108).
+1. Na parte inferior da janela, escolha o link **Criar conta de armazenamento**.
 
-1. At the bottom of the window, choose the **Create Storage Account** link.
+Depois de criar sua conta de armazenamento, você verá as URLs que pode usar para acessar recursos em cada um dos serviços de armazenamento do Azure e as chaves de acesso primária e secundária para sua conta. Você pode usar essas chaves para autenticar solicitações feitas nos serviços de armazenamento.
 
-After you create your storage account, you will see the URLs that you can use to access resources in each of the Azure storage services, and also the primary and secondary access keys for your account. You use these keys to authenticate requests made against the storage services.
+>[AZURE.NOTE] A chave de acesso secundária fornece o mesmo acesso à sua conta de armazenamento que a chave de acesso primária e é gerada como um backup, caso sua chave de acesso primária seja comprometida. Além disso, é recomendável que você gere novamente e regularmente suas chaves de acesso. Você pode modificar uma configuração de cadeia de conexão para usar a chave secundária enquanto gera novamente a chave primária, e então poderá modificá-la para usar a chave primária gerada enquanto gera novamente a chave secundária.
 
->[AZURE.NOTE] The secondary access key provides the same access to your storage account as the primary access key and is generated as a backup should your primary access key be compromised. Additionally, it is recommended that you regenerate your access keys on a regular basis. You can modify a connection string setting to use the secondary key while you regenerate the primary key, then you can modify it to use the regenerated primary key while you regenerate the secondary key.
+## Configurar seu aplicativo para usar os serviços fornecidos pela conta de armazenamento
 
-## <a name="configure-your-app-to-use-services-provided-by-the-storage-account"></a>Configure your app to use services provided by the storage account
+Configure qualquer função que acessa os serviços de armazenamento para usar os serviços de armazenamento do Azure que você criou. Para fazer isso, você pode usar várias configurações de serviço para o seu projeto do Azure. Por padrão, duas são criadas no projeto do Azure. Usando várias configurações de serviço, você pode usar a mesma cadeia de conexão no seu código, mas ter um valor diferente para uma cadeia de conexão em cada configuração de serviço. Por exemplo, você pode usar uma configuração de serviço para executar e depurar seu aplicativo localmente usando o emulador de armazenamento do Azure e uma configuração de serviço diferente para publicar seu aplicativo no Azure. Para obter mais informações sobre configurações de serviço, consulte [Configurando o Projeto do Azure usando várias configurações de serviço](vs-azure-tools-multiple-services-project-configurations.md).
 
-You must configure any role that accesses storage services to use the Azure storage services that you have created. To do this, you can use multiple service configurations for your Azure project. By default, two are created in your Azure project. By using multiple service configurations, you can use the same connection string in your code, but have a different value for a connection string in each service configuration. For example, you can use one service configuration to run and debug your application locally using the Azure storage emulator and a different service configuration to publish your application to Azure. For more information about service configurations, see [Configuring Your Azure Project Using Multiple Service Configurations](vs-azure-tools-multiple-services-project-configurations.md).
+### Para configurar seu aplicativo para usar os serviços que a conta de armazenamento fornece
 
-### <a name="to-configure-your-application-to-use-services-that-the-storage-account-provides"></a>To configure your application to use services that the storage account provides
+1. Abra sua solução Azure no Visual Studio. No Gerenciador de Soluções, abra o menu de atalho para cada função no projeto do Azure que acessa os serviços de armazenamento e escolha **Propriedades**. Uma página com o nome da função é exibida no editor do Visual Studio. A página exibe os campos para a guia **Configuração**.
 
-1. In Visual Studio open your Azure solution. In Solution Explorer, open the shortcut menu for each role in your Azure project that accesses the storage services and choose **Properties**. A page with the name of the role is displayed in the Visual Studio editor. The page displays the fields for the **Configuration** tab.
+1. Nas páginas de propriedades para a função, escolha **configurações**.
 
-1. In the property pages for the role, choose **Settings**.
+1. Na lista **Configuração do Serviço**, escolha o nome da configuração do serviço que você deseja editar. Se quiser fazer alterações em todas as configurações de serviço para essa função, você poderá escolher **Todas as Configurações**. Para obter mais informações sobre como atualizar as configurações de serviço, consulte a seção **Gerenciar cadeias de conexão para contas de armazenamento** no tópico [Configurar as funções para um serviço de nuvem do Azure com o Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
-1. In the **Service Configuration** list, choose the name of the service configuration that you want to edit. If you want to make changes to all of the service configurations for this role, you can choose **All Configurations**.  For more information about how to update service configurations, see the section **Manage Connection Strings for Storage Accounts** in the topic [Configure the Roles for an Azure Cloud Service with Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+1. Para modificar as configurações de cadeia de conexão, escolha o botão **...** ao lado da configuração. A caixa de diálogo **Criar Cadeia de Conexão de Armazenamento** é exibida.
 
-1. To modify any connection string settings, choose the **…** button next to the setting. The **Create Storage Connection String** dialog box appears.
+1. Em **Conectar usando**, escolha a opção **sua assinatura**.
 
-1. Under **Connect using**, choose the **Your subscription** option.
+1. Na lista **assinatura**, escolha sua assinatura. Se a lista de assinaturas não incluir aquela à qual você deseja, escolha o link **baixar configurações de publicação**.
 
-1. In the **Subscription** list, choose your subscription. If the list of subscriptions doesn't include the one that you want, choose the **Download Publish Settings** link.
+1. Na lista **nome da conta**, escolha o nome da sua conta de armazenamento. As ferramentas do Azure obtêm credenciais da conta de armazenamento automaticamente usando o arquivo .publishsettings. Para especificar as credenciais de conta de armazenamento manualmente, escolha a opção **credenciais inseridas manualmente** e, em seguida, continue com este procedimento. Você pode obter o nome da conta de armazenamento e a chave primária do [Portal Clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885). Se você não deseja especificar configurações de conta de armazenamento manualmente, escolha o botão **OK** para fechar a caixa de diálogo.
 
-1. In the **Account name** list, choose your storage account name. Azure Tools obtains storage account credentials automatically by using the .publishsettings file. To specify your storage account credentials manually, choose the **Manually entered credentials** option, and then continue with this procedure. You can get your storage account name and primary key from the [Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=213885). If you don’t want to specify your storage account settings manually, choose the **OK** button to close the dialog box.
+1. Selecione o link **Inserir conta de armazenamento**.
 
-1. Choose the **Enter storage account** credentials link.
+1. No **Nome da conta** digite o nome da sua conta de armazenamento.
 
-1. In the **Account name** box, enter the name of your storage account.
+    >[AZURE.NOTE] Faça logon no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) e, em seguida, selecione o botão **Armazenamento**. O portal mostra uma lista de contas de armazenamento. Se você escolher uma conta, uma página será aberta para ela. Você pode copiar o nome da conta de armazenamento nessa página. Se você estiver usando uma versão anterior do portal clássico, o nome da sua conta de armazenamento aparecerá na exibição **Contas de Armazenamento**. Para copiar esse nome, realce-na janela **Propriedades** desta exibição, em seguida, escolha as teclas Ctrl-C. Para colar o nome no Visual Studio, selecione a caixa de texto **Nome da conta** e, em seguida, selecione as teclas Ctrl+V.
 
-    >[AZURE.NOTE] Log into the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), and then choose the **Storage** button. The portal shows a list of storage accounts. If you choose an account, a page for it opens. You can copy the name of the storage account from this page. If you are using a previous version of the classic portal, the name of your storage account appears in the **Storage Accounts** view. To copy this name, highlight it in the **Properties** window of this view, and then choose the Ctrl-C keys. To paste the name into Visual Studio, choose the **Account name** text box, and then choose the Ctrl+V keys.
+1. No caixa **Chave de conta**, digite sua chave primária ou copie e cole-a do [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Para copiar essa chave:
 
-1. In the **Account key** box, enter your primary key, or copy and paste it from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
-    To copy this key:
+    1. Na parte inferior da página para a conta de armazenamento apropriado, selecione o botão **Gerenciar chaves**.
 
-    1. At the bottom of the page for the appropriate storage account, choose the **Manage Keys** button.
+    1. Na página **Gerenciar chaves de acesso**, selecione o texto da tecla de acesso primário e, em seguida, selecione as teclas Ctrl+C.
 
-    1. On the **Manage Keys Access** page, select the text of the primary access key, and then choose the Ctrl+C keys.
+    1. Em Ferramentas do Azure, cole a chave para a caixa **Chave de conta**.
 
-    1. In Azure Tools, paste the key into the **Account key** box.
+    1. Você deve selecionar uma das opções a seguir para determinar como o serviço acessará a conta de armazenamento:
+        - **Usar HTTP**. Essa é a opção padrão. Por exemplo: `http://<account name>.blob.core.windows.net`.
+        - **Use HTTPS** para uma conexão segura. Por exemplo: `https://<accountname>.blob.core.windows.net`.
+        - **Especifique pontos de extremidade personalizados** para cada um dos três serviços. Em seguida, você pode digitar esses pontos de extremidade no campo para o serviço específico.
 
-    1. You must select one of the following options to determine how the service will access the storage account:
-        - **Use HTTP**. This is the standard option. For example, `http://<account name>.blob.core.windows.net`.
-        - **Use HTTPS** for a secure connection. For example, `https://<accountname>.blob.core.windows.net`.
-        - **Specify custom endpoints** for each of the three services. You can then type these endpoints into the field for the specific service.
+        >[AZURE.NOTE] Se você criar pontos de extremidade personalizados, poderá criar uma cadeia de conexão mais complexa. Ao usar esse formato de cadeia de caracteres, você pode especificar pontos de extremidade de serviço de armazenamento que incluem um nome de domínio personalizado que você registrou para sua conta de armazenamento com o serviço Blob. Além disso, você pode conceder acesso apenas aos recursos de blob em um único contêiner por meio de uma assinatura de acesso compartilhado. Para obter mais informações sobre como criar pontos de extremidade personalizados, consulte [Configurar cadeias de conexão de armazenamento do Azure](storage-configure-connection-string.md).
 
-        >[AZURE.NOTE] If you create custom endpoints, you can create a more complex connection string. When you use this string format, you can specify storage service endpoints that include a custom domain name that you have registered for your storage account with the Blob service. Also you can grant access only to blob resources in a single container through a shared access signature. For more information about how to create custom endpoints, see [Configure Azure Storage Connection Strings](storage-configure-connection-string.md).
+1. Para salvar essas alterações da cadeia de conexão, selecione o botão **OK** e, em seguida, selecione **Salvar** na barra de ferramentas. Após salvar essas alterações, você pode obter o valor dessa cadeia de conexão no seu código usando [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). Quando você publica seu aplicativo no Azure, escolhe a configuração do serviço que contém a conta de armazenamento do Azure para a cadeia de conexão. Depois de publicar o aplicativo, verifique se ele funciona conforme esperado nos serviços de armazenamento do Azure
 
-1. To save these connection string changes, choose the **OK** button and then choose the **Save** button on the toolbar. After you save these changes, you can get the value of this connection string in your code by using [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). When you publish your application to Azure, choose the service configuration that contains the Azure storage account for the connection string. After your application is published, verify that the application works as expected against the Azure storage services
+## Próximas etapas
 
-## <a name="next-steps"></a>Next steps
+Para obter mais informações sobre publicação de aplicativos para o Azure do Visual Studio, consulte [Publicando um serviço de nuvem usando as ferramentas do Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-To learn more about publishing apps to Azure from Visual Studio, see [Publishing a Cloud Service using the Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

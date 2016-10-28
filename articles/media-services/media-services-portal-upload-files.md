@@ -1,67 +1,60 @@
 <properties
-    pageTitle=" Upload files into a Media Services account using the Azure portal | Microsoft Azure"
-    description="This tutorial walks you through the steps of uploading files into a Media Services account using the Azure portal"
-    services="media-services"
-    documentationCenter=""
-    authors="Juliako"
-    manager="erikre"
-    editor=""/>
+	pageTitle=" Carregar arquivos em uma conta do Serviços de Mídia usando o portal do Azure | Microsoft Azure"
+	description="Este tutorial orienta você pelas etapas de carregamento de arquivos em uma conta do Serviços de Mídia do Azure usando o portal do Azure"
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/29/2016"
-    ms.author="juliako"/>
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/29/2016"
+	ms.author="juliako"/>
 
 
-
-# <a name="upload-files-into-a-media-services-account-using-the-azure-portal"></a>Upload files into a Media Services account using the Azure portal 
+# Carregar arquivos em uma conta do Serviços de Mídia usando o portal do Azure 
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-upload-files.md)
 - [.NET](media-services-dotnet-upload-files.md)
 - [REST](media-services-rest-upload-files.md)
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-In Media Services, you upload your digital files into an asset. The Asset  can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.) Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.
+Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. O Ativo pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos). Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão.
  
-1. In the **Setting** window, click **Assets**.
+1. Na janela **Configuração**, clique em **Ativos**.
 
-    ![Upload files](./media/media-services-portal-vod-get-started/media-services-upload.png)
+	![Carregar arquivos](./media/media-services-portal-vod-get-started/media-services-upload.png)
 
-3. Click the **Upload** button.
+3. Clique no botão **Carregar**.
 
-    The **Upload a video asset** window appears.
+	A janela **Carregar um ativo de vídeo** é exibida.
 
-    >[AZURE.NOTE] There is no file size limitation.
-    
-4. Browse to the desired video on your computer, select it, and hit OK.  
+	>[AZURE.NOTE] Não há nenhuma limitação de tamanho do arquivo.
+	
+4. Navegue até o vídeo desejado no seu computador, selecione-o e clique em OK.
 
-    The upload starts and you can see the progress under the file name.  
+	O carregamento é iniciado e você pode ver o progresso abaixo do nome de arquivo.
 
-Once the upload completes, you will see the new asset listed in the **Assets** window. 
+Quando o carregamento for concluído, você verá o novo ativo listado na janela **Ativos**.
 
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
+Agora você pode codificar seus ativos carregados. Para saber mais, veja [Codificar ativos](media-services-portal-encode.md).
 
-## <a name="media-services-learning-paths"></a>Media Services learning paths
+## Roteiros de aprendizagem dos Serviços de Mídia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Fornecer comentários
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

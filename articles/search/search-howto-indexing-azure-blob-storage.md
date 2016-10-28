@@ -1,6 +1,6 @@
 <properties
-pageTitle="Indexing Azure Blob Storage with Azure Search"
-description="Learn how to index Azure Blob Storage and extract text from documents with Azure Search"
+pageTitle="Indexação do Armazenamento de Blobs do Azure com a Pesquisa do Azure"
+description="Saiba como indexar o Armazenamento de Blobs do Azure e extrair texto de documentos com a Pesquisa do Azure"
 services="search"
 documentationCenter=""
 authors="chaosrealm"
@@ -15,297 +15,292 @@ ms.tgt_pltfrm="na"
 ms.date="08/16/2016"
 ms.author="eugenesh" />
 
+# Indexação de documentos no Armazenamento de Blobs do Azure com a Pesquisa do Azure
 
-# <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexing Documents in Azure Blob Storage with Azure Search
+Este artigo mostra como usar a Pesquisa do Azure para indexar documentos (como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de blobs do Azure. O novo indexador de blob da Pesquisa do Azure torna esse processo rápido e direto.
 
-This article shows how to use Azure Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in Azure Blob storage. The new Azure Search blob indexer makes this process quick and seamless. 
+> [AZURE.IMPORTANT] Atualmente, essa funcionalidade está no modo de visualização. Ela está disponível somente na API REST que usa a versão **2015-02-28-Preview**. Lembre-se de que as APIs de visualização servem para teste e avaliação, e não devem ser usadas em ambientes de produção.
 
-> [AZURE.IMPORTANT] Currently this functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+## Formatos de documento com suporte
 
-## <a name="supported-document-formats"></a>Supported document formats
-
-The blob indexer can extract text from the following document formats:
+O indexador de blob pode extrair o texto dos seguintes formatos de documento:
 
 - PDF
-- Microsoft Office formats: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook emails)  
+- Formatos do Microsoft Office: DOCX/DOC, XLSX/XLS, PPT/PPTX, MSG (emails do Outlook)
 - HTML
 - XML
 - ZIP
 - EML
-- Plain text files  
-- JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details)
-- CSV (see [Indexing CSV blobs](search-howto-index-csv-blobs.md) for details)
+- Arquivos de texto sem formatação
+- JSON (consulte [Indexando os blobs JSON](search-howto-index-json-blobs.md) para obter detalhes)
+- CSV (consulte [Indexando os blobs CSV](search-howto-index-csv-blobs.md) para obter detalhes)
 
-## <a name="setting-up-blob-indexing"></a>Setting up blob indexing
+## Configuração da indexação de blob
 
-To set up and configure an Azure Blob Storage indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [this article](https://msdn.microsoft.com/library/azure/dn946891.aspx). You can also use [version 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) of the .NET SDK. In the future, support for blob indexing will be added to the Azure Portal.
+Para instalar e configurar um indexador do Armazenamento de Blobs do Azure, você pode usar a API REST da Pesquisa do Azure para criar e gerenciar **indexadores** e **fontes de dados**, conforme descrito [neste artigo](https://msdn.microsoft.com/library/azure/dn946891.aspx). Você também pode usar a [versão 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) do SDK do .NET. No futuro, o suporte para a indexação de blob será adicionado ao Portal do Azure.
 
-To set up an indexer, do the following three steps: create a data source, create an index, configure the indexer.
+Para configurar um indexador, siga estas três etapas: crie uma fonte de dados, crie um índice, configure o indexador.
 
-### <a name="step-1:-create-a-data-source"></a>Step 1: Create a data source
+### Etapa 1: Criar uma fonte de dados
 
-A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same subscription.
+Uma fonte de dados especifica quais dados indexar, as credenciais necessárias para acessar os dados e as políticas que permitem à Pesquisa do Azure identificar com eficiência as alterações nos dados (linhas novas, modificadas ou excluídas). Uma fonte de dados pode ser usada por vários indexadores na mesma assinatura.
 
-For blob indexing, the data source must have the following required properties: 
+Para a indexação de blobs, a fonte de dados deve ter as seguintes propriedades requeridas:
 
-- **name** is the unique name of the data source within your search service. 
+- **name** é o nome exclusivo da fonte de dados dentro de seu serviço de pesquisa.
 
-- **type** must be `azureblob`. 
+- **type** deve ser `azureblob`.
 
-- **credentials** provides the storage account connection string as the `credentials.connectionString` parameter. You can get the connection string from the Azure Portal by navigating to the desired storage account blade > **Settings** > **Keys** and use the "Primary Connection String" or "Secondary Connection String" value. Since the connection string is bound to a storage account, specifying the connection string implicitly identifies the storage account providing the data.
+- **credentials** fornece a cadeia de conexão da conta de armazenamento como o parâmetro `credentials.connectionString`. Você pode obter a cadeia de conexão no Portal do Azure navegando até a folha da conta de armazenamento desejada > **Configurações** > **Chaves** e usar o valor "Cadeia de Conexão Primária" ou "Cadeia de Conexão Secundária". Como a cadeia de conexão está ligada a uma conta de armazenamento, especificar a cadeia de conexão implicitamente identifica a conta de armazenamento fornecendo os dados.
 
-- **container** specifies a container in your storage account. By default, all blobs within the container are retrievable. If you only want to index blobs in a particular virtual directory, you can specify that directory using the optional **query** parameter. 
+- **container** especifica um contêiner em sua conta de armazenamento. Por padrão, todos os blobs no contêiner são recuperáveis. Se você quiser apenas blobs de índice em um diretório virtual específico, poderá especificar o diretório usando o parâmetro opcional **query**.
 
-The following example illustrates a data source definition:
+O exemplo a seguir ilustra uma definição da fonte de dados:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-        "name" : "blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
-    }   
+	{
+	    "name" : "blob-datasource",
+	    "type" : "azureblob",
+	    "credentials" : { "connectionString" : "<my storage connection string>" },
+	    "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
+	}   
 
-For more on the Create Datasource API, see [Create Datasource](search-api-indexers-2015-02-28-preview.md#create-data-source).
+Para obter mais informações sobre Criar a API da Fonte de Dados, consulte [Criar Fonte de Dados](search-api-indexers-2015-02-28-preview.md#create-data-source).
 
-### <a name="step-2:-create-an-index"></a>Step 2: Create an index 
+### Etapa 2: Criar um índice 
 
-The index specifies the fields in a document, attributes, and other constructs that shape the search experience.  
+O índice especifica os campos em um documento, atributos e outras construções que modelam a experiência de pesquisa.
 
-For blob indexing, be sure that your index has a searchable `content` field for storing the blob.
+Para a indexação de blob, verifique se o índice tem um campo `content` de pesquisa para armazenar o blob.
 
-    POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
-    Content-Type: application/json
-    api-key: [admin key]
+	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-        "name" : "my-target-index",
-        "fields": [
-            { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
-            { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
-        ]
-    }
+	{
+  		"name" : "my-target-index",
+  		"fields": [
+    		{ "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+    		{ "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
+  		]
+	}
 
-For more on the Create Index API, see [Create Index](https://msdn.microsoft.com/library/dn798941.aspx)
+Para obter mais informações sobre Criar a API de Índice, consulte [Criar Índice](https://msdn.microsoft.com/library/dn798941.aspx)
 
-### <a name="step-3:-create-an-indexer"></a>Step 3: Create an indexer 
+### Etapa 3: Criar um indexador 
 
-An indexer connects data sources with target search indexes, and provides scheduling information so that you can automate data refresh. Once the index and data source have been created, its relatively simple to create an indexer that references the data source and a target index. For example:
+Um indexador conecta as fontes de dados com os índices de pesquisa de destino e fornece informações de agendamento para que você possa automatizar a atualização dos dados. Depois do índice e da fonte de dados ser criados, será relativamente simples criar um indexador que referencia a fonte de dados e um índice de destino. Por exemplo:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-      "name" : "blob-indexer",
-      "dataSourceName" : "blob-datasource",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" }
-    }
+	{
+	  "name" : "blob-indexer",
+	  "dataSourceName" : "blob-datasource",
+	  "targetIndexName" : "my-target-index",
+	  "schedule" : { "interval" : "PT2H" }
+	}
 
-This indexer will run every two hours (schedule interval is set to "PT2H"). To run an  indexer every 30 minutes, set the interval to "PT30M". Shortest supported interval is 5 minutes. Schedule is optional - if omitted, an indexer runs only once when created. However, you can run an indexer on-demand at any time.   
+Esse indexador será executado a cada duas horas (o intervalo de agendamento é definido como "PT2H"). Para executar um indexador a cada 30 minutos, defina o intervalo para "PT30M". O intervalo mais curto permitido é de 5 minutos. O agendamento é opcional - se ele for omitido, um indexador será executado apenas uma vez quando for criado. No entanto, você pode executar um indexador sob demanda a qualquer momento.
 
-For more details on the Create Indexer API, check out [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer).
+Para obter mais detalhes sobre Criar a API do Indexador, consulte [Criar Indexador](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
 
-## <a name="document-extraction-process"></a>Document extraction process
+## Processo de extração de documento
 
-Azure Search indexes each document (blob) as follows:
+A Pesquisa do Azure indexa cada documento (blob) da seguinte maneira:
 
-- The entire text content of the document is extracted into a string field named `content`. Note that we currently don't provide support for extracting multiple documents from a single blob:
-    - For example, a CSV file is indexed as a single document. If you need to treat each line in a CSV as a separate document, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/13865325-please-treat-each-line-in-a-csv-file-as-a-separate).
-    - A compound or embedded document (such as a ZIP archive or a Word document with embedded Outlook email with a PDF attachment) is also indexed as a single document.
+- Todo o conteúdo de texto do documento é extraído para um campo de cadeia de caracteres chamado `content`. Observe que no momento não fornecemos suporte para extração de vários documentos de um único blob:
+	- Por exemplo, um arquivo CSV é indexado como um único documento. Se você precisar tratar cada linha em um CSV como um documento separado, vote [nesta sugestão do UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/13865325-please-treat-each-line-in-a-csv-file-as-a-separate).
+	- Um documento composto ou incorporado (como um arquivo ZIP ou um documento do Word com email do Outlook incorporado com um anexo em PDF) também é indexado como um único documento.
 
-- User-specified metadata properties present on the blob, if any, are extracted verbatim. The metadata properties can also be used to control certain aspects of the document extraction process – see [Using Custom Metadata to Control Document Extraction](#CustomMetadataControl) for more details.
+- As propriedades de metadados especificadas pelo usuário e presentes no blob, se houver alguma, são extraídas literalmente. Elas também podem ser usadas para controlar determinados aspectos do processo de extração de documentos, confira [Uso de metadados personalizados para controlar a extração de documento](#CustomMetadataControl) para obter mais detalhes.
 
-- Standard blob metadata properties are extracted into the following fields:
+- As propriedades de metadados de blob padrão são extraídas para os seguintes campos:
 
-    - **metadata\_storage\_name** (Edm.String) - the file name of the blob. For example, if you have a blob /my-container/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
+	- **metadata\_storage\_name** (Edm.String): o nome do arquivo do blob. Por exemplo, se você tiver um blob /my-container/my-folder/subfolder/resume.pdf, o valor desse campo será `resume.pdf`.
 
-    - **metadata\_storage\_path** (Edm.String) - the full URI of the blob, including the storage account. For example, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+	- **metadata\_storage\_path** (Edm.String): o URI completo do blob, incluindo a conta de armazenamento. Por exemplo, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
 
-    - **metadata\_storage\_content\_type** (Edm.String) - content type as specified by the code you used to upload the blob. For example, `application/octet-stream`.
+	- **metadata\_storage\_content\_type** (Edm.String): o tipo de conteúdo, conforme especificado pelo código usado para carregar o blob. Por exemplo: `application/octet-stream`.
 
-    - **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - last modified timestamp for the blob. Azure Search uses this timestamp to identify changed blobs, in order to avoid re-indexing everything after the initial indexing.
+	- **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): último carimbo de data e hora modificado para o blob. A Pesquisa do Azure usa esse carimbo de data e hora para identificar os blobs alterados, a fim de evitar a reindexação total após a indexação inicial.
 
-    - **metadata\_storage\_size** (Edm.Int64) - blob size in bytes.
+	- **metadata\_storage\_size** (Edm.Int64): tamanho do blob em bytes.
 
-    - **metadata\_storage\_content\_md5** (Edm.String) - MD5 hash of the blob content, if available.
+	- **metadata\_storage\_content\_md5** (Edm.String): hash MD5 do conteúdo do blob, se estiver disponível.
 
-- Metadata properties specific to each document format are extracted into the fields listed [here](#ContentSpecificMetadata).
+- As propriedades de metadados específicas a cada formato de documento são extraídas nos campos listados [aqui](#ContentSpecificMetadata).
 
-You don't need to define fields for all of the above properties in your search index - just capture the properties you need for your application. 
+Não é necessário definir os campos para todas as propriedades acima em seu índice de pesquisa, basta capturar as propriedades necessárias para seu aplicativo.
 
-> [AZURE.NOTE] Often, the field names in your existing index will be different from the field names generated during document extraction. You can use **field mappings** to map the property names provided by Azure Search to the field names in your search index. You will see an example of field mappings use below. 
+> [AZURE.NOTE] Geralmente, os nomes de campo no índice existente serão diferentes dos nomes de campo gerados durante a extração do documento. Você pode usar os **mapeamentos de campo** para mapear os nomes de propriedade fornecidos pela Pesquisa do Azure para os nomes de campo em seu índice de pesquisa. Você verá um exemplo de uso de mapeamento de campo abaixo.
 
-## <a name="picking-the-document-key-field-and-dealing-with-different-field-names"></a>Picking the document key field and dealing with different field names
+## Escolha do campo de chave do documento e tratamento de nomes de campo diferentes
 
-In Azure Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type Edm.String. The key field is required for each document that is being added to the index (it is actually the only required field).  
+Na Pesquisa do Azure, a chave do documento identifica exclusivamente um documento. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo Edm.String. O campo de chave é necessário para cada documento adicionado ao índice (é, na verdade, o único campo obrigatório).
    
-You should carefully consider which extracted field should map to the key field for your index. The candidates are:
+Você deve considerar cuidadosamente qual campo extraído deve ser mapeado para o campo de chave de seu índice. Os candidatos são:
 
-- **metadata\_storage\_name** - this might be a convenient candidate, but note that 1) the names might not be unique, as you may have blobs with the same name in different folders, and 2) the name may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by enabling the `base64EncodeKeys` option in the indexer properties - if you do this, remember to encode document keys when passing them in API calls such as Lookup. (For example, in .NET you can use the [UrlTokenEncode method](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) for that purpose).
+- **metadata\_storage\_name**: este pode ser um candidato conveniente, mas observe que 1) talvez os nomes não sejam exclusivos, pois você pode ter blobs com o mesmo nome em pastas diferentes, e 2) o nome pode conter caracteres inválidos em chaves de documento, por exemplo, traços. Você pode lidar com caracteres inválidos habilitando a opção `base64EncodeKeys` nas propriedades do indexador. Se fizer isso, lembre-se de codificar as chaves de documento ao transmiti-las em chamadas de API, como Pesquisa. (Por exemplo, em .NET você pode usar o [método UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para essa finalidade).
 
-- **metadata\_storage\_path** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](https://msdn.microsoft.com/library/azure/dn857353.aspx).  As above, you have the option of encoding the keys using the `base64EncodeKeys` option.
+- **metadata\_storage\_path**: o uso do caminho completo garante a exclusividade, mas o caminho contém definitivamente caracteres `/` que são [inválidos em uma chave de documento](https://msdn.microsoft.com/library/azure/dn857353.aspx). Como foi mencionado acima, você tem a opção de codificar as chaves usando a opção `base64EncodeKeys`.
 
-- If none of the options above work for you, you have the ultimate flexibility of adding a custom metadata property to the blobs. This option does, however, require your blob upload process to add that metadata property to all blobs. Since the key is a required property, all blobs that don't have that property will fail to be indexed.
+- Se nenhuma das opções acima funcionar para você, ainda há a flexibilidade máxima de adicionar uma propriedade de metadados personalizada aos blobs. No entanto, essa opção exige que seu processo de carregamento de blob adicione essa propriedade de metadados a todos os blobs. Como a chave é uma propriedade obrigatória, todos os blobs que não tiverem essa propriedade apresentarão falha na indexação.
 
-> [AZURE.IMPORTANT] If there is no explicit mapping for the key field in the index, Azure Search will automatically use `metadata_storage_path` (the second option above) as the key and enable base-64 encoding of keys.
+> [AZURE.IMPORTANT] Se não houver um mapeamento explícito para o campo de chave no índice, a Pesquisa do Azure usará automaticamente `metadata_storage_path` (a segunda opção acima) como a chave e habilitará a codificação com base-64 das chaves.
 
-For this example, let's pick the `metadata_storage_name` field as the document key. Let's also assume your index has a key field named `key` and a field `fileSize` for storing the document size. To wire things up as desired, specify the following field mappings when creating or updating your indexer:
+Para este exemplo, vamos escolher o campo `metadata_storage_name` como a chave do documento. Vamos supor também que o índice tenha um campo de chave chamado `key` e um campo `fileSize` para armazenamento do tamanho do documento. Para conectar as coisas conforme o desejado, especifique os seguintes mapeamentos de campo ao criar ou atualizar o indexador:
 
-    "fieldMappings" : [
-      { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
-      { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
-    ]
+	"fieldMappings" : [
+	  { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
+	  { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
+	]
 
-To bring this all together, here's how you can add field mappings and enable base-64 encoding of keys for an existing indexer:
+Para unir tudo isso, veja como você pode adicionar mapeamentos de campo e habilitar a codificação das chaves em base-64 para um indexador existente:
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-      "dataSourceName" : " blob-datasource ",
-      "targetIndexName" : "my-target-index",
-      "schedule" : { "interval" : "PT2H" },
-      "fieldMappings" : [
-        { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
-        { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
-      ],
-      "parameters" : { "base64EncodeKeys": true }
-    }
+	{
+	  "dataSourceName" : " blob-datasource ",
+	  "targetIndexName" : "my-target-index",
+	  "schedule" : { "interval" : "PT2H" },
+	  "fieldMappings" : [
+	    { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
+	    { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
+	  ],
+	  "parameters" : { "base64EncodeKeys": true }
+	}
 
-> [AZURE.NOTE] To learn more about field mappings, see [this article](search-indexer-field-mappings.md).
+> [AZURE.NOTE] Para saber mais sobre mapeamentos de campo, consulte [este artigo](search-indexer-field-mappings.md).
 
-## <a name="incremental-indexing-and-deletion-detection"></a>Incremental indexing and deletion detection
+## Indexação incremental e detecção de exclusão
 
-When you set up a blob indexer to run on a schedule, it re-indexes only the changed blobs, as determined by the blob's `LastModified` timestamp.
+Quando você configura um indexador de blob para execução em um cronograma, ele reindexa apenas os blobs alterados, conforme determinado pelo carimbo de data/hora `LastModified` do blob.
 
-> [AZURE.NOTE] You don't have to specify a change detection policy – incremental indexing is enabled for you automatically.
+> [AZURE.NOTE] Não é necessário especificar uma política de detecção de alteração, a indexação incremental é habilitada automaticamente para você.
 
-To indicate that certain documents must be removed from the index, you should use a soft delete strategy - instead of deleting the corresponding blobs, add a custom metadata property to indicate that they're deleted, and set up a soft deletion detection policy on the data source.
+Para indicar que determinados documentos devem ser removidos do índice, você deve usar uma estratégia de exclusão reversível. Em vez de excluir os blobs correspondentes, adicione uma propriedade de metadados personalizada para indicar que eles foram excluídos e configure uma política de detecção de exclusão reversível na fonte de dados.
 
-> [AZURE.WARNING] If you just delete the blobs instead of using a deletion detection policy, corresponding documents will not be removed from the search index.
+> [AZURE.WARNING] Se você apenas excluir os blobs em vez de usar uma política de detecção de exclusão, os documentos correspondentes não serão removidos do índice de pesquisa.
 
-For example, the policy shown below will consider that a blob is deleted if it has a metadata property `IsDeleted` with the value `true`:
+Por exemplo, a política abaixo considerará que um blob foi excluído se tiver uma propriedade de metadados `IsDeleted` com o valor `true`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	PUT https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-        "name" : "blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "my-folder" },
-        "dataDeletionDetectionPolicy" : {
-            "@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",   
-            "softDeleteColumnName" : "IsDeleted",
-            "softDeleteMarkerValue" : "true"
-        }
-    }   
+	{
+	    "name" : "blob-datasource",
+	    "type" : "azureblob",
+	    "credentials" : { "connectionString" : "<your storage connection string>" },
+		"container" : { "name" : "my-container", "query" : "my-folder" },
+		"dataDeletionDetectionPolicy" : {
+			"@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", 	
+			"softDeleteColumnName" : "IsDeleted",
+			"softDeleteMarkerValue" : "true"
+		}
+	}   
 
 <a name="ContentSpecificMetadata"></a>
-## <a name="content-type-specific-metadata-properties"></a>Content type-specific metadata properties
+## Propriedades de metadados específicas ao tipo de conteúdo
 
-The following table summarizes processing done for each document format, and describes the metadata properties extracted by Azure Search.
+A tabela a seguir resume o processo executado para cada formato de documento, e descreve as propriedades dos metadados extraídos pela Pesquisa do Azure.
 
-Document format / content type | Content-type specific metadata properties | Processing details
+Formato de documento/tipo de conteúdo | Propriedades de metadados específicas do tipo de conteúdo | Detalhes do processamento
 -------------------------------|-------------------------------------------|-------------------
-HTML (`text/html`) | `metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` | Strip HTML markup and extract text
-PDF (`application/pdf`) | `metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title`| Extract text, including embedded documents (excluding images)
-DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Extract text, including embedded documents
-DOC (application/msword) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Extract text, including embedded documents
-XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Extract text, including embedded documents
-XLS (application/vnd.ms-excel) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Extract text, including embedded documents
-PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extract text, including embedded documents
-PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extract text, including embedded documents
-MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extract text, including attachments
-ZIP (application/zip) | `metadata_content_type` | Extract text from all documents in the archive
-XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Strip XML markup and extract text
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extract text<br/>NOTE: If you need to extract multiple document fields from a JSON blob, see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details
-EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | Extract text, including attachments
-Plain text (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
+HTML (`text/html`) | `metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` | Remoção da marcação HTML e extração do texto
+PDF (`application/pdf`) | `metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title`| Extração do texto, incluindo documentos incorporados (excluindo imagens)
+DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Extração de texto, incluindo documentos incorporados
+DOC (application/msword) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Extração de texto, incluindo documentos incorporados
+XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Extração de texto, incluindo documentos incorporados
+XLS (application/vnd.ms-excel) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Extração de texto, incluindo documentos incorporados
+PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extração de texto, incluindo documentos incorporados
+PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extração de texto, incluindo documentos incorporados
+MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extração do texto, incluindo anexos
+ZIP (application/zip) | `metadata_content_type` | Extração do texto de todos os documentos no arquivo
+XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Remoção da marcação XML e extração do texto
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extrair texto<br/>OBSERVAÇÃO: se você precisar extrair vários campos de documento de um blob JSON, consulte [Indexando blobs JSON](search-howto-index-json-blobs.md) para obter detalhes
+EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | Extração do texto, incluindo anexos
+Texto sem formatação (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
-## <a name="using-custom-metadata-to-control-document-extraction"></a>Using custom metadata to control document extraction
+## Uso de metadados personalizados para controlar a extração do documento
 
-You can add metadata properties to a blob to control certain aspects of the blob indexing and document extraction process. Currently the following properties are supported:
+Você pode adicionar propriedades de metadados a um blob para controlar determinados aspectos do processo de indexação do blob e de extração de documento. Atualmente, há suporte para as seguintes propriedades:
 
-Property name | Property value | Explanation
+Nome da propriedade | Valor da propriedade | Explicação
 --------------|----------------|------------
-AzureSearch_Skip | "true" | Instructs the blob indexer to completely skip the blob; neither metadata nor content extraction will be attempted. This is useful when you want to skip certain content types, or when a particular blob fails repeatedly and interrupts the indexing process.
-AzureSearch_SkipContent | "true" | Instructs the blob indexer to only index the metadata and skip extracting content of the blob. This is useful if the blob content is not interesting, but you still want to index the metadata attached to the blob.
+AzureSearch\_Skip | "true" | Instrui o indexador do blob a ignorar completamente o blob; não ocorrerá a tentativa de extração dos metadados nem do conteúdo. Isso é útil quando você quer ignorar determinados tipos de conteúdo, ou quando um blob específico falha repetidamente e interrompe o processo de indexação.
+AzureSearch\_SkipContent | "true" | Instrui o indexador de blob a indexar somente os metadados e a ignorar a extração de conteúdo do blob. Isso é útil quando o conteúdo do blob não é interessante, mas ainda assim você deseja indexar os metadados anexados ao blob.
 
 <a name="IndexerParametersConfigurationControl"></a>
-## <a name="using-indexer-parameters-to-control-document-extraction"></a>Using indexer parameters to control document extraction
+## Usando parâmetros de indexador para controlar a extração de documentos
 
-Several indexer configuration parameters are available to control which blobs, and which parts of a blob's content and metadata, will be indexed. 
+Diversos parâmetros de configuração do indexador estão disponíveis para controlar quais blobs e quais partes de um conteúdo e metadados de blob serão indexados.
 
-### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Index only the blobs with specific file extensions
+### Indexe apenas os blobs com extensões de arquivo específicas
 
-You can index only the blobs with the file name extensions you specify by using the `indexedFileNameExtensions` indexer configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index only the .PDF and .DOCX blobs, do this: 
+Você pode indexar apenas os blobs com as extensões do nome de arquivo especificadas usando o parâmetro de configuração do indexador `indexedFileNameExtensions`. O valor é uma cadeia de caracteres que contém uma lista separada por vírgulas das extensões de arquivo (com um ponto à esquerda). Por exemplo, para indexar apenas blobs de .PDF e .DOCX, faça o seguinte:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
-    }
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
+	}
 
-### <a name="exclude-blobs-with-specific-file-extensions-from-indexing"></a>Exclude blobs with specific file extensions from indexing
+### Exclua blobs com extensões de arquivo específicas da indexação
 
-You can exclude blobs with specific file name extensions from indexing by using the `excludedFileNameExtensions` configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index all blobs except those with the .PNG and .JPEG extensions, do this: 
+Você pode excluir os blobs com extensões do nome de arquivo específicas da indexação usando o parâmetro de configuração `excludedFileNameExtensions`. O valor é uma cadeia de caracteres que contém uma lista separada por vírgulas das extensões de arquivo (com um ponto à esquerda). Por exemplo, para indexar todos os blobs, exceto aqueles com as extensões .PNG e .JPEG, faça o seguinte:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
-    }
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
+	}
 
-If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. This means that if the same file extension is present in both lists, it will be excluded from indexing. 
+Se os parâmetros `indexedFileNameExtensions` e `excludedFileNameExtensions` estiverem presentes, a Pesquisa do Azure primeiro examinará `indexedFileNameExtensions`, em seguida, `excludedFileNameExtensions`. Isso significa que, se a mesma extensão de arquivo estiver presente nas duas listas, ela será excluída da indexação.
 
-### <a name="index-storage-metadata-only"></a>Index storage metadata only
+### Indexar somente metadados de armazenamento
 
-You can index only the storage metadata and completely skip the document extraction process using the `indexStorageMetadataOnly` configuration property. This is useful when you don't need the document content, nor do you need any of the content type-specific metadata properties. To do this, set the `indexStorageMetadataOnly` property to `true`: 
+Você pode indexar apenas os metadados de armazenamento e ignorar por completo o processo de extração de documentos usando a propriedade de configuração `indexStorageMetadataOnly`. Isso é útil quando você não precisa do conteúdo do documento ou quando não precisa das propriedades de metadados específicas do tipo de conteúdo. Para fazer isso, defina a propriedade `indexStorageMetadataOnly` para `true`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "indexStorageMetadataOnly" : true } }
-    }
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "indexStorageMetadataOnly" : true } }
+	}
 
-### <a name="index-both-storage-and-content-type-metadata,-but-skip-content-extraction"></a>Index both storage and content type metadata, but skip content extraction
+### Indexe metadados de tipo de conteúdo e armazenamento, mas ignore a extração de conteúdo
 
-If you need to extract all of the metadata but skip content extraction for all blobs, you can request this behavior using the indexer configuration, instead of having to add `AzureSearch_SkipContent` metadata to each blob individually. To do this, set the `skipContent` indexer configuration configuration property to `true`: 
+Se você precisar extrair todos os metadados, mas ignorar a extração de conteúdo de todos os blobs, poderá solicitar esse comportamento usando a configuração do indexador, em vez de ter que adicionar os metadados `AzureSearch_SkipContent` a cada blob individualmente. Para fazer isso, defina a propriedade de configuração do indexador `skipContent` para `true`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
 
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "skipContent" : true } }
-    }
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "skipContent" : true } }
+	}
 
-## <a name="help-us-make-azure-search-better"></a>Help us make Azure Search better
+## Ajude-nos a aprimorar a Pesquisa do Azure
 
-If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

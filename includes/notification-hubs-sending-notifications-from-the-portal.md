@@ -1,20 +1,15 @@
 
 
-Push notifications are normally sent in a back-end service like Mobile Apps or ASP.NET using a compatible library. You can also use the REST API directly to send notification messages if a library is not available for your back-end. 
+As notificações por push normalmente são enviadas em um serviço de back-end como Aplicativos Móveis ou ASP.NET usando uma biblioteca compatível. Você também pode usar a API REST diretamente para enviar mensagens de notificação se uma biblioteca não está disponível para o back-end.
 
-Here is a list of some other tutorials you may want to review for sending notifications:
+Aqui está uma lista de alguns outros tutoriais que talvez você queira examinar para o envio de notificações:
 
-- Azure Mobile Apps : For an example of how to send notifications from an Mobile Apps backend integrated with Notification Hubs, see [Add Push Notifications to your iOS App](../articles/app-service-mobile/app-service-mobile-ios-get-started-push.md).  
-- ASP.NET : [Use Notification Hubs to push notifications to users](../articles/notification-hubs/notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
-- Azure Notification Hub Java SDK: See [How to use Notification Hubs from Java](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md) for sending notifications from Java. This has been tested in Eclipse for Android Development.
-- PHP: [How to use Notification Hubs from PHP](../articles/notification-hubs/notification-hubs-php-push-notification-tutorial.md).
-
-
-In the next section of the tutorial, you will learn how to use the [Notification Hub REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) to send the notification message directly in your app. All registered devices receive the notification sent by any device.  
+- Aplicativos Móveis do Azure: para obter um exemplo de como enviar notificações por push de um back-end de Aplicativos Móveis integrado com Hubs de Notificação, veja [Adicionar notificações por push ao seu aplicativo iOS](../articles/app-service-mobile/app-service-mobile-ios-get-started-push.md).  
+- ASP.NET: [Usar hubs de notificação para enviar notificações por push aos usuários](../articles/notification-hubs/notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
+- SDK Java do Hub de Notificação do Azure: consulte [Como usar os Hubs de Notificação do Java](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md) para enviar notificações do Java. Isso foi testado no Eclipse para desenvolvimento no Android.
+- PHP: [como usar Hubs de Notificação do PHP](../articles/notification-hubs/notification-hubs-php-push-notification-tutorial.md).
 
 
+Na próxima seção do tutorial, você aprenderá a usar a [interface REST do Hub de Notificação](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) para enviar a mensagem de notificação diretamente para seu aplicativo. Todos os dispositivos registrados recebem a notificação enviada por qualquer dispositivo.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

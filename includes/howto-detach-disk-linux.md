@@ -1,95 +1,99 @@
-When you no longer need a data disk that's attached to a virtual machine (VM), you can easily detach it. This removes the disk from the VM, but doesn't remove it from storage. If you want to use the existing data on the disk again, you can reattach it to the same VM, or another one.  
+Quando não precisar mais de um disco de dados conectado a uma VM (máquina virtual), você poderá desanexá-lo facilmente. Essa ação remove o disco da VM, mas não o remove do armazenamento. Se desejar usar os dados existentes no disco novamente, você poderá reanexá-lo à mesma VM ou anexá-lo a outra.
 
-> [AZURE.NOTE] A VM in Azure uses different types of disks - an operating system disk, a local temporary disk, and optional data disks. For details, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md). You can not detach an operating system disk unless you also delete the VM.
+> [AZURE.NOTE] Uma VM no Azure usa diferentes tipos de discos, um disco de sistema operacional, um disco temporário local e discos de dados opcionais. Para obter detalhes, consulte [Sobre discos e VHDs para Máquinas Virtuais](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md). Não é possível desanexar um disco do sistema operacional, a menos que você também exclua a VM.
 
 
-## <a name="find-the-disk"></a>Find the disk
+## Localizar o disco
 
-Before you can detach a disk from a VM you need to find out the LUN number, which is an identifier for the disk to be detached. To do that, follow these steps:
+Antes de poder desanexar um disco de uma VM, você precisa descobrir o número LUN, que é um identificador para o disco a ser desanexado. Para fazer isso, siga estas etapas:
 
-1.  Open Azure CLI and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
+1. 	Abra a CLI do Azure e [conecte-se à sua assinatura do Azure](../articles/xplat-cli-connect.md). Verifique se você está no modo de Gerenciamento de Serviços do Azure (`azure config mode asm`).
 
-2.  Find out which disks are attached to your VM by using `azure vm disk list <virtual-machine-name>`:
+2. 	Descubra quais discos estão anexados à sua VM usando `azure vm disk list <virtual-machine-name>`:
 
-        $azure vm disk list UbuntuVM
-        info:    Executing command vm disk list
-        + Fetching disk images
-        + Getting virtual machines
-        + Getting VM disks
-        data:    Lun  Size(GB)  Blob-Name                         OS
-        data:    ---  --------  --------------------------------  -----
-        data:         30        ubuntuVM-2645b8030676c8f8.vhd  Linux
-        data:    1    10        test.VHD
-        data:    0    30        ubuntuVM-76f7ee1ef0f6dddc.vhd
-        info:    vm disk list command OK
+		$azure vm disk list UbuntuVM
+		info:    Executing command vm disk list
+		+ Fetching disk images
+		+ Getting virtual machines
+		+ Getting VM disks
+		data:    Lun  Size(GB)  Blob-Name                         OS
+		data:    ---  --------  --------------------------------  -----
+		data:         30        ubuntuVM-2645b8030676c8f8.vhd  Linux
+		data:    1    10        test.VHD
+		data:    0    30        ubuntuVM-76f7ee1ef0f6dddc.vhd
+		info:    vm disk list command OK
 
-3.  Note the LUN or the **logical unit number** for the disk that you want to detach.
+3. 	Observe o LUN ou o **número de unidade lógica** para o disco que você deseja desanexar.
 
-## <a name="remove-operating-system-references-to-the-disk"></a>Remove operating system references to the disk
+## Remover as referências do sistema operacional no disco
 
-Before detaching the disk from the Linux guest, you should make sure that all partitions on the disk are not in use. Ensure that the operating system does not attempt to remount them after a reboot. These steps undo the configuration you likely created when [attaching](../articles/virtual-machines/virtual-machines-linux-classic-attach-disk.md) the disk.
+Antes de desanexar o disco do convidado do Linux, você deve se certificar de que nenhuma das partições no disco está em uso. Certifique-se de que o sistema operacional não tente remontá-los após uma reinicialização. Essas etapas desfazem a configuração que você provavelmente criou ao [anexar](../articles/virtual-machines/virtual-machines-linux-classic-attach-disk.md) o disco.
 
-1. Use the `lsscsi` command to discover the disk identifier. `lsscsi` can be installed by either `yum install lsscsi` (on Red Hat based distributions) or `apt-get install lsscsi` (on Debian based distributions). You can find the disk identifier you are looking for by using the LUN number. The last number in the tuple in each row is the LUN. In the example below LUN 0 maps to _/dev/sdc_
+1. Use o comando `lsscsi` para descobrir o identificador do disco. `lsscsi` pode ser instalada pelo `yum install lsscsi` (em distribuições baseadas em Red Hat) ou pelo `apt-get install lsscsi` (em distribuições baseadas em Debian). Você pode encontrar o identificador de disco que está procurando usando o número de LUN. O último número na tupla em cada linha é o LUN. No exemplo a seguir, LUN 0 é mapeado para _/dev/sdc_
 
-            ops@TestVM:~$ lsscsi
-            [1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
-            [2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
-            [3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
-            [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
-            [5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd
+			ops@TestVM:~$ lsscsi
+			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
+			[2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
+			[3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
+			[5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
+			[5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd
 
-2. Use `fdisk -l <disk>` to discovery the partitions associated with the disk to be detached.
+2. Use `fdisk -l <disk>` para descobrir as partições associadas ao disco a ser desanexado.
 3. 
-            $ sudo fdisk -l /dev/sdc          Disk /dev/sdc: 1098.4 GB, 1098437885952 bytes, 2145386496 sectors          Units = sectors of 1 * 512 = 512 bytes          Sector size (logical/physical): 512 bytes / 512 bytes          I/O size (minimum/optimal): 512 bytes / 512 bytes          Disk label type: dos          Disk identifier: 0x5a1d2a1a
+			$ sudo fdisk -l /dev/sdc
+			Disk /dev/sdc: 1098.4 GB, 1098437885952 bytes, 2145386496 sectors
+			Units = sectors of 1 * 512 = 512 bytes
+			Sector size (logical/physical): 512 bytes / 512 bytes
+			I/O size (minimum/optimal): 512 bytes / 512 bytes
+			Disk label type: dos
+			Disk identifier: 0x5a1d2a1a
 
-               Device Boot      Start         End      Blocks   Id  System
-            /dev/sdc1            2048  2145386495  1072692224   83  Linux
+			   Device Boot      Start         End      Blocks   Id  System
+			/dev/sdc1            2048  2145386495  1072692224   83  Linux
 
-3. Unmount each partition listed for the disk. In this example: `$ sudo umount /dev/sdc1`
-4. Use the `blkid` command to discovery the UUIDs for all partitions
+3. Desmonte cada partição listada para o disco. Neste exemplo: `$ sudo umount /dev/sdc1`
+4. Use o comando `blkid` para descobrir os UUIDs de todas as partições
 
-            $ sudo blkid
-            /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
-            /dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
-            /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
-            /dev/sdd1: UUID="44444444-4b4b-4c4c-4d4d-4e4e4e4e4e4e" TYPE="ext4
-            
-5. Remove entries in the **/etc/fstab** file associated with either the device paths or UUIDs for all partitions for the disk to be detached.  Entries for this example might be:
+			$ sudo blkid
+			/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
+			/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
+			/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
+			/dev/sdd1: UUID="44444444-4b4b-4c4c-4d4d-4e4e4e4e4e4e" TYPE="ext4
+			
+5. Remova entradas no arquivo **/etc/fstab** associado aos caminhos de dispositivo ou UUIDs para todas as partições do disco a ser desanexado. As entradas para este exemplo poderiam ser:
 
-        UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
-or
+		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
+ou o
 
-        /dev/sdc1   /datadrive   ext4   defaults   1   2
-
-
-## <a name="detach-the-disk"></a>Detach the disk
-
-After you find the LUN number of the disk and removed the operating system references, you're ready to detach it:
-
-1.  Detach the selected disk from the virtual machine by running the command `azure vm disk detach
-    <virtual-machine-name> <LUN>`:
-
-        $azure vm disk detach UbuntuVM 0
-        info:    Executing command vm disk detach
-        + Getting virtual machines
-        + Removing Data-Disk
-        info:    vm disk detach command OK
-
-2.  You can check if the disk got detached by running this command:
-
-        $azure vm disk list UbuntuVM
-        info:    Executing command vm disk list
-        + Fetching disk images
-        + Getting virtual machines
-        + Getting VM disks
-        data:    Lun  Size(GB)  Blob-Name                         OS
-        data:    ---  --------  --------------------------------  -----
-        data:         30        ubuntuVM-2645b8030676c8f8.vhd  Linux
-        data:    1    10        test.VHD
-        info:    vm disk list command OK
-
-The detached disk remains in storage but is no longer attached to a virtual machine.
-
-<!--HONumber=Oct16_HO2-->
+		/dev/sdc1   /datadrive   ext4   defaults   1   2
 
 
+## Desanexar o disco
+
+Depois de localizar o número de LUN do disco e remover as referências do sistema operacional, você está pronto para desanexá-lo:
+
+1. 	Desanexe o disco selecionado da máquina virtual executando o comando `azure vm disk detach
+ 	<virtual-machine-name> <LUN>`:
+
+		$azure vm disk detach UbuntuVM 0
+		info:    Executing command vm disk detach
+		+ Getting virtual machines
+		+ Removing Data-Disk
+		info:    vm disk detach command OK
+
+2. 	É possível verificar se o disco foi desanexado executando este comando:
+
+		$azure vm disk list UbuntuVM
+		info:    Executing command vm disk list
+		+ Fetching disk images
+		+ Getting virtual machines
+		+ Getting VM disks
+		data:    Lun  Size(GB)  Blob-Name                         OS
+		data:    ---  --------  --------------------------------  -----
+		data:         30        ubuntuVM-2645b8030676c8f8.vhd  Linux
+		data:    1    10        test.VHD
+		info:    vm disk list command OK
+
+O disco permanece desanexado no armazenamento mas já não está conectado a uma máquina virtual.
+
+<!---HONumber=AcomDC_0824_2016-->

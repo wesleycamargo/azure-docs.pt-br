@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Site Recovery limits table"
-   description="Describes system limits for Site Recovery."
+   pageTitle="Tabela de limites do Site Recovery"
+   description="Descreve os limites do sistema para o Site Recovery."
    services="site recovery"
    documentationCenter="NA"
    authors="csilauraa"
@@ -16,21 +16,16 @@
    ms.author="lauraa" />
 
 
+Os seguintes limites se aplicam ao Azure Site Recovery:
 
-The following limits apply to Azure Site Recovery:
 
-
-|LIMIT IDENTIFIER|DEFAULT LIMIT|
+|IDENTIFICADOR DE LIMITE|LIMITE PADRÃO|
 |---|---|---|---|
-|Number of vaults per subscription|25|
-|Number of servers per Azure vault|250|
-|Number of protection groups per Azure vault|No limit|
-|Number of recovery plans per Azure vault|No limit|
-|Number of servers per protection group|No limit|
-|Number of servers per recovery plan|50|
+|Número de cofres por assinatura|25|
+|Número de servidores por cofre do Azure|250|
+|Número de grupos de proteção por cofre do Azure|Sem limite|
+|Número de planos de recuperação por cofre do Azure|Sem limite|
+|Número de servidores por grupo de proteção|Sem limite|
+|Número de servidores por plano de recuperação|50|
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

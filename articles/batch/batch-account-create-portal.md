@@ -1,115 +1,114 @@
 <properties
-    pageTitle="Create an Azure Batch account | Microsoft Azure"
-    description="Learn how to create an Azure Batch account in the Azure portal to run large-scale parallel workloads in the cloud"
-    services="batch"
-    documentationCenter=""
-    authors="mmacy"
-    manager="timlt"
-    editor=""/>
+	pageTitle="Criar uma conta do Lote do Azure | Microsoft Azure"
+	description="Aprenda a criar uma conta do Lote do Azure no portal do Azure para executar cargas de trabalho paralelas em larga escala na nuvem."
+	services="batch"
+	documentationCenter=""
+	authors="mmacy"
+	manager="timlt"
+	editor=""/>
 
 <tags
-    ms.service="batch"
-    ms.workload="big-compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/21/2016"
-    ms.author="marsma"/>
+	ms.service="batch"
+	ms.workload="big-compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/21/2016"
+	ms.author="marsma"/>
 
-
-# <a name="create-an-azure-batch-account-using-the-azure-portal"></a>Create an Azure Batch account using the Azure portal
+# Criar uma conta do Lote do Azure usando o portal do Azure
 
 > [AZURE.SELECTOR]
-- [Azure portal](batch-account-create-portal.md)
-- [Batch Management .NET](batch-management-dotnet.md)
+- [Portal do Azure](batch-account-create-portal.md)
+- [.NET de Gerenciamento do Lote](batch-management-dotnet.md)
 
-Learn how to create an Azure Batch account in the [Azure portal][azure_portal], and where to find important account properties like access keys and account URLs. We also discuss Batch pricing, and linking an Azure Storage account to your Batch account so that you can use [application packages](batch-application-packages.md) and [persist job and task output](batch-task-output.md).
+Saiba como criar uma conta do Lote do Azure no [Portal do Azure][azure_portal] e onde encontrar propriedades da conta importantes, como chaves de acesso e conta URLs. Também tratamos dos preços do Lote e da vinculação de uma conta do Armazenamento do Azure para sua conta do Lote para que você possa usar [pacotes de aplicativos](batch-application-packages.md) e [persistir a saída de trabalho e tarefa](batch-task-output.md).
 
-## <a name="create-a-batch-account"></a>Create a Batch account
+## Criar uma conta do Batch
 
-1. Sign in to the [Azure portal][azure_portal].
+1. Entre no [Portal do Azure][azure_portal].
 
-2. Click **New** > **Compute** > **Batch Service**.
+2. Clique em **Novo** > **Computação** > **Serviço de Lote**.
 
-    ![Batch in the Marketplace][marketplace_portal]
+	![Lote no Marketplace][marketplace_portal]
 
-3. The **New Batch Account** blade is displayed. See items *a* through *e* below for descriptions of each blade element.
+3. A folha **Nova Conta do Lote** é exibida. Veja os itens *a* até *e* abaixo para obter descrições de cada elemento da folha.
 
-    ![Create a Batch account][account_portal]
+    ![Criar uma conta do Batch][account_portal]
 
-    a. **Account Name**: A unique name for your Batch account. This name must be unique within the Azure region the account is created (see *Location* below). It may contain only lowercase characters, numbers, and must be 3-24 characters in length.
+	a. **Nome da Conta**: um nome exclusivo para sua conta do Lote. Esse nome deve ser exclusivo na região do Azure em que a conta é criada (confira o *Local* abaixo). Ele pode conter somente caracteres minúsculos, números e deve ter de 3 a 24 caracteres de comprimento.
 
-    b. **Subscription**: A subscription in which to create the Batch account. If you have only one subscription, it is selected by default.
+	b. **Assinatura**: uma assinatura na qual a conta do Lote será criada. Se você tiver somente uma assinatura, ela será selecionada por padrão.
 
-    c. **Resource group**: An existing resource group for your new Batch account, or optionally create a new one.
+	c. **Grupo de recursos**: um grupo de recursos para sua nova conta do Lote ou, opcionalmente, crie um novo.
 
-    d. **Location**: An Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group are displayed as options.
+	d. **Local**: uma região do Azure na qual a conta do Lote será criada. Somente as regiões com suporte da sua assinatura e do seu grupo de recursos são exibidas como opções.
 
-    e. **Storage Account** (optional): A **General purpose** storage account you associate (link) to your new Batch account. See [Linked Azure Storage account](#linked-azure-storage-account) below for more details.
+    e. **Conta de Armazenamento** (opcional): uma conta de armazenamento de **finalidade geral** que você associa à sua nova conta do Lote. Confira [Conta vinculada do Armazenamento do Azure](#linked-azure-storage-account) abaixo para obter mais detalhes.
 
-4. Click **Create** to create the account.
+4. Clique em **Criar** para criar a conta.
 
-  The portal indicates that it is **Deploying** the account, and upon completion, a **Deployments succeeded** notification appears in *Notifications*.
+  O portal indica que ele está **Implantando** a conta e, após a conclusão, uma notificação **Implantações bem-sucedidas** aparecerá em *Notificações*.
 
-## <a name="view-batch-account-properties"></a>View Batch account properties
+## Exibir propriedades de conta do Lote
 
-Once the account has been created, you can open the **Batch account blade** to access its settings and properties. You can access all account settings and properties by using the left menu of the Batch account blade.
+Após a criação da conta, você poderá abrir a **folha Conta do Lote** para acessar suas propriedades e configurações. Você pode acessar todas as propriedades e configurações de conta usando o menu à esquerda da folha Conta de Lote.
 
-![Batch account blade in Azure portal][account_blade]
+![Folha Conta do Lote no portal do Azure][account_blade]
 
-* **Batch account URL**: Applications you create with the [Batch development APIs](batch-technical-overview.md#batch-development-apis) need an account URL to manage resources and run jobs in the account. A Batch account URL has the following format:
+* **URL da conta do Lote**: os aplicativos que você criou com as [APIs de desenvolvimento do Lote](batch-technical-overview.md#batch-development-apis) precisam de uma URL de conta para gerenciar recursos e executar trabalhos na conta. Uma URL de conta do Lote tem o seguinte formato:
 
     `https://<account_name>.<region>.batch.azure.com`
 
-![Batch account URL in portal][account_url]
+![URL de conta do Lote no portal][account_url]
 
-* **Access keys**: Your applications also need an access key when working with resources in your Batch account. To view or regenerate your Batch account's access keys, enter `keys` in the left menu **Search** box on the Batch account blade, then select **Keys**.
+* **Chaves de acesso**: seus aplicativos também precisam de uma chave de acesso ao trabalhar com recursos em sua conta do Lote. Para exibir ou regenerar chaves de acesso da sua conta do Lote, insira `keys` na caixa **Pesquisar** do menu à esquerda na folha Conta do Lote e, em seguida, selecione **Chaves**.
 
-    ![Batch account keys in Azure portal][account_keys]
+    ![Chaves de conta do Lote no portal do Azure][account_keys]
 
-## <a name="pricing"></a>Pricing
+## Preços
 
-Batch accounts are offered only in a "Free Tier," which means you aren't charged for the Batch account itself. You are charged for the underlying Azure compute resources that your Batch solutions consume, and for the resources consumed by other services when your workloads run. For example, you are charged for the compute nodes in your pools and for the data you store in Azure Storage as input or output for your tasks. Similarly, if you use the [application packages](batch-application-packages.md) feature of Batch, you are charged for the Azure Storage resources used for storing your application packages. See [Batch pricing][batch_pricing] for more information.
+As contas do Lote são oferecidas apenas em uma "Camada Gratuita", o que significa que não são cobradas pela própria conta do Lote. Você é cobrado pelos recursos de computação subjacentes do Azure consumidos por suas soluções do Lote e pelos recursos consumidos por outros serviços quando suas cargas de trabalho forem executadas. Por exemplo, você será cobrado pelos nós de computação em seus pools e pelos dados guardados no Armazenamento do Azure como entrada ou saída de suas tarefas. De forma semelhante, se você usar o recurso [pacotes de aplicativos](batch-application-packages.md) do Lote, será cobrado pelos recursos do Armazenamento do Azure usados para armazenar os pacotes de aplicativos. Veja [Preços do Lote][batch_pricing] para saber mais.
 
-## <a name="linked-azure-storage-account"></a>Linked Azure Storage account
+## Conta vinculada do Armazenamento do Azure
 
-As mentioned earlier, you can (optionally) link a **General purpose** Storage account to your Batch account. The [application packages](batch-application-packages.md) feature of Batch uses blob storage in a linked General purpose Storage account, as does the [Batch File Conventions .NET](batch-task-output.md) library. These optional features assist you in deploying the applications your Batch tasks run, and persisting the data they produce.
+Como mencionado anteriormente, você pode (opcionalmente) vincular uma conta de armazenamento de **Finalidade geral** à sua nova conta do Lote. O recurso [pacotes de aplicativos](batch-application-packages.md) do Lote usa o armazenamento de blobs em uma conta do Armazenamento de finalidade Geral vinculada, como faz a biblioteca [.NET de Convenções de Arquivo do Lote](batch-task-output.md). Esses recursos opcionais ajudarão você a implantar os aplicativos executados por suas tarefas do Lote, persistindo os dados que eles produzem.
 
-Batch currently supports *only* the **General purpose** storage account type as described in step 5, [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/storage-create-storage-account.md). When you link an Azure Storage account to your Batch account, be sure link *only* a **General purpose** storage account.
+No momento, o Lote dá suporte *somente* ao tipo de conta de armazenamento de **Finalidade geral**, conforme descrito na etapa 5 [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md). Ao vincular uma conta do Armazenamento do Azure à sua conta do Lote, vincule *somente* uma conta de armazenamento de **Finalidade geral**.
 
-![Creating a "General purpose" storage account][storage_account]
+![Criação de uma conta de armazenamento de “finalidade geral”][storage_account]
 
-We recommend that you create a Storage account for exclusive use by your Batch account.
+É recomendável que você crie uma conta do Armazenamento para uso exclusivo de sua conta do Lote.
 
->[AZURE.WARNING] Take care when regenerating the access keys of a linked Storage account. Regenerate only one Storage account key and click **Sync Keys** on the linked Storage account blade. Wait five minutes to allow the keys to propagate to the compute nodes in your pools, then regenerate and synchronize the other key if necessary. If you regenerate both keys at the same time, your compute nodes will not be able to synchronize either key, and they will lose access to the Storage account.
+>[AZURE.WARNING] Tome cuidado ao regenerar as chaves de acesso de uma conta de Armazenamento vinculada. Regenere somente uma chave de conta do Armazenamento e clique em **Sincronizar Chaves** na folha Conta do Armazenamento vinculada. Aguarde cinco minutos para permitir que as chaves sejam propagadas para os nós de computação em seus pools e regenere e sincronize a outra chave, se necessário. Se você regenerar as chaves ao mesmo tempo, os nós de computação não poderão sincronizar nenhuma delas e, assim, perderão o acesso à conta de armazenamento.
 
-  ![Regenerating storage account keys][4]
+  ![Regeneração de chaves da conta de armazenamento][4]
 
-## <a name="batch-service-quotas-and-limits"></a>Batch service quotas and limits
+## Cotas e limites de serviço do Lote
 
-Please be aware that as with your Azure subscription and other Azure services, certain [quotas and limits](batch-quota-limit.md) apply to Batch accounts. Current quotas for a Batch account appear in the portal in the account **Properties**.
+Esteja ciente de que como sua assinatura do Azure e outros serviços do Azure, determinados [limites e cotas](batch-quota-limit.md) se aplicam a contas do Lote. As cotas atuais em uma conta do Lote aparecem no portal nas **Propriedades** da conta.
 
-![Batch account quotas in Azure portal][quotas]
+![Cotas de conta do Lote no portal do Azure][quotas]
 
-Keep these quotas in mind as you are designing and scaling up your Batch workloads. For example, if your pool isn't reaching the target number of compute nodes you've specified, you might have reached the core quota limit for your Batch account.
+Lembre-se dessas cotas quando estiver projetando e dimensionando suas cargas de trabalho do Lote. Por exemplo, se seu pool não alcançar o número de destino de nós de computação especificado, talvez você tenha atingido o limite de cota de núcleos para sua conta do Lote.
 
-Also note that you are not restricted to a single Batch account for your Azure subscription. You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts in the same subscription, but in different Azure regions.
+Observe também que você não está restrito a uma única conta do Lote para sua assinatura do Azure. Você pode executar várias cargas de trabalho do Lote em uma única conta do Lote ou distribuir suas cargas de trabalho entre contas do Lote na mesma assinatura mas em diferentes regiões do Azure.
 
-Many of these quotas can be increased simply with a free product support request submitted in the Azure portal. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for details on requesting quota increases.
+Muitas dessas cotas podem ser aumentadas com uma solicitação de suporte do produto gratuito enviada no portal do Azure. Confira [Cotas e limites para o serviço do Lote do Azure](batch-quota-limit.md) para obter detalhes sobre a solicitação de aumentos de cota.
 
-## <a name="other-batch-account-management-options"></a>Other Batch account management options
+## Outras opções de gerenciamento de conta do Lote
 
-In addition to using the Azure portal, you can also create and manage Batch accounts with the following:
+Além de usar o portal do Azure, você também pode criar e gerenciar contas do Lote com o seguinte:
 
-* [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
-* [Azure CLI](../xplat-cli-install.md)
-* [Batch Management .NET](batch-management-dotnet.md)
+* [Cmdlets do PowerShell do Lote](batch-powershell-cmdlets-get-started.md)
+* [CLI do Azure](../xplat-cli-install.md)
+* [.NET de Gerenciamento do Lote](batch-management-dotnet.md)
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-* See the [Azure Batch feature overview](batch-api-basics.md) to learn more about Batch service concepts and features. The article discusses the primary Batch resources such as pools, compute nodes, jobs, and tasks, and provides an overview of the service's features that enable large-scale compute workload execution.
+* Veja a [visão geral dos recursos do Lote do Azure](batch-api-basics.md) para saber mais sobre os conceitos e os recursos do serviço do Lote. O artigo aborda os recursos principais do Lote, como pools, nós de computação, trabalhos e tarefas, e fornece uma visão geral dos recursos do serviço que permitem a execução da carga de trabalho de computação em larga escala.
 
-* Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](batch-dotnet-get-started.md). The [introductory article](batch-dotnet-get-started.md) guides you through a working application that uses the Batch service to execute a workload on multiple compute nodes, and includes using Azure Storage for workload file staging and retrieval.
+* Obtenha as noções básicas sobre o desenvolvimento de um aplicativo habilitado para o Lote usando a [biblioteca de cliente .NET do Lote](batch-dotnet-get-started.md). O [artigo introdutório](batch-dotnet-get-started.md) orienta você por meio de um aplicativo de trabalho que usa o serviço em Lotes para executar uma carga de trabalho em vários nós de computação e que inclui o uso do Armazenamento do Azure para preparação e recuperação de um arquivo de carga de trabalho.
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
@@ -117,7 +116,7 @@ In addition to using the Azure portal, you can also create and manage Batch acco
 [azure_portal]: https://portal.azure.com
 [batch_pricing]: https://azure.microsoft.com/pricing/details/batch/
 
-[4]: ./media/batch-account-create-portal/batch_acct_04.png "Regenerating storage account keys"
+[4]: ./media/batch-account-create-portal/batch_acct_04.png "Regeneração de chaves da conta de armazenamento"
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
 [account_blade]: ./media/batch-account-create-portal/batch_blade.png
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
@@ -126,8 +125,4 @@ In addition to using the Azure portal, you can also create and manage Batch acco
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [quotas]: ./media/batch-account-create-portal/quotas.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

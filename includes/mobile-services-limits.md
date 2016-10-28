@@ -1,20 +1,17 @@
 
-| TIER: | FREE | BASIC | STANDARD |
+| CAMADA: | GRATUITO | BASIC | PADRÃO |
 |----|----|----|----|
-| API Calls | 500 K | 1.5 M / unit | 15 M / unit |
-| Active Devices | 500 | Unlimited | Unlimited |
-| Scale | N/A | Up to 6 units | Unlimited units |
-| Push Notifications | Notification Hubs Free Tier included, up to 1 M pushes | Notification Hubs Basic Tier included, up to 10 M pushes | Notification Hubs Standard Tier included, up to 10 M pushes |
-| Real time messaging/<br/>Web Sockets | Limited | 350 / mobile service | Unlimited |
-| Offline synchronizations | Limited | Included | Included |
-| Scheduled jobs  | Limited | Included | Included |
-| SQL Database (required) <br/>Standard rates apply for additional capacity | 20 MB included | 20 MB included | 20 MB included |
-| CPU capacity | 60 minutes / day | Unlimited | Unlimited |
-| Outbound data transfer | 165 MB per day (daily Rollover) | Included | Included |
+| Chamadas à API | 500 K | 1,5 M/unidade | 15 M/unidade |
+| Dispositivos ativos | 500 | Ilimitado | Ilimitado |
+| Escala | N/D | Até 6 unidades | Unidades ilimitadas |
+| Notificações por Push | Camada Gratuita de Hubs de Notificação incluída, até 1 M envios por push | Camada Basic de Hubs de Notificação incluída, até 10 M envios por push | Camada Standard de Hubs de Notificação incluída, até 10 M envios por push |
+| Mensagens em tempo real/<br/>Soquetes Web | Limitado | 350/serviço móvel | Ilimitado |
+| Sincronizações offline | Limitado | Incluso | Incluso |
+| Trabalhos agendados | Limitado | Incluso | Incluso |
+| Banco de Dados SQL (obrigatório) <br/>Serão aplicadas taxas padrão para capacidade adicional | 20 MB incluídos | 20 MB incluídos | 20 MB incluídos |
+| Capacidade de CPU | 60 minutos/dia | Ilimitado | Ilimitado |
+| Transferência de dados de saída | 165 MB por dia (substituição diária) | Incluso | Incluso |
 
-For additional details on these limits and for information on pricing, see [Mobile Services Pricing](https://azure.microsoft.com/pricing/details/mobile-services/). 
+Para obter detalhes adicionais sobre esses limites e informações sobre preços, consulte [Preços de Serviços Móveis](https://azure.microsoft.com/pricing/details/mobile-services/).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

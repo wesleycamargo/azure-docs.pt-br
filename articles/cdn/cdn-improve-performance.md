@@ -1,134 +1,129 @@
 <properties
-    pageTitle="Improve performance by compressing files in Azure CDN | Microsoft Azure"
-    description="Learn how to improve file transfer speed and increases page load performance by compressing your files in Azure CDN."
-    services="cdn"
-    documentationCenter=""
-    authors="camsoper"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Melhorar o desempenho ao compactar arquivos na CDN do Azure | Microsoft Azure"
+	description="Saiba como melhorar a velocidade de transferência do arquivo e aumentar o desempenho de carregamento da página compactando os arquivos na CDN do Azure."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="cdn"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/28/2016"
-    ms.author="casoper"/>
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="casoper"/>
+
+# Melhorar o desempenho ao compactar arquivos
+
+A compactação é um método simples e eficiente para melhorar a velocidade de transferência de arquivos e aumentar o desempenho de carregamento de páginas, reduzindo o tamanho de arquivos antes de serem enviados do servidor. Ela reduz os custos de largura de banda e oferece uma experiência mais responsiva para os seus usuários.
+
+Há duas maneiras de habilitar a compactação:
+
+- Você pode habilitar a compactação no seu servidor de origem. Nesse caso, a CDN passará os arquivos compactados e entregará arquivos compactados para os clientes que os solicitem.
+- Você pode habilitar a compactação diretamente nos servidores de borda CDN; nesse caso, o CDN compactará os arquivos e os fornecerá aos usuários finais mesmo se eles não forem compactados pelo servidor de origem.
+
+> [AZURE.IMPORTANT] As alterações de configuração de CDN levam algum tempo para se propagarem pela rede. Para perfis <b>CDN do Azure do Akamai</b>, a propagação normalmente é concluída em menos de um minuto. Para perfis <b>CDN do Azure da Verizon</b>, você geralmente verá suas alterações serem aplicadas em 90 minutos. Se esta for a primeira vez que você configura a compactação do seu ponto de extremidade CDN, será necessário considerar uma espera de 1 a 2 horas para garantir que as configurações de compactação sejam propagadas para os POPs antes de solucionar problemas
+
+## Habilitando a compactação
+
+> [AZURE.NOTE] As camadas CDN Standard e Premium fornecem a mesma funcionalidade de compactação, mas a interface do usuário varia. Para saber mais sobre as diferenças entre as camadas CDN Standard e Premium, confira [Visão geral da CDN do Azure](cdn-overview.md).
+
+### Camada padrão
+
+> [AZURE.NOTE] Esta seção aplica-se aos **CDN do Azure Standard da Verizon** e aos perfis **CDN do Azure da Akamai**.
+
+1. Na folha Perfil CDN, clique no ponto de extremidade da CDN que deseja gerenciar.
+
+	![Pontos de extremidade da folha Perfil CDN](./media/cdn-file-compression/cdn-endpoints.png)
+
+	A folha do ponto de extremidade da CDN se abre.
+
+2. Clique no botão **Configurar**.
+
+	![botão gerenciar da folha Perfil CDN](./media/cdn-file-compression/cdn-config-btn.png)
+
+	A folha Configuração da CDN se abre.
+
+3. Habilitar **Compactação**.
+
+	![Opções de compactação da CDN](./media/cdn-file-compression/cdn-compress-standard.png)
+
+4. Use os tipos padrão ou modifique a lista removendo ou adicionando tipos de arquivo.
+	
+	> [AZURE.TIP] Embora seja possível, não é recomendável aplicar a compactação a formatos compactados, como ZIP, MP3, MP4, JPG, etc.
+	
+5. Após fazer suas alterações, clique no botão **Salvar**.
+
+### Camada premium
+
+> [AZURE.NOTE] Esta seção aplica-se aos perfis **CDN do Azure Premium da Verizon**.
+
+1. Na folha do perfil CDN, clique no botão **Gerenciar**.
+
+	![botão gerenciar da folha Perfil CDN](./media/cdn-file-compression/cdn-manage-btn.png)
+
+	O portal de gerenciamento da CDN é aberto.
+
+2. Passe o ponteiro do mouse sobre a guia **HTTP grande** e passe o ponteiro do mouse sobre o submenu **Configurações de Cache**. Clique em **Compactação**.
+
+	As opções de compactação são exibidas.
+
+	![Compactação de arquivos](./media/cdn-file-compression/cdn-compress-files.png)
+
+3. Habilite a compactação clicando no botão de opção **Compactação Habilitada**. Insira os tipos MIME que você deseja compactar como uma lista delimitada por vírgula (sem espaços) na caixa de texto **Tipos de Arquivo**.
+		
+	> [AZURE.TIP] Embora seja possível, não é recomendável aplicar a compactação a formatos compactados, como ZIP, MP3, MP4, JPG, etc.
+
+4. Depois de fazer as alterações, clique no botão **Atualizar**.
 
 
-# <a name="improve-performance-by-compressing-files"></a>Improve performance by compressing files
+## Regras de compactação
 
-Compression is a simple and effective method to improve file transfer speed and increase page load performance by reducing file size before it is sent from the server. It reduces bandwidth costs and provides a more responsive experience for your users.
+Essas tabelas descrevem o comportamento de compactação CDN do Azure para cada cenário.
 
-There are two ways to enable compression:
-
-- You can enable compression on your origin server, in which case the CDN will pass through the compressed files and deliver compressed files to clients that request them.
-- You can enable compression directly on CDN edge servers, in which case the CDN will compress the files and serve it to end users, even if they are not compressed by the origin server.
-
-> [AZURE.IMPORTANT] CDN configuration changes take some time to propagate through the network.  For <b>Azure CDN from Akamai</b> profiles, propagation usually completes in under one minute.  For <b>Azure CDN from Verizon</b> profiles, you will usually see your changes apply within 90 minutes.  If this is the first time you've set up compression for your CDN endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs before troubleshooting
-
-## <a name="enabling-compression"></a>Enabling compression
-
-> [AZURE.NOTE] The Standard and Premium CDN tiers provide the same compression functionality, but the user interface differs.  For more information about the differences between Standard and Premium CDN tiers, see [Azure CDN Overview](cdn-overview.md).
-
-### <a name="standard-tier"></a>Standard tier
-
-> [AZURE.NOTE] This section applies to **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles.
-
-1. From the CDN profile blade, click the CDN endpoint you wish to manage.
-
-    ![CDN profile blade endpoints](./media/cdn-file-compression/cdn-endpoints.png)
-
-    The CDN endpoint blade opens.
-
-2. Click the **Configure** button.
-
-    ![CDN profile blade manage button](./media/cdn-file-compression/cdn-config-btn.png)
-
-    The CDN Configuration blade opens.
-
-3. Turn on **Compression**.
-
-    ![CDN compression options](./media/cdn-file-compression/cdn-compress-standard.png)
-
-4. Use the default types, or modify the list by removing or adding file types.
-    
-    > [AZURE.TIP] While possible, it is not recommended to apply compression to compressed formats, such as ZIP, MP3, MP4, JPG, etc.
-    
-5. After making your changes, click the **Save** button.
-
-### <a name="premium-tier"></a>Premium tier
-
-> [AZURE.NOTE] This section applies to **Azure CDN Premium from Verizon** profiles.
-
-1. From the CDN profile blade, click the **Manage** button.
-
-    ![CDN profile blade manage button](./media/cdn-file-compression/cdn-manage-btn.png)
-
-    The CDN management portal opens.
-
-2. Hover over the **HTTP Large** tab, then hover over the **Cache Settings** flyout.  Click on **Compression**.
-
-    Compression options are displayed.
-
-    ![File compression](./media/cdn-file-compression/cdn-compress-files.png)
-
-3. Enable compression by clicking the **Compression Enabled** radio button.  Enter the MIME types you wish to compress as a comma-delimited list (no spaces) in the **File Types** textbox.
-        
-    > [AZURE.TIP] While possible, it is not recommended to apply compression to compressed formats, such as ZIP, MP3, MP4, JPG, etc. 
-
-4. After making your changes, click the **Update** button.
-
-
-## <a name="compression-rules"></a>Compression rules
-
-These tables describe Azure CDN compression behavior for every scenario.
-
-> [AZURE.IMPORTANT] For **Azure CDN from Verizon** (Standard and Premium), only eligible files are compressed.  To be eligible for compression, a file must:
+> [AZURE.IMPORTANT] Para o **CDN do Azure da Verizon** (Standard e Premium), só os arquivos elegíveis são compactados. Para se qualificar para a compactação, um arquivo deve:
 >
-> - Be larger than 128 bytes.
-> - Be smaller than 1 MB.
+> - Ser maior que 128 bytes.
+> - Ser menor que 1 MB.
 > 
-> For **Azure CDN from Akamai**, all files are eligible for compression.
+> Para o **CDN do Azure do Akamai**, todos os arquivos estão qualificados para compactação.
 >
-> For all Azure CDN products, a file must be a MIME type that has been [configured for compression](#enabling-compression).
+> Para todos os produtos de CDN do Azure, um arquivo deve ser um tipo MIME que foi [configurado para compactação](#enabling-compression).
 >
-> **Azure CDN from Verizon** profiles (Standard and Premium) support **gzip**, **deflate**, or **bzip2** encoding.  **Azure CDN from Akamai** profiles only support **gzip** encoding.
+> Os perfis do **CDN do Azure da Verizon** (Standard e Premium) dão suporte a codificações **gzip**, **deflate**, ou **bzip2**. Os perfis do **CDN do Azure do Akamai** somente dão suporte à codificação **gzip**.
 >
-> **Azure CDN from Akamai** endpoints always request **gzip** encoded files from the origin, regardless of the client request.
+> Pontos de extremidade do **CDN do Azure da Akamai** sempre solicitam arquivos codificados **gzip** na origem, independentemente da solicitação do cliente.
 
-### <a name="compression-disabled-or-file-is-ineligible-for-compression"></a>Compression disabled or file is ineligible for compression
+### Compactação desabilitada ou arquivo não qualificado para compactação
 
-|Client requested format (via Accept-Encoding header)|Cached file format|CDN response to the client|Notes|
+|Formato solicitado pelo cliente (por meio do cabeçalho Accept-Encoding)|Formato de arquivo armazenado em cache|Resposta CDN para o cliente|Observações|
 |----------------|-----------|------------|-----|
-|Compressed|Compressed|Compressed|   |
-|Compressed|Uncompressed|Uncompressed|    | 
-|Compressed|Not cached|Compressed or Uncompressed|Depends on origin response|
-|Uncompressed|Compressed|Uncompressed|    |
-|Uncompressed|Uncompressed|Uncompressed|    |   
-|Uncompressed|Not cached|Uncompressed|     |
+|Compactado|Compactado|Compactado| |
+|Compactado|Não compactado|Não compactada| |	
+|Compactado|Não armazenado em cache|Compactada ou descompactada|Depende da resposta de origem|
+|Não compactado|Compactado|Não compactado| |
+|Não compactada|Não compactada|Não compactada| |	
+|Não compactado|Não armazenado em cache|Não compactada| |
 
-### <a name="compression-enabled-and-file-is-eligible-for-compression"></a>Compression enabled and file is eligible for compression
+### Compactação habilitada ou arquivo qualificado para compactação
 
-|Client requested format (via Accept-Encoding header)|Cached file format|CDN response to the client|Notes|
+|Formato solicitado pelo cliente (por meio do cabeçalho Accept-Encoding)|Formato de arquivo armazenado em cache|Resposta CDN para o cliente|Observações|
 |----------------|-----------|------------|-----|
-|Compressed|Compressed|Compressed|CDN transcodes between supported formats|
-|Compressed|Uncompressed|Compressed|CDN performs compression|
-|Compressed|Not cached|Compressed|CDN performs compression if origin returns uncompressed.  **Azure CDN from Verizon** will pass the uncompressed file on the first request and then compress and cache the file for subsequent requests.  Files with `Cache-Control: no-cache` header will never be compressed. 
-|Uncompressed|Compressed|Uncompressed|CDN performs decompression|
-|Uncompressed|Uncompressed|Uncompressed|     |  
-|Uncompressed|Not cached|Uncompressed|     |
+|Compactado|Compactado|Compactado|CDN transcodifica entre os formatos com suporte|
+|Compactado|Não compactado|Compactado|CDN executa compactação|
+|Compactado|Não armazenado em cache|Compactado|O CDN executará compactação se a origem for retornada descompactada. O **Azure CDN da Verizon** passará o arquivo descompactado na primeira solicitação e, em seguida, compactará e armazenará em cache o arquivo para solicitações subsequentes. Os arquivos com o cabeçalho `Cache-Control: no-cache` nunca serão compactados. 
+|Não compactada|Compactado|Não compactada|CDN executa descompactação|
+|Não compactado|Não compactada|Não compactada| |	
+|Não compactado|Não armazenado em cache|Não compactada| |
 
-## <a name="media-services-cdn-compression"></a>Media Services CDN Compression
+## Compactação de CDN dos Serviços de Mídia
 
-For Media Services CDN enabled streaming endpoints, compression is enabled by default for the following content types: application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml. You cannot enable/disable compression for the mentioned types using the Azure portal.  
+Para pontos de extremidade de streaming habilitado para a CDN de Serviços de Mídia, a compactação está habilitada por padrão para os seguintes tipos de conteúdo: application/vnd.ms-sstr+xml,application/dash+xml,application/vnd.apple.mpegurl,application/f4m+xml. Você não pode habilitar/desabilitar a compactação para os tipos mencionados usando o portal do Azure.
 
-## <a name="see-also"></a>See also
-- [Troubleshooting CDN file compression](cdn-troubleshoot-compression.md)    
+## Consulte também
+- [Solucionando problemas de compactação de arquivo CDN](cdn-troubleshoot-compression.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,6 +1,6 @@
 <properties
- pageTitle="Securing your Internet of Things from the ground up | Microsoft Azure"
- description="This article describes the built-in security features of the Microsoft Azure IoT Suite"
+ pageTitle="Protegendo sua Internet das Coisas desde o princípio | Microsoft Azure"
+ description="Este artigo descreve os recursos de segurança internos do Microsoft Azure IoT Suite"
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,31 +17,26 @@
  ms.date="08/16/2016"
  ms.author="yurid"/>
 
-
 [AZURE.INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-To learn more about securing your IoT solution, see:
+Para saber mais sobre como proteger sua solução IoT, confira:
 
-- [IoT Security Best Practices][lnk-security-best-practices]
-- [IoT Security Architecture][lnk-security-architecture]
-- [Secure your IoT deployment][lnk-security-deployment]
+- [Melhores Práticas de Segurança de IoT][lnk-security-best-practices]
+- [Arquitetura de segurança IoT][lnk-security-architecture]
+- [Proteger sua implantação de IoT][lnk-security-deployment]
 
 [lnk-security-best-practices]: iot-security-best-practices.md
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
+Você também pode explorar alguns dos outros recursos das soluções pré-configuradas do IoT Suite:
 
-- [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
-- [Frequently asked questions for IoT Suite][lnk-faq]
+- [Visão geral da solução pré-configurada de manutenção preditiva][lnk-predictive-overview]
+- [Perguntas frequentes sobre o IoT Suite][lnk-faq]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

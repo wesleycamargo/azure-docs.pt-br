@@ -1,117 +1,116 @@
 <properties 
-    pageTitle="How to use scoring profiles in Azure Search | Microsoft Azure | Hosted cloud search service" 
-    description="Tune search ranking through scoring profiles in Azure Search, a hosted cloud search service on Microsoft Azure." 
-    services="search" 
-    documentationCenter="" 
-    authors="HeidiSteen" 
-    manager="mblythe" 
-    editor=""/>
+	pageTitle="Como usar perfis de pontuação na Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
+	description="Ajuste a classificação da pesquisa por meio de perfis de pontuação na Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure." 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
 <tags 
-    ms.service="search" 
-    ms.devlang="rest-api" 
-    ms.workload="search" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.date="10/17/2016" 
-    ms.author="heidist"/>
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="08/04/2016" 
+	ms.author="heidist"/>
 
+# Como usar os perfis de pontuação na Pesquisa do Azure
 
-# <a name="how-to-use-scoring-profiles-in-azure-search"></a>How to use scoring profiles in Azure Search
+Perfis de pontuação são um recurso da Pesquisa do Microsoft Azure que personalizam o cálculo de pontuações de pesquisa, influenciando como os itens são classificados na lista de resultados da pesquisa. Você pode pensar em perfis de pontuação como uma forma de modelar relevância, amplificando itens que atendem a critérios predefinidos. Por exemplo, suponha que seu aplicativo seja um site de reservas de hotel online. Amplificando o campo `location`, as pesquisas que incluem um termo como Seattle resultarão em pontuações mais altas para itens que têm Seattle no campo `location`. Observe que você pode ter mais de um perfil de pontuação, ou nenhum, se a pontuação padrão for suficiente para seu aplicativo.
 
-Scoring profiles are a feature of Microsoft Azure Search that customize the calculation of search scores, influencing how items are ranked in a search results list. You can think of scoring profiles as a way to model relevance, by boosting items that meet predefined criteria. For example, suppose your application is an online hotel reservation site. By boosting the `location` field, searches that include a term like Seattle will result in higher scores for items that have Seattle in the `location` field. Note that you can have more than one scoring profile, or none at all, if the default scoring is sufficient for your application.
+Para ajudá-lo a experimentar perfis de pontuação, você pode baixar um aplicativo de exemplo que use perfis de pontuação para alterar a ordem de classificação dos resultados da pesquisa. O exemplo é um aplicativo de console – talvez não seja muito realista para desenvolvimento de aplicativos do mundo real – mas é útil como uma ferramenta de aprendizado.
 
-To help you experiment with scoring profiles, you can download a sample application that uses scoring profiles to change the rank order of search results. The sample is a console application – perhaps not very realistic for real-world application development – but useful nonetheless as  a learning tool. 
-
-The sample application demonstrates scoring behaviors using fictional data, called the `musicstoreindex`. The simplicity of the sample app makes it easy to modify scoring profiles and queries, and then see the immediate effects on rank order when the program is executed.
+O aplicativo de exemplo demonstra comportamentos de pontuação usando dados fictícios, chamados de `musicstoreindex`. A simplicidade do aplicativo de exemplo torna fácil modificar perfis de pontuação e consultas, e então ver os efeitos de imediatos na ordem de classificação quando o programa for executado.
 
 <a id="sub-1"></a>
-## <a name="prerequisites"></a>Prerequisites
+## Pré-requisitos
 
-The sample application is written in C# using Visual Studio 2013. Try the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) if you don't already have a copy of Visual Studio.
+O aplicativo de exemplo é escrito em C# usando o Visual Studio 2013. Experimente gratuitamente o [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) se você ainda não tiver uma cópia do Visual Studio.
 
-You will need an Azure subscription and an Azure Search service to complete the tutorial. See [Create a Search service in the portal](search-create-service-portal.md) for help with setting up the service.
+Você precisará de uma assinatura do Azure e um serviço Azure Search para concluir o tutorial. Consulte [Criar um serviço de Pesquisa no portal](search-create-service-portal.md) para obter ajuda com o serviço de configuração.
 
-[AZURE.INCLUDE [You need an Azure account to complete this tutorial:](../../includes/free-trial-note.md)]
+[AZURE.INCLUDE [Você precisa de uma conta do Azure para concluir este tutorial:](../../includes/free-trial-note.md)]
 
 <a id="sub-2"></a>
-## <a name="download-the-sample-application"></a>Download the sample application
+## Baixar o aplicativo de exemplo
 
-Go to [Azure Search Scoring Profiles Demo](https://azuresearchscoringprofiles.codeplex.com/) on codeplex to download the sample application described in this tutorial.
+Acesse a [Demonstração de perfis de pontuação da Pesquisa do Azure](https://azuresearchscoringprofiles.codeplex.com/) em codeplex para baixar o aplicativo de exemplo descrito neste tutorial.
 
-On the Source Code tab, click **Download** to get a zip file of the solution. 
+Na guia Código-fonte, clique em **Baixar** para obter um arquivo zip da solução.
 
  ![][12]
 
 <a id="sub-3"></a>
-## <a name="edit-app.config"></a>Edit app.config
+## Editar app.config
 
-1. After you extract the files, open the solution in Visual Studio to edit the configuration file.
-1. In Solution Explorer, double-click **app.config**. This file specifies the service endpoint and an `api-key` used to authenticate the request. You can obtain these values from the Classic Portal.
-1. Sign in to the [Azure Portal](https://portal.azure.com).
-1. Go to the service dashboard for Azure Search.
-1. Click the **Properties** tile to copy the service URL
-1. Click the **Keys** tile to copy the `api-key`.
+1. Após extrair os arquivos, abra a solução no Visual Studio para editar o arquivo de configuração.
+1. No Gerenciador de Soluções, clique duas vezes em **app.config**. Esse arquivo especifica o ponto de extremidade de serviço e uma `api-key` usada para autenticar a solicitação. Você pode obter esses valores do Portal clássico.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Vá para o painel do serviço da Pesquisa do Azure.
+1. Clique no bloco **Propriedades** para copiar a URL do serviço
+1. Clique no bloco **Chaves** para copiar a `api-key`.
 
-When you are finished adding the URL and `api-key` to app.config, application settings should look like this:
+Quando tiver terminado de adicionar o URL e a `api-key` para app.config, as configurações de aplicativo devem ter esta aparência:
 
    ![][11]
 
 
 <a id="sub-4"></a>
-## <a name="explore-the-application"></a>Explore the application
+## Explorar o aplicativo
 
-You're almost ready to build and run the app, but before you do, take a look at the JSON files used to create and populate the index.
+Você está quase pronto para compilar e executar o aplicativo, mas antes examine os arquivos JSON usados para criar e preencher o índice.
 
-**Schema.json** defines the index, including the scoring profiles that are emphasized in this demo. Notice that the schema defines all of the fields used in the index, including non-searchable fields, such as `margin`, that you can use in a scoring profile. Scoring profile syntax is documented in [Add a scoring profile to an Azure Search index](http://msdn.microsoft.com/library/azure/dn798928.aspx).
+**Schema.json** define o índice, incluindo os perfis de pontuação que são enfatizados nesta demonstração. Observe que o esquema define todos os campos usados no índice, incluindo campos não pesquisáveis, como `margin`, que podem ser usados em um perfil de pontuação. A sintaxe do perfil de pontuação é documentada em [Adicionar um perfil de pontuação para um índice da Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx).
 
-**Data1-3.json** provides the data, 246 albums across a handful of genres. The data is a combination of actual album and artist information, with fictional fields like `price` and `margin` used to illustrate search operations. The data files conform to the index and are uploaded to your Azure Search service. After the data is uploaded and indexed, you can issue queries against it.
+**Data1-3.json** fornece os dados, 246 álbuns incluindo diferentes gêneros. Os dados são uma combinação do álbum real e das informações sobre o artista, com campos fictícios como `price` e `margin` usados para ilustrar as operações de pesquisa. Os arquivos de dados estão em conformidade com o índice e são carregados para o serviço da Pesquisa do Azure. Depois de os dados serem carregados e indexados, você pode emitir consultas em relação a eles.
 
-**Program.cs** performs the following operations:
+**Program.cs** realiza as seguintes operações:
 
-- Opens a console window.
+- Abre uma janela do console.
 
-- Connects to Azure Search using the service URL and `api-key`.
+- Conecta-se a Pesquisa do Azure usando a URL do serviço e `api-key`.
 
-- Deletes the `musicstoreindex` if it exists.
+- Exclui o `musicstoreindex` se ele existir.
 
-- Creates a new `musicstoreindex` using the schema.json file.
+- Cria um novo `musicstoreindex` usando o arquivo schema.json.
 
-- Populates the index using the data files.
+- Preenche o índice usando os arquivos de dados.
 
-- Queries the index using four queries. Notice that the scoring profiles are specified as a query parameter. All of the queries search for the same term, 'best'. The first query demonstrates default scoring. The remaining three queries use a scoring profile.
+- Consulta o índice usando quatro consultas. Observe que os perfis de pontuação são especificados como um parâmetro de consulta. Todas as consultas pesquisam o mesmo termo, 'melhor'. A primeira consulta demonstra o padrão de pontuação. As demais três consultas usam um perfil de pontuação.
 
 <a id="sub-5"></a>
-## <a name="build-and-run-the-application"></a>Build and run the application
+## Compile e execute o aplicativo
 
-To rule out connectivity or assembly reference problems, build and run the application to ensure there are no issues to work out first. You should see a console application open in the background. All four queries execute in sequence without pausing. On many systems, the entire program executes in under 15 seconds. If the console application includes a message stating “Complete. Press enter to continue”, the program completed successfully. 
+Para descartar problemas de conectividade ou assembly, compile e execute o aplicativo para garantir que não existam problemas ao trabalhar primeiro. Você deve ver um aplicativo de console aberto no segundo plano. Todas as quatro consultas são executadas em sequência, sem pausar. Em muitos sistemas, todo o programa executa em menos de 15 segundos. Se o aplicativo de console incluir uma mensagem informando "Concluído. Pressione Enter para continuar", o programa foi concluído com sucesso.
 
-To compare query runs, you can mark-copy-paste the query results from the console and paste them into an Excel file. 
+Para comparar execuções de consulta, você pode marcar-copiar-colar os resultados do console e colá-los em um arquivo do Excel.
 
-The following illustration shows results from the first three queries side-by-side. All of the queries use the same search term, 'best', which appears in numerous album titles.
+A ilustração a seguir mostra os resultados das primeiras três consultas lado a lado. Todas as consultas usam termo de pesquisa, 'melhor', que aparece em vários títulos de álbum.
 
    ![][10]
 
-The first query uses default scoring. Since the search term appears only in album titles, and no other criteria is specified, items having 'best' in the album title are returned in the order in which the search service finds them. 
+A primeira consulta usa a pontuação padrão. Como o termo de pesquisa aparece apenas em títulos de álbum e nenhum outro critério foi especificado, os itens com o "melhor" no título do álbum são retornados na ordem em que o serviço de pesquisa os encontra.
 
-The second query uses a scoring profile, but notice that the profile had no effect. The results are identical to those of the first query. This is because the scoring profile boosts a field ('genre') that is not germane to the query. The search term 'best' does not exist in any 'genre' field of any document. When a scoring profile has no effect, the results are the same as default scoring.  
+A segunda consulta usa um perfil de pontuação, mas observe que o perfil não teve efeito. Os resultados são idênticos aos da primeira consulta. Isso ocorre porque o perfil de pontuação impulsiona um campo ('gênero') que não é similar à consulta. O termo de pesquisa 'melhor' não existe em nenhum campo 'gênero' de nenhum documento. Quando um perfil de pontuação não tem efeito, os resultados são os mesmos da pontuação padrão.
 
-The third query is the first evidence of scoring profile impact. The search term is still 'best' so we are working with the same set of albums, but because the scoring profile provides additional criteria that boosts 'rating' and 'last-updated', some items are propelled higher in the list.
+A terceira consulta é a primeira evidência do impacto do perfil de pontuação. O termo de pesquisa ainda é 'melhor', então estamos trabalhando com o mesmo conjunto de álbuns, mas porque o perfil de pontuação fornece critérios adicionais que amplificam a 'classificação' e a 'última-atualização', alguns itens são levados mais para cima na lista.
 
-The next illustration shows the fourth and final query, boosted by 'margin'. The 'margin' field is non-searchable and cannot be returned in search results. The 'margin' value was manually added to the spreadsheet to help illustrate the point that items with higher margins show up higher in the search results list. 
+A ilustração seguinte mostra a quarta e última consulta, impulsionada por 'margem'. O campo 'margem' não é pesquisável não pode ser retornado nos resultados da pesquisa. O valor de 'margem' foi adicionado manualmente à planilha para ajudar a ilustrar o fato de que itens com margens superiores aparecem em uma posição mais alta na lista de resultados da pesquisa.
 
    ![][9]
 
-Now that you have experimented with scoring profiles, try changing the program to use different query syntax, scoring profiles, or richer data. Links in the next section provide more information.
+Agora que você experimentou os perfis de pontuação, tente alterar o programa para usar sintaxe de consulta diferentes, perfis de pontuação ou dados avançados diferentes. Links na próxima seção fornecem mais informações.
 
 <a id="next-steps"></a>
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-Learn more about scoring profiles. See [Add a scoring profile to an Azure Search index](http://msdn.microsoft.com/library/azure/dn798928.aspx) for details.
+Saiba mais sobre perfis de pontuação. Consulte [Adicionar um perfil de pontuação no índice de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx) para obter detalhes.
 
-Learn more about search syntax and query parameters. See [Search Documents (Azure Search REST API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) for details.
+Saiba mais sobre os parâmetros de sintaxe e consulta de pesquisa. Consulte [Pesquisar documentos (API REST da Pesquisa do Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obter detalhes.
 
-Need to step back and learn more about index creation? [Watch this video](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) to understand the basics.
+Precisa voltar atrás e aprender mais sobre a criação de índice? [Assista a este vídeo](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) para compreender os fundamentos básicos.
 
 <!--Anchors-->
 [Prerequisites]: #sub-1
@@ -125,9 +124,6 @@ Need to step back and learn more about index creation? [Watch this video](http:/
 [12]: ./media/search-get-started-scoring-profiles/AzureSearch_CodeplexDownload.PNG
 [11]: ./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
-[9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG 
+[9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

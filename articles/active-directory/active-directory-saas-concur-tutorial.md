@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Concur | Microsoft Azure" 
-    description="Learn how to use Concur with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Tutorial: integração do Active Directory do Azure ao Concur | Microsoft Azure" 
+    description="Saiba como usar o Concur com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,154 +11,148 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
+#Tutorial: integração do Active Directory do Azure ao Concur  
 
-#<a name="tutorial:-azure-active-directory-integration-with-concur"></a>Tutorial: Azure Active Directory integration with Concur  
 
+O objetivo deste tutorial é mostrar a integração do Azure ao Concur. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
-The objective of this tutorial is to show the integration of Azure and Concur.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+-   Uma assinatura válida do Azure
+-   Um locatário no Concur
 
--   A valid Azure subscription
--   A tenant in Concur
+O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
-The scenario outlined in this tutorial consists of the following building blocks:
+1.  Habilitando a integração de aplicativos para o Concur
+2.  Configurando o logon único
+3.  Configurando o provisionamento de usuários
+4.  Atribuindo usuários
 
-1.  Enabling the application integration for Concur
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+![Cenário](./media/active-directory-saas-concur-tutorial/IC769766.png "Cenário")
 
-![Scenario](./media/active-directory-saas-concur-tutorial/IC769766.png "Scenario")
+>[AZURE.NOTE] A configuração de sua assinatura do Concur para SSO federado via SAML é uma tarefa separada, e você deve entrar em contato com o Concur para executá-la.
 
->[AZURE.NOTE] The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform.
+##Habilitando a integração de aplicativos para o Concur
 
-##<a name="enabling-the-application-integration-for-concur"></a>Enabling the application integration for Concur
+O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Concur.
 
-The objective of this section is to outline how to enable the application integration for Concur.
+###Para habilitar a integração de aplicativos com o Concur, execute as seguintes etapas:
 
-###<a name="to-enable-the-application-integration-for-concur,-perform-the-following-steps:"></a>To enable the application integration for Concur, perform the following steps:
-
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-concur-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which want to enable directory integration.
+2.  Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
 
-    ![Applications](./media/active-directory-saas-concur-tutorial/IC700994.png "Applications")
+    ![Aplicativos](./media/active-directory-saas-concur-tutorial/IC700994.png "Aplicativos")
 
-4.  To open the **Application Gallery**, click **Add An App**, and then click **Add an application for my organization to use**.
+4.  Para abrir a **Galeria de Aplicativos**, clique em **Adicionar um Aplicativo** e em **Adicionar um aplicativo a ser utilizado pela minha organização**.
 
-    ![What do you want to do?](./media/active-directory-saas-concur-tutorial/IC700995.png "What do you want to do?")
+    ![O que você deseja fazer?](./media/active-directory-saas-concur-tutorial/IC700995.png "O que você deseja fazer?")
 
-5.  In the **search box**, type **Concur**.
+5.  Na **caixa de pesquisa**, digite **Concur**.
 
-    ![Application Gallery](./media/active-directory-saas-concur-tutorial/IC721727.png "Application Gallery")
+    ![Galeria de Aplicativos](./media/active-directory-saas-concur-tutorial/IC721727.png "Galeria de Aplicativos")
 
-6.  In the results pane, select **Concur**, and then click **Complete** to add the application.
+6.  No painel de resultados, selecione **Concur** e clique em **Concluir** para adicionar o aplicativo.
 
     ![Concur](./media/active-directory-saas-concur-tutorial/IC721728.png "Concur")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configurando o logon único
 
-The objective of this section is to outline how to enable users to authenticate to Concur with their account in Azure AD using federation based on the SAML protocol.
+O objetivo desta seção é descrever como permitir que os usuários autentiquem no Concur com a própria conta no Azure AD usando federação baseada no protocolo SAML.
 
->[AZURE.NOTE] The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform.
+>[AZURE.NOTE] A configuração de sua assinatura do Concur para SSO federado via SAML é uma tarefa separada, e você deve entrar em contato com o Concur para executá-la.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Para configurar o logon único, execute as seguintes etapas:
 
-1.  In the Azure classic portal, on the **Concur **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  No portal clássico do Azure, na página de integração do aplicativo **Concur**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
-    ![Configure single sign-on](./media/active-directory-saas-concur-tutorial/IC769767.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-concur-tutorial/IC769767.png "Configurar logon único")
 
-2.  On the **How would you like users to sign on to Concur** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  Na página **Como você deseja que os usuários façam logon no Concur**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configure single sign-on](./media/active-directory-saas-concur-tutorial/IC769768.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-concur-tutorial/IC769768.png "Configurar logon único")
 
-3.  On the **Configure App URL** page, in the **Concur Sign In URL** textbox, type your concur tenant sign-in URL, and then click **Next**: 
+3.  Na página **Configurar URL do Aplicativo**, a caixa de texto **URL de Entrada do Concur**, digite a URL de entrada do locatário do Concur e clique em **Avançar**:
 
-    ![Configure sign in URL](./media/active-directory-saas-concur-tutorial/IC769769.png "Configure sign in URL")
+    ![Configurar a URL de entrada](./media/active-directory-saas-concur-tutorial/IC769769.png "Configurar a URL de entrada")
 
-4.  On the **Configure single sign-on at Concur** page, perform the following steps.
+4.  Na página **Configurar logon único no Concur**, realize as etapas a seguir.
 
-    ![Configure sign in URL](./media/active-directory-saas-concur-tutorial/IC769770.png "Configure sign in URL")
+    ![Configurar a URL de entrada](./media/active-directory-saas-concur-tutorial/IC769770.png "Configurar a URL de entrada")
 
-    1.  Click Download the metadata, and then safe the data file to your computer.
-    2.  Contact the Concur support team to configure SSO for your tenant.
-    3.  Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.  
+    1.  Clique em Baixar metadados e salve o arquivo de dados em seu computador.
+    2.  Entre em contato com a equipe de suporte do Concur para configurar o SSO para seu locatário.
+    3.  Selecione a confirmação de configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
 
-    >[AZURE.NOTE] The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform.
+	>[AZURE.NOTE] A configuração de sua assinatura do Concur para SSO federado via SAML é uma tarefa separada, e você deve entrar em contato com o Concur para executá-la.
 
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+##Configurando o provisionamento de usuários
 
-The objective of this section is to outline how to enable provisioning of Active Directory user accounts to Concur.
+O objetivo desta seção é descrever como habilitar o provisionamento de contas de usuário do Active Directory no Concur.
 
-To enable apps in the Expense Service, there has to be proper setup and use of a Web Service Admin profile. Don't simply add the WS Admin role to your existing administrator profile that you use for T&E administrative functions.
+Para habilitar os aplicativos no serviço de Despesas, é necessário configurar e usar um perfil de Administrador de Serviço Web. Não adicione simplesmente a função de Administrador de Serviço Web ao seu perfil de administrador existente usado para as funções administrativas de T&E.
 
-Concur Consultants or the client administrator must create a distinct Web Service Administrator profile and the Client administrator must use this profile for the Web Services Administrator functions (e.g. enabling apps). These profiles must be kept separate from the client administrator's daily T&E admin profile (the T&E admin profile should not have the WSAdmin role assigned).
+O consultor do Concur ou o administrador do cliente deve criar um perfil de Administrador de Serviço Web distinto, e o administrador do cliente deve usar esse perfil para as funções de Administrador de Serviço Web (por exemplo, habilitação de aplicativos). Esses perfis devem ser mantidos separados do perfil de administração diária de T&E do administrador do cliente (o perfil de administração de T&E não deve ter a função de Administrador de Serviço Web).
 
-When you create the profile to be used for enabling the app, enter the client administrator's name into the user profile fields. This will assign ownership to the profile.Once the profile(s) is created, the client must log in with this profile to click the "*Enable*" button for a Partner App within the Web Services menu.
+Ao criar o perfil que será usado para habilitar o aplicativo, insira o nome do administrador do cliente nos campos de perfil do usuário. Isso atribuirá propriedade ao perfil. Após a criação do(s) perfil(s), o cliente deverá fazer logon com esse perfil para clicar no botão “ *Habilitar* ” de um Aplicativo do Parceiro no menu dos Serviços Web.
 
-For the following reasons, this action should not be done with the profile they use for normal T&E administration.
+Essa ação não deve ser feita com o perfil usado para a administração normal de T&E pelos seguintes motivos.
 
-1.  The client has to be the one that clicks "*Yes*" on the dialogue window that is displayed after an app is enabled. This click acknowledges the client is willing for the Partner application to access their data, so you or the Partner cannot click that Yes button.
-2.  If a client administrator that has enabled an app using the T&E admin profile leaves the company (resulting in the profile being inactivated), any apps enabled using that profile will not function until the app is enabled with another active WS Admin profile. This is why you are supposed to create distinct WS Admin profiles.
-3.  If an administrator leaves the company, the name associated to the WS Admin profile can be changed to the replacement administrator if desired without impacting the enabled app because that profile does not need inactivated
+1.  É o cliente que deve clicar em “ *Sim* ” na janela do diálogo exibida após a habilitação de um aplicativo. Esse clique confirma que o cliente está disposto a permitir que o Aplicativo parceiro acesse seus dados, portanto você ou o Parceiro não pode clicar no botão Sim.
+2.  Se um administrador de cliente que habilitou um aplicativo usando o perfil de administrador de T&E deixar a empresa (resultando na inativação do perfil), quaisquer aplicativos habilitados com esse perfil não funcionarão até que sejam habilitados com outro perfil ativo de Administrador de Serviços Web. É por isso que você deve criar perfis de Administrador de Serviços Web distintos.
+3.  Se um administrador deixar a empresa, o nome associado ao perfil de Administrador de Serviço Web pode ser alterado para o administrador substituto, se isso for desejado, sem afetar o aplicativo habilitado, porque esse perfil não ficará inativado
 
-###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
+###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
-1.  Logon to your **Concur** tenant.
+1.  Faça logon em seu locatário do **Concur**.
 
-2.  From the **Administration** menu, select **Web Services**.
+2.  No menu **Administração**, selecione **Serviços Web**.
 
-    ![Concur tenant](./media/active-directory-saas-concur-tutorial/IC721729.png "Concur tenant")
+    ![Locatário do Concur](./media/active-directory-saas-concur-tutorial/IC721729.png "Locatário do Concur")
 
-3.  On the left side, from the **Web Services** pane, select **Enable Partner Application**.
+3.  No lado esquerdo, no painel **Serviços Web**, selecione **Habilitar Aplicativo do Parceiro**.
 
-    ![Enable Partner Application](./media/active-directory-saas-concur-tutorial/IC721730.png "Enable Partner Application")
+    ![Habilitar Aplicativo parceiro](./media/active-directory-saas-concur-tutorial/IC721730.png "Habilitar Aplicativo parceiro")
 
-4.  From the **Enable Application** list, select **Azure Active Directory**, and then click **Enable**.
+4.  Na lista **Habilitar Aplicativo**, selecione **Active Directory do Azure** e clique em **Habilitar**.
 
-    ![Microsoft Azure Active Directory](./media/active-directory-saas-concur-tutorial/IC721731.png "Microsoft Azure Active Directory")
+    ![Active Directory do Microsoft Azure](./media/active-directory-saas-concur-tutorial/IC721731.png "Active Directory do Microsoft Azure")
 
-5.  Click **Yes** to close the **Confirm Action** dialog.
+5.  Clique em **Sim** para fechar o diálogo **Confirmar Ação**.
 
-    ![Confirm Action](./media/active-directory-saas-concur-tutorial/IC721732.png "Confirm Action")
+    ![Confirmar Ação](./media/active-directory-saas-concur-tutorial/IC721732.png "Confirmar Ação")
 
-6.  In the Azure classic portal, select **Concur** from the applications list to open the **Concur** dialog page.
+6.  No portal clássico do Azure, selecione **Concur** na lista de aplicativos para abrir a página do diálogo **Concur**.
 
-7.  To open the **Configure User Provisioning** dialog page, click **Configure user provisioning**.
+7.  Para abrir a página **Configurar Provisionamento de Usuário**, clique em **Configurar provisionamento de usuário**.
 
-8.  Enter the user name and the password of your Concur administrator, and then click **Next**.
+8.  Insira o nome de usuário e a senha do administrador do Concur e clique em **Avançar**.
 
-9.  To finish the configuration, on the **Confirmation** page, click the **Complete** button.
+9.  Para concluir a configuração, na página **Confirmação**, clique no botão **Concluir**.
 
-You can now create a test account, wait for 10 minutes and verify that the account has been synchronized to Concur.
-##<a name="assigning-users"></a>Assigning users
+Agora, você pode criar uma conta de teste, aguardar 10 minutos e verificar se a conta foi sincronizada com o Concur.
+##Atribuindo usuários
 
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Para testar sua configuração, será necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que o utilizem.
 
-###<a name="to-assign-users-to-concur,-perform-the-following-steps:"></a>To assign users to Concur, perform the following steps:
+###Para atribuir usuários ao Concur, execute as etapas a seguir:
 
-1.  In the Azure classic portal, create a test account.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  On the **Concur **application integration page, click **Assign users**.
+2.  Na página de integração do aplicativo **Concur**, clique em **Atribuir usuários**.
 
-    ![Assign users](./media/active-directory-saas-concur-tutorial/IC769771.png "Assign users")
+    ![Atribuir usuários](./media/active-directory-saas-concur-tutorial/IC769771.png "Atribuir usuários")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
-    ![Yes](./media/active-directory-saas-concur-tutorial/IC767830.png "Yes")
+    ![Sim](./media/active-directory-saas-concur-tutorial/IC767830.png "Sim")
 
-You should now wait for 10 minutes and verify that the account has been synchronized to Concur.
+Agora, você deve aguardar 10 minutos e verificar se a conta foi sincronizada com o Concur.
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!----HONumber=AcomDC_0713_2016-->

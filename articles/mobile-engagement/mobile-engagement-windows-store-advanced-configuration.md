@@ -1,80 +1,75 @@
 <properties
-    pageTitle="Advanced Configuration for Windows Universal Apps Engagement SDK"
-    description="Advanced Configuration options for Azure Mobile Engagement with Windows Universal Apps"                    
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="piyushjo"
-    manager="erikre"
-    editor="" />
+	pageTitle="Configuração avançada com o SDK do Engagement para aplicativos universais do Windows"
+	description="Opções de configuração avançadas para o Azure Mobile Engagement com os aplicativos universais do Windows" 					
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="erikre"
+	editor="" />
 
 <tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-windows-store"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    ms.author="piyushjo;ricksal" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/12/2016"
+	ms.author="piyushjo;ricksal" />
 
-
-# <a name="advanced-configuration-for-windows-universal-apps-engagement-sdk"></a>Advanced Configuration for Windows Universal Apps Engagement SDK
+# Configuração avançada com o SDK do Engagement para aplicativos universais do Windows
 
 > [AZURE.SELECTOR]
-- [Universal Windows](mobile-engagement-windows-store-advanced-configuration.md)
+- [Universal do Windows](mobile-engagement-windows-store-advanced-configuration.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 - [iOS](mobile-engagement-ios-integrate-engagement.md)
-- [Android](mobile-engagement-android-advanced-configuration.md)
+- [Android](mobile-engagement-android-advan.mdced-configuration.md)
 
-This procedure describes how to configure various configuration options for Azure Mobile Engagement Android apps.
+Este procedimento descreve como definir várias opções de configuração para aplicativos Azure Mobile Engagement do Android.
 
-## <a name="prerequisites"></a>Prerequisites
+## Pré-requisitos
 
-[AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
+[AZURE.INCLUDE [Pré-requisitos](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
-##<a name="advanced-configuration"></a>Advanced configuration
+##Configuração avançada
 
-### <a name="disable-automatic-crash-reporting"></a>Disable automatic crash reporting
+### Desabilitar o relatório de falhas automático
 
-You can disable the automatic crash reporting feature of Engagement. Then, when an unhandled exception occurs, Engagement does nothing.
+Você pode desabilitar a recurso relatório de falhas automático do Engagement. Assim, quando uma exceção sem tratamento ocorrer, o Engagement não fará nada.
 
-> [AZURE.WARNING] If you disable this feature, then when an unhandled crash occurs in your app, Engagement does not send the crash **AND** does not close the session and jobs.
+> [AZURE.WARNING] Se você desabilitar esse recurso, quando uma falha sem tratamento ocorrer em seu aplicativo, o Engagement não enviará a falha **E** não fechará a sessão e os trabalhos.
 
-To disable automatic crash reporting, customize your configuration depending on the way you declared it:
+Para desabilitar o relatório de falhas automático, personalize a configuração dependendo de como você o tiver declarado:
 
-#### <a name="from-`engagementconfiguration.xml`-file"></a>From `EngagementConfiguration.xml` file
+#### No arquivo `EngagementConfiguration.xml`
 
-Set report crash to `false` between `<reportCrash>` and `</reportCrash>` tags.
+Defina a falha do relatório para `false` entre as marcas `<reportCrash>` e `</reportCrash>`.
 
-#### <a name="from-`engagementconfiguration`-object-at-run-time"></a>From `EngagementConfiguration` object at run time
+#### No objeto `EngagementConfiguration` em tempo de execução
 
-Set report crash to false using your EngagementConfiguration object.
+Defina a falha do relatório como false usando o objeto EngagementConfiguration.
 
-        /* Engagement configuration. */
-        EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-        engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
+		/* Engagement configuration. */
+		EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+		engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
 
-        /* Disable Engagement crash reporting. */
-        engagementConfiguration.Agent.ReportCrash = false;
+		/* Disable Engagement crash reporting. */
+		engagementConfiguration.Agent.ReportCrash = false;
 
-### <a name="disable-real-time-reporting"></a>Disable real time reporting
+### Desabilitar relatórios em tempo real
 
-By default, the Engagement service reports logs in real time. If your application reports logs frequently, it is better to buffer the logs and to report them all at once on a regular time basis. This is called “burst mode”.
+Por padrão, o serviço Engagement reporta logs em tempo real. Se seu aplicativo reporta logs com muita frequência, é melhor armazenar os logs em buffer e relatá-los todos de uma vez em uma base de tempo normal. Isso é chamado de "modo de disparo contínuo".
 
-To do so, call the method:
+Para fazer isso, chame o método:
 
-        EngagementAgent.Instance.SetBurstThreshold(int everyMs);
+		EngagementAgent.Instance.SetBurstThreshold(int everyMs);
 
-The argument is a value in **milliseconds**. Whenever you want to reactivate the real-time logging, call the method without any parameter, or with the 0 value.
+O argumento é um valor em **milissegundos**. Sempre que você quiser reativar o registro em log em tempo real, chame o método sem nenhum parâmetro, ou com o valor 0.
 
-Burst mode slightly increases the battery life but has an impact on the Engagement Monitor: all sessions and jobs duration are rounded to the burst threshold (thus, sessions and jobs shorter than the burst threshold may not be visible). We recommend using a burst threshold no longer than 30000 (30s). Saved logs are limited to 300 items. If sending is too long, you can lose some logs.
+O modo de disparo contínuo aumenta ligeiramente a vida útil da bateria, mas tem um impacto no Monitor do Engagement: a duração de todas as sessões e trabalhos será arredondada para o limite de intermitência (portanto, as sessões e trabalhos mais curtos do que o limite de intermitência podem não estar visíveis). Recomendamos usar um limite de disparo contínuo até 30000 (30s). Logs salvos são limitados a 300 itens. Se o envio for muito longo, você poderá perder alguns logs.
 
-> [AZURE.WARNING] The burst threshold cannot be configured to a period less than one second. If you do so, the SDK shows a trace with the error and automatically resets to the default value, zero seconds. This triggers the SDK to report the logs in real-time.
+> [AZURE.WARNING] O limite de disparo contínuo não pode ser configurado com um período inferior a um segundo. Se você fizer isso, o SDK mostrará um rastreamento com o erro e será redefinido automaticamente como o valor padrão, zero segundos. Isso disparará o SDK para relatar os logs em tempo real.
 
-[here]:http://www.nuget.org/packages/Capptain.WindowsCS
-[NuGet website]:http://docs.nuget.org/docs/start-here/overview
+[here]: http://www.nuget.org/packages/Capptain.WindowsCS
+[NuGet website]: http://docs.nuget.org/docs/start-here/overview
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

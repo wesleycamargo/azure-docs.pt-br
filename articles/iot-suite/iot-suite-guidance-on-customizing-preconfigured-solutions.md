@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Customizing preconfigured solutions | Microsoft Azure"
-    description="Provides guidance on how to customize the Azure IoT Suite preconfigured solutions."
-    services=""
+	pageTitle="Personalizando soluções pré-configuradas | Microsoft Azure"
+	description="Fornece orientação sobre como personalizar as soluções pré-configuradas do Pacote IoT do Azure."
+	services=""
     suite="iot-suite"
-    documentationCenter=".net"
-    authors="aguilaaj"
-    manager="timlt"
-    editor=""/>
+	documentationCenter=".net"
+	authors="stevehob"
+	manager="timlt"
+	editor=""/>
 
 <tags
      ms.service="iot-suite"
@@ -14,108 +14,107 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="10/11/2016"
-     ms.author="aguilaaj"/>
+     ms.date="06/27/2016"
+     ms.author="stevehob"/>
 
+# Personalizar uma solução pré-configurada
 
-# <a name="customize-a-preconfigured-solution"></a>Customize a preconfigured solution
+As soluções pré-configuradas fornecidas com o Pacote IoT do Azure demonstram os serviços no pacote trabalhando juntos para fornecer uma solução de ponta a ponta. Do ponto de partida, há uma variedade de lugares em que você pode estender e personalizar a solução para cenários específicos. As seções a seguir descrevem esses pontos comuns de personalização.
 
-The preconfigured solutions provided with the Azure IoT Suite demonstrate the services within the suite working together to deliver an end-to-end solution. From this starting point, there are a variety of places in which you can extend and customize the solution for specific scenarios. The following sections describe these common customization points.
+## Localizando o código-fonte
 
-## <a name="finding-the-source-code"></a>Finding the source code
+O código-fonte para a solução pré-configurada está disponível no GitHub nos seguintes repositórios:
 
-The source code for the preconfigured solutions is available on GitHub in the following repositories:
+- Monitoramento remoto: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
+- Manutenção preditiva: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 
-- Remote Monitoring: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
-- Predictive Maintenance: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
+O código-fonte para as soluções pré-configuradas é fornecido para demonstrar os padrões e as práticas usadas para implementar a funcionalidade de ponta a ponta de uma solução IoT usando o Azure IoT Suite. Você pode encontrar mais informações sobre como compilar e implantar as soluções em repositórios GitHub.
 
-The source code for the preconfigured solutions is provided to demonstrate the patterns and practices used to implement the end-to-end functionality of an IoT solution using Azure IoT Suite. You can find more information about how to build and deploy the solutions in the GitHub repositories.
+## Alterando as regras predefinidas
 
-## <a name="changing-the-preconfigured-rules"></a>Changing the preconfigured rules
+A solução de monitoramento remoto inclui três trabalhos do [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/) para implementar informações do dispositivo, telemetria e lógica de regras exibidas para a solução.
 
-The remote monitoring solution includes three [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jobs to implement device information, telemetry and rules logic displayed  for the solution.
+Os três trabalhos de Stream Analytics e sua sintaxe são descritos em detalhes na [Passo a passo da solução pré-configurada de monitoramento remoto](iot-suite-remote-monitoring-sample-walkthrough.md).
 
-The three stream analytics jobs and their syntax is described in depth in the [Remote monitoring preconfigured solution walkthrough](iot-suite-remote-monitoring-sample-walkthrough.md). 
-
-You can edit these jobs directly to alter the logic, or add logic specific to your scenario. You can find the Stream Analytics jobs as follows:
+Você pode editar esses trabalhos diretamente para alterar a lógica ou adicionar lógica específica para seu cenário. Você pode encontrar os trabalhos do Stream Analytics da seguinte maneira:
  
-1. Go to [Azure portal](https://portal.azure.com).
-2. Navigate to the resource group with the same name as your IoT solution. 
-3. Select the Azure Stream Analytics job you'd like to modify. 
-4. Stop the job by selecting **Stop**in the set of commands. 
-5. Edit the inputs, query, and outputs.
+1. Vá para o [portal do Azure](https://portal.azure.com).
+2. Navegue até o grupo de recursos com o mesmo nome da sua solução IoT.
+3. Selecione o trabalho de Stream Analytics do Azure que você deseja modificar.
+4. Interrompa o trabalho selecionando **Parar**no conjunto de comandos.
+5. Edite as entradas, consulta e saídas.
 
-    A simple modification is to change the query for the **Rules** job to use a **"<"** instead of a **">"**. The solution portal will still show **">"** when you edit a rule, but you'll notice the behavior is flipped due to the change in the underlying job.
+    Uma modificação simples é alterar a consulta para o trabalho **Regras** para usar um **"<"**, em vez de um **">"**. O portal de solução ainda mostrará **">"** quando a regra for editada, mas você perceberá que o comportamento é invertido devido à alteração no trabalho subjacente.
 
-6. Start the job
+6. Iniciar o trabalho
 
-> [AZURE.NOTE] The remote monitoring dashboard depends on specific data, so altering the jobs can cause the dashboard to fail.
+> [AZURE.NOTE] O painel de monitoramento remoto depende de dados específicos, por isso, alterar os trabalhos pode fazer com que o painel falhe.
 
-## <a name="adding-your-own-rules"></a>Adding your own rules
+## Adicionando suas próprias regras
 
-In addition to changing the preconfigured Azure Stream Analytics jobs, you can use the Azure portal to add new jobs or add new queries to existing jobs.
+Além de alterar os trabalhos de Stream Analytics do Azure, você pode usar o portal do Azure para adicionar novos trabalhos ou adicionar novas consultas para trabalhos existentes.
 
-## <a name="customizing-devices"></a>Customizing devices
+## Personalizando dispositivos
 
-One of the most common extension activities is working with devices specific to your scenario. There are several methods for working with devices. These methods include altering a simulated device to match your scenario, or using the [IoT Device SDK][] to connect your physical device to the solution.
+Uma das atividades mais comuns de extensão é o trabalho com dispositivos específicos ao seu cenário. Há vários métodos para trabalhar com dispositivos. Esses métodos incluem alterar um dispositivo simulado de acordo com seu cenário, ou usar o [SDK do Dispositivo IoT][] para conectar o seu dispositivo físico à solução.
 
-For a step-by-step guide to adding devices to the remote monitoring preconfigured solution, see [Iot Suite Connecting Devices](iot-suite-connecting-devices.md) and the [remote monitoring C SDK Sample](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring) that is designed to work with the remote monitoring preconfigured solution.
+Para obter um guia passo a passo para adicionar dispositivos à solução pré-configurada de monitoramento remoto, veja [Dispositivos de conexão do Iot Suite](iot-suite-connecting-devices.md) e o [Exemplo de SDK de monitoramento remoto em C](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring) que foi projetado para trabalhar com a solução pré-configurada de monitoramento remoto.
 
-### <a name="creating-your-own-simulated-device"></a>Creating your own simulated device
+### Criando seu próprio dispositivo simulado
 
-Included in the remote monitoring solution source code (referenced above), is a .NET simulator. This simulator is the one provisioned as part of the solution and can be altered to send different metadata, telemetry or respond to different commands.
+Um simulador .NET é incluído no código-fonte da solução de monitoramento remota (referenciada acima). Esse simulador é provisionado como parte da solução e pode ser alterado para enviar metadados diferentes, telemetria ou responder a comandos diferentes.
 
-The preconfigured simulator in the remote monitoring preconfigured solution is a cooler device that emits temperature and humidity telemetry, you can modify the simulator in the [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) project when you've forked the GitHub repository.
+O simulador pré-configurado na solução pré-configurada de monitoramento remoto é um dispositivo mais interessante que emite a telemetria de temperatura e umidade. Você pode modificar o simulador no projeto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) quando tiver bifurcado o repositório GitHub.
 
-### <a name="available-locations-for-simulated-devices"></a>Available locations for simulated devices
+### Locais disponíveis para dispositivos simulados
 
-The default set of locations is in Seattle/Redmond, Washington, United States of America. You can change these locations in [SampleDeviceFactory.cs][lnk-sample-device-factory].
+O conjunto padrão de locais fica em Seattle/Redmond, Washington, Estados Unidos. Você pode alterar esses locais em [SampleDeviceFactory.cs][lnk-sample-device-factory].
 
 
-### <a name="building-and-using-your-own-(physical)-device"></a>Building and using your own (physical) device
+### Compilando e usando seu próprio dispositivo (físico)
 
-The [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) provide libraries for connecting numerous device types (languages and operating systems) into IoT solutions.
+Os [SDKs do Azure IoT](https://github.com/Azure/azure-iot-sdks) fornecem bibliotecas para conectar a vários tipos de dispositivo (linguagens e sistemas operacionais) em soluções de IoT.
 
-## <a name="modifying-dashboard-limits"></a>Modifying dashboard limits
+## Modificar limites do painel
 
-### <a name="number-of-devices-displayed-in-dashboard-dropdown"></a>Number of devices displayed in dashboard dropdown
+### Número de dispositivos exibida na lista suspensa do painel
 
-The default is 200. You can change this number in [DashboardController.cs][lnk-dashboard-controller].
+O padrão é 200. Você pode alterar esse número em [DashboardController.cs][lnk-dashboard-controller].
 
-### <a name="number-of-pins-to-display-in-bing-map-control"></a>Number of pins to display in Bing Map control
+### Número de marcações a serem exibidas no controle do Mapa do Bing
 
-The default is 200. You can change this number in [TelemetryApiController.cs][lnk-telemetry-api-controller-01].
+O padrão é 200. Você pode alterar esse número em [TelemetryApiController.cs][lnk-telemetry-api-controller-01].
 
-### <a name="time-period-of-telemetry-graph"></a>Time period of telemetry graph
+### Período do gráfico de telemetria
 
-The default is 10 minutes. You can change this in [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
+O padrão é 10 minutos. Você pode alterar esse valor em [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
-## <a name="manually-setting-up-application-roles"></a>Manually setting up application roles
+## Configuração manual de funções de aplicativo
 
-The following procedure describes how to add **Admin** and **ReadOnly** application roles to a preconfigured solution. Note that preconfigured solutions provisioned from the azureiotsuite.com site already include the **Admin** and **ReadOnly** roles.
+O procedimento a seguir descreve como adicionar as funções de aplicativo **Admin** e **ReadOnly** a uma solução pré-configurada. Observe que as soluções pré-configuradas provisionadas no site azureiotsuite.com já incluem as funções **Admin** e **ReadOnly**.
 
-Members of the **ReadOnly** role can see the dashboard and the device list, but are not allowed to add devices, change device attributes, or send commands.  Members of the **Admin** role have full access to all the functionality in the solution.
+Membros da função **ReadOnly** podem ver o painel e a lista de dispositivos, mas não têm permissão para adicionar dispositivos, alterar os atributos do dispositivo ou enviar comandos. Membros da função **Admin** têm acesso total a todos os recursos da solução.
 
-1. Go to the [Azure classic portal][lnk-classic-portal].
+1. Vá para o [portal clássico do Azure][lnk-classic-portal].
 
-2. Select **Active Directory**.
+2. Selecione **Active Directory**.
 
-3. Click the name of the AAD tenant you used when you provisioned your solution.
+3. Clique no nome do locatário AAD que você usou ao provisionar a solução.
 
-4. Click **Applications**.
+4. Clique em **Aplicativos**.
 
-5. Click the name of the application that matches your preconfigured solution name. If you don't see your application in the list, select **Applications my company owns** in the **Show** drop down and click the check mark.
+5. Clique no nome do aplicativo que corresponda ao nome da solução pré-configurada. Se você não vir seu aplicativo na lista, selecione **Aplicativos que minha empresa possui** na lista suspensa **Mostrar** e clique na marca de seleção.
 
-6.  At the bottom of the page, click **Manage Manifest** and then **Download Manifest**.
+6.  Na parte inferior da página, clique em **Gerenciar Manifesto** e em **Baixar Manifesto**.
 
-7. This downloads a .json file to your local machine.  Open this file for editing in a text editor of your choice.
+7. Isso baixa um arquivo .json para seu computador local. Abra esse arquivo para edição em um editor de texto de sua escolha.
 
-8. On the third line of the .json file, you will find:
+8. Na terceira linha do arquivo .json, você encontrará:
 
   ```
   "appRoles" : [],
   ```
-  Replace this with the following:
+  Substitua isso pelo seguinte:
 
   ```
   "appRoles": [
@@ -141,40 +140,36 @@ Members of the **ReadOnly** role can see the dashboard and the device list, but 
   } ],
   ```
 
-9. Save the updated .json file (you can overwrite the existing file).
+9. Salve o arquivo .json atualizado (você pode substituir o arquivo existente).
 
-10.  In the Azure Management Portal, at the bottom of the page, select **Manage Manifest** then **Upload Manifest** to upload the .json file you saved in the previous step.
+10.  No Portal de Gerenciamento do Azure, na parte inferior da página, selecione **Gerenciar Manifesto** e, em seguida, **Carregar Manifesto** para carregar o arquivo .json salvo na etapa anterior.
 
-11. You have now added the **Admin** and **ReadOnly** roles to your application.
+11. Agora você adicionou as funções **Admin** e **ReadOnly** ao seu aplicativo.
 
-12. To assign one of these roles to a user in your directory, see [Permissions on the azureiotsuite.com site][lnk-permissions].
+12. Para atribuir uma dessas funções a um usuário no diretório, veja [Permissões no site do azureiotsuite.com][lnk-permissions].
 
-## <a name="feedback"></a>Feedback
+## Comentários
 
-Do you have a customization you'd like to see covered in this document? Please add feature suggestions to [User Voice](https://feedback.azure.com/forums/321918-azure-iot), or comment on this article below. 
+Há alguma personalização que você gostaria que fosse abordada neste documento? Adicione sugestões de recursos ao [User Voice](https://feedback.azure.com/forums/321918-azure-iot) ou faça comentários sobre este artigo abaixo.
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-To learn more about the options for customizing the preconfigured solutions, see:
+Para saber mais sobre as opções para personalizar as soluções pré-configuradas, confira:
 
-- [Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution][lnk-logicapp]
-- [Use dynamic telemetry with the remote monitoring preconfigured solution][lnk-dynamic]
-- [Device information metadata in the remote monitoring preconfigured solution][lnk-devinfo]
+- [Conectar um aplicativo lógico à solução pré-configurada de monitoramento remoto do Azure IoT Suite][lnk-logicapp]
+- [Usar telemetria dinâmica com a solução pré-configurada de monitoramento remoto][lnk-dynamic]
+- [Metadados de informações de dispositivo na solução pré-configurada de monitoramento remoto][lnk-devinfo]
 
 [lnk-logicapp]: iot-suite-logic-apps-tutorial.md
 [lnk-dynamic]: iot-suite-dynamic-telemetry.md
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
-[IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
+[SDK do Dispositivo IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-dashboard-controller]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/Controllers/DashboardController.cs#L27
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
-[lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
+[lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,287 +1,280 @@
 <properties 
-    pageTitle="Live streaming with on-premise encoders that create multi-bitrate streams | Microsoft Azure" 
-    description="This topic describes how to set up a Channel that receives a multi-bitrate live stream from an on-premises encoder. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="Juliako" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Transmissão ao vivo com codificadores locais, que criam fluxos de múltiplas taxas de bits | Microsoft Azure" 
+	description="Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com múltiplas taxas de bits de um codificador local. O fluxo pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais pontos de extremidade de Streaming, usando um dos seguintes protocolos de streaming adaptáveis: HLS, Smooth Streaming, MPEG DASH, HDS." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="ne" 
-    ms.topic="article" 
-    ms.date="10/12/2016" 
-    ms.author="cenkdin;juliako"/>
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="09/19/2016" 
+	ms.author="cenkdin;juliako"/>
+
+#Transmissão ao vivo com codificadores locais, que criam fluxos de múltiplas taxas de bits
+
+##Visão geral
+
+Nos Serviços de Mídia do Azure, um **Canal** representa um pipeline para processamento de conteúdo de streaming ao vivo. Um **Canal** recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
 
 
-#<a name="live-streaming-with-on-premise-encoders-that-create-multi-bitrate-streams"></a>Live streaming with on-premise encoders that create multi-bitrate streams
+- Um codificador ativo local envia uma taxa de bits múltipla **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que não está habilitado para executar a codificação ativa com o AMS. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Esse método é chamado **passagem**. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
-##<a name="overview"></a>Overview
+	>[AZURE.NOTE] O uso de um método de passagem é a maneira mais econômica de realizar uma transmissão ao vivo.
+	
+- Um codificador ao vivo local envia um fluxo de taxa de bits adaptável única para o Canal que é habilitado para realizar a codificação ao vico com os serviços de mídia em um dos seguintes formatos: RTP (MPEG-TS), RTMP oi Smooth Streaming (MP4 fragmentado). O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
-In Azure Media Services, a **Channel** represents a pipeline for processing live streaming content. A **Channel** receives live input streams in one of two ways:
+A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, você pode especificar de que modo você deseja que o canal receba o fluxo de entrada e se deseja ou não que o canal realize a codificação ao vivo do seu fluxo. Você tem duas opções:
 
+- **Nenhum** – Especifique esse valor se você planejar usar um codificador ativo local, que emitirá uma transmissão de taxa de bits múltipla (uma transmissão de passagem). Nesse caso, o fluxo de entrada foi transmitido para a saída sem qualquer codificação. Esse é o comportamento de um canal em versão anterior à 2.10. Este tópico fornece detalhes sobre como trabalhar com canais desse tipo.
 
-- An on-premises live encoder sends a multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel that is not enabled to perform live encoding with AMS. The ingested streams pass through **Channel**s without any further processing. This method is called **pass-through**. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
+- **Standard** – Escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits. Lembre-se de que há um impacto de cobrança para codificação ativa e você deve se lembrar que deixar um canal de codificação ativo no estado "Em execução" incorrerá em cobranças. É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
-    >[AZURE.NOTE] Using a pass-through method is the most economical way to do live streaming.
-    
-- An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTP (MPEG-TS), RTMP, or Smooth Streaming (Fragmented MP4). The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
+>[AZURE.NOTE]Este tópico discute os atributos de canais que não estão habilitados para executar a codificação ativa (tipo de codificação **Nenhum**). Para obter informações sobre como trabalhar com canais habilitados a realizar a codificação ativa, confira [Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-Starting with the Media Services 2.10 release, when you create a Channel, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:
+O diagrama a seguir representa um fluxo de trabalho de transmissão ao vivo que usa um codificador ao vivo local para gerar fluxos RTMP com múltiplas taxas de bits ou MP4 fragmentado (Smooth Streaming).
 
-- **None** – Specify this value, if you plan to use an on-premises live encoder which will output multi-bitrate stream (a pass-through stream). In this case, the incoming stream passed through to the output without any encoding. This is the behavior of a Channel prior to 2.10 release.  This topic gives details about working with channels of this type.
+![Fluxo de trabalho ao vivo][live-overview]
 
-- **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges.
-When requested, Media Services delivers the stream to customers. 
+Este tópico aborda o seguinte:
 
->[AZURE.NOTE]This topic discusses attributes of channels that are not enabled to perform live encoding (**None** encoding type). For information about working with channels that are enabled to perform live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
+- [Cenário comum de streaming ao vivo](media-services-live-streaming-with-onprem-encoders.md#scenario)
+- [Descrição de um Canal e seus componentes relacionados](media-services-live-streaming-with-onprem-encoders.md#channel)
+- [Considerações](media-services-live-streaming-with-onprem-encoders.md#considerations)
 
-The following diagram represents a live streaming workflow that uses an on-premises live encoder to output multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) streams.
+##<a id="scenario"></a>Cenário comum de streaming ao vivo
+As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos comuns de transmissão ao vivo.
 
-![Live workflow][live-overview]
+1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que gere um fluxo RTMP com múltiplas taxas de bits ou MP4 fragmentado (Smooth Streaming). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
+	
+	Essa etapa também pode ser realizada após a criação do canal.
 
-This topic covers the following:
+1. Crie e inicie um Canal.
+1. Recupere a URL de ingestão do canal.
 
-- [Common live streaming scenario](media-services-live-streaming-with-onprem-encoders.md#scenario)
-- [Description of a Channel and its related components](media-services-live-streaming-with-onprem-encoders.md#channel)
-- [Considerations](media-services-live-streaming-with-onprem-encoders.md#considerations)
+	A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal.
+1. Recupere a URL de visualização do canal.
 
-##<a name="<a-id="scenario"></a>common-live-streaming-scenario"></a><a id="scenario"></a>Common live streaming scenario
-The following steps describe tasks involved in creating common live streaming applications.
+	Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
 
-1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that outputs a multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) stream. For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
-    
-    This step could also be performed after you create your Channel.
+3. Crie um programa.
 
-1. Create and start a Channel.
-1. Retrieve the Channel ingest URL. 
+	Ao usar o Portal Clássico do Azure, a criação de um programa também cria um ativo.
 
-    The ingest URL is used by the live encoder to send the stream to the Channel.
-1. Retrieve the Channel preview URL. 
+	Ao usar o SDK do .NET ou REST, você precisa criar um ativo e especificar o uso desse ativo durante a criação de um programa.
+1. Publique o ativo associado ao programa.
 
-    Use this URL to verify that your channel is properly receiving the live stream.
+	Verifique se você tem pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo.
+1. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
+2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
+1. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
+1. Exclua o programa (e, opcionalmente, exclua o ativo).
 
-3. Create a program. 
+##<a id="channel"></a>Descrição de um Canal e seus componentes relacionados
 
-    When using the Azure portal, creating a program also creates an asset. 
+###<a id="channel_input"></a>Configurações de entrada de canal (ingestão)
 
-    When using .NET SDK or REST you need to create an asset and specify to use this asset when creating a Program. 
-1. Publish the asset associated with the program.   
+####<a id="ingest_protocols"></a>Protocolo de streaming de ingestão
 
-    Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
-1. Start the program when you are ready to start streaming and archiving.
-2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
-1. Stop the program whenever you want to stop streaming and archiving the event.
-1. Delete the Program (and optionally delete the asset).     
+Os Serviços de Mídia dão suporte à ingestão de feeds ao vivo usando o seguinte protocolo de transmissão:
 
-##<a name="<a-id="channel"></a>description-of-a-channel-and-its-related-components"></a><a id="channel"></a>Description of a Channel and its related components
-
-###<a name="<a-id="channel_input"></a>channel-input-(ingest)-configurations"></a><a id="channel_input"></a>Channel input (ingest) configurations
-
-####<a name="<a-id="ingest_protocols"></a>ingest-streaming-protocol"></a><a id="ingest_protocols"></a>Ingest streaming protocol
-
-Media Services supports ingesting live feeds using the following streaming protocol: 
-
-- **Multi-bitrate Fragmented MP4**
+- **MP4 fragmentado com múltiplas taxas de bits**
  
-- **Multi-bitrate RTMP** 
+- **RTMP com múltiplas taxas de bits**
 
-    When the **RTMP** ingest streaming protocol is selected, two ingest(input) endpoints are created for the channel: 
-    
-    **Primary URL**: Specifies the fully qualified URL of the channel's primary RTMP ingest endpoint.
+	Quando o protocolo de transmissão de ingestão **RTMP** é selecionado, dois pontos de extremidade de ingestão (entrada) são criados para o canal:
+	
+	**URL principal**: especifica a URL totalmente qualificada do ponto de extremidade de ingestão de RTMP principal do canal.
 
-    **Secondary URL** (optional): Specifies the fully qualified URL of the channel's secondary RTMP ingest endpoint. 
+	**URL secundária** (opcional): especifica a URL totalmente qualificada do ponto de extremidade de ingestão de RTMP secundário do canal.
 
 
-    Use the secondary URL if you want to improve the durability and fault tolerance of your ingest stream as well as encoder failover and fault-tolerance, especially for the following scenarios.
+	Use a URL secundária se você quiser melhorar a durabilidade e a tolerância a falhas do fluxo de ingestão, bem como o failover e a tolerância a falhas do codificador, especialmente para os cenários a seguir.
 
-    - Single encoder double pushing to both Primary and Secondary URLs:
-    
-        The main purpose of this is to provide more resiliency to network fluctuations and jitters. Some RTMP encoders do not handle network disconnects well. When a network disconnect happens, an encoder may stop encoding and will not send the buffered data when reconnect happens, this causes discontinuities and data lost. Network disconnects can happen because of a bad network or a maintenance on Azure side. Primary/secondary URLs reduce the network issues and also provide a controlled upgrade process. Each time a scheduled network disconnect happens, Media Services manages the primary and secondary disconnect and provides a delayed disconnect between the two which gives time for encoders to keep sending data and reconnect again. The order of the disconnects can be random, but there will be always a delay between primary/secondary or secondary/primary. In this scenario encoder is still the single point of failure.
-     
-    - Multiple encoders each encoder pushing to dedicated point:
-        
-        This scenario provides both encoder and ingest redundancy. In this scenario encoder1 pushes to the primary URL and encoder2 pushes to secondary URL. When there is an encoder failure other encoder can still keep sending data. Data redundancy can still be maintained because Media Services does not disconnect primary and secondary at the same time. This scenario assumes encoders are time sync and provides exactly same data.  
+	- Codificador único duplo enviando URLs primária e secundária:
+	
+		O objetivo principal é fornecer mais flexibilidade ás flutuações de rede e jitters. Alguns codificadores RTMP não tratam bem da desconexão de rede. Quando uma ocorre uma desconexão de rede, um codificador pode parar de codificar e não enviará os dados armazenados no buffer ao após a reconexão, isso provoca descontinuidades e perdas de dados. As desconexões da rede podem ocorrer devido a problemas na rede ou uma manutenção no lado do Azure. As URLs primária/secundária reduzem os problemas de rede e também fornecem um processo controlado de atualização. Sempre que ocorrer uma desconexão da rede agendada, os serviços de mídia gerenciam a desconexão primária e secundária e proporcionam uma desconexão de atraso entre os dois, o que dá tempo para codificadores continuarem enviando dados e reconectarem novamente. A ordem de desconexão pode ser aleatória, mas haverá sempre um atraso entre primária/secundária ou secundária/primária. Neste cenário, o codificador ainda é o único ponto de falha.
+	 
+	- Vários codificadores, cada codificador enviando para um ponto dedicado:
+		
+		Este cenário fornece redundância de codificador e de inclusão. Neste cenário, o condificador1 envia para a URL principal e o codificador2 envia a URL secundária. Quando houver uma falha de codificador, o outro codificador ainda pode continuar enviando dados. A redundância de dados pode ainda ser mantida porque os serviços de mídia não desconecta a primária e a secundária ao mesmo tempo. Este cenário pressupõe que os codificadores são sincronizados e fornecem exatamente os mesmos dados.
  
-    - Multiple encoder double pushing to both primary and secondary URLs:
-    
-        In this scenario both encoders push data to both primary and secondary URLs. This provides the best reliability and fault tolerance as well as data redundancy. It can tolerate both encoder failures and also disconnects even if one encoder stops working. This scenario assumes encoders are time sync and provides exactly same data.  
+	- Codificador múltiplo duplo enviando URLs primária e secundária:
+	
+		Neste cenário, os codificadores enviam dados para as URLs primárias e secundárias. Isso oferece maior confiabilidade e tolerância a falhas, bem como redundância de dados. São toleradas falhas do codificador, bem como é feita a desconexão mesmo se um codificador para de funcionar. Este cenário pressupõe que os codificadores são sincronizados e fornecem exatamente os mesmos dados.
 
-For information about RTMP live encoders, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+Para obter informações sobre codificadores ao vivo de RTMP, consulte [Suporte a RTMP dos Serviços de Mídia do Azure e codificadores ao vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-The following considerations apply:
+As seguintes considerações se aplicam:
 
-- Make sure you have sufficient free Internet connectivity to send data to the ingest points. 
-- Using secondary ingest URL requires additional bandwidth. 
-- The incoming multi-bitrate stream can have a maximum of 10 video quality levels (aka layers), and a maximum of 5 audio tracks.
-- The highest average bitrate for any of the video quality levels or layers should be below 10 Mbps.
-- The aggregate of the average bitrates for all the video and audio streams should be below 25 Mbps.
-- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
-- You can ingest a single bitrate into your channel, but since the stream is not processed by the channel, the client applications will also receive a single bitrate stream (this option is not recommended).
+- Verifique se que você tem conectividade com a Internet livre suficiente para enviar dados aos pontos de ingestão.
+- O uso de uma URL de ingestão secundária requer largura de banda adicional.
+- O fluxo com múltiplas taxas de bits de entrada pode ter no máximo 10 níveis de qualidade de vídeo (também conhecidos como camadas) e no máximo cinco faixas de áudio.
+- A taxa de bits média mais alta para qualquer um dos níveis ou camadas de qualidade de vídeo deve estar abaixo de 10 Mbps.
+- A agregação das taxas de bits médias para todos os fluxos de vídeo e áudio deve estar abaixo de 25 Mbps.
+- Você não pode alterar o protocolo de entrada enquanto o canal ou seus programas associados estão em execução. Se você precisar de protocolos diferentes, você deve criar canais separados para cada protocolo de entrada.
+- Você pode incluir uma única taxa de bits em seu canal, mas como o fluxo não é processado pelo canal, os aplicativos de cliente também receberão um fluxo de taxa de bits única (essa opção não é recomendada).
 
-####<a name="ingest-urls-(endpoints)"></a>Ingest URLs (endpoints) 
+####URLs de ingestão (pontos de extremidade) 
 
-A Channel provides an input endpoint (ingest URL) that you specify in the live encoder, so the encoder can push streams to your channels.   
+Um canal fornece um ponto de extremidade de entrada (URL de ingestão) que você especifica no codificador ao vivo, assim, o codificador pode enviar fluxos a seus canais.
 
-You can get the ingest URLs when you create the channel. To get these URLs, the channel does not have to be in the **Running** state. When you are ready to start pushing data into the channel, the channel must be in the **Running** state. Once the channel starts ingesting data, you can preview your stream through the preview URL.
+Você pode obter as URLs de ingestão ao criar o canal. Para obter essas URLs, o canal não precisa estar no estado **Executando**. Quando estiver pronto para começar a enviar dados por push para o canal, ele deve estar no estado **Executando**. Depois que o canal iniciar a ingestão de dados, você poderá visualizar o fluxo por meio da URL de visualização.
 
-You have an option of ingesting Fragmented MP4 (Smooth Streaming) live stream over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS. Currently, you cannot ingest RTMP over SSL. 
+Você tem a opção de ingerir a transmissão ao vivo de MP4 fragmentado (Smooth Streaming) em uma conexão SSL. Para inserir por SSL, certifique-se de atualizar a URL de inserção para HTTPS. No momento, você não pode ingerir RTMP sobre SSL.
 
-####<a name="<a-id="keyframe_interval"></a>keyframe-interval"></a><a id="keyframe_interval"></a>Keyframe interval
+####<a id="keyframe_interval"></a>Intervalo de quadro-chave
 
-When using an on-premises live encoder to generate multi-bitrate stream, the keyframe interval specifies GOP duration (as used by that external encoder). Once this incoming stream is received by the Channel, you can then deliver your live stream to client playback applications in any of the following formats: Smooth Streaming, DASH and HLS. When doing live streaming, HLS is always packaged dynamically. By default, Media Services automatically calculates HLS segment packaging ratio (fragments per segment) based on the keyframe interval, also referred to as Group of Pictures – GOP, that is received from the live encoder. 
+Ao se usar um codificador ao vivo local para gerar um fluxo com múltiplas taxas de bits, o intervalo de quadro-chave especifica a duração de GOP (conforme usado pelo codificador externo). Depois que esse fluxo de entrada for recebido pelo canal, você poderá entregar sua transmissão ao vivo aos aplicativos de reprodução de cliente em qualquer um dos seguintes formatos: Smooth Streaming, DASH e HLS. Ao fazer streaming ao vivo, o HLS é sempre empacotado dinamicamente. Por padrão, os Serviços de Mídia calculam automaticamente a taxa de empacotamento de segmento HLS (fragmentos por segmento) com base no intervalo de quadros-chave, também conhecido como GOP (grupo de imagens), que é recebido do codificador ao vivo.
 
-The following table shows how the segment duration is being calculated:
+A tabela a seguir mostra como a duração do segmento é calculada:
 
-Keyframe Interval|HLS segment packaging ratio (FragmentsPerSegment)|Example
+Intervalo de quadro-chave|Taxa de empacotamento de segmento HLS (FragmentsPerSegment)|Exemplo
 ---|---|---
-less than or equal to 3 seconds|3:1|If the KeyFrameInterval (or GOP) is 2 seconds long, the default HLS segment packaging ratio will be 3 to 1, which will create a 6 seconds HLS segment.
-3 to 5  seconds|2:1|If the KeyFrameInterval (or GOP) is 4 seconds long, the default HLS segment packaging ratio will be 2 to 1, which will create a 8 seconds HLS segment.
-greater than 5 seconds|1:1|If the KeyFrameInterval (or GOP) is 6 seconds long, the default HLS segment packaging ratio will be 1 to 1, which will create a 6 second long HLS segment.
+menor ou igual a 3 segundos|3:1|Se KeyFrameInterval (ou GOP) for de 2 segundos, a taxa de empacotamento padrão de segmento HLS será de 3 para 1, o que criará um segmento HLS de 6 segundos.
+3 a 5 segundos|2:1|Se KeyFrameInterval (ou GOP) for de 4 segundos, a taxa de empacotamento padrão de segmento HLS será de 2 para 1, o que criará um segmento HLS de 8 segundos.
+mais de 5 segundos|1:1|Se KeyFrameInterval (ou GOP) for de 6 segundos, a taxa de empacotamento padrão de segmento HLS será de 1 para 1, o que criará um segmento HLS de 6 segundos.
 
 
-You can change the fragments per segment ratio by configuring channel’s output and setting FragmentsPerSegment on ChannelOutputHls. 
+Você pode alterar a taxa de fragmentos por segmento configurando a saída do canal e definindo FragmentsPerSegment em ChannelOutputHls.
 
-You can also change the keyframe interval value, by setting the KeyFrameInterval property on ChanneInput. 
+Você também pode alterar o valor do intervalo de quadro-chave definindo a propriedade KeyFrameInterval em ChanneInput.
 
-If you explicitly set the KeyFrameInterval, the HLS segment packaging ratio FragmentsPerSegment is calculated using the rules described above.  
+Se você definir explicitamente o KeyFrameInterval, o FragmentsPerSegment da taxa de empacotamento de segmento HLS será calculado usando as regras descritas acima.
 
-If you explicitly set both KeyFrameInterval and FragmentsPerSegment, Media Services will use the values set by you. 
-
-
-####<a name="allowed-ip-addresses"></a>Allowed IP addresses
-
-You can define the IP addresses that are allowed to publish video to this channel. Allowed IP addresses can be specified as either a single IP address (e.g. ‘10.0.0.1’), an IP range using an IP address and a CIDR subnet mask (e.g. ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (e.g. ‘10.0.0.1(255.255.252.0)’). 
-
-If no IP addresses are specified and there is no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
-
-###<a name="channel-preview"></a>Channel preview 
-
-####<a name="preview-urls"></a>Preview URLs
-
-Channels provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
-
-You can get the preview URL when you create the channel. To get the URL, the channel does not have to be in the **Running** state. 
-
-Once the Channel starts ingesting data, you can preview your stream.
-
-Note that currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure portal to view your stream.
+Se você definir explicitamente KeyFrameInterval e FragmentsPerSegment, os Serviços de Mídia usarão os valores definidos por você.
 
 
-####<a name="allowed-ip-addresses"></a>Allowed IP Addresses
+####Endereços IP permitidos
 
-You can define the IP addresses that are allowed to connect to the preview endpoint. If no IP addresses are specified any IP address will be allowed. Allowed IP addresses can be specified as either a single IP address (e.g. ‘10.0.0.1’), an IP range using an IP address and a CIDR subnet mask (e.g. ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (e.g. ‘10.0.0.1(255.255.252.0)’).
+Você pode definir os endereços IP que têm permissão para publicar vídeo para esse canal. Os endereços IP permitidos podem ser especificados como um endereço IP individual (por exemplo, '10.0.0.1'), um intervalo de IPs usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ‘10.0.0.1/22’), ou um intervalo de IPs usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, ‘10.0.0.1(255.255.252.0)’).
 
-###<a name="channel-output"></a>Channel output
+Se nenhum endereço IP for especificado e não houver definição de regra, nenhum endereço IP será permitido. Para permitir qualquer endereço IP, crie uma regra e defina 0.0.0.0/0.
 
-For more information see the [setting keyframe interval](#keyframe_interval) section.
+###Visualização de canal 
+
+####URLs de visualização
+
+Os canais fornecem um ponto de extremidade de visualização (URL de visualização) que você usa para visualizar e validar seu fluxo antes do processamento e da entrega.
+
+Você pode obter a URL de visualização quando você cria o canal. Para obter a URL, o canal não precisa estar no estado **Executando**.
+
+Depois que o canal inicia a ingestão de dados, você pode visualizar o fluxo.
+
+Observe que, no momento, o fluxo de visualização só pode ser entregue no formato MP4 fragmentado (Smooth Streaming), independentemente do tipo de entrada especificado. Você pode usar o player [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para testar o Smooth Stream. Você também pode usar um player hospedado no Portal Clássico do Azure para exibir a transmissão.
 
 
-###<a name="channel's-programs"></a>Channel's programs
+####Endereços IP permitidos
 
-A channel is associated with programs that enable you to control the publishing and storage of segments in a live stream. Channels manage Programs. The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.
+Você pode definir os endereços IP que têm permissão para conectar-se ao ponto de extremidade de visualização. Se nenhum endereço IP for especificado, qualquer endereço IP será permitido. Os endereços IP permitidos podem ser especificados como um endereço IP individual (por exemplo, '10.0.0.1'), um intervalo de IPs usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ‘10.0.0.1/22’), ou um intervalo de IPs usando um endereço IP e uma máscara de sub-rede decimal com pontos (por exemplo, ‘10.0.0.1(255.255.252.0)’).
 
-You can specify the number of hours you want to retain the recorded content for the program by setting the **Archive Window** length. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. Archive window length also dictates the maximum amount of time clients can seek back in time from the current live position. Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
+###Saída do canal
 
-Each program is associated with an Asset which stores the streamed content. An asset is mapped to a blob container in the Azure Storage account and the files in the asset are stored as blobs in that container. To publish the program so your customers can view the stream you must create an OnDemand locator for the associated asset. Having this locator will enable you to build a streaming URL that you can provide to your clients.
+Para saber mais, consulte a seção [intervalo de quadro-chave de configuração](#keyframe_interval).
 
-A channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
 
-You should not reuse existing programs for new events. Instead, create and start a new program for each event as described in the Programming Live Streaming Applications section.
+###Programas do canal
 
-Start the program when you are ready to start streaming and archiving. Stop the program whenever you want to stop streaming and archiving the event. 
+Um canal é associado a programas que permitem que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Canais gerenciam programas. A relação entre canal e programa é muito semelhante à mídia tradicional, onde um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento programado naquele canal.
 
-To delete archived content, stop and delete the program and then delete the associated asset. An asset cannot be deleted if it is used by a program; the program must be deleted first. 
+Você pode especificar o número de horas pelo qual você deseja manter o conteúdo gravado para o programa, definindo a duração da **Janela de Arquivo**. Esse valor pode ser definido entre um mínimo de 5 minutos e um máximo de 25 horas. A duração da janela de arquivo também determina que a quantidade máxima de tempo que os clientes podem pesquisar na posição atual em tempo real. Os programas podem ser executados pelo período de tempo especificado, mas o conteúdo que estiver por trás da janela de tamanho será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
 
-Even after you stop and delete the program, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset.
+Cada programa está associado um ativo que armazena o conteúdo transmitido. Um ativo é mapeado para um contêiner de blob na conta de Armazenamento do Azure e os arquivos no ativo são armazenados como blobs nesse contêiner. Para publicar o programa para que seus clientes possam exibir o fluxo, você deve criar um localizador OnDemand para o ativo associado. Ter esse localizador permitirá que você crie uma URL de transmissão que você pode fornecer aos seus clientes.
 
-If you do want to retain the archived content, but not have it available for streaming, delete the streaming locator.
+Um canal dá suporte a até três programas em execução simultânea, para que você possa criar diversos arquivos no mesmo fluxo de entrada. Isso permite que você publique e arquive diferentes partes de um evento, conforme necessário. Por exemplo, o requisito de negócios é arquivar 6 horas de um programa, mas transmitir apenas os últimos 10 minutos. Para fazer isso, você precisa criar dois programas em execução simultânea. Um programa é definido para arquivar 6 horas do evento, mas o programa não é publicado. Outro programa é definido para 10 minutos e esse programa é publicado.
 
-##<a name="<a-id="states"></a>channel-states-and-how-states-map-to-the-billing-mode"></a><a id="states"></a>Channel states and how states map to the billing mode 
+Você não deve reutilizar os programas existentes para novos eventos. Em vez disso, crie e inicie um novo programa para cada evento, conforme descrito na seção Programação de aplicativos de streaming ao vivo.
 
-The current state of a Channel. Possible values include:
+Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
 
-- **Stopped**. This is the initial state of the Channel after its creation. In this state, the Channel properties can be updated but streaming is not allowed.
-- **Starting**. The Channel is being started. No updates or streaming is allowed during this state. If an error occurs, the Channel returns to the Stopped state.
-- **Running**. The Channel is capable of processing live streams.
-- **Stopping**. The Channel is being stopped. No updates or streaming is allowed during this state.
-- **Deleting**. The Channel is being deleted. No updates or streaming is allowed during this state.
+Para excluir o conteúdo arquivado, interrompa e exclua o programa e, em seguida, exclua o ativo associado. Não é possível excluir um ativo se este for usado por um programa; o programa deve ser excluído primeiro.
 
-The following table shows how Channel states map to the billing mode. 
+Mesmo depois que você parar e excluir o programa, os usuários poderão transmitir seu conteúdo arquivado como vídeo por demanda enquanto você não excluir o ativo.
+
+Se desejar manter o conteúdo arquivado mas ele não está disponível para streaming, exclua o localizador de streaming.
+
+##<a id="states"></a>Estados de canal e como os estados são mapeados para o modo de cobrança 
+
+O estado atual de um canal. Os valores possíveis incluem:
+
+- **Parado**. Este é o estado inicial do canal após sua criação. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
+- **Iniciando**. O canal está sendo iniciado. Nenhuma atualização ou streaming é permitido durante esse estado. Se ocorrer um erro, o canal retorna para o estado Parado.
+- **Executando**. O canal é capaz de processar transmissões ao vivo.
+- **Parando**. O canal está sendo parado. Nenhuma atualização ou streaming é permitido durante esse estado.
+- **Excluindo**. O canal está sendo excluído. Nenhuma atualização ou streaming é permitido durante esse estado.
+
+A tabela a seguir mostra como os estados de canal são mapeados para o modo de cobrança.
  
-Channel state|Portal UI Indicators|Billed?
+Estado de canal|Indicadores da interface do usuário do portal|Cobrado?
 ---|---|---|---
-Starting|Starting|No (transient state)
-Running|Ready (no running programs)<p>or<p>Streaming (at least one running program)|Yes
-Stopping|Stopping|No (transient state)
-Stopped|Stopped|No
+Iniciando|Iniciando|Nenhum (estado transitório)
+Executando|Pronto (nenhum programa em execução)<p>ou<p>Streaming (pelo menos um programa em execução)|Sim
+Parando|Parando|Nenhum (estado transitório)
+Parada|Parada|Não
 
-##<a name="<a-id="cc_and_ads"></a>closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Closed Captioning and Ad Insertion 
+##<a id="cc_and_ads"></a>Legendagem oculta e inserção de anúncios 
 
-The following table demonstrates supported closed captioning and ad insertion standards.
+A tabela a seguir demonstra os padrões com suporte de legendagem oculta e inserção de anúncios.
 
-Standard|Notes
+Standard|Observações
 ---|---
-CEA-708 and EIA-608 (708/608)|CEA-708 and EIA-608 are closed captioning standards for the United States and Canada.<p><p>Currently, captioning is only supported if carried in the encoded input stream. You need to use a live media encoder that can insert 608 or 708 captions into the encoded stream which is sent to Media Services. Media Services will deliver the content with inserted captions to your viewers.
-TTML inside ismt (Smooth Streaming Text Tracks)|Media Services dynamic packaging enables your clients to stream content in any of the following formats: MPEG DASH, HLS or Smooth Streaming. However, if you ingest fragmented MP4 (Smooth Streaming) with captions inside .ismt (Smooth Streaming text tracks), you would only be able to deliver the stream to Smooth Streaming clients.
-SCTE-35|Digital signaling system used to cue advertising insertion. Downstream receivers use the signal to splice advertising into the stream for the allotted time. SCTE-35 must be sent as a sparse track in the input stream.<p><p>Note that currently, the only supported input stream format that carries ad signals is fragmented MP4 (Smooth Streaming). The only supported output format is also Smooth Streaming.
+CEA-708 e EIA-608 (708/608)|CEA-708 e EIA-608 são padrões de legendagem oculta para os Estados Unidos e o Canadá.<p><p>Atualmente, as legendas têm suporte somente se incluídas no fluxo de entrada codificado. Você precisa usar um codificador de mídia ao vivo que possa inserir legendas 608 ou 708 no fluxo codificado que é enviado aos Serviços de Mídia. Os Serviços de Mídia entregarão o conteúdo com legendas inseridas a seus usuários.
+TTML em ismt (faixas de texto de Smooth Streaming)|O empacotamento dinâmico dos Serviços de Mídia habilita os clientes a transmitir conteúdo em qualquer um dos seguintes formatos: MPEG DASH, HLS ou Smooth Streaming. No entanto, se ingerir MP4 fragmentado (Smooth Streaming) com legendas em .ismt (faixas de texto de Smooth Streaming), você só poderá entregar o fluxo a clientes de Smooth Streaming.
+SCTE-35|O sistema de sinalização digital usado para a inserção de anúncios de indicação. Receptores de downstream usam o sinal para unir a publicidade ao fluxo pelo tempo alocado. SCTE-35 deve ser enviado como uma faixa esparsa no fluxo de entrada.<p><p>Observe que, no momento, o único formato de fluxo de entrada com suporte que transporta sinais de anúncios é o MP4 fragmentado (Smooth Streaming). O único formato de saída com suporte também é Smooth Streaming.
 
 
-##<a name="<a-id="considerations"></a>considerations"></a><a id="Considerations"></a>Considerations
+##<a id="Considerations"></a>Considerações
 
-When using an on-premises live encoder to send a multi-bitrate stream into a Channel, the following constraints apply:
+Ao se usar um codificador ao vivo local para enviar um fluxo com múltiplas taxas de bits a um canal, as seguintes restrições são aplicáveis:
 
-- Make sure you have sufficient free internet connectivity to send data to the ingest points.
-- The incoming multi-bitrate stream can have a maximum of 10 video quality levels (10 layers), and maximum of 5 audio tracks.
-- The highest average bitrate for any of the video quality levels or layers should be below 10 Mbps
-- The aggregate of the average bitrates for all the video and audio streams should be below 25 Mbps
-- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
+- Verifique se você tem conectividade com a Internet livre suficiente para enviar dados aos pontos de ingestão.
+- O fluxo com múltiplas taxas de bits de entrada pode ter no máximo 10 níveis de qualidade de vídeo (10 camadas) e no máximo cinco faixas de áudio.
+- A taxa de bits média mais alta para qualquer um dos níveis ou camadas de qualidade de vídeo deve estar abaixo de 10 Mbps
+- A agregação das taxas de bits médias para todos os fluxos de vídeo e áudio deve estar abaixo de 25 Mbps
+- Você não pode alterar o protocolo de entrada enquanto o canal ou seus programas associados estão em execução. Se você precisar de protocolos diferentes, você deve criar canais separados para cada protocolo de entrada.
 
 
-Other considerations related to working with channels and related components:
+Outras considerações relacionadas ao trabalho com canais e componentes relacionados:
 
-- Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program.
-- A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
-- By default you can only add 5 channels to your Media Services account. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
-- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
-- You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-live-streaming-with-onprem-encoders.md#states) section.
+- Sempre que você reconfigurar o codificador ao vivo, chame o método **Redefinir** no canal. Antes de redefinir o canal, você precisa interromper o programa. Antes de redefinir o canal, reinicie o programa.
+- Um canal pode ser interrompido somente quando estiver no estado Executando e todos os programas no canal tiverem sido interrompidos.
+- Por padrão, você só pode adicionar cinco canais à sua conta dos Serviços de Mídia. Para obter mais informações, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).
+- Você não pode alterar o protocolo de entrada enquanto o canal ou seus programas associados estão em execução. Se você precisar de protocolos diferentes, você deve criar canais separados para cada protocolo de entrada.
+- Você será cobrado apenas quando o canal estiver no estado **Executando**. Para obter mais informações, consulte [esta](media-services-live-streaming-with-onprem-encoders.md#states) seção.
 
-##<a name="how-to-create-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>How to create channels that receive multi-bitrate live stream from on-premises encoders
+##Como ciar canais que recebam transmissão ao vivo de diversas taxas de bits de codificadores locais
 
-For more information about on-premises live encoders, see [Using 3rd Party Live Encoders with Azure Media Services](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
+Para saber mais sobre codificadores locais ativos, consulte [Usando codificadores ativos de terceiros com os Serviços de Mídia do Azure](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
 
-Choose **Portal**, **.NET**, **REST API** to see how to create and manage channels and programs.
+Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar canais e programas.
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
 
-##<a name="media-services-learning-paths"></a>Media Services learning paths
+##Roteiros de aprendizagem dos Serviços de Mídia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Fornecer comentários
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 
-##<a name="related-topics"></a>Related topics
+##Tópicos relacionados
 
-[Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
+[Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure](media-services-fmp4-live-ingest-overview.md)
 
-[Delivering Live Streaming Events with Azure Media Services](media-services-overview.md)
+[Trabalhando com Eventos de Live Streaming com os Serviços de Mídia do Azure](media-services-overview.md)
 
-[Media Services Concepts](media-services-concepts.md)
+[Conceitos de Serviços de Mídia](media-services-concepts.md)
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

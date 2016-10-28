@@ -1,65 +1,63 @@
-## <a name="invoking-stored-procedure-for-sql-sink"></a>Invoking stored procedure for SQL Sink
+## Invocando o procedimento armazenado para o coletor SQL
 
-When copying data into SQL Server or Azure SQL/SQL Server Database, a user specified stored procedure could be configured and invoked with additional parameters. 
+Ao copiar dados no SQL Server ou no SQL Azure/banco de dados do SQL Server, um procedimento armazenado do usuário especificado poderá ser configurado e invocado com parâmetros adicionais.
 
-A stored procedure can be leveraged when built-in copy mechanisms do not serve the purpose. This is typically leveraged when extra processing (merging columns, looking up additional values, insertion into multiple tables…) needs to be done before the final insertion of source data in the destination table. 
+Um procedimento armazenado pode ser utilizado quando os mecanismos de cópia internos não têm essa finalidade. Normalmente isso ocorre quando é necessário realizar processamento extra (mesclar colunas, pesquisar valores adicionais, inserção em várias tabelas...) antes da inserção final dos dados de origem na tabela de destino.
 
-You may invoke a stored procedure of choice. The following sample shows how to use a stored procedure to do a simple insertion into a table in the database. 
+Você pode invocar o procedimento armazenado da sua escolha. O exemplo a seguir mostra como usar um procedimento armazenado para fazer uma inserção simples em uma tabela no banco de dados.
 
-**Output dataset**
+**Conjunto de dados de saída**
 
-In this example, type is set to: SqlServerTable. Set it to AzureSqlTable to use with an Azure SQL database. 
+Neste exemplo, o tipo é definido como: SqlServerTable. Defina-o como AzureSqlTable para usá-lo com um banco de dados SQL Azure.
 
-    {
-      "name": "SqlOutput",
-      "properties": {
-        "type": "SqlServerTable",
-        "linkedServiceName": "SqlLinkedService",
-        "typeProperties": {
-          "tableName": "Marketing"
-        },
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        }
-      }
-    }
-    
-Define the SqlSink section in copy activity JSON as follows. To call a stored procedure while insert data, both SqlWriterStoredProcedureName and SqlWriterTableType properties are needed.
+	{
+	  "name": "SqlOutput",
+	  "properties": {
+	    "type": "SqlServerTable",
+	    "linkedServiceName": "SqlLinkedService",
+	    "typeProperties": {
+	      "tableName": "Marketing"
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    }
+	  }
+	}
+	
+Defina a seção SqlSink na atividade de cópia JSON conforme demonstrado a seguir. Para chamar um procedimento armazenado ao inserir dados, as propriedades SqlWriterStoredProcedureName e SqlWriterTableType são necessárias.
 
-    "sink":
-    {
-        "type": "SqlSink",
-        "SqlWriterTableType": "MarketingType",
-        "SqlWriterStoredProcedureName": "spOverwriteMarketing", 
-        "storedProcedureParameters":
-                {
-                    "stringData": 
-                    {
-                        "value": "str1"     
-                    }
-                }
-    }
+	"sink":
+	{
+	    "type": "SqlSink",
+	    "SqlWriterTableType": "MarketingType",
+	    "SqlWriterStoredProcedureName": "spOverwriteMarketing", 
+	    "storedProcedureParameters":
+	            {
+	                "stringData": 
+	                {
+	                    "value": "str1"     
+	                }
+	            }
+	}
 
-In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName. It handles input data from your specified source, and insert into the output table. Notice that the parameter name of the stored procedure should be the same as the tableName defined in Table JSON file.
+No banco de dados, defina o procedimento armazenado com o mesmo nome que SqlWriterStoredProcedureName. Ele lida com os dados de entrada de origem especificada por você e os insere na tabela de saída. Observe que o nome de parâmetro do procedimento armazenado deve ser igual ao tableName definido no arquivo JSON da tabela.
 
-    CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
-    AS
-    BEGIN
-        DELETE FROM [dbo].[Marketing] where ProfileID = @stringData
-        INSERT [dbo].[Marketing](ProfileID, State)
-        SELECT * FROM @Marketing
-    END
+	CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
+	AS
+	BEGIN
+	    DELETE FROM [dbo].[Marketing] where ProfileID = @stringData
+	    INSERT [dbo].[Marketing](ProfileID, State)
+	    SELECT * FROM @Marketing
+	END
 
-In your database, define the table type with the same name as SqlWriterTableType. Notice that the schema of the table type should be same as the schema returned by your input data.
+No banco de dados, defina o tipo de tabela com o mesmo nome que SqlWriterTableType. Observe que o esquema do tipo de tabela deve ser a mesmo que o esquema retornado por seus dados de entrada.
 
-    CREATE TYPE [dbo].[MarketingType] AS TABLE(
-        [ProfileID] [varchar](256) NOT NULL,
-        [State] [varchar](256) NOT NULL
-    )
+	CREATE TYPE [dbo].[MarketingType] AS TABLE(
+	    [ProfileID] [varchar](256) NOT NULL,
+	    [State] [varchar](256) NOT NULL
+	)
 
-The stored procedure feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+O recurso de procedimento armazenado se beneficia de [parâmetros com valores de tabela](https://msdn.microsoft.com/library/bb675163.aspx).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

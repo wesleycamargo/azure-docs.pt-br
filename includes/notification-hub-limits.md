@@ -1,15 +1,12 @@
 
-| TIER: | FREE | BASIC | STANDARD |
+| CAMADA: | GRATUITO | BASIC | PADRÃO |
 |----|----|----|----|
-| Included Pushes | 1 Million | 10 Million | 10 Million |
-| Active Devices | 500 | Unlimited | Unlimited |
-| Tag quota per installation/registration | 60 | 60 | 60 |
+| Envios incluídos | 1 milhão | 10 milhões | 10 milhões |
+| Dispositivos ativos | 500 | Ilimitado | Ilimitado |
+| Cota de marca por registro/instalação | 60 | 60 | 60 |
 
 
 
-For additional details on these limits and for information on pricing, see [Notification Hubs Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/). 
+Para obter detalhes adicionais sobre esses limites e informações sobre preços, consulte [Preços de Hubs de Notificação](https://azure.microsoft.com/pricing/details/notification-hubs/).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

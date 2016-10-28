@@ -1,25 +1,22 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>To install regular hotfixes via Windows PowerShell for StorSimple
+#### Para instalar hotfixes normais por meio do Windows PowerShell para StorSimple
 
-1. Connect to the device serial console. For more information, see [Step 1: Connect to the serial console](storsimple-update-device.md#step1).
+1. Conecte-se ao console serial do dispositivo. Para obter mais informações, consulte [Etapa 1: Conectar-se ao console serial](storsimple-update-device.md#step1).
 
-2. In the serial console menu, select option 1, **Log in with full access**. Type the password. The default password is **Password1**.
+2. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**. Digite a senha. A senha padrão é **Senha1**.
 
-3. At the command prompt, type:
+3. No prompt de comando, digite:
 
     `Start-HcsHotfix`
 
        >[AZURE.IMPORTANT]
        >
-       >- This command applies only to regular hotfixes. You run this command on only one controller, but both controllers will be updated.
-       >- You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.
+       >- Este comando se aplica somente a hotfixes normais. Você executa esse comando em apenas um controlador, mas ambos os controladores são atualizados.
+       >- Você pode notar um failover do controlador durante o processo de atualização. Porém, o failover não afetará a disponibilidade nem a operação do sistema.
 
-4. When prompted, supply the path to the network shared folder that contains the hotfix files.
+4. Quando solicitado, forneça o caminho para a pasta compartilhada que contém os arquivos de hotfix.
 
-5. You will be prompted for confirmation. Type **Y** to proceed with the hotfix installation.
+5. Será solicitada a sua confirmação. Digite **Y** para prosseguir com a instalação do hotfix.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

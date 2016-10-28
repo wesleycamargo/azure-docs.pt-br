@@ -1,6 +1,6 @@
 <properties
-pageTitle="Azure Search indexer field mappings bridge the differences between data sources and search indexes"
-description="Configure Azure Search indexer field mappings to account for differences in field names and data representations"
+pageTitle="Os mapeamentos de campo do indexador de Pesquisa do Azure fazem uma ponte entre as fontes de dados e os índices de pesquisa"
+description="Configurar mapeamentos de campo de indexador de Pesquisa do Azure para obter as diferenças nos nomes de campo e representações de dados"
 services="search"
 documentationCenter=""
 authors="chaosrealm"
@@ -16,35 +16,34 @@ ms.tgt_pltfrm="na"
 ms.date="04/30/2016"
 ms.author="eugenesh" />
 
+# Os mapeamentos de campo do indexador de Pesquisa do Azure fazem uma ponte entre as fontes de dados e os índices de pesquisa
 
-# <a name="azure-search-indexer-field-mappings-bridge-the-differences-between-data-sources-and-search-indexes"></a>Azure Search indexer field mappings bridge the differences between data sources and search indexes
+Ao usar indexadores de Pesquisa do Azure, ocasionalmente você pode se encontrar em situações em que seus dados de entrada não correspondem ao esquema de seu índice de destino. Nesses casos, você pode usar **mapeamentos de campo** para transformar seus dados na forma desejada.
 
-When using Azure Search indexers, you can occasionally find yourself in situations where your input data doesn't quite match the schema of your target index. In those cases, you can use **field mappings** to transform your data into the desired shape. 
-
-Some situations where field mappings are useful:
+Algumas situações em que os mapeamentos de campo são úteis:
  
-- Your data source has a field `_id`, but Azure Search doesn't allow field names starting with an underscore. A field mapping allows you to "rename" a field. 
-- You want to populate several fields in the index with the same data source data, for example because you want to apply different analyzers to those fields. Field mappings let you "fork" a data source field.
-- You need to Base64 encode or decode your data. Field mappings support several **mapping functions**, including functions for Base64 encoding and decoding.   
+- A fonte de dados tem um campo `_id`, mas a Pesquisa do Azure não permite nomes de campo iniciados com um sublinhado. Um mapeamento de campo permite um campo "rename". 
+- Você deseja preencher vários campos no índice com os mesmos dados da fonte de dados, por exemplo, porque você deseja aplicar diferentes analisadores a esses campos. Mapeamentos de campo permitem a “bifurcação” de um campo de fonte de dados.
+- Você precisa codificar ou decodificar Base64 seus dados. Mapeamentos de campo dão suporte a diversas **funções de mapeamento**, incluindo funções para codificação e decodificação Base64.   
 
 
-> [AZURE.IMPORTANT] Currently, field mappings functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+> [AZURE.IMPORTANT] Atualmente, essa funcionalidade de mapeamento de campo está em preview. Ela está disponível somente na API REST que usa a versão **2015-02-28-Preview**. Lembre-se de que as APIs de visualização servem para teste e avaliação, e não devem ser usadas em ambientes de produção.
 
-## <a name="setting-up-field-mappings"></a>Setting up field mappings
+## Configurar mapeamentos de campo
 
-You can add field mappings when creating a new indexer using the [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer) API. You can manage field mappings on an indexing indexer using the [Update Indexer](search-api-indexers-2015-02-28-preview.md#update-indexer) API. 
+Você pode adicionar mapeamentos de campo ao criar um novo indexador usando a API [Criar Indexador](search-api-indexers-2015-02-28-preview.md#create-indexer). Você pode gerenciar mapeamentos de campo ao criar um novo indexador usando a API [Atualizar Indexador](search-api-indexers-2015-02-28-preview.md#update-indexer).
 
-A field mapping consists of 3 parts: 
+Um mapeamento de campo consiste em 3 partes:
 
-1. A `sourceFieldName`, which represents a field in your data source. This property is required. 
+1. Um `sourceFieldName`, que representa um campo na fonte de dados. Essa propriedade é obrigatória. 
 
-2. An optional `targetFieldName`, which represents a field in your search index. If omitted, the same name as in the data source is used. 
+2. Um `targetFieldName` opcional, que representa um campo em seu índice de pesquisa. Se omitido, o mesmo nome que aparece na fonte de dados é usado.
 
-3. An optional `mappingFunction`, which can transform your data using one of several predefined functions. The full list of functions is [below](#mappingFunctions).
+3. Um `mappingFunction` opcional, que pode transformar seus dados usando uma das várias funções predefinidas. A lista completa de funções está [abaixo](#mappingFunctions).
 
-Fields mappings are added to the `fieldMappings` array on the indexer definition. 
+Mapeamentos de campos são adicionados à matriz `fieldMappings` na definição do indexador.
 
-For example, here's how you can accommodate differences in field names: 
+Por exemplo, veja como você pode acomodar as diferenças nos nomes de campo:
 
 ```JSON
 
@@ -58,22 +57,22 @@ api-key: [admin key]
 } 
 ```
 
-An indexer can have multiple field mappings. For example, here's how you can "fork" a field:
+Um indexador pode ter vários mapeamentos de campo. Por exemplo, aqui está como você pode "bifurcar" um campo:
 
 ```JSON
 
 "fieldMappings" : [ 
-    { "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
-    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }, 
+	{ "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
+	{ "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }, 
 ] 
 ```
 
-> [AZURE.NOTE] Azure Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index cannot have fields that differ only by case.  
+> [AZURE.NOTE] A Pesquisa do Azure usa a comparação que não diferencia maiúsculas de minúsculas para resolver os nomes de campo e a função em mapeamentos de campo. Isso é conveniente (você não precisa obter todas as maiúsculas e minúsculas corretas), mas isso significa que a fonte de dados ou o índice não pode ter campos que diferem somente maiúsculas e minúsculas.
 
 <a name="mappingFunctions"></a>
-## <a name="field-mapping-functions"></a>Field mapping functions
+## Funções de mapeamento de campo
 
-These functions are currently supported: 
+Essas funções atualmente têm suporte:
 
 - [base64Encode](#base64EncodeFunction)
 - [base64Decode](#base64DecodeFunction)
@@ -81,15 +80,15 @@ These functions are currently supported:
 - [jsonArrayToStringCollection](#jsonArrayToStringCollectionFunction)
 
 <a name="base64EncodeFunction"></a>
-### <a name="base64encode"></a>base64Encode 
+### base64Encode 
 
-Performs *URL-safe* Base64 encoding of the input string. Assumes that the input is UTF-8 encoded. 
+Executa codificação Base64 de *URL segura* da cadeia de caracteres de entrada. Pressupõe-se que a entrada é codificada para UTF-8.
 
-#### <a name="sample-use-case"></a>Sample use case 
+#### Casos de uso de exemplo 
 
-Only URL-safe characters can appear in an Azure Search document key (because customers must be able to address the document using the Lookup API, for example). If your data contains URL-unsafe characters and you want to use it to populate a key field in your search index, use this function.   
+Somente caracteres de URL segura podem aparecer em uma chave de documento de pesquisa do Azure (porque os clientes devem ser capazes de resolver o documento usando a API de Pesquisa, por exemplo). Se seus dados contiverem caracteres de URL não seguros e você desejar usá-los para preencher um campo de chave em seu índice de pesquisa, use essa função.
 
-#### <a name="example"></a>Example 
+#### Exemplo 
 
 ```JSON
 
@@ -102,15 +101,15 @@ Only URL-safe characters can appear in an Azure Search document key (because cus
 ```
 
 <a name="base64DecodeFunction"></a>
-### <a name="base64decode"></a>base64Decode
+### base64Decode
 
-Performs Base64 decoding of the input string. The input is assumed to a *URL-safe* Base64-encoded string. 
+Executa a decodificação de Base64 da cadeia de caracteres de entrada. A entrada é considerada uma cadeia de caracteres de codificação Base64 de *URL segura*.
 
-#### <a name="sample-use-case"></a>Sample use case 
+#### Casos de uso de exemplo 
 
-Blob custom metadata values must be ASCII-encoded. You can use Base64 encoding to represent arbitrary Unicode strings in blob custom metadata. However, to make search meaningful, you can use this function to turn the encoded data back into "regular" strings when populating your search index.  
+Valores de metadados personalizados de blob devem ser codificados em ASCII. Você pode usar a codificação Base64 para representar cadeias de caracteres Unicode arbitrárias em metadados personalizados do blob. No entanto, para que a pesquisa seja significativa, você pode usar essa função para transformar os dados codificados novamente em cadeias de caracteres "normais" ao popular o índice de pesquisa.
 
-#### <a name="example"></a>Example 
+#### Exemplo 
 
 ```JSON
 
@@ -123,22 +122,22 @@ Blob custom metadata values must be ASCII-encoded. You can use Base64 encoding t
 ```
 
 <a name="extractTokenAtPositionFunction"></a>
-### <a name="extracttokenatposition"></a>extractTokenAtPosition
+### extractTokenAtPosition
 
-Splits a string field using the specified delimiter, and picks the token at the specified position in the resulting split.
+Divide um campo de cadeia de caracteres usando o delimitador especificado e seleciona o token na posição especificada na divisão resultante.
 
-For example, if the input is `Jane Doe`, the `delimiter` is `" "`(space) and the `position` is 0, the result is `Jane`; if the `position` is 1, the result is `Doe`. If the position refers to a token that doesn't exist, an error will be returned.
+Por exemplo, se a entrada for `Jane Doe`, o `delimiter` for `" "`(espaço) e o `position` for 0, o resultado será `Jane`; se o `position` for 1, o resultado será `Doe`. Se a posição se refere a um token que não existe, um erro será retornado.
 
-#### <a name="sample-use-case"></a>Sample use case 
+#### Casos de uso de exemplo 
 
-Your data source contains a `PersonName` field, and you want to index it as two separate `FirstName` and `LastName` fields. You can use this function to split the input using the space character as the delimiter.
+Sua fonte de dados contém um campo `PersonName` e você deseja indexá-la como dois campos `FirstName` e `LastName` separados. Você pode usar essa função para dividir a entrada usando o caractere de espaço como o delimitador.
 
-#### <a name="parameters"></a>Parameters
+#### Parâmetros
 
-- `delimiter`: a string to use as the separator when splitting the input string.
-- `position`: an integer zero-based position of the token to pick after the input string is split.    
+- `delimiter`: uma cadeia de caracteres a ser usado como o separador ao dividir a cadeia de caracteres de entrada.
+- `position`: uma posição baseada em zero do número inteiro do token para escolher depois que a cadeia de caracteres de entrada for dividida.    
 
-#### <a name="example"></a>Example
+#### Exemplo
 
 ```JSON 
 
@@ -156,17 +155,17 @@ Your data source contains a `PersonName` field, and you want to index it as two 
 ```
 
 <a name="jsonArrayToStringCollectionFunction"></a>
-### <a name="jsonarraytostringcollection"></a>jsonArrayToStringCollection
+### jsonArrayToStringCollection
 
-Transforms a string formatted as a JSON array of strings into a string array that can be used to populate a `Collection(Edm.String)` field in the index. 
+Transforma uma cadeia de caracteres formatada como uma matriz JSON de cadeias de caracteres em uma matriz de cadeia de caracteres que pode ser usada para preencher um campo `Collection(Edm.String)` no índice.
 
-For example, if the input string is `["red", "white", "blue"]`, then the target field of type `Collection(Edm.String)` will be populated with the three values `red`, `white` and `blue`. For input values that cannot be parsed as JSON string arrays, an error will be returned. 
+Por exemplo, se a cadeia de caracteres de entrada for `["red", "white", "blue"]`, o campo de destino do tipo `Collection(Edm.String)` será preenchido com os três valores `red`, `white` e `blue`. Para valores de entrada que não podem ser analisados como matrizes de cadeia de caracteres JSON, um erro será retornado.
 
-#### <a name="sample-use-case"></a>Sample use case
+#### Casos de uso de exemplo
 
-Azure SQL database doesn't have a built-in data type that naturally maps to `Collection(Edm.String)` fields in Azure Search. To populate string collection fields, format your source data as a JSON string array and use this function. 
+O banco de dados SQL do Azure não tem um tipo de dados interno que é mapeado naturalmente para campos `Collection(Edm.String)` na Pesquisa do Azure. Para preencher os campos da coleção de cadeia de caracteres, formate seus dados de origem como uma matriz de cadeia de caracteres JSON e usar essa função.
 
-#### <a name="example"></a>Example 
+#### Exemplo 
 
 ```JSON
 
@@ -175,11 +174,8 @@ Azure SQL database doesn't have a built-in data type that naturally maps to `Col
 ] 
 ```
 
-## <a name="help-us-make-azure-search-better"></a>Help us make Azure Search better
+## Ajude-nos a aprimorar a Pesquisa do Azure
 
-If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0504_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="A practical guide to designing secure health care solutions in Azure | Microsoft Azure"
-   description=" This article helps you understand how to improve security for your health care solutions by using the Azure services and features that you configure. "
+   pageTitle="Um guia prático para criar soluções de serviços de saúde seguras no Azure | Microsoft Azure"
+   description=" Este artigo o ajuda a entender como aumentar a segurança para suas soluções de serviços de saúde usando os serviços e recursos do Azure que você configura. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,22 +16,16 @@
    ms.date="09/06/2016"
    ms.author="terrylan"/>
 
+# Um guia prático para projetar soluções de serviços de saúde seguras no Azure
 
-# <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>A practical guide to designing secure health care solutions in Azure
+Novas empresas do setor de saúde, SIs (integradores de sistemas), ISVs (fornecedores independentes de software) e organizações de serviços de saúde que estão considerando a migração para o Azure buscam orientação para incorporar controles de segurança a fim de atender às suas obrigações de conformidade.
 
-Health industry startups, system integrators (SIs), independent software vendors (ISVs), and healthcare organizations considering a move to Azure are looking for guidance that helps them incorporate security controls to meet their compliance obligations.
+O [Guia prático para criar soluções de serviços médicos seguras no Microsoft Azure](https://aka.ms/azureindustrysecurity) o ajuda a entender como você pode aumentar a segurança de suas soluções usando os serviços e recursos do Azure que pode configurar com base em seus requisitos. O conteúdo é dividido em três seções principais:
 
-[A Practical Guide to Designing Secure Health Care Solutions in Microsoft Azure](https://aka.ms/azureindustrysecurity) helps you understand how you can improve security for your solutions by using the Azure services and features that you can configure based on your requirements.
-The content is divided into three major sections:
+1. Orientação sobre considerações para usar a tecnologia de nuvem, incluindo gerenciamento de risco, responsabilidade compartilhada, estabelecimento de um sistema de gerenciamento de segurança de informações, compreensão dos regulamentos locais e do setor e estabelecimento de procedimentos operacionais padrão.
+2. Princípios-chave de segurança alinhados a uma norma de gerenciamento da segurança das informações padrão, como ISO 27001, bem como processos de desenvolvimento padrão, como SDL (Microsoft Security Development Lifecycle).
+3. Aplicar os princípios-chave aos casos de uso demonstrando o alinhamento da perspectiva do arquiteto de soluções, em que os requisitos das soluções são alinhados ao padrão de gerenciamento de segurança de informações.
 
-1. Considerations guidance for using cloud technology, including risk management, shared responsibility, establishing an information security management system, understanding industry and local regulations, and establishing standard operating procedures.
-2. Key security principles that are both aligned to a standard information security management standard, such as ISO 27001, and standard development processes, such as Microsoft’s Security Development Lifecycle (SDL).
-3. Applying the key principles to use cases by demonstrating alignment from a solution architect perspective, where requirements for the solutions are aligned to the information security management standard.
+Esperamos que o [Guia prático para projetar soluções de serviços de saúde seguras](https://aka.ms/azureindustrysecurity) seja útil para você. Avise-nos se tiver dúvidas ou sugestões, deixando um comentário abaixo.
 
-We hope you find [A Practical Guide to Designing Secure Health Care Solutions](https://aka.ms/azureindustrysecurity) helpful and if you have any questions or suggestions, let us know by leaving a comment below.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

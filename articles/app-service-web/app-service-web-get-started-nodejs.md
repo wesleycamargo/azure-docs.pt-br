@@ -1,146 +1,139 @@
-<properties 
-    pageTitle="Deploy your Node.js web app to Azure in five minutes | Microsoft Azure" 
-    description="Learn how easy it is to run web apps in App Service by deploying a sample app. Start doing real development quickly and see results immediately." 
-    services="app-service\web"
-    documentationCenter=""
-    authors="cephalin"
-    manager="wpickett"
-    editor=""
+<properties
+	pageTitle="Implante seu aplicativo Web Node.js no Azure em cinco minutos | Microsoft Azure"
+	description="Saiba como é fácil executar aplicativos Web no Serviço de Aplicativo implantando um aplicativo de exemplo. Inicie o desenvolvimento real rapidamente e veja os resultados imediatamente."
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
+	editor=""
 />
 
 <tags
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="09/16/2016" 
-    ms.author="cephalin"
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="09/16/2016"
+	ms.author="cephalin"
 />
-    
 
-# <a name="deploy-your-first-node.js-web-app-to-azure-in-five-minutes"></a>Deploy your first Node.js web app to Azure in five minutes
+# Implante seu primeiro aplicativo Web Node.js no Azure em cinco minutos
 
-This tutorial helps you deploy your first Node.js web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
-You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/), and [API apps](../app-service-api/app-service-api-apps-why-best-platform.md).
+Este tutorial o ajuda a implantar seu primeiro aplicativo Web Node.js para o [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md). Você pode usar o Serviço de Aplicativo para criar aplicativos Web, [back-ends de aplicativos móveis](/documentation/learning-paths/appservice-mobileapps/) e [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
-You will: 
+Você irá:
 
-- Create a web app in Azure App Service.
-- Deploy sample Node.js code.
-- See your code running live in production.
-- Update your web app the same way you would [push Git commits](https://git-scm.com/docs/git-push).
+- Criar um aplicativo Web no Serviço de Aplicativo do Azure.
+- Implantar o código de exemplo Node.js.
+- Ver seu código em execução na produção.
+- Atualize o aplicativo Web da mesma maneira como faria com [confirmações do Git por push](https://git-scm.com/docs/git-push).
 
-## <a name="prerequisites"></a>Prerequisites
+## Pré-requisitos
 
-- [Install Git](http://www.git-scm.com/downloads). Verify that your installation is successful by running `git --version` from a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal.
-- Get a Microsoft Azure account. If you don't have an account, you can [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- [Instalar o Git](http://www.git-scm.com/downloads). Verifique se a instalação foi bem-sucedida executando `git --version` de um novo prompt de comando do Windows, de uma janela do PowerShell, do shell do Linux ou de um terminal OS X.
+- Obtenha uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) ou [ativar seus benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
->[AZURE.NOTE] You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with it for up to an hour--no credit card required, no commitments.
+>[AZURE.NOTE] Você pode [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) sem uma conta do Azure. Crie um aplicativo inicial e brinque com ele por até uma hora: não é necessário cartão de crédito ou compromissos.
 
 <a name="create"></a>
-## <a name="create-a-web-app"></a>Create a web app
+## Criar um aplicativo Web
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+1. Entre no [portal do Azure](https://portal.azure.com) com sua conta do Azure.
 
-2. From the left menu, click **New** > **Web + Mobile** > **Web App**.
+2. No menu à esquerda, clique em **Novo** > **Web + Móvel** > **Aplicativo Web**.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-portal.png)
 
-3. In the app creation blade, use the following settings for your new app:
+3. Na folha de criação do aplicativo, use as seguintes configurações para o novo aplicativo:
 
-    - **App name**: Type a unique name.
-    - **Resource group**: Select **Create new** and give the resource group a name.
-    - **App Service plan/Location**: Click it to configure, then click **Create New** to set the name, location, and pricing tier of the App Service plan. Feel free to use the **Free** pricing tier.
+    - **Nome do aplicativo**: digite um nome exclusivo.
+    - **Grupo de recursos**: selecione **Criar novo** e dê um nome ao grupo de recursos.
+    - **Local/Plano do Serviço de Aplicativo**: clique para configurar e clique em **Criar Novo** para definir o nome, o local e o tipo de preço do Plano do Serviço de Aplicativo. Fique à vontade para usar o tipo de preço **Gratuito**.
 
-    When you're done, your app creation blade should look like this:
+    Quando terminar, a folha de criação do aplicativo deve ter esta aparência:
 
     ![](./media/app-service-web-get-started-languages/create-web-app-settings.png)
 
-3. Click **Create** at the bottom. You can click the **Notification** icon at the top to see the progress.
+3. Clique em **Criar** na parte inferior. Você pode clicar no ícone **Notificação** na parte superior para ver o progresso.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-started.png)
 
-4. When deployment is finished, you should see this notification message. Click the message to open your deployment's blade.
+4. Quando a implantação for concluída, você verá esta mensagem de notificação. Clique na mensagem para abrir a folha da implantação.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-finished.png)
 
-5. In the **Deployment succeeded** blade, click the **Resource** link to open your new web app's blade.
+5. Na folha **Implantação com êxito**, clique no link **Recurso** para abrir a folha do novo aplicativo Web.
 
     ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
 
-## <a name="deploy-code-to-your-web-app"></a>Deploy code to your web app
+## Implantar código no aplicativo Web
 
-Now, let's deploy some code to Azure using Git.
+Agora, vamos implantar algum código no Azure usando o Git.
 
-5. In the web app blade, scroll down to **Deployment options** or search for it, then click it. 
+5. Na folha do aplicativo Web, role para baixo até as **Opções de implantação** ou procure-as e clique nelas.
 
     ![](./media/app-service-web-get-started-languages/deploy-web-app-deployment-options.png)
 
-6. Click **Choose Source** > **Local Git Repository** > **OK**.
+6. Clique em **Escolher Fonte** > **Repositório Git local** > **OK**.
 
-7. Back in the web app blade, click **Deployment credentials**.
+7. Na folha do aplicativo Web, clique em **Credenciais de implantação**.
 
-8. Set your deployment credentials and click **Save**.
+8. Configure suas credenciais de implantação e clique em **Salvar**.
 
-7. Back in the web app blade, scroll down to **Properties** or search for it, then click it. Next to **Git URL**, click the **Copy** button.
+7. Na folha do aplicativo Web, role para baixo até as **Propriedades** ou procure-as e clique nelas. Ao lado da **URL do Git**, clique no botão **Copiar**.
 
     ![](./media/app-service-web-get-started-languages/deploy-web-app-properties.png)
 
-    You're now ready to deploy your code with Git.
+    Você está pronto para implantar o código com o Git.
 
-1. In your command-line terminal, change to a working directory (`CD`) and clone the sample app like this:
+1. No terminal de linha de comando, mude para um diretório de trabalho (`CD`) e clone o aplicativo de exemplo desta forma:
 
         git clone https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git
 
-    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started-languages/node-git-clone.png)
+    ![Clone o código de exemplo de aplicativo para seu primeiro aplicativo Web no Azure](./media/app-service-web-get-started-languages/node-git-clone.png)
 
-    For *&lt;github_sample_url>*, use one of the following URLs, depending on the framework that you like:
+    Para *&lt;github\_sample\_url>*, use uma das seguintes URLs, dependendo da estrutura de sua preferência:
 
-2. Change to the repository of your sample app. For example, 
+2. Altere para o repositório do aplicativo de exemplo. Por exemplo,
 
         cd app-service-web-nodejs-get-started
 
-3. Configure the Git remote for your Azure app its Git URL, which you copied from the Portal a few steps ago.
+3. Configure o Git remoto para seu aplicativo do Azure com a URL do Git que você copiou do Portal anteriormente.
 
         git remote add azure <giturlfromportal>
 
-4. Deploy your sample code to your Azure app like you would push any code with Git:
+4. Implante o código de exemplo no aplicativo do Azure como você faria com qualquer código com o Git:
 
         git push azure master
 
-    ![Push code to your first web app in Azure](./media/app-service-web-get-started-languages/node-git-push.png)    
+    ![Envie código por push para seu primeiro aplicativo Web no Azure](./media/app-service-web-get-started-languages/node-git-push.png)
 
-    If you used one of the language frameworks, you'll see different output. This is because `git push` not only puts code in Azure, but also triggers deployment tasks in the deployment engine. If you have any package.json in your project (repository) root, the deployment script restores the required packages for you. 
+    Se usar uma das estruturas de linguagem, você verá uma saída diferente. Isso ocorre porque o `git push` não só coloca o código no Azure, mas também dispara tarefas de implantação no mecanismo de implantação. Se você tiver qualquer package.json na raiz do projeto (repositório), o script de implantação restaurará os pacotes necessários para você.
 
-That's it! Your code is now running live in Azure. In your browser, navigate to http://*&lt;appname>*.azurewebsites.net to see it in action. 
+É isso! Seu código agora está em execução no Azure. No navegador, vá até http://*&lt;appname>*.azurewebsites.net para vê-lo em ação.
 
-## <a name="make-updates-to-your-app"></a>Make updates to your app
+## Fazer atualizações no aplicativo
 
-You can now use Git to push from your project (repository) root anytime to make an update to the live site. You do it the same way as when you deployed your code the first time. For example, every time you want to push a new change that you've tested locally, just run the following commands from your project (repository) root:
+Agora você pode usar o Git para enviar da raiz do projeto (repositório) a qualquer momento e fazer uma atualização no site ativo. Você faz isso da mesma forma que foi feito ao implantar seu código pela primeira vez. Por exemplo, sempre que você desejar enviar novas alterações que testou localmente, bastará executar os seguintes comandos da raiz do projeto (repositório):
 
     git add .
     git commit -m "<your_message>"
     git push azure master
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-[Create, configure, and deploy a Node.js Express web app to Azure](app-service-web-nodejs-get-started.md). By following this tutorial, you will learn the basic skills you need to run any Node.js web app in Azure, such as:
+[Criar, configurar e implantar um aplicativo Web Node.js no Azure](app-service-web-nodejs-get-started.md). Seguindo este tutorial, você aprenderá as habilidades básicas necessárias para executar qualquer aplicativo da Web Node.js no Azure, tais como:
 
-- Create and configure apps in Azure from PowerShell/Bash.
-- Set Node.js version.
-- Use a start file that is not in the root application directory.
-- Automate with NPM.
-- Get error and output logs.
+- Criar e configurar aplicativos no Azure do PowerShell/Bash.
+- Definir versão do Node.js.
+- Usar um arquivo de inicialização que não está no diretório raiz do aplicativo.
+- Automatizar com o NPM.
+- Obter logs de erro e de saída.
 
-Or, do more with your first web app. For example:
+Ou faça mais com seu primeiro aplicativo Web. Por exemplo:
 
-- Try out [other ways to deploy your code to Azure](../app-service-web/web-sites-deploy.md). For example, to deploy from one of your GitHub repositories, simply select **GitHub** instead of **Local Git Repository** in **Deployment options**.
-- Take your Azure app to the next level. Authenticate your users. Scale it based on demand. Set up some performance alerts. All with a few clicks. See [Add functionality to your first web app](app-service-web-get-started-2.md).
+- Experimente [outras maneiras de implantar seu código no Azure](../app-service-web/web-sites-deploy.md). Por exemplo, para implantar de um dos repositórios GitHub, basta selecionar **GitHub** em vez de **Repositório Git Local** nas **Opções de implantação**.
+- Leve o aplicativo do Azure para o próximo patamar. Autentique seus usuários. Dimensione-o com base na demanda. Configure alguns alertas de desempenho. Tudo isso com apenas alguns cliques. Confira [Adicionar funcionalidade a seu primeiro aplicativo Web](app-service-web-get-started-2.md).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!----HONumber=AcomDC_0920_2016-->

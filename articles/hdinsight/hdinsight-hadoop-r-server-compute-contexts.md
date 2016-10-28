@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Compute context options for R Server on HDInsight (preview) | Microsoft Azure"
-   description="Learn about the different compute context options available to users with R Server on HDInsight (preview)"
+   pageTitle="Opções de contexto de computação para o Servidor R no HDInsight (preview) | Microsoft Azure"
+   description="Conheça as diferentes opções de contexto de computação disponíveis para usuários com o Servidor R no HDInsight (preview)"
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -14,78 +14,73 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="10/18/2016"
+   ms.date="07/21/2016"
    ms.author="jeffstok"
 />
 
+# Opções de contexto de computação para o Servidor R no HDInsight (preview)
 
-# <a name="compute-context-options-for-r-server-on-hdinsight-(preview)"></a>Compute context options for R Server on HDInsight (preview)
+O Servidor R da Microsoft no Azure HDInsight (preview) fornece os recursos mais recentes para a análise baseada em R. Ele usa dados armazenados no HDFS em um contêiner na conta de armazenamento de [Blobs do Azure](../storage/storage-introduction.md "Armazenamento do Blob do Azure") ou no sistema de arquivos local do Linux. Uma vez que o Servidor R é criado no R de software livre, os aplicativos baseados em R que você compilar podem aproveitar qualquer um dos mais de 8000 pacotes de R de software livre. Eles também podem aproveitar as rotinas no [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), o pacote de análise de Big Data da Microsoft que está incluído no Servidor R.
 
-Microsoft R Server on Azure HDInsight (preview) provides the latest capabilities for R-based analytics. It uses data that's stored in HDFS in a container in your [Azure Blob](../storage/storage-introduction.md "Azure Blob storage") storage account or the local Linux file system. Since R Server is built on open source R, the R-based applications you build can leverage any of the 8000+ open source R packages. They can also leverage the routines in [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), Microsoft’s big data analytics package that's included with R Server.  
+O nó de borda de um cluster Premium fornece um local conveniente para se conectar ao cluster e executar os scripts de R. Com um nó do borda, você tem a opção de executar funções distribuídas paralelizadas do ScaleR nos núcleos do servidor do nó de borda. Você também tem a opção de executá-las em todos os nós do cluster usando o Hadoop Map Reduce do ScaleR ou os contextos de computação do Spark.
 
-The edge node of a Premium cluster provides a convenient place to connect to the cluster and run your R scripts. With an edge node, you have the option of running ScaleR’s parallelized distributed functions across the cores of the edge node server. You also have the option to run them across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Spark compute contexts.
+## Contextos de computação para um nó de extremidade
 
-## <a name="compute-contexts-for-an-edge-node"></a>Compute contexts for an edge node
+Em geral, um script de R que é executado no Servidor R no nó de borda é executado no interpretador de R nesse nó. A exceção é aquelas etapas que chamam uma função ScaleR. As chamadas de ScaleR são executadas em um ambiente de computação que é determinado pela configuração do contexto de computação do ScaleR. Ao executar o script de R de um nó de borda, os possíveis valores de contexto de computação são local sequencial ('local'), local paralelo ('localpar'), Map Reduce e Spark.
 
-In general, an R script that's run in R Server on the edge node runs within the R interpreter on that node. The exception is those steps that call a ScaleR function. The ScaleR calls run in a compute environment that's determined by how you set the ScaleR compute context.  When you run your R script from an edge node, the possible values of the compute context are local sequential (‘local’), local parallel (‘localpar’), Map Reduce, and Spark.
+As opções ‘local’ e ‘localpar’ diferem apenas em como chamadas do rxExec são executadas. As duas executam outras chamadas de função rx de forma paralela entre os núcleos disponíveis, a menos que seja especificado de outra forma por meio do uso da opção numCoresToUse de ScaleR, por exemplo, rxOptions(numCoresToUse=6). Veja a seguir um resumo das diversas opções de contexto de computação
 
-The ‘local’ and ‘localpar’ options differ only in how rxExec calls are executed. They both execute other rx-function calls in a parallel manner across all available cores unless specified otherwise through use of the ScaleR numCoresToUse option, e.g. rxOptions(numCoresToUse=6). The following summarizes the various compute context options
-
-| Compute context  | How to set                      | Execution context                                                                     |
+| Contexto de computação | Como definir | Contexto de execução |
 |------------------|---------------------------------|---------------------------------------------------------------------------------------|
-| Local sequential | rxSetComputeContext(‘local’)    | Parallelized execution across the cores of the edge node server, except for rxExec calls which are executed serially |
-| Local parallel   | rxSetComputeContext(‘localpar’) | Parallelized execution across the cores of the edge node server                                 |
-| Spark            | RxSpark()                       | Parallelized distributed execution via Spark across the nodes of the HDI cluster      |
-| Map Reduce       | RxHadoopMR()                    | Parallelized distributed execution via Map Reduce across the nodes of the HDI cluster |
+| Local sequencial | rxSetComputeContext(‘local’) | Execução em paralelo entre os núcleos do servidor de nó de borda, exceto para chamadas rxExec, que são executadas em série |
+| Local paralelo | rxSetComputeContext(‘localpar’) | Execução paralela entre os núcleos do servidor de nó de borda |
+| Spark | RxSpark() | Execução distribuída em paralelo por meio do Spark em todos os nós do cluster do HDI |
+| Map Reduce | RxHadoopMR() | Execução distribuída em paralelo por meio do Map Reduce em todos os nós do cluster do HDI |
 
 
-Assuming that you’d like parallelized execution for the purposes of performance, then there are three options. Which option you choose depends on the nature of your analytics work, and the size and location of your data.
+Supondo que você preferiria a execução em paralelo para fins de desempenho, há três opções. A opção escolhida depende da natureza de seu trabalho de análise e do tamanho e localização dos dados.
 
-## <a name="guidelines-for-deciding-on-a-compute-context"></a>Guidelines for deciding on a compute context
+## Diretrizes para decidir em um contexto de computação
 
-Currently, there is no formula that tells you which compute context to use. There are, however, some guiding principles that can help you make the right choice, or at least help you narrow down your choices before you run a benchmark. These guiding principles include:
+Atualmente, não há uma fórmula que informa qual contexto de computação usar. No entanto, há alguns princípios importantes que podem ajudar você a fazer a escolha certa ou, pelo menos, ajudar a refinar suas escolhas antes de executar um benchmark. Esses princípios básicos incluem:
 
-1.  The local Linux file system is faster than HDFS.
-2.  Repeated analyses are faster if the data is local, and if it's in XDF.
-3.  It's preferable to stream small amounts of data from a text data source; if the amount of data is larger, convert it to XDF prior to analysis.
-4.  The overhead of copying or streaming the data to the edge node for analysis becomes unmanageable for very large amounts of data.
-5.  Spark is faster than Map Reduce for analysis in Hadoop.
+1.	O sistema de arquivos Linux local é mais rápido do que o HDFS.
+2.	As análises repetidas serão mais rápidas se os dados forem locais e em XDF.
+3.	É preferível para transmitir pequenas quantidades de dados de uma fonte de dados de texto. Se a quantidade de dados for maior, converta-a para XDF antes da análise.
+4.	A sobrecarga da cópia ou transmissão dos dados para o nó de borda para análise se torna incontrolável para grandes quantidades de dados.
+5.	Spark é mais rápido do que Map Reduce para análise no Hadoop.
 
-Given these principles, some general rules of thumb for selecting a compute context are:
+Com esses princípios, algumas regras gerais para selecionar um contexto de computação são:
 
-### <a name="local"></a>Local
+### Local
 
-- If the amount of data to analyze is small and does not require repeated analysis, then stream it directly into the analysis routine and use 'local' or 'localpar'.
-- If the amount of data to analyze is small or medium-sized and requires repeated analysis, then copy it to the local file system, import it to XDF, and analyze it via 'local' or 'localpar'.
+- Se a quantidade de dados a ser analisada for pequena e não demandar análise repetida, transmita-a diretamente para a rotina de análise e use 'local' ou 'localpar'.
+- Se a quantidade de dados a ser analisada for de pequeno ou médio porte e necessitar de análise repetida, copie-a para o sistema de arquivos local, importe-a para XDF e analise-a por meio de 'local' ou 'localpar'.
 
-### <a name="hadoop-spark"></a>Hadoop Spark
+### Hadoop Spark
 
-- If the amount of data to analyze is large, then import it to XDF in HDFS (unless storage is an issue), and analyze it via ‘Spark’.
+- Se a quantidade de dados a ser analisada for grande, importe-a para XDF no HDFS (a menos que o armazenamento seja um problema) e analise-a via 'Spark'.
 
-### <a name="hadoop-map-reduce"></a>Hadoop Map Reduce
+### Hadoop Map Reduce
 
-- Use only if you encounter an insurmountable problem with use of the Spark compute context since generally it will be slower.  
+- Use somente se você encontrar um problema intransponível com o uso do contexto de computação do Spark, pois geralmente ele será mais lento.
 
-## <a name="inline-help-on-rxsetcomputecontext"></a>Inline help on rxSetComputeContext
+## Ajuda embutida em rxSetComputeContext
 
-For more information and examples of ScaleR compute contexts, see the inline help in R on the rxSetComputeContext method, for example:
+Para obter mais informações e exemplos de contextos de computação de ScaleR, confira a ajuda embutida sobre R no método rxSetComputeContext, por exemplo:
 
     > ?rxSetComputeContext
 
-You can also refer to the “ScaleR Distributed Computing Guide” that's available from the [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "R Server on MSDN") library.
+Você também pode conferir o “Guia de computação distribuída do ScaleR” disponível na biblioteca [MSDN do Servidor R](https://msdn.microsoft.com/library/mt674634.aspx "R Server no MSDN").
 
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-In this article, you learned how to create a new HDInsight cluster that includes R Server. You also learned the basics of using the R console from an SSH session. Now you can read the following articles to discover other ways of working with R Server on HDInsight:
+Neste artigo, você aprendeu como criar um novo cluster do HDInsight que inclui o Servidor R. Você também aprendeu os fundamentos de como usar o console de R de uma sessão SSH. Agora você pode ler os artigos a seguir para descobrir outras maneiras de trabalhar com o Servidor R no HDInsight:
 
-- [Overview of R Server for Hadoop](hdinsight-hadoop-r-server-overview.md)
-- [Get started with R server for Hadoop](hdinsight-hadoop-r-server-get-started.md)
-- [Add RStudio Server to HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
-- [Azure Storage options for R Server on HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
+- [Visão geral do Servidor R no Hadoop](hdinsight-hadoop-r-server-overview.md)
+- [Introdução ao Servidor R para o Hadoop](hdinsight-hadoop-r-server-get-started.md)
+- [Adicionar RStudio Server ao HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
+- [Opções de Armazenamento do Azure para o Servidor R no HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,55 +1,50 @@
 <properties
-    pageTitle="Create multiple virtual machines | Microsoft Azure"
-    description="Options for creating multiple virtual machines on Windows"
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="gbowerman"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Criar várias máquinas virtuais | Microsoft Azure"
+	description="Opções para criar várias máquinas virtuais no Windows"
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="gbowerman"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="05/02/2016"
-    ms.author="guybo"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/02/2016"
+	ms.author="guybo"/>
 
+# Criar várias máquinas virtuais do Azure
 
-# <a name="create-multiple-azure-virtual-machines"></a>Create multiple Azure virtual machines
+Há muitos cenários em que você precisa criar um grande número de máquinas virtuais (VMs) semelhantes. Alguns exemplos incluem HPC (computação de alto desempenho), análise de dados em grande escala, servidores de camada intermediária ou back-end escalonáveis e, muitas vezes, sem monitoração de estado (como servidores Web) e bancos de dados distribuídos.
 
-There are many scenarios where you need to create a large number of similar virtual machines (VMs). Some examples include high-performance computing (HPC), large-scale data analysis, scalable and often stateless middle-tier or backend servers (such as webservers), and distributed databases.
+Este artigo discute as opções disponíveis para criar diversas VMs no Azure. Essas opções vão além dos simples casos em que você cria manualmente uma série de VMs. Para criar várias VMs, os processos que você normalmente usa não serão bem dimensionados se você precisar criar mais de um punhado de VMs.
 
-This article discusses the available options to create multiple VMs in Azure. These options go beyond the simple cases where you manually create a series of VMs. To create many VMs, the processes that you typically use don't scale well if you need to create more than a handful of VMs.
+Uma maneira de criar várias VMs semelhantes é usar o constructo de _loops de recursos_ do Azure Resource Manager.
 
-One way to create many similar VMs is to use the Azure Resource Manager construct of _resource loops_.
+## Loops de recursos
 
-## <a name="resource-loops"></a>Resource loops
+Os loops de recursos são um tipo de taquigrafia sintática em modelos do Azure Resource Manager. Os loops de recursos podem criar um conjunto de recursos configurados da mesma forma em um loop. Você pode usar os loops de recursos para criar várias contas de armazenamento, interfaces de rede ou máquinas virtuais. Para saber mais sobre os loops de recursos, consulte [Create VMs in Availability Sets using Resource Loops (Criar VMs em conjuntos de disponibilidade usando loops de recursos)](https://azure.microsoft.com/documentation/templates/201-vm-copy-index-loops/).
 
-Resource loops are a syntactical shorthand in Azure Resource Manager templates. Resource loops can create a set of similarly configured resources in a loop. You can use resource loops to create multiple storage accounts, network interfaces, or virtual machines. For more information about resource loops, refer to [Create VMs in availability sets using resource loops](https://azure.microsoft.com/documentation/templates/201-vm-copy-index-loops/).
+## Desafios da escala
 
-## <a name="challenges-of-scale"></a>Challenges of scale
+Embora os loops de recursos facilitem a criação de uma infraestrutura de nuvem em escala e produzam modelos mais concisos, alguns desafios permanecem. Por exemplo, se você usar um loop de recursos para criar a 100 máquinas virtuais, precisará correlacionar os controladores de interface de rede (NICs) a VMs e a contas de armazenamento correspondentes. Como o número de VMs provavelmente será diferente do número de contas de armazenamento, você terá de lidar também com tamanhos de loop de recursos diferentes. Esses são problemas que podem ser resolvidos, mas a complexidade aumenta significativamente com a escala.
 
-Although resource loops make it easier to build out a cloud infrastructure at scale and produce more concise templates, certain challenges remain. For example, if you use a resource loop to create 100 virtual machines, you need to correlate network interface controllers (NICs) with corresponding VMs and storage accounts. Because the number of VMs is likely to be different from the number of storage accounts, you'll have to deal with different resource loop sizes, too. These are solvable problems, but the complexity increases significantly with scale.
+Outro desafio ocorre quando você precisa de uma infraestrutura que seja dimensionada elasticamente. Por exemplo, convém uma infraestrutura de dimensionamento automático que aumenta ou diminui o número de VMs em resposta à carga de trabalho. As VMs não fornecem um mecanismo integrado para variar em número (escalar ou reduzir horizontalmente). Se você reduzir horizontalmente com a remoção de VMs, será difícil garantir a alta disponibilidade ao verificar se as VMs estão balanceadas entre domínios de falha e atualização.
 
-Another challenge occurs when you need an infrastructure that scales elastically. For example, you might want an autoscale infrastructure that automatically increases or decreases the number of VMs in response to workload. VMs don't provide an integrated mechanism to vary in number (scale out and scale in). If you scale in by removing VMs, it's difficult to guarantee high availability by making sure that VMs are balanced across update and fault domains.
+Por fim, quando você usa um loop de recursos, várias chamadas para criar recursos passam para a malha subjacente. Quando várias chamadas criam recursos semelhantes, o Azure tem uma oportunidade implícita de aprimorar o design e de fazer otimizações para melhorar o desempenho e a confiabilidade da implantação. É aí que entram os _conjuntos de escala de máquina virtual_.
 
-Finally, when you use a resource loop, multiple calls to create resources go to the underlying fabric. When multiple calls create similar resources, Azure has an implicit opportunity to improve upon this design and optimize deployment reliability and performance. This is where _virtual machine scale sets_ come in.
+## Conjuntos de escala de máquina virtual
 
-## <a name="virtual-machine-scale-sets"></a>Virtual machine scale sets
+Os conjuntos de escala de máquina virtual são um recurso do Azure Cloud Services para implantar e gerenciar um conjunto de VMs idênticas. Com todas as VMs configuradas da mesma forma, os conjuntos de escala de VM são fáceis de reduzir ou de expandir. Você simplesmente altera o número de VMs no conjunto. Você também pode configurar conjuntos de escala de VM para dimensionamento automático com base nas demandas da carga de trabalho.
 
-Virtual machine scale sets are an Azure Cloud Services resource to deploy and manage a set of identical VMs. With all VMs configured the same, VM scale sets are easy to scale in and scale out. You simply change the number of VMs in the set. You can also configure VM scale sets to autoscale based on the demands of the workload.
+Para aplicativos que necessitam dimensionar os recursos de computação, as operações de dimensionamento são balanceadas implicitamente entre domínios de falha e atualização.
 
-For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains.
+Em vez de correlacionar vários recursos, como NICs e VMs, um conjunto de escala de VM tem propriedades de rede, armazenamento, máquina virtual e extensão que você pode configurar centralmente.
 
-Instead of correlating multiple resources such as NICs and VMs, a VM scale set has network, storage, virtual machine, and extension properties that you can configure centrally.
+Para obter uma introdução aos conjuntos de escala de VM, consulte a [página de produto de conjuntos de escala de máquina virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/). Para obter informações mais detalhadas, acesse a [documentação de conjuntos de escala de máquinas virtuais](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/).
 
-For an introduction to VM scale sets, refer to the [Virtual machine scale sets product page](https://azure.microsoft.com/services/virtual-machine-scale-sets/). For more detailed information, go to the [Virtual machines scale sets documentation](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0518_2016-->

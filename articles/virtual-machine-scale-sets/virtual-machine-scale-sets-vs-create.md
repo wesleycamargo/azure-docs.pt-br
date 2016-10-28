@@ -1,100 +1,99 @@
 <properties
-    pageTitle="Deploy Virtual Machine Scale Set using Visual Studio | Microsoft Azure"
-    description="Deploy Virtual Machine Scale Sets using Visual Studio and a Resource Manager template"
-    services="virtual-machine-scale-sets"
-    documentationCenter=""
-    authors="gbowerman"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Implantar um conjunto de escala de máquina virtual usando o Visual Studio | Microsoft Azure"
+	description="Implantar um conjunto de escala de máquina virtual usando o Visual Studio e um modelo do Resource Manager"
+	services="virtual-machine-scale-sets"
+	documentationCenter=""
+	authors="gbowerman"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machine-scale-sets"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/13/2016"
-    ms.author="guybo"/>
+	ms.service="virtual-machine-scale-sets"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/13/2016"
+	ms.author="guybo"/>
+
+# Implantar um conjunto de escala de máquina virtual usando o Visual Studio
+
+Este artigo mostra como implantar um Conjunto de Escala de Máquina Virtual do Azure usando uma Implantação de Grupo de Recursos do Visual Studio.
 
 
-# <a name="deploy-virtual-machine-scale-set-using-visual-studio"></a>Deploy Virtual Machine Scale Set using Visual Studio
+[Conjuntos de Escala de Máquina Virtual do Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) são um recurso de computação do Azure para implantar e gerenciar uma coleção de máquinas virtuais semelhantes com opções facilmente integradas para escala automática e balanceamento de carga. É possível provisionar e implantar os Conjuntos de Escala de VM usando os [Modelos do ARM (Gerenciador de Recursos do Azure)](https://github.com/Azure/azure-quickstart-templates). Os Modelos do ARM podem ser implantados usando a CLI do Azure, o PowerShell, o REST e também diretamente no Visual Studio. O Visual Studio fornece um conjunto de Modelos de exemplo que podem ser implantados como parte de um projeto de Implantação do Grupo de Recursos do Azure.
 
-This article shows you how to deploy an Azure Virtual Machine Scale Set using a Visual Studio Resource Group Deployment.
+Implantações de Grupo de Recursos do Azure são uma maneira de agrupar e publicar um conjunto de recursos relacionados do Azure em uma única operação de implantação. Saiba mais sobre eles aqui: [Criando e implantando grupos de recursos do Azure por meio do Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
+## Pré-requisitos
 
-[Azure Virtual Machine Scale Sets](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) are an Azure Compute resource to deploy and manage a collection of similar virtual machines with easily integrated options for auto-scale and load balancing. You can provision and deploy VM Scale Sets using [Azure Resource Manager (ARM) Templates](https://github.com/Azure/azure-quickstart-templates). ARM Templates can be deployed using Azure CLI, PowerShell, REST and also directly from Visual Studio. Visual Studio provides a set of example Templates which can be deployed as part of an Azure Resource Group Deployment project.
+Para começar a implantar Conjuntos de Escala de VM no Visual Studio, você precisará do seguinte:
 
-Azure Resource Group deployments are a way to group together and publish a set of related Azure resources in a single deployment operation. You can learn more about them here: [Creating and deploying Azure resource groups through Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+- Visual Studio 2013 ou 2015
+- SDK do Azure 2.7, 2.8 ou 2.9
 
-## <a name="pre-requisites"></a>Pre-requisites
+Observação: com essas instruções, pressupomos que você esteja usando o Visual Studio 2015 com o [SDK do Azure 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
-To get started deploying VM Scale Sets in Visual Studio you need the following:
+## Criando um projeto
 
-- Visual Studio 2013 or 2015
-- Azure SDK 2.7, 2.8 or 2.9
+1. Crie um novo projeto no Visual Studio 2015 escolhendo **Arquivo | Novo | Projeto**.
 
-Note: These instructions assume you are using Visual Studio 2015 with [Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
+	![Arquivo novo][file_new]
 
-## <a name="creating-a-project"></a>Creating a Project
+2. Em **Visual C# | Nuvem**, escolha **Gerenciador de Recursos do Azure** para criar um projeto para implantar um Modelo do ARM.
 
-1. Create a new project in Visual Studio 2015 by choosing **File | New | Project**.
+	![Criar projeto][create_project]
 
-    ![File New][file_new]
+3.  Na lista de Modelos, selecione o Modelo de Conjunto de Escala de Máquina Virtual do Windows ou do Linux.
 
-2. Under **Visual C# | Cloud**, choose **Azure Resource Manager** to create a project for deploying an ARM Template.
+	![Selecionar modelo][select_Template]
 
-    ![Create Project][create_project]
+4. Depois de criar seu projeto, você verá scripts de implantação do PowerShell, um Modelo do Gerenciador de recursos do Azure e um arquivo de parâmetro para o Conjunto de Escala de Máquina Virtual.
 
-3.  From the list of Templates, select either the Linux or Windows Virtual Machine Scale Set Template.
+	![Gerenciador de Soluções][solution_explorer]
 
-    ![Select Template][select_Template]
+## Personalizar seu projeto
 
-4. Once your project is created you’ll see PowerShell deployment scripts, an Azure Resource Manager Template, and a parameter file for the Virtual Machine Scale Set.
+Agora você pode editar o Modelo para personalizá-lo de acordo com as necessidades de seu aplicativo, como adicionar propriedades de extensão de VM ou editar regras de balanceamento de carga. Por padrão, os Modelos do Conjunto de Escala de VM são configurados para implantar a extensão AzureDiagnostics, que torna mais fácil adicionar regras de escala automática. Ele também implanta um balanceador de carga com um endereço IP público, configurado com regras NAT de entrada que permitem que você se conecte a instâncias de VM com SSH (Linux) ou RDP (Windows) – o intervalo de portas de front-end inicia em 50000, o que significa que, no caso do Linux, se você usar o SSH para a porta 50000 do endereço IP público (ou o nome de domínio), você será direcionado para a porta 22 da primeira VM no Conjunto de Escala. A conexão à porta 50001 será roteada para a porta 22 da segunda VM e assim por diante.
 
-    ![Solution Explorer][solution_explorer]
+ Uma boa maneira de editar os Modelos com o Visual Studio é usar a Estrutura de Tópicos JSON para organizar os parâmetros, as variáveis e os recursos. Com uma compreensão do esquema do Visual Studio, é possível detectar erros em seu Modelo antes de implantá-lo.
 
-## <a name="customize-your-project"></a>Customize your project
+![Gerenciador JSON][json_explorer]
 
-Now you can edit the Template to customize it for your application's needs, such as adding VM extension properties or editing load balancing rules. By default the VM Scale Set Templates are configured to deploy the AzureDiagnostics extension which makes it easy to add autoscale rules. It also deploys a load balancer with a public IP address, configured with inbound NAT rules which let you connect to the VM instances with SSH (Linux) or RDP (Windows) – the front end port range starts at 50000, which means in the case of Linux, if you SSH to port 50000 of the public IP address (or domain name) you will be routed to port 22 of the first VM in the Scale Set. Connecting to port 50001 will be routed to port 22 of the second VM and so on.
+## Implantar o projeto
 
- A good way to edit your Templates with Visual Studio is to use the JSON Outline to organize the parameters, variables and resources. With an understanding of the schema Visual Studio can point out errors in your Template before you deploy it.
+6. Implante o Modelo do ARM no Azure para criar o recurso de Conjunto de Escala de VM. Clique com o botão direito do mouse no nó do projeto e escolha **Implantar | Nova Implantação**.
 
-![JSON Explorer][json_explorer]
+	![Implantar o modelo][5deploy_Template]
 
-## <a name="deploy-the-project"></a>Deploy the project
+7. Selecione sua assinatura no diálogo “Implantar no Grupo de Recursos”.
 
-6. Deploy the ARM Template to Azure to create the VM Scale Set resource. Right click on the project node, choose **Deploy | New Deployment**.
+	![Implantar o modelo][6deploy_Template]
 
-    ![Deploy Template][5deploy_Template]
+8. Aqui, também é possível criar um novo Grupo de Recursos do Azure no qual você poderá implantar seu Modelo.
 
-7. Select your subscription in the “Deploy to Resource Group” dialog.
+	![Novo grupo de recursos][new_resource]
 
-    ![Deploy Template][6deploy_Template]
+9. Em seguida, selecione o botão **Editar Parâmetros** para inserir parâmetros que serão transmitidos para o Modelo; alguns valores como o nome de usuário e a senha para o SO são necessários para criar a implantação. Se você não tiver as Ferramentas do PowerShell para o Visual Studio instaladas, será recomendável marcar "Salvar senhas" para evitar um prompt oculto da linha de comando do PowerShell ou usar o [suporte keyvault](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
 
-8. From here you can also create a new Azure Resource Group to deploy your Template to.
+	![Editar parâmetros][edit_parameters]
 
-    ![New Resource Group][new_resource]
+10. Agora clique em **Implantar**. A janela **Saída** mostrará o progresso da implantação. Observe que a ação executa o script **Deploy-AzureResourceGroup.ps1**.
 
-9. Next select the **Edit Parameters** button to enter parameters which will be passed to your Template, Certain values such as the username and password for the OS are required to create the deployment. If you don't have PowerShell Tools for Visual Studio installed, it is recommended to check "Save passwords" in order to avoid a hidden PowerShell command line prompt, or use [keyvault support](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
+	![Janela de saída][output_window]
 
-    ![Edit Parameters][edit_parameters]
+## Explorando seu Conjunto de Escala de VM
 
-10. Now click **Deploy**. The **Output** window will show the deployment progress. Note that the the action is executing the **Deploy-AzureResourceGroup.ps1** script.
+Depois que a implantação for concluída, é possível exibir o novo Conjunto de Escala de VM no **Gerenciador de Nuvem** do Visual Studio (basta atualizar a lista). O Gerenciador de Nuvem permite que você gerencie recursos do Azure no Visual Studio ao mesmo tempo que desenvolve aplicativos. Você também pode exibir o Conjunto de Dimensionamento da VM no [Portal do Azure](https://portal.azure.com) e no [Azure Resource Manager](https://resources.azure.com/).
 
-    ![Output Window][output_window]
+![Gerenciador de Nuvem][cloud_explorer]
 
-## <a name="exploring-your-vm-scale-set"></a>Exploring your VM Scale Set
+ O portal fornece a melhor maneira de gerenciar visualmente sua infraestrutura do Azure com um navegador da Web, enquanto o Gerenciador de Recursos do Azure fornece uma maneira fácil de explorar e depurar recursos do Azure, oferecendo uma janela na “exibição de instância”, além de mostrar comandos do PowerShell para os recursos que você está examinando. Enquanto os Conjuntos de Escala de VM estão em visualização, o Gerenciador de Recursos mostrará a maioria dos detalhes dos Conjuntos de Escala de VM.
 
-Once the deployment completes, you can view the new VM Scale Set in the Visual Studio **Cloud Explorer** (refresh the list). Cloud Explorer lets you manage Azure resources in Visual Studio while developing applications. You can also view your VM Scale Set in the [Azure Portal](https://portal.azure.com) and [Azure Resource Explorer](https://resources.azure.com/).
+## Próximas etapas
 
-![Cloud Explorer][cloud_explorer]
-
- The portal provides the best way to visually manage your Azure infrastructure with a web browser, while Azure Resource Explorer provides an easy way to explorer and debug Azure resources, giving a window into the “instance view” and also showing PowerShell commands for the resources you are looking at. While VM Scale Sets are in preview, the Resource Explorer will show the most detail for your VM Scale Sets.
-
-## <a name="next-steps"></a>Next steps
-
-Once you’ve successfully deployed VM Scale Sets through Visual Studio you can further customize your project to suit your application requirements. For example setting up autoscale by adding an Insights resource, adding infrastructure to your Template like standalone VMs, or deploying applications using the custom script extension. A good source of example Templates can be found in the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) GitHub repository (search for "vmss").
+Depois de implantar com êxito os Conjuntos de Escala de VM por meio do Visual Studio, você pode personalizar seu projeto ainda mais para atender às necessidades de seu aplicativo. Por exemplo, configurar a escala automática adicionando um recurso do Insights, adicionar a infraestrutura ao Modelo como VMs autônomas ou implantar aplicativos usando a extensão de script personalizado. Uma boa fonte de Modelos de exemplo pode ser encontrada no repositório GitHub de [Modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates) (pesquise por “vmss”).
 
 [file_new]: ./media/virtual-machine-scale-sets-vs-create/1-FileNew.png
 [create_project]: ./media/virtual-machine-scale-sets-vs-create/2-CreateProject.png
@@ -108,8 +107,4 @@ Once you’ve successfully deployed VM Scale Sets through Visual Studio you can 
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

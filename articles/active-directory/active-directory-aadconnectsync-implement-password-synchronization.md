@@ -1,178 +1,164 @@
 <properties
-    pageTitle="Implementing password synchronization with Azure AD Connect sync | Microsoft Azure"
-    description="Provides information about how password synchronization works and how to enable it."
-    services="active-directory"
-    documentationCenter=""
-    authors="markusvi"
-    manager="femila"
-    editor=""/>
+	pageTitle="Implementação de sincronização de senha com a sincronização do Azure AD Connect | Microsoft Azure"
+	description="Fornece informações sobre como funciona a sincronização de senha e como habilitá-la."
+	services="active-directory"
+	documentationCenter=""
+	authors="markusvi"
+	manager="femila"
+	editor=""/>
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/24/2016"
-    ms.author="markusvi;andkjell"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2016"
+	ms.author="markusvi;andkjell"/>
 
 
+# Implementação de sincronização de senha com a sincronização do Azure AD Connect
+Este tópico fornece as informações necessárias para sincronizar suas senhas de usuário do AD (Active Directory) local para um Azure AD (Azure Active Directory) baseado na nuvem.
 
-# <a name="implementing-password-synchronization-with-azure-ad-connect-sync"></a>Implementing password synchronization with Azure AD Connect sync
-This topic provides you with the information you need to synchronize your user passwords from an on-premises Active Directory (AD) to a cloud-based Azure Active Directory (Azure AD).
+## O que é sincronização de senha
+A probabilidade de você ser impedido de concluir seu trabalho devido a uma senha esquecida está relacionada ao número de senhas diferentes que você precisa se lembrar. Quanto mais senhas você precisa lembrar, maior a probabilidade de se esquecer uma delas. Perguntas e chamadas sobre redefinições de senha e outros problemas relacionados à senha demandam a maior parte dos recursos de assistência técnica.
 
-## <a name="what-is-password-synchronization"></a>What is password synchronization
-The probability that you are blocked from getting your work done due to a forgotten password is related to the number of different passwords you need to remember. The more passwords you need to remember, the higher the probability to forget one. Questions and calls about password resets and other password-related issues demand the most helpdesk resources.
+A sincronização de senha é um recurso para sincronizar senhas de usuário de um Active Directory local para um Azure Active Directory (AD do Azure) local. Esse recurso permite que você entre nos serviços do Azure Active Directory (como Office 365, Microsoft Intune, CRM Online e Serviços de Domínio do Azure AD) usando a mesma senha usada para entrar no Active Directory local.
 
-Password synchronization is a feature to synchronize user passwords from an on-premises Active Directory to a cloud-based Azure Active Directory (Azure AD).
-This feature enables you to sign in to Azure Active Directory services (such as Office 365, Microsoft Intune, CRM Online, and Azure AD Domain Services) using the same password you are using to sign in to your on-premises Active Directory.
+![O que é o Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-synchronization/arch1.png)
 
-![What is Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-synchronization/arch1.png)
+Reduzindo o número de senhas que os usuários precisam manter para apenas uma, a sincronização de senha ajuda a:
 
-By reducing the number of passwords your users need to maintain to just one, password synchronization helps you to:
+- Aumentar a produtividade dos seus usuários
+- Reduzir os custos de assistência técnica
 
-- Improve the productivity of your users
-- Reduce your helpdesk costs  
+Se você optar por usar a [**Federação com o AD FS**](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect), outra opção será habilitar a sincronização de senha como um backup em caso de falha na infraestrutura do AD FS.
 
-Also, if you select to use [**Federation with AD FS**](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect), you can optionally enable password synchronization as a backup in case your AD FS infrastructure fails.
+A sincronização de senha é uma extensão para o recurso de sincronização de diretório, implementado pelo Azure AD Connect Sync. Para usar a sincronização de senha no seu ambiente, você precisa:
 
-Password synchronization is an extension to the directory synchronization feature implemented by Azure AD Connect sync. To use password synchronization in your environment, you need to:
+- Instalar o Azure AD Connect
+- Configure a sincronização de diretórios entre seu AD local e o Azure Active Directory
+- Habilitar a sincronização de senha
 
-- Install Azure AD Connect  
-- Configure directory synchronization between your on-premises AD and your Azure Active Directory
-- Enable password synchronization
+Para saber mais, consulte [Integrar suas identidades locais ao Azure Active Directory](active-directory-aadconnect.md).
 
-For more details, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+> [AZURE.NOTE] Para obter mais detalhes sobre os Serviços de Domínio do Active Directory, que são configurados para sincronização de senha e FIPS, consulte[Sincronização de senha e FIPS](#password-synchronization-and-fips).
 
-> [AZURE.NOTE] For more details about Active Directory Domain Services that are configured for FIPS and password synchronization, see [Password Sync and FIPS](#password-synchronization-and-fips).
+## Como a sincronização de senha funciona
+O serviço de domínio do Active Directory armazena as senhas na forma de uma representação do valor de hash da senha de usuário real. Um valor de hash é um resultado de uma função matemática unidirecional (o "*algoritmo de hash*"). Não há um método para reverter o resultado de uma função unidirecional para a versão de texto sem formatação de uma senha. Não é possível usar o hash de senha para entrar na sua rede local.
 
-## <a name="how-password-synchronization-works"></a>How password synchronization works
-The Active Directory domain service stores passwords in form of a hash value representation of the actual user password. A hash value is a result of a one-way mathematical function (the "*hashing algorithm*"). There is no method to revert the result of a one-way function to the plain text version of a password. You cannot use a password hash to sign in to your on-premises network.
+Para sincronizar sua senha, a sincronização do Azure AD Connect extrai o hash da senha de usuário do Active Directory local. O processamento de segurança adicional é aplicado ao hash da senha antes que ele seja sincronizado com o serviço de autenticação do Azure Active Directory. As senhas são sincronizadas por usuário e em ordem cronológica.
 
-To synchronize your password, Azure AD Connect sync extracts your password hash from the on-premises Active Directory. Extra security processing is applied to the password hash before it is synchronized to the Azure Active Directory authentication service. Passwords are synchronized on a per-user basis and in chronological order.
+O fluxo de dados real do processo de sincronização de senha é semelhante à sincronização de dados de usuário como DisplayName ou Endereços de Email. Contudo, as senhas são sincronizadas com mais frequência do que a janela de sincronização de diretório padrão para outros atributos. O processo de sincronização de senha é executado a cada 2 minutos. Não é possível modificar a frequência desse processo. Ao sincronizar uma senha, ela substituirá a senha de nuvem existente.
 
-The actual data flow of the password synchronization process is similar to the synchronization of user data such as DisplayName or Email Addresses. However, passwords are synchronized more frequently than the standard directory synchronization window for other attributes. The password synchronization process runs every 2 minutes. You cannot modify the frequency of this process. When you synchronize a password, it overwrites the existing cloud password.
+Na primeira vez que você habilitar o recurso de sincronização de senha, ele executará uma sincronização inicial das senhas de todos os usuários no escopo. Você não pode definir explicitamente um subconjunto de senhas de usuário que deseja sincronizar.
 
-The first time, you enable the password synchronization feature, it performs an initial synchronization of the passwords of all in-scope users. You cannot explicitly define a subset of user passwords you want to synchronize.
+Quando você altera uma senha local, a senha atualizada é sincronizada, geralmente em questão de minutos. O recurso de sincronização de senha repete automaticamente tentativas de sincronização com falha. Se ocorrer um erro durante uma tentativa de sincronização de senha, um erro é registrado no seu visualizador de eventos.
 
-When you change an on-premises password, the updated password is synchronized, most often in a matter of minutes.
-The password synchronization feature automatically retries failed synchronization attempts. If an error occurs during an attempt to synchronize a password, an error is logged in your event viewer.
+A sincronização de uma senha não afeta um usuário conectado atualmente. Sua sessão de serviço de nuvem atual não será afetada imediatamente por uma alteração de senha sincronizada que ocorre enquanto você está logado em um serviço de nuvem. No entanto, quando o serviço de nuvem exigir que você se autentique novamente, será necessário fornecer a nova senha.
 
-The synchronization of a password has no impact on the currently logged on user.
-Your current cloud service session is not immediately affected by a synchronized password change that occurs while you are signed in to a cloud service. However, when the cloud service requires you to authenticate again, you need to provide your new password.
+> [AZURE.NOTE] Somente há suporte para a sincronização de senha para o usuário do tipo de objeto no Active Directory. Não há suporte para o tipo de objeto iNetOrgPerson.
 
-> [AZURE.NOTE] Password sync is only supported for the object type user in Active Directory. It is not supported for the iNetOrgPerson object type.
+### Como a sincronização de senha funciona com os Serviços de Domínio do AD do Azure
+Você também pode usar o recurso de sincronização de senha para sincronizar suas senhas locais para os [Serviços de Domínio do Azure AD](../active-directory-domain-services/active-directory-ds-overview.md). Esse cenário permite que os Serviços de Domínio do Azure AD autentiquem os usuários na nuvem com todos os métodos disponíveis no AD local. A experiência desse cenário é semelhante a usar a ADMT (Ferramenta de Migração do Active Directory) em um ambiente local.
 
-### <a name="how-password-synchronization-works-with-azure-ad-domain-services"></a>How password synchronization works with Azure AD Domain Services
-You can also use the password synchronization feature to synchronize your on-premises passwords to the [Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md). This scenario allows the Azure AD Domain Services to authenticate your users in the cloud with all the methods available in your on-premises AD. The experience of this scenario is similar to using the Active Directory Migration Tool (ADMT) in an on-premises environment.
+### Considerações de segurança
+Ao sincronizar senhas, a versão da sua senha em texto sem formatação não é exposta ao recurso de sincronização de senha, nem ao Azure AD ou qualquer um dos serviços associados.
 
-### <a name="security-considerations"></a>Security considerations
-When synchronizing passwords, the plain-text version of your password is not exposed to the password synchronization feature, to Azure AD, or any of the associated services.
+Além disso, não há nenhum requisito no Active Directory local para armazenar a senha em um formato criptografado de modo reversível. Um resumo do hash da senha do Active Directory é usado para a transmissão entre o AD local e o Active Directory do Azure. O resumo do hash da senha não pode ser usado para acessar recursos no seu ambiente do local.
 
-Also, there is no requirement on the on-premises Active Directory to store the password in a reversibly encrypted format. A digest of the Active Directory password hash is used for the transmission between the on-premises AD and Azure Active Directory. The digest of the password hash cannot be used to access resources in your on-premises environment.
+### Considerações sobre política de senha
+Há dois tipos de políticas de senha que são afetadas ao habilitar a sincronização de senha:
 
-### <a name="password-policy-considerations"></a>Password policy considerations
-There are two types of password policies that are affected by enabling password synchronization:
+1. Política de complexidade de senha
+2. Política de expiração de senha
 
-1. Password Complexity Policy
-2. Password Expiration Policy
+**Política de complexidade da senha** Ao habilitar a sincronização de senha, as políticas de complexidade de senha no Active Directory local substituem as políticas de complexidade na nuvem para usuários sincronizados. Você pode usar todas as senhas válidas do seu Active Directory local para acessar os serviços do Azure AD.
 
-**Password complexity policy**  
-When you enable password synchronization, the password complexity policies in your on-premises Active Directory override complexity policies in the cloud for synchronized users. You can use all valid passwords of your on-premises Active Directory to access Azure AD services.
+> [AZURE.NOTE] Senhas de usuários criadas diretamente na nuvem ainda estão sujeitas a políticas de senha, conforme definido na nuvem.
 
-> [AZURE.NOTE] Passwords for users that are created directly in the cloud are still subject to password policies as defined in the cloud.
+**Política de expiração de senha** Se um usuário estiver no escopo de sincronização de senha, a senha da conta de nuvem será definida como " *Nunca Expirar* ". Você pode continuar entrando nos serviços de nuvem usando uma senha sincronizada que expirou no seu ambiente local. A senha de nuvem será atualizada na próxima vez que você alterar a senha no ambiente local.
 
-**Password expiration policy**  
-If a user is in the scope of password synchronization, the cloud account password is set to "*Never Expire*".
-You can continue to sign in to your cloud services using a synchronized password that has been expired in your on-premises environment. Your cloud password is updated the next time you change the password in the on-premises environment.
+### Substituindo senhas sincronizadas
+Um administrador pode redefinir sua senha manualmente usando o Windows PowerShell.
 
-### <a name="overwriting-synchronized-passwords"></a>Overwriting synchronized passwords
-An administrator can manually reset your password using Windows PowerShell.
+Nesse caso, a nova senha substitui a senha sincronizada e todas as políticas de senha definidas na nuvem se aplicam à nova senha.
 
-In this case, the new password overrides your synchronized password and all password policies defined in the cloud are applied to the new password.
+Se você alterar a senha local novamente, a nova senha será sincronizada com a nuvem e substituirá a senha atualizada manualmente.
 
-If you change your on-premises password again, the new password is synchronized to the cloud, and overrides the manually updated password.
+## Habilitando a sincronização de senha
+A sincronização de senha é habilitada automaticamente quando você instala o Azure AD Connect usando as **Configurações Expressas**. Para obter mais detalhes, confira [Introdução ao Azure AD Connect usando configurações expressas](active-directory-aadconnect-get-started-express.md).
 
-## <a name="enabling-password-synchronization"></a>Enabling password synchronization
-Password synchronization is automatically enabled, when you install Azure AD Connect using the **Express Settings**. For more details, see [Getting started with Azure AD Connect using express settings](./aad-connect/active-directory-aadconnect-get-started-express.md).
+Se você usar configurações personalizadas quando instalar o Azure AD Connect, poderá habilitar a sincronização de senha na página de entrada do usuário. Para obter mais detalhes, confira [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
-If you use custom settings when you install Azure AD Connect, you enable password synchronization on the user sign-in page. For more details, see [Custom installation of Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md).
+![Habilitando a sincronização de senha](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
 
-![Enabling password synchronization](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
+### Sincronização de senha e FIPS
+Se o servidor foi bloqueado de acordo com o FIPS (Federal Information Processing Standard), o MD5 foi desabilitado.
 
-### <a name="password-synchronization-and-fips"></a>Password synchronization and FIPS
-If your server has been locked down according to Federal Information Processing Standard (FIPS), then MD5 has been disabled.
+**Para habilitar MD5 para a sincronização de senha, execute as seguintes etapas:**
 
-**To enable MD5 for password synchronization, perform the following steps:**
+1. Vá para **%programfiles%\\Azure AD Sync\\Bin**.
+2. Abra **miiserver.exe.config**.
+3. Acesse o nó **configuração/tempo de execução** (no fim do arquivo).
+4. Adicione o seguinte nó: `<enforceFIPSPolicy enabled="false"/>`
+5. Salve suas alterações.
 
-1. Go to **%programfiles%\Azure AD Sync\Bin**.
-2. Open **miiserver.exe.config**.
-3. Go to the **configuration/runtime** node (at the end of the file).
-4. Add the following node: `<enforceFIPSPolicy enabled="false"/>`
-5. Save your changes.
-
-For reference, this snip is how it should look like:
+Para referência, a captura mostra como deve ser a aparência:
 
 ```
-    <configuration>
-        <runtime>
-            <enforceFIPSPolicy enabled="false"/>
-        </runtime>
-    </configuration>
+	<configuration>
+		<runtime>
+			<enforceFIPSPolicy enabled="false"/>
+		</runtime>
+	</configuration>
 ```
 
-For information about security and FIPS see [AAD Password Sync, Encryption and FIPS compliance](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/)
+Para obter informações sobre segurança e FIPS, veja [Sincronização de senha do AAD, criptografia e conformidade FIPS](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/)
 
-## <a name="troubleshooting-password-synchronization"></a>Troubleshooting password synchronization
-If passwords are not synchronizing as expected, it can either be for a subset of users or for all users.
+## Solução de problemas de sincronização de senha
+Se as senhas não estiverem sincronizando conforme o esperado, pode ser para um subconjunto de usuários ou todos os usuários.
 
-- If you have an issue with individual objects, then see [Troubleshoot one object that is not synchronizing passwords](#troubleshoot-one-object-that-is-not-synchronizing-passwords).
-- If you have an issue where no passwords are synchronized, see [Troubleshoot issues where no passwords are synchronized](#troubleshoot-issues-where-no-passwords-are-synchronized).
+- Se você tiver um problema com objetos individuais, veja [Solucionar problemas de um objeto que não está sincronizando senhas](#troubleshoot-one-object-that-is-not-synchronizing-passwords).
+- Se você tiver um problema em que nenhuma senha é sincronizada, confira [Solucionar problemas em que nenhuma senha é sincronizada](#troubleshoot-issues-where-no-passwords-are-synchronized).
 
-### <a name="troubleshoot-one-object-that-is-not-synchronizing-passwords"></a>Troubleshoot one object that is not synchronizing passwords
-You can easily troubleshoot password synchronization issues by reviewing the status of an object.
+### Solucionar problemas de um objeto que não está sincronizando senhas
+Você pode solucionar problemas de sincronização de senha problemas facilmente analisando o status de um objeto.
 
-Start in **Active Directory Users and Computers**. Find the user and verify that **User must change password at next logon** is unselected.
-![Active Directory productive passwords](./media/active-directory-aadconnectsync-implement-password-synchronization/adprodpassword.png)  
-If it is selected, then ask the user to sign in and change the password. Temporary passwords are not synchronized to Azure AD.
+Comece em **Usuários e Computadores do Active Directory**. Localize o usuário e verifique se **O usuário deve alterar a senha no próximo logon** está desmarcada. ![Senhas produtivas do Active Directory](./media/active-directory-aadconnectsync-implement-password-synchronization/adprodpassword.png) Se essa opção estiver selecionada, peça ao usuário para entrar e alterar a senha. As senhas temporárias não são sincronizadas com o Azure AD.
 
-If it looks correct in Active Directory, then the next step is to follow the user in the sync engine. By following the user from on-premises Active Directory to Azure AD, you can see if there is a descriptive error on the object.
+Se elas parecerem corretas no Active Directory, a próxima etapa será seguir o usuário no mecanismo de sincronização. Ao seguir o usuário do Active Directory local para o Azure AD, você pode ver se há um erro descritivo no objeto.
 
-1. Start the **[Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)**.
-2. Click **Connectors**.
-3. Select the **Active Directory Connector** the user is located in.
-4. Select **Search Connector Space**.
-5. Locate the user you are looking for.
-6. Select the **lineage** tab and make sure that at least one Sync Rule shows **Password Sync** as **True**. In the default configuration, the name of the Sync Rule is **In from AD - User AccountEnabled**.  
-    ![Lineage information about a user](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)  
-7. Then [follow the user](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) through the metaverse to the Azure AD Connector space. The connector space object should have an outbound rule with **Password Sync** set to **True**. In the default configuration, the name of the sync rule is **Out to AAD - User Join**.  
-    ![Connector space properties of a user](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)  
-8. To see the password sync details of the object for the past week, click **Log...**.  
-    ![Object log details](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)  
+1. Abra o **[Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)**.
+2. Clique em **Conectores**.
+3. Escolha o **Conector do Active Directory** em que o usuário está localizado.
+4. Escolha **Pesquisar Espaço Conector**.
+5. Localize o usuário que você está procurando.
+6. Escolha a guia **linhagem** e verifique se pelo menos uma Regra de Sincronização mostra **Sincronização de Senha** como **Verdadeiro**. Na configuração padrão, o nome da Regra de Sincronização é **Entrada do AD – Conta do Usuário Habilitada**. ![Informações de linhagem sobre um usuário](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)
+7. Em seguida [siga o usuário](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) por meio do metaverso até o espaço Conector do Azure AD. O objeto do espaço conector deve ter uma regra de saída com **Sincronização de Senha** definida como **Verdadeiro**. Na configuração padrão, o nome da regra de sincronização é **Saída para AAD – Ingresso do Usuário**. ![Propriedades de espaço do conector de um usuário](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
+8. Para ver os detalhes da sincronização de senha do objeto da última semana, clique em **Log...**. ![Detalhes de log do objeto](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
 
-The status column can have the following values:
+A coluna de status pode ter os seguintes valores:
 
-Status | Description
+Status | Descrição
 ---- | -----
-Success | Password has been successfully synchronized.
-FilteredByTarget | Password is set to **User must change password at next logon**. Password has not been synchronized.
-NoTargetConnection | No object in the metaverse or in the Azure AD connector space.
-SourceConnectorNotPresent | No object found in the on-premises Active Directory connector space.
-TargetNotExportedToDirectory | The object in the Azure AD connector space has not yet been exported.
-MigratedCheckDetailsForMoreInfo | Log entry was created before build 1.0.9125.0 and is shown in its legacy state.
+Sucesso | A senha foi sincronizada com êxito.
+FilteredByTarget | A senha está definida para **O usuário deve alterar a senha no próximo logon**. A senha não foi sincronizada.
+NoTargetConnection | Nenhum objeto no metaverso ou no espaço conector do AD do Azure.
+SourceConnectorNotPresent | Nenhum objeto encontrado no espaço conector do Active Directory local.
+TargetNotExportedToDirectory | O objeto no espaço conector do AD do Azure ainda não foi exportado.
+MigratedCheckDetailsForMoreInfo | A entrada de log foi criada antes da versão 1.0.9125.0 e é mostrada em seu estado herdado.
 
-### <a name="troubleshoot-issues-where-no-passwords-are-synchronized"></a>Troubleshoot issues where no passwords are synchronized
-Start by running the script in the section [Get the status of password sync settings](#get-the-status-of-password-sync-settings). It gives you an overview of the password sync configuration.  
-![PowerShell script output from password sync settings](./media/active-directory-aadconnectsync-implement-password-synchronization/psverifyconfig.png)  
-If the feature is not enabled in Azure AD or if the sync channel status is not enabled, then run the Connect installation wizard. Select **Customize synchronization options** and unselect password sync. This change temporarily disables the feature. Then run the wizard again and re-enable password sync. Run the script again to verify that the configuration is correct.
+### Solucionar problemas em que nenhuma senha é sincronizada
+Comece a executar o script na seção [Obter o status das configurações da sincronização de senha](#get-the-status-of-password-sync-settings). Ele fornece uma visão geral da configuração da sincronização de senha. ![Saída do script do PowerShell de configurações da sincronização de senha](./media/active-directory-aadconnectsync-implement-password-synchronization/psverifyconfig.png) Se o recurso não estiver habilitado no Azure AD ou se o status do canal de sincronização não estiver habilitado, execute o assistente de instalação de conexão. Escolha **Personalizar opções de sincronização** e desmarque a sincronização de senha. Essa mudança desabilita o recurso temporariamente. Em seguida, execute o assistente novamente e reabilite a sincronização de senha. Execute o script novamente para verificar se a configuração está correta.
 
-If the script shows that there is no heartbeat, then run the script in [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords). This script can also be used for other scenarios where the configuration is correct but passwords are not synchronized.
+Se o script mostrar que não há nenhuma pulsação, execute o script em [Disparar uma sincronização completa de todas as senhas](#trigger-a-full-sync-of-all-passwords). Esse script também pode ser usado para outros cenários em que a configuração está correta, mas as senhas não são sincronizadas.
 
-#### <a name="get-the-status-of-password-sync-settings"></a>Get the status of password sync settings
+#### Obter o status das configurações da sincronização de senha
 
 ```
 Import-Module ADSync
 $connectors = Get-ADSyncConnector
-$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
+$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Microsoft Azure Active Directory (Microsoft)"}
 $adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
 if ($aadConnectors -ne $null -and $adConnectors -ne $null)
 {
@@ -222,8 +208,8 @@ if ($adConnectors -eq $null)
 Write-Host
 ```
 
-#### <a name="trigger-a-full-sync-of-all-passwords"></a>Trigger a full sync of all passwords
-You can trigger a full sync of all passwords using the following script:
+#### Disparar uma sincronização completa de todas as senhas
+Você pode disparar uma sincronização completa de todas as senhas usando o seguinte script:
 
 ```
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
@@ -239,13 +225,9 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
 ```
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-* [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+* [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
+* [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

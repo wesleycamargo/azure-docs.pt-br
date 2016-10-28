@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Design patterns for multitenant SaaS applications and Azure SQL Database | Microsoft Azure"
-   description="This article discusses the requirements and common data architecture patterns of multitenant database applications running in a cloud environment need to consider and the various tradeoffs associated with these patterns. It also explains how Azure SQL Database, with its elastic pools and elastic tools, help address these requirements in a no-compromise fashion."
+   pageTitle="Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure | Microsoft Azure"
+   description="Este artigo aborda os requisitos e padrões de arquitetura de dados comuns que aplicativos de banco de dados multilocatários em execução em um ambiente de nuvem precisam considerar e as várias compensações associadas a esses padrões. Ele também explica como o Banco de Dados SQL do Azure com seus pools elásticos e suas ferramentas elásticas ajudam a atender a esses requisitos sem comprometimento."
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -17,157 +17,151 @@
    ms.date="08/24/2016"
    ms.author="carlrab"/>
 
+# Padrões de design para aplicativos SaaS multilocatários e o Banco de Dados SQL do Azure
 
-# <a name="design-patterns-for-multitenant-saas-applications-and-azure-sql-database"></a>Design patterns for multitenant SaaS applications and Azure SQL Database
+Neste artigo, você pode aprender sobre os requisitos e padrões comuns de arquitetura de dados de aplicativos de banco de dados SaaS (software como serviço) multilocatários em execução em um ambiente de nuvem. Ele também explica os fatores que você precisa considerar e as compensações dos diferentes padrões de design. O pool elástico e as ferramentas elásticas no Banco de Dados SQL podem ajudar você a atender os requisitos específicos sem comprometer outros objetivos.
 
-In this article, you can learn about the requirements and common data architecture patterns of multitenant software as a service (SaaS) database applications that run in a cloud environment. It also explains the factors you need to consider and the trade-offs of different design patterns. Elastic pools and elastic tools in Azure SQL Database can help you meet your specific requirements without compromising other objectives.
+Os desenvolvedores, às vezes, fazem escolhas que funcionam para seus interesses de longo prazo ao criar modelos de locatário para as camadas de dados de aplicativos multilocatários. Pelo menos inicialmente, o desenvolvedor poderá perceber uma facilidade de desenvolvimento e um provedor de serviço de nuvem de menor custo como mais importantes do que o isolamento de locatário ou a escalabilidade de um aplicativo. Essa escolha pode levar a preocupações de satisfação do cliente e uma posterior correção de curso dispendiosa.
 
-Developers sometimes make choices that work against their long-term best interests when they design tenancy models for the data tiers of multitenant applications. Initially, at least, a developer might perceive ease of development and lower cloud service provider costs as more important than tenant isolation or the scalability of an application. This choice can lead to customer satisfaction concerns and a costly course-correction later.
+Um aplicativo multilocatário é um aplicativo hospedado em um ambiente de nuvem e fornece o mesmo conjunto de serviços para centenas ou milhares de locatários que não compartilham ou veem os dados uns dos outros. Um exemplo é um aplicativo SaaS que fornece serviços para locatários em um ambiente hospedado em nuvem.
 
-A multitenant application is an application hosted in a cloud environment and that provides the same set of services to hundreds or thousands of tenants who do not share or see each other’s data. An example is an SaaS application that provides services to tenants in a cloud-hosted environment.
+## Aplicativos multilocatários
 
-## <a name="multitenant-applications"></a>Multitenant applications
+Em aplicativos multilocatários, os dados e a carga de trabalho podem ser facilmente particionados. Você pode particionar dados e a carga de trabalho, por exemplo, com limites de locatário, porque a maioria das solicitações ocorrem dentro dos limites de um locatário. Essa propriedade é inerente aos dados e à carga de trabalho e favorece os padrões de aplicativos discutidos neste artigo.
 
-In multitenant applications, data and workload can be easily partitioned. You can partition data and workload, for example, along tenant boundaries, because most requests occur within the confines of a tenant. That property is inherent in the data and the workload, and it favors the application patterns discussed in this article.
+Os desenvolvedores usam este tipo de aplicativos distribuídos em todo o espectro de aplicativos baseados em nuvem, incluindo:
 
-Developers use this type of application across the whole spectrum of cloud-based applications, including:
+- Aplicativos de banco de dados de parceiros que estão migrados para a nuvem como aplicativos SaaS
+- Aplicativos SaaS compilados para a nuvem desde o princípio
+- Aplicativos diretos voltados para o cliente
+- Aplicativos empresariais voltados para funcionários
 
-- Partner database applications that are being transitioned to the cloud as SaaS applications
-- SaaS applications built for the cloud from the ground up
-- Direct, customer-facing applications
-- Employee-facing enterprise applications
+Aplicativos SaaS que são projetados para a nuvem e aqueles com raízes como aplicativos de banco de dados de parceiros normalmente serão aplicativos multilocatários. Esses aplicativos SaaS entregam um aplicativo de software especializado, como um serviço para seus locatários. Os locatários podem acessar o serviço de aplicativo e ter propriedade completa dos dados associados armazenados como parte do aplicativo. Mas, para aproveitar os benefícios de SaaS, os locatários devem ceder algum controle sobre seus próprios dados. Eles confiam no provedor de serviços SaaS para manter seus dados seguros e isolados de dados de outros locatários. MYOB, SnelStart e Salesforce.com são exemplos desse tipo de aplicativo SaaS multilocatário. Cada um desses aplicativos pode ser particionado por limites de locatário e oferecer suporte aos padrões de design de aplicativo discutidos neste artigo.
 
-SaaS applications that are designed for the cloud and those with roots as partner database applications typically are multitenant applications. These SaaS applications deliver a specialized software application as a service to their tenants. Tenants can access the application service and have full ownership of associated data stored as part of the application. But to take advantage of the benefits of SaaS, tenants must surrender some control over their own data. They trust the SaaS service provider to keep their data safe and isolated from other tenants’ data. Examples of this kind of multitenant SaaS application are MYOB, SnelStart, and Salesforce.com. Each of these applications can be partitioned along tenant boundaries and support the application design patterns we discuss in this article.
+Os aplicativos que fornecem um serviço direto a consumidores ou funcionários dentro de uma organização (também conhecidos como usuários, em vez de locatários) são outra categoria no espectro de aplicativos multilocatários. Os clientes assinam o serviço e não possuem os dados coletados e armazenados pelo provedor de serviços. Os provedores de serviços têm requisitos menos rigorosos para manter os dados de seus clientes isolados uns dos outros, além de normas de privacidade determinadas pelo governo. Exemplos desse tipo de aplicativo multilocatário voltado para o cliente são provedores de conteúdo de mídia como Netflix, Spotify e Xbox LIVE. Outros exemplos de aplicativos facilmente particionáveis são aplicativos de escala da Internet voltados para clientes ou aplicativos IoT (Internet das Coisas) em que cada cliente ou dispositivo pode servir como uma partição. Limites de partição podem separar usuários e dispositivos.
 
-Applications that provide a direct service to customers or to employees within an organization (often referred to as users, rather than tenants) are another category on the multitenant application spectrum. Customers subscribe to the service and do not own the data that the service provider collects and stores. Service providers have less stringent requirements to keep their customers’ data isolated from each other beyond government-mandated privacy regulations. Examples of this kind of customer-facing multitenant application are media content providers like Netflix, Spotify, and Xbox LIVE. Other examples of easily partitionable applications are customer-facing, Internet-scale applications, or Internet of Things (IoT) applications in which each customer or device can serve as a partition. Partition boundaries can separate users and devices.
+Nem todos os aplicativos são particionados facilmente com uma única propriedade, como o locatário, cliente, usuário ou dispositivo. Um aplicativo de ERP (planejamento de recursos da empresa) complexo, por exemplo, tem produtos, pedidos e clientes. Ele normalmente tem um esquema complexo com milhares de tabelas altamente interconectadas.
 
-Not all applications partition easily along a single property such as tenant, customer, user, or device. A complex enterprise resource planning (ERP) application, for example, has products, orders, and customers. It usually has a complex schema with thousands of highly interconnected tables.
+Nenhuma estratégia de partição única poderá ser aplicada a todas as tabelas e funcionar na carga de trabalho do aplicativo. Este artigo se concentra em aplicativos multilocatários que possuem dados e cargas de trabalho facilmente particionáveis.
 
-No single partition strategy can apply to all tables and work across an application's workload. This article focuses on multitenant applications that have easily partitionable data and workloads.
+## Compensações do design de aplicativo multilocatário
 
-## <a name="multitenant-application-design-trade-offs"></a>Multitenant application design trade-offs
+O padrão de design que um desenvolvedor de aplicativos multilocatários escolhe normalmente é baseado em uma consideração dos seguintes fatores:
 
-The design pattern that a multitenant application developer chooses typically is based on a consideration of the following factors:
+-	**Isolamento de locatário**. O desenvolvedor precisa garantir que nenhum locatário tenha acesso indesejado aos dados de outros locatários. O requisito de isolamento se estende a outras propriedades, como o fornecimento de proteção contra vizinhos barulhentos, sendo capaz de restaurar dados de um determinado locatário e implementar personalizações específicas de locatário.
+-	**Custo de recursos de nuvem**. Um aplicativo SaaS precisa ter um custo competitivo. Um desenvolvedor de aplicativos multilocatários pode optar por otimizar para custos mais reduzidos no uso de recursos de nuvem, como os custos de armazenamento e de computação.
+-	**Facilidade de Operações de Desenvolvimento**. Um desenvolvedor de aplicativos multilocatários precisa incorporar a proteção de isolamento, manter e monitorar a integridade do esquema de seus aplicativos e banco de dados e solucionar problemas de locatários. A complexidade na operação e no desenvolvimento de aplicativos se traduz diretamente em custos adicionais e a desafios relacionados à satisfação do locatário.
+-	**Escalabilidade**. A capacidade de adicionar incrementalmente mais locatários e a capacidade para locatários que precisam dela é essencial para uma operação de SaaS bem-sucedida.
 
--   **Tenant isolation**. The developer needs to ensure that no tenant has unwanted access to other tenants’ data. The isolation requirement extends to other properties, such as providing protection from noisy neighbors, being able to restore a tenant’s data, and implementing tenant-specific customizations.
--   **Cloud resource cost**. An SaaS application needs to be cost-competitive. A multitenant application developer might choose to optimize for lower cost in the use of cloud resources, such as storage and compute costs.
--   **Ease of DevOps**. A multitenant application developer needs to incorporate isolation protection, maintain, and monitor the health of their application and database schema, and troubleshoot tenant issues. Complexity in application development and operation translates directly to increased cost and challenges with tenant satisfaction.
--   **Scalability**. The ability to incrementally add more tenants and capacity for tenants who require it is imperative to a successful SaaS operation.
+Se forem comparados, cada um desses fatores tem compensações. A oferta de nuvem de menor custo pode não oferecer a experiência de desenvolvimento mais conveniente. É importante para o desenvolvedor fazer escolhas informadas sobre essas opções e compensações durante o processo de design do aplicativo.
 
-Each of these factors has trade-offs compared to another. The lowest-cost cloud offering might not offer the most convenient development experience. It’s important for a developer to make informed choices about these options and their trade-offs during the application design process.
+Um padrão de desenvolvimento popular é agrupar vários locatários em um ou alguns bancos de dados. Os benefícios dessa abordagem são um custo menor porque você paga por um pequeno número de bancos de dados e a simplicidade relativa do trabalho com um número limitado de bancos de dados. No entanto, ao longo do tempo, um desenvolvedor de aplicativo SaaS multilocatário perceberá que essa opção tem desvantagens significativas no isolamento de locatários e na escalabilidade. Se o isolamento de locatário se tornar importante, será necessário um esforço adicional para proteger os dados de locatário no armazenamento compartilhado contra acesso não autorizado ou vizinhos com ruídos. Esse esforço adicional pode aumentar significativamente os esforços de desenvolvimento e os custos de manutenção do isolamento. Da mesma forma, se for necessário adicionar locatários, esse padrão de design normalmente requer conhecimento para redistribuir dados de locatário em bancos de dados para dimensionar corretamente a camada de dados de um aplicativo.
 
-A popular development pattern is to pack multiple tenants into one or a few databases. The benefits of this approach are a lower cost because you pay for a few databases, and the relative simplicity of working with a limited number of databases. But over time, a SaaS multitenant application developer will realize that this choice has substantial downsides in tenant isolation and scalability. If tenant isolation becomes important, additional effort is required to protect tenant data in shared storage from unauthorized access or noisy neighbors. This additional effort might significantly boost development efforts and isolation maintenance costs. Similarly, if adding tenants is required, this design pattern typically requires expertise to redistribute tenant data across databases to properly scale the data tier of an application.  
+O isolamento de locatários geralmente é um requisito fundamental em aplicativos SaaS multilocatário que atendem às empresas e organizações. Os desenvolvedores podem ser tentados para as vantagens percebidas em relação a simplicidade e o custo sobre o isolamento de locatários e a escalabilidade. Essa compensação pode se provar complexa e cara conforme o serviço cresce e os requisitos de isolamento de locatário se tornam mais importantes e precisam ser gerenciados na camada de aplicativo. No entanto, para aplicativos multilocatários que fornecem um serviço direto voltado para o cliente, o isolamento de locatários pode ser uma prioridade menor que a otimização de custo de recursos de nuvem.
 
-Tenant isolation often is a fundamental requirement in SaaS multitenant applications that cater to businesses and organizations. A developer might be tempted by perceived advantages in simplicity and cost over tenant isolation and scalability. This trade-off can prove complex and expensive as the service grows and tenant isolation requirements become more important and managed at the application layer. However, in multitenant applications that provide a direct, consumer-facing service to customers, tenant isolation might be a lower priority than optimizing for cloud resource cost.
+## Modelos de dados de multilocatário
 
-## <a name="multitenant-data-models"></a>Multitenant data models
-
-Common design practices for placing tenant data follow three distinct models, shown in Figure 1.
+Práticas de design comuns para a colocação de dados de locatário seguem esses três modelos distintos, mostrados na Figura 1.
 
 
-  ![Multitenant application data models](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
-    Figure 1: Common design practices for multitenant data models
+  ![Modelos de dados de aplicativo multilocatário](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png) Figura 1: Práticas comuns de design para modelos de dados de multilocatário
 
--   **Database-per-tenant**. Each tenant has its own database. All tenant-specific data is confined to the tenant’s database and isolated from other tenants and their data.
--   **Shared database-sharded**. Multiple tenants share one of multiple databases. A distinct set of tenants is assigned to each database by using a partitioning strategy such as hash, range, or list partitioning. This data distribution strategy often is referred to as sharding.
--   **Shared database-single**. A single, sometimes large, database contains data for all tenants, which are disambiguated in a tenant ID column.
+-	**Banco de dados por locatário**. Cada locatário tem seu próprio banco de dados. Todos os dados específicos de locatário estão restritos ao seu banco de dados e isolados de outros locatários e seus dados.
+-	**Banco de dados fragmentados compartilhados**. Vários inquilinos compartilham um de vários bancos de dados. Um conjunto distinto de locatários é atribuído a cada banco de dados usando uma estratégia de particionamento como hash, intervalo ou lista de particionamento. Essa estratégia de distribuição de dados é frequentemente conhecida como fragmentação.
+-	**Banco de dados individuais compartilhados**. Um banco de dados único, às vezes grande, contém dados para todos os locatários, sem ambiguidade em uma coluna de ID de locatário.
 
-> [AZURE.NOTE] An application developer might choose to place different tenants in different database schemas, and then use the schema name to disambiguate the different tenants. We do not recommend this approach because it usually requires the use of dynamic SQL, and it can’t be effective in plan caching. In the remainder of this article, we focus on the shared table approach for this category of multitenant application.
+> [AZURE.NOTE] Um desenvolvedor de aplicativos pode optar por colocar locatários diferentes em esquemas de banco de dados diferentes e, em seguida, usar o nome do esquema para remover a ambiguidade de locatários diferentes. Não recomendamos essa abordagem porque ela geralmente requer o uso de SQL dinâmico e isso não pode ser eficaz em cache de plano. No restante deste artigo, vamos nos concentrar na abordagem de tabela compartilhada para essa categoria de aplicativo multilocatário.
 
-## <a name="popular-multitenant-data-models"></a>Popular multitenant data models
+## Modelos populares de dados multilocatários
 
-It’s important to evaluate the different types of multitenant data models in terms of the application design trade-offs we’ve already identified. These factors help characterize the three most common multitenant data models described earlier and their database usage as shown in Figure 2.
+É importante avaliar os diferentes tipos de modelos de dados de multilocatários em termos de compensações de design do aplicativo que nós já identificamos. Esses fatores ajudam a caracterizar os três modelos de dados multilocatários mais comuns descritos anteriormente e o uso do banco de dados, como mostrado na Figura 2.
 
--   **Isolation**. The degree of isolation between tenants can be a measure of how much tenant isolation a data model achieves.
--   **Cloud resource cost**. The amount of resource sharing between tenants can optimize cloud resource cost. A resource can be defined as the compute and storage cost.
--   **DevOps cost**. The ease of application development, deployment, and manageability reduces overall SaaS operation cost.  
+-	**Isolamento**. O nível de isolamento entre locatários pode ser medido pela quantidade de isolamento de locatário que um modelo de dados alcança.
+-	**Custo de recursos de nuvem**. A quantidade de compartilhamento de recursos entre locatários pode otimizar o custo de recursos de nuvem. Um recurso pode ser definido como o custo de computação e armazenamento.
+-	**Custo de Operações de Desenvolvimento**. A facilidade de desenvolvimento de aplicativos, implantação e gerenciamento reduz o custo geral de operação de SaaS.
 
-In Figure 2, the Y axis shows the level of tenant isolation. The X axis shows the level of resource sharing. The gray, diagonal arrow in the middle indicates the direction of DevOps costs, tending to increase or decrease.
+Na Figura 2, o eixo Y mostra o nível de isolamento de locatário. O eixo X mostra o nível de compartilhamento de recursos. A seta diagonal cinza no meio indica a direção dos custos de Operações de Desenvolvimento, que tendem a aumentar ou diminuir.
 
-![Popular multitenant application design patterns](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-popular-application-patterns.png) Figure 2: Popular multitenant data models
+![Padrões populares do design de aplicativo multilocatário](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-popular-application-patterns.png) Figura 2: Modelos populares de dados multilocatários
 
-The lower-right quadrant in Figure 2 shows an application pattern that uses a potentially large, shared single database, and the shared table (or separate schema) approach. It's good for resource sharing because all tenants use the same database resources (CPU, memory, input/output) in a single database. But tenant isolation is limited. You might need to take additional steps to protect tenants from each other at the application layer. These additional steps can significantly increase the DevOps cost of developing and managing the application. Scalability is limited by the scale of the hardware that hosts the database.
+O quadrante inferior direito na Figura 2 mostra um padrão de aplicativo que usa um banco de dados individual compartilhado potencialmente grande e a abordagem de tabela compartilhada (ou esquema separado). É bom para o compartilhamento de recursos porque todos os locatários usam os mesmos recursos de banco de dados (CPU, memória, entrada/saída) em um banco de dados individual. No entanto, o isolamento de locatários é limitado. Talvez seja necessário executar etapas adicionais para proteger locatários uns dos outros na camada de aplicativo. Essas etapas adicionais podem aumentar significativamente o custo de DevOps do desenvolvimento e gerenciamento de aplicativos. A escalabilidade é limitada pela escala do hardware que hospeda o banco de dados.
 
-The lower-left quadrant in Figure 2 illustrates multiple tenants sharded across multiple databases (typically, different hardware scale units). Each database hosts a subset of tenants, which addresses the scalability concern of other patterns. If more capacity is required for more tenants, you can easily place the tenants on new databases allocated to new hardware scale units. However, the amount of resource sharing is reduced. Only tenants placed on the same scale units share resources. This approach provides little improvement to tenant isolation because many tenants are still collocated without being automatically protected from each other’s actions. Application complexity remains high.
+O quadrante inferior esquerdo da Figura 2 ilustra vários locatários fragmentados em vários bancos de dados (normalmente, unidades de escala de um outro hardware). Cada banco de dados hospeda um subconjunto de locatários que lida com problemas de escalabilidade de outros padrões. Se mais capacidade for necessária para mais locatários, você pode facilmente colocar os locatários em novos bancos de dados alocados para novas unidades de escala de hardware. No entanto, a quantidade de compartilhamento de recursos é reduzida. Somente locatários colocados nas mesmas unidades de escala compartilham recursos. Essa abordagem fornece poucas melhorias ao isolamento de locatários pois ainda vários locatários são colocados em locais sem que sejam protegidos automaticamente contra ações uns dos outros. A complexidade do aplicativo permanece alta.
 
-The upper-left quadrant in Figure 2 is the third approach. It places each tenant’s data in its own database. This approach has good tenant-isolation properties but limits resource sharing when each database has its own dedicated resources. This approach is good if all tenants have predictable workloads. If tenant workloads become less predictable, the provider cannot optimize resource sharing. Unpredictability is common for SaaS applications. The provider must either over-provision to meet demands or lower resources. Either action results in either higher costs or lower tenant satisfaction. A higher degree of resource sharing across tenants becomes desirable to make the solution more cost-effective. Increasing the number of databases also increases DevOps cost to deploy and maintain the application. Despite these concerns, this method provides the best and easiest isolation for tenants.
+O quadrante superior esquerdo da Figura 2 é a terceira abordagem. Ela coloca cada dado de locatário em seu próprio banco de dados. Essa abordagem tem ótimas propriedades de isolamento de locatário, mas limita o compartilhamento de recursos quando cada banco de dados tem seus próprios recursos dedicados. Essa será uma abordagem boa se todos os locatários tiverem cargas de trabalho previsíveis. Se as cargas de trabalho do locatário se tornarem menos previsíveis, o provedor não poderá otimizar o compartilhamento de recurso. Falta de previsibilidade é comum para aplicativos SaaS. O provedor deve ser provisionado em excesso para atender às demandas ou para reduzir os recursos. Qualquer ação resultará em custos mais elevados ou diminuirá a satisfação do locatário. Um grau maior de compartilhamento de recursos entre locatários se torna desejável para tornar a solução mais econômica. Aumentar o número de bancos de dados também aumenta o custo de Operações de Desenvolvimento na implantação e manutenção de aplicativos. Apesar dessas preocupações, esse método proporciona o melhor e mais fácil isolamento para locatários.
 
-These factors also influence the design pattern a customer chooses:
+Esses fatores também influenciam o padrão de design escolhido por um cliente:
 
--   **Ownership of tenant data**. An application in which tenants retain ownership of their own data favors the pattern of a single database per tenant.
--   **Scale**. An application that targets hundreds of thousands or millions of tenants favors database sharing approaches such as sharding. Isolation requirements still can pose challenges.
--   **Value and business model**. If an application’s per-tenant revenue if small (less than a dollar), isolation requirements become less critical and a shared database makes sense. If per-tenant revenue is a few dollars or more, a database-per-tenant model is more feasible. It might help reduce development costs.
+-	**Propriedade dos dados de locatário**. Um aplicativo no qual os locatários mantêm a propriedade de seus próprios dados favorece o padrão de um banco de dados individual por locatário.
+-	**Escala**. Um aplicativo que se destina a centenas de milhares ou milhões de locatários favorece abordagens de compartilhamento de banco de dados, como a fragmentação. Os requisitos de isolamento ainda podem apresentar desafios.
+-	**Modelo de negócios e valor**. Se a receita por locatário de um aplicativo for pequena (menos de um dólar), os requisitos de isolamento se tornarão menos essenciais e o banco de dados compartilhado fará sentido. Se a receita por locatário for de alguns dólares ou mais, um modelo de banco de dados por locatário será mais viável. Ele poderá ajudar a reduzir os custos de desenvolvimento.
 
-Given the design trade-offs shown in Figure 2, an ideal multitenant model needs to incorporate good tenant isolation properties with optimal resource sharing among tenants. This model fits in the category described in the upper-right quadrant of Figure 2.
+Considerando as compensações de design mostradas na Figura 2, um modelo ideal multilocatário precisa incorporar boas propriedades de isolamento de locatário com o compartilhamento de recursos ideal entre locatários. Esse modelo se encaixa na categoria descrita no quadrante superior direito da Figura 2.
 
-## <a name="multitenancy-support-in-azure-sql-database"></a>Multitenancy support in Azure SQL Database
+## Suporte a multilocação no Banco de Dados SQL do Azure
 
-Azure SQL Database supports all multitenant application patterns outlined in Figure 2. With elastic pools, it also supports an application pattern that combines good resource sharing and the isolation benefits of the database-per-tenant approach (see the upper-right quadrant in Figure 3). Elastic database tools and capabilities in SQL Database help reduce the cost to develop and operate an application that has many databases (shown in the shaded area in Figure 3). These tools can help you build and manage applications that use any of the multi-database patterns.
+O Banco de Dados SQL do Azure oferece suporte a todos os padrões de aplicativos multilocatários descritos na Figura 2. Com os pools elásticos, ele também dá suporte a um padrão de aplicativo que combina benefícios de isolamento e de compartilhamento de recursos excelentes da abordagem de banco de dados por locatário (consulte o quadrante superior direito na Figura 3). As ferramentas de banco de dados elástico e os recursos no Banco de Dados SQL podem ajudar a reduzir o custo de desenvolvimento e operação de um aplicativo que tenha muitos bancos de dados (mostrados na área sombreada na Figura 3). Essas ferramentas podem ajudá-lo a criar e gerenciar aplicativos que usam qualquer um dos padrões de vários bancos de dados.
 
-![Patterns in Azure SQL Database](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png) Figure 3: Multitenant application patterns in Azure SQL Database
+![Padrões no Banco de Dados SQL Azure](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png) Figura 3: Padrões de aplicativos multilocatários no Banco de Dados SQL do Azure
 
-## <a name="database-per-tenant-model-with-elastic-pools-and-tools"></a>Database-per-tenant model with elastic pools and tools
+## Modelo de banco de dados por locatário com ferramentas e pools elásticos
 
-Elastic pools in SQL Database combine tenant isolation with resource sharing among tenant databases to better support the database-per-tenant approach. SQL Database is a data tier solution for SaaS providers who build multitenant applications. The burden of resource sharing among tenants shifts from the application layer to the database service layer. The complexity of managing and querying at scale across databases is simplified with elastic jobs, elastic query, elastic transactions, and the elastic database client library.
+Os pools elásticos no Banco de Dados SQL combina o isolamento de locatários com o compartilhamento de recursos entre bancos de dados de locatário para oferecer um melhor suporte à abordagem de banco de dados por locatário. O Banco de Dados SQL é uma solução de camada de dados para provedores de SaaS que compilam aplicativos multilocatários. A responsabilidade do compartilhamento de recursos entre locatários passa da camada de aplicativo para a camada de serviço do banco de dados. A complexidade do gerenciamento e consulta em escala entre bancos de dados é simplificada com trabalhos elásticos, consulta elástica, transações elásticas e com a biblioteca de cliente do banco de dados elástico.
 
-| Application requirements | SQL database capabilities |
+| Requisitos do aplicativo | Recursos de Banco de Dados SQL |
 | ------------------------ | ------------------------- |
-| Tenant isolation and resource sharing | [Elastic pools](sql-database-elastic-pool.md): Allocate a pool of SQL Database resources and share the resources across various databases. Also, individual databases can draw as much resources from the pool as needed to accommodate capacity demand spikes due to changes in tenant workloads. The elastic pool itself can be scaled up or down as needed. Elastic pools also provide ease of manageability and monitoring and troubleshooting at the pool level. |
-| Ease of DevOps across databases | [Elastic pools](sql-database-elastic-pool.md): As noted earlier.|
-||[Elastic query](sql-database-elastic-query-horizontal-partitioning.md): Query across databases for reporting or cross-tenant analysis.|
-||[Elastic jobs](sql-database-elastic-jobs-overview.md): Package and reliably deploy database maintenance operations or database schema changes to multiple databases.|
-||[Elastic transactions](sql-database-elastic-transactions-overview.md): Process changes to several databases in an atomic and isolated way. Elastic transactions are needed when applications need “all or nothing” guarantees over several database operations. |
-||[Elastic database client library](sql-database-elastic-database-client-library.md): Manage data distributions and map tenants to databases. |
+| Isolamento de locatários e compartilhamento de recursos | [Pools elásticos](sql-database-elastic-pool.md): alocam um pool de recursos de Banco de Dados SQL e compartilham recursos entre vários bancos de dados. Além disso, os bancos de dados individuais podem retirar a quantidade de recursos do pool necessária para acomodar picos de demanda de capacidade devido a alterações nas cargas de trabalho de locatário. O próprio pool elástico pode ser aumentado ou reduzido conforme necessário. Os pools elásticos também fornecem facilidade de gerenciamento, monitoramento e solução de problemas no nível do pool. |
+| Facilidade de DevOps em bancos de dados | [Pools elásticos](sql-database-elastic-pool.md): conforme mencionado anteriormente.|
+||[Consulta elástica:](sql-database-elastic-query-horizontal-partitioning.md) consulta relatórios ou análises entre locatários nos bancos de dados.|
+||[Trabalhos elásticos:](sql-database-elastic-jobs-overview.md) empacotam e implantam confiavelmente as operações de manutenção de banco de dados ou alterações de esquema do banco de dados para vários bancos de dados.|
+||[Transações elásticas:](sql-database-elastic-transactions-overview.md) processam alterações em vários bancos de dados de uma maneira atômica e isolada. Transações elásticas são necessárias quando os aplicativos precisam de garantias de "tudo ou nada" sobre várias operações de banco de dados. |
+||[Biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md): gerencia distribuições de dados e mapeiam locatários para bancos de dados. |
 
-## <a name="shared-models"></a>Shared models
+## Modelos compartilhados
 
-As described earlier, for most SaaS providers, a shared model approach might pose problems with tenant isolation issues and complexities with application development and maintenance. However, for multitenant applications that provide a service directly to consumers, tenant isolation requirements may not be as high a priority as minimizing cost. They might be able to pack tenants in one or more databases at a high density to reduce costs. Shared-database models using a single database or multiple sharded databases might result in additional efficiencies in resource sharing and overall cost. Azure SQL Database provides some features that help customers build isolation for improved security and management at scale in the data tier.
+Conforme descrito anteriormente, para a maioria dos provedores de SaaS, uma abordagem de modelo compartilhado pode apresentar problemas com questões de isolamento de locatário e complexidades de desenvolvimento e manutenção do aplicativo. No entanto, para aplicativos multilocatários que fornecem um serviço diretamente para clientes, os requisitos de isolamento de locatário podem não ser uma prioridade tão alta como a minimização do custo. Eles poderão empacotar locatários em um ou mais bancos de dados em uma densidade bastante alta para reduzir os custos. Os modelos de banco de dados compartilhados usando um banco de dados individual ou vários bancos de dados fragmentados podem resultar em uma eficiência adicional no compartilhamento de recursos e na redução do custo geral. O Banco de Dados SQL do Azure fornece alguns recursos que ajudam os clientes a criar um isolamento aprimorado de segurança e gerenciamento em escala na camada de dados.
 
-| Application requirements | SQL database capabilities |
+| Requisitos do aplicativo | Recursos de Banco de Dados SQL |
 | ------------------------ | ------------------------- |
-| Security isolation features | [Row-level security](https://msdn.microsoft.com/library/dn765131.aspx) |
-|| [Database schema](https://msdn.microsoft.com/library/dd207005.aspx) |
-| Ease of DevOps across databases | [Elastic query](sql-database-elastic-query-horizontal-partitioning.md) |
-|| [Elastic jobs](sql-database-elastic-jobs-overview.md) |
-|| [Elastic transactions](sql-database-elastic-transactions-overview.md) |
-|| [Elastic database client library](sql-database-elastic-database-client-library.md) |
-|| [Elastic database split and merge](sql-database-elastic-scale-overview-split-and-merge.md) |
+| Recursos de isolamento de segurança | [Segurança em nível de linha](https://msdn.microsoft.com/library/dn765131.aspx) |
+|| [Esquema de banco de dados](https://msdn.microsoft.com/library/dd207005.aspx) |
+| Facilidade de DevOps em bancos de dados | [Consulta elástica](sql-database-elastic-query-horizontal-partitioning.md) |
+|| [Trabalhos elásticos](sql-database-elastic-jobs-overview.md) |
+|| [Transações elásticas](sql-database-elastic-transactions-overview.md) |
+|| [Biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md) |
+|| [Divisão e mesclagem do banco de dados elástico](sql-database-elastic-scale-overview-split-and-merge.md) |
 
-## <a name="summary"></a>Summary
+## Resumo
 
-Tenant isolation requirements are important for most SaaS multitenant applications. The best option to provide isolation leans heavily toward the database-per-tenant approach. The other two approaches require investments in complex application layers that require skilled development staff to provide isolation, which significantly increases cost and risk. If isolation requirements are not accounted for early in the service development, retrofitting them can be even more costly in the first two models. The main drawbacks associated with the database-per-tenant model are related to increased cloud resource costs due to reduced sharing, and maintaining and managing many databases. SaaS application developers often struggle when they make these trade-offs.
+Os requisitos de isolamento de locatário são importantes para a maioria dos aplicativos SaaS multilocatários. A melhor opção para fornecer isolamento é voltada fortemente para a abordagem banco de dados por locatário. As outras duas abordagens exigem investimentos em camadas de aplicativo complexas que exigem uma equipe de desenvolvimento especializada para fornecer isolamento, que aumenta significativamente custos e riscos. Se os requisitos de isolamento não forem considerados no início do desenvolvimento de serviços, retrocedê-los poderá ser ainda mais oneroso do que os primeiros dois modelos. As principais desvantagens associadas ao modelo de banco de dados por locatário estão relacionadas aos custos dos recursos de nuvem maiores devido à redução de compartilhamento e à manutenção e gerenciamento de um grande número de bancos de dados. Os desenvolvedores de aplicativos SaaS muitas vezes têm dificuldades ao fazer essas compensações.
 
-Although trade-offs might be major barriers with most cloud database service providers, Azure SQL Database eliminates the barriers with its elastic pool and elastic database capabilities. SaaS developers can combine the isolation characteristics of a database-per-tenant model and optimize resource sharing and the manageability improvements of many databases by using elastic pools and associated tools.
+Enquanto essas compensações podem ser grandes barreiras para a maioria dos provedores de serviço de banco de dados de nuvem, o Banco de Dados SQL do Azure elimina essas barreiras com o pool elástico e os recursos de banco de dados elástico. Os desenvolvedores de SaaS podem combinar as características de isolamento do modelo de banco de dados por locatário e otimizar o compartilhamento de recursos e os aprimoramentos no gerenciamento de um grande número de bancos de dados com pools elásticos e ferramentas associadas.
 
-Multitenant application providers who have no tenant isolation requirements and who can pack tenants in a database at a high density might find that shared data models result in additional efficiency in resource sharing and reduce overall cost. Azure SQL Database elastic database tools, sharding libraries, and security features help SaaS providers build and manage multitenant applications.
+Provedores de aplicativos multilocatários que não têm requisitos de isolamento de locatário e são capazes de empacotar locatários em banco de dados em uma densidade alta podem considerar que os modelos de dados compartilhados resultam em eficiência adicional no compartilhamento de recursos e na redução do custo geral. As ferramentas de banco de dados elástico do Banco de Dados SQL do Azure, as bibliotecas de fragmentação e os recursos de segurança ajudam os provedores de SaaS a criar e gerenciar esses aplicativos multilocatários.
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-[Get started with elastic database tools](sql-database-elastic-scale-get-started.md) with a sample app that demonstrates the client library.
+Para ver um aplicativo de exemplo que demonstra a biblioteca de cliente, consulte [Introdução às ferramentas do banco de dados elástico](sql-database-elastic-scale-get-started.md).
 
-Create an [elastic pool custom dashboard for SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) with a sample app that uses elastic pools for a cost-effective, scalable database solution.
+Crie um [painel personalizado do pool elástico para SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) com um aplicativo de exemplo que usa pools elásticos para uma solução de banco de dados econômica e escalonável.
 
-Use the Azure SQL Database tools to [migrate existing databases to scale out](sql-database-elastic-convert-to-use-elastic-tools.md).
+Use as ferramentas de Banco de Dados SQL para [migrar bancos de dados existentes para escalar horizontalmente](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-View our tutorial on how to [create an elastic pool](sql-database-elastic-pool-create-portal.md).  
+Exiba nosso tutorial sobre como [criar um pool elástico](sql-database-elastic-pool-create-portal.md).
 
-Learn how to [monitor and manage an elastic pool](sql-database-elastic-pool-manage-portal.md).
+Aprenda como [monitorar e gerenciar um pool elástico](sql-database-elastic-pool-manage-portal.md).
 
-## <a name="additional-resources"></a>Additional resources
+## Recursos adicionais
 
-- [What is an Azure elastic pool?](sql-database-elastic-pool.md)
-- [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
-- [Multitenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-- [Authentication in multitenant apps by using Azure Active Directory and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
-- [Tailspin Surveys application](../guidance/guidance-multitenant-identity-tailspin.md)
-- [Solution quick starts](sql-database-solution-quick-starts.md)
+- [O que é um pool elástico do Azure?](sql-database-elastic-pool.md)
+- [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md)
+- [Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+- [Autenticação em aplicativos multilocatários usando o Azure Active Directory e o OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
+- [Aplicativo Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
+- [Inícios rápidos da solução](sql-database-solution-quick-starts.md)
 
-## <a name="questions-and-feature-requests"></a>Questions and feature requests
+## Perguntas e solicitações de recursos
 
-For questions, find us in the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Add a feature request in the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
+Para fazer perguntas, encontre-se no [Fórum do Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Adicione uma solicitação de recursos no [Fórum de comentários do Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

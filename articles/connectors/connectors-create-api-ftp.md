@@ -1,10 +1,10 @@
 <properties
-pageTitle="Learn how to use the FTP connector in logic apps| Microsoft Azure"
-description="Create logic apps with Azure App service. Connect to FTP server to manage your files. You can perform various actions such as upload, update, get, and delete files in FTP server."
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+pageTitle="Saiba como usar o conector de FTP em aplicativos lógicos | Microsoft Azure"
+description="Crie aplicativos lógicos com o serviço de Aplicativo do Azure. Conecte-se ao servidor FTP para gerenciar seus arquivos. Você pode executar várias ações, como carregar, atualizar, obter e excluir arquivos no servidor FTP."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,429 +17,428 @@ ms.workload="integration"
 ms.date="07/22/2016"
 ms.author="deonhe"/>
 
+# Introdução ao conector de FTP
 
-# <a name="get-started-with-the-ftp-connector"></a>Get started with the FTP connector
+Use o conector de FTP para monitorar, gerenciar e criar arquivos em um servidor FTP.
 
-Use the FTP connector to monitor, manage and create files on an  FTP server. 
+Para usar [qualquer conector](./apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Conectar-se ao FTP
 
-## <a name="connect-to-ftp"></a>Connect to FTP
+Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma [conexão](./connectors-overview.md) fornece conectividade entre um aplicativo lógico e outro serviço.
 
-Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
+### Criar uma conexão com o FTP
 
-### <a name="create-a-connection-to-ftp"></a>Create a connection to FTP
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o FTP](../../includes/connectors-create-api-ftp.md)]
 
->[AZURE.INCLUDE [Steps to create a connection to FTP](../../includes/connectors-create-api-ftp.md)]
+## Usar o gatilho de FTP
 
-## <a name="use-a-ftp-trigger"></a>Use a FTP trigger
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+>[AZURE.IMPORTANT]O conector de FTP exige um servidor FTP que possa ser acessado pela Internet e esteja configurado para operar com o modo PASSIVO. Além disso, o conector de FTP **não é compatível com FTPS implícito (FTP por SSL)**. O conector de FTP permite apenas FTPS explícito (FTP por SSL).
 
->[AZURE.IMPORTANT]The FTP connector requires an FTP server that  is accessible from the Internet and is configured to operate with PASSIVE mode. Also, the FTP connector is **not compatible with implicit FTPS (FTP over SSL)**. The FTP connector only supports explicit FTPS (FTP over SSL).  
+Neste exemplo, mostrarei como usar o gatilho **FTP – Quando um arquivo é adicionado ou modificado** para iniciar um fluxo de trabalho do aplicativo lógico quando um arquivo é adicionado, ou modificado, em um servidor FTP. Em um exemplo corporativo, você pode usar esse gatilho para monitorar uma pasta FTP em busca de novos arquivos que representam pedidos de clientes. Você pode usar uma ação de conector FTP, como **Obter conteúdo do arquivo** para obter o conteúdo do pedido para processamento posterior e armazenamento em seu banco de dados de pedidos.
 
-In this example, I will show you how to use the **FTP - When a file is added or modified** trigger to initiate a logic app workflow when a file is added to, or modified on, an FTP server. In an enterprise example, you could use this trigger to monitor an FTP folder for new files that represent orders from customers.  You could then use an FTP connector action such as **Get file content** to get the contents of the order for further processing and storage in your orders database.
-
-1. Enter *ftp* in the search box on the logic apps designer then select the **FTP - When a file is added or modified**  trigger   
-![FTP trigger image 1](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
-The **When a file is added or modified** control opens up  
-![FTP trigger image 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
-- Select the **...** located on the right side of the control. This opens the folder picker control  
-![FTP trigger image 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
-- Select the **>** (right arrow) and browse to find the folder that you want to monitor for new or modified files. Select the folder and notice the folder is now displayed in the **Folder** control.  
-![FTP trigger image 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)   
-
-
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a file is either modified or created in the specific FTP folder. 
-
->[AZURE.NOTE]For a logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
+1. Insira *ftp* na caixa de pesquisa no designer de aplicativos lógicos e escolha o gatilho **FTP – Quando um arquivo é adicionado ou modificado**  
+![Imagem 1 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
+O controle **Quando um arquivo é adicionado ou modificado** é aberto  
+![Imagem 2 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
+- Escolha **...**, localizado no lado direito do controle. Isso abre o controle de seletor de pasta  
+![Imagem 3 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
+- Escolha **>** (seta para a direita) e procure a pasta que deseja monitorar em busca de arquivos novos ou modificados. Selecione a pasta e observe que a pasta agora é exibida no controle **Pasta**.  
+![Imagem 4 do gatilho de FTP](./media/connectors-create-api-ftp/ftp-trigger-4.png)  
 
 
+Neste ponto, seu aplicativo lógico foi configurado com um gatilho que iniciará uma execução de outros gatilhos e as ações no fluxo de trabalho quando um arquivo é, ou modificado, ou criado, na pasta FTP específica.
 
-## <a name="use-a-ftp-action"></a>Use a FTP action
+>[AZURE.NOTE]Para que um aplicativo lógico funcione, ele deve conter pelo menos um gatilho e uma ação. Siga as etapas na próxima seção para adicionar uma ação.
 
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-Now that you have added a trigger, follow these steps to add an action that will get the contents of the new or modified file found by the trigger.    
 
-1. Select **+ New step** to add the the action to get the contents of the file on the FTP server  
-- Select the **Add an action** link.  
-![FTP action image 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
-- Enter *FTP* to search for all actions related to FTP.
-- Select **FTP - Get file content**  as the action to take when a new or modified file is found in the FTP folder.      
-![FTP action image 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
-The **Get file content** control opens. **Note**: you will be prompted to authorize your logic app to access your FTP server account if you have not done so previously.  
-![FTP action image 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-- Select the **File** control (the white space located below **FILE***). Here, you can use any of the various properties from the new or modified file found on the FTP server.  
-- Select the **File content** option.  
-![FTP action image 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
--  The control is updated, indicating that the **FTP - Get file content** action will get the *file content* of the new or modified file on the FTP server.      
-![FTP action image 5](./media/connectors-create-api-ftp/ftp-action-5.png)     
-- Save your work then add a file to the FTP folder to test your workflow.    
+## Usar uma ação de FTP
 
-At this point, the logic app has been configured with a trigger to monitor a folder on an FTP server and initiate the workflow when it finds either a new file or a modified file on the FTP server. 
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-The logic app also has been configured with an action to get the contents of the new or modified file.
+Agora que você adicionou um gatilho, siga estas etapas para adicionar uma ação que obterá o conteúdo do arquivo novo ou modificado encontrado pelo gatilho.
 
-You can now add another action such as the [SQL Server - insert row](./connectors-create-api-sqlazure.md#insert-row) action to insert the contents of the new or modified file into a SQL database table.  
+1. Escolha **+ Nova etapa** a fim de adicionar a ação para obter o conteúdo do arquivo no servidor FTP
+- Escolha o link **Adicionar uma ação**.  
+![Imagem 1 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-1.png)  
+- Insira *FTP* para pesquisar todas as ações relacionadas ao FTP.
+- Escolha **FTP – Obter conteúdo do arquivo** como a ação a ser tomada quando um arquivo novo ou modificado é encontrado na pasta FTP.   
+![Imagem 2 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-2.png)  
+O controle **Obter conteúdo do arquivo** é aberto. **Observação**: será solicitado que você autorize o aplicativo lógico a acessar sua conta no servidor FTP, caso não tenha feito isso anteriormente.  
+![Imagem 3 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-3.png)  
+- Escolha o controle **Arquivo** (o espaço em branco localizado abaixo de **ARQUIVO***). Aqui, você pode usar qualquer uma das várias propriedades do arquivo novo ou modificado encontrado no servidor FTP.
+- Escolha a opção **Conteúdo do arquivo**.  
+![Imagem 4 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-4.png)  
+-  O controle é atualizado, indicando que a ação **FTP – Obter conteúdo do arquivo** obterá o *conteúdo do arquivo* do arquivo novo ou modificado no servidor FTP.  
+![Imagem 5 da ação de FTP](./media/connectors-create-api-ftp/ftp-action-5.png)  
+- Salve seu trabalho e adicione um arquivo à pasta FTP para testar o fluxo de trabalho.
 
-## <a name="technical-details"></a>Technical Details
+Neste ponto, o aplicativo lógico foi configurado com um gatilho para monitorar uma pasta em um servidor FTP e iniciar o fluxo de trabalho quando encontrar um arquivo novo ou modificado no servidor FTP.
 
-Here are the details about the triggers, actions and responses that this connection supports:
+O aplicativo lógico também foi configurado com uma ação para obter o conteúdo do arquivo novo ou modificado.
 
-## <a name="ftp-triggers"></a>FTP triggers
+Agora você pode adicionar outra ação, como a ação [SQL Server – inserir linha](./connectors-create-api-sqlazure.md#insert-row), para inserir o conteúdo do arquivo novo ou modificado em uma tabela de banco de dados SQL.
 
-FTP has the following trigger(s):  
+## Detalhes técnicos
 
-|Trigger | Description|
+Veja abaixo os detalhes sobre os gatilhos, as ações e as respostas que essa conexão permite:
+
+## Gatilhos de FTP
+
+O FTP tem os seguintes gatilhos:
+
+|Gatilho | Descrição|
 |--- | ---|
-|[When a file is added or modified](connectors-create-api-ftp.md#when-a-file-is-added-or-modified)|This operation triggers a flow when a file is added or modified in a folder.|
+|[Quando um arquivo é adicionado ou modificado](connectors-create-api-ftp.md#when-a-file-is-added-or-modified)|Esta operação dispara um fluxo quando um arquivo é adicionado ou modificado em uma pasta.|
 
 
-## <a name="ftp-actions"></a>FTP actions
+## Ações de FTP
 
-FTP has the following actions:
+O FTP tem as seguintes ações:
 
 
-|Action|Description|
+|Ação|Descrição|
 |--- | ---|
-|[Get file metadata](connectors-create-api-ftp.md#get-file-metadata)|This operation gets the metadata for a file.|
-|[Update file](connectors-create-api-ftp.md#update-file)|This operation updates a file.|
-|[Delete file](connectors-create-api-ftp.md#delete-file)|This operation deletes a file.|
-|[Get file metadata using path](connectors-create-api-ftp.md#get-file-metadata-using-path)|This operation gets the metadata of a file using the path.|
-|[Get file content using path](connectors-create-api-ftp.md#get-file-content-using-path)|This operation gets the content of a file using the path.|
-|[Get file content](connectors-create-api-ftp.md#get-file-content)|This operation gets the content of a file.|
-|[Create file](connectors-create-api-ftp.md#create-file)|This operation creates a file.|
-|[Copy file](connectors-create-api-ftp.md#copy-file)|This operation copies a file to an FTP server.|
-|[List files in folder](connectors-create-api-ftp.md#list-files-in-folder)|This operation gets the list of files and subfolders in a folder.|
-|[List files in root folder](connectors-create-api-ftp.md#list-files-in-root-folder)|This operation gets the list of files and subfolders in the root folder.|
-|[Extract folder](connectors-create-api-ftp.md#extract-folder)|This operation extracts an archive file into a folder (example: .zip).|
-### <a name="action-details"></a>Action details
+|[Obter metadados do arquivo](connectors-create-api-ftp.md#get-file-metadata)|Esta operação obtém os metadados de um arquivo.|
+|[Atualizar arquivo](connectors-create-api-ftp.md#update-file)|Esta operação atualiza um arquivo.|
+|[Excluir arquivo](connectors-create-api-ftp.md#delete-file)|Esta operação exclui um arquivo.|
+|[Obter metadados do arquivo usando o caminho](connectors-create-api-ftp.md#get-file-metadata-using-path)|Esta operação obtém os metadados de um arquivo usando o caminho.|
+|[Obter o conteúdo do arquivo usando o caminho](connectors-create-api-ftp.md#get-file-content-using-path)|Esta operação obtém o conteúdo de um arquivo usando o caminho.|
+|[Obter conteúdo do arquivo](connectors-create-api-ftp.md#get-file-content)|Esta operação obtém o conteúdo de um arquivo.|
+|[Criar arquivo](connectors-create-api-ftp.md#create-file)|Esta operação cria um arquivo.|
+|[Copiar arquivo](connectors-create-api-ftp.md#copy-file)|Esta operação copia um arquivo para um servidor FTP.|
+|[Lista de arquivos na pasta](connectors-create-api-ftp.md#list-files-in-folder)|Esta operação obtém a lista de arquivos e subpastas em uma pasta.|
+|[Lista de arquivos na pasta-raiz](connectors-create-api-ftp.md#list-files-in-root-folder)|Esta operação obtém a lista de arquivos e subpastas na pasta-raiz.|
+|[Extrair pasta](connectors-create-api-ftp.md#extract-folder)|Essa operação extrai um arquivo para uma pasta (exemplo: .zip).|
+### Detalhes da ação
 
-Here are the details for the actions and triggers for this connector, along with their responses:
-
-
-
-### <a name="get-file-metadata"></a>Get file metadata
-This operation gets the metadata for a file. 
+Veja abaixo os detalhes das ações e dos gatilhos para esse conector, com suas respostas:
 
 
-|Property Name| Display Name|Description|
+
+### Obter metadados do arquivo
+Esta operação obtém os metadados de um arquivo.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|id*|File|Select a file|
+|id*|Arquivo|Selecionar um arquivo|
 
-An * indicates that a property is required
+Um * indica que uma propriedade é obrigatória
 
-#### <a name="output-details"></a>Output Details
+#### Detalhes da Saída
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Nome da Propriedade | Tipo de Dados |
 |---|---|---|
-|Id|string|
-|Name|string|
+|ID|string|
+|Nome|string|
 |DisplayName|string|
-|Path|string|
+|Caminho|string|
 |LastModified|string|
-|Size|integer|
+|Tamanho|inteiro|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|booleano|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="update-file"></a>Update file
-This operation updates a file. 
+### Atualizar arquivo
+Esta operação atualiza um arquivo.
 
 
-|Property Name| Display Name|Description|
+|Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|id*|File|Select a file|
-|body*|File content|Content of the file|
+|id*|Arquivo|Selecionar um arquivo|
+|body*|Conteúdo do arquivo|O conteúdo do arquivo|
 
-An * indicates that a property is required
+Um * indica que uma propriedade é obrigatória
 
-#### <a name="output-details"></a>Output Details
+#### Detalhes da Saída
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Nome da Propriedade | Tipo de Dados |
 |---|---|---|
-|Id|string|
-|Name|string|
+|ID|string|
+|Nome|string|
 |DisplayName|string|
-|Path|string|
+|Caminho|string|
 |LastModified|string|
-|Size|integer|
+|Tamanho|inteiro|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|booleano|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="delete-file"></a>Delete file
-This operation deletes a file. 
+### Excluir arquivo
+Esta operação exclui um arquivo.
 
 
-|Property Name| Display Name|Description|
+|Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|id*|File|Select a file|
+|id*|Arquivo|Selecionar um arquivo|
 
-An * indicates that a property is required
-
-
+Um * indica que uma propriedade é obrigatória
 
 
-### <a name="get-file-metadata-using-path"></a>Get file metadata using path
-This operation gets the metadata of a file using the path. 
 
 
-|Property Name| Display Name|Description|
+### Obter metadados do arquivo usando o caminho
+Esta operação obtém os metadados de um arquivo usando o caminho.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|path*|File path|Select a file|
+|path*|Caminho do arquivo|Selecionar um arquivo|
 
-An * indicates that a property is required
+Um * indica que uma propriedade é obrigatória
 
-#### <a name="output-details"></a>Output Details
+#### Detalhes da Saída
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Nome da Propriedade | Tipo de Dados |
 |---|---|---|
-|Id|string|
-|Name|string|
+|ID|string|
+|Nome|string|
 |DisplayName|string|
-|Path|string|
+|Caminho|string|
 |LastModified|string|
-|Size|integer|
+|Tamanho|inteiro|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|booleano|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="get-file-content-using-path"></a>Get file content using path
-This operation gets the content of a file using the path. 
+### Obter o conteúdo do arquivo usando o caminho
+Esta operação obtém o conteúdo de um arquivo usando o caminho.
 
 
-|Property Name| Display Name|Description|
+|Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|path*|File path|Select a file|
+|path*|Caminho do arquivo|Selecionar um arquivo|
 
-An * indicates that a property is required
-
-
+Um * indica que uma propriedade é obrigatória
 
 
-### <a name="get-file-content"></a>Get file content
-This operation gets the content of a file. 
 
 
-|Property Name| Display Name|Description|
+### Obter conteúdo do arquivo
+Esta operação obtém o conteúdo de um arquivo.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|id*|File|Select a file|
+|id*|Arquivo|Selecionar um arquivo|
 
-An * indicates that a property is required
-
-
+Um * indica que uma propriedade é obrigatória
 
 
-### <a name="create-file"></a>Create file
-This operation creates a file. 
 
 
-|Property Name| Display Name|Description|
+### Criar arquivo
+Esta operação cria um arquivo.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|folderPath*|Folder path|Select a folder|
-|name*|File name|Name of the file|
-|body*|File content|Content of the file|
+|folderPath*|Caminho da pasta|Selecionar uma pasta|
+|name*|Nome do arquivo|Nome do arquivo|
+|body*|Conteúdo do arquivo|O conteúdo do arquivo|
 
-An * indicates that a property is required
+Um * indica que uma propriedade é obrigatória
 
-#### <a name="output-details"></a>Output Details
+#### Detalhes da Saída
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Nome da Propriedade | Tipo de Dados |
 |---|---|---|
-|Id|string|
-|Name|string|
+|ID|string|
+|Nome|string|
 |DisplayName|string|
-|Path|string|
+|Caminho|string|
 |LastModified|string|
-|Size|integer|
+|Tamanho|inteiro|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|booleano|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="copy-file"></a>Copy file
-This operation copies a file to an FTP server. 
+### Copiar arquivo
+Esta operação copia um arquivo para um servidor FTP.
 
 
-|Property Name| Display Name|Description|
+|Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|source*|Source url|Url to source file|
-|destination*|Destination file path|Destination file path, including target filename|
-|overwrite|Overwrite?|Overwrites the destination file if set to 'true'|
+|source*|Url da origem|URL para o arquivo de origem|
+|destination*|Caminho do arquivo de destino|Caminho do arquivo de destino, incluindo o nome do arquivo de destino|
+|substituir|Substituir?|Substitui o arquivo de destino se estiver definido como "true"|
 
-An * indicates that a property is required
+Um * indica que uma propriedade é obrigatória
 
-#### <a name="output-details"></a>Output Details
+#### Detalhes da Saída
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Nome da Propriedade | Tipo de Dados |
 |---|---|---|
-|Id|string|
-|Name|string|
+|ID|string|
+|Nome|string|
 |DisplayName|string|
-|Path|string|
+|Caminho|string|
 |LastModified|string|
-|Size|integer|
+|Tamanho|inteiro|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|booleano|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="when-a-file-is-added-or-modified"></a>When a file is added or modified
-This operation triggers a flow when a file is added or modified in a folder. 
+### Quando um arquivo é adicionado ou modificado
+Esta operação dispara um fluxo quando um arquivo é adicionado ou modificado em uma pasta.
 
 
-|Property Name| Display Name|Description|
+|Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|folderId*|Folder|Select a folder|
+|folderId*|Pasta|Selecionar uma pasta|
 
-An * indicates that a property is required
-
-
+Um * indica que uma propriedade é obrigatória
 
 
-### <a name="list-files-in-folder"></a>List files in folder
-This operation gets the list of files and subfolders in a folder. 
 
 
-|Property Name| Display Name|Description|
+### Lista de arquivos na pasta
+Esta operação obtém a lista de arquivos e subpastas em uma pasta.
+
+
+|Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|id*|Folder|Select a folder|
+|id*|Pasta|Selecionar uma pasta|
 
-An * indicates that a property is required
+Um * indica que uma propriedade é obrigatória
 
 
 
-#### <a name="output-details"></a>Output Details
+#### Detalhes da Saída
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Nome da Propriedade | Tipo de Dados |
 |---|---|---|
-|Id|string|
-|Name|string|
+|ID|string|
+|Nome|string|
 |DisplayName|string|
-|Path|string|
+|Caminho|string|
 |LastModified|string|
-|Size|integer|
+|Tamanho|inteiro|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|booleano|
+|ETag|string|
+|FileLocator|cadeia de caracteres|
+
+
+
+
+### Lista de arquivos na pasta-raiz
+Esta operação obtém a lista de arquivos e subpastas na pasta-raiz.
+
+
+Não há parâmetros para essa chamada
+
+#### Detalhes da Saída
+
+BlobMetadata
+
+
+| Nome da Propriedade | Tipo de Dados |
+|---|---|---|
+|ID|string|
+|Nome|string|
+|DisplayName|string|
+|Caminho|string|
+|LastModified|string|
+|Tamanho|inteiro|
+|MediaType|string|
+|IsFolder|booleano|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="list-files-in-root-folder"></a>List files in root folder
-This operation gets the list of files and subfolders in the root folder. 
+### Extrair pasta
+Essa operação extrai um arquivo para uma pasta (exemplo: .zip).
 
 
-There are no parameters for this call
-
-#### <a name="output-details"></a>Output Details
-
-BlobMetadata
-
-
-| Property Name | Data Type |
-|---|---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
-|ETag|string|
-|FileLocator|string|
-
-
-
-
-### <a name="extract-folder"></a>Extract folder
-This operation extracts an archive file into a folder (example: .zip). 
-
-
-|Property Name| Display Name|Description|
+|Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|source*|Source archive file path|Path to the archive file|
-|destination*|Destination folder path|Path to the destination folder|
-|overwrite|Overwrite?|Overwrites the destination files if set to 'true'|
+|source*|Caminho do arquivo de origem|Caminho para o arquivo morto|
+|destination*|Caminho da pasta de destino|Caminho para a pasta de destino|
+|substituir|Substituir?|Substitui os arquivos de destino se estiver definido como "true"|
 
-An * indicates that a property is required
+Um * indica que uma propriedade é obrigatória
 
 
 
-#### <a name="output-details"></a>Output Details
+#### Detalhes da Saída
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Nome da Propriedade | Tipo de Dados |
 |---|---|---|
-|Id|string|
-|Name|string|
+|ID|string|
+|Nome|string|
 |DisplayName|string|
-|Path|string|
+|Caminho|string|
 |LastModified|string|
-|Size|integer|
+|Tamanho|inteiro|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|booleano|
 |ETag|string|
-|FileLocator|string|
+|FileLocator|cadeia de caracteres|
 
 
 
-## <a name="http-responses"></a>HTTP responses
+## Respostas HTTP
 
-The actions and triggers above can return one or more of the following HTTP status codes: 
+As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos de status HTTP:
 
-|Name|Description|
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occurred.|
-|default|Operation Failed.|
+|202|Aceita|
+|400|Solicitação incorreta|
+|401|Não Autorizado|
+|403|Proibido|
+|404|Não encontrado|
+|500|Erro Interno do Servidor. Ocorreu um erro desconhecido.|
+|padrão|Falha na Operação.|
 
 
 
@@ -447,10 +446,7 @@ The actions and triggers above can return one or more of the following HTTP stat
 
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## Próximas etapas
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!----HONumber=AcomDC_0803_2016-->

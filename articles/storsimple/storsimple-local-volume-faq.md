@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple locally pinned volumes FAQ|Microsoft Azure"
-   description="Provides answers to frequently asked questions about StorSimple locally pinned volumes."
+   pageTitle="Perguntas frequentes sobre os volumes do StorSimple localmente afixados | Microsoft Azure"
+   description="Fornece respostas a perguntas frequentes sobre volumes localmente afixados do StorSimple."
    services="storsimple"
    documentationCenter="NA"
    authors="manuaery"
@@ -15,209 +15,202 @@
    ms.date="08/16/2016"
    ms.author="manuaery" />
 
+# Volume localmente afixado do StorSimple: perguntas frequentes
 
-# <a name="storsimple-locally-pinned-volumes:-frequently-asked-questions-(faq)"></a>StorSimple locally pinned volumes: frequently asked questions (FAQ)
+## Visão geral
 
-## <a name="overview"></a>Overview
+Veja perguntas e respostas que podem ser úteis ao criar um volume localmente afixado do StorSimple, converter um volume em camadas em um volume localmente afixado (e vice-versa) ou fazer backup de um volume localmente afixado e restaurá-lo.
 
-The following are questions and answers that you might have when you create a StorSimple locally pinned volume, convert a tiered volume to a locally pinned volume (and vice versa), or back up and restore a locally pinned volume.
+As perguntas e respostas são organizadas nas seguintes categorias
 
-Questions and answers are arranged into the following categories
+- Criação de um volume localmente afixado
+- Backup de um volume localmente afixado
+- Conversão de um volume em camadas em um volume localmente afixado
+- Restauração de um volume localmente afixado
+- Failover de um volume localmente afixado
 
-- Creating a locally pinned volume
-- Backing up a locally pinned
-- Converting a tiered volume to a locally pinned volume
-- Restoring a locally pinned volume
-- Failing over a locally pinned volume
+## Perguntas sobre a criação de um volume localmente afixado
 
-## <a name="questions-about-creating-a-locally-pinned-volume"></a>Questions about creating a locally pinned volume
+**P.** Qual é o tamanho máximo de um volume localmente afixado que posso criar em dispositivos da série 8000?
 
-**Q.** What is the maximum size of a locally pinned volume that I can create on the 8000 series devices?
+**R** Você pode provisionar volumes localmente afixados de até 8,5 TB ou volumes em camadas de até 200 TB no dispositivo 8100. No dispositivo 8600, que é maior, você pode provisionar volumes localmente afixados de até 22,5 TB ou volumes em camadas de até 500 TB.
 
-**A** You can provision locally pinned volumes up to 8.5 TB or tiered volumes up to 200 TB on the 8100 device. On the larger 8600 device, you can provision locally pinned volumes up to 22.5 TB or tiered volumes up to 500 TB.
+**P.** Atualizei recentemente o dispositivo 8100 para a Atualização 2 e, quando tento criar um volume localmente afixado, o tamanho máximo disponível é de apenas 6 TB, não de 8,5 TB. Por que não consigo criar um volume de 8,5 TB?
 
-**Q.** I recently upgraded my 8100 device to Update 2 and when I try to create a locally pinned volume, the maximum available size is only 6 TB and not 8.5 TB. Why can’t I create an 8.5 TB volume?
+**R** Você pode provisionar volumes localmente afixados de até 8,5 TB ou volumes em camadas de até 200 TB no dispositivo 8100. Se o dispositivo já tiver volumes em camadas, o espaço disponível para a criação de um volume localmente afixado será proporcionalmente menor do que esse limite máximo. Por exemplo, se 100 TB de volumes em camadas já tiverem sido provisionados no dispositivo 8100 (o que é a metade da capacidade em camadas), o tamanho máximo de um volume local que você poderá criar no dispositivo 8100 será reduzido de forma correspondente para 4 TB (cerca de metade da capacidade máxima do volume localmente afixado).
 
-**A** You can provision locally pinned volumes up to 8.5 TB OR tiered volumes up to 200 TB on the 8100 device. If your device already has tiered volumes, then the space available for creating a locally pinned volume will be proportionally lower than this maximum limit. For example, if 100 TB of tiered volumes have already been provisioned on your 8100 device (which is half of the tiered capacity), then the maximum size of a local volume that you can create on the 8100 device will be correspondingly reduced to 4 TB (roughly half of the maximum locally pinned volume capacity).
+Como algum espaço no dispositivo local é usado para hospedar o conjunto de trabalho de volumes em camadas, o espaço disponível para a criação de um volume localmente afixado será reduzido se o dispositivo tiver volumes em camadas. Por outro lado, a criação de um volume localmente afixado reduz proporcionalmente o espaço disponível para volumes em camadas. A tabela a seguir resume a capacidade em camadas disponível nos dispositivos 8100 e 8600 quando volumes localmente afixados são criados.
 
-Because some local space on the device is used to host the working set of tiered volumes, the available space for creating a locally pinned volume is reduced if the device has tiered volumes. Conversely, creating a locally pinned volume proportionally reduces the available space for tiered volumes. The following table summarizes the available tiered capacity on the 8100 and 8600 devices when locally pinned volumes are created.
-
-|Locally pinned volumes provisioned capacity|Available capacity to be provisioned for tiered volumes - 8100|Available capacity to be provisioned for tiered volumes - 8600|
+|Capacidade provisionada para volumes localmente afixados|Capacidade disponível para ser provisionada para volumes em camadas - 8100|Capacidade disponível para ser provisionada para volumes em camadas - 8600|
 |-----|------|------|
 |0 | 200 TB | 500 TB |
-|1 TB | 176.5 TB | 477.8 TB|
-|4 TB | 105.9 TB | 411.1 TB |
-|8.5 TB | 0 TB | 311.1 TB|
-|10 TB | NA | 277.8 TB |
-|15 TB | NA | 166.7 TB |
-|22.5 TB | NA | 0 TB |
+|1 TB | 176,5 TB | 477,8 TB|
+|4 TB | 105,9 TB | 411,1 TB |
+|8,5 TB | 0 TB | 311,1 TB|
+|10 TB | ND | 277,8 TB |
+|15 TB | ND | 166,7 TB |
+|22,5 TB | ND | 0 TB |
 
 
-**Q.** Why is locally pinned volume creation a long running operation? 
+**P.** Por que a criação de um volume localmente afixado é uma operação demorada?
 
-**A.** Locally pinned volumes are thickly provisioned. To create space on the local tiers of the device, some data from existing tiered volumes might be pushed to the cloud during the provisioning process. And since this depends upon the size of the volume being provisioned, the existing data on your device and the available bandwidth to the cloud, the time taken to create a local volume may be several hours.
+**A.** Os volumes localmente afixados são provisionados de forma densa. Para criar espaço nas camadas locais do dispositivo, alguns dados de volumes em camadas existentes podem ser enviados para a nuvem durante o processo de provisionamento. Já que isso depende do tamanho do volume que está sendo provisionado, nos dados existentes no dispositivo e na largura de banda disponível para a nuvem, o tempo necessário para criar um volume local pode consistir em várias horas.
 
-**Q.** How long does it take to create a locally pinned volume?
+**P.** Quanto tempo leva para criar um volume localmente afixado?
 
-**A.** Because locally pinned volumes are thickly provisioned, some existing data from tiered volumes might be pushed to the cloud during the provisioning process. Therefore, the time taken to create a locally pinned volume depends upon multiple factors, including the size of the volume, the data on your device and the available bandwidth. On a freshly installed device that has no volumes, the time to create a locally pinned volume is about 10 minutes per terabyte of data. However, creation of local volumes may take several hours based on the factors explained above on a device that is in use.
+**A.** Como volumes localmente afixados são provisionados de forma densa, alguns dados existentes de volumes em camadas podem ser enviados para a nuvem durante o processo de provisionamento. Portanto, o tempo necessário para criar um volume localmente afixado depende de vários fatores, como o tamanho do volume, os dados no dispositivo e a largura de banda disponível. Em um dispositivo recém-instalado que não tem volumes, o tempo para criar um volume localmente afixado é de cerca de 10 minutos por terabyte de dados. No entanto, a criação de volumes locais pode levar várias horas, com base nos fatores explicados acima, em um dispositivo que esteja em uso.
 
-**Q.** I want to create a locally pinned volume. Are there any best practices I need to be aware of?
+**P.** Desejo criar um volume localmente afixado. Existem práticas recomendadas que preciso conhecer?
 
-**A.** Locally pinned volumes are suitable for workloads that require local guarantees of data at all times and are sensitive to cloud latencies. While considering usage of local volumes for any of your workloads, please be aware of the following:
+**A.** Os volumes localmente afixados são adequados para cargas de trabalho que exigem garantias locais de dados em todos os momentos e são sensíveis às latências da nuvem. Ao considerar o uso de volumes locais para qualquer uma de suas cargas de trabalho, lembre-se do seguinte:
 
-- Locally pinned volumes are thickly provisioned, and creating local volumes impacts the available space for tiered volumes. Therefore, we suggest you start with smaller-sized volumes and scale up as your storage requirement increases.
+- Volumes localmente afixados são provisionados de forma densa e a criação de volumes locais tem impacto sobre o espaço disponível para volumes em camadas. Portanto, sugerimos que você comece com volumes menores e escale-os verticalmente à medida que sua necessidade de armazenamento aumentar.
 
-- Provisioning of local volumes is a long running operation that might involve pushing existing data from tiered volumes to the cloud. As a result, you may experience reduced performance on these volumes.
+- O provisionamento de volumes locais é uma operação demorada que pode envolver o envio de dados existentes de volumes em camadas para a nuvem. Como resultado, pode ocorrer desempenho reduzido nesses volumes.
 
-- Provisioning of local volumes is a time consuming operation. The actual time involved depends on multiple factors: the size of the volume being provisioned, data on your device, and available bandwidth. If you have not backed up your existing volumes to the cloud, then volume creation is slower. We suggest you take cloud snapshots of your existing volumes before you provision a local volume.
+- O provisionamento de volumes locais é uma operação demorada. O tempo real envolvidos depende de vários fatores: o tamanho do volume que está sendo provisionado, os dados no dispositivo e a largura de banda disponível. Se você não tiver feito backup dos volumes existentes para a nuvem, a criação do volume será mais lenta. Sugerimos que você crie instantâneos em nuvem dos volumes existentes antes de provisionar um volume local.
  
-- You can convert existing tiered volumes to locally pinned volumes, and this conversion involves provisioning of space on the device for the resulting locally pinned volume (in addition to bringing down tiered data [if any] from the cloud). Again, this is a long running operation that depends on factors we’ve discussed above. We suggest that you back up your existing volumes prior to conversion as the process will be even slower if existing volumes are not backed up. Your device might also experience reduced performance during this process.
-    
-More information on how to [create a locally pinned volume](storsimple-manage-volumes-u2.md#add-a-volume)
+- Você pode converter os volumes em camadas existentes em volumes localmente afixados. Essa conversão envolve o provisionamento de espaço no dispositivo para o volume localmente afixado resultante (além de obter dados em camadas [se houver] da nuvem). Novamente, essa é uma operação demorada que depende dos fatores discutidos anteriormente. Sugerimos que você faça o backup dos volumes existentes antes da conversão, pois o processo será ainda mais lento se não for feito o backup dos volumes existentes. O dispositivo também poderá ter desempenho reduzido durante esse processo.
+	
+Mais informações sobre como [criar um volume localmente afixado](storsimple-manage-volumes-u2.md#add-a-volume)
 
-**Q.** Can I create multiple locally pinned volumes at the same time?
+**P.** Posso criar vários volumes localmente afixados ao mesmo tempo?
 
-**A.** Yes, but any locally pinned volume creation and expansion jobs are processed sequentially.
+**A.** Sim, mas os trabalhos de criação e expansão de volumes localmente afixados são processados em sequência.
 
-Locally pinned volumes are thickly provisioned and this requires creation of local space on the device (which might result in existing data from tiered volumes to be pushed to the cloud during the provisioning process). Therefore, if a provisioning job is in progress, other local volume creation jobs will be queued until that job is finished.
+Os volumes localmente afixados são provisionados de forma densa e isso exige a criação de espaço local no dispositivo (o que pode fazer com que dados existentes de volumes em camadas sejam enviados para a nuvem durante o processo de provisionamento). Portanto, se um trabalho de provisionamento estiver em andamento, outros trabalhos de criação de volumes locais serão enfileirados até o trabalho ser concluído.
 
-Similarly, if an existing local volume is being expanded or a tiered volume is being converted to a locally pinned volume, then the creation of a new locally pinned volume is queued until the previous job is completed. Expanding the size of a locally pinned volume involves the expansion of the existing local space for that volume. Conversion from a tiered to locally pinned volume also involves the creation of local space for the resulting locally pinned volume. In both of these operations, creation or expansion of local space is a long running job.
+Da mesma forma, se um volume local existente estiver sendo expandido ou se um volume em camadas estiver sendo convertido em um volume localmente afixado, a criação de um novo volume localmente afixado será enfileirada até que o trabalho anterior seja concluído. A expansão do tamanho de um volume localmente afixado envolve a expansão do espaço local existente para esse volume. A conversão de um volume em camadas em um volume localmente afixado também envolve a criação de espaço local para o volume localmente afixado resultante. Em ambas essas operações, a criação ou a expansão do espaço local é um trabalho de longa execução.
 
-You can view these jobs in the **Jobs** page of the Azure StorSimple Manager service. The job that is actively being processed is continually updated to reflect the progress of space provisioning. The remaining locally pinned volume jobs is marked as running, but their progress is stalled and they are picked in the order they were queued.
+Você pode exibir esses trabalhos na página **Trabalhos** do serviço StorSimple Manager do Azure. O trabalho que está sendo processado ativamente é atualizado de forma contínua para refletir o progresso do provisionamento de espaço. Os trabalhos de volume localmente fixados restantes são marcados como em execução, mas seu progresso é interrompido e eles são selecionados na ordem em que foram colocados na fila.
 
-**Q.** I deleted a locally pinned volume. Why don't I see the reclaimed space reflected in the available space when I try to create a new volume? 
+**P.** Exclui um volume localmente afixado. Por que não vejo o espaço recuperado refletido no espaço disponível ao tentar criar um novo volume?
 
-**A.** If you delete a locally pinned volume, the space available for new volumes may not be updated immediately. The StorSimple Manager Service updates the local space available approximately every hour. We suggest you wait for an hour before you try to create the new volume.
+**A.** Se você excluir um volume fixado local, o espaço disponível para novos volumes pode não ser atualizado imediatamente. O Serviço StorSimple Manager atualiza o espaço local disponível aproximadamente a cada hora. Sugerimos que você aguarde por uma hora antes de tentar criar o novo volume.
 
-**Q.** Are locally pinned volumes supported on the cloud appliance?
+**P.** Os volumes localmente afixados são compatíveis com o dispositivo de nuvem?
 
-**A.** Locally pinned volumes are not supported on the cloud appliance (8010 and 8020 devices formerly referred to as the StorSimple virtual device).
+**A.** Não há suporte para volumes localmente afixados no dispositivo de nuvem (dispositivos 8010 e 8020, conhecidos anteriormente como o dispositivo virtual StorSimple).
 
-**Q.** Can I use the Azure PowerShell cmdlets to create and manage locally pinned volumes? 
+**P.** Posso usar os cmdlets do Azure PowerShell para criar e gerenciar volumes localmente afixados?
 
-**A.** No, you cannot create locally pinned volumes via Azure PowerShell cmdlets (any volume you create via Azure PowerShell is tiered). We also suggest that you do not use the Azure PowerShell cmdlets to modify any properties of a locally pinned volume, as it will have the undesired effect of modifying the volume type to tiered.
+**A.** Não, você não pode criar volumes localmente afixados por meio de cmdlets do Azure PowerShell (qualquer volume criado por meio do Azure PowerShell é em camadas). Também sugerimos que você não use os cmdlets do Azure PowerShell para modificar as propriedades de um volume localmente afixado, pois isso terá o efeito indesejado de modificar o tipo de volume para em camadas.
 
-## <a name="questions-about-backing-up-a-locally-pinned-volume"></a>Questions about backing up a locally pinned volume
+## Perguntas sobre o backup de um volume localmente afixado
 
-**Q.** Are local snapshots of locally pinned volumes supported?
+**P.** Há suporte a instantâneos locais de volumes localmente afixados?
 
-**A.** Yes, you can take local snapshots of your locally pinned volumes. However, we strongly suggest that you regularly back up your locally pinned volumes with cloud snapshots to ensure that your data is protected in the eventuality of a disaster.
+**A.** Sim, você pode criar instantâneos locais de volumes localmente afixados. No entanto, é altamente recomendável fazer o backup regular dos volumes localmente afixados com instantâneos de nuvem para garantir que os dados estejam protegidos na eventualidade de um desastre.
 
-**Q.** Are there any guidelines for managing local snapshots for locally pinned volumes?
+**P.** Há diretrizes para o gerenciamento de instantâneos locais para volumes localmente afixados?
 
-**A.** Frequent local snapshots alongside a high rate of data churn in the locally pinned volume might cause local space on the device to be consumed quickly and result in data from tiered volumes being pushed to the cloud. We therefore suggest you minimize the number of local snapshots.
+**A.** Instantâneos locais frequentes e uma alta taxa de variação de dados no volume localmente afixado podem fazer com que o espaço local do dispositivo seja consumido rapidamente e dados dos volumes em camadas sejam enviados para a nuvem. Portanto, sugerimos que você minimize o número de instantâneos locais.
 
-**Q.** I received an alert stating that my local snapshots of locally pinned volumes might be invalidated. When can this happen?
+**P.** Recebi um alerta informando que meus instantâneos locais de volumes localmente afixados podem ser invalidados. Quando isso acontece?
 
-**A.** Frequent local snapshots alongside a high rate of data churn in the locally pinned volume might cause local space on the device to be consumed quickly. If the local tiers of the device are heavily used, an extended cloud outage might result in the device becoming full, and incoming writes to the volume might result in invalidation of the snapshots (as no space exists to update the snapshots to refer to the older blocks of data that have been overwritten). In such a situation the writes to the volume will continue to be served, but the local snapshots might be invalid. There is no impact to your existing cloud snapshots.
+**A.** Os instantâneos locais frequentes e uma alta taxa de variação de dados no volume localmente afixado podem fazer com que o espaço local no dispositivo seja consumido rapidamente. Se as camadas locais do dispositivo forem usadas intensamente, uma interrupção de nuvem estendida poderá fazer com que o dispositivo fique cheio e as gravações recebidas no volume poderão causar a invalidação dos instantâneos (como não há espaço para atualizar os instantâneos para referir-se aos blocos de dados mais antigos que foram substituídos). Nessa situação, as gravações no volume continuarão a ser feitas, mas os instantâneos locais poderão ser inválidos. Não há impacto sobre os instantâneos de nuvem existentes.
 
-The alert warning is to notify you that such a situation can arise and ensure you address the same in a timely manner by either reviewing your local snapshots schedules to take less frequent local snapshots or deleting older local snapshots that are no longer required.
+O aviso de alerta é para notificá-lo de que essa situação pode ocorrer e garantir que você a aborde oportunamente, examinando as agendas de instantâneos locais para criar instantâneos locais menos frequentes ou excluindo instantâneos locais mais antigos que não são mais necessários.
 
-If the local snapshots are invalidated, you will receive an information alert notifying you that the local snapshots for the specific backup policy have been invalidated alongside the list of timestamps of the local snapshots that were invalidated. These snapshots will be auto-deleted and you will no longer be able to view them in the **Backup Catalogs** page in the Azure classic portal.
+Se os instantâneos locais forem invalidados, você receberá um alerta de informação notificando-o de que os instantâneos locais da política de backup específica foram invalidados, juntamente com a lista de carimbos de data/hora dos instantâneos locais que foram invalidados. Esses instantâneos serão excluídos automaticamente e você já não poderá exibi-los na página **Catálogos de Backup** no portal clássico do Azure.
 
-## <a name="questions-about-converting-a-tiered-volume-to-a-locally-pinned-volume"></a>Questions about converting a tiered volume to a locally pinned volume
+## Perguntas sobre como converter um volume em camadas em um volume localmente afixado
 
-**Q.** I’m observing some slowness on the device while converting a tiered volume to a locally pinned volume. Why is this happening? 
+**P.** Tenho observado uma certa lentidão no dispositivo durante a conversão de um volume em camadas em um volume localmente afixado. Por que isso está acontecendo?
 
-**A.** The conversion process involves two steps: 
+**A.** O processo de conversão envolve duas etapas:
 
-  1. Provisioning of space on the device for the soon-to-be-converted locally pinned volume.
-  2. Downloading any tiered data from the cloud to ensure local guarantees.
+  1. Provisionamento de espaço no dispositivo para o volume localmente afixado que será convertido em breve.
+  2. Download de dados em camadas da nuvem para assegurar que haja garantias locais.
 
-Both of these steps are long running operations that are dependent on the size of the volume being converted, data on the device, and available bandwidth. As some data from existing tiered volumes might spill to the cloud as part of the provisioning process, your device might experience reduced performance during this time. In addition, the conversion process can be slower if:
+Essas duas etapas são operações de longa execução que dependem do tamanho do volume que está sendo convertido, dos dados no dispositivo e da largura de banda disponível. Como alguns dados dos volumes em camadas existentes podem ser colocados na nuvem como parte do processo de provisionamento, o dispositivo poderá ter o desempenho reduzido durante esse período. Além disso, o processo de conversão poderá ser mais lento se:
 
-- Existing volumes have not been backed up to the cloud; so we suggest you backup your volumes prior to initiating a conversion.
+- Se o backup na nuvem dos volumes existentes não tiver sido feito. Portanto, sugerimos que você faça backup dos volumes antes de iniciar uma conversão.
 
-- Bandwidth throttling policies have been applied, which might constrain the available bandwidth to the cloud; we therefore recommend you have a dedicated 40 Mbps or more connection to the cloud.
+- Políticas de limitação de largura de banda foram aplicadas, o que poderá restringir a largura de banda disponível para a nuvem. Portanto, recomendamos que você tenha uma ou mais conexões de 40 Mbps dedicadas para a nuvem.
 
-- The conversion process can take several hours due to the multiple factors explained above; therefore, we suggest that you perform this operation during non-peaks times or on a weekend to avoid the impact on end consumers.
+- O processo de conversão pode levar várias horas devido aos vários fatores explicados anteriormente. Portanto, sugerimos que você execute essa operação fora dos horários de pico ou no fim de semana para evitar o impacto sobre os consumidores finais.
 
-More information on how to [convert a tiered volume to a locally pinned volume](storsimple-manage-volumes-u2.md#change-the-volume-type)
+Mais informações sobre como [converter um volume em camadas em um volume localmente afixado](storsimple-manage-volumes-u2.md#change-the-volume-type)
 
-**Q.** Can I cancel the volume conversion operation?
+**P.** Posso cancelar a operação de conversão de volume?
 
-**A.** No, you cannot the cancel the conversion operation once initiated. As discussed in the previous question, please be aware of the potential performance issues that you might encounter during the process, and follow the best practices listed above when you plan your conversion.
+**A.** Não, você não pode cancelar a operação de conversão depois que ela é iniciada. Conforme discutido na pergunta anterior, tenha em mente os possíveis problemas de desempenho que você poderá encontrar durante o processo e, ao planejar a conversão, siga as práticas recomendadas listadas acima.
 
-**Q.** What happens to my volume if the conversion operation fails?
+**P.** O que acontecerá com o volume se a operação de conversão falhar?
 
-**A.** Volume conversion can fail due to cloud connectivity issues. The device may eventually stop the conversion process after a series of unsuccessful attempts to bring down tiered data from the cloud. In such a scenario, the volume type will continue to be the source volume type prior to conversion, and:
+**A.** A conversão de volume pode falhar devido a problemas de conectividade de nuvem. O dispositivo pode eventualmente parar o processo de conversão após uma série de tentativas malsucedidas de obter dados em camadas da nuvem. Nesse cenário, o tipo de volume continuará a ser o tipo de volume de origem anterior à conversão e:
 
-- A critical alert will be raised to notify you of the volume conversion failure. More information on [alerts related to locally pinned volumes](storsimple-manage-alerts.md#locally-pinned-volume-alerts)
+- Será gerado um alerta crítico para notificá-lo da falha de conversão do volume. Mais informações sobre [alertas relacionados a volumes localmente afixados](storsimple-manage-alerts.md#locally-pinned-volume-alerts)
 
-- If you are converting a tiered to a locally pinned volume, the volume will continue to exhibit properties of a tiered volume as data might still reside on the cloud. We suggest that you resolve the connectivity issues and then retry the conversion operation.
+- Se você estiver convertendo um volume em camadas em um volume localmente afixado, o volume continuará a exibir propriedades de um volume em camadas, pois ainda pode haver dados residentes na nuvem. Sugerimos que você resolva os problemas de conectividade e repita a operação de conversão.
  
-- Similarly, when conversion from a locally pinned to a tiered volume fails, although the volume will be marked as a locally pinned volume, it will function as a tiered volume (because data could have spilled to the cloud). However, it will continue to occupy space on the local tiers of the device. This space will not be available for other locally pinned volumes. We suggest that you retry this operation to ensure that the volume conversion is complete and the local space on the device can be reclaimed.
+- Da mesma forma, quando a conversão de um volume localmente afixado em um volume em camadas falha, embora o volume seja marcado como um volume localmente afixado, ele funcionará como um volume em camadas (porque dados podem ter sido colocados na nuvem). No entanto, ele continuará a ocupar espaço nas camadas locais do dispositivo. Esse espaço não estará disponível para outros volumes localmente afixados. Sugerimos que você repita a operação para garantir que a conversão de volume seja concluída e que o espaço local no dispositivo possa ser recuperado.
 
-## <a name="questions-about-restoring-a-locally-pinned-volume"></a>Questions about restoring a locally pinned volume
+## Perguntas sobre como restaurar um volume localmente afixado
 
-**Q.** Are locally pinned volumes restored instantly?
+**P.** Os volumes localmente afixados são restaurados instantaneamente?
 
-**A.** Yes, locally pinned volumes are restored instantly. As soon as the metadata information for the volume is pulled from the cloud as part of the restore operation, the volume is brought online and can be accessed by the host. However, local guarantees for the volume data will not be present until all the data has been downloaded from the cloud, and you may experience reduced performance on these volumes for the duration of the restore.
+**A.** Sim, os volumes localmente afixados são restaurados instantaneamente. Assim que as informações de metadados do volume são obtidas da nuvem como parte da operação de restauração, o volume é colocado online e pode ser acessado pelo host. No entanto, garantias locais para os dados do volume não estarão presentes até que todos os dados sejam baixado da nuvem. Pode ocorrer redução do desempenho nos volumes durante a restauração.
 
-**Q.** How long does it take to restore a locally pinned volume?
+**P.** Quanto tempo leva para restaurar um volume localmente afixado?
 
-**A.** Locally pinned volumes are restored instantly and brought online as soon as the volume metadata information is retrieved from the cloud, while the volume data continues to be downloaded in the background. This latter part of the restore operation--getting back the local guarantees for the volume data--is a long running operation and might take several hours for all the data to be made local again. The time taken to complete the same depends on multiple factors, such as the size of the volume being restored and the available bandwidth. If the original volume that is being restored has been deleted, additional time will be taken to create the local space on the device as part of the restore operation.
+**A.** Volumes localmente afixados são restaurados instantaneamente e colocados online assim que as informações de metadados do volume são recuperadas da nuvem, enquanto os dados do volume continuam a ser baixados em segundo plano. Essa última parte da operação de restauração (obter de volta as garantias locais para os dados do volume) é uma operação demorada e pode levar várias horas para que todos os dados estejam disponíveis localmente de novo. O tempo necessário para concluir esse mesmo processo depende de vários fatores, como o tamanho do volume que está sendo restaurado e a largura de banda disponível. Se o volume original que está sendo restaurado foi excluído, levará mais tempo para criar o espaço local no dispositivo como parte da operação de restauração.
 
-**Q.** I need to restore my existing locally pinned volume to an older snapshot (taken when the volume was tiered). Will the volume be restored as tiered in this case?
+**P.** Preciso restaurar meu volume localmente afixado existente para um instantâneo mais antigo (obtido quando o volume era em camadas). Nesse caso, o volume será restaurado em camadas?
 
-**A.** No, the volume will be restored as a locally pinned volume. Although the snapshot dates to the time when the volume was tiered, while restoring existing volumes, StorSimple always uses the type of volume on the disk as it exists currently.
+**A.** Não, o volume será restaurado como um volume localmente afixado. Embora o instantâneo seja de quando o volume era em camadas, ao restaurar volumes existentes, o StorSimple sempre usa o tipo de volume no disco da forma como ele existe atualmente.
 
-**Q.** I extended my locally pinned volume recently, but I now need to restore the data to a time when the volume was smaller in size. Will restore resize the current volume and will I need to extend the size of the volume once the restore is completed?
+**P.** Estendi meu volume localmente afixado recentemente, mas agora preciso restaurar os dados para uma hora em que o volume tinha tamanho menor. A restauração redimensionará o volume atual e precisarei estender o tamanho do volume após a restauração ser concluída?
 
-**A.** Yes, the restore will resize the volume, and you will need to extend the size of the volume after the restore is completed.
+**A.** Sim, a restauração redimensionará o volume e você precisará estender o tamanho do volume após a restauração ser concluída.
 
-**Q.** Can I change the type of a volume during restore?
+**P.** Posso alterar o tipo de um volume durante a restauração?
 
-**A.**No, you cannot change the volume type during restore.
+**R.**Não, você não pode alterar o tipo de volume durante a restauração.
 
-- Volumes that have been deleted are restored as the type stored in the snapshot.
+- Os volumes excluídos são restaurados como o tipo armazenado no instantâneo.
 
-- Existing volumes are restored based on their current type, irrespective of the type stored in the snapshot (refer to the previous two questions).
+- Os volumes existentes são restaurados com base em seu tipo atual, independentemente do tipo armazenado no instantâneo (confira as duas perguntas anteriores).
  
-**Q.** I need to restore my locally pinned volume, but I picked an incorrect point in time snapshot. Can I cancel the current restore operation?
+**P.** Preciso restaurar um volume localmente afixado, mas escolhi um ponto incorreto no instantâneo de tempo. Posso cancelar a operação de restauração atual?
 
-**A.** Yes, you can cancel an on-going restore operation. The state of the volume will be rolled back to the state at the start of the restore. However, any writes that were made to the volume while the restore was in progress will be lost.
+**A.** Sim, você pode cancelar uma operação de restauração em andamento. O estado do volume será revertido para o estado do início da restauração. No entanto, as gravações feitas no volume enquanto a restauração estava em andamento serão perdidas.
 
-**Q.** I started a restore operation on one of my locally pinned volumes, and now I see a snapshot in my backlog catalog that I don't recollect creating. What is this used for?
+**P.** Comecei uma operação de restauração em um de meus volumes localmente afixados e agora há um instantâneo no catálogo de lista de pendências que não me lembro de ter criado. Para que isso é usado?
 
-**A.** This is the temporary snapshot that is created prior to the restore operation and is used for rollback in case the restore is canceled or fails. Do not delete this snapshot; it will be automatically deleted when the restore is complete. This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur.
+**A.** Esse é o instantâneo temporário criado antes da operação de restauração que é usado para a reversão, caso a restauração seja cancelada ou falhe. Não exclua esse instantâneo. Ele será automaticamente excluído quando a restauração for concluída. Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá.
 
-**Q.** Can I clone a locally pinned volume?
+**P.** Posso clonar um volume localmente afixado?
 
-**A.** Yes, you can. However, the locally pinned volume will be cloned as a tiered volume by default. More information on how to [clone a  locally pinned volume](storsimple-clone-volume-u2.md)
+**A.** Sim, pode. No entanto, o volume localmente afixado será clonado como um volume em camadas por padrão. Mais informações sobre como [clonar um volume fixo localmente](storsimple-clone-volume-u2.md)
 
-## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>Questions about failing over a locally pinned volume
+## Perguntas sobre como fazer o failover de um volume localmente afixado
 
-**Q.** I need to fail over my device to another physical device. Will my locally pinned volumes be failed over as locally pinned or tiered?
+**P.** Preciso fazer failover de um dispositivo para outro dispositivo físico. O failover será feito nos volumes localmente afixados como localmente afixados ou em camadas?
 
-**A.** Depending on the software version of the target device, locally pinned volumes will be failed over as:
+**A.** Dependendo da versão de software do dispositivo de destino, o failover será feito nos volumes localmente afixados como:
 
-- Locally pinned if the target device is running StorSimple 8000 series update 2
-- Tiered if the target device is running StorSimple 8000 series update 1.x
-- Tiered if the target device is the cloud appliance (software version update 2 or update 1.x)
+- Localmente afixados se o dispositivo de destino estiver executando o StorSimple 8000 series atualização 2
+- Em camadas se o dispositivo de destino estiver executando o StorSimple 8000 series atualização 1.x
+- Em camadas se o dispositivo de destino for o dispositivo de nuvem (atualização da versão do software 2 ou atualização 1.x)
 
-More information on [failover and DR of locally pinned volumes across versions](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions)
+Mais informações sobre [o failover e a DR de volumes fixos localmente entre versões](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions)
 
-**Q.** Are locally pinned volumes instantly restored during disaster recovery (DR)?
+**P.** Os volumes localmente afixados são restaurados instantaneamente durante a RD (recuperação de desastre)?
 
-**A.** Yes, locally pinned volumes are restored instantly during failover. As soon as the metadata information for the volume is pulled from the cloud as part of the failover operation, the volume is brought online on the target device and can be accessed by the host. Meanwhile, the volume data will continue to download in the background, and you may experience reduced performance on these volumes for the duration of the failover.
+**A.** Sim, os volumes localmente afixados são restaurados instantaneamente durante o failover. Assim que as informações de metadados do volume são obtidas da nuvem como parte da operação de failover, o volume é colocado online no dispositivo de destino e pode ser acessado pelo host. Enquanto isso, os dados do volume continuarão a ser baixados em segundo plano e o desempenho poderá ser reduzido nos volumes durante o failover.
 
-**Q.** I see the failover job completed, how can I track the progress of locally pinned volume that is being restored on the target device?
+**P.** Vejo que o trabalho de failover foi concluído. Como posso acompanhar o andamento do volume localmente afixado que está sendo restaurado no dispositivo de destino?
 
-**A.** During a failover operation, the failover job is marked as complete once all the volumes in the failover set have been instantly restored and brought online on the target device. This includes any locally pinned volumes that might have been failed over; however, local guarantees of the data will only be available when all the data for the volume has been downloaded. You can track this progress for each locally pinned volume that was failed over by monitoring the corresponding restore jobs that are created as part of the failover. These individual restore jobs will only be created for locally pinned volumes.
+**A.** Durante uma operação de failover, o trabalho de failover é marcado como concluído depois que todos os volumes no conjunto de failover tiverem sido instantaneamente restaurados e colocados online no dispositivo de destino. Isso inclui todos os volumes localmente afixados que podem ter sido submetidos a failover. No entanto, as garantias locais dos dados só estarão disponíveis quando todos os dados do volume forem baixados. Você pode acompanhar o andamento de cada volume localmente afixado que falhou monitorando os trabalhos de restauração correspondentes que são criados como parte do failover. Esses trabalhos de restauração individuais só serão criados para volumes localmente afixados.
 
-**Q.** Can I change the type of a volume during failover?
+**P.** Posso alterar o tipo de um volume durante o failover?
 
-**A.** No, you cannot change the volume type during a failover. If you are failing over to another physical device that is running StorSimple 8000 series update 2, the volumes will be failed over based on the volume type stored in the snapshot. When failing over to any other device version, refer to the question above on the volume type after a failover.
+**A.** Não, você não pode alterar o tipo de volume durante um failover. Se você estiver fazendo o failover para outro dispositivo físico que esteja executando o StorSimple 8000 series atualização 2, o failover será feito nos volumes com base no tipo de volume armazenado no instantâneo. Ao executar o failover em qualquer outra versão do dispositivo, confira a pergunta acima sobre o tipo de volume após um failover.
 
-**Q.** Can I fail over a volume container with locally pinned volumes to the cloud appliance?
+**P.** Posso fazer o failover em um contêiner de volume com volumes localmente afixados para o dispositivo de nuvem?
 
-**A.** Yes, you can. The locally pinned volumes will be failed over as tiered volumes. More information on [failover and DR of locally pinned volumes across versions](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
+**A.** Sim, pode. Os volumes localmente afixados serão submetidos a failover como volumes em camadas. Mais informações sobre [o failover e a DR de volumes fixos localmente entre versões](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

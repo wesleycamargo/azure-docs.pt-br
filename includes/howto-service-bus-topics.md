@@ -1,61 +1,56 @@
-## <a name="what-are-service-bus-topics-and-subscriptions?"></a>What are Service Bus topics and subscriptions?
+## O que são os tópicos e as assinaturas do Barramento de Serviço?
 
-Service Bus topics and subscriptions support a *publish/subscribe* messaging communication model. When using topics and subscriptions, components of a distributed application do not communicate directly with each other; instead they exchange messages via a topic, which acts as an intermediary.
+Os tópicos e assinaturas do Barramento de Serviço dão suporte a um modelo de comunicação de mensagens de *publicação/assinatura*. Durante o uso de tópicos e assinaturas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, eles trocam mensagens por meio de um tópico, que atua como um intermediário.
 
-![TopicConcepts](./media/howto-service-bus-topics/sb-topics-01.png)
+![Conceitos de tópico](./media/howto-service-bus-topics/sb-topics-01.png)
 
-In contrast with Service Bus queues, in which each message is processed by a single consumer, topics and subscriptions provide a "one-to-many" form of communication, using a publish/subscribe pattern. It is possible to register multiple subscriptions to a topic. When a message is sent to a topic, it is then made available to each subscription to handle/process independently.
+Em contraste com as filas do Barramento de Serviço, em que cada mensagem é processada por um único consumidor, tópicos e assinaturas fornecem uma forma de comunicação de um para muitos usando um padrão de publicação/assinatura. É possível registrar várias assinaturas em um tópico. Quando uma mensagem é enviada a um tópico, é disponibilizada para cada assinatura para ser manipulada/processada de forma independente.
 
-A subscription to a topic resembles a virtual queue that receives copies of the messages that were sent to the topic. You can optionally register filter rules for a topic on a per-subscription basis, which enables you to filter or restrict which messages to a topic are received by which topic subscriptions.
+Uma assinatura de tópico é semelhante a uma fila virtual que recebe cópias das mensagens enviadas para o tópico. Outra opção é registrar regras de filtro para um tópico por assinatura, o que permite que você filtre ou restrinja quais mensagens para um tópico são recebidas por quais assinaturas de tópico.
 
-Service Bus topics and subscriptions enable you to scale and process a very large number of messages across many users and applications.
+As assinaturas e os tópicos do Barramento de Serviço permitem o dimensionamento e o processamento de vários usuários e aplicativos.
 
-## <a name="create-a-namespace"></a>Create a namespace
+## Criar um namespace
 
-To begin using Service Bus topics and subscriptions in Azure, you must first create a *service namespace*. A namespace provides a scoping container for addressing Service Bus resources within your application.
+Para começar a usar as assinaturas e os tópicos do Barramento de Serviço no Azure, primeiro crie um *namespace de serviço*. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
 
-To create a namespace:
+Para criar um namespace:
 
-1. Log on to the [Azure portal][].
+1. Faça logon no [portal do Azure][].
 
-2. In the left navigation pane of the portal, click **New**, then click **Enterprise Integration**, and then click **Service Bus**.
+2. No painel de navegação esquerdo do portal, clique em **Novo**, depois em **Integração Corporativa** e em **Barramento de Serviço**.
 
-4. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
+4. Na caixa de diálogo **Criar um namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
 
-5. After making sure the namespace name is available, choose the pricing tier (Basic, Standard, or Premium).
+5. Depois de verificar se o nome do namespace está disponível, escolha o tipo de preço (Básico, Standard ou Premium).
 
-7. In the **Subscription** field, choose an Azure subscription in which to create the namespace.
+7. No campo **Assinatura**, escolha uma assinatura do Azure na qual criar o namespace.
 
-9. In the **Resource group** field, choose an existing resource group in which the namespace will live, or create a new one.      
+9. No campo **Grupo de Recursos**, escolha um grupo de recursos existente no qual o namespace residirá, ou então crie um novo.
 
-8. In **Location**, choose the country or region in which your namespace should be hosted.
+8. Em **Localização**, escolha o país ou região no qual o namespace deve ser hospedado.
 
-    ![Create namespace][create-namespace]
+	![Criar um namespace][create-namespace]
 
-6. Click the **Create** button. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6. Selecione o botão **Criar**. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
  
-### <a name="obtain-the-credentials"></a>Obtain the credentials
+### Obter as credenciais
 
-1. In the list of namespaces, click the newly created namespace name.
+1. Na lista de namespaces, clique no nome do namespace recém-criado.
  
-3. In the **Service Bus namespace** blade, click **Shared access policies**.
+3. Na folha **Namespace do Barramento de Serviço**, clique em **Políticas de acesso compartilhado**.
 
-4. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
+4. Na folha **políticas de acesso compartilhado**, clique em **RootManageSharedAccessKey**.
 
-    ![connection-info][connection-info]
+	![informações de conexão][connection-info]
 
-5. In the **Policy: RootManageSharedAccessKey** blade, click the copy button next to **Connection string–primary key**, to copy the connection string to your clipboard for later use.
+5. Na folha **Política: RootManageSharedAccessKey**, clique no botão copiar ao lado da **Chave primária da cadeia de conexão** para copiar a cadeia de conexão na área de transferência para uso posterior.
 
-    ![connection-string][connection-string]
+	![connection-string][connection-string]
 
-[Azure portal]: https://portal.azure.com
+[portal do Azure]: https://portal.azure.com
 [create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
 [connection-info]: ./media/howto-service-bus-topics/connection-info.png
 [connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

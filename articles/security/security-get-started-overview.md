@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure security overview | Microsoft Azure"
-   description="The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions."
+   pageTitle="Visão geral de segurança do Azure | Microsoft Azure"
+   description="O site Informações de Segurança do Microsoft Azure em Azure.com é o lugar onde você obterá respostas técnicas para suas perguntas sobre segurança do Azure."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,39 +16,34 @@
    ms.date="08/09/2016"
    ms.author="terrylan"/>
 
+# Visão Geral de segurança do Azure
 
-# <a name="azure-security-overview"></a>Azure security overview
+O site Informações de Segurança do Microsoft Azure em Azure.com é o lugar onde você obterá respostas técnicas para suas perguntas sobre segurança do Azure. Se você estiver interessado na conformidade do Azure e como ele protege sua própria infraestrutura, visite a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/TrustCenter/default.aspx).
 
-The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions. If you are interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
+Sabemos que a segurança é o primeiro trabalho na nuvem e o quanto é importante que você encontre informações precisas e atualizadas sobre a segurança do Azure. Uma das melhores razões para usar o Azure para seus aplicativos e serviços é aproveitar a ampla variedade de ferramentas de segurança e recursos disponíveis. Essas ferramentas e recursos ajudam a tornar possível criar soluções seguras na plataforma segura do Azure.
 
-We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of the wide array of security tools and capabilities available. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform.
+Essa página e este site se desenvolverão quando novos serviços do Azure ficarem online e os serviços existentes forem atualizados. Nossas ofertas de segurança são constantemente aprimoradas e compartilharemos os detalhes técnicos desses aprimoramentos aqui. É recomendável que você retorne a este site regularmente e veja o que há de novo!
 
-This page, and this site, will evolve as new Azure services come online and existing services are updated. Our security offerings constantly improve and we’ll share the technical details of those improvements here. We recommend that you return to this site regularly and see what’s new!
+## Uso do Site de Informações de Segurança do Azure
+Quando você examinar o lado esquerdo da página, verá uma coleção de categorias de tópicos de segurança. Clique ou toque no tópico para ver os artigos que temos para essa categoria.
 
-## <a name="using-the-azure-security-information-site"></a>Using the Azure Security Information Site
-When you look on the left side of the page, you see a collection of categories of security topics. Click or tap the topic to see the articles we have for that category.
+Cada categoria tem um artigo de Visão Geral. A meta do artigo de Visão geral é fornecer um resumo do que o Azure tem a oferecer em termos de segurança para essa categoria. Os artigos de Visão Geral ajudam você a compreender os produtos, serviços e recursos disponíveis no Azure que você pode usar para aprimorar a segurança de suas implantações. Esses artigos de Visão Geral contêm vários links para o conteúdo técnico para que você possa saber mais sobre os tópicos e como implementá-los.
 
-Each category has an Overview article. The goal of the Overview article is to provide you a summary of what Azure has to offer in terms of security for that category. The Overview articles help you understand the products, services, and features available in Azure that you can use to enhance the security of your deployments. These Overview articles contain numerous links to technical content so that you can learn more about the topics and how to implement them.
+Atualmente, o site de Informações de Segurança do Azure aborda as seguintes categorias:
 
-The Azure Security Information site currently addresses the following categories:
+- Recursos
+- Segurança de rede
+- Segurança de armazenamento
+- Segurança de máquina virtual
+- Proteção do ponto de extremidade
+- Gerenciamento e monitoramento de segurança
+- Gerenciamento de identidades
+- Serviços PaaS
+- Específico do setor
+- Arquitetura
 
-- Resources
-- Network security
-- Storage security
-- Virtual machine security
-- Endpoint protection
-- Security management and monitoring
-- Identity management
-- PaaS services
-- Industry specific
-- Architecture
+> [AZURE.NOTE] Todos os artigos do site de Informações de Segurança do Azure aparecem no painel de navegação no lado esquerdo da página. Se você quiser ver todos os artigos, clique ou toque em **Ver Mais** na parte inferior da lista de categorias.
 
-> [AZURE.NOTE] All the articles we have in the Azure Security Information site appear in the navigation on the left side of the page. If you want to see all the articles, click or tap **See More** at the bottom of the categories list.
+Queremos sua opinião! Se houver outras categorias que você deseja que sejam adicionadas, fale conosco! Se houver artigos que você deseja adicionar a uma categoria existente, fale conosco sobre isso também! Você pode usar a seção Comentários abaixo ou escrever para [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) e nos incorporaremos suas recomendações a nossos planos.
 
-We want your input! If there are categories you want added, let us know! If there are articles you want added to an existing category, let us know that too! You can use the Comments section below, or write to us at [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) and we’ll incorporate your recommendations into our plans.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

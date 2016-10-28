@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Disaster Recovery and High Availability for Azure Applications | Microsoft Azure"
-   description="Technical overviews and depth information on designing applications for high availability and disaster recovery of applications built on Microsoft Azure."
+   pageTitle="Recuperação de desastre e alta disponibilidade para aplicativos do Azure | Microsoft Azure"
+   description="Visões gerais técnicas e informações detalhadas sobre como projetar e criar aplicativos para alta disponibilidade e recuperação de desastres no Microsoft Azure."
    services=""
    documentationCenter="na"
    authors="adamglick"
@@ -16,124 +16,119 @@
    ms.date="08/18/2016"
    ms.author="aglick"/>
 
+#Recuperação de desastres e alta disponibilidade para aplicativos baseados no Microsoft Azure
 
-#<a name="disaster-recovery-and-high-availability-for-applications-built-on-microsoft-azure"></a>Disaster recovery and high availability for applications built on Microsoft Azure
+##Introdução
 
-##<a name="introduction"></a>Introduction
+Este artigo se concentra na alta disponibilidade para aplicativos em execução no Azure. Uma estratégia geral para alta disponibilidade também inclui o aspecto de recuperação de desastre. Planejamento para falhas e desastres na nuvem exige que você reconheça as falhas rapidamente. Em seguida, implemente uma estratégia que corresponda a tolerância de tempo de inatividade do aplicativo. Além disso, você deve considerar a extensão da perda de dados que o aplicativo pode tolerar sem causar consequências adversas para os negócios quando forem restaurados.
 
-This article focuses on high availability for applications running in Azure. An overall strategy for high availability also includes the aspect of disaster recovery. Planning for failures and disasters in the cloud requires you to recognize the failures quickly. You then implement a strategy that matches your tolerance for the application’s downtime. Additionally, you have to consider the extent of data loss the application can tolerate without causing adverse business consequences as it is restored.
+A maioria das empresas afirma que está preparada para falhas temporárias e em larga escala. No entanto, antes de responder essa pergunta por você mesmo, sua empresa ensaia essas falhas? Você testa a recuperação de bancos de dados para garantir que os processos corretos estejam em vigor? Provavelmente, não. Isso ocorre porque a recuperação de desastre começa com muito planejamento e arquitetura para implementar esses processos. Assim como muitos outros requisitos não funcionais, como segurança, a recuperação de desastres raramente obtém análise antecipada e a alocação de tempo necessária. Além disso, a maioria das empresas não tem o orçamento para regiões geograficamente distribuídas com capacidade redundante. Consequentemente, mesmo os aplicativos essenciais são excluídos com frequência do planejamento apropriado de recuperação de desastre.
 
-Most companies say they are prepared for temporary and large-scale failures. However, before you answer that question for yourself, does your company rehearse these failures? Do you test the recovery of databases to ensure you have the correct processes in place? Probably not. That’s because successful disaster recovery starts with lots of planning and architecting to implement these processes. Just like many other non-functional requirements, such as security, disaster recovery rarely gets the up-front analysis and time allocation it requires. Also, most companies don’t have the budget for geographically distributed regions with redundant capacity. Consequently, even mission critical applications are frequently excluded from proper disaster recovery planning.
+Plataformas de nuvem, como o Azure, fornecem regiões geograficamente dispersas em todo o mundo. Essas plataformas também fornecem recursos que são compatíveis com a disponibilidade e uma variedade de cenários de recuperação de desastre. Agora, cada aplicativo de nuvem crítico pode receber devida atenção para a verificação de desastres do sistema. O Azure tem resiliência e recuperação de desastre internas para muitos de seus serviços. Você deve estudar os recursos dessa plataforma cuidadosamente e complementar com estratégias de aplicativo.
 
-Cloud platforms, such as Azure, provide geographically dispersed regions around the world. These platforms also provide capabilities that support availability and a variety of disaster recovery scenarios. Now, every mission critical cloud application can be given due consideration for disaster proofing of the system. Azure has resiliency and disaster recovery built in to many of its services. You must study these platform features carefully, and supplement with application strategies.
+Este artigo descreve as etapas de arquitetura necessárias que você deve seguir para verificação de desastres em uma implantação do Azure. Em seguida, você pode implementar o processo maior de continuidade de negócios. Um plano de continuidade de negócios é um roteiro para continuar as operações sob condições adversas. Isso pode ser uma falha com a tecnologia, como um serviço inativo ou um desastre natural, como uma interrupção de energia ou um temporal. Resiliência de aplicativo para desastres é apenas um subconjunto do processo maior de recuperação de desastre, conforme descrito neste documento do NIST: [Contingency Planning Guide for Information Technology Systems](https://www.fismacenter.com/sp800-34.pdf) (Guia de planejamento de contingência para sistemas de tecnologia da informação).
 
-This article outlines the necessary architecture steps you must take to disaster-proof an Azure deployment. Then you can implement the larger business continuity process. A business continuity plan is a roadmap for continuing operations under adverse conditions. This could be a failure with technology, such as a downed service, or a natural disaster, such as a storm or power outage. Application resiliency for disasters is only a subset of the larger disaster recovery process, as described in this NIST document: [Contingency Planning Guide for Information Technology Systems](https://www.fismacenter.com/sp800-34.pdf).
+As seções a seguir definem níveis diferentes de falhas, técnicas para lidar com elas e arquiteturas que dão suporte a essas técnicas. Essas informações fornecem a entrada para seus processos e procedimentos de recuperação de desastre, a fim de garantir que a estratégia de recuperação de desastre funcione de maneira correta e eficiente.
 
-The following sections define different levels of failures, techniques to deal with them, and architectures that support these techniques. This information provides input to your disaster recovery processes and procedures, to ensure your disaster recovery strategy works correctly and efficiently.
+##Características de aplicativos de nuvem resilientes
 
-##<a name="characteristics-of-resilient-cloud-applications"></a>Characteristics of resilient cloud applications
+Um aplicativo bem projetado pode suportar falhas de capacidade em um nível tático e também pode tolerar falhas estratégicas de todo o sistema no nível de região. As seções a seguir definem a terminologia referenciada em todo o documento para descrever os vários aspectos dos serviços de nuvem resilientes.
 
-A well architected application can withstand capability failures at a tactical level, and it can also tolerate strategic system-wide failures at the region level. The following sections define the terminology referenced throughout the document to describe various aspects of resilient cloud services.
+###Alta disponibilidade
 
-###<a name="high-availability"></a>High availability
+Um aplicativo em nuvem altamente disponível implementa estratégias para absorver a interrupção das dependências, como os serviços gerenciados oferecidos pela plataforma de nuvem. Apesar de possíveis falhas de capacidades da plataforma de nuvem, essa abordagem permite que o aplicativo continue a exibir características sistêmicas funcionais e não funcionais esperadas. Isso é abordado detalhadamente na série de vídeos do Channel 9 [Failsafe: Guidance for Resilient Cloud Architectures](https://channel9.msdn.com/Series/FailSafe) (À prova de falhas: orientação para arquiteturas de nuvem resilientes).
 
-A highly available cloud application implements strategies to absorb the outage of dependencies, like the managed services offered by the cloud platform. Despite possible failures of the cloud platform’s capabilities, this approach permits the application to continue to exhibit the expected functional and non-functional systemic characteristics. This is covered in-depth in the Channel 9 video series, [Failsafe: Guidance for Resilient Cloud Architectures](https://channel9.msdn.com/Series/FailSafe).
+Quando você implementa o aplicativo, deve considerar a probabilidade de uma interrupção de capacidade. Além disso, considere o impacto que uma interrupção terá sobre o aplicativo da perspectiva dos negócios antes de se aprofundar nas estratégias de implementação. Sem a devida atenção ao impacto nos negócios e a probabilidade de atingir a condição de risco, a implementação pode ser caro e potencialmente desnecessária.
 
-When you implement the application, you must consider the probability of a capability outage. Additionally, consider the impact an outage will have on the application from the business perspective, before diving deep into the implementation strategies. Without due consideration to the business impact and the probability of hitting the risk condition, the implementation can be expensive and potentially unnecessary.
+Considere uma analogia automotiva para alta disponibilidade. Até mesmo peças de qualidade e engenharia avançada não impedem falhas ocasionais. Por exemplo, quando seu carro tem um pneu furado, o carro ainda funciona, mas está operando com funcionalidade degradada. Se você estiver preparado para essa ocorrência potencial, poderá usar um dos pneus sobressalentes de aro fino até chegar a uma oficina. Embora o pneu sobressalente não permita rodar em alta velocidade, você ainda pode operar o veículo até você substituir o pneu. Da mesma forma, um serviço de nuvem preparado para potencial perda de capacidade pode impedir que um problema relativamente pequeno interrompa o aplicativo inteiro. Isso será verdadeiro mesmo se o serviço de nuvem for executado com funcionalidade degradada.
 
-Consider an automotive analogy for high availability. Even quality parts and superior engineering does not prevent occasional failures. For example, when your car gets a flat tire, the car still runs, but it is operating with degraded functionality. If you planned for this potential occurrence, you can use one of those thin-rimmed spare tires until you reach a repair shop. Although the spare tire does not permit fast speeds, you can still operate the vehicle until you replace the tire. Similarly, a cloud service that plans for potential loss of capabilities can prevent a relatively minor problem from bringing down the entire application. This is true even if the cloud service must run with degraded functionality.
+Há algumas características principais de serviços de nuvem altamente disponíveis: disponibilidade, escalabilidade e tolerância a falhas. Embora essas características estejam correlacionadas, é importante entender cada uma e como elas contribuem para a disponibilidade geral da solução.
 
-There are a few key characteristics of highly available cloud services: availability, scalability, and fault tolerance. Although these characteristics are interrelated, it is important to understand each, and how they contribute to the overall availability of the solution.
+###Disponibilidade
 
-###<a name="availability"></a>Availability
+Um aplicativo disponível considera a disponibilidade da infraestrutura subjacente e serviços dependentes. Os aplicativos disponíveis removem pontos únicos de falha por meio de redundância e design resiliente. Quando você amplia o escopo para considerar a disponibilidade no Azure, é importante entender o conceito da disponibilidade efetiva da plataforma. A disponibilidade efetiva considera os SLA (Contratos de Nível de Serviço) de cada serviço dependente e seu efeito cumulativo na disponibilidade total do sistema.
 
-An available application considers the availability of its underlying infrastructure and dependent services. Available applications remove single points of failure through redundancy and resilient design. When you broaden the scope to consider availability in Azure, it is important to understand the concept of the effective availability of the platform. Effective availability considers the Service Level Agreements (SLA) of each dependent service, and their cumulative effect on the total system availability.
+Disponibilidade do sistema é a medida do percentual de uma janela de tempo em que o sistema será capaz de operar. Por exemplo, o SLA de disponibilidade de pelo menos duas instâncias de uma função de trabalho ou web no Azure é de 99,95% (em 100%). Ela não mede o desempenho nem a funcionalidade dos serviços executados nessas funções. No entanto, a disponibilidade efetiva do serviço de nuvem também é afetada pelos diversos SLAs dos outros serviços dependentes. Quanto mais partes móveis no sistema, mais cuidado você deve tomar para garantir que o aplicativo atenda, com resiliência, os requisitos de disponibilidade dos usuários finais.
 
-System availability is the measure of the percentage of a time window the system will be able to operate. For example, the availability SLA of at least two instances of a web or worker role in Azure is 99.95 percent (out of 100 percent). It does not measure the performance or functionality of the services running on those roles. However, the effective availability of your cloud service is also affected by the various SLAs of the other dependent services. The more moving parts within the system, the more care you must take to ensure the application can resiliently meet the availability requirements of its end users.
+Considere os seguintes SLAs para um serviço do Azure que usa os serviços do Azure: computação, banco de dados SQL e armazenamento do Azure.
 
-Consider the following SLAs for an Azure service that uses Azure services: Compute, Azure SQL Database, and Azure Storage.
-
-|Azure service|SLA   |Potential minutes downtime/month (30 days)|
+|Serviço do Azure|Contrato de Nível de Serviço |Possíveis minutos de tempo de inatividade/mês (30 dias)|
 |:------------|:-----|:----------------------------------------:|
-|Compute      |99.95%|21.6 minutes                              |
-|SQL Database |99.99%|4.3  minutes                              |
-|Storage      |99.90%|43.2 minutes                              |
+|Computação |99,95%|21,6 minutos |
+|Banco de Dados SQL |99,99%|4,3 minutos |
+|Armazenamento |99,90%|43,2 minutos |
 
-You must plan for all services to potentially go down at different times. In this simplified example, the total number of minutes per month that the application could be down is 108 minutes. A 30-day month has a total of 43,200 minutes. 108 minutes is .25 percent of the total number of minutes in a 30-day month (43,200 minutes). This gives you an effective availability of 99.75 percent for the cloud service.
+Você deve planejar para inatividade de todos os serviços em momentos diferentes. Neste exemplo simplificado, o número total de minutos por mês em que o aplicativo pode estar inativo é 108 minutos. Um mês de 30 dias tem um total de 43.200 minutos. 108 minutos é 0,25% do número total de minutos em um mês de 30 dias (43.200 minutos). Isso fornece uma disponibilidade efetiva de 99,75% para o serviço de nuvem.
 
-However, using availability techniques described in this paper can improve this. For example, if you design your application to continue running when the SQL Database is unavailable, you can remove that from the equation. This might mean that the application runs with reduced capabilities, so there are also business requirements to consider. For a complete list of Azure SLAs, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+No entanto, o uso de técnicas de disponibilidade descritas neste documento pode aumentar esse valor. Por exemplo, se você projetar seu aplicativo para continuar a execução quando o banco de dados SQL não estiver disponível, poderá remover isso da equação. Isso pode significar que o aplicativo é executado com capacidades reduzidas, portanto, também há requisitos de negócios a considerar. Para obter uma lista completa de SLAs do Azure, confira [Contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/).
 
-###<a name="scalability"></a>Scalability
+###Escalabilidade
 
-Scalability directly affects availability. An application that fails under increased load is no longer available. Scalable applications are able to meet increased demand with consistent results, in acceptable time windows. When a system is scalable, it scales horizontally or vertically to manage increases in load while maintaining consistent performance. In basic terms, horizontal scaling adds more machines of the same size (processor, memory, and bandwidth), while vertical scaling increases the size of the existing machines. For Azure, you have vertical scaling options for selecting various machine sizes for compute. However, changing the machine size requires a re-deployment. Therefore, the most flexible solutions are designed for horizontal scaling. This is especially true for compute, because you can easily increase the number of running instances of any web or worker role. These additional instances handle increased traffic through the Azure Web portal, PowerShell scripts, or code. Base this decision on increases in specific monitored metrics. In this scenario, user performance or metrics do not suffer a noticeable drop under load. Typically, the web and worker roles store any state externally. This allows for flexible load balancing and graceful handling of any changes to instance counts. Horizontal scaling also works well with services, such as Azure Storage, which do not provide tiered options for vertical scaling.
+A escalabilidade afeta a disponibilidade diretamente. Um aplicativo que falha com uma carga maior não está mais disponível. Aplicativos escalonáveis podem atender à demanda maior com resultados consistentes, em janelas de tempo aceitáveis. Quando um sistema é escalonável, ele é dimensionado horizontal ou verticalmente para gerenciar o aumento de carga, mantendo o desempenho consistente. Em termos básicos, o escalonamento horizontal adiciona mais computadores do mesmo tamanho (processador, memória e largura de banda) e o escalonamento vertical aumenta o tamanho dos computadores existentes. Para o Azure, você tem opções de escala vertical para selecionar vários tamanhos de máquina para computação. No entanto, alterar o tamanho da máquina exige uma reimplantação. Portanto, as soluções mais flexíveis são projetadas para escala horizontal. Isso é especialmente verdadeiro para a computação, pois você pode facilmente aumentar o número de instâncias em execução de qualquer função web ou de trabalho. Essas instâncias adicionais tratam o aumento do tráfego por meio do portal da Web do Azure, scripts do PowerShell ou código. Baseie essa decisão nos aumentos em métricas monitoradas específicas. Nesse cenário, o desempenho do usuário ou as métricas não sofrem uma queda perceptível sob carga. Normalmente, as funções da Web e de trabalho armazenam qualquer estado externamente. Isso permite o balanceamento de carga flexível e manipulação normal de qualquer alteração em contagens da instância. Escala horizontal também funciona bem com serviços, como o armazenamento do Azure, que não fornece opções em camadas para a escala vertical.
 
-Cloud deployments should be seen as a collection of scale-units. This allows the application to be elastic in servicing the throughput needs of end users. The scale units are easier to visualize at the web and application server level. This is because Azure already provides stateless compute nodes through web and worker roles. Adding more compute scale-units to the deployment will not cause any application state management side effects, because compute scale-units are stateless. A storage scale-unit is responsible for managing a partition of data (structured or unstructured). Examples of storage scale-units include Azure Table partition, Azure Blob container, and Azure SQL Database. Even the usage of multiple Azure Storage accounts has a direct impact on the application scalability. You must design a highly scalable cloud service to incorporate multiple storage scale-units. For instance, if an application uses relational data, partition the data across several SQL databases. Doing so allows the storage to keep up with the elastic compute scale-unit model. Similarly, Azure Storage allows data partitioning schemes that require deliberate designs to meet the throughput needs of the compute layer. For a list of best practices for designing scalable cloud services, see [Best Practices for the Design of Large-Scale Services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/).
+Implantações de nuvem devem ser vistas como uma coleção de unidades de escala. Isso permite que o aplicativo seja elástico em atender às necessidades de produtividade dos usuários finais. As unidades de escala são mais fáceis de visualizar no nível do servidor Web e de aplicativos. Isso ocorre porque o Azure já fornece nós de computação sem estado por meio de funções Web e de trabalho. A adição de unidades de escala de computação à implantação não causará nenhum efeito colateral de gerenciamento de estado de aplicativo porque as unidades de escala de computação são sem estado. Uma unidade de escala de armazenamento é responsável por gerenciar uma partição de dados (estruturados ou não). Partição de tabela, contêiner de Blobs e Banco de Dados SQL do Azure são exemplos de unidades de escala de armazenamento. Até mesmo o uso de várias contas de armazenamento do Azure tem um impacto direto na escalabilidade do aplicativo. Você deve criar um serviço de nuvem altamente escalonável para incorporar várias unidades de escala de armazenamento. Por exemplo, se um aplicativo usar dados relacionais, particione os dados entre vários bancos de dados SQL. Isso permite que o armazenamento acompanhe o modelo de unidade de escala de computação elástica. Da mesma forma, o armazenamento do Azure permite esquemas de particionamento de dados que exigem designs deliberados para atender às necessidades de produtividade da camada de computação. Para obter uma lista de práticas recomendadas para a criação de serviços de nuvem escalonáveis, confira [Best Practices for the Design of Large-Scale Services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/) (Práticas recomendadas para design de serviços em larga escala nos Serviços de Nuvem do Azure).
 
-###<a name="fault-tolerance"></a>Fault tolerance
+###Tolerância a falhas
 
-Applications should assume that every dependent cloud capability can and will go down at some point in time. A fault tolerant application detects and maneuvers around failed elements, to continue and return the correct results within a specific timeframe. For transient error conditions, a fault tolerant system will employ a retry policy. For more serious faults, the application can detect problems and fail over to alternative hardware or contingency plans until the failure is corrected. A reliable application can properly manage the failure of one or more parts, and continue operating properly. Fault tolerant applications can use one or more design strategies, such as redundancy, replication, or degraded functionality.
+Os aplicativos devem considerar que cada capacidade de nuvem dependente poderá e ficará inativa em algum momento. Um aplicativo tolerante a falhas detecta e corrige elementos com falha para prosseguir e retornar os resultados corretos em um período específico. Para condições de erro transitórias, um sistema tolerante a falhas empregará uma política de repetição. Para falhas mais graves, o aplicativo pode detectar problemas e fazer failover para hardware alternativo ou planos de contingência até corrigir a falha. Um aplicativo confiável pode gerenciar adequadamente a falha de uma ou mais partes e continuar operando corretamente. Aplicativos com tolerância a falhas podem usar uma ou mais estratégias de design, como redundância, replicação ou funcionalidade degradada.
 
-##<a name="disaster-recovery"></a>Disaster recovery
+##Recuperação de desastre
 
-A cloud deployment might cease to function due to a systemic outage of the dependent services or the underlying infrastructure. Under such conditions, a business continuity plan triggers the disaster recovery process. This process typically involves both operations personnel and automated procedures in order to reactivate the application in an available region. This requires the transfer of application users, data, and services to the new region. It also involves the use of backup media or ongoing replication.
+Uma implantação de nuvem pode parar de funcionar devido a uma interrupção sistêmica dos serviços dependentes ou d infraestrutura subjacente. Nessas circunstâncias, um plano de continuidade de negócios dispara o processo de recuperação de desastre. Esse processo normalmente envolve a equipe de operações e procedimentos automatizados para reativar o aplicativo em uma região disponível. Isso exige a transferência de usuários, dados e serviços do aplicativo para a nova região. Também envolve o uso de mídia de backup ou replicação contínua.
 
-Consider the previous analogy that compared high availability to the ability to recover from a flat tire through the use of a spare. In contrast, disaster recovery involves the steps taken after a car crash, where the car is no longer operational. In that case, the best solution is to find an efficient way to change cars, by calling a travel service or a friend. In this scenario, there is likely going to be a longer delay in getting back on the road. There is also more complexity in repairing and returning to the original vehicle. In the same way, disaster recovery to another region is a complex task that typically involves some downtime and potential loss of data. To better understand and evaluate disaster recovery strategies, it is important to define two terms: recovery time objective (RTO) and recovery point objective (RPO).
+Considere a analogia anterior que comparou a alta disponibilidade com a capacidade de recuperação de um pneu furado usando um sobressalente. Por outro lado, a recuperação de desastre envolve as etapas executadas após um acidente de carro, em que o carro não está mais funcionando. Nesse caso, a melhor solução é encontrar uma forma eficiente de trocar de carro, chamando um serviço de viagem ou um amigo. Nesse cenário, provavelmente haverá um atraso maior em voltar à estrada. Existe também maior complexidade no reparo e retorno ao veículo original. Da mesma forma, a recuperação de desastres em outra região é uma tarefa complexa que geralmente envolve algum tempo de inatividade e perda de dados. Para melhor compreender e avaliar as estratégias de recuperação de desastres, é importante definir dois termos: RTO (Objetivo do Tempo de Recuperação) e RPO (Objetivo do Ponto de Recuperação).
 
-###<a name="recovery-time-objective"></a>Recovery time objective
+###Objetivo de tempo de recuperação
 
-The RTO is the maximum amount of time allocated for restoring application functionality. This is based on business requirements, and it is related to the importance of the application. Critical business applications require a low RTO.
+O RTO é a quantidade máxima de tempo alocada para restaurar a funcionalidade do aplicativo. Isso tem base nas necessidades dos negócios e está relacionado à importância do aplicativo. Aplicativos de negócios críticos exigem um baixo RTO.
 
-###<a name="recovery-point-objective"></a>Recovery point objective
+###Objetivo de ponto de recuperação
 
-The RPO is the acceptable time window of lost data due to the recovery process. For example, if the RPO is one hour, you must completely back up or replicate the data at least every hour. Once you bring up the application in an alternate region, the backup data may be missing up to an hour of data. Like RTO, critical applications target a much smaller RPO.
+O RPO é a janela de tempo aceitável de perda de dados devido ao processo de recuperação. Por exemplo, se o RPO for de uma hora, você deverá fazer backup completo ou replicar os dados pelo menos a cada hora. Depois de colocar o aplicativo em uma região alternativa, poderá haver até uma hora de dados de backup. Como o RTO, os aplicativos críticos visam um RPO bem menor.
 
-##<a name="checklist"></a>Checklist
+##Lista de verificação
 
-Let’s summarize the key points that have been covered in this article (and its related articles on [high availability](./resiliency-high-availability-azure-applications.md) and [disaster recovery](./resiliency-disaster-recovery-azure-applications.md) for Azure applications). This summary will act as a checklist of items you should consider for your own availability and disaster recovery planning. These are best practices that have been useful for customers seeking to get serious about implementing a successful solution.
+Vamos resumir os principais pontos que foram abordados neste artigo (e seus artigos relacionados sobre aplicativos de [alta disponibilidade](./resiliency-high-availability-azure-applications.md) e [recuperação de desastre](./resiliency-disaster-recovery-azure-applications.md) do Azure). Este resumo atuará como uma lista de verificação de itens que você deve considerar para sua própria disponibilidade e planejamento de recuperação de desastres. Essas são as práticas recomendadas úteis para clientes que buscam seriedade na implementação de uma solução bem-sucedida.
 
-1. Conduct a risk assessment for each application, because each can have different requirements. Some applications are more critical than others and would justify the extra cost to architect them for disaster recovery.
-1. Use this information to define the RTO and RPO for each application.
-1. Design for failure, starting with the application architecture.
-1. Implement best practices for high availability, while balancing cost, complexity, and risk.
-1. Implement disaster recovery plans and processes.
-  * Consider failures that span the module level all the way to a complete cloud outage.
-  * Establish backup strategies for all reference and transactional data.
-  * Choose a multi-site disaster recovery architecture.
-1. Define a specific owner for disaster recovery processes, automation, and testing. The owner should manage and own the entire process.
-1. Document the processes so they are easily repeatable. Although there is one owner, multiple people should be able to understand and follow the processes in an emergency.
-1. Train the staff to implement the process.
-1. Use regular disaster simulations for both training and validation of the process.
+1. Faça uma avaliação de risco para cada aplicativo, pois cada um pode ter requisitos diferentes. Alguns aplicativos são mais críticos e justificariam o custo extra de planejá-los para recuperação de desastres.
+1. Use essas informações para definir o RTO e RPO de cada aplicativo.
+1. Projete para falhas, começando com a arquitetura do aplicativo.
+1. Implemente as práticas recomendadas para alta disponibilidade, equilibrando o custo, a complexidade e o risco.
+1. Implemente processos e planos de recuperação de desastres.
+  * Considere falhas que abranjam o módulo até uma interrupção total da nuvem.
+  * Estabeleça estratégias de backup para todos os dados de referência e transacionais.
+  * Escolha uma arquitetura de recuperação de desastres em vários locais.
+1. Defina um proprietário específico para processos de recuperação de desastres, automação e testes. O proprietário deve gerenciar e possuir todo o processo.
+1. Documente os processos para que sejam repetidos com facilidade. Embora haja um único proprietário, várias pessoas devem ser capazes de entender e seguir os processos em uma emergência.
+1. Treine a equipe para implementar o processo.
+1. Use regularmente simulações de desastres para treinamento e validação do processo.
 
-##<a name="summary"></a>Summary
+##Resumo
 
-When hardware or applications fail within Azure, the techniques and strategies for managing them are different than when failure occurs on on-premises systems. The main reason for this is that cloud solutions typically have more dependencies on infrastructure that is distributed across an Azure region, and managed as separate services. You must deal with partial failures using high availability techniques. To manage more severe failures, possibly due to a disaster event, use disaster recovery strategies.
+Quando o hardware ou aplicativos falham dentro do Azure, as técnicas e estratégias para gerenciá-los são diferentes de quando ocorre falha em sistemas locais. O principal motivo para isso é que as soluções de nuvem geralmente têm mais dependências na infraestrutura que são distribuídas entre uma região do Azure e gerenciada como serviços separados. Você deve lidar com falhas parciais usando técnicas de alta disponibilidade. Para gerenciar falhas mais graves, possivelmente devido a um evento de desastre, use estratégias de recuperação de desastres.
 
-Azure detects and handles many failures, but there are many types of failures that require application-specific strategies. You must actively prepare for and manage the failures of applications, services, and data.
+O Azure detecta e trata muitas falhas, mas há muitos tipos de falhas que exigem estratégias específicas do aplicativo. Ativamente, você deve preparar e gerenciar as falhas de aplicativos, serviços e dados.
 
-When creating your application’s availability and disaster recovery plan, consider the business consequences of the application’s failure. Defining the processes, policies, and procedures to restore critical systems after a catastrophic event takes time, planning, and commitment. And once you establish the plans, you cannot stop there. You must regularly analyze, test, and continually improve the plans based on your application portfolio, business needs, and the technologies available to you. Azure provides new capabilities and raises new challenges to creating robust applications that withstand failures.
+Ao criar seu plano de recuperação de desastres e disponibilidade do aplicativo, considere as consequências da falha do aplicativo nos negócios. A definição de processos, políticas e procedimentos para restaurar sistemas críticos após um evento catastrófico consome tempo, planejamento e compromisso. E depois de estabelecer os planos, você não pode parar por aqui. Você deve analisar regularmente, testar e melhorar continuamente os planos com base em seu portfólio de aplicativos, necessidades de negócios e tecnologias disponíveis para você. O Azure fornece novos recursos e lança novos desafios para criar aplicativos avançados resistentes a falhas.
 
-##<a name="additional-resources"></a>Additional resources
+##Recursos adicionais
 
-[High availability for applications built on Microsoft Azure](resiliency-high-availability-azure-applications.md)
+[Alta disponibilidade para aplicativos baseados no Microsoft Azure](resiliency-high-availability-azure-applications.md)
 
-[Disaster recovery for applications built on Microsoft Azure](resiliency-disaster-recovery-azure-applications.md)
+[Recuperação de desastre para aplicativos criados no Microsoft Azure](resiliency-disaster-recovery-azure-applications.md)
 
-[Azure resiliency technical guidance](resiliency-technical-guidance.md)
+[Orientações técnicas de resiliência do Azure](resiliency-technical-guidance.md)
 
-[Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md)
+[Visão geral: continuidade de negócios em nuvem e recuperação de desastre do banco de dados com o banco de dados SQL](../sql-database/sql-database-business-continuity.md)
 
-[High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md)
+[Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md)
 
-[Failsafe: Guidance for resilient cloud architectures](https://channel9.msdn.com/Series/FailSafe)
+[Failsafe: Diretrizes para arquiteturas de nuvem resilientes](https://channel9.msdn.com/Series/FailSafe)
 
-[Best Practices for the design of large-scale services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/)
+[Práticas recomendadas para serviços em grande escala nos Serviços de nuvem do Azure](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/)
 
-##<a name="next-steps"></a>Next steps
+##Próximas etapas
 
-This article is part of a series of articles focused on disaster recovery and high availability for Azure applications. The next article in this series is [High availability for applications built on Microsoft Azure](resiliency-high-availability-azure-applications.md).
+Este artigo faz parte de uma série de artigos com foco na recuperação de desastres e alta disponibilidade para aplicativos do Azure. O próximo artigo desta série é [Alta disponibilidade para aplicativos baseados no Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

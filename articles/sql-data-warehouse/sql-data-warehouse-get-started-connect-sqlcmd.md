@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Query Azure SQL Data Warehouse (sqlcmd)| Microsoft Azure"
-   description="Querying Azure SQL Data Warehouse with the sqlcmd Command-line Utility."
+   pageTitle="Consultar o SQL Data Warehouse do Azure (sqlcmd)| Microsoft Azure"
+   description="Como consultar o SQL Data Warehouse do Azure com o Utilitário de linha de comando sqlcmd."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -16,51 +16,50 @@
    ms.date="09/06/2016"
    ms.author="barbkess;sonyama"/>
 
-
-# <a name="query-azure-sql-data-warehouse-(sqlcmd)"></a>Query Azure SQL Data Warehouse (sqlcmd)
+# Consultar o SQL Data Warehouse do Azure (sqlcmd)
 
 > [AZURE.SELECTOR]
 - [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Aprendizado de Máquina do Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-This walkthrough uses the [sqlcmd][] command-line utility to query an Azure SQL Data Warehouse.  
+Este passo a passo usa o utilitário da linha de comando [sqlcmd][] para consultar um SQL Data Warehouse do Azure.
 
-## <a name="1.-connect"></a>1. Connect
+## 1\. Connect
 
-To get started with [sqlcmd][], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database. The connection string requires the following parameters:
+Para começar com o [sqlcmd][], abra o prompt de comando e digite **sqlcmd** seguido da cadeia de conexão do banco de dados SQL Data Warehouse. A cadeia de conexão precisará dos seguintes parâmetros:
 
-+ **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
-+ **Database (-d):** Database name.
-+ **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL Data Warehouse instance.
++ **Servidor (-S):** Servidor no formato `<`Nome do servidor`>`.database.windows.net
++ **Banco de dados (-d):** nome do banco de dados.
++ **Habilitar Identificadores com Cotas (-I):** os identificadores com cotas devem ser habilitados para conectarem uma instância do SQL Data Warehouse.
 
-To use SQL Server Authentication, you need to add the username/password parameters:
+Para usar a Autenticação do SQL Server, você precisa adicionar os parâmetros do nome de usuário/senha:
 
-+ **User (-U):** Server user in the form `<`User`>`
-+ **Password (-P):** Password associated with the user.
++ **Usuário (-U):** usuário do servidor no formato `<`Usuário`>`
++ **Senha (-P):** senha associada ao usuário.
 
-For example, your connection string might look like the following:
+Por exemplo, a cadeia de conexão pode parecer com o seguinte:
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-To use Azure Active Directory Integrated authentication, you need to add the Azure Active Directory parameters:
+Para usar a autenticação Integrada do Azure Active Directory, você precisa adicionar os parâmetros do Azure Active Directory:
 
-+ **Azure Active Directory Authentication (-G):** use Azure Active Directory for authentication
++ **Autenticação do Azure Active Directory (-G):** usar o Azure Active Directory para a autenticação
 
-For example, your connection string might look like the following:
+Por exemplo, a cadeia de conexão pode parecer com o seguinte:
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
-> [AZURE.NOTE] You need to [enable Azure Active Directory Authentication](sql-data-warehouse-authentication.md) to authenticate using Active Directory.
+> [AZURE.NOTE] Você precisa [habilitar a Autenticação do Azure Active Directory](sql-data-warehouse-authentication.md) para autenticar usando o Active Directory.
 
-## <a name="2.-query"></a>2. Query
+## 2\. Consultar
 
-After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode.
+Após a conexão, você pode executar quaisquer instruções Transact-SQL compatíveis com a instância. Neste exemplo, as consultas são enviadas no modo interativo.
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -69,7 +68,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 3> QUIT
 ```
 
-These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd.
+Os próximos exemplos mostram como você pode executar as consultas no modo de lote usando a opção -Q ou direcionando o SQL para sqlcmd.
 
 ```sql
 sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
@@ -79,9 +78,9 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-See [sqlcmd documentation][sqlcmd] for more about details about the options available in sqlcmd.
+Veja a [documentação do sqlcmd][sqlcmd] para obter mais detalhes sobre as opções disponíveis no sqlcmd.
 
 <!--Image references-->
 
@@ -93,8 +92,4 @@ See [sqlcmd documentation][sqlcmd] for more about details about the options avai
 
 <!--Other Web references-->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

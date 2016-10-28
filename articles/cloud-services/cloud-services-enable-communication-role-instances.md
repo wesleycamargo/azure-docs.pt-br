@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Communication for Roles in Cloud Services | Microsoft Azure" 
-description="Role instances in Cloud Services can have endpoints (http, https, tcp, udp) defined for them that communicate with the outside or between other role instances." 
+pageTitle="Comunicação para funções nos Serviços de Nuvem | Microsoft Azure" 
+description="As instâncias de função nos Serviços de Nuvem podem ter pontos de extremidade (http, https, tcp, udp) definidos que se comunicam com a parte externa ou entre outras instâncias de função." 
 services="cloud-services" 
 documentationCenter="" 
 authors="Thraka" 
@@ -15,18 +15,17 @@ ms.topic="article"
 ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
+# Habilitar a comunicação para instâncias de função no Azure
 
-# <a name="enable-communication-for-role-instances-in-azure"></a>Enable communication for role instances in azure
-
-Cloud service roles communicate through internal and external connections. External connections are called **input endpoints** while internal connections are called **internal endpoints**. This topic describes how to modify the [service definition](cloud-services-model-and-package.md#csdef) to create endpoints.
+As funções de serviço de nuvem se comunicam por meio de conexões internas e externas. As conexões externas são chamadas de **pontos de extremidade de entrada**, enquanto as conexões internas são chamadas de **pontos de extremidade internos**. Este tópico descreve como modificar a [definição de serviço](cloud-services-model-and-package.md#csdef) para criar pontos de extremidade.
 
 
-## <a name="input-endpoint"></a>Input endpoint
-The input endpoint is used when you want to expose a port to the outside. You specify the protocol type and the port of the endpoint which then applies for both the external and internal ports for the endpoint. If you want, you can specify a different internal port for the endpoint with the [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) attribute.
+## Ponto de extremidade de entrada
+O ponto de extremidade de entrada é usado quando você deseja expor uma porta para o exterior. Você especifica o tipo de protocolo e a porta do ponto de extremidade e então o aplica às portas externa e interna do ponto de extremidade. Se desejar, você pode especificar uma porta interna diferente para o ponto de extremidade com o atributo [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint).
 
-The input endpoint can use the following protocols: **http, https, tcp, udp**.
+O ponto de extremidade de entrada pode usar os seguintes protocolos: **http, https, tcp, udp**.
 
-To create an input endpoint, add the **InputEndpoint** child element to the **Endpoints** element of either a web or worker role.
+Para criar um ponto de extremidade de entrada, adicione o elemento filho **InputEndpoint** ao elemento **Endpoints** de uma função Web ou de trabalho.
 
 ```xml
 <Endpoints>
@@ -34,12 +33,12 @@ To create an input endpoint, add the **InputEndpoint** child element to the **En
 </Endpoints> 
 ```
 
-## <a name="instance-input-endpoint"></a>Instance input endpoint
-Instance input endpoints are similar to input endpoints but allows you map specific public-facing ports for each individual role instance by using port forwarding on the load balancer. You can specify a single public-facing port, or a range of ports.
+## Ponto de extremidade de entrada de instância
+Os pontos de extremidade de entrada de instância são semelhantes aos pontos de extremidade de entrada, mas permitem que você mapeie portas voltadas para o público específicas para cada instância de função individual usando o encaminhamento de porta no balanceador de carga. Você pode especificar uma única porta voltada para o público ou um intervalo de portas.
 
-The instance input endpoint can only use **tcp** or **udp** as the protocol.
+O ponto de extremidade de entrada de instância só pode usar **tcp** ou **udp** como o protocolo.
 
-To create an instance input endpoint, add the **InstanceInputEndpoint** child element to the **Endpoints** element of either a web or worker role.
+Para criar um ponto de extremidade de entrada de instância, adicione o elemento filho **InstanceInputEndpoint** ao elemento **Endpoints** de uma função Web ou de trabalho.
 
 ```xml
 <Endpoints>
@@ -51,12 +50,12 @@ To create an instance input endpoint, add the **InstanceInputEndpoint** child el
 </Endpoints>
 ```
 
-## <a name="internal-endpoint"></a>Internal endpoint
-Internal endpoints are available for instance-to-instance communication. The port is optional and if omitted, a dynamic port is assigned to the endpoint. A port range can be used. There is a limit of five internal endpoints per role.
+## Ponto de extremidade interno
+Os pontos de extremidade internos estão disponíveis para a comunicação entre instâncias. A porta é opcional e, se for omitida, uma porta dinâmica será atribuída ao ponto de extremidade. Um intervalo de portas pode ser usado. Há um limite de cinco pontos de extremidade internos por função.
 
-The internal endpoint can use the following protocols: **http, tcp, udp, any**.
+O ponto de extremidade interno pode usar os seguintes protocolos: **http, tcp, udp, any**.
 
-To create an internal input endpoint, add the **InternalEndpoint** child element to the **Endpoints** element of either a web or worker role.
+Para criar um ponto de extremidade de entrada interno, adicione o elemento filho **InternalEndpoint** ao elemento **Endpoints** de uma função Web ou de trabalho.
 
 ```xml
 <Endpoints>
@@ -64,7 +63,7 @@ To create an internal input endpoint, add the **InternalEndpoint** child element
 </Endpoints> 
 ```
 
-You can also use a port range.
+Você também pode usar um intervalo de portas.
 
 ```xml
 <Endpoints>
@@ -75,9 +74,9 @@ You can also use a port range.
 ```
 
 
-## <a name="worker-roles-vs.-web-roles"></a>Worker roles vs. Web roles
+## Funções de trabalho versus Funções da Web
 
-There is one minor difference with endpoints when working with both worker and web roles. The web role must have at minimum a single input endpoint using the **HTTP** protocol.
+Há uma diferença mínima em relação aos pontos de extremidade quando você trabalha com as funções Web e de trabalho. A função Web deve ter pelo menos um ponto de extremidade de entrada único usando o protocolo **HTTP**.
 
 
 ```xml
@@ -87,26 +86,26 @@ There is one minor difference with endpoints when working with both worker and w
 </Endpoints>
 ```
 
-## <a name="using-the-.net-sdk-to-access-an-endpoint"></a>Using the .NET SDK to access an endpoint
-The Azure Managed Library provides methods for role instances to communicate at runtime. From code running within a role instance, you can retrieve information about the existence of other role instances and their endpoints, as well as information about the current role instance.
+## Usando o SDK do .NET para acessar um ponto de extremidade
+A Biblioteca Gerenciada do Azure fornece métodos para que instâncias de função se comuniquem no tempo de execução. A partir da execução de código em uma instância de função, você poderá recuperar informações sobre a existência de outras instâncias de função e de seus pontos de extremidade, bem como informações sobre a instância de função atual.
 
-> [AZURE.NOTE] You can only retrieve information about role instances that are running in your cloud service and that define at least one internal endpoint. You cannot obtain data about role instances running in a different service.
+> [AZURE.NOTE] Você só pode recuperar informações sobre instâncias de função que estejam sendo executadas em seu serviço de nuvem e que definam pelo menos um ponto de extremidade interno. Não é possível obter dados sobre instâncias de função que estejam sendo executadas em um serviço diferente.
 
-You can use the [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) property to retrieve instances of a role. First use the [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) to return a reference to the current role instance, and then use the [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) property to return a reference to the role itself.
+Você pode usar a propriedade [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) para recuperar instâncias de uma função. Primeiro use [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) para retornar uma referência à instância da função atual e use a propriedade [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) para retornar uma referência à função propriamente dita.
 
-When you connect to a role instance programmatically through the .NET SDK, it's relatively easy to access the endpoint information. For example, after you've already connected to a specific role environment, you can get the port of a specific endpoint with this code:
+Quando você se conecta a uma instância de função programaticamente por meio do SDK do .NET, é relativamente fácil de acessar as informações do ponto de extremidade. Por exemplo, depois que você tiver se conectado a um ambiente de função específico, poderá obter a porta de um ponto de extremidade específico com este código:
 
 ```csharp
 int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].IPEndpoint.Port;
 ```
 
-The **Instances** property returns a collection of **RoleInstance** objects. This collection always contains the current instance. If the role does not define an internal endpoint, the collection includes the current instance but no other instances. The number of role instances in the collection will always be 1 in the case where no internal endpoint is defined for the role. If the role defines an internal endpoint, its instances are discoverable at runtime, and the number of instances in the collection will correspond to the number of instances specified for the role in the service configuration file.
+A propriedade **Instances** retorna uma coleção de objetos **RoleInstance**. Esta coleção sempre contém a instância atual. Se a função não definir um ponto de extremidade interno, a coleção incluirá a instância atual, mas nenhuma outra instância. O número de instâncias de função na coleção sempre será 1 quando nenhum ponto de extremidade interno for definido para a função. Se a função definir um ponto de extremidade interno, suas instâncias serão descobríveis no tempo de execução e o número de instâncias na coleção corresponderá ao número de instâncias especificadas para a função no arquivo de configuração de serviço.
 
-> [AZURE.NOTE] The Azure Managed Library does not provide a means of determining the health of other role instances, but you can implement such health assessments yourself if your service needs this functionality. You can use [Azure Diagnostics](cloud-services-dotnet-diagnostics.md) to obtain information about running role instances.
+> [AZURE.NOTE] A Biblioteca Gerenciada do Azure não oferece um meio de determinar a integridade de outras instâncias de função, mas você pode implementar essas avaliações de integridade caso o serviço precise dessa funcionalidade. Você pode usar o [Diagnóstico do Azure](cloud-services-dotnet-diagnostics.md) para obter informações sobre as instâncias de função em execução.
 
-To determine the port number for an internal endpoint on a role instance, you can use the [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) property to return a Dictionary object that contains endpoint names and their corresponding IP addresses and ports. The [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) property returns the IP address and port for a specified endpoint. The **PublicIPEndpoint** property returns the port for a load balanced endpoint. The IP address portion of the **PublicIPEndpoint** property is not used.
+Para determinar o número da porta de um ponto de extremidade interno em uma instância de função, você poderá usar a propriedade [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) para retornar um objeto de Dicionário que contenha nomes de ponto de extremidade e seus endereços IP e portas correspondentes. A propriedade [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) retorna o endereço IP e a porta de um ponto de extremidade especificado. A propriedade **PublicIPEndpoint** retorna a porta de um ponto de extremidade com balanceamento de carga. A parte do endereço IP da propriedade **PublicIPEndpoint** não é usada.
 
-Here is an example that iterates role instances.
+Veja um exemplo que itera instâncias de função.
 
 ```csharp
 foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Instances)
@@ -119,9 +118,9 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 }
 ```
 
-Here is an example of a worker role that gets the endpoint exposed through the service definition and starts listening for connections.
+Veja um exemplo de função de trabalho que expõe o ponto de extremidade por meio da definição de serviço e começa a escutar conexões.
 
-> [AZURE.WARNING] This code will only work for a deployed service. When running in the Azure Compute Emulator, service configuration elements that create direct port endpoints (**InstanceInputEndpoint** elements) are ignored.
+> [AZURE.WARNING] Este código só funcionará para um serviço implantado. Quando executados no Emulador de Computação do Azure, os elementos de configuração de serviço que criam pontos de extremidade de porta direta (elementos **InstanceInputEndpoint**) são ignorados.
 
 ```csharp
 using System;
@@ -207,12 +206,12 @@ namespace WorkerRole1
 }
 ```
 
-## <a name="network-traffic-rules-to-control-role-communication"></a>Network traffic rules to control role communication
-After you define internal endpoints, you can add network traffic rules (based on the endpoints that you created) to control how role instances can communicate with each other. The following diagram shows some common scenarios for controlling role communication:
+## Regras de tráfego de rede para controlar a comunicação de função
+Depois de definir pontos de extremidade internos, você poderá adicionar regras de tráfego de rede (com base nos pontos de extremidade que você criou) para controlar como as instâncias de função podem se comunicar umas com os outras. O diagrama a seguir mostra alguns cenários comuns para o controle da comunicação de função:
 
-![Network Traffic Rules Scenarios](./media/cloud-services-enable-communication-role-instances/scenarios.png "Network Traffic Rules Scenarios")
+![Cenários de regras de tráfego de rede](./media/cloud-services-enable-communication-role-instances/scenarios.png "Cenários de regras de tráfego de rede")
 
-The following code example shows role definitions for the roles shown in the previous diagram. Each role definition includes at least one internal endpoint defined:
+O exemplo de código a seguir mostra as definições de função das funções mostradas no diagrama anterior. Cada definição de função inclui pelo menos um ponto de extremidade interno definido:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -243,12 +242,12 @@ The following code example shows role definitions for the roles shown in the pre
 </ServiceDefinition>
 ```
 
-> [AZURE.NOTE] Restriction of communication between roles can occur with internal endpoints of both fixed and automatically assigned ports.
+> [AZURE.NOTE] A restrição de comunicação entre funções pode ocorrer com pontos de extremidade internos de portas fixas e atribuídas automaticamente.
 
-By default, after an internal endpoint is defined, communication can flow from any role to the internal endpoint of a role without any restrictions. To restrict communication, you must add a **NetworkTrafficRules** element to the **ServiceDefinition** element in the service definition file.
+Por padrão, após a definição de um ponto de extremidade interno, a comunicação poderá fluir de qualquer função para o ponto de extremidade interno de uma função sem qualquer restrição. Para restringir a comunicação, você deverá adicionar um elemento **NetworkTrafficRules** ao elemento **ServiceDefinition** no arquivo de definição de serviço.
 
-### <a name="scenario-1"></a>Scenario 1
-Only allow network traffic from **WebRole1** to **WorkerRole1**.
+### Cenário 1
+Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -266,8 +265,8 @@ Only allow network traffic from **WebRole1** to **WorkerRole1**.
 </ServiceDefinition>
 ```
 
-### <a name="scenario-2"></a>Scenario 2
-Only allows network traffic from **WebRole1** to **WorkerRole1** and **WorkerRole2**.
+### Cenário 2
+Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1** e **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -285,8 +284,8 @@ Only allows network traffic from **WebRole1** to **WorkerRole1** and **WorkerRol
 </ServiceDefinition>
 ```
 
-### <a name="scenario-3"></a>Scenario 3
-Only allows network traffic from **WebRole1** to **WorkerRole1**, and **WorkerRole1** to **WorkerRole2**.
+### Cenário 3
+Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1** e de **WorkerRole1** para **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -314,8 +313,8 @@ Only allows network traffic from **WebRole1** to **WorkerRole1**, and **WorkerRo
 </ServiceDefinition>
 ```
 
-### <a name="scenario-4"></a>Scenario 4
-Only allows network traffic from **WebRole1** to **WorkerRole1**, **WebRole1** to **WorkerRole2**, and **WorkerRole1** to **WorkerRole2**.
+### Cenário 4
+Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1**, de **WebRole1** para **WorkerRole2** e de **WorkerRole1** para **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -355,12 +354,9 @@ Only allows network traffic from **WebRole1** to **WorkerRole1**, **WebRole1** t
 </ServiceDefinition>
 ```
 
-An XML schema reference for the elements used above can be found [here](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+Veja uma referência de esquema XML para os elementos usados acima [aqui](https://msdn.microsoft.com/library/azure/gg557551.aspx).
 
-## <a name="next-steps"></a>Next steps
-Read more about the Cloud Service [model](cloud-services-model-and-package.md).
+## Próximas etapas
+Leia mais sobre o [modelo](cloud-services-model-and-package.md) de Serviço de Nuvem.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

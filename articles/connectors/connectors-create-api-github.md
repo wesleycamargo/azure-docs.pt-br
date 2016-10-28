@@ -1,10 +1,10 @@
 <properties
 pageTitle="GitHub | Microsoft Azure"
-description="Create Logic apps with Azure App service. GitHub is a web-based Git repository hosting service. It offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features."
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+description="Crie Aplicativos Lógicos com o serviço de Aplicativo do Azure. O GitHub é um serviço de hospedagem do repositório Git baseado na Web. Ele oferece toda a funcionalidade de controle de revisão distribuída e de SCM (gerenciamento do código-fonte) do Git, além de adicionar seus próprios recursos."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,164 +17,160 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
+# Introdução ao conector do GitHub
 
-# <a name="get-started-with-the-github-connector"></a>Get started with the GitHub connector
+O GitHub é um serviço de hospedagem do repositório Git baseado na Web. Ele oferece toda a funcionalidade de controle de revisão distribuída e de SCM (gerenciamento do código-fonte) do Git, além de adicionar seus próprios recursos.
 
-GitHub is a web-based Git repository hosting service. It offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features.
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
+É possível começar criando um Aplicativo Lógico agora; veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Gatilhos e ações
 
-## <a name="triggers-and-actions"></a>Triggers and actions
+O conector do GitHub pode ser usado como uma ação: ele tem um ou mais gatilhos. Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
-The GitHub connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+ O conector do GitHub contém as seguintes ações e/ou gatilhos disponíveis:
 
- The GitHub connector has the following action(s) and/or trigger(s) available:
+### Ações do GitHub
+Você pode executar as seguintes ações:
 
-### <a name="github-actions"></a>GitHub actions
-You can take these action(s):
-
-|Action|Description|
+|Ação|Descrição|
 |--- | ---|
-|[CreateIssue](connectors-create-api-github.md#createissue)|Creates an issue|
-### <a name="github-triggers"></a>GitHub triggers
-You can listen for these event(s):
+|[CreateIssue](connectors-create-api-github.md#createissue)|Cria um problema|
+### Gatilhos do GitHub
+Você pode escutar estes eventos:
 
-|Trigger | Description|
+|Gatilho | Descrição|
 |--- | ---|
-|When an issue is opened|An issue is opened|
-|When an issue is closed|An issue is closed|
-|When an issue is assigned|An issue is assigned|
+|Quando um problema é aberto|Um problema é aberto|
+|Quando um problema é fechado|Um problema é fechado|
+|Quando um problema é atribuído|Um problema é atribuído|
 
 
-## <a name="create-a-connection-to-github"></a>Create a connection to GitHub
-To create Logic apps with GitHub, you must first create a **connection** then provide the details for the following properties: 
+## Criar uma conexão com o GitHub
+Para criar Aplicativos Lógicos com o GitHub, primeiro, você deve criar uma **conexão** e, em seguida, fornecer os detalhes das seguintes propriedades:
 
-|Property| Required|Description|
+|Propriedade| Obrigatório|Descrição|
 | ---|---|---|
-|Token|Yes|Provide GitHub Credentials|
-After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
+|Token|Sim|Fornecer as credenciais do GitHub|
+Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
 
->[AZURE.INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o GitHub](../../includes/connectors-create-api-github.md)]
 
->[AZURE.TIP] You can use this connection in other logic apps.
+>[AZURE.TIP] Você pode usar essa conexão em outros aplicativos lógicos.
 
-## <a name="reference-for-github"></a>Reference for GitHub
-Applies to version: 1.0
+## Referência do GitHub
+Aplica-se à versão: 1.0
 
-## <a name="createissue"></a>CreateIssue
-Create an issue: Creates an issue 
+## CreateIssue
+Criar um problema: cria um problema
 
-```POST: /repos/{repositoryOwner}/{repositoryName}/issues``` 
+```POST: /repos/{repositoryOwner}/{repositoryName}/issues```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|repositoryOwner|string|yes|path|none|Repository owner|
-|repositoryName|string|yes|path|none|Repository name|
-|issueBasicDetails| |yes|body|none|Issue details|
+|repositoryOwner|string|sim|path|nenhum|Proprietário do repositório|
+|repositoryName|string|sim|path|nenhum|Nome do repositório|
+|issueBasicDetails| |sim|corpo|nenhum|Detalhes do problema|
 
-#### <a name="response"></a>Response
+#### Resposta
 
-|Name|Description|
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|400|Solicitação incorreta|
+|401|Não Autorizado|
+|403|Proibido|
+|404|Não encontrado|
+|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
+|padrão|Falha na Operação.|
 
 
-## <a name="issueopened"></a>IssueOpened
-When an issue is opened: An issue is opened 
+## IssueOpened
+Quando um problema é aberto: um problema é aberto
 
-```GET: /trigger/issueOpened``` 
+```GET: /trigger/issueOpened```
 
-There are no parameters for this call
-#### <a name="response"></a>Response
+Não há parâmetros para essa chamada
+#### Resposta
 
-|Name|Description|
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|400|Solicitação incorreta|
+|401|Não Autorizado|
+|403|Proibido|
+|404|Não encontrado|
+|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
+|padrão|Falha na Operação.|
 
 
-## <a name="issueclosed"></a>IssueClosed
-When an issue is closed: An issue is closed 
+## IssueClosed
+Quando um problema é fechado: um problema é fechado
 
-```GET: /trigger/issueClosed``` 
+```GET: /trigger/issueClosed```
 
-There are no parameters for this call
-#### <a name="response"></a>Response
+Não há parâmetros para essa chamada
+#### Resposta
 
-|Name|Description|
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|400|Solicitação incorreta|
+|401|Não Autorizado|
+|403|Proibido|
+|404|Não encontrado|
+|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
+|padrão|Falha na Operação.|
 
 
-## <a name="issueassigned"></a>IssueAssigned
-When an issue is assigned: An issue is assigned 
+## IssueAssigned
+Quando um problema é atribuído: um problema é atribuído
 
-```GET: /trigger/issueAssigned``` 
+```GET: /trigger/issueAssigned```
 
-There are no parameters for this call
-#### <a name="response"></a>Response
+Não há parâmetros para essa chamada
+#### Resposta
 
-|Name|Description|
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|400|Solicitação incorreta|
+|401|Não Autorizado|
+|403|Proibido|
+|404|Não encontrado|
+|500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
+|padrão|Falha na Operação.|
 
 
-## <a name="object-definitions"></a>Object definitions 
+## Definições de objeto 
 
-### <a name="issuebasicdetailsmodel"></a>IssueBasicDetailsModel
+### IssueBasicDetailsModel
 
 
-| Property Name | Data Type | Required |
+| Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
-|title|string|Yes |
-|body|string|Yes |
-|assignee|string|Yes |
+|título|string|Sim |
+|corpo|string|Sim |
+|assignee|string|Sim |
 
 
 
-### <a name="issuedetailsmodel"></a>IssueDetailsModel
+### IssueDetailsModel
 
 
-| Property Name | Data Type | Required |
+| Nome da Propriedade | Tipo de Dados | Obrigatório |
 |---|---|---|
-|title|string|Yes |
-|body|string|Yes |
-|assignee|string|Yes |
-|number|string|No |
-|state|string|No |
-|created_at|string|No |
-|repository_url|string|No |
+|título|string|Sim |
+|corpo|string|Sim |
+|assignee|string|Sim |
+|número|string|Não |
+|state|string|Não |
+|created\_at|string|Não |
+|repository\_url|string|Não |
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## Próximas etapas
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

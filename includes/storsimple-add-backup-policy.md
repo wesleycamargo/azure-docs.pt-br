@@ -1,25 +1,19 @@
 
 <!--author=alkohli last changed: 9/11/15-->
 
-#### <a name="to-add-a-storsimple-backup-policy"></a>To add a StorSimple backup policy
+#### Para adicionar uma política de backup do StorSimple
 
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
+1. Na página **Início Rápido** do dispositivo, clique na guia **Políticas de Backup**. Isso o levará para a página **Políticas de Backup**.
 
-2. At the bottom of the page, click **Add**.
+2. Na parte inferior da página, clique em **Adicionar**.
 
-3. In the **Add Backup Policy** dialog box, do the following:
+3. Na caixa de diálogo **Adicionar Política de Backup**, faça o seguinte:
 
-    1. Specify a backup policy name that contains between 3 and 150 characters.
-    2. Assign one or more volumes to this backup policy. If you are using other cloud service providers, based on your first selection, the drop-down list will show volumes belonging to only that cloud service provider. This will allow you to group volumes belonging to a single cloud service provider for taking a snapshot.
-    3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to save the policy.
+    1. Especifique um nome que contenha de 3 a 150 caracteres para sua política de backup.
+    2. Atribua um ou mais volumes a essa política de backup. Se estiver usando outros provedores de serviços de nuvem, com base em sua primeira seleção, a lista suspensa mostrará os volumes que pertencem apenas a esse provedor de serviços de nuvem. Isso permitirá que você agrupe os volumes pertencentes a um único provedor de serviços de nuvem para tirar um instantâneo.
+    3. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) para salvar a política.
 
-The newly added policy will be displayed in the tabular view on the **Backup Policies** page.
+A política recém-adicionada será exibida no modo de exibição tabular na página **Políticas de Backup**.
  
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

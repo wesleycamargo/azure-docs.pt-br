@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using the SMTP Connector in Logic Apps | Microsoft Azure App Service"
-   description="How to create and configure the SMTP Connector or API app and use it in a logic app in Azure App Service"
+   pageTitle="Usando o Conector SMTP em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
+   description="Como criar e configurar o Conector SMTP ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
@@ -17,18 +17,14 @@
    ms.author="deonhe"/>
 
 
+# Melhoramos o conector SMTP 
 
-# <a name="we've-improved-the-smtp-connector"></a>We've improved the SMTP connector 
-
-We've removed the content (which targeted Logic apps version 2014-12-01-preview) from this page because this connector has been upgraded and is now only supported on the new [Logic Apps schema version 2015-08-01-preview](./app-service-logic-schema-2015-08-01.md) and later. 
-
-
-## <a name="next-steps"></a>Next steps    
-
-- [Learn more about the this new connector](../connectors/connectors-create-api-smtp.md)
-- See [the full list](../connectors/apis-list.md) of all connectors that run on the new Logic Apps schema version 2015-08-01-preview  
+Removemos o conteúdo (que se destinava à versão 2014-12-01-preview dos Aplicativos Lógicos) desta página porque esse conector foi atualizado e agora tem suporte apenas na nova [versão de esquema 2015-08-01-preview dos Aplicativos Lógicos](./app-service-logic-schema-2015-08-01.md) e posterior.
 
 
-<!--HONumber=Oct16_HO2-->
+## Próximas etapas    
 
+- [Saiba mais sobre o novo conector](../connectors/connectors-create-api-smtp.md)
+- Veja [a lista completa](../connectors/apis-list.md) de todos os conectores que são executados na nova versão de esquema 2015-08-01-preview dos Aplicativos Lógicos
 
+<!---HONumber=AcomDC_0803_2016-->

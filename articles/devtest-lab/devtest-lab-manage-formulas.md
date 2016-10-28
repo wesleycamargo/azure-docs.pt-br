@@ -1,157 +1,153 @@
 <properties
-    pageTitle="Manage formulas in Azure DevTest Labs to create VMs | Microsoft Azure"
-    description="Learn how to create, update, and remove Azure DevTest Labs formulas, and use them to create new VMs."
-    services="devtest-lab,virtual-machines"
-    documentationCenter="na"
-    authors="tomarcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Gerenciar fórmulas no Azure DevTest Labs para criar VMs | Microsoft Azure"
+	description="Aprenda a criar, atualizar e remover fórmulas do Azure DevTest Labs e a usá-las para criar novas VMs."
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="devtest-lab"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/30/2016"
-    ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/30/2016"
+	ms.author="tarcher"/>
 
+# Gerenciar fórmulas de Laboratórios de Desenvolvimento/Teste para criar VMs
 
-# <a name="manage-devtest-labs-formulas-to-create-vms"></a>Manage DevTest Labs formulas to create VMs
+Uma fórmula no Azure DevTest Labs é uma lista de valores de propriedade padrão usados para criar uma VM (máquina virtual). Ao se criar uma VM com base em uma fórmula, os valores padrão podem ser usados como estão ou ser modificados. Assim como as [imagens personalizadas](./devtest-lab-create-template.md) e as [imagens do Marketplace](./devtest-lab-configure-marketplace-images.md), as fórmulas fornecem um mecanismo para o provisionamento rápido de VMs.
 
-A formula in Azure DevTest Labs is a list of default property values used to create a virtual machine (VM). When creating a VM from a formula, the default values can be used as-is, or modified. Like [custom images](./devtest-lab-create-template.md) and [Marketplace images](./devtest-lab-configure-marketplace-images.md), formulas provide a mechanism for fast VM provisioning.  
+Neste artigo, você aprenderá a realizar as seguintes tarefas:
 
-In this article, you'll learn how to perform the following tasks:
+- [Criar uma fórmula](#create-a-formula)
+- [Usar uma fórmula para provisionar uma VM](#use-a-formula-to-provision-a-vm)
+- [Modificar uma Fórmula](#modify-a-formula)
+- [Excluir uma fórmula](#delete-a-formula)
 
-- [Create a formula](#create-a-formula)
-- [Use a formula to provision a VM](#use-a-formula-to-provision-a-vm)
-- [Modify a formula](#modify-a-formula)
-- [Delete a formula](#delete-a-formula)
+> [AZURE.NOTE] As fórmulas – assim como as [imagens personalizadas](./devtest-lab-create-template.md) – permitem que você crie uma imagem base de um arquivo VHD. A imagem base pode, então, ser usada para provisionar uma nova VM. Para ajudar a decidir o que é melhor para seu ambiente específico, confira o artigo [Comparar imagens e fórmulas personalizadas em Laboratórios de Desenvolvimento/Teste](./devtest-lab-comparing-vm-base-image-types.md).
 
-> [AZURE.NOTE] Formulas - like [custom images](./devtest-lab-create-template.md) - enable you to create a base image from a VHD file. The base image can then be used to provision a new VM. To help decide which is right for your particular environment, refer to the article, [Comparing custom images and formulas in DevTest Labs](./devtest-lab-comparing-vm-base-image-types.md).
+## Criar uma fórmula
+Qualquer pessoa com permissões de *Usuários* no DevTest Labs pode criar VMs usando uma fórmula como base. Existem duas maneiras de criar fórmulas:
 
-## <a name="create-a-formula"></a>Create a formula
-Anyone with DevTest Labs *Users* permissions is able to create VMs using a formula as a base. There are two ways to create formulas: 
+- De uma base – use quando quiser definir todas as características da fórmula.
+- Com base em uma VM de laboratório existente: use quando desejar criar uma fórmula com base nas configurações de uma VM existente.
 
-- From a base - Use when you want to define all the characteristics of the formula.
-- From an existing lab VM - Use when you want to create a formula based on the settings of an existing VM.
+### Criar uma fórmula de uma base
+As etapas a seguir o orientarão no processo de criação de uma fórmula usando uma imagem personalizada, uma imagem do Marketplace ou outra fórmula.
 
-### <a name="create-a-formula-from-a-base"></a>Create a formula from a base
-The following steps guide you through the process of creating a formula from a custom image, Marketplace image, or another formula.
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Selecione **Mais Serviços** e selecione **DevTest Labs** na lista.
 
-1. Select **More Services**, and then select **DevTest Labs** from the list.
+1. Na lista de laboratórios, selecione o laboratório desejado.
 
-1. From the list of labs, select the desired lab.  
+1. Na folha do laboratório, selecione **Fórmulas (bases reutilizáveis)**.
 
-1. On the lab's blade, select **Formulas (reusable bases)**.
+    ![Menu Fórmula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 
-    ![Formula menu](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
+1. Na folha **Fórmulas do laboratório**, selecione **+ Adicionar**.
 
-1. On the **Lab formulas** blade, select **+ Add**.
+    ![Adicionar uma fórmula](./media/devtest-lab-manage-formulas/add-formula.png)
 
-    ![Add a formula](./media/devtest-lab-manage-formulas/add-formula.png)
+1. Na folha **Escolher uma base**, selecione a base (imagem personalizada, imagem do Marketplace ou fórmula) por meio da qual você deseja criar a fórmula.
 
-1. On the **Choose a base** blade, select the base (custom image, Marketplace image, or formula) from which you want to create the formula.
+    ![Lista de base](./media/devtest-lab-manage-formulas/base-list.png)
 
-    ![Base list](./media/devtest-lab-manage-formulas/base-list.png)
+1. Na folha **Criar fórmula**, especifique os seguintes valores:
 
-1. On the **Create formula** blade, specify the following values:
+	- **Nome da fórmula** – digite um nome para a fórmula. Esse valor será exibido na lista de imagens de base quando você criar uma máquina virtual. O nome é validado durante a digitação e, se não servir, uma mensagem indicará os requisitos para um nome válido.
+	- **Descrição** – digite uma descrição relevante para a fórmula. Esse valor está disponível no menu de contexto da fórmula quando você cria uma VM.
+	- **Nome de usuário** – digite um nome de usuário que receberá privilégios de administrador.
+	- **Senha** – digite – ou selecione na lista suspensa – um valor associado ao segredo (senha) que você deseja usar para o usuário especificado.
+	- **Imagem** – este campo exibe o nome da imagem de base que você selecionou na folha anterior.
+	- **Tamanho da máquina virtual** – selecione um dos itens predefinidos que especificam os núcleos de processador, o tamanho da RAM e o tamanho do disco rígido da VM a ser criada.
+	- **Rede virtual** – especifique a rede virtual desejada.
+	- **Sub-rede** – especifique a sub-rede desejada.
+	- **Endereço IP público** – se a política de laboratório for definida para permitir endereços IP públicos para a sub-rede selecionada, especifique se você deseja que o endereço IP seja público selecionando **Sim** ou **Não**. Caso contrário, essa opção será desabilitada e selecionada como **Não**.
+	- **Artefatos** – selecione e configure os artefatos que você deseja adicionar à imagem base. Valores de cadeias de caracteres seguras não são salvos com a fórmula. Portanto, os parâmetros de artefato que são cadeias de caracteres seguras não são exibidos.
 
-    - **Formula name** - Enter a name for your formula. This value will be displayed in the list of base images when you create a VM. The name is validated as you type it, and if not valid, a message will indicate the requirements for a valid name.
-    - **Description** - Enter a meaningful description for your formula. This value is available from the formula's context menu when you create a VM.
-    - **User name** - Enter a user name that will be granted administrator privileges.
-    - **Password** - Enter - or select from the dropdown - a value that is associated with the secret (password) that you want to use for the specified user.  
-    - **Image** - This field displays name of the base image you selected on the previous blade. 
-    - **Virtual machine size** - Select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
-    - **Virtual network** - Specify the desired virtual network.
-    - **Subnet** - Specify the desired subnet.
-    - **Public IP address** - If the lab policy is set to allow public IP addresses for the selected subnet, specify whether you want the IP address to be public by selecting either **Yes** or **No**. Otherwise, this option is disabled and selected as **No**.
-    - **Artifacts** - Select and configure the artifacts that you want to add to the base image. Secure string values are not saved with the formula. Therefore, artifact parameters that are secure strings are not displayed. 
+    	![Criar fórmula](./media/devtest-lab-manage-formulas/create-formula.png)
 
-        ![Create formula](./media/devtest-lab-manage-formulas/create-formula.png)
+1. Selecione **Criar** para criar a fórmula.
 
-1. Select **Create** to create the formula.
+### Criar uma fórmula de uma VM
+As etapas a seguir o orientarão durante o processo de criação de uma fórmula com base em uma VM existente.
 
-### <a name="create-a-formula-from-a-vm"></a>Create a formula from a VM
-The following steps guide you through the process of creating a formula based on an existing VM. 
+> [AZURE.NOTE] Para criar uma fórmula de uma VM, a VM deve ter sido criada após 30 de março de 2016.
 
-> [AZURE.NOTE] To create a formula from a VM, the VM must have been created after March 30, 2016. 
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Selecione **Mais Serviços** e selecione **DevTest Labs** na lista.
 
-1. Select **More Services**, and then select **DevTest Labs** from the list.
+1. Na lista de laboratórios, selecione o laboratório desejado.
 
-1. From the list of labs, select the desired lab.  
+1. Na folha **Visão geral** do laboratório, selecione a VM com base na qual você deseja criar a fórmula.
 
-1. On the lab's **Overview** blade, select the VM from which you wish to create the formula.
+	![VMs do Labs](./media/devtest-lab-manage-formulas/my-vms.png)
 
-    ![Labs VMs](./media/devtest-lab-manage-formulas/my-vms.png)
+1. Na folha da VM, selecione **Criar fórmula (base reutilizável)**.
 
-1. On the VM's blade, select **Create formula (reusable base)**.
+	![Criar fórmula](./media/devtest-lab-manage-formulas/create-formula-menu.png)
 
-    ![Create formula](./media/devtest-lab-manage-formulas/create-formula-menu.png)
+1. Na folha **Criar fórmula**, digite um **Nome** e uma **Descrição** para sua nova fórmula.
 
-1. On the **Create formula** blade, enter a **Name** and **Description** for your new formula.
+	![Folha Criar fórmula](./media/devtest-lab-manage-formulas/create-formula-blade.png)
 
-    ![Create formula blade](./media/devtest-lab-manage-formulas/create-formula-blade.png)
+1. Selecione **OK** para criar a fórmula.
 
-1. Select **OK** to create the formula.
+## Usar uma fórmula para provisionar uma VM
+Após ter criado uma fórmula, você pode criar uma VM com base na fórmula. A seção [Adicionar uma VM com artefatos](devtest-lab-add-vm-with-artifacts.md#add-a-vm-with-artifacts) orienta você nesse processo.
 
-## <a name="use-a-formula-to-provision-a-vm"></a>Use a formula to provision a VM
-Once you've created a formula, you can create a VM based on that formula. The section [Add a VM with artifacts](devtest-lab-add-vm-with-artifacts.md#add-a-vm-with-artifacts) walks you through the process.
+## Modificar uma fórmula
+Para modificar uma fórmula, siga estas etapas:
 
-## <a name="modify-a-formula"></a>Modify a formula
-To modify a formula, follow these steps:
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Selecione **Mais Serviços** e selecione **DevTest Labs** na lista.
 
-1. Select **More Services**, and then select **DevTest Labs** from the list.
+1. Na lista de laboratórios, selecione o laboratório desejado.
 
-1. From the list of labs, select the desired lab.  
+1. Na folha do laboratório, selecione **Fórmulas (bases reutilizáveis)**.
 
-1. On the lab's blade, select **Formulas (reusable bases)**.
+    ![Menu Fórmula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 
-    ![Formula menu](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
+1. Na folha **Fórmulas do laboratório**, selecione a fórmula que você deseja modificar.
 
-1. On the **Lab formulas** blade, select the formula you wish to modify.
+1. Na folha **Atualizar fórmula**, faça as edições desejadas e selecione **Atualizar**.
 
-1. On the **Update formula** blade, make the desired edits, and select **Update**.
+## Excluir uma fórmula 
+Para excluir uma fórmula, siga estas etapas:
 
-## <a name="delete-a-formula"></a>Delete a formula 
-To delete a formula, follow these steps:
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Selecione **Mais Serviços** e selecione **DevTest Labs** na lista.
 
-1. Select **More Services**, and then select **DevTest Labs** from the list.
+1. Na lista de laboratórios, selecione o laboratório desejado.
 
-1. From the list of labs, select the desired lab.  
+1. Na folha **Configurações**, selecione **Fórmulas**.
 
-1. On the lab **Settings** blade, select **Formulas**.
+    ![Menu Fórmula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 
-    ![Formula menu](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
+1. Na folha **Fórmulas do laboratório**, clique nas reticências à direita da fórmula que você deseja excluir.
 
-1. On the **Lab formulas** blade, select the ellipsis to the right of the formula you wish to delete.
+    ![Menu Fórmula](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
 
-    ![Formula menu](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
+1. No menu de contexto da fórmula, selecione **Excluir**.
 
-1. On the formula's context menu, select **Delete**.
+    ![Menu de contexto da Fórmula](./media/devtest-lab-manage-formulas/formula-delete-context-menu.png)
 
-    ![Formula context menu](./media/devtest-lab-manage-formulas/formula-delete-context-menu.png)
-
-1. Select **Yes** to the deletion confirmation dialog.
+1. Selecione **Sim** na caixa de diálogo de confirmação de exclusão.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="related-blog-posts"></a>Related blog posts
+## Postagens de blogs relacionadas
 
-- [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Imagens personalizadas ou fórmulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
-## <a name="next-steps"></a>Next steps
-Once you have created a formula for use when creating a VM, the next step is to [add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md).
+## Próximas etapas
+Depois de criar uma fórmula para uso durante a criação de uma VM, a próxima etapa será [adicionar uma VM ao seu laboratório](./devtest-lab-add-vm-with-artifacts.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

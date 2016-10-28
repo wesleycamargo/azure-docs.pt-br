@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Determine SQL Database compatibility using SqlPackage.exe | Microsoft Azure"
-   description="Microsoft Azure SQL Database, database migration, SQL Database compatibility, SqlPackage"
+   pageTitle="Determinar a compatibilidade com o Banco de Dados SQL usando SqlPackage.exe | Microsoft Azure"
+   description="Banco de Dados SQL do Microsoft Azure, migração de banco de dados, compatibilidade com o Banco de Dados SQL, SqlPackage"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,56 +16,50 @@
    ms.date="08/24/2016"
    ms.author="carlrab"/>
 
-
-# <a name="determine-sql-database-compatibility-using-sqlpackage.exe"></a>Determine SQL Database compatibility using SqlPackage.exe
+# Determinar a compatibilidade com o Banco de Dados SQL usando SqlPackage.exe
 
 > [AZURE.SELECTOR]
 - [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 - [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 - [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-- [Upgrade Advisor](http://www.microsoft.com/download/details.aspx?id=48119)
+- [Supervisor de Atualização](http://www.microsoft.com/download/details.aspx?id=48119)
 - [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
 
-In this article, you learn to determine if a SQL Server database is compatible to migrate to SQL Database using the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility.
+Neste artigo, você aprenderá a determinar se um banco de dados do SQL Server é compatível para migrar para o Banco de Dados SQL usando o utilitário de prompt de comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx).
 
-## <a name="using-sqlpackage.exe"></a>Using SqlPackage.exe
+## Como usar o SqlPackage.exe
 
-1. Open a command prompt and change a directory containing the newest version of sqlpackage.exe. This utility ships with the latest versions of [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), or you can download the latest version of [SqlPackage](https://www.microsoft.com/en-us/download/details.aspx?id=53876) directly from the Microsoft download center.
-2. Execute the following SqlPackage command with the following arguments for your environment:
+1. Abra um prompt de comando e altere um diretório com a versão mais recente do sqlpackage.exe. Esse utilitário acompanha as versões mais recentes do [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) e [SQL Server Data Tools para Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), ou você pode baixar a versão mais recente do [SqlPackage](https://www.microsoft.com/pt-BR/download/details.aspx?id=53876) diretamente do Centro de Download da Microsoft.
+2. Execute o seguinte comando SqlPackage com os seguintes argumentos para o seu ambiente:
 
-    'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file > /p:TableData=< schema_name.table_name > > < output_file > 2>&1'
+	'sqlpackage.exe /Action:Export /ssn:< nome\_do\_servidor > /sdn:< nome\_do\_banco\_de\_dados > /tf:< arquivo\_de\_destino > /p:TableData=< nome\_do\_esquema.nome\_da\_tabela > > < arquivo\_de\_saída > 2>&1'
 
-  	| Argument  | Description  |
-  	|---|---|
-  	| < server_name >  | source server name  |
-  	| < database_name >  | source database name  |
-  	| < target_file >  | file name and location for BACPAC file  |
-  	| < schema_name.table_name >  | the tables for which data are output to the target file  |
-  	| < output_file >  | the file name and location for the output file with errors, if any  |
+	| Argumento | Descrição |
+	|---|---|
+	| < nome\_do\_servidor > | nome do servidor de origem |
+	| < nome\_do\_banco\_de\_dados > | nome do banco de dados de origem |
+	| < arquivo\_de\_destino > | nome do arquivo e um local para o arquivo BACPAC |
+	| < nome\_do\_esquema.nome\_da\_tabela > | as tabelas cujos dados serão enviados para o arquivo de destino |
+	| < arquivo\_de\_saída > | o nome do arquivo e o local do arquivo de saída com erros, se houver algum |
 
-    The reason for the /p:TableName argument is that we only want to test for database compatibility for export to Azure SQL DB V12 rather than export the data from all tables. Unfortunately, the export argument for sqlpackage.exe does not support extracting zero tables. You need to specify at least one table, such as a single small table. The < output_file > contains the report of any errors. The "> 2>&1" string pipes both the standard output and the standard error resulting from the command execution to specified output file.
+	O motivo da presença do argumento /p:TableName é que só queremos testar a compatibilidade de banco de dados para exportar para o Banco de Dados SQL do Azure V12, em vez de exportar os dados de todas as tabelas. Infelizmente, o argumento de exportação para sqlpackage.exe não permite a extração de zero tabelas. Você precisa especificar pelo menos uma tabela, como uma única tabela pequena. O < arquivo\_de\_saída > contém o relatório de erros. A cadeia de caracteres ">2>&1" redireciona a saída padrão e o erro padrão resultantes da execução do comando para o arquivo de saída especificado.
 
-    ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
+	![Exportar um aplicativo da camada de dados no menu de Tarefas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
 
-3. Open the output file and review the compatibility errors, if any. 
+3. Abra o arquivo de saída e examine os erros de compatibilidade, se houver.
 
-    ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage02.png)
+	![Exportar um aplicativo da camada de dados no menu de Tarefas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage02.png)
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-[Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
-- [Fix database migration compatibility issues](sql-database-cloud-migrate.md#fix-database-migration-compatibility-issues)
-- [Migrate a compatible SQL Server database to SQL Database](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
+- [Versão mais recente do SSDT](https://msdn.microsoft.com/library/mt204009.aspx) [Versão mais recente do SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Corrigir problemas de compatibilidade de migração do banco de dados](sql-database-cloud-migrate.md#fix-database-migration-compatibility-issues)
+- [Migrar um banco de dados SQL Server compatível para o Banco de Dados SQL](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-## <a name="additional-resources"></a>Additional resources
+## Recursos adicionais
 
-- [SQL Database V12](sql-database-v12-whats-new.md)
-- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
-- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
+- [Banco de Dados SQL V12](sql-database-v12-whats-new.md)
+- [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
+- [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

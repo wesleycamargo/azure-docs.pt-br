@@ -1,8 +1,8 @@
 <properties
-pageTitle="Learn to use the Azure Service Bus connector in your logic apps | Microsoft Azure"
-description="Create logic apps with Azure App service. Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, and receive from subscription."
+pageTitle="Saiba como usar o conector do Barramento de Serviço do Azure nos seus aplicativos lógicos | Microsoft Azure"
+description="Crie aplicativos lógicos com o serviço de Aplicativo do Azure. Conecte-se ao Barramento de Serviço do Azure para enviar e receber mensagens. Você pode executar ações como enviar para a fila, enviar para o tópico, receber da fila e receber da assinatura."
 services="logic-apps"
-documentationCenter=".net,nodejs,java"  
+documentationCenter=".net,nodejs,java" 	
 authors="msftman"
 manager="erikre"
 editor=""
@@ -17,173 +17,168 @@ ms.workload="integration"
 ms.date="08/02/2016"
 ms.author="deonhe"/>
 
+# Introdução ao conector do Barramento de Serviço do Azure
 
-# <a name="get-started-with-the-azure-service-bus-connector"></a>Get started with the Azure Service Bus connector
+Conecte-se ao Barramento de Serviço do Azure para enviar e receber mensagens. Você pode executar ações como enviar para a fila, enviar para o tópico, receber da fila e receber da assinatura.
 
-Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, and receive from subscription.
+Para usar [qualquer conector](./apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Conectar-se ao Barramento de Serviço
 
-## <a name="connect-to-service-bus"></a>Connect to Service Bus
+Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma conexão com o serviço. Uma [conexão](./connectors-overview.md) fornece conectividade entre um aplicativo lógico e outro serviço.
 
-Before your logic app can access any service, you first need to create a connection to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o Barramento de Serviço do Azure](../../includes/connectors-create-api-servicebus.md)]
 
->[AZURE.INCLUDE [Steps to create a connection to Azure Service Bus](../../includes/connectors-create-api-servicebus.md)]
+## Usar um gatilho do Barramento de Serviço
 
-## <a name="use-a-service-bus-trigger"></a>Use a Service Bus trigger
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+>[AZURE.INCLUDE [Etapas para criar um gatilho de Barramento de Serviço](../../includes/connectors-create-api-servicebus-trigger.md)]
 
->[AZURE.INCLUDE [Steps to create a Service Bus trigger](../../includes/connectors-create-api-servicebus-trigger.md)]  
+## Usar uma ação de Barramento de Serviço
 
-## <a name="use-a-service-bus-action"></a>Use a Service Bus action
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+[AZURE.INCLUDE [Etapas para criar uma ação de Barramento de Serviço](../../includes/connectors-create-api-servicebus-action.md)]
 
-[AZURE.INCLUDE [Steps to create a Service Bus action](../../includes/connectors-create-api-servicebus-action.md)]  
+## Detalhes técnicos
 
-## <a name="technical-details"></a>Technical details
+Estes são os detalhes sobre os gatilhos, as ações e as respostas que essa conexão permite.
 
-Here are the details about the triggers, actions, and responses that this connection supports.
+### Gatilhos do Barramento de Serviço
 
-### <a name="service-bus-triggers"></a>Service Bus triggers
+O Barramento de Serviço tem os seguintes gatilhos:
 
-Service Bus has the following triggers:  
-
-|Trigger | Description|
+|Gatilho | Descrição|
 |--- | ---|
-|[When a message is received in a queue](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-queue)|This operation triggers a flow when a message is received in a queue.|
-|[When a message is received in a topic subscription](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-topic-subscription)|This operation triggers a flow when a message is received in a topic subscription.|
+|[Quando uma mensagem é recebida em uma fila](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-queue)|Esta operação dispara um fluxo quando uma mensagem é recebida em uma fila.|
+|[Quando uma mensagem é recebida em uma assinatura de tópico](connectors-create-api-servicebus.md#when-a-message-is-received-in-a-topic-subscription)|Esta operação dispara um fluxo quando uma mensagem é recebida em uma assinatura de tópico.|
 
 
-### <a name="service-bus-actions"></a>Service Bus actions
+### Ações do Barramento de Serviço
 
-Service Bus has the following actions:
+O Barramento de Serviço tem as seguintes ações:
 
 
-|Action|Description|
+|Ação|Descrição|
 |--- | ---|
-|[Send message](connectors-create-api-servicebus.md#send-message)|This operation sends a message to a queue or topic.|
-### <a name="action-and-trigger-details"></a>Action and trigger details
+|[Enviar mensagem](connectors-create-api-servicebus.md#send-message)|Esta operação envia uma mensagem para uma fila ou um tópico.|
+### Detalhes da ação e do gatilho
 
-Here are the details for the actions and triggers for this connector, along with their responses.
+A seguir, os detalhes das ações e dos gatilhos para esse conector, com suas respostas.
 
 
 
-#### <a name="send-message"></a>Send message
+#### Enviar mensagem
 
-|Property name| Display name|Description|
+|Nome da propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|ContentData*|Content|Content of the message.|
-|ContentType|Content Type|Content type of the message content.|
-|Properties|Properties|Key-value pairs for each brokered property.|
-|entityName*|Queue/Topic name|Name of the queue or topic.|
+|ContentData*|Conteúdo|Conteúdo da mensagem.|
+|ContentType|Tipo de conteúdo|Tipo do conteúdo da mensagem.|
+|Propriedades|Propriedades|Pares de chave-valor para cada propriedade agenciada.|
+|entityName*|Nome da fila/do tópico|Nome da fila ou do tópico.|
 
-These advanced parameters are also available:
+Esses parâmetros avançados também estão disponíveis:
 
-|Property name| Display name|Description|
+|Nome da propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|MessageId|Message Id|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
-|To|To|Address to send to.|
-|ReplyTo|Reply To|Address of the queue to reply to.|
-|ReplyToSessionId|Reply To Session Id|Identifier of the session to reply to.|
-|Label|Label|Application-specific label.|
-|ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|Date and time, in UTC, when the message will be added to the queue.|
-|SessionId|Session Id|Identifier of the session.|
-|CorrelationId|Correlation Id|Identifier of the correlation.|
-|TimeToLive|Time To Live|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to Service Bus.|
+|MessageId|ID da Mensagem|Um valor definido pelo usuário que o Barramento de Serviço pode usar para identificar mensagens duplicadas, se habilitado.|
+|Para|Para|Endereço para envio.|
+|ReplyTo|Responder Para|Endereço de resposta da fila.|
+|ReplyToSessionId|ID da Sessão Responder Para|Identificador de resposta da sessão.|
+|Rótulo|Rótulo|Rótulo específico do aplicativo.|
+|ScheduledEnqueueTimeUtc|ScheduledEnqueueTimeUtc|Data e hora, em UTC, em que a mensagem será adicionada à fila.|
+|SessionId|Id da Sessão|Identificador da sessão.|
+|CorrelationId|ID de correlação|Identificador da correlação.|
+|TimeToLive|Vida Útil|A duração, em tiques, pela qual uma mensagem é válida. A duração começa quando a mensagem é enviada ao Barramento de Serviço.|
 
 
 
-An * indicates that a property is required.
+Um * indica que uma propriedade é obrigatória.
 
 
-#### <a name="when-a-message-is-received-in-a-queue"></a>When a message is received in a queue
+#### Quando uma mensagem é recebida em uma fila
 
-|Property name| Display name|Description|
+|Nome da propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|queueName*|Queue name|Name of the queue.|
+|queueName*|Nome da fila|Nome da fila.|
 
 
-An * indicates that a property is required.
+Um * indica que uma propriedade é obrigatória.
 
 
-##### <a name="output-details"></a>Output details
+##### Detalhes de saída
 
-ServiceBusMessage: This object has the content and properties of a Service Bus message.
+ServiceBusMessage: esse objeto tem o conteúdo e as propriedades de uma Mensagem do Barramento de Serviço.
 
 
-| Property name | Data type | Description |
+| Nome da propriedade | Tipo de dados | Descrição |
 |---|---|---|
-|ContentData|string|Content of the message.|
-|ContentType|string|Content type of the message content.|
-|Properties|object|Key-value pairs for each brokered property.|
-|MessageId|string|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
-|To|string|Send to address.|
-|ReplyTo|string|Address of the queue to reply to.|
-|ReplyToSessionId|string|Identifier of the session to reply to.|
-|Label|string|Application-specific label.|
-|ScheduledEnqueueTimeUtc|string|Date and time, in UTC, when the message will be added to the queue.|
-|SessionId|string|Identifier of the session.|
-|CorrelationId|string|Identifier of the correlation.|
-|TimeToLive|string|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to Service Bus.|
+|ContentData|cadeia de caracteres|Conteúdo da mensagem.|
+|ContentType|string|Tipo do conteúdo da mensagem.|
+|Propriedades|objeto|Pares de chave-valor para cada propriedade agenciada.|
+|MessageId|string|Um valor definido pelo usuário que o Barramento de Serviço pode usar para identificar mensagens duplicadas, se habilitado.|
+|Para|cadeia de caracteres|Endereço de envio.|
+|ReplyTo|string|Endereço de resposta da fila.|
+|ReplyToSessionId|string|Identificador de resposta da sessão.|
+|Rótulo|string|Rótulo específico do aplicativo.|
+|ScheduledEnqueueTimeUtc|cadeia de caracteres|Data e hora, em UTC, em que a mensagem será adicionada à fila.|
+|SessionId|string|Identificador da sessão.|
+|CorrelationId|string|Identificador da correlação.|
+|TimeToLive|cadeia de caracteres|A duração, em tiques, pela qual uma mensagem é válida. A duração começa quando a mensagem é enviada ao Barramento de Serviço.|
 
 
 
 
-#### <a name="when-a-message-is-received-in-a-topic-subscription"></a>When a message is received in a topic subscription
+#### Quando uma mensagem é recebida em uma assinatura de tópico
 
-|Property name| Display name|Description|
+|Nome da propriedade| Nome de exibição|Descrição|
 | ---|---|---|
-|topicName*|Topic name|Name of the topic.|
-|subscriptionName*|Topic subscription name|Name of the topic subscription.|
+|topicName*|Nome do tópico|Nome do tópico.|
+|subscriptionName*|Nome da assinatura do tópico|Nome da assinatura do tópico.|
 
 
-An * indicates that a property is required.
+Um * indica que uma propriedade é obrigatória.
 
 
-##### <a name="output-details"></a>Output details
+##### Detalhes de saída
 
-ServiceBusMessage: This object has the content and properties of a Service Bus message.
+ServiceBusMessage: esse objeto tem o conteúdo e as propriedades de uma Mensagem do Barramento de Serviço.
 
 
-| Property name | Data type | Description |
+| Nome da propriedade | Tipo de dados | Descrição |
 |---|---|---|
-|ContentData|string|Content of the message.|
-|ContentType|string|Content type of the message content.|
-|Properties|object|Key-value pairs for each brokered property.|
-|MessageId|string|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
-|To|string|Send to address.|
-|ReplyTo|string|Address of the queue to reply to.|
-|ReplyToSessionId|string|Identifier of the session to reply to.|
-|Label|string|Application-specific label.|
-|ScheduledEnqueueTimeUtc|string|Date and time, in UTC, when the message will be added to the queue.|
-|SessionId|string|Identifier of the session.|
-|CorrelationId|string|Identifier of the correlation.|
-|TimeToLive|string|The duration, in ticks, that a message is valid. The duration starts from when the message is sent to Service Bus.|
+|ContentData|string|Conteúdo da mensagem.|
+|ContentType|string|Tipo do conteúdo da mensagem.|
+|Propriedades|objeto|Pares de chave-valor para cada propriedade agenciada.|
+|MessageId|string|Um valor definido pelo usuário que o Barramento de Serviço pode usar para identificar mensagens duplicadas, se habilitado.|
+|Para|string|Endereço de envio.|
+|ReplyTo|cadeia de caracteres|Endereço de resposta da fila.|
+|ReplyToSessionId|string|Identificador de resposta da sessão.|
+|Rótulo|string|Rótulo específico do aplicativo.|
+|ScheduledEnqueueTimeUtc|string|Data e hora, em UTC, em que a mensagem será adicionada à fila.|
+|SessionId|string|Identificador da sessão.|
+|CorrelationId|string|Identificador da correlação.|
+|TimeToLive|cadeia de caracteres|A duração, em tiques, pela qual uma mensagem é válida. A duração começa quando a mensagem é enviada ao Barramento de Serviço.|
 
 
 
-### <a name="http-responses"></a>HTTP responses
+### Respostas HTTP
 
-The preceding actions and triggers can return one or more of the following HTTP status codes:
+As ações e os gatilhos anteriores podem retornar um ou mais dos seguintes códigos de status HTTP:
 
-|Name|Description|
+|Name|Descrição|
 |---|---|
 |200|OK|
-|202|Accepted|
-|400|Bad request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not found|
-|500|Internal server error. Unknown error occurred.|
-|default|Operation failed.|
+|202|Aceita|
+|400|Solicitação incorreta|
+|401|Não Autorizado|
+|403|Proibido|
+|404|Não encontrado|
+|500|Erro interno do servidor. Ocorreu um erro desconhecido.|
+|padrão|Falha na operação.|
 
-## <a name="next-steps"></a>Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Próximas etapas
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!----HONumber=AcomDC_0810_2016-->

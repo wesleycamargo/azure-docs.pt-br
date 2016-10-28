@@ -1,99 +1,99 @@
 <properties 
-    pageTitle="Debug a Java Web App on Azure in IntelliJ | Microsoft Azure" 
-    description="This tutorial shows you how to use the Azure Toolkit for IntelliJ to debug a Java Web App running on Azure." 
-    services="app-service\web" 
-    documentationCenter="java" 
-    authors="selvasingh" 
-    manager="wpickett" 
-    editor=""/>
+	pageTitle="Depurar um aplicativo Web Java no Azure no IntelliJ | Microsoft Azure" 
+	description="Este tutorial mostra como usar o Kit de ferramentas do Azure para IntelliJ para depurar um Aplicativo Web Java no Azure." 
+	services="app-service\web" 
+	documentationCenter="java" 
+	authors="selvasingh" 
+	manager="wpickett" 
+	editor=""/>
 
 <tags 
-    ms.service="app-service-web" 
-    ms.workload="web" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="Java" 
-    ms.topic="article" 
-    ms.date="09/20/2016" 
-    ms.author="asirveda;robmcm"/>
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/20/2016" 
+	ms.author="asirveda;robmcm"/>
 
+# Depurar um aplicativo Web Java no Azure no IntelliJ
 
-# <a name="debug-a-java-web-app-on-azure-in-intellij"></a>Debug a Java Web App on Azure in IntelliJ
+Este tutorial mostra como depurar um aplicativo Web Java em execução no Azure usando o [Kit de ferramentas do Azure para IntelliJ]. Para simplificar, você usará um exemplo básico de JSP (Java Server Page) neste tutorial, mas as etapas seriam semelhantes para um servlet Java, ao depurar no Azure.
 
-This tutorial shows how to debug a Java Web App running on Azure by using the [Azure Toolkit for IntelliJ]. For the sake of simplicity, you will use a basic Java Server Page (JSP) example for this tutorial, but the steps would be similar for a Java servlet when you are debugging on Azure.
-
-When you have completed this tutorial, your application will look similar to the following illustration when you are debugging it in IntelliJ:
+Após a conclusão deste tutorial, seu aplicativo será semelhante à ilustração a seguir ao depurá-lo no IntelliJ:
 
 ![][01]
  
-## <a name="prerequisites"></a>Prerequisites
+## Pré-requisitos
 
-* A Java Developer Kit (JDK), v 1.8 or later.
-* IntelliJ IDEA Ultimate Edition. This can be downloaded from <https://www.jetbrains.com/idea/download/index.html>.
-* A distribution of a Java-based web server or application server, such as Apache Tomcat or Jetty.
-* An Azure subscription, which can be acquired from <https://azure.microsoft.com/en-us/free/> or <http://azure.microsoft.com/pricing/purchase-options/>.
-* The Azure Toolkit for IntelliJ. For more information, see [Installing the Azure Toolkit for IntelliJ].
-* A Dynamic Web Project created and deployed to Azure App Service; for example see [Create a Hello World Web App for Azure in IntelliJ].
+* Um JDK (Java Developer Kit) versão 1.8 ou posterior.
+* IntelliJ IDEA Ultimate Edition. Isso pode ser baixado em <https://www.jetbrains.com/idea/download/index.html>.
+* Uma distribuição de um servidor Web ou de um servidor de aplicativo baseado em Java, como o Apache Tomcat ou o Jetty.
+* Uma assinatura do Azure, que pode ser adquirida de <https://azure.microsoft.com/free/> ou de <http://azure.microsoft.com/pricing/purchase-options/>.
+* O Kit de Ferramentas do Azure para IntelliJ. Para saber mais, confira [Instalação do Kit de Ferramentas do Azure para IntelliJ].
+* Um Projeto Web Dinâmico criado e implantado no Serviço de Aplicativo do Azure; por exemplo, confira [Criar um aplicativo Web Hello World do Azure no IntelliJ].
 
-## <a name="to-debug-a-java-web-app-on-azure"></a>To Debug a Java Web App on Azure
+## Para depurar um aplicativo Web Java no Azure
 
-To complete these steps in this section, you can use an existing Dynamic Web Project which you have already deployed as a Java Web App on Azure, you download a [Sample Dynamic Web Project] and follow steps in [Create a Hello World Web App for Azure in IntelliJ] to deploy it on Azure. 
+Para concluir as etapas desta seção, você pode usar um Projeto Web Dinâmico existente, que você já implantou como um Aplicativo Web Java no Azure. Baixe um [Projeto Web Dinâmico de Exemplo] e execute as etapas em [Criar um aplicativo Web Hello World para o Azure no IntelliJ] a fim de implantá-lo no Azure.
 
-1. Open the Java Web App project which you deployed to Azure in IntelliJ.
+1. Abra o projeto de Aplicativo Web Java que você implantou no Azure no IntelliJ.
 
-1. Click the **Run** menu, and then click **Edit Configurations...**.
+1. Clique no menu **Executar** e clique em **Editar Configurações...**.
 
     ![][02]
 
-1. When the **Run/Debug Configurations** dialog box opens: 
+1. Quando a caixa de diálogo **Configurações de Execução/Depuração** for aberta:
 
-    1. Select **Azure Web App**.
-    1. Click on **+** to add a new configuration.
-    1. Provide a **Name** for the configuration.
-    1. Accept the remaining default values which are suggested by the Azure Toolkit, and then click **OK**.
+    1. Selecione **Aplicativo Web do Azure**.
+    1. Clique em **+** para adicionar uma nova configuração.
+    1. Forneça um **Nome** para a configuração.
+    1. Aceite os valores padrão restantes sugeridos pelo Kit de Ferramentas do Azure e clique em **OK**.
 
         ![][03]
 
-1. Select the Azure Web App debug configuration that you just created on the right top of the menu and click on **Debug**
+1. Selecione a configuração de depuração do Aplicativo Web do Azure que você acabou de criar no canto superior direito do menu e clique em **Depurar**
 
     ![][04]
 
-1. When prompted to **Enable remote debugging in the remote Web App now?**, click **OK**.
+1. Quando receber a solicitação para **Habilitar a depuração remota no Aplicativo Web remoto agora?**, clique em **OK**.
 
-1. When prompted that **Your web app is now ready for remote debugging**, click **OK**.
+1. Quando receber **Seu aplicativo Web agora está pronto para a depuração remota**, clique em **OK**.
 
     ![][05]
 
-1. Select the Azure Web App debug configuration that you just created on the right top of the menu, and then click on **Debug**.
+1. Selecione a configuração de depuração do Aplicativo Web do Azure que você acabou de criar no canto superior direito do menu e clique em **Depurar**.
 
-1. A Windows command prompt or Unix shell will open and prepare necessary connection for debugging; you need to wait until the connection to your remote Java Web app is successful before you continue. If you are using Windows, it will look like the following illustration:
+1. Um prompt de comando do Windows ou um shell Unix será aberto e preparará a conexão necessária para depuração; você precisa esperar até que a conexão com seu aplicativo Web Java remoto seja bem-sucedida antes de continuar. Se você estiver usando o Windows, será semelhante a ilustração a seguir:
 
     ![][06]
 
-1. Insert a break point in your JSP page, then open the URL for your Java Web App in a browser:
+1. Inserir um ponto de interrupção em sua página JSP, em seguida, abra a URL de seu aplicativo Web Java em um navegador:
 
-    1. Open up **Azure Explorer** in IntelliJ.
-    1. Navigate to **Web Apps** and the Java Web App you want to debug.
-    1. Right click on the Web App, and click **Open in Browser**.
-    1. IntelliJ will now enter into debug mode.
+    1. Abra o **Azure Explorer** no IntelliJ.
+    1. Navegue até **Aplicativos Web** e até o aplicativo Web Java que você deseja depurar.
+    1. Clique com o botão direito do mouse no aplicativo Web e clique em **Abrir no Navegador**.
+    1. Agora, o IntelliJ entrará no modo de depuração.
 
-## <a name="next-steps"></a>Next Steps
+## Próximas etapas
 
-For more information about using Azure with Java, see the [Azure Java Developer Center].
+Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure].
 
-For additional information about creating Azure Web Apps, see the [Web Apps Overview].
+Para obter mais informações sobre como criar aplicativos Web do Azure, confira a [Visão geral de Aplicativos Web].
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
-[Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij.md
-[Installing the Azure Toolkit for IntelliJ]: ../azure-toolkit-for-intellij-installation.md
-[Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
-[Sample Dynamic Web Project]: http://go.microsoft.com/fwlink/?LinkId=817337
+[Kit de ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij.md
+[Instalação do Kit de Ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij-installation.md
+[Criar um aplicativo Web Hello World do Azure no IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
+[Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
+[Projeto Web Dinâmico de Exemplo]: http://go.microsoft.com/fwlink/?LinkId=817337
 
-[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[Web Apps Overview]: ./app-service-web-overview.md
+[Central de desenvolvimento Java do Azure]: https://azure.microsoft.com/develop/java/
+[Visão geral de Aplicativos Web]: ./app-service-web-overview.md
 
 <!-- IMG List -->
 
@@ -104,8 +104,4 @@ For additional information about creating Azure Web Apps, see the [Web Apps Over
 [05]: ./media/app-service-web-debug-java-web-app-in-intellij/05-ready-for-remote-debugging.png
 [06]: ./media/app-service-web-debug-java-web-app-in-intellij/06-windows-command-prompt-connection-successful-to-remote.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

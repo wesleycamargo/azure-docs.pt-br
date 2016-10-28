@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Connect a device using Node.js | Microsoft Azure"
-   description="Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in Node.js."
+   pageTitle="Conectar um dispositivo usando o Node.js | Microsoft Azure"
+   description="Descreve como conectar um dispositivo à solução pré-configurada de monitoramento remoto do Azure IoT Suite usando um aplicativo escrito em Node.js."
    services=""
    suite="iot-suite"
    documentationCenter="na"
@@ -14,46 +14,45 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/05/2016"
+   ms.date="07/14/2016"
    ms.author="dobett"/>
 
 
-
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-(node.js)"></a>Connect your device to the remote monitoring preconfigured solution (Node.js)
+# Conectar seu dispositivo à solução pré-configurada de monitoramento remoto (Node.js)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## <a name="build-and-run-the-node.js-sample-solution"></a>Build and run the node.js sample solution
+## Compilar e executar a solução de exemplo node.js
 
-1. To clone the *Microsoft Azure IoT SDKs* GitHub repository and install the *Microsoft Azure IoT device SDK for Node.js* in your desktop environment, follow the [Prepare your development environment][lnk-github-prepare] instructions.
+1. Para clonar o repositório GitHub dos *SDKs do Microsoft Azure IoT* e instalar o *SDK de dispositivo de IoT do Microsoft Azure para Node.js* em seu ambiente de área de trabalho, siga as instruções em [Preparar seu ambiente de desenvolvimento][lnk-github-prepare].
 
-2. From your local copy of the [azure-iot-sdks][lnk-github-repo] repository, copy the following two files from the node/device/samples folder to a folder on your device:
+2. Em sua cópia local do repositório [azure-iot-sdks][lnk-github-repo], copie os dois seguintes arquivos da pasta node/device/samples em uma pasta no seu dispositivo:
 
   - packages.json
-  - remote_monitoring.js
+  - remote\_monitoring.js
 
-3. Open the remote_monitoring.js file and look for the following variable:
+3. Abra o arquivo remote\_monitoring.js e procure a seguinte variável:
 
     ```
     var connectionString = "[IoT Hub device connection string]";
     ```
 
-4. Replace **[IoT Hub device connection string]** with your device connection string. You can find the values for your IoT Hub hostname, device id, and device key in the remote monitoring solution dashboard. A device connection string has the following format:
+4. Substitua a **[cadeia de conexão de dispositivo do Hub IoT]** pela cadeia de conexão do seu dispositivo. Você pode encontrar os valores do seu nome de host Hub IoT, ID do dispositivo e chave do dispositivo no painel da solução de monitoramento remoto. Uma cadeia de conexão do dispositivo tem o seguinte formato:
 
     ```
     HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
     ```
 
-    If your IoT Hub hostname is **contoso** and your device id is **mydevice**, your connection string looks like:
+    Se o seu nome de host do Hub IoT for **contoso** e a sua ID de dispositivo for **mydevice**, sua cadeia de conexão terá esta aparência:
 
     ```
     var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
     ```
 
-5. Save the file. Run the following commands at a command prompt in the folder that contains these files to install the necessary packages and then run the sample application:
+5. Salve o arquivo. Execute os seguintes comandos no prompt de comando na pasta que contém os arquivos para instalar os pacotes necessários e, em seguida, execute o aplicativo de exemplo:
 
     ```
-    npm install --save
+    npm install
     node remote_monitoring.js
     ```
 
@@ -62,7 +61,4 @@
 [lnk-github-repo]: https://github.com/azure/azure-iot-sdks
 [lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

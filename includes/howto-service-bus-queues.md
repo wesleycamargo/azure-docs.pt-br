@@ -1,68 +1,63 @@
-## <a name="what-are-service-bus-queues?"></a>What are Service Bus queues?
+## O que são as filas do Barramento de Serviço?
 
-Service Bus queues support a **brokered messaging** communication model. When using queues, components of a distributed application do not communicate directly with each other; instead they exchange messages via a queue, which acts as an intermediary (broker). A message producer (sender) hands off a message to the queue and then continues its processing. Asynchronously, a message consumer (receiver) pulls the message from the queue and processes it. The producer does not have to wait for a reply from the consumer in order to continue to process and send further messages. Queues offer **First In, First Out (FIFO)** message delivery to one or more competing consumers. That is, messages are typically received and processed by the receivers in the order in which they were added to the queue, and each message is received and processed by only one message consumer.
+Filas do Barramento de Serviço dão suporte a um modelo de comunicação de **sistema de mensagens agenciado**. Ao usar filas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, mas trocam mensagens por meio de uma fila, que atua como um intermediário (agente). Um produtor de mensagem (remetente) transmite uma mensagem para a fila e, em seguida, continua o processamento. De forma assíncrona, um consumidor de mensagem (receptor) recebe a mensagem da fila e a processa. O produtor não precisa esperar por uma resposta do consumidor a fim de continuar a processar e enviar mais mensagens. As filas oferecem entrega de mensagem do tipo **FIFO (primeiro a entrar, primeiro a sair)** para um ou mais consumidores concorrentes. Ou seja, as mensagens são normalmente recebidas e processadas pelos receptores na ordem em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem.
 
-![QueueConcepts](./media/howto-service-bus-queues/sb-queues-08.png)
+![Conceitos de fila](./media/howto-service-bus-queues/sb-queues-08.png)
 
-Service Bus queues are a general-purpose technology that can be used for a wide variety of scenarios:
+Filas do Barramento de Serviço são uma tecnologia de uso geral que pode ser usada para uma grande variedade de cenários:
 
--   Communication between web and worker roles in a multi-tier Azure application.
--   Communication between on-premises apps and Azure-hosted apps in a hybrid solution.
--   Communication between components of a distributed application running on-premises in different organizations or departments of an organization.
+-   Comunicação entre as funções Web e de trabalho em um aplicativo multicamada do Azure.
+-   Comunicação entre aplicativos locais e aplicativos hospedados pelo Azure em uma solução híbrida.
+-   Comunicação entre os componentes de um aplicativo distribuído executado localmente em diferentes organizações ou departamentos de uma organização.
 
-Using queues enables you to scale your applications more easily, and enable more resiliency to your architecture.
+O uso de filas permite que você dimensione seus aplicativos com mais facilidade e concede mais resiliência à sua arquitetura.
 
-## <a name="create-a-service-namespace"></a>Create a service namespace
+## Criar um namespace de serviço
 
-To begin using Service Bus queues in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application.
+Para começar a usar filas do Barramento de Serviço no Azure, primeiro crie um namespace de serviço. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
 
-To create a namespace:
+Para criar um namespace:
 
-1.  Log on to the [Azure classic portal][].
+1.  Faça logon no [portal clássico do Azure][].
 
-2.  In the left navigation pane of the portal, click **Service Bus**.
+2.  No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
 
-3.  In the lower pane of the portal, click **Create**.
-    ![](./media/howto-service-bus-queues/sb-queues-03.png)
+3.  No painel inferior do portal, clique em **Criar**.
+	![](./media/howto-service-bus-queues/sb-queues-03.png)
 
-4.  In the **Add a new namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.   
-    ![](./media/howto-service-bus-queues/sb-queues-04.png)
+4.  No diálogo **Adicionar um novo namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
+	![](./media/howto-service-bus-queues/sb-queues-04.png)
 
-5.  After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources).
+5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região em que o namespace deve ser hospedado (certifique-se de usar o mesmo país/região em que você está implantando seus recursos de computação).
 
-     > [AZURE.IMPORTANT] Pick the **same region** that you intend to choose for deploying your application. This will give you the best performance.
+	 > [AZURE.IMPORTANT] Selecione a **mesma região** que você pretende escolher paraimplantar seu aplicativo. Isso lhe dará o melhor desempenho.
 
-6.  Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the OK check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6. 	Deixe os outros campos na caixa de diálogo com seus valores padrão (**Mensagens** e **Camada padrão**), em seguida, clique na marca de seleção OK. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, enquanto o sistema provisiona recursos para sua conta.
 
-    ![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
+	![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
 
-The namespace you created takes a moment to activate, and will then appear in the portal. Wait until the namespace status is **Active** before continuing.
+O namespace que você criou demora algum tempo para ser ativado, e então aparece no portal. Aguarde até que o status do namespace seja **Ativo** para continuar.
 
-## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>Obtain the default management credentials for the namespace
+## Obter as credenciais de gerenciamento padrão do namespace
 
-In order to perform management operations, such as creating a queue on the new namespace, you must obtain the management credentials for the namespace. You can obtain these credentials from the [Azure classic portal][].
+A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, obtenha as credenciais de gerenciamento para o namespace. Você pode obter essas credenciais no [portal clássico do Azure][].
 
-###<a name="to-obtain-management-credentials-from-the-portal"></a>To obtain management credentials from the portal
+###Para obter as credenciais de gerenciamento do portal
 
-1.  In the left navigation pane, click the **Service Bus** node, to display the list of available namespaces:   
-    ![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis:   
+	![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  Select the namespace you just created from the list shown:   
-    ![](./media/howto-service-bus-queues/sb-queues-09.png)
+2.  Selecione o namespace que você acabou de criar na lista abaixo:
+	![](./media/howto-service-bus-queues/sb-queues-09.png)
 
-3.  Click **Connection Information**.   
-    ![](./media/howto-service-bus-queues/sb-queues-06.png)
+3.  Clique em **Informações de Conexão**.
+	![](./media/howto-service-bus-queues/sb-queues-06.png)
 
-4.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.   
+4.  No painel **Acessar as informações de conexão**, encontre a cadeia de conexão que contém a chave SAS e o nome da chave.
 
-    ![](./media/howto-service-bus-queues/multi-web-45.png)
+	![](./media/howto-service-bus-queues/multi-web-45.png)
     
-5.  Make a note of the key, or copy it to the clipboard.
+5.  Anote a chave ou copie-a na área de transferência.
 
-  [Azure classic portal]: http://manage.windowsazure.com
-
-
-
-<!--HONumber=Oct16_HO2-->
-
+  [portal clássico do Azure]: http://manage.windowsazure.com
 

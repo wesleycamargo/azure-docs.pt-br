@@ -1,51 +1,46 @@
 <properties
-   pageTitle="Recovery Services vault FAQ | Microsoft Azure"
-   description="This version of the FAQ supports the Public Preview release of the Azure Backup service. Answers to frequently asked questions about the backup agent, backup and retention, recovery, security and other common questions about the Azure Backup solution."
+   pageTitle="Perguntas frequentes sobre o cofre dos Serviços de Recuperação | Microsoft Azure"
+   description="Esta versão das perguntas frequentes é compatível com a versão de Visualização Pública do serviço Backup do Azure. Respostas para perguntas frequentes sobre agente de backup, backup e retenção, recuperação, segurança e outras perguntas comuns sobre a solução de Backup do Azure."
    services="backup"
    documentationCenter=""
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="backup solution; backup service"/>
+   keywords="solução de backup; serviço de backup"/>
 
 <tags
    ms.service="backup"
    ms.workload="storage-backup-recovery"
-     ms.tgt_pltfrm="na"
-     ms.devlang="na"
-     ms.topic="get-started-article"
-     ms.date="08/21/2016"
-     ms.author="trinadhk; markgal; jimpark;"/>
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="get-started-article"
+	 ms.date="08/21/2016"
+	 ms.author="trinadhk; markgal; jimpark;"/>
 
-
-# <a name="recovery-services-vault---faq"></a>Recovery Services vault - FAQ
+# Cofre dos Serviços de Recuperação - Perguntas Frequentes
 
 > [AZURE.SELECTOR]
-- [Backup FAQ for classic mode](backup-azure-backup-faq.md)
-- [Backup FAQ for Resource Manager mode](backup-azure-backup-ibiza-faq.md)
+- [Perguntas frequentes sobre backup para o modo Clássico](backup-azure-backup-faq.md)
+- [Perguntas frequentes sobre backup para o modo do Gerenciador de recursos](backup-azure-backup-ibiza-faq.md)
 
-This article provides information specific to Recovery Services vault and it supplements the [Azure Backup FAQ](backup-azure-backup-faq.md). The Azure Backup FAQ provides the full set of questions and answers about the Azure Backup service.  
+Este artigo fornece informações específicas ao cofre de Serviços de Recuperação e complementa as [Perguntas frequentes sobre Backup do Azure](backup-azure-backup-faq.md). As perguntas frequentes sobre o Backup do Azure oferecem o conjunto completo de perguntas e respostas sobre o serviço Backup do Azure.
 
-You can ask questions about Azure Backup in the Disqus section of this article or a related article. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Você pode fazer perguntas sobre o Backup do Azure na seção Disqus deste artigo ou do artigo relacionado. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
-## <a name="recovery-services-vaults-are-resource-manager-based.-are-backup-vaults-(classic-mode)-still-supported?-<br/>"></a>Recovery Services vaults are Resource Manager based. Are Backup vaults (classic mode) still supported? <br/>
-Yes, Backup vaults are still supported. Create Backup vaults in the [Classic portal](https://manage.windowsazure.com). Create Recovery Services vaults in the [Azure portal](https://portal.azure.com). However we strongly recommend you to create recovery services vault as all future enhancements will be available only in Recovery Services vault. 
+## Os cofres dos Serviços de Recuperação se baseiam no Resource Manager. Os cofres de Backup (modo clássico) ainda têm suporte? <br/>
+Sim, os cofres de Backup ainda têm suporte. Crie os cofres de Backup no [portal Clássico](https://manage.windowsazure.com). Crie cofres dos Serviços de Recuperação no [portal do Azure](https://portal.azure.com). No entanto, é altamente recomendável que você crie o cofre de serviços de recuperação, pois todos os aperfeiçoamentos futuros estarão disponíveis somente no cofre de Serviços de Recuperação.
 
-## <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault?-<br/>"></a>Can I migrate a Backup vault to a Recovery Services vault? <br/>
-Unfortunately no, at this time you can't migrate the contents of a Backup vault to a Recovery Services vault. We are working on adding this functionality, but it is not available as part of Public Preview.
+## Pode migrar um cofre de Backup para um cofre dos Serviços de Recuperação? <br/>
+Infelizmente não, neste momento você não pode migrar o conteúdo de um cofre de Backup para um cofre dos Serviços de Recuperação. Estamos trabalhando na adição dessa funcionalidade, mas ela não está disponível como parte da Visualização Pública.
 
-## <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms?-<br/>"></a>Do Recovery Services vaults support classic VMs or Resource Manager based VMs? <br/>
-Recovery Services vaults support both models.  You can back up a VM created in the Classic portal (which are classic mode VMs), or a VM created in the Azure portal (which are Resource Manager based) to a Recovery Services vault.
+## Os cofres de Serviços de Recuperação dão suporte a VMs clássicas ou VMs com base no Gerenciador de Recursos? <br/>
+Os cofres dos Serviços de Recuperação dão suporte a ambos os modelos. Você pode fazer backup de uma VM criada no portal Clássico (trata-se de VMs do modo clássico) ou de uma VM criada no portal do Azure (com base no Gerenciador de Recursos) em um cofre dos Serviços de Recuperação.
 
-## <a name="i-have-backed-up-my-classic-vms-in-backup-vault.-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode.-how-can-i-backup-them-in-recovery-services-vault?"></a>I have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode.  How Can I backup them in recovery services vault?
-Backups of classic VMs in backup vault won't migrate automatically to recovery services vault when you migrate the VMs from classic to Resource Manager mode. Please follow these steps for migration of VM backups:
+## Fiz backup de minhas VMs clássicas no cofre de backup. Agora quero migrar minhas VMs do modo clássico para o modo do Gerenciador de Recursos. Como fazer backup delas no cofre dos serviços de recuperação?
+Os backups de VMs clássicas no cofre de backup não migrarão automaticamente para o cofre dos serviços de recuperação quando você migrar as VMs do modo clássico para o modo do Gerenciador de Recursos. Siga estas etapas para a migração de backups de VMs:
 
-1. In backup vault, go to **Protected Items** tab and select the VM. Click on [Stop Protection](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**. 
-2. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure that storage and network corresponding to virtual machine are also migrated to Resource Manager mode. 
-3. Create a recovery services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard. Learn More on how to [enable backup in recovery services vault](backup-azure-vms-first-look-arm.md)
+1. No cofre de backup, vá para a guia **Itens Protegidos** e selecione a VM. Clique em [Interromper a Proteção](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Deixe a opção *Excluir dados de backup associados* **desmarcada**.
+2. Migre a máquina virtual do modo clássico para o modo do Gerenciador de Recursos. Verifique se o armazenamento e a rede correspondentes à máquina virtual também são migrados para o modo do Gerenciador de Recursos.
+3. Criar um cofre dos serviços de recuperação e configure o backup na máquina virtual migrada usando a ação **Backup** na parte superior do painel do cofre. Saiba mais sobre como [habilitar o backup no cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

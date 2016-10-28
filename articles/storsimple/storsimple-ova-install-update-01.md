@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Install Updates on a StorSimple Virtual Array | Microsoft Azure"
-   description="Describes how to use the StorSimple Virtual Array web UI to apply updates using the portal and hotfix method"
+   pageTitle="Instalar Atualizações em um StorSimple Virtual Array | Microsoft Azure"
+   description="Descreve como usar a IU da Web do StorSimple Virtual Array para aplicar atualizações usando o portal e o método de hotfix"
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,102 +15,97 @@
    ms.date="09/07/2016"
    ms.author="alkohli" />
 
+# Instalar Atualizações em seu StorSimple Virtual Array
 
-# <a name="install-updates-on-your-storsimple-virtual-array"></a>Install Updates on your StorSimple Virtual Array
+## Visão geral
 
-## <a name="overview"></a>Overview
+Este artigo descreve as etapas necessárias para instalar atualizações em seu StorSimple Virtual Array usando a interface do usuário da Web local e por meio do portal clássico do Azure. É necessário aplicar atualizações de software ou hotfixes para manter seu StorSimple Virtual Array atualizado.
 
-This article describes the steps required to install updates on your StorSimple Virtual Array via the local web UI and via the Azure classic portal. You need to apply software updates or hotfixes to keep your StorSimple Virtual Array up-to-date. 
+Tenha em mente que instalar uma atualização ou um hotfix reinicia seu dispositivo. Uma vez que o StorSimple Virtual Array é um dispositivo de nó único, qualquer processo de E/S em andamento será interrompido e o dispositivo apresentará tempo de inatividade.
 
-Keep in mind that installing an update or hotfix restarts your device. Given that the StorSimple Virtual Array is a single node device, any I/O in progress is disrupted and your device experiences downtime. 
+Antes de aplicar uma atualização, é recomendável que você deixe os volumes ou compartilhamentos offline no host primeiro e, em seguida, no dispositivo. Isso minimiza a possibilidade de dados corrompidos.
 
-Before you apply an update, we recommend that you take the volumes or shares offline on the host first and then the device. This minimizes any possibility of data corruption.
+> [AZURE.IMPORTANT] Se estiver executando a Atualização 0.1 ou versões de software GA, você deverá usar o método de hotfix por meio da interface do usuário da Web local para instalar a atualização 0.3. Caso esteja executando a Atualização 0.2, recomendamos que você instale as atualizações por meio do portal clássico do Azure.
 
-> [AZURE.IMPORTANT] If you are running Update 0.1 or GA software versions, you must use the hotfix method via the local web UI to install update 0.3. If you are running Update 0.2, we recommend that you install the updates via the Azure classic portal.
-
-## <a name="use-the-local-web-ui"></a>Use the local web UI 
+## Usar a interface do usuário da Web local 
  
-There are two steps when using the local web UI:
+Há duas etapas ao usar a interface do usuário da Web local:
 
-- Download the update or the hotfix
-- Install the update or the hotfix
+- Baixe a atualização ou o hotfix
+- Instale a atualização ou o hotfix
 
-### <a name="download-the-update-or-the-hotfix"></a>Download the update or the hotfix
+### Baixe a atualização ou o hotfix
 
-Perform the following steps to download the software update from the Microsoft Update Catalog.
+Execute as etapas a seguir para baixar a atualização do software do Catálogo do Microsoft Update.
 
-#### <a name="to-download-the-update-or-the-hotfix"></a>To download the update or the hotfix
+#### Para baixar a atualização ou o hotfix
 
-1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Inicie o Internet Explorer e acesse [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
 
-2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
+2. Caso esta seja a primeira vez que você usa o Catálogo do Microsoft Update neste computador, clique em **Instalar** quando a instalação do complemento do Catálogo do Microsoft Update for solicitada.
   
-3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download. Enter **3182061** for Update 0.3, and then click **Search**.
+3. Na caixa de pesquisa do catálogo do Microsoft Update, insira o número da KB (base de dados de conhecimento) do hotfix que deseja baixar. Digite **3182061** para a Atualização 0.3 e clique em **Pesquisar**.
 
-    The hotfix listing appears, for example, **StorSimple Virtual Array Update 0.3**.
+    A listagem de hotfix aparece, por exemplo, como **StorSimple Virtual Array Atualização 0.3**.
 
-    ![Search catalog](./media/storsimple-ova-install-update-01/download1.png)
+    ![Pesquisar o catálogo](./media/storsimple-ova-install-update-01/download1.png)
 
-4. Click **Add**. The update is added to the basket.
+4. Clique em **Adicionar**. A atualização é adicionada ao carrinho de compras.
 
-5. Click **View Basket**.
+5. Clique em **Exibir carrinho**.
 
-6. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. The updates are downloaded to the specified location and placed in a subfolder with the same name as the update. The folder can also be copied to a network share that is reachable from the device.
+6. Clique em **Download**. Especifique ou **Procure** a localização em que deseja que o download apareça. As atualizações são baixadas para o local especificado e colocadas em uma subpasta com o mesmo nome que a atualização. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
 
-7. Open the copied folder, you should see a Microsoft Update Standalone Package file `WindowsTH-KB3011067-x64`. This file is used to install the update or hotfix.
-
-
-### <a name="install-the-update-or-the-hotfix"></a>Install the update or the hotfix
-
-Prior to the update or hotfix installation, make sure that you have the update or the hotfix downloaded either locally on your host or accessible via a network share. 
-
-Use this method to install updates on a device running GA or Update 0.1 software versions. This procedure takes less than 2 minutes to complete. Perform the following steps to install the update or hotfix.
+7. Abra a pasta copiada, você verá um arquivo `WindowsTH-KB3011067-x64` do Pacote Autônomo do Microsoft Update. Esse arquivo é usado para instalar a atualização ou hotfix.
 
 
-#### <a name="to-install-the-update-or-the-hotfix"></a>To install the update or the hotfix
+### Instale a atualização ou o hotfix
 
-1. In the local web UI, go to **Maintenance** > **Software Update**.
+Antes da instalação da atualização ou hotfix, certifique-se de que você tem a atualização ou hotfix baixado localmente em seu host ou acessível por meio de um compartilhamento de rede.
 
-    ![update device](./media/storsimple-ova-install-update-01/update1m.png)
-
-2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. Click **Apply**.
-
-    ![update device](./media/storsimple-ova-install-update-01/update2m.png)
-
-3.  A warning is displayed. Given this is a single node device, after the update is applied, the device restarts and there is downtime. Click the check icon.
-
-    ![update device](./media/storsimple-ova-install-update-01/update3m.png)
-
-4. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
-
-    ![update device](./media/storsimple-ova-install-update-01/update5m.png)
-
-5. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.0.0.0.10288.0** for Update 0.3.
-
-    > [AZURE.NOTE] We report the software versions in a slightly different way in the local web UI and the Azure classic portal. For example, the local web UI reports **10.0.0.0.0.10288** and the Azure classic portal reports **10.0.10288.0** for the same version. 
-
-    ![update device](./media/storsimple-ova-install-update-01/update6m.png)
+Use esse método para instalar atualizações em um dispositivo que executa as versões de software GA ou a Atualização 0.1. Esse procedimento leva menos de 2 minutos para ser concluído. Execute as etapas a seguir para instalar a atualização ou o hotfix.
 
 
+#### Para instalar a atualização ou hotfix
+
+1. Na interface do usuário da Web local, vá para **Manutenção** > **Atualização de Software**.
+
+    ![atualizar dispositivo](./media/storsimple-ova-install-update-01/update1m.png)
+
+2. Em **Caminho de arquivo de atualização**, digite o nome de arquivo para a atualização ou hotfix. Você também pode navegar até o arquivo de instalação de hotfix ou atualização se colocado em um compartilhamento de rede. Clique em **Aplicar**.
+
+	![atualizar dispositivo](./media/storsimple-ova-install-update-01/update2m.png)
+
+3.  Será exibido um aviso. Dado que esse é um dispositivo de nó único, depois que a atualização for aplicada, o dispositivo será reiniciado e haverá tempo de inatividade. Clique no ícone de verificação.
+
+	![atualizar dispositivo](./media/storsimple-ova-install-update-01/update3m.png)
+
+4. A atualização será iniciada. Depois que for atualizado com êxito, o dispositivo será reiniciado. A interface do usuário local não estará acessível durante esse tempo.
+
+    ![atualizar dispositivo](./media/storsimple-ova-install-update-01/update5m.png)
+
+5. Depois que a reinicialização for concluída, você será levado à página **Entrar**. Para confirmar se o software do dispositivo foi atualizado, na interface do usuário da Web local, vá para **Manutenção** > **Atualização de Software**. A versão de software exibida deve ser **10.0.0.0.0.10288.0** para a Atualização 0.3.
+
+	> [AZURE.NOTE] Relatamos as versões de software de maneira ligeiramente diferente na interface do usuário da Web local e no portal clássico do Azure. Por exemplo, a interface do usuário da Web local informa **10.0.0.0.0.10288** e o portal clássico do Azure informa **10.0.10288.0** para a mesma versão.
+
+	![atualizar dispositivo](./media/storsimple-ova-install-update-01/update6m.png)
 
 
 
-## <a name="use-the-azure-classic-portal"></a>Use the Azure classic portal
 
-If running Update 0.2, we recommend that you install updates through the Azure classic portal. The portal procedure requires the user to scan, download, and then install the updates. This procedure takes around 7 minutes to complete. Perform the following steps to install the update or hotfix.
+
+## Use o portal clássico do Azure
+
+Caso esteja executando a Atualização 0.2, é recomendável que você instale atualizações por meio do portal clássico do Azure. O procedimento do portal requer que o usuário verifique, baixe e instale as atualizações. Esse procedimento leva cerca de 7 minutos para ser concluído. Execute as etapas a seguir para instalar a atualização ou o hotfix.
 
 [AZURE.INCLUDE [storsimple-ova-install-update-via-portal](../../includes/storsimple-ova-install-update-via-portal.md)]
 
-After the installation is complete (as indicated by job status at 100 %), go to **Devices > Maintenance > Software Updates**. The displayed software version should be 10.0.10288.0.
+Após a instalação ser concluída (conforme indicado pelo status do trabalho em 100%), vá para **Dispositivos > Manutenção > Atualizações de Software**. A versão de software exibida deve ser 10.0.10288.0.
 
-![update device](./media/storsimple-ova-install-update-01/azupdate12m.png)
+![atualizar dispositivo](./media/storsimple-ova-install-update-01/azupdate12m.png)
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-Learn more about [administering your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Saiba mais sobre como [administrar o StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

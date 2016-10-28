@@ -1,6 +1,6 @@
 <properties
-pageTitle="Use the Microsoft Azure Data Lake Tools for Visual Studio with the Hortonworks Sandbox | Microsoft Azure"
-description="Learn how to use the Azure Data Lake Tools for VIsual Studio with the Hortonworks sandbox (running in a local VM.) With these tools, you can create and run Hive and Pig jobs on the sandbox and view job output and history."
+pageTitle="Usar as ferramentas do Microsoft Azure Data Lake para Visual Studio com a Hortonworks Sandbox | Microsoft Azure"
+description="Saiba como usar as ferramentas do Azure Data Lake para Visual Studio com a Hortonworks Sandbox (em execução em uma VM local). Com essas ferramentas, você pode criar e executar trabalhos Hive e Pig na área restrita e exibir a saída e o histórico do trabalho."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
@@ -16,124 +16,123 @@ ms.workload="big-data"
 ms.date="08/26/2016"
 ms.author="larryfr"/>
 
+# Usar as ferramentas do Azure Data Lake para Visual Studio com a Hortonworks Sandbox
 
-# <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Use the Azure Data Lake Tools for Visual Studio with the Hortonworks Sandbox
+As ferramentas do Azure Data Lake para Visual Studio incluem ferramentas para trabalhar com clusters Hadoop genéricos, além de ferramentas para trabalhar com o Azure Data Lake e o HDInsight. Este documento fornece as etapas necessárias para usar as ferramentas do Azure Data Lake com a Hortonworks Sandbox em execução em uma máquina virtual local.
 
-The Azure Data Lake tools for Visual Studio include tools for working with generic Hadoop clusters, in addition to tools for working with Azure Data Lake and HDInsight. This document provides the steps needed to use the Azure Data Lake tools with the Hortonworks Sandbox running in a local virtual machine.
+O uso da Hortonworks Sandbox permite que você trabalhe com o Hadoop localmente em seu ambiente de desenvolvimento. Após você desenvolver uma solução e querer implantá-la em escala, mude para um cluster HDInsight.
 
-Using the Hortonworks Sandbox allows you to work with Hadoop locally on your development environment. Once you have developed a solution and want to deploy it at scale, you can then move to an HDInsight cluster.
+## Pré-requisitos
 
-## <a name="prerequisites"></a>Prerequisites
+* A Hortonworks Sandbox em execução em uma máquina virtual em seu ambiente de desenvolvimento. Este documento foi escrito e testado com a área restrita em execução no Oracle VirtualBox, que foi configurado usando as informações no documento [Introdução ao ecossistema Hadoop](hdinsight-hadoop-emulator-get-started.md).
 
-* The Hortonworks Sandbox running in a virtual machine on your development environment. This document was written and tested with the sandbox running in Oracle VirtualBox, which was configured using the information in the [Get started in the Hadoop ecosystem](hdinsight-hadoop-emulator-get-started.md) document.
+* Visual Studio 2013 ou 2015, qualquer edição.
 
-* Visual Studio 2013 or 2015, any edition.
+* O [SDK do Azure para .NET](https://azure.microsoft.com/downloads/) 2.7.1 ou superior
 
-* The [Azure SDK for .NET](https://azure.microsoft.com/downloads/) 2.7.1 or higher
+* [Ferramentas do Azure Data Lake para Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 
-* [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
+## Configurar senhas para a área restrita
 
-## <a name="configure-passwords-for-the-sandbox"></a>Configure passwords for the sandbox
+Certifique-se de que a Hortonworks Sandbox está em execução e execute as etapas em [Introdução ao ecossistema Hadoop](hdinsight-hadoop-emulator-get-started.md#set-passwords) para configurar a senha para a conta `root` de SSH e conta `admin` do Ambari. Essas senhas serão usadas ao conectar-se à área restrita a partir do Visual Studio.
 
-Make sure that the Hortonworks Sandbox is running, then follow the steps in [Get started in the Hadoop ecosystem](hdinsight-hadoop-emulator-get-started.md#set-passwords) to configure the password for the SSH `root` account, and the Ambari `admin` account. These passwords will be used when connecting to the sandbox from Visual Studio.
+## Conectar as ferramentas à área restrita
 
-## <a name="connect-the-tools-to-the-sandbox"></a>Connect the tools to the sandbox
+1. Abra o Visual Studio e selecione __Exibir__, __Gerenciador de Servidores__.
 
-1. Open Visual Studio, and select __View__, then __Server Explorer__.
+2. No __Gerenciador de Servidores__, clique com o botão direito do mouse na entrada __HDInsight__ e selecione __Conectar ao Emulador do HDInsight__.
 
-2. From __Server Explorer__, right click the __HDInsight__ entry, and then select __Connect to HDInsight Emulator__.
+    ![Conectar-se ao Emulador do HDInsight](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)
 
-    ![Connect to HDInsight Emulator](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)
+3. Na caixa de diálogo __Conectar-se ao Emulador do HDInsight__, digite a senha que você configurou para Ambari.
 
-3. From the __Connect to HDInsight Emulator__ dialog, enter the password that you configured for Ambari.
+    ![Inserir a senha do Ambari](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
-    ![Enter Ambari password](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
+    Selecione __Avançar__ para continuar.
 
-    Select __Next__ to continue.
+4. Use o campo __Senha__ para inserir a senha configurada para a conta `root`. Mantenha os outros campos com os valores padrão.
 
-4. Use the __Password__ field to enter the password you configured for the `root` account. Leave the other fields at the default value.
+    ![Inserir a senha raiz](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
-    ![Enter root password](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
+    Selecione __Avançar__ para continuar.
 
-    Select __Next__ to continue.
+5. Aguarde a validação dos serviços para concluir. Em alguns casos, a validação pode falhar e solicitar a atualização da configuração. Quando isso acontece, selecione o botão __atualizar__ e aguarde a conclusão da configuração e da verificação do serviço.
 
-5. Wait for validation of the services to complete. In some cases, validation may fail and prompt you to update the configuration. When this happens, select the __update__ button and wait for the configuration and verification for the service to complete.
+    ![Erros e botão de atualização](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
-    ![Errors and update button](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
+    > [AZURE.NOTE] O processo de atualização usa o Ambari para modificar a configuração da Hortonworks Sandbox esperada pelas ferramentas do Azure Data Lake para Visual Studio.
 
-    > [AZURE.NOTE] The update process uses Ambari to modify the Hortonworks Sandbox configuration to what is expected by the Azure Data Lake tools for Visual Studio.
+    Após a conclusão da validação, selecione __Concluir__ para concluir a configuração.
 
-    Once validation has completed, select __Finish__ to complete configuration.
+    ![Concluir a conexão](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
-    ![Finish connecting](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
+    > [AZURE.NOTE] Dependendo da velocidade de seu ambiente de desenvolvimento e da quantidade de memória alocada para a máquina virtual, talvez demore vários minutos para configurar e validar os serviços.
 
-    > [AZURE.NOTE] Depending on the speed of your development environment, and the amount of memory allocated to the virtual machine, it can take several minutes to configure and validate the services.
+Após a execução dessas etapas, você terá uma entrada de "cluster local do HDInsight" no Gerenciador de Servidores na seção HDInsight.
 
-After following these steps, you now have an "HDInsight local cluster" entry in Server Explorer under the HDInsight section.
+## Escrever uma consulta do Hive
 
-## <a name="write-a-hive-query"></a>Write a Hive query
+O Hive fornece uma linguagem de consulta do tipo SQL (HiveQL) para trabalhar com dados estruturados. Use as etapas a seguir para saber como executar consultas ad hoc no cluster local.
 
-Hive provides a SQL-like query language (HiveQL,) for working with structured data. Use the following steps to learn how to run ad-hoc queries against the local cluster.
+1. No __Gerenciador de Servidores__, clique com o botão direito do mouse na entrada do cluster local que você adicionou anteriormente e, em seguida, selecione __Escrever uma consulta do Hive__.
 
-1. In __Server Explorer__, right-click on the entry for the local cluster that you added previously, and then select __Write a Hive query__.
+    ![Escrever uma consulta do hive](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
 
-    ![Write a hive query](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
+    Isso abre uma nova janela de consulta para você digitar e enviar rapidamente uma consulta para o cluster local.
 
-    This opens a new query window that allows you to quickly type up and submit a query to the local cluster.
-
-2. In the new query window, enter the following:
+2. Na nova janela de consulta, insira o seguinte:
 
         select count(*) from sample_08;
     
-    From the top of the query window, make sure that configuration for the local cluster is selected, and then select __Submit__. Leave the other values (__Batch__ and server name,) at the default values.
+    Na parte superior da janela de consulta, certifique-se de que a configuração para o cluster local esteja selecionada e, em seguida, selecione __Enviar__. Deixe os outros valores (__Lote__ e nome de servidor) com os valores padrão.
 
-    ![query window and submit button](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
+    ![janela de consulta e botão enviar](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
 
-    Note that you can also use the drop down menu next to __Submit__ to select __Advanced__. This opens a dialog that lets you provide additional options when submitting the job.
+    Observe que também é possível usar o menu suspenso próximo a __Enviar__ para selecionar __Avançado__. Isso abre uma caixa de diálogo que permite a você fornecer opções adicionais ao enviar o trabalho.
 
-    ![advanced submit](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
+    ![envio avançado](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
 
-3. Once you submit the query, the job status will appear. This provides information on the job as it is processed by Hadoop. The __Job State__ entry provides the current status of the job. The state will be updated periodically, or you can use the refresh icon to manually refresh the state.
+3. Depois de enviar a consulta, o status do trabalho será exibido. Isso fornece informações sobre o trabalho conforme ele é processado pelo Hadoop. A entrada __Estado do Trabalho__ fornece o status atual do trabalho. O estado será atualizado periodicamente, ou você pode usar o ícone de atualização para atualizar manualmente o estado.
 
-    ![Job state](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
+    ![Estado do trabalho](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
 
-    Once the __Job Status__ changes to __Finished__, a Directed Acyclic Graph (DAG) is displayed. This describes the execution path that was determined by Tez (the default execution engine for Hive on the local cluster.) 
+    Quando o __Status do Trabalho__ muda para __Concluído__, um DAG (gráfico acíclico dirigido) é exibido. Isso descreve o caminho de execução determinado pelo Tez (o mecanismo de execução padrão para o Hive no cluster local.)
     
-    > [AZURE.NOTE] Tez is also the default when using Linux-based HDInsight clusters. It is not the default on Windows-based HDInsight; to use it there, you must add the line `set hive.execution.engine = tez;` to the beginning of your Hive query. 
+    > [AZURE.NOTE] Tez também é o padrão ao usar clusters HDInsight baseados em Linux. Ele não é o padrão no HDInsight baseado em Windows; para usá-lo, você deve adicionar a linha `set hive.execution.engine = tez;` ao início da consulta Hive.
 
-    Use the __Job Output__ link to view the output. In this case, it is __823__; the number of rows in the sample_08 table. You can view diagnostics information about the job by using the __Job Log__ and __Download YARN Log__ links.
+    Use o link __Saída de Trabalho__ para exibir a saída. Nesse caso, é __823__; o número de linhas na tabela sample\_08. Você pode exibir informações de diagnóstico sobre o trabalho usando os links __Log do Trabalho__ e __Baixar Log do YARN__.
 
-4. You can also run Hive jobs interactively by changing the __Batch__ field to __Interactive__, and then select __Execute__. 
+4. Você também pode executar trabalhos do Hive de forma interativa alterando o campo __Lote__ para __Interativo__ e, em seguida, selecionando __Executar__.
 
-    ![Interactive query](./media/hdinsight-hadoop-emulator-visual-studio/interactive-query.png)
+    ![Consulta interativa](./media/hdinsight-hadoop-emulator-visual-studio/interactive-query.png)
 
-    This streams the output log generated during processing to the __HiveServer2 Output__ window.
+    Isso transfere o log de saída gerado durante o processamento para a janela __Saída do HiveServer2__.
     
-    > [AZURE.NOTE] This is the same information that is available from the __Job Log__ link after a job has completed.
+    > [AZURE.NOTE] Essas são as mesmas informações disponíveis a partir do link __Log de Trabalho__ após a conclusão de um trabalho.
 
-    ![HiveServer2 output](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
+    ![Saída do HiveServer2](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
 
-## <a name="create-a-hive-project"></a>Create a Hive project
+## Criar um projeto do Hive
 
-You can also create a project that contains multiple Hive scripts. This is useful when you have related scripts that you need to keep together, or maintain using a version control systems.
+Você também pode criar um projeto que contém vários scripts do Hive. Isso será útil quando você tiver scripts relacionados aos quais você precisa manter juntos, ou manter usando sistemas de controle de versão.
 
-1. In Visual Studio, select __File__, __New__, and then__Project__.
+1. No Visual Studio, selecione __Arquivo__, __Novo__ e \_Projeto\_.
 
-2. From the list of projects, expand __Templates__, __Azure Data Lake__ and then select __HIVE (HDInsight)__. From the list of templates, select __Hive Sample__. Enter a name and location, then select __OK__.
+2. Na lista de projetos, expanda __Modelos__, __Azure Data Lake__ e, em seguida, selecione __HIVE (HDInsight)__. Na lista de modelos, selecione __Amostra do Hive__. Insira um nome e um local e selecione __OK__.
 
-    ![HIVE (HDInsight) template](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
+    ![Modelo HIVE (HDInsight)](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
 
-The __Hive Sample__ project contains two scripts, __WebLogAnalysis.hql__ and __SensorDataAnalysis.hql__. You can submit these using the same __Submit__ button at the top of the window.
+O projeto __Amostra do Hive__ contém dois scripts, __WebLogAnalysis.hql__ e __SensorDataAnalysis.hql__. Você pode enviá-los usando o mesmo botão __Enviar__ na parte superior da janela.
 
-## <a name="create-a-pig-project"></a>Create a Pig project
+## Criar um projeto Pig
 
-While Hive provides a SQL-like language for working with structured data, Pig provides a language (Pig Latin,) that allows you to develop a pipeline of transformations that are applied to your data. Use the following steps to use Pig with the local cluster.
+Enquanto o Hive fornece uma linguagem semelhante ao SQL para trabalhar com dados estruturados, o Pig fornece uma linguagem (Pig Latin) que permite o desenvolvimento de um pipeline de transformações que são aplicadas aos seus dados. Use as etapas a seguir para usar o Pig com o cluster local.
 
-1. Open Visual Studio and select __File__, __New__, and then __Project__. From the list of projects, expand __Templates__, __Azure Data Lake__, and then select __Pig (HDInsight)__. From the list of templates, select __Pig Application__. Enter a name, location, and then select __OK__.
+1. Abra o Visual Studio, selecione __Arquivo__, __Novo__ e __Projeto__. Na lista de projetos, expanda __Modelos__, __Azure Data Lake__ e, em seguida, selecione __Pig (HDInsight)__. Na lista de modelos, selecione __Aplicativo Pig__. Insira um nome e local e selecione __OK__.
 
-    ![Pig (HDInsight) project](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
+    ![Projeto Pig (HDInsight)](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
 
-2. Enter the following as the contents of the __script.pig__ file that was created with this project.
+2. Insira o seguinte como conteúdo do arquivo __script.pig__ que foi criado com este projeto.
 
         a = LOAD '/demo/data/Website/Website-Logs' AS (
             log_id:int, 
@@ -146,62 +145,59 @@ While Hive provides a SQL-like language for working with structured data, Pig pr
         c = GROUP b BY ip_address;
         DUMP c;
 
-    While Pig uses a different language than Hive, how you run the jobs is consistent between both languages through the __Submit__ button. Selecting the drop down beside __Submit__ displays an advanced submit dialog for Pig.
+    Embora o Pig use uma linguagem diferente do Hive, o modo de execução dos trabalhos é consistente entre os dois idiomas por meio do botão __Enviar__. A seleção da lista suspensa ao lado de __Enviar__ exibe uma caixa de diálogo de envio avançado para Pig.
 
-    ![Pig advanced submit](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
+    ![Envio avançado de Pig](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
     
-3. The job status and output is also displayed the same as a Hive query.
+3. O status e a saída do trabalho também são exibidos como uma consulta do Hive.
 
-    ![image of a completed pig job](./media/hdinsight-hadoop-emulator-visual-studio/completed-pig.png)
+    ![imagem de um trabalho pig concluído](./media/hdinsight-hadoop-emulator-visual-studio/completed-pig.png)
 
-## <a name="view-jobs"></a>View jobs
+## Exibir trabalhos
 
-Azure Data Lake Tools also allow you to easily view information about jobs that have been ran on Hadoop. Use the following steps to see the jobs that have been ran on the local cluster.
+As ferramentas do Azure Data Lake também permitem que você veja facilmente as informações sobre os trabalhos que foram executados no Hadoop. Use as etapas a seguir para ver os trabalhos que foram executados no cluster local.
 
-1. From __Server Explorer__, right-click on the local cluster, and then select __View Jobs__. This will display a list of jobs that have been submitted to the cluster.
+1. No __Gerenciador de Servidores__, clique com o botão direito do mouse no cluster local e selecione __Exibir Trabalhos__. Isso exibirá uma lista de trabalhos que foram enviados para o cluster.
 
-    ![View jobs](./media/hdinsight-hadoop-emulator-visual-studio/view-jobs.png)
+    ![Exibir trabalhos](./media/hdinsight-hadoop-emulator-visual-studio/view-jobs.png)
 
-2. From the list of jobs, select one to view the job details.
+2. Na lista de trabalhos, selecione um para exibir os detalhes do trabalho.
 
-    ![select a job](./media/hdinsight-hadoop-emulator-visual-studio/view-job-details.png)
+    ![selecionar um trabalho](./media/hdinsight-hadoop-emulator-visual-studio/view-job-details.png)
 
-    The information displayed is similar to what you see after running a Hive or Pig query, complete with links to view the output and log information.
+    As informações exibidas são semelhantes as que você vê depois de executar uma consulta de Hive ou Pig, com links para exibir a saída e informações de log.
 
-3. You can also modify and resubmit the job from here.
+3. Você também pode modificar e reenviar o trabalho a partir daqui.
 
-## <a name="view-hive-databases"></a>View Hive databases
+## Exibir bancos de dados do Hive
 
-1. In __Server Explorer__, expand the __HDInsight local cluster__ entry, and then expand __Hive Databases__. This will reveal the __Default__ and __xademo__ databases on the local cluster. Expanding a database reveals the tables within the database.
+1. No __Gerenciador de Servidores__, expanda a entrada __Cluster local do HDInsight__ e, em seguida, expanda __Bancos de Dados Hive__. Isso revelará os bancos de dados __Padrão__ e __xademo__ no cluster local. A expansão de um banco de dados revela as tabelas no banco de dados.
 
-    ![expanded databases](./media/hdinsight-hadoop-emulator-visual-studio/expanded-databases.png)
+    ![bancos de dados expandidos](./media/hdinsight-hadoop-emulator-visual-studio/expanded-databases.png)
 
-2. Expanding a table displays the columns for that table. You can right-click a table and select __View Top 100 Rows__ to quickly view the data.
+2. A expansão de uma tabela exibe as colunas dessa tabela. Você pode clicar com o botão direito do mouse em uma tabela e selecionar __Exibir as 100 Primeiras Linhas__ para exibir rapidamente os dados.
 
-    ![hive databases view](./media/hdinsight-hadoop-emulator-visual-studio/view-100.png)
+    ![exibição de bancos de dados do hive](./media/hdinsight-hadoop-emulator-visual-studio/view-100.png)
 
-### <a name="database-and-table-properties"></a>Database and Table properties
+### Propriedades do banco de dados e da tabela
 
-You may have noticed that you can select to view __Properties__ on a database or table. This will show details for the selected item in the properties window.
+Talvez você tenha percebido que pode selecionar a exibição de __Propriedades__ em um banco de dados ou tabela. Isso mostrará detalhes do item selecionado na janela de propriedades.
 
-![Properties](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
+![Propriedades](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
 
-### <a name="create-a-table"></a>Create a table
+### Criar uma tabela
 
-To create a new table, right-click a database, and then select __Create Table__.
+Para criar uma nova tabela, clique com o botão direito em um banco de dados e selecione __Criar Tabela__.
 
-![Create table](./media/hdinsight-hadoop-emulator-visual-studio/create-table.png)
+![Criar tabela](./media/hdinsight-hadoop-emulator-visual-studio/create-table.png)
 
-You can then create the table using a form. You can see the raw HiveQL that will be used to create the table at the bottom of this page.
+Em seguida, você pode criar a tabela usando um formulário. Você pode ver o HiveQL bruto que será usado para criar a tabela na parte inferior desta página.
 
-![create table form](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form.png)
+![criar tabela de](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form.png)
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-* [Learning the ropes of the Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop tutorial - Getting started with HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Learning the ropes of the Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/) (Caminho das pedras do Hortonworks Sandbox)
+* [Hadoop tutorial - Getting started with HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/) (Tutorial Hadoop - Introdução ao HDP)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

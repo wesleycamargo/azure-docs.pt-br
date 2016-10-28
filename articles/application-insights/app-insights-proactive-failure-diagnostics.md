@@ -1,179 +1,171 @@
 <properties 
-    pageTitle="Near Real Time Proactive Diagnostics in Application Insights | Microsoft Azure" 
-    description="Alerts you to unusual failure patterns in your app, and provides diagnostic analysis. No configuration is needed." 
-    services="application-insights" 
+	pageTitle="Diagnóstico proativo quase em tempo real no Application Insights | Microsoft Azure" 
+	description="Alerta sobre padrões de falha incomuns em seu aplicativo e fornece a análise do diagnóstico. Nenhuma configuração é necessária." 
+	services="application-insights" 
     documentationCenter=""
-    authors="yorac" 
-    manager="douge"/>
+	authors="yorac" 
+	manager="douge"/>
 
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/31/2016" 
-    ms.author="awills"/>
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/31/2016" 
+	ms.author="awills"/>
  
+# Diagnóstico proativo de falhas
 
-# <a name="proactive-failure-diagnostics"></a>Proactive Failure Diagnostics
+O [Visual Studio Application Insights](app-insights-overview.md) enviará uma notificação a você automaticamente, quase em tempo real, se seu aplicativo Web experimentar um aumento anormal de falhas. Ele detecta um aumento incomum na taxa de solicitações HTTP relatados com falha. Para ajudar você com a triagem e diagnóstico do problema, a notificação acompanha uma análise das características das solicitações com falha e a telemetria relacionada. Também há links para portal do Application Insights, onde você pode obter um diagnóstico mais detalhado. O recurso não precisa de qualquer configuração, pois usa algoritmos de aprendizado de máquina para prever a taxa normal de falhas.
 
-[Visual Studio Application Insights](app-insights-overview.md) automatically notifies you in near real time if your web app experiences an abnormal rise in failures. It detects an unusual rise in the rate of HTTP requests reported as failed. To help you triage and diagnose the problem, an analysis of the characteristics of failed requests and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up or configuration, as it uses machine learning algorithms to predict the normal failure rate.
+Esse recurso funciona para aplicativos Web Java e ASP.NET, hospedados na nuvem ou em seus próprios servidores. Ele também funciona para qualquer aplicativo que gere telemetria de solicitação - por exemplo, se você tiver uma função de trabalho que chame [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request).
 
-This feature works for Java and ASP.NET web apps, hosted in the cloud or on your own servers. It also works for any app that generates request telemetry - for example, if you have a worker role that calls [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request). 
+Depois de configurar o [Application Insights para seu projeto](app-insights-overview.md), e desde que o aplicativo gere uma certa quantidade mínima de telemetria, o Diagnóstico de falha proativo leva 24 horas para compreender o comportamento normal do aplicativo antes que ele seja ligado e possa enviar alertas.
 
-After setting up [Application Insights for your project](app-insights-overview.md), and provided your app generates a certain minimum amount of telemetry, Proactive failure diagnostics takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
+Veja a seguir um exemplo do alerta.
 
-Here's a sample alert. 
+![Exemplo de alerta inteligente mostrando a análise de cluster sobre a falha](./media/app-insights-proactive-failure-diagnostics/010.png)
 
-![Sample Intelligent Alert showing cluster analysis around failure](./media/app-insights-proactive-failure-diagnostics/010.png)
+> [AZURE.NOTE] Por padrão, você receberá uma mensagem com formato mais curto que esse exemplo. Mas você pode [alternar para este formato detalhado](#configure-alerts).
 
-> [AZURE.NOTE] By default, you get a shorter format mail than this example. But you can [switch to this detailed format](#configure-alerts).
+Observe o que ele diz:
 
-Notice that it tells you:
+* A taxa de falhas em comparação com o comportamento normal do aplicativo.
+* Quantos usuários foram afetados – você sabe o quanto deve se preocupar.
+* Um padrão característico associado às falhas. Neste exemplo, há um código de resposta específico, o nome da solicitação (operação) e a versão do aplicativo. Isso diz a você imediatamente onde começar a procurar em seu código. Outras possibilidades poderiam ser um navegador ou um sistema operacional cliente específico.
+* A exceção, os rastreamentos de log e as falhas de dependência (bancos de dados ou outros componentes externos) que parecem estar associados às solicitações com falha caracterizadas.
+* Vincula diretamente às pesquisas relevantes na telemetria no Application Insights.
 
-* The failure rate compared to normal app behavior.
-* How many users are affected – so you know how much to worry.
-* A characteristic pattern associated with the failures. In this example, there’s a particular response code, request name (operation) and app version. That immediately tells you where to start looking in your code. Other possibilities could be a specific browser or client operating system.
-* The exception, log traces, and dependency failure (databases or other external components) that appear to be associated with the characterized failed requests.
-* Links directly to relevant searches on the telemetry in Application Insights.
+## Benefícios de alertas proativos
 
-## <a name="benefits-of-proactive-alerts"></a>Benefits of proactive alerts
+Os [alertas de métrica](app-insights-alerts.md) comuns mostram que pode haver um problema. Mas o diagnóstico de falha proativo inicia o trabalho de diagnóstico para você, executando grande parte da análise que, de outra forma, você teria de fazer por conta própria. Você obtém os resultados empacotados organizadamente, o que ajuda a chegar rapidamente à raiz do problema.
 
-Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a problem. But proactive failure diagnostics starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
+## Como ele funciona
 
-## <a name="how-it-works"></a>How it works
+O Diagnóstico Proativo Quase em Tempo Real monitora a telemetria recebida de seu aplicativo, especialmente a taxa de solicitações com falha. Essa métrica conta o número de solicitações para as quais a propriedade `Successful request` é falsa. Por padrão, `Successful request== (resultCode < 400)` (a menos que você tenha escrito o código personalizado para [filtrar](app-insights-api-filtering-sampling.md#filtering) ou gerar suas próprias chamadas [TrackRequest](app-insights-api-custom-events-metrics.md#track-request)).
 
-Near Real Time Proactive Diagnostics monitors the telemetry received from your app, and in particular the failed request rate. This metric counts the number of requests for which the `Successful request` property is false. By default, `Successful request== (resultCode < 400)` (unless you have written custom code to [filter](app-insights-api-filtering-sampling.md#filtering) or generate your own [TrackRequest](app-insights-api-custom-events-metrics.md#track-request) calls). 
+O desempenho do aplicativo tem um padrão típico de comportamento. Algumas solicitações serão mais propensas a falhas do que outras; a taxa geral de falha poderá aumentar à medida que a carga crescer. O diagnóstico de falha proativo usa o aprendizado de máquina para encontrar essas anomalias.
 
-Your app’s performance has a typical pattern of behavior. Some requests will be more prone to failure than others; and the overall failure rate may go up as load increases. Proactive failure diagnostics uses machine learning to find these anomalies. 
+Como a telemetria entra no Application Insights desde o seu aplicativo Web, o diagnóstico proativo de falhas compara o comportamento atual aos padrões vistos nos últimos dias. Se for observado um aumento anormal na taxa de falha em comparação com o desempenho anterior, uma análise será disparada.
 
-As telemetry comes into Application Insights from your web app, proactive failure diagnostics compares the current behavior with the patterns seen over the past few days. If an abnormal rise in failure rate is observed by comparison with previous performance, an analysis is triggered.
+Quando um alerta é gerado, o serviço realiza uma análise de cluster na solicitação com falha a fim de tentar identificar um padrão de valores que caracterize as falhas. No exemplo acima, a análise descobriu que a maioria das falhas são sobre um código de resultado específico, nome de solicitação, host da URL do servidor e instância de função. Por outro lado, a análise descobriu que a propriedade do sistema operacional do cliente é distribuída por vários valores, e portanto não é listada.
 
-When an analysis is triggered, the service performs a cluster analysis on the failed request, to try to identify a pattern of values that characterize the failures. In the example above, the analysis has discovered that most failures are about a specific result code, request name, Server URL host, and role instance. By contrast, the analysis has discovered that the client operating system property is distributed over multiple values, and so it is not listed.
+Quando seu serviço conta com essa telemetria, o analisador encontra uma exceção e uma falha de dependência associadas às solicitações identificadas no cluster, junto com um exemplo de qualquer log de rastreamento associado a essas solicitações.
 
-When your service is instrumented with these telemetry, the analyser finds an exception and a dependency failure that are associated with requests in the cluster it has identified, together with an example of any trace logs associated with those requests.
+A análise resultante é enviada como um alerta, a menos que você tenha configurado para isso não acontecer.
 
-The resulting analysis is sent to you as alert, unless you have configured it not to.
+Assim como os [alertas que você definiu manualmente](app-insights-alerts.md), é possível inspecionar o estado do alerta e configurá-lo na folha Alertas de seu recurso Application Insights. Mas, ao contrário de outros alertas, não é necessário configurar o Diagnóstico proativo de falhas. Se quiser, você pode desabilitá-lo ou alterar o endereço de email de destino.
 
-Like the [alerts you set manually](app-insights-alerts.md), you can inspect the state of the alert and configure it in the Alerts blade of your Application Insights resource. But unlike other alerts, you don't need to set up or configure Proactive failure diagnostics. If you want, you can disable it or change its target email addresses.
 
+## Configurar alertas 
 
-## <a name="configure-alerts"></a>Configure alerts 
+Você pode desabilitar o diagnóstico proativo, alterar os destinatários do email, criar um webhook ou aceitar mensagens de alerta mais detalhadas.
 
-You can disable proactive diagnostics, change the email recipients, create a webhook, or opt in to more detailed alert messages.
+Abra a página Alertas. O Diagnóstico Proativo está incluído junto com todos os alertas configurados manualmente, e é possível ver se está em estado de alerta no momento.
 
-Open the Alerts page. Proactive Diagnostics is included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
+![Na página Visão geral, clique no bloco Alertas. Ou em qualquer página Métricas, clique no botão Alertas.](./media/app-insights-proactive-failure-diagnostics/021.png)
 
-![On the Overview page, click Alerts tile. Or on any Metrics page, click Alerts button.](./media/app-insights-proactive-failure-diagnostics/021.png)
+Clique no alerta para configurá-lo.
 
-Click the alert to configure it.
+![Configuração](./media/app-insights-proactive-failure-diagnostics/031.png)
 
-![Configuration](./media/app-insights-proactive-failure-diagnostics/031.png)
 
+Observe que é possível desabilitar o Diagnóstico Proativo, mas não excluí-lo (nem criar outro).
 
-Notice that you can disable Proactive Diagnostics, but you can't delete it (or create another one).
+#### Alertas detalhados
 
-#### <a name="detailed-alerts"></a>Detailed alerts
+Se você selecionar "Receber análise detalhada", o email conterá mais informações de diagnóstico. Às vezes, você poderá diagnosticar o problema apenas dos dados no email.
 
-If you select "Receive detailed analysis" then the email will contain more diagnostic information. Sometimes you'll be able to diagnose the problem just from the data in the email. 
+Há um pequeno risco de que o alerta mais detalhado possa conter informações confidenciais, pois inclui mensagens de exceção e rastreamento. No entanto, isso aconteceria apenas se seu código permitisse informações confidenciais nessas mensagens.
 
-There's a slight risk that the more detailed alert could contain sensitive information, because it includes exception and trace messages. However, this would only happen if your code could allow sensitive information into those messages. 
 
+## Triagem e diagnóstico de um alerta
 
-## <a name="triaging-and-diagnosing-an-alert"></a>Triaging and diagnosing an alert
+Um alerta indica a detecção de um aumento anormal na taxa de solicitações com falha. É provável que haja algum problema com seu aplicativo ou seu ambiente.
 
-An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there is some problem with your app or its environment.
+Você pode decidir a urgência do problema com base na porcentagem de solicitações e no número de usuários afetados. No exemplo acima, a taxa de falha de 22,5% é comparada a uma taxa normal de 1% e indica que está acontecendo alguma coisa errada. Por outro lado, somente 11 usuários foram afetados. Se fosse seu aplicativo, você poderia avaliar a gravidade.
 
-From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example above, the failure rate of 22.5% compares with a normal rate of 1%, indicates that something bad is going on. On the other hand, only 11 users were affected. If it were your app, you'd be able to assess how serious that is.
+Em muitos casos, você poderá diagnosticar o problema rapidamente pelo nome da solicitação, exceção, falha de dependência e pelos dados de rastreamento fornecidos.
 
-In many cases, you will be able to diagnose the problem quickly from the request name, exception, dependency failure and trace data provided. 
+Há alguns outros indícios. Por exemplo, a taxa de falha de dependência neste exemplo é igual à taxa de exceção (89,3%). Isso sugere que a exceção provém diretamente da falha de dependência - dando uma ideia clara de onde é preciso começar a procurar em seu código.
 
-There are some other clues. For example, the dependency failure rate in this example is the same as the exception rate (89.3%). This suggests that the exception arises directly from the dependency failure - giving you a clear idea of where to start looking in your code.
+Para investigar melhor, os links em cada seção levarão você diretamente até uma [página de pesquisa](app-insights-diagnostic-search.md) filtrada para mostrar solicitações, exceções, dependências ou rastreamentos relevantes. Você também pode abrir o [portal do Azure](https://portal.azure.com), navegar até o recurso Application Insights de seu aplicativo e abrir a folha Falhas.
 
-To investigate further, the links in each section will take you straight to a [search page](app-insights-diagnostic-search.md) filtered to the relevant requests, exception, dependency or traces. Or you can open the [Azure portal](https://portal.azure.com), navigate to the Application Insights resource for your app, and open the Failures blade.
+Neste exemplo, clicar no link "Exibir detalhes da falha de dependência" abre a folha de pesquisa do Application Insights na instrução SQL com a causa raiz: NULOs foram fornecidos em campos obrigatórios e não foram aprovados na validação durante a operação de salvamento.
 
-In this example, clicking the 'View dependency failures details' link opens Application Insights search blade on the SQL statement with the root cause: NULLs where provided at mandatory fields and did not pass validation during the save operation.
 
+![Pesquisa de diagnóstico](./media/app-insights-proactive-failure-diagnostics/051.png)
 
-![Diagnostic search](./media/app-insights-proactive-failure-diagnostics/051.png)
+## Exame dos alertas recentes
 
-## <a name="review-recent-alerts"></a>Review recent alerts
+Para examinar os alertas no portal, abra **Configurações, Logs de auditoria**.
 
-To review alerts in the portal, open **Settings, Audit logs**.
+![Resumo de alertas](./media/app-insights-proactive-failure-diagnostics/041.png)
 
-![Alerts summary](./media/app-insights-proactive-failure-diagnostics/041.png)
 
+Clique em qualquer alerta para ver todos os detalhes.
 
-Click any alert to see its full detail.
+Ou clique em **Detecção proativa** para ir diretamente para o alerta mais recente:
 
-Or click **Proactive detection** to get straight to the most recent alert:
+![Resumo de alertas](./media/app-insights-proactive-failure-diagnostics/070.png)
 
-![Alerts summary](./media/app-insights-proactive-failure-diagnostics/070.png)
 
 
 
+## Qual é a diferença...
 
-## <a name="what's-the-difference-..."></a>What's the difference ...
+O diagnóstico proativo de falhas complementa outros recursos distintos, mas parecidos, do Application Insights.
 
-Proactive failure diagnostics complements other similar but distinct features of Application Insights. 
+* Os [Alertas de Métrica](app-insights-alerts.md) são definidos por você e podem monitorar uma ampla variedade de métricas, como a ocupação da CPU, as taxas de solicitação, os tempos de carregamento de página e assim por diante. Você pode usá-los para receber um aviso, por exemplo, se precisar adicionar mais recursos. Por outro lado, o diagnóstico proativo de falhas cobre um pequeno grupo de métricas essenciais (atualmente, apenas a taxa de solicitações com falha), projetadas para notificar você quase em tempo real quando a taxa de solicitações com falha de seu aplicativo Web aumentar consideravelmente, em comparação com o comportamento normal do aplicativo Web.
 
-* [Metric Alerts](app-insights-alerts.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, proactive failure diagnostics cover a small range of critical metrics (currently only failed request rate), designed to notify you in near real time manner once your web app's failed request rate increases significantly compared to web app's normal behavior.
+    O diagnóstico proativo de falhas ajusta automaticamente seu limite em resposta às condições predominantes.
 
-    Proactive failure diagnostics automatically adjusts its threshold in response to prevailing conditions.
+    O diagnóstico proativo de falhas inicia o trabalho de diagnóstico para você.
+* O [diagnóstico proativo de anomalias](app-insights-proactive-anomaly-diagnostics.md) também usa a inteligência de máquina para descobrir padrões incomuns em suas métricas, sem qualquer necessidade de configuração da sua parte. Mas, ao contrário dos diagnósticos proativos de falhas, a finalidade da detecção proativa de anomalias é localizar segmentos de sua utilização diversa que podem estar sendo atendidos de forma inadequada, por exemplo, por páginas específicas em um tipo específico de navegador. A análise é realizada diariamente e, se qualquer resultado for encontrado, provavelmente será muito menos urgente do que um alerta. Por outro lado, a análise do diagnóstico proativo de falhas é executada continuamente na telemetria recebida, e você receberá uma notificação em questão de minutos, se as taxas de falha do servidor forem maiores do que o esperado.
 
-    Proactive failure diagnostics start the diagnostic work for you. 
-* [Proactive anomaly diagnostics](app-insights-proactive-anomaly-diagnostics.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike Proactive failure diagnostics, the purpose of proactive anomaly diagnostics is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for proactive failure diagnostics is performed continuously on incoming telemetry, and you will be notified within minutes if server failure rates are greater than expected.
+## Se você receber um alerta do diagnóstico proativo de falhas
 
-## <a name="if-you-receive-an-proactive-failure-diagnostics-alert"></a>If you receive an Proactive failure diagnostics alert
+*Por que eu recebei esse alerta?*
 
-*Why have I received this alert?*
+*	Foi detectado um aumento anormal de solicitações com falha em comparação à linha de base normal do período anterior. Após a análise das falhas e a telemetria associada, acreditamos que há um problema que você deve examinar.
 
-*   We detected an abnormal rise in failed requests rate compared to the normal baseline of the preceding period. After analysis of the failures and associated telemetry, we think that there is a problem that you should look into. 
+*A notificação significa que, definitivamente, tenho um problema?*
 
-*Does the notification mean I definitely have a problem?*
+*	Tentamos alertar sobre a interrupção do aplicativo, ou sobre sua degradação, embora só você possa compreender totalmente a semântica e o impacto no aplicativo ou nos usuários.
 
-*   We try to alert on app disruption, or degradation, although only you can fully understand the semantics and the impact on the app or users.
+*Então, vocês examinam os meus dados?*
 
-*So, you guys look at my data?*
+*	Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](app-insights-data-retention-privacy.md).
 
-*   No. The service is entirely automatic. Only you get the notifications. Your data is [private](app-insights-data-retention-privacy.md).
+*É necessário assinar este alerta?*
 
-*Do I have to subscribe to this alert?* 
+*	Não. Todas as telemetrias de solicitação de envio de aplicativo têm esta regra de alerta.
 
-*   No. Every application sending request telemetry has this alert rule.
+*Posso cancelar a assinatura ou ter as notificações enviadas para meus colegas em vez disso?*
 
-*Can I unsubscribe or get the notifications sent to my colleagues instead?*
+*	Sim, em Regras de alerta, clique na regra Diagnóstico Proativo para configurá-lo. Você pode desabilitar o alerta ou alterar os destinatários do alerta.
 
-*   Yes, In Alert rules, click Proactive Diagnostics rule to configure it. You can disable the alert, or change recipients for the alert. 
+*Perdi o email. Onde posso encontrar as notificações no portal?*
 
-*I lost the email. Where can I find the notifications in the portal?*
+*	Nos Logs de auditoria. Clique em Configurações, Logs de auditoria e em qualquer alerta para ver sua ocorrência, mas com a exibição detalhada limitada.
 
-*   In the Audit logs. Click Settings, Audit logs, then any alert to see its occurrence, but with limited detailed view.
+*Alguns dos alertas são problemas conhecidos e não quero recebê-los.*
 
-*Some of the alerts are of known issues and I do not want to receive them.*
+*	Nós temos a supressão de alerta em nossa lista de pendências.
 
-*   We have alert suppression on our backlog.
 
+## Próximas etapas
 
-## <a name="next-steps"></a>Next steps
+Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu aplicativo:
 
-These diagnostic tools help you inspect the telemetry from your app:
+* [Metrics explorer](app-insights-metrics-explorer.md)
+* [Gerenciador de pesquisas](app-insights-diagnostic-search.md)
+* [Analytics - linguagem de consulta poderosa](app-insights-analytics-tour.md)
 
-* [Metric explorer](app-insights-metrics-explorer.md)
-* [Search explorer](app-insights-diagnostic-search.md)
-* [Analytics - powerful query language](app-insights-analytics-tour.md)
+As detecções proativas são totalmente automáticas. Mas talvez você queira configurar alguns outros alertas?
 
-Proactive detections are completely automatic. But maybe you'd like to set up some more alerts?
+* [Alertas de métrica configurados manualmente](app-insights-alerts.md)
+* [Testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md)
 
-* [Manually configured metric alerts](app-insights-alerts.md)
-* [Availability web tests](app-insights-monitor-web-app-availability.md) 
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

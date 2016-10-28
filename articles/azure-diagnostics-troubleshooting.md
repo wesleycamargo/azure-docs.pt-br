@@ -1,129 +1,123 @@
 <properties
-    pageTitle="Troubleshooting Azure Diagnostics"
-    description="Troubleshoot problems when using Azure diagnostics in Azure Cloud Services, Virtual Machines and "
-    services="multiple"
-    documentationCenter=".net"
-    authors="rboucher"
-    manager="jwhit"
-    editor=""/>
+	pageTitle="Solucionando problemas do Diagnóstico do Azure"
+	description="Solucionar problemas ao usar o diagnóstico do Azure nos Serviços de Nuvem do Azure, Máquinas Virtuais e"
+	services="multiple"
+	documentationCenter=".net"
+	authors="rboucher"
+	manager="jwhit"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="02/20/2016"
-    ms.author="robb"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/20/2016"
+	ms.author="robb"/>
 
 
+# Solução de problemas do Diagnóstico do Azure
+Informações sobre solução de problemas relevantes ao uso do Diagnóstico do Azure. Para obter mais informações sobre o Diagnóstico do Azure, confira [Visão geral do Diagnóstico do Azure](azure-diagnostics.md#cloud-services).
 
-# <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics Troubleshooting
-Troubleshooting information relevant to using Azure Diagnostics. For more information on Azure diagnostics, see [Azure Diagnostics Overview](azure-diagnostics.md#cloud-services).
+## Azure Diagnostics não está iniciando
+O Diagnostics é composto por dois componentes: um plug-in de agente convidado e o agente de monitoramento.
 
-## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics is not Starting
-Diagnostics is comprised of two components: A guest agent plugin and the monitoring agent.
+Em uma função do Serviço de Nuvem, os arquivos de log para o plug-in do agente convidado estão localizados no arquivo:
 
-In a Cloud Service role, log files for the guest agent plugin are located in the file:
+	*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\CommandExecution.log
 
-    *%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<DiagnosticsVersion>*\CommandExecution.log
+Em uma Máquina Virtual do Azure, os arquivos de log para o plug-in do agente convidado estão localizados no arquivo:
 
-In an Azure Virtual Machine, log files for the guest agent plugin are located in the file:
+		C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics<DiagnosticsVersion>\CommandExecution.log
 
-        C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\CommandExecution.log
+Os seguintes códigos de erro são devolvidos pelo plug-in:
 
-The following error codes are returned by the plugin:
-
-Exit Code|Description
+Código de Saída|Descrição
 ---|---
-0|Success.
--1|Generic Error.
--2|Unable to load the rcf file.<p>This is an internal error that should only happen if the guest agent plugin launcher is manually invoked, incorrectly, on the VM.
--3|Cannot load the Diagnostics configuration file.<p><p>Solution: This is the result of a configuration file not passing schema validation. The solution is to provide a configuration file that complies with the schema.
--4|Another instance of the monitoring agent Diagnostics is already using the local resource directory.<p><p>Solution: Specify a different value for **LocalResourceDirectory**.
--6|The guest agent plugin launcher attempted to launch Diagnostics with an invalid command line.<p><p>This is an internal error that should only happen if the guest agent plugin launcher is manually invoked, incorrectly, on the VM.
--10|The Diagnostics plugin exited with an unhandled exception.
--11|The guest agent was unable to create the process responsible for launching and monitoring the monitoring agent.<p><p>Solution: Verify that sufficient system resources are available to launch new processes.<p>
--101|Invalid arguments when calling the Diagnostics plugin.<p><p>This is an internal error that should only happen if the guest agent plugin launcher is manually invoked, incorrectly, on the VM.
--102|The plugin process is unable to initialize itself.<p><p>Solution: Verify that sufficient system resources are available to launch new processes.
--103|The plugin process is unable to initialize itself. Specifically it is unable to create the logger object.<p><p>Solution: Verify that sufficient system resources are available to launch new processes.
--104|Unable to load the rcf file provided by the guest agent.<p><p>This is an internal error that should only happen if the guest agent plugin launcher is manually invoked, incorrectly, on the VM.
--105|The Diagnostics plugin cannot open the Diagnostics configuration file.<p><p>This is an internal error that should only happen if the Diagnostics plugin is manually invoked, incorrectly, on the VM.
--106|Cannot read the Diagnostics configuration file.<p><p>Solution: This is the result of a configuration file not passing schema validation. So the solution is to provide a configuration file that complies with the schema. You can find the XML that is delivered to the Diagnostics extension in the folder *%SystemDrive%\WindowsAzure\Config* on the VM. Open the appropriate XML file and search for **Microsoft.Azure.Diagnostics**, then for the **xmlCfg** field. The data is base64 encoded so you’ll need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.<p>
--107|The resource directory pass to the monitoring agent is invalid.<p><p>This is an internal error that should only happen if the monitoring agent is manually invoked, incorrectly, on the VM.</p>
--108    |Unable to convert the Diagnostics configuration file into the monitoring agent configuration file.<p><p>This is an internal error that should only happen if the Diagnostics plugin is manually invoked with an invalid configuration file.
--110|General Diagnostics configuration error.<p><p>This is an internal error that should only happen if the Diagnostics plugin is manually invoked with an invalid configuration file.
--111|Unable to start the monitoring agent.<p><p>Solution: Verify that sufficient system resources are available.
--112|General error
+0|Sucesso.
+-1|Erro genérico.
+-2|Não foi possível carregar o arquivo rcf.<p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM.
+-3|Não é possível carregar o arquivo de configuração do Diagnóstico.<p><p>Solução: esse é o resultado de um arquivo de configuração não ser aprovado na validação de esquema. A solução é fornecer um arquivo de configuração que cumpre com o esquema.
+-4|Outra instância do agente de monitoramento do Diagnostics já está usando o diretório de recurso local.<p><p>Solução: especifique um valor diferente para **LocalResourceDirectory**.
+-6|O iniciador de plug-in do agente de convidado tentou iniciar o Diagnóstico com uma linha de comando inválida.<p><p>Esse é um erro interno que deve acontecer somente se o iniciador de plug-in do agente convidado for invocado manualmente e incorretamente na máquina virtual.
+-10|O plug-in de Diagnostics saiu com uma exceção sem tratamento.
+-11|O agente convidado não pôde criar o processo responsável por iniciar e monitorar o agente de monitoramento.<p><p>Solução: verifique se os recursos de sistema suficientes estão disponíveis para iniciar novos processos.<p>
+-101|Argumentos inválidos ao chamar o plug-in de Diagnóstico.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM.
+-102|O processo do plug-in não consegue inicializar-se sozinho.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos.
+-103|O processo de plug-in é incapaz de iniciar sozinho. Especificamente, não consegue criar o objeto do agente.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos.
+-104|Não foi possível carregar o arquivo rcf fornecido pelo agente convidado.<p><p>Este é um erro interno que deve acontecer apenas se o iniciador do plug-in do agente convidado é invocado manual e incorretamente na VM.
+-105|O plug-in de Diagnóstico não consegue abrir o arquivo de configuração do Diagnóstico.<p><p>Este é um erro interno que deve acontecer apenas se plug-in do Diagnóstico é invocado manual e incorretamente na VM.
+-106|Não é possível ler o arquivo de configuração do Diagnóstico.<p><p>Solução: esse é o resultado de um arquivo de configuração não ser aprovado na validação de esquema. Então a solução é fornecer um arquivo de configuração que cumpre com o esquema. Você pode localizar o XML que é fornecido para a extensão Diagnostics na pasta *%SystemDrive%\\WindowsAzure\\Config* no VM. Abra o arquivo XML apropriado e pesquise por **Microsoft.Azure.Diagnostics** e, em seguida, por campo **xmlCfg**. Os dados são base64 codificados, então você precisará [decodificá-los](http://www.bing.com/search?q=base64+decoder) para ver o XML que foi carregado pelo Diagnostics.<p>
+-107|A passagem do diretório de recursos para o agente de monitoramento é inválida.<p><p>Este é um erro interno que deve acontecer apenas se o agente de monitoramento é invocado manual e incorretamente na VM.</p>
+-108 |Não é possível converter o arquivo de configuração de Diagnóstico para o arquivo de configuração do agente de monitoramento.<p><p>Esse é um erro interno que deve acontecer somente se o plug-in de diagnóstico é invocado manualmente com um arquivo de configuração inválido.
+-110|Erro de configuração de diagnóstico geral.<p><p>Esse é um erro interno que deve acontecer somente se o plug-in de diagnóstico é manualmente invocado com um arquivo de configuração inválido.
+-111|Não foi possível iniciar o agente de monitoramento.<p><p>Solução: verifique se há recursos de sistema suficientes disponíveis para iniciar novos processos.
+-112|Erro geral
 
 
-## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>Diagnostics Data is Not Logged to Azure Storage
-Azure diagnostics stores all data in Azure Storage.
+## Os dados de diagnósticos não estão registrados no Armazenamento do Azure
+O diagnóstico do Azure armazena todos os dados no Armazenamento do Azure.
 
-The most common cause of missing event data is incorrectly defined storage account information.
+A causa mais comum da ausência de dados de evento é uma informação de conta de armazenamento definida incorretamente.
 
-Solution: Correct your Diagnostics configuration file and re-install Diagnostics.
-If the issue persists after re-installing the diagnostics extension then you may have to debug further by looking through the any monitoring agent errors. Before event data is uploaded to your storage account it is stored in the LocalResourceDirectory.
+Solução: corrija seu arquivo de configuração do Diagnostics e reinstale o Diagnostics. Se o problema persistir após a reinstalação da extensão do diagnóstico, talvez você tenha de depurar mais examinando quaisquer erros do agente de monitoramento. Antes dos dados de eventos serem carregados em sua conta de armazenamento, eles são armazenados em LocalResourceDirectory.
 
-For Cloud Service Role the LocalResourceDirectory is:
+Para a Função do Serviço de Nuvem, o LocalResourceDirectory é:
 
-    C:\Resources\Directory\<CloudServiceDeploymentID>.<RoleName>.DiagnosticStore\WAD<DiagnosticsMajorandMinorVersion>\Tables
+	C:\Resources\Directory<CloudServiceDeploymentID>.<RoleName>.DiagnosticStore\WAD<DiagnosticsMajorandMinorVersion>\Tables
 
-For Virtual Machines the LocalResourceDirectory is:
+Para as Máquinas Virtuais, o LocalResourceDirectory é:
 
-    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD<DiagnosticsMajorandMinorVersion>\Tables
+	C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics<DiagnosticsVersion>\WAD<DiagnosticsMajorandMinorVersion>\Tables
 
-If there are no files in the LocalResourceDirectory folder, the monitoring agent is unable to launch. This is typically caused by an invalid configuration file, an event that should be reported in the CommandExecution.log.
+Se não existirem arquivos na pasta LocalResourceDirectory, o agente de monitoramento não poderá ser iniciado. Normalmente, isso é causado por um arquivo de configuração inválido, um evento que deve ser relatado em CommandExecution.log.
 
-If the Monitoring Agent is successfully collecting event data you will see .tsf files for each event defined in your configuration file. The Monitoring Agent logs its errors in the file MaEventTable.tsf. To inspect the contents of this file you can use the tabel2csv application to convert the .tsf file to a comma separated values(.csv) file:
+Se o Agente de Monitoramento estiver dados de eventos com êxito, você verá arquivos .tsf para cada evento definido em seu arquivo de configuração. O Agente de Monitoramento registra os erros no arquivo MaEventTable.tsf. Para inspecionar o conteúdo desse arquivo, é possível usar o aplicativo tabel2csv para converter o arquivo .tsf em um arquivo de valores separados por vírgula (.csv):
 
-On a Cloud Service Role:
+Em uma Função do Serviço de Nuvem:
 
-    %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
+	%SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
 
-*%SystemDrive%* on a Cloud Service Role is typically D:
+*%SystemDrive%* em uma Função do Serviço de Nuvem é, geralmente, D:
 
-On a Virtual Machine:
+Em uma Máquina Virtual:
 
-    C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
+	C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
 
-The above commands generates the log file *maeventtable.csv*, which you can open and inspect for failure messages.    
+Os comandos acima geram o arquivo de log *maeventtable.csv*, que pode ser aberto e verificado quanto a mensagens de falha.
 
 
-## <a name="diagnostics-data-tables-not-found"></a>Diagnostics data Tables not found
-The tables in Azure storage holding Azure diagnostics data are named using the code below:
+## Tabelas dos dados de diagnósticos não encontradas
+As tabelas no armazenamento do Azure que contêm dados de diagnósticos do Azure são nomeadas usando o código abaixo:
 
-        if (String.IsNullOrEmpty(eventDestination)) {
-            if (e == "DefaultEvents")
-                tableName = "WADDefault" + MD5(provider);
-            else
-                tableName = "WADEvent" + MD5(provider) + eventId;
-        }
-        else
-            tableName = "WAD" + eventDestination;
+		if (String.IsNullOrEmpty(eventDestination)) {
+		    if (e == "DefaultEvents")
+		        tableName = "WADDefault" + MD5(provider);
+		    else
+		        tableName = "WADEvent" + MD5(provider) + eventId;
+		}
+		else
+		    tableName = "WAD" + eventDestination;
 
-Here is an example:
+Veja um exemplo:
 
-        <EtwEventSourceProviderConfiguration provider=”prov1”>
-          <Event id=”1” />
-          <Event id=”2” eventDestination=”dest1” />
-          <DefaultEvents />
-        </EtwEventSourceProviderConfiguration>
-        <EtwEventSourceProviderConfiguration provider=”prov2”>
-          <DefaultEvents eventDestination=”dest2” />
-        </EtwEventSourceProviderConfiguration>
+		<EtwEventSourceProviderConfiguration provider=”prov1”>
+		  <Event id=”1” />
+		  <Event id=”2” eventDestination=”dest1” />
+		  <DefaultEvents />
+		</EtwEventSourceProviderConfiguration>
+		<EtwEventSourceProviderConfiguration provider=”prov2”>
+		  <DefaultEvents eventDestination=”dest2” />
+		</EtwEventSourceProviderConfiguration>
 
-That will generate 4 tables:
+Isso gerará 4 tabelas:
 
-Event|Table Name
+Evento|Nome da tabela
 ---|---
-provider=”prov1” &lt;Event id=”1” /&gt;|WADEvent+MD5(“prov1”)+”1”
+provider=”prov1” &lt;Event id=”1” /&gt;|WADEvent+MD5("prov1")+"1"
 provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt;|WADdest1
-provider=”prov1” &lt;DefaultEvents /&gt;|WADDefault+MD5(“prov1”)
+provider=”prov1” &lt;DefaultEvents /&gt;|WADDefault+MD5("prov1")
 provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt;|WADdest2
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0302_2016-->

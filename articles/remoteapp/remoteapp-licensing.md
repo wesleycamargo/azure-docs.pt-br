@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure RemoteApp licensing | Microsoft Azure"
-    description="Learn how licensing works in Azure RemoteApp."
+    pageTitle="Licenciamento do RemoteApp do Azure | Microsoft Azure"
+    description="Saiba como funciona o licenciamento no RemoteApp do Azure."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -16,30 +16,25 @@
     ms.author="elizapo" />
 
 
-
-# <a name="how-does-licensing-work-in-azure-remoteapp?"></a>How does licensing work in Azure RemoteApp?
+# Como o licenciamento funciona no RemoteApp do Azure?
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+O RemoteApp do Azure está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
-So you've set up your Azure RemoteApp service, created your templates, and are ready to publish apps to your users. But there's still one last thing to figure out: licensing. Just how does licensing work for RemoteApp and for the apps you share through RemoteApp?
+Você configurou seu serviço de RemoteApp do Azure, criou seus modelos e está pronto para publicar aplicativos para seus usuários. Mas ainda há uma última coisa a descobrir: licenciamento. Como funciona o licenciamento para o RemoteApp e os aplicativos que você compartilha por meio do RemoteApp?
 
-RemoteApp does not require any Windows licenses or Remote Desktop CALs. Your subscription takes care of the RemoteApp side itself. (Check out the details of the [pricing plans](https://azure.microsoft.com/pricing/details/remoteapp).)
+O RemoteApp não requer quaisquer licenças do Windows ou CALs de Área de Trabalho Remota. Sua assinatura cuida do RemoteApp em si. (Verifique os detalhes dos [planos de preços](https://azure.microsoft.com/pricing/details/remoteapp).)
 
-If you use one of the images that is included in your subscription, you can share any of the apps installed on that image without needing a separate license. For example, if you use the Windows Server 2012 R2 template image to build your collection, you can share System Center Endpoint Protection with your users. The only exceptions to this rule are Office 365 ProPlus, which requires a separate subscription, and Office 2013, which cannot be shared in a production collection.
+Se você usar uma das imagens incluídas em sua assinatura, poderá compartilhar qualquer um dos aplicativos instalados na imagem sem precisar de uma licença separada. Por exemplo, se você usar a imagem de modelo do Windows Server 2012 R2 para compilar sua coleção, você pode compartilhar o System Center Endpoint Protection com seus usuários. As únicas exceções a essa regra são o Office 365 ProPlus, que requer uma assinatura separada, e o Office 2013, que não pode ser compartilhado em uma coleção de produção.
 
-If you want to use the Office 365 template image that comes with RemoteApp, you must have an *existing* Office 365 ProPlus plan. The same is true for any Office 365 app that you publish using a custom template. You need to activate the apps with your own subscription. This is true for both trial and paid subscriptions. If you want to use the Office 365 template image during the trial, *and you don't already have a subscription*, go to the Office 365 page to [sign up](https://go.microsoft.com/fwlink/p/?LinkID=403802) for a trial subscription. See [How do RemoteApp and Office work together?](remoteapp-o365.md) for more information.
+Se quiser usar a imagem de modelo do Office 365 que vem com o RemoteApp, você deve ter um plano *existente* do Office 365 ProPlus. O mesmo é verdadeiro para qualquer aplicativo do Office 365 que você publique usando um modelo personalizado. Você precisa ativar os aplicativos com sua própria assinatura. Isso é verdadeiro para as assinaturas de avaliação e pagas. Se você quiser usar a imagem de modelo do Office 365 durante a avaliação, *e ainda não tem uma assinatura*, acesse a página do Office 365 para [inscrever-se](https://go.microsoft.com/fwlink/p/?LinkID=403802) para uma assinatura de avaliação. Consulte [Como o RemoteApp e o Office funcionam juntos?](remoteapp-o365.md) para obter mais informações.
 
-If, during the trial period, you don't want to get an Office 365 trial subscription, use the Office 2013 Professional Plus template image that comes with RemoteApp. This template image can only be used for 30 days and cannot be converted into a paid collection.
+Se, durante o período de avaliação, você não quiser obter uma assinatura de avaliação do Office 365, use a imagem de modelo do Office 2013 Professional Plus que vem com o RemoteApp. Essa imagem de modelo só pode ser usada por 30 dias e não pode ser convertida em uma coleção paga.
 
-For other apps, you need to make sure that you have the license to share the app.
+Para outros aplicativos, você precisará certificar-se de que tenha a licença para compartilhá-los.
 
-That makes sense, right? You can publish any app that you are legally entitled to share. And you need to make sure you really are entitled to share your programs.
+Isso faz sentido, certo? Você pode publicar qualquer aplicativo que você está legalmente qualificado para compartilhar. E você precisa certificar-se de que você realmente tem direito a compartilhar seus programas.
 
-Please note that you cannot use a CAL or Volume License agreement in a cloud collection. You *can* use a Volume License agreement to activate applications in your hybrid collection (except for Office). You just need to install them on your template image from the Volume License media. Follow the information from the application vendor to install licenses in a Remote Desktop environment.
+Observe que você não pode usar um contrato de licença de Volume ou CAL em uma coleção na nuvem. Você *pode* usar um contrato de Licença de Volume para ativar aplicativos em sua coleção híbrida (com exceção do Office). Você precisa instalá-los em sua imagem de modelo a partir da mídia de licença de Volume. Siga as informações do fornecedor do aplicativo para instalar licenças em um ambiente de área de trabalho remota.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

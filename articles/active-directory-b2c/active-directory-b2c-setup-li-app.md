@@ -1,58 +1,53 @@
 <properties
-    pageTitle="Azure Active Directory B2C: LinkedIn configuration | Microsoft Azure"
-    description="Provide sign-up and sign-in to consumers with LinkedIn accounts in your applications that are secured by Azure Active Directory B2C"
-    services="active-directory-b2c"
-    documentationCenter=""
-    authors="swkrish"
-    manager="mbaldwin"
-    editor="bryanla"/>
+	pageTitle="Azure Active Directory B2C: configuração do LinkedIn | Microsoft Azure"
+	description="Forneça inscrição e entrada para consumidores com contas do LinkedIn em seus aplicativos protegidos pelo Azure Active Directory B2C"
+	services="active-directory-b2c"
+	documentationCenter=""
+	authors="swkrish"
+	manager="msmbaldwin"
+	editor="bryanla"/>
 
 <tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/24/2016"
-    ms.author="swkrish"/>
+	ms.service="active-directory-b2c"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/24/2016"
+	ms.author="swkrish"/>
 
+# Azure Active Directory B2C: fornecer inscrição e entrada aos consumidores com contas do LinkedIn
 
-# <a name="azure-active-directory-b2c:-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C: Provide sign-up and sign-in to consumers with LinkedIn accounts
+## Criar um aplicativo do LinkedIn
 
-## <a name="create-a-linkedin-application"></a>Create a LinkedIn application
+Para usar o LinkedIn como provedor de identidade no Azure AD (Azure Active Directory) B2C, será necessário primeiro criar um aplicativo do LinkedIn e fornecê-lo com os parâmetros corretos. Você precisa de uma conta do LinkedIn para fazer isso. Se você não tiver uma, poderá obtê-la em [https://www.linkedin.com/](https://www.linkedin.com/).
 
-To use LinkedIn as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create a LinkedIn application and supply it with the right parameters. You need a LinkedIn account to do this. If you don’t have one, you can get it at [https://www.linkedin.com/](https://www.linkedin.com/).
+1. Acesse o [site de Desenvolvedores do LinkedIn](https://www.developer.linkedin.com/) e entre com suas credencias de conta do LinkedIn.
+2. Clique em **Meus Aplicativos** na barra de menus superior e em **Criar Aplicativo**.
 
-1. Go to the [LinkedIn Developers website](https://www.developer.linkedin.com/) and sign in with your LinkedIn account credentials.
-2. Click **My Apps** in the top menu bar and then click **Create Application**.
+    ![LinkedIn — Novo aplicativo](./media/active-directory-b2c-setup-li-app/linkedin-new-app.png)
 
-    ![LinkedIn - New app](./media/active-directory-b2c-setup-li-app/linkedin-new-app.png)
+3. No formulário **Create a New Application (Criar um Novo Aplicativo)**, preencha as informações relevantes (**nome da empresa**, **nome**, **descrição**, **URL do logotipo do aplicativo**, **uso do aplicativo**, **URL do site**, **e-mail comercial** e **telefone comercial**).
+4. Concorde com os **Termos de Uso da API do LinkedIn** e clique em **Enviar**.
 
-3. In the **Create a New Application** form, fill in the relevant information (**Company Name**, **Name**, **Description**, **Application Logo URL**, **Application Use**, **Website URL**, **Business Email** and **Business Phone**).
-4. Agree to the **LinkedIn API Terms of Use** and click **Submit**.
+    ![LinkedIn — Registrar aplicativo](./media/active-directory-b2c-setup-li-app/linkedin-register-app.png)
 
-    ![LinkedIn - Register app](./media/active-directory-b2c-setup-li-app/linkedin-register-app.png)
+5. Copie os valores de **ID do Cliente** e **Segredo do Cliente**. (Você pode encontrá-los em **Chaves de Autenticação**). Você precisará de ambos para configurar o LinkedIn como um provedor de identidade no seu locatário.
 
-5. Copy the values of **Client ID** and **Client Secret**. (You can find them under **Authentication Keys**.) You will need both of them to configure LinkedIn as an identity provider in your tenant.
+	>[AZURE.NOTE] O **Segredo do cliente** é uma credencial de segurança importante.
 
-    >[AZURE.NOTE] **Client Secret** is an important security credential.
+6. Digite `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` no campo **URLs de Redirecionamento Autorizado** (em **OAuth 2.0**). Substitua **{tenant}** pelo nome do locatário (por exemplo, contoso.onmicrosoft.com). Clique em **Adicionar** e depois em **Atualizar**. O valor **{tenant}** diferencia letras maiúsculas de minúsculas.
 
-6. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized Redirect URLs** field (under **OAuth 2.0**). Replace **{tenant}** with your tenant's name (for example, contoso.onmicrosoft.com). Click **Add**, and then click **Update**. The **{tenant}** value is case-sensitive.
+    ![LinkedIn — Configurar aplicativo](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 
-    ![LinkedIn - Setup app](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
+## Configurar o LinkedIn como um provedor de identidade no locatário
 
-## <a name="configure-linkedin-as-an-identity-provider-in-your-tenant"></a>Configure LinkedIn as an identity provider in your tenant
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no Portal do Azure.
+2. Na folha de recursos do B2C, clique em **Provedores de identidade**.
+3. Clique em **+Adicionar**, na parte superior da folha.
+4. Forneça um **Nome** amigável para a configuração do provedor de identidade. Por exemplo, insira "LI".
+5. Clique em **Tipo do provedor de identidade**, selecione **LinkedIn** e clique em **OK**.
+6. Clique em **Configurar esse provedor de identidade** e insira a ID e o segredo do cliente do aplicativo do LinkedIn que você criou anteriormente.
+7. Clique em **OK** e em **Criar** para salvar sua configuração do LinkedIn.
 
-1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on the Azure portal.
-2. On the B2C features blade, click **Identity providers**.
-3. Click **+Add** at the top of the blade.
-4. Provide a friendly **Name** for the identity provider configuration. For example, enter "LI".
-5. Click **Identity provider type**, select **LinkedIn**, and click **OK**.
-6. Click **Set up this identity provider** and enter the client ID and client secret of the LinkedIn application that you created earlier.
-7. Click **OK** and then click **Create** to save your LinkedIn configuration.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

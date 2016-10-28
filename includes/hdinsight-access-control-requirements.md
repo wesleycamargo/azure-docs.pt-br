@@ -1,15 +1,12 @@
-If you use an Azure subscription where you are not the administrator/owner, such as a company owned subscription, you must verify the following before using the steps in this document:
+Se você usa uma assinatura do Azure e não é o administrador ou o proprietário, por exemplo, em um assinatura pertencente à empresa, verifique o seguinte antes de usar as etapas deste documento:
 
-* Your Azure login must have at least __Contributor__ access to the Azure resource group that you use when creating HDInsight (and other Azure resources.)
+* Seu logon do Azure deve no mínimo ter acesso de __Colaborador__ ao grupo de recursos do Azure que você usa ao criar HDInsight (e outros recursos do Azure).
 
-* Someone with at least __Contributor__ access to the Azure subscription must have previously registered the provider for the resource you are using. Provider registration happens when a user with Contributor access to the subscription creates a resource for the first time on the subscription. It can also be accomplished without creating a resource by [registering a provider using REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+* Alguém com no mínimo acesso de __Colaborador__ à assinatura do Azure tem que registrar anteriormente o provedor para o recurso que você está usando. O registro do provedor acontece quando um usuário com acesso de Colaborador à assinatura cria um recurso nela pela primeira vez. Isso também pode ser feito sem criar um recurso, [registrando um provedor com o uso de REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
-For more information on working with access management, see the following documents:
+Para saber mais sobre como trabalhar com o gerenciamento de acesso, confira os seguintes documentos:
 
-* [Get started with access management in the Azure portal](../articles/active-directory/role-based-access-control-what-is.md)
-* [Use role assignments to manage access to your Azure subscription resources](../articles/active-directory/role-based-access-control-configure.md)
+* [Introdução ao gerenciamento de acesso no portal do Azure](../articles/active-directory/role-based-access-control-what-is.md)
+* [Usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../articles/active-directory/role-based-access-control-configure.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

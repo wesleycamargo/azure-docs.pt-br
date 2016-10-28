@@ -1,58 +1,53 @@
 <properties
-    pageTitle="Connect to SQL Database by using Ruby | Microsoft Azure"
-    description="Give a Ruby code sample you can run to connect to Azure SQL Database."
-    services="sql-database"
-    documentationCenter=""
-    authors="ajlam"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Conectar-se ao Banco de Dados SQL usando Ruby | Microsoft Azure"
+	description="Dê um exemplo de código Ruby que você pode executar para se conectar ao Banco de Dados SQL do Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="ajlam"
+	manager="jhubbard"
+	editor=""/>
 
 
 <tags
-    ms.service="sql-database"
-    ms.workload="drivers"
-    ms.tgt_pltfrm="na"
-    ms.devlang="ruby"
-    ms.topic="article"
-    ms.date="10/03/2016"
-    ms.author="andrela"/>
+	ms.service="sql-database"
+	ms.workload="drivers"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="09/16/2016"
+	ms.author="andrela"/>
 
 
+# Conectar-se ao Banco de Dados SQL usando o Ruby 
 
-# <a name="connect-to-sql-database-by-using-ruby"></a>Connect to SQL Database by using Ruby 
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
+Este tópico mostra como conectar e consultar um Banco de Dados SQL do Azure usando o Ruby. Você pode executar essa amostra de plataformas Windows, Ubuntu Linux ou Mac.
 
-This topic shows how to connect and query an Azure SQL Database using Ruby. You can run this sample from Windows, Ubuntu Linux, or Mac platforms.
-
-## <a name="step-1:-configure-development-environment"></a>Step 1: Configure Development Environment
+## Etapa 1: configurar o Ambiente de Desenvolvimento
 
 [Prerequisites for using the TinyTDS Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt711041.aspx)
 
-## <a name="step-2:-create-a-sql-database"></a>Step 2: Create a SQL database
+## Etapa 2: Criar um banco de dados SQL
 
-See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
+Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados de exemplo. É importante que você siga o guia para criar um **modelo de banco de dados AdventureWorks**. Os exemplos mostrados abaixo funcionam apenas com o **esquema AdventureWorks**.
 
-## <a name="step-3:-get-connection-details"></a>Step 3: Get Connection Details
+## Etapa 3: obter detalhes da conexão
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## <a name="step-4:-run-sample-code"></a>Step 4: Run sample code
+## Etapa 4: Executar o código de exemplo
 
-[Proof of Concept connecting to SQL using Ruby](http://msdn.microsoft.com/library/mt715797.aspx)
+[Proof of Concept connecting to SQL using Ruby](http://msdn.microsoft.com/library/mt715797.aspx) (Prova de conceito, conectar-se ao SQL usando Ruby)
 
-## <a name="next-steps"></a>Next Steps
+## Próximas etapas
 
-* Review the [SQL Database Development Overview](sql-database-develop-overview.md)
-* More information on the [Microsoft Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt691981.aspx)
+* Leia a [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
+* Mais informações sobre o [Microsoft Ruby Driver para SQL Server](https://msdn.microsoft.com/library/mt691981.aspx)
 
-## <a name="additional-resources"></a>Additional resources 
+## Recursos adicionais 
 
-* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)
+* [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explore todos os [recursos do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

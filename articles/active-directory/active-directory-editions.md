@@ -1,512 +1,507 @@
 <properties
-    pageTitle="Azure Active Directory editions | Microsoft Azure"
-    description="A topic that explains choices for free and paid editions of Azure Active Directory. Azure Active Directory Basic, Azure Active Directory Premium P1, and Azure Active Directory Premium P2 are the paid editions."
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Edições do Active Directory do Azure | Microsoft Azure"
+	description="Um tópico que explica as opções para as edições pagas e para a edição gratuita do Azure Active Directory. O Azure Active Directory Basic, o Azure Active Directory Premium P1 e o Azure Active Directory Premium P2 são edições pagas."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/09/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/09/2016"
+	ms.author="curtand"/>
+
+# Edições do Active Directory do Azure
+
+Todos os serviços comerciais do Microsoft Online dependem do Azure Active Directory (Azure AD) para entrada e outras necessidades de identidade. Se você assinar qualquer um dos serviços comerciais do Microsoft Online (por exemplo, Office 365 ou Microsoft Azure), obterá o Azure AD com acesso a todos os recursos Gratuitos, descritos abaixo.
+
+O Active Directory do Azure é um serviço que fornece recursos abrangentes de gerenciamento de acesso e de identidade na nuvem para seus funcionários, parceiros e clientes. Ele combina serviços de diretório, governança avançada de identidade, uma plataforma sofisticada baseada em padrões para desenvolvedores e gerenciamento de acesso de aplicativo para seu próprio aplicativo ou qualquer um dos milhares de aplicativos pré-integrados. Com a edição Gratuita do Active Directory do Azure, você pode gerenciar usuários e grupos, sincronizar com diretórios locais, obter logon único no Azure, Office 365 e em milhares de aplicativos SaaS populares como Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox e muito mais. Para saber mais sobre o Active Directory do Azure, leia [O que é o AD do Azure?](active-directory-whatis.md)
+
+Para aprimorar seu Active Directory do Azure, é possível adicionar recursos pagos usando as edições do Azure Active Directory Basic, Premium P1 e Premium P2. As edições pagas do Active Directory do Azure são criadas em seu diretório gratuito existente, fornecendo recursos corporativos que abrangem autoatendimento, monitoramento avançado, relatórios de segurança, MFA (Multi-Factor Authentication) e acesso seguro para a sua força de trabalho móvel.
+
+As assinaturas do Office 365 incluem recursos adicionais do Active Directory do Azure descritos na tabela de comparação abaixo.
 
 
-# <a name="azure-active-directory-editions"></a>Azure Active Directory editions
-
-All Microsoft Online business services rely on Azure Active Directory (Azure AD) for sign-in and other identity needs. If you subscribe to any of Microsoft Online business services (for example, Office 365 or Microsoft Azure), you get Azure AD with access to all of the Free features, described below.  
-
-Azure Active Directory is a service that provides comprehensive identity and access management capabilities in the cloud for your employees, partners and customers. It combines directory services, advanced identity governance, a rich standards-based platform for developers, and application access management for your own or any of thousands of pre-integrated applications. With the Azure Active Directory Free edition, you can manage users and groups, synchronize with on-premises directories, get single sign-on across Azure, Office 365, and thousands of popular SaaS applications like Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox, and more. To learn more about Azure Active Directory, read [What is Azure AD](active-directory-whatis.md).
-
-To enhance your Azure Active Directory, you can add paid capabilities using the Azure Active Directory Basic, Premium P1, and Premium P2 editions. Azure Active Directory paid editions are built on top of your existing free directory, providing enterprise class capabilities spanning self-service, enhanced monitoring, security reporting, Multi-Factor Authentication (MFA), and secure access for your mobile workforce.
-
-Office 365 subscriptions include additional Azure Active Directory features described in the comparison table below.
+> [AZURE.NOTE] Para obter as opções de preço dessas edições, confira [Preço do Active Directory do Azure](https://azure.microsoft.com/pricing/details/active-directory/). O Azure Active Directory Premium P1, Premium P2 e Azure Active Directory Basic não têm suporte atualmente na China. Entre em contato conosco no Fórum do Azure Active Directory para obter mais informações.
 
 
-> [AZURE.NOTE] For the pricing options of these editions, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/). Azure Active Directory Premium P1, Premium P2, and Azure Active Directory Basic are not currently supported in China. Please contact us at the Azure Active Directory Forum for more information.
+- **Azure Active Directory Basic** - Projetada para profissionais de tarefas com necessidades que priorizam a nuvem, esta edição fornece soluções de gerenciamento de identidades por autoatendimento e de acesso a aplicativos centrados na nuvem. Com a Basic edition do Active Directory do Azure, você obtém recursos que aumentam sua produtividade e reduzem os custos, como o gerenciamento de acesso baseado em grupo, redefinição de senha por autoatendimento para aplicativos em nuvem e o Proxy de Aplicativo do Active Directory do Azure (para publicar aplicativos web locais usando o Active Directory do Azure), tudo com o apoio de um SLA de nível empresarial de 99,9% de tempo de atividade.
 
+- **Azure Active Directory Premium P1** – Projetado para capacitar as organizações com necessidades mais exigentes de gerenciamento de identidades e acesso, a Active Directory Premium edition do Azure adiciona funcionalidades de gerenciamento de identidades de nível empresarial rica em recursos e permite que os usuários híbridos acessem diretamente as funcionalidades locais e na nuvem. Esta edição inclui tudo o que necessário para o profissional de informações e os administradores de identidades em ambientes híbridos no acesso a aplicativos, IAM (gerenciamento de identidades e acesso) por autoatendimento, proteção de identidade e segurança na nuvem. Ela dá suporte a recursos avançados de administração e delegação, como grupos dinâmicos e gerenciamento de grupos por autoatendimento. Inclui o Microsoft Identity Manager (um pacote de gerenciamento de identidades e acesso local) e fornece recursos de write-back na nuvem, possibilitando soluções como a redefinição de senha por autoatendimento para seus usuários locais.
 
-- **Azure Active Directory Basic** - Designed for task workers with cloud-first needs, this edition provides cloud centric application access and self-service identity management solutions. With the Basic edition of Azure Active Directory, you get productivity enhancing and cost reducing features like group-based access management, self-service password reset for cloud applications, and Azure Active Directory Application Proxy (to publish on-premises web applications using Azure Active Directory), all backed by an enterprise-level SLA of 99.9 percent uptime.
+- **Azure Active Directory Premium P2** – Projetado com proteção avançada para todos os usuários e administradores, essa nova oferta inclui todos os recursos no Azure AD Premium P1, bem como nossa nova Identity Protection e Privileged Identity Management. O Azure Active Directory Identity Protection utiliza bilhões de sinais para fornecer acesso condicional com base em risco aos seus aplicativos e dados importantes da empresa. Podemos também ajudar a gerenciar e proteger contas privilegiadas com o Azure Active Directory Privileged Identity Management para descobrir, restringir e monitorar os administradores e o acesso a recursos e fornecer acesso just-in-time quando necessário.
 
-- **Azure Active Directory Premium P1** - Designed to empower organizations with more demanding identity and access management needs, Azure Active Directory Premium edition adds feature-rich enterprise-level identity management capabilities and enables hybrid users to seamlessly access on-premises and cloud capabilities. This edition includes everything you need for information worker and identity administrators in hybrid environments across application access, self-service identity and access management (IAM), identity protection and security in the cloud. It supports advanced administration and delegation resources like dynamic groups and self-service group management. It includes Microsoft Identity Manager (an on-premises identity and access management suite) and provides cloud write-back capabilities enabling solutions like self-service password reset for your on-premises users.
-
-- **Azure Active Directory Premium P2** - Designed with advanced protection for all your users and administrators, this new offering includes all the capabilities in Azure AD Premium P1 as well as our new Identity Protection and Privileged Identity Management. Azure Active Directory Identity Protection leverages billions of signals to provide risk-based conditional access to your applications and critical company data. We also help you manage and protect privileged accounts with Azure Active Directory Privileged Identity Management so you can discover, restrict and monitor administrators and their access to resources and provide just-in-time access when needed.  
-
-To sign up and start using Active Directory Premium today, see [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md).
+Para inscrever-se e começar a usar o Active Directory Premium hoje, consulte [Introdução ao Active Directory Premium do Azure](active-directory-get-started-premium.md).
 
 
 > [AZURE.NOTE]
->A number of Azure Active Directory capabilities are available through "pay as you go" editions:
+Uma série de recursos do Active Directory do Azure está disponível por meio de edições “pré-pagas”:
 >
->- Active Directory B2C is the identity and access management solution for your consumer-facing applications. For more details, see [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
+>- O Active Directory B2C é a solução de gerenciamento de identidades e acesso para seus aplicativos voltados para o consumidor. Para obter mais detalhes, veja [Active Directory B2C do Azure](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
 
->-  Azure Multi-Factor Authentication can be used through per user or per authentication providers. For more details, see [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
-
-
-##<a name="comparing-generally-available-features"></a>Comparing generally available features
-
-> [AZURE.NOTE] For a different view of this data, see the [Azure Active Directory Capabilities](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx).
+>-	O Azure Multi-Factor Authentication pode ser usado por usuário ou por provedores de autenticação. Para obter mais detalhes, veja [O que é o Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
+##Comparação de recursos geralmente disponíveis
 
-
-**Common Features**
-
-- [Directory Objects](#directory-objects)
-
-- [User/Group Management (add/update/delete)/ User-based provisioning, Device  registration](#usergroup-management-addupdatedelete-user-based-provisioning-device-registration)
-
-- [Single Sign-On (SSO)](#single-sign-on-sso)
-
-- [Self-Service Password Change for cloud users](#self-service-password-change-for-cloud-users)
-
-- [Connect  (Sync engine that extends on-premises directories to Azure Active Directory)](#connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory)
-
-- [Security / Usage Reports](#securityusage-reports)
+> [AZURE.NOTE] Para obter uma exibição diferente dos dados, confira os [Recursos do Azure Active Directory](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx).
 
 
 
-**Basic Features**
 
-- [Group-based access management / provisioning](#group-based-access-managementprovisioning)
+**Recursos comuns**
 
-- [Self-Service Password Reset for cloud users](#self-service-password-reset-for-cloud-users)
+- [Objetos do diretório](#directory-objects)
 
-- [Company Branding (Logon Pages/Access Panel customization)](#company-branding-logon-pagesaccess-panel-customization)
+- [Gerenciamento de usuário/Grupo (adicionar/atualizar/excluir)/Provisionamento baseado em usuário, Registro de dispositivo](#usergroup-management-addupdatedelete-user-based-provisioning-device-registration)
 
-- [Application Proxy](#application-proxy)
+- [SSO (Logon único)](#single-sign-on-sso)
 
-- [SLA 99.9%](#sla-999)
+- [Alteração de senhas por autoatendimento para usuários de nuvem](#self-service-password-change-for-cloud-users)
+
+- [Connect (Mecanismo de sincronização que amplia os diretórios locais para o Active Directory do Azure)](#connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory)
+
+- [Segurança/Relatórios de uso](#securityusage-reports)
 
 
-**Premium P1 Features**
 
-- [Self-Service Group and app Management/Self-Service application additions/ Dynamic Groups](#self-service-group-and-app-managementself-service-application-additions-dynamic-groups)
+**Recursos Básicos**
 
-- [Self-Service Password Reset/Change/Unlock  with on-premises write-back](#self-service-password-resetchangeunlock-with-on-premises-write-back)
+- [Gerenciamento de acesso baseado em grupos/provisionamento](#group-based-access-managementprovisioning)
 
-- [Multi-Factor Authentication (Cloud and On-premises (MFA Server))](#multi-factor-authentication-cloud-and-on-premises-mfa-server)
+- [Redefinição de senha por autoatendimento para usuários de nuvem](#self-service-password-reset-for-cloud-users)
 
-- [MIM CAL + MIM Server](#mim-cal-mim-server)
+- [Identidade visual da empresa (Páginas de logon/Personalização do painel de acesso)](#company-branding-logon-pagesaccess-panel-customization)
+
+- [Proxy de Aplicativo](#application-proxy)
+
+- [SLA de 99,9%](#sla-999)
+
+
+**Recursos do Premium P1**
+
+- [Gerenciamento de grupo de autoatendimento/Adições de aplicativo de autoatendimento/ Grupos dinâmicos](#self-service-group-and-app-managementself-service-application-additions-dynamic-groups)
+
+- [Redefinição/Alteração/Desbloqueio de senha de autoatendimento com write-back local](#self-service-password-resetchangeunlock-with-on-premises-write-back)
+
+- [Multi-Factor Authentication (nuvem e local [Servidor MFA])](#multi-factor-authentication-cloud-and-on-premises-mfa-server)
+
+- [CAL MIM + Servidor MIM](#mim-cal-mim-server)
 
 - [Cloud App Discovery](#cloud-app-discovery)
 
 - [Connect Health](#connect-health)
 
-- [Automatic password rollover for group accounts](#automatic-password-rollover-for-group-accounts)
+- [Substituição automática de senha para contas de grupo](#automatic-password-rollover-for-group-accounts)
 
-**Premium P2 Features**
+**Recursos do Premium P2**
 
 - [Identity Protection](active-directory-identityprotection.md)
 
 - [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
-**Azure Active Directory Join – Windows 10 only related features**
+**Ingresso do Active Directory do Azure - apenas para recursos relacionados ao Windows 10**
 
-- [Join a device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery](#join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery)
+- [Adicione um dispositivo para AD do Azure, Desktop SSO, Microsoft Passport para AD do Azure, recuperação do Administrator Bitlocker](#join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery)
 
-- [MDM auto-enrolment,  Self-Service Bitlocker recovery, Additional  local administrators to Windows 10 devices via Azure AD Join](#mdm-auto-enrolment-self-service-bitlocker-recovery-additional-local-administrators-to-windows-10-devices-via-azure-ad-join)
-
-
-## <a name="common-features"></a>Common Features
-#### <a name="directory-objects"></a>Directory Objects
-
-**Type:** Common Features
-
-The default usage quota is 150,000 objects. An object is an entry in the directory service, represented by its unique distinguished name. An example of an object is a user entry used for authentication purposes. If you need to exceed this default quota, please contact support. The 500K object limit does not apply for Office 365, Microsoft Intune or any other Microsoft paid online service that relies on Azure Active Directory for directory services.
+- [Registro automático do MDM, recuperação de autoatendimento do Bitlocker, administração local extra para dispositivos do Windows 10 via Ingresso no AD do Azure](#mdm-auto-enrolment-self-service-bitlocker-recovery-additional-local-administrators-to-windows-10-devices-via-azure-ad-join)
 
 
-**Availability:**
+## Recursos comuns
+#### Objetos do diretório
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+**Tipo:** recursos comuns
+
+A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviço do diretório, representado por seu nome diferenciado exclusivo. Um exemplo de objeto é uma entrada de usuário para propósitos de autenticação. Se você precisa ultrapassar essa cota padrão, entre em contato com o suporte. O limite de objeto de 500 mil não se aplica ao Office 365, ao Microsoft Intune ou a qualquer outro serviço online pago da Microsoft que dependa do Active Directory do Azure para serviços de diretório.
+
+
+**Disponibilidade:**
+
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-| Up to 500,000 objects| No object limit| No object limit| No object limit for Office 365 user accounts|
+| Até 500 mil objetos| Não há limite de objeto| Não há limite de objeto| Nenhum limite de objeto para contas de usuário do Office 365|
 
 
 
-#### <a name="user/group-management-(add/update/delete)/-user-based-provisioning,-device-registration"></a>User/Group Management (add/update/delete)/ User-based provisioning, Device  registration
+#### Gerenciamento de usuário/Grupo (adicionar/atualizar/excluir)/Provisionamento baseado em usuário, Registro de dispositivo
 
-**Type:** Common Features
+**Tipo:** recursos comuns
 
-**Availability:**
+**Disponibilidade:**
 
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
+| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 
-**More details:**
+**Mais detalhes:**
 
-- [Administer your Azure AD directory](active-directory-administer.md)
-- [Azure Active Directory Device Registration overview](active-directory-conditional-access-device-registration-overview.md)
-
-
+- [Administrar seu diretório do Azure AD](active-directory-administer.md)
+- [Visão geral do registro de dispositivos do Active Directory do Azure](active-directory-conditional-access-device-registration-overview.md)
 
 
-#### <a name="single-sign-on-(sso)"></a>Single Sign-On (SSO)
-
-**Type:** Common Features
 
 
-**Availability:**
+#### SSO (Logon único)
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+**Tipo:** recursos comuns
+
+
+**Disponibilidade:**
+
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-| 10 apps per user (1) | 10 apps per user (1) | No Limit (2) | 10 apps per user (1)|
+| 10 aplicativos por usuário (1) | 10 aplicativos por usuário (1) | Sem limite (2) | 10 aplicativos por usuário (1)|
 
-1. With Azure AD Free and Azure AD Basic, end users who have been assigned access to SaaS apps, can see up to 10 apps in their Access Panel and get SSO access to them. Admins can configure SSO and assign user access to as many SaaS apps as they want with Free and Basic however end users will only see 10 apps in their Access Panel at a time.
+1. Com o Azure AD Free e o Azure AD Basic, os usuários finais que receberam acesso a aplicativos SaaS podem ver até dez aplicativos em seu Painel de Acesso e ter acesso com SSO a eles. Os administradores podem configurar SSO e atribuir acesso do usuário a tantos aplicativos SaaS quantos quiserem com Gratuito e Básico; no entanto, os usuários finais só verão 10 aplicativos em seu Painel de Acesso de cada vez.
 
-2. Self-service integration of any application supporting SAML, SCIM, or forms-based authentication by using templates provided in the application gallery menu. For more details, see [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md).
+2. Integração de autoatendimento de qualquer aplicativo que dê suporte à autenticação baseada em formulários, a SCIM ou a SAML usando modelos fornecidos no menu da galeria de aplicativos. Para obter mais detalhes, confira [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Azure Active Directory](active-directory-saas-custom-apps.md).
 
-**More details:**
+**Mais detalhes:**
 
-- [Managing Applications with Azure Active Directory (AD)](active-directory-enable-sso-scenario.md)
+- [Gerenciando aplicativos com o AD do Azure (Active Directory do Azure)](active-directory-enable-sso-scenario.md)
 
 
 
-#### <a name="self-service-password-change-for-cloud-users"></a>Self-Service Password Change for cloud users
+#### Alteração de senhas por autoatendimento para usuários de nuvem
 
-**Type:** Common Features
+**Tipo:** recursos comuns
 
-**Availability:**
+**Disponibilidade:**
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
+| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 
-**More details:**
+**Mais detalhes:**
 
-- [How to update your own password](active-directory-passwords-update-your-own-password.md)
-
-
+- [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md)
 
 
-#### <a name="connect-(sync-engine-that-extends-on-premises-directories-to-azure-active-directory)"></a>Connect  (Sync engine that extends on-premises directories to Azure Active Directory)
-
-**Type:** Common Features
 
 
-**Availability:**
+#### Connect (Mecanismo de sincronização que amplia os diretórios locais para o Active Directory do Azure)
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+**Tipo:** recursos comuns
+
+
+**Disponibilidade:**
+
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
+| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 
-**More details:**
+**Mais detalhes:**
 
-- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-#### <a name="security/usage-reports"></a>Security/Usage Reports
-
-**Type:** Common Features
+- [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
 
-**Availability:**
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+#### Relatórios de segurança/uso
+
+**Tipo:** recursos comuns
+
+
+**Disponibilidade:**
+
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-| 3 Basic reports| 3 Basic reports| Advanced reports| 3 Basic reports|
+| Três relatórios básicos| Três relatórios básicos| Relatórios avançados| Três relatórios básicos|
 
-**More details:**
+**Mais detalhes:**
 
-- [View your access and usage reports](active-directory-view-access-usage-reports.md)
-
-
+- [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md)
 
 
-## <a name="premium-and-basic-features"></a>Premium and Basic Features
-#### <a name="group-based-access-management/provisioning"></a>Group-based access management/provisioning
-
-**Type:** Basic Features
 
 
-**Availability:**
+## Recursos básicos e Premium
+#### Gerenciamento/provisionamento de acesso baseado em grupos
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+**Tipo:** recursos básicos
+
+
+**Disponibilidade:**
+
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-|  | ![Check][12]| ![Check][12]|  |
+| | ![Verificação][12]| ![Verificação][12]| |
 
-**More details:**
+**Mais detalhes:**
 
-- [Using a group to manage access to SaaS applications](active-directory-accessmanagement-group-saasapps.md)
-
-
-
-#### <a name="self-service-password-reset-for-cloud-users"></a>Self-Service Password Reset for cloud users
-
-**Type:** Basic Features
+- [Uso de um grupo para gerenciar o acesso a aplicativos SaaS](active-directory-accessmanagement-group-saasapps.md)
 
 
-**Availability:**
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+#### Redefinição de Senha por Autoatendimento para usuários de nuvem
+
+**Tipo:** recursos básicos
+
+
+**Disponibilidade:**
+
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-|  | ![Check][12]| ![Check][12]| ![Check][12]|
+| | ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 
-**More details:**
+**Mais detalhes:**
 
-- [Azure AD Password Reset for Users and Admins](active-directory-passwords.md)
-
-
-
-#### <a name="company-branding-(logon-pages/access-panel-customization)"></a>Company Branding (Logon Pages/Access Panel customization)
-
-**Type:** Basic Features
+- [Redefinição de senha do AD do Azure para usuários e administradores](active-directory-passwords.md)
 
 
-**Availability:**
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+#### Identidade visual da empresa (Páginas de logon/Personalização do painel de acesso)
+
+**Tipo:** recursos básicos
+
+
+**Disponibilidade:**
+
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-|  | ![Check][12]| ![Check][12]| ![Check][12]|
+| | ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 
-**More details:**
+**Mais detalhes:**
 
-- [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
-
-
-
-#### <a name="application-proxy"></a>Application Proxy
-
-**Type:** Basic Features
+- [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
 
-**Availability:**
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+#### Proxy de Aplicativo
+
+**Tipo:** recursos básicos
+
+
+**Disponibilidade:**
+
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-|  | ![Check][12]| ![Check][12]|  |
+| | ![Verificação][12]| ![Verificação][12]| |
 
-**More details:**
+**Mais detalhes:**
 
-- [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)
-
-
-
-#### <a name="sla-99.9%"></a>SLA 99.9%
-
-**Type:** Basic Features
+- [Como fornecer acesso remoto seguro a aplicativos locais](active-directory-application-proxy-get-started.md)
 
 
-**Availability:**
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+#### SLA de 99,9%
+
+**Tipo:** recursos básicos
+
+
+**Disponibilidade:**
+
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-|  | ![Check][12]| ![Check][12]| ![Check][12]|
+| | ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 
-**More details:**
+**Mais detalhes:**
 
-- [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
-
-
+- [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/)
 
 
-## <a name="premium-features"></a>Premium Features
-#### <a name="self-service-group-and-app-management/self-service-application-additions/dynamic-groups"></a>Self-Service Group and app Management/Self-Service application additions/Dynamic Groups
-
-**Type:** Premium Features
 
 
-**Availability:**
+## Recursos Premium
+#### Gerenciamento de grupo de autoatendimento/Adições de aplicativo de autoatendimento/Grupos dinâmicos
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+**Tipo:** recursos premium
+
+
+**Disponibilidade:**
+
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-|  |  | ![Check][12]|  |
+| | | ![Verificação][12]| |
 
 
 
 
 
-#### <a name="self-service-password-reset/change/unlock-with-on-premises-write-back"></a>Self-Service Password Reset/Change/Unlock with on-premises write-back
+#### Redefinição/Alteração/Desbloqueio de senha de autoatendimento com write-back local
 
-**Type:** Premium Features
+**Tipo:** recursos Premium
 
 
-**Availability:**
+**Disponibilidade:**
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-|  |  | ![Check][12]|  |
+| | | ![Verificação][12]| |
 
 
 
 
 
-#### <a name="multi-factor-authentication-(cloud-and-on-premises-(mfa-server))"></a>Multi-Factor Authentication (Cloud and On-premises (MFA Server))
+#### Multi-Factor Authentication (nuvem e local [Servidor MFA])
 
-**Type:** Premium Features
+**Tipo:** recursos Premium
 
 
-**Availability:**
+**Disponibilidade:**
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-|  |  | ![Check][12]| Limited to cloud only for Office 365 Apps|
+| | | ![Verificação][12]| Limitado à nuvem somente para aplicativos do Office 365|
 
-**More details:**
+**Mais detalhes:**
 
-- [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
-
-
-
-#### <a name="mim-cal-+-mim-server"></a>MIM CAL + MIM Server
-
-Microsoft Identity Manager Server software rights are granted with Windows Server licenses (any edition). Since Microsoft Identity Manager runs on Windows Server OS, as long as the server is running a valid, licensed copy of Windows Server, then Microsoft Identity Manager can be installed and used on that server. No other separate license is required for Microsoft Identity Manager Server.
-
-**Type:** Premium Features
+- [O que é o Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-**Availability:**
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+#### CAL MIM + Servidor MIM
+
+Direitos de software de servidor Microsoft Identity Manager são concedidos com licenças do Windows Server (qualquer edição). Como o Microsoft Identity Manager é executado no Sistema Operacional do Windows Server, desde que o servidor esteja executando uma cópia válida e licenciada do Windows Server, o Microsoft Identity Manager pode ser instalado e utilizado nesse servidor. Nenhuma outra licença separada é necessária para o servidor do Microsoft Identity Manager.
+
+**Tipo:** recursos premium
+
+
+**Disponibilidade:**
+
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-|  |  | ![Check][12]|  |
+| | | ![Verificação][12]| |
 
 
 
 
 
-#### <a name="cloud-app-discovery"></a>Cloud App Discovery
+#### Cloud App Discovery
 
-**Type:** Premium Features
+**Tipo:** recursos premium
 
 
-**Availability:**
+**Disponibilidade:**
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-|  |  | ![Check][12]|  |
+| | | ![Verificação][12]| |
 
-**More details:**
+**Mais detalhes:**
 
-- [Finding unmanaged cloud applications with Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
-
-
-
-#### <a name="azure-ad-connect-health"></a>Azure AD Connect Health
-
-**Type:** Premium Features
+- [Encontrando aplicativos em nuvem não gerenciados com o Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 
 
-**Availability:**
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+#### Azure AD Connect Health
+
+**Tipo:** recursos premium
+
+
+**Disponibilidade:**
+
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-|  |  | ![Check][12]|  |
+| | | ![Verificação][12]| |
 
-**More details:**
+**Mais detalhes:**
 
-- [Monitor your on-premises identity infrastructure and synchronization services in the cloud](active-directory-aadconnect-health.md)
-
-
-
-#### <a name="automatic-password-rollover-for-group-accounts"></a>Automatic password rollover for group accounts
-
-**Type:** Premium Features
+- [Monitorar infraestrutura de identidade local e serviços de sincronização na nuvem](active-directory-aadconnect-health.md)
 
 
-**Availability:**
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+#### Substituição automática de senha para contas de grupo
+
+**Tipo:** recursos Premium
+
+
+**Disponibilidade:**
+
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-|  |  | ![Check][12]|  |
+| | | ![Verificação][12]| |
 
 
-#### <a name="identity-protection"></a>Identity Protection
+#### Identity Protection
 
-**Type:** Premium Features
+**Tipo:** recursos premium
 
-| Free Edition| Basic Edition| Premium P2 Edition | Office 365 Apps Only |
+| Edição Gratuita| Edição Básica| Edição Premium P2 | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-|  |  | ![Check][12]|  |
+| | | ![Verificação][12]| |
 
 
-#### <a name="privileged-identity-management"></a>Privileged Identity Management
+#### Privileged Identity Management
 
-**Type:** Premium Features
+**Tipo:** recursos premium
 
-| Free Edition| Basic Edition| Premium P2 Edition | Office 365 Apps Only |
+| Edição Gratuita| Edição Básica| Edição Premium P2 | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-|  |  | ![Check][12]|  |
+| | | ![Verificação][12]| |
 
 
-## <a name="azure-active-directory-join-–-windows-10-only-related-features"></a>Azure Active Directory Join – Windows 10 only  related features
-#### <a name="join-a-device-to-azure-ad,-desktop-sso,-microsoft-passport-for-azure-ad,-administrator-bitlocker-recovery"></a>Join a device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery
+## Ingresso do Active Directory do Azure - apenas para recursos relacionados ao Windows 10
+#### Adicione um dispositivo para AD do Azure, Desktop SSO, Microsoft Passport para AD do Azure, recuperação do Administrator Bitlocker
 
-**Type:** Azure Active Directory Join – Windows 10 only  related features
+**Tipo:** ingresso do Azure Active Directory – apenas para recursos relacionados ao Windows 10
 
 
-**Availability:**
+**Disponibilidade:**
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
+| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 
 
 
 
-#### <a name="mdm-auto-enrollment,-self-service-bitlocker-recovery,-additional-local-administrators-to-windows-10-devices-via-azure-ad-join"></a>MDM auto-enrollment,  Self-Service Bitlocker recovery, Additional local administrators to Windows 10 devices via Azure AD Join
+#### Registro automático do MDM, recuperação de autoatendimento do Bitlocker, administração local extra para dispositivos do Windows 10 via Ingresso no Azure AD
 
-**Type:** Azure Active Directory Join – Windows 10 only  related features
+**Tipo:** ingresso do Azure Active Directory – apenas para recursos relacionados ao Windows 10
 
 
-**Availability:**
+**Disponibilidade:**
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-|  |  | ![Check][12]|  |
+| | | ![Verificação][12]| |
 
 
-#### <a name="enterprise-state-roaming"></a>Enterprise State Roaming
+#### Enterprise State Roaming
 
-**Type:** Azure Active Directory Join – Windows 10 only  related features
+**Tipo:** ingresso do Azure Active Directory – apenas para recursos relacionados ao Windows 10
 
 
-**Availability:**
+**Disponibilidade:**
 
-| Free Edition| Basic Edition| Premium (P1 and P2) Editions | Office 365 Apps Only |
+| Edição Gratuita| Edição Básica| Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-| | | ![Check][12]| |
+| | | ![Verificação][12]| |
 
-**More details:**
+**Mais detalhes:**
 
 - [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 
 
-## <a name="azure-ad-preview-features"></a>Azure AD preview features
-In addition to the generally available features of the Free, Basic, and Premium (P1 and P2) editions, Azure AD also provides you with a collection of preview features. You can use the preview features to get an impression of what is coming in the near future and to determine whether these features can help improving your environment.
+## Recursos de visualização do AD do Azure
+Além dos recursos disponíveis das edições Gratuita, Básica e Premium (P1 e P2), o Azure AD também fornece um conjunto de recursos de visualização. Você pode usar os recursos de visualização para obter uma impressão das novidades que serão lançadas no futuro próximo e para determinar se esses recursos podem ajudar a melhorar seu ambiente.
 
-**Available preview features:**
+**Recursos de visualização disponíveis:**
 
-- [B2B collaboration](active-directory-b2b-collaboration-overview.md)
-- [Administrative Units](active-directory-administrative-units-management.md)
-- [HR application Integration](active-directory-saas-workday-inbound-tutorial.md)
-- [Certificate-based authentication on iOS](active-directory-certificate-based-authentication-ios.md)
-- [Certificate-based authentication on Android](active-directory-certificate-based-authentication-android.md)
-
-
+- [Colaboração B2B](active-directory-b2b-collaboration-overview.md)
+- [Unidades Administrativas](active-directory-administrative-units-management.md)
+- [Integração de aplicativo de RH](active-directory-saas-workday-inbound-tutorial.md)
+- [Autenticação baseada em certificado no iOS](active-directory-certificate-based-authentication-ios.md)
+- [Autenticação baseada em certificado no Android](active-directory-certificate-based-authentication-android.md)
 
 
 
 
-## <a name="what's-next"></a>What's next
 
-- [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
-- [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
-- [View your access and usage reports](active-directory-view-access-usage-reports.md)
+
+## O que vem a seguir
+
+- [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
+- [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
+- [Exibir relatórios de acesso e de uso](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

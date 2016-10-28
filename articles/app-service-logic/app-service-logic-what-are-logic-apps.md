@@ -1,79 +1,78 @@
 <properties 
-    pageTitle="What are Logic Apps?" 
-    description="Learn more about App Service Logic Apps" 
-    authors="kevinlam1" 
-    manager="dwrede" 
-    editor="" 
-    services="logic-apps" 
-    documentationCenter=""/>
+	pageTitle="O que são aplicativos lógicos?" 
+	description="Saiba mais sobre os aplicativos lógicos do Serviço de Aplicativo" 
+	authors="kevinlam1" 
+	manager="dwrede" 
+	editor="" 
+	services="logic-apps" 
+	documentationCenter=""/>
 
 <tags
-    ms.service="logic-apps"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article" 
-    ms.date="10/12/2016"
-    ms.author="klam"/>
+	ms.service="logic-apps"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article" 
+	ms.date="07/12/2016"
+	ms.author="klam"/>
 
+#O que são aplicativos lógicos?
 
-# <a name="what-are-logic-apps?"></a>What are Logic Apps?
+Os Aplicativos Lógicos fornecem uma maneira de simplificar e implementar integrações escalonáveis e fluxos de trabalho na nuvem. Fornece um designer visual para modelar e automatizar o processo como uma série de etapas conhecidas como um fluxo de trabalho. Há [muitos conectores](../connectors/apis-list.md) locais e na nuvem para integrar rapidamente entre serviços e protocolos. Um aplicativo lógico começa com um gatilho (como 'Quando uma conta é adicionada ao Dynamics CRM') e, após ser disparado, pode iniciar muitas ações de combinações, conversões e lógica de condição.
 
-Logic Apps provide a way to simplify and implement scalable integrations and workflows in the cloud. It provides a visual designer to model and automate your process as a series of steps known as a workflow.  There are [many connectors](../connectors/apis-list.md) across the cloud and on-premises to quickly integrate across services and protocols.  A logic app begins with a trigger (like 'When an account is added to Dynamics CRM') and after firing can begin many combinations actions, conversions, and condition logic.
+As vantagens de usar Aplicativos Lógicos incluem o seguinte:
 
-The advantages of using Logic Apps include the following:  
+- Economizar tempo na criação de processos complexos usando ferramentas de design fáceis de entender
+- Implementação de padrões e fluxos de trabalho perfeitamente, que seriam difíceis de implementar no código
+- Introdução rápida por meio de modelos
+- Personalização de seu aplicativo lógico com suas próprias APIs, código e ações personalizadas
+- Conectar e sincronizar sistemas distintos locais e na nuvem
+- Criado com base no BizTalk server, Gerenciamento de API, Azure Functions e Barramento de Serviço do Azure com suporte à integração de primeira classe
 
-- Saving time by designing complex processes using easy to understand design tools
-- Implementing patterns and workflows seamlessly, that would otherwise be difficult to implement in code
-- Getting started quickly from templates
-- Customizing your logic app with your own custom APIs, code, and actions
-- Connect and synchronise disparate systems across on-premises and the cloud
-- Build off of BizTalk server, API Management, Azure Functions, and Azure Service Bus with first-class integration support
+Os Aplicativos Lógicos são uma iPaaS (Plataforma de integração como um Serviço) totalmente gerenciada que permite que os desenvolvedores não precisem se preocupar com hospedagem, escalabilidade, disponibilidade e gerenciamento. Os Aplicativos Lógicos serão escalados verticalmente de forma automática para atender à demanda.
 
-Logic Apps is a fully managed iPaaS (integration Platform as a Service) allowing developers not to have to worry about building hosting, scalability, availability and management.  Logic Apps will scale up automatically to meet demand.
+![Designer de aplicativo de fluxo](./media/app-service-logic-what-are-logic-apps/LogicAppCapture2.png)
 
-![Flow app designer](./media/app-service-logic-what-are-logic-apps/LogicAppCapture2.png)
-
-As mentioned, with Logic Apps, you can automate business processes. Here are a couple examples:  
+Conforme mencionado, com Aplicativos Lógicos, você pode automatizar processos de negócios. Aqui estão alguns exemplos:
  
-* Move files uploaded to an FTP server into Azure Storage
-* Process and route orders across on-premises and cloud systems
-* Monitor all tweets about a certain topic, analyze the sentiment, and create alerts and tasks for items needing followup.
+* Mover arquivos carregados para um servidor FTP no Armazenamento do Azure
+* Processar e rotear solicitações entre sistemas locais e na nuvem
+* Monitorar todos os tweets sobre determinado tópico, analisar o sentimento e criar alertas e tarefas para itens que precisam de acompanhamento.
 
-Scenarios such as these can be configured all from the visual designer and without writing a single line of code. Get started [building your logic app now][create].  Once written - a logic app can be [quickly deployed and reconfigured](app-service-logic-create-deploy-template.md) across multiple environments and regions.
+Cenários como esses podem ser configurados inteiramente por meio do designer visual e sem escrever uma única linha de código sequer. Inicie [criação de seu aplicativo lógico agora][create]. Uma vez gravado, um aplicativo lógico pode ser [rapidamente implantado e reconfigurado](app-service-logic-create-deploy-template.md) em vários ambientes e regiões.
 
-## <a name="why-logic-apps?"></a>Why Logic Apps?
+## Por que aplicativos lógicos?
 
-Logic Apps brings speed and scalability into the enterprise integration space.  The ease of use of the designer, variety of available triggers and actions, and powerful management tools make centralizing your APIs simpler than ever.  As businesses move towards digitalization, Logic Apps allows you to connect legacy and cutting-edge systems together.
+Os Aplicativos Lógicos proporcionam velocidade e escalabilidade ao espaço de integração empresarial. A facilidade de uso do designer, a variedade de disparadores e ações disponíveis e as ferramentas de gerenciamento poderosas simplificam mais do que nunca a centralização das APIs. À medida que as empresas adotam a digitalização, os Aplicativos Lógicos permitem a conexão entre sistemas herdados e inovadores.
 
-Additionally, with our [Enterprise Integration Account][biztalk] you can scale to mature integration scenarios with the power of a [XML messaging][xml], [trading partner management][tpm], and more.
+Além disso, com a [conta do Enterprise Integration][biztalk], você pode dimensionar para cenários de integração desenvolvidos com a capacidade de [mensagens XML][xml], [gerenciamento de parceiros comerciais][tpm] e muito mais.
 
-- **Easy to use design tools** - Logic Apps can be designed end-to-end in the browser or with Visual Studio tools. Start with a trigger - from a simple schedule to when a GitHub issue is created. Then orchestrate any number of actions using the rich gallery of connectors.
+- **Ferramentas de design fáceis de usar** - os Aplicativos Lógicos podem ser projetados de ponta a ponta no navegador ou com ferramentas do Visual Studio. Inicie com um gatilho - desde um agendamento simples até quando uma questão do GitHub é criada. Então orquestre qualquer número de ações usando a galeria avançada de conectores.
 
-- **Connect APIs easily** - Even composition tasks that are easy to describe are difficult to implement in code. Logic Apps makes it easy to connect disparate systems. Want to connect your cloud marketing solution to your on-premises billing system? Want to centralize messaging across APIs and systems with an Enterprise Service Bus? Logic apps are the fastest, most reliable way to deliver solutions to these problems.
+- **Conecte APIs facilmente** - tarefas de composição uniformes fáceis de descrever são difíceis de implementar no código. Aplicativos Lógicos tornam muito fácil se conectar a sistemas diferentes. Deseja conectar sua solução de marketing na nuvem ao seu sistema de cobrança local? Quer centralizar as mensagens entre APIs e sistemas com um Barramento de Serviço Corporativo? Aplicativos lógicos são a maneira mais rápida e confiável de fornecer soluções para esses problemas.
 
-- **Get started quickly from templates** - To help you get started we've provided a [gallery of templates][templates] that allow you to rapidly create some common solutions. From advanced B2B solutions to simple SaaS connectivity, and even a few that are just 'for fun' - the gallery is the fastest way to get started with the power of Logic Apps.
+- **Começo rápido com modelos** - para ajudá-lo a começar, fornecemos uma [galeria de modelos][templates] que permitem que você crie rapidamente algumas soluções comuns. De soluções avançadas de B2B a conectividade de SaaS simples, e até mesmo algumas que são apenas “para diversão” - a Galeria é a maneira mais rápida de começar a usar a capacidade dos Aplicativos Lógicos.
 
-- **Extensibility baked-in** - Don't see the connector you need? Logic Apps is designed to work with your own APIs and code; you can easily create your own API app to use as a custom connector, or call into an [Azure Function](https://functions.azure.com) to execute snippets of code on-demand. 
+- **Extensibilidade embutida** - não encontra o conector de que precisa? Os Aplicativos Lógicos são projetados para funcionar com suas próprias APIs e código. Você pode facilmente criar seu próprio aplicativo de API para usar como um conector personalizado ou chamar uma [Função do Azure](https://functions.azure.com) para executar trechos de código sob demanda.
 
-- **Real integration horsepower** - Start easy and grow as you need. Logic Apps can easily leverage the power of BizTalk, Microsoft's industry leading integration solution to enable integration professionals to build the solutions they need. Find out more about the [Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md).
+- **Potência real de integração** - inicie com facilidade e cresça conforme necessário. Aplicativos lógicos podem facilmente aproveitar o poder do BizTalk, a solução de integração da Microsoft líder do setor para habilitar os profissionais de integração a compilar as soluções de que precisam. Saiba mais sobre o [Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md).
 
-## <a name="logic-app-concepts"></a>Logic App Concepts
+## Conceitos de aplicativo lógico
 
-The following are some of the key pieces that comprise the Logic Apps experience. 
+A seguir estão algumas das principais partes que compõem a experiência de aplicativos lógicos.
 
-- **Workflow** - Logic Apps provides a graphical way to model your business processes as a series of steps or a workflow.
-- **Managed Connectors** - Your logic apps need access to data and services. Managed connectors are created specifically to aid you when you are connecting to and working with your data. See the list of connectors available now in [managed connectors][managedapis].
-- **Triggers** - Some Managed Connectors can also act as a trigger. A trigger starts a new instance of a workflow based on a specific event, like the arrival of an e-mail or a change in your Azure Storage account.
--  **Actions** - Each step after the trigger in a workflow is called an action. Each action typically maps to an operation on your managed connector or custom API apps.
-- **Enterprise Integration Pack** - For more advanced integration scenarios, Logic Apps includes capabilities from BizTalk. BizTalk is Microsoft's industry leading integration platform. The Enterprise Integration Pack connectors allow you to easily include validation, transformation, and more in to your Logic App workflows.
+- **Fluxo de trabalho** - aplicativos lógicos proporcionam uma maneira gráfica de modelar seus processos de negócios como uma série de etapas ou um fluxo de trabalho.
+- **Conectores Gerenciados** - seus aplicativos lógicos precisam de acesso a dados e serviços. Conectores gerenciados são criadas especificamente para ajudá-lo a se conectar e a trabalhar com seus dados. Confira a lista de conectores disponíveis agora em [conectores gerenciados][managedapis].
+- **Gatilhos** - alguns conectores gerenciados também podem atuar como um gatilho. Um gatilho inicia uma nova instância de um fluxo de trabalho com base em um evento específico, como a chegada de um email ou uma alteração em sua conta de Armazenamento do Azure.
+-  **Ações** - cada etapa após o gatilho em um fluxo de trabalho é chamada de uma ação. Cada ação normalmente é mapeada para uma operação em seu conector gerenciado ou aplicativos de API personalizados.
+- **Enterprise Integration Pack** - para cenários de integração mais avançados, os Aplicativos Lógicos incluem recursos do BizTalk. O BizTalk é a plataforma de integração da Microsoft líder do setor. Os conectores do Enterprise Integration Pack permitem que você inclua facilmente validação, transformação e muito mais em seus fluxos de trabalho de Aplicativo Lógico.
 
-## <a name="getting-started"></a>Getting Started  
+## Introdução  
 
-- To get started with Logic Apps, follow the [create a Logic App][create] tutorial.  
-- [View common examples and scenarios](app-service-logic-examples-and-scenarios.md)
-- [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
-- [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
+- Para começar com aplicativos lógicos, siga o tutorial [Criar um aplicativo lógico][create].
+- [Veja exemplos e cenários comuns](app-service-logic-examples-and-scenarios.md)
+- [Você pode automatizar processos de negócios com aplicativos lógicos](http://channel9.msdn.com/Events/Build/2016/T694)
+- [Aprenda a integrar seus sistemas com aplicativos lógicos](http://channel9.msdn.com/Events/Build/2016/P462)
 
 [biztalk]: app-service-logic-enterprise-integration-accounts.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
@@ -83,8 +82,4 @@ The following are some of the key pieces that comprise the Logic Apps experience
 [xml]: app-service-logic-enterprise-integration-b2b.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

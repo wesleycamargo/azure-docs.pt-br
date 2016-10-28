@@ -1,273 +1,266 @@
 <properties
-    pageTitle="Provision a SQL Server Virtual Machine | Microsoft Azure"
-    description="Create and connect to a SQL Server virtual machine in Azure using the Portal. This tutorial uses the Resource Manager mode."
-    services="virtual-machines-windows"
-    documentationCenter="na"
-    authors="rothja"
-    editor=""
-    manager="jhubbard"
-    tags="azure-resource-manager" />
+	pageTitle="Provisionar uma máquina virtual do SQL Server | Microsoft Azure"
+	description="Criar e conectar-se a uma máquina virtual do SQL Server no Azure usando o Portal. Este tutorial usa o modo Resource Manager."
+	services="virtual-machines-windows"
+	documentationCenter="na"
+	authors="rothja"
+	editor=""
+	manager="jhubbard"
+	tags="azure-resource-manager" />
 <tags
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="vm-windows-sql-server"
-    ms.workload="infrastructure-services"
-    ms.date="09/21/2016"
-    ms.author="jroth" />
+	ms.service="virtual-machines-windows"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="09/21/2016"
+	ms.author="jroth" />
 
-
-# <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Provision a SQL Server virtual machine in the Azure Portal
+# Provisionar uma máquina virtual do SQL Server no Portal do Azure
 
 > [AZURE.SELECTOR]
 - [Portal](virtual-machines-windows-portal-sql-server-provision.md)
 - [PowerShell](virtual-machines-windows-ps-sql-create.md)
 
-This end-to-end tutorial shows you how to use the Azure Portal to provision a virtual machine running SQL Server.
+Este tutorial completo mostra a você como usar o Portal do Azure para provisionar uma máquina virtual com o SQL Server em execução.
 
-The Azure virtual machine (VM) gallery includes several images that contain Microsoft SQL Server. With a few clicks, you can select one of the SQL VM images from the gallery and provision it in your Azure environment.
+A galeria de VMs (máquinas virtuais) do Azure inclui várias imagens que contêm o Microsoft SQL Server. Com alguns cliques, você pode selecionar uma das imagens de VM do SQL da galeria e provisioná-la em seu ambiente do Azure.
 
-In this tutorial, you will:
+Neste tutorial, você irá:
 
-- [Select a SQL VM image from the gallery](#select-a-sql-vm-image-from-the-gallery)
-- [Configure and create the VM](#configure-the-vm)
-- [Open the VM with Remote Desktop](#open-the-vm-with-remote-desktop)
-- [Connect to SQL Server remotely](#connect-to-sql-server-remotely)
+- [Selecionar uma imagem de VM do SQL na galeria](#select-a-sql-vm-image-from-the-gallery)
+- [Configurar e criar a VM](#configure-the-vm)
+- [Abrir a VM usando a Área de Trabalho Remota.](#open-the-vm-with-remote-desktop)
+- [Conectar-se ao SQL Server remotamente](#connect-to-sql-server-remotely)
 
-## <a name="select-a-sql-vm-image-from-the-gallery"></a>Select a SQL VM image from the gallery
+## Selecionar uma imagem de VM do SQL na galeria
 
-1. Log in to the [Azure portal](https://portal.azure.com) using your account.
+1. Faça logon no [portal do Azure](https://portal.azure.com) usando sua conta.
 
-    >[AZURE.NOTE] If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+	>[AZURE.NOTE] Se você não tiver uma conta do Azure, visite [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-1. On the Azure portal, click **New**. The portal opens the **New** blade. The SQL Server VM resources are in the **Virtual Machines** group of the Marketplace.
+1. No portal do Azure, clique em **Novo**. O portal abre a folha **Novo**. Os recursos de VM do SQL Server estão no grupo **Máquinas Virtuais** do Marketplace.
 
-1. In the **New** blade, click **Virtual Machines**.
+1. Na folha **Novo**, clique em **Máquinas Virtuais**.
 
-1. To see all the available images, click **See all** on the **Virtual Machines** blade.
+1. Para ver todas as imagens disponíveis, clique em **Ver tudo** na folha **Máquinas Virtuais**.
 
-    ![Azure Virtual Machines Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
+	![Folha Máquinas Virtuais do Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
 
-1. Under **Database servers**, click **SQL Server**. You might have to scroll down to locate **Database servers**. Review the available SQL Server templates.
+1. Em **Servidores do banco de dados**, clique em **SQL Server**. Talvez você precise rolar para baixo para localizar os **Servidores do banco de dados**. Examine os modelos disponíveis do SQL Server.
 
-    ![Virtual Machine Gallery SQL Images](./media/virtual-machines-windows-portal-sql-server-provision/virtual-machine-gallery-sql-server.png)
+	![Imagens de SQL da galeria de máquinas virtuais](./media/virtual-machines-windows-portal-sql-server-provision/virtual-machine-gallery-sql-server.png)
 
-1. Each template identifies a SQL Server version and an operating system. Select one of these images from the list. Then review the details blade that provides a description of the virtual machine image.
+1. Cada modelo identifica uma versão do SQL Server e um sistema operacional. Selecione uma dessas imagens da lista. Examine a folha de detalhes que fornece uma descrição da imagem da máquina virtual.
 
-    >[AZURE.NOTE] SQL VM images include the licensing costs for SQL Server into the per-minute pricing of the VM you create. There is another option to bring-your-own-license (BYOL) and pay only for the VM. Those image names are prefixed with {BYOL}. For more information on this option, see  [Get started with SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+	>[AZURE.NOTE] As imagens de VM do SQL incluem os custos de licenciamento para o SQL Server no preço por minuto da VM que você cria. Há outra opção de BYOL (traga sua própria licença) e pagar apenas pela VM. Os nomes de imagem têm o prefixo {BYOL}. Para saber mais sobre essa opção, confira [Introdução ao SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-1. Under **Select a deployment model**, verify that **Resource Manager** is selected. Resource Manager is the recommended deployment model for new virtual machines. Click **Create**.
+1. Em **Selecionar um modelo de implantação**, verifique se **Resource Manager** está selecionado. Resource Manager é o modelo de implantação recomendado para novas máquinas virtuais. Clique em **Criar**.
 
-    ![Create SQL VM with Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
+	![Criar VM do SQL com o Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## <a name="configure-the-vm"></a>Configure the VM
-There are five blades for configuring a SQL Server virtual machine.
+## Configurar a VM
+Há cinco folhas para configuração de uma máquina virtual do SQL Server.
 
-| Step               | Description                          |
+| Etapa | Descrição |
 |---------------------|-------------------------------|
-| **Basics**              | [Configure basic settings](#1-configure-basic-settings)      |
-| **Size**                | [Choose virtual machine size](#2-choose-virtual-machine-size)   |
-| **Settings**            | [Configure optional features](#3-configure-optional-features)   |
-| **SQL Server settings** | [Configure SQL server settings](#4-configure-sql-server-settings) |
-| **Summary**             | [Review the summary](#5-review-the-summary)            |
+| **Noções básicas** | [Definir as configurações básicas](#1-configure-basic-settings) |
+| **Tamanho** | [Escolher o tamanho da máquina virtual](#2-choose-virtual-machine-size) |
+| **Configurações** | [Configurar os recursos opcionais](#3-configure-optional-features) |
+| **Configurações do SQL Server** | [Definir as configurações do SQL Server](#4-configure-sql-server-settings) |
+| **Resumo** | [Examinar o resumo](#5-review-the-summary) |
 
-## <a name="1.-configure-basic-settings"></a>1. Configure basic settings
-On the **Basics** blade, provide the following information:
+## 1\. Definir as configurações básicas
+Na folha **Básico**, forneça as seguintes informações:
 
-* Enter a unique virtual machine **Name**.
-* Specify a **User name** for the local administrator account on the VM. This account is also added to the SQL Server **sysadmin** fixed server role.
-* Provide a strong **Password**.
-* If you have multiple subscriptions, verify that the subscription is correct for the new VM.
-* In the **Resource group** box, type a name for a new resource group. Alternatively, to use an existing resource group click **Select existing**. A resource group is a collection of related resources in Azure (virtual machines, storage accounts, virtual networks, etc.).
+* Digite um **Nome** exclusivo da máquina virtual.
+* Especifique um **Nome de usuário** para a conta do administrador local na VM. Essa conta também é adicionada à função de servidor fixa **sysadmin** do SQL Server.
+* Forneça uma **Senha** forte.
+* Se você tem várias assinaturas, verifique se a assinatura é a correta para a nova VM.
+* Na caixa **Grupo de recursos**, digite um nome para um novo grupo de recursos. Como alternativa, para usar um grupo de recursos existente, clique em **Selecionar existente**. Um grupo de recursos é uma coleção de recursos relacionados no Azure (máquinas virtuais, contas de armazenamento, redes virtuais etc.).
 
-    >[AZURE.NOTE] Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../resource-group-overview.md).
+	>[AZURE.NOTE] O uso de um novo grupo de recursos é útil se você estiver apenas testando ou aprendendo sobre implantações do SQL Server no Azure. Após concluir o teste, exclua o grupo de recursos para excluir automaticamente a VM e todos os recursos associados a esse grupo de recursos. Para saber mais sobre os grupos de recursos, consulte [Visão Geral do Azure Resource Manager](../resource-group-overview.md).
 
-* Select a **Location** for this deployment.
-* Click **OK** to save the settings.
+* Selecione um **Local** para essa implantação.
+* Clique em **OK** para salvar as configurações.
 
-    ![SQL Basics Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
+	![Folha de Noções Básicas do SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
-## <a name="2.-choose-virtual-machine-size"></a>2. Choose virtual machine size
-On the **Size** step, choose a virtual machine size in the **Choose a size** blade. The blade initially displays recommended machine sizes based on the template you selected. It also estimates the monthly cost to run the VM.
+## 2\. Escolher o tamanho da máquina virtual
+Na etapa **Tamanho**, escolha um tamanho de máquina virtual na folha **Escolher um tamanho**. A folha exibe inicialmente o tamanho recomendado da máquina baseado no modelo selecionado. Também calcula o custo mensal para execução da VM.
 
-![SQL VM Size Options](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
+![Opções de tamanho de VM do SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
-For production workloads, we recommend selecting a virtual machine size that supports [Premium Storage](../storage/storage-premium-storage.md). If you do not require that level of performance, use the **View all** button, which shows all machine size options. For example, you might use a smaller machine size for a development or test environment.
+Para as cargas de trabalho de produção, recomendamos escolher um tamanho de máquina virtual que dê suporte ao [Armazenamento Premium](../storage/storage-premium-storage.md). Se você não precisar desse nível de desempenho, use o botão **Exibir tudo**, que mostra todas as opções de tamanho da máquina. Por exemplo, você pode usar um tamanho de máquina menor para um ambiente de teste ou desenvolvimento.
 
->[AZURE.NOTE] For more information about virtual machine sizes see, [Sizes for virtual machines](virtual-machines-windows-sizes.md). For considerations about SQL Server VM sizes, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+>[AZURE.NOTE] Para obter mais informações sobre tamanhos de máquinas virtuais, confira [Tamanhos de máquinas virtuais](virtual-machines-windows-sizes.md). Para ver as considerações sobre os tamanhos de VM do SQL Server, consulte as [Práticas recomendadas de desempenho para o SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-performance.md).
 
-Choose your machine size, and then click **Select**.
+Escolha o tamanho da máquina e clique em **Selecionar**.
 
-## <a name="3.-configure-optional-features"></a>3. Configure optional features
-On the **Settings** blade, configure Azure storage, networking, and monitoring for the virtual machine.
+## 3\. Configurar os recursos opcionais
+Na folha **Configurações**, defina o armazenamento do Azure, a rede e o monitoramento da máquina virtual.
 
-- Under **Storage**, specify a **Disk type** of either Standard or Premium (SSD). Premium storage is recommended for production workloads.
+- Em **Armazenamento**, especifique um **Tipo de disco** Standard ou Premium (SSD). Armazenamento Premium é recomendado para cargas de trabalho de produção.
 
->[AZURE.NOTE] If you select Premium (SSD) for a machine size that does not support Premium Storage, your machine size changes automatically.  
+>[AZURE.NOTE] Se você selecionar Premium (SSD) para um tamanho de máquina que não dá suporte a armazenamento Premium, o tamanho da máquina será alterado automaticamente.
 
-- Under **Storage account**, you can accept the automatically provisioned storage account name. You can also click on **Storage account** to choose an existing account and configure the storage account type. By default, Azure creates a new storage account with locally redundant storage. For more information about storage options, see [Azure Storage replication](../storage/storage-redundancy.md).
+- Em **Conta de armazenamento**, você pode aceitar o nome da conta de armazenamento provisionado automaticamente. Também pode clicar em **Conta de armazenamento** para escolher uma conta existente e configurar o tipo da conta de armazenamento. Por padrão, o Azure cria uma nova conta de armazenamento com o armazenamento com redundância local. Para saber mais sobre as opções de armazenamento, consulte [Replicação do Armazenamento do Azure](../storage/storage-redundancy.md).
 
-- Under **Network**, you can accept the automatically populated values. You can also click on each feature to manually configure the **Virtual network**, **Subnet**, **Public IP address**, and **Network Security Group**. For the purposes of this tutorial, keep the default values.
+- Em **Rede**, você pode aceitar os valores preenchidos automaticamente. Também pode clicar em cada recurso para configurar manualmente a **Rede virtual**, **Sub-rede**, **Endereço IP público** e **Grupo de Segurança da Rede**. Para a finalidade deste tutorial, mantenha os valores padrão.
 
-- Azure enables **Monitoring** by default with the same storage account designated for the VM. You can change these settings here.
+- O Azure habilita o **Monitoramento** por padrão com a mesma conta de armazenamento designada para a VM. Você pode alterar essas configurações aqui.
 
-- Under **Availability set**, specify an availability set. For the purposes of this tutorial, you can select **none**. If you plan to set up SQL AlwaysOn Availability Groups, configure the availability to avoid recreating the virtual machine.  For more information, see [Manage the Availability of Virtual Machines](virtual-machines-windows-manage-availability.md).
+- Em **Conjunto de disponibilidades**, especifique um conjunto de disponibilidades. Para este tutorial, você pode selecionar **nenhum**. Se você planeja configurar Grupos de Disponibilidade SQL AlwaysOn, configure a disponibilidade para evitar recriar a máquina virtual. Para obter mais informações, consulte [Gerenciar a Disponibilidade de Máquinas Virtuais](virtual-machines-windows-manage-availability.md).
 
-When you are done configuring these settings, click **OK**.
+Ao concluir as configurações, clique em **OK**.
 
-## <a name="4.-configure-sql-server-settings"></a>4. Configure SQL server settings
-On the **SQL Server settings** blade, configure specific settings and optimizations for SQL Server. The settings that you can configure for SQL Server include the following.
+## 4\. Definir as configurações do SQL Server
+Na folha **Configurações do SQL Server**, defina as configurações e otimizações específicas para o SQL Server. As configurações possíveis para o SQL Server incluem as seguintes:
 
-| Setting               |
+| Configuração |
 |---------------------|
-| [Connectivity](#connectivity)              |
-| [Authentication](#authentication)                |
-| [Storage configuration](#storage-configuration)            |
-| [Automated Patching](#automated-patching) |
-| [Automated Backup](#automated-backup)             |
-| [Azure Key Vault Integration](#azure-key-vault-integration)             |
+| [Conectividade](#connectivity) |
+| [Autenticação](#authentication) |
+| [Configuração de armazenamento](#storage-configuration) |
+| [Aplicação de patch automatizada](#automated-patching) |
+| [Backup Automatizado](#automated-backup) |
+| [Integração do Cofre da Chave do Azure](#azure-key-vault-integration) |
 | [R Services](#r-services) |
 
-### <a name="connectivity"></a>Connectivity
-Under **SQL connectivity**, specify the type of access you want to the SQL Server instance on this VM. For the purposes of this tutorial, select **Public (internet)** to allow connections to SQL Server from machines or services on the internet. With this option selected, Azure automatically configures the firewall and the network security group to allow traffic on port 1433.  
+### Conectividade
+Em **Conectividade SQL**, especifique o tipo de acesso desejado para a instância do SQL Server nesta VM. Para este tutorial, escolha **Pública (Internet)** para permitir conexões com o SQL Server a partir de máquinas ou serviços na Internet. Com essa opção selecionada, o Azure configura automaticamente o firewall e o grupo de segurança de rede para permitir o tráfego na porta 1433.
 
-![SQL Connectivity Options](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
+![Opções de conectividade do SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
 
-To connect to SQL Server via the internet, you also must enable SQL Server Authentication, which is described in the next section.
+Para conectar-se ao SQL Server pela Internet, você precisará habilitar a Autenticação do SQL Server, que está descrita na próxima seção.
 
->[AZURE.NOTE] It is possible to add more restrictions for the network communications to your SQL Server VM. You can do this by editing the Network Security Group after the VM is created. For more information, see [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
+>[AZURE.NOTE] É possível adicionar mais restrições às comunicações de rede com a VM do SQL Server. Faça isso editando o Grupo de Segurança de Rede após a criação da VM. Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?](../virtual-network/virtual-networks-nsg.md)
 
-If you would prefer to not enable connections to the Database Engine via the internet, choose one of the following options:
+Se você preferir não permitir conexões com o Mecanismo de Banco de Dados pela internet, escolha uma das seguintes opções:
 
-- **Local (inside VM only)** to allow connections to SQL Server only from within the VM.
-- **Private (within Virtual Network)** to allow connections to SQL Server from machines or services in the same virtual network.
+- **Local (apenas dentro da VM)** para permitir conexões com o SQL Server somente de dentro da VM.
+- **Privada (dentro da Rede Virtual)** para permitir conexões com o SQL Server a partir de computadores ou serviços na mesma rede virtual.
 
->[AZURE.NOTE] The virtual machine image for SQL Server Express edition does not automatically enable the TCP/IP protocol. This is true even for the Public and  Private connectivity options. For Express edition, you must use SQL Server Configuration Manager to [manually enable the TCP/IP protocol](#configure-sql-server-to-listen-on-the-tcp-protocol) after creating the VM.
+>[AZURE.NOTE] A imagem de máquina virtual para o SQL Server Express edition não habilita automaticamente o protocolo TCP/IP. Isso é verdadeiro mesmo para as opções de conectividade Pública e Privada. Para o Express Edition, você deve usar o SQL Server Configuration Manager para [habilitar manualmente o protocolo TCP/IP](#configure-sql-server-to-listen-on-the-tcp-protocol) depois de criar a máquina virtual.
 
-In general, improve security by choosing the most restrictive connectivity that your scenario allows. But all the options are securable through Network Security Group rules and SQL/Windows Authentication.
+Em geral, melhore a segurança escolhendo a conectividade mais restritiva que seu cenário permite. No entanto, todas as opções são protegidas por meio de regras do Grupo de Segurança de Rede e por meio da Autenticação do SQL/Windows.
 
-**Port** defaults to 1433. You can specify a different port number.
-For more information, see [Connect to a SQL Server Virtual Machine (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
+A **Porta** usada por padrão é 1433. Você pode especificar um número de porta diferente. Para saber mais, consulte [Conectar uma Máquina Virtual do SQL Server (Gerenciador de Recursos) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
 
-### <a name="authentication"></a>Authentication
-If you require SQL Server Authentication, click **Enable** under **SQL authentication**.
+### Autenticação
+Se você precisar da Autenticação do SQL Server, clique em **Habilitar** em **Autenticação do SQL**.
 
-![SQL Server Authentication](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png)
+![Autenticação do SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png)
 
->[AZURE.NOTE] If you plan to access SQL Server over the internet (i.e. the Public connectivity option), you must enable SQL authentication here. Public access to the SQL Server requires the use of SQL Authentication.
+>[AZURE.NOTE] Se você pretende acessar o SQL Server pela Internet (ou seja, a opção de conectividade Pública), habilite a autenticação do SQL aqui. O acesso público ao SQL Server exige o uso da Autenticação do SQL.
 
-If you enable SQL Server Authentication, specify a **Login name** and **Password**. This user name is configured as a SQL Server Authentication login and member of the **sysadmin** fixed server role. See [Choose an Authentication Mode](http://msdn.microsoft.com/library/ms144284.aspx) for more information about Authentication Modes.
+Se você habilitar a Autenticação do SQL Server, especifique um **Nome de logon** e **Senha**. Esse nome de usuário é configurado como um logon de Autenticação do SQL Server e membro da função de servidor fixa **sysadmin**. Consulte [Escolher um Modo de Autenticação](http://msdn.microsoft.com/library/ms144284.aspx) para saber mais sobre os Modos de Autenticação.
 
-If you do not enable SQL Server Authentication, then you can use the local Administrator account on the VM to connect to the SQL Server instance.
+Se você não habilitar a Autenticação do SQL Server, poderá usar a conta local de Administrador na VM para se conectar à instância do SQL Server.
 
-### <a name="storage-configuration"></a>Storage configuration
-Click **Storage configuration** to specify the storage requirements.
+### Configuração de armazenamento
+Clique em **Configuração de armazenamento** para especificar os requisitos de armazenamento.
 
-![SQL Storage Configuration](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png)
+![Configuração do armazenamento do SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png)
 
->[AZURE.NOTE] If you select Standard storage, this option is not available. Automatic storage optimization is available only for Premium Storage.
+>[AZURE.NOTE] Se você selecionar o armazenamento Standard, essa opção não estará disponível. A otimização de armazenamento automático está disponível apenas para o Armazenamento Premium.
 
-You can specify requirements as input/output operations per second (IOPs), throughput in MB/s, and total storage size. Configure these values by using the sliding scales. The portal automatically calculates the number of disks based on these requirements.
+Você pode especificar os requisitos como operações IOPs (entrada/saída por segundo), taxa de transferência em MB/s e tamanho total de armazenamento. Configure esses valores usando as escalas deslizantes. O portal calcula automaticamente o número de discos com base nesses requisitos.
 
-By default, Azure optimizes the storage for 5000 IOPs, 200 MBs, and 1 TB of storage space. You can change these storage settings based on workload. Under **Storage optimized for**, select one of the following options:
+Por padrão, o Azure otimiza o armazenamento para 5000 IOPs, 200 MB e 1 TB de espaço de armazenamento. Você pode alterar essas configurações de armazenamento com base na carga de trabalho. Em **Armazenamento otimizado para**, escolha uma das seguintes opções:
 
-- **General** is the default setting and supports most workloads.
-- **Transactional** processing optimizes the storage for traditional database OLTP workloads.
-- **Data warehousing** optimizes the storage for analytic and reporting workloads.
+- **Geral** é a configuração padrão e dá suporte à maioria das cargas de trabalho.
+- O processamento **transacional** otimiza o armazenamento para cargas de trabalho OLTP tradicionais do banco de dados.
+- O **Data warehouse** otimiza o armazenamento para as cargas de trabalho de análise e emissão de relatórios.
 
->[AZURE.NOTE] The upper limits on the sliders vary depending on your selected virtual machine size.
+>[AZURE.NOTE] Os limites superiores nos controles deslizantes variam dependendo do tamanho selecionado para a máquina virtual.
 
-### <a name="automated-patching"></a>Automated patching
-**Automated patching** is enabled by default. Automated patching allows Azure to automatically patch SQL Server and the operating system. Specify a day of the week, time, and duration for a maintenance window. Azure performs patching in this maintenance window. The maintenance window schedule uses the VM locale for time. If you do not want Azure to automatically patch SQL Server and the operating system, click **Disable**.  
+### Aplicação de patch automatizada
+A **aplicação de patch automatizada** está habilitada por padrão. A aplicação de patch automatizada permite que o Azure aplique patches automaticamente no SQL Server e no sistema operacional. Especifique um dia da semana, hora e duração de um período de manutenção. O Azure realiza a aplicação de patch na janela de manutenção. O agendamento do período de manutenção usa a localidade da VM para a hora. Se você não quiser que o Azure aplique automaticamente o patch no SQL Server e no sistema operacional, clique em **Desabilitar**.
 
-![SQL Automated Patching](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
+![Aplicação de patch automatizada do SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 
-For more information, see [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-patching.md).
+Para saber mais, consulte [Aplicação de Patch Automatizada para SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-automated-patching.md).
 
-### <a name="automated-backup"></a>Automated backup
-Enable automatic database backups for all databases under **Automated backup**. Automated backup is disabled by default.
+### Backup Automatizado
+Habilite backups automáticos do banco de dados para todos os bancos de dados em **Backup automatizado**. O backup automatizado está desabilitado por padrão.
 
-When you enable SQL automated backup, you can configure the following:
+Ao habilitar o backup automatizado do SQL, é possível configurar o seguinte:
 
-- Retention period (days) for backups
-- Storage account to use for backups
-- Encryption option and password for backups
+- Período de retenção (dias) para backups
+- Conta de armazenamento a ser usada para backups
+- Opção de criptografia e senha para backups
 
-To encrypt the backup, click **Enable**. Then specify the **Password**. Azure creates a certificate to encrypt the backups and uses the specified password to protect that certificate.
+Para criptografar o backup, clique em **Habilitar**. Em seguida, especifique a **Senha**. O Azure cria um certificado para criptografar os backups e usa a senha especificada para proteger esse certificado.
 
-![SQL Automated Backup](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
+![Backup Automatizado do SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 
- For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
+ Para obter mais informações, veja [Backup Automatizado para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-automated-backup.md).
 
-### <a name="azure-key-vault-integration"></a>Azure Key Vault integration
-To store security secrets in Azure for encryption, click **Azure key vault integration** and click **Enable**.
+### Integração do Cofre da Chave do Azure
+Para armazenar os segredos de segurança no Azure para a criptografia, clique em **Integração do cofre de chaves do Azure** e clique em **Habilitar**.
 
-![SQL Azure Key Vault Integration](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
+![Integração do Cofre da Chave do SQL Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
 
-The following table lists the parameters required to configure Azure Key Vault Integration.
+A tabela a seguir lista os parâmetros necessários para configurar a integração do Cofre da Chave do Azure.
 
-|PARAMETER|DESCRIPTION|EXAMPLE|
+|PARÂMETRO|DESCRIÇÃO|EXEMPLO|
 |----------|----------|-------|
-|**Key Vault URL** |The location of the key vault.|https://contosokeyvault.vault.azure.net/ |
-|**Principal name** |Azure Active Directory service principal name. This name is also referred to as the Client ID.  |fde2b411-33d5-4e11-af04eb07b669ccf2|
-| **Principal secret**|Azure Active Directory service principal secret. This secret is also referred to as the Client Secret. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
-|**Credential name**|**Credential name**: AKV Integration creates a credential within SQL Server, allowing the VM to have access to the key vault. Choose a name for this credential.| mycred1|
+|**URL do cofre da chave** |O local do cofre da chave.|https://contosokeyvault.vault.azure.net/ |
+|**Nome de entidade** |Nome de entidade de serviço do Active Directory do Azure Ele também é chamado de ID do Cliente. |fde2b411-33d5-4e11-af04eb07b669ccf2|
+| **Segredo da entidade**|Segredo da entidade de serviço do Azure Active Directory. O segredo também é chamado de Segredo do Cliente. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
+|**Nome da credencial**|**Nome da credencial**: a integração AKV cria uma credencial no SQL Server, permitindo que a VM tenha acesso ao cofre da chave. Escolha um nome para essa credencial.| mycred1|
 
-For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-windows-ps-sql-keyvault.md).
+Para saber mais, consulte [Configurar a Integração do Cofre de Chaves do Azure para o SQL nas VMs do Azure](virtual-machines-windows-ps-sql-keyvault.md).
 
-When you are finished configuring SQL Server settings, click **OK**.
+Ao concluir as configurações do SQL Server, clique em **OK**.
 
-### <a name="r-services"></a>R services
-For SQL Server 2016 Enterprise edition, you have the option to enable [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). This enables you to use advanced analytics with SQL Server 2016. Click **Enable** on the **SQL Server Settings** blade.
+### Serviços de R
+Para o SQL Server 2016 Enterprise edition, você tem a opção de habilitar os [Serviços de R do SQL Server](https://msdn.microsoft.com/library/mt604845.aspx). Isso permite que você use análises avançadas com o SQL Server 2016. Clique em **Habilitar** na folha **Configurações do SQL Server**.
 
-![Enable SQL Server R Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+![Habilitar os serviços de R do SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
->[AZURE.NOTE] For SQL Server images that are not 2016 Enterprise edition, the option to enable R Services is disabled.
+>[AZURE.NOTE] Para imagens do SQL Server que não são da edição 2016 Enterprise, a opção para habilitar os serviços de R está desabilitada.
 
-## <a name="5.-review-the-summary"></a>5. Review the summary
-On the **Summary** blade, review the summary and click **OK** to create SQL Server, resource group, and resources specified for this VM.
+## 5\. Examinar o resumo
+Na folha **Resumo**, examine o resumo e clique em **OK** para criar o SQL Server, grupo de recursos e recursos especificados para essa VM.
 
-You can monitor the deployment from the azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
+Você pode monitorar a implantação do Portal do Azure. O botão **Notificações** na parte superior da tela mostra o status básico da implantação.
 
->[AZURE.NOTE] To provide you with an idea on deployment times, I deployed a SQL VM to the East US region with default settings. This test deployment took a total of 26 minutes to complete. But you might experience a faster or slower deployment time based on your region and selected settings.
+>[AZURE.NOTE] Para você ter uma ideia sobre os tempos de implantação, eu implantei uma VM do SQL na região Leste dos EUA com as configurações padrão. Essa implantação de teste levou um total de 26 minutos para ser concluída. Mas sua implantação pode ser rápida ou mais lenta de acordo com sua região e com as configurações selecionadas.
 
-## <a name="open-the-vm-with-remote-desktop"></a>Open the VM with Remote Desktop
+## Abrir a VM usando a Área de Trabalho Remota.
 
-Use the following steps to connect to the virtual machine with Remote Desktop:
+Use as etapas a seguir para se conectar à máquina virtual com a Área de Trabalho Remota.
 
-1. After the Azure VM is built, the icon for the VM appears on your Azure dashboard. You can also find it by browsing your existing virtual machines. Click on your new SQL virtual machine. A **Virtual machine** blade displays your virtual machine details.
-1. At the top of the **Virtual machine** blade, click **Connect**.
-1. The browser downloads an RDP file for the VM. Open the RDP file.
-    ![Remote Desktop to SQL VM](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-remote-desktop.png)
-1. The Remote Desktop Connection notifies you that the publisher of this remote connection cannot be identified. Click **Connect** to continue.
-1. In the **Windows Security** dialog, click **Use another account**.
-1. For **User name** type **\<user name>**, where <user name> is the user name that you specified when you configured the VM. You have to add an initial backslash before the name.
-1. Type the **Password** that you previously configured for this VM, and then click **OK** to connect.
-1. If another **Remote Desktop Connection** dialog asks you whether to connect, click **Yes**.
+1. Após a compilação da VM do Azure, um ícone para a VM será exibido no painel do Azure. Você também pode encontrá-lo navegando por suas máquinas virtuais existentes. Clique na nova máquina virtual do SQL. Uma folha da **Máquina virtual** exibe os detalhes de sua máquina virtual.
+1. Na parte superior da folha **Máquina virtual**, clique em **Conectar**.
+1. O navegador baixa um arquivo RDP para a VM. Abra o arquivo RDP. ![Área de trabalho remota para VM do SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-remote-desktop.png)
+1. A Conexão de área de trabalho remota avisa você de que o distribuidor dessa conexão remota não pode ser identificado. Clique em **Conectar** para continuar.
+1. Na caixa de diálogo **Segurança do Windows**, clique em **Usar outra conta**.
+1. Em **Nome de usuário**, digite **<nome usuário>**, em que <nome usuário> é o nome de usuário especificado por você durante a configuração da VM. Você precisa adicionar uma barra invertida inicial antes do nome.
+1. Digite a **Senha** que você configurou anteriormente para essa VM e clique em **OK** para conectar.
+1. Se outra caixa de diálogo **Conexão da Área de Trabalho Remota** perguntar se você deseja conectar, clique em **Sim**.
 
-After you connect to the SQL Server virtual machine, you can launch SQL Server Management Studio and connect with Windows Authentication using your local administrator credentials. If you enabled SQL Server Authentication, you can also connect with SQL Authentication using the SQL login and password you configured during provisioning.
+Depois de se conectar à máquina virtual do SQL Server, você pode iniciar o SQL Server Management Studio e conectar-se à Autenticação do Windows usando suas credenciais de administrador local. Se você habilitou a Autenticação do SQL Server, também será possível se conectar com a Autenticação do SQL usando o logon e a senha do SQL configurados durante o provisionamento.
 
-Access to the machine enables you to directly change machine and SQL Server settings based on your requirements. For example, you could configure the firewall settings or change SQL Server configuration settings.
+O acesso à máquina permite que você altere diretamente as configurações da máquina e do SQL Server com base em suas necessidades. Por exemplo, você pode definir as configurações do firewall ou alterar as configuração do SQL Server.
 
-## <a name="connect-to-sql-server-remotely"></a>Connect to SQL Server remotely
+## Conectar-se ao SQL Server remotamente
 
-In this tutorial, we selected **Public** access for the virtual machine and **SQL Server Authentication**. These settings automatically configured the virtual machine to allow SQL Server connections from any client over the internet (assuming they have the correct SQL login).
+Neste tutorial, selecionamos o acesso **Público** para a máquina virtual e a **Autenticação do SQL Server**. Essas configurações definiram automaticamente a máquina virtual para permitir conexões do SQL Server de qualquer cliente pela internet (supondo que o logon do SQL esteja correto).
 
->[AZURE.NOTE] If you did not select Public during provisioning, then extra steps are required to access your SQL Server instance over the internet. For more information, see  [Connect to a SQL Server Virtual Machine](virtual-machines-windows-sql-connect.md).
+>[AZURE.NOTE] Se você não selecionou a opção Público durante o provisionamento, será necessário executar etapas adicionais para acessar a instância do SQL Server pela Internet. Para saber mais, confira [Conectar uma Máquina Virtual do SQL Server](virtual-machines-windows-sql-connect.md).
 
-The following sections show how to connect to your SQL Server instance on your VM from a different computer over the internet.
+As seções a seguir mostram como se conectar à instância do SQL Server em sua VM de um computador diferente pela internet.
 
-> [AZURE.INCLUDE [Connect to SQL Server in a VM Resource Manager](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+> [AZURE.INCLUDE [Conectar-se ao SQL Server em um Gerenciador de Recursos de VM](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-## <a name="next-steps"></a>Next Steps
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) and the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
+## Próximas etapas
+Para saber mais sobre como usar o SQL Server no Azure, consulte [SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md) e as [Perguntas Frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
 
-For a video overview of SQL Server on Azure Virtual Machines, watch [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
+Para obter uma visão geral em vídeo do SQL Server em máquinas virtuais do Azure, assista ao vídeo [Azure VM is the best platform for SQL Server 2016 (A VM do Azure é a melhor plataforma para o SQL Server 2016)](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
 
-[Explore the Learning Path](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) for SQL Server on Azure virtual machines.
+[Explorar o Roteiro de Aprendizagem ](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) do SQL Server nas máquinas virtuais do Azure.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

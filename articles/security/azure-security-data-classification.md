@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Data Classification for Azure | Microsoft Azure"
-   description="This article provides an introduction to the fundamentals of data classification, and highlights its value, specifically in the context of cloud computing and using Microsoft Azure"
+   pageTitle="Classificação de dados para o Azure | Microsoft Azure"
+   description="Este artigo fornece uma introdução aos conceitos básicos da classificação de dados e realça seu valor, especificamente no contexto da computação em nuvem e usando o Microsoft Azure"
    services="security"
    documentationCenter="na"
    authors="YuriDio"
@@ -16,233 +16,227 @@
    ms.date="08/16/2016"
    ms.author="yurid"/>
 
+# Classificação de dados para o Azure
 
-# <a name="data-classification-for-azure"></a>Data classification for Azure
+Este artigo fornece uma introdução aos conceitos básicos da classificação de dados e realça seu valor, especificamente no contexto da computação em nuvem e usando o Microsoft Azure.
 
-This article provides an introduction to the fundamentals of data classification and highlights its value, specifically in the context of cloud computing and using Microsoft Azure. 
+## Conceitos básicos de classificação de dados
 
-## <a name="data-classification-fundamentals"></a>Data classification fundamentals
-
-Successful data classification in an organization requires broad awareness of your organization’s needs and a thorough understanding of where your data assets reside.  
+A classificação de dados bem-sucedida em uma organização exige amplo conhecimento das necessidades da organização e uma compreensão completa de onde residem seus ativos de dados.
  
-Data exists in one of three basic states: 
+Os dados existem em um destes três estados básicos:
 
-- At rest 
-- In process 
-- In transit 
+- Em repouso
+- Em andamento
+- Em trânsito
  
-All three states require unique technical solutions for data classification, but the applied principles of data classification should be the same for each. Data that is classified as confidential needs to stay confidential when at rest, in process, and in transit. 
+Todos os três estados exigem soluções técnicas exclusivas para classificação de dados, mas os princípios aplicados da classificação de dados devem ser os mesmos para cada um deles. Os dados classificados como confidenciais precisam permanecer confidenciais quando em repouso, em andamento e em trânsito.
  
-Data can also be either structured or unstructured. Typical classification processes for the structured data found in databases and spreadsheets are less complex and time-consuming to manage than those for unstructured data such as documents, source code, and email. 
+Os dados também podem ser estruturados ou não estruturados. Os processos de classificação típicos para os dados estruturados encontrados em planilhas e bancos de dados são menos complexos e demorados de gerenciar do que aqueles para dados não estruturados, como documentos, código-fonte e email.
 
-> [AZURE.TIP] for more information regarding Azure capabilities and best practices for data encryption read [Azure Data Encryption Best Practices](azure-security-data-encryption-best-practices.md)
+> [AZURE.TIP] para saber mais sobre recursos do Azure e práticas recomendadas para criptografia de dados, leia [Práticas recomendadas de criptografia de dados do Azure](azure-security-data-encryption-best-practices.md)
 
-In general, organizations will have more unstructured data than structured data. Regardless of whether data is structured or unstructured, it is important for you to manage data sensitivity. When properly implemented, data classification helps ensure that sensitive or confidential data assets are managed with greater oversight than data assets that are considered public or free to distribute. 
+Em geral, as organizações têm mais dados não estruturados do que dados estruturados. Independentemente de os dados serem estruturados ou não estruturados, é importante que você gerencie a confidencialidade dos dados. Quando implementada corretamente, a classificação de dados ajuda a garantir que ativos de dados sigilosos ou confidenciais sejam gerenciados com maior supervisão do que ativos de dados que são considerados públicos ou para livre distribuição.
 
-### <a name="controlling-access-to-data"></a>Controlling access to data 
+### Controle do acesso a dados 
 
-Authentication and authorization are often confused with each other and their roles misunderstood. In reality they are quite different, as shown in the following figure.  
+Autenticação e autorização são frequentemente confundidos um com o outro e suas funções são mal compreendidas. Na realidade, são bastante diferentes, como mostrado na figura a seguir.
 
-![Data access and control](./media/azure-security-data-classification/azure-security-data-classification-fig1.png)
+![Controle e acesso a dados](./media/azure-security-data-classification/azure-security-data-classification-fig1.png)
 
-### <a name="authentication"></a>Authentication 
+### Autenticação 
 
-Authentication typically consists of at least two parts: a username or user ID to identify a user and a token, such as a password, to confirm that the username credential is valid. The process does not provide the authenticated user with access to any items or services; it verifies that the user is who they say they are.   
+A autenticação normalmente consiste em pelo menos duas partes: um nome de usuário ou ID de usuário para identificar um usuário e um token, como uma senha, para confirmar que a credencial de nome de usuário é válida. O processo não fornece ao usuário autenticado acesso a itens ou serviços; ele verifica se o usuário é quem diz ser.
 
-> [AZURE.TIP] [Azure Active Directory](../active-directory/active-directory-whatis.md) provides cloud-based identity services that allow you to authenticate and authorize users. 
+> [AZURE.TIP] [Azure Active Directory](./active-directory/active-directory-whatis.md) fornece serviços de identidade baseados em nuvem que lhe permitem autenticar e autorizar usuários.
 
-### <a name="authorization"></a>Authorization
+### Autorização
  
-Authorization is the process of providing an authenticated user the ability to access an application, data set, data file, or some other object. Assigning authenticated users the rights to use, modify, or delete items that they can access requires attention to data classification. 
+A autorização é o processo de fornecer a um usuário autenticado a capacidade de acessar um aplicativo, um conjunto de dados, um arquivo de dados ou algum outro objeto. Para atribuir aos usuários autenticados os direitos de usar, modificar ou excluir itens que eles podem acessar, é necessária atenção à classificação de dados.
 
-Successful authorization requires implementation of a mechanism to validate individual users’ needs to access files and information based on a combination of role, security policy, and risk policy considerations. For example, data from specific line-of-business (LOB) applications might not need to be accessed by all employees, and only a small subset of employees will likely need access to human resources (HR) files. But for organizations to control who can access data, as well as when and how, an effective system for authenticating users must be in place. 
+A autorização bem-sucedida requer a implementação de um mecanismo para validar as necessidades de usuários individuais para acessar arquivos e informações com base em uma combinação de considerações de função, política de segurança e política de risco. Por exemplo, dados de aplicativos de LOB (linha de negócios) específicos talvez não precisem ser acessados por todos os funcionários, e apenas um pequeno subconjunto de funcionários provavelmente precisará acessar os arquivos de RH (recursos humanos). Porém, para que as organizações controlem quem pode acessar dados, assim como quando e como, deve ser adotado um sistema eficaz para autenticar os usuários.
 
-> [AZURE.TIP] in Microsoft Azure, make sure to leverage Azure Role-Based Access Control (RBAC) to grant only the amount of access that users need to perform their jobs. Read [Use role assignments to manage access to your Azure Active Directory resources](../active-directory/role-based-access-control-configure.md) for more information. 
+> [AZURE.TIP] no Microsoft Azure, utilize o RBAC (Controle de Acesso Baseado em Função) do Azure para conceder somente a quantidade de acesso de que os usuários precisam para realizar seus trabalhos. Leia [Use as atribuições de função para gerenciar o acesso aos recursos do Azure Active Directory](../active-directory/role-based-access-control-configure.md) para saber mais.
 
-### <a name="roles-and-responsibilities-in-cloud-computing"></a>Roles and responsibilities in cloud computing 
+### Funções e responsabilidades na computação em nuvem 
 
-Although cloud providers can help manage risks, customers need to ensure that data classification management and enforcement is properly implemented to provide the appropriate level of data management services.  
+Embora os provedores de nuvem possam ajudar a gerenciar riscos, os clientes precisam garantir que o gerenciamento e a imposição da classificação de dados sejam implementados corretamente para fornecer o nível apropriado de serviços de gerenciamento de dados.
  
-Data classification responsibilities will vary based on which cloud service model is in place, as shown in the following figure. The three primary cloud service models are infrastructure as a service (IaaS), platform as a service (PaaS), and software as a service (SaaS). Implementation of data classification mechanisms will also vary based on the reliance on and expectations of the cloud provider. 
+As responsabilidades de classificação de dados variam com base no modelo de serviço de nuvem usado, conforme mostrado na figura a seguir. Os três modelos de serviço de nuvem primários são IaaS (infraestrutura como serviço), PaaS (plataforma como serviço) e SaaS (software como serviço). A implementação de mecanismos de classificação de dados também varia com base na dependência e nas expectativas do provedor de nuvem.
 
-![Roles](./media/azure-security-data-classification/azure-security-data-classification-fig2.png)
+![Funções](./media/azure-security-data-classification/azure-security-data-classification-fig2.png)
 
-Although you are responsible for classifying your data, cloud providers should make written commitments about how they will secure and maintain the privacy of the customer data stored within their cloud.  
+Embora você seja responsável por classificar seus dados, os provedores de nuvem devem assumir compromissos por escrito sobre como protegerão e manterão a privacidade dos dados do cliente armazenados em sua nuvem.
 
-- **IaaS providers** requirements are limited to ensuring that the virtual environment can accommodate data classification capabilities and customer compliance requirements. IaaS providers have a smaller role in data classification because they only need to ensure that customer data addresses compliance requirements. However, providers must still ensure that their virtual environments address data classification requirements in addition to securing their data centers.
-- **PaaS providers** responsibilities may be mixed, because the platform could be used in a layered approach to provide security for a classification tool. PaaS providers may be responsible for authentication and possibly some authorization rules, and must provide security and data classification capabilities to their application layer. Much like IaaS providers, PaaS providers need to ensure that their platform complies with any relevant data classification requirements.
-- **SaaS providers** will frequently be considered as part of an authorization chain, and will need to ensure that the data stored in the SaaS application can be controlled by classification type. SaaS applications can be used for LOB applications, and by their very nature need to provide the means to authenticate and authorize data that is used and stored. 
+- Os requisitos dos **provedores de IaaS** são limitados a garantir que o ambiente virtual possa acomodar recursos de classificação de dados e requisitos de conformidade do cliente. Os provedores de IaaS têm uma função menor na classificação de dados, pois só precisam garantir que os dados do cliente atendam aos requisitos de conformidade. No entanto, os provedores ainda devem garantir que seus ambientes virtuais atendam a requisitos de classificação de dados, além de proteger seus datacenters.
+- As responsabilidades dos **provedores de PaaS** podem ser combinadas, pois a plataforma pode ser usada em uma abordagem em camadas para fornecer segurança a uma ferramenta de classificação. Os provedores de PaaS podem ser responsáveis pela autenticação e, possivelmente, por algumas regras de autorização e devem fornecer recursos de segurança e classificação de dados para sua camada de aplicativo. De forma semelhante aos provedores de IaaS, os provedores de PaaS precisam garantir que sua plataforma esteja em conformidade com quaisquer requisitos de classificação de dados relevantes.
+- Os **provedores de SaaS** frequentemente são considerados como parte de uma cadeia de autorização e precisam garantir que os dados armazenados no aplicativo SaaS possam ser controlados por tipo de classificação. Os aplicativos SaaS podem ser usados para aplicativos de LOB e, por sua própria natureza, precisam fornecer os meios para autenticar e autorizar os dados que são usados e armazenados.
 
-## <a name="classification-process"></a>Classification process 
+## Processo de classificação 
 
-Many organizations that understand the need for data classification and want to implement it face a basic challenge: where to begin?
+Muitas organizações que compreendem a necessidade de classificação de dados e desejam implementá-la enfrentam um desafio básico: por onde começar?
 
-One effective and simple way to implement data classification is to use the PLAN, DO, CHECK, ACT model from [MOF](https://technet.microsoft.com/solutionaccelerators/dd320379.aspx). The following figure charts the tasks that are required to successfully implement data classification in this model.  
+Uma maneira simples e eficiente de implementar a classificação de dados é usar o modelo PLANEJAR, FAZER, VERIFICAR, AGIR do [MOF](https://technet.microsoft.com/solutionaccelerators/dd320379.aspx). A figura a seguir mostra as tarefas que são necessárias para implementar com êxito a classificação de dados nesse modelo.
 
-1. **PLAN**. Identify data assets, a data custodian to deploy the classification program, and develop protection profiles. 
-2. **DO**. After data classification policies are agreed upon, deploy the program and implement enforcement technologies as needed for confidential data.  
-3. **CHECK**. Check and validate reports to ensure that the tools and methods being used are effectively addressing the classification policies. 
-4. **ACT**. Review the status of data access and review files and data that require revision using a reclassification and revision methodology to adopt changes and to address new risks.  
+1. **PLANEJAR**. Identifique os ativos de dados e um custodiante de dados para implantar o programa de classificação e desenvolva perfis de proteção.
+2. **FAZER**. Depois que as políticas de classificação de dados forem acordadas, implante o programa e implemente tecnologias de imposição conforme necessário para dados confidenciais.
+3. **VERIFICAR**. Verifique e valide os relatórios para assegurar que as ferramentas e os métodos que estão sendo usados estão abordando com eficiência as políticas de classificação.
+4. **ACT**. Examine o status do acesso a dados e examine arquivos e dados que exigem revisão usando uma metodologia de revisão e reclassificação para adotar alterações e lidar com novos riscos.
 
-![Plan, do, Check, Act](./media/azure-security-data-classification/azure-security-data-classification-fig3.png)
+![Planejar, Fazer, Verificar, Agir](./media/azure-security-data-classification/azure-security-data-classification-fig3.png)
  
-###<a name="select-a-terminology-model-that-addresses-your-needs"></a>Select a terminology model that addresses your needs
+###Selecione um modelo de terminologia que atenda às suas necessidades
  
-Several types of processes exist for classifying data, including manual processes, location-based processes that classify data based on a user’s or system’s location, application-based processes such as database-specific classification, and automated processes used by various technologies, some of which are described in the “Protecting confidential data” section later in this article.  
+Existem vários tipos de processos de classificação de dados, incluindo processos manuais, processos baseados em local que classificam os dados com base no local do usuário ou do sistema, processos baseados em aplicativos, como classificação específica de banco de dados, e processos automatizados usados por várias tecnologias, alguns dos quais são descritos na seção "Proteção de dados confidenciais", mais adiante neste artigo.
  
-This article introduces two generalized terminology models that are based on well-used and industry-respected models. These terminology models, both of which provide three levels of classification sensitivity, are shown in the following table.  
+Este artigo introduz dois modelos de terminologia generalizada com base em modelos bastante usados e respeitados pelo setor. Esses modelos de terminologia, que fornecem três níveis de confidencialidade de classificação, são mostrados na tabela a seguir.
 
-> [AZURE.NOTE] when classifying a file or resource that combines data that would typically be classified at differing levels, the highest level of classification present should establish the overall classification. For example, a file containing sensitive and restricted data should be classified as restricted.  
+> [AZURE.NOTE] ao classificar um arquivo ou recurso que combina dados que, normalmente, seriam classificados em níveis diferentes, o nível mais alto de classificação presente deve estabelecer a classificação geral. Por exemplo, um arquivo que contém dados confidenciais e restritos deve ser classificado como restrito.
 
-| **Sensitivity**   | **Terminology model 1**   | **Terminology model 2** |
+| **Confidencialidade** | **Modelo de terminologia 1** | **Modelo de terminologia 2** |
 |--------------------|---------------------------|-------------------------|
-| High               | Confidential              | Restricted              |
-| Medium             | For internal use only     | Sensitive               |
-| Low                | Public                    | Unrestricted            |
+| Alto | Confidencial | Restrito |
+| Média | Apenas para uso interno | Sigiloso |
+| Baixo | Público | Irrestrito |
 
-#### <a name="confidential-(restricted)"></a>Confidential (restricted) 
+#### Confidencial (restrito) 
 
-Information that is classified as confidential or restricted includes data that can be catastrophic to one or more individuals and/or organizations if compromised or lost. Such information is frequently provided on a “need to know” basis and might include: 
+As informações que são classificadas como confidenciais ou restritas incluem dados que podem ser catastróficos para uma ou mais pessoas e/ou organizações caso sejam comprometidos ou perdidos. Com frequência, essas informações são fornecidas apenas para "divulgação restrita àqueles diretamente interessados" e podem incluir:
 
-- Personal data, including personally identifiable information such as Social Security or national identification numbers, passport numbers, credit card numbers, driver's license numbers, medical records, and health insurance policy ID numbers.  
-- Financial records, including financial account numbers such as checking or investment account numbers. 
-- Business material, such as documents or data that is unique or specific intellectual property.  
-- Legal data, including potential attorney-privileged material. 
-- Authentication data, including private cryptography keys, username password pairs, or other identification sequences such as private biometric key files. 
+- Dados pessoais, incluindo informações de identificação pessoal, como números de Previdência Social ou de identificação nacional, números de passaporte, números de cartão de crédito, números de carteira de motorista, registros médicos e números de ID de apólice de seguros de saúde.
+- Registros financeiros, incluindo números de contas financeiras, como números de verificação ou de contas de investimentos.
+- Material de negócios, como documentos ou dados que são exclusivos ou propriedade intelectual específica.
+- Dados legais, incluindo material potencialmente privilegiado de advogados.
+- Dados de autenticação, incluindo chaves de criptografia particular, pares de nome de usuário e senha ou outras sequências de identificação, como arquivos de chave biométrica particulares.
 
-Data that is classified as confidential frequently has regulatory and compliance requirements for data handling. 
+Frequentemente, os dados classificados como confidenciais têm requisitos regulatórios e de conformidade para manipulação de dados.
 
-#### <a name="for-internal-use-only-(sensitive)"></a>For internal use only (sensitive)
+#### Apenas para uso interno (sigiloso)
  
-Information that is classified as being of medium sensitivity includes files and data that would not have a severe impact on an individual and/or organization if lost or destroyed. Such information might include: 
+Informações que são classificadas com um nível de sigilo médio incluem arquivos e dados que não causariam um impacto grave para um indivíduo e/ou uma organização caso perdidos ou destruídos. Essas informações podem incluir:
 
-- Email, most of which can be deleted or distributed without causing a crisis (excluding mailboxes or email from individuals who are identified in the confidential classification).  
-- Documents and files that do not include confidential data.
+- Emails, a maioria dos quais pode ser excluída ou distribuída sem causar uma crise (excluindo caixas de correio ou email de pessoas que são identificadas na classificação confidencial).
+- Documentos e arquivos que não têm dados confidenciais.
  
-Generally, this classification includes anything that is not confidential. This classification can include most business data, because most files that are managed or used day-to-day can be classified as sensitive. With the exception of data that is made public or is confidential, all data within a business organization can be classified as sensitive by default. 
+Em geral, essa classificação inclui tudo o que não é confidencial. Essa classificação pode incluir a maioria dos dados de negócios, pois a maioria dos arquivos que são gerenciados ou usadas no dia a dia pode ser classificada como sigilosa. Com exceção de dados que são tornados feitos públicos ou confidenciais, todos os dados em uma organização de negócios podem ser classificados como sigilosos por padrão.
 
-#### <a name="public-(unrestricted)"></a>Public (unrestricted)
+#### Público (irrestrito)
  
-Information that is classified as public includes data and files that are not critical to business needs or operations. This classification can also include data that has deliberately been released to the public for their use, such as marketing material or press announcements. In addition, this classification can include data such as spam email messages stored by an email service. 
+As informações que são classificadas como públicas incluem dados e arquivos que não são essenciais para as necessidades de negócios ou as operações. Essa classificação também pode incluir dados deliberadamente lançados para o uso do público, como material de marketing ou comunicados à imprensa. Além disso, essa classificação pode incluir dados como mensagens de email de spam armazenadas por um serviço de email.
 
-### <a name="define-data-ownership"></a>Define data ownership
+### Definir a propriedade dos dados
  
-It’s important to establish a clear custodial chain of ownership for all data assets. The following table identifies different data ownership roles in data classification efforts and their respective rights.  
+É importante estabelecer uma cadeia de custódia clara de propriedade para todos os ativos de dados. A tabela a seguir identifica diferentes funções de propriedade de dados em iniciativas de classificação de dados e seus respectivos direitos.
 
-| **Role**        | **Create**    | **Modify/delete**   | **Delegate**  | **Read**    | **Archive/restore**   |
+| **Função** | **Criar** | **Modificar/excluir** | **Delegar** | **Ler** | **Arquivar/restaurar** |
 |-----------------|---------------|---------------------|---------------|-------------|-----------------------|
-| Owner           | X             | X                   | X             | X           | X                     |
-| Custodian       |               |                     | X             |             |                       |
-| Administrator   |               |                     |               |             | X                     |
-| User\*          |               | X                   |               | X           |                       |
-**Users may be granted additional rights such as edit and delete by a custodian* 
+| Proprietário | X | X | X | X | X |
+| Custodiante | | | X | | |
+| Administrador | | | | | X |
+| Usuário* | | X | | X | |
+**Os usuários podem receber direitos adicionais, como editar e excluir, de um custodiante*
 
-> [AZURE.NOTE] this table does not provide an exhaustive list of roles and rights, but merely a representative sample. 
+> [AZURE.NOTE] esta tabela não fornece uma lista completa de funções e direitos, mas apenas uma amostra representativa.
 
-The **data asset owner** is the original creator of the data, who can delegate ownership and assign a custodian. When a file is created, the owner should be able to assign a classification, which means that they have a responsibility to understand what needs to be classified as confidential based on their organization’s policies. All of a data asset owner’s data can be auto-classified as for internal use only (sensitive) unless they are responsible for owning or creating confidential (restricted) data types. Frequently, the owner’s role will change after the data is classified. For example, the owner might create a database of classified information and relinquish their rights to the data custodian.  
+O **proprietário do ativo de dados** é o criador original dos dados, que pode delegar a propriedade e atribuir um custodiante. Quando um arquivo é criado, o proprietário deve ser capaz de atribuir uma classificação, o que significa que ele tem a responsabilidade de compreender o que precisa ser classificado como confidencial com base nas políticas da organização. Todos os dados do proprietário do ativo de dados podem ser classificados automaticamente apenas para uso interno (sigilosos), a menos que ele seja responsável pela propriedade ou criação de tipos de dados confidenciais (restritos). Com frequência, a função do proprietário será alterada depois que os dados forem classificados. Por exemplo, o proprietário pode criar um banco de dados de informações confidenciais e renunciar seus direitos para o custodiante dos dados.
 
-> [AZURE.NOTE] data asset owners often use a mixture of services, devices, and media, some of which are personal and some of which belong to the organization. A clear organizational policy can help ensure that usage of devices such as laptops and smart devices is in accordance with data classification guidelines.  
+> [AZURE.NOTE] os proprietários de ativos de dados muitas vezes usam uma combinação de serviços, dispositivos e mídia, alguns dos quais são particulares e outros dos quais pertencem à organização. Uma política organizacional clara pode ajudar a garantir que o uso de dispositivos, como laptops e dispositivos inteligentes, esteja de acordo com as diretrizes de classificação de dados.
 
-The **data asset custodian** is assigned by the asset owner (or their delegate) to manage the asset according to agreements with the asset owner or in accordance with applicable policy requirements. Ideally, the custodian role can be implemented in an automated system. An asset custodian ensures that necessary access controls are provided and is responsible for managing and protecting assets delegated to their care. The responsibilities of the asset custodian could include:  
+O **custodiante de ativos de dados** é atribuído pelo proprietário do ativo (ou seu representante) para gerenciar o ativo de acordo com contratos com o proprietário do ativo ou de acordo com os requisitos de política aplicáveis. Idealmente, a função de custodiante pode ser implementada em um sistema automatizado. Um custodiante de ativo garante que os controles de acesso necessários sejam fornecidos e é responsável por gerenciar e proteger ativos delegados aos seus cuidados. As responsabilidades do custodiante de ativos podem incluir:
 
-- Protecting the asset in accordance with the asset owner’s direction or in agreement with the asset owner 
-- Ensuring that classification policies are complied with 
-- Informing asset owners of any changes to agreed-upon controls and/or protection procedures prior to those changes taking effect 
-- Reporting to the asset owner about changes to or removal of the asset custodian’s responsibilities 
-- An **administrator** represents a user who is responsible for ensuring that integrity is maintained, but they are not a data asset owner, custodian, or user. In fact, many administrator roles provide data container management services without having access to the data. The administrator role includes backup and restoration of the data, maintaining records of the assets, and choosing, acquiring, and operating the devices and storage that house the assets. 
-- The asset user includes anyone who is granted access to data or a file. Access assignment is often delegated by the owner to the asset custodian.  
+- Proteger o ativo de acordo com a orientação do proprietário do ativo ou de acordo com o proprietário do ativo
+- Garantir que as políticas de classificação sejam cumpridas
+- Informar os proprietários dos ativos de quaisquer alterações feitas em controles aprovados e/ou procedimentos de proteção antes que essas alterações entrem em vigor
+- Relatar ao proprietário do ativo as alterações ou a remoção das responsabilidades do custodiante do ativo
+- Um **administrador** representa um usuário que é responsável por garantir que a integridade seja mantida, mas ele não é um proprietário de ativos de dados, um custodiante nem um usuário. De fato, muitas funções de administrador fornecem serviços de gerenciamento de contêiner de dados sem ter acesso aos dados. A função de administrador inclui backup e restauração dos dados, manutenção de registros de ativos e escolha, aquisição e operação dos dispositivos e do armazenamento que contêm os ativos.
+- O usuário do ativo inclui qualquer pessoa que receba acesso a dados ou a um arquivo. A atribuição de acesso muitas vezes é delegada pelo proprietário ao custodiante do ativo.
 
-### <a name="implementation"></a>Implementation
+### Implementação
   
-Management considerations apply to all classification methodologies. These considerations need to include details about who, what, where, when, and why a data asset would be used, accessed, changed, or deleted. All asset management must be done with an understanding of how an organization views its risks, but a simple methodology can be applied as defined in the data classification process. Additional considerations for data classification include the introduction of new applications and tools, and managing change after a classification method is implemented.  
+Considerações de gerenciamento se aplicam a todas as metodologias de classificação. Essas considerações precisam incluir detalhes sobre quem, o que, onde, quando e por que um ativo de dados deve ser usado, acessado, alterado ou excluído. Todo o gerenciamento do ativo deve ser feito com uma compreensão de como uma organização encara seus riscos, mas pode ser aplicada uma metodologia simple, conforme definido no processo de classificação de dados. Considerações adicionais para a classificação de dados incluem a introdução de novos aplicativos e ferramentas e a alteração de gerenciamento após a implementação de um método de classificação.
 
-### <a name="reclassification"></a>Reclassification
+### Reclassificação
  
-Reclassifying or changing the classification state of a data asset needs to be done when a user or system determines that the data asset’s importance or risk profile has changed. This effort is important for ensuring that the classification status continues to be current and valid. Most content that is not classified manually can be classified automatically or based on usage by a data custodian or data owner. 
+A reclassificação ou alteração do estado de classificação de um ativo de dados precisa ser feita quando um usuário ou sistema determina que o perfil de risco ou a importância do ativo de dados foi alterado. Essa iniciativa é importante para garantir que o status de classificação continue sendo válido e atual. A maior parte do conteúdo que não é classificado manualmente pode ser classificado automaticamente ou com base no uso por um custodiante de dados ou pelo proprietário dos dados.
 
-### <a name="manual-data-reclassification"></a>Manual data reclassification
+### Reclassificação de dados manual
  
-Ideally, this effort would ensure that the details of a change are captured and audited. The most likely reason for manual reclassification would be for reasons of sensitivity, or for records kept in paper format, or a requirement to review data that was originally misclassified. Because this paper considers data classification and moving data to the cloud, manual reclassification efforts would require attention on a case-by-case basis and a risk management review would be ideal to address classification requirements. Generally, such an effort would consider the organization’s policy about what needs to be classified, the default classification state (all data and files being sensitive but not confidential), and take exceptions for high-risk data. 
+Idealmente, essa iniciativa garantiria que os detalhes de uma alteração sejam capturados e auditados. O motivo mais provável para a reclassificação manual seria por questões de diferenciação ou para registros mantidos em formato de papel ou um requisito para examinar dados originalmente classificados incorretamente. Como este documento considera a classificação de dados e a movimentação de dados para a nuvem, as iniciativas de reclassificação manual exigem atenção caso a caso, e uma revisão de gerenciamento de risco seria o ideal para atender aos requisitos de classificação. Em geral, essa iniciativa considera a política da empresa sobre o que precisa ser classificado, o estado de classificação padrão (todos os dados e arquivos sigilosos, mas não confidenciais) e exceções para dados de alto risco.
 
-### <a name="automatic-data-reclassification"></a>Automatic data reclassification
+### Reclassificação de dados automática
  
-Automatic data reclassification uses the same general rule as manual classification. The exception is that automated solutions can ensure that rules are followed and applied as needed. Data classification can be done as part of a data classification enforcement policy, which can be enforced when data is stored, in use, and in transit using authorization technology.
+A reclassificação de dados automática usa a mesma regra geral que a classificação manual. A exceção é que soluções automatizadas podem garantir que as regras sejam seguidas e aplicadas conforme necessário. A classificação de dados pode ser feita como parte de uma política de imposição de classificação de dados, que pode ser imposta quando dados são armazenados em uso e em trânsito usando a tecnologia de autorização.
 
-- Application-based. Using certain applications by default sets a classification level. For example, data from customer relationship management (CRM) software, HR, and health record management tools is confidential by default. 
-- Location-based. Data location can help identify data sensitivity. For example, data that is stored by an HR or financial department is more likely to be confidential in nature.  
+- Baseada em aplicativo. O uso de determinados aplicativos por padrão define um nível de classificação. Por exemplo, dados de software de CRM (gerenciamento de relacionamento com o cliente), RH e ferramentas de gerenciamento de registro de saúde são confidenciais por padrão.
+- Baseada em local. O local dos dados pode ajudar a identificar a confidencialidade dos dados. Por exemplo, é mais provável que os dados armazenados por um departamento financeiro ou de RH sejam de natureza confidencial.
  
-### <a name="data-retention,-recovery,-and-disposal"></a>Data retention, recovery, and disposal 
+### Retenção, recuperação e descarte de dados 
 
-Data recovery and disposal, like data reclassification, is an essential aspect of managing data assets. The principles for data recovery and disposal would be defined by a data retention policy and enforced in the same manner as data reclassification; such an effort would be performed by the custodian and administrator roles as a collaborative task.  
+A recuperação e o descarte de dados, assim como a reclassificação de dados, são um aspecto essencial do gerenciamento de ativos de dados. Os princípios para recuperação e descarte de dados seriam definidos por uma política de retenção de dados e impostos da mesma maneira que a reclassificação de dados. Essa iniciativa seria executada pelas funções de custodiante e de administrador como uma tarefa de colaboração.
 
-Failure to have a data retention policy could mean data loss or failure to comply with regulatory and legal discovery requirements. Most organizations that do not have a clearly defined data retention policy tend to use a default “keep everything” retention policy. However, such a retention policy has additional risks in cloud services scenarios. 
+Se não houver uma política de retenção de dados, isso poderá significar a perda de dados ou o descumprimento de requisitos de descoberta legais e regulatórios. A maioria das organizações sem uma política de retenção de dados claramente definida tende a usar uma política de retenção padrão de "manter tudo". No entanto, essa política de retenção tem riscos adicionais em cenários de serviços de nuvem.
 
-For example, a data retention policy for cloud service providers can be considered as for "the duration of the subscription” (as long as the service is paid for, the data is retained). Such a pay-for-retention agreement may not address corporate or regulatory retention policies. Defining a policy for confidential data can ensure that data is stored and removed based on best practices. In addition, an archival policy can be created to formalize an understanding about what data should be disposed of and when. 
+Por exemplo, uma política de retenção de dados para provedores de serviços de nuvem pode ser considerada como sendo "pela duração da assinatura" (enquanto o serviço for pago, os dados serão mantidos). Esse contrato de pagamento para retenção talvez não lide com políticas de retenção corporativas ou regulatórias. A definição de uma política para dados confidenciais pode garantir que os dados sejam armazenados e removidos com base nas práticas recomendadas. Além disso, uma política de arquivamento pode ser criada para formalizar um entendimento sobre quais dados devem ser descartados e quando.
 
-Data retention policy should address the required regulatory and compliance requirements, as well as corporate legal retention requirements. Classified data might provoke questions about retention duration and exceptions for data that has been stored with a provider; such questions are more likely for data that has not been classified correctly. 
+A política de retenção de dados deve tratar dos requisitos regulatórios e de conformidade, bem como dos requisitos de retenção corporativa legais. Os dados confidenciais podem provocar questões quanto à duração da retenção e às exceções para dados que foram armazenados com um provedor. Essas questões são mais prováveis para dados que não foram classificados corretamente.
 
-> [AZURE.TIP] learn more about Azure Data Retention policies and more by reading the [Microsoft Online Subscription Agreement](https://azure.microsoft.com/support/legal/subscription-agreement/)
+> [AZURE.TIP] saiba mais sobre as políticas de Retenção de Dados do Azure e muito mais lendo o [Contrato de Assinatura do Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/)
 
-## <a name="protecting-confidential-data"></a>Protecting confidential data
+## Proteção de dados confidenciais
   
-After data is classified, finding and implementing ways to protect confidential data becomes an integral part of any data protection deployment strategy. Protecting confidential data requires additional attention to how data is stored and transmitted in conventional architectures as well as in the cloud. 
+Depois que os dados são classificados, a localização e a implementação de maneiras de proteger dados confidenciais passam a ser uma parte integrante de qualquer estratégia de implantação de proteção de dados. A proteção de dados confidenciais requer atenção extra em relação a como os dados são armazenados e transmitidos em arquiteturas convencionais, bem como na nuvem.
 
-This section provides basic information about some technologies that can automate enforcement efforts to help protect data that has been classified as confidential. 
+Esta seção fornece informações básicas sobre algumas tecnologias que podem automatizar as iniciativas de imposição para ajudar a proteger dados que foram classificados como confidenciais.
  
-As the following figure shows, these technologies can be deployed as on-premises or cloud-based solutions—or in a hybrid fashion, with some of them deployed on-premises and some in the cloud. (Some technologies, such as encryption and rights management, also extend to user devices.)  
+Como mostra a figura a seguir, essas tecnologias podem ser implantadas como soluções locais ou baseadas na nuvem ou de modo híbrido, com algumas delas implantadas no local e outras na nuvem. (Algumas tecnologias, como criptografia e gerenciamento de direitos, também se estendem aos dispositivos do usuário.)
 
-![Technologies](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)
+![Tecnologias](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)
 
-### <a name="rights-management-software"></a>Rights management software  
+### Software de gerenciamento de direitos  
 
-One solution for preventing data loss is rights management software. Unlike approaches that attempt to interrupt the flow of information at exit points in an organization, rights management software works at deep levels within data storage technologies. Documents are encrypted, and control over who can decrypt them uses access controls that are defined in an authentication control solution such as a directory service.  
+Uma solução para impedir a perda de dados é o software de gerenciamento de direitos. Diferentemente das abordagens que tentam interromper o fluxo de informações em pontos de saída em uma organização, o software de gerenciamento de direitos funciona em níveis profundos nas tecnologias de armazenamento de dados. Os documentos são criptografados, e o controle sobre quem pode descriptografá-los usa controles de acesso que são definidos em uma solução de controle de autenticação, como um serviço de diretório.
 
-> [AZURE.TIP] you can use Azure Rights Management (Azure RMS) as the information protection solution to protect data in different scenarios. Read [What is Azure Rights Management?](https://docs.microsoft.com/rights-management/understand-explore/what-is-azure-rms) for more information about this Azure solution.
+> [AZURE.TIP] Você pode usar o Azure RMS (Azure Rights Management) como a solução de proteção de informações para proteger os dados em diferentes cenários. Leia [O que é o Azure Rights Management?](https://docs.microsoft.com/rights-management/understand-explore/what-is-azure-rms) para saber mais sobre essa solução do Azure.
 
-Some of the benefits of rights management software include: 
+Alguns dos benefícios do software de gerenciamento de direitos incluem:
 
-- Safeguarded sensitive information. Users can protect their data directly using rights management-enabled applications. No additional steps are required—authoring documents, sending email, and publishing data offer a consistent data protection experience. 
-- Protection travels with the data. Customers remain in control of who has access to their data, whether in the cloud, existing IT infrastructure, or at the user’s desktop. Organizations can choose to encrypt their data and restrict access according to their business requirements. 
-- Default information protection policies. Administrators and users can use standard policies for many common business scenarios, such as "Company Confidential–Read Only" and "Do Not Forward." A rich set of usage rights are supported such as read, copy, print, save, edit, and forward to allow flexibility in defining custom usage rights. 
+- Informações confidenciais protegidas. Os usuários podem proteger seus dados diretamente usando aplicativos habilitados para gerenciamento de direitos. Não são necessárias etapas adicionais. A criação de documentos, o envio de email e a publicação de dados oferecem uma experiência de proteção de dados consistente.
+- A proteção acompanha os dados. Os clientes permanecem no controle de quem tem acesso aos dados, seja na nuvem, na infraestrutura de TI existente ou na área de trabalho do usuário. As organizações podem optar por criptografar os dados e restringir o acesso de acordo com seus requisitos de negócios.
+- Políticas de proteção de informações padrão. Os administradores e usuários podem usar políticas padrão para muitos cenários comerciais comuns, como "Confidencial da Empresa – Somente Leitura" e "Não Encaminhar". Há suporte a um conjunto avançado de direitos de uso, como ler, copiar, imprimir, salvar, editar e encaminhar, para permitir flexibilidade na definição de direitos de uso personalizados.
 
-> [AZURE.TIP] you can protect data in Azure Storage by using [Azure Storage Service Encryption](../storage/storage-service-encryption.md) for Data at Rest. You can also use [Azure Disk Encryption](azure-security-disk-encryption.md) to help protect data contained on virtual disks used for Azure Virtual Machines.
+> [AZURE.TIP] você pode proteger dados no Armazenamento do Azure usando a [Criptografia do Serviço de Armazenamento do Azure](../storage/storage-service-encryption.md) para Dados em Repouso. Você também pode usar a [Azure Disk Encryption](azure-security-disk-encryption.md) para proteger dados contidos em discos virtuais usados para Máquinas Virtuais do Azure.
 
-### <a name="encryption-gateways"></a>Encryption gateways
+### Gateways de criptografia
 
-Encryption gateways operate in their own layers to provide encryption services by rerouting all access to cloud-based data. This approach should not be confused with that of a virtual private network (VPN). Encryption gateways are designed to provide a transparent layer to cloud-based solutions.   
+Os gateways de criptografia operam em suas próprias camadas para fornecer serviços de criptografia redirecionando todo o acesso a dados baseados na nuvem. Essa abordagem não deve ser confundida com a de uma VPN (rede virtual privada). Os gateways de criptografia são projetados para fornecer uma camada transparente às soluções baseadas em nuvem.
 
-Encryption gateways can provide a means to manage and secure data that has been classified as confidential by encrypting the data in transit as well as data at rest.  
+Os gateways de criptografia podem fornecer um meio de gerenciar e proteger dados que foram classificados como confidenciais, criptografando os dados em trânsito, bem como os dados em repouso.
  
-Encryption gateways are placed into the data flow between user devices and application data centers to provide encryption/decryption services. These solutions, like VPNs, are predominantly on-premises solutions. They are designed to provide a third party with control over encryption keys, which helps reduce the risk of placing both the data and key management with one provider. Such solutions are designed, much like encryption, to work seamlessly and transparently between users and the service. 
+Os gateways de criptografia são colocados no fluxo de dados entre dispositivos de usuário e datacenters de aplicativos para fornecer serviços de criptografia/descriptografia. Essas soluções, como VPNs, são predominantemente locais. Elas foram projetadas para fornecer a terceiros o controle sobre chaves de criptografia, o que ajuda a reduzir o risco de colocar os dados e a chave de gerenciamento em um só provedor. Assim como a criptografia, essas soluções são projetadas para funcionar de forma perfeita e transparente entre os usuários e o serviço.
 
-> [AZURE.TIP] you can use Azure ExpressRoute to extend your on-premises networks into the Microsoft cloud over a dedicated private connection. Read [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) for more information about this capability. Another options for cross premises connectivity between your on-premises network and [Azure is a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+> [AZURE.TIP] você pode usar a Rota Expressa do Azure para estender suas redes locais para a nuvem da Microsoft por meio de uma conexão privada dedicada. Leia [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md) para saber mais sobre essa funcionalidade. Outras opções para conectividade entre locais entre sua rede local e o [Azure é uma VPN site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-### <a name="data-loss-prevention"></a>Data loss prevention 
-Data loss (sometimes referred to as data leakage) is an important consideration, and the prevention of external data loss via malicious and accidental insiders is paramount for many organizations.  
+### Prevenção de perda de dados 
+A perda de dados (às vezes chamada de vazamento de dados) é uma consideração importante, e a prevenção de perda de dados externos causada por indivíduos privilegiados mal-intencionadas e acidentais é fundamental para muitas organizações.
  
-Data loss prevention (DLP) technologies can help ensure that solutions such as email services do not transmit data that has been classified as confidential. Organizations can take advantage of DLP features in existing products to help prevent data loss. Such features use policies that can be easily created from scratch or by using a template supplied by the software provider.  
+As tecnologias de DLP (prevenção de perda de dados) podem ajudar a garantir que soluções como serviços de email não transmitam dados que foram classificados como confidenciais. As organizações podem aproveitar recursos de DLP em produtos existentes para ajudar a evitar a perda de dados. Esses recursos usam políticas que podem ser facilmente criadas do zero ou usando um modelo fornecido pelo provedor de software.
  
-DLP technologies can perform deep content analysis through keyword matches, dictionary matches, regular expression evaluation, and other content examination to detect content that violates organizational DLP policies. For example, DLP can help prevent the loss of the following types of data: 
+As tecnologias de DLP podem executar uma análise profunda de conteúdo por meio de correspondências de palavras-chave, correspondências de dicionário, avaliação de expressões regulares e exame de outro conteúdo para detectar conteúdo que viola as políticas de DLP organizacionais. Por exemplo, a DLP pode ajudar a evitar a perda dos seguintes tipos de dados:
 
-- Social Security and national identification numbers 
-- Banking information 
-- Credit card numbers  
-- IP addresses 
+- Números de Previdência Social e de identificação nacional
+- Informações bancárias
+- Números de cartão de crédito
+- Endereços IP
 
-Some DLP technologies also provide the ability to override the DLP configuration (for example, if an organization needs to transmit Social Security number information to a payroll processor). In addition, it’s possible to configure DLP so that users are notified before they even attempt to send sensitive information that should not be transmitted. 
+Algumas tecnologias de DLP também fornecem a capacidade de substituir a configuração de DLP (por exemplo, se uma organização precisar transmitir informações de números do seguro social para um processador de folha de pagamento). Além disso, é possível configurar a DLP para que os usuários sejam notificados antes mesmo que tentem enviar informações confidenciais que não devam ser transmitidas.
 
-> [AZURE.TIP] you can use Office 365 DLP capabilities to protect your documents. Read [Office 365 compliance controls: Data Loss Prevention](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/) for more information.
+> [AZURE.TIP] você pode usar os recursos de DLP do Office 365 para proteger seus documentos. Leia [Controles de conformidade do Office 365: prevenção de perda de dados](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/) para saber mais.
 
-## <a name="see-also"></a>See also
+## Confira também
 
-- [Azure Data Encryption Best Practices](azure-security-data-encryption-best-practices.md)
-- [Azure Identity Management and access control security best practices](azure-security-identity-management-best-practices.md)
-- [Azure Security Team Blog](http://blogs.msdn.com/b/azuresecurity/)
+- [Práticas Recomendadas de Criptografia de Dados do Azure](azure-security-data-encryption-best-practices.md)
+- [Práticas recomendadas de Gerenciamento de Identidade do Azure e segurança de controle de acesso](azure-security-identity-management-best-practices.md)
+- [Blog da equipe de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/)
 - [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using Azure Functions with Logic Apps | Microsoft Azure"
-   description="See how to use Azure Functions with Logic Apps"
+   pageTitle="Uso de Azure Functions com Aplicativos Lógicos | Microsoft Azure"
+   description="Veja como usar Azure Functions com Aplicativos Lógicos"
    services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -16,20 +16,19 @@
    ms.date="09/01/2016"
    ms.author="jehollan"/>
 
+# Usando Azure Functions com Aplicativos Lógicos
 
-# <a name="using-azure-functions-with-logic-apps"></a>Using Azure Functions with Logic Apps
+Você pode executar trechos personalizados do C# ou do node.js utilizando as Azure Functions de um aplicativo lógico. As [Azure Functions](../azure-functions/functions-overview.md) oferecem uma computação sem servidor no Microsoft Azure. Isso é útil para executar as seguintes tarefas:
 
-You can run custom snippets of C# or node.js by using Azure Functions from within a logic app.  [Azure Functions](../azure-functions/functions-overview.md) offers server-free computing in Microsoft Azure. This is useful for performing the following tasks:
+* Formatar o valor de uma ação (por exemplo, converter de DateTime em uma cadeia de caracteres de data)
+* Executar cálculos em um fluxo de trabalho
+* Estender a funcionalidade dos Aplicativos Lógicos com funções com suporte no C# ou no node.js
 
-* Formatting the value of an action (for example, converting from DateTime to a date string)
-* Performing calculations within a workflow
-* Extending the functionality of Logic Apps with functions that are supported in C# or node.js
+## Criar uma função para os Aplicativos Lógicos
 
-## <a name="create-a-function-for-logic-apps"></a>Create a function for Logic Apps
+É recomendável que você crie uma nova função no portal das Azure Functions usando os modelos **Webhook Genérico - Nó** ou **Webhook Genérico - C# **. Isso preenche automaticamente um modelo que aceita `application/json` de um aplicativo lógico. As funções que usam esses modelos são automaticamente detectadas e listadas no designer dos Aplicativos Lógicos em **Azure Functions em minha região.**
 
-We recommend that you create a new function in the Azure Functions portal by using the **Generic Webhook - Node** or **Generic Webhook - C#** templates. This auto-populates a template that accepts `application/json` from a logic app. Functions that use these templates are automatically discovered and listed in the Logic Apps designer under **Azure Functions in my region.**
-
-Webhook functions accept a request and pass it into the method via a `data` variable. You can access the properties of your payload by using dot notation like `data.foo`.  For example, a simple JavaScript function that converts a DateTime value into a date string looks like the following example:
+As funções do Webhook aceitam uma solicitação e passam-na para o método por meio de uma variável `data`. Você pode acessar as propriedades do conteúdo usando uma notação de ponto como `data.foo`. Por exemplo, uma função Javascript simples, que converte um valor DateTime em uma cadeia de caracteres de data, terá a seguinte aparência:
 
 ```
 function start(req, res){
@@ -40,29 +39,29 @@ function start(req, res){
 }
 ```
 
-## <a name="call-azure-functions-from-a-logic-app"></a>Call Azure Functions from a logic app
+## Chamar Azure Functions a partir de um aplicativo lógico
 
-In the designer, if you click the **Actions** menu, you can select **Azure Functions in my Region**.  This lists the containers in your subscription and enables you to choose the function that you want to call.  
+No designer, se você clicar no menu **Ações**, poderá selecionar **Azure Functions em minha Região**. Isso lista os contêineres em sua assinatura e permitirá que você escolha a função que deseja chamar.
 
-After you select the function, you are prompted to specify an input payload object. This is the message that the logic app sends to the function, and it must be a JSON object. For example, if you want to pass in the **Last Modified** date from a Salesforce trigger, the function payload might look like this:
+Depois de escolher a função, você será solicitado a especificar um objeto de conteúdo de entrada. Esta é a mensagem que o aplicativo lógico envia para a função e deve ser um objeto JSON. Por exemplo, se você quiser passar a data da **Última Modificação** do gatilho Salesforce, o conteúdo da função poderá ser assim:
 
-![Last modfied date][1]
+![Data da última modificação][1]
 
-## <a name="trigger-logic-apps-from-a-function"></a>Trigger logic apps from a function
+## Disparar aplicativos lógicos a partir de uma função
 
-It's also possible to trigger a logic app from within a function.  To do this, simply create a logic app with a manual trigger. For more information, see [Logic apps as callable endpoints](app-service-logic-http-endpoint.md).  Then, within your function, generate an HTTP POST to the manual trigger URL with the payload that you want to send to the logic app.
+Também é possível disparar um aplicativo lógico de dentro de uma função. Para fazer isso, basta criar um aplicativo lógico com um gatilho manual. Para obter mais informações, consulte [Aplicativos lógicos como pontos de extremidade chamados](app-service-logic-http-endpoint.md). Em seguida, em sua função, gere um POST HTTP para a URL do gatilho manual com o conteúdo que você deseja enviar para o aplicativo lógico.
 
-### <a name="create-a-function-from-the-designer"></a>Create a function from the designer
+### Criar uma função no designer
 
-You can also create a node.js webhook function from within the designer. First, select **Azure Functions in my Region,** and then choose a container for your function.  If you don't yet have a container, you need to create one from the [Azure Functions portal](https://functions.azure.com/signin). Then select **Create New**.  
+Você também pode criar uma função de webhook do node.js de dentro do designer. Primeiro, selecione **Azure Functions em minha região**, em seguida, escolha um contêiner de sua função. Se você ainda não tiver um contêiner, precisará criar um a partir do [portal das Azure Functions](https://functions.azure.com/signin). Em seguida, selecione **Criar Novo**.
 
-To generate a template based on the data that you want to compute, specify the context object that you plan to pass into a function. This must be a JSON object. For example, if you pass in the file content from an FTP action, the context payload will look like this:
+Para gerar um modelo com base nos dados que você deseja calcular, especifique o objeto de contexto que planeja passar para uma função. Ele deve ser um objeto JSON. Por exemplo, se você passar o conteúdo do arquivo a partir de uma ação FTP, o conteúdo do contexto ficará assim:
 
-![Context payload][2]
+![Conteúdo do contexto][2]
 
->[AZURE.NOTE] Because this object wasn't cast as a string, the content will be added directly to the JSON payload. However, it will error out if it is not a JSON token (that is, a string or a JSON object/array). To cast it as a string, simply add quotes as shown in the first illustration in this article.
+>[AZURE.NOTE] Como esse objeto não foi convertido em uma cadeia de caracteres, o conteúdo será adicionado diretamente ao conteúdo JSON. No entanto, ele apresentará um erro se não for um token JSON (ou seja, uma cadeia de caracteres ou um objeto/matriz JSON). Para convertê-lo em uma cadeia de caracteres, basta adicionar aspas conforme mostrado na primeira ilustração neste artigo.
 
-The designer then generates a function template that you can create inline. Variables are pre-created based on the context that you plan to pass into the function.
+Então, o designer irá gerar um modelo de função que você poderá criar embutido. As variáveis são previamente criadas com base no contexto que você planeja passar para a função.
 
 
 
@@ -71,8 +70,4 @@ The designer then generates a function template that you can create inline. Vari
 [1]: ./media/app-service-logic-azure-functions/callFunction.png
 [2]: ./media/app-service-logic-azure-functions/createFunction.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,11 +1,9 @@
-**Virtual machine disks: per disk limits**
+**Discos de máquina virtual: limites por disco**
 
- VM Tier | Basic Tier VM | Standard Tier VM
+ Tipo de VM | Tipo de VM Básica | VM de camada Standard
 ---|---|---
-Disk size | 1023 GB | 1023 GB
-Max 8 KB IOPS per persistent disk | 300 | 500
-Max number of disks performing max IOPS | 66 | 40
+Tamanho do disco | 1023 GB | 1023 GB
+IOPS máx. de 8 KB por disco persistente | 300 | 500
+Número máximo de discos executando IOPS máximo | 66 | 40
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0413_2016-->

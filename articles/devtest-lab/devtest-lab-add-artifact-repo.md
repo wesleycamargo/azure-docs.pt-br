@@ -1,128 +1,123 @@
 <properties
-    pageTitle="Add a Git artifact repository to a lab in Azure DevTest Labs | Microsoft Azure"
-    description="Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts source in Azure DevTest Labs"
-    services="devtest-lab,virtual-machines,visual-studio-online"
-    documentationCenter="na"
-    authors="tomarcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Adicionar um repositório de artefatos do Git a um laboratório no Azure DevTest Labs | Microsoft Azure"
+	description="Adicionar um repositório Git do GitHub ou do Visual Studio Team Services à sua fonte de artefatos personalizados no Azure DevTest Labs"
+	services="devtest-lab,virtual-machines,visual-studio-online"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="devtest-lab"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/06/2016"
+	ms.author="tarcher"/>
 
-
-# <a name="add-a-git-artifact-repository-to-a-lab-in-azure-devtest-labs"></a>Add a Git artifact repository to a lab in Azure DevTest Labs
+# Adicionar um repositório de artefatos do Git a um laboratório no Azure DevTest Labs
 
 > [AZURE.VIDEO how-to-add-your-private-artifacts-repository-in-a-devtest-lab]
 
-In Azure DevTest Labs, artifacts are *actions* - such as installing software or running scripts and commands - when a VM is created. By default, a lab includes artifacts from the official Azure DevTest Labs artifact repository. You can add a Git artifact repository to your lab to include the artifacts that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Team Services (VSTS)](https://visualstudio.com).
+No Azure DevTest Labs, artefatos são *ações* – como instalar o software ou executar scripts e comandos – quando uma VM é criada. Por padrão, um laboratório inclui artefatos do repositório de artefatos de Laboratórios de Desenvolvimento/Teste oficiais do Azure. Você pode adicionar um repositório de artefatos do Git ao laboratório para incluir os artefatos que a sua equipe cria. O repositório pode ser hospedado no [GitHub](https://github.com) ou no [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
-- To learn how to create a GitHub repository, see [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-- To learn how to create a Team Services project with a Git Repository, see [Connect to Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+- Para saber como criar um repositório no GitHub, confira o [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
+- Para saber como criar um projeto do Team Services com um Repositório Git, veja [Conectar ao Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
-The following screen shot shows an example of how a repository containing artifacts might look in GitHub:  
-![Sample GitHub artifacts repo](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
+A captura de tela a seguir mostra um exemplo da aparência de um repositório contendo artefatos no GitHub: ![Repositório de artefatos de exemplo no GitHub](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
 
 
-## <a name="get-the-repository-information-and-credentials"></a>Get the repository information and credentials
+## Obter as credenciais e informações de repositório
 
-To add an artifact repository to your lab, you must first get certain information from your repository. The following sections guide you through getting this information for artifact repositories hosted on GitHub and Visual Studio Team Services.
+Para adicionar um repositório de artefatos ao laboratório, você deve primeiro obter determinadas informações do seu repositório. As seções a seguir vão orientá-lo para obter essas informações para repositórios de artefatos hospedados no GitHub e no Visual Studio Team Services.
 
-### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Get the GitHub repository clone URL and personal access token
+### Obter a URL de clone do repositório GitHub e token de acesso pessoal
 
-To get the GitHub repository clone URL and personal access token, follow these steps:
+Para obter a URL de clone do repositório GitHub e token de acesso pessoal, siga estas etapas:
 
-1. Browse to the home page of the GitHub repository that contains the artifact definitions.
+1. Navegue até a home page do repositório GitHub que contém as definições de artefato.
 
-1. Select **Clone or download**.
+1. Selecione **Clonar ou baixar**.
 
-1. Select the button to copy the **HTTPS clone url** to the clipboard, and save the URL for later use.
+1. Selecione o botão para copiar a **URL de clone HTTPS** para a área de transferência e salvar essa URL para uso posterior.
 
-1. Select the profile image in the upper-right corner of GitHub, and select **Settings**.
+1. Selecione a imagem de perfil no canto superior direito do GitHub e, em seguida, **Configurações**.
 
-1. In the **Personal settings** menu on the left, select **Personal access tokens**.
+1. No menu **Configurações pessoais** à esquerda, selecione **Tokens de acesso pessoal**.
 
-1. Select **Generate new token**.
+1. Selecione **Gerar novo token**.
 
-1. On the **New personal access token** page, enter a **Token description**, accept the default items in the **Select scopes**, and then choose **Generate Token**.
+1. Na página **Novo token de acesso pessoal**, insira uma **Descrição do token**, aceite os itens padrão em **Selecionar escopos** e escolha **Gerar Token**.
 
-1. Save the generated token as you need it later.
+1. Salve o token gerado, pois você precisará dele mais tarde.
 
-1. You can close GitHub now.   
+1. Você pode fechar o GitHub agora.
 
-1. Continue to the [Connect your lab to the artifact repository](#connect-your-lab-to-the-artifact-repository) section.
+1. Continue para a seção [Conectar seu laboratório ao repositório de artefatos](#connect-your-lab-to-the-artifact-repository).
 
-### <a name="get-the-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>Get the Visual Studio Team Services repository clone URL and personal access token
+### Obter a URL de clone do repositório do Visual Studio Team Services e token de acesso pessoal
 
-To get the Visual Studio Team Services repository clone URL and personal access token, follow these steps:
+Para obter a URL de clone do repositório do Visual Studio Team Services e token de acesso pessoal, siga estas etapas:
 
-1. Open the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then select the artifact project.
+1. Abra a home page de sua coleção de equipe (por exemplo, `https://contoso-web-team.visualstudio.com`) e selecione o projeto de artefato.
 
-1. On the project home page, select **Code**.
+1. Na home page do projeto, selecione **Código**.
 
-1. To view the clone URL, on the project **Code** page, select **Clone**.
+1. Para exibir a URL de clone, na página **Código** do projeto, selecione **Clone**.
 
-1. Save the URL as you need it later in this tutorial.
+1. Salve a URL, você precisará dela mais tarde neste tutorial.
 
-1. To create a Personal Access Token, select **My profile** from the user account drop-down menu.
+1. Para criar um Token de Acesso Pessoal, selecione **Meu perfil** no menu suspenso da conta de usuário.
 
-1. On the profile information page, select **Security**.
+1. Na página de informações de perfil, selecione **Segurança**.
 
-1. On the **Security** tab, select **Add**.
+1. Na guia **Segurança**, selecione **Adicionar**.
 
-1. In the **Create a personal access token** page:
+1. Na página **Criar um token de acesso pessoal**:
 
-    - Enter a **Description** for the token.
-    - Select **180 days** from the **Expires In** list.
-    - Choose **All accessible accounts** from the **Accounts** list.
-    - Choose the **All scopes** option.
-    - Choose **Create Token**.
+    - Insira uma **Descrição** para o token.
+    - Selecione **180 dias** na lista **Expira em**.
+    - Escolha **Todas as contas acessíveis** na lista **Contas**.
+    - Escolha a opção **Todos os escopos**.
+    - Escolha **Criar Token**.
 
-1. When finished, the new token appears in the **Personal Access Tokens** list. Select **Copy Token**, and then save the token value for later use.
+1. Quando terminar, o novo token será exibido na lista de **Tokens de Acesso Pessoal**. Selecione **Copiar Token** e salve o valor do token para uso posterior.
 
-1. Continue to the [Connect your lab to the artifact repository](#connect-your-lab-to-the-artifact-repository) section.
+1. Continue para a seção [Conectar seu laboratório ao repositório de artefatos](#connect-your-lab-to-the-artifact-repository).
 
-##<a name="connect-your-lab-to-the-artifact-repository"></a>Connect your lab to the artifact repository
+##Conectar o seu laboratório ao repositório de artefatos
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Select **More Services**, and then select **DevTest Labs** from the list.
+1. Selecione **Mais Serviços** e selecione **DevTest Labs** na lista.
 
-1. From the list of labs, select the desired lab.   
+1. Na lista de laboratórios, selecione o laboratório desejado.
 
-1. On the lab's blade, select **Configuration**.
+1. Na folha do laboratório, selecione **Configuração**.
 
-1. On the lab's **Configuration** blade, select **Artifacts Repositories**.
+1. Na folha **Configurações** do laboratório, selecione **Repositório de Artefatos**.
 
-1. On the **Artifacts Repositories** blade, select **+ Add**.
+1. Na folha **Repositório de Artefatos**, selecione **+ Adicionar**.
 
-    ![Add artifact repository button](./media/devtest-lab-add-artifact-repo/add-artifact-repo.png)
+	![Adicionar um botão de repositório de artefatos](./media/devtest-lab-add-artifact-repo/add-artifact-repo.png)
  
-1. On the second **Artifacts Repositories** blade, specify the following:
+1. Na segunda folha **Repositórios de Artefatos**, especifique o seguinte:
 
-    - **Name** - Enter a name for the repository.
-    - **Git Clone Url** - Enter the Git HTTPS clone URL that you copied earlier from either GitHub or Visual Studio Team Services. 
-    - **Folder Path** - Enter the folder path relative to the clone URL that contains your artifact definitions.
-    - **Branch** - Enter the branch to get your artifact definitions.
-    - **Personal Access Token** - Enter the personal access token you obtained earlier from either GitHub or Visual Studio Team Services. 
+    - **Nome** – insira um nome para o repositório.
+    - **URL de Clone de Git** – insira a URL HTTPS de clone de Git que você copiou anteriormente do GitHub ou do Visual Studio Team Services.
+    - **Caminho da pasta** – insira o caminho da pasta em relação à URL de clone que contém as definições de artefato.
+    - **Ramificação** – insira a ramificação para obter as suas definições de artefato.
+    - **Token de Acesso Pessoal** – insira o token de acesso pessoal obtido anteriormente do GitHub ou do Visual Studio Team Services.
      
-    ![Artifact repo blade](./media/devtest-lab-add-artifact-repo/artifact-repo-blade.png)
+	![Folha de repositório de artefatos](./media/devtest-lab-add-artifact-repo/artifact-repo-blade.png)
 
-1. Select **Save**.
+1. Selecione **Salvar**.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="related-blog-posts"></a>Related blog posts
-- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
-- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+## Postagens de blogs relacionadas
+- [Como solucionar problemas de falha de Artefatos no AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
+- [Ingressar uma VM ao domínio de AD existente usando o modelo do ARM no Laboratório de Teste de Desenvolvimento do Azure](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

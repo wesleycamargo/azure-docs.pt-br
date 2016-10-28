@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Troubleshoot slow backup of files and folders in Azure Backup| Microsoft Azure"
-   description="Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues"
+   pageTitle="Solução do problema de lentidão de backup de arquivos e pastas no Backup do Azure | Microsoft Azure"
+   description="Fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa dos problemas de desempenho de Backup do Azure"
    services="backup"
    documentationCenter=""
    authors="genlin"
@@ -13,80 +13,75 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/13/2016"
+    ms.date="07/20/2016"
     ms.author="genli"/>
 
+# Solução de problemas de lentidão de backup de arquivos e pastas no Backup do Azure
 
-# <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Troubleshoot slow backup of files and folders in Azure Backup
+Este artigo fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa do baixo desempenho de backup de arquivos e pastas quando você usa o Backup do Azure. Quando você usa o agente do Backup do Azure para fazer backup de arquivos, o processo de backup pode demorar mais do que o esperado. Esse atraso pode ser causado por um ou mais dos seguintes itens:
 
-This article provides troubleshooting guidance to help you diagnose the cause of slow backup performance for files and folders when you're using Azure Backup. When you use the Azure Backup agent to back up files, the backup process might take longer than expected. This delay might be caused by one or more of the following:
+-	[Há afunilamentos de desempenho no computador do qual está sendo feito o backup.](#cause1)
+-	[Outro processo ou software antivírus está interferindo com o processo de Backup do Azure.](#cause2)
+-	[O agente do Backup está em execução em uma VM (máquina virtual) do Azure.](#cause3)
+-	[Você está fazendo backup de um grande número de arquivos (milhões).](#cause4)
 
--   [There are performance bottlenecks on the computer that’s being backed up.](#cause1)
--   [Another process or antivirus software is interfering with the Azure Backup process.](#cause2)
--   [The Backup agent is running on an Azure virtual machine (VM).](#cause3)  
--   [You're backing up a large number (millions) of files.](#cause4)
+Antes de começar a solucionar o problema, recomendamos o download e a instalação do [agente mais recente do Backup do Azure](http://aka.ms/azurebackup_agent). Fazemos atualizações frequentes do agente de Backup para corrigir vários problemas, adicionar recursos e melhorar o desempenho.
 
-Before you start troubleshooting issues, we recommend that you download and install the [latest Azure Backup agent](http://aka.ms/azurebackup_agent). We make frequent updates to the Backup agent to fix various issues, add features, and improve performance.
-
-We also strongly recommend that you review the [Azure Backup service FAQ](backup-azure-backup-faq.md) to make sure you're not experiencing any of the common configuration issues.
+Também recomendamos que você revise as [Perguntas frequentes do serviço Backup do Azure](backup-azure-backup-faq.md) para ter certeza de que você não está enfrentando problemas comuns de configuração.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 <a id="cause1"></a>
-## <a name="cause:-performance-bottlenecks-on-the-computer"></a>Cause: Performance bottlenecks on the computer
+## Causa: afunilamentos de desempenho no computador
 
-Bottlenecks on the computer that's being backed up can cause delays. For example, the computer's ability to read or write to disk, or available bandwidth to send data over the network, can cause bottlenecks.
+Afunilamentos no computador do qual está sendo feito backup podem causar atrasos. Por exemplo, a capacidade do computador de ler ou gravar em disco ou a largura de banda disponível para enviar dados pela rede podem causar afunilamentos.
 
-Windows provides a built-in tool that's called [Performance Monitor](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) to detect these bottlenecks.
+O Windows fornece uma ferramenta interna chamada [Monitor de Desempenho](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) para detectar esses afunilamentos.
 
-Here are some performance counters and ranges that can be helpful in diagnosing bottlenecks for optimal backups.
+Veja alguns contadores de desempenho e intervalos que podem ser úteis para diagnosticar afunilamentos para obter o backup ideal.
 
-| Counter  | Status  |
+| Contador | Status |
 |---|---|
-|Logical Disk(Physical Disk)--%idle   | • 100% idle to 50% idle = Healthy</br>• 49% idle to 20% idle = Warning or Monitor</br>• 19% idle to 0% idle = Critical or Out of Spec|
-|  Logical Disk(Physical Disk)--%Avg. Disk Sec Read or Write |  • 0.001 ms to 0.015 ms  = Healthy</br>• 0.015 ms to 0.025 ms = Warning or Monitor</br>• 0.026 ms or longer = Critical or Out of Spec|
-|  Logical Disk(Physical Disk)--Current Disk Queue Length (for all instances) | 80 requests for more than 6 minutes |
-| Memory--Pool Non Paged Bytes|• Less than 60% of pool consumed = Healthy<br>• 61% to 80% of pool consumed = Warning or Monitor</br>• Greater than 80% pool consumed = Critical or Out of Spec|
-| Memory--Pool Paged Bytes |• Less than 60% of pool consumed = Healthy</br>• 61% to 80% of pool consumed = Warning or Monitor</br>• Greater than 80% pool consumed = Critical or Out of Spec|
-| Memory--Available Megabytes| • 50% of free memory available or more = Healthy</br>• 25% of free memory available = Monitor</br>• 10% of free memory available = Warning</br>• Less than 100 MB or 5% of free memory available = Critical or Out of Spec|
-|Processor--\%Processor Time (all instances)|• Less than 60% consumed = Healthy</br>• 61% to 90% consumed = Monitor or Caution</br>• 91% to 100% consumed = Critical|
+|Disco Lógico(Disco Físico) – %ocioso | • 100% a 50% ociosos = Íntegro</br>• 49% a 20% ociosos = Aviso ou Monitorar</br>• 19% a 0% ocioso = Crítico ou Fora de Especificação|
+| Disco Lógico(Disco Físico) -- %média Leitura ou Gravação do Disco por S | • 0,001 ms a 0.015 ms = Íntegro</br>• 0,015 ms a 0,025 ms = Aviso ou Monitor</br>• 0,026 ms ou mais = Crítico ou Fora de Especificação|
+| Disco Lógico(Disco Físico) -- Comprimento da Fila do Disco Atual (para todas as instâncias) | 80 solicitações por mais de seis minutos |
+| Memória--Bytes de Pool não Pagináveis|• Menos de 60% do pool consumidos = Íntegro<br>• 61% a 80% do pool consumidos = Aviso ou Monitorar</br>• Mais de 80% do pool consumidos = Crítico ou Fora de Especificação|
+| Memória--Bytes de Pool Pagináveis |• Menos de 60% do pool consumidos = Íntegro</br>• 61% a 80% do pool consumidos = Aviso ou Monitorar</br>• Mais de 80% do pool consumidos = Crítico ou Fora de Especificação|
+| Memória--Megabytes disponíveis| • 50% de memória livre disponíveis ou mais = Íntegro</br>• 25% de memória livre disponíveis = Monitorar</br>• 10% de memória livre disponíveis = Aviso</br>• Menos de 100 MB ou 100% de memória livre disponíveis = Crítico ou Fora de Especificação|
+|Processor--\\%Tempo do Processor (todas as instâncias)|• Menos de 60% consumido = Íntegro</br>• 61% a 90% consumido = Monitor ou Atenção</br>• 91% a 100% consumido = Crítico|
 
 
-> [AZURE.NOTE] If you determine that the infrastructure is the culprit, we recommend that you defragment the disks regularly for better performance.
+> [AZURE.NOTE] Se você determinar que a infraestrutura é o motivo, é recomendável desfragmentar os discos regularmente para melhorar o desempenho.
 
 <a id="cause2"></a>
-## <a name="cause:-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Cause: Another process or antivirus software interfering with Azure Backup
+## Causa: outro processo ou software antivírus está interferindo com o Backup do Azure
 
-We've seen several instances where other processes in the Windows system have negatively affected performance of the Azure Backup agent process. For example, if you use both the Azure Backup agent and another program to back up data, or if antivirus software is running and has a lock on files to be backed up, the multiple locks on files might cause contention. In this situation, the backup might fail, or the job might take longer than expected.
+Vimos várias instâncias nas quais outros processos no sistema do Windows afetou negativamente o desempenho do processo do agente de Backup do Azure. Por exemplo, se você usar o agente de Backup do Azure e outro programa para fazer backup de dados, ou se um software antivírus estiver em execução e bloquear os arquivos dos quais o backup deverá ser feito, os vários bloqueios nos arquivos poderão causar contenção. Nessa situação, o backup pode falhar ou o trabalho pode levar mais tempo do que o esperado.
 
-The best recommendation in this scenario is to turn off the other backup program to see whether the backup time for the Azure Backup agent changes. Usually, making sure that multiple backup jobs are not running at the same time is sufficient to prevent them from affecting each other.
+A melhor recomendação nesse cenário é desativar o outro programa backup para ver se o tempo de backup do agente de Backup do Azure muda. Geralmente, certificar-se de que não haja vários trabalhos de backup em execução simultaneamente é suficiente para impedir que eles afetem um ao outro.
 
-For antivirus programs, we recommend that you exclude the following files and locations:
+Para programas antivírus, recomendamos a exclusão dos seguintes arquivos e locais:
 
-- C:\Program Files\Microsoft Azure Recovery Services Agent\bin\cbengine.exe as a process
-- C:\Program Files\Microsoft Azure Recovery Services Agent\ folders
-- Scratch location (if you're not using the standard location)
+- C:\\Program Files\\Microsoft Azure Recovery Services Agent\\bin\\cbengine.exe como um processo
+- C:\\Program Files\\Microsoft Azure Recovery Services Agent\\ pastas
+- Local de rascunho (se você não estiver usando o local padrão)
 
 <a id="cause3"></a>
-## <a name="cause:-backup-agent-running-on-an-azure-virtual-machine"></a>Cause: Backup agent running on an Azure virtual machine
+## Causa: agente de backup em execução em uma máquina virtual do Azure
 
-If you're running the Backup agent on a VM, performance will be slower than when you run it on a physical machine. This is expected due to IOPS limitations.  However, you can optimize the performance by switching the data drives that are being backed up to Azure Premium Storage. We're working on fixing this issue, and the fix will be available in a future release.
+Se você estiver executando o agente de Backup em uma máquina virtual, o desempenho será mais lento do que quando você executá-lo em uma máquina física. Isso é esperado devido a limitações de IOPS. No entanto, você pode otimizar o desempenho alternando as unidades de dados que estão passando por backup no Armazenamento Premium do Azure. Estamos trabalhando para corrigir esse problema, e a correção estará disponível em uma versão futura.
 
 <a id="cause4"></a>
-## <a name="cause:-backing-up-a-large-number-(millions)-of-files"></a>Cause: Backing up a large number (millions) of files
+## Causa: backup de um grande número de arquivos (milhões)
 
-Moving a large volume of data will take longer than moving a smaller volume of data. In some cases, backup time is related to not only the size of the data, but also the number of files or folders. This is especially true when millions of small files (a few bytes to a few kilobytes) are being backed up.
+Mover um grande volume de dados levará mais tempo do que mover um menor volume de dados. Em alguns casos, o tempo de backup está relacionado não apenas ao tamanho dos dados, mas também ao número de arquivos ou pastas. Isso é particularmente verdadeiro quando está sendo feito backup de milhões de arquivos pequenos (alguns bytes ou poucos kilobytes).
 
-This behavior occurs because while you're backing up the data and moving it to Azure, Azure is simultaneously cataloging your files. In some rare scenarios, the catalog operation might take longer than expected.
+Esse comportamento ocorre porque, enquanto você faz backup dos dados e os move para o Azure, o Azure simultaneamente cataloga seus arquivos. Em algumas situações raras, a operação de catálogo pode demorar mais do que o esperado.
 
-The following indicators can help you understand the bottleneck and accordingly work on the next steps:
+Os seguintes indicadores podem ajudá-lo a entender o gargalo e funcionam adequadamente nas próximas etapas:
 
-- **UI is showing progress for the data transfer**. The data is still being transferred. The network bandwidth or the size of data might be causing delays.
+- **A interface do usuário está mostrando o progresso para a transferência de dados**. Os dados ainda estão sendo transferidos. A largura de banda de rede ou o tamanho dos dados podem estar causando atrasos.
 
-- **UI is not showing progress for the data transfer**. Open the logs located at C:\Microsoft Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support).
+- **A interface do usuário não está mostrando o progresso para a transferência de dados**. Abra os logs localizados em C:\\Microsoft Azure Recovery Services Agent\\Temp e verifique a entrada FileProvider::EndData nos logs. Essa entrada significa que a transferência de dados foi concluída e a operação de catálogo está ocorrendo. Não cancele os trabalhos de backup. Em vez disso, espere um pouco mais até a conclusão da operação de catálogo. Se o problema persistir, contate o [suporte do Azure](https://portal.azure.com/#create/Microsoft.Support).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

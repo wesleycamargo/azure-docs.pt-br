@@ -1,8 +1,3 @@
 
 > [AZURE.WARNING]  
-At this point in time, SAP only supports Linux on Azure Resource Manager. SAP on Windows is currently only supported using the Classic Deployment model.  
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+Neste momento, SAP somente dá suporte a Linux somente no Azure Resource Manager. SAP no Windows tem suporte atualmente apenas usando modelo de implantação clássico.

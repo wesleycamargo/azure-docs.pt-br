@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Best Practices for Software Updates on Microsoft Azure IaaS | Microsoft Azure"
-   description="Article provides a collection of best practices for software updates in an Microsoft Azure IaaS environment.  It is intended for IT professionals and security analysts who deal with change control, software update and asset management on a daily basis, including those responsible for their organization's security and compliance efforts."
+   pageTitle="Práticas recomendadas para atualizações de Software no Microsoft Azure IaaS | Microsoft Azure"
+   description="O artigo fornece um conjunto de práticas recomendadas para atualizações de software em um ambiente do Microsoft Azure IaaS. Destina-se a profissionais de TI e a analistas de segurança que lidam diariamente com controle de alterações, atualização de software e gerenciamento de ativos de informação, incluindo as pessoas responsáveis por iniciativas de segurança e de conformidade da organização."
    services="security"
    documentationCenter="na"
    authors="YuriDio"
@@ -13,118 +13,113 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/18/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
+# Práticas recomendadas para atualizações de software no Microsoft Azure IaaS
 
-# <a name="best-practices-for-software-updates-on-microsoft-azure-iaas"></a>Best practices for software updates on Microsoft Azure IaaS
+Antes de entrar em qualquer tipo de discussão sobre as práticas recomendadas para um ambiente de [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) do Azure, é importante entender quais são os cenários que farão com que você gerencie atualizações de software e responsabilidades. O diagrama a seguir deve ajudar a compreender esses limites:
 
-Before diving into any kind of discussion on best practices for an Azure [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) environment, it is important to understand what the scenarios are that will have you managing software updates and the responsibilities. The diagram below should help you understand these boundaries:
+![Modelos de nuvem e responsabilidades](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack-new.png)
 
-![Cloud models and responsabilities](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack-new.png)
-
-The left-most column shows seven responsibilities (defined in the sections that follow) that organizations should consider, all of which contribute to the security and privacy of a computing environment.
+A coluna mais à esquerda mostra sete responsabilidades (definidas nas seções a seguir) que as organizações devem considerar, o que contribuem para a segurança e a privacidade de um ambiente de computação.
  
-Data classification & accountability and Client & end-point protection are the responsibilities that are solely in the domain of customers, and Physical, Host, and Network responsibilities are in the domain of cloud service providers in the PaaS and SaaS models. 
+Classificação de dados e responsabilidade e proteção de ponto de extremidade do cliente são as responsabilidades exclusivamente no domínio dos clientes, e as responsabilidades físicas, de host e rede estão no domínio de provedores de serviços de nuvem nos modelos de PaaS e o SaaS.
 
-The remaining responsibilities are shared between customers and cloud service providers. Some responsibilities require the CSP and customer to manage and administer the responsibility together, including auditing of their domains. For example, consider Identity & access management when using Azure Active Directory Services; the configuration of services such as multi-factor authentication is up to the customer, but ensuring effective functionality is the responsibility of Microsoft Azure.
+As responsabilidades restantes são compartilhadas entre clientes e provedores de serviço de nuvem. Algumas responsabilidades exigem que o CSP e o cliente gerenciem e administrem a responsabilidade, incluindo a auditoria de seus domínios. Por exemplo, considere a Gerenciamento de identidade e acesso ao usar os Serviços do Azure Active Directory; a configuração de serviços, como autenticação multifator depende do cliente, mas garantir a funcionalidade efetiva é responsabilidade do Microsoft Azure.
 
-> [AZURE.NOTE] For more information about shared responsibilities in the cloud, read [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf) 
+> [AZURE.NOTE] Para obter mais informações sobre responsabilidades compartilhadas na nuvem, leia [Responsabilidades compartilhadas para a computação em nuvem](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)
 
-These same principles apply in a hybrid scenario where your company is using Azure IaaS VMs that communicate with on-premises resources as shown in the diagram below.
+Esses mesmos princípios se aplicam a um cenário híbrido em que sua empresa esteja usando as VMs de IaaS do Azure que se comunicam com recursos locais, conforme mostrado no diagrama a seguir.
 
-![Typical hybrid scenario with Microsoft Azure](./media/azure-security-best-practices-software-updates-iaas/sec-azconnectonpre.png)
+![Cenário híbrido típico com o Microsoft Azure](./media/azure-security-best-practices-software-updates-iaas/sec-azconnectonpre.png)
 
-## <a name="initial-assessment"></a>Initial assessment
+## Avaliação inicial
 
-Even if your company is already using an update management system and you already have software update policies in place, it is important to frequently revisit previous policy assessments and update them based on your current requirements. This means that you need to be familiar with the current state of the resources in your company. To reach this state, you have to know:
+Mesmo que sua empresa já esteja usando um sistema de gerenciamento de atualização e você já tenha políticas de atualização de software em vigor, é importante rever avaliações de política anteriores com frequência e atualizá-las com base nas necessidades atuais. Isso significa que você precisa estar familiarizado com o estado atual dos recursos em sua empresa. Para atingir esse estado, você precisa conhecer:
 
--   The physical and virtual computers in your enterprise.
+-   Os computadores físicos e virtuais em sua empresa.
 
--   Operating systems and versions running on each of these physical and virtual computers.
+-   Os sistemas operacionais e versões em execução em cada um desses computadores físicos e virtuais.
 
--   Software updates currently installed on each computer (service pack versions, software updates, and other modifications).
+-   As atualizações de software instaladas atualmente em cada computador (versões de service pack, atualizações de software e outras modificações).
 
--   The function each computer performs in your enterprise.
+-   A função que cada computador executa em sua empresa.
 
--   The applications and programs running on each computer.
+-   Os aplicativos e programas em execução em cada computador.
 
--   Ownership and contact information for each computer.
+-   A quem pertence e as informações de contato para cada computador.
 
--   The assets present in your environment and their relative value to determine which areas need the most attention and protection.
+-   Os ativos presentes no seu ambiente e o valor relativo deles determinam quais áreas precisam de mais atenção e proteção.
 
--   Known security problems and the processes your enterprise has in place for identifying new security issues or changes in security level.
+-   Problemas de segurança conhecidos e os processos da sua empresa para a identificação novos problemas de segurança ou alterações no nível de segurança.
 
--   Countermeasures that have been deployed to secure your environment.
+-   Contramedidas que foram implantadas para proteger o seu ambiente.
 
-You should update this information regularly, and it should be readily available to those involved in your software update management process.
+Você deve atualizar essas informações regularmente, e elas devem estar prontamente disponíveis para os envolvidos em seu processo de gerenciamento de atualizações de software.
 
-## <a name="establish-a-baseline"></a>Establish a Baseline
+## Estabelecer uma linha de base
 
-An important part of the software update management process is creating initial standard installations of operating system versions, applications, and hardware for computers in your enterprise; these are called baselines. A baseline is the configuration of a product or system established at a specific point in time. An application or operating system baseline, for example, provides the ability to rebuild a computer or service to a specific state.
+Uma parte importante do processo de gerenciamento de atualização de software é criar instalações padrão iniciais de versões de sistemas operacionais, aplicativos e hardware para os computadores da sua empresa. Isso é chamado de linha de base. Uma linha de base é a configuração de um produto ou sistema estabelecido em um ponto específico no tempo. Um aplicativo ou linha de base do sistema operacional, por exemplo, permite recriar um computador ou serviço em um estado específico.
 
-Baselines provide the basis for finding and fixing potential problems and simplify the software update management process, both by reducing the number of software updates you must deploy in your enterprise and by increasing your ability to monitor compliance.
+As linhas de base fornecem a base para encontrar e corrigir problemas em potencial e simplificam o processo de gerenciamento de atualizações de software, tanto reduzindo o número de atualizações de software que você deve implantar em sua empresa quanto aumentando a capacidade de monitorar a conformidade.
 
-After performing the initial audit of your enterprise, you should use the information that is obtained from the audit to define an operational baseline for the IT components within your production environment. A number of baselines might be required, depending on the different types of hardware and software deployed into production.
+Depois de executar a auditoria inicial de sua empresa, você deve usar as informações obtidas da auditoria para definir uma linha de base operacional para os componentes de TI dentro de seu ambiente de produção. Uma quantidade de linhas de base pode ser solicitada dependendo dos tipos diferentes de hardware e software implantados na produção.
 
-For example, some servers require a software update to prevent them from hanging when they enter the shutdown process when running Windows Server 2012. A baseline for these servers should include this software update.
+Por exemplo, alguns servidores exigem uma atualização de software para impedir que fiquem pendentes quando iniciam o processo de desligamento na execução do Windows Server 2012. Uma linha de base para esses servidores deve incluir essa atualização de software.
 
-In large organizations, it is often helpful to divide the computers in your enterprise into asset categories and keep each category at a standard baseline by using the same versions of software and software updates. You can then use these asset categories in prioritizing a software update distribution.
+Em grandes organizações, geralmente é útil dividir os computadores da sua empresa em categorias de ativo e manter cada categoria em uma linha de base padrão usando as mesmas versões e atualizações de software. Você pode usar essas categorias de ativo na priorização de uma distribuição de atualização de software.
 
-## <a name="subscribe-to-the-appropriate-software-update-notification-services"></a>Subscribe to the appropriate software update notification services
+## Inscrever-se nos serviços de notificação de atualização de software apropriados
 
-After you perform an initial audit of the software in use in your enterprise, you should determine the best method for receiving notifications of new software updates for each software product and version. Depending on the software product, the best notification method might be e-mail notifications, Web sites, or computer publications.
+Depois de realizar uma auditoria inicial do software em uso na sua empresa, você deve determinar o melhor método para receber notificações de novas atualizações de software para cada produto e versão de software. Dependendo do produto de software, o melhor método de notificação pode ser notificações por email, sites ou publicações de computador.
 
-For example, the Microsoft Security Response Center (MSRC) responds to all security-related concerns about Microsoft products and provides the Microsoft Security Bulletin Service, a free e-mail notification of newly identified vulnerabilities and software updates that are released to address these vulnerabilities. You can subscribe to this service at http://www.microsoft.com/technet/security/bulletin/notify.mspx.
+Por exemplo, o MSRC (Microsoft Security Response Center) responde a todas as questões de segurança sobre os produtos Microsoft e fornece o Boletim de Segurança da Microsoft, uma notificação de email gratuito de vulnerabilidades recentemente identificadas e atualizações de software lançadas para lidar com essas vulnerabilidades. Você pode assinar este serviço em http://www.microsoft.com/technet/security/bulletin/notify.mspx
 
-## <a name="software-update-considerations"></a>Software update considerations
+## Considerações sobre a atualização de software
 
-After you perform an initial audit of the software in use in your enterprise, you should determine the requirements to setup you software update management system, which depends on the software update management system that you are using. For WSUS read [Best Practices with Windows Server Update Services](https://technet.microsoft.com/library/Cc708536), for System Center read [Planning for Software Updates in Configuration Manager](https://technet.microsoft.com/library/gg712696).
+Depois de realizar uma auditoria inicial do software em uso na sua empresa, você deve determinar os requisitos para configurar o sistema de gerenciamento de atualização de software, que depende do sistema de gerenciamento de atualização de software que está usando. Para o WSUS, leia [Práticas recomendadas para o Windows Server Update Services](https://technet.microsoft.com/library/Cc708536); para o System Center, leia [Planejando atualizações de Software no Configuration Manager](https://technet.microsoft.com/library/gg712696).
 
-However, there are some general considerations and best practices that you can apply regardless of the solution that you are using as shown in the sections that follows.
+No entanto, há algumas considerações gerais e práticas recomendadas que você pode aplicar independentemente da solução que estiver usando, conforme mostrado nas seções a seguir.
 
-### <a name="setting-up-the-environment"></a>Setting up the environment
+### Configurando o ambiente
 
-Consider the following practices when planning to setup the software update management environment:
+Considere as práticas a seguir ao planejar o ambiente de gerenciamento de atualização de software:
 
--   **Create production software update collections based on stable criteria**: In general, using stable criteria to create collections for your software update inventory and distribution will help to simplify all stages of the software update management process. The stable criteria can include the installed client operating system version and service pack level, system role, or target organization.
+-   **Criar coleções de atualização de software baseadas em critérios estáveis de produção**: em geral, o uso de critérios estáveis para criar coleções para seu inventário de atualização de software e distribuição ajudará a simplificar todas as fases do processo de gerenciamento de atualização de software. Os critérios estáveis podem incluir a versão do sistema operacional cliente instalado e o nível de service pack, a função do sistema ou a organização de destino.
 
--   **Create pre-production collections that include reference computers**: The pre-production collection should include representative configurations of the operating system versions, line of business software, and other software running in your enterprise.
+-   **Criar coleções de pré-produção que incluem computadores de referência**: a coleção de pré-produção deve incluir configurações representativas de versões do sistema operacional, linha de software de negócios e outros softwares em execução na sua empresa.
 
-You should also consider where the software update server will be located, if it will be in the Azure IaaS infrastructure in the cloud or if it will be on-premises. This is an important decision because you need to evaluate the amount of traffic between on-premises resources and Azure infrastructure. Read [Connect an on-premises network to a Microsoft Azure virtual network](https://technet.microsoft.com/library/Dn786406.aspx) for more information on how to connect your on-premises infrastructure to Azure.
+Você também deve considerar onde o servidor de atualização de software estará localizado, se na infraestrutura do Azure IaaS na nuvem ou se será local. Isso é uma decisão importante porque você precisa avaliar a quantidade de tráfego entre os recursos locais e a infraestrutura do Azure. Leia [Conectar uma rede local a uma Rede Virtual do Microsoft Azure](https://technet.microsoft.com/library/Dn786406.aspx) para saber mais sobre como conectar sua infraestrutura local ao Azure.
 
-The design options that will determine where the update server will be located will also vary according to your current infrastructure and the software update system that you are currently using. For WSUS read [Deploy Windows Server Update Services in Your Organization](https://technet.microsoft.com/library/hh852340.aspx) and for System Center Configuration Manager read [Planning for Sites and Hierarchies in Configuration Manager](https://technet.microsoft.com/library/Gg712681.aspx).
+As opções de design que determinam onde o servidor de atualização estará localizado também varia de acordo com sua infraestrutura atual e com o sistema de atualização de software que você está usando atualmente. Para o WSUS, leia [Implantar o Windows Server Update Services em sua organização](https://technet.microsoft.com/library/hh852340.aspx) e para o System Center Configuration Manager, leia [Planejando sites e hierarquias no Configuration Manager](https://technet.microsoft.com/library/Gg712681.aspx).
 
-### <a name="backup"></a>Backup
+### Backup
 
-Regular backups are important not only for the software update management platform itself but also for the servers that will be updated. Organizations that have a [change management process](https://technet.microsoft.com/library/cc543216.aspx) in place will require IT to justify the reasons for why the server needs to be updated, the estimated downtime and possible impact. To ensure that you have a rollback configuration in place in case an update fails, make sure to back up the system regularly.
+Backups regulares são importantes não apenas para a plataforma de gerenciamento de atualização de software em si, mas também para os servidores que serão atualizados. As organizações que possuem um [processo de gerenciamento de alteração](https://technet.microsoft.com/library/cc543216.aspx) local precisarão que o departamento de TI justifique a necessidade de atualização do servidor, o tempo de inatividade estimado e o possível impacto. Para garantir que você tenha uma configuração de reversão para uso no caso de falha de uma atualização, faça o backup do sistema regularmente.
 
-Some backup options for Azure IaaS include:
+Algumas opções de backup do Azure IaaS incluem:
 
--   [Azure IaaS workload protection using Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
+-   [Proteção de carga de trabalho do Azure IaaS usando o Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
 
--   [Back up Azure virtual machines](../backup/backup-azure-vms.md)
+-   [Fazer backup de máquinas virtuais do Azure](../backup/backup-azure-vms.md)
 
-### <a name="monitoring"></a>Monitoring
+### Monitoramento
 
-You should run regular reports to monitor the number of missing or installed updates, or updates with incomplete status, for each software update that is authorized. Similarly, reporting for software updates that are not yet authorized can facilitate easier deployment decisions.
+Você deve executar relatórios regulares para monitorar o número de atualizações faltantes, instaladas ou com status incompleto para cada atualização de software autorizada. Da mesma forma, relatar atualizações de software que ainda não foram autorizadas pode facilitar as decisões de implantação.
 
-You should also consider the following tasks:
+Você também deve considerar as seguintes tarefas:
 
--   Conduct an audit of applicable and installed security updates for all the computers in your company.
+-   Realizar uma auditoria das atualizações de segurança aplicáveis e instaladas em todos os computadores em sua empresa.
 
--   Authorize and deploy the updates to the appropriate computers.
+-   Autorizar e implantar as atualizações nos computadores apropriados.
 
--   Track the inventory and update installation status and progress for all the computers in your company.
+-   Acompanhar o inventário e atualizar o status e progresso da instalação para todos os computadores em sua empresa.
 
-In addition to general considerations that were explained in this article, you should also consider each product’s best practice, for example: if you have a VM in Azure with SQL Server, make sure that you are following the software updates recommendation for that product.
+Além das considerações gerais que foram explicadas neste artigo, você também deve considerar as práticas recomendadas de cada produto, por exemplo, se você tiver uma máquina virtual no Azure com SQL Server, não deixe de seguir a recomendação de atualizações de software para o produto.
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-Use the guidelines described in this article to assist you in determining the best options for software updates for virtual machines within Azure IaaS. There are many similarities between software update best practices in a traditional datacenter versus Azure IaaS, therefore it is recommended that you evaluate your current software update policies to include Azure VMs and include the relevant best practices from this article in your overall software update process.
+Use as diretrizes descritas neste artigo para ajudar a determinar as melhores opções para as atualizações de software de máquinas virtuais no Azure IaaS. Existem muitas semelhanças entre as práticas recomendadas de atualização de software em um datacenter tradicional versus o IaaS do Azure; portanto, é recomendável que você avalie suas diretivas de atualização de software atual para incluir as VMs do Azure e as práticas recomendadas relevantes deste artigo em seu processo geral de atualização de software.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

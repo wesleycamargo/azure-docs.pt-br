@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create Windows-based Hadoop clusters in HDInsight | Microsoft Azure"
-    description="Learn how to create clusters for Azure HDInsight."
+   pageTitle="Criar clusters Hadoop baseados no Windows no HDInsight | Microsoft Azure"
+   	description="Aprenda a criar clusters do Azure HDInsight."
    services="hdinsight"
    documentationCenter=""
    tags="azure-portal"
@@ -17,233 +17,228 @@
    ms.date="07/08/2016"
    ms.author="jgao"/>
 
+# Crie clusters Hadoop baseados no Windows no HDInsight
 
-# <a name="create-windows-based-hadoop-clusters-in-hdinsight"></a>Create Windows-based Hadoop clusters in HDInsight
+[AZURE.INCLUDE [seletor](../../includes/hdinsight-selector-create-clusters.md)]
 
-[AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+Um cluster Hadoop é composto por várias máquinas virtuais (nós), usadas para processamento distribuído de tarefas no cluster. O Azure abstrai os detalhes da implementação da instalação e configuração de nós individuais. Portanto, você precisa fornecer informações de configuração geral. Neste artigo, você aprenderá a usar essas definições de configuração.
 
-A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you have to provide general configuration information. In this article, you will learn these configuration settings.
+>[AZURE.NOTE] As informações contidas neste documento são específicas de clusters HDInsight do Azure baseados em Windows. Para saber mais sobre clusters baseados em Linux, veja [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
->[AZURE.NOTE] The information in this document is specific to Windows-based Azure HDInsight clusters. For information about Linux-based clusters, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+## Tipos de cluster##
 
-## <a name="access-control-requirements"></a>Access control requirements
+Atualmente, o HDInsight fornece quatro tipos diferentes de clusters, cada um com um conjunto de componentes para fornecer certas funcionalidades.
 
-[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
-## <a name="cluster-types##"></a>Cluster types##
-
-Currently, HDInsight provides four different types of clusters, each with a set of components to provide certain functionalities.
-
-| Cluster type | Functionality |
+| Tipo de cluster | Funcionalidade |
 | ------------ | ----------------------------- |
-| Hadoop       | Query and analysis (batch jobs)     |
-| HBase        | NoSQL data storage            |
-| Storm        | Real-time event processing |
-| Spark (Preview) | In-memory processing, interactive queries, micro-batch stream processing |
+| O Hadoop | Consulta e análise (trabalhos em lotes) |
+| HBase | Armazenamento de dados NoSQL |
+| Storm | Processamento de eventos em tempo real |
+| Spark (visualização) | Processamento na memória, consultas interativas, processamento de transmissão de microlotes |
 
-Each cluster type has its own number of nodes, terminology for nodes within the cluster, and default VM size for each node type. In the following table, the number of nodes for each node type is in parentheses.
+Cada tipo de cluster tem seu próprio número de nós, terminologia para nós no cluster, bem como o tamanho da VM padrão para cada tipo de nó. Na tabela a seguir, o número de nós para cada tipo de nó está entre parênteses.
 
-| Type| Nodes (number of nodes)| Diagram|
+| Tipo| Nós (número de nós)| Diagrama|
 |-----|------|--------|
-|Hadoop| Head node (2), data node (1+)|![HDInsight Hadoop cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)|
-|HBase|Head server (2), region server (1+), master/ZooKeeper node (3)|![HDInsight HBase cluster nodes](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)|
-|Storm|Nimbus node (2), supervisor server (1+), ZooKeeper node (3)|![HDInsight Storm cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
-|Spark|Head node (2), worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size)|![HDInsight Spark cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
+|O Hadoop| Nó de cabeçalho (2), Nó de dados (1+)|![Nós de cluster Hadoop do HDInsight](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)|
+|HBase|Servidor de cabeçalho (2), Servidor de região (1 +), Nó mestre/do ZooKeeper (3)|![Nós de cluster HBase do HDInsight](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)|
+|Storm|Nó do Nimbus (2), Servidor do supervisor (1+), Nó do ZooKeeper (3)|![Nós de cluster Storm do HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
+|Spark|Nó de cabeçalho (2), nó de trabalho (1+), nó do ZooKeeper (3) (gratuito para tamanho de VM A1 do ZooKeeper)|![Nós de cluster Spark do HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
 
-> [AZURE.IMPORTANT] If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14 GB of RAM.
+> [AZURE.IMPORTANT] Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, será preciso escolher um tamanho de nó de cabeçalho com pelo menos oito núcleos e 14 GB de RAM.
 
-You can add other components such as Hue or R to these basic types by using [Script Actions](#customize-clusters-using-script-action).
+É possível adicionar outros componentes, como Hue ou R, a esses tipos básicos usando as [Ações de Script](#customize-clusters-using-script-action).
 
-## <a name="basic-configuration-options"></a>Basic configuration options
+## Opções de configuração básicas
 
-The following are the basic configuration options required for creating an HDInsight cluster.
+Veja a seguir as opções de configuração básica necessárias para criar um cluster HDInsight.
 
-### <a name="cluster-name###"></a>Cluster name###
+### Nome do cluster###
 
-Cluster name is used to identify a cluster. Cluster name must be globally unique, and it must follow these naming guidelines:
+O nome do cluster é usado para identificar um cluster. O nome do cluster deve ser globalmente exclusivo e deve seguir estas diretrizes de nomenclatura:
 
-- The field must be a string that contains between 3 and 63 characters
-- The field can contain only letters, numbers, and hyphens.
+- O campo deve ser uma cadeia com 3 a 63 caracteres
+- O campo pode conter apenas letras, números e hifens.
 
-### <a name="cluster-type"></a>Cluster type ###
+### Tipo de cluster ###
 
-See [Cluster types](#cluster-types).
+Veja [Tipos de cluster](#cluster-types).
 
-### <a name="operating-system"></a>Operating system ###
+### Sistema operacional ###
 
-You can create HDInsight clusters on one of the following two operating systems:
+É possível criar clusters HDInsight em um dos dois sistemas operacionais a seguir:
 
-- HDInsight on Linux. HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you are familiar with Linux or Unix, are migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+- HDInsight no Linux. O HDInsight fornece a opção de configuração de clusters do Linux no Azure. Configure um cluster do Linux, se você estiver familiarizado com o Linux ou Unix, estiver migrando de uma solução Hadoop baseada em Linux existente ou desejar fácil integração com componentes do ecossistema do Hadoop criados para o Linux. Para obter mais informações, consulte [Introdução ao Hadoop no Linux em HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
-- HDInsight on Windows (Windows Server 2012 R2 Datacenter).
+- HDInsight no Windows (Windows Server 2012 R2 Datacenter).
 
-### <a name="hdinsight-version###"></a>HDInsight version###
+### Versão do HDInsight###
 
-HDInsight version is used to determine the version of HDInsight to use for this cluster. For more information, see [Hadoop cluster versions and components in HDInsight](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409).
+A versão do HDInsight é usada para determinar a versão do HDInsight para usar esse cluster. Para saber mais, confira [Versões e componentes do cluster Hadoop no HDInsight](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409).
 
-### <a name="subscription-name###"></a>Subscription name###
+### Nome da assinatura###
 
-Each HDInsight cluster is tied to one Azure subscription.
+Cada cluster HDInsight é vinculado a uma assinatura do Azure.
 
-### <a name="resource-group-name###"></a>Resource group name###
+### Nome do grupo de recursos###
 
-With [Azure Resource Manager](../resource-group-overview.md), you can deploy, update, monitor, or delete the resources for your application.
+Com o [Azure Resource Manager](../resource-group-overview.md), você pode implantar, atualizar, monitorar ou excluir os recursos para seu aplicativo.
 
-### <a name="credentials"></a>Credentials
+### Credenciais
 
-With the HDInsight clusters, you can configure three user accounts during cluster creation.
+Com os clusters HDInsight, você pode configurar três contas de usuário durante a criação de cluster.
 
-- [Azure Resource Manager](../resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all of the resources for your application in a single, coordinated operation.
+- O [Azure Resource Manager](../resource-group-overview.md) ajuda você a trabalhar com os recursos de seu aplicativo como um grupo, chamados de Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada.
 
-- HTTP user. The default user name is *admin* in the basic configuration on the Azure portal. Sometimes the default is called "Cluster user."
-- RDP user (Windows clusters). Connect to the cluster by using RDP. When you create the account, you must set an expiration date within 90 days of the day you create the account.
-- SSH user (Linux clusters). Connect to the cluster by using SSH. You can create additional SSH user accounts after the cluster is created by following the steps in [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+- Usuário HTTP. O nome de usuário padrão é *admin*, na configuração básica do Portal do Azure. Às vezes, o padrão é chamado de "Usuário de cluster".
+- Usuário RDP (clusters do Windows). Conecte-se ao cluster usando RDP. Ao criar a conta, você deve definir uma data de expiração dentro de 90 dias a contar do dia em que criar a conta.
+- Usuário SSH (clusters do Linux). Conecte-se ao cluster usando o SSH. Você pode criar contas de usuário SSH adicionais depois que o cluster for criado ao seguir as etapas em [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, do Unix ou do OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-### <a name="data-source"></a>Data source ###
+### Fonte de dados ###
 
-The original Hadoop distributed file system (HDFS) uses many local disks on the cluster. HDInsight uses Azure Blob storage for data storage. Azure Blob storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through an HDFS interface, the full set of components in HDInsight can operate directly on structured or unstructured data in Blob storage. If you store data in Blob storage, you can safely delete the HDInsight clusters that are used for computation without losing user data.
+O sistema de arquivos distribuído Hadoop (HDFS) original usa muitos discos locais no cluster. O HDInsight usa o armazenamento de Blob do Azure para armazenamento de dados. O armazenamento de blobs do Azure é uma solução de armazenamento de uso geral que se integra perfeitamente com o HDInsight. Ao usar uma interface HDFS, o conjunto completo de componentes em HDInsight pode operar diretamente sobre os dados não estruturados do armazenamento de Blobs. Se armazenar dados no armazenamento de Blobs, você poderá excluir com segurança os clusters HDInsight usados para cálculo sem perder dados do usuário.
 
-During configuration, you must specify an Azure storage account and an Azure Blob storage container on the Azure storage account. Some creation processes require the Azure storage account and the Blob storage container to be created beforehand. The Blob storage container is used as the default storage location by the cluster. Optionally, you can specify additional Azure storage accounts (linked storage) that will be accessible by the cluster. The cluster can also access any Blob storage containers that are configured with full public read access, or public read access for blobs only.  For more information, see [Manage Access to Azure Storage Resources](../storage/storage-manage-access-to-resources.md).
+Durante a configuração, você deve especificar uma conta de armazenamento do Azure e um contêiner de armazenamento de Blobs do Azure na conta de armazenamento do Azure. Alguns processos de criação exigem que a conta de armazenamento do Azure e o contêiner de armazenamento de Blobs sejam criados anteriormente. O contêiner de armazenamento de Blobs é usado como o local de armazenamento padrão pelo cluster. Ou você pode especificar contas de armazenamento do Azure adicionais (armazenamento vinculado) que poderão ser acessadas pelo cluster. O cluster também pode acessar quaisquer contêineres de armazenamento de Blobs configurados com acesso de leitura público completo ou acesso de leitura público somente para blobs. Para saber mais, confira [Gerenciar o acesso aos recursos de Armazenamento do Azure](../storage/storage-manage-access-to-resources.md).
 
-![HDInsight storage](./media/hdinsight-provision-clusters/HDInsight.storage.png)
+![Armazenamento do HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
->[AZURE.NOTE] A Blob storage container provides a grouping of a set of blobs as shown in the following image.
+>[AZURE.NOTE] Um contêiner de armazenamento de Blobs oferece o agrupamento de um conjunto de blobs, conforme mostrado na imagem a seguir.
 
-During configuration, you must specify an Azure storage account and an Azure Blob storage container on the Azure storage account. Some creation processes require the Azure storage account and the Blob storage container to be created beforehand. The Blob storage container is used as the default storage location by the cluster. Optionally, you can specify additional Azure storage accounts (linked storage) that the cluster can access. The cluster can also access any Blob containers that are configured with full public read access or public read access for blobs only. For more information, see [Manage Access to Azure Storage Resources](../storage/storage-manage-access-to-resources.md).
+Durante a configuração, você deve especificar uma conta de armazenamento do Azure e um contêiner de armazenamento de Blobs do Azure na conta de armazenamento do Azure. Alguns processos de criação exigem que a conta de armazenamento do Azure e o contêiner de armazenamento de Blobs sejam criados anteriormente. O contêiner de armazenamento de Blobs é usado como o local de armazenamento padrão pelo cluster. Opcionalmente, você pode especificar contas de armazenamento do Azure adicionais (armazenamento vinculado) que o cluster possa acessar. Além disso, o cluster também pode acessar contêineres de Blob configurados com acesso de leitura público completo ou acesso de leitura público somente para blobs. Para saber mais, confira [Gerenciar o acesso aos recursos de Armazenamento do Azure](../storage/storage-manage-access-to-resources.md).
 
 
-![Azure Blob Storage](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
+![Armazenamento do Blobs do Azure](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
-We do not recommend the default Blob storage container for storing business data. Deleting the default Blob storage container after each use to reduce storage cost is a good practice. The default container contains application and system logs. Make sure to retrieve the logs before deleting the container.
+Não recomendamos o contêiner de armazenamento de Blobs padrão para armazenar dados corporativos. É uma prática recomendada excluir o contêiner de armazenamento de Blobs padrão após cada uso para reduzir o custo de armazenamento. O contêiner padrão contém os logs do aplicativo e do sistema. Certifique-se de recuperar os logs antes de excluir o contêiner.
 
->[AZURE.WARNING] HDInsight does not support sharing one Blob storage container for multiple clusters.
+>[AZURE.WARNING] O HDInsight não dá suporte ao compartilhamento de um contêiner de armazenamento de Blobs para vários clusters.
 
-For more information about secondary Blob storage, see [HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md).
+Para saber mais sobre o armazenamento de Blobs secundário, veja [Armazenamento de Blobs do Azure compatível com HDFS com Hadoop no HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-In addition to Azure Blob storage, you can also use [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as a default storage account for an HBase cluster in HDInsight and as linked storage for all four HDInsight cluster types. For more information, see [Create an HDInsight cluster with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Além do armazenamento de Blobs do Azure, também é possível usar o [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) como a conta de armazenamento padrão do cluster HBase no HDInsight e como um armazenamento vinculado para todos os quatro tipos de cluster HDInsight. Para saber mais, veja [Criar um cluster HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-### <a name="location-(region)###"></a>Location (region)###
+### Local (região)###
 
-The HDInsight cluster and its default storage account must be located at the same Azure location.
+O cluster HDInsight e sua conta de armazenamento padrão devem estar localizados no mesmo local do Azure.
 
-![Azure regions](./media/hdinsight-provision-clusters/Azure.regions.png)
+![Regiões do Azure](./media/hdinsight-provision-clusters/Azure.regions.png)
 
-For a list of supported regions, click the **Region** drop-down list on [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+Para ver uma lista das regiões com suporte, clique na lista suspensa **Região** em [Preços do HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
-### <a name="node-pricing-tiers###"></a>Node pricing tiers###
+### Tipos de preço do nó###
 
-Customers are billed for the usage of those nodes for the duration of the cluster’s life. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can’t be de-allocated or put on hold.
+Os clientes são cobrados pelo uso desses nós pela duração da vida útil do cluster. A cobrança é iniciada quando um cluster é criado e para quando o cluster é excluído. Os clusters não podem ser desalocados ou colocados em espera.
 
-Different cluster types have different node types, numbers of nodes, and node sizes. For example, a Hadoop cluster type has two _head nodes_ and a default of four _data nodes_, while a Storm cluster type has two _nimbus nodes_, three _ZooKeeper nodes_, and a default of four _supervisor nodes_. The cost of HDInsight clusters is determined by the number of nodes and the virtual machine sizes for the nodes. For example, if you know that you will be performing operations that need a lot of memory, you may want to select a compute resource with more memory. For learning purposes, we recommend working with one data node. For more information about HDInsight pricing, see [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+Diferentes tipos de cluster têm diferentes tipos de nó, números de nós e tamanhos de nós. Por exemplo, um tipo de cluster Hadoop tem dois _nós principais_ e um padrão de quatro _nós de dados_, enquanto um tipo de cluster Storm tem dois _nós nimbus_, três _nós zookeeper_ e um padrão de quatro _nós supervisores_. O custo de clusters HDInsight é determinado pelo número de nós e pelos tamanhos de máquinas virtuais para os nós. Por exemplo, se você souber que executará operações que precisam de muita memória, convém selecionar um recurso de computação com mais memória. Para fins de aprendizado, recomendamos trabalhar com um nó de dados. Para obter mais informações sobre os preços do HDInsight, confira [Preços do HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
->[AZURE.NOTE] The cluster size limit varies among Azure subscriptions. Contact billing support to increase the limit.
+>[AZURE.NOTE] O limite de tamanho do cluster varia entre as assinaturas do Azure. Contate o suporte de cobrança do Azure para aumentar o limite.
 
->The nodes used by your cluster do not count as virtual machines because the virtual machine images used for the nodes are an implementation detail of the HDInsight service. However, the compute cores used by the nodes do count against the total number of compute cores available to your subscription. You can see the available cores and the number of cores the cluster will use in the summary section of the Node Pricing Tiers blade when creating an HDInsight cluster.
+>Os nós usados pelo seu cluster não contam como máquinas virtuais, pois as imagens de máquina virtual usadas para os nós são um detalhe de implementação do serviço HDInsight. No entanto, os núcleos de computação usados por nós são contados em relação ao número total de núcleos de computação disponíveis para sua assinatura. Você pode ver os núcleos disponíveis e o número de núcleos que o cluster usará na seção de resumo da folha Tipo de Preço do Nó ao criar um cluster HDInsight.
 
-When you configure the cluster with the Azure portal, the node size is available through the __Node Pricing Tier__ blade. You can also see the cost associated with the different node sizes. The following screenshot shows the choices for a Linux-based Hadoop cluster.
+Quando você configura o cluster com o Portal do Azure, o tamanho do nó está disponível por meio da folha __Tipo de Preço do Nó__. Você também pode ver o custo associado aos diferentes tamanhos de nós. A captura de tela a seguir mostra as opções para um cluster Hadoop baseado em Linux.
 
-![HDInsight vm node sizes](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
+![tamanhos de nó de vm do HDInsight](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
 
-The following tables show the sizes supported by HDInsight clusters and the capacities they provide.
+As tabelas a seguir mostram os tamanhos com suporte dos clusters HDInsight e as capacidades que eles fornecem.
 
-### <a name="standard-tier:-a-series###"></a>Standard tier: A-series###
+### Camada Standard: série A###
 
-In the classic deployment model, some VM sizes are slightly different in PowerShell and CLI.
+No modelo de implantação clássica, alguns tamanhos de VM são ligeiramente diferentes no PowerShell e na CLI.
 
-* Standard_A3 is Large
-* Standard_A4 is ExtraLarge
+* Standard\_A3 é grande
+* Standard\_A4 é ExtraLarge
 
-|Size |CPU cores|Memory|NICs (max.)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Tamanho |Núcleos de CPU|Memória|NICs (máx.)|Tamanho máximo do disco|Máx. de discos de dados (1023 GB cada)|Máx. IOPS (500 por disco)|
 |---|---|---|---|---|---|---|
-|Standard_A3\Large|4|7 GB|2|Temporary = 285 GB |8|8x500|
-|Standard_A4\ExtraLarge|8|14 GB|4|Temporary = 605 GB |16|16x500|
-|Standard_A6|4|28 GB|2|Temporary = 285 GB |8|8x500|
-|Standard_A7|8|56 GB|4|Temporary = 605 GB |16|16x500|
+|Standard\_A3\\Grande|4|7 GB|2|Temporário = 285 GB |8|8 x 500|
+|Standard\_A4\\ExtraLarge|8|14 GB|4|Temporário = 605 GB |16|16 x 500|
+|Standard\_A6|4|28 GB|2|Temporário = 285 GB |8|8 x 500|
+|Standard\_A7|8|56 GB|4|Temporário = 605 GB |16|16 x 500|
 
 
-### <a name="standard-tier:-d-series###"></a>Standard tier: D-series###
+### Camada Standard: série D###
 
-|Size |CPU cores|Memory|NICs (max.)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Tamanho |Núcleos de CPU|Memória|NICs (máx.)|Tamanho máximo do disco|Máx. de discos de dados (1023 GB cada)|Máx. IOPS (500 por disco)|
 |---|---|---|---|---|---|---|
-|Standard_D3 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
-|Standard_D4 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
-|Standard_D12 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500|
-|Standard_D13 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500|
-|Standard_D14 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500|
+|Standard\_D3 |4|14 GB|4|Temporário (SSD) =200 GB |8|8 x 500|
+|Standard\_D4 |8|28 GB|8|Temporário (SSD) =400 GB |16|16 x 500|
+|Standard\_D12 |4|28 GB|4|Temporário (SSD) =200 GB |8|8 x 500|
+|Standard\_D13 |8|56 GB|8|Temporário (SSD) =400 GB |16|16 x 500|
+|Standard\_D14 |16|112 GB|8|Temporário (SSD) =800 GB |32|32 x 500|
 
 
-### <a name="standard-tier:-dv2-series###"></a>Standard tier: Dv2-series###
+### Camada Standard: série Dv2###
 
-|Size |CPU cores|Memory|NICs (max.)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Tamanho |Núcleos de CPU|Memória|NICs (máx.)|Tamanho máximo do disco|Máx. de discos de dados (1023 GB cada)|Máx. IOPS (500 por disco)|
 |---|---|---|---|---|---|---|
-|Standard_D3_v2 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
-|Standard_D4_v2 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
-|Standard_D12_v2 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500|
-|Standard_D13_v2 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500|
-|Standard_D14_v2 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500|     
+|Standard\_D3\_v2 |4|14 GB|4|Temporário (SSD) =200 GB |8|8 x 500|
+|Standard\_D4\_v2 |8|28 GB|8|Temporário (SSD) =400 GB |16|16 x 500|
+|Standard\_D12\_v2 |4|28 GB|4|Temporário (SSD) =200 GB |8|8 x 500|
+|Standard\_D13\_v2 |8|56 GB|8|Temporário (SSD) =400 GB |16|16 x 500|
+|Standard\_D14\_v2 |16|112 GB|8|Temporário (SSD) =800 GB |32|32 x 500|     
 
-For deployment considerations to be aware of when you're planning to use these resources, see [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md). For information about pricing of various sizes, see [HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight).   
+Para obter as considerações de implantação a serem observadas ao planejar o uso desses recursos, confira [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md). Para saber mais sobre os preços dos vários tamanhos, veja [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
 
-> [AZURE.IMPORTANT] If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, you must select a head node size with at least 8 cores and 14 GB of RAM.
+> [AZURE.IMPORTANT] Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, será preciso escolher um tamanho de nó de cabeçalho com pelo menos oito núcleos e 14 GB de RAM.
 
-Billing starts when a cluster is created and stops when the cluster is deleted. For more information about pricing, see [HDInsight pricing details](https://azure.microsoft.com/pricing/details/hdinsight/).
+A cobrança é iniciada quando um cluster é criado e para quando o cluster é excluído. Para saber mais sobre preços, veja [Detalhes de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 
-|Size |CPU cores|Memory|NICs (max.)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Tamanho |Núcleos de CPU|Memória|NICs (máx.)|Tamanho máximo do disco|Máx. de discos de dados (1023 GB cada)|Máx. IOPS (500 por disco)|
 |---|---|---|---|---|---|---|
-|Standard_D3_v2 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
-|Standard_D4_v2 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
-|Standard_D12_v2 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500|
-|Standard_D13_v2 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500|
-|Standard_D14_v2 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500|    
+|Standard\_D3\_v2 |4|14 GB|4|Temporário (SSD) =200 GB |8|8 x 500|
+|Standard\_D4\_v2 |8|28 GB|8|Temporário (SSD) =400 GB |16|16 x 500|
+|Standard\_D12\_v2 |4|28 GB|4|Temporário (SSD) =200 GB |8|8 x 500|
+|Standard\_D13\_v2 |8|56 GB|8|Temporário (SSD) =400 GB |16|16 x 500|
+|Standard\_D14\_v2 |16|112 GB|8|Temporário (SSD) =800 GB |32|32 x 500|    
 
-For deployment considerations to be aware of when you're planning to use these resources, see [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md). For information about pricing of the various sizes, see [HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight).  
+Para obter as considerações de implantação a serem observadas ao planejar o uso desses recursos, confira [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md). Para obter informações sobre os preços dos vários tamanhos, veja [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
 
-> [AZURE.IMPORTANT] If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14 GB of RAM.
+> [AZURE.IMPORTANT] Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, será preciso escolher um tamanho de nó de cabeçalho com pelo menos oito núcleos e 14 GB de RAM.
 
- Billing starts when a cluster is created and stops when the cluster is deleted. For more information on pricing, see [HDInsight pricing details](https://azure.microsoft.com/pricing/details/hdinsight/).
-
-
-## <a name="add-more-storage"></a>Add more storage
-
-In some cases, you may want to add more storage to the cluster. For example, you might have multiple Azure storage accounts for different geographical regions or for different services, but you want to analyze them all with HDInsight.
-
-For more information about secondary Blob storage, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information about secondary Data Lake stores, see [Create HDInsight clusters with Data Lake Store using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+ A cobrança é iniciada quando um cluster é criado e para quando o cluster é excluído. Para obter mais informações sobre preços, consulte [Detalhes de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 
-## <a name="use-a-hive/oozie-metastore"></a>Use a Hive/Oozie metastore
+## Adicionar mais armazenamento
 
-We strongly recommend that you use a custom metastore if you want to keep your Hive tables after you delete your HDInsight cluster for purposes of attaching that metastore to another HDInsight cluster in the future.
+Em alguns casos, convém adicionar mais armazenamento ao cluster. Por exemplo, você pode ter várias contas de armazenamento do Azure para diferentes regiões geográficas ou diferentes serviços, mas desejar analisá-los com o HDInsight.
 
-> [AZURE.IMPORTANT] HDInsight metastore is not backward compatible. For example, you cannot use a metastore of an HDInsight 3.3 cluster to create an HDInsight 3.2 cluster.
+Para saber mais sobre o armazenamento de Blobs secundário, veja [Usar o armazenamento de Blobs do Azure compatível com HDFS com Hadoop no HDInsight](hdinsight-hadoop-use-blob-storage.md). Para saber mais sobre repositórios Data Lake secundários, veja [Criar clusters HDInsight com o Data Lake Store usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. The metastore helps you to retain your Hive and Oozie metadata. You don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. For example, if you create Hive tables in a cluster created with a Hive metastore, you can see those tables if you delete and re-create the cluster with the same Hive metastore.
 
-Metastore configuration is not available for HBase cluster types.
+## Usar um Hive/Oozie metastore
 
-> [AZURE.IMPORTANT] When you're creating a custom metastore, do not use a database name that contains dashes or hyphens because this can cause the cluster creation process to fail.
+É altamente recomendável usar um metastore personalizado se desejar manter as tabelas do Hive depois de excluir o cluster HDInsight, para fins de anexação desse metastore a outro cluster HDInsight no futuro.
 
-## <a name="use-azure-virtual-network"></a>Use Azure Virtual Network
+> [AZURE.IMPORTANT] O metastore HDInsight não é compatível com versões anteriores. Por exemplo, você não pode usar um metastore de um cluster do HDInsight 3.3 para criar um cluster do HDInsight 3.2.
 
-[Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) helps you create a secure, persistent network that contains the resources you need for your solution. With a virtual network, you can:
+O metastore contém metadados de Hive e Oozie, como tabelas Hive, partições, esquemas e colunas. O metastore ajuda a reter seus metadados Hive e Oozie. Você não precisa recriar tabelas de Hive ou trabalhos do Oozie ao criar um novo cluster. Por padrão, o Hive usa um banco de dados SQL do Azure integrado para armazenar essas informações. O banco de dados integrado não é capaz de preservar os metadados quando o cluster é excluído. Por exemplo, se criar tabelas do Hive em um cluster criado com um metastore do Hive, você poderá ver as tabelas se excluir e recriar o cluster com o mesmo metastore do Hive.
 
-* Connect cloud resources together in a private network (cloud-only).
+A configuração de Metastore não está disponível para tipos de cluster HBase.
 
-    ![diagram of cloud-only configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-cloud-only.png)
+> [AZURE.IMPORTANT] Ao criar um metastore personalizado, não use um nome de banco de dados que contém a traços ou hifens, pois isso pode causar falha no processo de criação de cluster.
 
-* Connect your cloud resources to your local datacenter network (site-to-site or point-to-site) by using a virtual private network (VPN).
+## Usar uma Rede Virtual do Azure
 
-| Site-to-site configuration | Point-to-site configuration |
+[Rede Virtual do Azure](https://azure.microsoft.com/documentation/services/virtual-network/): ajuda a criar uma rede segura e persistente que contém os recursos necessários para sua solução. Com uma rede virtual, você pode:
+
+* Conecte recursos da nuvem juntos em uma rede privada (somente nuvem).
+
+	![diagrama da configuração somente nuvem](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-cloud-only.png)
+
+* Conecte seus recursos de nuvem à sua rede de datacenter local (site a site ou ponto a site), usando uma VPN (rede privada virtual).
+
+| Configuração site a site | Configuração ponto a site |
 | -------------------------- | --------------------------- |
-| With site-to-site configuration, you can connect to multiple resources from your datacenter to Azure Virtual Network by using a hardware VPN or the Routing and Remote Access Service.<br />![diagram of site-to-site configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | With point-to-site configuration, you can connect a specific resource to Azure Virtual Network by using a software VPN.<br />![diagram of point-to-site configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
+| Com a configuração site a site, você pode conectar vários recursos do data center à Rede Virtual do Azure usando uma VPN de hardware ou o Serviço de Roteamento e Acesso Remoto.<br />![diagrama da configuração site a site](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | A configuração ponto a site permite que você conecte um recurso específico à Rede Virtual do Azure usando uma VPN do software.<br />![diagrama da configuração ponto a site](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
 
-Windows-based clusters require a classic virtual network, while Linux-based clusters require an Azure Resource Manager virtual network. If you do not have the correct type of network, it will not be usable when you create the cluster.
+Os clusters baseados em Windows exigem uma rede virtual clássica, enquanto os clusters baseados em Linux exigem uma rede virtual do Azure Resource Manager. Se você não tiver o tipo correto de rede, ele não poderá ser usado durante a criação do cluster.
 
-For more information about how HDInsight works with a virtual network, including specific configuration requirements for the virtual network, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+Para saber mais sobre como o HDInsight funciona com uma rede virtual, incluindo requisitos de configuração específicos para a rede virtual, confira [Estender as funcionalidades do HDInsight usando uma Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-## <a name="customize-clusters-by-using-hdinsight-cluster-customization-(bootstrap)"></a>Customize clusters by using HDInsight cluster customization (bootstrap)
+## Personalizar clusters usando a personalização de clusters do HDInsight (inicialização)
 
-Sometimes, you want to configure the following configuration files:
+Às vezes, você deseja configurar os seguintes arquivos de configuração:
 
 - clusterIdentity.xml
 - core-site.xml
@@ -261,31 +256,27 @@ Sometimes, you want to configure the following configuration files:
 - webhcat-site.xml
 - yarn-site.xml
 
-To keep the changes through the clusters' lifetime, you can use HDInsight cluster customization during the creation process. You can also use Ambari in Linux-based clusters. For more information, see [Customize HDInsight clusters by using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+Para manter as alterações durante o tempo de vida dos clusters, você pode usar a personalização de clusters do HDInsight durante o processo de criação. Você também pode usar o Ambari em clusters baseados em Linux. Para saber mais, confira [Personalizar clusters HDInsight usando a Inicialização](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
->[AZURE.NOTE] The Windows-based clusters can't retain the changes due to reimage. For more information, see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). To keep the changes throughout the lifetime of a cluster, you must use HDInsight cluster customization during the creation process.
+>[AZURE.NOTE] Os clusters baseados em Windows não podem reter as alterações devido à recriação das imagens. Para obter mais informações, consulte [A instância da função é reinicializada devido as atualizações do sistema operacional (a página pode estar em inglês)](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Para manter as alterações durante a vida útil de um cluster, você deve usar a personalização do cluster HDInsight durante o processo de criação.
 
-## <a name="customize-clusters-by-using-script-action"></a>Customize clusters by using Script Action
+## Personalizar clusters usando a Ação de Script
 
-You can install additional components or customize cluster configuration by using scripts during creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize a HDInsight cluster by using Script Action](hdinsight-hadoop-customize-cluster.md).
+Você pode instalar componentes adicionais ou personalizar a configuração de cluster por meio de scripts durante a criação. Tais scripts são chamados usando a **Ação de Script**, que é uma opção de configuração que pode ser usada no portal do Azure, cmdlets do Windows PowerShell do HDInsight ou SDK do .NET do HDInsight. Para saber mais, veja [Personalizar um cluster HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md).
 
 
 
-## <a name="cluster-creation-methods"></a>Cluster creation methods
+## Métodos de criação de cluster
 
-In this article, you have learned basic information about creating a Windows-based HDInsight cluster. Use the following table to find specific information about how to create a cluster by using a method that best suits your needs.
+Neste artigo, você aprendeu as informações básicas sobre como criar um cluster HDInsight baseado em Windows. Use a tabela a seguir para obter informações específicas sobre como criar um cluster usando um método que melhor atenda às suas necessidades.
 
-| Clusters created with | Web browser | Command line | REST API | SDK | Linux, Mac OS X, or Unix | Windows |
+| Clusters criados com | Navegador da Web | Linha de comando | API REST | . | Linux, Mac OS X ou Unix | Windows |
 | ------------------------------- |:----------------------:|:--------------------:|:------------------:|:------------:|:-----------------------------:|:------------:|
-| [The Azure portal](hdinsight-hadoop-create-windows-clusters-portal.md) | ✔     | &nbsp; | &nbsp; | &nbsp; | ✔      | ✔ |
-| [Azure CLI](hdinsight-hadoop-create-windows-clusters-cli.md)         | &nbsp; | ✔     | &nbsp; | &nbsp; | ✔      | ✔ |
-| [Azure PowerShell](hdinsight-hadoop-create-windows-clusters-powershell.md) | &nbsp; | ✔     | &nbsp; | &nbsp; | ✔ | ✔ |
-| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) | &nbsp; | ✔     | ✔ | &nbsp; | ✔      | ✔ |
-| [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔      | ✔ |
-| [Azure Resource Manager templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔     | &nbsp; | &nbsp; | ✔      | ✔ |
+| [O portal do Azure](hdinsight-hadoop-create-windows-clusters-portal.md) | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ |
+| [CLI do Azure](hdinsight-hadoop-create-windows-clusters-cli.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
+| [PowerShell do Azure](hdinsight-hadoop-create-windows-clusters-powershell.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
+| [Curl](hdinsight-hadoop-create-linux-clusters-curl-rest.md) | &nbsp; | ✔ | ✔ | &nbsp; | ✔ | ✔ |
+| [SDK .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
+| [Modelos do Gerenciador de Recursos do Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

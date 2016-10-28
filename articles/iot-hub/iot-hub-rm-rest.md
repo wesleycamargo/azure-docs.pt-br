@@ -1,11 +1,11 @@
 <properties
-    pageTitle="Create an IoT Hub using the REST API | Microsoft Azure"
-    description="Follow this tutorial to get started using the REST API to create an IoT Hub."
-    services="iot-hub"
-    documentationCenter=".net"
-    authors="dominicbetts"
-    manager="timlt"
-    editor=""/>
+	pageTitle="Criar um IoT Hub usando a API REST | Microsoft Azure"
+	description="Siga este tutorial para começar a usar o REST API e criar um Hub IoT."
+	services="iot-hub"
+	documentationCenter=".net"
+	authors="dominicbetts"
+	manager="timlt"
+	editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -16,36 +16,35 @@
      ms.date="08/16/2016"
      ms.author="dobett"/>
 
-
-# <a name="tutorial:-create-an-iot-hub-using-a-c#-program-and-the-rest-api"></a>Tutorial: Create an IoT hub using a C# program and the REST API
+# Tutorial: criar um Hub IoT usando um programa em C# e a API REST
 
 [AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-## <a name="introduction"></a>Introduction
+## Introdução
 
-You can use the [IoT Hub Resource Provider REST API][lnk-rest-api] to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use the Resource Provider REST API to create an IoT hub from a C# program.
+Você pode usar a [API REST do Provedor de Recursos do IoT Hub][lnk-rest-api] para criar e gerenciar hubs IoT do Azure de forma programática. Este tutorial mostra como usar a API de REST do Provedor de Recursos para criar um hub IoT a partir de um programa C#.
 
-> [AZURE.NOTE] Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model.
+> [AZURE.NOTE] O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação do Gerenciador de Recursos.
 
-To complete this tutorial, you need the following:
+Para concluir este tutorial, você precisará do seguinte:
 
 - Microsoft Visual Studio 2015.
-- An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
-- [Microsoft Azure PowerShell 1.0][lnk-powershell-install] or later.
+- Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk-free-trial].
+- [Microsoft Azure PowerShell 1.0][lnk-powershell-install] ou posterior.
 
 [AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
-## <a name="prepare-your-visual-studio-project"></a>Prepare your Visual Studio project
+## Preparar seu projeto do Visual Studio
 
-1. In Visual Studio, create a Visual C# Windows project using the **Console Application** project template. Name the project **CreateIoTHubREST**.
+1. No Visual Studio, crie um projeto Windows do Visual C# usando o modelo de projeto de **Aplicativo do Console**. Nomeie o projeto **CreateIoTHubREST**.
 
-2. In Solution Explorer, right-click on your project and then click **Manage NuGet Packages**.
+2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e clique em **Gerenciar Pacotes NuGet**.
 
-3. In Nuget Package Manager, check **Include prerelease**, and search for **Microsoft.Azure.Management.ResourceManager**. Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
+3. No Gerenciador de Pacotes Nuget, marque **Incluir pré-lançamento** e procure **Microsoft.Azure.Management.ResourceManager**. Clique em **Instalar**, em **Examinar Alterações**, em **OK** e em **Aceito** para aceitar as licenças.
 
-4. In Nuget Package Manager, search for **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the license.
+4. No Gerenciador de Pacotes do Nuget, procure **Microsoft.IdentityModel.Clients.ActiveDirectory**. Clique em **Instalar**, em **Examinar Alterações**, em **OK** e em **Aceito** para aceitar a licença.
 
-6. In Program.cs, replace the existing **using** statements with the following:
+6. Em Program.cs, substitua as instruções **using** existentes pelo seguinte:
 
     ```
     using System;
@@ -61,7 +60,7 @@ To complete this tutorial, you need the following:
     using System.Threading;
     ```
     
-7. In Program.cs, add the following static variables replacing the placeholder values. You made a note of **ApplicationId**, **SubscriptionId**, **TenantId**, and **Password** earlier in this tutorial. **Resource group name** is the name of the resource group you use when you create the IoT hub, it can be a pre-existing resource group or a new one. **IoT Hub name** is the name of the IoT Hub you create, such as **MyIoTHub** (this name must be globally unique, so it should include your name or initials). **Deployment name** is a name for the deployment, such as **Deployment_01**.
+7. Em Program.cs, adicione as variáveis estáticas a seguir, substituindo os valores de espaço reservado. Você fez uma anotação de **ApplicationId**, **SubscriptionId**, **TenantId**, e **Password** anteriormente neste tutorial. **Nome do grupo de recursos** é o nome do grupo de recursos que você usa ao criar o Hub IoT; ele pode ser um grupo de recursos pré-existente ou um novo. **Nome do Hub IoT** é o nome do Hub IoT que você cria, por exemplo **MyIoTHub** (esse nome precisa ser globalmente exclusivo e, por isso, deve incluir seu nome ou suas iniciais). **Nome de implantação** é um nome para a implantação, como **Deployment\_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
@@ -75,11 +74,11 @@ To complete this tutorial, you need the following:
 
 [AZURE.INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
-## <a name="use-the-rest-api-to-create-an-iot-hub"></a>Use the REST API to create an IoT hub
+## Use a API REST para criar um hub IoT
 
-Use the [IoT Hub REST API][lnk-rest-api] to create an IoT hub in your resource group. You can also use the REST API to make changes to an existing IoT hub.
+Use a [API REST do Hub IoT][lnk-rest-api] para criar um Hub IoT em seu grupo de recursos. Você também pode usar a API REST para fazer alterações em um Hub IoT existente.
 
-1. Add the following method to Program.cs:
+1. Adicione o seguinte método ao Program.cs:
     
     ```
     static void CreateIoTHub(string token)
@@ -88,14 +87,14 @@ Use the [IoT Hub REST API][lnk-rest-api] to create an IoT hub in your resource g
     }
     ```
 
-2. Add the following code to the **CreateIoTHub** method to create an **HttpClient** object with the authentication token in the headers:
+2. Adicione o seguinte código ao método **CreateIoTHub** para criar um objeto **HttpClient** com um token de autenticação nos cabeçalhos:
 
     ```
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
-3. Add the following code to the **CreateIoTHub** method to describe the IoT hub to create and generate a JSON representation (for the current list of locations that support IoT Hub see [Azure Status][lnk-status]):
+3. Adicione o seguinte código ao método **CreateIoTHub** para descrever o hub IoT a fim de criar e gerar uma representação JSON (para obter a lista atual de locais que oferecem suporte ao Hub IoT, confira o [Status do Azure][lnk-status]):
 
     ```
     var description = new
@@ -113,7 +112,7 @@ Use the [IoT Hub REST API][lnk-rest-api] to create an IoT hub in your resource g
     var json = JsonConvert.SerializeObject(description, Formatting.Indented);
     ```
 
-4. Add the following code to the **CreateIoTHub** method to submit the REST request to Azure, check the response, and retrieve the URL you can use to monitor the state of the deployment task:
+4. Adicione o seguinte código ao método **CreateIoTHub** para enviar a solicitação REST ao Azure, verificar a resposta e recuperar a URL que você pode usar para monitorar o estado da tarefa de implantação:
 
     ```
     var content = new StringContent(JsonConvert.SerializeObject(description), Encoding.UTF8, "application/json");
@@ -129,7 +128,7 @@ Use the [IoT Hub REST API][lnk-rest-api] to create an IoT hub in your resource g
     var asyncStatusUri = result.Headers.GetValues("Azure-AsyncOperation").First();
     ```
 
-5. Add the following code to the end of the **CreateIoTHub** method to use the **asyncStatusUri** address retrieved in the previous step to wait for the deployment to complete:
+5. Adicione o código a seguir ao final do método **CreateIoTHub** para usar o endereço **asyncStatusUri** recuperado na etapa anterior para aguardar a conclusão da implantação:
 
     ```
     string body;
@@ -138,10 +137,10 @@ Use the [IoT Hub REST API][lnk-rest-api] to create an IoT hub in your resource g
       Thread.Sleep(10000);
       HttpResponseMessage deploymentstatus = client.GetAsync(asyncStatusUri).Result;
       body = deploymentstatus.Content.ReadAsStringAsync().Result;
-    } while (body == "{\"status\":\"Running\"}");
+    } while (body == "{"status":"Running"}");
     ```
 
-6. Add the following code to the end of the **CreateIoTHub** method to retrieve the keys of the IoT hub you created and print them to the console:
+6. Adicione o seguinte código ao final do método **CreateIoTHub** para recuperar as chaves do Hub IoT criado e imprimi-las no console:
 
     ```
     var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2015-08-15-preview", subscriptionId, rgName, iotHubName);
@@ -150,40 +149,43 @@ Use the [IoT Hub REST API][lnk-rest-api] to create an IoT hub in your resource g
     Console.WriteLine("Keys: {0}", keysresults.Content.ReadAsStringAsync().Result);
     ```
     
-## <a name="complete-and-run-the-application"></a>Complete and run the application
+## Compilar e executar o aplicativo
 
-You can now complete the application by calling the **CreateIoTHub** method before you build and run it.
+Agora, você pode concluir o aplicativo chamando o método **CreateIoTHub** antes de compilá-lo e de executá-lo.
 
-1. Add the following code to the end of the **Main** method:
+1. Adicione o seguinte código ao final do método **Main**:
 
     ```
     CreateIoTHub(token.AccessToken);
     Console.ReadLine();
     ```
     
-2. Click **Build** and then **Build Solution**. Correct any errors.
+2. Clique em **Criar** e **Compilar Solução**. Corrija todos os erros.
 
-3. Click **Debug** and then **Start Debugging** to run the application. It may take several minutes for the deployment to run.
+3. Clique em **Depurar** e, em seguida, **Iniciar Depuração** para executar o aplicativo. Pode levar vários minutos para que a implantação seja executada.
 
-4. You can verify that your application added the new IoT hub by visiting the [portal][lnk-azure-portal] and viewing your list of resources, or by using the **Get-AzureRmResource** PowerShell cmdlet.
+4. Você pode verificar se o seu aplicativo adicionou o novo hub IoT visitando o [portal][lnk-azure-portal] e exibindo sua lista de recursos ou usando o cmdlet **Get-AzureRmResource** do PowerShell.
 
-> [AZURE.NOTE] This example application adds an S1 Standard IoT Hub for which you are billed. When you are finished, you can delete the IoT hub through the [portal][lnk-azure-portal] or by using the **Remove-AzureRmResource** PowerShell cmdlet when you are finished.
+> [AZURE.NOTE] Este aplicativo de exemplo adiciona um Hub IoT Standard S1 pelo qual você será cobrado. Ao concluir, é possível excluir o Hub IoT por meio do [portal][lnk-azure-portal] ou usando o cmdlet **Remove-AzureRmResource** do PowerShell quando tiver terminado.
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-Now you have deployed an IoT hub using the REST API, you may want to explore further:
+Agora que você implantou um Hub IoT usando a API REST, convém explorar ainda mais:
 
-- Read about the capabilities of the [IoT Hub Resource Provider REST API][lnk-rest-api].
-- Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
+- Leia sobre as funcionalidades da [API REST do provedor de recursos Hub IoT][lnk-rest-api].
+- Leia a [Visão geral do Gerenciador de Recursos do Azure][lnk-azure-rm-overview] para saber mais sobre os recursos do Gerenciador de Recursos do Azure.
 
-To learn more about developing for IoT Hub, see the following:
+Para saber mais sobre como desenvolver para o Hub IoT, consulte o seguinte:
 
-- [Introduction to C SDK][lnk-c-sdk]
-- [IoT Hub SDKs][lnk-sdks]
+- [Introdução ao SDK de C][lnk-c-sdk]
+- [SDKs do Hub IoT][lnk-sdks]
 
-To further explore the capabilities of IoT Hub, see:
+Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Projetar sua solução][lnk-design]
+- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
+- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
+- [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -194,12 +196,11 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
+[lnk-sdks]: iot-hub-sdks-summary.md
 
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

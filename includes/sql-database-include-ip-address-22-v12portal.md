@@ -15,34 +15,34 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Log in to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
+1. Faça logon no [Portal do Azure](https://portal.azure.com/) em http://portal.azure.com/..
 
-2. In the left banner, click **BROWSE ALL**. The **Browse** blade is displayed.
+2. Na faixa à esquerda, clique em **PROCURAR TUDO**. A folha **Procurar** é exibida.
 
-3. Scroll and click **SQL servers**. The **SQL servers** blade is displayed.
+3. Role e clique em **servidores SQL**. A folha **servidores SQL** é exibida.
 
-    ![Find your Azure SQL Database server in the portal][b21-FindServerInPortal]
+	![Encontre o seu servidor do Banco de Dados SQL no portal][b21-FindServerInPortal]
 
-4. For convenience, click the minimize control on the earlier **Browse** blade.
+4. Para sua conveniência, clique no controle de minimização na folha **Procurar** anterior.
 
-5. In the filter text box, start typing the name of your server. Your row is displayed.
+5. Na caixa de texto de filtro, comece digitando o nome do seu servidor. A linha é exibida.
 
-6. Click the row for your server. A blade for your server is displayed.
+6. Clique na linha do servidor. Uma folha do servidor é exibida.
 
-7. On your server blade, click **Settings**. The **Settings** blade is displayed.
+7. Na folha do seu servidor, clique em **Configurações**. A folha **Configurações** é exibida.
 
-8. Click **Firewall**. The **Firewall Settings** blade is displayed.
+8. Clique em **Firewall**. A folha **Configurações de Firewall** é exibida.
 
-    ![Click Settings > Firewall][b31-SettingsFirewallNavig]
+	![Clique em Configurações > Firewall][b31-SettingsFirewallNavig]
 
-9. Click **Add Client IP**. Type in a name for your new rule into the first text box.
+9. Clique em **Adicionar Cliente IP**. Digite um nome para a nova regra na primeira caixa de texto.
 
-10. Type in the low and high IP address values for the range you want to enable.
-    - It can be handy to have the low value end with **.0** and the high with **.255**.
+10. Digite os valores baixos e altos de endereços IP para o intervalo que deseja habilitar.
+	- Pode ser útil ter a extremidade de valor baixo com **.0** e a de valor alto com **.255**.
 
-    ![Add an IP address range to allow][b41-AddRange]
+	![Adicionar um intervalo de endereços IP para permitir][b41-AddRange]
 
-11. Click **Save**.
+11. Clique em **Salvar**.
 
 
 
@@ -63,7 +63,4 @@ includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!-----------HONumber=AcomDC_0330_2016-->

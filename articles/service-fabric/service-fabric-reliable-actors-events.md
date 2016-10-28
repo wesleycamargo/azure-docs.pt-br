@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actors events | Microsoft Azure"
-   description="Introduction to events for Service Fabric Reliable Actors."
+   pageTitle="Eventos de Reliable Actors | Microsoft Azure"
+   description="Introdução a eventos para Service Fabric Reliable Actors."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,13 +17,12 @@
    ms.author="amanbha"/>
 
 
+# Eventos de ator
+Os eventos de ator são uma forma de enviar notificações de melhor esforço do ator para os clientes. Os eventos de ator foram desenvolvidos para comunicação entre ator e cliente e não devem ser usados para comunicação entre ator e ator.
 
-# <a name="actor-events"></a>Actor events
-Actor events provide a way to send best-effort notifications from the actor to the clients. Actor events are designed for actor-to-client communication and should not be used for actor-to-actor communication.
+Os trechos de código a seguir mostram como usar os eventos de ator em seu aplicativo.
 
-The following code snippets show how to use actor events in your application.
-
-Define an interface that describes the events published by the actor. This interface must be derived from the `IActorEvents` interface. The arguments of the methods must be [data contract serializable](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). The methods must return void, as event notifications are one way and best effort.
+Defina uma interface que descreva os eventos publicados pelo ator. Essa interface deve ser derivada da interface `IActorEvents`. Os argumentos dos métodos devem ser [contrato de dados serializável](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Os métodos devem retornar valor nulo, pois as notificações de evento são o melhor esforço e unidirecionais.
 
 ```csharp
 public interface IGameEvents : IActorEvents
@@ -32,7 +31,7 @@ public interface IGameEvents : IActorEvents
 }
 ```
 
-Declare the events published by the actor in the actor interface.
+Declare os eventos publicados pelo ator na interface do ator.
 
 ```csharp
 public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
@@ -43,7 +42,7 @@ public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
 }
 ```
 
-On the client side, implement the event handler.
+No lado do cliente, implemente o manipulador de eventos.
 
 ```csharp
 class GameEventsHandler : IGameEvents
@@ -55,7 +54,7 @@ class GameEventsHandler : IGameEvents
 }
 ```
 
-On the client, create a proxy to the actor that publishes the event and subscribe to its events.
+No cliente, crie um proxy para o ator que publica o evento e assine para receber os eventos.
 
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
@@ -64,23 +63,19 @@ var proxy = ActorProxy.Create<IGameActor>(
 await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 ```
 
-In the event of failovers, the actor may fail over to a different process or node. The actor proxy manages the active subscriptions and automatically re-subscribes them. You can control the re-subscription interval through the `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API. To unsubscribe, use the `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.
+No caso de failovers, o ator pode realizar failover para um processo ou nó diferente. O proxy de ator gerencia as assinaturas ativas e as renova automaticamente. Você pode controlar o intervalo da renovação da assinatura por meio da API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Para cancelar a assinatura, use a API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
 
-On the actor, simply publish the events as they happen. If there are subscribers to the event, the Actors runtime will send them the notification.
+No ator, simplesmente publique os eventos à medida que eles acontecem. Se existirem assinantes no evento, o tempo de execução dos Atores enviará a eles a notificação.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 
-## <a name="next-steps"></a>Next steps
- - [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
- - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
- - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Sample code](https://github.com/Azure/servicefabric-samples)
+## Próximas etapas
+ - [Reentrância de ator](service-fabric-reliable-actors-reentrancy.md)
+ - [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
+ - [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Exemplo de código](https://github.com/Azure/servicefabric-samples)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

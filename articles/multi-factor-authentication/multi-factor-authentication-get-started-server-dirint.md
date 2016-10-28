@@ -1,145 +1,140 @@
 <properties 
-    pageTitle="Directory integration between Azure Multi-Factor Authentication and Active Directory"
-    description="This is the Azure Multi-factor authentication page that describes how to integrate the Azure Multi-Factor Authentication Server with Active Directory so you can synchronize the directories."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtand"/>
+	pageTitle="Integração de diretórios entre o Azure Multi-Factor Authentication autenticação multifator do Azure e o Active Directory"
+	description="Esta é a página de autenticação multifator do Azure que descreve como integrar o servidor Azure Multi-Factor Authentication ao Active Directory para sincronizar os diretórios."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/>
 
 <tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/04/2016"
-    ms.author="kgremban"/>
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
+# Integração de diretórios entre o Azure MFA Server e o Active Directory
 
-# <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Directory integration between Azure MFA Server and Active Directory
+A seção Integração de Diretórios permite que você configure o servidor para se integrar com o Active Directory ou com outro diretório LDAP. Ele permite que você configure atributos para corresponder ao esquema de diretório e configurar a sincronização automática de usuários.
 
-The Directory Integration section allows you to configure the server to integrate with Active Directory or another LDAP directory.  It allows you to configure attributes to match the directory schema and set up automatic synchronization of users.
+## Configurações
+Por padrão, o Servidor do Azure Multi-Factor Authentication é configurado para importar ou sincronizar usuários do Active Directory. A guia permite substituir o comportamento padrão e associar a um diretório LDAP diferente, a um diretório ADAM ou a um controlador de domínio específico do Active Directory. Ele também permite o uso da autenticação LDAP para proxy LDAP ou associação LDAP como um destino RADIUS, pré-autenticação para autenticação IIS ou autenticação principal para o portal do usuário. A tabela a seguir descreve as configurações individuais.
 
-## <a name="settings"></a>Settings
-By default, the Azure Multi-Factor Authentication Server is configured to import or synchronize users from Active Directory.  The tab allows you to override the default behavior and to bind to a different LDAP directory, an ADAM directory, or specific Active Directory domain controller.  It also provides for the use of LDAP Authentication to proxy LDAP or for LDAP Bind as a RADIUS target, pre-authentication for IIS Authentication, or primary authentication for User Portal.  The following table describes the individual settings.
+![Configurações](./media/multi-factor-authentication-get-started-server-dirint/dirint.png)
 
-![Setttings](./media/multi-factor-authentication-get-started-server-dirint/dirint.png)
-
-| Feature | Description |
+| Recurso | Descrição |
 | ------- | ----------- |
-| Use Active Directory | Select the Use Active Directory option to use Active Directory for importing and synchronization.  This is the default setting. <br>Note:  The computer must be joined to a domain and you must be signed on with a domain account for Active Directory integration to work properly. |
-| Include trusted domains | Check the Include Trusted Domains checkbox to have the agent attempt to connect to domains trusted by the current domain, another domain in the forest, or domains involved in a forest trust.  When not importing or synchronizing users from any of the trusted domains, uncheck the checkbox to improve performance.  The default is checked. |
-| Use specific LDAP configuration | Select the Use LDAP option to use the LDAP settings specified for importing and synchronization. Note: When Use LDAP is selected, the user interface changes references from Active Directory to LDAP. |
-| Edit button | The Edit button allows the current LDAP configuration settings to modified. |
-| Use attribute scope queries | Indicates whether attribute scope queries should be used.  Attribute scope queries allow for efficient directory searches qualifying records based on the entries in another record's attribute.  The Azure Multi-Factor Authentication Server uses attribute scope queries to efficiently query the users that are a member of a security group.   <br>Note:  There are some cases where attribute scope queries are supported, but shouldn't be used.  For example, Active Directory can have issues with attribute scope queries when a security group contains members from more than one domain.  In this case the checkbox should be unchecked. |
+| Usar o Active Directory | Selecione a opção Usar o Active Directory para usar o Active Directory na importação e na sincronização. Esta é a configuração padrão. <br>Observação: o computador deve estar associado a um domínio e você precisa estar conectado com uma conta de domínio para que a integração do Active Directory funcione corretamente. |
+| Incluir domínios confiáveis | Marque a caixa de seleção incluir domínios confiáveis para que o agente tente se conectar a domínios confiáveis pelo domínio atual, a outro domínio na floresta ou a domínios envolvidos em uma relação de confiança de floresta. Quando não estiver importando ou sincronizando usuários de qualquer um dos domínios confiáveis, desmarque a caixa de seleção para melhorar o desempenho. O padrão é verificado. |
+| Usar configuração LDAP específica | Selecione a opção Usar LDAP para usar as configurações de LDAP especificadas na importação e na sincronização. Observação: quando a opção Usar LDAP é selecionada, a interface do usuário altera referências do Active Directory para LDAP. |
+| Botão Editar | O botão Editar permite que as configurações atuais de LDAP sejam modificadas. |
+| Usar consultas de escopo de atributo | Indica se as consultas de escopo de atributo devem ser usadas. As consultas de escopo de atributo permitem que as pesquisas eficientes de diretórios qualificando os registros com base no atributo de outro registro. O servidor Azure Multi-Factor Authentication usa as consultas de escopo de atributo para consultar eficientemente os usuários que são membros de um grupo de segurança. <br>Observação: há alguns casos em que há suporte para consultas de escopo de atributo, mas elas não devem ser usadas. Por exemplo, o Active Directory pode ter problemas com consultas de escopo de atributo quando um grupo de segurança contiver membros de mais de um domínio. Nesse caso, a caixa de seleção deve ser desmarcada. |
 
-The following table describes the LDAP configuration settings.
+A tabela a seguir descreve as definições de configuração de LDAP.
 
-| Feature | Description |
+| Recurso | Descrição |
 | ------- | ----------- |
-| Server | Enter the hostname or IP address of the server running the LDAP directory.  A backup server may also be specified separated by a semi-colon. <br>Note: When Bind Type is SSL, a fully-qualified hostname is generally required. |
-| Base DN | Enter the distinguished name of the base directory object from which all directory queries will start.  For example, dc=abc,dc=com. |
-| Bind type - Queries | Select the appropriate bind type for use when binding to search the LDAP directory.  This is used for imports, synchronization, and username resolution. <br><br>  Anonymous - An anonymous bind will be performed.  Bind DN and Bind Password will not be used.  This will only work if the LDAP directory allows anonymous binding and permissions allow the querying of the appropriate records and attributes.  <br><br> Simple - Bind DN and Bind Password will be passed as plain text to bind to the LDAP directory.  This should only be used for testing purposes to verify that the server can be reached and that the bind account has the appropriate access.  It is recommended that SSL be used instead after the appropriate cert has been installed.  <br><br> SSL - Bind DN and Bind Password will be encrypted using SSL to bind to the LDAP directory.  This requires that a cert be installed locally that the LDAP directory trusts.  <br><br> Windows - Bind Username and Bind Password will be used to securely connect to an Active Directory domain controller or ADAM directory.  If Bind Username is left blank, the logged-on user's account will be used to bind. |
-| Bind type - Authentications | Select the appropriate bind type for use when performing LDAP bind authentication.  See the bind type descriptions under Bind type - Queries.  For example, this allows for Anonymous bind to be used for queries while SSL bind is used to secure LDAP bind authentications. |
-| Bind DN or Bind username | Enter the distinguished name of the user record for the account to use when binding to the LDAP directory.<br><br>The bind distinguished name is only used when Bind Type is Simple or SSL.  <br><br>Enter the username of the Windows account to use when binding to the LDAP directory when Bind Type is Windows.  If left blank, the logged-on user's account will be used to bind. |
-| Bind Password | Enter the bind password for the Bind DN or username being used to bind to the LDAP directory.  To configure the password for the Multi-Factor Auth Server AdSync Service, synchronization must be enabled and the service must be running on the local machine.  The password will be saved in the Windows Stored Usernames and Passwords under the account the Multi-Factor Auth Server AdSync Service is running as.  The password will also be saved under the account the Multi-Factor Auth Server user interface is running as and under the account the Multi-Factor Auth Server Service is running as.  <br><br> Note:  Since the password is only stored in the local server's Windows Stored Usernames and Passwords, this step will need to be done on each Multi-Factor Auth Server that needs access to the password. |
-| Query size limit | Specify the size limit for the maximum number of users that a directory search will return.  This limit should match the configuration on the LDAP directory.  For large searches where paging is not supported, import and synchronization will attempt to retrieve users in batches.  If the size limit specified here is larger than the limit configured on the LDAP directory, some users may be missed. |
-| Test button | Click the Test button to test binding to the LDAP server.  <br><br> Note: The Use LDAP option does not need to be selected in order to test binding.  This allows the binding to be tested prior to using the LDAP configuration. |
+| Servidor | Insira o nome do host ou o endereço IP do servidor que está executando o diretório LDAP. Um servidor de backup também pode ser especificado separado por ponto-e-vírgula. <br>Observação: quando o tipo de associação é SSL, geralmente é necessário um nome de host totalmente qualificado. |
+| DN base | Insira o nome diferenciado do objeto de diretório base do qual todas as consultas de diretório serão iniciadas. Por exemplo, d=abc,dc=com. |
+| Tipo de associação – Consultas | Selecione o tipo de associação apropriado a ser usado na associação do diretório LDAP à pesquisa. Isso é usado para importações, sincronização e resolução de nome de usuário. <br><br>Anônimo: uma ligação anônima será executada. O DN de Associação e a Senha de Associação não serão usados. Isso só funcionará se o diretório LDAP permitir a associação anônima e as permissões autorizarem a consulta dos registros e atributos adequados. <br><br>Simples: Associar DN e Associar Senha serão passados como texto sem formatação para associar ao diretório LDAP. Isso deve ser usado apenas para testes, a fim de verificar se o servidor pode ser acessado e se a conta de associação tem o acesso apropriado. É recomendável que o SSL seja usado após o certificado apropriado ter sido instalado. <br><br>SSL: Associar DN e Associar Senha serão criptografados usando SSL para associar ao diretório LDAP. Isso requer que um certificado em que o diretório LDAP confie seja instalado localmente. <br><br>Windows: Associar Nome de Usuário e Associar Senha serão usados para se conectar com segurança a um controlador de domínio do Active Directory ou diretório ADAM. Se Associar Nome de Usuário for deixado em branco, a conta do usuário conectado será usada na associação. |
+| Tipo de associação – Autenticações | Selecione o tipo de associação apropriado para usar ao executar a autenticação de associação LDAP. Veja as descrições de tipo de associação em Tipo de associação: consultas. Por exemplo, isso permite que a associação anônima seja utilizada para consultas enquanto associação SSL seja usada para proteger as autenticações de associação LDAP. |
+| Associar DN de ligação ou nome de usuário | Digite o nome distinto do registro do usuário para a conta a ser usada ao associar ao diretório LDAP.<br><br>O nome distinto de associação somente é usado quando o tipo de associação é simples ou SSL. <br><br>Insira o nome de usuário da conta do Windows para usar ao associar ao diretório LDAP quando o tipo de associação for Windows. Se for deixado em branco, a conta do usuário conectado será usada na associação. |
+| Senha de associação | Insira a senha de associação para o DN ou nome de usuário de associação que está sendo usado para associação ao diretório LDAP. Para configurar a senha do Serviço AdSync do Servidor Multi-Factor Auth, a sincronização deve ser habilitada e o serviço deve estar em execução no computador local. A senha será salva em Nomes de Usuário e Senhas Armazenados no Windows na conta em que o Serviço AdSync do Servidor Azure Multi-Factor Authentication estiver em execução. A senha também será salva na conta em que a interface de usuário do servidor Multi-Factor Auth estiver em execução e na conta em que o serviço do servidor Azure Multi-Factor Authentication estiver em execução. <br><br>Observação: uma vez que a senha é armazenada somente em Nomes de Usuário e Senhas Armazenados do Windows do servidor local, essa etapa precisará ser executada em cada Servidor Multi-Factor Auth que precise de acesso à senha. |
+| Limite de tamanho de consulta | Especifique o limite de tamanho para o número máximo de usuários que uma pesquisa de diretório retornará. Esse limite deve corresponder à configuração no diretório LDAP. Em pesquisas grandes, em que a paginação não tem suporte, a importação e a sincronização tentarão recuperar os usuários em lotes. Se o limite de tamanho especificado aqui for maior que o limite configurado no diretório LDAP, alguns usuários poderão ser perdidos. |
+| Botão de teste | Clique no botão Testar para testar a associação ao servidor LDAP. <br><br>Observação:a opção Usar LDAP não precisa ser selecionada para testar a associação. Isso permite que a associação seja testada antes de usar a configuração de LDAP. |
 
-## <a name="filters"></a>Filters
-Filters allow you to set criteria to qualify records when performing a directory search.  By setting the filter you can scope the objects you want to synchronize.  
+## Filtros
+Filtros permitem que você defina os critérios para qualificar os registros ao executar uma pesquisa de diretório. Definindo o filtro, você pode definir o escopo de objetos que você deseja sincronizar.
 
-![Filters](./media/multi-factor-authentication-get-started-server-dirint/dirint2.png)
+![Filtros](./media/multi-factor-authentication-get-started-server-dirint/dirint2.png)
 
-Azure Multi-Factor Authentication has the following 3 options.
+O Azure Multi-Factor Authentication tem três opções a seguir.
 
-- **Container filter** - Specify the filter criteria used to qualify container records when performing a directory search.  For Active Directory and ADAM, (|(objectClass=organizationalUnit)(objectClass=container)) is generally used.  For other LDAP directories, filter criteria that qualifies each type of container object should be used depending on the directory schema.  <br>Note:  If left blank, ((objectClass=organizationalUnit)(objectClass=container)) will be used by default.
+- **Filtro de contêiner**: especifique os critérios de filtro usados para qualificar os registros de contêiner ao executar uma pesquisa de diretório. Para o Active Directory e o ADAM, (| ( objectClass=organizationalUnit)(objectClass=container)) geralmente é usado. Para outros diretórios LDAP, os critérios de filtro que qualificam cada tipo de objeto de contêiner devem ser usados dependendo do esquema de diretório. <br>Observação: se for deixado em branco, ((objectClass=organizationalUnit)(objectClass=container)) será usado por padrão.
 
-- **Security group filter** - Specify the filter criteria used to qualify security group records when performing a directory search.  For Active Directory and ADAM, (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) is generally used.  For other LDAP directories, filter criteria that qualifies each type of security group object should be used depending on the directory schema.  <br>Note:  If left blank, (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) will be used by default.
+- **Filtro de grupo de segurança**: especifique os critérios de filtro usados para qualificar os registros do grupo de segurança ao executar uma pesquisa de diretório. Para o Active Directory e o ADAM, (&(objectCategory=group) (groupType:1.2.840.113556.1.4.804:=-2147483648)) geralmente é usado. Para outros diretórios LDAP, os critérios de filtro que qualificam cada tipo de objeto do grupo de segurança devem ser usados dependendo do esquema de diretório. <br>Observação: se for deixado em branco, (&(objectCategory=group) (groupType:1.2.840.113556.1.4.804:=-2147483648)) será usado por padrão.
 
-- **User filter** - Specify the filter criteria used to qualify user records when performing a directory search.  For Active Directory and ADAM, (&(objectClass=user)(objectCategory=person)) is generally used.  For other LDAP directories, (objectClass=inetOrgPerson) or something similar should be used depending on the directory schema. <br>Note:  If left blank, (&(objectCategory=person)(objectClass=user)) will be used by default.
+- **Filtro de usuário**: especifique os critérios de filtro usados para qualificar os registros de usuário ao executar uma pesquisa de diretório. Para o Active Directory e o ADAM, (& (objectClass=user)(objectCategory=person)) geralmente é usado. Para outros diretórios LDAP, (objectClass = inetOrgPerson) ou algo semelhante deve ser usado dependendo do esquema de diretório. <br>Observação: se for deixado em branco, (&(objectCategory=person)(objectClass=user)) será usado por padrão.
 
-## <a name="attributes"></a>Attributes
-Attributes may be customized as necessary for a specific directory.  This allows you to add custom attributes and fine tune the synchronization to only the attributes that you need.  The value for each attribute field should be the name of the attribute as defined in the directory schema.  Use the table below for additional information.
+## Atributos
+Os atributos podem ser personalizados conforme necessário para um diretório específico. Isso permite que você adicione atributos personalizados e ajuste a sincronização somente para os atributos de que você precisa. O valor para cada campo de atributo deve ser o nome do atributo conforme definido no esquema de diretório. Use a tabela abaixo para obter informações adicionais.
 
-![Attributes](./media/multi-factor-authentication-get-started-server-dirint/dirint3.png)
+![Atributos](./media/multi-factor-authentication-get-started-server-dirint/dirint3.png)
 
-| Feature | Description |
+| Recurso | Descrição |
 | ------- | ----------- |
-| Unique identifier | Enter the attribute name of the attribute that serves as the unique identifier of container, security group, and user records.  In Active Directory, this is usually objectGUID.  In other LDAP implementations, it may be entryUUID or something similar.  The default is objectGUID. |
-| ... (Select Attribute) buttons | Each attribute field has a "..." button next to it that will display the Select Attribute dialog allowing an attribute to be selected from a list. <br><br>Select Attribute dialog.<br><br>Note:  Attributes may be entered manually and are not required to match an attribute in the attribute  list. |
-| Unique identifier type | Select the type of the unique identifier attribute.  In Active Directory, the objectGUID attribute is of type GUID.  In other LDAP implementations, it may be of type ASCII Byte Array or String.  The default is GUID. <br><br>Note:  It is important to set this correctly since Synchronization Items are referenced by their Unique Identifier and the Unique Identifier Type is used to directly find the object in the directory.  Setting this to String when the directory actually stores the value as a byte array of ASCII characters will prevent synchronization from functioning properly. |
-| Distinguished name | Enter the attribute name of the attribute that contains the distinguished name for each record.  In Active Directory, this is usually distinguishedName.  In other LDAP implementations, it may be entryDN or something similar.  The default is distinguishedName. <br><br>Note:  If an attribute containing just the distinguished name doesn't exist, the adspath attribute may be used.  The "LDAP://<server>/" portion of the path will be automatically stripped off leaving just the distinguished name of the object. |
-| Container name | Enter the attribute name of the attribute that contains the name in a container record.  The value of this attribute will be displayed in the Container Hierarchy when importing from Active Directory or adding synchronization items.  The default is name. <br><br>Note:  If different containers use different attributes for their names, multiple container name attributes may be specified in separated by semi-colons.  The first container name attribute found on a container object will be used to display its name. |
-| Security group name | Enter the attribute name of the attribute that contains the name in a security group record.  The value of this attribute will be displayed in the Security Group list when importing from Active Directory or adding synchronization items.  The default is name. |
-| Users | The following attributes are used for searching for, displaying, importing, and synchronizing user information from the directory. |
-| Username | Enter the attribute name of the attribute that contains the username in a user record.  The value of this attribute will be used as the Multi-Factor Auth Server username.  A second attribute may be specified as a backup to the first.  The second attribute will only be used if the first attribute does not contain a value for the user.  The defaults are userPrincipalName and sAMAccountName. |
-| First name | Enter the attribute name of the attribute that contains the first name in a user record.  The default is givenName. |
-| Last name | Enter the attribute name of the attribute that contains the last name in a user record.  The default is sn. |
-| Email address | Enter the attribute name of the attribute that contains the email address in a user record.  Email address will be used to send welcome and update emails to the user.  The default is mail. |
-| User group | Enter the attribute name of the attribute that contains the user group in a user record.  User group can be used to filter users in the agent and on reports in the Multi-Factor Auth Server Management Portal. |
-| Description | Enter the attribute name of the attribute that contains the description in a user record.  Description is only used for searching.  The default is description. |
-| Voice call language | Enter the attribute name of the attribute that contains the short name of the language to use for voice calls for the user. |
-| SMS text language | Enter the attribute name of the attribute that contains the short name of the language to use for SMS text messages for the user. |
-| Phone app language | Enter the attribute name of the attribute that contains the short name of the language to use for phone app text messages for the user. |
-| OATH token language | Enter the attribute name of the attribute that contains the short name of the language to use for OATH token text messages for the user. |
-| Phones | The following attributes are used to import or synchronize user phone numbers.  If an attribute name is not specified for phone type, the phone type will not be available when importing from Active Directory or adding synchronization items. |
-| Business | Enter the attribute name of the attribute that contains the business phone number in a user record.  The default is telephoneNumber. |
-| Home | Enter the attribute name of the attribute that contains the home phone number in a user record.  The default is homePhone. |
-| Pager | Enter the attribute name of the attribute that contains the pager number in a user record.  The default is pager. |
-| Mobile | Enter the attribute name of the attribute that contains the mobile phone number in a user record.  The default is mobile. |
-| Fax | Enter the attribute name of the attribute that contains the fax number in a user record.  The default is facsimileTelephoneNumber. |
-| IP phone | Enter the attribute name of the attribute that contains the IP phone number in a user record.  The default is ipPhone. |
-| Custom | Enter the attribute name of the attribute that contains a custom phone number in |
-|  | a user record.  The default is blank. |
-| Extension | Enter the attribute name of the attribute that contains the phone number extension in a user record.  The value of the extension field will be used as the extension to the primary phone number only.  The default is blank. <br><br>Note: If the Extension attribute is not specified, extensions can be included as part of the phone attribute.  The extension should be preceded with an 'x' so it can be parsed.  For example 555-123-4567 x890 would result in 555-123-4567 as the phone number and 890 as the extension. |
-| Restore Defaults button | Click the Restore Defaults button to return all attributes back to their default value.  The defaults should work properly with the normal Active Directory or ADAM schema. |
+| Identificador exclusivo | Digite o nome do atributo que serve como o identificador exclusivo do contêiner, do grupo de segurança e dos registros de usuário. No Active Directory, isso geralmente é objectGUID. Em outras implementações LDAP, pode ser entryUUID ou algo semelhante. O padrão é objectGUID. |
+| ... Botões (selecionar atributo) | Cada campo de atributo tem um botão “..."ao lado dele que exibirá o diálogo Select Attribute, permitindo que um atributo seja selecionado em uma lista. <br><br>Diálogo Selecionar Atributo.<br><br>Observação: os atributos podem ser inseridos manualmente e não precisa coincidir com um atributo na lista de atributos. |
+| Tipo de identificador exclusivo | Selecione o tipo de atributo de identificador exclusivo. No Active Directory, o atributo objectGUID é do tipo GUID. Em outras implementações LDAP, ele pode ser do tipo cadeia de caracteres ou matriz de bytes ASCII. O padrão é GUID. <br><br>Observação: é importante definir isso corretamente, já que os itens de sincronização são referenciados por seu identificador exclusivo e o tipo de identificador exclusivo é usado para localizar diretamente o objeto no diretório. Definir isso como cadeia de caracteres quando o diretório realmente armazena o valor como uma matriz de bytes de caracteres ASCII impedirá que a sincronização funcione corretamente. |
+| Nome distinto | Digite o nome do atributo que contém o nome distinto para cada registro. No Active Directory, isso geralmente é distinguishedName. Em outras implementações LDAP, pode ser entryDN ou algo semelhante. O padrão é distinguishedName. <br><br>Observação: se um atributo contendo apenas o nome distinto não existir, o atributo adspath poderá ser usado. A parte do caminho "LDAP: / /<server>/" será removida automaticamente, deixando apenas o nome distinto do objeto. |
+| Nome do contêiner | Insira o nome do atributo que contém o nome em um registro de contêiner. O valor desse atributo será exibido na hierarquia do contêiner ao importar do Active Directory ou adicionar itens de sincronização. O padrão é o nome. <br><br>Observação: se contêineres diferentes usarem atributos diferentes para seus nomes, vários atributos de nome de contêiner poderão ser especificados separados por ponto e vírgula. O primeiro atributo de nome de contêiner encontrado em um objeto de contêiner será ser usado para exibir seu nome. |
+| Nome do grupo de segurança | Insira o nome do atributo que contém o nome em um registro de grupo de segurança. O valor desse atributo será exibido na lista Grupo de segurança ao importar do Active Directory ou adicionar itens de sincronização. O padrão é o nome. |
+| Usuários | Os seguintes atributos são usados para procurar, exibir, importar e sincronizar informações de usuário do diretório. |
+| Nome de Usuário | Digite o nome do atributo que contém o nome de usuário em um registro de usuário. O valor deste atributo será usado como o nome de usuário do servidor Multi-Factor Auth. Um segundo atributo pode ser especificado como um backup do primeiro. O segundo atributo somente será usado se o primeiro atributo não contiver um valor para o usuário. Os padrões são userPrincipalName e sAMAccountName. |
+| Nome | Insira o nome do atributo que contém o nome em um registro de usuário. O padrão é givenName. |
+| Sobrenome | Insira o nome do atributo que contém o sobrenome em um registro de usuário. O padrão é sn. |
+| Endereço de email | Insira o nome do atributo que contém o endereço de email em um registro de usuário. O endereço de email será usado para enviar boas-vindas e emails de atualização para o usuário. O padrão é email. |
+| Grupo de usuários | Insira o nome do atributo que contém o grupo de usuários em um registro de usuário. O grupo de usuários pode ser usado para filtrar usuários no agente e em relatórios no Portal de Gerenciamento do servidor Multi-Factor Authentication. |
+| Descrição | Insira o nome do atributo que contém a descrição em um registro de usuário. A descrição é usada somente para pesquisa. O padrão é descrição. |
+| Idioma da chamada de voz | Insira o nome do atributo que contém o nome curto do idioma a ser usado para chamadas de voz para o usuário. |
+| Idioma de texto SMS | Insira o nome do atributo que contém o nome curto do idioma a ser usado para mensagens de texto SMS para o usuário. |
+| Idioma do aplicativo Telefone | Insira o nome do atributo que contém o nome curto do idioma a ser usado para mensagens de texto do aplicativo Telefone do usuário. |
+| Idioma do token OATH | Insira o nome do atributo que contém o nome curto do idioma a ser usado para mensagens de texto de token OATH para o usuário. |
+| Telefones | Os seguintes atributos são usados para importar ou sincronizar os números de telefone do usuário. Se um nome de atributo não for especificado para o tipo de telefone, o tipo de telefone não estará disponível quando importar do Active Directory ou adicionar itens de sincronização. |
+| Negócios | Insira o nome do atributo que contém o número de telefone comercial em um registro de usuário. O padrão é telephoneNumber. |
+| Home | Insira o nome do atributo que contém o número de telefone residencial em um registro de usuário. O padrão é homePhone. |
+| Pager | Digite o nome do atributo que contém o número de pager em um registro de usuário. O padrão é pager. |
+| Móvel | Insira o nome do atributo que contém o número de telefone celular em um registro de usuário. O padrão é celular. |
+| Fax | Insira o nome do atributo que contém o número de fax em um registro de usuário. O padrão é facsimileTelephoneNumber. |
+| Telefone IP | Insira o nome do atributo que contém o número de telefone IP em um registro de usuário. O padrão é ipPhone. |
+| Personalizado | Insira o nome do atributo que contém um número de telefone personalizado em |
+| | um registro de usuário. O padrão é em branco. |
+| Extensão | Insira o nome do atributo que contém o ramal do número de telefone em um registro de usuário. O valor do campo extensão será usado como a extensão somente para o número de telefone principal. O padrão é em branco. <br><br>Observação: se o atributo extensão não for especificado, as extensões podem ser incluídas como parte do atributo telefone. A extensão deve ser precedida por um 'x' para que ele possa ser analisado. Por exemplo, 3123-4567 x890 resultaria em 3123-4567 como o número de telefone e 890 como a extensão. |
+| Botão Restaurar Padrões | Clique no botão Restaurar Padrões para retornar todos os atributos de volta ao seu valor padrão. Os padrões devem funcionar corretamente com o esquema do Active Directory ou do ADAM normal. |
 
-To edit attributes, simply click the edit button on the Attributes tab.  This will bring up a windows that allows you to edit the attributes.
+Para editar atributos, basta clicar no botão Editar na guia Atributos. Isso abrirá uma janela que permite que você edite os atributos.
 
-![Edit Attributes](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
+![Editar Atributos](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
-## <a name="synchronization"></a>Synchronization
-Synchronization keeps the Azure Multi-Factor user database synchronized with the users in Active Directory or another Lightweight Directory Access Protocol (LDAP)  Lightweight Directory Access Protocol directory.  The process is similar to importing users manually from Active Directory, but periodically polls for Active Directory user and security group changes to process.  It also provides for disabling or removing users removed from a container or security group and removing users deleted from Active Directory.
+## Sincronização
+A sincronização mantém o banco de dados do usuário do Azure Multi-Factor sincronizado com os usuários no Active Directory ou outro diretório LDAP (Lightweight Directory Access Protocol). O processo é semelhante à importação manual de usuários do Active Directory, mas faz sondagens para processar alterações do grupo de segurança e de usuário do Active Directory. Ele também possibilita a desativação ou remoção de usuários removidos de um contêiner ou grupo de segurança e remoção de usuários excluídos do Active Directory.
 
-The Multi-Factor Auth ADSync service is a Windows service that performs the periodic polling of Active Directory.  This is not to be confused with Azure AD Sync or Azure AD Connect.  the Multi-Factor Auth ADSync, although built on a similar code base, is specific to the Azure Multi-Factor Authentication Server.  It is installed in a Stopped state and is started by the Multi-Factor Auth Server service when configured to run.  If you have a multi-server Multi-Factor Auth Server configuration, the Multi-Factor Auth ADSync may only be run on a single server.
+O serviço ADSync do Multi-Factor Auth é um serviço do Windows que executa a sondagem periódica do Active Directory. Isso não é deve ser confundido com o Azure AD Sync ou o Azure AD Connect. O Multi-Factor ADSync, embora criado sobre uma base de código semelhante, é específico para o servidor Azure Multi-Factor Authentication. Ele é instalado em um estado Parado e iniciado pelo serviço do servidor Multi-Factor Auth quando configurado para executar. Se você tiver uma configuração de vários servidores Multi-Factor Auth Server, o ADSync do Multi-Factor Auth somente pode ser executado em um único servidor.
 
-The Multi-Factor Auth ADSync service uses the DirSync LDAP server extension provided by Microsoft to efficiently poll for changes.  This DirSync control caller must have the "directory get changes" right and DS-Replication-Get-Changes extended control access right.  By default, these rights are assigned to the Administrator and LocalSystem accounts on domain controllers.  The Multi-Factor Auth AdSync service is configured to run as LocalSystem by default.  Therefore it is simplest to run the service on a domain controller.  The service can run as an account with lesser permissions if you configure it to always perform a full synchronization.  This is less efficient, but requires less account privileges.
+O serviço ADSync do multi-Factor Auth usa a extensão do servidor DirSync LDAP fornecida pela Microsoft para sondar alterações com eficiência. O chamador de controle DirSync deve ter os direitos "directory get changes” e o controle estendido DS-Replication-Get-Changes. Por padrão, esses direitos são atribuídos às contas de administrador e LocalSystem nos controladores de domínio. Por padrão, o serviço AdSync do Multi-Factor Auth está configurado para ser executado como LocalSystem. Portanto, é mais simples de executar o serviço em um controlador de domínio. O serviço pode ser executado como uma conta com menos permissões se for configurado para sempre executar uma sincronização completa. Isso é menos eficiente, mas requer menos privilégios de conta.
 
-If configured to use LDAP and the LDAP directory supports the DirSync control, then polling for user and security group changes will work the same as it does with Active Directory.  If the LDAP directory does not support the DirSync control, then a full synchronization will be performed during each cycle.
+Se configurado para usar LDAP e o diretório LDAP suportar o controle DirSync, a sondagem de alterações do grupo de segurança e de usuário funcionam da mesma forma como acontece com o Active Directory. Se o diretório LDAP não der suporte para o controle DirSync, uma sincronização completa será executada durante cada ciclo.
 
-![Synchronization](./media/multi-factor-authentication-get-started-server-dirint/dirint5.png)
+![Sincronização](./media/multi-factor-authentication-get-started-server-dirint/dirint5.png)
 
-Use the table below for additional information on each of the individual settings on the Synchronization tab.
+Use a tabela abaixo para obter informações adicionais sobre cada uma das configurações individuais na guia Sincronização.
 
-| Feature | Description |
+| Recurso | Descrição |
 | ------- | ----------- |
-| Enable synchronization with Active Directory | When checked, the Multi-Factor Auth Server service will be started to periodically poll Active Directory for changes. <br><br>Note: At least one Synchronization Item must be added and a Synchronize Now must be performed before the Multi-Factor Auth Server service will start processing changes. |
-| Synchronize every | Specify the time interval the Multi-Factor Auth Server service will wait between polling and processing changes. <br><br> Note: The interval specified is the time between the beginning of each cycle.  If the time processing changes exceeds the interval, the service will poll again immediately. |
-| Remove users no longer in Active Directory | When checked, the Multi-Factor Auth Server service will process Active Directory deleted user tombstones and remove the related Multi-Factor Auth Server user. |
-| Always perform a full synchronization | When checked, the Multi-Factor Auth Server service will always perform a full synchronization.  When unchecked, the Multi-Factor Auth Server service will perform an incremental synchronization by only querying users that have changed.  The default is unchecked. <br><br> Note:  When unchecked, an incremental synchronization can only be performed when the directory supports the DirSync control and the account being used to bind to the directory has the appropriate permissions to perform DirSync incremental queries.  If the account does not have the appropriate permissions or multiple domains are involved in the synchronization, perform a full synchronization is recommended. |
-| Require administrator approval when more than X users will be disabled or removed | Synchronization items can be configured to disable or remove users who are no longer a member of the item's container or security group.  As a safeguard, administrator approval can be required when the number of users to disable or remove exceeds a threshold.  When checked, approval will be required for specified threshold.  The default is 5 and the range is 1 to 999. <br><br> Approval is facilitated by first sending an email notification to administrators. The email notification gives instructions for reviewing and approving the disabling and removal of users.  When the Multi-Factor Auth Server user interface is launched, it will prompt for approval. |
+| Habilitar a sincronização com o Active Directory | Quando marcado, o serviço do servidor Multi-Factor Auth será iniciado para sondar o Active Directory quanto a alterações. <br><br>Observação: pelo menos um Item de sincronização deve ser adicionado e Sincronizar agora deve ser executado antes que o serviço do servidor Multi-Factor Auth inicie o processamento das alterações. |
+| Sincronizar cada | Especifique o intervalo de tempo que o serviço de servidor Multi-Factor Authentication aguardará entre a sondagem e o processamento de alterações. <br><br>Observação: o intervalo especificado é o tempo entre o início de cada ciclo. Se o tempo de processamento das alterações exceder o intervalo, o serviço fará a sondagem novamente imediatamente. |
+| Remover os usuários não está mais no Active Directory | Quando marcado, o serviço do servidor Multi-Factor Auth processa marcas de exclusão de usuários excluídos do Active Directory e removerá o usuário do servidor Multi-Factor Auth associado. |
+| Sempre executar uma sincronização completa | Quando marcado, o serviço do servidor Multi-Factor Auth sempre executará uma sincronização completa. Quando desmarcado, o serviço do servidor Multi-Factor Auth Server executará uma sincronização incremental consultando apenas os usuários que foram alterados. O padrão é desmarcado. <br><br>Observação: quando desmarcada, a sincronização incremental só pode ser executada quando o diretório suporta o controle DirSync e a conta que está sendo usada para associar ao diretório tem as permissões apropriadas para executar consultas incrementais de DirSync. Se a conta não tiver as permissões apropriadas ou vários domínios estiverem envolvidos na sincronização, recomendamos que execute uma sincronização completa. |
+| Exigir a aprovação do administrador quando mais de X usuários forem desabilitados ou removidos | Os itens de sincronização podem ser configurados para desabilitar ou remover os usuários que não são mais membros de contêiner ou grupo de segurança do item. Como salvaguarda, a aprovação de administrador pode ser exigida quando o número de usuários para desabilitar ou remover exceder um limite. Quando marcada, a opção de aprovação será exigida para o limite especificado. O padrão é 5 e o intervalo é de 1 a 999. <br><br>A aprovação é facilitada com o envio inicial de uma notificação por email aos administradores. A notificação de email fornece instruções para revisar e aprovar a desabilitação e a remoção de usuários. Quando a interface de usuário do servidor Multi-Factor Authentication for iniciada, ela irá solicitar aprovação. |
 
-The **Synchronize Now** button allows you to run a full synchronization for the synchronization items specified.  A full synchronization is required whenever synchronization items are added, modified, removed, or reordered.  It is also required before the Multi-Factor Auth AdSync service will be operational since it sets the starting point from which the service will poll for incremental changes.  If changes have been made to synchronization items and a full synchronization has not been performed, you will be prompted to Synchronize Now when navigating to another section or when closing the user interface.
+O botão **Sincronizar Agora** permite que você execute uma sincronização completa dos itens de sincronização especificados. Uma sincronização completa é necessária sempre que itens de sincronização são adicionados, modificados, removidos ou reordenados. Também é necessária antes que o serviço AdSync do Multi-Factor Auth fique operacional, pois ele define o ponto de partida a partir do qual o serviço irá sondar alterações incrementais. Se houver alterações aos itens de sincronização e uma sincronização completa não tiver sido feita, você será solicitado a Sincronizar agora ao navegar para outra seção ou ao fechar a interface do usuário.
 
-The **Remove** button allows the administrator to delete one or more synchronization items from the Multi-Factor Auth Server synchronization item list.
+O botão **Remover** permite que o administrador exclua um ou mais itens de sincronização da lista de item de sincronização do servidor Multi-Factor Auth.
 
->[AZURE.WARNING]Once a synchronization item record has been removed, it cannot be recovered. You will need to re-add the synchronization item record if you deleted it by mistake.
+>[AZURE.WARNING]Depois que um registro de item de sincronização tiver sido removido, ele não pode ser recuperado. Você precisará adicionar o registro de item de sincronização novamente se tiver sido excluído por engano.
 
-The synchronization item or synchronization items have been removed from Multi-Factor Auth Server.  The Multi-Factor Auth Server service will no longer process the synchronization items.
+Os itens de sincronização foram removidos do servidor Multi-Factor Auth. O serviço do servidor Multi-Factor Auth não processará mais os itens de sincronização.
 
-The Move Up and Move Down buttons allow the administrator to change the order of the synchronization items.  The order is important since the same user may be a member of more than one synchronization item (e.g. a container and a security group).  The settings applied to the user during synchronization will come from the first synchronization item in the list to which the user is associated.  Therefore, the synchronization items should be put in priority order.
+Os botões Mover para cima e Mover para baixo permitem que o administrador altere a ordem dos itens de sincronização. A ordem é importante, pois um mesmo usuário pode ser membro de mais de um item de sincronização (por exemplo, um contêiner e um grupo de segurança). As configurações aplicadas ao usuário durante a sincronização virão do primeiro item de sincronização na lista a qual o usuário estiver associado. Portanto, os itens de sincronização devem ser colocados em ordem de prioridade.
 
->[AZURE.TIP]A full synchronization should be performed after removing synchronization items.  A full synchronization should be performed after ordering synchronization items.  Click the Synchronize Now button to perform a full synchronization.
+>[AZURE.TIP]Uma sincronização completa deve ser executada após a remoção de itens de sincronização. Uma sincronização completa deve ser executada após a ordenação dos itens de sincronização. Clique no botão Sincronizar Agora para executar uma sincronização completa.
 
-## <a name="multi-factor-auth-servers"></a>Multi-Factor Auth Servers
-Additional Multi-Factor Auth Servers may be set up to serve as a backup RADIUS proxy, LDAP proxy, or for IIS Authentication. The Synchronization configuration will be shared among all of the agents. However, only one of these agents may have the Multi-Factor Auth Server service running. This tab allows you to select the Multi-Factor Auth Server that should be enabled for synchronization.
+## Servidores de autenticação multifator
+Os servidores adicionais Multi-Factor Auth podem ser configurados para servir como um backup proxy RADIUS, proxy LDAP ou para autenticação IIS. A configuração da sincronização será compartilhada entre todos os agentes. No entanto, apenas um desses agentes pode ter a execução do serviço de servidor Multi-Factor Auth. Essa guia permite que você selecione o servidor Multi-Factor Auth que deve ser habilitado para sincronização.
 
-![Multi-Factor-Auth Servers](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
+![Servidores Multi-Factor Auth](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

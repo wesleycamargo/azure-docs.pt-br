@@ -1,22 +1,19 @@
-## <a name="incremental-and-complete-deployments"></a>Incremental and complete deployments
+## Implantações incrementais e completas
 
-By default, Resource Manager handles deployments as incremental updates to the resource group. With incremental deployment, Resource Manager:
+Por padrão, o Gerenciador de Recursos trata as implantações como atualizações incrementais para o grupo de recursos. Com a implantação incremental, o Gerenciador de Recursos:
 
-- **leaves unchanged** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
-- **re-provisions** existing resources that have updated settings in the template
+- **deixa inalterados** os recursos existentes no grupo de recursos, mas que não foram especificados no modelo
+- **adiciona** os recursos especificados no modelo, mas que não existem no grupo de recursos
+- **não reprovisiona** os recursos existentes no grupo de recursos na mesma condição definida no modelo
+- **reprovisionada** recursos existentes que atualizaram as configurações no modelo
 
-With complete deployment, Resource Manager:
+Com a implantação completa, o Gerenciador de Recursos:
 
-- **deletes** resources that exist in the resource group but are not specified in the template
-- **adds** resources that are specified in the template but do not exist in the resource group 
-- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
-- **re-provisions** existing resources that have updated settings in the template
+- **exclui** os recursos existentes no grupo de recursos, mas que não foram especificados no modelo
+- **adiciona** os recursos especificados no modelo, mas que não existem no grupo de recursos
+- **não reprovisiona** os recursos existentes no grupo de recursos na mesma condição definida no modelo
+- **reprovisionada** recursos existentes que atualizaram as configurações no modelo
  
-You specify the type of deployment through the **Mode** property.
+Especifique o tipo de implantação por meio da propriedade **Mode**.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

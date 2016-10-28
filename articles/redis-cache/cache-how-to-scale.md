@@ -1,92 +1,91 @@
 <properties 
-    pageTitle="How to Scale Azure Redis Cache | Microsoft Azure" 
-    description="Learn how to scale your Azure Redis Cache instances" 
-    services="redis-cache" 
-    documentationCenter="" 
-    authors="steved0x" 
-    manager="douge" 
-    editor=""/>
+	pageTitle="Como dimensionar o Cache Redis do Azure | Microsoft Azure" 
+	description="Saiba como dimensionar suas instâncias do Cache Redis do Azure" 
+	services="redis-cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="douge" 
+	editor=""/>
 
 <tags 
-    ms.service="cache" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="cache-redis" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/07/2016" 
-    ms.author="sdanie"/>
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2016" 
+	ms.author="sdanie"/>
 
+# Como dimensionar o Cache Redis do Azure
 
-# <a name="how-to-scale-azure-redis-cache"></a>How to Scale Azure Redis Cache
+>[AZURE.NOTE] O recurso de dimensionamento do Cache Redis do Azure está atualmente na visualização.
 
->[AZURE.NOTE] The Azure Redis Cache scaling feature is currently in preview. 
+O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho do e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho do cache usando a folha **Alterar camada de preços** no [portal do Azure](https://portal.azure.com).
 
-Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features. If the requirements of your application change after a cache is created, you can scale the size of the cache using the **Change pricing tier** blade in the [Azure portal](https://portal.azure.com).
+## Quando dimensionar
 
-## <a name="when-to-scale"></a>When to scale
+Você pode usar os recursos de [monitoramento](cache-how-to-monitor.md) do Cache Redis do Azure para monitorar a integridade e o desempenho de seus aplicativos de cache e para ajudar a determinar se é necessário dimensionar o cache.
 
-You can use the [monitoring](cache-how-to-monitor.md) features of Azure Redis Cache to monitor the health and performance of your cache applications and to help determine if there is a need to scale the cache. 
+Você pode monitorar as métricas a seguir para ajudá-lo a determinar se é preciso dimensionar.
 
-You can monitor the following metrics to help determine if you need to scale.
+-	Carga do Servidor Redis
+-	Uso de Memória
+-	Largura de Banda de Rede
+-	Uso da CPU
 
--   Redis Server Load
--   Memory Usage
--   Network Bandwidth
--   CPU Usage
+Se determinar que o cache não atende mais aos requisitos de seu aplicativo, você poderá mudar para uma camada de preços cache maior ou menor que seja adequada ao aplicativo. Para obter mais informações sobre como determinar qual camada de preços de cache usar, consulte [Qual oferta e tamanho do Cache Redis devo usar](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
-If you determine that your cache is no longer meeting the requirements of your application, you can change to a larger or smaller cache pricing tier that is right for your application. For more information on determining which cache pricing tier to use, see [What Redis Cache offering and size should I use](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+## Dimensionar um cache
+Para dimensionar o cache, [navegue até ele](cache-configure.md#configure-redis-cache-settings) no [portal do Azure](https://portal.azure.com) e clique em **Configurações**, **Tipo de preço**.
 
-## <a name="scale-a-cache"></a>Scale a cache
-To scale your cache, [browse to the cache](cache-configure.md#configure-redis-cache-settings) in the [Azure portal](https://portal.azure.com) and click **Settings**, **Pricing tier**.
+Você também pode clicar na parte **Camada de preços** da folha **Cache Redis**.
 
-You can also click the **Pricing tier** part in the **Redis Cache** blade.
+![Tipo de preço][redis-cache-pricing-tier-part]
 
-![Pricing tier][redis-cache-pricing-tier-part]
+Selecione a camada de preços desejada na folha **Camada de preços** e clique em **Selecionar**.
 
-Select the desired pricing tier from the **Pricing tier** blade and click **Select**.
+![Tipo de preço][redis-cache-pricing-tier-blade]
 
-![Pricing tier][redis-cache-pricing-tier-blade]
-
->[AZURE.NOTE] You can scale to a different pricing tier with the following restrictions.
+>[AZURE.NOTE] Você pode dimensionar para uma camada de preços diferente com as restrições a seguir.
 >
->-  You can't scale from a higher pricing tier to a lower pricing tier.
->    -    You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
->    -    You can't scale from a **Standard** cache down to a **Basic** cache.
->-  You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
->-  You can't scale from a **Basic** cache directly to a **Premium** cache. You must scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
->-  You can't scale from a larger size down to the **C0 (250 MB)** size.
+>-	Você não pode dimensionar de uma camada de preços mais alta para uma camada de preços mais baixa.
+>    -    Você não pode dimensionar de um cache **Premium** para um cache **Standard** ou **Básico**.
+>    -    Você não pode dimensionar de um cache **Standard** para um cache **Básico**.
+>-	É possível dimensionar de um cache **Básico** para um cache **Standard**, mas não é possível alterar o tamanho simultaneamente. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
+>-	Você não pode dimensionar de um cache **Básico** diretamente para um cache **Premium**. Você deve dimensionar do **Básico** para o **Standard** em uma única operação de dimensionamento e do **Standard** para o **Premium** em uma operação de dimensionamento subsequente.
+>-	Não é possível dimensionar de um tamanho maior para o tamanho **C0 (250 MB)**.
 
-While the cache is scaling to the new pricing tier, a **Scaling** status is displayed in the **Redis Cache** blade.
+Enquanto o cache é dimensionado para a nova camada de preços, um status **Dimensionando** é exibido na folha do **Cache Redis**.
 
-![Scaling][redis-cache-scaling]
+![Dimensionamento][redis-cache-scaling]
 
-When scaling is complete, the status changes from **Scaling** to **Running**.
+Quando o dimensionamento for concluído, o status será alterado de **Dimensionando** para **Executando**.
 
-## <a name="how-to-automate-a-scaling-operation"></a>How to automate a scaling operation
+## Como automatizar uma operação de dimensionamento
 
-In addition to scaling your Azure Redis Cache instances in the Azure portal, you can scale using Azure Redis Cache PowerShell cmdlets, Azure CLI, and by using the Microsoft Azure Management Libraries (MAML). 
+Além de dimensionar as instâncias do Cache Redis do Azure no portal do Azure, você pode dimensionar usando cmdlets do PowerShell do Cache Redis do Azure, a CLI do Azure e a MAML (Bibliotecas de Gerenciamento do Microsoft Azure).
 
--   [Scale using PowerShell](#scale-using-powershell)
--   [Scale using Azure CLI](#scale-using-azure-cli)
--   [Scale using MAML](#scale-using-maml)
+-	[Dimensionar usando o PowerShell](#scale-using-powershell)
+-	[Dimensionar usando a CLI do Azure](#scale-using-azure-cli)
+-	[Dimensionar usando MAML](#scale-using-maml)
 
-### <a name="scale-using-powershell"></a>Scale using PowerShell
+### Dimensionar usando o PowerShell
 
-You can scale your Azure Redis Cache instances with PowerShell by using the [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) cmdlet when the `Size`, `Sku`, or `ShardCount` properties are modified. The following example shows how to scale a cache named `myCache` to a 2.5 GB cache. 
+É possível dimensionar as instâncias do Cache Redis do Azure com o PowerShell usando o cmdlet [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) quando as propriedades `Size`, `Sku` ou `ShardCount` forem modificadas. O exemplo a seguir mostra como dimensionar um cache denominado `myCache` para um cache de 2,5 GB.
 
-    Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+	Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
-For more information on scaling with PowerShell, see [To scale a Redis cache using Powershell](cache-howto-manage-redis-cache-powershell.md#scale).
+Para obter mais informações sobre o dimensionamento com o PowerShell, confira [To scale a Redis cache using Powershell](cache-howto-manage-redis-cache-powershell.md#scale).
 
-### <a name="scale-using-azure-cli"></a>Scale using Azure CLI
+### Dimensionar usando a CLI do Azure
 
-To scale your Azure Redis Cache instances using Azure CLI, call the `azure rediscache set` command and pass in the desired configuration changes that include a new size, sku, or cluster size, depending on the desired scaling operation.
+Para dimensionar instâncias do Cache Redis do Azure usando a CLI do Azure, chame o comando `azure rediscache set` e transmita as mudanças de configuração desejadas que incluam novo tamanho, SKU ou tamanho de cluster, de acordo com a operação de dimensionamento desejada.
 
-For more information on scaling with Azure CLI, see [Change settings of an existing Redis Cache](cache-manage-cli.md#scale).
+Para obter mais informações sobre o dimensionamento com CLI do Azure, confira [Alterar as configurações de um Cache Redis existente](cache-manage-cli.md#scale).
 
-### <a name="scale-using-maml"></a>Scale using MAML
+### Dimensionar usando MAML
 
-To scale your Azure Redis Cache instances using the [Microsoft Azure Management Libraries (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), call the `IRedisOperations.CreateOrUpdate` method and pass in the new size for the `RedisProperties.SKU.Capacity`.
+Para dimensionar as instâncias do Cache Redis do Azure usando a [MAML (Bibliotecas de Gerenciamento do Microsoft Azure)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), chame o método `IRedisOperations.CreateOrUpdate` e transmita o novo tamanho para `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
@@ -106,87 +105,87 @@ To scale your Azure Redis Cache instances using the [Microsoft Azure Management 
         client.Redis.CreateOrUpdate(resourceGroupName,cacheName, redisParams);
     }
 
-For more information, see the [Manage Redis Cache using MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) sample.
+Para obter mais informações, consulte o exemplo [Gerenciar o Cache Redis usando MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML).
 
-## <a name="scaling-faq"></a>Scaling FAQ
+## Perguntas frequentes sobre dimensionamento
 
-The following list contains answers to commonly asked questions about Azure Redis Cache scaling.
+A lista a seguir contém as respostas a perguntas frequentes sobre o dimensionamento do Cache Redis do Azure.
 
--   [Can I scale to, from, or within a Premium cache?](#can-i-scale-to-from-or-within-a-premium-cache)
--   [After scaling, do I have to change my cache name or access keys?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
--   [How does scaling work?](#how-does-scaling-work)
--   [Will I lose data from my cache during scaling?](#will-i-lose-data-from-my-cache-during-scaling)
--   [Is my custom databases setting affected during scaling?](#is-my-custom-databases-setting-affected-during-scaling)
--   [Will my cache be available during scaling?](#will-my-cache-be-available-during-scaling)
--   [Operations that are not supported](#operations-that-are-not-supported)
--   [How long does scaling take?](#how-long-does-scaling-take)
--   [How can I tell when scaling is complete?](#how-can-i-tell-when-scaling-is-complete)
--   [Why is this feature in preview?](#why-is-this-feature-in-preview)
+-	[Posso escalonar para um cache Premium, por meio dele ou nele?](#can-i-scale-to-from-or-within-a-premium-cache)
+-	[Depois do dimensionamento, é necessário alterar minhas chaves de acesso ou o nome do cache?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
+-	[Como funciona o dimensionamento?](#how-does-scaling-work)
+-	[Perderei dados de meu cache durante o dimensionamento?](#will-i-lose-data-from-my-cache-during-scaling)
+-	[A configuração dos meus bancos de dados personalizados foi afetada durante o dimensionamento?](#is-my-custom-databases-setting-affected-during-scaling)
+-	[O cache estará disponível durante o dimensionamento?](#will-my-cache-be-available-during-scaling)
+-	[Operações que não têm suporte](#operations-that-are-not-supported)
+-	[Quanto tempo o dimensionamento leva?](#how-long-does-scaling-take)
+-	[Como saber quando o dimensionamento é concluído?](#how-can-i-tell-when-scaling-is-complete)
+-	[Por que esse recurso está na visualização?](#why-is-this-feature-in-preview)
 
-### <a name="can-i-scale-to,-from,-or-within-a-premium-cache?"></a>Can I scale to, from, or within a Premium cache?
+### Posso escalonar para um cache Premium, por meio dele ou nele?
 
--   You can't scale from a **Premium** cache down to a **Basic** or **Standard** pricing tier.
--   You can scale from one **Premium** cache pricing tier to another.
--   You can't scale from a **Basic** cache directly to a **Premium** cache. You must first scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
--   If you enabled clustering when you created your **Premium** cache, you can [change the cluster size](cache-how-to-premium-clustering.md#cluster-size). At this time you can't enable clustering on a previously existing cache that was created without clustering.
+-	Você não pode dimensionar de um cache **Premium** para um tipo de preço **Básico** ou **Standard**.
+-	Você pode dimensionar de um tipo de preço de cache **Premium** para outro.
+-	Você não pode dimensionar de um cache **Básico** diretamente para um cache **Premium**. Primeiro, você deve dimensionar do **Básico** para o **Standard** em uma única operação de dimensionamento e do **Standard** para o **Premium** em uma operação de dimensionamento subsequente.
+-	Se você habilitou o clustering quando criou o cache **Premium**, será possível [alterar o tamanho do cluster](cache-how-to-premium-clustering.md#cluster-size). Neste momento, você não pode habilitar clustering em um cache existente que foi criado sem cluster.
 
-    For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
+    Para obter mais informações, confira [Como configurar o clustering do Redis para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md).
 
-### <a name="after-scaling,-do-i-have-to-change-my-cache-name-or-access-keys?"></a>After scaling, do I have to change my cache name or access keys?
+### Depois do dimensionamento, é necessário alterar minhas chaves de acesso ou o nome do cache?
 
-No, your cache name and keys are unchanged during a scaling operation.
+Não, o nome do cache e as chaves permanecem inalterados durante uma operação de dimensionamento.
 
-### <a name="how-does-scaling-work?"></a>How does scaling work?
+### Como funciona o dimensionamento?
 
--   When a **Basic** cache is scaled to a different size, it is shut down and a new cache is provisioned using the new size. During this time, the cache is unavailable and all data in the cache is lost.
--   When a **Basic** cache is scaled to a **Standard** cache, a replica cache is provisioned and the data is copied from the primary cache to the replica cache. The cache remains available during the scaling process.
--   When a **Standard** cache is scaled to a different size or to a **Premium** cache, one of the replicas is shut down and re-provisioned to the new size and the data transferred over, and then the other replica performs a failover before it is re-provisioned, similar to the process that occurs during a failure of one of the cache nodes.
+-	Quando um cache **Básico** é escalonado para um tamanho diferente, ele é desligado e um novo cache é provisionado usando o novo tamanho. Durante esse tempo, o cache não está disponível e todos os dados em cache são perdidos.
+-	Quando um cache **Básico** é escalonado para um cache **Standard**, um cache de réplica é provisionado e os dados são copiados do cache primário no cache de réplica. O cache permanece disponível durante o processo de dimensionamento.
+-	Quando um cache **Standard** é dimensionado para um tamanho diferente ou para um cache **Premium**, uma das réplicas é desligada e provisionada novamente para o novo tamanho, os dados são transferidos e a outra réplica executa um failover antes de ser provisionada novamente, de forma semelhante ao processo que ocorre durante uma falha em um dos nós de cache.
 
-### <a name="will-i-lose-data-from-my-cache-during-scaling?"></a>Will I lose data from my cache during scaling?
+### Perderei dados de meu cache durante o dimensionamento?
 
--   When a **Basic** cache is scaled to a new size, all data is lost and the cache is unavailable during the scaling operation.
--   When a **Basic** cache is scaled to a **Standard** cache, the data in the cache is typically preserved.
--   When a **Standard** cache is scaled to a larger size or tier, or a **Premium** cache is scaled to a larger size, all data is typically preserved. When scaling a **Standard** or **Premium** cache down to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost when scaling down, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy. 
+-	Quando um cache **Básico** é escalonado para um novo tamanho, todos os dados são perdidos, e o cache fica indisponível durante a operação de colocação em escala.
+-	Quando um cache **Básico** é dimensionado para um cache **Padrão**, os dados no cache geralmente são preservados.
+-	Quando um cache **Standard** é dimensionado para uma camada ou tamanho maior, ou quando um cache **Premium** é dimensionado para um tamanho maior, todos os dados normalmente são preservados. Ao se dimensionar um cache **Standard** ou **Premium** para um tamanho menor, dados podem ser perdidos, dependendo da quantidade de dados estão no cache em relação ao novo tamanho quando ele for dimensionado. Se dados forem perdidos ao se reduzir, as chaves serão removidas usando a política de remoção [allkeys-lru](http://redis.io/topics/lru-cache).
 
-### <a name="is-my-custom-databases-setting-affected-during-scaling?"></a>Is my custom databases setting affected during scaling?
+### A configuração dos meus bancos de dados personalizados foi afetada durante o dimensionamento?
 
-Some pricing tiers have different [databases limits](cache-configure.md#databases), so there are some considerations when scaling down if you configured a custom value for the `databases` setting during cache creation.
+Alguns tipos de preço têm diferentes [limites de bancos de dados](cache-configure.md#databases), portanto, há algumas considerações a fazer ao reduzir verticalmente um valor personalizado para a configuração `databases` durante a criação do cache.
 
--   When scaling to a pricing tier with a lower `databases` limit than the current tier:
-    -   If you are using the default number of `databases` which is 16 for all pricing tiers, no data is lost.
-    -   If you are using a custom number of `databases` that falls within the limits for the tier to which you are scaling, this `databases` setting is retained and no data is lost.
-    -   If you are using a custom number of `databases` that exceeds the limits of the new tier, the `databases` setting is lowered to the limits of the new tier and all data in the removed databases is lost.
--   When scaling to a pricing tier with the same or higher `databases` limit than the current tier your `databases` setting is retained and no data is lost.
+-	Ao escalar para um tipo de preço com menos `databases` limite do que a camada atual:
+	-	Se você estiver usando o número padrão de `databases`, que é 16 para todos os tipos de preço, nenhum dado será perdido.
+	-	Se você estiver usando um número personalizado de `databases`, que se encaixa dentro dos limites do tipo para o qual você está dimensionando, essa configuração `databases` será mantida e nenhum dado será perdido.
+	-	Se você estiver usando um número personalizado de `databases`, que excede os limites do novo tipo, a configuração `databases` será reduzida para os limites do novo tipo e todos os dados nos bancos de dados removidos são perdidos.
+-	Ao escalonar para um tipo de preço com o mesmo limite ou limite superior `databases` do que o tipo atual, sua configuração `databases` é mantida e nenhum dado é perdido.
 
-Note that while Standard and Premium caches have a 99.9% SLA for availability, there is no SLA for data loss.
+Observe que, embora os caches Standard e Premium tenham um SLA de 99,9% de disponibilidade, não há SLA para perda de dados.
 
-### <a name="will-my-cache-be-available-during-scaling?"></a>Will my cache be available during scaling?
+### O cache estará disponível durante o dimensionamento?
 
--   **Standard** and **Premium** caches remain available during the scaling operation.
--   **Basic** caches are offline during scaling operations to a different size, but remain available when scaling from **Basic** to **Standard**.
+-	Os caches **Standard** e **Premium** permanecem disponíveis durante a operação de dimensionamento.
+-	Os caches **Básicos** ficam offline durante as operações de dimensionamento para um tamanho diferente, mas permanecem disponíveis durante o dimensionamento do **Básico** para **Standard**.
 
-### <a name="operations-that-are-not-supported"></a>Operations that are not supported
+### Operações que não têm suporte
 
--   You can't scale from a higher pricing tier to a lower pricing tier.
-    -    You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
-    -    You can't scale from a **Standard** cache down to a **Basic** cache.
--   You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
--   You can't scale from a **Basic** cache directly to a **Premium** cache. You must scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
--   You can't scale from a larger size down to the **C0 (250 MB)** size.
+-	Você não pode dimensionar de uma camada de preços mais alta para uma camada de preços mais baixa.
+    -    Você não pode dimensionar de um cache **Premium** para um cache **Standard** ou **Básico**.
+    -    Você não pode dimensionar de um cache **Standard** para um cache **Básico**.
+-	É possível dimensionar de um cache **Básico** para um cache **Standard**, mas não é possível alterar o tamanho simultaneamente. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
+-	Você não pode dimensionar de um cache **Básico** diretamente para um cache **Premium**. Você deve dimensionar do **Básico** para o **Standard** em uma única operação de dimensionamento e do **Standard** para o **Premium** em uma operação de dimensionamento subsequente.
+-	Não é possível dimensionar de um tamanho maior para o tamanho **C0 (250 MB)**.
 
-If a scaling operation fails, the service will try to revert the operation and the cache will revert to the original size.
+Se uma operação de dimensionamento falhar, o serviço tentará reverter a operação, e o cache será revertido para o tamanho original.
 
-### <a name="how-long-does-scaling-take?"></a>How long does scaling take?
+### Quanto tempo o dimensionamento leva?
 
-Scaling takes approximately 20 minutes, depending on how much data is in the cache.
+O dimensionamento leva aproximadamente 20 minutos, dependendo da quantidade de dados no cache.
 
-### <a name="how-can-i-tell-when-scaling-is-complete?"></a>How can I tell when scaling is complete?
+### Como saber quando o dimensionamento é concluído?
 
-In the Azure portal you can see the scaling operation in progress. When scaling is complete, the status of the cache changes to **Running**.
+No portal do Azure, você pode ver a operação de dimensionamento em andamento. Quando o dimensionamento for concluído, o status do cache será alterado para **Executando**.
 
-### <a name="why-is-this-feature-in-preview?"></a>Why is this feature in preview?
+### Por que esse recurso está na visualização?
 
-We are releasing this feature to get feedback. Based on the feedback, we will release this feature to General Availability soon.
+Estamos lançando esse recurso para obter comentários. Com base nos comentários, lançaremos esse recurso para Disponibilidade Geral em breve.
 
 
 
@@ -200,11 +199,4 @@ We are releasing this feature to get feedback. Based on the feedback, we will re
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

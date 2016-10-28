@@ -1,126 +1,119 @@
 <properties
-    pageTitle="How to create and deploy a cloud service | Microsoft Azure"
-    description="Learn how to create and deploy a cloud service using the Azure portal."
-    services="cloud-services"
-    documentationCenter=""
-    authors="Thraka"
-    manager="timlt"
-    editor=""/>
+	pageTitle="Como criar e implantar um serviço de nuvem | Microsoft Azure"
+	description="Saiba como criar e implantar um serviço de nuvem usando o portal do Azure."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
+	editor=""/>
 
 <tags
-    ms.service="cloud-services"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/11/2016"
-    ms.author="adegeo"/>
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/05/2016"
+	ms.author="adegeo"/>
 
 
 
 
-
-# <a name="how-to-create-and-deploy-a-cloud-service"></a>How to create and deploy a cloud service
+# Como criar e implantar um serviço de nuvem
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Portal do Azure](cloud-services-how-to-create-deploy-portal.md)
+- [Portal clássico do Azure](cloud-services-how-to-create-deploy.md)
 
-The Azure portal provides two ways for you to create and deploy a cloud service: *Quick Create* and *Custom Create*.
+O Portal do Azure oferece duas maneiras de criar e de implantar um serviço de nuvem: *Criação Rápida* e *Criação Personalizada*.
 
-This article explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Azure. When you use this method, the Azure portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using Custom Create.
+Este artigo explica como usar o método Criação Rápida para criar um novo serviço de nuvem e usar **Carregar** para carregar e implantar um pacote de serviço de nuvem no Azure. Ao usar esse método, o Portal do Azure disponibiliza links convenientes para o cumprimento de todos os requisitos quando você precisar. Se você estiver pronto para implantar o serviço de nuvem ao criá-lo, é possível usar ambos ao mesmo tempo usando a Criação Personalizada.
 
-> [AZURE.NOTE] If you plan to publish your cloud service from Visual Studio Team Services (VSTS), use Quick Create, and then set up VSTS publishing from the Azure Quickstart or the dashboard. For more information, see [Continuous Delivery to Azure by Using Visual Studio Team Services][TFSTutorialForCloudService], or see help for the **Quick Start** page.
+> [AZURE.NOTE] Se você planeja publicar o serviço de nuvem do VSTS (Visual Studio Team Services), use a Criação Rápida e configure a publicação do VSTS no Início Rápido do Azure ou no painel. Para obter mais informações, veja [Entrega contínua para o Azure usando o Visual Studio Team Services][TFSTutorialForCloudService] ou confira a ajuda da página **Início Rápido**.
 
-## <a name="concepts"></a>Concepts
-Three components are required to deploy an application as a cloud service in Azure:
+## Conceitos
+Três componentes são necessários para implantar um aplicativo como um serviço de nuvem no Azure:
 
-- **Service Definition**  
-  The cloud service definition file (.csdef) defines the service model, including the number of roles.
+- **Definição de serviço** O arquivo de definição de serviço de nuvem (.csdef) define o modelo de serviço, incluindo o número de funções.
 
-- **Service Configuration**  
-  The cloud service configuration file (.cscfg) provides configuration settings for the cloud service and individual roles, including the number of role instances.
+- **Configuração de serviço** O arquivo de configuração de serviço de nuvem (.cscfg) fornece as configurações para o serviço de nuvem e as funções individuais, inclusive o número de instâncias de função.
 
-- **Service Package**  
-  The service package (.cspkg) contains the application code and configurations and the service definition file.
+- **Pacote de serviço** O pacote de serviço (.cspkg) contém o código do aplicativo, as configurações e o arquivo de definição de serviço.
 
-You can learn more about these and how to create a package [here](cloud-services-model-and-package.md).
+Você pode saber mais sobre eles e sobre como criar um pacote [aqui](cloud-services-model-and-package.md).
 
-## <a name="prepare-your-app"></a>Prepare your app
-Before you can deploy a cloud service, you must create the cloud service package (.cspkg) from your application code and a cloud service configuration file (.cscfg). The Azure SDK provides tools for preparing these required deployment files. You can install the SDK from the [Azure Downloads](https://azure.microsoft.com/downloads/) page, in the language in which you prefer to develop your application code.
+## Preparação do aplicativo
+Antes de poder implantar um serviço de nuvem, você deve criar o pacote do serviço de nuvem (arquivo .cspkg) do seu código do aplicativo e um arquivo de configuração do serviço de nuvem (.cscfg). O SDK do Azure fornece as ferramentas para preparar os arquivos exigidos para a implantação. Você pode instalar o SDK da página de [downloads de Azure](https://azure.microsoft.com/downloads/) no idioma em que você preferir desenvolver seu código do aplicativo.
 
-Three cloud service features require special configurations before you export a service package:
+Três recursos de serviço de nuvem precisam de configurações especiais antes que você exporte um pacote de serviço:
 
-- If you want to deploy a cloud service that uses Secure Sockets Layer (SSL) for data encryption, [configure your application](cloud-services-configure-ssl-certificate-portal.md#modify) for SSL.
+- Se você desejar implantar um serviço de nuvem que usa protocolo SSL para a criptografia de dados, [configure seu aplicativo](cloud-services-configure-ssl-certificate-portal.md#modify) para SSL.
 
-- If you want to configure Remote Desktop connections to role instances, [configure the roles](cloud-services-role-enable-remote-desktop.md) for Remote Desktop. This can only be done in the classic portal.
+- Se você desejar configurar conexões de área de trabalho remota para as instâncias de função, [configure as funções](cloud-services-role-enable-remote-desktop.md) para Área de Trabalho Remota. Isso só pode ser feito no portal clássico.
 
-- If you want to configure verbose monitoring for your cloud service, enable Azure Diagnostics for the cloud service. *Minimal monitoring* (the default monitoring level) uses performance counters gathered from the host operating systems for role instances (virtual machines). *Verbose monitoring* gathers additional metrics based on performance data within the role instances to enable closer analysis of issues that occur during application processing. To find out how to enable Azure Diagnostics, see [Enabling diagnostics in Azure](cloud-services-dotnet-diagnostics.md).
+- Se você desejar configurar o monitoramento detalhado para o seu serviço de nuvem, habilite o Diagnóstico do Azure para o serviço de nuvem. *Monitoramento mínimo* (o nível de monitoramento padrão) usa contadores de desempenho coletados dos sistemas operacionais do host para as instâncias de função (máquinas virtuais). O *Monitoramento detalhado* coleta métricas adicionais baseadas nos dados de desempenho nas instâncias de função para habilitar uma análise mais próxima dos problemas que ocorrem durante o processamento do aplicativo. Para saber como habilitar o Diagnóstico do Azure, confira [Habilitando o diagnóstico no Azure](cloud-services-dotnet-diagnostics.md).
 
-To create a cloud service with deployments of web roles or worker roles, you must [create the service package](cloud-services-model-and-package.md#servicepackagecspkg).
+Para criar um serviço de nuvem com implantações de funções Web ou de Trabalho, você deve [criar o pacote de serviço](cloud-services-model-and-package.md#servicepackagecspkg).
 
-## <a name="before-you-begin"></a>Before you begin
+## Antes de começar
 
-- If you haven't installed the Azure SDK, click **Install Azure SDK** to open the [Azure Downloads page](https://azure.microsoft.com/downloads/), and then download the SDK for the language in which you prefer to develop your code. (You'll have an opportunity to do this later.)
+- Se você não instalou o SDK do Azure, clique em **Instalar SDK do Azure** para abrir a[página de Downloads do Azure](https://azure.microsoft.com/downloads/) e baixar o SDK para o idioma em que você preferir desenvolver seu código. (Você terá uma oportunidade de fazer isso posteriormente).
 
-- If any role instances require a certificate, create the certificates. Cloud services require a .pfx file with a private key. [You can upload the certificates to Azure]() as you create and deploy the cloud service.
+- Se alguma instância de função precisar de certificados, crie-os. Os serviços de nuvem requerem um arquivo .pfx e uma chave privada. [Você pode carregar os certificados para o Azure]() enquanto cria e implanta o serviço de nuvem.
 
-- If you plan to deploy the cloud service to an affinity group, create the affinity group. You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region. You can create the affinity group in the **Networks** area of the Azure classic portal, on the **Affinity Groups** page.
+- Se você planeja implantar o serviço de nuvem em um grupo de afinidade, crie-o. Você pode usar um grupo de afinidade para implantar o serviço de nuvem e outros serviços do Azure no mesmo local em uma região. Você pode criar o grupo de afinidade na área **Redes** do Portal clássico do Azure, na página **Grupos de Afinidade**.
 
 
-## <a name="create-and-deploy"></a>Create and deploy
+## Criar e implantar
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Click **New > Virtual Machines**, and then scroll down to and click **Cloud Service**.
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+2. Clique em **Novo > Máquinas Virtuais**, role para baixo e clique em **Serviço de Nuvem**.
 
-    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
-3. At the bottom of the information page that displays, click **Create**. 
-4. In the new **Cloud Service** blade, enter a value for the **DNS name**.
-5. Create a new **Resource Group** or select an existing one.
-6. Select a **Location**.
-7. Click **Package**. This will open the **Upload a package** blade. Fill in the required fields.  
+3. Na parte inferior da página de informações que é exibida, clique em **Criar**.
+4. Na nova folha **Serviço de Nuvem**, insira um valor em **Nome DNS**.
+5. Crie um novo **Grupo de Recursos** ou selecione um existente.
+6. Selecione um **Local**.
+7. Clique em **Pacote**. Isso abrirá a folha **Carregar um pacote**. Preencha os campos obrigatórios.
 
-     If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is selected.
+     Se alguma das funções contiver uma única instância, verifique se **Implantar mesmo se uma ou mais funções contiverem uma única instância** está marcado.
 
-8. Make sure that **Start deployment** is selected.
-9. Click **OK** which will close the **Upload a package** blade.
-10. If you do not have any certificates to add, click **Create**.
+8. Verifique se a opção **Iniciar implantação** está selecionada.
+9. Clique em **OK**, que fechará a folha **Carregar um pacote**.
+10. Se você não tiver nenhum certificado para adicionar, clique em **Criar**.
 
-    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/select-package.png)
+    ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
-## <a name="upload-a-certificate"></a>Upload a certificate
+## Carregar um certificado
 
-If your deployment package was [configured to use certificates](cloud-services-configure-ssl-certificate-portal.md#modify), you can upload the certificate now.
+Se o pacote de implantação tiver sido [configurado para usar certificados](cloud-services-configure-ssl-certificate-portal.md#modify), você poderá carregar o certificado agora.
 
-1. Select **Certificates**, and on the **Add certificates** blade, select the SSL certificate .pfx file, and then provide the **Password** for the certificate,
-2. Click **Attach certificate**, and then click **OK** on the **Add certificates** blade.
-3. Click **Create** on the **Cloud Service** blade. When the deployment has reached the **Ready** status, you can proceed to the next steps.
+1. Selecione **Certificados** e, na folha **Adicionar certificados**, selecione o arquivo .pfx do certificado SSL e forneça a **Senha** do certificado.
+2. Clique em **Anexar certificado** e clique em **OK** na folha **Adicionar certificados**.
+3. Clique em **Criar** na folha **Serviço de Nuvem**. Quando a implantação alcançar o status **Pronto**, será possível passar às próximas etapas.
 
-    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 
-## <a name="verify-your-deployment-completed-successfully"></a>Verify your deployment completed successfully
+## Verifique se a implantação foi concluída com êxito
 
-1. Click the cloud service instance.
+1. Clique na instância do serviço de nuvem.
 
-    The status should show that the service is **Running**.
+	O status deve mostrar que o serviço está **Executando**.
 
-2. Under **Essentials**, click the **Site URL** to open your cloud service in a web browser.
+2. Em **Essentials**, clique na **URL do Site** para abrir o serviço de nuvem em um navegador da Web.
 
-    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
+    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-* [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
-* Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
-* [Manage your cloud service](cloud-services-how-to-manage-portal.md).
-* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).
+* [Configuração geral do serviço de nuvem](cloud-services-how-to-configure-portal.md).
+* Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
+* [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
+* Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Test your Azure web app's performance | Microsoft Azure"
-   description="Run Azure web app performance tests to check how your app handles user load. Measure response time and find failures that might indicate problems."
+   pageTitle="Testar o desempenho do seu aplicativo Web do Azure | Microsoft Azure"
+   description="Execute testes de desempenho de aplicativo Web do Azure para verificar como o seu aplicativo lida com a carga do usuário. Contabilize o tempo de resposta e encontre falhas que podem indicar problemas."
    services="app-service\web"
    documentationCenter=""
    authors="ecfan"
@@ -16,147 +16,136 @@
    ms.date="05/25/2016"
    ms.author="estfan; manasma; ahomer"/>
 
+# Teste o desempenho do seu aplicativo Web do Azure sob carga
 
-# <a name="performance-test-your-azure-web-app-under-load"></a>Performance test your Azure web app under load
+Verifique o desempenho de seu aplicativo Web antes de iniciá-lo ou implantar atualizações na produção. Dessa forma, você pode avaliar melhor se o aplicativo está pronto para lançamento. Tenha mais confiança que seu aplicativo pode dar conta do tráfego durante o pico de uso ou na sua próxima ação de marketing.
 
-Check your web app's performance before you launch it or deploy updates to production. That way, you can better assess whether your app is ready for release. Feel more confident that your app can handle the traffic during peak use or at your next marketing push.
+Durante a visualização pública, você pode testar o desempenho de seu aplicativo gratuitamente no Portal do Azure. Esses testes simulam carga de usuário em seu aplicativo por um período de tempo específico e medem a resposta desse aplicativo. Por exemplo, os resultados do teste mostram a velocidade com que seu aplicativo responde a um número específico de usuários. Eles também mostram quantas solicitações falharam, o que pode indicar problemas com seu aplicativo.
 
-During public preview, you can performance test your app for free in the Azure Portal.
-These tests simulate user load on your app over a specific time period and measure your app's response. For example, your test results show how fast your app responds to a specific number of users. They also show how many requests failed, which might indicate problems with your app.      
+![Localizar problemas de desempenho em seu aplicativo Web](./media/app-service-web-app-performance-test/azure-np-perf-test-overview.png)
 
-![Find performance problems in your web app](./media/app-service-web-app-performance-test/azure-np-perf-test-overview.png)
+## Antes de começar
 
-## <a name="before-you-start"></a>Before you start
+* Você precisará de uma [assinatura do Azure](https://account.windowsazure.com/subscriptions), se ainda não tiver uma. Saiba como [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 
-* You'll need an [Azure subscription](https://account.windowsazure.com/subscriptions), if you don't have one already. Learn how you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+* Você precisará de uma conta do [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) para manter o histórico de seus testes de desempenho. Uma conta adequada será criada automaticamente quando você configurar o teste de desempenho. Ou você pode criar uma nova conta ou usar uma conta existente, se for o proprietário da conta.
 
-* You'll need a [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) account to keep your performance test history. A suitable account will be created automatically when you set up your performance test. Or you can create a new account or use an existing account if you're the account owner. 
+* Implante seu aplicativo para teste em um ambiente de não produção. Faça com que seu aplicativo use um plano do Serviço de Aplicativo que não seja o plano usado na produção. Desse modo, você não afeta nenhum cliente existente e nem desacelera o seu aplicativo em produção.
 
-* Deploy your app for testing in a non-production environment. Have your app use an App Service plan other than the plan used in production. That way, you don't affect any existing customers or slow down your app in production. 
+## Configurar e executar o teste de desempenho
 
-## <a name="set-up-and-run-your-performance-test"></a>Set up and run your performance test
+0.  Entre no [Portal do Azure](https://portal.azure.com). Para usar uma conta do Visual Studio Team Services que você possui, entre como o proprietário da conta.
 
-0.  Sign in to the [Azure Portal](https://portal.azure.com). To use a Visual Studio Team Services account that you own, sign in as the account owner.
+0.  Vá para seu aplicativo Web.
 
-0.  Go to your web app.
+    ![Vá para Procurar Tudo, Aplicativos Web, seu aplicativo Web](./media/app-service-web-app-performance-test/azure-np-web-apps.png)
 
-    ![Go to Browse All, Web Apps, your web app](./media/app-service-web-app-performance-test/azure-np-web-apps.png)
+0.  Vá para o **Teste de Desempenho**.
 
-0.  Go to **Performance Test**.
-
-    ![Go to Tools, Performance Test](./media/app-service-web-app-performance-test/azure-np-web-app-details-tools-expanded.png)
+    ![Vá para Ferramentas, Teste de Desempenho](./media/app-service-web-app-performance-test/azure-np-web-app-details-tools-expanded.png)
  
-0. Now you'll link a [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) account to keep your performance test history.
+0. Agora você vinculará uma conta do [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) para manter o histórico de seus testes de desempenho.
 
-    If you have a Team Services account to use, select that account. If you don't, create a new account.
+    Se você tiver uma conta do Team Services, selecione essa conta. Se não tem, crie uma nova conta.
 
-    ![Select existing Team Services account, or create a new account](./media/app-service-web-app-performance-test/azure-np-no-vso-account.png)
+    ![Selecione a conta do Team Services existente ou crie uma nova conta](./media/app-service-web-app-performance-test/azure-np-no-vso-account.png)
 
-0.  Create your performance test. Set the details and run the test. 
+0.  Crie o teste de desempenho. Defina os detalhes e execute o teste.
 
-You can watch the results in real time while the test runs.
+Você pode observar os resultados em tempo real enquanto o teste é executado.
 
-For example, suppose we have an app that gave out coupons at last year's holiday sale. This event lasted 15 minutes with a peak load of 100 concurrent customers. We want to double the number of customers this year. We also want to improve customer satisfaction by reducing the page load time from 5 seconds to 2 seconds. So, we'll test our updated app's performance with 250 users for 15 minutes.
+Por exemplo, suponha que temos um aplicativo que distribuiu cupons nas vendas de Natal do ano passado. Esse evento durou 15 minutos com uma carga de pico de 100 clientes simultâneos. Gostaríamos de duplicar o número de clientes neste ano. Também queremos melhorar a satisfação do cliente, reduzindo o tempo de carregamento de página de 5 segundos para 2 segundos. Portanto, testaremos desempenho do nosso aplicativo atualizado com 250 usuários por 15 minutos.
 
-We'll simulate load on our app by generating virtual users (customers) who visit our web site at the same time. This will show us how many requests are failing or responding slowly.
+Simularemos a carga em nosso aplicativo gerando usuários virtuais (clientes) que visitam nosso site simultaneamente. Isso nos mostrará quantas solicitações estão falhando ou respondendo com lentidão.
 
-  ![Create, set up, and run your performance test](./media/app-service-web-app-performance-test/azure-np-new-performance-test.png)
+  ![Crie, configure e execute seu teste de desempenho](./media/app-service-web-app-performance-test/azure-np-new-performance-test.png)
 
-   *  Your web app's default URL is added automatically. 
-   You can change the URL to test other pages (HTTP GET requests only).
+   *  A URL do seu aplicativo Web padrão é adicionada automaticamente. Você pode alterar a URL para testar outras páginas (somente solicitações HTTP GET).
 
-   *  To simulate local conditions and reduce latency, select a location closest to your users for generating load.
+   *  Para simular condições locais e reduzir a latência, selecione um local mais próximo de seus usuários para a geração de carga.
 
-  Here's the test in progress. During the first minute, our page loads slower than we want.
+  Aqui está o teste em andamento. Durante o primeiro minuto, nossa página carrega mais lentamente do que gostaríamos.
 
-  ![Performance test in progress with real-time data](./media/app-service-web-app-performance-test/azure-np-running-perf-test.png)
+  ![Teste de desempenho em andamento com dados em tempo real](./media/app-service-web-app-performance-test/azure-np-running-perf-test.png)
 
-  After the test is done, we learn that the page loads much faster after the first minute. This helps identify where we might want to start troubleshooting the problem.
+  Após a conclusão do teste, aprendemos que a página carrega muito mais rapidamente após o primeiro minuto. Isso ajuda a identificar no qual é mais provável que desejemos começar a solucionar o problema.
 
-  ![Completed performance test shows results, including failed requests](./media/app-service-web-app-performance-test/azure-np-perf-test-done.png)
+  ![Um teste de desempenho concluído mostra os resultados, incluindo solicitações com falha](./media/app-service-web-app-performance-test/azure-np-perf-test-done.png)
 
-## <a name="test-multiple-urls"></a>Test multiple URLs
+## Testar várias URLs
 
-You can also run performance tests incorporating multiple URLs that represent an end-to-end user scenario by uploading a Visual Studio Web Test file. Some of the ways you can create a Visual Studio Web Test file are:
+Você também pode executar testes de desempenho ao incorporar várias URLs que representem um cenário de usuário de ponta a ponta carregando um arquivo de Teste na Web do Visual Studio. Algumas das maneiras como você pode criar um arquivo de Teste na Web do Visual Studio são:
 
-* [Capture traffic using Fiddler and export as a Visual Studio Web Test file](http://docs.telerik.com/fiddler/Save-And-Load-Traffic/Tasks/VSWebTest)
-* [Create a load test file in Visual Studio](https://www.visualstudio.com/docs/test/performance-testing/run-performance-tests-app-before-release)
+* [Capturar o tráfego usando o Fiddler e exportar como um arquivo de Teste na Web do Visual Studio](http://docs.telerik.com/fiddler/Save-And-Load-Traffic/Tasks/VSWebTest)
+* [Criar um arquivo de teste de carga no Visual Studio](https://www.visualstudio.com/docs/test/performance-testing/run-performance-tests-app-before-release)
 
-To upload and run a Visual Studio Web Test file:
+Para carregar e executar um arquivo de Teste na Web do Visual Studio:
  
-0. Follow the steps above to open the **New performance test** blade.
-   In this blade, choose the CONFIGFURE TEST USING option to open the **Configure test using** blade.  
+0. Siga as etapas acima para abrir a folha **Novo teste de desempenho**. Nessa folha, escolha a opção CONFIGURAR TESTE USANDO para abrir a folha **Configurar teste usando**.  
 
-    ![Opening the Configure load testing blade](./media/app-service-web-app-performance-test/multiple-01-authoring-blade.png)
+    ![Abertura da folha Configurar testes de carga](./media/app-service-web-app-performance-test/multiple-01-authoring-blade.png)
 
-0. Check that the TEST TYPE is set to **Visual Studio Web Test** and select your HTTP Archive file.
-    Use the "folder" icon to open the file selector dialog.
+0. Verifique se o TIPO DE TESTE foi definido como **Teste na Web do Visual Studio** e selecione Arquivo Morto HTTP. Use o ícone de "pasta" para abrir a caixa de diálogo do seletor de arquivo.
 
-    ![Uploading a multiple URL Visual Studio Web Test file](./media/app-service-web-app-performance-test/multiple-01-authoring-blade2.png)
+    ![Carregamento de um arquivo de Teste na Web do Visual Studio de várias URLs](./media/app-service-web-app-performance-test/multiple-01-authoring-blade2.png)
 
-    After the file has been uploaded, you see the list of URLs to be tested in the URL DETAILS section.
+    Depois que o arquivo tiver sido carregado, você verá a lista de URLs a serem testadas na seção DETALHES DA URL.
  
-0. Specify the user load and test duration, then choose **Run test**.
+0. Especifique a carga de usuário e a duração do teste, então escolha **Executar teste**.
 
-    ![Selecting the user load and duration](./media/app-service-web-app-performance-test/multiple-01-authoring-blade3.png)
+    ![Seleção da duração e da carga do usuário](./media/app-service-web-app-performance-test/multiple-01-authoring-blade3.png)
 
-    After the test has finished, you see the results in two panes. The left pane shows the performnace information as a series of charts.
+    Após a conclusão do teste, você verá os resultados em dois painéis. O painel esquerdo mostra as informações de desempenho como uma série de gráficos.
 
-    ![The performance results pane](./media/app-service-web-app-performance-test/multiple-01a-results.png)
+    ![O painel de resultados de desempenho](./media/app-service-web-app-performance-test/multiple-01a-results.png)
 
-    The right pane shows a list of failed requests, with the type of error and the number of times it occurred.
+    O painel direito mostra uma lista de solicitações que falharam, com o tipo de erro e o número de vezes que ele ocorreu.
 
-    ![The request failures pane](./media/app-service-web-app-performance-test/multiple-01b-results.png)
+    ![Painel de falhas de solicitação](./media/app-service-web-app-performance-test/multiple-01b-results.png)
 
-0. Rerun the test by choosing the **Rerun** icon at the top of the right pane.
+0. Execute novamente o teste ao escolher o ícone **Executar Novamente** na parte superior do painel direito.
 
-    ![Rerunning the test](./media/app-service-web-app-performance-test/multiple-rerun-test.png)
+    ![Executando novamente o teste](./media/app-service-web-app-performance-test/multiple-rerun-test.png)
 
-##  <a name="q-&-a"></a>Q & A
+##  Perguntas e respostas
 
-#### <a name="q:-is-there-a-limit-on-how-long-i-can-run-a-test?"></a>Q: Is there a limit on how long I can run a test? 
+#### P: Existe um limite para o tempo pelo qual posso executar um teste? 
 
-**A**: Yes, you can run your test up to an hour in the Azure Portal.
+**R**: Sim, você pode executar o teste por até uma hora no Portal do Azure.
 
-#### <a name="q:-how-much-time-do-i-get-to-run-performance-tests?"></a>Q: How much time do I get to run performance tests? 
+#### P: Por quanto tempo posso executar testes de desempenho? 
 
-**A**: After public preview, you get 20,000 virtual user minutes (VUMs) free each month with your Visual Studio Team Services account. A VUM is the number of virtual users multipled by the number of minutes in your test. If your needs exceed the free limit, you can purchase more time and pay only for what you use.
+**R**: Após a visualização pública, você obtém 20.000 VUMs (minutos de usuário virtual) gratuitamente, todo mês, com sua conta do Visual Studio Team Services. Um VUM é o número de usuários virtuais multiplicados pelo número de minutos em seu teste. Se suas necessidades excederem o limite gratuito, você pode adquirir mais tempo e pagar somente pelo que usar.
 
-#### <a name="q:-where-can-i-check-how-many-vums-i've-used-so-far?"></a>Q: Where can I check how many VUMs I've used so far?
+#### P: Onde posso verificar quantos VUMs usei até agora?
 
-**A**: You can check this amount in the Azure Portal.
+**R**: Você pode verificar esse valor no Portal do Azure.
 
-![Go to your Team Services account](./media/app-service-web-app-performance-test/azure-np-vso-accounts.png)
+![Acesse sua conta do Team Services](./media/app-service-web-app-performance-test/azure-np-vso-accounts.png)
 
-![Check VUMs used](./media/app-service-web-app-performance-test/azure-np-vso-accounts-vum-summary.png)
+![Verifique os VUMs usados](./media/app-service-web-app-performance-test/azure-np-vso-accounts-vum-summary.png)
 
-#### <a name="q:-what-is-the-default-option-and-are-my-existing-tests-impacted?"></a>Q: What is the default option and are my existing tests impacted?
+#### P: Qual é a opção padrão e os meus testes existentes serão afetados?
 
-**A**: The default option for performance load tests is a manual test - the same as before the multiple URL test option was added to the portal.
-Your existing tests continue to use the configured URL and will work as before.
+**R**: A opção padrão para testes de carga de desempenho é um teste manual - a mesma opção de teste que existia antes de a opção de teste de várias URLs ter sido adicionada ao portal. Os testes existentes continuam a usar a URL configurada e funcionarão como antes.
 
-#### <a name="q:-what-features-not-supported-in-the-visual-studio-web-test-file?"></a>Q: What features not supported in the Visual Studio Web Test file?
+#### P: Quais recursos não têm suporte no arquivo de Teste na Web do Visual Studio?
 
-**A**: At present this feature does not support Web Test plug-ins, data sources, and extraction rules. You must edit your Web Test file to remove these. We hope to add support for these features in future updates.
+**R**: No momento este recurso não dá suporte a plug-ins de Teste da Web, a fontes de dados e a regras de extração. Você deve editar seu arquivo de Teste na Web para removê-los. Esperamos adicionar suporte a esses recursos em futuras atualizações.
 
-#### <a name="q:-does-it-support-any-other-web-test-file-formats?"></a>Q: Does it support any other Web Test file formats?
+#### P: Ele oferece suporte a outros formatos de arquivo de Teste na Web?
   
-**A**: At present only Visual Studio Web Test format files are supported.
-We'd be pleased to hear from you if you need support for other file formats. Email us at [vsoloadtest@microsoft.com](mailto:vsoloadtest@microsoft.com).
+**R**: No momento, somente os arquivos no formato de Teste na Web do Visual Studio têm suporte. Adoraríamos ouvi-lo caso você precise de suporte para outros formatos de arquivo. Envie um email para [vsoloadtest@microsoft.com](mailto:vsoloadtest@microsoft.com).
 
-#### <a name="q:-what-else-can-i-do-with-a-visual-studio-team-services-account?"></a>Q: What else can I do with a Visual Studio Team Services account?
+#### P: O que mais posso fazer com uma conta do Visual Studio Team Services?
 
-**A**: To find your new account, go to ```https://{accountname}.visualstudio.com```. Share your code, build, test, track work, and ship software – all in the cloud using any tool or language. Learn more about how [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) features and services help your team collaborate more easily and deploy continuously.
+**R**: Para encontrar sua nova conta, acesse ```https://{accountname}.visualstudio.com```. Compartilhe seu código, compile, teste, acompanhe o trabalho e despache o software – tudo na nuvem, usando qualquer ferramenta ou idioma. Saiba mais sobre como os recursos e serviços do [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) ajudam sua equipe a colaborar mais facilmente e implantar de modo contínuo.
 
-## <a name="see-also"></a>See also
+## Consulte também
 
-* [Run simple cloud performance tests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/get-started-simple-cloud-load-test)
-* [Run Apache Jmeter performance tests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/get-started-jmeter-test)
-* [Record and replay cloud-based load tests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/record-and-replay-cloud-load-tests)
-* [Performance test your app in the cloud](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing)
+* [Executar testes de desempenho de nuvem simples](https://www.visualstudio.com/docs/test/performance-testing/getting-started/get-started-simple-cloud-load-test)
+* [Executar testes de desempenho do Apache Jmeter](https://www.visualstudio.com/docs/test/performance-testing/getting-started/get-started-jmeter-test)
+* [Gravar e reproduzir testes de carga baseados na nuvem](https://www.visualstudio.com/docs/test/performance-testing/getting-started/record-and-replay-cloud-load-tests)
+* [Teste de desempenho do seu aplicativo na nuvem](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0525_2016-->

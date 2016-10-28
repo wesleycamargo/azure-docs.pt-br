@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Restrict access through Internet-facing endpoints in Azure Security Center  | Microsoft Azure"
-   description="This document shows you how to implement the Azure Security Center recommendation **Restrict access through Internet facing endpoint**."
+   pageTitle="Restringir o acesso por meio de pontos de extremidade para a Internet na Central de Segurança do Azure | Microsoft Azure"
+   description="Este artigo mostrou como implementar a recomendação da Central de Segurança do Azure **Restringir o acesso por meio de ponto de extremidade para a Internet**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,52 +16,46 @@
    ms.date="07/26/2016"
    ms.author="terrylan"/>
 
+# Restringir o acesso por meio de pontos de extremidade para a Internet na Central de Segurança do Azure
 
-# <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Restrict access through Internet-facing endpoints in Azure Security Center
+A Central de Segurança do Azure recomendará que você restrinja o acesso por meio de pontos de extremidade para a Internet se qualquer um dos seus grupos de segurança de rede (NSGs) tiver uma ou mais regras de entrada que permitam acesso de "qualquer" endereço IP de origem. Abrir o acesso a "qualquer" um pode permitir que os invasores acessem seus recursos. A Central de Segurança recomendará que você edite essas regras de entrada para restringir o acesso a endereços IP de origem que realmente precisem de acesso.
 
-Azure Security Center will recommend that you restrict access through Internet-facing endpoints if any of your Network Security Groups (NSGs) has one or more inbound rules that allow access from “any” source IP address. Opening access to “any” may enable attackers to access your resources. Security Center will recommend that you edit these inbound rules to restrict access to source IP addresses that actually need access.
+Essa recomendação é gerada para qualquer porta que não seja da Web que tenha "qualquer" como fonte.
 
-This recommendation is generated for any non-web port that has "any" as source.
+> [AZURE.NOTE] Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
 
-> [AZURE.NOTE] This document introduces the service by using an example deployment. This is not a step-by-step guide.
+## Implementar a recomendação
 
-## <a name="implement-the-recommendation"></a>Implement the recommendation
+1. Na **folha recomendações**, selecione **Restringir o acesso por meio de ponto de extremidade para a Internet**. ![Restringir o acesso por meio de ponto de extremidade para a Internet][1]
 
-1. In the **Recommendations blade**, select **Restrict access through Internet facing endpoint**.
-![Restrict access through Internet facing endpoint][1]
+2. Isso abre a folha **Restringir o acesso por meio de ponto de extremidade para a Internet**. Essa folha lista as VMs (máquinas virtuais) com as regras de entrada que criam um problema potencial de segurança. Selecionar uma máquina virtual. ![Selecionar uma máquina virtual][2]
 
-2. This opens the blade **Restrict access through Internet facing endpoint**. This blade lists the virtual machines (VMs) with inbound rules that create a potential security issue. Select a VM.
-![Select a VM][2]
+3. A folha **NSG** exibe informações de Grupo de Segurança de Rede, as regras de entrada relacionadas e a VM associada. Selecione **Editar regras de entrada** para prosseguir com a edição de uma regra de entrada. ![Folha Grupo de Segurança de Rede][3]
 
-3. The **NSG** blade displays Network Security Group information, related inbound rules, and the associated VM. Select **Edit inbound rules** to proceed with editing an inbound rule.
-![Network Security Group blade][3]
+4. Na folha **Regras de segurança de entrada**, selecione a regra de entrada a editar. Neste exemplo, vamos selecionar **AllowWeb**. ![Regras de segurança de entrada][4]
 
-4. On the **Inbound security rules** blade select the inbound rule to edit. In this example, let’s select **AllowWeb**.
-![Inbound security rules][4]
+  Observe que você também pode selecionar **Regras padrão** para ver o conjunto de regras padrão contidas em todos os NSGs. As regras padrão não podem ser excluídas, mas como recebem uma prioridade mais baixa, elas podem ser substituídas pelas regras que você criar. Saiba mais sobre [default rules](../virtual-network/ virtual-networks-nsg.md#default-rules). ![Regras padrão][5]
 
-  Note, you can also select **Default rules** to see the set of default rules contained by all NSGs. The default rules cannot be deleted but, because they are assigned a lower priority, they can be overridden by the rules that you create. Learn more about [default rules](../virtual-network/ virtual-networks-nsg.md#default-rules).
-![Default rules][5]
+5. Na folha **AllowWeb**, edite as propriedades da regra de entrada para que a **Origem** seja um endereço IP ou bloco de endereços IP. Para saber mais sobre as propriedades da regra de entrada, consulte [Regras de NSG](../virtual-network/virtual-networks-nsg.md#nsg-rules).
 
-5. On the **AllowWeb** blade, edit the properties of the inbound rule so that the **Source** is an IP address or block of IP addresses. To learn more about the properties of the inbound rule, see [NSG rules](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+  ![Editar regra de entrada][6]
 
-  ![Edit inbound rule][6]
+## Consulte também
 
-## <a name="see-also"></a>See also
+Este artigo mostrou como implementar a recomendação da Central de Segurança "Restringir o acesso por meio de ponto de extremidade para a Internet". Para saber mais sobre como habilitar NSGs e regras, confira o seguinte:
 
-This article showed you how to implement the Security Center recommendation "Restrict access through Internet facing endpoint.” To learn more about enabling NSGs and rules, see the following:
+- [O que é um NSG (grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md)
+- [Como gerenciar NSGs usando o portal do Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 
-- [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
-- [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-To learn more about Security Center, see the following:
-
-- [Setting security policies in Azure Security Center](security-center-policies.md)--Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md)--Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
+- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+- [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
+- [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
+- [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e a responder a alertas de segurança.
+- [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorar o status de integridade de suas soluções de parceiros.
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
+- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/restrict-access-thru-internet-facing-endpoint.png
@@ -71,8 +65,4 @@ To learn more about Security Center, see the following:
 [5]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/default-rules.png
 [6]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/edit-inbound-rule.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

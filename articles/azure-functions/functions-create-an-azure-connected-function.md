@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Create an Azure Function which binds to an Azure service | Microsoft Azure"
-   description="Build an Azure Function, a serverless application, which interacts with other Azure Services."
+   pageTitle="Criar uma Função do Azure vinculada a um serviço do Azure | Microsoft Azure"
+   description="Crie uma Função do Azure, um aplicativo sem servidor, que interage com outros Serviços do Azure."
    services="functions"
    documentationCenter="dev-center-name"
    authors="yochay"
    manager="manager-alias"
    editor=""
    tags=""
-   keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
+   keywords="funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"/>
 
 <tags
    ms.service="functions"
@@ -18,19 +18,15 @@
    ms.date="03/09/2016"
    ms.author="yochayk@microsoft.com"/>
    
-
-# <a name="create-an-azure-function-which-binds-to-an-azure-service"></a>Create an Azure Function which binds to an Azure service
+# Criar uma Função do Azure vinculada a um serviço do Azure
    
-[AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
+[AZURE.INCLUDE [Observação de introdução](../../includes/functions-getting-started.md)]
 
-In this short video, you will learn how to create an Azure Function that listens to messages on an Azure Queue and copies the messages to an Azure Blob. 
+Neste breve vídeo, você aprenderá como criar uma Função do Azure que escuta mensagens em uma Fila do Azure e copia as mensagens para um Blob do Azure.
 
 [AZURE.VIDEO create-an-azure-function-which-binds-to-an-azure-service]
 &nbsp;
 
-[AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+[AZURE.INCLUDE [Observação de introdução](../../includes/functions-get-help.md)]
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

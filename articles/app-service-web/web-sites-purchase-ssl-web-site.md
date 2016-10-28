@@ -1,225 +1,212 @@
 <properties
-    pageTitle="Buy and Configure an SSL Certificate for your Azure App Service"
-    description="Learn how to Buy and Configure an SSL Certificate for your Azure App Service."
-    services="app-service"
-    documentationCenter=".net"
-    authors="apurvajo"
-    manager="stefsch"
-    editor="cephalin"
-    tags="buy-ssl-certificates"/>
+	pageTitle="Comprar e configurar um certificado SSL para seu Serviço de Aplicativo do Azure"
+	description="Saiba como comprar e configurar um certificado SSL para seu Serviço de Aplicativo do Azure."
+	services="app-service"
+	documentationCenter=".net"
+	authors="apurvajo"
+	manager="stefsch"
+	editor="cephalin"
+	tags="buy-ssl-certificates"/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/19/2016"
-    ms.author="apurvajo"/>
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/01/2016"
+	ms.author="apurvajo"/>
 
-
-#<a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Buy and Configure an SSL Certificate for your Azure App Service
+#Comprar e configurar um certificado SSL para seu Serviço de Aplicativo do Azure
 
 > [AZURE.SELECTOR]
-- [Buy SSL cert in Azure](web-sites-purchase-ssl-web-site.md)
-- [Use SSL cert from elsewhere](web-sites-configure-ssl-certificate.md)
+- [Comprar certificado SSL no Azure](web-sites-purchase-ssl-web-site.md)
+- [Usar certificado SSL de outro lugar](web-sites-configure-ssl-certificate.md)
 
-By default, **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** already enables HTTPS for your web app with a wildcard certificate for the *.azurewebsites.net domain. If you don't plan to configure a custom domain, then you can benefit from the default HTTPS certificate. However, like all *[wildcard domains](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), it is not as secure as using a custom domain with your own certificate. Azure App Service now provides you a really simplified way to purchase and manage an SSL certificate right from Azure Portal without ever leaving the portal.  
-This article explains how to buy and configure an SSL Certificate for your **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** in 3 simple steps. 
+Por padrão, o **[Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** já habilita o HTTPS para seu aplicativo Web com um certificado curinga para o domínio *.azurewebsites.net. Se não planeja configurar um domínio personalizado, você pode aproveitar o certificado HTTPS padrão. No entanto, como com todos os *[domínios curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), ele não é tão seguro quanto usar um domínio personalizado com seu próprio certificado. Agora, o Serviço de Aplicativo do Azure fornece uma maneira realmente simplificada de comprar e gerenciar um certificado SSL diretamente do Portal do Azure, sem precisar sair do portal. Este artigo explica como comprar e configurar um certificado SSL para o **[Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** em três etapas simples.
 
 > [AZURE.NOTE]
-> SSL Certificates for Custom domain names cannot be used with Free and Shared web app. You must configure your web app for Basic, Standard or Premium mode, which may change how much you are billed for your subscription. See **[Web Apps Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/)** for more information.
+Os certificados SSL para nomes de domínio personalizados não podem ser usados com um aplicativo Web Gratuito e Compartilhado. É preciso que você configure seu aplicativo Web para o modo Basic, Standard ou Premium, o que pode alterar o quanto você é cobrado por sua assinatura. Confira **[Detalhes de preços dos aplicativos Web](https://azure.microsoft.com/pricing/details/web-sites/)** para saber mais.
 
 
 
-##<a name="<a-name="bkmk_overview"></a>overview"></a><a name="bkmk_Overview"></a>Overview
+##<a name="bkmk_Overview"></a>Visão geral
 > [AZURE.NOTE]
-> Please do not attempt to purchase an SSL Certificate using a subscription that does not have an Active Credit Card associated with it. This could result in your subscription being disabled. 
+Não tente adquirir um certificado SSL usando uma assinatura que não tenha um cartão de crédito ativo associado a ela. Isso pode resultar na desabilitação de sua assinatura.
 
-##<a name="<a>-purchase,-store-and-assign-an-ssl-certificate-for-your-custom-domain-</a>"></a><a> Purchase, Store and Assign an SSL Certificate for your custom domain </a>
-To enable HTTPS for a custom domain, such as contoso.com, you must first **[configure a custom domain name in Azure App Service.](web-sites-custom-domain-name.md)**
+##<a> Comprar, armazenar e atribuir um certificado SSL para seu domínio personalizado </a>
+Para habilitar HTTPS para um domínio personalizado, como contoso.com, você deve primeiro **[configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure.](web-sites-custom-domain-name.md)**
 
-Before requesting an SSL certificate, you must first determine which domain names will be secured by the certificate. This will determine what type of certificate you must obtain. If you just need to secure a single domain name such as contoso.com or www.contoso.com a Standard (basic) certificate is sufficient. If you need to secure multiple domain names, such as contoso.com, www.contoso.com, and mail.contoso.com, then you can get a **[wildcard certificate](http://en.wikipedia.org/wiki/Wildcard_certificate)**
+Antes de solicitar um certificado SSL, você deve primeiro determinar quais nomes de domínio serão protegidos pelo certificado. Isso determinará o tipo de certificado que você precisa ter. Se você precisar apenas garantir um único nome de domínio, como contoso.com ou www.contoso.com, um certificado Standard (básico) será suficiente. Se você precisa proteger vários nomes de domínio, como contoso.com, www.contoso.com e mail.contoso.com, você poderá obter um **[certificado curinga](http://en.wikipedia.org/wiki/Wildcard_certificate)**
 
-##<a name="<a-name="bkmk_purchasecert"></a>step-0:-place-an-ssl-certificate-order"></a><a name="bkmk_purchasecert"></a>Step 0: Place an SSL certificate order
+##<a name="bkmk_purchasecert"></a>Etapa 0: Fazer um pedido de certificado SSL
 
-In this Step, you will learn how to place an Order for an SSL Certificate of your choice.
+Nesta Etapa, você aprenderá a fazer um pedido de um certificado SSL de sua escolha.
 
-1.  In the **[Azure Portal](https://portal.azure.com/)**, click Browse and Type “App Service Certificates” in search bar and select “App Service Certificates” from the result and Click Add. 
+1.	No **[Portal do Azure](https://portal.azure.com/)**, clique em Procurar e digite "Certificados do Serviço de Aplicativo" na barra de pesquisa, selecione "Certificados do Serviço de Aplicativo" no resultado e clique em Adicionar.
 
-    ![insert image of create using browse](./media/app-service-web-purchase-ssl-web-site/browse.jpg)
+    ![inserir imagem de criação usando procurar](./media/app-service-web-purchase-ssl-web-site/browse.jpg)
 
-    ![insert image of create using browse](./media/app-service-web-purchase-ssl-web-site/add.jpg)
+    ![inserir imagem de criação usando procurar](./media/app-service-web-purchase-ssl-web-site/add.jpg)
 
-2.  Enter **friendly name** for your SSL Certificate.
+2.	Insira o **nome amigável** de seu certificado SSL.
 
-3.  Enter **Host Name**
+3.	Insira o **Nome do Host**
 > [AZURE.NOTE]
-    This is one of the most critical parts of the purchase process. Make sure to enter correct host name (custom domain) that you want to protect with this certificate. **DO NOT** append the Host name with WWW. For example, if your custom domain name is www.contoso.com then just enter contoso.com in the Host Name field, the certificate in question will protect both www and root domains. 
+    Essa é uma das partes mais importantes do processo de compra. Digite corretamente o nome do host (domínio personalizado) que você deseja proteger com esse certificado. **NÃO** acrescente WWW ao nome do host. Por exemplo, se o seu nome de domínio personalizado for www.contoso.com, basta digitar contoso.com no campo Nome do Host, o certificado em questão protegerá os domínios raiz e www.
     
-4.  Select your **subscription**. 
+4.	Selecione sua **assinatura**.
 
-    If you have multiple subscriptions, then make sure to create an SSL Certificate in the same subscription that you have used for your custom domain or Web App in question.
+    Se você tiver várias assinaturas, crie um Certificado SSL na mesma assinatura que você usou para seu domínio personalizado ou um aplicativo Web em questão.
        
-5.  Select or create a **resource group**.
+5.	Selecione ou crie um **Grupo de Recursos**.
 
-    Resource groups enable you to manage related Azure resources as a unit and are useful when establishing role-based access control (RBAC) rules for your apps. For more information, see Managing your Azure resources.
+    Os grupos de recursos permitem gerenciar recursos do Azure relacionados como uma unidade e são úteis durante o estabelecimento de regras de controle de acesso baseado em função (RBAC) para seus aplicativos. Para saber mais, consulte Gerenciar seus recursos do Azure.
      
-6.  Select the **Certificate SKU** 
+6.	Selecione o **SKU do certificado**
 
-    Finally, select the certificate SKU that fits your need and click Create. Today, Azure App Service allows you to purchase two different SKUs •    S1 – Standard Certificate with 1-year validity and auto renewal  
-           •    W1 – Wild card Certificate with 1-year validity and auto renewal      
-    See **[Web Apps Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/)** for more information.
+    Por fim, selecione o SKU do certificado que atenda às suas necessidades e clique em Criar. Atualmente, o Serviço de Aplicativo do Azure permite que você adquira dois SKUs diferentes • S1 – Certificado Standard com um ano de validade e renovação automática • W1 – Certificado curinga com validade de um ano e renovação automática. Confira **[Detalhes de preços de aplicativos Web](https://azure.microsoft.com/pricing/details/web-sites/)** para saber mais.
 
-![insert image of certificate SKU](./media/app-service-web-purchase-ssl-web-site/SKU.jpg)
+![inserir imagem do SKU do certificado](./media/app-service-web-purchase-ssl-web-site/SKU.jpg)
 
 > [AZURE.NOTE]
-> SSL Certificate creation will take anywhere from 1 – 10 minutes. This process performs multiple steps in background that are otherwise very cumbersome to perform manually.  
+A criação do Certificado SSL levará de um a 10 minutos. Esse processo executa várias etapas em segundo plano que seriam muito difíceis de realizar manualmente.
 
-##<a name="<a-name="bkmk_storekeyvault"></a>step-1:-store-the-certificate-in-azure-key-vault"></a><a name="bkmk_StoreKeyVault"></a>Step 1: Store the certificate in Azure Key Vault
+##<a name="bkmk_StoreKeyVault"></a>Etapa 1: Armazenar o certificado no Cofre da Chave do Azure
 
-In this Step, you will learn how to place an Store an SSL Certificate that you purchased to Azure Key Vault of your choice.
+Nessa Etapa, você aprenderá a colocar em armazenamento um Certificado SSL que você adquiriu no Cofre da Chave do Azure de sua escolha.
 
-1.  Once the SSL Certificate purchase is complete You will need to manually open **App Service Certificates** Resource blade by browsing to it again (See Step 1 above)   
+1.	Após a conclusão da compra do Certificado SSL, você precisará abrir manualmente a folha Recursos dos **Certificados de Serviço de Aplicativo** navegando até ela novamente (confira a Etapa 1 acima)
 
-    ![insert image of ready to store in KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
+    ![inserir imagem de pronto para armazenar no KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.jpg)
 
-    You will notice that Certificate status is **“Pending Issuance”** as there are few more steps you need to complete before you can start using this certificates.
+    Você perceberá que o status do certificado é **"Emissão Pendente"**, pois há mais algumas etapas que precisam ser concluídas antes de começar a usar esses certificados.
  
-2. Click on **“Certificate Configuration”** inside Certificate Properties blade and Click on **“Step 1: Store”** to store this certificate in Azure Key Vault.
+2. Clique em **"Configuração do Certificado"** dentro da folha Propriedades do Certificado e clique em **"Etapa 1: Armazenar"** para armazenar esse certificado no Cofre da Chave do Azure.
 
-3.  From **“Key Vault Status”** Blade click on **“Key Vault Repository”** to choose an existing Key Vault to store this certificate **OR “Create New Key Vault”** to create new Key Vault inside same subscription and resource group.
+3.	Na folha **"Status do Cofre da Chave"**, clique em **"Repositório do Cofre da Chave"** para escolher um Cofre da Chave existente a fim de armazenar esse certificado **OU "Criar Novo Cofre da Chave"** para criar um novo Cofre da Chave dentro do mesmo grupo de recursos e da mesma assinatura.
  
-    ![insert image of create new KV](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
+    ![inserir imagem de criação de novo KV](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
  
     > [AZURE.NOTE]
-    Azure Key Vault has very minimal charges for storing this certificate. See **[Azure Key Vault Pricing Details](https://azure.microsoft.com/pricing/details/key-vault/)** for more information.
+    O Cofre da Chave do Azure tem custos bem mínimos para armazenar esse certificado. Veja **[Detalhes de Preço do Cofre de Chaves do Azure](https://azure.microsoft.com/pricing/details/key-vault/)** para obter mais informações.
 
-4. Once you have selected the Key Vault Repository to store this certificate in, go ahead and store it by clicking on **“Store”** button at the top of **“Key Vault Status”** blade.  
+4. Depois de selecionar o Repositório do Cofre da Chave para armazenar esse certificado, vá em frente e armazene-o clicando no botão **"Armazenar"** na parte superior da folha **"Status do Cofre da Chave"**.
 
-    This should complete step to storing the Certificate you purchased with Azure Key Vault of your choice. Upon refreshing the Blade, you should see Green Check mark against this step as well.
+    Isso deve concluir a etapa de armazenamento do certificado que você adquiriu com o Cofre da Chave do Azure de sua escolha. Após atualizar a folha, você também deverá ver a marca de verificação verde nessa etapa.
     
-##<a name="<a-name="bkmk_verifyownership"></a>step-2:-verify-the-domain-ownership"></a><a name="bkmk_VerifyOwnership"></a>Step 2: Verify the Domain Ownership
+##<a name="bkmk_VerifyOwnership"></a>Etapa 2: Verificar a propriedade do domínio
 
-In this Step, you will learn how to perform Domain Ownership Verification for an SSL Certificate that you just placed an order for. 
+Nesta etapa, você aprenderá a realizar a Verificação de Propriedade de Domínio de um Certificado SSL para o qual você acabou de fazer um pedido.
 
-1.  Click on **“Step 2: Verify”** Step from the **“Certificate Configuration”** Blade. There are 4 types of domain Verification supported by App Service Certificates.
+1.	Clique em **"Etapa 2: Verificar"** na folha **"Configuração de Certificado"**. Há quatro tipos de Verificação de domínio com suporte dos Certificados do Serviço de Aplicativo.
 
-    * **App Service Verification** 
+    * **Verificação do Serviço de Aplicativo**
     
-        * This is the most convenient process if you already have **your custom domain assigned to the App Service Apps.** This method will list out all the App Service Apps that meet this criteria. 
-           For example, in this case, **contosocertdemo.com** is a custom domain assigned to App Service App called **“ContosoCertDemo”** and hence that’s the only App Service App listed here. If there were multi-region deployment, then it would list them all across the regions.
+        * Este será o processo mais conveniente se o **seu domínio personalizado já estiver atribuído aos Aplicativos do Serviço de Aplicativo.** Este método listará todos os Aplicativos do Serviço de Aplicativo que atendem a esse critério. Por exemplo, neste caso, **contosocertdemo.com** é um domínio personalizado atribuído ao Aplicativo do Serviço de Aplicativo chamado **"ContosoCertDemo"** e, portanto, é o único Aplicativo do Serviço de Aplicativo listado aqui. Se houvesse uma implantação em várias regiões, todos os aplicativos de todas as regiões seriam listados.
         
-           The verification method is ONLY available for Standard (Basic) certificate purchases. For Wild Card Certificates, please skip and move to option B, C or D below.
-        * Click on **“Verify”** button to complete this step.
-        * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
+           O método de verificação SÓ está disponível para compras de certificado Standard (Básico). Para os Certificados Curinga, ignore e vá para a opção B, C ou D abaixo.
+        * Clique no botão **"Verificar"** para concluir esta etapa.
+        * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação. Pode demorar alguns minutos até a verificação ser concluída.
         
-        ![insert image of App Service Verification](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
+        ![inserir imagem de Verificação de Serviço de Aplicativo](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)
 
-    * **Domain Verification** 
+    * **Verificação de domínio**
 
-        * This is the most convenient process **ONLY IF** you have **[purchased your custom domain from Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
+        * Este será o processo mais conveniente **SOMENTE SE** você tiver **[adquirido seu domínio personalizado no Serviço de Aplicativo do Azure.](custom-dns-web-site-buydomains-web-app.md)**
         
-        * Click on **“Verify”** button to complete this step.
+        * Clique no botão **"Verificar"** para concluir esta etapa.
         
-        * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
+        * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação. Pode demorar alguns minutos até a verificação ser concluída.
 
-    * **Mail Verification**
+    * **Verificação por email**
         
-        * Verification email has already been sent to the Email Address(es) associated with this custom domain.
+        * Um email de verificação já foi enviado para os endereços de email associados a esse domínio personalizado.
          
-        * Open the email and Click on the verification link to complete the Email Verification step. 
+        * Abra o email e clique no link de verificação para concluir a etapa Verificação por email.
         
-        * If you need to resend the verification email, Click on the **"Resend Email"** button.
+        * Se você precisar reenviar o email de verificação, clique no botão **"Reenviar Email"**.
          
-    * **Manual Verification**    
+    * **Verificação manual**
                  
-        1. **HTML Web Page Verification**
+        1. **Verificação de página Web HTML**
         
-            * Create an HTML file named **{Domain Verification Token}**.html (You can copy the token from he Domain Verification Status Blade)
+            * Crie um arquivo HTML chamado **{Token de Verificação de Domínio}**.html (você pode copiar o token da folha Status de Verificação de Domínio)
             
-            * Content of this file should be the exact same name of **Domain Verification Token**.
+            * O conteúdo desse arquivo deve ter exatamente o mesmo nome do **Token de Verificação de Domínio**.
             
-            * Upload this file at the root of the web server hosting your domain.
+            * Carregue esse arquivo na raiz do servidor Web que hospeda seu domínio.
             
-            * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
+            * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação. Pode demorar alguns minutos até a verificação ser concluída.
             
-            For example, if you are buying a standard certificate for contosocertdemo.com with Domain Verification Token **‘cAGgQrKc’** then a web request made to **‘http://contosocertdemo.com/cAGgQrKc.html’** should return **cAGgQrKc.**
-        2. **DNS TXT Record Verification**
+            Por exemplo, se você estiver comprando um certificado padrão para contosocertdemo.com com o Token de Verificação de Domínio **'cAGgQrKc'**, uma solicitação da Web feita para **'http://contosocertdemo.com/cAGgQrKc.html'** deverá retornar **cAGgQrKc.**
+        2. **Verificação de registro TXT do DNS**
 
-            * Using your DNS manager, Create a TXT record on the **‘DZC’** subdomain with value equal to the **Domain Verification Token.**
+            * Usando o Gerenciador de DNS, crie um registro TXT no subdomínio **'DZC'** com um valor igual ao **Token de Verificação do Domínio.**
             
-            * Click on **“Refresh”** to update the Certificate status after verification is completed. It might take few minutes for verification to complete.
+            * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação. Pode demorar alguns minutos até a verificação ser concluída.
                               
-            For example, in order to perform validation for a wildcard certificate with hostname **\*.contosocertdemo.com** or **\*.subdomain.contosocertdemo.com** and Domain Verification Token **cAGgQrKc**, you need to create a TXT record on dzc.contosocertdemo.com with value **cAGgQrKc.**     
+            Por exemplo, para executar a validação de um certificado curinga com o nome de host **\*.contosocertdemo.com** ou **\*.subdomain.contosocertdemo.com** e o Token de Verificação do Domínio **cAGgQrKc**, você precisa criar um registro TXT em dzc.contosocertdemo.com com o valor **cAGgQrKc.**
 
 
-##<a name="<a-name="bkmk_assigncertificate"></a>step-3:-assign-certificate-to-app-service-app"></a><a name="bkmk_AssignCertificate"></a>Step 3: Assign Certificate to App Service App
+##<a name="bkmk_AssignCertificate"></a>Etapa 3: Atribuir o certificado ao Aplicativo do Serviço de Aplicativo
 
-In this Step, you will learn how to assign this newly purchased certificate to your App Service Apps. 
+Nesta Etapa, você aprenderá a atribuir esse certificado recém-adquirido para seus Aplicativos do Serviço de Aplicativo.
 
 > [AZURE.NOTE]
-> Before performing the steps in this section, you must have associated a custom domain name with your app. For more information, see **[Configuring a custom domain name for a web app.](web-sites-custom-domain-name.md)**
+Antes de executar as etapas nesta seção, você precisa ter associado um nome de domínio personalizado ao seu aplicativo. Para saber mais, confira **[Configurando um nome de domínio personalizado para um aplicativo Web.](web-sites-custom-domain-name.md)**
 
-1.  In your browser, open the **[Azure Portal.](https://portal.azure.com/)**
-2.  Click the **App Service** option on the left side of the page.
-3.  Click the name of your app to which you want to assign this certificate. 
-4.  In the **Settings**, Click **SSL certificates**
-5.  Click **Import App Service Certificate** and select the Certificate that you just purchased
+1.	Em seu navegador, abra o **[Portal do Azure.](https://portal.azure.com/)**
+2.	Clique na opção **Serviço de Aplicativo** no lado esquerdo da página.
+3.	Clique no nome do aplicativo ao qual você deseja atribuir a esse certificado.
+4.	Em **Configurações**, clique em **Certificados SSL**
+5.	Clique em **Importar Certificado do Serviço de Aplicativo** e selecione o certificado que você acabou de adquirir
 
-    ![insert image of Import Certificate](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
+    ![inserir imagem de Importar Certificado](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-6. In the **ssl bindings** section Click on **Add bindings**
-7. In the **Add SSL Binding** blade use the dropdowns to select the domain name to secure with SSL, and the certificate to use. You may also select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP based SSL.
+6. Na seção **associações ssl**, clique em **Adicionar associações**
+7. Na folha **Adicionar Associação SSL**, use os menus suspensos para selecionar o nome de domínio a ser protegido com SSL e o certificado a ser usado. Você também pode selecionar se deseja usar **[Indicação de Nome de Servidor (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** ou SSL baseado em IP.
 
-    ![insert image of SSL Bindings](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
+    ![inserir imagem de Associações SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
 
-       •    IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional          method of associating SSL certificates with a web server.
-       •    SNI based SSL is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
+       • O SSL baseado em IP associa um certificado a um nome de domínio mapeando um endereço IP público dedicado do servidor ao nome de domínio. Isso exige que cada nome de domínio (contoso.com, fabricam.com etc.), associado ao seu serviço tenha um endereço IP dedicado. Esse é o método tradicional de associação do certificado SSL a um servidor Web. • O SSL baseado em SNI é uma extensão para SSL e **[o protocolo TLS](http://en.wikipedia.org/wiki/Transport_Layer_Security)** que permite que vários domínios compartilhem o mesmo endereço IP, com certificados de segurança separados para cada domínio. Os navegadores mais modernos (incluindo Internet Explorer, Chrome, Firefox e Opera) oferecem suporte ao SNI. No entanto, navegadores mais antigos podem não oferecer esse suporte. Para saber mais sobre SNI, confira o artigo **[Indicação de Nome de Servidor](http://en.wikipedia.org/wiki/Server_Name_Indication)** no Wikipédia.
        
-7. Click **Add Binding** to save the changes and enable SSL.
+7. Clique em **Adicionar Associação** para salvar as alterações e habilitar o SSL.
 
 
 
-If you selected **IP based SSL** and your custom domain is configured using an A record, you must perform the following additional steps:
+Se você selecionou **SSL baseado em IP** e seu domínio personalizado foi configurado pelo uso de um registro A, você deverá executar as seguintes etapas adicionais:
 
-* After you have configured an IP based SSL binding, a dedicated IP address is assigned to your app. You can find this IP address on the **Custom domain** page under settings of your app, right above the **Hostnames** section. It will be listed as **External IP Address**
+* Depois de ter configurado uma associação de SSL baseada em IP, um endereço IP dedicado é atribuído ao seu aplicativo. Encontre esse endereço IP na página **Domínio personalizado** nas configurações do aplicativo, logo acima da seção **Nomes de host**. Ele estará listado como **Endereço IP Externo**
     
-    ![insert image of IP SSL](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
+    ![inserir imagem de IP SSL](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
 
-    Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain. If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.
+    Observe que esse endereço IP será diferente do endereço IP virtual usado anteriormente para configurar o registro A de seu domínio. Se você estiver configurado para usar SSL baseado em SNI, ou não estiver configurado para usar SSL, nenhum endereço será listado para essa entrada.
     
-2. Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
-At this point, you should be able to visit your app using HTTPS:// instead of HTTP:// to verify that the certificate has been configured correctly.
+2. Usando as ferramentas fornecidas pelo registro de nomes de domínio, modifique o registro A de seu nome de domínio personalizado para redirecionar para o endereço IP da etapa anterior. Nesse momento, você poderá visitar o seu aplicativo usando HTTPS:// em vez de HTTP:// para verificar se o certificado foi configurado corretamente.
 
 
-##<a name="<a-name="bkmk_rekey"></a>rekey-and-sync-the-certificate"></a><a name="bkmk_Rekey"></a>Rekey and Sync the Certificate
+##<a name="bkmk_Rekey"></a>Criar novas chaves e sincronizar o certificado
 
-1. For security reasons, if you ever need to Rekey your certificate then simply select **"Rekey and Sync"** option from **"Certificate Properties"** Blade. 
+1. Por motivos de segurança, se você precisar criar uma nova chave para seu certificado, basta selecionar a opção **"Criar Nova Chave e Sincronizar"** na folha **"Propriedades do Certificado"**.
 
-2. Click on **"Rekey"** Button to initiate the process. This process can take 1-10 minutes to complete. 
+2. Clique no botão **"Criar Nova Chave"** para iniciar o processo. Esse processo pode demorar de um a 10 minutos para ser concluído.
 
-    ![insert image of ReKey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
+    ![inserir imagem de Nova Chave SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
 
-3. Rekeying your certificate will roll the certificate with a new certificate issued from the certificate authority.
-4. You will not be charged for the Rekeying for the lifetime of the certificate. 
-5. Rekeying your certificate will go through Pending Issuance state. 
-6. Once the certificate is ready make sure you sync your resources using this certificate to prevent disruption to the service.
-7. Sync option is not available for Certificates that are not yet assigned to the Web App. 
+3. A criação de uma nova chave para o certificado causará a emissão de um novo certificado pela autoridade de certificação.
+4. Você não será cobrado pela criação da nova chave durante o tempo de vida do certificado.
+5. A criação de uma nova chave para o certificado passará pelo estado de Emissão Pendente.
+6. Quando o certificado estiver pronto, sincronize seus recursos usando esse certificado para evitar interrupções no serviço.
+7. A opção de sincronização não está disponível para certificados que ainda não foram atribuídos ao aplicativo Web.
 
-## <a name="more-resources"></a>More Resources ##
-- [Enable HTTPS for an app in Azure App Service](web-sites-configure-ssl-certificate.md)
-- [Buy and Configure a custom domain name in Azure App Service](custom-dns-web-site-buydomains-web-app.md)
-- [Microsoft Azure Trust Center](/support/trust-center/security/)
-- [Configuration options unlocked in Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [Azure Management Portal](https://manage.windowsazure.com)
+## Mais Recursos ##
+- [Habilitar HTTPS para um aplicativo no Serviço de Aplicativo do Azure](web-sites-configure-ssl-certificate.md)
+- [Comprar e configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure.](custom-dns-web-site-buydomains-web-app.md)
+- [Central de confiabilidade do Microsoft Azure](/support/trust-center/security/)
+- [Opções de configuração desbloqueadas nos Sites do Azure](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
+- [Portal de Gerenciamento do Azure](https://manage.windowsazure.com)
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+>[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

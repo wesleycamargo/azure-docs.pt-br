@@ -1,22 +1,12 @@
-### <a name="prerequisites"></a>Prerequisites
-- A [Dropbox](https://www.Dropbox.com/) account 
+### Pré-requisitos
+- Uma conta do [Dropbox](https://www.Dropbox.com/) 
 
-Before you can use your Dropbox account in a Logic app, you must authorize the Logic app to connect to your Dropbox account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Antes de usar sua conta do Dropbox em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do Dropbox. Felizmente, você pode fazer isso facilmente a partir de seu aplicativo lógico no Portal do Azure.
 
-Here are the steps to authorize your Logic app to connect to your Dropbox account:
+Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do Dropbox:
 
-1. To create a connection to Dropbox, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Dropbox* in the search box. Select the trigger or action you'll like to use:  
-  ![Dropbox step 1](./media/connectors-create-api-dropbox/dropbox-1.png)
-2. If you haven't created any connections to Dropbox before, you'll get prompted to provide your Dropbox credentials. These credentials will be used to authorize your Logic app to connect to, and access your Dropbox account's data:  
-  ![Dropbox step 2](./media/connectors-create-api-dropbox/dropbox-2.png)
-3. Provide your Dropbox user name and password to authorize your Logic app:  
-  ![Dropbox step 3](./media/connectors-create-api-dropbox/dropbox-3.png)   
-4. Authorize the Logic app to use your Dropbox account:  
-  ![Dropbox step 4](./media/connectors-create-api-dropbox/dropbox-4.png)
-5. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-  ![Dropbox step 5](./media/connectors-create-api-dropbox/dropbox-5.png)   
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+1. Para criar uma conexão com o Dropbox, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa, em seguida, digite *Dropbox* na caixa de pesquisa. Selecione o gatilho ou ação que gostaria de usar: ![Etapa 1 do Dropbox](./media/connectors-create-api-dropbox/dropbox-1.png)
+2. Se você não tiver criado quaisquer conexões Dropbox antes, será solicitado a fornecer suas credenciais do Dropbox. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta do Dropbox e usá-los: ![Etapa 2 do Dropbox](./media/connectors-create-api-dropbox/dropbox-2.png)
+3. Forneça seu nome de usuário do Dropbox e a senha para autorizar seu aplicativo lógico: ![Etapa 3 do Dropbox](./media/connectors-create-api-dropbox/dropbox-3.png)   
+4. Autorize o aplicativo lógico a usar sua conta do Dropbox: ![Etapa 4 do Dropbox](./media/connectors-create-api-dropbox/dropbox-4.png)
+5. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico: ![Etapa 5 do Dropbox](./media/connectors-create-api-dropbox/dropbox-5.png)   

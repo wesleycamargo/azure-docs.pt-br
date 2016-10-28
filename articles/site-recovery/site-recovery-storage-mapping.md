@@ -1,108 +1,103 @@
 <properties
-    pageTitle="Map storage in Azure Site Recovery for Hyper-V virtual machine replication between on-premises datacenters | Microsoft Azure"
-    description="Prepare storage mapping for Hyper-V virtual machine replication between two on-premises datacenters with Azure Site Recovery."
-    services="site-recovery"
-    documentationCenter=""
-    authors="rayne-wiselman"
-    manager="jwhit"
-    editor=""/>
+	pageTitle="Mapear o armazenamento no Azure Site Recovery para a replicação de uma máquina virtual do Hyper-V entre dois data centers locais | Microsoft Azure"
+	description="Prepare o mapeamento de armazenamento para a replicação de máquina virtual do Hyper-V entre dois data centers locais com o Azure Site Recovery."
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
+	editor=""/>
 
 <tags
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage-backup-recovery"
-    ms.date="07/06/2016"
-    ms.author="raynew"/>
+	ms.service="site-recovery"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="storage-backup-recovery"
+	ms.date="07/06/2016"
+	ms.author="raynew"/>
 
 
-
-# <a name="prepare-storage-mapping-for-hyper-v-virtual-machine-replication-between-two-on-premises-datacenters-with-azure-site-recovery"></a>Prepare storage mapping for Hyper-V virtual machine replication between two on-premises datacenters with Azure Site Recovery
-
-
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover, and recovery of virtual machines and physical servers. This article describes storage mapping, which helps you make optimal use of storage when you're using Site Recovery to replicate Hyper-V virtual machines between two on-premises VMM datacenters.
-
-Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-## <a name="overview"></a>Overview
-
-Storage mapping is only relevant when you're replicating Hyper-V virtual machines that are located in VMM clouds from a primary datacenter to a secondary datacenter using Hyper-V Replica or SAN replication, as follows:
+# Preparar o mapeamento de armazenamento para replicação de máquina virtual do Hyper-V entre dois data centers locais com o Azure Site Recovery
 
 
-- **On-premises to on-premises replication with Hyper-V Replica)**—You set up storage mapping by mapping storage classifications on a source and target VMM servers to do the following:
+O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) gerenciando replicação, failover e recuperação de máquinas virtuais e servidores físicos. Este artigo descreve o mapeamento de armazenamento, que ajuda a usar o armazenamento de forma ideal quando você está usando o Site Recovery para replicar máquinas virtuais do Hyper-V entre dois datacenters VMM locais.
 
-    - **Identify target storage for replica virtual machines**—Virtual machines will be replicated to a storage target (SMB share or cluster shared volumes (CSVs)) that you choose.
-    - **Replica virtual machine placement**—Storage mapping is used to optimally place replica virtual machines on Hyper-V host servers. Replica virtual machines will be placed on hosts that can access the mapped storage classification.
-    - **No storage mapping**—If you don’t configure storage mapping, virtual machines will be replicated to the default storage location specified on the Hyper-V host server associated with the replica virtual machine.
+Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-- **On-premises to on-premises replication with SAN**—You set up storage mapping by mapping storage arrays pools on a source and target VMM servers.
-    - **Specify pool**—Specifies which secondary storage pool receives replication data from the primary pool.
-    - **Identify target storage pools**—Ensures that LUNs in a source replication group are replicated to mapped target storage pool of your choice.
+## Visão geral
 
-## <a name="set-up-storage-classifications-for-hyper-v-replication"></a>Set up storage classifications for Hyper-V replication
+O mapeamento de armazenamento só será relevante quando você estiver replicando máquinas virtuais do Hyper-V localizadas nas nuvens do VMM de um data center principal para um datacenter secundário usando a replicação SAN ou a Réplica do Hyper-V, da seguinte maneira:
 
-When you're using Hyper-V Replica to replicate with Site Recovery,  you map between storage classifications on source and target VMM servers, or on a single VMM server if two sites are managed by the same VMM server. Note that:
 
-- When mapping is configured correctly and replication is enabled, a virtual machine’s virtual hard disk at the primary location will be replicated to storage in the mapped target location.
-- Storage classifications must be available to the host groups located in source and target clouds.
-- Classifications don’t need to have the same type of storage. For example, you can map a source classification that contains SMB shares to a target classification that contains CSVs.
-- Read more in [How to create storage classifications in VMM](https://technet.microsoft.com/library/gg610685.aspx).
+- **De local para local (replicação com a Réplica do Hyper-V)** — você configura o mapeamento de armazenamento ao mapear as classificações de armazenamento em servidores VMM de origem e de destino para fazer o seguinte:
 
-## <a name="example"></a>Example
+	- **Identificar o armazenamento de destino para máquinas virtuais de réplica** — as máquinas virtuais serão replicadas para um destino de armazenamento escolhido por você (compartilhamento SMB ou volumes compartilhados de cluster (CSVs)).
+	- **Posicionamento das máquinas virtuais de réplica** — o Mapeamento de armazenamento é usado para posicionar de forma ideal as máquinas virtuais de réplica em servidores host Hyper-V. As máquinas virtuais de réplica serão colocadas em hosts que possam acessar as redes VM mapeadas.
+	- **Nenhum mapeamento de armazenamento** — se você não configurar o mapeamento de armazenamento, as máquinas virtuais serão replicadas para o local de armazenamento padrão especificado no servidor host Hyper-V associado à máquina virtual de réplica.
 
-If classifications are configured correctly in VMM when you select the source and target VMM server during storage mapping, the source and target classifications will be displayed. Here’s an example of storage files shares and classifications for an organization with two locations in New York and Chicago.
+- **Replicação de local para local com SAN** — você configura o mapeamento de armazenamento ao mapear os pools de matrizes de armazenamento em servidores VMM de origem e de destino.
+	- **Especificar pool** — especifica qual pool de armazenamento secundário receberá os dados de replicação do pool principal.
+	- **Identificar pools de armazenamento de destino** — garante que os LUNs em um grupo de replicação serão replicados no pool de armazenamento de destino mapeado.
 
-**Location** | **VMM server** | **File share (source)** | **Classification (source)** | **Mapped to** | **File share (target)**
+## Configurar classificações de armazenamento para a replicação do Hyper-V
+
+Quando você estiver usando a Réplica do Hyper-V para replicar com o Site Recovery, mapeará entre classificações de armazenamento nos servidores VMM de origem e de destino ou em um único servidor VMM se dois locais forem gerenciados pelo mesmo servidor VMM. Observe que:
+
+- Quando o mapeamento estiver configurado corretamente e a replicação estiver habilitada, disco rígido virtual de uma máquina virtual no local primário será replicado no armazenamento no local de destino mapeado.
+- As classificações de armazenamento devem estar disponíveis para os grupos de host localizados nas nuvens de origem e de destino.
+- As classificações não precisam ter o mesmo tipo de armazenamento. Por exemplo, você pode mapear uma classificação de origem que contenha compartilhamentos SMB para uma classificação de destino que contenha CSVs.
+- Leia mais em [Como criar classificações de armazenamento np VMM](https://technet.microsoft.com/library/gg610685.aspx).
+
+## Exemplo
+
+Se as classificações estiverem configuradas corretamente no VMM quando você selecionar os servidores VMM de origem e de destino durante o mapeamento de armazenamento, as classificações de origem e de destino serão exibidas. Veja um exemplo de compartilhamentos de arquivos de armazenamento e classificações para uma organização com duas localizações, Nova Iorque e Chicago.
+
+**Localidade** | **Servidor VMM** | **Compartilhamento de arquivos (origem)** | **Classificação (origem)** | **Mapeado para** | **Compartilhamento de arquivos (destino)**
 ---|---|--- |---|---|---
-New York | VMM_Source| SourceShare1 | GOLD | GOLD_TARGET | TargetShare1
- |  | SourceShare2 | SILVER | SILVER_TARGET | TargetShare2
- | | SourceShare3 | BRONZE | BRONZE_TARGET | TargetShare3
-Chicago | VMM_Target |  | GOLD_TARGET | Not mapped |
-| | | SILVER_TARGET | Not mapped |
- | | | BRONZE_TARGET | Not mapped
+Nova Iorque | VMM\_Source| SourceShare1 | GOLD | GOLD\_TARGET | TargetShare1
+ | | SourceShare2 | SILVER | SILVER\_TARGET | TargetShare2
+ | | SourceShare3 | BRONZE | BRONZE\_TARGET | TargetShare3
+Chicago | VMM\_Target | | GOLD\_TARGET | Não mapeado |
+| | | SILVER\_TARGET | Não mapeado |
+ | | | BRONZE\_TARGET | Não mapeado
 
-You'd configure these on the **Server Storage** tab in the **Resources** page of the Site Recovery portal.
+Você deve configurá-los na guia **Armazenamento do Servidor**, na página **Recursos**, do portal de Recuperação de Site.
 
-![Configure storage mapping](./media/site-recovery-storage-mapping/storage-mapping1.png)
+![Configurar o mapeamento de armazenamento](./media/site-recovery-storage-mapping/storage-mapping1.png)
 
-With this example:
-- When a a replica virtual machine is created for any virtual machine on GOLD storage (SourceShare1), it will be replicated to a GOLD_TARGET storage (TargetShare1).
-- When a replica virtual machine is created for any virtual machine on SILVER storage (SourceShare2), it will be replicated to a SILVER_TARGET (TargetShare2) storage, and so on.
+Neste exemplo:
+- Quando uma máquina virtual de réplica for criada para qualquer máquina virtual no armazenamento GOLD (SourceShare1), ela será replicada para um armazenamento GOLD\_TARGET (TargetShare1).
+- Quando uma máquina virtual de réplica for criada para qualquer máquina virtual no armazenamento SILVER (SourceShare2), ela será replicada para um armazenamento SILVER\_TARGET (TargetShare2) etc.
 
-The actual file shares and their assigned classifications in VMM appear in the next screen shot.
+Os compartilhamentos de arquivo reais e suas classificações atribuídas no VMM aparecem na captura de tela a seguir.
 
-![Storage classifications in VMM](./media/site-recovery-storage-mapping/storage-mapping2.png)
+![Classificações de armazenamento no VMM](./media/site-recovery-storage-mapping/storage-mapping2.png)
 
-## <a name="multiple-storage-locations"></a>Multiple storage locations
+## Vários locais de armazenamento
 
-If the target classification is assigned to multiple SMB shares or CSVs, the optimal storage location will be selected automatically when the virtual machine is protected. If no suitable target storage is available with the specified classification, the default storage location specified on the Hyper-V host is used to place the replica virtual hard disks.
+Se a classificação de destino for atribuída a vários compartilhamentos SMB ou CSV, o local de armazenamento ideal será selecionado automaticamente quando a máquina virtual estiver protegida. Se nenhum armazenamento de destino adequado estiver disponível com a classificação especificada, o local de armazenamento padrão especificado no host Hyper-V será usado para posicionar os discos rígidos virtuais de réplica.
 
-The following table show how storage classification and cluster shared volumes are set up in our example.
+A tabela a seguir mostram como a classificação de armazenamento e os volumes compartilhados do cluster são configurados em nosso exemplo.
 
-**Location** | **Classification** | **Associated storage**
+**Localidade** | **Classificação** | **Armazenamento associado**
 ---|---|---
-New York | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p>
- | SILVER | <p>C:\ClusterStorage\SourceVolume2</p><p>\\FileServer\SourceShare2</p>
-Chicago | GOLD_TARGET | <p>C:\ClusterStorage\TargetVolume1</p><p>\\FileServer\TargetShare1</p>
- | SILVER_TARGET| <p>C:\ClusterStorage\TargetVolume2</p><p>\\FileServer\TargetShare2</p>
+Nova Iorque | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p>
+ | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
+Chicago | GOLD\_TARGET | <p>C:\\ClusterStorage\\TargetVolume1</p><p>\\FileServer\\TargetShare1</p>
+ | SILVER\_TARGET| <p>C:\\ClusterStorage\\TargetVolume2</p><p>\\FileServer\\TargetShare2</p>
 
-This table summarizes the behavior when you enable protection for virtual machines (VM1 - VM5) in this example environment.
+Esta tabela resume o comportamento ao ativar a proteção para máquinas virtuais (VM1 - VM5) neste ambiente de exemplo.
 
-**Virtual machine** | **Source storage** | **Source classification** | **Mapped target storage**
+**Máquina virtual** | **Armazenamento de origem** | **Classificação de origem** | **Armazenamento de destino mapeado**
 ---|---|---|---
-VM1 | C:\ClusterStorage\SourceVolume1 | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\\\FileServer\SourceShare1</p><p>Both GOLD_TARGET</p>
-VM2 | \\FileServer\SourceShare1 | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p> <p>Both GOLD_TARGET</p>
-VM3 | C:\ClusterStorage\SourceVolume2 | SILVER | <p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p>
-VM4 | \FileServer\SourceShare2 | SILVER |<p>C:\ClusterStorage\SourceVolume2</p><p>\\FileServer\SourceShare2</p><p>Both SILVER_TARGET</p>
-VM5 | C:\ClusterStorage\SourceVolume3 | N/A | No mapping, so the default storage location of the Hyper-V host is used
+VM1 | C:\\ClusterStorage\\SourceVolume1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\\FileServer\\SourceShare1</p><p>Ambos GOLD\_TARGET</p>
+VM2 | \\FileServer\\SourceShare1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p> <p>Ambos GOLD\_TARGET</p>
+VM3 | C:\\ClusterStorage\\SourceVolume2 | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
+VM4 | \\FileServer\\SourceShare2 | SILVER |<p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p><p>Ambos SILVER\_TARGET</p>
+VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | Nenhum mapeamento; sendo assim, o local de armazenamento padrão do host Hyper-V é usado
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-Now that you have a better understanding of storage mapping, [get ready to deploy Azure Site Recovery](site-recovery-best-practices.md).
+Agora que você compreende melhor o mapeamento de armazenamento, [prepare-se para implantar o Azure Site Recovery](site-recovery-best-practices.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

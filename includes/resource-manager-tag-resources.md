@@ -1,28 +1,25 @@
-1. To add tags to existing resources and resource groups, select the tag icon. 
+1. Para adicionar marcações aos recursos e grupos de recursos existentes, selecione o ícone de marcação.
 
-     ![Tags part on resource and resource group blades](./media/resource-manager-tag-resources/select-tag-icon.png)
+     ![Parte de marcas nas folhas de recurso e grupo de recursos](./media/resource-manager-tag-resources/select-tag-icon.png)
 
-1. You see a list of tags that your organization has already applied to resources. If you have not previously applied tags, the list is empty. To add a tag, simply specify a name and value and press Enter. After you've added a few tags, you'll notice autocomplete options based on pre-existing tag names and values. These autocomplete options ensure a consistent taxonomy across your resources and avoid common mistakes, like misspellings.
+1. Consulte uma lista de marcas que sua organização já aplicou aos recursos. Se você não tiver aplicado marcas anteriormente, a lista estará vazia. Para adicionar uma marca, especifique um nome e valor e pressione Enter. Depois de adicionar algumas marcas, você verá opções de preenchimento automático com base em valores e nomes de marcação pré-existentes. Essas opções de preenchimento automático garantem uma taxonomia consistente entre os recursos e evita erros comuns, como erros de ortografia.
 
-     ![Tag resources with name/value pairs](./media/resource-manager-tag-resources/tag-resources.png)
+     ![Marcar recursos com pares de nome/valor](./media/resource-manager-tag-resources/tag-resources.png)
 
-1. To view your taxonomy of tags in the portal, select **More Services** and **Tags**.
+1. Para exibir sua taxonomia de marcas no portal, selecione **Mais Serviços** e **Marcas**.
 
-     ![Find tags via the Browse hub](./media/resource-manager-tag-resources/browse-tags.png)
+     ![Localizar marcas pelo hub Procurar](./media/resource-manager-tag-resources/browse-tags.png)
 
-1. You see a summary of the tags in your subscription.
+1. Você verá um resumo das marcas na sua assinatura.
 
-     ![Show all tags](./media/resource-manager-tag-resources/tag-taxonomy.png)
+     ![Mostrar todas as marcas](./media/resource-manager-tag-resources/tag-taxonomy.png)
 
-1. Select any of the tags to display the resources and resource groups with that tag.
+1. Selecione qualquer uma dessas marcações para exibir os recursos e os grupos de recursos com essa marcação.
 
-     ![Show tagged resources](./media/resource-manager-tag-resources/show-tagged-resources.png)
+     ![Mostrar recursos marcados](./media/resource-manager-tag-resources/show-tagged-resources.png)
 
-1. Pin the most important tags to your Dashboard for quick access.
+1. Fixe as marcas mais importantes no seu painel para acesso rápido.
 
-     ![Pin tags to the Startboard](./media/resource-manager-tag-resources/show-pinned-tag.png)
+     ![Fixar marcas no Quadro Inicial](./media/resource-manager-tag-resources/show-pinned-tag.png)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,326 +1,321 @@
 <properties
-    pageTitle="Use Script Action to install Spark on Hadoop cluster | Microsoft Azure"
-    description="Learn how to customize an HDInsight cluster with Spark using Script Action."
-    services="hdinsight"
-    documentationCenter=""
-    authors="nitinme"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Use a ação de Script no HDInsight para instalar o Spark em um cluster do Hadoop | Microsoft Azure"
+	description="Saiba como personalizar um cluster HDInsight com o Spark usando a Ação de Script."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/05/2016"
-    ms.author="nitinme"/>
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/05/2016"
+	ms.author="nitinme"/>
 
+# Instalar e usar o Spark no cluster Hadoop do HDInsight usando Ação de Script
 
-# <a name="install-and-use-spark-on-hdinsight-hadoop-clusters-using-script-action"></a>Install and use Spark on HDInsight Hadoop clusters using Script Action
+> [AZURE.IMPORTANT] Este artigo foi substituído. Agora, o HDInsight oferece o Spark como um tipo de cluster de primeira classe para clusters baseados no Windows, o que significa que agora você pode criar diretamente um cluster do Spark sem modificar um cluster do Hadoop usando Ação de Script. Usando o tipo de cluster Spark, você obtém um cluster do HDInsight versão 3.2 com o Spark versão 1.3.1. Para instalar versões diferentes do Spark, você poderá usar uma Ação de Script. O HDInsight fornece um exemplo de script de Ação de Script.
 
-> [AZURE.IMPORTANT] This article is now deprecated. HDInsight now provides Spark as a first-class cluster type for Windows-based clusters, which means you can now directly create a Spark cluster without modifying a Hadoop cluster using Script action. Using the Spark cluster type, you get an HDInsight version 3.2 cluster with Spark version 1.3.1.  To install different versions of Spark, you can use Script action. HDInsight provides a sample Script Action script.
+Saiba como instalar o Spark no HDInsight baseado no Windows usando a Ação de Script e como executar consultas Spark em clusters HDInsight.
 
-Learn how to install Spark on Windows based HDInsight using Script Action, and how to run Spark queries on HDInsight clusters.
 
+**Artigos relacionados**
 
-**Related articles**
+- [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): informações gerais sobre como criar clusters HDInsight
 
-- [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): general information on creating HDInsight clusters.
+- [Introdução ao Apache Spark no HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md): crie um cluster do Spark no HDInsight.
 
-- [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md): create an HDInsight Spark cluster.
+- [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize]\: informações gerais sobre como personalizar os clusters HDInsight usando a Ação de Script
 
-- [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: general information on customizing HDInsight clusters using Script Action.
+- [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions.md)
 
-- [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions.md).
+## O que é Spark?
 
-## <a name="what-is-spark?"></a>What is Spark?
+O <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a> é uma estrutura de processamento paralelo de código-fonte aberto que dá suporte ao processamento de memória para melhorar o desempenho dos aplicativos analíticos de big data. Recursos de computação na memória do Spark fazem dele uma boa escolha para algoritmos iterativos em cálculos de aprendizado e gráfico de máquina.
 
-<a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a> is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark's in-memory computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations.
+O Spark também podem ser usado para executar o processamento de dados baseados em disco convencional. O Spark melhora a estrutura MapReduce tradicional, evitando gravações em disco nos estágios intermediários. Além disso, o Spark é compatível com o armazenamento de Blob do Azure e com HDFS (Sistema de Arquivos Distribuído Hadoop) para que os dados existentes possam ser processados facilmente por meio do Spark.
 
-Spark can also be used to perform conventional disk-based data processing. Spark improves the traditional MapReduce framework by avoiding writes to disk in the intermediate stages. Also, Spark is compatible with the Hadoop Distributed File System (HDFS) and Azure Blob storage so the existing data can easily be processed via Spark.
+Este tópico fornece instruções sobre como personalizar um cluster HDInsight para instalar o Spark.
 
-This topic provides instructions on how to customize an HDInsight cluster to install Spark.
+## Instalar o Spark usando o Portal do Azure
 
-## <a name="install-spark-using-the-azure-portal"></a>Install Spark using the Azure Portal
+Um exemplo de script para instalar o Spark em um cluster HDInsight está disponível em um blob de armazenamento do Azure somente leitura em [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1). Esse script pode instalar o Spark 1.2.0 ou Spark 1.0.2, dependendo da versão do cluster HDInsight que você criar.
 
-A sample script to install Spark on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1). This script can install Spark 1.2.0 or Spark 1.0.2 depending on the version of the HDInsight cluster you create.
+- Se você usar o script durante a criação de um cluster **HDInsight 3.2**, ele instala o **Spark 1.2.0**.
+- Se você usar o script durante a criação de um cluster **HDInsight 3.1**, ele instalará o **Spark 1.0.2**.
 
-- If you use the script while creating an **HDInsight 3.2** cluster, it installs **Spark 1.2.0**.
-- If you use the script while creating an **HDInsight 3.1** cluster, it installs **Spark 1.0.2**.
+Você pode modificar esse script ou criar seu próprio script para instalar outras versões do Spark.
 
-You can modify this script or create your own script to install other versions of Spark.
+> [AZURE.NOTE] O script de exemplo funciona apenas com os clusters HDInsight versões 3.1 e 3.2. Para obter mais informações sobre as versões do cluster HDInsight, consulte [Versões do cluster HDInsight](hdinsight-component-versioning.md).
 
-> [AZURE.NOTE] The sample script works only with HDInsight 3.1 and 3.2 clusters. For more information on HDInsight cluster versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).
+1. Inicie a criação de um cluster usando a opção **CRIAÇÃO PERSONALIZADA**, conforme descrito em [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md#portal). Selecione a versão do cluster dependendo do seguinte:
 
-1. Start creating a cluster by using the **CUSTOM CREATE** option, as described at [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md#portal). Pick the cluster version depending on the following:
+	- Se você deseja instalar o **Spark 1.2.0**, crie um cluster HDInsight 3.2.
+	- Se você deseja instalar o **Spark 1.0.2**, crie um cluster HDInsight 3.1.
 
-    - If you want to install **Spark 1.2.0**, create an HDInsight 3.2 cluster.
-    - If you want to install **Spark 1.0.2**, create an HDInsight 3.1 cluster.
 
+2. Na página **Ações de Script** do assistente, clique em **Adicionar ação de script** para fornecer detalhes sobre a ação de script, como mostrado abaixo:
 
-2. On the **Script Actions** page of the wizard, click **add script action** to provide details about the script action, as shown below:
+	![Usar Ação de Script para personalizar um cluster](./media/hdinsight-hadoop-spark-install/HDI.CustomProvision.Page6.png "Usar Ação de Script para personalizar um cluster")
 
-    ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-spark-install/HDI.CustomProvision.Page6.png "Use Script Action to customize a cluster")
+	<table border='1'>
+		<tr><th>Propriedade</th><th>Valor</th></tr>
+		<tr><td>Nome</td>
+			<td>Especifique um nome para a ação de script. Por exemplo, <b>Instalar Spark</b>.</td></tr>
+		<tr><td>URI do script</td>
+			<td>Especifique o URI (Uniform Resource Identifier) do script invocado para personalizar o cluster. Por exemplo, <i>https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1</i></td></tr>
+		<tr><td>Tipo de nó</td>
+			<td>Especifique os nós em que o script de personalização deve ser executado. Você pode escolher <b>Todos os nós</b>, <b>Somente nós principais</b> ou <b>Somente nós de trabalho</b>.
+		<tr><td>Parâmetros</td>
+			<td>Especifique os parâmetros, se exigido pelo script. O script para instalar o Spark não requer nenhum parâmetro, portanto você pode deixá-los em branco.</td></tr>
+	</table>
 
-    <table border='1'>
-        <tr><th>Property</th><th>Value</th></tr>
-        <tr><td>Name</td>
-            <td>Specify a name for the script action. For example, <b>Install Spark</b>.</td></tr>
-        <tr><td>Script URI</td>
-            <td>Specify the Uniform Resource Identifier (URI) to the script that is invoked to customize the cluster. For example, <i>https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1</i></td></tr>
-        <tr><td>Node Type</td>
-            <td>Specify the nodes on which the customization script is run. You can choose <b>All nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes only</b>.
-        <tr><td>Parameters</td>
-            <td>Specify the parameters, if required by the script. The script to install Spark does not require any parameters so you can leave this blank.</td></tr>
-    </table>
+	Você pode adicionar mais de uma ação de script para instalar vários componentes no cluster. Depois de adicionar os scripts, clique na marca de seleção para começar a criar o cluster.
 
-    You can add more than one script action to install multiple components on the cluster. After you have added the scripts, click the checkmark to start creating the cluster.
+Você também pode usar o script para instalar o Spark no HDInsight usando o PowerShell do Azure ou o SDK do .NET do HDInsight. Instruções para esses procedimentos são fornecidas posteriormente neste tópico.
 
-You can also use the script to install Spark on HDInsight by using Azure PowerShell or the HDInsight .NET SDK. Instructions for these procedures are provided later in this topic.
+## Usar o Spark no HDInsight
+O Spark fornece APIs em Scala, Python e Java. Você também pode usar o shell Spark interativo para executar consultas Spark. Esta seção fornece instruções sobre como usar as diferentes abordagens para trabalhar com o Spark:
 
-## <a name="use-spark-in-hdinsight"></a>Use Spark in HDInsight
-Spark provides APIs in Scala, Python, and Java. You can also use the interactive Spark shell to run Spark queries. This section provides instructions on how to use the different approaches to work with Spark:
+- [Usar o shell do Spark para executar consultas interativas](#sparkshell)
+- [Usar o shell do Spark para executar consultas SQL do Spark](#sparksql)
+- [Usar um programa Scala autônomo](#standalone)
 
-- [Use the Spark shell to run interactive queries](#sparkshell)
-- [Use the Spark shell to run Spark SQL queries](#sparksql)
-- [Use a standalone Scala program](#standalone)
+###<a name="sparkshell"></a>Usar o shell do Spark para executar consultas interativas
+Execute as seguintes etapas para executar consultas Spark de um shell interativo Spark. Nesta seção, executamos uma consulta Spark em um arquivo de dados de exemplo (/example/data/gutenberg/davinci.txt) disponível em clusters HDInsight por padrão.
 
-###<a name="<a-name="sparkshell"></a>use-the-spark-shell-to-run-interactive-queries"></a><a name="sparkshell"></a>Use the Spark shell to run interactive queries
-Perform the following steps to run Spark queries from an interactive Spark shell. In this section, we run a Spark query on a sample data file (/example/data/gutenberg/davinci.txt) that is available on HDInsight clusters by default.
+1. No Portal do Azure, habilite a Área de Trabalho Remota para o cluster criado com o Spark instalado e, em seguida, acesse remotamente o cluster. Para instruções, consulte [Conectar-se a clusters HDInsight usando RDP](hdinsight-administer-use-management-portal.md#rdp).
 
-1. From the Azure portal, enable Remote Desktop for the cluster you created with Spark installed, and then remote into the cluster. For instructions, see [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
+2. Na sessão RDP (protocolo RDP), na área de trabalho, abra a linha de comando (em um atalho na área de trabalho) do Hadoop e navegue até o local onde o Spark está instalado, por exemplo, **C:\\apps\\dist\\spark-1.2.0**.
 
-2. In the Remote Desktop Protocol (RDP) session, from the desktop, open the Hadoop command line (from a desktop shortcut), and navigate to the location where Spark is installed; for example, **C:\apps\dist\spark-1.2.0**.
 
+3. Execute o seguinte comando para iniciar o shell Spark:
 
-3. Run the following command to start the Spark shell:
+		 .\bin\spark-shell --master yarn
 
-         .\bin\spark-shell --master yarn
+	Depois de concluir a execução do comando, você deve obter um prompt Scala:
 
-    After the command finishes running, you should get a Scala prompt:
+		 scala>
 
-         scala>
+5. No prompt Scala, insira a consulta Spark mostrada abaixo. Essa consulta conta a ocorrência de cada palavra no arquivo davinci.txt que está disponível no local /example/data/gutenberg/ no armazenamento de Blob do Azure associado ao cluster.
 
-5. On the Scala prompt, enter the Spark query shown below. This query counts the occurrence of each word in the davinci.txt file that is available at the /example/data/gutenberg/ location on the Azure Blob storage associated with the cluster.
+		val file = sc.textFile("/example/data/gutenberg/davinci.txt")
+		val counts = file.flatMap(line => line.split(" ")).map(word => (word, 1)).reduceByKey(_ + _)
+		counts.toArray().foreach(println)
 
-        val file = sc.textFile("/example/data/gutenberg/davinci.txt")
-        val counts = file.flatMap(line => line.split(" ")).map(word => (word, 1)).reduceByKey(_ + _)
-        counts.toArray().foreach(println)
+6. O resultado deve ser assim:
 
-6. The output should resemble the following:
+	![Resultado da execução do shell interativo do Scala em um cluster HDInsight](./media/hdinsight-hadoop-spark-install/hdi-scala-interactive.png)
 
-    ![Output from running Scala interactive shell in an HDInsight cluster](./media/hdinsight-hadoop-spark-install/hdi-scala-interactive.png)
 
+7. Digite: q para sair do prompt Scala.
 
-7. Enter :q to exit the Scala prompt.
+		:q
 
-        :q
+###<a name="sparksql"></a>Usar o shell do Spark para executar consultas SQL do Spark
 
-###<a name="<a-name="sparksql"></a>use-the-spark-shell-to-run-spark-sql-queries"></a><a name="sparksql"></a>Use the Spark shell to run Spark SQL queries
+O SQL do Spark permite que você use o Spark para executar consultas relacionais expressas em SQL (Structured Query Language), HiveQL ou Scala. Nesta seção, observaremos o uso do Spark para executar uma consulta de Hive em uma tabela de exemplo do Hive. A tabela de Hive usada nesta seção (chamada **hivesampletable**) fica disponível por padrão quando você cria um cluster.
 
-Spark SQL allows you to use Spark to run relational queries expressed in Structured Query Language (SQL), HiveQL, or Scala. In this section, we look at using Spark to run a Hive query on a sample Hive table. The Hive table used in this section (called **hivesampletable**) is available by default when you create a cluster.
+>[AZURE.NOTE] O exemplo abaixo foi criado no **Spark 1.2.0**, que será instalado se você executar a ação de script durante a criação do cluster HDInsight 3.2.
 
->[AZURE.NOTE] The sample below was created against **Spark 1.2.0**, which is installed if you run the script action while creating HDInsight 3.2 cluster.
+1. No Portal do Azure, habilite a Área de Trabalho Remota para o cluster criado com o Spark instalado e, em seguida, acesse remotamente o cluster. Para instruções, consulte [Conectar-se a clusters HDInsight usando RDP](hdinsight-administer-use-management-portal.md#rdp).
 
-1. From the Azure portal, enable Remote Desktop for the cluster you created with Spark installed, and then remote into the cluster. For instructions, see [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
+2. Na sessão RDP, na área de trabalho, abra a linha de comando (em um atalho na área de trabalho) do Hadoop e navegue até o local onde o Spark está instalado, por exemplo, **C:\\apps\\dist\\spark-1.2.0**.
 
-2. In the RDP session, from the desktop, open the Hadoop command line (from a desktop shortcut), and navigate to the location where Spark is installed; for example, **C:\apps\dist\spark-1.2.0**.
 
+3. Execute o seguinte comando para iniciar o shell Spark:
 
-3. Run the following command to start the Spark shell:
+		 .\bin\spark-shell --master yarn
 
-         .\bin\spark-shell --master yarn
+	Depois de concluir a execução do comando, você deve obter um prompt Scala:
 
-    After the command finishes running, you should get a Scala prompt:
+		 scala>
 
-         scala>
+4. No prompt de Scala, defina o contexto de Hive. Isso é necessário para trabalhar com consultas Hive usando o Spark.
 
-4. On the Scala prompt, set the Hive context. This is required to work with Hive queries by using Spark.
+		val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
 
-        val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
+	Observe que **sc** é o contexto padrão do Spark, que é definido quando você iniciar o shell do Spark.
 
-    Note that **sc** is default Spark context that is set when you start the Spark shell.
+5. Execute uma consulta de Hive usando o contexto de Hive e grave a saída no console. A consulta recupera dados em dispositivos de uma fabricação específica e limita o número de registros recuperados a 20.
 
-5. Run a Hive query by using the Hive context and print the output to the console. The query retrieves data on devices of a specific make and limits the number of records retrieved to 20.
+		hiveContext.sql("""SELECT * FROM hivesampletable WHERE devicemake LIKE "HTC%" LIMIT 20""").collect().foreach(println)
 
-        hiveContext.sql("""SELECT * FROM hivesampletable WHERE devicemake LIKE "HTC%" LIMIT 20""").collect().foreach(println)
+6. Você verá algo semelhante ao mostrado a seguir:
 
-6. You should see an output like the following:
+	![Resultado da execução do SQL do Spark em um cluster HDInsight](./media/hdinsight-hadoop-spark-install/hdi-spark-sql.png)
 
-    ![Output from running Spark SQL on an HDInsight cluster](./media/hdinsight-hadoop-spark-install/hdi-spark-sql.png)
+7. Digite: q para sair do prompt Scala.
 
-7. Enter :q to exit the Scala prompt.
+		:q
 
-        :q
+### <a name="standalone"></a>Usar um programa Scala autônomo
 
-### <a name="<a-name="standalone"></a>use-a-standalone-scala-program"></a><a name="standalone"></a>Use a standalone Scala program
+Nesta seção, escrevemos um aplicativo Scala que conta o número de linhas que contêm as letras “a” e “b” em um arquivo de dados de exemplo (/example/data/gutenberg/davinci.txt) disponível em clusters HDInsight por padrão. Para escrever e usar um programa de Scala autônomo com um cluster personalizado com instalação de Spark, você deve executar as seguintes etapas:
 
-In this section, we write a Scala application that counts the number of lines containing the letters 'a' and 'b' in a sample data file (/example/data/gutenberg/davinci.txt) that is available on HDInsight clusters by default. To write and use a standalone Scala program with a cluster customized with Spark installation, you must perform the following steps:
+- Escreva um programa Scala
+- Compilar o programa Scala para obter o arquivo .jar
+- Executar o trabalho no cluster
 
-- Write a Scala program
-- Build the Scala program to get the .jar file
-- Run the job on the cluster
+#### Escreva um programa Scala
+Nesta seção, você escreve um programa Scala, que conta o número de linhas que contêm 'a' e 'b' no arquivo de dados de exemplo.
 
-#### <a name="write-a-scala-program"></a>Write a Scala program
-In this section, you write a Scala program that counts the number of lines containing 'a' and 'b' in the sample data file.
+1. Abra um editor de texto e cole o seguinte código:
 
-1. Open a text editor and paste the following code:
 
+		/* SimpleApp.scala */
+		import org.apache.spark.SparkContext
+		import org.apache.spark.SparkContext._
+		import org.apache.spark.SparkConf
 
-        /* SimpleApp.scala */
-        import org.apache.spark.SparkContext
-        import org.apache.spark.SparkContext._
-        import org.apache.spark.SparkConf
+		object SimpleApp {
+		  def main(args: Array[String]) {
+		    val logFile = "/example/data/gutenberg/davinci.txt"			//Location of the sample data file on Azure Blob storage
+		    val conf = new SparkConf().setAppName("SimpleApplication")
+		    val sc = new SparkContext(conf)
+		    val logData = sc.textFile(logFile, 2).cache()
+		    val numAs = logData.filter(line => line.contains("a")).count()
+		    val numBs = logData.filter(line => line.contains("b")).count()
+		    println("Lines with a: %s, Lines with b: %s".format(numAs, numBs))
+		  }
+		}
 
-        object SimpleApp {
-          def main(args: Array[String]) {
-            val logFile = "/example/data/gutenberg/davinci.txt"         //Location of the sample data file on Azure Blob storage
-            val conf = new SparkConf().setAppName("SimpleApplication")
-            val sc = new SparkContext(conf)
-            val logData = sc.textFile(logFile, 2).cache()
-            val numAs = logData.filter(line => line.contains("a")).count()
-            val numBs = logData.filter(line => line.contains("b")).count()
-            println("Lines with a: %s, Lines with b: %s".format(numAs, numBs))
-          }
-        }
+2. Salve o arquivo com o nome **SimpleApp.scala**.
 
-2. Save the file with the name **SimpleApp.scala**.
+#### Compile o programa Scala
+Nesta seção, você usa a <a href="http://www.scala-sbt.org/0.13/docs/index.html" target="_blank">Ferramenta Simples de Compilação</a> (ou SBT) para compilar o programa Scala. A SBT requer Java 1.6 ou posterior, portanto, verifique se você tem a versão correta do Java instalado antes de continuar com esta seção.
 
-#### <a name="build-the-scala-program"></a>Build the Scala program
-In this section, you use the <a href="http://www.scala-sbt.org/0.13/docs/index.html" target="_blank">Simple Build Tool</a> (or sbt) to build the Scala program. sbt requires Java 1.6 or later, so make sure you have the right version of Java installed before continuing with this section.
+1. Instalar SBT por meio de http://www.scala-sbt.org/0.13/tutorial/Installing-sbt-on-Windows.html.
+2. Crie uma pasta chamada **SimpleScalaApp** e, dentro dessa pasta, crie um arquivo chamado **simple.sbt**. Este é um arquivo de configuração que contém informações sobre a versão Scala, dependências da biblioteca, etc. Cole o conteúdo a seguir no arquivo simple.sbt e salve-o.
 
-1. Install sbt from http://www.scala-sbt.org/0.13/tutorial/Installing-sbt-on-Windows.html.
-2. Create a folder called **SimpleScalaApp**, and within this folder create a file called **simple.sbt**. This is a configuration file that contains information about the Scala version, library dependencies, etc. Paste the following into the simple.sbt file and save it:
 
+		name := "SimpleApp"
 
-        name := "SimpleApp"
+		version := "1.0"
 
-        version := "1.0"
+		scalaVersion := "2.10.4"
 
-        scalaVersion := "2.10.4"
+		libraryDependencies += "org.apache.spark" %% "spark-core" % "1.2.0"
 
-        libraryDependencies += "org.apache.spark" %% "spark-core" % "1.2.0"
 
 
+	>[AZURE.NOTE] Lembre-se de manter as linhas em branco no arquivo.
 
-    >[AZURE.NOTE] Make sure you retain the empty lines in the file.
 
+3. Na pasta **SimpleScalaApp**, crie uma estrutura de diretório **\\src\\main\\scala** e cole o programa Scala (**SimpleApp.scala**) que você criou anteriormente na pasta \\src\\main\\scala.
+4. Abra um prompt de comando, navegue até o diretório SimpleScalaApp e digite o seguinte comando:
 
-3. Under the **SimpleScalaApp** folder, create a directory structure **\src\main\scala** and paste the Scala program (**SimpleApp.scala**) you created earlier under the \src\main\scala folder.
-4. Open a command prompt, navigate to the SimpleScalaApp directory, and enter the following command:
 
+		sbt package
 
-        sbt package
 
+	Depois que o aplicativo for compilado, você verá um arquivo **simpleapp\_2.10-1.0.jar** criado no diretório **\\target\\scala-2.10** contida na pasta raiz SimpleScalaApp.
 
-    Once the application is compiled, you will see a **simpleapp_2.10-1.0.jar** file created under the **\target\scala-2.10** directory within the root SimpleScalaApp folder.
 
+#### Executar o trabalho no cluster
+Nesta seção, você conecta-se remotamente ao cluster com o Spark instalado e, em seguida, copia a pasta de destino do projeto SimpleScalaApp. Depois, você usará o comando **spark-submit** para enviar o trabalho no cluster.
 
-#### <a name="run-the-job-on-the-cluster"></a>Run the job on the cluster
-In this section, you remote into the cluster that has Spark installed and then copy the SimpleScalaApp project's target folder. You then use the **spark-submit** command to submit the job on the cluster.
+1. Remoto para o cluster com Spark instalado. No computador em que você escreveu e criou o programa SimpleApp.scala, copie a pasta **SimpleScalaApp\\target** e cole-a em um local no cluster.
+2. Na sessão RDP, na área de trabalho, abra a linha de comando do Hadoop e navegue até o local que você colou a pasta **target**.
+3. Digite o seguinte comando para executar o programa SimpleApp.scala:
 
-1. Remote into the cluster that has Spark installed. From the computer where you wrote and built the SimpleApp.scala program, copy the **SimpleScalaApp\target** folder and paste it to a location on the cluster.
-2. In the RDP session, from the desktop, open the Hadoop command line, and navigate to the location where you pasted the **target** folder.
-3. Enter the following command to run the SimpleApp.scala program:
 
+		C:\apps\dist\spark-1.2.0\bin\spark-submit --class "SimpleApp" --master local target/scala-2.10/simpleapp_2.10-1.0.jar
 
-        C:\apps\dist\spark-1.2.0\bin\spark-submit --class "SimpleApp" --master local target/scala-2.10/simpleapp_2.10-1.0.jar
+4. Quando o programa é encerrado, o resultado é exibido no console.
 
-4. When the program finishes running, the output is displayed on the console.
 
+		Lines with a: 21374, Lines with b: 11430
 
-        Lines with a: 21374, Lines with b: 11430
+## Instalar o Spark usando o Azure PowerShell
 
-## <a name="install-spark-using-azure-powershell"></a>Install Spark using Azure PowerShell
+Nesta seção, usamos o cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para invocar scripts usando a Ação de Script para personalizar um cluster. Antes de prosseguir, verifique se você instalou e configurou o PowerShell do Azure. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do Azure para HDInsight, consulte [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
-In this section, we use the **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet to invoke scripts by using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured Azure PowerShell. For information on configuring a workstation to run Azure PowerShell cmdlets for HDInsight, see [Install and configure Azure PowerShell](../powershell-install-configure.md).
+Execute as seguintes etapas:
 
-Perform the following steps:
+1. Abra uma janela do PowerShell do Azure e declare as variáveis a seguir:
 
-1. Open an Azure PowerShell window and declare the following variables:
+		# Provide values for these variables
+		$subscriptionName = "<SubscriptionName>"		# Name of the Azure subscription
+		$clusterName = "<HDInsightClusterName>"			# HDInsight cluster name
+		$storageAccountName = "<StorageAccountName>"	# Azure Storage account that hosts the default container
+		$storageAccountKey = "<StorageAccountKey>"      # Key for the Storage account
+		$containerName = $clusterName
+		$location = "<MicrosoftDataCenter>"				# Location of the HDInsight cluster. It must be in the same data center as the Storage account.
+		$clusterNodes = <ClusterSizeInNumbers>			# Number of nodes in the HDInsight cluster
+		$version = "<HDInsightClusterVersion>"          # For example, "3.2"
 
-        # Provide values for these variables
-        $subscriptionName = "<SubscriptionName>"        # Name of the Azure subscription
-        $clusterName = "<HDInsightClusterName>"         # HDInsight cluster name
-        $storageAccountName = "<StorageAccountName>"    # Azure Storage account that hosts the default container
-        $storageAccountKey = "<StorageAccountKey>"      # Key for the Storage account
-        $containerName = $clusterName
-        $location = "<MicrosoftDataCenter>"             # Location of the HDInsight cluster. It must be in the same data center as the Storage account.
-        $clusterNodes = <ClusterSizeInNumbers>          # Number of nodes in the HDInsight cluster
-        $version = "<HDInsightClusterVersion>"          # For example, "3.2"
+2. Especifique os valores de configuração como nós no cluster e o armazenamento padrão a ser usado.
 
-2. Specify the configuration values such as nodes in the cluster and the default storage to be used.
+		# Specify the configuration options
+		Select-AzureSubscription $subscriptionName
+		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
+		$config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
+		$config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
+		$config.DefaultStorageAccount.StorageContainerName=$containerName
 
-        # Specify the configuration options
-        Select-AzureSubscription $subscriptionName
-        $config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
-        $config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
-        $config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
-        $config.DefaultStorageAccount.StorageContainerName=$containerName
+3. Use o cmdlet **Add-AzureHDInsightScriptAction** para adicionar uma Ação de Script à configuração do cluster. Mais tarde, quando o cluster estiver sendo criado, a ação de script será executada.
 
-3. Use the **Add-AzureHDInsightScriptAction** cmdlet to add a script action to cluster configuration. Later, when the cluster is being created, the script action gets executed.
+		# Add a script action to the cluster configuration
+		$config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Spark" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1
 
-        # Add a script action to the cluster configuration
-        $config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Spark" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1
+	O cmdlet **Add-AzureHDInsightScriptAction** usa os parâmetros a seguir:
 
-    **Add-AzureHDInsightScriptAction** cmdlet takes the following parameters:
+	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
+	<tr>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Parâmetro</th>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:550px; padding-left:5px; padding-right:5px;">Definição</th></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Config</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">O objeto de configuração em que a informações da ação de script é adicionada.</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nome</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nome da ação de script.</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">ClusterRoleCollection</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Especifica os nós em que o script de personalização é executado. Os valores válidos são HeadNode (para instalar no nó principal) ou DataNode (para instalar em todos os nós de dados). Você pode usar um ou ambos os valores.</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Uri</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Especifica o URI para o script que é executado.</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parâmetros</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parâmetros exigidos pelo script. O script de exemplo usado neste tópico não requer nenhum parâmetro e, portanto, você não vir esse parâmetro no trecho acima.
+	</td></tr>
+	</table>
 
-    <table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-    <tr>
-    <th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Parameter</th>
-    <th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:550px; padding-left:5px; padding-right:5px;">Definition</th></tr>
-    <tr>
-    <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Config</td>
-    <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">The configuration object to which script action information is added.</td></tr>
-    <tr>
-    <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
-    <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name of the script action.</td></tr>
-    <tr>
-    <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">ClusterRoleCollection</td>
-    <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Specifies the nodes on which the customization script is run. The valid values are HeadNode (to install on the head node) or DataNode (to install on all the data nodes). You can use either or both values.</td></tr>
-    <tr>
-    <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Uri</td>
-    <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Specifies the URI to the script that is executed.</td></tr>
-    <tr>
-    <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parameters</td>
-    <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parameters required by the script. The sample script used in this topic does not require any parameters, and hence you do not see this parameter in the snippet above.
-    </td></tr>
-    </table>
+4. Por fim, inicie a criação de um cluster personalizado com o Spark instalado.
 
-4. Finally, start creating a customized cluster with Spark installed.  
+		# Start creating a cluster with Spark installed
+		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
 
-        # Start creating a cluster with Spark installed
-        New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
+Quando solicitado, insira as credenciais para o cluster. Pode levar alguns minutos até que o cluster seja criado.
 
-When prompted, enter the credentials for the cluster. It can take several minutes before the cluster is created.
+## Instalar o Spark usando o PowerShell
 
-## <a name="install-spark-using-powershell"></a>Install Spark using PowerShell
+Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_powershell).
 
-See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md#call_scripts_using_powershell).
+## Instalar o Spark usando o SDK do .NET
 
-## <a name="install-spark-using-.net-sdk"></a>Install Spark using .NET SDK
+Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell).
 
-See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell).
 
+## Confira também
 
-## <a name="see-also"></a>See also
-
-- [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): create HDInsight clusters.
-- [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md): get started with Spark on HDInsight.
-- [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: customize HDInsight clusters using Script Action.
-- [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions.md): develop Script Action scripts.
-- [Install R on HDInsight clusters][hdinsight-install-r] provides instructions on how to use cluster customization to install and use R on HDInsight Hadoop clusters. R is an open-source language and environment for statistical computing. It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities.
-- [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing by using Hadoop, and can be used with Azure HDInsight.
-- [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on data stored.
+- [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): criar clusters HDInsight.
+- [Introdução ao Apache Spark no HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md): introdução ao Spark no HDInsight.
+- [Personalizar o cluster HDInsight usando a Ação de Script][hdinsight-cluster-customize]\: personalizar o cluster HDInsight usando a Ação de Script.
+- [Desenvolver scripts da Ação de Script para o HDInsight](hdinsight-hadoop-script-actions.md): desenvolver scripts da Ação de Script.
+- [Instalar o R em clusters HDInsight][hdinsight-install-r] fornece instruções sobre como usar a personalização do cluster para instalar e usar o R em clusters Hadoop no HDInsight. R é uma linguagem e ambiente de software livre para computação estatística. Ele fornece centenas de funções estatísticas internas e sua própria linguagem de programação, que combina aspectos de programação funcional e de programação orientada a objetos. Ele também fornece recursos abrangentes de gráficos.
+- [Instalar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md). Use a personalização do cluster para instalar o Giraph em clusters de Hadoop do HDInsight. O Giraph permite que você realize processamento de tabelas usando o Hadoop, além de poder ser usado com o HDInsight do Azure.
+- [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md). Use a personalização do cluster para instalar o Solr em clusters de Hadoop do HDInsight. O Solr permite executar operações de pesquisa avançadas nos dados armazenados.
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: powershell-install-configure.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

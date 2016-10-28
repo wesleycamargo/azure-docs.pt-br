@@ -1,120 +1,119 @@
 <properties 
-    pageTitle="How do I ... in Application Insights" 
-    description="FAQ in Application Insights." 
-    services="application-insights" 
+	pageTitle="Como ... no Application Insights" 
+	description="Perguntas Frequentes no Application Insights." 
+	services="application-insights" 
     documentationCenter=""
-    authors="alancameronwills" 
-    manager="douge"/>
+	authors="alancameronwills" 
+	manager="douge"/>
 
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="02/05/2016" 
-    ms.author="awills"/>
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/05/2016" 
+	ms.author="awills"/>
 
+# Como ... no Application Insights?
 
-# <a name="how-do-i-...-in-application-insights?"></a>How do I ... in Application Insights?
+## Receber um email quando...
 
-## <a name="get-an-email-when-..."></a>Get an email when ...
+### Enviar emails se meu site ficar inativo
 
-### <a name="email-if-my-site-goes-down"></a>Email if my site goes down
+Definir um [teste da Web de disponibilidade](app-insights-monitor-web-app-availability.md).
 
-Set an [availability web test](app-insights-monitor-web-app-availability.md).
+### Enviar emails de meu site estiver sobrecarregado
 
-### <a name="email-if-my-site-is-overloaded"></a>Email if my site is overloaded
-
-Set an [alert](app-insights-alerts.md) on **Server response time**. A threshold between 1 and 2 seconds should work.
+Definir um [alerta](app-insights-alerts.md) para **Tempo de resposta do servidor**. Um limite entre 1 e 2 segundos deve funcionar.
 
 ![](./media/app-insights-how-do-i/030-server.png)
 
-Your app might also show signs of strain by returning failure codes. Set an alert on **Failed requests**.
+Seu aplicativo também pode mostrar sinais de sobrecarga retornando códigos de falha. Definir um alerta para **Solicitações com falha**.
 
-If you want to set an alert on **Server exceptions**, you might have to do [some additional setup](app-insights-asp-net-exceptions.md) in order to see data.
+Se definir um alerta para **Exceções do servidor**, talvez você precise fazer [algumas configurações adicionais](app-insights-asp-net-exceptions.md) para ver os dados.
 
-### <a name="email-on-exceptions"></a>Email on exceptions
+### Exceções de email
 
-1. [Set up exception monitoring](app-insights-asp-net-exceptions.md)
-2. [Set an alert](app-insights-alerts.md) on the Exception count metric
+1. [Configurar monitoramento de exceção](app-insights-asp-net-exceptions.md)
+2. [Definir um alerta](app-insights-alerts.md) na métrica de contagem de exceção
 
 
-### <a name="email-on-an-event-in-my-app"></a>Email on an event in my app
+### Enviar emails sobre um evento em meu aplicativo
 
-Let's suppose you'd like to get an email when a specific event occurs. Application Insights doesn't provide this facility directly, but it can [send an alert when a metric crosses a threshold](app-insights-alerts.md). 
+Vamos supor que você gostaria de receber um email quando ocorrer um evento específico. O Application Insights não oferece esse recurso diretamente, mas pode [enviar um alerta quando uma métrica ultrapassar um limite](app-insights-alerts.md).
 
-Alerts can be set on [custom metrics](app-insights-api-custom-events-metrics.md#track-metric), though not custom events. Write some code to increase a metric when the event occurs:
+Alertas podem ser definidos com base em [métricas personalizadas](app-insights-api-custom-events-metrics.md#track-metric), mas não em eventos personalizados. Escreva algum código para aumentar uma métrica quando o evento ocorre:
 
     telemetry.TrackMetric("Alarm", 10);
 
-or:
+ou:
 
     var measurements = new Dictionary<string,double>();
     measurements ["Alarm"] = 10;
     telemetry.TrackEvent("status", null, measurements);
 
-Because alerts have two states, you have to send a low value when you consider the alert to have ended:
+Como os alertas têm dois estados, você precisa enviar um valor baixo quando considerar o alerta concluído:
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Create a chart in [metric explorer](app-insights-metrics-explorer.md) to see your alarm:
+Crie um gráfico no [Metrics Explorer](app-insights-metrics-explorer.md) para ver o alarme:
 
 ![](./media/app-insights-how-do-i/010-alarm.png)
 
-Now set an alert to fire when the metric goes above a mid value for a short period:
+Agora defina um alerta para ser disparado quando a métrica ultrapassar um valor médio por um curto período:
 
 
 ![](./media/app-insights-how-do-i/020-threshold.png)
 
-Set the averaging period to the minimum. 
+Defina o período de média como o mínimo.
 
-You'll get emails both when the metric goes above and below the threshold.
+Quando a métrica ficar acima e abaixo do limite, você receberá emails.
 
-Some points to consider:
+Considere o seguinte:
 
-* An alert has two states ("alert" and "healthy"). The state is evaluated only when a metric is received.
-* An email is sent only when the state changes. This is why you have to send both high and low-value metrics. 
-* To evaluate the alert, the average is taken of the received values over the preceding period. This occurs every time a metric is received, so emails can be sent more frequently than the period you set.
-* Since emails are sent both on "alert" and "healthy", you might want to consider re-thinking your one-shot event as a two-state condition. For example, instead of a "job completed" event, have a "job in progress" condition, where you get emails at the start and end of a job.
+* Um alerta tem dois estados ("alerta" e "íntegro"). O estado é avaliado somente quando uma métrica é recebida.
+* Um email é enviado apenas quando o estado é alterado. Por isso você precisa enviar métricas de valor alto e baixo. 
+* Para avaliar o alerta, a média é calculada com base dos valores recebidos no período anterior. Isso ocorre sempre que uma métrica é recebida, para que emails podem ser enviados com mais frequência do que o período definido.
+* Uma vez que os emails são enviados tanto para "alerta" quanto para "íntegro", convém passar a pensar em seu único como uma condição de dois estados. Por exemplo, em vez de um evento de "trabalho concluído", tenha uma condição de "trabalho em andamento", na qual você recebe emails no início e no final de um trabalho.
 
-### <a name="set-up-alerts-automatically"></a>Set up alerts automatically
+### Configurar alertas automaticamente
 
-[Use PowerShell to create new alerts](app-insights-alerts.md#set-alerts-by-using-powershell)
+[Usar o PowerShell para criar novos alertas](app-insights-alerts.md#set-alerts-by-using-powershell)
 
-## <a name="use-powershell-to-manage-application-insights"></a>Use PowerShell to Manage Application Insights
+## Usar o PowerShell para gerenciar o Application Insights
 
-* [Create new resources](app-insights-powershell-script-create-resource.md)
-* [Create new alerts](app-insights-alerts.md#set-alerts-by-using-powershell)
+* [Criar novos recursos](app-insights-powershell-script-create-resource.md)
+* [Criar novos alertas](app-insights-alerts.md#set-alerts-by-using-powershell)
 
-## <a name="application-versions-and-stamps"></a>Application versions and stamps
+## Carimbos e versões de aplicativos
 
-### <a name="separate-the-results-from-dev,-test-and-prod"></a>Separate the results from dev, test and prod
+### Separar os resultados de desenvolvimento, teste e produção
 
-* For different environmnents, set up different ikeys
-* For different stamps (dev, test, prod) tag the telemetry with different property values
+* Para ambientes diferentes, configurar diferentes ikeys
+* Para diferentes carimbos (desenvolvimento, teste, produção) marcar a telemetria com diferentes valores de propriedade
 
-[Learn more](app-insights-separate-resources.md)
+[Saiba mais](app-insights-separate-resources.md)
  
 
-### <a name="filter-on-build-number"></a>Filter on build number
+### Filtrar por número de compilação
 
-When you publish a new version of your app, you'll want to be able to separate the telemetry from different builds.
+Quando publicar uma nova versão do seu aplicativo, você desejará ser capaz de separar a telemetria das compilações diferentes.
 
-You can set the Application Version property so that you can filter [search](app-insights-diagnostic-search.md) and [metric explorer](app-insights-metrics-explorer.md) results. 
+Você pode definir a propriedade de versão do aplicativo para que possa filtrar resultados de [pesquisa](app-insights-diagnostic-search.md) e do [Metrics Explorer](app-insights-metrics-explorer.md).
 
 
 ![](./media/app-insights-how-do-i/050-filter.png)
 
-There are several different methods of setting the Application Version property.
+Há vários métodos diferentes de definir a propriedade de Versão do aplicativo.
 
-* Set directly:
+* Definir diretamente:
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
 
-* Wrap that line in a [telemetry initializer](app-insights-api-custom-events-metrics.md#telemetry-initializers) to ensure that all TelemetryClient instances are set consistently.
+* Defina a quebra automática de linha em um [inicializador de telemetria](app-insights-api-custom-events-metrics.md#telemetry-initializers) para garantir que todas as instâncias de TelemetryClient sejam configuradas de forma consistente.
 
-* [ASP.NET] Set the version in `BuildInfo.config`. The web module will pick up the version from the BuildLabel node. Include this file in your project and remember to set the Copy Always property in Solution Explorer.
+* [ASP.NET] Definir a versão em `BuildInfo.config`. O módulo da Web selecionará a versão do nó BuildLabel. Inclua esse arquivo no seu projeto e não se esqueça de definir a propriedade Copy Always no Gerenciador de Soluções.
 
     ```XML
 
@@ -129,7 +128,7 @@ There are several different methods of setting the Application Version property.
     </DeploymentEvent>
 
     ```
-* [ASP.NET] Generate BuildInfo.config automatically in MSBuild. To do this, add a few lines to your .csproj file:
+* [ASP.NET] Gerar automaticamente BuildInfo.config no MSBuild. Para fazer isso, adicione algumas linhas ao arquivo .csproj:
 
     ```XML
 
@@ -138,79 +137,79 @@ There are several different methods of setting the Application Version property.
     </PropertyGroup> 
     ```
 
-    This generates a file called *yourProjectName*.BuildInfo.config. The Publish process renames it to BuildInfo.config.
+    Isso gera um arquivo chamado *nomedoSeuProjeto*.BuildInfo.config. O processo de Publicação renomeia o arquivo como BuildInfo.config.
 
-    The build label contains a placeholder (AutoGen_...) when you build with Visual Studio. But when built with MSBuild, it is populated with the correct version number.
+    O rótulo da compilação contém um espaço reservado (AutoGen\_...) quando você cria com o Visual Studio. Mas quando compilado com o MSBuild, ele é preenchido com o número de versão correta.
 
-    To allow MSBuild to generate version numbers, set the version like `1.0.*` in AssemblyReference.cs
+    Para permitir que o MSBuild gere números de versão, defina a versão como `1.0.*` em AssemblyReference.cs
 
-## <a name="monitor-backend-servers-and-desktop-apps"></a>Monitor backend servers and desktop apps
+## Monitorar servidores de back-end e aplicativos de desktop
 
-[Use the Windows Server SDK module](app-insights-windows-desktop.md).
+[Use o módulo do SDK do Windows Server](app-insights-windows-desktop.md).
 
 
-## <a name="visualize-data"></a>Visualize data
+## Visualizar dados
 
-#### <a name="dashboard-with-metrics-from-multiple-apps"></a>Dashboard with metrics from multiple apps
+#### Painel com métricas de vários aplicativos
 
-* In [Metric Explorer](app-insights-metrics-explorer.md), customize your chart and save it as a favorite. Pin it to the Azure dashboard.
+* No [Metrics Explorer](app-insights-metrics-explorer.md), personalize o gráfico e salve-o como um favorito. Fixe-o no painel do Azure.
 * 
 
-#### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Dashboard with data from other sources and Application Insights
+#### Painel com dados de outras fontes e Application Insights
 
-* [Export telemetry to Power BI](app-insights-export-power-bi.md). 
+* [Exportar telemetria para o Power BI](app-insights-export-power-bi.md). 
 
-Or
+Ou
 
-* Use SharePoint as your dashboard, displaying data in SharePoint web parts. [Use continuous export and Stream Analytics to export to SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Use PowerView to examine the database, and create a SharePoint web part for PowerView.
+* Use o SharePoint como seu painel e exiba dados em web parts do SharePoint. [Usar exportação contínua e Stream Analytics para exportar para o SQL](app-insights-code-sample-export-sql-stream-analytics.md). Use o PowerView para examinar o banco de dados e criar uma web part do SharePoint para o PowerView.
 
 
-### <a name="complex-filtering,-segmentation-and-joins"></a>Complex filtering, segmentation and joins
+### Filtragem, segmentação e junções complexas
 
-* [Use continuous export and Stream Analytics to export to SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Use PowerView to examine the database.
+* [Usar exportação contínua e Stream Analytics para exportar para o SQL](app-insights-code-sample-export-sql-stream-analytics.md). Use o PowerView para examinar o banco de dados.
 
 <a name="search-specific-users"></a>
-### <a name="filter-out-anonymous-or-authenticated-users"></a>Filter out anonymous or authenticated users
+### Filtrar usuários anônimos ou autenticados
 
-If your users sign in, you can set the [authenticated user id](app-insights-api-custom-events-metrics.md#authenticated-users). (It doesn't happen automatically.) 
+Se os seus usuários se conectarem, você poderá definir a [ID de usuário autenticado](app-insights-api-custom-events-metrics.md#authenticated-users). (Isso não ocorre automaticamente.)
 
-You can then:
+Você pode:
 
-* Search on specific user ids
+* Pesquisar IDs de usuário específicos
 
 ![](./media/app-insights-how-do-i/110-search.png)
 
-* Filter metrics to either anonymous or authenticated users
+* Filtrar métricas para usuários anônimos ou autenticados
 
 ![](./media/app-insights-how-do-i/115-metrics.png)
 
-## <a name="modify-property-names-or-values"></a>Modify property names or values
+## Modificar valores ou nomes de propriedade
 
-Create a [filter](app-insights-api-filtering-sampling.md#filtering). This lets you modify or filter telemetry before it is sent from your app to Application Insights.
+Crie um [filtro](app-insights-api-filtering-sampling.md#filtering). Isso permite modificar ou filtrar a telemetria antes que ela seja enviada do seu aplicativo para o Application Insights.
 
-## <a name="list-specific-users-and-their-usage"></a>List specific users and their usage
+## Listar usuários específicos e seu uso
 
-If you just want to [search for specific users](#search-specific-users), you can set the [authenticated user id](app-insights-api-custom-events-metrics.md#authenticated-users).
+Se desejar apenas [pesquisar usuários específicos](#search-specific-users), é possível definir a [ID de usuário autenticado](app-insights-api-custom-events-metrics.md#authenticated-users).
 
-If you want a list of users with data such as what pages they look at or how often they log in, you have two options:
+Se você quiser uma lista de usuários com os dados como, por exemplo, quais páginas eles exibem e com qual frequência eles fazem logon, você terá duas opções:
 
-* [Set authenticated user id](app-insights-api-custom-events-metrics.md#authenticated-users), [export to a database](app-insights-code-sample-export-sql-stream-analytics.md) and use suitable tools to analyze your user data there.
-* If you have only a small number of users, send custom events or metrics, using the data of interest as the metric value or event name, and setting the user id as a property. To analyze page views, replace the standard JavaScript trackPageView call. To analyze server-side telemetry, use a telemetry initializer to add the user id to all server telemetry. You can then filter and segment metrics and searches on the user id.
-
-
-## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Reduce traffic from my app to Application Insights
-
-* In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), disable any modules you don't need, such the performance counter collector.
-* Use [Sampling and filtering](app-insights-api-filtering-sampling.md) at the SDK.
-* In your web pages, Limit the number of Ajax calls reported for every page view. In the script snippet after `instrumentationKey:...` , insert: `,maxAjaxCallsPerView:3` (or a suitable number).
-* If you're using [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), compute the aggregate of batches of metric values before sending the result. There's an overload of TrackMetric() that provides for that.
+* [Defina a ID de usuário autenticado](app-insights-api-custom-events-metrics.md#authenticated-users) ou [exporte para um banco de dados](app-insights-code-sample-export-sql-stream-analytics.md) e use ferramentas adequadas para analisar seus dados de usuário.
+* Se você tiver apenas um pequeno número de usuários, envie métricas ou eventos personalizados usando os dados de interesse, como o valor da métrica ou o nome do evento, definindo a ID de usuário como uma propriedade. Para analisar os modos de exibição de página, substitua a chamada trackPageView JavaScript padrão. Para analisar a telemetria do lado do servidor, use um inicializador de telemetria para adicionar a ID de usuário a todas as telemetria do servidor. Em seguida, filtre e segmente as métricas e pesquisas na ID de usuário.
 
 
-Learn more about [pricing and quotas](app-insights-pricing.md).
+## Reduzir o tráfego do meu aplicativo no Application Insights
 
-## <a name="disable-telemetry"></a>Disable telemetry
+* Em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), desabilite todos os módulos dos quais você não precisa, como o coletor do contador de desempenho.
+* Use a [Amostragem e filtragem](app-insights-api-filtering-sampling.md) no SDK.
+* Nas páginas da Web, limite o número de chamadas do Ajax relatadas para cada exibição de página. No trecho de script após `instrumentationKey:...`, insira: `,maxAjaxCallsPerView:3` (ou um número adequado).
+* Se estiver usando o [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calcule a agregação de lotes de valores de métrica antes de enviar o resultado. Há uma sobrecarga de TrackMetric() que possibilita isso.
 
-To **dynamically stop and start** the collection and transmission of telemetry from the server:
+
+Saiba mais sobre [preços e cotas](app-insights-pricing.md).
+
+## Desabilitar telemetria
+
+Para **parar e iniciar dinamicamente** a coleta e a transmissão de telemetria do servidor:
 
 ```
 
@@ -221,31 +220,25 @@ To **dynamically stop and start** the collection and transmission of telemetry f
 
 
 
-To **disable selected standard collectors** - for example, performance counters, HTTP requests, or dependencies - delete or comment out the relevant lines in [ApplicationInsights.config](app-insights-api-custom-events-metrics.md). You could do this, for example, if you want to send your own TrackRequest data.
+Para **desabilitar os coletores padrão selecionados** - por exemplo, contadores de desempenho, solicitações HTTP ou dependências - exclua ou comente as linhas relevantes em [ApplicationInsights.config](app-insights-api-custom-events-metrics.md). Você poderá fazer isso, por exemplo, se quiser enviar seus próprios dados de TrackRequest.
 
 
 
-## <a name="view-system-performance-counters"></a>View system performance counters
+## Exibir contadores de desempenho do sistema
 
-Among the metrics you can show in metrics explorer are a set of system performance counters. There's a predefined blade titled **Servers** that displays several of them.
+Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto de contadores de desempenho do sistema. Há uma folha predefinida intitulada **Servidores** que exibe vários deles.
 
-![Open your Application Insights resource and click Servers](./media/app-insights-how-do-i/121-servers.png)
+![Abra o recurso Application Insights e clique em Servidores](./media/app-insights-how-do-i/121-servers.png)
 
-### <a name="if-you-see-no-performance-counter-data"></a>If you see no performance counter data
+### Se você não vir dados do contador de desempenho
 
-* **IIS server** on your own machine or on a VM. [Install Status Monitor](app-insights-monitor-performance-live-website-now.md). 
-* **Azure web site** - we don't support performance counters yet. There are several metrics you can get as a standard part of the Azure web site control panel.
-* **Unix server** - [Install collectd](app-insights-java-collectd.md)
+* **Servidor IIS** em seu próprio computador ou em uma VM. [Instalar Monitor de Status](app-insights-monitor-performance-live-website-now.md). 
+* **Site do Azure** - ainda não há suporte para contadores de desempenho. Existem várias métricas que você pode obter como parte padrão do painel de controle do site do Azure.
+* **Servidor Unix** - [Instalar collectd](app-insights-java-collectd.md)
 
-### <a name="to-display-more-performance-counters"></a>To display more performance counters
+### Para exibir mais contadores de desempenho
 
-* First, [add a new chart](app-insights-metrics-explorer.md) and see if the counter is in the basic set that we offer.
-* If not, [add the counter to the set collected by the performance counter module](app-insights-web-monitor-performance.md#system-performance-counters).
+* Primeiro, [adicione um novo gráfico](app-insights-metrics-explorer.md) e veja se o contador está no conjunto básico que oferecemos.
+* Caso contrário, [adicione o contador ao conjunto coletado pelo módulo do contador de desempenho](app-insights-web-monitor-performance.md#system-performance-counters).
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0504_2016-->

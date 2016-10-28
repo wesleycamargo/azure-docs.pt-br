@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service resiliency guidance | Microsoft Azure"
-   description="Links to disaster recovery and proactive resiliency and availability guidance for Microsoft Azure services."
+   pageTitle="Diretrizes de resiliência de serviço | Microsoft Azure"
+   description="Links para a recuperação de desastres e diretrizes proativas de resiliência e disponibilidade dos serviços do Microsoft Azure."
    services=""
    documentationCenter="na"
    authors="adamglick"
@@ -16,31 +16,26 @@
    ms.date="08/18/2016"
    ms.author="aglick"/>
 
+# Diretrizes de resiliência de serviço do Microsoft Azure
+O Microsoft Azure foi projetado para fornecer os recursos necessários, quando necessários. Como parte de um bom design e práticas operacionais, você deve saber como arquitetar o uso dos serviços do Azure para obter alta disponibilidade e o que fazer se seu aplicativo for afetado por uma interrupção de serviço. Para ajudar você nesse processo, este documento contém links para diretrizes de recuperação de desastres, bem como diretrizes de design para vários serviços do Azure.
 
-# <a name="microsoft-azure-service-resiliency-guidance"></a>Microsoft Azure service resiliency guidance
-Microsoft Azure is designed to provide you with the resources you need, when you need them. As part of good design and operational practices, you should know both how to architect your use of Azure services to achieve high availability as well as what to do if your application is impacted by a service disruption. To aid you in this process, this document contains links to disaster recovery guidance as well as design guidance for various Azure services.
+##Guia de recuperação de desastres
+Os links abaixo para as diretrizes de recuperação de desastres podem fornecer as informações necessárias para ajudá-lo a colocar seu aplicativo online rapidamente, caso você seja afetado por uma interrupção de serviço do Azure. Esses links foram criados para ajudá-lo a responder à pergunta, "Eu estou sendo afetado por uma interrupção de serviço do Azure, o que posso fazer?"
 
-##<a name="disaster-recovery-guidance"></a>Disaster recovery guidance
-The disaster recovery guidance links below are can provide you with the information you need to help you get your application back online quickly if you are impacted by an Azure service disruption. These links were created to help you answer the question, "I'm being impacted by an Azure service disruption, what can I do?"
+##Diretrizes de design
+Os links de diretrizes de design abaixo são diretrizes arquiteturais e de design criadas para ajudá-lo a entender melhor como usar cada serviço do Azure de forma a maximizar o tempo de atividade do aplicativo. Esses links foram criados para ajudá-lo a responder à pergunta "Como garantir que um bug, uma falha de hardware, uma interrupção do serviço ou outra falha não afete a disponibilidade geral do meu aplicativo?" Caso não haja nenhuma orientação específica para o serviço que você está atualmente procurando, o artigo sobre [alta disponibilidade para aplicativos criados no Microsoft Azure](./resiliency-high-availability-azure-applications.md) pode ter informações adicionais que podem ajudá-lo em seu design.
 
-##<a name="design-guidance"></a>Design guidance
-The design guidance links below are design and architectural guidance that has been created to help you understand how best to use each Azure service in a way that maximizes your application's uptime. These links were created to help you answer the question "How do I make sure that a bug, hardware failure, service disruption, or other failure won't impact the overall availability of my application?" If there is no specific guidance for the service you are currently looking for, the [High availability for applications built on Microsoft Azure](./resiliency-high-availability-azure-applications.md) article may have additional information that can help you in your design. 
-
-##<a name="service-guidance"></a>Service guidance
-| Service  | Disaster recovery guidance | Design guidance |
+##Diretrizes do serviço
+| O Barramento de | Guia de recuperação de desastres | Diretrizes de design |
 |:---------|:--------------------------:|:------------------:|
-| [Cloud Services](https://azure.microsoft.com/services/cloud-services/ "Azure Cloud Services")       | [link](../cloud-services/cloud-services-disaster-recovery-guidance.md "Azure Cloud Services disaster recovery guidance")   | Not Available |
-| [Key Vault](https://azure.microsoft.com/services/key-vault/ "Azure Key Vault")                      | [link](../key-vault/key-vault-disaster-recovery-guidance.md "Azure Key Vault disaster recovery guidance")        | Not Available |
-| [Storage](https://azure.microsoft.com/services/storage/ "Azure Storage")                            | [link](../storage/storage-disaster-recovery-guidance.md "Azure Storage disaster recovery guidance")          | Not Available |
-| [SQL Databases](https://azure.microsoft.com/services/sql-database/ "Azure SQL Databases")           | [link](../sql-database/sql-database-disaster-recovery.md  "Azure SQL Database disaster recovery guidance")    | [link](../sql-database/sql-database-business-continuity-design.md "Azure SQL Databases design guidance") |
-| [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/ "Azure Virtual Machines") | [link](../virtual-machines/virtual-machines-disaster-recovery-guidance.md "Azure Virtual Machines disaster recovery guidance") | Not Available |
-| [Virtual Network](https://azure.microsoft.com/services/virtual-network/ "Azure Virtual Network")    | [link](../virtual-network/virtual-network-disaster-recovery-guidance.md "Azure Virtual Network disaster recovery guidance")  | Not Available |
+| [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/ "Serviços de nuvem do Azure") | [link](../cloud-services/cloud-services-disaster-recovery-guidance.md "Diretrizes de recuperação de desastres de serviços de nuvem do Azure") | Não disponível |
+| [Cofre da Chave](https://azure.microsoft.com/services/key-vault/ "Cofre da Chave do Azure") | [link](../key-vault/key-vault-disaster-recovery-guidance.md "Diretrizes de recuperação de desastres do Cofre de Chaves do Azure") | Não disponível |
+| [Armazenamento](https://azure.microsoft.com/services/storage/ "Armazenamento do Azure") | [link](../storage/storage-disaster-recovery-guidance.md "Diretrizes de recuperação de desastres de armazenamento do Azure") | Não disponível |
+| [Bancos de dados SQL](https://azure.microsoft.com/services/sql-database/ "Bancos de dados SQL do Azure") | [link](../sql-database/sql-database-disaster-recovery.md "Diretrizes de recuperação de desastres do banco de dados SQL do Azure") | [link](../sql-database/sql-database-business-continuity-design.md "Diretrizes de design do banco de dados SQL do Azure") |
+| [Máquinas virtuais](https://azure.microsoft.com/services/virtual-machines/ "Máquinas Virtuais do Azure") | [link](../virtual-machines/virtual-machines-disaster-recovery-guidance.md "Diretrizes de recuperação de desastres de máquinas virtuais do Azure") | Não disponível |
+| [Rede Virtual](https://azure.microsoft.com/services/virtual-network/ "Rede Virtual do Azure") | [link](../virtual-network/virtual-network-disaster-recovery-guidance.md "Diretrizes de recuperação de desastres de Rede Virtual do Azure") | Não disponível |
 
-##<a name="next-steps"></a>Next steps
-If you are looking for guidance that focuses more broadly on systems and solutions, please read [Disaster recovery and high availability for applications built on Microsoft Azure](https://aka.ms/drtechguide).
+##Próximas etapas
+Se você estiver procurando diretrizes que se concentrem mais amplamente em sistemas e soluções, leia [Recuperação de desastres e alta disponibilidade para aplicativos criados no Microsoft Azure](https://aka.ms/drtechguide).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

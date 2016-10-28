@@ -1,23 +1,22 @@
 <properties 
-    pageTitle="Configure the NewTek TriCaster encoder to send a single bitrate live stream | Microsoft Azure" 
-    description="This topic shows how to configure the Tricaster live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="cenkdin" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Configurar o codificador NewTek TriCaster para enviar uma transmissão ao vivo de taxa de bits única | Microsoft Azure" 
+	description="Este tópico mostra como configurar o codificador ativo TriCaster para enviar uma transmissão de taxa de bits única para os canais do AMS que estão habilitados para codificação ativa." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="cenkdin" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="ne" 
-    ms.topic="article" 
-    ms.date="10/12/2016" 
-    ms.author="juliako;cenkd;anilmur"/>
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="09/15/2016" 
+	ms.author="juliako;cenkd;anilmur"/>
 
-
-#<a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Use the NewTek TriCaster encoder to send a single bitrate live stream
+#Usar o codificador NewTek TriCaster para enviar uma transmissão ao vivo de taxa de bits única
 
 > [AZURE.SELECTOR]
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -25,153 +24,147 @@
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
 - [FMLE](media-services-configure-fmle-live-encoder.md)
 
-This topic shows how to configure the [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+Este tópico mostra como configurar o codificador ativo [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) para enviar uma transmissão de taxa de bits única para os canais do AMS que estão habilitados para codificação ativa. Para obter mais informações, consulte [Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program).
+Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver usando um Mac ou Linux, use o Portal Clássico do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program).
 
->[AZURE.NOTE]When using Tricaster for sending in a contribution feed to AMS channels that are enabled for live encoding, there can be video/audio glitches in your live event if you use certain features of Tricaster, such as rapid cutting between feeds, or switching to/from slates. The AMS team is working on fixing these issues, until then, it is not recommend to use these features.
+>[AZURE.NOTE]Ao usar o Tricaster para o envio de um feed de contribuição aos canais AMS habilitados para codificação ativa, pode haver problemas de áudio/vídeo no evento ao vivo, caso você use determinados recursos do Tricaster, como corte rápido entre feeds ou alternância de/para imagens fixas. A equipe do AMS está trabalhando para corrigir esses problemas; até lá, não é recomendável usar esses recursos.
 
 
-##<a name="prerequisites"></a>Prerequisites
+##Pré-requisitos
 
-- [Create an Azure Media Services account](media-services-portal-create-account.md)
-- Ensure there is a Streaming Endpoint running with at least one streaming unit allocated. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-portal-manage-streaming-endpoints.md)
-- Install the latest version of the [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) tool.
-- Launch the tool and connect to your AMS account.
+- [Criar uma conta de Serviços de Mídia do Azure](media-services-create-account.md)
+- Verifique se há um Ponto de Extremidade de Transmissão em execução com pelo menos uma unidade de transmissão alocada. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
+- Instale a versão mais recente da ferramenta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
+- Inicie a ferramenta e conecte-se à sua conta do AMS.
 
-##<a name="tips"></a>Tips
+##Dicas
 
-- Whenever possible, use a hardwired internet connection.
-- A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.
-- When using software based encoders, close out any unnecessary programs.
+- Sempre que possível, use uma conexão de Internet com fio.
+- Uma boa regra geral ao determinar os requisitos de largura de banda é dobrar as taxas de bits de transmissão. Embora isso não seja um requisito obrigatório, isso ajuda a reduzir o impacto do congestionamento da rede.
+- Ao usar codificadores baseados em software, feche todos os programas desnecessários.
 
-## <a name="create-a-channel"></a>Create a channel
+## Criar um canal
 
-1.  In the AMSE tool, navigate to the **Live** tab, and right click within the channel area. Select **Create channel…** from the menu.
+1.  Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...** no menu.
 
 ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
-2. Specify a channel name, the description field is optional. Under Channel Settings, select **Standard** for the Live Encoding option, with the Input Protocol set to **RTMP**. You can leave all other settings as is.
+2. Especifique um nome de canal; o campo de descrição é opcional. Em Configurações de Canal, selecione **Standard** para a opção de Codificação Ativa, com o Protocolo de Entrada definido como **RTMP**. Você pode deixar todas as outras configurações como estão.
 
 
-Make sure the **Start the new channel now** is selected.
+Verifique se a opção **Iniciar o novo canal agora** está marcada.
 
-3. Click **Create Channel**.
-![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster2.png)
+3. Clique em **Criar Canal**.![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster2.png)
 
->[AZURE.NOTE] The channel can take as long as 20 minutes to start.
+>[AZURE.NOTE] O canal pode levar até 20 minutos para ser iniciado.
 
 
-While the channel is starting you can [configure the encoder](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
+Enquanto o canal é iniciado, você pode [configurar o codificador](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
 
->[AZURE.IMPORTANT] Note that billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).
+>[AZURE.IMPORTANT] Lembre-se de que a cobrança começa assim que o Canal entra em um estado pronto. Para obter mais informações, veja [Estados do canal](media-services-manage-live-encoder-enabled-channels.md#states).
 
-##<a name="<a-id=configure_tricaster_rtmp></a>configure-the-newtek-tricaster-encoder"></a><a id=configure_tricaster_rtmp></a>Configure the NewTek TriCaster encoder
+##<a id=configure_tricaster_rtmp></a>Configurar o codificador do NewTek TriCaster
 
-In this tutorial the following output settings are used. The rest of this section describes configuration steps in more detail. 
+Neste tutorial, são usadas as configurações de saída abaixo. O restante desta seção descreve as etapas de configuração mais detalhadamente.
 
-**Video**:
+**Vídeo**:
  
-- Codec: H.264 
-- Profile: High (Level 4.0) 
-- Bitrate: 5000 kbps 
-- Keyframe: 2 seconds (60 seconds) 
-- Frame Rate: 30
+- Codec: H.264
+- Perfil: Alto (nível 4.0)
+- Taxa de bits: 5.000 kbps
+- Quadro-chave: 2 segundos (60 segundos)
+- Taxa de quadros: 30
  
-**Audio**:
+**Áudio**:
 
-- Codec: AAC (LC) 
-- Bitrate: 192 kbps 
-- Sample Rate: 44.1 kHz
+- Codec: AAC (LC)
+- Taxa de bits: 192 kbps
+- Taxa de amostragem: 44,1 kHz
 
 
-###<a name="configuration-steps"></a>Configuration steps
+###Etapas da configuração
 
-1. Create a new **NewTek TriCaster** project depending on what video input source is being used. 
-2. Once within that project, find the **Stream** button, and click the gear icon next to it to access the stream configuration menu.
+1. Crie um novo projeto do **NewTek TriCaster** dependendo de qual fonte de entrada de vídeo está sendo usada.
+2. Depois de entrar nesse projeto, encontre o botão **Transmissão** e clique no ícone de engrenagem ao lado dele para acessar o menu de configuração da transmissão.
 
-    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster3.png)
-3. Once the menu has opened, click **New** under the Connection heading. When prompted for the connection type, select **Adobe Flash**.
+	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster3.png)
+3. Depois de abrir o menu, clique em **Novo** no título Conexão. Quando solicitado para selecionar o tipo de conexão, selecione **Adobe Flash**.
 
-    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster4.png)
+	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster4.png)
 
-4. Click **OK**.
+4. Clique em **OK**.
 
-5. An FMLE profile can now be imported by clicking the drop down arrow under **Streaming Profile** and navigating to **Browse**.
+5. Um perfil FMLE agora pode ser importado clicando na seta suspensa ema **Perfil de Transmissão** e navegando para **Procurar**.
 
-    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster5.png)
+	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster5.png)
 
-6. Navigate to where the configured FMLE profile was saved.
-7. Select it, and press **OK**.
+6. Navegue até onde o perfil FMLE configurado foi salvo.
+7. Selecione-o e pressione **OK**.
 
-    Once the profile is uploaded, proceed to the next step.
+	Uma vez que o perfil foi carregado, vá para a próxima etapa.
 
-6. Get the channel's input URL in order to assign it to the Tricaster **RTMP Endpoint**.
-    
-    Navigate back to the AMSE tool, and check on the channel completion status. Once the State has changed from **Starting** to **Running**, you can get the input URL.
-      
-    When the channel is running, right click the channel name, navigate down to hover over **Copy Input URL to clipboard** and then select **Primary Input  URL**.  
-    
-    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster6.png)
+6. Obtenha a URL de entrada do canal para atribuí-la ao **Ponto de extremidade RTMP** do Tricaster.
+	
+	Navegue de volta para a ferramenta AMSE e verifique o status de conclusão do canal. Depois que o Estado for alterado de **Inicial** para **Em execução**, é possível obter a URL de entrada.
+	  
+	Quando o canal estiver em execução, clique com o botão direito do mouse no nome do canal, navegue até e focalize **Copiar a URL de Entrada na Área de Transferência** e selecione **URL de Entrada Primária**.
+	
+	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster6.png)
 
-7. Paste this information in the **Location** field under **Flash Server** within the Tricaster project. Also assign a stream name in the **Stream ID** field. 
+7. Cole essas informações no campo **Local** em **Flash Server** dentro do projeto do Tricaster. Atribua também um nome de transmissão no campo **ID da transmissão**.
 
-    If stream information was added to the FMLE profile, it can also be imported to this section by clicking **Import Settings**, navigating to the saved FMLE profile and clicking **OK**. The relevant Flash Server fields should populate with the information from FMLE.
+	Se as informações de transmissão foram adicionadas ao perfil do FMLE, elas também podem ser importadas para esta seção clicando em **Importar Configurações**, navegando para o perfil do FMLE salvo e clicando em **OK**. Os campos relevantes do Flash Server devem preencher as informações do FMLE.
 
-    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster7.png)
+	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster7.png)
 
-9. When finished, click **OK** at the bottom of the screen. When video and audio inputs into the Tricaster are ready, begin streaming to AMS by clicking the **Stream** button.
+9. Quando terminar, clique em **OK** na parte inferior da tela. Quando as entradas de áudio e vídeo no Tricaster estiverem prontas, comece a transmissão para o AMS clicando no botão **Transmissão**.
 
-    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
+	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
 
->[AZURE.IMPORTANT] Before you click **Stream**, you **must** ensure that the Channel is ready. 
->Also, make sure not to leave the Channel in a ready state without an input contribution feed for longer than > 15 minutes. 
+>[AZURE.IMPORTANT] Antes de clicar em **Transmissão**, é **necessário** verificar se o Canal está pronto. Além disso, lembre-se de não deixar o Canal em um estado pronto sem um feed de contribuição de entrada por mais de 15 minutos.
 
-##<a name="test-playback"></a>Test playback
+##Reprodução de teste
   
-1. Navigate to the AMSE tool, and right click the channel to be tested. From the menu, hover over **Playback the Preview** and select **with Azure Media Player**.  
+1. Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **com o Azure Media Player**.
 
-    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
+	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
 
-If the stream appears in the player, then the encoder has been properly configured to connect to AMS. 
+Se a transmissão for exibida no player, isso significa que o codificador foi corretamente configurado para se conectar ao AMS.
 
-If an error is received, the channel will need to be reset and encoder settings adjusted. Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance.  
+Se um erro for recebido, será necessário redefinir o canal e ajustar as configurações do codificador. Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter orientações.
 
-##<a name="create-a-program"></a>Create a program
+##Criar um programa
 
-1. Once channel playback is confirmed, create a program. Under the **Live** tab in the AMSE tool, right click within the program area and select **Create New Program**.  
+1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Ao Vivo** da ferramenta AMSE, clique com o botão direito do mouse na área de programas e selecione **Criar Novo Programa**.
 
-    ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
+	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
 
-2. Name the program and, if needed, adjust the **Archive Window Length** (which defaults to 4 hours). You can also specify a storage location or leave as the default.  
-3. Check the **Start the Program now** box.
-4. Click **Create Program**.  
+2. Nomeie o programa e, se necessário, ajuste a **Duração da Janela de Arquivo** (cujo padrão é de 4 horas). Você também pode especificar um local de armazenamento ou deixar como o padrão.
+3. Marque a caixa **Iniciar o Programa agora**.
+4. Clique em **Criar Programa**.
   
-    Note: Program creation takes less time than channel creation.    
+	Observação: a criação do programa leva menos tempo do que a criação do canal.
  
-5. Once the program is running, confirm playback by right clicking the program and navigating to **Playback the program(s)** and then selecting **with Azure Media Player**.  
-6. Once confirmed, right click the program again and select **Copy the Output URL to Clipboard** (or retrieve this information from the **Program information and settings** option from the menu). 
+5. Quando o programa estiver em execução, confirme a reprodução clicando com o botão direito do mouse no programa navegando até **Reproduzir o(s) programa(s)** e selecionando **com o Azure Media Player**.
+6. Depois de confirmar, clique com o botão direito do mouse no programa novamente e selecione **Copiar a URL de Saída na Área de Transferência** (ou recupere essas informações na opção **Informações e configurações do programa** do menu).
 
-The stream is now ready to be embedded in a player, or distributed to an audience for live viewing.  
-
-
-## <a name="troubleshooting"></a>Troubleshooting
-
-Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance. 
+A transmissão agora está pronta para ser inserida em um player ou distribuída para um público para a exibição ao vivo.
 
 
-##<a name="next-step"></a>Next step
+## Solucionar problemas
 
-Review Media Services learning paths.
+Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter orientações.
+
+
+##Próxima etapa
+
+Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Fornecer comentários
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

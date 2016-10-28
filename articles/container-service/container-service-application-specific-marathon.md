@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Application or user-specific Marathon service | Microsoft Azure"
-   description="Create an application or user-specific Marathon service"
+   pageTitle="Aplicativo ou serviço do Marathon específico do usuário | Microsoft Azure"
+   description="Criar um aplicativo ou serviço do Marathon específico do usuário"
    services="container-service"
    documentationCenter=""
    authors="rgardler"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Containers, Marathon, Micro-services, DC/OS, Azure"/>
+   keywords="Contêineres, Marathon, microsserviços, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -18,49 +18,44 @@
    ms.date="04/12/2016"
    ms.author="rogardle"/>
 
+# Criar um aplicativo ou serviço do Marathon específico do usuário
 
-# <a name="create-an-application-or-user-specific-marathon-service"></a>Create an application or user-specific Marathon service
+O Serviço de Contêiner do Azure fornece um conjunto de servidores mestres no qual podemos pré-configurar o Apache Mesos e o Marathon. Eles podem ser usados para orquestrar seus aplicativos no cluster, mas é melhor não usar os servidores mestres para essa finalidade. Por exemplo, para fazer o ajuste da configuração do Marathon é necessário fazer o logon nos próprios servidores mestres e então fazer as alterações; isso incentiva a existência de servidores mestres exclusivos que sejam um pouco diferentes do padrão e que precisam ser cuidados e gerenciados de forma independente. Além disso, a configuração exigida por uma equipe pode não ser a configuração ideal para outra equipe.
 
-Azure Container Service provides a set of master servers on which we preconfigure Apache Mesos and Marathon. These can be used to orchestrate your applications on the cluster, but it's best not to use the master servers for this purpose. For example, tweaking the configuration of Marathon requires logging into the master servers themselves and making changes--this encourages unique master servers that are a little different from the standard and need to be cared for and managed independently. Additionally, the configuration required by one team might not be the optimal configuration for another team.
+Neste artigo, explicaremos como adicionar um aplicativo ou serviço do Marathon específico do usuário.
 
-In this article, we'll explain how to add an application or user-specific Marathon service.
+Como esse serviço pertencerá a um único usuário ou a uma única equipe, poderá ser configurado de qualquer forma desejada. Além disso, o Serviço de Contêiner do Azure fará com que o serviço continue a ser executado. Se o serviço falhar, o Serviço de Contêiner do Azure reiniciará para você. Na maioria das vezes, você nem mesmo perceberá o tempo de inatividade.
 
-Because this service will belong to a single user or team, they are free to configure it in any way that they desire. Also, Azure Container Service will ensure that the service continues to run. If the service fails, Azure Container Service will restart it for you. Most of the time you won't even notice it had downtime.
+## Pré-requisitos
 
-## <a name="prerequisites"></a>Prerequisites
+[Implantar uma instância do Serviço de Contêiner do Azure](container-service-deployment.md) com o tipo de orquestrador DCOS e [garantir que o cliente possa se conectar ao cluster](container-service-connect.md). Execute as etapas a seguir.
 
-[Deploy an instance of Azure Container Service](container-service-deployment.md) with orchestrator type DC/OS and  [ensure that your client can connect to your cluster](container-service-connect.md). Also, do the following steps.
+[AZURE.INCLUDE [instalar a CLI do DC/OS](../../includes/container-service-install-dcos-cli-include.md)]
 
-[AZURE.INCLUDE [install the DC/OS CLI](../../includes/container-service-install-dcos-cli-include.md)]
+## Criar um aplicativo ou serviço do Marathon específico do usuário
 
-## <a name="create-an-application-or-user-specific-marathon-service"></a>Create an application or user-specific Marathon service
-
-Begin by creating a JSON configuration file that defines the name of the application service that you want to create. Here we use `marathon-alice` as the framework name. Save the file as something like `marathon-alice.json`:
+Comece pela criação de um arquivo de configuração JSON que defina o nome do serviço de aplicativo que você deseja criar. Aqui usamos `marathon-alice` como o nome da estrutura. Salve o arquivo com um nome como `marathon-alice.json`:
 
 ```json
 {"marathon": {"framework-name": "marathon-alice" }}
 ```
 
-Next, use the DC/OS CLI to install the Marathon instance with the options that are set in your configuration file:
+Em seguida, use a CLI do DC/OS para instalar a instância do Marathon com as opções que estão definidas no arquivo de configuração:
 
 ```bash
 dcos package install --options=marathon-alice.json marathon
 ```
 
-You should now see your `marathon-alice` service running in the Services tab of your DC/OS UI. The UI will be `http://<hostname>/service/marathon-alice/` if you want to access it directly.
+Agora você deverá ver seu serviço `marathon-alice` em execução na guia Serviços da interface do usuário do DC/OS. A interface do usuário estará `http://<hostname>/service/marathon-alice/` caso você queira acessá-la diretamente.
 
-## <a name="set-the-dc/os-cli-to-access-the-service"></a>Set the DC/OS CLI to access the service
+## Configurar a CLI do DC/OS para acessar o serviço
 
-You can optionally configure your DC/OS CLI to access this new service by setting the `marathon.url` property to point to the `marathon-alice` instance as follows:
+Opcionalmente, você pode configurar a CLI do DC/OS para acessar esse novo serviço, definindo a propriedade `marathon.url` para apontar para a instância `marathon-alice` da seguinte maneira:
 
 ```bash
 dcos config set marathon.url http://<hostname>/service/marathon-alice/
 ```
 
-You can verify which instance of Marathon that your CLI is working against with the `dcos config show` command. You can revert to using your master Marathon service with the command `dcos config unset marathon.url`.
+Você pode verificar em qual instância do Marathon a CLI está funcionando com o comando `dcos config show`. Você pode voltar a usar o serviço Marathon mestre com o comando `dcos config unset marathon.url`.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

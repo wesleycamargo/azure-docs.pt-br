@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Azure RemoteApp - testing your network bandwidth usage with some common scenarios | Microsoft Azure"
-    description="Learn how about common usage scenarios that can help you figure out your network bandwidth needs for Azure RemoteApp."
-    services="remoteapp"
-    documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+    pageTitle="Azure RemoteApp - testando o uso da largura de banda de sua rede com alguns cenários comuns | Microsoft Azure"
+	description="Saiba mais sobre cenários de uso comuns que podem ajudá-lo a entender suas necessidades de largura de banda de rede para o Azure RemoteApp."
+	services="remoteapp"
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -15,38 +15,37 @@
     ms.date="08/15/2016" 
     ms.author="elizapo" />
     
-
-# <a name="azure-remoteapp---testing-your-network-bandwidth-usage-with-some-common-scenarios"></a>Azure RemoteApp - testing your network bandwidth usage with some common scenarios
+# Azure RemoteApp - testando o uso da largura de banda de sua rede com alguns cenários comuns
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
-As we discussed in [Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md), the best way to figure out what the impact of Azure RemoteApp to your network is to run some usage tests. Run these tests for a set time period and measure the bandwidth needed for each scenario. If you have the capability, you can also measure the network packet loss and network jitter to understand the network patterns that will be created in your specific environment.
+Conforme discutimos em [Estimate Azure RemoteApp network bandwidth usage (Estimar o uso de largura de banda de rede do RemoteApp do Azure)](remoteapp-bandwidth.md), a melhor maneira de entender qual é o impacto do RemoteApp do Azure sobre sua rede é executar alguns testes de uso. Execute estes testes por um período de tempo definido e meça a largura de banda necessária para cada cenário. Se tiver como fazer isso, você também poderá comparar a perda de pacote de rede e a tremulação de rede para entender os padrões de rede que serão criados em seu ambiente específico.
 
     
-When evaluating the bandwidth usage, remember that usage varies between different users within your company. For example, text readers and writers usually consume less bandwidth than users that work with video. For best results, study your own user needs and create a mix of the following scenarios that best represents the users in your company. Remember to [review the factors that impact bandwidth usage and user experience](remoteapp-bandwidthexperience.md) - that will help you identify the ideal tests.
+Ao avaliar o uso de largura de banda, lembre-se de que o uso varia entre diferentes usuários em sua empresa. Por exemplo, usuários que gravam e leem textos geralmente consomem menos largura de banda do que usuários que trabalham com vídeos. Para obter melhores resultados, estude as necessidades dos seus usuários e crie uma combinação dos cenários a seguir que melhor represente os usuários de sua empresa. Lembre-se de [examinar os fatores que afetam o uso de largura de banda e a experiência do usuário](remoteapp-bandwidthexperience.md), pois isso o ajudará a identificar os testes ideais.
 
-First read about the tests, pick your mix, and then run them. You can use the table below to help track performance.
+Primeiro, leia sobre os testes, selecione sua combinação e, por fim, execute-os. Você pode usar a tabela a seguir para ajudar a acompanhar o desempenho.
 
->[AZURE.NOTE] If you cannot do your own network testing, or you do not have the time to do so, check out our [basic network bandwidth estimates/recommendations](remoteapp-bandwidthguidelines.md). Your mileage may vary, however, so if you *can* run your own tests, you should.
+>[AZURE.NOTE] Se não puder ou não tiver tempo para fazer seus próprios testes de rede, veja nossas [estimativas/recomendações básicas de largura de banda de rede](remoteapp-bandwidthguidelines.md). No entanto, seu nível de uso pode variar. Sendo assim, se *puder* executar seus próprios testes, faça isso.
 
 
-## <a name="the-usage-tests"></a>The usage tests
-Each of these tests run for different amounts of time and test different functions/features that consume network bandwidth. Remember to choose the mix of test that best matches your individual company users.
+## Os testes de uso
+Cada um destes testes é executado por períodos de tempo diferentes e testa funções/recursos diferentes que consomem largura de banda de rede. Lembre-se de escolher a combinação de testes que melhor atenda os usuários individuais de sua empresa.
  
-### <a name="executive/complex-powerpoint---run-for-900-1000-seconds"></a>Executive/complex PowerPoint - Run for 900-1000 seconds
+### PowerPoint executivo/completo - executado por 900 a 1000 segundos
 
-A user presents between 45-50 high-fidelity slides by using Microsoft Office PowerPoint in full-screen mode. The slides should contain images, transitions (with animations), and backgrounds with color gradient that are typical for your company. The user should spend at least 20 seconds on each slide.
+Um usuário apresenta entre 45 e 50 slides de alta fidelidade usando o Microsoft Office PowerPoint no modo de tela inteira. Os slides devem conter imagens, transições (com animações) e planos de fundo com gradiente de cores que são comuns para sua empresa. O usuário deve passar pelo menos 20 segundos em cada slide.
     
-This scenario creates bursty traffic, when a slide transitions to the next slide in the presentation.
+Este cenário cria tráfego intermitente quando um slide faz a transição para o slide seguinte na apresentação.
     
-### <a name="simple-powerpoint---run-for-~620-seconds"></a>Simple PowerPoint - Run for ~620 seconds
+### PowerPoint simples - execute por cerca de 620 segundos
 
-A user presents a simple PowerPoint file with approximately 30 slides by using Microsoft Office PowerPoint in full-screen mode. The slides are more text-intensive than in the Executive/complex PowerPoint scenario and have simpler backgrounds and images (black diagrams). 
+Um usuário apresenta um arquivo de PowerPoint simples com aproximadamente 30 slides usando o Microsoft Office PowerPoint no modo de tela inteira. Os slides consomem mais texto que o cenário de PowerPoint executivo/complexo e têm planos de fundo e imagens mais simples (diagramas pretos).
     
-### <a name="internet-explorer---run-for-~250-seconds"></a>Internet Explorer - Run for ~250 seconds
+### Internet Explorer - execute por cerca de 250 segundos
 
-A user browses the web by using Internet Explorer. The user browses and scrolls through a mix of text, natural images, and some schematic diagrams. The web pages stored on the local disk drive of the Remote Desktop Session Host (RD Session Host) server as an .MHT file. The user scrolls using Page Up, Page Down, Up, and Down keys, with varying intervals for each key/type of scroll:
+Um usuário navega na Web usando o Internet Explorer. O usuário navega e percorre uma combinação de textos, imagens naturais e alguns diagramas esquemáticos. As páginas da Web são armazenadas na unidade de disco local do servidor do Host da Sessão da Área de Trabalho Remota (Host da Sessão RD), como um arquivo .MHT. O usuário rola usando as teclas Page Up, Page Down, para baixo e para cima, com intervalos diferentes para cada tecla/tipo de rolagem:
     
     - Down - 250 keystrokes very 500 ms
     - Page Up - 36 keystrokes every 1000 ms
@@ -54,54 +53,51 @@ A user browses the web by using Internet Explorer. The user browses and scrolls 
     - Page Down - 20 keystrokes every 500 ms
     - Up - 120 keystrokes every 300 ms
     
-### <a name="pdf-document---simple---run-for-~610-seconds"></a>PDF document - simple - Run for ~610 seconds
-A user reads and searches a PDF document in various ways by using Adobe Acrobat Reader. The document should consist of tables, simple graphs, and multiple text fonts. The document is 35-40 pages long. The user scrolls through at two different rates, backwards and forwards, at four different zoom sizes (fit to page, fit to width, 100%, and another of your choosing). The zooming ensures that the text (font) renders in different sizes. Scrolling is down using the Page Up, Page Down, Up, and Down keys, with varying intervals for each scroll.
+### Documento em PDF - simples - execute por cerca de 610 segundos
+Um usuário lê e pesquisa em um documento em PDF de várias maneiras usando o Adobe Acrobat Reader. O documento deve consistir em tabelas, gráficos simples e várias fontes de texto. O documento tem de 35 a 40 páginas. O usuário rola pelo documento em duas velocidades diferentes, do início ao fim e vice-versa, em quatro níveis de zoom diferentes (ajustar à página, ajustar à largura, 100% e outro de sua preferência). O zoom garante que o texto (fonte) seja renderizado em tamanhos diferentes. A rolagem é feita usando as teclas Page Up, Page Down, para baixo e para cima, com intervalos diferentes para cada rolagem.
 
-### <a name="pdf-document---mixed---run-for-~320-seconds"></a>PDF document - mixed - Run for ~320 seconds
-A user reads and searches a PDF document in various ways by using Adobe Acrobat Reader. The document consists of high-quality images (including photographs), tables, simple graphs, and multiple text fonts. The user scrolls through at two different rates, backwards and forwards, at four different zoom sizes (fit to page, fit to width, 100%, and another of your choosing). The zooming ensures that the text (font) renders in different sizes. Scrolling is down using the Page Up, Page Down, Up, and Down keys, with varying intervals for each scroll.
+### Documento em PDF - misto - execute por cerca de 320 segundos
+Um usuário lê e pesquisa em um documento em PDF de várias maneiras usando o Adobe Acrobat Reader. O documento consiste em imagens de alta qualidade (incluindo fotografias), tabelas, gráficos simples e várias fontes de texto. O usuário rola pelo documento em duas velocidades diferentes, do início ao fim e vice-versa, em quatro níveis de zoom diferentes (ajustar à página, ajustar à largura, 100% e outro de sua preferência). O zoom garante que o texto (fonte) seja renderizado em tamanhos diferentes. A rolagem é feita usando as teclas Page Up, Page Down, para baixo e para cima, com intervalos diferentes para cada rolagem.
 
-### <a name="flash-video-playback---run-for-~180-seconds"></a>Flash video playback - Run for ~180 seconds
-A user views an Adobe Flash-encoded video embedded in a web page. The web page is stored in the local hard drive of the RD Session Host server. The video is played within Internet Explorer by an embedded player plug-in.
+### Reprodução de vídeo Flash - execute por cerca de 180 segundos
+Um usuário exibe um vídeo codificado com Adobe Flash inserido em uma página da Web. A página da Web é armazenada no disco rígido local do servidor Host da Sessão da Área de Trabalho Remota. O vídeo é reproduzido no Internet Explorer por um plug-in de player inserido.
 
-This scenario emulates users viewing rich content web pages containing multimedia. Most of the data should bo through VOBR.
+Este cenário emula usuários exibindo páginas da Web com conteúdo avançado e contendo multimídia. A maioria dos dados deve ser por meio de VOBR.
 
-### <a name="word-remote-typing---run-for-~1800-seconds"></a>Word remote typing - Run for ~1800 seconds
-A user types a document over an RDP session. Keystrokes are sent from the client side through the RDP session to a document in Microsoft Word running in the remote session. The typing rate is one character every 250 ms (total 7050 characters). 
+### Digitação remota do Word - execute por cerca de 1.800 segundos
+Um usuário digita um documento em uma sessão de RDP. Os pressionamentos de tecla são enviados do lado do cliente por meio da sessão de RDP para um documento do Microsoft Word em execução na sessão remota. A taxa de digitação é de um caractere a cada 250 ms (total de 7.050 caracteres).
 
-This is one of the most common scenarios for a knowledge worker. This scenario tests the responsiveness of a user typing into a modern work processor. This scenario is sensitive to even small changes in bandwidth usage.
+Este é um dos cenários mais comuns para um trabalhador do conhecimento. Este cenário testa a capacidade de resposta de um usuário digitando em um processador de trabalho moderno. O cenário é sensível até mesmo a pequenas alterações no uso de largura de banda.
 
-## <a name="tracking-the-test-results"></a>Tracking the test results
+## Acompanhando os resultados de teste
 
-You can use the following table to evaluate the scenarios in your environment. The data provided below is just for illustration - it may be vastly different from what you observe. 
+Você pode usar a tabela a seguir para avaliar os cenários em seu ambiente. Os dados fornecidos abaixo são apenas para fins de ilustração e podem ser muito diferentes daqueles que você observará.
 
-For simplicity, we assume that all scenarios are tested using the same 1920x1080 pixels screen resolution and TCP transports on a network with latency (delay) below 200 ms and network jitter in the 120 ms+ mark of about 1%.
+Para simplificar, estamos supondo que todos os cenários são testados usando a mesma resolução de tela de 1920 x 1080 pixels e o transporte por TCP ocorra em uma rede com latência (atraso) abaixo de 200 ms e tremulação de rede na marca de 120 ms ou mais de cerca de 1%.
 
-About the table:
-- **Average experience** contains the network bandwidth where user productivity is not significantly impacted but does not exclude occasional video or audio glitches. The system is able to recover quickly by taking advantage of the dynamic logic. The network bandwidth estimates attempt to guarantee the quality of the user experience.
- - **Noticeable issues (break point)** contains the network bandwidth where users might notice significant issues in their experience, and their productivity is impacted for measurable time periods. At this point the RDP algorithms are struggling and cannot guarantee the user's quality of experience because of insufficient network bandwidth.
- - **Recommended** contains the network bandwidth recommended for good or excellent experience. It is usually one step higher than the value in the corresponding **Average experience** column.
- - **Notes** include observations and comments.
+Sobre a tabela:
+- **Experiência média** contém a largura de banda de rede em que a produtividade do usuário não é afetada significativamente, mas não elimina falhas ocasionais de áudio ou vídeo. O sistema é capaz de se recuperar rapidamente aproveitando a lógica dinâmica. As estimativas de largura de banda de rede tentam garantir a qualidade da experiência do usuário.
+ - **Problemas perceptíveis (ponto de interrupção)** contém a largura de banda de rede em que os usuários poderão perceber problemas significativos em sua experiência e sua produtividade será afetada por períodos de tempo consideráveis. Nesse ponto, os algoritmos de RDP encontram dificuldades e não podem garantir a qualidade da experiência do usuário devido à largura de banda de rede insuficiente.
+ - **Recomendado** contém a largura de banda de rede recomendada para uma boa ou excelente experiência. Normalmente, está um pouco acima do valor na coluna **Experiência média** correspondente.
+ - **Notas** incluem observações e comentários.
  
-| Test                  | Average experience | Noticeable issues (break point) | Recommended network bandwidth | Notes                                                              |
+| Teste | Experiência média | Problemas perceptíveis (ponto de interrupção) | Largura de banda de rede recomendada | Observações |
 |-----------------------|--------------------|---------------------------------|-------------------------------|--------------------------------------------------------------------|
-| Executive/complex PPT | 10 MB/s             | 1 MB/s                           | >10 MB/s, 100 MB/s preferred    | At 1 MB/s many animations are lost                                   |
-| Simple PPT            | 5 MB/s              | 256 KB/s                         | 10 MB/s                        | At 256 KB/s the slides load with noticeable delay                   |
-| Internet Explorer     | 10 MB/s             | 1 MB/s                           | >10 MB/s, 100 MB/s preferred    | At 1 MB/s web videos are blurry and choppy, fast scrolling has issues |
-| Simple PDF            | 1 MB/s              | 256 KB/s                         | 5 MB/s                         | At 256 KB/s it takes a while to load the page                       |
-| Mixed PDF             | 1 MB/s             | 256 KB/s                         | 5 MB/s                         | At 256 KB/s the page takes a considerable amount of time to load    |
-| Flash video playback  | 10 MB/s             | 1 MB/s                           | >10 MB/s, 100 MB/s preferred    | At 1 MB/s the video is grainy and some frames are dropped           |
-| Word remote typing    | 256 KB/s            | 128 KB/s                         | 1 MB/s                         | At 256 KB/s user may notice the time between keystrokes             |
+| PPT executivo/complexo | 10 MB/s | 1 MB/s | > 10 MB/s, preferencialmente 100 MB/s | A 1 MB/s, muitas animações são perdidas |
+| PPT simples | 5 MB/s | 256 KB/s | 10 MB/s | A 256 KB/s, os slides são carregados com atraso perceptível |
+| Internet Explorer | 10 MB/s | 1 MB/s | > 10 MB/s, preferencialmente 100 MB/s | A 1 MB/s, vídeos da Web ficam confusos e instáveis, a rolagem rápida apresenta problemas |
+| PDF simples | 1 MB/s | 256 KB/s | 5 MB/s | A 256 KB/s, é necessário algum tempo para carregar a página |
+| PDF misto | 1 MB/s | 256 KB/s | 5 MB/s | A 256 KB/s, a página leva uma quantidade considerável de tempo para ser carregada |
+| Reprodução de vídeo Flash | 10 MB/s | 1 MB/s | > 10 MB/s, preferencialmente 100 MB/s | A 1 MB/s, o vídeo fica granulado e alguns quadros são descartados |
+| Digitação remota do Word | 256 KB/s | 128 KB/s | 1 MB/s | A 256 KB/s, o usuário pode observar o tempo decorrido entre os pressionamentos de tecla |
 
-To evaluate the network bandwidth per user, create a mix of the above scenarios and the corresponding proportion of required network bandwidth. Pick the highest number needed for your scenarios. Since users almost never use the system alone, consider some reserve for users that work simultaneously on the same network.
+Para avaliar a largura de banda de rede por usuário, crie uma combinação dos cenários acima e da proporção correspondente de largura de banda necessária. Selecione o número mais alto necessário para seus cenários. Como os usuários quase nunca usam o sistema sozinhos, leve em consideração alguma largura de banda de reserva para usuários que trabalham simultaneamente na mesma rede.
      
-## <a name="learn-more"></a>Learn more
-- [Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md)
+## Saiba mais
+- [Estimar o uso de largura de banda de rede do Azure RemoteApp](remoteapp-bandwidth.md)
 
-- [Azure RemoteApp - how do network bandwidth and quality of experience work together?](remoteapp-bandwidthexperience.md)
+- [Azure RemoteApp - como a largura de banda de rede e a qualidade da experiência funcionam juntas?](remoteapp-bandwidthexperience.md)
 
-- [Azure RemoteApp network bandwidth - general guidelines (if you can't test your own)](remoteapp-bandwidthguidelines.md)
+- [Largura de banda de rede do Azure RemoteApp - diretrizes gerais (se não puder testar a sua)](remoteapp-bandwidthguidelines.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

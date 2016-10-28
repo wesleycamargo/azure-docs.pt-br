@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Add the query action in logic apps | Microsoft Azure"
-    description="Overview of the query action for performing actions like filter array."
-    services=""
-    documentationCenter=""
-    authors="jeffhollan"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+	pageTitle="Adicionar a ação de consulta nos aplicativos lógicos | Microsoft Azure"
+	description="Visão geral da ação de consulta para executar ações, como filtrar matriz."
+	services=""
+	documentationCenter=""
+	authors="jeffhollan"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,74 +17,68 @@
    ms.date="07/20/2016"
    ms.author="jehollan"/>
 
+# Introdução à ação de consulta
 
-# <a name="get-started-with-the-query-action"></a>Get started with the query action
+Usando a ação de consulta, você pode trabalhar com lotes e matrizes para executar os fluxos de trabalho para:
 
-By using the query action, you can work with batches and arrays to accomplish workflows to:
+- Criar uma tarefa para todos os registros de alta prioridade a partir de um banco de dados.
+- Salvar todos os anexos em PDF dos emails em um blob do Azure.
 
-- Create a task for all high-priority records from a database.
-- Save all PDF attachments for emails into an Azure blob.
+Para começar a usar a ação de consulta em um aplicativo lógico, consulte [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To get started using the query action in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Usar a ação de consulta
 
-## <a name="use-the-query-action"></a>Use the query action
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](connectors-overview.md).
 
-An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).  
+Atualmente, a ação de consulta tem uma operação, chamada matriz de filtro, que é exposta no designer. Isso permite que você consulte uma matriz e retorne um conjunto de resultados filtrados.
 
-The query action currently has one operation, called the filter array, that is exposed in the designer. This allows you to query an array and return a set of filtered results.
+Veja como é possível adicioná-lo em um aplicativo lógico:
 
-Here's how you can add it in a logic app:
+1. Selecione o botão **Nova Etapa**.
+2. Escolha **Adicionar uma ação**.
+3. Na caixa de pesquisa da ação, digite **filtro** para listar a ação **Filtrar matriz**.
 
-1. Select the **New Step** button.
-2. Choose **Add an action**.
-3. In the action search box, type **filter** to list the **Filter array** action.
+	![Selecionar a ação de consulta](./media/connectors-native-query/using-action-1.png)
 
-    ![Select the query action](./media/connectors-native-query/using-action-1.png)
+4. Selecione uma matriz para filtrar. (A captura de tela a seguir mostra a matriz de resultados de uma pesquisa do Twitter.)
+5. Crie uma condição para avaliar em cada item. (A captura de tela a seguir filtra os tweets dos usuários que têm mais de 100 seguidores.)
 
-4. Select an array to filter. (The following screenshot shows the array of results from a Twitter search.)
-5. Create a condition to evaluate on each item. (The following screenshot filters tweets from users who have more than 100 followers.)
+	![Concluir a ação de consulta](./media/connectors-native-query/using-action-2.png)
 
-    ![Complete the query action](./media/connectors-native-query/using-action-2.png)
+	A ação produzirá uma nova matriz que contém somente os resultados que atendem aos requisitos do filtro.
+6. Clique no canto superior esquerdo da barra de ferramentas para salvar e seu aplicativo lógico será salvo e publicado (ativado).
 
-    The action will output a new array that contains only results that met the filter requirements.
-6. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
+## Ação de consulta
 
-## <a name="query-action"></a>Query action
+Veja os detalhes da ação com suporte deste conector. O conector tem uma ação possível.
 
-Here are the details for the action that this connector supports. The connector has one possible action.
-
-|Action|Description|
+|Ação|Descrição|
 |---|---|
-|Filter array|Evaluates a condition for each item in an array and returns the results|
+|Filtrar matriz|Avalia uma condição para cada item em uma matriz e retorna os resultados|
 
-## <a name="action-details"></a>Action details
+## Detalhes da ação
 
-The query action comes with one possible action. The following tables describe the required and optional input fields for the action and the corresponding output details that are associated with using the action.
+A ação de consulta vem com uma ação possível. As tabelas a seguir descrevem os campos de entrada obrigatórios e opcionais para a ação e os detalhes de saída correspondentes associados ao uso da ação.
 
-### <a name="filter-array"></a>Filter array
-The following are input fields for the action, which makes an HTTP outbound request.
-A * means that it is a required field.
+### Filtrar matriz
+Estes são os campos de entrada para a ação, o que cria uma solicitação HTTP de saída. Um * significa que é um campo obrigatório.
 
-|Display name|Property name|Description|
+|Nome de exibição|Nome da propriedade|Descrição|
 |---|---|---|
-|From*|from|The array to filter|
-|Condition*|where|The condition to evaluate for each item|
+|De*|de|A matriz a ser filtrada|
+|Condição*|onde|A condição a ser avaliada para cada item|
 <br>
 
-### <a name="output-details"></a>Output details
+### Detalhes de saída
 
-The following are output details for the HTTP response.
+A seguir, os detalhes de saída para a resposta HTTP.
 
-|Property name|Data type|Description|
+|Nome da propriedade|Tipo de dados|Descrição|
 |---|---|---|
-|Filtered array|array|An array that contains an object for each filtered result|
+|Matriz filtrada|array|Uma matriz que contém um objeto para cada resultado filtrado|
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Agora, experimente a plataforma e [crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

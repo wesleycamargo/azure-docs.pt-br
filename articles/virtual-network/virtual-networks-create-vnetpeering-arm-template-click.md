@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create VNet Peering using Resource Manager templates | Microsoft Azure"
-   description="Learn how to create a virtual network peering using the templates in Resource Manager."
+   pageTitle="Criar o Emparelhamento VNet usando os modelos do Resource Manager | Microsoft Azure"
+   description="Saiba como criar um emparelhamento de rede virtual usando modelos no Resource manager."
    services="virtual-network"
    documentationCenter=""
    authors="narayanannamalai"
@@ -17,8 +17,7 @@
    ms.date="09/14/2016"
    ms.author="narayanannamalai;annahar"/>
 
-
-# <a name="create-vnet-peering-using-resource-manager-templates"></a>Create VNet Peering using Resource Manager templates
+# Criar o Emparelhamento VNet usando modelos do Resource Manager
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
@@ -26,13 +25,13 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-basic-include](../../includes/virtual-networks-create-vnetpeering-scenario-basic-include.md)]
 
-To create a VNet peering by using Resource Manager templates, please follow the steps below:
+Para criar um emparelhamento VNet usando os modelos do Resource Manager, execute as etapas abaixo:
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 
-    > [AZURE.NOTE] The PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+    > [AZURE.NOTE] O cmdlet do PowerShell para gerenciar o emparelhamento VNet acompanha o [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
-2. The text below shows the definition of a VNet peering link for VNet1 to VNet2, based on the scenario above. Copy the content below and save it to a file named VNetPeeringVNet1.json.
+2. O texto a seguir mostra a definição de um link de emparelhamento VNet da VNet1 para a VNet2, com base no cenário acima. Copie o conteúdo abaixo e salve-o em um arquivo denominado VNetPeeringVNet1.json.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -60,7 +59,7 @@ To create a VNet peering by using Resource Manager templates, please follow the 
         ]
         }
 
-3. The section below shows the definition of a VNet peering link for VNet2 to VNet1, based on the scenario above.  Copy the content below and save it to a file named VNetPeeringVNet2.json.
+3. A seção abaixo mostra a definição do link de emparelhamento VNet da VNet2 para a VNet1, com base no cenário acima. Copie o conteúdo abaixo e salve-o em um arquivo denominado VNetPeeringVNet2.json.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -88,97 +87,97 @@ To create a VNet peering by using Resource Manager templates, please follow the 
         ]
         }
 
-    As seen in the template above, there are a few configurable properties for VNet peering:
+    Conforme visto no modelo acima, há algumas propriedades configuráveis para o emparelhamento VNet:
 
-  	|Option|Description|Default|
-  	|:-----|:----------|:------|
-  	|AllowVirtualNetworkAccess|Whether or not the address space of a peer VNet is included as part of the virtual_network tag.|Yes|
-  	|AllowForwardedTraffic|Whether traffic not originating from a peered VNet is accepted or dropped.|No|
-  	|AllowGatewayTransit|Allows the peer VNet to use your VNet gateway.|No|
-  	|UseRemoteGateways|Use your peer’s VNet gateway. The peer VNet must have a gateway configured and AllowGatewayTransit selected. You cannot use this option if you have a gateway configured.|No|
+    |Opção|Descrição|Padrão|
+    |:-----|:----------|:------|
+    |AllowVirtualNetworkAccess|Se o espaço de endereço de uma VNet emparelhada é incluído ou não como parte da marcação virtual\_network.|Sim|
+    |AllowForwardedTraffic|Se o tráfego não originado em uma VNet emparelhada é aceito ou descartado.|Não|
+    |AllowGatewayTransit|Permite que a VNet emparelhada use seu gateway de VNet.|Não|
+    |UseRemoteGateways|Use o gateway de sua VNet emparelhada. A VNet emparelhada deve ter um gateway configurado e AllowGatewayTransit selecionado. Não será possível usar essa opção se você tiver um gateway configurado.|Não|
 
-    Each link in VNet peering has the set of properties above. For example, you can set AllowVirtualNetworkAccess to True for VNet peering link VNet1 to VNet2 and set it to False for the VNet peering link in the other direction.
+    Cada link no emparelhamento VNet tem o conjunto de propriedades acima. Por exemplo, você pode definir AllowVirtualNetworkAccess para True para o link de emparelhamento VNet da VNet1 para a VNet2, e defini-lo para False para o link de emparelhamento VNet na outra direção.
 
 
-4. To deploy the template file, you can run the New-AzureRmResourceGroupDeployment cmdlet to create or update the deployment. For more information about using Resource Manager templates, please refer to this [article](../resource-group-template-deploy.md).
+4. Para implantar o arquivo de modelo, você pode executar o cmdlet New-AzureRmResourceGroupDeployment para criar ou atualizar a implantação. Para obter mais informações sobre como usar os modelos do Resource Manager, consulte este [artigo](../resource-group-template-deploy.md).
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName <resource group name> -TemplateFile <template file path> -DeploymentDebugLogLevel all
 
-    > [AZURE.NOTE] Please replace the resource group name and template file as appropriate.
+    > [AZURE.NOTE] Substitua o nome do grupo de recursos e o arquivo do modelo conforme for apropriado.
 
-    Below is an example based on the scenario above:
+    Veja abaixo um exemplo com base no cenário acima:
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet1.json -DeploymentDebugLogLevel all
 
-    Output shows:
+    A saída mostra:
 
-        DeploymentName      : VNetPeeringVNet1
-        ResourceGroupName   : VNet101
-        ProvisioningState       : Succeeded
-        Timestamp           : 7/26/2016 9:05:03 AM
-        Mode            : Incremental
-        TemplateLink        :
-        Parameters          :
-        Outputs         :
+        DeploymentName		: VNetPeeringVNet1
+        ResourceGroupName	: VNet101
+        ProvisioningState		: Succeeded
+        Timestamp			: 7/26/2016 9:05:03 AM
+        Mode			: Incremental
+        TemplateLink		:
+        Parameters			:
+        Outputs			:
         DeploymentDebugLogLevel : RequestContent, ResponseContent
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet2.json -DeploymentDebugLogLevel all
 
-    Output shows:
+    A saída mostra:
 
-        DeploymentName      : VNetPeeringVNet2
-        ResourceGroupName   : VNet101
-        ProvisioningState       : Succeeded
-        Timestamp           : 7/26/2016 9:07:22 AM
-        Mode            : Incremental
-        TemplateLink        :
-        Parameters          :
-        Outputs         :
+        DeploymentName		: VNetPeeringVNet2
+        ResourceGroupName	: VNet101
+        ProvisioningState		: Succeeded
+        Timestamp			: 7/26/2016 9:07:22 AM
+        Mode			: Incremental
+        TemplateLink		:
+        Parameters			:
+        Outputs			:
         DeploymentDebugLogLevel : RequestContent, ResponseContent
 
-5. After the deployment is finished, you can run the cmdlet below to view the peering state:
+5. Após a conclusão da implantação, você pode executar o cmdlet abaixo para exibir o estado do emparelhamento:
 
         Get-AzureRmVirtualNetworkPeering -VirtualNetworkName VNet1 -ResourceGroupName VNet101 -Name linktoVNet2
 
-    Output shows:
+    A saída mostra:
 
-        Name            : LinkToVNet2
-        Id              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VNet101/providers/Microsoft.Network/virtualNetworks/VNet1/virtualNetworkPeerings/LinkToVNet2
-        Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        ResourceGroupName   : VNet101
-        VirtualNetworkName  : VNet1
-        ProvisioningState       : Succeeded
-        RemoteVirtualNetwork    : {
+        Name			: LinkToVNet2
+        Id				: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VNet101/providers/Microsoft.Network/virtualNetworks/VNet1/virtualNetworkPeerings/LinkToVNet2
+        Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ResourceGroupName	: VNet101
+        VirtualNetworkName	: VNet1
+        ProvisioningState		: Succeeded
+        RemoteVirtualNetwork	: {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VNet101/providers/Microsoft.Network/virtualNetworks/VNet2"
                                         }
-        AllowVirtualNetworkAccess   : True
+        AllowVirtualNetworkAccess	: True
         AllowForwardedTraffic            : False
         AllowGatewayTransit              : False
         UseRemoteGateways                : False
         RemoteGateways                   : null
         RemoteVirtualNetworkAddressSpace : null
 
-    After peering is established in this scenario, you should be able to initiate the connections from any virtual machine to any virtual machine in both VNets. By default, AllowVirtualNetworkAccess is True and VNet peering will provision the proper ACLs to allow the communication between VNets. You can still apply network security group (NSG) rules to block connectivity between specific subnets or virtual machines to gain fine-grain control of access between two virtual networks.  For more information of creating NSG rules, please refer to this [article](virtual-networks-create-nsg-arm-ps.md).
+	Após o estabelecimento do emparelhamento neste cenário, você poderá iniciar as conexões de qualquer máquina virtual para qualquer máquina virtual em ambas as VNets. Por padrão, o AllowVirtualNetworkAccess é True e o emparelhamento VNet provisionará as devidas ACLs para permitir a comunicação entre as VNets. Mas você ainda poderá aplicar as regras do grupo de segurança (NSG) para bloquear a conectividade entre sub-redes ou máquinas virtuais específicas para ter um controle mais preciso do acesso entre duas redes virtuais. Para obter mais informações como criar as regras NSG, consulte este [artigo](virtual-networks-create-nsg-arm-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
-To create a VNet peering across subscriptions, please follow the steps below:
+Para criar um emparelhamento VNet entre as assinaturas, siga as etapas abaixo:
 
-1. Sign in to Azure with privileged User-A's account in Subscription-A and run the following cmdlet:
+1. Entre no Azure com a conta do Usuário A com privilégios na Assinatura A e execute o seguinte cmdlet:
 
         New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet5
 
-    This is not a requirement, peering can be established even if users individually raise peering requests for their respective Vnets as long as the requests match. Adding a privileged user of the other VNet as users in the local VNet makes it easier to do the setup.
+	Isso não é obrigatório. O emparelhamento pode ser estabelecido mesmo que os usuários façam individualmente as solicitações de emparelhamento para suas respectivas Vnets, desde que as solicitações coincidam. A adição de um usuário com privilégios de outra VNet como usuário na VNet local facilita a configuração.
 
-2. Sign in to Azure with privileged User-B's account for Subscription-B and run the following cmdlet:
+2. Entre no Azure com a conta do Usuário B com privilégios para a Assinatura B e execute o seguinte cmdlet:
 
         New-AzureRmRoleAssignment -SignInName <UserA ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-B-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet3
 
-3. In User-A’s login session, run this cmdlet:
+3. Na sessão de logon do Usuário A, execute este cmdlet:
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet3.json -DeploymentDebugLogLevel all
 
-    Here is how the JSON file is defined.  
+    Veja como o arquivo JSON é definido.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -206,11 +205,11 @@ To create a VNet peering across subscriptions, please follow the steps below:
         ]
         }
 
-4. In User-B’s login session, run the following cmdlet:
+4. Na sessão de logon do Usuário B, execute o seguinte cmdlet:
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet5.json -DeploymentDebugLogLevel all
 
-    Here is how the JSON file is defined:
+	Veja como o arquivo JSON é definido:
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -238,13 +237,13 @@ To create a VNet peering across subscriptions, please follow the steps below:
         ]
         }
 
-    After peering is established in this scenario, you should be able to initiate the connections from any virtual machine to any virtual machine of both VNets across different subscriptions.
+ 	Após o estabelecimento do emparelhamento neste cenário, você poderá iniciar conexões de qualquer máquina virtual para qualquer máquina virtual de ambas as VNets entre assinaturas diferentes.
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. In this scenario, you can deploy the sample template below to establish the VNet peering.  You'll need to set the AllowForwardedTraffic property to True, which allows the network virtual appliance in the peered VNet to send and receive traffic.
+1. Nesse cenário, você pode implantar o modelo de exemplo abaixo para estabelecer o emparelhamento VNet. Você precisará definir a propriedade AllowForwardedTraffic para True, o que permite que o dispositivo virtual da rede na VNet emparelhada envie e receba o tráfego.
 
-    Here is the template for creating a VNet peering from HubVNet to VNet1. Note that AllowForwardedTraffic is set to false.
+	Este é o modelo para criar um emparelhamento VNet da HubVNet para a VNet1. Observe que AllowForwardedTraffic está definido como false.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -273,7 +272,7 @@ To create a VNet peering across subscriptions, please follow the steps below:
         ]
         }
 
-2. Here is the template for creating a VNet peering from VNet1 to HubVnet. Note that AllowForwardedTraffic is set to true.
+2. Este é o modelo para criar um emparelhamento VNet da VNet1 para a HubVnet. Observe que AllowForwardedTraffic está definido como true.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -302,18 +301,18 @@ To create a VNet peering across subscriptions, please follow the steps below:
         }
 
 
-3. After peering is established, you can refer to this [article](virtual-network-create-udr-arm-ps.md) to define user-defined routes(UDR) to redirect VNet1 traffic through a virtual appliance to use its capabilities. When you specify the next hop address in route, you can set it to the IP address of the virtual appliance in the peer VNet HubVNet.
+3. Após estabelecer o emparelhamento, consulte este [artigo](virtual-network-create-udr-arm-ps.md) para definir a UDR (rota definida pelo usuário) para redirecionar o tráfego da VNet1 por meio de um dispositivo virtual para usar seus recursos. Quando você especificar o próximo endereço de salto na rota, poderá defini-lo para o endereço IP do dispositivo virtual no emparelhamento entre a VNet e a HubVNet.
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
-To create a peering between virtual networks from different deployment models, follow the steps below:
-1. The text below shows the definition of a VNet peering link for VNET1 to VNET2 in this scenario. Only one link is required to peer a classic virtual network to a Azure resource manager virtual network.
+Para criar um emparelhamento entre redes virtuais a partir de modelos de implantação diferentes, execute as etapas abaixo:
+1. O texto a seguir mostra a definição de um link de emparelhamento VNet da VNET1 para a VNET2 nesse cenário. Apenas um link é necessário para emparelhar uma rede virtual clássica a uma rede virtual do Azure Resource Manager.
 
-    Be sure to put in your subscription ID for where the classic virtual network or VNET2 is located and change MyResouceGroup to the appropriate resource group name.
+    Coloque sua ID de assinatura no local onde está a rede virtual clássica ou VNET2, e altere MyResouceGroup para o nome do grupo de recursos apropriado.
 
-    {  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",  "contentVersion": "1.0.0.0",  "parameters": {  },  "variables": {  },  "resources": [      {      "apiVersion": "2016-06-01",      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",      "name": "VNET1/LinkToVNET2",      "location": "[resourceGroup().location]",      "properties": {      "allowVirtualNetworkAccess": true,      "allowForwardedTraffic": false,      "allowGatewayTransit": false,      "useRemoteGateways": false,          "remoteVirtualNetwork": {          "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"  }      }      }  ]  }
+    { "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#", "contentVersion": "1.0.0.0", "parameters": { }, "variables": { }, "resources": [ { "apiVersion": "2016-06-01", "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings", "name": "VNET1/LinkToVNET2", "location": "[resourceGroup().location]", "properties": { "allowVirtualNetworkAccess": true, "allowForwardedTraffic": false, "allowGatewayTransit": false, "useRemoteGateways": false, "remoteVirtualNetwork": { "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]" } } } ] }
 
-2. To deploy the template file, run the following cmdlet to create or update the deployment.
+2. Para implantar o arquivo de modelo, execute o seguinte cmdlet para criar ou atualizar a implantação.
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName MyResourceGroup -TemplateFile .\VnetPeering.json -DeploymentDebugLogLevel all
 
@@ -329,7 +328,7 @@ To create a peering between virtual networks from different deployment models, f
         Outputs                 :
         DeploymentDebugLogLevel : RequestContent, ResponseContent
 
-3. After the deployment succeeds, you can run the following cmdlet to view the peering state:
+3. Após a conclusão da implantação, você pode executar o cmdlet abaixo para exibir o estado do emparelhamento:
 
         Get-AzureRmVirtualNetworkPeering -VirtualNetworkName VNET1 -ResourceGroupName MyResourceGroup -Name LinkToVNET2
 
@@ -355,10 +354,6 @@ To create a peering between virtual networks from different deployment models, f
         RemoteGateways                   : null
         RemoteVirtualNetworkAddressSpace : null
 
-After peering is established between a classic VNet and a resource manager VNet, you should be able to initiate connections from any virtual machine in VNET1 to any virtual machine in VNET2 and vice versa.
+Após o estabelecimento do emparelhamento entre uma VNet clássica e uma VNet do resource manager, você poderá iniciar conexões de qualquer máquina virtual no VNET1 para qualquer máquina virtual na VNET2 e vice-versa.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

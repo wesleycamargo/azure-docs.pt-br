@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory Integration with Mimecast Admin Console | Microsoft Azure" 
-    description="Learn how to use Mimecast Admin Console with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Tutorial: Integração do Active Directory do Azure com o Mimecast Admin Console | Microsoft Azure" 
+    description="Saiba como usar o Mimecast Admin Console com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,174 +11,166 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-mimecast-admin-console"></a>Tutorial: Azure Active Directory Integration with Mimecast Admin Console
+#Tutorial: Integração do Active Directory do Azure com o Mimecast Admin Console
   
-The objective of this tutorial is to show the integration of Azure and Mimecast Admin Console.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+O objetivo deste tutorial é mostrar a integração do Azure com o Mimecast Admin Console. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
--   A valid Azure subscription
--   A Mimecast Admin Console single sign-on enabled subscription
+-   Uma assinatura válida do Azure
+-   Uma assinatura do Mimecast Admin Console com logon único habilitado
   
-After completing this tutorial, the Azure AD users you have assigned to Mimecast Admin Console will be able to single sign into the application at your Mimecast Admin Console company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Mimecast Admin Console poderão fazer logon único no aplicativo em seu site de empresa do Mimecast Admin Console (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
-1.  Enabling the application integration for Mimecast Admin Console
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Habilitando a integração de aplicativos com o Mimecast Admin Console
+2.  Configurando o logon único
+3.  Configurando o provisionamento de usuários
+4.  Atribuindo usuários
 
-![Scenario](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795008.png "Scenario")
-##<a name="enabling-the-application-integration-for-mimecast-admin-console"></a>Enabling the application integration for Mimecast Admin Console
+![Cenário](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795008.png "Cenário")
+##Habilitando a integração de aplicativos com o Mimecast Admin Console
   
-The objective of this section is to outline how to enable the application integration for Mimecast Admin Console.
+O objetivo desta seção é descrever como habilitar a integração de aplicativos com o Mimecast Admin Console.
 
-###<a name="to-enable-the-application-integration-for-mimecast-admin-console,-perform-the-following-steps:"></a>To enable the application integration for Mimecast Admin Console, perform the following steps:
+###Para habilitar a integração de aplicativos com o Mimecast Admin Console, execute as seguintes etapas:
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-mimecast-admin-console-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
 
-    ![Applications](./media/active-directory-saas-mimecast-admin-console-tutorial/IC700994.png "Applications")
+    ![Aplicativos](./media/active-directory-saas-mimecast-admin-console-tutorial/IC700994.png "Aplicativos")
 
-4.  Click **Add** at the bottom of the page.
+4.  Clique em **Adicionar** na parte inferior da página.
 
-    ![Add application](./media/active-directory-saas-mimecast-admin-console-tutorial/IC749321.png "Add application")
+    ![Adicionar aplicativo](./media/active-directory-saas-mimecast-admin-console-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-mimecast-admin-console-tutorial/IC749322.png "Add an application from gallerry")
+    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-mimecast-admin-console-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
-6.  In the **search box**, type **Mimecast Admin Console**.
+6.  Na **caixa de pesquisa**, digite **Mimecast Admin Console**.
 
-    ![Application Gallery](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795009.png "Application Gallery")
+    ![Galeria de Aplicativos](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795009.png "Galeria de aplicativos")
 
-7.  In the results pane, select **Mimecast Admin Console**, and then click **Complete** to add the application.
+7.  No painel de resultados, selecione **Mimecast Admin Console** e clique em **Concluir** para adicionar o aplicativo.
 
     ![Mimecast Admin Console](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795010.png "Mimecast Admin Console")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configurando o logon único
   
-The objective of this section is to outline how to enable users to authenticate to Mimecast Admin Console with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Mimecast Admin Console com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte desse procedimento, é necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Para configurar o logon único, execute as seguintes etapas:
 
-1.  In the Azure classic portal, on the **Mimecast Admin Console** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **Mimecast Admin Console**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795011.png "Configure Single Sign-On")
+    ![Configurar o logon único](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795011.png "Configurar o logon único")
 
-2.  On the **How would you like users to sign on to Mimecast Admin Console** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  Na página **Como você deseja que os usuários façam logon no Mimecast Admin Console**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795012.png "Configure Single Sign-On")
+    ![Configurar o logon único](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795012.png "Configurar o logon único")
 
-3.  On the **Configure App URL** page, in the **Mimecast Admin Console Sign On URL** textbox, type the URL used by your users to sign on to your Mimecast Admin Console application (e.g.: “https://webmail-uk.mimecast.com” or “https://webmail-us.mimecast.com”), and then click **Next**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Mimecast Admin Console**, digite a URL usada pelos usuários para fazer logon no seu aplicativo do Mimecast Admin Console (por exemplo, “https://webmail-uk.mimecast.com” ou “https://webmail-us.mimecast.com”) e clique em **Avançar**.
 
-    >[AZURE.NOTE] The sign on URL is region specific.
+    >[AZURE.NOTE] A URL de logon é específica para a região.
 
-    ![Configure App URL](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795013.png "Configure App URL")
+    ![Configurar a URL do Aplicativo](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795013.png "Configurar a URL do Aplicativo")
 
-4.  On the **Configure single sign-on at Mimecast Admin Console** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
+4.  Na página **Configurar logon único no Mimecast Admin Console**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado localmente no computador.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795014.png "Configure Single Sign-On")
+    ![Configurar o logon único](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795014.png "Configurar o logon único")
 
-5.  In a different web browser window, log into your Mimecast Admin Console as an administrator.
+5.  Em outra janela do navegador da Web, faça logon em seu Mimecast Admin Console como um administrador.
 
-6.  Go to **Services \> Application**.
+6.  Vá para **Serviços > Aplicativo**.
 
-    ![Services](./media/active-directory-saas-mimecast-admin-console-tutorial/IC794998.png "Services")
+    ![Serviços](./media/active-directory-saas-mimecast-admin-console-tutorial/IC794998.png "Serviços")
 
-7.  Click **Authentication Profiles**.
+7.  Clique em **Perfis de Autenticação**.
 
-    ![Authentication Profiles](./media/active-directory-saas-mimecast-admin-console-tutorial/IC794999.png "Authentication Profiles")
+    ![Perfis de autenticação](./media/active-directory-saas-mimecast-admin-console-tutorial/IC794999.png "Perfis de autenticação")
 
-8.  Click **New Authentication Profile**.
+8.  Clique em **Novo Perfil de Autenticação**.
 
-    ![New Authentication Profiles](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795000.png "New Authentication Profiles")
+    ![Nenhum perfil de autenticação](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795000.png "Nenhum perfil de autenticação")
 
-9.  In the **Authentication Profile** section, perform the following steps:
+9.  Na seção **Perfil de Autenticação**, realize as seguintes etapas:
 
-    ![Authentication Profile](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795015.png "Authentication Profile")
+    ![Perfil de autenticação](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795015.png "Perfil de autenticação")
 
-    1.  In the **Description** textbox, type a name for your configuration.
-    2.  Select **Enforce SAML Authentication for Mimecast Admin Console**.
-    3.  As **Provider**, select **Azure Active Directory**.
-    4.  In the Azure classic portal, on the **Configure single sign-on at Mimecast Admin Console** dialog page, copy the **Issuer URL** value, and then paste it into the **Issuer URL** textbox.
-    5.  In the Azure classic portal, on the **Configure single sign-on at Mimecast Admin Console** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
-    6.  In the Azure classic portal, on the **Configure single sign-on at Mimecast Admin Console** dialog page, copy the **Remote Login URL** value, and then paste it into the **Logout URL** textbox.  
+    1.  Na caixa de texto **Descrição**, digite um nome para a sua configuração.
+    2.  Selecione **Impor Autenticação SAML para o Mimecast Admin Console**.
+    3.  Como **Provedor**, selecione **Active Directory do Azure**.
+    4.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Mimecast Admin Console**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **URL do Emissor**.
+    5.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Mimecast Admin Console**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
+    6.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Mimecast Admin Console**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logoff**.
 
-        >[AZURE.NOTE]The Login URL value and the Logout URL value are for the Mimecast Admin Console the same.
+        >[AZURE.NOTE]O valor da URL de logon e da URL de logoff para o Mimecast Admin Console são as mesmas.
 
-    7.  Create a **base-64 encoded** file from your downloaded certificate.  
+    7.  Crie um arquivo **codificado em base 64** usando o certificado baixado.
 
-        >[AZURE.TIP]For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-    8.  Open your base-64 encoded certificate in notepad, remove the first line (“*--*“) and the last line (“*--*“), copy the remaining content of it into your clipboard, and then paste it to the **Identity Provider Certificate (Metadata)** textbox.
-    9.  Select **Allow Single Sign On**.
-    10. Click **Save**.
+    8.  Abra seu certificado codificado em base 64 no bloco de notas, remova a primeira linha ("*--*") e a última linha ("*--*"), copie o conteúdo restante para a área de transferência e cole-o na caixa de texto **Certificado de Provedor de Identidade (Metadados)**.
+    9.  Selecione **Permitir Logon Único**.
+    10. Clique em **Salvar**.
 
-10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+10. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795016.png "Configure Single Sign-On")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Configurar o logon único](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795016.png "Configurar o logon único")
+##Configurando o provisionamento de usuários
   
-In order to enable Azure AD users to log into Mimecast Admin Console, they must be provisioned into Mimecast Admin Console.  
-In the case of Mimecast Admin Console, provisioning is a manual task.
+Para permitir que os usuários do Azure AD façam logon no Mimecast Admin Console, eles devem ser provisionados no Mimecast Admin Console. No caso do Mimecast Admin Console, o provisionamento é uma tarefa manual.
   
-You need to register a domain before you can create users.
+Você precisa registrar um domínio antes de criar usuários.
 
-###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
+###Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
-1.  Sign on to your **Mimecast Admin Console** as administrator.
+1.  Faça logon no **Mimecast Admin Console** como administrador.
 
-2.  Go to **Directories \> Internal**.
+2.  Vá para **Diretórios > Interno**.
 
-    ![Directories](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795003.png "Directories")
+    ![Diretórios](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795003.png "Diretórios")
 
-3.  Click **Register New Domain**.
+3.  Clique em **Registrar Novo Domínio**.
 
-    ![Register New Domain](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795004.png "Register New Domain")
+    ![Registrar Novo Domínio](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795004.png "Registrar Novo Domínio")
 
-4.  After your new domain has been created, click **New Address**.
+4.  Depois de criar o novo domínio, clique em **Novo Endereço**.
 
-    ![New Address](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795005.png "New Address")
+    ![Novo Endereço](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795005.png "Novo Endereço")
 
-5.  In the new address dialog, perform the following steps:
+5.  Na caixa de diálogo do novo endereço, execute as seguintes etapas:
 
-    ![Save](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795006.png "Save")
+    ![Salvar](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795006.png "Salvar")
 
-    1.  Type the **Email Address**, **Global Name**, **Password** and **Confirm Password** attributes of a valid AAD account you want to provision into the related textboxes.
-    2.  Click **Save**.
+    1.  Digite os atributos de **Endereço de Email**, **Nome Global**, **Senha** e **Confirmar Senha** de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
+    2.  Clique em **Salvar**.
 
->[AZURE.NOTE]You can use any other Mimecast Admin Console user account creation tools or APIs provided by Mimecast Admin Console to provision AAD user accounts.
+>[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do Mimecast Admin Console ou as APIs fornecidas pelo Mimecast Admin Console para provisionar as contas de usuário do AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Atribuindo usuários
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Para testar sua configuração, é necessário conceder aos usuários do AD do Azure que você deseja que usem seu aplicativo acesso a ele.
 
-###<a name="to-assign-users-to-mimecast-admin-console,-perform-the-following-steps:"></a>To assign users to Mimecast Admin Console, perform the following steps:
+###Para atribuir usuários ao Mimecast Admin Console, execute as seguintes etapas:
 
-1.  In the Azure classic portal, create a test account.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  On the **Mimecast Admin Console **application integration page, click **Assign users**.
+2.  Na página de integração de aplicativos do **Mimecast Admin Console**, clique em **Atribuir usuários**.
 
-    ![Assign Users](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795017.png "Assign Users")
+    ![Atribuir Usuários](./media/active-directory-saas-mimecast-admin-console-tutorial/IC795017.png "Atribuir Usuários")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
-    ![Yes](./media/active-directory-saas-mimecast-admin-console-tutorial/IC767830.png "Yes")
+    ![Sim](./media/active-directory-saas-mimecast-admin-console-tutorial/IC767830.png "Sim")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

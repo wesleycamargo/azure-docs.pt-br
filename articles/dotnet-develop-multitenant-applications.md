@@ -1,103 +1,98 @@
 <properties
-    pageTitle="Multi-Tenant Web Application Pattern | Microsoft Azure"
-    description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure."
-    services=""
-    documentationCenter=".net"
-    authors="wadepickett" 
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Padrão de aplicativo Web multilocatário | Microsoft Azure"
+	description="Encontre visões gerais de arquitetura e padrões de design que descrevem como implementar um aplicativo Web multilocatário no Azure."
+	services=""
+	documentationCenter=".net"
+	authors="wadepickett" 
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="06/05/2015"
-    ms.author="wpickett"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/05/2015"
+	ms.author="wpickett"/>
+
+# Aplicativos multilocatários no Azure
+
+Um aplicativo multilocatário é um recurso compartilhado que permite que usuários distintos ou "locatários" exibam o aplicativo como se ele fosse de sua propriedade. Um cenário típico que pode ser usado como um aplicativo multilocatário é aquele em que todos os usuários do aplicativo talvez queiram personalizar a experiência do usuário, mas que, de outra forma, têm os mesmos requisitos de negócios básico. Exemplos de grandes aplicativos multilocatários são o Office 365, o Outlook.com e o visualstudio.com.
+
+Da perspectiva de um provedor de um aplicativo, os benefícios da multilocação na maioria das vezes estão relacionados à eficiência operacional e de custo. Uma versão do seu aplicativo pode atender às necessidades de muitos locatários/clientes permitindo a consolidação das tarefas de administração do sistema, como monitoramento, ajuste de desempenho, manutenção de software e backups de dados.
+
+A lista a seguir fornece os objetivos e requisitos mais significativos de uma perspectiva de provedor.
+
+- **Provisionamento**: você precisa ser capaz de provisionar novos locatários para o aplicativo. Para aplicativos multilocatários com um grande número de locatários, geralmente é necessário automatizar esse processo permitindo provisionamento por autoatendimento.
+- **Facilidade de manutenção**: você deve ser capaz de atualizar o aplicativo e executar outras tarefas de manutenção enquanto vários locatários estiverem usando-o.
+- **Monitoramento**: você deve ser capaz de monitorar o aplicativo em todos os momentos para identificar os problemas e solucioná-los. Isso inclui o monitoramento de como cada locatário está usando o aplicativo.
+
+Um aplicativo multilocatário implementado adequadamente oferece os seguintes benefícios aos usuários.
+
+- **Isolamento**: as atividades de locatários individuais não afetam o uso do aplicativo por outros locatários. Os locatários não podem acessar os dados uns dos outros. Ao locatário, parece que o aplicativo é de seu uso exclusivo.
+- **Disponibilidade**: locatários individuais querem que o aplicativo esteja constantemente disponível, talvez com garantias definidas em um Contrato de Nível de Serviço. Novamente, as atividades de outros locatários não devem afetar a disponibilidade do aplicativo.
+- **Escalabilidade**: o aplicativo é dimensionado para atender à demanda de locatários individuais. A presença e as ações de outros locatários não devem afetar o desempenho do aplicativo.
+- **Custos**: os custos são menores do que a execução de um aplicativo dedicado de único locatário, porque a multilocação permite o compartilhamento de recursos.
+- **Capacidade de personalização**. A capacidade de personalizar o aplicativo para um locatário individual de várias maneiras, como adicionar ou remover recursos, alterar cores e logotipos ou até mesmo adicionar seu próprio código ou script.
+
+Em resumo, existem muitas considerações que você deve levar em conta para fornecer um serviço altamente escalonável, também há vários objetivos e requisitos que são comuns a muitos aplicativos multilocatários. Alguns podem não ser relevantes em cenários específicos, e a importância de requisitos e metas individuais será diferente em cada cenário. Como um provedor do aplicativo multilocatário, você também terá metas e requisitos, como atender as metas e requisitos dos locatários, lucratividade, cobrança, vários níveis de serviço, provisionamento, capacidade de manutenção, monitoramento e automação.
+
+Para obter mais informações sobre considerações de design adicionais de um aplicativo multilocatário, consulte [Hospedando um aplicativo multilocatário no Azure][]. Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatários, confira [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+O Azure oferece muitos recursos que permitem resolver os principais problemas encontrados durante a criação de um sistema multilocatário.
+
+**Isolamento**
+
+- Segmentar locatários de sites por Cabeçalhos de Host com ou sem comunicação SSL
+- Segmentar locatários de site por parâmetros de consulta
+- Serviços web em funções de trabalho
+	- Funções de trabalho que normalmente processam dados no back-end de um aplicativo.
+	- Funções Web que geralmente agem como o front-end de aplicativos.
+
+**Armazenamento**
+
+O gerenciamento de dados, como os serviços de Banco de Dados SQL do Azure ou o Armazenamento do Azure, como o serviço Tabela que fornece serviços para o armazenamento de grandes quantidades de dados não estruturados, e o serviço Blob que fornece serviços para armazenar grandes quantidades de texto não estruturado ou de dados binários, como vídeo, áudio e imagens.
+
+- Proteção de logons no SQL Server por locatário apropriados para dados de multilocatários em Bancos de Dados SQL.
+- O uso de Tabelas do Azure para recursos do aplicativo. Especificando uma diretiva de acesso em nível de contêiner, você pode ter a capacidade de ajustar as permissões sem necessidade de emitir novas URLs para os recursos protegidos com assinaturas de acesso compartilhado.
+- Filas do Azure para recursos do aplicativo. As filas do Azure geralmente são usadas para processamento de unidades em nome de locatários, mas também podem ser usadas para distribuir o trabalho necessário para provisionamento ou gerenciamento.
+- Filas do Service Bus para recursos do aplicativo que enviam trabalho por push para um serviço compartilhado, você pode usar uma única fila onde cada remetente locatário tem apenas permissões (conforme derivado das declarações emitidas no ACS) para envio por push àquela fila, enquanto somente os receptores do serviço têm permissão para efetuar pull na fila dos dados provenientes de vários locatários.
 
 
-# <a name="multitenant-applications-in-azure"></a>Multitenant Applications in Azure
+**Serviços de conexão e segurança**
 
-A multitenant application is a shared resource that allows separate users, or "tenants," to view the application as though it was their own. A typical scenario that lends itself to a multitenant application is one in which all users of the application may wish to customize the user experience but otherwise have the same basic business requirements. Examples of large multitenant applications are Office 365, Outlook.com, and visualstudio.com.
+- Service Bus do Azure, uma infraestrutura de mensagens situada entre aplicativos que permite que eles troquem mensagens de uma maneira vagamente acoplada para fornecer escala e resiliência melhoradas.
 
-From an application provider's perspective, the benefits of multitenancy mostly relate to operational and cost efficiencies. One version of your application can meet the needs of many tenants/customers, allowing consolidation of system administration tasks such as monitoring, performance tuning, software maintenance, and data backups.
+**Serviços de rede**
 
-The following provides a list of the most significant goals and requirements from a provider's perspective.
+O Azure fornece vários serviços de rede que oferecem suporte à autenticação e melhoram a capacidade de gerenciamento dos aplicativos hospedados. esses serviços incluem o seguinte:
 
-- **Provisioning**: You must be able to provision new tenants for the application.  For multitenant applications with a large number of tenants, it is usually necessary to automate this process by enabling self-service provisioning.
-- **Maintainability**: You must be able to upgrade the application and perform other maintenance tasks while multiple tenants are using it.
-- **Monitoring**: You must be able to monitor the application at all times to identify any problems and to troubleshoot them. This includes monitoring how each tenant is using the application.
-
-A properly implemented multitenant application provides the following benefits to users.
-
-- **Isolation**: The activities of individual tenants do not affect the use of the application by other tenants. Tenants cannot access each other's data. It appears to the tenant as though they have exclusive use of the application.
-- **Availability**: Individual tenants want the application to be constantly available, perhaps with guarantees defined in an SLA. Again, the activities of other tenants should not affect the availability of the application.
-- **Scalability**: The application scales to meet the demand of individual tenants. The presence and actions of other tenants should not affect the performance of the application.
-- **Costs**: Costs are lower than running a dedicated, single-tenant application because multi-tenancy enables the sharing of resources.
-- **Customizability**. The ability to customize the application for an individual tenant in various ways such as adding or removing features, changing colors and logos, or even adding their own code or script.
-
-In short, while there are many considerations that you must take into account to provide a highly scalable service, there are also a number of the goals and requirements that are common to many multitenant applications. Some may not be relevant in specific scenarios, and the importance of individual goals and requirements will differ in each scenario. As a provider of the multitenant application, you will also have goals and requirements such as, meeting the tenants' goals and requirements, profitability, billing, multiple service levels, provisioning, maintainability monitoring, and automation.
-
-For more information on additional design considerations of a multitenant application, see [Hosting a Multi-Tenant Application on Azure][]. For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
-
-Azure provides many features that allow you to address the key problems encountered when designing a multitenant system.
-
-**Isolation**
-
-- Segment Website Tenants by Host Headers with or without SSL communication
-- Segment Website Tenants by Query Parameters
-- Web Services in Worker Roles
-    - Worker Roles. that typically process data on the backend of an application.
-    - Web Roles that typically act as the frontend for applications.
-
-**Storage**
-
-Data management such as Azure SQL Database or Azure Storage services such as the Table service which provides services for storage of large amounts of unstructured data and the Blob service which provides services to store large amounts of unstructured text or binary data such as video, audio and images.
-
-- Securing Multitenant Data in SQL Database appropriate per-tenant SQL Server logins.
-- Using Azure Tables for Application Resources By specifying a container level access policy, you can the ability to adjust permissions without having to issue new URL's for the resources protected with shared access signatures.
-- Azure Queues for Application Resources Azure queues are commonly used to drive processing on behalf of tenants, but may also be used to distribute work required for provisioning or management.
-- Service Bus Queues for Application Resources that pushes work to a shared a service, you can use a single queue where each tenant sender only has permissions (as derived from claims issued from ACS) to push to that queue, while only the receivers from the service have permission to pull from the queue the data coming from multiple tenants.
-
-
-**Connection and Security Services**
-
-- Azure Service Bus, a messaging infrastructure that sits between applications allowing them to exchange messages in a loosely coupled way for improved scale and resiliency.
-
-**Networking Services**
-
-Azure provides several networking services that support authentication, and improve manageability of your hosted applications. These services include the following:
-
-- Azure Virtual Network lets you provision and manage virtual private networks (VPNs) in Azure as well as securely link these with on-premises IT infrastructure.
-- Virtual Network Traffic Manager allows you to load balance incoming traffic across multiple hosted Azure services whether they're running in the same datacenter or across different datacenters around the world.
-- Azure Active Directory (Azure AD) is a modern, REST-based service that provides identity management and access control capabilities for your cloud applications. Using Azure AD for Application Resources Azure AD to provides an easy way of authenticating and authorizing users to gain access to your web applications and services while allowing the features of authentication and authorization to be factored out of your code.
-- Azure Service Bus provides a secure messaging and data flow capability for distributed and hybrid applications, such as communication between Azure hosted applications and on-premises applications and services, without requiring complex firewall and security infrastructures. Using Service Bus Relay for Application Resources to The services that are exposed as endpoints may belong to the tenant (for example, hosted outside of the system, such as on-premise), or they may be services provisioned specifically for the tenant (because sensitive, tenant-specific data travels across them).
+- A Rede Virtual do Azure permite que você provisione e gerencie VPNs (redes virtuais privadas) no Azure e vincule-as com segurança à infraestrutura de TI local.
+- O Gerenciador de Tráfego de Rede Virtual permite que você equilibre o tráfego de entrada entre os vários serviços hospedados do Azure, quer eles estejam em execução no mesmo datacenter ou em diferentes datacenters ao redor do mundo.
+- O Active Directory do Azure (AD do Azure) é um serviço moderno e baseado em REST que fornece recursos de gerenciamento de identidade e de controle de acesso para seus aplicativos na nuvem. O uso do AD do Azure para recursos do aplicativo. O AD do Azure fornece uma maneira fácil de autenticar e autorizar os usuários para obterem acesso a seus aplicativos e serviços web permitindo, ao mesmo tempo, que os recursos de autenticação e autorização sejam fatorados de seu código.
+- O Service Bus do Azure fornece um serviço de mensagens seguro e o recurso de fluxo de dados para aplicativos distribuídos e híbridos, como a comunicação entre aplicativos hospedados do Azure e aplicativos e serviços locais, sem a necessidade de firewall complexo e de infraestruturas de segurança. O uso da Retransmissão do Service Bus para recursos do aplicativo. Os serviços que são expostos como pontos de extremidade podem pertencer ao locatário (por exemplo, hospedados fora do sistema, como no local) ou podem ser serviços provisionados especificamente para o locatário (porque dados confidenciais específicos ao locatário trafegam entre eles).
 
 
 
-**Provisioning Resources**
+**Provisionando recursos**
 
-Azure provides a number of ways provision new tenants for the application. For multitenant applications with a large number of tenants, it is usually necessary to automate this process by enabling self-service provisioning.
+O Azure fornece várias maneiras de provisionar novos locatários para o aplicativo. Para aplicativos multilocatários com um grande número de locatários, geralmente é necessário automatizar esse processo permitindo provisionamento por autoatendimento.
 
-- Worker roles allow you to provision and de-provision per tenant resources (such as when a new tenant signs-up or cancels), collect metrics for metering use, and manage scale following a certain schedule or in response to the crossing of thresholds of key performance indicators. This same role may also be used to push out updates and upgrades to the solution.
-- Azure Blobs can be used to provision compute or pre-initialized storage resources for new tenants while providing container level access policies to protect the compute service Packages, VHD images and other resources.
-- Options for provisioning SQL Database resources for a tenant include:
+- A funções de trabalho permitem provisionar e desprovisionar recursos por locatário (como quando um novo locatário faz ou cancela uma assinatura), coletar métricas para uso de medição e gerenciar a escala seguindo uma determinada agenda ou em resposta ao cruzamento de limites dos principais indicadores de desempenho. Essa mesma função também pode ser usada para enviar atualizações e upgrades por push para a solução.
+- Os Blobs do Azure podem ser usados para provisionar computação ou recursos de armazenamento pré-inicializados para novos locatários fornecendo, ao mesmo tempo, políticas de acesso em nível de contêiner para proteger os pacotes, imagens VHD e outros recursos do serviço de computação.
+- As opções para provisionamento de recursos de Banco de Dados SQL para um locatário incluem:
 
-    -   DDL in scripts or embedded as resources within assemblies
-    -   SQL Server 2008 R2 DAC Packages deployed programmatically.
-    -   Copying from a master reference database
-    -   Using database Import and Export to provision new databases from a file.
+	- 	DDL em scripts ou incorporada como recursos em assemblies
+	- 	Pacotes de DAC do SQL Server 2008 R2 implantados programaticamente.
+	- 	Cópia de um banco de dados mestre de referência
+	- 	Uso de importação e exportação de banco de dados para provisionar novos bancos de dados de um arquivo.
 
 
 
 <!--links-->
 
-[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/library/hh534480.aspx
+[Hospedando um aplicativo multilocatário no Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

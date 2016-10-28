@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory Integration with Pagerduty | Microsoft Azure" 
-    description="Learn how to use Pagerduty with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Tutorial: Integração do Active Directory do Azure com o Pagerduty | Microsoft Azure" 
+    description="Saiba como usar o Pagerduty com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,152 +11,144 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-pagerduty"></a>Tutorial: Azure Active Directory Integration with Pagerduty
+#Tutorial: Integração do Active Directory do Azure com o Pagerduty
   
-The objective of this tutorial is to show the integration of Azure and Pagerduty.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+O objetivo deste tutorial é mostrar a integração do Azure com o Pagerduty. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
--   A valid Azure subscription
--   A Pagerduty tenant
+-   Uma assinatura válida do Azure
+-   Um locatário do Pagerduty
   
-After completing this tutorial, the Azure AD users you have assigned to Pagerduty will be able to single sign into the application at your Pagerduty company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Pagerduty poderão fazer logon único no aplicativo em seu site de empresa do Pagerduty (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
-1.  Enabling the application integration for Pagerduty
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Habilitando a integração de aplicativos para o Pagerduty
+2.  Configurando o logon único
+3.  Configurando o provisionamento de usuários
+4.  Atribuindo usuários
 
-![Scenario](./media/active-directory-saas-pagerduty-tutorial/IC778528.png "Scenario")
-##<a name="enabling-the-application-integration-for-pagerduty"></a>Enabling the application integration for Pagerduty
+![Cenário](./media/active-directory-saas-pagerduty-tutorial/IC778528.png "Cenário")
+##Habilitando a integração de aplicativos para o Pagerduty
   
-The objective of this section is to outline how to enable the application integration for Pagerduty.
+O objetivo desta seção é descrever como habilitar a integração de aplicativos com o Pagerduty.
 
-###<a name="to-enable-the-application-integration-for-pagerduty,-perform-the-following-steps:"></a>To enable the application integration for Pagerduty, perform the following steps:
+###Para habilitar a integração de aplicativos para o Pagerduty, execute as seguintes etapas:
 
-1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
+1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-pagerduty-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
 
-    ![Applications](./media/active-directory-saas-pagerduty-tutorial/IC700994.png "Applications")
+    ![Aplicativos](./media/active-directory-saas-pagerduty-tutorial/IC700994.png "Aplicativos")
 
-4.  Click **Add** at the bottom of the page.
+4.  Clique em **Adicionar** na parte inferior da página.
 
-    ![Add application](./media/active-directory-saas-pagerduty-tutorial/IC749321.png "Add application")
+    ![Adicionar aplicativo](./media/active-directory-saas-pagerduty-tutorial/IC749321.png "Adicionar aplicativo")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-pagerduty-tutorial/IC749322.png "Add an application from gallerry")
+    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-pagerduty-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
-6.  In the **search box**, type **Pagerduty**.
+6.  Na **caixa de pesquisa**, digite **Pagerduty**.
 
-    ![Application gallery](./media/active-directory-saas-pagerduty-tutorial/IC778529.png "Application gallery")
+    ![Galeria de aplicativos](./media/active-directory-saas-pagerduty-tutorial/IC778529.png "Galeria de aplicativos")
 
-7.  In the results pane, select **Pagerduty**, and then click **Complete** to add the application.
+7.  No painel de resultados, selecione **Pagerduty** e clique em **Concluir** para adicionar o aplicativo.
 
     ![PagerDuty](./media/active-directory-saas-pagerduty-tutorial/IC778530.png "PagerDuty")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Configurando o logon único
   
-The objective of this section is to outline how to enable users to authenticate to Pagerduty with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Pagerduty com sua conta do AD do Azure usando federação baseada em protocolo SAML. Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Para configurar o logon único, execute as seguintes etapas:
 
-1.  In the Azure classic portal, on the **Pagerduty** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **Pagerduty**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
-    ![Configure single sign-on](./media/active-directory-saas-pagerduty-tutorial/IC778531.png "Configure single sign-on")
+    ![Configurar o logon único](./media/active-directory-saas-pagerduty-tutorial/IC778531.png "Configurar logon único")
 
-2.  On the **How would you like users to sign on to Pagerduty** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  Na página **Como você deseja que os usuários façam logon no Pagerduty**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
 
-    ![Configure single sign-on](./media/active-directory-saas-pagerduty-tutorial/IC778532.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-pagerduty-tutorial/IC778532.png "Configurar o logon único")
 
-3.  On the **Configure App URL** page, in the **Pagerduty Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Pagerduty.com*", and then click **Next**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Pagerduty**, digite a URL usando o padrão "*https://\<nome-locatário>.Pagerduty.com*" e clique em **Avançar**.
 
-    ![Configure app url](./media/active-directory-saas-pagerduty-tutorial/IC778533.png "Configure app url")
+    ![Configurar a url do aplicativo](./media/active-directory-saas-pagerduty-tutorial/IC778533.png "Configurar a url do aplicativo")
 
-4.  On the **Configure single sign-on at Pagerduty** page, click **Download certificate**, and then save the certificate file on your computer.
+4.  Na página **Configurar logon único no Pagerduty**, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
 
-    ![Configure single sign-on](./media/active-directory-saas-pagerduty-tutorial/IC778534.png "Configure single sign-on")
+    ![Configurar o logon único](./media/active-directory-saas-pagerduty-tutorial/IC778534.png "Configurar o logon único")
 
-5.  In a different web browser window, log into your Pagerduty company site as an administrator.
+5.  Em outra janela do navegador da Web, faça logon em seu site de empresa do Pagerduty como administrador.
 
-6.  In the menu on the top, click **Account Settings**.
+6.  No menu na parte superior, clique em **Configurações da Conta**.
 
-    ![Account Settings](./media/active-directory-saas-pagerduty-tutorial/IC778535.png "Account Settings")
+    ![Configurações da Conta](./media/active-directory-saas-pagerduty-tutorial/IC778535.png "Configurações da Conta")
 
-7.  Click **single sign-on**.
+7.  Clique em **logon único**.
 
-    ![Single sign-on](./media/active-directory-saas-pagerduty-tutorial/IC778536.png "Single sign-on")
+    ![Logon único](./media/active-directory-saas-pagerduty-tutorial/IC778536.png "Logon único")
 
-8.  On the Enable Single Sign-on (SSO) page, perform the following steps:
+8.  Na página Habilitar Logon Único (SSO), execute as seguintes etapas:
 
-    ![Enable single sign-on](./media/active-directory-saas-pagerduty-tutorial/IC778537.png "Enable single sign-on")
+    ![Habilitar logon único](./media/active-directory-saas-pagerduty-tutorial/IC778537.png "Habilitar logon único")
 
-    1.  Create a **base-64 encoded** file from your downloaded certificate.  
+    1.  Crie um arquivo **codificado em base 64** usando o certificado baixado.
 
-        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Para obter mais detalhes, confira [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-    2.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
-    3.  In the Azure classic portal, on the **Configure single sign-on at Pagerduty** dialogue page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
-    4.  In the Azure classic portal, on the **Configure single sign-on at Pagerduty** dialogue page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
-    5.  Select **Turn on Single Sign-on**.
-    6.  Click **Save Changes**.
+    2.  Abra seu certificado codificado em base 64 no bloco de notas, copie o conteúdo dele para sua área de transferência e cole-o na caixa de texto **Certificado X.509**
+    3.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Pagerduty**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon**.
+    4.  No portal clássico do Azure, na página de diálogo **Configurar logon único no Pagerduty**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
+    5.  Selecione **Ativar Logon Único**.
+    6.  Clique em **Salvar Alterações**.
 
-9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
-    ![Configure single sign-on](./media/active-directory-saas-pagerduty-tutorial/IC778538.png "Configure single sign-on")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Configurar o logon único](./media/active-directory-saas-pagerduty-tutorial/IC778538.png "Configurar o logon único")
+##Configurando o provisionamento de usuários
   
-In order to enable Azure AD users to log into Pagerduty, they must be provisioned into Pagerduty.  
-In the case of Pagerduty, provisioning is a manual task.
+Para permitir que os usuários do AD do Azure façam logon no Pagerduty, eles devem ser provisionados no Pagerduty. No caso do Pagerduty, o provisionamento é uma tarefa manual.
 
-###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
+###Para provisionar contas de usuário, execute as seguintes etapas:
 
-1.  Log in to your **Pagerduty** tenant.
+1.  Faça logon em seu locatário do **Pagerduty**.
 
-2.  In the menu on the top, click **Users**.
+2.  No menu na parte superior, clique em **Usuários**.
 
-3.  Click **Add Users**.
+3.  Clique em **Adicionar Usuários**.
 
-    ![Add Users](./media/active-directory-saas-pagerduty-tutorial/IC778539.png "Add Users")
+    ![Adicionar Usuários](./media/active-directory-saas-pagerduty-tutorial/IC778539.png "Adicionar Usuários")
 
-4.  On the **Invite your team** dialog, type the **First and Last Name** and the **Email** address of the Azure AD user you want to provision, click **Add**, and then click **Send Invites**.
+4.  No diálogo **Convidar sua equipe**, digite o **Nome e Sobrenome** e o endereço de **Email** do usuário do Azure AD que você deseja configurar, clique em **Adicionar** e em **Enviar Convites**.
 
-    ![Invite your team](./media/active-directory-saas-pagerduty-tutorial/IC778540.png "Invite your team")
+    ![Convidar sua equipe](./media/active-directory-saas-pagerduty-tutorial/IC778540.png "Convidar sua equipe")
 
-    >[AZURE.NOTE] All added users will receive an invite to create a PagerDuty account.
+    >[AZURE.NOTE] Todos os usuários adicionados receberão um convite para criar uma conta do PagerDuty.
 
->[AZURE.NOTE] You can use any other Pagerduty user account creation tools or APIs provided by Pagerduty to provision AAD user accounts.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do Pagerduty ou as APIs fornecidas pelo Pagerduty para provisionar as contas de usuário do AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Atribuindo usuários
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do AD do Azure que você deseja que usem seu aplicativo.
 
-###<a name="to-assign-users-to-pagerduty,-perform-the-following-steps:"></a>To assign users to Pagerduty, perform the following steps:
+###Para atribuir usuários ao Pagerduty, execute as seguintes etapas:
 
-1.  In the Azure classic portal, create a test account.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
-2.  On the **Pagerduty **application integration page, click **Assign users**.
+2.  Na página de integração de aplicativos do **Pagerduty**, clique em **Atribuir usuários**.
 
-    ![Assign users](./media/active-directory-saas-pagerduty-tutorial/IC778541.png "Assign users")
+    ![Atribuir usuários](./media/active-directory-saas-pagerduty-tutorial/IC778541.png "Atribuir usuários")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
-    ![Yes](./media/active-directory-saas-pagerduty-tutorial/IC767830.png "Yes")
+    ![Sim](./media/active-directory-saas-pagerduty-tutorial/IC767830.png "Sim")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

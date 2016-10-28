@@ -1,12 +1,9 @@
-## <a name="peering-virtual-networks-from-rm-to-classic"></a>Peering virtual networks from RM to classic
+## Emparelhamento de redes virtuais do RM clássico
 
-In this scenario, you will create a peering between two VNets, namely **VNET1** and **VNET2** belonging to Azure Resource Manager deployment model and classic deployment model respectively.
+Nesse cenário, você criará um emparelhamento entre duas VNets, ou seja, **VNET1** e **VNET2**, pertencentes ao modelo de implantação do Azure Resource Manager e o modelo de implantação clássico, respectivamente.
 
-> [AZURE.NOTE] The virtual networks must be in the same subscription.
+> [AZURE.NOTE] As redes virtuais devem estar na mesma assinatura.
 
-![asm to arm deployment scenario](./media/virtual-networks-create-vnetpeering-scenario-asmtoarm-include/figure01.PNG)
+![Cenário de implantação asm para arm](./media/virtual-networks-create-vnetpeering-scenario-asmtoarm-include/figure01.PNG)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

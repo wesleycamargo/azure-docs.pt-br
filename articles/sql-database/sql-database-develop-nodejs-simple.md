@@ -1,56 +1,51 @@
 <properties
-    pageTitle="Connect to SQL Database by using Node.js | Microsoft Azure"
-    description="Presents a Node.js code sample you can use to connect to Azure SQL Database."
-    services="sql-database"
-    documentationCenter=""
-    authors="meet-bhagdev"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Conectar-se ao Banco de Dados SQL usando Node.js | Microsoft Azure"
+	description="Apresenta um exemplo de código Node.js que pode ser usado para se conectar ao Banco de Dados SQL do Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="meet-bhagdev"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.workload="drivers"
-    ms.tgt_pltfrm="na"
-    ms.devlang="nodejs"
-    ms.topic="article"
-    ms.date="10/03/2016"
-    ms.author="meetb"/>
+	ms.service="sql-database"
+	ms.workload="drivers"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="06/16/2016"
+	ms.author="meetb"/>
 
+# Conectar-se ao Banco de Dados SQL usando Node.js
 
-# <a name="connect-to-sql-database-by-using-node.js"></a>Connect to SQL Database by using Node.js
+[AZURE.INCLUDE [SQL-Database-develop-Includes-Selector-Language-Platform-Depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
+Este tópico mostra como conectar e consultar um Banco de Dados SQL do Azure usando o Node.js. Você pode executar essa amostra de plataformas Windows, Ubuntu Linux ou Mac.
 
-This topic shows how to connect and query a Azure SQL Database using Node.js. You can run this sample from Windows, Ubuntu Linux, or Mac platforms.
-
-## <a name="step-1:-configure-development-environment"></a>Step 1: Configure Development Environment
+## Etapa 1: configurar o Ambiente de Desenvolvimento
 
 [Prerequisites for using the Tedious Node.js Driver for SQL Server](https://msdn.microsoft.com/library/mt652094.aspx)
 
-## <a name="step-2:-create-a-sql-database"></a>Step 2: Create a SQL database
+## Etapa 2: Criar um banco de dados SQL
 
-See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
+Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados de exemplo. É importante que você siga o guia para criar um **modelo de banco de dados AdventureWorks**. Os exemplos mostrados abaixo funcionam apenas com o **esquema AdventureWorks**.
 
-## <a name="step-3:-get-connection-details"></a>Step 3: Get Connection Details
+## Etapa 3: obter detalhes da conexão
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## <a name="step-4:-run-sample-code"></a>Step 4: Run sample code
+## Etapa 4: Executar o código de exemplo
 
-[Proof of Concept connecting to SQL using Node.js](https://msdn.microsoft.com/library/mt715784.aspx)
+[Proof of Concept connecting to SQL using Node.js](https://msdn.microsoft.com/library/mt715784.aspx) (Prova de conceito, conectar-se ao SQL usando Node.js)
 
-## <a name="next-steps"></a>Next Steps
+## Próximas etapas
 
-* Review the [SQL Database Development Overview](sql-database-develop-overview.md)
-* More information on the [Microsoft Node.js Driver for SQL Server](https://msdn.microsoft.com/library/mt652093.aspx)
+* Leia a [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
+* Mais informações sobre o [Microsoft Node.js Driver para SQL Server](https://msdn.microsoft.com/library/mt652093.aspx)
 
-## <a name="additional-resources"></a>Additional resources 
+## Recursos adicionais 
 
-* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)
+* [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explore todos os [recursos do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

@@ -1,194 +1,186 @@
 <properties
-    pageTitle="Back up Azure virtual machines | Microsoft Azure"
-    description="Discover, register, and back up your virtual machines with these procedures for Azure virtual machine backup."
-    services="backup"
-    documentationCenter=""
-    authors="markgalioto"
-    manager="jwhit"
-    editor=""
-    keywords="virtual machine backup; back up virtual machine; backup and disaster recovery; vm backup"/>
+	pageTitle="Fazer backup de máquinas virtuais do Azure | Microsoft Azure"
+	description="Descubra suas máquinas virtuais, registre-as e faça backup delas com estes procedimentos para o backup de máquina virtual do Azure."
+	services="backup"
+	documentationCenter=""
+	authors="markgalioto"
+	manager="jwhit"
+	editor=""
+	keywords="backup de máquinas virtuais; fazer backup de máquina virtual, backup e recuperação de desastre; backup de vm"/>
 
 <tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/28/2016"
-    ms.author="trinadhk; jimpark; markgal;"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/01/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 
-
-# <a name="back-up-azure-virtual-machines"></a>Back up Azure virtual machines
+# Fazer backup de máquinas virtuais do Azure
 
 > [AZURE.SELECTOR]
-- [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md)
-- [Back up VMs to Backup vault](backup-azure-vms.md)
+- [Fazer backup de VMs no cofre dos Serviços de Recuperação](backup-azure-arm-vms.md)
+- [Fazer backup de VMs no cofre de Backup](backup-azure-vms.md)
 
-This article provides the procedures for backing up a Classic-deployed Azure virtual machine (VM) to a Backup vault. There are a few tasks you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](backup-azure-vms-prepare.md) to prepare your environment for backing up your VMs.
+Este artigo mostra os procedimentos para fazer backup de uma VM (máquina virtual) do Azure com implantação clássica em um cofre de Backup. Há algumas tarefas que você precisa fazer antes de poder fazer backup de uma máquina virtual do Azure. Se ainda não tiver feito isto, conclua os [pré-requisitos](backup-azure-vms-prepare.md) para preparar o ambiente para o backup de VMs.
 
-For additional information, see the articles on [planning your VM backup infrastructure in Azure](backup-azure-vms-introduction.md) and [Azure virtual machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Para obter informações adicionais, confira os artigos em [planejamento da infraestrutura de backup de VM no Azure](backup-azure-vms-introduction.md) e em [máquinas virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
->[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). A Backup vault can only protect Classic-deployed VMs. You cannot protect Resource Manager-deployed VMs with a Backup vault. See [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md) for details on working with Recovery Services vaults.
+>[AZURE.NOTE] O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../resource-manager-deployment-model.md). Um cofre de Backup só pode proteger VMs com implantação clássica. Você não pode proteger VMs implantadas pelo Resource Manager com um cofre de Backup. Confira [Fazer backup de VMs no cofre dos Serviços de Recuperação](backup-azure-arm-vms.md) para obter detalhes sobre como trabalhar com cofres dos Serviços de Recuperação.
 
-Backing up Azure virtual machines involves three key steps:
+Fazer o backup de máquinas virtuais do Azure envolve três etapas principais:
 
-![Three steps to back up an Azure IaaS VM](./media/backup-azure-vms/3-steps-for-backup.png)
+![Três etapas para fazer o backup de uma VM de IaaS do Azure](./media/backup-azure-vms/3-steps-for-backup.png)
 
->[AZURE.NOTE] Backing up virtual machines is a local process. You cannot back up virtual machines in one region to a backup vault in another region. So, you must create a backup vault in each Azure region, where there are VMs that will be backed up.
+>[AZURE.NOTE] O backup de máquinas virtuais é um processo local. Não é possível fazer backup de máquinas virtuais de uma região em um cofre de backup em outra região. Portanto, você deve criar um cofre de backup em cada região do Azure na qual existam VMs das quais serão feitos backups.
 
-## <a name="step-1---discover-azure-virtual-machines"></a>Step 1 - Discover Azure virtual machines
-To ensure any new virtual machines (VMs) added to the subscription are identified before registering, run the discovery process. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region.
+## Etapa 1 - Descobrir máquinas virtuais do Azure
+Para garantir que qualquer VM (máquina virtual) nova adicionada à assinatura seja identificada antes do registro, execute o processo de descoberta. O processo consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do serviço de nuvem e a região.
 
-1. Sign in to the [Classic portal](http://manage.windowsazure.com/)
+1. Entrar no [portal clássico](http://manage.windowsazure.com/)
 
-2. In the list of Azure services, click **Recovery Services** to open the list of Backup and Site Recovery vaults.
-    ![Open vault list](./media/backup-azure-vms/choose-vault-list.png)
+2. Na lista de serviços do Azure, clique em **Serviços de Recuperação** para abrir a lista de cofres de Backup e Recuperação de Site. ![Abrir listas de cofres](./media/backup-azure-vms/choose-vault-list.png)
 
-3. In the list of Backup vaults, select the vault to back up a VM.
+3. Na lista de cofres de Backup, escolha o cofre para fazer backup de uma VM.
 
-    If this is a new vault the portal opens to the **Quick Start** page.
+    Se for um novo cofre, o portal abrirá na página **Início Rápido**.
 
-    ![Open Registered items menu](./media/backup-azure-vms/vault-quick-start.png)
+    ![Abrir o menu Itens registrados](./media/backup-azure-vms/vault-quick-start.png)
 
-    If the vault has previously been configured, the portal opens to the most recently used menu.
+    Se o cofre tiver sido configurado anteriormente, o portal abrirá no menu usado mais recentemente.
 
-4. From the vault menu (at the top of the page), click **Registered Items**.
+4. No menu do cofre (na parte superior da página), clique em **Itens Registrados**.
 
-    ![Open Registered items menu](./media/backup-azure-vms/vault-menu.png)
+    ![Abrir o menu Itens registrados](./media/backup-azure-vms/vault-menu.png)
 
-5. From the **Type** menu, select **Azure Virtual Machine**.
+5. No menu **Tipo**, selecione **Máquina Virtual do Azure**.
 
-    ![Select workload](./media/backup-azure-vms/discovery-select-workload.png)
+    ![Selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
 
-6. Click **DISCOVER** at the bottom of the page.
-    ![Discover button](./media/backup-azure-vms/discover-button-only.png)
+6. Clique em **DESCOBRIR** na parte inferior da página. ![Botão Descobrir](./media/backup-azure-vms/discover-button-only.png)
 
-    The discovery process may take a few minutes while the virtual machines are being tabulated. There is a notification at the bottom of the screen that lets you know that the process is running.
+    O processo de descoberta pode ser executado por alguns minutos, enquanto as máquinas virtuais estão sendo tabuladas. Há uma notificação na parte inferior da tela que informa você de que o processo está sendo executado.
 
-    ![Discover VMs](./media/backup-azure-vms/discovering-vms.png)
+    ![Descobrir VMs](./media/backup-azure-vms/discovering-vms.png)
 
-    The notification changes when the process is complete. If the discovery process did not find the virtual machines, first ensure the VMs exist. If the VMs exist, ensure the VMs are in the same region as the backup vault. If the VMs exist and are in the same region, ensure the VMs are not already registered to a backup vault. If a VM is assigned to a backup vault it is not available to be assigned to other backup vaults.
+    As alterações de notificação quando o processo é concluído. Se o processo de descoberta não tiver localizado as máquinas virtuais, primeiro verifique se as VMs existem mesmo. Se existirem, garanta que as VMs estejam na mesma região que o cofre de backup. Se existirem e estiverem na mesma região, verifique se as VMs já não estão registradas em um cofre de backup. Se uma VM estiver atribuída a um cofre de backup, ela não estará disponível para ser atribuída a outros cofres de backup.
 
-    ![Discovery done](./media/backup-azure-vms/discovery-complete.png)
+    ![Descoberta concluída](./media/backup-azure-vms/discovery-complete.png)
 
-    Once you have discovered the new items, go to Step 2 and register your VMs.
+    Depois de descobrir os novos itens, vá para a Etapa 2 e registre suas VMs.
 
-##  <a name="step-2---register-azure-virtual-machines"></a>Step 2 - Register Azure virtual machines
-You register an Azure virtual machine to associate it with the Azure Backup service. This is typically a one-time activity.
+##  Etapa 2 - Registrar as máquinas virtuais do Azure
+Você registra uma máquina virtual do Azure para associá-la ao serviço Backup do Azure. Normalmente, é uma atividade realizada uma única vez.
 
-1. Navigate to the backup vault under **Recovery Services** in the Azure portal, and then click **Registered Items**.
+1. Navegue até o cofre de backup em **Serviços de Recuperação** no portal do Azure e clique em **Itens Registrados**.
 
-2. Select **Azure Virtual Machine** from the drop-down menu.
+2. Selecione **Máquina Virtual do Azure** no menu suspenso.
 
-    ![Select workload](./media/backup-azure-vms/discovery-select-workload.png)
+    ![Selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Click **REGISTER** at the bottom of the page.
-    ![Register button](./media/backup-azure-vms/register-button-only.png)
+3. Clique em **REGISTRAR** na parte inferior da página. ![Botão Registrar](./media/backup-azure-vms/register-button-only.png)
 
-4. In the **Register Items** shortcut menu, select the virtual machines that you want to register. If there are two or more virtual machines with the same name, use the cloud service to distinguish between them.
+4. No menu de atalho **Registrar Itens**, selecione as máquinas virtuais que você deseja registrar. Se houver duas ou mais máquinas virtuais com o mesmo nome, use o serviço de nuvem para fazer a distinção entre elas.
 
-    >[AZURE.TIP] Multiple virtual machines can be registered at one time.
+    >[AZURE.TIP] Várias máquinas virtuais podem ser registradas ao mesmo tempo.
 
-    A job is created for each virtual machine that you've selected.
+    Um trabalho é criado para cada máquina virtual selecionada.
 
-5. Click **View Job** in the notification to go to the **Jobs** page.
+5. Clique em **Exibir Trabalho** na notificação para ir para a página **Trabalhos**.
 
-    ![Register job](./media/backup-azure-vms/register-create-job.png)
+    ![Registrar trabalho](./media/backup-azure-vms/register-create-job.png)
 
-    The virtual machine also appears in the list of registered items, along with the status of the registration operation.
+    A máquina virtual também aparece na lista de itens registrados junto com o status da operação de registro.
 
-    ![Registering status 1](./media/backup-azure-vms/register-status01.png)
+    ![Status de registro 1](./media/backup-azure-vms/register-status01.png)
 
-    When the operation completes, the status changes to reflect the *registered* state.
+    Quando a operação for concluída, o status será alterado para refletir o estado *registrado*.
 
-    ![Registration status 2](./media/backup-azure-vms/register-status02.png)
+    ![Status de registro 2](./media/backup-azure-vms/register-status02.png)
 
-## <a name="step-3---protect-azure-virtual-machines"></a>Step 3 - Protect Azure virtual machines
-Now you can set up a backup and retention policy for the virtual machine. Multiple virtual machines can be protected by using a single protect action.
+## Etapa 3 - Proteger máquinas virtuais do Azure
+Agora você pode configurar uma política de backup e de retenção para a máquina virtual. Várias máquinas virtuais podem ser protegidas usando uma única ação de proteção.
 
-Azure Backup vaults created after May 2015 come with a default policy built into the vault. This default policy comes with a default retention of 30 days and a once-daily backup schedule.
+Os cofres do Backup do Azure criados depois de maio de 2015 poderão vir com uma política padrão interna ao cofre. Essa política padrão é fornecida com uma retenção padrão de 30 dias e agendamento de backup de uma vez por dia.
 
-1. Navigate to the backup vault under **Recovery Services** in the Azure portal, and then click **Registered Items**.
-2. Select **Azure Virtual Machine** from the drop-down menu.
+1. Navegue até o cofre de backup em **Serviços de Recuperação** no portal do Azure e clique em **Itens Registrados**.
+2. Selecione **Máquina Virtual do Azure** no menu suspenso.
 
-    ![Select workload in portal](./media/backup-azure-vms/select-workload.png)
+    ![Selecionar a carga de trabalho no portal](./media/backup-azure-vms/select-workload.png)
 
-3. Click **PROTECT** at the bottom of the page.
+3. Na parte inferior da página, clique em **PROTEGER**.
 
-    The **Protect Items wizard** appears. The wizard only lists virtual machines that are registered and not protected. Select the virtual machines that you want to protect.
+    O **assistente Proteger Itens** é exibido. Esse assistente lista apenas as máquinas virtuais registradas e não protegidas. Selecione as máquinas virtuais que deseja proteger.
 
-    If there are two or more virtual machines with the same name, use the cloud service to distinguish between the virtual machines.
+    Se houver duas ou mais máquinas virtuais com o mesmo nome, use o serviço de nuvem para distinguir entre elas.
 
-    >[AZURE.TIP] You can protect multiple virtual machines at one time.
+    >[AZURE.TIP] Você pode proteger várias máquinas virtuais de uma só vez.
 
-    ![Configure protection at scale](./media/backup-azure-vms/protect-at-scale.png)
+    ![Configurar proteção em escala](./media/backup-azure-vms/protect-at-scale.png)
 
-4. Choose a **backup schedule** to back up the virtual machines that you've selected. You can pick from an existing set of policies or define a new one.
+4. Escolha um **agendamento de backup** para fazer o backup das máquinas virtuais que você selecionou. Escolha um conjunto existente de políticas ou defina um novo.
 
-    Each backup policy can have multiple virtual machines associated with it. However, the virtual machine can only be associated with one policy at any given point in time.
+    Cada política de backup pode ter várias máquinas virtuais associadas a ela. No entanto, a máquina virtual só pode estar associada a apenas uma política em um determinado ponto no tempo.
 
-    ![Protect with new policy](./media/backup-azure-vms/policy-schedule.png)
+    ![Proteger com nova política](./media/backup-azure-vms/policy-schedule.png)
 
-    >[AZURE.NOTE] A backup policy includes a retention scheme for the scheduled backups. If you select an existing backup policy, you cannot modify the retention options in the next step.
+    >[AZURE.NOTE] Uma política de backup também inclui um esquema de retenção para os backups agendados. Se você selecionar uma política de backup existente, não será possível modificar as opções de retenção na próxima etapa.
 
-5. Choose a **retention range** to associate with the backups.
+5. Escolha um **intervalo de retenção** a ser associado aos backups.
 
-    ![Protect with flexible retention](./media/backup-azure-vms/policy-retention.png)
+    ![Proteger com retenção flexível](./media/backup-azure-vms/policy-retention.png)
 
-    Retention policy specifies the length of time for storing a backup. You can specify different retention policies based on when the backup is taken. For example, a backup point taken daily (which serves as an operational recovery point) might be preserved for 90 days. In comparison, a backup point taken at the end of each quarter (for audit purposes) may need to be preserved for many months or years.
+    A política de retenção especifica o período de armazenamento de um backup. Você pode especificar políticas de retenção diferentes com base em quando o backup é feito. Por exemplo, um ponto de backup feito diariamente (que funciona como um ponto de recuperação operacional) pode ser preservado durante 90 dias. Em comparação, um ponto de backup feito no final de cada trimestre (para fins de auditoria) precisará ser preservado por muitos meses ou anos.
 
-    ![Virtual machine is backed up with recovery point](./media/backup-azure-vms/long-term-retention.png)
+    ![O backup da máquina virtual é realizado com ponto de recuperação](./media/backup-azure-vms/long-term-retention.png)
 
-    In this example image:
+    Nesta imagem de exemplo:
 
-    - **Daily retention policy**: Backups taken daily are stored for 30 days.
-    - **Weekly retention policy**: Backups taken every week on Sunday are preserved for 104 weeks.
-    - **Monthly retention policy**: Backups taken on the last Sunday of each month are preserved for 120 months.
-    - **Yearly retention policy**: Backups taken on the first Sunday of every January are preserved for 99 years.
+    - **Política de retenção diária**: os backups diários são armazenados por 30 dias.
+    - **Política de retenção semanal**: os backups feitos todas as semanas aos domingos serão preservados por 104 semanas.
+    - **Política de retenção mensal**: os backups feitos no último domingo de cada mês serão preservados por 120 meses.
+    - **Política de retenção anual**: os backups feitos no primeiro domingo de cada janeiro serão preservados por 99 anos.
 
-    A job is created to configure the protection policy and associate the virtual machines to that policy for each virtual machine that you've selected.
+    Um trabalho é criado para configurar a política de proteção e associar as máquinas virtuais a essa política para cada máquina virtual selecionada.
 
-6. To view the list of **Configure Protection** jobs, from the vaults menu, click **Jobs** and select **Configure Protection** from the **Operation** filter.
+6. Para exibir a lista de trabalhos de **Configurar Proteção**, no menu dos cofres, clique em **Trabalhos** e selecione **Configurar Proteção** no filtro **Operação**.
 
-    ![Configure protection job](./media/backup-azure-vms/protect-configureprotection.png)
+    ![Configurar o trabalho de proteção](./media/backup-azure-vms/protect-configureprotection.png)
 
-## <a name="initial-backup"></a>Initial backup
-Once the virtual machine is protected with a policy, it shows up under the **Protected Items** tab with the status of *Protected - (pending initial backup)*. By default, the first scheduled backup is the *initial backup*.
+## Backup inicial
+Uma vez protegida com uma política, a máquina virtual será exibida na guia **Itens Protegidos** com o status *Protegida (pendente de backup inicial)*. Por padrão, o primeiro backup agendado é o *backup inicial*.
 
-To trigger the initial backup immediately after configuring protection:
+Para disparar o backup inicial imediatamente após a configuração de proteção:
 
-1. At the bottom of the **Protected Items** page, click **Backup Now**.
+1. Na parte inferior da página **Itens Protegidos**, clique em **Fazer Backup Agora**.
 
-    The Azure Backup service creates a backup job for the initial backup operation.
+    O serviço de Backup do Azure cria um trabalho de backup para a operação de backup inicial.
 
-2. Click the **Jobs** tab to view the list of jobs.
+2. Clique na guia **Trabalhos** para exibir a lista de trabalhos.
 
-    ![Backup in progress](./media/backup-azure-vms/protect-inprogress.png)
+    ![Backup em andamento](./media/backup-azure-vms/protect-inprogress.png)
 
->[AZURE.NOTE] During the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machine to flush all write jobs and take a consistent snapshot.
+>[AZURE.NOTE] Durante a operação de backup, o serviço de Backup do Azure emite um comando para a extensão de backup em cada máquina virtual a fim de limpar todos os trabalhos de gravação e capturar um instantâneo consistente.
 
-When the initial backup finishes, the status of the virtual machine in the **Protected Items** tab is *Protected*.
+Quando o backup inicial terminar, o status da máquina virtual na guia **Itens Protegidos** será *Protegido*.
 
-![Virtual machine is backed up with recovery point](./media/backup-azure-vms/protect-backedupvm.png)
+![O backup da máquina virtual é realizado com ponto de recuperação](./media/backup-azure-vms/protect-backedupvm.png)
 
-## <a name="viewing-backup-status-and-details"></a>Viewing backup status and details
-Once protected, the virtual machine count also increases in the **Dashboard** page summary. The **Dashboard** page also shows the number of jobs from the last 24 hours that were *successful*, have *failed*, and are *in progress*. On the **Jobs** page, use the **Status**, **Operation**, or **From** and **To** menus to filter the jobs.
+## Exibindo detalhes e status do backup
+Depois de protegido, a contagem de máquina virtual também aumenta no resumo da página **Painel**. A página **Painel** também mostra o número de trabalhos das últimas 24 horas que foram *bem-sucedidos*, que *falharam* e que estão *em andamento*. Na página **Trabalhos**, use os menus **Status**, **Operação** ou **De** e **Para** a fim de filtrar os trabalhos.
 
-![Status of backup in Dashboard page](./media/backup-azure-vms/dashboard-protectedvms.png)
+![Status do backup na página Painel](./media/backup-azure-vms/dashboard-protectedvms.png)
 
-Values in the dashboard are refreshed once every 24 hours.
+Os valores no painel são atualizados a cada 24 horas.
 
-## <a name="troubleshooting-errors"></a>Troubleshooting errors
-If you run into issues while backing up your virtual machine, look at the [VM   troubleshooting article](backup-azure-vms-troubleshoot.md) for help.
+## Solucionar erros
+Se você enfrentar problemas durante o backup da sua máquina virtual, examine o [artigo sobre solução de problemas de VM](backup-azure-vms-troubleshoot.md) para obter ajuda.
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-- [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
-- [Restore virtual machines](backup-azure-restore-vms.md)
+- [Gerenciar e monitorar suas máquinas virtuais](backup-azure-manage-vms.md)
+- [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

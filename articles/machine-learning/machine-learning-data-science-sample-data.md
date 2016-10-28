@@ -1,45 +1,37 @@
 <properties 
-    pageTitle="Sample data in Azure blob containers, SQL Server, and Hive tables | Microsoft Azure" 
-    description="How to explore data stored in various Azure enviromnents." 
-    services="machine-learning" 
-    documentationCenter="" 
-    authors="bradsev" 
-    manager="jhubbard" 
-    editor="cgronlun" />
+	pageTitle="Amostra de dados em contêineres de blob do Azure, SQL Server e tabelas Hive | Microsoft Azure" 
+	description="Como explorar dados armazenados em vários ambientes do Azure." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="jhubbard" 
+	editor="cgronlun" />
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/19/2016" 
-    ms.author="fashah;garye;bradsev" /> 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/19/2016" 
+	ms.author="fashah;garye;bradsev" />
 
+#<a name="heading"></a>Amostra de dados em contêineres de blob do Azure, SQL Server e tabelas Hive
 
-#<a name="<a-name="heading"></a>sample-data-in-azure-blob-containers,-sql-server,-and-hive-tables"></a><a name="heading"></a>Sample data in Azure blob containers, SQL Server, and Hive tables
+Este documento leva a tópicos que abordam como obter amostras de dados armazenados em um dos três diferentes locais do Azure:
 
-This document links to topics that covers how to sample data that is stored in one of three different Azure locations:
+- A amostragem dos **dados no contêiner de blobs do Azure** é realizada baixando-os programaticamente e realizando a amostragem com um exemplo de código Python.
+- A amostragem dos **dados do SQL Server** é realizada usando SQL e a linguagem de programação Python.
+- A amostragem dos **dados da tabela do Hive** é realizada usando consultas de Hive.
 
-- **Azure blob container data** is sampled by downloading it programmatically and then sampling it with sample Python code.
-- **SQL Server data** is sampled using both SQL and the Python Programming Language. 
-- **Hive table data** is sampled using Hive queries.
-
-The **menu** below links to the topics that describe how to sample data from each of these Azure storage environments. 
+O **menu** abaixo leva a tópicos que descrevem como obter amostras de dados de cada um desses ambientes de armazenamento do Azure.
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
-This sampling task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="why-sample-data?"></a>Why sample data?
+## Por que fazer a amostragem de dados?
 
-If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
+Se o conjunto de dados que você deseja analisar é grande, geralmente é uma boa ideia reduzir a amostra de dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Análise do Cortana é habilitar a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
 
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

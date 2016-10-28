@@ -1,20 +1,11 @@
-### <a name="prerequisites"></a>Prerequisites
-- A [OneDrive](http://OneDrive.com) account 
+### Pré-requisitos
+- Uma conta do [OneDrive](http://OneDrive.com) 
 
-Before you can use your OneDrive for Business account in a Logic app, you must authorize the Logic app to connect to your OneDrive for Business account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Antes de usar sua conta do OneDrive for Business em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do OneDrive for Business. Felizmente, você pode fazer isso facilmente a partir de seu aplicativo lógico no Portal do Azure.
 
-Here are the steps to authorize your Logic app to connect to your OneDrive for Business account:
+Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do OneDrive for Business:
 
-1. To create a connection to OneDrive for Business, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *OneDrive for Business* in the search box. Select the trigger or action you'll like to use:  
-  ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-1.png)
-2. If you haven't created any connections to OneDrive for Business before, you'll get prompted to provide your OneDrive for Business credentials. These credentials will be used to authorize your Logic app to connect to, and access your OneDrive for Business account's data:  
-  ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-2.png)
-3. Provide your OneDrive for Business user name and password to authorize your Logic app:  
-  ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-3.png)   
-4. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-  ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-4.png)   
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+1. Para criar uma conexão com o OneDrive for Business, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa, em seguida, digite *OneDrive for Business* na caixa de pesquisa. Selecione o gatilho ou ação que gostaria de usar: ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-1.png)
+2. Se você não tiver criado quaisquer conexões OneDrive for Business antes, será solicitado a fornecer suas credenciais do OneDrive for Business. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta do OneDrive for Business e usá-los: ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-2.png)
+3. Forneça seu nome de usuário do OneDrive for Business e a senha para autorizar seu aplicativo lógico: ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-3.png)   
+4. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico: ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-4.png)   

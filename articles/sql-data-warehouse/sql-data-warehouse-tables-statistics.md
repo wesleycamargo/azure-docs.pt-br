@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Managing statistics on tables in SQL Data Warehouse | Microsoft Azure"
-   description="Getting started with statistics on tables in Azure SQL Data Warehouse."
+   pageTitle="Gerenciamento de estatísticas em tabelas no SQL Data Warehouse | Microsoft Azure"
+   description="Introdução às estatísticas em tabelas no Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -16,51 +16,50 @@
    ms.date="06/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-
-# <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Managing statistics on tables in SQL Data Warehouse
+# Gerenciamento de estatísticas em tabelas no SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Overview][]
-- [Data Types][]
-- [Distribute][]
-- [Index][]
+- [Visão geral][]
+- [Tipos de dados][]
+- [Distribuir][]
+- [Índice][]
 - [Partition][]
-- [Statistics][]
-- [Temporary][]
+- [Estatísticas][]
+- [Temporário][]
 
-The more SQL Data Warehouse knows about your data, the faster it can execute queries against your data.  The way that you tell SQL Data Warehouse about your data, is by collecting statistics about your data.  Having statistics on your data is one of the most important things you can do to optimize your queries.  Statistics help SQL Data Warehouse create the most optimal plan for your queries.  This is because the SQL Data Warehouse query optimizer is a cost based optimizer.  That is, it compares the cost of various query plans and then chooses the plan with the lowest cost, which should also be the plan that will execute the fastest.
+Quanto mais o SQL Data Warehouse sabe sobre seus dados, mais rápido ele pode executar consultas neles. A maneira com a qual você informa o SQL Data Warehouse sobre seus dados é coletando estatísticas sobre seus dados. Ter estatísticas sobre seus dados é uma das coisas mais importantes que você pode fazer para otimizar as consultas. As estatísticas ajudam o SQL Data Warehouse a criar o plano ideal para suas consultas. Isso porque o otimizador de consulta do SQL Data Warehouse é um otimizador baseado em custo. Ou seja, ele compara o custo de vários planos de consulta e depois escolhe o plano com o menor custo, que também deverá ser o plano com execução mais rápida.
 
-Statistics can be created on a single column, multiple columns or on an index of a table.  Statistics are stored in a histogram which captures the range and selectivity of values.  This is of particular interest when the optimizer needs to evaluate JOINs, GROUP BY, HAVING and WHERE clauses in a query.  For example, if the optimizer estimates that the date you are filtering in your query will return 1 row, it may choose a very different plan than if it estimates that they date you have selected will return 1 million rows.  While creating statistics is extremely important, it is equally important that statistics *accurately* reflect the current state of the table.  Having up-to-date statistics ensures that a good plan is selected by the optimizer.  The plans created by the optimizer are only as good as the statistics on your data.
+As estatísticas podem ser criadas em uma única coluna, várias colunas ou em um índice de uma tabela. As estatísticas são armazenadas em um histograma que captura o intervalo e a seletividade dos valores. Isso é particularmente interessante quando o otimizador precisa avaliar cláusulas JOIN, GROUP BY, HAVING e WHERE em uma consulta. Por exemplo, se o otimizador estimar que a data usada para filtrar sua consulta retornará 1 linha, ele poderá escolher um plano muito diferente do que se estimar que a data selecionada retornará 1 milhão de linhas. Embora a criação de estatísticas seja extremamente importante, é igualmente importante que as estatísticas reflitam com *precisão* o estado atual da tabela. Ter estatísticas atualizadas garante a seleção de um bom plano pelo otimizador. Os planos criados pelo otimizador são tão bons quanto as estatísticas sobre seus dados.
 
-The process of creating and updating statistics is currently a manual process, but is very simple to do.  This is unlike SQL Server which automatically creates and updates statistics on single columns and indexes.  By using the information below, you can greatly automate the management of the statistics on your data. 
+NO momento, o processo de criação e atualização de estatísticas é um processo manual, mas é muito simples. Isso é diferente do SQL Server, que cria e atualiza automaticamente as estatísticas em colunas e índices únicos. Ao usar as informações a seguir, você pode automatizar bastante o gerenciamento das estatísticas em seus dados.
 
-## <a name="getting-started-with-statistics"></a>Getting started with statistics
+## Introdução às estatísticas
 
- Creating sampled statistics on every column is an easy way to get started with statistics.  Since it is equally important to keep statistics up-to-date, a conservative approach may be to update your statistics daily or after each load. There are always trade-offs between performance and the cost to create and update statistics.  If you find it is taking too long to maintain all of your statistics, you may want to try to be more selective about which columns have statistics or which columns need frequent updating.  For example, you might want to update date columns daily, as new values may be added rather than after every load. Again, you will gain the most benefit by having statistics on columns involved in JOINs, GROUP BY, HAVING and WHERE clauses.  If you have a table with a lot of columns which are only used in the SELECT clause, statistics on these columns may not help, and spending a little more effort to identify only the columns where statistics will help, can reduce the time to maintain your statistics.
+ Criar estatísticas de exemplo em cada coluna é uma maneira fácil de começar a usar as estatísticas. Como é igualmente importante manter estatísticas atualizadas, pode ser uma abordagem conservadora atualizar as estatísticas diariamente ou após cada carregamento. Sempre há compensações entre o desempenho e o custo para a criação e a atualização das estatísticas. Se você achar que está demorando muito para manter todas as estatísticas, convém tentar ser mais seletivo sobre quais colunas têm estatísticas ou quais colunas precisam de uma atualização frequente. Por exemplo, convém atualizar diariamente as colunas de datas, pois novos valores podem ser adicionados, e não após cada carregamento. Novamente, você terá mais benefícios se tiver estatísticas em colunas envolvidas em cláusulas JOINs, GROUP BY, HAVING e WHERE. Se você tiver uma tabela com muitas colunas que são usadas somente na cláusula SELECT, as estatísticas nessas colunas não serão úteis, e gastar um pouco mais de esforço para identificar apenas as colunas nas quais as estatísticas serão úteis pode reduzir o tempo de manutenção das estatísticas.
 
-## <a name="multi-column-statistics"></a>Multi-column statistics
+## Estatísticas de várias colunas
 
-In addition to creating statistics on single columns, you may find that your queries will benefit from multi-column statistics.  Multi-column statistics are statistics created on a list of columns.  They include single column statistics on the first column in the list, plus some cross-column correlation information called densities.  For example, if you have a table that joins to another on two columns, you may find that SQL Data Warehouse can better optimize the plan if it understands the relationship between two columns.   Multi-column statistics can improve query performance for some operations such as composite joins and group by.
+Além de criar estatísticas em colunas únicas, talvez você perceba que suas consultas se beneficiariam de estatísticas em várias colunas. Estatísticas de várias colunas são estatísticas criadas em uma lista de colunas. Elas incluem estatísticas sobre uma única coluna na primeira coluna da lista, além de algumas informações de correlação entre colunas chamadas de densidades. Por exemplo, se você tiver uma tabela que se une a outras duas colunas, você perceberá que o SQL Data Warehouse pode otimizar ainda mais o plano se ele compreender a relação entre as duas colunas. As estatísticas de várias colunas podem melhorar o desempenho de consulta de algumas operações como junções compostas e agrupar por.
 
-## <a name="updating-statistics"></a>Updating statistics
+## Atualização de estatísticas
 
-Updating statistics is an important part of your database management routine.  When the distribution of data in the database changes, statistics need to be updated.  Out-of-date statistics will lead to sub-optimal query performance.
+Atualizar as estatísticas é uma parte importante de sua rotina de gerenciamento de banco de dados. Quando a distribuição dos dados no banco de dados é alterada, as estatísticas precisam ser atualizadas. Estatísticas desatualizadas resultarão em um desempenho de consulta abaixo do ideal.
 
-One best practice is to update statistics on date columns each day as new dates are added.  Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date. Conversely, statistics on a country column in a customer table might never need to be updated, as the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country and you bring in data from a new country, resulting in data from multiple countries being stored, then you definitely need to update statistics on the country column.
+Uma prática recomendada é atualizar as estatísticas em colunas de data por dia à medida que novas datas são adicionadas. Sempre que há um carregamento de novas linhas no data warehouse, novas datas de carga ou datas de transação são adicionadas. Isso muda a distribuição de dados e desatualiza as estatísticas. Por outro lado, as estatísticas em uma coluna de país em uma tabela de cliente talvez nunca tenham de ser atualizadas, já que a distribuição de valores geralmente não é alterada. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados. No entanto, se seu data warehouse contiver apenas um país e se você exibir dados de um país, resultando em dados de vários países sendo armazenados, definitivamente será necessário atualizar as estatísticas na coluna país.
 
-One of the first questions to ask when troubleshooting a query is, "Are the statistics up-to-date?"
+Uma das primeiras perguntas a serem feitas durante a solução de uma consulta é, "As estatísticas estão atualizadas?"
 
-This question is not one that can be answered by the age of the data. An up to date statistics object could be very old if there's been no material change to the underlying data. When the number of rows has changed substantially or there is a material change in the distribution of values for a given column *then* it's time to update statistics.  
+Essa questão não pode ser respondida pela idade dos dados. Um objeto de estatísticas atualizado pode ser muito antigo se não haja nenhuma alteração material nos dados subjacentes. Quando o número de linhas tiver mudado substancialmente ou se houver uma alteração material na distribuição dos valores de uma determinada coluna, *será necessário* atualizar as estatísticas.
 
-For reference, **SQL Server** (not SQL Data Warehouse) automatically updates statistics for these situations:
+Para referência, o **SQL Server** (não o SQL Data Warehouse) atualiza automaticamente as estatísticas para estas situações:
 
-- If you have zero rows in the table, when you add rows, you’ll get an automatic update of statistics
-- When you add more than 500 rows to a table starting with less than 500 rows (e.g. at start you have 499 and then add 500 rows to a total of 999 rows), you’ll get an automatic update 
-- Once you’re over 500 rows you will have to add 500 additional rows + 20% of the size of the table before you’ll see an automatic update on the stats
+- Se você não tiver nenhuma linha na tabela, quando adicionar linhas, obterá uma atualização automática das estatísticas
+- Quando você adicionar mais de 500 linhas a uma tabela, começando com menos de 500 linhas (por exemplo, no início você tem 499 e, em seguida, adiciona 500 linhas para ter um total de 999 linhas), obterá uma atualização automática
+- Quando você tiver mais de 500 linhas, terá de adicionar outras 500 linhas mais 20% do tamanho da tabela antes de ver uma atualização automática nas estatísticas
 
-Since there is no DMV to determine if data within the table has changed since the last time statistics were updated, knowing the age of your statistics can provide you with part of the picture.  You can use the following query to determine the last time your statistics where updated on each table.  
+Como não há nenhuma DMV para determinar se os dados da tabela foram alterados desde que a última vez em que as estatísticas foram atualizadas, saber a idade das estatísticas pode fornecer uma parte da cena. Você pode usar a consulta a seguir para determinar a última vez que suas estatísticas foram atualizadas em cada tabela.
 
-> [AZURE.NOTE] Remember if there is a material change in the distribution of values for a given column, you should update statistics regardless of the last time they were updated.  
+> [AZURE.NOTE] Lembre-se de que se houver uma mudança substancial na distribuição dos valores para uma determinada coluna, você deverá atualizar as estatísticas, independentemente da última vez em que elas foram atualizadas.
 
 ```sql
 SELECT
@@ -89,111 +88,111 @@ WHERE
     st.[user_created] = 1;
 ```
 
-Date columns in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date.  Conversely, statistics on a gender column on a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one gender and a new requirement results in multiple genders then you definitely need to update statistics on the gender column.
+As colunas de data em um data warehouse, por exemplo, normalmente precisam de atualizações frequentes de estatísticas. Sempre que há um carregamento de novas linhas no data warehouse, novas datas de carga ou datas de transação são adicionadas. Isso muda a distribuição de dados e desatualiza as estatísticas. Por outro lado, talvez as estatísticas em uma coluna de gênero de uma tabela de clientes nunca precisem ser atualizadas. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados. No entanto, se o data warehouse contiver apenas um gênero, e um novo requisito resultar em vários gêneros, será definitivamente necessário atualizar as estatísticas na coluna gênero.
 
-For further explanation, see [Statistics][] on MSDN.
+Para obter mais explicações, confira [Estatísticas][] no MSDN.
 
-## <a name="implementing-statistics-management"></a>Implementing statistics management
+## Implementação do gerenciamento de estatísticas
 
-It is often a good idea to extend your data loading process to ensure that statistics are updated at the end of the load. The data load is when tables most frequently change their size and/or their distribution of values. Therefore, this is a logical place to implement some management processes.
+Geralmente, convém estender os processos de carregamento de dados a fim de garantir que as estatísticas estejam atualizadas ao final do carregamento. É no carregamento de dados que as tabelas frequentemente mudam de tamanho e/ou distribuição de valores. Portanto, esse é um momento lógico para implementar alguns processos de gerenciamento.
 
-Some guiding principles are provided below for updating your statistics during the load process:
+Veja abaixo alguns princípios importantes para atualizar as estatísticas durante o processo de carregamento:
 
-- Ensure that each loaded table has at least one statistics object updated. This updates the tables size (row count and page count) information as part of the stats update.
-- Focus on columns participating in JOIN, GROUP BY, ORDER BY and DISTINCT clauses
-- Consider updating "ascending key" columns such as transaction dates more frequently as these values will not be included in the statistics histogram.
-- Consider updating static distribution columns less frequently.
-- Remember each statistic object is updated in series. Simply implementing `UPDATE STATISTICS <TABLE_NAME>` may not be ideal - especially for wide tables with lots of statistics objects.
+- Certifique-se de que cada tabela carregada tenha pelo menos um objeto de estatísticas atualizado. Isso atualiza as informações de tamanho da tabela (contagem de linhas e contagem de páginas) como parte da atualização de estatísticas.
+- Concentre-se em colunas que participam de cláusulas JOIN, GROUP BY, ORDER BY e DISTINCT
+- Considere uma atualização mais frequentes das colunas de "chave crescente", por exemplo, datas de transação, pois esses valores não serão incluídos no histograma de estatísticas.
+- Considere atualizar as colunas de distribuição estática com menos frequência.
+- Lembre-se de que cada objeto de estatística é atualizado em série. Simplesmente implementar `UPDATE STATISTICS <TABLE_NAME>` talvez não seja ideal, especialmente para tabelas mais amplas com muitos objetos de estatísticas.
 
-> [AZURE.NOTE] For more details on [ascending key] please refer to the SQL Server 2014 cardinality estimation model whitepaper.
+> [AZURE.NOTE] Para obter mais detalhes sobre [chave crescente], confira o white paper sobre modelo de estimativa de cardinalidade do SQL Server 2014.
 
-For further explanation, see  [Cardinality Estimation][] on MSDN.
+Para obter mais explicações, confira [Estimativa de cardinalidade][] no MSDN.
 
-## <a name="examples:-create-statistics"></a>Examples: Create statistics
+## Exemplos: criar estatísticas
 
-These examples show how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
+Estes exemplos mostram como usar várias opções para a criação de estatísticas. As opções usadas para cada coluna dependem das características dos dados e de como a coluna será usada em consultas.
 
-### <a name="a.-create-single-column-statistics-with-default-options"></a>A. Create single-column statistics with default options
+### R. Criar estatísticas de coluna única com opções padrão
 
-To create statistics on a column, simply provide a name for the statistics object and the name of the column.
+Para criar estatísticas em uma coluna, basta fornecer um nome para o objeto de estatísticas e o nome da coluna.
 
-This syntax uses all of the default options. By default, SQL Data Warehouse samples 20 percent of the table when it creates statistics.
+Esta sintaxe usa todas as opções padrão. Por padrão, o SQL Data Warehouse utiliza uma amostragem de 20 por cento da tabela ao criar estatísticas.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-For example:
+Por exemplo:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
-### <a name="b.-create-single-column-statistics-by-examining-every-row"></a>B. Create single-column statistics by examining every row
+### B. Criar estatísticas de coluna única examinando cada linha
 
-The default sampling rate of 20 percent is sufficient for most situations. However, you can adjust the sampling rate.
+A taxa de amostragem padrão de 20 por cento é suficiente para a maioria das situações. No entanto, você pode ajustar essa taxa de amostragem.
 
-To sample the full table, use this syntax:
+Para usar toda a tabela como amostragem, use a seguinte sintaxe:
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-For example:
+Por exemplo:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
-### <a name="c.-create-single-column-statistics-by-specifying-the-sample-size"></a>C. Create single-column statistics by specifying the sample size
+### C. Criar estatísticas de coluna única, especificando o tamanho da amostra
 
-Alternatively, you can specify the sample size as a percent:
+Como alternativa, você pode especificar o tamanho da amostra como uma porcentagem:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
-### <a name="d.-create-single-column-statistics-on-only-some-of-the-rows"></a>D. Create single-column statistics on only some of the rows
+### D. Criar estatísticas de coluna única em apenas algumas das linhas
 
-Another option, you can create statistics on a portion of the rows in your table. This is called a filtered statistic.
+Outra opção é criar estatísticas em uma parte das linhas na tabela. Isso é chamado de estatística filtrada.
 
-For example, you could use filtered statistics when you plan to query a specific partition of a large partitioned table. By creating statistics on only the partition values, the accuracy of the statistics will improve, and therefore improve query performance.
+Por exemplo, ao planejar consultar uma partição específica de uma grande tabela particionada, você pode usar as estatísticas filtradas. Ao criar estatísticas apenas nos valores de partição, a precisão das estatísticas melhora e, portanto, o desempenho da consulta também.
 
-This example creates statistics on a range of values. The values could easily be defined to match the range of values in a partition.
+Este exemplo cria estatísticas em um intervalo de valores. Os valores podem ser facilmente definidos de acordo com o intervalo de valores em uma partição.
 
 ```sql
 CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
-> [AZURE.NOTE] For the query optimizer to consider using filtered statistics when it chooses the distributed query plan, the query must fit inside the definition of the statistics object. Using the previous example, the query's where clause needs to specify col1 values between 2000101 and 20001231.
+> [AZURE.NOTE] Para que o otimizador de consulta considere usar estatísticas filtradas ao escolher o plano de consulta distribuída, a consulta deve ser adequada à definição do objeto de estatísticas. Usando o exemplo anterior, a cláusula WHERE da consulta precisa especificar valores col1 entre 2000101 e 20001231.
 
-### <a name="e.-create-single-column-statistics-with-all-the-options"></a>E. Create single-column statistics with all the options
+### E. Criar estatísticas de coluna única com todas as opções
 
-You can, of course, combine the options together. The example below creates a filtered statistics object with a custom sample size:
+Obviamente, você pode combinar as opções. O exemplo abaixo cria um objeto de estatísticas filtradas com um tamanho de amostra personalizado:
 
 ```sql
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-For the full reference, see [CREATE STATISTICS][] on MSDN.
+Para obter a referência completa, confira [CRIAR ESTATÍSTICAS][] no MSDN.
 
-### <a name="f.-create-multi-column-statistics"></a>F. Create multi-column statistics
+### F. Criar estatísticas de várias colunas
 
-To create a multi-column statistics, simply use the previous examples, but specify more columns.
+Para criar estatísticas de várias colunas, basta usar os exemplos anteriores, mas especificar mais colunas.
 
-> [AZURE.NOTE] The histogram, which is used to estimate number of rows in the query result, is only available for the first column listed in the statistics object definition.
+> [AZURE.NOTE] O histograma, que é usado para estimar o número de linhas no resultado da consulta, só está disponível para a primeira coluna listada na definição do objeto da estatística.
 
-In this example, the histogram is on *product\_category*. Cross-column statistics are calculated on *product\_category* and *product\_sub_c\ategory*:
+Neste exemplo, o histograma está em *product\_category*. As estatísticas entre colunas são calculadas em *product\_category* e *product\_sub\_c\\ategory*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Since there is a correlation between *product\_category* and *product\_sub\_category*, a multi-column stat can be useful if these columns are accessed at the same time.
+Como há uma correlação entre *product\_category* e *product\_sub\_category*, uma estatística de várias colunas pode ser útil se essas colunas forem acessadas ao mesmo tempo.
 
-### <a name="g.-create-statistics-on-all-the-columns-in-a-table"></a>G. Create statistics on all the columns in a table
+### G. Criar estatísticas em todas as colunas em uma tabela
 
-One way to create statistics is to issues CREATE STATISTICS commands after creating the table.
+É uma maneira de criar estatísticas é emitir comandos CREATE STATISTICS depois de criar a tabela.
 
 ```sql
 CREATE TABLE dbo.table1
@@ -213,11 +212,11 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### <a name="h.-use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>H. Use a stored procedure to create statistics on all columns in a database
+### H. Use um procedimento armazenado para criar estatísticas em todas as colunas em um banco de dados
 
-SQL Data Warehouse does not have a system stored procedure equivalent to [sp_create_stats][] in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
+O SQL Data Warehouse não tem um procedimento armazenado no sistema equivalente a [sp\_create\_stats][] no SQL Server. Esse procedimento armazenado cria um objeto de estatísticas de coluna única em todas as colunas do banco de dados que ainda não tenham estatísticas.
 
-This will help you get started with your database design. Feel free to adapt it to your needs.
+Isso ajudará você a começar com o design do banco de dados. Fique à vontade para adaptá-lo às suas necessidades.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
@@ -238,7 +237,7 @@ END;
 
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN;
-    DROP TABLE #stats_ddl;
+	DROP TABLE #stats_ddl;
 END;
 
 CREATE TABLE #stats_ddl
@@ -262,9 +261,9 @@ JOIN        sys.[columns] c         ON  t.[object_id]       = c.[object_id]
 LEFT JOIN   sys.[stats_columns] l   ON  l.[object_id]       = c.[object_id]
                                     AND l.[column_id]       = c.[column_id]
                                     AND l.[stats_column_id] = 1
-LEFT JOIN   sys.[external_tables] e ON  e.[object_id]       = t.[object_id]
+LEFT JOIN	sys.[external_tables] e	ON	e.[object_id]		= t.[object_id]
 WHERE       l.[object_id] IS NULL
-AND         e.[object_id] IS NULL -- not an external table
+AND			e.[object_id] IS NULL -- not an external table
 )
 SELECT  [table_schema_name]
 ,       [table_name]
@@ -300,85 +299,85 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-To create statistics on all columns in the table with this procedure, simply call the procedure.
+Para criar estatísticas em todas as colunas na tabela com esse procedimento, simplesmente chame o procedimento.
 
 ```sql
 prc_sqldw_create_stats;
 ```
 
-## <a name="examples:-update-statistics"></a>Examples: update statistics
+## Exemplos: atualizar as estatísticas
 
-To update statistics, you can:
+Para atualizar as estatísticas, você pode:
 
-1. Update one statistics object. Specify the name of the statistics object you wish to update.
-2. Update all statistics objects on a table. Specify the name of the table instead of one specific statistics object.
+1. Atualizar um objeto de estatísticas. Especifique o nome do objeto de estatísticas que você deseja atualizar.
+2. Atualizar todos os objetos de estatísticas em uma tabela. Especifique o nome da tabela em vez de um objeto de estatísticas específico.
 
 
-### <a name="a.-update-one-specific-statistics-object"></a>A. Update one specific statistics object ###
-Use the following syntax to update a specific statistics object:
+### R. Atualizar um objeto de estatísticas específico ###
+Use a sintaxe a seguir para atualizar um objeto de estatísticas específico:
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-For example:
+Por exemplo:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
-By updating specific statistics objects, you can minimize the time and resources required to manage statistics. This requires some thought, though, to choose the best statistics objects to update.
+Ao atualizar objetos de estatísticas específicos, você pode minimizar o tempo e os recursos necessários para o gerenciamento de estatísticas. No entanto, isso exige um pouco de planejamento para escolher os melhores objetos de estatísticas para atualizar.
 
 
-### <a name="b.-update-all-statistics-on-a-table"></a>B. Update all statistics on a table ###
-This shows a simple method for updating all the statistics objects on a table.
+### B. Atualizar todas as estatísticas em uma tabela ###
+O código abaixo mostra um método simples para atualizar todos os objetos de estatísticas em uma tabela.
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-For example:
+Por exemplo:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
 ```
 
-This statement is easy to use. Just remember this updates all statistics on the table, and therefore might perform more work than is necessary. If the performance is not an issue, this is definitely the easiest and most complete way to guarantee statistics are up-to-date.
+Esta instrução é fácil de usar. Lembre-se de que isso atualizará todas as estatísticas na tabela e, portanto, pode executar mais trabalho do que o necessário. Se o desempenho não for um problema, essa é definitivamente a maneira mais fácil e completa de garantir a atualização das estatísticas.
 
-> [AZURE.NOTE] When updating all statistics on a table, SQL Data Warehouse does a scan to sample the table for each statistics. If the table is large, has many columns, and many statistics, it might be more efficient to update individual statistics based on need.
+> [AZURE.NOTE] Ao atualizar todas as estatísticas em uma tabela, o SQL Data Warehouse realiza uma verificação da tabela para coletar amostragens para cada estatística. Se a tabela for grande, tiver muitas colunas e estatísticas, talvez seja mais eficiente para atualizar estatísticas individuais com base na necessidade.
 
-For an implementation of an `UPDATE STATISTICS` procedure please see the [Temporary Tables][Temporary] article. The implementation method is slightly different to the `CREATE STATISTICS` procedure above but the end result is the same.
+Para a implementação de um procedimento `UPDATE STATISTICS`, confira o artigo [tabelas temporárias][Temporary]. O método de implementação é ligeiramente diferente para o procedimento `CREATE STATISTICS` acima, mas o resultado final é o mesmo.
 
-For the full syntax, see [Update Statistics][] on MSDN.
+Para obter a sintaxe completa, confira [Atualizar estatísticas][] no MSDN.
 
-## <a name="statistics-metadata"></a>Statistics metadata
-There are several system view and functions that you can use to find information about statistics. For example, you can see if a statistics object might be out-of-date by using the stats-date function to see when statistics were last created or updated.
+## Metadados de estatísticas
+Há várias funções e exibições do sistema que você pode usar para localizar informações sobre estatísticas. Por exemplo, você pode ver se um objeto de estatísticas está desatualizado usando a função stats-date para ver quando as estatísticas foram criadas ou atualizadas pela última vez.
 
-### <a name="catalog-views-for-statistics"></a>Catalog views for statistics
-These system views provide information about statistics:
+### Exibições de catálogo para as estatísticas
+Essas exibições do sistema fornecem informações sobre estatísticas:
 
-| Catalog View | Description |
+| Exibição de catálogo | Descrição |
 | :----------- | :---------- |
-| [sys.columns][]  | One row for each column. |
-| [sys.objects][]  | One row for each object in the database. |  |
-| [sys.schemas][]  | One row for each schema in the database. |  |
-| [sys.stats][] | One row for each statistics object. |
-| [sys.stats_columns][] | One row for each column in the statistics object. Links back to sys.columns. |
-| [sys.tables][] | One row for each table (includes external tables). |
-| [sys.table_types][] | One row for each data type. |
+| [sys.columns][] | Uma linha para cada coluna. |
+| [sys.objects][] | Uma linha para cada objeto no banco de dados. | |
+| [sys.schemas][] | Uma linha para cada esquema no banco de dados. | |
+| [sys.stats][] | Uma linha para cada objeto de estatísticas. |
+| [sys.stats\_columns][] | Uma linha para cada coluna no objeto de estatísticas. Conecta novamente a sys.columns. |
+| [sys.tables][] | Uma linha para cada tabela (inclui tabelas externas). |
+| [sys.table\_types][] | Uma linha para cada tipo de dados. |
 
 
-### <a name="system-functions-for-statistics"></a>System functions for statistics
-These system functions are useful for working with statistics:
+### Funções de sistema para estatísticas
+Essas funções de sistema são úteis para trabalhar com estatísticas:
 
-| System Function | Description |
+| Função de sistema | Descrição |
 | :-------------- | :---------- |
-| [STATS_DATE][]    | Date the statistics object was last updated. |
-| [DBCC SHOW_STATISTICS][] | Provides summary level and detailed information about the distribution of values as understood by the statistics object. |
+| [STATS\_DATE][] | Data da última atualização do objeto de estatísticas. |
+| [DBCC SHOW\_STATISTICS][] | Fornece informações detalhadas e resumidas sobre a distribuição de valores, conforme entendido pelo objeto de estatísticas. |
 
-### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Combine statistics columns and functions into one view
+### Combinar colunas de estatísticas e funções em uma exibição
 
-This view brings columns that relate to statistics, and results from the [STATS_DATE()][]function together.
+Essa exibição une as colunas relacionadas às estatísticas e os resultados da função [STATS\_DATE()][].
 
 ```sql
 CREATE VIEW dbo.vstats_columns
@@ -416,90 +415,91 @@ AND     st.[user_created] = 1
 ;
 ```
 
-## <a name="dbcc-show_statistics()-examples"></a>DBCC SHOW_STATISTICS() examples
+## Exemplos de DBCC SHOW\_STATISTICS()
 
-DBCC SHOW_STATISTICS() shows the data held within a statistics object. This data comes in three parts.
+DBCC SHOW\_STATISTICS() mostra os dados contidos em um objeto de estatísticas. Esses dados estão divididos em três partes.
 
-1. Header
-2. Density Vector
-3. Histogram
+1. Cabeçalho
+2. Vetor de densidade
+3. Histograma
 
-The header metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. The density vector measures cross-column correlation. SQLDW computes cardinality estimates with any of the data in the statistics object.
+Os metadados de cabeçalho sobre as estatísticas. O histograma exibe a distribuição de valores na primeira coluna de chave do objeto de estatísticas. O vetor de densidade mede a correlação entre colunas. O SQLDW calcula as estimativas de cardinalidade com os dados no objeto de estatísticas.
 
-### <a name="show-header,-density,-and-histogram"></a>Show header, density, and histogram
+### Mostrar cabeçalho, densidade e histograma
 
-This simple example shows all three parts of a statistics object.
+Este exemplo simples mostra as três partes de um objeto de estatísticas.
 
 ```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-For example:
+Por exemplo:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### <a name="show-one-or-more-parts-of-dbcc-show_statistics();"></a>Show one or more parts of DBCC SHOW_STATISTICS();
+### Mostrar uma ou mais partes de DBCC SHOW\_STATISTICS();
 
-If you are only interested in viewing specific parts, use the `WITH` clause and specify which parts you want to see:
+Se você só estiver interessado em ver partes específicas, use a cláusula `WITH` e especifique quais partes deseja ver:
 
 ```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-For example:
+Por exemplo:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## <a name="dbcc-show_statistics()-differences"></a>DBCC SHOW_STATISTICS() differences
-DBCC SHOW_STATISTICS() is more strictly implemented in SQL Data Warehouse compared to SQL Server.
+## Diferenças do DBCC SHOW\_STATISTICS()
+DBCC SHOW\_STATISTICS() é implementado mais estritamente no SQL Data Warehouse comparado ao SQL Server.
 
-1. Undocumented features are not supported
-- Cannot use Stats_stream
-- Cannot join results for specific subsets of statistics data e.g. (STAT_HEADER JOIN DENSITY_VECTOR)
-2. NO_INFOMSGS cannot be set for message suppression
-3. Square brackets around statistics names cannot be used
-4. Cannot use column names to identify statistics objects
-5. Custom error 2767 is not supported
+1. Não há suporte para recursos não documentados
+- Não é possível usar Stats\_stream
+- Não é possível associar os resultados para subconjuntos específicos de dados de estatísticas, por exemplo, (STAT\_HEADER JOIN DENSITY\_VECTOR)
+2. NO\_INFOMSGS não pode ser definido para a supressão de mensagem
+3. Não é possível usar colchetes em nomes de estatísticas
+4. Não é possível usar nomes de coluna para identificar objetos de estatísticas
+5. Não há suporte para o erro personalizado 2767
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-For more details, see [DBCC SHOW_STATISTICS][] on MSDN.  To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition] and [Temporary Tables][Temporary].  For more about best practices, see [SQL Data Warehouse Best Practices][].  
+Para obter mais detalhes, confira [DBCC SHOW\_STATISTICS][] no MSDN. Para saber mais, consulte os artigos sobre [Visão geral da tabela][Overview], [Tipos de dados da tabela][Data Types], [Distribuição de uma tabela][Distribute], [Indexação de uma tabela][Index], [Particionamento de uma tabela][Partition] e [Tabelas temporárias][Temporary]. Para saber mais sobre as práticas recomendadas, consulte [Práticas Recomendadas do SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
+[Visão geral]: ./sql-data-warehouse-tables-overview.md
 [Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Tipos de dados]: ./sql-data-warehouse-tables-data-types.md
 [Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Distribuir]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
+[Índice]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[Temporário]: ./sql-data-warehouse-tables-temporary.md
+[Práticas Recomendadas do SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->  
-[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
+[Estimativa de cardinalidade]: https://msdn.microsoft.com/library/dn600374.aspx
+[CRIAR ESTATÍSTICAS]: https://msdn.microsoft.com/library/ms188038.aspx
+[DBCC SHOW\_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
+[Estatísticas]: https://msdn.microsoft.com/library/ms190397.aspx
+[STATS\_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
 [sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
 [sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
+[sys.stats\_columns]: https://msdn.microsoft.com/library/ms187340.aspx
 [sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
+[sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
+[Atualizar estatísticas]: https://msdn.microsoft.com/library/ms187348.aspx
 
 <!--Other Web references-->  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

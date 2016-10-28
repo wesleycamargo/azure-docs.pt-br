@@ -3,20 +3,18 @@
 - [Java](../articles/iot-hub/iot-hub-java-java-getstarted.md)
 - [Node.js](../articles/iot-hub/iot-hub-node-node-getstarted.md)
 
-## <a name="introduction"></a>Introduction
+## Introdução
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of Internet of Things (IoT) devices and a solution back end. One of the biggest challenges that IoT projects face is how to reliably and securely connect devices to the solution back end. To address this challenge, IoT Hub:
+O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos (IoT) (Internet das Coisas) e uma solução de back-end. Um dos maiores desafios enfrentados pelos projetos IoT é como conectar os dispositivos de forma confiável e segura para a solução de back-end. Para enfrentar esse desafio, o hub IoT:
 
-- Offers reliable device-to-cloud and cloud-to-device hyper-scale messaging.
-- Enables secure communications using per-device security credentials and access control.
-- Includes device libraries for the most popular languages and platforms.
+- Oferece, de forma confiável, mensagens em larga escala do dispositivo para a nuvem e da nuvem para o dispositivo.
+- Permite proteger as comunicações usando credenciais de segurança e controle de acesso por dispositivo.
+- Inclui bibliotecas de dispositivo para as plataformas e idiomas mais populares.
 
-This tutorial shows you how to:
+Este tutorial mostra como:
 
-- Use the Azure portal to create an IoT hub.
-- Create a device identity in your IoT hub.
-- Create a simulated device that sends telemetry to your cloud back end, and receives commands from your cloud back end.
+- Use o portal do Azure para criar um hub IoT.
+- Crie uma identidade de dispositivo em seu hub IoT.
+- Crie um dispositivo simulado que envia a telemetria para o back-end de nuvem e recebe comandos de seu back-end de nuvem.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

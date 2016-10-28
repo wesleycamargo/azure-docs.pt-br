@@ -1,55 +1,50 @@
 <properties 
-    pageTitle="Windows Universal Apps SDK content" 
-    description="Learn about the contents of the Windows Universal Apps SDK for Azure Mobile Engagement"                    
-    services="mobile-engagement" 
-    documentationCenter="mobile" 
-    authors="piyushjo" 
-    manager="dwrede" 
-    editor="" />
+	pageTitle="Conteúdo do SDK de aplicativos do Windows Universal" 
+	description="Saiba mais sobre o conteúdo do SDK dos aplicativos do Windows Universal para o Mobile Engagement do Azure" 					
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-    ms.service="mobile-engagement" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="mobile-windows-store" 
-    ms.devlang="dotnet" 
-    ms.topic="article" 
-    ms.date="08/19/2016" 
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/19/2016" 
+	ms.author="piyushjo" />
 
+#Conteúdo do SDK de aplicativos do Windows Universal
 
-#<a name="windows-universal-apps-sdk-content"></a>Windows Universal Apps SDK content
+Este documento lista e descreve o conteúdo implantado pelo SDK em seu aplicativo.
 
-This document lists and describes the content deployed by the SDK in your application.
+##A pasta `/Resources`
 
-##<a name="the-`/resources`-folder"></a>The `/Resources` folder
+Essa pasta contém todos os recursos que o Engagement precisa. Você também pode personalizá-los para se adequarem ao seu aplicativo.
 
-This folder contains all the resources that Mobile Engagement needs. You can also customize them to fit your app.
+- `EngagementConfiguration.xml` : Arquivo de configuração do Mobile Engagement, é onde você pode personalizar configurações do Mobile Engagement (cadeia de conexão do Mobile Engagement, relatar falhas, etc.).
 
-- `EngagementConfiguration.xml` : The Mobile Engagement's configuration file, this is where you can customize Mobile Engagement settings (Mobile Engagement connection string, report crash...).
+### /pasta html
 
-### <a name="/html-folder"></a>/html folder
+- `EngagementNotification.html` : O design HTLM do modo de exibição Web `Notification` para faixas no aplicativo.
 
-- `EngagementNotification.html` : The `Notification` web view html design for in-app banners.
+- `EngagementAnnouncement.html` : O design HTLM do modo de exibição Web `Announcement` para exibições intersticiais no aplicativo.
 
-- `EngagementAnnouncement.html` : The `Announcement` web view html design for in-app interstitial views.
+### /pasta imagens
 
-### <a name="/images-folder"></a>/images folder
+- `EngagementIconNotification.png` : O ícone de marca exibido à esquerda de uma notificação, substitua-o pelo ícone da sua marca.
 
-- `EngagementIconNotification.png` : The brand icon displayed at the left of a notification, replace this one by your brand icon.
+- `EngagementIconOk.png` : O ícone `Ok` das páginas de conteúdo do reach para o botão de ação ou de validação.
 
-- `EngagementIconOk.png` : The `Ok` icon of the reach content pages for the action or validation button.
-
-- `EngagementIconNOK.png` : The `NOK` icon used when the validation button of the reach content pages is disabled.
+- `EngagementIconNOK.png` : O ícone `NOK` usado quando o botão de validação das páginas de conteúdo do reach é desabilitado.
  
-- `EngagementIconClose.png` : The `Close` icon of the reach notifications and contents for the dismiss button.
+- `EngagementIconClose.png` : O ícone `Close` de notificações e conteúdos do reach para o botão descartar.
 
-### <a name="/overlay-folder"></a>/overlay folder
+### /pasta sobreposição
 
-- `EngagementPageOverlay.cs` : The overlay page responsible for adding the Engagement reach in-app UI to its child.
+- `EngagementPageOverlay.cs` : A página de sobreposição responsável por adicionar a interface do usuário no aplicativo de alcance do Engagement ao seu filho.
   
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

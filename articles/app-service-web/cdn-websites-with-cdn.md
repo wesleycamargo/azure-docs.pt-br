@@ -1,148 +1,147 @@
 <properties 
-    pageTitle="Use Azure CDN in Azure App Service" 
-    description="A tutorial that teaches you how to deploy a web app to Azure App Service that serves content from an integrated Azure CDN endpoint" 
-    services="app-service\web,cdn" 
-    documentationCenter=".net" 
-    authors="cephalin" 
-    manager="wpickett" 
-    editor="jimbe"/>
+	pageTitle="Usar o CDN do Azure no Serviço de Aplicativo do Azure" 
+	description="Um tutorial que ensina como implantar um aplicativo Web para o Serviço de Aplicativo do Azure que fornece conteúdo de um ponto de extremidade CDN do Azure integrado" 
+	services="app-service\web,cdn" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
 <tags 
-    ms.service="app-service" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="dotnet" 
-    ms.topic="article" 
-    ms.date="07/01/2016" 
-    ms.author="cephalin"/>
+	ms.service="app-service" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="07/01/2016" 
+	ms.author="cephalin"/>
 
 
+# Usar o CDN do Azure no Serviço de Aplicativo do Azure
 
-# <a name="use-azure-cdn-in-azure-app-service"></a>Use Azure CDN in Azure App Service
+O [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) pode ser integrado à [CDN do Azure](/services/cdn/), sendo adicionado aos recursos de dimensionamento global inerentes a [aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) fornecendo seu conteúdo de aplicativos Web globalmente de nós de servidor próximos de seus clientes (uma lista atualizada de todos os locais de nós atuais pode ser encontrada [aqui](http://msdn.microsoft.com/library/azure/gg680302.aspx)). Em cenários como o fornecimento de imagens estáticas, essa integração pode aumentar drasticamente o desempenho de seus aplicativos Web do Serviço de Aplicativo do Azure e melhora significativamente a experiência do usuário de seu aplicativo Web em todo o mundo.
 
-[App Service](http://go.microsoft.com/fwlink/?LinkId=529714) can be integrated with [Azure CDN](/services/cdn/), adding to the global scaling capabilities inherent in [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) by serving your web app content globally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/library/azure/gg680302.aspx)). In scenarios like serving static images, this integration can dramatically increase the performance of your Azure App Service Web Apps and significantly improves your web app's user experience worldwide. 
+A integração de aplicativos Web à CDN do Azure oferece as seguintes vantagens:
 
-Integrating Web Apps with Azure CDN gives you the following advantages:
+- Integrar a implantação de conteúdo (imagens, scripts e folhas de estilo) como parte do processo de [implantação contínua](app-service-continuous-deployment.md) de seu aplicativo Web
+- Atualizar facilmente os pacotes do NuGet em seu aplicativo Web no Serviço de Aplicativo do Azure, como versões de Bootstrap ou jQuery
+- Gerenciar seu aplicativo Web e o conteúdo fornecido por CDN por meio da mesma interface do Visual Studio
+- Integrar agrupamento e minificação ASP.NET à CDN do Azure
 
-- Integrate content deployment (images, scripts, and stylesheets) as part of your web app's [continuous deployment](app-service-continuous-deployment.md) process
-- Easily upgrade the NuGet packages in your web app in Azure App Service, such as jQuery or Bootstrap versions 
-- Manage your Web application and your CDN-served content from the same Visual Studio interface
-- Integrate ASP.NET bundling and minification with Azure CDN
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
+## O que você compilará ##
 
-## <a name="what-you-will-build"></a>What you will build ##
+Você implantará um aplicativo Web para o Serviço de Aplicativo do Azure usando o modelo ASP.NET MVC padrão em Visual Studio, adicionará código para fornecer conteúdo de uma CDN do Azure integrada, como uma imagem, resultados de ação do controlador e os arquivos JavaScript e CSS padrão, e também escreverá código para configurar o mecanismo de fallback para grupos fornecidos caso a CDN esteja offline.
 
-You will deploy a web app to Azure App Service using the default ASP.NET MVC template in Visual Studio, add code to serve content from an integrated Azure CDN, such as an image, controller action results, and the default JavaScript and CSS files, and also write code to configure the fallback mechanism for bundles served in the event that the CDN is offline.
+## O que será necessário ##
 
-## <a name="what-you-will-need"></a>What you will need ##
+Este tutorial tem os seguintes pré-requisitos:
 
-This tutorial has the following prerequisites:
+-	Uma [conta do Microsoft Azure](/account/) ativa
+-	Visual Studio 2015 com o [SDK do Azure para .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) Se você usar o Visual Studio, as etapas poderão variar.
 
--   An active [Microsoft Azure account](/account/)
--   Visual Studio 2015 with the [Azure SDK for .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409). If you use Visual Studio, the steps may vary.
-
-> [AZURE.NOTE] You need an Azure account to complete this tutorial:
-> + You can [open an Azure account for free](/pricing/free-trial/) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
-> + You can [activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/) - Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
+> [AZURE.NOTE] Você de uma conta do Azure para concluir este tutorial:
+> + É possível [abrir uma conta do Azure gratuitamente](/pricing/free-trial/) – você obtém créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, é possível manter a conta e utilizar os serviços gratuitos do Azure, como Aplicativos Web.
+> + É possível [ativar os benefícios para assinantes do Visual Studio](/pricing/member-offers/msdn-benefits-details/) – todos os meses, sua assinatura do Visual Studio concede créditos que podem ser usados para experimentar serviços pagos do Azure.
 >
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-## <a name="deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint"></a>Deploy a web app to Azure with an integrated CDN endpoint ##
+## Implantar um aplicativo Web no Azure com um ponto de extremidade da CDN integrado ##
 
-In this section, you will deploy the default ASP.NET MVC application template in Visual Studio 2015 to App Service, and then integrate it with a new CDN endpoint. Follow the instructions below:
+Nesta seção, você implantará o modelo de aplicativo do ASP.NET MVC padrão no Visual Studio 2015 ao Serviço de Aplicativo e, em seguida, o integrará a um novo ponto de extremidade da CDN. Siga as instruções abaixo:
 
-1. In Visual Studio 2015, create a new ASP.NET web application from the menu bar by going to **File > New > Project > Web > ASP.NET Web Application**. Give it a name and click **OK**.
+1. No Visual Studio 2015, crie um novo aplicativo Web ASP.NET na barra de menus selecionando **Arquivo > Novo > Projeto > Web > Aplicativo Web ASP.NET**. Dê um nome a ele e clique em **OK**.
 
-    ![](media/cdn-websites-with-cdn/1-new-project.png)
+	![](media/cdn-websites-with-cdn/1-new-project.png)
 
-3. Select **MVC** and click **OK**.
+3. Selecione **MVC** e clique em **OK**.
 
-    ![](media/cdn-websites-with-cdn/2-webapp-template.png)
+	![](media/cdn-websites-with-cdn/2-webapp-template.png)
 
-4. If you haven't logged into your Azure account yet, click the account icon in the upper-right corner and follow the dialog to log into your Azure account. Once you're done, configure your app as shown below, then click **New** to create a new App Service plan for your app.  
+4. Se ainda não estiver conectado à sua conta do Azure, clique no ícone de conta no canto superior direito e siga a caixa de diálogo para fazer logon em sua conta do Azure. Quando terminar, configure o aplicativo conforme mostrado abaixo e clique em **Novo** para criar um novo plano de Serviço de Aplicativo para ele.
 
-    ![](media/cdn-websites-with-cdn/3-configure-webapp.png)
+	![](media/cdn-websites-with-cdn/3-configure-webapp.png)
 
-5. Configure a new App Service plan in the dialog as shown below and click **OK**. 
+5. Configure um novo plano de Serviço de Aplicativo na caixa de diálogo, conforme mostrado abaixo, e clique em **OK**.
 
-    ![](media/cdn-websites-with-cdn/4-app-service-plan.png)
+	![](media/cdn-websites-with-cdn/4-app-service-plan.png)
 
-8. Click **Create** to create the web app.
+8. Clique em **Criar** para criar o aplicativo Web.
 
-    ![](media/cdn-websites-with-cdn/5-create-website.png)
+	![](media/cdn-websites-with-cdn/5-create-website.png)
 
-9. Once your ASP.NET application is created, publish it to Azure in the Azure App Service Activity pane by clicking **Publish `<app name>` to this Web App now**. Click **Publish** to complete the process.
+9. Depois de criar seu aplicativo ASP.NET, publique-o no Azure, no painel Atividade do Serviço de Aplicativo do Azure, clicando em **Publicar `<app name>` para esse aplicativo Web agora**. Clique em **Publicar** para concluir o processo.
 
-    ![](media/cdn-websites-with-cdn/6-publish-website.png)
+	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
-    You will see your published web app in the browser when publishing is complete. 
+	Quando a publicação estiver concluída, você verá seu aplicativo Web publicado no navegador.
 
-1. To create a CDN endpoint, log into the [Azure portal](https://portal.azure.com). 
-2. Click **+ New** > **Media + CDN** > **CDN**.
+1. Para criar um ponto de extremidade da CDN, faça logon no [portal do Azure](https://portal.azure.com).
+2. Clique em **+ Novo** > **Mídia + CDN** > **CDN**.
 
-    ![](media/cdn-websites-with-cdn/create-cdn-profile.png)
+	![](media/cdn-websites-with-cdn/create-cdn-profile.png)
 
-3. Specify the **CDN**, **Location**, **Resource group**,  **Pricing tier**, then click **Create**
+3. Especifique a **CDN**, o **Local**, **Grupo de recursos** e **Tipo de preço** e clique em **Criar**
 
-    ![](media/cdn-websites-with-cdn/7-create-cdn.png)   
+	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-4. In the **CDN Profile** blade click on **+ Endpoint** button. Give it a name, select **Web App** in the **Origin Type** dropdown and your web app in the **Origin hostname** dropdown, then click **Add**.  
+4. Na folha **Perfil da CDN**, clique no botão **+ Ponto de extremidade**. Dê um nome a ele, selecione **Aplicativo Web** no menu suspenso **Tipo de Origem** e seu aplicativo Web no menu suspenso **Nome do host de origem** e clique em **Adicionar**.
 
-    ![](media/cdn-websites-with-cdn/cdn-profile-blade.png)
-
-
-
-    > [AZURE.NOTE] Once your CDN endpoint is created, the **Endpoint** blade will show you its CDN URL and the origin domain that it's integrated with. However, it can take a while for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
-
-3. Back in the **Endpoint** blade, click the name of the CDN endpoint you just created.
-
-    ![](media/cdn-websites-with-cdn/8-select-cdn.png)
-
-3. Click the **Configure** button. In the **Configure** blade, select **Cache every unique URL** in **Query string caching behavior** dropdown, then click the **Save** button.
+	![](media/cdn-websites-with-cdn/cdn-profile-blade.png)
 
 
-    ![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
-Once you enable this, the same link accessed with different query strings will be cached as separate entries.
+	> [AZURE.NOTE] Após a criação do ponto de extremidade da CDN, a folha **Ponto de extremidade** mostrará a URL da CDN e o domínio da origem ao qual ele está integrado. No entanto, pode levar algum tempo para que a configuração do novo ponto de extremidade da CDN seja totalmente propagada a todos os locais de nó da CDN.
 
->[AZURE.NOTE] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
+3. De volta à folha **Ponto de extremidade**, clique no nome do ponto de extremidade da CDN que você acabou de criar.
 
-2. Now, navigate to the CDN endpoint address. If the endpoint is ready, you should see your web app displayed. If you get an **HTTP 404** error, the CDN endpoint is not ready. You may need to wait up to an hour for the CDN configuration to be propagated to all the edge nodes. 
+	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 
-    ![](media/cdn-websites-with-cdn/11-access-success.png)
+3. Clique no botão **Configurar**. Na folha **Configurar**, selecione **Armazenar em cache cada URL exclusiva** no menu suspenso **Comportamento do caching da cadeia de consulta** e clique no botão **Salvar**.
 
-1. Next, try to access the **~/Content/bootstrap.css** file in your ASP.NET project. In the browser window, navigate to **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**. In my setup, this URL is:
 
-        http://az673227.azureedge.net/Content/bootstrap.css
+	![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
-    Which corresponds to the following origin URL at the CDN endpoint:
+Após você ter habilitado, o mesmo link acessado com diferentes cadeias de consulta será armazenado em cache como entradas diferentes.
 
-        http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
+>[AZURE.NOTE] Embora habilitar a cadeia de consulta não seja necessário para esta seção do tutorial, é aconselhável fazer isso o quanto antes para maior conveniência, uma vez que qualquer alteração aqui levará tempo para ser propagada para todos os nós de CDN, e você não quer um acúmulo de conteúdo não habilitado para cadeia de consulta no cache da CDN (a atualização do conteúdo da CDN será abordada mais adiante).
 
-    When you navigate to **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, you will be prompted to download the bootstrap.css that came from your web app in Azure. 
+2. Agora, navegue até o endereço do ponto de extremidade da CDN. Se o ponto de extremidade estiver pronto, você verá seu aplicativo Web exibido. Se você receber um erro **HTTP 404**, isso significa que o ponto de extremidade da CDN não está pronto. Talvez seja necessário aguardar até uma hora para a configuração de CDN ser propagada para todos os nós próximos aos limites.
 
-    ![](media/cdn-websites-with-cdn/12-file-access.png)
+	![](media/cdn-websites-with-cdn/11-access-success.png)
 
-You can similarly access any publicly accessible URL at **http://*&lt;serviceName>*.cloudapp.net/**, straight from your CDN endpoint. For example:
+1. Em seguida, tente acessar o arquivo **~/Content/bootstrap.css** em seu projeto ASP.NET. Na janela do navegador, navegue até *http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css*. Em minha configuração, essa URL é:
 
--   A .js file from the /Script path
--   Any content file from the /Content path
--   Any controller/action 
--   If the query string is enabled at your CDN endpoint, any URL with query strings
--   The entire Azure web app, if all content is public
+		http://az673227.azureedge.net/Content/bootstrap.css
 
-Note that it may not be always a good idea (or generally a good idea) to serve an entire Azure web app through Azure CDN. Some of the caveats are:
+	Que corresponde à seguinte URL de origem no ponto de extremidade da CDN:
 
--   This approach requires your entire site to be public, because Azure CDN cannot serve any private content.
--   If the CDN endpoint goes offline for any reason, whether scheduled maintenance or user error, your entire web app goes offline unless the customers can be redirected to the origin URL **http://*&lt;sitename>*.azurewebsites.net/**. 
--   Even with the custom Cache-Control settings (see [Configure caching options for static files in your Azure web app](#configure-caching-options-for-static-files-in-your-azure-web-app)), a CDN endpoint does not improve the performance of highly-dynamic content. If you tried to load the home page from your CDN endpoint as shown above, notice that it took at least 5 seconds to load the default home page the first time, which is a fairly simple page. Imagine what would happen to the client experience if this page contains dynamic content that must update every minute. Serving dynamic content from a CDN endpoint requires short cache expiration, which translates to frequent cache misses at the CDN endpoint. This hurts the performance of your Azure web app and defeats the purpose of a CDN.
+		http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
 
-The alternative is to determine which content to serve from Azure CDN on a case-by-case basis in your Azure web app. To that end, you have already seen how to access individual content files from the CDN endpoint. I will show you how to serve a specific controller action through the CDN endpoint in [Serve content from controller actions through Azure CDN](#serve-content-from-controller-actions-through-azure-cdn).
+	Ao navegar para *http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css*, será solicitado que você baixe o bootstrap.css proveniente de seu aplicativo Web no Azure.
 
-## <a name="configure-caching-options-for-static-files-in-your-azure-web-app"></a>Configure caching options for static files in your Azure web app ##
+	![](media/cdn-websites-with-cdn/12-file-access.png)
 
-With Azure CDN integration in your Azure web app, you can specify how you want static content to be cached in the CDN endpoint. To do this, open *Web.config* from your ASP.NET project (e.g. **cdnwebapp**) and add a `<staticContent>` element to `<system.webServer>`. The XML below configures the cache to expire in 3 days.  
+De modo similar, você pode acessar qualquer URL publicamente acessível em *http://*&lt;serviceName>*.cloudapp.net/*, diretamente do seu ponto de extremidade da CDN. Por exemplo:
+
+-	Um arquivo .js do caminho /Script
+-	Qualquer arquivo de conteúdo do caminho /Content
+-	Qualquer controller/action
+-	Se cadeias de consulta estiverem habilitadas em seu ponto de extremidade da CDN, qualquer URL com cadeias de consulta
+-	Todo o aplicativo Web, se todo o conteúdo é público
+
+Observe que talvez pode não ser sempre uma boa ideia (ou geralmente uma boa ideia) fornecer conteúdo a um aplicativo Web inteiro por meio da CDN do Azure. Alguns dos empecilhos são:
+
+-	Esta abordagem requer que todo o seu site seja público, por que a CDN do Azure não pode fornecer nenhum conteúdo privado.
+-	Se o ponto de extremidade da CDN ficar offline por qualquer motivo, seja para uma manutenção programada ou por erro do usuário, todo o seu aplicativo Web ficará offline a menos que os clientes possam ser redirecionados à URL de origem, *http://*&lt;sitename>*.azurewebsites.net/*.
+-	Mesmo com as configurações personalizadas de controle de cache (consulte [Configurar opções de cache para arquivos estáticos em seu aplicativo Web](#configure-caching-options-for-static-files-in-your-azure-web-app)), um ponto de extremidade da CDN não melhora o desempenho de conteúdo altamente dinâmico. Se você tiver tentado carregar a página inicial de seu ponto de extremidade da CDN conforme mostrado acima, observe que foram necessários pelo menos 5 segundos para carregar pela primeira vez a página inicial, que é uma página bem simples. Imagine o que aconteceria com a experiência do cliente se esta página tivesse conteúdo dinâmico que precisasse ser atualizado a cada minuto. Fornecer conteúdo dinâmico de um ponto de extremidade da CDN requer uma validade curta do cache, o que significa frequentes perdas de cache no ponto de extremidade da CDN. Isso prejudica o desempenho de seu aplicativo Web e frustra o propósito de uma CDN.
+
+A alternativa é determinar que conteúdo fornecer por meio da CDN do Azure caso a caso, em seu aplicativo Web. Para isso, você já viu como acessar arquivos de conteúdo individuais do ponto de extremidade da CDN. Você verá como fornecer uma ação de controlador específica por meio do ponto de extremidade CDN em [Fornecer conteúdo por meio de ações do controlador por meio da CDN do Azure](#serve-content-from-controller-actions-through-azure-cdn).
+
+## Configurar opções de cache para arquivos estáticos em seu aplicativo Web ##
+
+Com a integração da CDN do Azure a seu aplicativo Web, você pode especificar como quer que o conteúdo estático seja armazenado em cache no ponto de extremidade da CDN. Para fazer isso, abra *Web.config* por meio do projeto ASP.NET (por exemplo, **cdnwebapp**) e adicione um elemento `<staticContent>` a `<system.webServer>`. O XML configura o cache para expirar em 3 dias.
 
     <system.webServer>
       <staticContent>
@@ -151,36 +150,36 @@ With Azure CDN integration in your Azure web app, you can specify how you want s
       ...
     </system.webServer>
 
-Once you do this, all static files in your Azure web app will observe the same rule in your CDN cache. For more granular control of cache settings, add a *Web.config* file into a folder and add your settings there. For example, add a *Web.config* file to the *\Content* folder and replace the content with the following XML:
+Após você ter feito isso, todos os arquivos estáticos do aplicativo Web obedecerão à mesma regra do seu cache de CDN. Para ter um controle mais granular das configurações de cache, adicione um arquivo *Web.config* a uma pasta e adicione suas configurações. Por exemplo, adicione um arquivo *Web.config* à pasta *\\Content* e substitua o conteúdo pelo seguinte XML:
 
-    <?xml version="1.0"?>
-    <configuration>
-      <system.webServer>
-        <staticContent>
-          <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="15.00:00:00"/>
-        </staticContent>
-      </system.webServer>
-    </configuration>
+	<?xml version="1.0"?>
+	<configuration>
+	  <system.webServer>
+	    <staticContent>
+	      <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="15.00:00:00"/>
+	    </staticContent>
+	  </system.webServer>
+	</configuration>
 
-This setting causes all static files from the *\Content* folder to be cached for 15 days.
+Esta configuração faz com que todos os arquivos estáticos da pasta *\\Content* sejam armazenados em cache por 15 dias.
 
-For more information on how to configure the `<clientCache>` element, see [Client Cache &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
+Para obter mais informações sobre como configurar o elemento `<clientCache>`, consulte [Cache do Cliente <clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
-In the next section, I will also show you how you can configure cache settings for controller action results in the CDN cache.
+Na próxima seção, também mostrarei como você pode definir configurações de cache para resultados de ação do controlador no cache da CDN.
 
-## <a name="serve-content-from-controller-actions-through-azure-cdn"></a>Serve content from controller actions through Azure CDN ##
+## Fornecer conteúdo por meio de ações do controlador por meio da CDN do Azure ##
 
-When you integrate Web Apps with Azure CDN, it is relatively easy to serve content from controller actions through the Azure CDN. Again, if you decide to serve the entire Azure web app through your CDN, you don't need to do this at all since all the controller actions are reachable through the CDN already. But for the reasons I already pointed out in [Deploy an Azure web app with an integrated CDN endpoint](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint), you may decide against this and choose instead to select the controller action you want to serve from Azure CDN. [Maarten Balliauw](https://twitter.com/maartenballiauw) shows you how to do it with a fun MemeGenerator controller in [Reducing latency on the web with the Azure CDN](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). I will simply reproduce it here.
+Ao integrar aplicativos Web à CDN do Azure, é relativamente fácil fornecer conteúdo por meio de ações do controlador, por meio da CDN do Azure. Novamente, se você decidir fornecer conteúdo a todo o aplicativo Web por meio de sua CDN, não precisará fazer nada isso, visto que todas as ações do controlador já estarão acessíveis por meio da CDN. Mas, pelas razões que já mencionei em [Implantar um site do Azure com um ponto de extremidade da CDN integrado](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint), você pode decidir não fazer isso e optar por selecionar a ação de controlador que deseja fornecer na CDN do Azure. [Maarten Balliauw](https://twitter.com/maartenballiauw) mostra como fazer isso com um divertido controlador MemeGenerator em [Reduzindo a latência na Web com a CDN do Microsoft Azure](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). Eu vou somente reproduzir isso aqui.
 
-Suppose in your web app you want to generate memes based on a young Chuck Norris image (photo by [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)) like this:
+Suponha que, em seu aplicativo Web, você queira gerar memes com base em uma imagem de Chuck Norris jovem (foto de [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)) como esta:
 
 ![](media/cdn-websites-with-cdn/cdn-5-memegenerator.PNG)
 
-You have a simple `Index` action that allows the customers to specify the superlatives in the image, then generates the meme once they post to the action. Since it's Chuck Norris, you would expect this page to become wildly popular globally. This is a good example of serving semi-dynamic content with Azure CDN. 
+Você tem uma ação `Index` simples que permite que os clientes especifiquem os superlativos na imagem e gera o meme quando eles postam a ação. Como se trata de Chuck Norris, você esperaria que esta página se tornasse extremamente popular globalmente. Este é um bom exemplo do fornecimento de conteúdo semidinâmico com a CDN do Azure.
 
-Follow the steps above to setup this controller action:
+Siga as etapas acima para configurar esta ação do controlador:
 
-1. In the *\Controllers* folder, create a new .cs file called *MemeGeneratorController.cs* and replace the content with the following code. Substitute your file path for `~/Content/chuck.bmp` and your CDN name for `yourCDNName`.
+1. Na pasta *\\Controllers*, crie um novo arquivo .cs chamado *MemeGeneratorController.cs* e substitua o conteúdo pelo código a seguir. Substitua o caminho do arquivo por `~/Content/chuck.bmp` e o nome da CDN por `yourCDNName`.
 
 
         using System;
@@ -213,7 +212,7 @@ Follow the steps above to setup this controller action:
                 Memes.Add(identifier, new Tuple<string, string>(top, bottom));
               }
 
-              return Content("<a href=\"" + Url.Action("Show", new {id = identifier}) + "\">here's your meme</a>");
+              return Content("<a href="" + Url.Action("Show", new {id = identifier}) + "">here's your meme</a>");
             }
 
             [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
@@ -278,29 +277,29 @@ Follow the steps above to setup this controller action:
           }
         }
 
-2. Right-click in the default `Index()` action and select **Add View**.
+2. Clique com o botão direito na ação `Index()` padrão e selecione **Adicionar Exibição**.
 
-    ![](media/cdn-websites-with-cdn/cdn-6-addview.PNG)
+	![](media/cdn-websites-with-cdn/cdn-6-addview.PNG)
 
-3.  Accept the settings below and click **Add**.
+3.  Aceite as configurações acima e clique em **Adicionar**.
 
-    ![](media/cdn-websites-with-cdn/cdn-7-configureview.PNG)
+	![](media/cdn-websites-with-cdn/cdn-7-configureview.PNG)
 
-4. Open the new *Views\MemeGenerator\Index.cshtml* and replace the content with the following simple HTML for submitting the superlatives:
+4. Abra o novo *Views\\MemeGenerator\\Index.cshtml* e substitua o conteúdo pelo HTML simples a seguir para enviar os superlativos:
 
-        <h2>Meme Generator</h2>
-        
-        <form action="" method="post">
-            <input type="text" name="top" placeholder="Enter top text here" />
-            <br />
-            <input type="text" name="bottom" placeholder="Enter bottom text here" />
-            <br />
-            <input class="btn" type="submit" value="Generate meme" />
-        </form>
+		<h2>Meme Generator</h2>
+		
+		<form action="" method="post">
+		    <input type="text" name="top" placeholder="Enter top text here" />
+		    <br />
+		    <input type="text" name="bottom" placeholder="Enter bottom text here" />
+		    <br />
+		    <input class="btn" type="submit" value="Generate meme" />
+		</form>
 
-5. Publish to the Azure web app again and navigate to **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** in your browser. 
+5. Publique o aplicativo Web do Azure novamente e navegue até *http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index* em seu navegador.
 
-When you submit the form values to `/MemeGenerator/Index`, the `Index_Post` action method returns a link to the `Show` action method with the respective input identifier. When you click the link, you reach the following code:  
+Quando você envia os valores de formulário a `/MemeGenerator/Index`, o método de ação `Index_Post` retorna um link para o método de ação `Show` com o respectivo identificador de entrada. Quando clicar em senha, você chegará ao seguinte código:
 
     [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
     public ActionResult Show(string id)
@@ -321,37 +320,37 @@ When you submit the form values to `/MemeGenerator/Index`, the `Index_Post` acti
       }
     }
 
-If your local debugger is attached, then you will get the regular debug experience with a local redirect. If it's running in the Azure web app, then it will redirect to:
+Se o seu depurador local estiver anexado, você terá a experiência de depuração normal com um redirecionamento local. Se estiver sendo executado no aplicativo Web, será redirecionado para:
 
-    http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
-Which corresponds to the following origin URL at your CDN endpoint:
+Que corresponde ao seguinte URL de origem no ponto de extremidade da CDN:
 
-    http://<yourSiteName>.azurewebsites.net/cdn/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<yourSiteName>.azurewebsites.net/cdn/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
-After URL rewrite rule previously applied, the actual file that gets cached to your CDN endpoint is:
+Após a regra de reescrita de URL aplicada anteriormente, o arquivo que é de fato armazenado em cache em meu ponto de extremidade da CDN é:
 
-    http://<yourSiteName>.azurewebsites.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<yourSiteName>.azurewebsites.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
-You can then use the `OutputCacheAttribute` attribute on the `Generate` method to specify how the action result should be cached, which Azure CDN will honor. The code below specify a cache expiration of 1 hour (3,600 seconds).
+Você então pode usar o atributo `OutputCacheAttribute` no método `Generate` para especificar como o resultado da ação deve ser armazenado em cache, e a CDN do Azure seguirá a especificação. O código abaixo especifica uma validade de cache de 1 hora (3.600 segundos).
 
     [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
 
-Likewise, you can serve up content from any controller action in your Azure web app through your Azure CDN, with the desired caching option.
+Do mesmo modo, você pode fornecer conteúdo por meio de qualquer ação de controlador em seu aplicativo Web por meio da CDN do Azure, com a opção de cache desejada.
 
-In the next section, I will show you how to serve the bundled and minified scripts and CSS through Azure CDN. 
+Na próxima seção, eu mostrarei como fornecer o CSS e scripts agrupados e minificados por meio da CDN do Azure.
 
-## <a name="integrate-asp.net-bundling-and-minification-with-azure-cdn"></a>Integrate ASP.NET bundling and minification with Azure CDN ##
+## Integrar agrupamento e minificação ASP.NET à CDN do Azure ##
 
-Scripts and CSS stylesheets change infrequently and are prime candidates for the Azure CDN cache. Serving the entire web app through your Azure CDN is the easiest way to integrate bundling and minification with Azure CDN. However, as you may elect against this approach for the reasons described in [Integrate an Azure CDN endpoint with your Azure web app and serve static content in your Web pages from Azure CDN](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint), I will show you how to do it while preserving the desired develper experience of ASP.NET bundling and minification, such as:
+Scripts e folhas de estilo CSS são alterados com pouca frequência e são candidatos ideais para o cache da CDN do Azure. Fornecer todo o aplicativo Web por meio da CDN do Azure é a maneira mais fácil de integrar agrupamento e minificação à CDN do Azure. No entanto, já que você pode decidir contra essa abordagem pelos motivos descritos em [Integrar um ponto de extremidade da CDN do Azure a seu site do Azure e fornecer conteúdo estático em suas páginas Web por meio da CDN do Azure](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint), vou mostrar a você como fazer isso, preservando as experiências de desenvolvedor desejada de agrupamento e minificação do ASP.NET, como:
 
--   Great debug mode experience
--   Streamlined deployment
--   Immediate updates to clients for script/CSS version upgrades
--   Fallback mechanism when your CDN endpoint fails
--   Minimize code modification
+-	Ótima experiência no modo de depuração
+-	Implantação simplificada
+-	Atualizações imediatas para clientes para atualizações de versão de script/CSS
+-	Mecanismo de fallback quando ocorre falha em seu ponto de extremidade CDN
+-	Minimizar modificações de código
 
-In the ASP.NET project that you created in [Integrate an Azure CDN endpoint with your Azure web app and serve static content in your Web pages from Azure CDN](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint), open *App_Start\BundleConfig.cs* and take a look at the `bundles.Add()` method calls.
+No projeto ASP.NET que você criou em [Integrar um ponto de extremidade da CDN do Azure a seu site do Azure e fornecer conteúdo estático em suas páginas Web na CDN do Azure](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint), abra *App\_Start\\BundleConfig.cs* e examine as chamadas de método `bundles.Add()`.
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -360,24 +359,24 @@ In the ASP.NET project that you created in [Integrate an Azure CDN endpoint with
         ...
     }
 
-The first `bundles.Add()` statement adds a script bundle at the virtual directory `~/bundles/jquery`. Then, open *Views\Shared\_Layout.cshtml* to see how the script bundle tag is rendered. You should be able to find the following line of Razor code:
+A primeira instrução `bundles.Add()` adiciona um grupo de script ao diretório virtual `~/bundles/jquery`. Depois, abra *Views\\Shared\_Layout.cshtml* para ver como a marcação do grupo de script é renderizada. Você deve encontrar a seguinte linha de código Razor:
 
     @Scripts.Render("~/bundles/jquery")
 
-When this Razor code is run in the Azure web app, it will render a `<script>` tag for the script bundle similar to the following: 
+Quando for executado no aplicativo Web do Azure, este código Razor renderizará uma marca `<script>` para o grupo de scripts semelhante ao seguinte:
 
     <script src="/bundles/jquery?v=FVs3ACwOLIVInrAl5sdzR2jrCDmVOWFbZMY6g6Q0ulE1"></script>
 
-However, when it is run in Visual Studio by typing `F5`, it will render each script file in the bundle individually (in the case above, only one script file is in the bundle):
+No entanto, quando for executado no Visual Studio digitando `F5`, ele renderizará cada arquivo de script do grupo individualmente (no caso acima, somente o arquivo de script está no grupo):
 
     <script src="/Scripts/jquery-1.10.2.js"></script>
 
-This enables you to debug the JavaScript code in your development environment while reducing concurrent client connections (bundling) and improving file download performance (minification) in production. It's a great feature to preserve with Azure CDN integration. Furthermore, since the rendered bundle already contains an automatically generated version string, you want to replicate that functionality so that whenever you update your jQuery version through NuGet, it can be updated at the client side as soon as possible.
+Isso permite que você depure o código JavaScript em seu ambiente de desenvolvimento enquanto reduz conexões clientes simultâneas (agrupamento) e melhora o desempenho do download de arquivos (minificação) em produção. É um ótimo recurso a ser preservado com a integração à CDN do Azure. Além disso, como o grupo renderizado já contém uma cadeia da versão gerada automaticamente, é aconselhável replicar essa funcionalidade para que sempre que você atualizar sua versão do jQuery por meio do NuGet, ela possa ser atualizada no lado do cliente assim que possível.
 
-Follow the steps below to integration ASP.NET bundling and minification with your CDN endpoint.
+Siga as etapas abaixo para integrar agrupamento e minificação ASP.NET ao ponto de extremidade CDN.
 
-1. Back in *App_Start\BundleConfig.cs*, modify the `bundles.Add()` methods to use a different [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), one that specifies a CDN address. To do this, replace the `RegisterBundles` method definition with the following code:  
-    
+1. Em *App\_Start\\BundleConfig.cs*, modifique os métodos `bundles.Add()` para usar um [Construtor de grupo](http://msdn.microsoft.com/library/jj646464.aspx) diferente, um que especifique um endereço CDN. Para fazer isso, substitua a `RegisterBundles` definição do método pelo seguinte código:
+	
         public static void RegisterBundles(BundleCollection bundles)
         {
           bundles.UseCdn = true;
@@ -406,31 +405,31 @@ Follow the steps below to integration ASP.NET bundling and minification with you
         }
 
 
-    Be sure to replace `<yourCDNName>` with the name of your Azure CDN.
+	Substitua `<yourCDNName>` pelo nome da sua CDN do Azure.
 
-    In plain words, you are setting `bundles.UseCdn = true` and added a carefully crafted CDN URL to each bundle. For example, the first constructor in the code:
+	De maneira simples, você está definindo `bundles.UseCdn = true` e adicionou uma URL da CDN criada cuidadosamente a cada grupo. Por exemplo, o primeiro construtor do código:
 
-        new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery"))
+		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery"))
 
-    is the same as: 
+	é igual a:
 
-        new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?<W.X.Y.Z>"))
+		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?<W.X.Y.Z>"))
 
-    This constructor tells ASP.NET bundling and minification to render individual script files when debugged locally, but use the specified CDN address to access the script in question. However, note two important characteristics with this carefully crafted CDN URL:
-    
-    - The origin for this CDN URL is `http://<yourSiteName>.azurewebsites.net/bundles/jquery?<W.X.Y.Z>`, which is actually the virtual directory of the script bundle in your Web application.
-    - Since you are using CDN constructor, the CDN script tag for the bundle no longer contains the automatically generated version string in the rendered URL. You must manually generate a unique version string every time the script bundle is modified to force a cache miss at your Azure CDN. At the same time, this unique version string must remain constant through the life of the deployment to maximize cache hits at your Azure CDN after the bundle is deployed.
+	Este construtor instrui o agrupamento e minificação ASP.NET a renderizar arquivos de script individuais quando depurados localmente, mas usar o endereço CDN especificado para acessar o script em questão. No entanto, observe duas importantes características dessa URL da CDN criada cuidadosamente:
+	
+	- A origem do URL da CDN é `http://<yourSiteName>.azurewebsites.net/bundles/jquery?<W.X.Y.Z>`, que, na verdade, é o diretório virtual do grupo de scripts em seu aplicativo Web.
+	- Como você está usando um construtor CDN, a marcação do script CDN para o grupo não contém mais a cadeia da versão gerada automaticamente na URL renderizada. Você deve gerar manualmente uma cadeia de versão única sempre que o grupo de scripts for modificado para gerar uma perda de cache em sua CDN do Azure. Ao mesmo tempo, essa cadeia de versão única deve permanecer constante ao longo da vida útil da implantação para maximizar as ocorrências no cache na CDN do Azure após a implantação do grupo.
 
-3. The query string `<W.X.Y.Z>` pulls from *Properties\AssemblyInfo.cs* in your ASP.NET project. You can have a deployment workflow that includes incrementing the assembly version every time you publish to Azure. Or, you can just modify *Properties\AssemblyInfo.cs* in your project to automatically increment the version string every time you build, using the wildcard character '*'. For example, change `AssemblyVersion` as shown below:
-    
-        [assembly: AssemblyVersion("1.0.0.*")]
-    
-    Any other strategy to streamline generating a unique string for the life of a deployment will work here.
+3. A cadeia de consulta `<W.X.Y.Z>` efetua o pull de *Properties\\AssemblyInfo.cs* em seu projeto ASP.NET. Você pode ter um fluxo de trabalho de implantação que inclua o incremento da versão de assembly sempre que você publicar no Azure. Ou pode apenar modificar *Properties\\AssemblyInfo.cs* em seu projeto para incrementar automaticamente a cadeia da versão sempre que compilar, usando o caractere curinga “*”. Por exemplo, altere `AssemblyVersion` conforme mostrado abaixo:
+	
+		[assembly: AssemblyVersion("1.0.0.*")]
+	
+	Qualquer outra estratégia para simplificar a geração de uma cadeia única para a vida útil de uma implantação funcionará aqui.
 
-3. Republish the ASP.NET application and access the home page.
+3. Republique o aplicativo ASP.NET e acesse a página inicial.
  
-4. View the HTML code for the page. You should be able to see the CDN URL rendered, with a unique version string every time you republish changes to your Azure web app. For example:  
-    
+4. Exiba o código HTML da página. Você deverá ver a URL da CDN renderizada, com uma cadeia de versão única sempre que republicar mudanças em seu aplicativo Web do Azure. Por exemplo:
+	
         ...
         <link href="http://az673227.azureedge.net/Content/css?1.0.0.25449" rel="stylesheet"/>
         <script src="http://az673227.azureedge.net/bundles/modernizer?1.0.0.25449"></script>
@@ -439,10 +438,10 @@ Follow the steps below to integration ASP.NET bundling and minification with you
         <script src="http://az673227.azureedge.net/bundles/bootstrap?1.0.0.25449"></script>
         ...
 
-5. In Visual Studio, debug the ASP.NET application in Visual Studio by typing `F5`., 
+5. No Visual Studio, depure o aplicativo ASP.NET em Visual Studio, digitando `F5`.,
 
-6. View the HTML code for the page. You will still see each script file individually rendered so that you can have a consistent debug experience in Visual Studio.  
-    
+6. Exiba o código HTML da página. Você ainda verá cada arquivo de script renderizado individualmente, para que possa ter uma experiência de depuração consistente no Visual Studio.
+	
         ...
         <link href="/Content/bootstrap.css" rel="stylesheet"/>
         <link href="/Content/site.css" rel="stylesheet"/>
@@ -453,14 +452,14 @@ Follow the steps below to integration ASP.NET bundling and minification with you
         <script src="/Scripts/respond.js"></script>
         ...    
 
-## <a name="fallback-mechanism-for-cdn-urls"></a>Fallback mechanism for CDN URLs ##
+## Mecanismo de fallback para URLs da CDN ##
 
-When your Azure CDN endpoint fails for any reason, you want your Web page to be smart enough to access your origin Web server as the fallback option for loading JavaScript or Bootstrap. It's serious enough to lose images on your web app due to CDN unavailability, but much more severe to lose crucial page functionality provided by your scripts and stylesheets.
+Quando seu ponto de extremidade da CDN do Azure falhar por qualquer motivo, é melhor que sua página da Web seja inteligente o suficiente para acessar o servidor Web de origem como a opção de fallback para carregar JavaScript ou Bootstrap. Perder imagens do aplicativo Web devido à indisponibilidade da CDN já é grave, mas perder funcionalidades fundamentais da página fornecidas por seus scripts e folhas de estilo é ainda muito mais.
 
-The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) class contains a property called [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) that enables you to configure the fallback mechanism for CDN failure. To use this property, follow the steps below:
+A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contém uma propriedade chamada [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) que permite que você configure o mecanismo de fallback para falha da CDN. Para usar essa propriedade, siga as etapas abaixo:
 
-1. In your ASP.NET project, open *App_Start\BundleConfig.cs*, where you added a CDN URL in each [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), and add `CdnFallbackExpression` code in four places as shown to add a fallback mechanism to the default bundles.  
-    
+1. No projeto ASP.NET, abra *App\_Start\\BundleConfig.cs*, no qual você adicionou uma URL da CDN a cada [Construtor de pacotes](http://msdn.microsoft.com/library/jj646464.aspx), e adicione o código `CdnFallbackExpression` em quatro lugares, como mostrado, para adicionar um mecanismo de fallback aos pacotes padrão.
+	
         public static void RegisterBundles(BundleCollection bundles)
         {
           var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
@@ -493,22 +492,22 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
                 "~/Content/site.css"));
         }
 
-    When `CdnFallbackExpression` is not null, script is injected into the HTML to test whether the bundle is loaded successfully and, if not, access the bundle directly from the origin Web server. This property needs to be set to a JavaScript expression that tests whether the respective CDN bundle is loaded properly. The expression needed to test each bundle differs according to the content. For the default bundles above:
-    
-    - `window.jquery` is defined in jquery-{version}.js
-    - `$.validator` is defined in jquery.validate.js
-    - `window.Modernizr` is defined in modernizer-{version}.js
-    - `$.fn.modal` is defined in bootstrap.js
-    
-    You might have noticed that I did not set CdnFallbackExpression for the `~/Cointent/css` bundle. This is because currently there is a [bug in System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104) that injects a `<script>` tag for the fallback CSS instead of the expected `<link>` tag.
-    
-    There is, however, a good [Style Bundle Fallback](https://github.com/EmberConsultingGroup/StyleBundleFallback) offered by [Ember Consulting Group](https://github.com/EmberConsultingGroup). 
+	Quando `CdnFallbackExpression` não é nulo, o script é injetado no HTML para testar se o grupo é carregado com sucesso e, se não, acessar o grupo diretamente por meio do servidor Web de origem. Esta propriedade precisa ser definida como uma expressão JavaScript que testa se o grupo CDN respectivo é carregado corretamente. A expressão necessária para testar cada grupo difere de acordo com o conteúdo. Para os grupos padrão acima:
+	
+	- `window.jquery` é definido em jquery-{version}.js
+	- `$.validator` é definido em jquery.validate.js
+	- `window.Modernizr` é definido em modernizer-{version}.js
+	- `$.fn.modal` é definido em bootstrap.js
+	
+	Você pode ter notado que não defini CdnFallbackExpression para o grupo `~/Cointent/css`. Isso ocorre porque no momento há um [bug no System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104) que injeta uma marcação `<script>` para o CSS de fallback em vez da marcação `<link>` esperada.
+	
+	Há, no entanto, um bom [Fallback de Grupo de Estilo](https://github.com/EmberConsultingGroup/StyleBundleFallback) oferecido pelo [Ember Consulting Group](https://github.com/EmberConsultingGroup).
 
-2. To use the workaround for CSS, create a new .cs file in your ASP.NET project's *App_Start* folder called *StyleBundleExtensions.cs*, and replace its content with the [code from GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs). 
+2. Para usar a solução alternativa para CSS, crie um novo arquivo .cs na pasta *App\_Start* de seu projeto ASP.NET, nomeie esse arquivo como *StyleBundleExtensions.cs* e substitua seu conteúdo pelo [código do GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
 
-4. In *App_Start\StyleFundleExtensions.cs*, rename the namespace to your ASP.NET application's namespace (e.g. **cdnwebapp**). 
+4. Em *App\_Start\\StyleFundleExtensions.cs*, renomeie o namespace como o namespace de seu aplicativo ASP.NET (por exemplo, **cdnwebapp**).
 
-3. Go back to `App_Start\BundleConfig.cs` and replace the last `bundles.Add` statement with the following code:  
+3. Volte para `App_Start\BundleConfig.cs` e substitua a última instrução `bundles.Add` pelo seguinte código:
 
         bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
           .IncludeFallback("~/Content/css", "sr-only", "width", "1px")
@@ -516,14 +515,14 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
             "~/Content/bootstrap.css",
             "~/Content/site.css"));
 
-    This new extension method uses the same idea to inject script in the HTML to check the DOM for the a matching class name, rule name, and rule value defined in the CSS bundle, and falls back to the origin Web server if it fails to find the match.
+	Este novo método de extensão usa a mesma ideia para injetar script no HTML para verificar o DOM para um nome de classe, nome de regra e valor de regra correspondente no grupo CSS, e retorna ao servidor Web original se não encontrar um resultado correspondente.
 
-4. Publish to your Azure web app again and access the home page. 
-5. View the HTML code for the page. You should find injected scripts similar to the following:    
-    
-    ```
-    ...
-    <link href="http://az673227.azureedge.net/Content/css?1.0.0.25474" rel="stylesheet"/>
+4. Republique seu aplicativo Web do Azure e acesse a página inicial.
+5. Exiba o código HTML da página. Você deve encontrar scripts injetados semelhantes ao seguinte:
+	
+	```
+	...
+	<link href="http://az673227.azureedge.net/Content/css?1.0.0.25474" rel="stylesheet"/>
 <script>(function() {
                 var loadFallback,
                     len = document.styleSheets.length;
@@ -543,38 +542,33 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
                 return true;
             }())||document.write('<script src="/Content/css"><\/script>');</script>
 
-    <script src="http://az673227.azureedge.net/bundles/modernizer?1.0.0.25474"></script>
-    <script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
-    ... 
-    <script src="http://az673227.azureedge.net/bundles/jquery?1.0.0.25474"></script>
-    <script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
+	<script src="http://az673227.azureedge.net/bundles/modernizer?1.0.0.25474"></script>
+ 	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
+	... 
+	<script src="http://az673227.azureedge.net/bundles/jquery?1.0.0.25474"></script>
+	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 
-    <script src="http://az673227.azureedge.net/bundles/bootstrap?1.0.0.25474"></script>
-    <script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
-    ...
-    ```
+ 	<script src="http://az673227.azureedge.net/bundles/bootstrap?1.0.0.25474"></script>
+ 	<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
+	...
+	```
 
-    Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
+	Observe que o script injetado para o grupo CSS ainda contém o excedente errante da propriedade `CdnFallbackExpression` na linha:
 
-        }())||document.write('<script src="/Content/css"><\/script>');</script>
+		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-    But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
+	Mas como a primeira parte da expressão || sempre retornará o valor verdadeiro (na linha diretamente acima), a função document.write() nunca será executada.
 
-6. To test whether the fallback script is working, go back to the your CDN endpoint's blade and click **Stop**.
+6. Para testar se o script de fallback está funcionando, volte à folha do ponto de extremidade da CDN e clique em **Parar**.
 
-    ![](media/cdn-websites-with-cdn/13-test-fallback.png)
+	![](media/cdn-websites-with-cdn/13-test-fallback.png)
 
-7. Refresh your browser window for the Azure web app. You should now see that the all scripts and stylesheets are properly loaded.
+7. Atualize a janela do navegador para o aplicativo Web do Azure. Agora você deve ver todos os scripts e folhas de estilo carregados corretamente.
 
-## <a name="more-information"></a>More Information 
-- [Overview of the Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md)
-- [Using Azure CDN](../cdn/cdn-create-new-endpoint.md)
-- [Integrate a cloud service with Azure CDN](../cdn/cdn-cloud-service-with-cdn.md)
-- [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
+## Mais informações 
+- [Visão geral da Rede de Distribuição de Conteúdo (CDN) do Azure](../cdn/cdn-overview.md)
+- [Usando o Azure CDN](../cdn/cdn-create-new-endpoint.md)
+- [Integrar um serviço de nuvem à CDN do Azure](../cdn/cdn-cloud-service-with-cdn.md)
+- [Agrupamento e minificação ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

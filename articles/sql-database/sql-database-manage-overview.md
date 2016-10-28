@@ -1,55 +1,49 @@
 <properties
-    pageTitle="Overview: management tools for SQL Database"
-    description="Compares tools and options for managing Azure SQL Database"
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Visão geral: ferramentas de gerenciamento para o Banco de Dados SQL"
+	description="Compara as ferramentas e opções de gerenciamento de Banco de Dados SQL do Azure"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/19/2016"
-    ms.author="sstein"/>
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/19/2016"
+	ms.author="sstein"/>
 
+# Visão geral: ferramentas de gerenciamento para o Banco de Dados SQL
 
-# <a name="overview:-management-tools-for-sql-database"></a>Overview: management tools for SQL Database
+Este tópico explora e compara as ferramentas e opções de gerenciamento de bancos de dados SQL do Azure para que você possa escolher a ferramenta certa para o trabalho, para sua empresa e para você. Escolher a ferramenta certa depende de quantos bancos de dados você gerencia, da tarefa e da frequência de execução de uma tarefa.
 
-This topic explores and compares tools and options for managing Azure SQL databases so you can pick the right tool for the job, your business, and you. Choosing the right tool depends on how many databases you manage, the task, and how often a task is performed.
+## Portal do Azure
 
-## <a name="azure-portal"></a>Azure portal
+O [Portal do Azure](https://portal.azure.com) é um aplicativo baseado na Web no qual você pode criar, atualizar e excluir bancos de dados e servidores lógicos, além de monitorar a atividade do banco de dados. Essa ferramenta será excelente se você estiver começando a usar o Azure, gerenciando uma pequena quantidade de bancos de dados, ou precisar fazer algo rapidamente.
 
-The [Azure portal](https://portal.azure.com) is a web-based application where you can create, update, and delete databases and logical servers and monitor database activity. This tool is great if you're just getting started with Azure, managing a few databases, or need to do something quickly.
+Para obter informações mais detalhadas sobre como usar o portal, confira [Gerenciar Bancos de Dados SQL usando o Portal clássico do Azure](sql-database-manage-portal.md).
 
-For more information about using the portal, see [Manage SQL Databases using the Azure portal](sql-database-manage-portal.md).
+## SQL Server Management Studio e SQL Server Data Tools no Visual Studio
 
-## <a name="sql-server-management-studio-and-sql-server-data-tools-in-visual-studio"></a>SQL Server Management Studio and SQL Server Data Tools in Visual Studio
+SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) no Visual Studio são ferramentas cliente que executam em seu computador e permitem a conexão, gerenciamento e desenvolvimento do banco de dados na nuvem. Se você for um desenvolvedor de aplicativos familiarizado com o Visual Studio ou outros ambientes de desenvolvimento integrado (IDEs), [tente usar o SSDT no Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Muitos administradores de banco de dados estão familiarizados com o SSMS, que pode ser usado com bancos de dados SQL do Azure. [Baixe a versão mais recente do SSMS](https://msdn.microsoft.com/library/mt238290) e use sempre o lançamento mais recente ao trabalhar com o banco de dados SQL do Azure. Para obter mais informações sobre como gerenciar seus bancos de dados SQL do Azure com SSMS, confira a seção [Gerenciar bancos de dados SQL usando o SSMS](sql-database-manage-azure-ssms.md).
 
-SQL Server Management Studio (SSMS) and SQL Server Data Tools (SSDT) are client tools that run on your computer for managing, and developing your database in the cloud. If you're an application developer familiar with Visual Studio or other integrated development environments (IDEs), [try using SSDT in Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Many database administrators are familiar with SSMS, which can be used with Azure SQL databases. [Download the latest version of SSMS](https://msdn.microsoft.com/library/mt238290) and always use the latest release when working with Azure SQL Database. For more information on managing your Azure SQL Databases with SSMS, see [Manage SQL Databases using SSMS](sql-database-manage-azure-ssms.md).
+> [AZURE.IMPORTANT] Você deve usar a versão mais recente do SQL Server Management Studio e das SQL Server Data Tools para Visual Studio para permanecer sincronizado com as atualizações do Microsoft Azure e do Banco de Dados SQL. As versões antigas dessas ferramentas não funcionarão corretamente com o Banco de Dados SQL.
 
-> [AZURE.IMPORTANT] Always use the latest version of SQL Server Management Studio and SQL Server Data Tools to remain synchronized with updates to Microsoft Azure and SQL Database.
+## Ferramentas de linha de comando
 
+Você pode usar ferramentas de linha de comando, como o PowerShell para gerenciar pools de banco de dados elásticos e para automatizar as implantações de recursos do Azure. A Microsoft recomenda essa ferramenta para gerenciar um grande número de bancos de dados e automatizar a implantação e alterações de recursos em um ambiente de produção.
 
-## <a name="powershell"></a>PowerShell
+Para obter mais informações sobre como gerenciar seus bancos de dados SQL do Azure com ferramentas de linha de comando, consulte [Gerenciamento de banco de dados SQL com o PowerShell](sql-database-command-line-tools.md)
 
-You can use PowerShell to manage databases and elastic database pools, and to automate Azure resource deployments. Microsoft recommends this tool for managing a large number of databases and automating deployment and resource changes in a production environment.
+## Ferramentas de Banco de Dados Elástico
+Use as ferramentas de banco de dados elástico para executar ações como
 
-For more information, see [Manage SQL Database with PowerShell](sql-database-manage-powershell.md)
-
-## <a name="elastic-database-tools"></a>Elastic Database tools
-Use the elastic database tools to perform actions such as 
-
-* Executing a T-SQL script against a set of databases using an [elastic job](sql-database-elastic-jobs-overview.md)
-* Moving multi-tenant model databases to a single-tenant model with the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md)
-* Managing databases in a single-tenant model or a multi-tenant model using the [elastic scale client library](sql-database-elastic-database-client-library.md).
+* Executar um script T-SQL em um conjunto de bancos de dados usando um [trabalho elástico](sql-database-elastic-jobs-overview.md)
+* Mover bancos de dados do modelo de multilocatário para um modelo de locatário único com a [ferramenta de divisão e mesclagem](sql-database-elastic-scale-overview-split-and-merge.md)
+* Gerenciar bancos de dados em um modelo de locatário único ou um modelo de multilocatário usando a [biblioteca de cliente de dimensionamento elástico](sql-database-elastic-database-client-library.md).
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

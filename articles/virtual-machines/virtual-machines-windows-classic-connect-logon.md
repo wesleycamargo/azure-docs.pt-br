@@ -1,68 +1,61 @@
 <properties
-    pageTitle="Log on to a classic Azure VM | Microsoft Azure"
-    description="Use the Azure classic portal to log on to a Windows virtual machine created with the classic deployment model."
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-service-management"/>
+	pageTitle="Logon em uma VM do Azure clássica | Microsoft Azure"
+	description="Use o portal clássico do Azure para fazer logon na máquina virtual do Windows criada com o modelo clássico de implantação."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/28/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="cynthn"/>
 
 
+# Faça logon em uma máquina virtual do Windows usando o portal clássico do Azure
 
-# <a name="log-on-to-a-windows-virtual-machine-using-the-azure-classic-portal"></a>Log on to a Windows virtual machine using the Azure classic portal
+No portal clássico do Azure, você usará o botão **Conectar** para iniciar uma sessão de Área de Trabalho Remota e fazer logon em uma VM do Windows.
 
-In the Azure classic portal, you use the **Connect** button to start a Remote Desktop session and log on to a Windows VM.
+Deseja conectar-se a uma VM do Linux? Consulte [Como fazer logon em uma máquina virtual que esteja executando o Linux](virtual-machines-linux-mac-create-ssh-keys.md).
 
-Do you want to connect to a Linux VM? See [How to log on to a virtual machine running Linux](virtual-machines-linux-mac-create-ssh-keys.md).
+Saiba como [executar essas etapas usando o novo Portal do Azure](virtual-machines-windows-connect-logon.md).
 
-Learn how to [perform these steps using new Azure portal](virtual-machines-windows-connect-logon.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
+## Passo a passo em vídeo
 
-## <a name="video-walkthrough"></a>Video walkthrough
-
-Here's a video walkthrough of the steps in this tutorial. It also covers endpoints and public and private ports used for connecting to a Windows VM in Azure.
+Veja um passo a passo em vídeo deste tutorial. Ele também aborda os pontos de extremidade e as portas públicas e privadas usadas para se conectar a uma VM do Windows no Azure.
 
 [AZURE.VIDEO logging-on-to-vm-running-windows-server-on-azure]
 
 
-## <a name="connect-to-the-virtual-machine"></a>Connect to the virtual machine
+## Conectar-se à máquina virtual
 
-1. Sign in to the Azure classic portal.
+1. Entre no portal clássico do Azure.
 
-2. Click **Virtual Machines**, and then select the virtual machine.
+2. Clique em **Máquinas Virtuais** e selecione a máquina virtual.
 
-3. On the command bar at the bottom of the page, click **Connect**.
+3. Na barra de comandos localizada na parte inferior da página, clique em **Conectar**.
 
-    ![Log on to the virtual machine](./media/virtual-machines-windows-classic-connect-logon/connectwindows.png)
-    
-> [AZURE.TIP] If the **Connect** button isn't available, see the troubleshooting tips at the end of this article.
+	![Faça logon na máquina virtual](./media/virtual-machines-windows-classic-connect-logon/connectwindows.png)
+	
+> [AZURE.TIP] Se o botão **Conectar** não estiver disponível, consulte as dicas de solução de problemas no final deste artigo.
 
-## <a name="log-on-to-the-virtual-machine"></a>Log on to the virtual machine
+## Faça logon na máquina virtual
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
--   If the **Connect** button is inactive or you are having other problems with the Remote Desktop connection, try resetting the configuration. From the virtual machine dashboard, under **Quick Glance**, click **Reset remote configuration**.
--   For problems with your password, try resetting it. From the virtual machine dashboard, under **Quick Glance**, click **Reset password**.
+-	Se o botão **Conectar** estiver inativo, ou se você estiver enfrentando outros problemas com a conexão de Área de Trabalho Remota, tente redefinir a configuração. Usando o painel da máquina virtual, em **Visão Rápida**, clique em **Redefinir a configuração remota**.
+-	Se houver problemas com a senha, tente redefini-la. No painel da máquina virtual, em **Visão Rápida**, clique em **Redefinir senha**.
 
-If those tips don't work or aren't what you need, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md). This article walks you through diagnosing and resolving common problems.
+Se essas dicas não funcionarem ou se não forem necessárias, consulte [Solucionar problemas de conexões da Área de Trabalho Remota com uma Máquina Virtual do Azure baseada no Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,145 +1,140 @@
 <properties
-    pageTitle="Storage configuration for SQL Server VMs | Microsoft Azure"
-    description="This topic describes how Azure configures storage for SQL Server VMs during provisioning (Resource Manager deployment model). It also explains how you can configure storage for your existing SQL Server VMs."
-    services="virtual-machines-windows"
-    documentationCenter="na"
-    authors="ninarn"
-    manager="jhubbard"    
-    tags="azure-resource-manager"/>
+	pageTitle="Configuração de armazenamento para VMs do SQL Server | Microsoft Azure"
+	description="Este tópico descreve como o Azure configura o armazenamento para VMs do SQL Server durante o provisionamento (modelo de implantação do Resource Manager). Também explica como você pode configurar o armazenamento para suas VMs existentes do SQL Server."
+	services="virtual-machines-windows"
+	documentationCenter="na"
+	authors="ninarn"
+	manager="jhubbard"    
+	tags="azure-resource-manager"/>
 <tags
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows-sql-server"
-    ms.workload="infrastructure-services"
-    ms.date="08/04/2016"
-    ms.author="ninarn" />
+	ms.service="virtual-machines-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="08/04/2016"
+	ms.author="ninarn" />
 
+# Configuração de armazenamento para VMs do SQL Server
 
-# <a name="storage-configuration-for-sql-server-vms"></a>Storage configuration for SQL Server VMs
+Quando você configurar uma imagem de máquina virtual do SQL Server no Azure, o Portal ajuda você a automatizar a configuração de armazenamento. Isso inclui a anexação de armazenamento para a VM, tornando o armazenamento acessível para o SQL Server e configurando-o para otimizar seus requisitos específicos de desempenho.
 
-When you configure a SQL Server virtual machine image in Azure, the Portal helps to automate your storage configuration. This includes attaching storage to the VM, making that storage accessible to SQL Server, and configuring it to optimize for your specific performance requirements.
+Este tópico explica como o Azure configura o armazenamento para suas VMs do SQL Server durante o provisionamento e para VMs existentes. Essa configuração tem base nas [práticas recomendadas de desempenho](virtual-machines-windows-sql-performance.md) para VMs do Azure executando o SQL Server.
 
-This topic explains how Azure configures storage for your SQL Server VMs both during provisioning and for existing VMs. This configuration is based on the [performance best practices](virtual-machines-windows-sql-performance.md) for Azure VMs running SQL Server.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+## Pré-requisitos
+Para usar as definições automatizadas de configuração de armazenamento, sua máquina virtual exige as seguintes características:
 
-## <a name="prerequisites"></a>Prerequisites
-To use the automated storage configuration settings, your virtual machine requires the following characteristics:
+- Deve ser provisionada com uma [imagem da galeria do SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-deploy-a-sql-vm-per-minute-licensing).
+- Deve usar o [Modelo de implantação do Resource Manager](../resource-manager-deployment-model.md).
+- Deve usar o [Armazenamento Premium](../storage/storage-premium-storage.md).
 
-- Provisioned with a [SQL Server gallery image](virtual-machines-windows-sql-server-iaas-overview.md#option-1-deploy-a-sql-vm-per-minute-licensing).
-- Uses the [Resource Manager deployment model](../resource-manager-deployment-model.md).
-- Uses [Premium Storage](../storage/storage-premium-storage.md).
+## Novas VMs
+As seções a seguir descrevem como configurar o armazenamento para novas máquinas virtuais do SQL Server.
 
-## <a name="new-vms"></a>New VMs
-The following sections describe how to configure storage for new SQL Server virtual machines.
+### Portal do Azure
+Ao provisionar uma VM do Azure usando uma imagem da galeria do SQL Server, você pode optar por configurar automaticamente o armazenamento para sua nova VM. Você especificar o tamanho do armazenamento, limites de desempenho e o tipo de carga de trabalho. A captura de tela a seguir mostra a folha de Configuração de armazenamento usada durante o provisionamento da VM do SQL.
 
-### <a name="azure-portal"></a>Azure Portal
-When provisioning an Azure VM using a SQL Server gallery image, you can choose to automatically configure the storage for your new VM. You specify the storage size, performance limits, and workload type. The following screenshot shows the Storage configuration blade used during SQL VM provisioning.
+![Configuração de armazenamento da VM do SQL Server durante o provisionamento](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-![SQL Server VM Storage Configuration During Provisioning](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
+Com base em suas opções, o Azure realiza as seguintes tarefas de configuração de armazenamento depois de criar a VM:
 
-Based on your choices, Azure performs the following storage configuration tasks after creating the VM:
+- Cria e anexa os discos de dados de armazenamento premium à máquina virtual.
+- Configura os discos de dados para serem acessíveis ao SQL Server.
+- Configura os discos de dados em um pool de armazenamento com base nos requisitos de tamanho e desempenho (IOPS e taxa de transferência) especificados.
+- Associa o pool de armazenamento a uma nova unidade na máquina virtual.
+- Otimiza essa nova unidade com base em seu tipo de carga de trabalho especificado (Data warehouse, Processamento transacional ou Geral).
 
-- Creates and attaches premium storage data disks to the virtual machine.
-- Configures the data disks to be accessible to SQL Server.
-- Configures the data disks into a storage pool based on the specified size and performance (IOPS and throughput) requirements.
-- Associates the storage pool with a new drive on the virtual machine.
-- Optimizes this new drive based on your specified workload type (Data warehousing, Transactional processing, or General).
+Para obter mais detalhes sobre como o Azure define as configurações de armazenamento, confira a [Seção de configuração de armazenamento](#storage-configuration). Para obter uma explicação completa de como criar uma VM do SQL Server no Portal do Azure, veja [o tutorial provisionamento](virtual-machines-windows-portal-sql-server-provision.md).
 
-For further details on how Azure configures storage settings, see the [Storage configuration section](#storage-configuration). For a full walkthrough of how to create a SQL Server VM in the Azure Portal, see [the provisioning tutorial](virtual-machines-windows-portal-sql-server-provision.md).
+### Modelos do Resource Manager
+Se você usar os modelos do Resource Manager a seguir, dois discos de dados premium são conectados por padrão, sem nenhuma configuração de pool de armazenamento. No entanto, você pode personalizar esses modelos para alterar o número de discos de dados premium anexados à máquina virtual.
 
-### <a name="resource-manage-templates"></a>Resource Manage templates
-If you use the following Resource Manager templates, two premium data disks are attached by default, with no storage pool configuration. However, you can customize these templates to change the number of premium data disks that are attached to the virtual machine.
+- [Criar VM com backup automatizado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
+- [Criar VM com aplicação de patch automatizada](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
+- [Criar a VM com a integração de AKV](https://github.com\Azure\azure-quickstart-templates\tree\master\201-vm-sql-full-keyvault)
 
-- [Create VM with Automated Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
-- [Create VM with Automated Patching](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
-- [Create VM with AKV Integration](https://github.com\Azure\azure-quickstart-templates\tree\master\201-vm-sql-full-keyvault)
+## VMs existentes
+Para VMs do SQL Server existente, você pode modificar algumas configurações de armazenamento no Portal do Azure. Selecione sua VM, vá até a área de Configurações e, em seguida, selecione Configuração do SQL Server. A folha Configuração do SQL Server mostra o uso do armazenamento atual da VM. Todas as unidades que existem na sua VM são exibidas neste gráfico. Para cada unidade, o espaço de armazenamento é exibido em quatro seções:
 
-## <a name="existing-vms"></a>Existing VMs
-For existing SQL Server VMs, you can modify some storage settings in the Azure portal. Select your VM, go to the Settings area, and then select SQL Server Configuration. The SQL Server Configuration blade shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:
+- Dados SQL
+- Log do SQL
+- Outros (armazenamento não SQL)
+- Disponível
 
-- SQL data
-- SQL log
-- Other (non-SQL storage)
-- Available
+![Configurar o armazenamento para a VM do SQL Server existente](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
-![Configure Storage for Existing SQL Server VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
+Para configurar o armazenamento a fim de adicionar uma nova unidade ou estender uma unidade existente, clique no link Editar acima do gráfico.
 
-To configure the storage to add a new drive or extend an existing drive, click the Edit link above the chart.
+As opções de configuração que você vê variam de acordo com o uso se desse recurso anteriormente. Ao usar pela primeira vez, você pode especificar os requisitos de armazenamento para uma nova unidade. Se você tiver usado esse recurso para criar uma unidade, opte por estender o armazenamento da unidade.
 
-The configuration options that you see varies depending on whether you have used this feature before. When using for the first time, you can specify your storage requirements for a new drive. If you previously used this feature to create a drive, you can choose to extend that drive’s storage.
+### Uso pela primeira vez
+Se esta for a primeira vez que você usa esse recurso, especifique os limites de tamanho e desempenho de armazenamento para uma nova unidade. Essa experiência é semelhante ao que você veria no tempo de provisionamento. A principal diferença é que você não tem permissão para especificar o tipo de carga de trabalho. Essa restrição impede a interrupção de quaisquer configurações existentes do SQL Server na máquina virtual.
 
-### <a name="use-for-the-first-time"></a>Use for the first time
-If it is your first time using this feature, you can specify the storage size and performance limits for a new drive. This experience is similar to what you would see at provisioning time. The main difference is that you are not permitted to specify the workload type. This restriction prevents disrupting any existing SQL Server configurations on the virtual machine.
+![Configurar controles deslizantes de armazenamento do SQL Server](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-usage-sliders.png)
 
-![Configure SQL Server Storage Sliders](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-usage-sliders.png)
+O Azure cria uma nova unidade com base em suas especificações. Nesse cenário, o Azure realiza as seguintes tarefas de configuração de armazenamento:
 
-Azure creates a new drive based on your specifications. In this scenario, Azure performs the following storage configuration tasks:
+- Cria e anexa os discos de dados de armazenamento premium à máquina virtual.
+- Configura os discos de dados para serem acessíveis ao SQL Server.
+- Configura os discos de dados em um pool de armazenamento com base nos requisitos de tamanho e desempenho (IOPS e taxa de transferência) especificados.
+- Associa o pool de armazenamento a uma nova unidade na máquina virtual.
 
-- Creates and attaches premium storage data disks to the virtual machine.
-- Configures the data disks to be accessible to SQL Server.
-- Configures the data disks into a storage pool based on the specified size and performance (IOPS and throughput) requirements.
-- Associates the storage pool with a new drive on the virtual machine.
+Para obter mais detalhes sobre como o Azure define as configurações de armazenamento, confira a [Seção de configuração de armazenamento](#storage-configuration).
 
-For further details on how Azure configures storage settings, see the [Storage configuration section](#storage-configuration).
+### Adicionar uma nova unidade
+Se você já tiver configurado o armazenamento na sua VM do SQL Server, a expansão do armazenamento apresenta duas opções novas. A primeira opção é adicionar uma nova unidade, que pode aumentar o nível de desempenho da VM.
 
-### <a name="add-a-new-drive"></a>Add a new drive
-If you have already configured storage on your SQL Server VM, expanding storage brings up two new options. The first option is to add a new drive, which can increase the performance level of your VM.
+![Adicionar uma nova unidade a uma VM do SQL](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-add-new-drive.png)
 
-![Add a new drive to a SQL VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-add-new-drive.png)
+No entanto, depois de adicionar a unidade, você deve executar alguma configuração manual extra para alcançar o aumento de desempenho.
 
-However, after adding the drive, you must perform some extra manual configuration to achieve the performance increase.
+### Estender a unidade
+A outra opção para expandir o armazenamento é estender a unidade existente. Essa opção aumenta o armazenamento disponível para sua unidade, mas ele não aumenta o desempenho. Com os pools de armazenamento, você não pode alterar o número de colunas após a criação do pool de armazenamento. O número de colunas determina o número de gravações paralelas, que podem ser distribuídas entre os discos de dados. Portanto, os discos de dados não podem aumentar o desempenho. Eles só podem fornecer mais armazenamento para os dados que estão sendo gravados. Essa limitação também significa que, ao estender a unidade, o número de colunas determina o número mínimo de discos de dados que você pode adicionar. Então se você criar um pool de armazenamento com quatro discos de dados, o número de colunas também será quatro. Sempre que você estender o armazenamento, deverá adicionar pelo menos quatro discos de dados.
 
-### <a name="extend-the-drive"></a>Extend the drive
-The other option for expanding storage is to extend the existing drive. This option increases the available storage for your drive, but it does not increase performance. With storage pools, you cannot alter the number of columns after the storage pool is created. The number of columns determines the number of parallel writes, which can be striped across the data disks. Therefore, any added data disks cannot increase performance. They can only provide more storage for the data being written. This limitation also means that, when extending the drive, the number of columns determines the minimum number of data disks that you can add. So if you create a storage pool with four data disks, the number of columns is also four. Any time you extend the storage, you must add at least four data disks.
+![Estender uma unidade para uma VM do SQL](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
-![Extend a drive for a SQL VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
+## Configuração de armazenamento
+Esta seção fornece uma referência para as alterações de configuração de armazenamento realizadas automaticamente pelo Azure durante a configuração ou provisionamento de VM do SQL no Portal do Azure.
 
-## <a name="storage-configuration"></a>Storage configuration
-This section provides a reference for the storage configuration changes that Azure automatically performs during SQL VM provisioning or configuration in the Azure Portal.
+- Se você tiver selecionado menos de dois TBs de armazenamento para sua VM, o Azure não criará um pool de armazenamento.
+- Se você tiver selecionado pelo menos de dois TBs de armazenamento para sua VM, o Azure configurará um pool de armazenamento. A próxima seção deste tópico fornece os detalhes sobre a configuração do pool de armazenamento.
+- A configuração de armazenamento automática sempre usa discos de dados P30 do [armazenamento premium](../storage/storage-premium-storage.md). Consequentemente, há um mapeamento 1:1 entre o número selecionado de Terabytes e o número de discos de dados anexados à sua VM.
 
-- If you have selected fewer than two TBs of storage for your VM, Azure does not create a storage pool.
-- If you have selected at least two TBs of storage for your VM, Azure configures a storage pool. The next section of this topic provides the details of the storage pool configuration.
-- Automatic storage configuration always uses [premium storage](../storage/storage-premium-storage.md) P30 data disks. Consequently, there is a 1:1 mapping between your selected number of Terabytes and the number of data disks attached to your VM.
+Para saber mais sobre preços, consulte a página [Preços de armazenamento](https://azure.microsoft.com/pricing/details/storage) na guia **Armazenamento em disco**.
 
-For pricing information, see the [Storage pricing](https://azure.microsoft.com/pricing/details/storage) page on the **Disk Storage** tab.
+### Criação do pool de armazenamento
+O Azure usa as configurações a seguir para criar o pool de armazenamento em VMs do SQL Server.
 
-### <a name="creation-of-the-storage-pool"></a>Creation of the storage pool
-Azure uses the following settings to create the storage pool on SQL Server VMs.
-
-| Setting | Value |
+| Configuração | Valor |
 |-----|-----|
-| Stripe size  | 256 KB (Data warehousing); 64 KB (Transactional) |
-| Disk sizes | 1 TB each |
-| Cache | Read |
-| Allocation size | 64 KB NTFS allocation unit size |
-| Instant file initialization | Enabled |
-| Lock pages in memory | Enabled |
-| Recovery | Simple recovery (no resiliency) |
-| Number of columns | Number of data disks<sup>1</sup> |
-| TempDB location | Stored on data disks<sup>2</sup> |
+| Tamanho da distribuição | 256 KB (Data warehouse); 64 KB (Transacional) |
+| Tamanhos do disco | 1 TB cada |
+| Cache | Ler |
+| Tamanho da alocação | Tamanho da unidade de alocação de NTFS de 64 KB |
+| Inicialização de arquivo instantânea | Habilitado |
+| Bloquear páginas na memória | Habilitado |
+| Recuperação | Recuperação simples (sem resiliência) |
+| Número de colunas | Número de discos de dados<sup>1</sup> |
+| Local do TempDB | Armazenados em discos de dados<sup>2</sup> |
 
-<sup>1</sup> After the storage pool is created, you cannot alter the number of columns in the storage pool.
+<sup>1</sup>Após a criação do pool de armazenamento, você não pode alterar o número de colunas no pool de armazenamento.
 
-<sup>2</sup> This setting only applies to the first drive you create using the storage configuration feature.
+<sup>2</sup> Essa configuração se aplica somente a primeira unidade que você cria usando o recurso de configuração de armazenamento.
 
-## <a name="workload-optimization-settings"></a>Workload optimization settings
-The following table describes the three workload type options available and their corresponding optimizations:
+## Configurações de otimização da carga de trabalho
+A tabela a seguir descreve as três opções de tipo de carga de trabalho disponíveis e suas otimizações correspondentes:
 
-| Workload type | Description | Optimizations |
+| Tipo de carga de trabalho | Descrição | Otimizações |
 |-----|-----|-----|
-| **General** | Default setting that supports most workloads | None |
-| **Transactional processing** | Optimizes the storage for traditional database OLTP workloads | Trace Flag 1117<br/>Trace Flag 1118 |
-| **Data warehousing** | Optimizes the storage for analytic and reporting workloads | Trace Flag 610<br/>Trace Flag 1117 |
+| **Geral** | Configuração padrão que oferece suporte à maioria das cargas de trabalho | Nenhum |
+| **Processamento transacional** | Otimiza o armazenamento para cargas de trabalho OLTP tradicionais do banco de dados | Sinalizador de Rastreamento 1117<br/>Sinalizador de Rastreamento 1118 |
+| **Data warehouse** | Otimiza o armazenamento para as cargas de trabalho de análise e emissão de relatórios | Sinalizador de Rastreamento 610<br/>Sinalizador de Rastreamento 1117 |
 
->[AZURE.NOTE] You can only specify the workload type when you provision a SQL virtual machine by selecting it in the storage configuration step.
+>[AZURE.NOTE] Você só pode especificar o tipo de carga de trabalho quando provisiona uma máquina virtual do SQL, selecionando-o na etapa de configuração de armazenamento.
 
-## <a name="next-steps"></a>Next steps
-For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+## Próximas etapas
+Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

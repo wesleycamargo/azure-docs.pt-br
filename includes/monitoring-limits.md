@@ -1,8 +1,6 @@
 
-| Resource | Limit |
+| Recurso | Limite |
 |----|----|
-| Autoscale Settings | 100 per region per subscription |
+| Configurações de dimensionamento automático | 100 por região e assinatura |
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Using Remote Desktop with Azure Roles | Microsoft Azure"
-   description="Using Remote Desktop with Azure Roles"
+   pageTitle="Usando a Área de Trabalho Remota com funções do Azure | Microsoft Azure"
+   description="Usando a Área de Trabalho Remota com as funções do Azure"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,71 +15,64 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Usando a Área de Trabalho Remota com as funções do Azure
 
-# <a name="using-remote-desktop-with-azure-roles"></a>Using Remote Desktop with Azure Roles
+Usando o SDK do Azure e os Serviços de Área de Trabalho Remota, você pode acessar as funções do Azure e máquinas virtuais que são hospedadas pelo Azure. No Visual Studio, você pode configurar os Serviços de Área de Trabalho Remota por meio de um projeto do Azure. Para habilitar os Serviços de Área de Trabalho Remota, você deve criar um projeto de trabalho contendo uma ou mais funções e, em seguida, publicá-lo no Azure.
 
-By using the Azure SDK and Remote Desktop Services, you can access Azure roles and virtual machines that are hosted by Azure. In Visual Studio, you can configure Remote Desktop Services from an Azure project. To enable Remote Desktop Services, you must create a working project that contains one or more roles and then publish it to Azure.
+>[AZURE.IMPORTANT] Você deve acessar uma função do Azure apenas para desenvolvimento ou solução de problemas. A finalidade de cada máquina virtual é executar uma função específica em seu aplicativo Azure; a finalidade não é, portanto, executar outros aplicativos cliente. Se desejar usar o Azure para hospedar uma máquina virtual que você possa usar para qualquer finalidade, consulte Acessando máquinas virtuais do Azure por meio do Gerenciador de Servidores.
 
->[AZURE.IMPORTANT] You should access an Azure role for troubleshooting or development only. The purpose of each virtual machine is to run a specific role in your Azure application, not to run other client applications. If you want to use Azure to host a virtual machine that you can use for any purpose, see Accessing Azure Virtual Machines from Server Explorer.
+## Para habilitar e usar a Área de Trabalho Remota para uma Função do Azure
 
-## <a name="to-enable-and-use-remote-desktop-for-an-azure-role"></a>To enable and use Remote Desktop for an Azure Role
+1. No Gerenciador de Soluções, abra o menu de atalho para o seu projeto e escolha **Publicar**.
 
-1. In Solution Explorer, open the shortcut menu for your project, and then choose **Publish**.
+    O assistente **Publicar Aplicativo do Azure** é exibido.
 
-    The **Publish Azure Application** wizard appears.
+    ![Publicar o comando para um projeto de Serviço de Nuvem](./media/vs-azure-tools-remote-desktop-roles/IC799161.png)
 
-    ![Publish command for a Cloud Service project](./media/vs-azure-tools-remote-desktop-roles/IC799161.png)
+1. Na parte inferior da página **Configurações de Publicação do Microsoft Azure** do assistente, selecione a caixa de seleção **Habilitar Área de Trabalho Remota** para todas as funções.
 
-1. At the bottom of **Microsoft Azure Publish Settings** page of the wizard, select the **Enable Remote Desktop** for all roles check box. 
+    A caixa de diálogo **Configuração da Área de Trabalho Remota** é exibida.
 
-    The **Remote Desktop Configuration** dialog box appears.
-
-1. At the bottom of the **Remote Desktop Configuration** dialog box, choose the **More Options** button. 
+1. Na parte inferior da caixa de diálogo **Configuração da Área de Trabalho Remota**, escolha o botão **Mais Opções**.
  
-    This displays a dropdown list box that lets you create or choose a certificate so that you can encrypt credentials information when connecting via remote desktop.
+    Isso exibe uma caixa de listagem suspensa que permite que você crie ou escolha um certificado para que você possa criptografar informações de credenciais ao conectar-se via área de trabalho remota.
 
-1. In the dropdown list, choose **&lt;Create>**, or choose an existing one from the list. 
+1. Na lista suspensa, escolha **&lt;Criar>,** ou escolha na lista um já existente.
 
-    If you choose an existing certificate, skip the following steps.
+    Se você escolher um certificado existente, ignore as etapas a seguir.
 
-    >[AZURE.NOTE] The certificates that you need for a remote desktop connection are different from the certificates that you use for other Azure operations. The remote access certificate must have a private key.
+    >[AZURE.NOTE] Os certificados necessários para uma conexão de área de trabalho remota são diferentes dos certificados que você usa para outras operações do Azure. O certificado de acesso remoto deve ter uma chave privada.
 
-    The **Create Certificate** dialog box appears.
+    A caixa de diálogo **Criar Certificado** é exibida.
 
-    1. Provide a friendly name for the new certificate, and then choose the **OK** button. The new certificate appears in the dropdown list box.
+    1. Forneça um nome amigável para o novo certificado e, em seguida, escolha o botão **OK**. O novo certificado é exibido na caixa de listagem suspensa.
 
-    1. In the **Remote Desktop Configuration** dialog box, provide a user name and a password.
+    1. Na caixa de diálogo **Configuração da Área de Trabalho Remota**, forneça um nome de usuário e uma senha.
     
-        You can’t use an existing account. Don’t specify Administrator as the user name for the new account.
+        Você não pode usar uma conta existente. Não especifique Administrador como o nome de usuário para a nova conta.
 
-        >[AZURE.NOTE] If the password doesn’t meet the complexity requirements, a red icon appears next to the password text box. The password must include capital letters, lowercase letters, and numbers or symbols.
+        >[AZURE.NOTE] Se a senha não atende aos requisitos de complexidade, um ícone vermelho aparece ao lado da caixa de texto de senha. A senha deve incluir letras maiúsculas, letras minúsculas e números ou símbolos.
 
-    1. Choose a date on which the account will expire and after which remote desktop connections will be blocked.
+    1. Escolha uma data em que a conta vai expirar e após a qual conexões de área de trabalho remota serão bloqueadas.
 
-    1. After you've provided all the required information, choose the **OK** button.
+    1. Depois de ter fornecido todas as informações necessárias, escolha o botão **OK**.
     
-        Several settings that enable Remote Access Services are added to the .cscfg and .csdef files.
+        Várias configurações que habilitam os Serviços de Acesso Remoto são adicionadas aos arquivos .cscfg e .csdef.
 
-1. In the **Microsoft Azure Publish Settings** wizard, choose the **OK** button when you’re ready to publish your cloud service.
+1. No assistente **Configurações de publicação do Microsoft Azure**, escolha o botão **OK** quando você estiver pronto para publicar o serviço de nuvem.
 
-    If you're not ready to publish, choose the **Cancel** button. The configuration settings are saved, and you can publish your cloud service later.
+    Se você não estiver pronto para publicar, escolha o botão **Cancelar**. As configurações são salvas, e você pode publicar o serviço de nuvem mais tarde.
 
-## <a name="connect-to-an-azure-role-by-using-remote-desktop"></a>Connect to an Azure Role by using Remote Desktop
+## Conectar a uma Função do Azure usando a Área de Trabalho Remota
 
-After you publish your cloud service on Azure, you can use Server Explorer to log into the virtual machines that Azure hosts. 
+Depois de publicar o serviço de nuvem no Azure, você pode usar o Gerenciador de Servidores para fazer logon em máquinas virtuais hospedadas pelo Azure.
 
-1. In Server Explorer, expand the **Azure** node, and then expand the node for a cloud service and one of its roles to display a list of instances.
+1. No Gerenciador de Servidores, expanda o nó **Azure** e, em seguida, expanda o nó para um serviço de nuvem e uma de suas funções para exibir uma lista de instâncias.
 
-1. Open the shortcut menu for an instance node, and then choose **Connect Using Remote Desktop**.
+1. Abra o menu de atalho de um nó de instância e, em seguida, escolha **Conectar Usando a Área de Trabalho Remota**.
 
-    ![Connecting via remote desktop](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
+    ![Conectando-se via área de trabalho remota](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
 
-1. Enter the user name and password that you created previously. You are now logged into your remote session.
+1. Insira o nome de usuário e a senha que você criou anteriormente. Agora você está conectado na sessão remota.
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

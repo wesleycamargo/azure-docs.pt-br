@@ -1,690 +1,689 @@
 <properties
-    pageTitle="Troubleshooting: Azure AD Password Management | Microsoft Azure"
-    description="Common troubleshooting steps for Azure AD Password Management, including reset, change, writeback, registration, and what information to include when looking for help."
-    services="active-directory"
-    documentationCenter=""
-    authors="asteen"
-    manager="femila"
-    editor="curtand"/>
+	pageTitle="Solução de problemas: Gerenciamento de senha do Azure AD | Microsoft Azure"
+	description="Etapas de solução de problemas comuns para o gerenciamento de senha do Azure AD, incluindo redefinição, alteração, write-back, registro e quais informações devem ser incluídas ao procurar ajuda."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/12/2016"
-    ms.author="asteen"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/12/2016"
+	ms.author="asteen"/>
 
+# Como solucionar problemas de gerenciamento de senha
 
-# <a name="how-to-troubleshoot-password-management"></a>How to troubleshoot Password Management
+> [AZURE.IMPORTANT] **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 
-> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+Se você estiver tendo problemas com o gerenciamento de senhas, estamos aqui para ajudar. A maioria dos problemas que podem ocorrer são resolvidos com algumas etapas de solução de problemas simples que você pode ler abaixo para solucionar problemas na sua implantação:
 
-If you are having issues with Password Management, we're here to help. Most problems you may run into can be solved with a few simple troubleshooting steps which you can read about below to troubleshoot your deployment:
+* [**Informações a serem incluídas quando precisar de ajuda**](#information-to-include-when-you-need-help)
+* [**Problemas de configuração de gerenciamento de senhas no Portal de Gerenciamento do Azure**](#troubleshoot-password-reset-configuration-in-the-azure-management-portal)
+* [**Problemas com relatórios de gerenciamento de senha no Portal de Gerenciamento do Azure**](#troubleshoot-password-management-reports-in-the-azure-management-portal)
+* [**Problemas com o Portal de registro de redefinição de senha**](#troubleshoot-the-password-reset-registration-portal)
+* [**Problemas com o Portal de redefinição de senha**](#troubleshoot-the-password-reset-portal)
+* [**Problemas com o write-back de senha**](#troubleshoot-password-writeback)
+  - [Códigos de erro de log de eventos de write-back de senha](#password-writeback-event-log-error-codes)
+  - [Problemas de conectividade de write-back de senha](#troubleshoot-password-writeback-connectivity)
 
-* [**Information to include when you need help**](#information-to-include-when-you-need-help)
-* [**Problems with Password Management configuration in the Azure Management Portal**](#troubleshoot-password-reset-configuration-in-the-azure-management-portal)
-* [**Problems with Password Managment reports in the Azure Management Portal**](#troubleshoot-password-management-reports-in-the-azure-management-portal)
-* [**Problems with the Password Reset Registration Portal**](#troubleshoot-the-password-reset-registration-portal)
-* [**Problems with the Password Reset Portal**](#troubleshoot-the-password-reset-portal)
-* [**Problems with Password Writeback**](#troubleshoot-password-writeback)
-  - [Password Writeback event log error codes](#password-writeback-event-log-error-codes)
-  - [Problems with Password Writeback connectivity](#troubleshoot-password-writeback-connectivity)
+Se você tentou as etapas de solução de problemas abaixo e ainda está com problemas, pode postar uma pergunta nos [Fóruns do Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) ou contatar o suporte; daremos uma olhada no seu problema assim que possível.
 
-If you've tried the troubleshooting steps below and are still running into problems, you can post a question on the [Azure AD Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) or contact support and we'll take a look at your problem as soon as we can.
+## Informações a serem incluídas quando precisar de ajuda
 
-## <a name="information-to-include-when-you-need-help"></a>Information to include when you need help
+Se você não conseguir solucionar seu problema com as orientações abaixo, pode entrar em contato com nossos engenheiros de suporte. Quando você entrar em contato com eles, é recomendável incluir as seguintes informações:
 
-If you cannot solve your issue with the guidance below, you can contact our support engineers. When you contact them, it is recommended to include the following information:
-
- - **General description of the error** – what exact error message did the user see?  If there was no error message, describe the unexpected behavior you noticed, in detail.
- - **Page** – what page were you on when you saw the error (include the URL)?
- - **Date / Time / Timezone** – what was the precise date and time you saw the error (include the timezone)?
- - **Support Code** – what was the support code generated when the user saw the error (to find this, reproduce the error, then click the Support Code link at the bottom of the screen and send the support engineer the GUID that results).
-   - If you are on a page without a support code at the bottom, press F12 and search for SID and CID and send those two results to the support engineer.
+ - **Descrição geral do erro**: que mensagem de erro exatamente o usuário viu? Se não havia nenhuma mensagem de erro, descreva o comportamento inesperado observado em detalhes.
+ - **Página**: que página você estava quando viu o erro? (Inclua a URL.)
+ - **Data/ hora/Fuso horário**: qual era a exata data e hora em que você viu o erro? (Inclua o fuso horário.)
+ - **Código de suporte**: qual foi o código de suporte gerado quando o usuário viu o erro (para encontrá-lo, reproduza o erro, clique no link do Código de suporte na parte inferior da tela e envie ao engenheiro de suporte a GUID resultante).
+   - Se você estiver em uma página sem um código de suporte na parte inferior, pressione F12 para o SID e o CID e envie esses dois resultados para o engenheiro de suporte.
 
     ![][001]
 
- - **User ID** – what was the ID of the user who saw the error (e.g. user@contoso.com)?
- - **Information about the user** – was the user federated, password hash synced, cloud only?  Did the user have an AAD Premium or AAD Basic license assigned?
- - **Application Event Log** – if you are using Password Writeback and the error is in your on-premises infrastructure, please zip up a copy of your application event log from your Azure AD Connect server and send along with your request.
+ - **ID de Usuário** – qual foi a ID do usuário que viu o erro (por exemplo, user@contoso.com)?
+ - **Informações sobre o usuário**: o usuário era federado, a senha era sincronizada com hash, somente na nuvem? O usuário tinha uma licença AAD Premium ou AAD básica atribuída?
+ - **Log de eventos do aplicativo**: se você estiver usando o write-back de senha e o erro estiver em sua infraestrutura local, compacte uma cópia do log e eventos do aplicativo do servidor do seu servidor Azure AD Connect AD e envie junto com sua solicitação.
 
-Including this information will help us to solve your problem as quickly as possible.
+A inclusão dessas informações nos ajudará a resolver o problema o mais rápido possível.
 
 
-## <a name="troubleshoot-password-reset-configuration-in-the-azure-management-portal"></a>Troubleshoot password reset configuration in the Azure Management Portal
-If you encounter an error when configuring password reset, you might be able to resolve it by following the troubleshooting steps below:
+## Solucionar problemas de configuração de redefinição de senha no Portal de Gerenciamento do Azure
+Se você encontrar um erro ao configurar a redefinição de senha, pode solucioná-lo seguindo as etapas de solução de problemas abaixo:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>Error Case</strong>
+                <strong>Caso de erro</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>What error does a user see?</strong>
+                <strong>Qual é o erro exibido ao usuário?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Solution</strong>
+                <strong>Solução</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>I don’t see the <strong>User Password Reset Policy </strong>section under the <strong>Configure</strong> tab in the Azure management portal</p>
+              <p>Não vejo a seção <strong>Política de redefinição de senha do usuário </strong>seção na guia <strong>Configurar</strong> no portal de gerenciamento do Azure</p>
             </td>
             <td>
-              <p>The <strong>User Password Reset Policy </strong>section is not visible on the <strong>Configure</strong> tab in the Azure Management Portal.</p>
+              <p>A seção <strong>Política de redefinição de senha do usuário </strong> não está visível na guia <strong>Configurar</strong> no Portal de Gerenciamento do Azure.</p>
             </td>
             <td>
-              <p>This can occur if you do not have an AAD Premium or AAD Basic license assigned to the admin performing this operation. </p>
-              <p>To rectify this, assign an AAD Premium or AAD Basic license to the admin account in question by navigating to the <strong>Licenses</strong> tab and try again.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>I don’t see any of the configuration options under the <strong>User Password Reset Policy</strong> section that are described in the documentation.</p>
-            </td>
-            <td>
-              <p>The <strong>User Password Reset Policy </strong>section is visible, but the only flag that appears under it is the <strong>Users Enabled for Password Reset</strong> flag.</p>
-            </td>
-            <td>
-              <p>The rest of the UI will appear when you switch the <strong>Users Enabled for Password Reset</strong> flag to <strong>Yes.</strong></p>
+              <p>Isso pode ocorrer se você não tiver uma licença AAD Premium ou AAD básica atribuída ao administrador para realizar essa operação. </p>
+              <p>Para corrigir isso, atribua uma licença AAD Premium ou AAD básica para a conta de administrador em questão, navegando até a guia <strong>licenças</strong>, e tente novamente.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>I don’t see a particular configuration option.</p>
+              <p>Não vejo nenhuma das opções de configuração na seção <strong>Política de redefinição de senha do usuário</strong> descritas na documentação.</p>
             </td>
             <td>
-              <p>For example, I do not see the <strong>Number of days before a user must confirm their contact data</strong> option when I scroll through the <strong>User Password Reset Policy</strong> section (or other examples of the same issue).</p>
+              <p>A seção <strong>Política de redefinição de senha do usuário </strong> está visível, mas o único sinalizador que aparece nela é o sinalizador<strong>Usuários habilitados para redefinição de senha</strong>.</p>
             </td>
             <td>
-              <p>Many elements of UI are hidden until they are needed. Try enabling all the options on the page if you want to see.</p>
-              <p>See <a href="active-directory-passwords-customize.md#password-management-behavior">Password Management behavior</a> for more info about all of the controls that are available to you.</p>
+              <p>O restante da interface do usuário aparecerá quando você alternar o sinalizador <strong>Usuários habilitados para redefinição de senha</strong> para <strong>Sim.</strong></p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>I don’t see the <strong>Write Back Passwords to On-Premises</strong> configuration option</p>
+              <p>Não vejo uma opção de configuração específica.</p>
             </td>
             <td>
-              <p>The <strong>Write Back Passwords to On-Premises</strong> option is not visible under the <strong>Configure</strong> tab in the Azure Management Portal</p>
+              <p>Por exemplo, não vejo a opção <strong>Número de dias antes que um usuário precise confirmar seus dados de contato</strong> opção quando percorro a seção <strong>Política de redefinição de senha do usuário</strong> (ou outros exemplos do mesmo problema).</p>
             </td>
             <td>
-              <p>This option is only visible if you have downloaded Azure AD Connect and configured Password Writeback. When you have done this, that option appears and allows you to enable or disable writeback from the cloud.</p>
-              <p>See <a href="active-directory-passwords-getting-started.md#step-2-enable-password-writeback-in-azure-ad-connect">Enable Password Writeback in Azure AD Connect</a> for more information on how to do this.</p>
+              <p>Muitos elementos da interface do usuário ficam ocultos até que sejam necessários. Tente habilitar todas as opções na página, se quiser vê-las.</p>
+              <p>Confira <a href="active-directory-passwords-customize.md#password-management-behavior">Comportamento do gerenciamento de senhas</a> para obter mais informações sobre todos os controles que estão disponíveis para você.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Não vejo a opção de configuração <strong>Gravar as senhas de volta para o local</strong></p>
+            </td>
+            <td>
+              <p>A opção <strong>Gravar as senhas de volta para o loca</strong> não fica visível na guia <strong>Configurar</strong> no Portal de Gerenciamento do Azure</p>
+            </td>
+            <td>
+              <p>Essa opção só é visível se você tiver baixado o Azure AD Connect e configurado o write-back de senha. Quando tiver feito isso, essa opção é exibida e permite habilitar ou desabilitar o write-back da nuvem.</p>
+              <p>Confira <a href="active-directory-passwords-getting-started.md#step-2-enable-password-writeback-in-azure-ad-connect">Habilitar write-back de senha no Azure AD Connect</a> para obter mais informações sobre como fazer isso.</p>
             </td>
           </tr>
         </tbody></table>
 
-## <a name="troubleshoot-password-management-reports-in-the-azure-management-portal"></a>Troubleshoot password management reports in the Azure Management Portal
-If you encounter an error when using the password management reports, you might be able to resolve it by following the troubleshooting steps below:
+## Solucionar problemas de relatórios de gerenciamento de senha no Portal de Gerenciamento do Azure
+Se você encontrar um erro ao usar os relatórios de gerenciamento de senha, pode solucioná-lo seguindo as etapas de solução de problemas abaixo:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>Error Case</strong>
+                <strong>Caso de erro</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>What error does a user see?</strong>
+                <strong>Qual é o erro exibido ao usuário?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Solution</strong>
+                <strong>Solução</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>I don’t see any password management reports</p>
+              <p>Não vejo os relatórios de gerenciamento de senha</p>
             </td>
             <td>
-              <p>The <strong>Password reset activity</strong> and <strong>Password reset registration activity</strong> reports are not visible under the <strong>Activity Log</strong> reports in the <strong>Reports</strong> tab.</p>
+              <p>Os relatórios de <strong>Atividade de redefinição de senha</strong> e de <strong>Atividade de registro de redefinição de senha</strong> não ficam visíveis nos relatórios de <strong>Log de atividades</strong> na guia <strong>Relatórios</strong>.</p>
             </td>
             <td>
-              <p>This can occur if you do not have an AAD Premium or AAD Basic license assigned to the admin performing this operation. </p>
-              <p>To rectify this, assign an AAD Premium or AAD Basic license to the admin account in question by navigating to the <strong>Licenses</strong> tab and try again.</p>
+              <p>Isso pode ocorrer se você não tiver uma licença AAD Premium ou AAD básica atribuída ao administrador para realizar essa operação. </p>
+              <p>Para corrigir isso, atribua uma licença AAD Premium ou AAD básica para a conta de administrador em questão, navegando até a guia <strong>licenças</strong>, e tente novamente.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>User registrations show multiple times</p>
+              <p>Os registros do usuário aparecem várias vezes</p>
             </td>
             <td>
-              <p>When a user registers alternate email, mobile phone, and security questions, they each show up as separate lines instead of a single line.</p>
+              <p>Quando um usuário registra email alternativo, telefone celular e perguntas de segurança, eles aparecem como linhas separadas em vez de uma única linha.</p>
             </td>
             <td>
-              <p>Currently, when a user registers, we cannot assume that they will register everything present on the registration page. As a result, we currently log each individual piece of data that is registered as a separate event.</p>
-              <p>If you want to aggregate this data, you can download the report and open the data as a pivot table in excel to have more flexibility.</p>
+              <p>Atualmente, quando um usuário se registra, nós não pode presumir que registará tudo o que está na página de registro. Como resultado, atualmente registramos cada dado individual que é registrado como um evento separado.</p>
+              <p>Se você quiser agregar esses dados, pode baixar o relatório e abrir os dados como uma tabela dinâmica no Excel para ter maior flexibilidade.</p>
             </td>
           </tr>
         </tbody></table>
 
-## <a name="troubleshoot-the-password-reset-registration-portal"></a>Troubleshoot the password reset registration portal
-If you encounter an error when registering a user for password reset, you might be able to resolve it by following the troubleshooting steps below:
+## Solucionar problemas do portal de registro de redefinição de senha
+Se você encontrar um erro ao registrar um usuário para redefinição de senha, pode solucioná-lo seguindo as etapas de solução de problemas abaixo:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>Error Case</strong>
+                <strong>Caso de erro</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>What error does a user see?</strong>
+                <strong>Qual é o erro exibido ao usuário?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Solution</strong>
+                <strong>Solução</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Directory is not enabled for password reset</p>
+              <p>O diretório não está habilitado para redefinição de senha</p>
             </td>
             <td>
-              <p>Your administrator has not enabled you to use this feature.</p>
+              <p>O administrador não habilitou você para usar esse recurso.</p>
             </td>
             <td>
-              <p>Switch the <strong>Users Enabled for Password Reset</strong> flag to <strong>Yes</strong> and hit <strong>Save</strong> in the Azure Management Portal directory configuration tab. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>User does not have an AAD Premium or AAD Basic license assigned</p>
-            </td>
-            <td>
-              <p>Your administrator has not enabled you to use this feature.</p>
-            </td>
-            <td>
-              <p>Assign an Azure AD Premium or Azure AD Basic license to the user under the <strong>Licenses</strong> tab in the Azure Management Portal. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
+              <p>Alterne o sinalizador <strong>Usuários habilitados para redefinição de senha</strong> para <strong>Sim</strong> e clique em <strong>Salvar</strong> na guia de configuração de diretório do Portal de Gerenciamento do Azure. Você deve ter uma licença Azure AD Premium ou Básica atribuída ao administrador que está realizando essa operação.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Error processing request</p>
+              <p>O usuário não tem uma licença AAD Premium ou AAD Básica atribuída</p>
             </td>
             <td>
-              <p>User sees an error that states:</p>
+              <p>O administrador não habilitou você para usar esse recurso.</p>
+            </td>
+            <td>
+              <p>Atribua uma licença do Azure AD Premium Azure AD Básica para o usuário na guia <strong>Licenças</strong> no Portal de Gerenciamento do Azure. Você deve ter uma licença Azure AD Premium ou Básica atribuída ao administrador que está realizando essa operação.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Erro ao processar solicitação</p>
+            </td>
+            <td>
+              <p>O usuário vê um erro que diz:</p>
               <p>
 
               </p>
-              <p>Error processing request </p>
-              <p>When attempting to reset a password.</p>
+              <p>Erro ao processar solicitação </p>
+              <p>durante a tentativa de redefinir uma senha.</p>
             </td>
             <td>
-              <p>This can be caused by many issues, but generally this error is caused by either a service outage or configuration issue that cannot be resolved. </p>
-              <p>If you see this error and it is impacting your business, please contact support and we will assist you ASAP. See <a href="#information-to-include-when-you-need-help">Information to include when you need help</a> to see what you should provide to the support engineer to aid in a speedy resolution.</p>
+              <p>Isso pode ser causado por vários problemas, mas, em geral, esse erro é causado por uma paralisação do serviço ou problema de configuração que não pode ser resolvido. </p>
+              <p>Se você vir esse erro e ele estiver afetando seus negócios, entre em contato com o suporte e iremos ajudá-lo urgentemente. Confira <a href="#information-to-include-when-you-need-help">Informações a serem incluídas quando precisar de Ajuda</a> para ver o que você deve fornecer ao engenheiro de suporte para auxiliá-lo em uma rápida resolução.</p>
             </td>
           </tr>
         </tbody></table>
 
-## <a name="troubleshoot-the-password-reset-portal"></a>Troubleshoot the password reset portal
-If you encounter an error when resetting a password for a user, you might be able to resolve it by following the troubleshooting steps below:
+## Solucionar problemas do portal de redefinição de senha
+Se você encontrar um erro ao redefinir uma senha para um usuário, pode solucioná-lo seguindo as etapas de solução de problemas abaixo:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>Error Case</strong>
+                <strong>Caso de erro</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>What error does a user see?</strong>
+                <strong>Qual é o erro exibido ao usuário?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Solution</strong>
+                <strong>Solução</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Directory is not enabled for password reset</p>
+              <p>O diretório não está habilitado para redefinição de senha</p>
             </td>
             <td>
-              <p>Your account is not enabled for password reset</p>
-              <p>We're sorry, but your administrator has not set up your account for use with this service. </p>
-              <p>
-
-              </p>
-              <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
-            </td>
-            <td>
-              <p>Switch the <strong>Users Enabled for Password Reset</strong> flag to <strong>Yes</strong> and hit <strong>Save</strong> in the Azure Management Portal directory configuration tab. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>User does not have an AAD Premium or AAD Basic license assigned</p>
-            </td>
-            <td>
-              <p>While we cannot reset non-admin account passwords automatically, we can contact your organization's admin to do it for you.</p>
-            </td>
-            <td>
-              <p>Assign an Azure AD Premium or Azure AD Basic license to the user under the <strong>Licenses</strong> tab in the Azure Management Portal. You must have an Azure AD Premium or Basic License assigned to the admin performing this operation.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>Directory is enabled for password reset, but user has missing or mal-formed authentication information</p>
-            </td>
-            <td>
-              <p>Your account is not enabled for password reset</p>
-              <p>We're sorry, but your administrator has not set up your account for use with this service. </p>
+              <p>Sua conta não está habilitada para redefinição de senha</p>
+              <p>O administrador não configurou sua conta para usar esse serviço. </p>
               <p>
 
               </p>
-              <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
+              <p>Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você.</p>
             </td>
             <td>
-              <p>Ensure that user has properly formed contact data on file in the directory before proceeding. See <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">What data is used by password reset</a> for information on how to configure authentication information in the directory so that users do not see this error.</p>
+              <p>Alterne o sinalizador <strong>Usuários habilitados para redefinição de senha</strong> para <strong>Sim</strong> e clique em <strong>Salvar</strong> na guia de configuração de diretório do Portal de Gerenciamento do Azure. Você deve ter uma licença Azure AD Premium ou Básica atribuída ao administrador que está realizando essa operação.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Directory is enabled for password reset, but a user only has one piece of contact data on file when policy is set to require two verification steps</p>
+              <p>O usuário não tem uma licença AAD Premium ou AAD Básica atribuída</p>
             </td>
             <td>
-              <p>Your account is not enabled for password reset</p>
-              <p>We're sorry, but your administrator has not set up your account for use with this service. </p>
+              <p>Embora não possamos redefinir senhas de contas não administrativas automaticamente, podemos entrar em contato com o administrador de sua organização para fazer isso por você.</p>
+            </td>
+            <td>
+              <p>Atribua uma licença do Azure AD Premium Azure AD Básica para o usuário na guia <strong>Licenças</strong> no Portal de Gerenciamento do Azure. Você deve ter uma licença Azure AD Premium ou Básica atribuída ao administrador que está realizando essa operação.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>O diretório está habilitado para redefinição de senha, mas o usuário tem informações de autenticação ausentes ou incorretas</p>
+            </td>
+            <td>
+              <p>Sua conta não está habilitada para redefinição de senha</p>
+              <p>O administrador não configurou sua conta para usar esse serviço. </p>
               <p>
 
               </p>
-              <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
+              <p>Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você.</p>
             </td>
             <td>
-              <p>Ensure that user has at least two properly configured contact methods (e.g., both Mobile Phone and Office Phone) before proceeding. See <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">What data is used by password reset</a> for information on how to configure authentication information in the directory so that users do not see this error.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>Directory is enabled for password reset, and user is properly configured, but user is unable to be contacted </p>
-            </td>
-            <td>
-              <p>Oops!  We encountered an unexpected error while contacting you.</p>
-            </td>
-            <td>
-              <p>This could be the result of a temporary service error or misconfigured contact data that we could not properly detect. If the user waits 10 seconds, a try again and “contact your administrator” link appears. Clicking try again will re-dispatch the call, whereas clicking “contact your administrator” will send a form email to user, password, or global admins (in that precedence order) requesting a password reset to be performed for that user account.</p>
+              <p>Verifique se o usuário preencheu corretamente os dados de contato no arquivo no diretório antes de continuar. Confira <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Quais dados são usados na redefinição de senha</a> para saber mais sobre como configurar informações de autenticação no diretório para que os usuários não vejam esse erro.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>User never receives the password reset SMS or phone call</p>
+              <p>O diretório está habilitado para redefinição de senha, mas o usuário tem somente uma parte dos dados de contato no arquivo quando a política está definida para exigir duas etapas de verificação</p>
             </td>
             <td>
-              <p>User clicks “text me” or “call me” and then never receives anything.</p>
-            </td>
-            <td>
-              <p>This could be the result of a mal-formed phone number in the directory. Make sure the phone number is in the format “+ccc xxxyyyzzzzXeeee”. To learn more about formatting phone numbers for use with password reset see <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">What data is used by password reset</a>.</p>
-              <p>If you require an extension to be routed to the user in question, note that password reset does not support extensions, even if you specify one in the directory (they are stripped before the call is dispatched). Try using a number without an extension, or integrating the extension into the phone number in your PBX.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>User never receives password reset email</p>
-            </td>
-            <td>
-              <p>User clicks “email me” and then never receives anything.</p>
-            </td>
-            <td>
-              <p>The most common cause for this issue is that the message is rejected by a spam filter. Check your spam, junk, or deleted items folder for the email.</p>
-              <p>Also ensure that you are checking the right email for the message…lots of people have very similar email addresses and end up checking the wrong inbox for the message. If neither of these options work, it’s also possible that the email address in the directory is malformed, check to make sure the email address is the right one and try again. To learn more about formatting email addresses for use with password reset see <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">What data is used by password reset</a>.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>I have set a password reset policy, but when an admin account uses password reset, that policy is not applied</p>
-            </td>
-            <td>
-              <p>Admin accounts resetting their passwords see the same options enabled for password reset, email and mobile phone, no matter what policy is set under the <strong>User Password Reset Policy</strong> section of the <strong>Configure</strong> tab.</p>
-            </td>
-            <td>
-              <p>The options configured under the <strong>User Password Reset Policy</strong> section of the <strong>Configure</strong> tab only apply to end users in your organization.</p>
-              <p>Microsoft manages and controls the Admin password reset policy in order to ensure the highest level of security</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>User prevented from attempting password reset too many times in a day</p>
-            </td>
-            <td>
-              <p>User sees an error stating:</p>
+              <p>Sua conta não está habilitada para redefinição de senha</p>
+              <p>O administrador não configurou sua conta para usar esse serviço. </p>
               <p>
 
               </p>
-              <p>Please use another option.</p>
-              <p>You've tried to verify your account too many times in the last 1 hour(s). For security reasons, you'll have to wait 24 hour(s) before you can try again. </p>
-              <p>If you'd like, we can contact an administrator in your organization to reset your password for you.</p>
+              <p>Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você.</p>
             </td>
             <td>
-              <p>We implement an automatic throttling mechanism to block users from attempting to reset their passwords too many times in a short period of time. This occurs when:</p>
+              <p>Verifique se o usuário tem pelo menos dois métodos de contato configurados corretamente (por exemplo, telefone celular e telefone comercial) antes de continuar. Confira <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Quais dados são usados na redefinição de senha</a> para saber mais sobre como configurar informações de autenticação no diretório para que os usuários não vejam esse erro.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>O diretório está habilitado para redefinição de senha e o usuário está configurado corretamente, mas não pode ser contatado </p>
+            </td>
+            <td>
+              <p>Algo deu errado! Encontramos um erro inesperado ao entrar em contato com você.</p>
+            </td>
+            <td>
+              <p>Isso pode ser o resultado de um erro de serviço temporário ou dados de contato configurados incorretamente que não pudemos detectar corretamente. Se o usuário aguardar 10 segundos, aparecerá um link tente novamente e "entre em contato com seu administrador". Clicar em tentar novamente enviará novamente a chamada, enquanto clicar em "entre em contato com seu administrador" enviará um formulário de email aos administradores de usuário, senha ou globais (nessa ordem) solicitando uma redefinição de senha para ser executada para essa conta de usuário.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>O usuário nunca recebe a chamada telefônica ou redefinição de senha de SMS</p>
+            </td>
+            <td>
+              <p>O usuário clica em “me mande mensagem” ou “telefone para mim”, mas não recebe nada.</p>
+            </td>
+            <td>
+              <p>Isso pode ser o resultado de um número de telefone incorreto no diretório. Verifique se o número de telefone está no formato "+ ccc xxxyyyzzzzXeeee". Para saber mais sobre a formatação de números de telefone para uso com a senha de redefinição, confira <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Quais dados são usados na redefinição de senha</a>.</p>
+              <p>Se você precisar de uma extensão para ser roteada para o usuário em questão, observe que a redefinição de senha não dá suporte a extensões, mesmo se você especificar uma no diretório (elas são removidas antes de a chamada ser despachada). Tente usar um número sem uma extensão ou integrar a extensão ao número de telefone no seu PBX.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>O usuário nunca receber o email de redefinição de senha</p>
+            </td>
+            <td>
+              <p>O usuário clica em "email" e nunca recebe nada.</p>
+            </td>
+            <td>
+              <p>A causa mais comum desse problema é que a mensagem foi rejeitada por um filtro de spam. Verifique o email no spam, na pasta Lixo eletrônico ou nos itens de email excluídos.</p>
+              <p>Verifique também se você está procurando a mensagem no email correto...muitas pessoas têm endereços de email muito semelhantes e procurando a mensagem na caixa de entrada errada. Se nenhuma dessas opções funcionar, também é possível que o endereço de email no diretório esteja incorreto; verifique se o endereço de email é o correto e tente novamente. Para saber mais sobre como formatar endereços de email para uso com a senha de redefinição, confira <a href="active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset">Quais dados são usados na redefinição de senha</a>.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Defini uma política de redefinição de senha, mas quando uma conta de administrador usa a redefinição de senha, a política não é aplicada</p>
+            </td>
+            <td>
+              <p>As contas de administrador que redefinem as senhas veem as mesmas opções habilitadas para redefinição de senha, email e celular, independentemente da política definida na seção <strong>Política de redefinição de senha do usuário</strong> na guia <strong>Configurar</strong>.</p>
+            </td>
+            <td>
+              <p>As opções configuradas na seção <strong>Política de redefinição de senha do usuário</strong> na guia <strong>Configurar</strong> se aplicam somente a usuários finais na sua organização.</p>
+              <p>A Microsoft gerencia e controla a política de redefinição de senha de administrador para garantir o nível mais alto de segurança</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>O usuário foi impedido de tentar a redefinição de senha muitas vezes em um mesmo dia</p>
+            </td>
+            <td>
+              <p>O usuário vê um erro dizendo:</p>
+              <p>
+
+              </p>
+              <p>use outra opção.</p>
+              <p>Você tentou verificar sua conta muitas vezes na última hora. Por motivos de segurança, você terá que aguardar 24 horas antes de tentar novamente. </p>
+              <p>Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você.</p>
+            </td>
+            <td>
+              <p>Implementamos um mecanismo de limitação automático para impedir que os usuários tentem redefinir suas senhas muitas vezes em um curto período de tempo. Isso ocorre quando:</p>
               <ol class="ordered">
                 <li>
-User attempts to validate a phone number 5 times in one hour.<br\><br\></li>
+										O usuário tenta validar um número de telefone cinco vezes em uma hora.<br\><br\></li>
                 <li>
-User attempts to use the security questions gate 5 times in one hour.<br\><br\></li>
+										O usuário tenta usar o portão de perguntas de segurança cinco vezes em uma hora.<br\><br\></li>
                 <li>
-User attempts to reset a password for the same user account 5 times in one hour.<br\><br\></li>
+										O usuário tenta redefinir uma senha para a mesma conta de usuário cinco vezes em uma hora.<br\><br\></li>
               </ol>
-              <p>To fix this, instruct the user to wait 24 hours after the last attempt, and the user will then be able to reset his or her password.</p>
+              <p>Para corrigir isso, instrua o usuário a aguardar 24 horas após a última tentativa para poder redefinir a senha.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>User sees an error when validating his or her phone number</p>
+              <p>O usuário vê um erro ao validar o seu número de telefone</p>
             </td>
             <td>
-              <p>When attempting to verify a phone to use as an authentication method, the user sees an error stating:</p>
+              <p>Ao tentar verificar um telefone a ser usado como método de autenticação, o usuário vê um erro dizendo:</p>
               <p>
 
               </p>
-              <p>Incorrect phone number specified.</p>
+              <p>número de telefone especificado incorreto.</p>
             </td>
             <td>
-              <p>This error occurs when the phone number entered does not match the phone number on file.</p>
-              <p>Make sure the user is entering the complete phone number, including area and country code, when attempting to use a phone-based method for password reset.</p>
+              <p>Esse erro ocorre quando o número de telefone digitado não coincide com o número de telefone no arquivo.</p>
+              <p>Verifique se o usuário está inserindo o número de telefone completo, incluindo o código de área e país, ao tentar usar um método baseado em telefone para a redefinição de senha.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Error processing request</p>
+              <p>Erro ao processar solicitação</p>
             </td>
             <td>
-              <p>User sees an error that states:</p>
+              <p>O usuário vê um erro que diz:</p>
               <p>
 
               </p>
-              <p>Error processing request </p>
-              <p>When attempting to reset a password.</p>
+              <p>Erro ao processar solicitação </p>
+              <p>durante a tentativa de redefinir uma senha.</p>
             </td>
             <td>
-              <p>This can be caused by many issues, but generally this error is caused by either a service outage or configuration issue that cannot be resolved. </p>
-              <p>If you see this error and it is impacting your business, please contact support and we will assist you ASAP. See <a href="#information-to-include-when-you-need-help">Information to include when you need help</a> to see what you should provide to the support engineer to aid in a speedy resolution.</p>
+              <p>Isso pode ser causado por vários problemas, mas, em geral, esse erro é causado por uma paralisação do serviço ou problema de configuração que não pode ser resolvido. </p>
+              <p>Se você vir esse erro e ele estiver afetando seus negócios, entre em contato com o suporte e iremos ajudá-lo urgentemente. Confira <a href="#information-to-include-when-you-need-help">Informações a serem incluídas quando precisar de Ajuda</a> para ver o que você deve fornecer ao engenheiro de suporte para auxiliá-lo em uma rápida resolução.</p>
             </td>
           </tr>
         </tbody></table>
 
-## <a name="troubleshoot-password-writeback"></a>Troubleshoot Password Writeback
-If you encounter an error when enabling, disabling, or using Password Writeback, you might be able to resolve it by following the troubleshooting steps below:
+## Solucionar problemas de write-back de senha
+Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha, pode solucioná-lo seguindo as etapas de solução de problemas abaixo:
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>Error Case</strong>
+                <strong>Caso de erro</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>What error does a user see?</strong>
+                <strong>Qual é o erro exibido ao usuário?</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Solution</strong>
+                <strong>Solução</strong>
               </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>General onboarding and startup failures</p>
+              <p>Falhas gerais de inicialização e integração</p>
             </td>
             <td>
-              <p>Password reset service does not start on premises with error 6800 in the Azure AD Connect machine’s application event log.</p>
+              <p>O serviço de redefinição de senha não é iniciado no local com erro 6800 no log de eventos de aplicativo do Azure AD Connect do computador.</p>
               <p>
 
               </p>
-              <p>After onboarding, federated or password hash synced users cannot reset their passwords.</p>
+              <p>Depois da integração, usuários federados ou com senha de sincronização de hash não conseguem redefinir suas senhas.</p>
             </td>
             <td>
-              <p>When Password Writeback is enabled, the sync engine will call the writeback library to perform the configuration (onboarding) by talking to the cloud onboarding service. Any errors encountered during onboarding or while starting the WCF endpoint for Password Writeback will result in errors in the Event log in your Azure AD Connect machine’s event log.</p>
-              <p>During restart of ADSync service, if writeback was configured, the WCF endpoint will be started up. However, if the startup of the endpoint fails, we will simply log event 6800 and let the sync service startup. Presence of this event means that the Password Writeback endpoint was not started up. Event log details for this event (6800) along with event log entries generate by PasswordResetService component will indicate why the endpoint could not be started up. Review these event log errors and try to re-start the Azure AD Connect if Password Writeback still isn’t working. If the problem persists, try to disable and re-enable Password Writeback.</p>
-            </td>
-          </tr>
-                    <tr>
-            <td>
-              <p>When a user attempts to reset a password or unlock an account with password writeback enabled, the operation fails. In addition, you see an event in the Azure AD Connect event log containing: “Synchronization Engine returned an error hr=800700CE, message=The filename or extension is too long” after the unlock operation occurs.
-                            </p>
-            </td>
-            <td>
-              <p>This can occur if you had upgraded from older versions of Azure AD Connect or DirSync. Upgrading to older versions of Azure AD Connect set a 254 character password for the Azure AD Management Agent account (newer versions will set a 127 character length password). Such long passwords work for AD Connector Import and Export operations but they are not supported by the Unlock operation.
-                            </p>
-            </td>
-            <td>
-              <p>[Find the Active Directory account](active-directory-aadconnect-accounts-permissions.md#active-directory-account) for Azure AD Connect and reset the password to contain no more than 127 characters. Then open **Synchronization Service** from the Start menu. Navigate to **Connectors** and find the **Active Directory Connector**. Select it and click **Properties**. Navigate to the page **Credentials** and enter the new password. Select **OK** to close the page.
-                            </p>
+              <p>Quando o write-back de senha estiver habilitado, o mecanismo de sincronização chamará a biblioteca de write-back para realizar a configuração (integração) conversando com o serviço de integração em nuvem. Todos os erros encontrados durante a integração ou ao iniciar o ponto de extremidade WCF para write-back de senha resultará em erros no Log de eventos e no log de eventos do Azure AD Connect de seu computador.</p>
+              <p>Durante a reinicialização do serviço ADSync, se o write-back tiver sido configurado, o ponto de extremidade do WCF será inicializado. No entanto, se a inicialização do ponto de extremidade falhar, nós simplesmente registraremos o evento 6800 e permitiremos a inicialização do serviço de sincronização. A presença desse evento significa que o write-back de senha de ponto de extremidade não foi iniciado. Os detalhes do log de eventos para esse evento (6800) e as entradas do log de eventos para gerar o componente PasswordResetService indicarão por que o ponto de extremidade não pôde ser inicializado. Revise esses erros do log de eventos e tente reiniciar o Azure AD Connect se o Write-back de senha não estiver funcionando. Se o problema persistir, tente desabilitar e reabilitar o write-back de senha.</p>
             </td>
           </tr>
-                    <tr>
+					<tr>
             <td>
-              <p>Error configuring writeback during Azure AD Connect installation.</p>
+              <p>Quando um usuário tenta redefinir uma senha ou desbloquear uma conta com write-back de senha habilitada, a operação falha. Além disso, você vê um evento no log de eventos do Azure AD Connect contendo: "O mecanismo de sincronização retornou um erro hr=800700CE, message=O nome de arquivo ou a extensão é muito longo" após a operação de desbloqueio ocorrer.
+							</p>
             </td>
             <td>
-              <p>At the last step of the Azure AD Connect installation process, you see an error indicating that Password Writeback could not be configured.</p>
+              <p>Isso poderá ocorrer se você tiver atualizado de versões anteriores do Azure AD Connect ou DirSync. Atualizar para versões mais antigas do Azure AD Connect define uma senha de 254 caracteres para a conta do agente de gerenciamento do Azure AD (versões mais recentes definirão uma senha com comprimento de 127 caracteres). Essas senhas longas funcionam para operações de Importação e Exportação de Conector do AD, mas não têm suporte da operação de Desbloqueio.
+							</p>
+            </td>
+            <td>
+              <p>[Localize a conta do Active Directory](active-directory-aadconnect-accounts-permissions.md#active-directory-account) para o Azure AD Connect e redefina a senha com no máximo 127 caracteres. Abra **Serviço de Sincronização** no menu Iniciar. Navegue até **Conectores** e localize o **Active Directory Connector**. Selecione-o e clique em **Propriedades**. Navegue até a página **Credenciais** e insira a nova senha. Selecione **OK** para fechar a página.
+							</p>
+            </td>
+          </tr>
+					<tr>
+            <td>
+              <p>Erro ao configurar o write-back durante a instalação do Azure AD Connect.</p>
+            </td>
+            <td>
+              <p>Na última etapa do processo de instalação do Azure AD Connect, você verá um erro indicando que não foi possível configurar o write-back de senha.</p>
               <p>
 
               </p>
-              <p>The Azure AD Connect Application event log contains error 32009 with text “Error getting auth token”.</p>
+              <p>O log de eventos do aplicativo Azure AD Connect contém erro 32009 com texto "Erro ao obter token de autenticação".</p>
             </td>
             <td>
-              <p>This error occurs in the following two cases:</p>
+              <p>Esse erro ocorre nos seguintes casos:</p>
               <ul>
                 <li class="unordered">
-You have specified an incorrect password for the global administrator account specified at the beginning of the Azure AD Connect installation process.<br\><br\></li>
+										Você especificou uma senha incorreta para a conta de administrador global indicada no início do processo de instalação do Azure AD Connect.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-You have attempted to use a federated user for the global administrator account specified at the beginning of the Azure AD Connect installation process.<br\><br\></li>
+										Você tentou usar um usuário federado para a conta de administrador global especificada no início do processo de instalação do Azure AD Connect <br\><br\></li>
               </ul>
-              <p>To fix this error, please ensure that you are not using a federated account for the global administrator you specified at the beginning of the Azure AD Connect installation process, and that the password specified is correct.</p>
+              <p>Para corrigir esse erro, verifique se você não está usando uma conta federada para o administrador global que você indicou no início do processo de instalação do Azure AD Connect e se a senha especificada está correta.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Error configuring writeback during Azure AD Connect installation.</p>
+              <p>Erro ao configurar o write-back durante a instalação do Azure AD Connect.</p>
             </td>
             <td>
-              <p>The Azure AD Connect machine event log contains error 32002 thrown by the PasswordResetService.</p>
+              <p>O log de eventos do computador do Azure AD Connect contém o erro 32002 gerado pelo PasswordResetService.</p>
               <p>
 
               </p>
-              <p>The error reads: “Error Connecting to ServiceBus, The token provider was unable to provide a security token…”</p>
+              <p>O erro é: "erro de conexão com o barramento de serviço; o provedor de token não pôde fornecer um token de segurança..."</p>
               <p>
 
               </p>
             </td>
             <td>
-              <p>The root cause of this error is that the password reset service running in your on-premises environment is not able to connect to the service bus endpoint in the cloud. This error is normally normally caused by a firewall rule blocking an outbound connection to a particular port or web address.</p>
+              <p>A causa desse erro é que o serviço de redefinição de senha em execução no seu ambiente local não é capaz de conectar-se ao ponto de extremidade do barramento de serviço na nuvem. Esse erro normalmente é causado por uma regra de firewall bloqueando uma conexão de saída para uma determinada porta ou endereço Web.</p>
               <p>
 
               </p>
-              <p>Make sure your firewall allows outbound connections for the following:</p>
+              <p>Verifique se o firewall permite conexões de saída para o seguinte:</p>
               <ul>
                 <li class="unordered">
-All traffic over TCP 443 (HTTPS)<br\><br\></li>
+										Todo o tráfego sobre TCP 443 (HTTPS)<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-Outbound connections to <br\><br\></li>
+										Conexões de saída para <br\><br\></li>
               </ul>
               <p>
 
               </p>
-              <p>Once you have updated these rules, reboot the Azure AD Connect machine and Password Writeback should start working again.</p>
+              <p>Depois de atualizar essas regras, reinicialize o computador do Azure AD Connect e o write-back de senha deve começar a funcionar novamente.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Password Writeback endpoint on-prem not reachable</p>
+              <p>O ponto de extremidade de write-back de senha local não pode ser acessado</p>
             </td>
             <td>
-              <p>After working for some time, federated or password hash synced users cannot reset their passwords.</p>
+              <p>Depois de trabalhar por algum tempo, os usuários federados com senha de sincronização de hash não conseguem redefinir as suas senhas.</p>
             </td>
             <td>
-              <p>In some rare cases, the Password Writeback service may fail to re-start when Azure AD Connect has re-started. In these cases, first, check whether Password Writeback appears to be enabled on-prem. This can be done using the Azure AD Connect wizard or powershell (See HowTos section above).If the feature appears to be enabled, try enabling or disabling the feature again either through the UI or PowerShell. See “Step 2: Enable Password Writeback on your Directory Sync computer &amp; configure firewall rules” in <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
+              <p>Em alguns casos raros, o serviço de write-back de senha pode falhar ao iniciar novamente quando o Azure AD Connect for iniciado novamente. Nesses casos, primeiro verifique se o write-back de senha parece estar habilitado no local. Isso pode ser feito usando o Assistente do Azure AD Connect ou o PowerShell (confira a seção de tutoriais acima). Se o recurso parece estar habilitado, tente habilitar ou desabilitar o recurso novamente por meio da interface do usuário ou do PowerShell. Confira "Etapa 2: habilitar write-back de senha no seu computador de sincronização de diretórios e configurar regras de firewall" em <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Como habilitar/desabilitar write-back de senha</a> para saber mais sobre como fazer isso.</p>
               <p>
 
               </p>
-              <p>If this doesn’t work, try completely uninstalling and re-installing Azure AD Connect.</p>
+              <p>Se isso não funcionar, tente desinstalar completamente e reinstalar o Azure AD Connect.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Permissions errors</p>
+              <p>Erros de permissões</p>
             </td>
             <td>
-              <p>Federated or password hash sync’d users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
+              <p>Os usuários federados ou com senha de sincronização de hash que tentam redefinir as suas senhas veem um erro depois de enviar a senha indicando que houve um problema de serviço.</p>
               <p>
 
               </p>
-              <p>In addition to this, during password reset operations, you may see an error regarding management agent was denied access in your on premises event logs.</p>
+              <p>Além disso, durante as operações de redefinição de senha, você pode ver um erro de que o agente de gerenciamento teve acesso negado em seus logs de eventos no local.</p>
             </td>
             <td>
-              <p>If you see these errors in your event log, confirm that the AD MA account (that was specified in the wizard at the time of configuration) has the necessary permissions for Password Writeback.</p>
+              <p>Se você vir esses erros no log de eventos, confirme se a conta do AD MA (que foi especificada no assistente no momento da configuração) tem as permissões necessárias para write-back de senha.</p>
               <p>
 
               </p>
-              <p>NOTE that once this permission is given it can take up to 1 hour for the permissions to trickle down via sdprop background task on the DC. </p>
-              <p>For password reset to work, the permission needs to be stamped on the security descriptor of the user object whose password is being reset. Until this permission shows up on the user object, password reset will continue to fail with access denied.</p>
+              <p>Observe que, depois que essa permissão é fornecida, pode levar até 1 hora para as permissões sejam repassadas através de tarefa em segundo plano sdprop no controlador de domínio. </p>
+              <p>Para que a redefinição de senha funcione, a permissão deve ser marcada no descritor de segurança do objeto do usuário cuja senha esteja sendo redefinida. Até que essa permissão seja exibida no objeto do usuário, a redefinição de senha continuará a falhar com acesso negado.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Error when configuring Password Writeback from the Azure AD Connect configuration wizard </p>
+              <p>Erro ao configurar o write-back de senha do Assistente de configuração do Azure AD Connect </p>
             </td>
             <td>
-              <p>“Unable to Locate MA” error in Wizard while enabling/disabling Password Writeback</p>
+              <p>Erro "não foi possível localizar MA" no assistente ao habilitar/desabilitar write-back de senha</p>
             </td>
             <td>
-              <p>There is a known bug in the released version of Azure AD Connect which manifests in the following situation:</p>
+              <p>Há um bug conhecido na versão lançada do Azure AD Connect que se manifesta na seguinte situação:</p>
               <ol class="ordered">
                 <li>
-You configure Azure AD Connect for tenant abc.com (Verified domain) using creds . This results in AAD connector with name “abc.com – AAD” being created.<br\><br\></li>
+										Você configura o Azure AD Connect para o locatário abc.com (domínio verificado) usando credenciais. Isso resulta na criação do conector AAD com o nome "abc.com – AAD".<br\><br\></li>
                 <li>
-You then then change the AAD creds for the connector (using old sync UI) to  (note it’s the same tenant but different domain name). <br\><br\></li>
+										Você então altera as credenciais AAD para o conector (usando a IU antiga) para (observe que é o mesmo locatário, mas com nome de domínio diferente).<br\><br\></li>
                 <li>
-Now you try to enable/disable Password Writeback. The wizard will construct the name of the connector using the creds, as “abc.onmicrosoft.com – AAD” and pass to the Password Writeback cmdlet. This will fail because there is no connector created with this name.<br\><br\></li>
+										Agora você tenta habilitar/desabilitar o write-back de senha. O assistente construirá o nome do conector usando as credenciais como "abc.onmicrosoft.com – AAD" e passar para o cmdlet de write-back de senha. Isso irá falhar porque não há nenhum conector criado com esse nome.<br\><br\></li>
               </ol>
-              <p>This has been fixed in our latest builds. If you have an older build, the one workaround is to use the powershell cmdlet to enable/disable the feature. See “Step 2: Enable Password Writeback on your Directory Sync computer &amp; configure firewall rules” in <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">How to enable/disable Password Writeback</a> for more information on how to do this.</p>
+              <p>Esse problema foi corrigido em nossas compilações mais recentes. Se você tiver uma compilação mais antiga, uma solução é usar o cmdlet do PowerShell para habilitar/desabilitar o recurso. Confira "Etapa 2: habilitar write-back de senha no seu computador de sincronização de diretórios e configurar regras de firewall" em <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Como habilitar/desabilitar write-back de senha</a> para saber mais sobre como fazer isso.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Unable to reset password for users in special groups such as Domain Admins / Enterprise Admins etc.</p>
+              <p>Não é possível redefinir a senha de usuários em grupos especiais, como Administradores do domínio/Administradores corporativos, etc.</p>
             </td>
             <td>
-              <p>Federated or password hash sync’d users who are part of protected groups and attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
+              <p>Usuários federados ou com senha de sincronização de hash que fazem parte dos grupos protegidos e tentam redefinir sua senhas veem um erro depois de enviar a senha indicando que houve um problema de serviço.</p>
             </td>
             <td>
-              <p>Privileged users in Active Directory are protected using AdminSDHolder. See <a href="https://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx">http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx</a> for more details. </p>
+              <p>Os usuários privilegiados no Active Directory são protegidos com o AdminSDHolder. Confira <a href="https://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx">http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx</a> para obter mais detalhes. </p>
               <p>
 
               </p>
-              <p>This means the security descriptors on these objects are periodically checked to match the one specified in AdminSDHolder and are reset if they are different. The additional permissions that are needed for Password Writeback therefore do not trickle to such users. This can result in Password Writeback not working for such users.As a result, we do not support managing passwords for users within these groups because it breaks the AD security model.</p>
+              <p>Isso significa que os descritores de segurança desses objetos são verificados periodicamente para coincidir com o especificado no AdminSDHolder e são redefinidos se eles forem diferentes. Portanto, as permissões adicionais necessárias para o write-back de senha não aparecem para esses usuários. Isso pode resultar no não funcionamento do write-back de senha para esses usuários. Assim, não há suporte para gerenciamento de senhas para os usuários nesses grupos porque ele rompe o modelo de segurança do AD.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Reset operations fails with Object could not be found</p>
+              <p>Falha nas operações de redefinição com a mensagem Objeto não pôde ser encontrado</p>
             </td>
             <td>
-              <p>Federated or password hash sync’d users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
+              <p>Os usuários federados ou com senha de sincronização de hash que tentam redefinir as suas senhas veem um erro depois de enviar a senha indicando que houve um problema de serviço.</p>
               <p>
 
               </p>
-              <p>In addition to this, during password reset operations, you may see an error in your event logs from the Azure AD Connect service indicating an “Object could not be found” error.</p>
+              <p>Além disso, durante as operações de redefinição de senha, você verá um erro em seus logs de eventos do serviço do Azure AD Connect indicando o erro "Objeto não encontrado".</p>
             </td>
             <td>
-              <p>This error usually indicates that the sync engine is unable to find either the user object in the AAD connector space or the linked MV or AD connector space object. </p>
+              <p>Esse erro geralmente indica que o mecanismo de sincronização não consegue encontrar o objeto de usuário no espaço do conector AAD ou o objeto de espaço de conector AD ou MV vinculado. </p>
               <p>
 
               </p>
-              <p>To troubleshoot this, make sure that the user is indeed synced from on-prem to AAD via the current instance of Azure AD Connect and inspect the state of the objects in the connector spaces and MV. Confirm that the AD CS object is connector to the MV object via the “Microsoft.InfromADUserAccountEnabled.xxx” rule.</p>
+              <p>Para solucionar esse problema, verifique se o usuário está realmente sincronizado do local para o AAD pela instância atual do Azure AD Connect e inspecione o estado dos objetos nos espaços de conector e MV. Confirme se o objeto do AD CS é conector para o objeto de MV através da regra "Microsoft.InfromADUserAccountEnabled.xxx".</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Reset operations fails with Multiple matches found eror</p>
+              <p>Falha de operações de redefinição com erro de várias correspondências encontradas</p>
             </td>
             <td>
-              <p>Federated or password hash sync’d users who attempt to reset their passwords see an error after submitting the password indicating there was a service problem.</p>
+              <p>Os usuários federados ou com senha de sincronização de hash que tentam redefinir as suas senhas veem um erro depois de enviar a senha indicando que houve um problema de serviço.</p>
               <p>
 
               </p>
-              <p>In addition to this, during password reset operations, you may see an error in your event logs from the Azure AD Connect service indicating a “Multiple maches found” error.</p>
+              <p>Além disso, durante as operações de redefinição de senha, você pode ver um erro em seus logs de evento do serviço do Azure AD Connect indicando o erro "Várias correspondências encontradas".</p>
             </td>
             <td>
-              <p>This indicates that the sync engine detected that the MV object is connected to more than one AD CS objects via the “Microsoft.InfromADUserAccountEnabled.xxx”. This means that the user has an enabled account in more than one forest. </p>
+              <p>Isso indica que o mecanismo de sincronização detectou que o objeto de MV está conectado a mais de um objeto de AD CS através de "Microsoft.InfromADUserAccountEnabled.xxx". Isso significa que o usuário tem uma conta habilitada em mais de uma floresta. </p>
               <p>
 
               </p>
-              <p>Currently this scenario is not supported for Password Writeback.</p>
+              <p>No momento,não há suporte para write-back de senha nesse cenário.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Password operations fail with a configuration error.</p>
+              <p>Falha nas operações de senha com um erro de configuração.</p>
             </td>
             <td>
-              <p>Password operations fail with a configuration error. The application event log contains Azure AD Connect error 6329 with text: 0x8023061f (The operation failed because password synchronization is not enabled on this Management Agent.)</p>
+              <p>Falha nas operações de senha com um erro de configuração. O log de eventos do aplicativo contém o erro Azure AD Connect 6329 com texto: 0x8023061f (a operação falhou porque a sincronização de senha não está habilitada nesse agente de gerenciamento.)</p>
             </td>
             <td>
-              <p>This occurs if the Azure AD Connect configuration is changed to add&nbsp;a new AD forest (or to remove and re-add an existing forest) <strong>after</strong> the Password Writeback feature has already been enabled. Password operations for users in such newly added forests will fail. To fix the problem, disable and re-enable the Password Writeback feature after the forest configuration changes have been completed.</p>
+              <p>Isso ocorre se a configuração de conexão do AD do Azure é alterada para adicionar uma nova floresta do AD (ou para remover e adicionar novamente uma floresta existente) <strong>após</strong> o recurso de write-back de senha já ter sido habilitado. As operações de senha para usuários em tais florestas recém-adicionadas falharão. Para corrigir o problema, desabilite e reabilite o recurso de write-back de senha após a conclusão das alterações de configuração da floresta.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Writing back passwords that have been reset by users works properly, but writing back passwords changed by a user or reset for a user by an administrator fails.</p>
+              <p>O write-back das senhas que foram redefinidas pelos usuários funciona corretamente, mas a gravação das senhas alteradas por um usuário ou redefinidas para um usuário por um administrador falha.</p>
             </td>
             <td>
-              <p>When attempting to reset a password on behalf of a user from the Azure Management Portal, you see a message stating: “The password reset service running in your on-premises environment does not support administrators resetting user passwords. Please upgrade to the latest version of Azure AD Connect to resolve this.”</p>
+              <p>Durante a tentativa de redefinir uma senha em nome de um usuário do Portal de Gerenciamento do Azure, você vê uma mensagem dizendo: "o serviço de redefinição de senha em execução no seu ambiente local não dá suporte a administradores redefinindo senhas de usuário. Atualize para a versão mais recente do Azure AD Connect para resolver o problema."</p>
             </td>
             <td>
-              <p>This occurs when the version of the synchronization engine does not support the particular Password Writeback operation that was used. Versions of Azure AD Connect later than 1.0.0419.0911 support all password management operations, including password reset writeback, password change writeback, and administrator-initiated password reset writeback from the Azure Management Portal.&nbsp; DirSync versions later than 1.0.6862 support password reset writeback only. To resolve this issue, we highly recommend that you install the latest version of Azure AD Connect or Azure Active Directory Connect (for more information, see <a href="active-directory-aadconnect">Directory Integration Tools</a>) to resolve this issue and to get the most out of Password Writeback in your organization.</p>
+              <p>Isso ocorre quando a versão do mecanismo de sincronização não dá suporte para a operação de write-back de senha específica que foi usada. As versões do Azure AD Connect posteriores a 1.0.0419.0911 dão suporte a todas as operações de gerenciamento de senha, incluindo write-back de redefinição de senha, write-back de alteração de senha e write-back de redefinição de senha iniciadas pelo administrador do Portal de Gerenciamento do Azure.&#160; As versões do DirSync mais recentes que 1.0.6862 dão suporte somente a write-back de redefinição de senha. Para resolver esse problema, recomendamos que você instale a versão mais recente do Azure AD Connect ou Connect do Active Directory do Azure (para saber mais, confira <a href="active-directory-aadconnect">Ferramentas de integração de diretório</a>) para resolver esse problema e obter o máximo proveito do write-back de senha na sua organização.</p>
             </td>
           </tr>
         </tbody></table>
 
 
-## <a name="password-writeback-event-log-error-codes"></a>Password Writeback event log error codes
-A best practice when troubleshooting issues with Password Writeback is to inspect that Application Event Log on your Azure AD Connect machine. This event log will contain events from two sources of interest for Password Writeback. The PasswordResetService source will describe operations and issues related to the operation of Password Writeback. The ADSync source will describe operations and issues related to setting passwords in your AD environment.
+## Códigos de erro do log de eventos de write-back de senha
+É uma prática recomendada para solucionar problemas com write-back de senha inspecionar esse Log de eventos do aplicativo no computador do Azure AD Connect. Esse log de eventos contém eventos de duas fontes de interesse para write-back de senha. A fonte PasswordResetService descreve operações e problemas relacionados à operação de write-back de senha. A fonte ADSync descreve operações e problemas relacionados à configuração de senhas em seu ambiente do AD.
 
 <table>
           <tbody><tr>
             <td>
               <p>
-                <strong>Code</strong>
+                <strong>Código</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Name / Message</strong>
+                <strong>Nome/Mensagem</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Source</strong>
+                <strong>Fonte</strong>
               </p>
             </td>
             <td>
               <p>
-                <strong>Description</strong>
+                <strong>Descrição</strong>
               </p>
             </td>
           </tr>
@@ -693,28 +692,28 @@ A best practice when troubleshooting issues with Password Writeback is to inspec
               <p>6329</p>
             </td>
             <td>
-              <p>BAIL: MMS(4924) 0x80230619 – “A restriction prevents the password from being changed to the current one specified.”</p>
+              <p>BAIL: MMS(4924) 0x80230619 – "Uma restrição impede que a senha seja alterada para a atual especificada."</p>
             </td>
             <td>
               <p>ADSync</p>
             </td>
             <td>
-              <p>This event occurs when the Password Writeback service attempts to set a password on your local directory which does not meet the password age, history, complexity, or filtering requirements of the domain.</p>
+              <p>Esse evento ocorre quando o serviço de write-back de senha tenta definir uma senha em seu diretório local que não atende à idade, ao histórico, à complexidade da senha ou a requisitos de filtragem do domínio.</p>
               <ul>
                 <li class="unordered">
-If you have a minimum password age, and have recently changed the password within that window of time, you will not be able to change the password again until it reaches the specified age in your domain. For testing purposes, minimum age should be set to 0.<br\><br\></li>
+										Se você tiver um tempo de vida mínimo da senha e tiver alterado recentemente a senha dentro desse intervalo de tempo, não poderá alterar a senha novamente até atingir a data especificada em seu domínio. Para fins de teste, a idade mínima deve ser definida como 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-If you have password history requirements enabled, then you must select a password that has not been used in the last N times, where N is the password history setting. If you do select a password that has been used in the last N times, then you will see a failure in this case. For testing purposes, history should be set to 0.<br\><br\></li>
+										Se você tiver requisitos de histórico de senha habilitados, deve selecionar uma senha que não foi usada nas últimas X vezes, onde X é a configuração de histórico de senha. Se você selecionar uma senha que foi usada nas últimas X vezes, você verá uma falha. Para fins de teste, o histórico deve ser definido como 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-If you have password complexity requirements, all of them will be enforced when the user attempts to change or reset a password.<br\><br\></li>
+										Se você tiver requisitos de complexidade de senha, todos eles serão aplicados quando o usuário tentar alterar ou redefinir uma senha.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-If you have password filters enabled, and a user selects a password which does not meet the filtering criteria, then the reset or change operation will fail.<br\><br\></li>
+										Se você tiver filtros de senha ativados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -723,15 +722,15 @@ If you have password filters enabled, and a user selects a password which does n
               <p>HR 8023042</p>
             </td>
             <td>
-              <p>Synchronization Engine returned an error hr=80230402, message=An attempt to get an object failed because there are duplicated entries with the same anchor</p>
+              <p>O Mecanismo de Sincronização retornou um erro hr = 80230402, mensagem= Houve uma falha na tentativa de obter um objeto, porque existem entradas duplicadas com a mesma âncora</p>
             </td>
             <td>
               <p>ADSync</p>
             </td>
             <td>
-              <p>This event occurs when the same user id is enabled in multiple domains.  For example, if you are syncing Account/Resource forests, and have the same user id present and enabled in each, this error may occur.  </p>
-              <p>This error can also occur if you are using a non-unique anchor attribute (like alias or UPN) and two users share that same anchor attribute.</p>
-              <p>To resolve this issue, ensure that you do not have any duplicated users within your domains and that you are using a unique anchor attribute for each user.</p>
+              <p>Esse evento ocorre quando a mesma ID de usuário está habilitada em vários domínios. Por exemplo, se você estiver sincronizando florestas de Contas/Recursos e tiver a mesma ID de usuário presente e habilitada em cada uma delas, esse erro poderá ocorrer.  </p>
+              <p>Esse erro também pode ocorrer se você estiver usando um atributo de âncora não exclusivo (como alias ou UPN) e dois usuários compartilharem o mesmo atributo de âncora.</p>
+              <p>Para resolver esse problema, certifique-se de que você não tem nenhum usuário duplicado em seus domínios e de que você está usando um atributo de âncora exclusivo para cada usuário.</p>
             </td>
           </tr>
           <tr>
@@ -745,7 +744,7 @@ If you have password filters enabled, and a user selects a password which does n
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that the on-premises service detected a password reset request for a federated or password hash sync’d user originating from the cloud. This event is the first event in every password reset writeback operation.</p>
+              <p>Esse evento indica que o serviço local detectou uma redefinição de senha de solicitação de usuário federado ou com senha de sincronização de hash vinda da nuvem. Esse evento é o primeiro evento em cada operação de write-back de redefinição de senha.</p>
             </td>
           </tr>
           <tr>
@@ -759,7 +758,7 @@ If you have password filters enabled, and a user selects a password which does n
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that a user selected a new password during a password reset operation, we determined that this password meets corporate password requirements, and that password has been successfully written back to the local AD environment.</p>
+              <p>Esse evento indica que o usuário selecionou uma nova senha durante uma operação de redefinição de senha; determinamos que essa senha atende aos requisitos de senha corporativa e essa senha foi gravada com êxito no ambiente AD local.</p>
             </td>
           </tr>
           <tr>
@@ -773,20 +772,20 @@ If you have password filters enabled, and a user selects a password which does n
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that a user selected a password, and that password arrived successfully to the on-premises environment, but when we attempted to set the password in the local AD environment, a failure occurred. This can happen for several reasons:</p>
+              <p>Esse evento indica que um usuário selecionou uma senha e que a senha chegou com sucesso ao ambiente local, mas, quando tentamos definir a senha no ambiente do AD local, ocorreu uma falha. Isso pode ocorrer por diversos motivos:</p>
               <ul>
                 <li class="unordered">
-The user’s password does not meet the age, history, complexity, or filter requirements for the domain. Try a completely new password to resolve this.<br\><br\></li>
+										A senha do usuário não atende aos requisitos de idade, histórico, complexidade ou de filtragem para o domínio. Tente uma senha totalmente nova para resolver esse problema.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-The MA service account does not have the appropriate permissions to set the new password on the user account in question.<br\><br\></li>
+										A conta de serviço MA não tem as permissões apropriadas para definir a nova senha da conta de usuário em questão.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br\><br\></li>
+										A conta do usuário está em um grupo protegido, como administradores corporativos ou de domínio, que não permite operações de conjunto de senha.<br\><br\></li>
               </ul>
-              <p>See <a href="#troubleshoot-password-writeback">Troubleshoot Password Writeback</a> to learn more about what other situtions can cause this error.</p>
+              <p>Confira <a href="#troubleshoot-password-writeback">Solucionar problemas de write-back de senha</a> para saber mais sobre outros situações que podem causar esse erro.</p>
             </td>
           </tr>
           <tr>
@@ -800,7 +799,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event occurs if you enable Password Writeback with Azure AD Connect and indicates that we started onboarding your organization to the Password Writeback web service.</p>
+              <p>Esse evento ocorre se você habilitar o write-back de senha com o Azure AD Connect e indica que começamos a integração de sua organização para o serviço Web de write-back de senha.</p>
             </td>
           </tr>
           <tr>
@@ -814,7 +813,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates the onboarding process was successful and that Password Writeback capability is ready to use.</p>
+              <p>Esse evento indica que o processo de integração foi bem-sucedido e que o recurso de write-back de senha está pronto para uso.</p>
             </td>
           </tr>
           <tr>
@@ -828,7 +827,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that the on-premises service detected a password change request for a federated or password hash sync’d user originating from the cloud. This event is the first event in every password change writeback operation.</p>
+              <p>Esse evento indica que o serviço local detectou uma solicitação de alteração de senha para usuário federado ou com senha de sincronização de hash vinda da nuvem. Esse evento é o primeiro evento em cada operação de write-back de alteração de senha.</p>
             </td>
           </tr>
           <tr>
@@ -842,7 +841,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that a user selected a new password during a password change operation, we determined that this password meets corporate password requirements, and that password has been successfully written back to the local AD environment.</p>
+              <p>Esse evento indica que o usuário selecionou uma nova senha durante uma operação de alteração de senha; determinamos que essa senha atende aos requisitos de senha corporativa e essa senha foi gravada com êxito no ambiente AD local.</p>
             </td>
           </tr>
           <tr>
@@ -856,20 +855,20 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that a user selected a password, and that password arrived successfully to the on-premises environment, but when we attempted to set the password in the local AD environment, a failure occurred. This can happen for several reasons:</p>
+              <p>Esse evento indica que um usuário selecionou uma senha e que a senha chegou com sucesso ao ambiente local, mas, quando tentamos definir a senha no ambiente do AD local, ocorreu uma falha. Isso pode ocorrer por diversos motivos:</p>
               <ul>
                 <li class="unordered">
-The user’s password does not meet the age, history, complexity, or filter requirements for the domain. Try a completely new password to resolve this.<br\><br\></li>
+										A senha do usuário não atende aos requisitos de idade, histórico, complexidade ou de filtragem para o domínio. Tente uma senha totalmente nova para resolver esse problema.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-The MA service account does not have the appropriate permissions to set the new password on the user account in question.<br\><br\></li>
+										A conta de serviço MA não tem as permissões apropriadas para definir a nova senha da conta de usuário em questão.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br\><br\></li>
+										A conta do usuário está em um grupo protegido, como administradores corporativos ou de domínio, que não permite operações de conjunto de senha.<br\><br\></li>
               </ul>
-              <p>See <a href="#troubleshoot-password-writeback">Troubleshoot Password Writeback</a> to learn more about what other situations can cause this error.</p>
+              <p>Confira <a href="#troubleshoot-password-writeback">Solucionar problemas de write-back de senha</a> para saber mais sobre outras situações que podem causar esse erro.</p>
             </td>
           </tr>
           <tr>
@@ -883,7 +882,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>The on-premises service detected a password reset request for a federated or password hash sync’d user originating from the administrator on behalf of a user. This event is the first event in every admin-initiated password reset writeback operation.</p>
+              <p>O serviço local detectou uma solicitação de redefinição de senha para um usuário federado ou com senha de sincronização de hash vinda do administrador em nome do usuário. Esse evento é o primeiro evento em cada operação de write-back de redefinição de senha iniciada pelo administrador.</p>
             </td>
           </tr>
           <tr>
@@ -897,7 +896,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>The admin selected a new password during an admin-initiated password reset operation, we determined that this password meets corporate password requirements, and that password has been successfully written back to the local AD environment.</p>
+              <p>O administrador selecionou uma nova senha durante uma operação de redefinição de senha; determinamos que essa senha atende aos requisitos de senha corporativa e essa senha foi gravada com êxito no ambiente AD local.</p>
             </td>
           </tr>
           <tr>
@@ -911,20 +910,20 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>The admin selected a password on behalf of a user, and that password arrived successfully to the on-premises environment, but when we attempted to set the password in the local AD environment, a failure occurred. This can happen for several reasons:</p>
+              <p>O administrador selecionou uma senha em nome de um usuário e a senha chegou com sucesso no ambiente local, mas, quando tentamos definir a senha no ambiente do AD local, ocorreu uma falha. Isso pode ocorrer por diversos motivos:</p>
               <ul>
                 <li class="unordered">
-The user’s password does not meet the age, history, complexity, or filter requirements for the domain. Try a completely new password to resolve this.<br\><br\></li>
+										A senha do usuário não atende aos requisitos de idade, histórico, complexidade ou de filtragem para o domínio. Tente uma senha totalmente nova para resolver esse problema.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-The MA service account does not have the appropriate permissions to set the new password on the user account in question.<br\><br\></li>
+										A conta de serviço MA não tem as permissões apropriadas para definir a nova senha da conta de usuário em questão.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-The user’s account is in a protected group, such as domain or enterprise admins, which disallows password set operations.<br\><br\></li>
+										A conta do usuário está em um grupo protegido, como administradores corporativos ou de domínio, que não permite operações de conjunto de senha.<br\><br\></li>
               </ul>
-              <p>See <a href="#troubleshoot-password-writeback">Troubleshoot Password Writeback</a> to learn more about what other situtions can cause this error.</p>
+              <p>Confira <a href="#troubleshoot-password-writeback">Solucionar problemas de write-back de senha</a> para saber mais sobre outros situações que podem causar esse erro.</p>
             </td>
           </tr>
           <tr>
@@ -938,7 +937,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event occurs if you disable Password Writeback with Azure AD Connect and indicates that we started offboarding your organization to the Password Writeback web service.</p>
+              <p>Esse evento ocorre se você desabilitar o write-back de senha com o Azure AD Connect e indica que começamos a desvinculação de sua organização do serviço Web de write-back de senha.</p>
             </td>
           </tr>
           <tr>
@@ -952,7 +951,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates the offboarding process was successful and that Password Writeback capability has been successfully disabled.</p>
+              <p>Esse evento indica que o processo de integração foi bem-sucedido e que o recurso de write-back de senha foi desabilitado com êxito.</p>
             </td>
           </tr>
           <tr>
@@ -966,7 +965,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates the offboarding process was not successful. This could be due to a permissions error on the cloud or on-premises administrator account specified during configuration, or because you are attempting to use a federated cloud global administrator when disabling Password Writeback. To fix this, check your administrative permissions and that you are not using any federated account while configuring the Password Writeback capability.</p>
+              <p>Esse evento indica que o processo de desvinculação não foi bem-sucedido. Isso pode ser devido a um erro de permissões da conta de administrador em nuvem ou no local especificada durante a configuração, ou porque você está tentando usar um administrador global de nuvem federado ao desabilitar o write-back de senha. Para corrigir esse problema, verifique as suas permissões administrativas e se não está usando uma conta federada ao configurar o recurso de write-back de senha.</p>
             </td>
           </tr>
           <tr>
@@ -980,7 +979,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that the Password Writeback service has started successfully and is ready to accept password management requests from the cloud.</p>
+              <p>Esse evento indica que o serviço de write-back de senha foi iniciado com êxito e está pronto para aceitar solicitações de gerenciamento de senha da nuvem.</p>
             </td>
           </tr>
           <tr>
@@ -994,7 +993,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that the Password Writeback service has stopped and that any password management requests from the cloud will not be successful.</p>
+              <p>Esse evento indica que o serviço de write-back de senha foi interrompido e as solicitações de gerenciamento de senha da nuvem não serão bem-sucedidas.</p>
             </td>
           </tr>
           <tr>
@@ -1008,7 +1007,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that we successfully retrieved an authorization token for the global admin specified during Azure AD Connect setup in order to start the offboarding or onboarding process.</p>
+              <p>Esse evento indica que recuperamos com êxito um token de autorização para o administrador global especificado durante a instalação do Azure AD Connect para iniciar o processo de desvinculação ou de integração.</p>
             </td>
           </tr>
           <tr>
@@ -1022,7 +1021,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that we successfully created the password encryption key that will be used to encrypt passwords from the cloud to be sent to your on-premises environment.</p>
+              <p>Esse evento indica que criamos com êxito a chave de criptografia de senha que será usada para criptografar senhas da nuvem que serão enviadas ao seu ambiente local.</p>
             </td>
           </tr>
           <tr>
@@ -1036,7 +1035,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates an unknown error during a password management operation. Look at the exception text in the event for more details. If you are having problems, try disabling and re-enabling Password Writeback. If this does not help, include a copy of your event log along with the tracking id specified insider to your support engineer.</p>
+              <p>Esse evento indica um erro desconhecido durante uma operação de gerenciamento de senha. Examine o texto da exceção no evento para obter mais detalhes. Se você estiver tendo problemas, tente desabilitar e reabilitar o write-back de senha. Se isso não ajudar, inclua uma cópia do seu log de eventos com a id de acompanhamento especificada internamente ao seu engenheiro de suporte.</p>
             </td>
           </tr>
           <tr>
@@ -1050,7 +1049,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates there was an error connecting to the cloud password reset service, and generally occurs when the on-premises service was unable to connect to the password reset web service. </p>
+              <p>Esse evento indica que houve um erro ao conectar ao serviço de redefinição de senha na nuvem e isso geralmente ocorre quando o serviço local não pôde se conectar ao serviço Web de redefinição de senha. </p>
             </td>
           </tr>
           <tr>
@@ -1064,7 +1063,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates there was an error connecting to your tenant’s service bus instance. This could happen because you are blocking outbound connections in your on-premises environment. Check your firewall to ensure you allow connections over TCP 443 and to <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, and try again. If you are still having problems, try disabling and re-enabling Password Writeback.</p>
+              <p>Esse evento indica que houve um erro ao conectar-se a instância do barramento de serviço do seu locatário. Isso pode acontecer porque você está bloqueando as conexões de saída no seu ambiente local. Verifique o seu firewall para que permita conexões sobre TCP 443 e para <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, e tente novamente. Se você ainda estiver tendo problemas, tente desabilitar e reabilitar o write-back de senha.</p>
             </td>
           </tr>
           <tr>
@@ -1078,7 +1077,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that the input passed to our web service API was invalid. Try the operation again.</p>
+              <p>Esse evento indica que a entrada passada para a API do nosso serviço Web era inválida. Tente a operação novamente.</p>
             </td>
           </tr>
           <tr>
@@ -1092,7 +1091,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that there was an error decrypting the password that arrived from the cloud. This could be because of a decryption key mismatch between the cloud service and your on-premises environment. In order to resolve this, disable and re-enable Password Writeback in your on-premises environment.</p>
+              <p>Esse evento indica que houve um erro ao descriptografar a senha que chegou da nuvem. Isso pode ser devido a uma falta de correspondência de chave de descriptografia entre o serviço de nuvem e o ambiente local. Para resolver esse problema, desabilite e habilite novamente o write-back de senha em seu ambiente local.</p>
             </td>
           </tr>
           <tr>
@@ -1106,7 +1105,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>During onboarding, we save tenant-specific information in a configuration file in your on-premises environment. This event indicates there was an error saving this file or that when the service was started there was an error reading the file. To fix this issue, try disabling and re-enabling Password Writeback to force a re-write of this configuration file. </p>
+              <p>Durante a migração, nós salvamos informações específicas de locatário em um arquivo de configuração no seu ambiente local. Esse evento indica que houve um erro ao salvar esse arquivo ou que, quando o serviço foi iniciado, havia erro na leitura do arquivo. Para corrigir esse problema, tente desabilitar e reabilitar o write-back de senha para forçar a regravação desse arquivo de configuração. </p>
             </td>
           </tr>
           <tr>
@@ -1120,7 +1119,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>DEPRECATED – This event is not present in Azure AD Connect, only very early builds of DirSync which supported writeback.</p>
+              <p>PRETERIDO – Esse evento não está presente no Azure AD Connect, somente em compilações antigas do DirSync que davam suporte ao write-back.</p>
             </td>
           </tr>
           <tr>
@@ -1134,7 +1133,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>During onboarding, we send data from the cloud to the on-premises password reset service. That data is then written to an in-memory file before being sent to the sync service to store this information securely on disk. This event indicates a problem with writing or updating that data in memory. To fix this issue, try disabling and re-enabling Password Writeback to force a re-write of this configuration.</p>
+              <p>Durante a migração, podemos enviar dados da nuvem para o serviço de redefinição de senha local. Esses dados são gravados em um arquivo na memória antes de serem enviados ao serviço de sincronização para armazená-los com segurança no disco. Esse evento indica um problema com a gravação ou a atualização dos dados na memória. Para corrigir esse problema, tente desabilitar e reabilitar o write-back de senha para forçar a regravação dessa configuração.</p>
             </td>
           </tr>
           <tr>
@@ -1148,7 +1147,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates we received an invalid response from the password reset web service. To fix this issue, try disabling and re-enabling Password Writeback.</p>
+              <p>Esse evento indica que recebemos uma resposta inválida do serviço Web de redefinição de senha. Para corrigir esse problema, tente desabilitar e reabilitar o write-back de senha.</p>
             </td>
           </tr>
           <tr>
@@ -1162,7 +1161,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that we could not get an authorization token for the global administrator account specified during Azure AD Connect setup. This error can be caused by a bad username or password specified for the global admin account or because the global admin account specified is federated. To fix this issue, re-run configuration with the correct username and password and ensure the administrator is a managed (cloud-only or password-sync’d) account.</p>
+              <p>Esse evento indica que não conseguimos obter um token de autorização para a conta de administrador global especificada durante a instalação do Azure AD Connect. Esse erro pode ser causado por um nome de usuário ou senha inválidos especificados para a conta de administrador global ou porque a conta de administrador global especificada é federada. Para corrigir esse problema, execute novamente a configuração com o nome de usuário e senha corretos e verifique se o administrador é uma conta gerenciada (somente em nuvem ou sincronização de senha).</p>
             </td>
           </tr>
           <tr>
@@ -1176,7 +1175,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates there was an error when generating the password encryption key or decrypting a password that arrives from the cloud service. This error likely indicates an issue with your environment. Look at the details of your event log to learn more and resolve this issue. You may also try disabling and re-enabling the Password Writeback service to resolve this.</p>
+              <p>Esse evento indica que houve um erro ao gerar a chave de criptografia de senha ou ao descriptografar uma senha que chegou do serviço de nuvem. Esse erro provavelmente indica um problema com o seu ambiente. Examine os detalhes de seu log de eventos para saber mais e resolver esse problema. Você também pode tentar desabilitar e reabilitar o serviço de write-back de senha para resolver o problema.</p>
             </td>
           </tr>
           <tr>
@@ -1190,7 +1189,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that the on-premises service could not properly communicate with the password reset web service to initiate the onboarding process. This may be because of a firewall rule or problem getting an auth token for your tenant. To fix this, ensure that you are not blocking outbound connections over TCP 443 and TCP 9350-9354 or to <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, and that the AAD admin account you are using to onboard is not federated. </p>
+              <p>Esse evento indica que o serviço local não pôde se comunicar corretamente com o serviço Web de redefinição de senha para iniciar o processo de integração. Isso pode ser devido a uma regra de firewall ou a um problema na obtenção de um token de autenticação para o seu locatário. Para corrigir esse problema, verifique se você não está bloqueando as conexões de saída sobre TCP 443 e TCP 9350 9354 ou para <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, e que a conta de administrador AAD que você está usando para a integração não é federada. </p>
             </td>
           </tr>
           <tr>
@@ -1204,7 +1203,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>DEPRECATED – This event is not present in Azure AD Connect, only very early builds of DirSync which supported writeback.</p>
+              <p>PRETERIDO – Esse evento não está presente no Azure AD Connect, somente em compilações antigas do DirSync que davam suporte ao write-back.</p>
             </td>
           </tr>
           <tr>
@@ -1218,7 +1217,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that the on-premises service could not properly communicate with the password reset web service to initiate the offboarding process. This may be because of a firewall rule or problem getting an authorization token for your tenant. To fix this, ensure that you are not blocking outbound connections over 443 or to <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, and that the AAD admin account you are using to offboard is not federated. </p>
+              <p>Esse evento indica que o serviço local não pôde se comunicar corretamente com o serviço Web de redefinição de senha para iniciar o processo de desvinculação. Isso pode ser devido a uma regra de firewall ou a um problema na obtenção de um token de autorização para o seu locatário. Para corrigir esse problema, verifique se você não está bloqueando as conexões de saída para 443 ou para <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, e que a conta de administrador AAD que você está usando para a integração não é federada. </p>
             </td>
           </tr>
           <tr>
@@ -1232,7 +1231,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that we had to retry to connect to your tenant’s service bus instance. Under normal conditions, this should not be a concern, but if you see this event many times, consider checking your network connection to service bus, especially if it’s a high latency or low-bandwidth connection.</p>
+              <p>Esse evento indica que tivemos que tentar novamente nos conectar à instância de barramento de serviço do locatário. Em condições normais, isso deve não ser uma preocupação, mas se você vir esse evento muitas vezes, considere verificar a sua conexão de rede para o barramento de serviço, especialmente se for uma conexão de largura de banda baixa ou de alta latência.</p>
             </td>
           </tr>
           <tr>
@@ -1246,7 +1245,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>In order to monitor the health of your Password Writeback service, we send heartbeat data to our password reset web service every 5 minutes. This event indicates that there was an error when sending this health information back to the cloud web service. This health information does not include an OII or PII data, and is purely a heartbeat and basic service statistics so that we can provide service status information in the cloud.</p>
+              <p>Para monitorar a integridade do seu serviço de write-back de senha, podemos enviar dados de pulsação para o nosso serviço Web de redefinição de senha a cada cinco minutos. Esse evento indica que houve um erro ao enviar essas informações de integridade para o serviço Web em nuvem. Essas informações de integridade não incluem dados OII ou PII e é essencialmente uma pulsação e estatísticas básicas de serviço para que possamos fornecer informações de status do serviço na nuvem.</p>
             </td>
           </tr>
           <tr>
@@ -1260,7 +1259,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that there was an unknown error returned by AD, check the Azure AD Connect server event log for events from the ADSync source for more information about this error.</p>
+              <p>Esse evento indica que foi retornado um erro desconhecido pelo AD; verifique no log de eventos do servidor Azure AD Connect eventos da fonte ADSync para saber mais sobre esse erro.</p>
             </td>
           </tr>
           <tr>
@@ -1274,7 +1273,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that the user who is trying to reset or change a password was not found in the on-premises directory. This could occur when the user has been deleted on-premises but not in the cloud, or if there is an issue with sync. Check your sync logs, as well as the last few sync run details for more information.</p>
+              <p>Esse evento indica que o usuário que está tentando redefinir ou alterar uma senha não foi encontrado no diretório local. Isso pode ocorrer quando o usuário foi excluído no local, mas não na nuvem, ou se houver um problema com a sincronização. Verifique os logs de sincronização, bem como os detalhes das últimas sincronizações para saber mais.</p>
             </td>
           </tr>
           <tr>
@@ -1288,7 +1287,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>When a password reset or change request originates from the cloud, we use the cloud anchor specified during the setup process of Azure AD Connect to determine how to link that request back to a user in your on-premises environment. This event indicates that we found two users in your on-premises directory with the same cloud anchor attribute. Check your sync logs, as well as the last few sync run details for more information.</p>
+              <p>Quando uma solicitação de redefinição ou de alteração de senha são provenientes da nuvem, usamos a âncora de nuvem especificada durante a instalação do Azure AD Connect para determinar como vincular essa solicitação a um usuário no seu ambiente local. Esse evento indica que encontramos dois usuários em seu diretório local com o mesmo atributo de âncora de nuvem. Verifique os logs de sincronização, bem como os detalhes das últimas sincronizações para saber mais.</p>
             </td>
           </tr>
           <tr>
@@ -1302,7 +1301,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that the Management Agent service account does not have the appropriate permissions on the account in question to set a new password. Ensure that the MA account in the user’s forest has Reset and Change password permissions on all objects in the forest.  For more information on how do to this, see <a href="active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions">Step 4: Set up the appropriate Active Directory permissions</a>.</p>
+              <p>Esse evento indica que a conta de serviço do Agente de Gerenciamento não tem as permissões apropriadas na conta em questão para definir uma nova senha. Verifique se a conta MA na floresta do usuário tem permissões para Redefinir e Alterar senha em todos os objetos na floresta. Para saber mais sobre como fazer isso, confira <a href="active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions">Etapa 4: configurar as permissões apropriadas do Active Directory</a>.</p>
             </td>
           </tr>
           <tr>
@@ -1316,7 +1315,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that we attempted to reset or change a password for an account that was disabled on premises. Enable the account and try the operation again.</p>
+              <p>Esse evento indica que tentamos redefinir ou alterar uma senha de uma conta que foi desabilitada no local. Habilite a conta e tente a operação novamente.</p>
             </td>
           </tr>
           <tr>
@@ -1330,7 +1329,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Event indicates that we attempted to reset or change a password for an account that was locked out on premises. Lockouts can occur when a user has tried a change or reset password operation too many times in a short period. Unlock the account and try the operation again.</p>
+              <p>Esse evento indica que tentamos redefinir ou alterar uma senha de uma conta que foi bloqueada no local. Bloqueios podem ocorrer quando um usuário tiver tentado alterar ou redefinir a senha muitas vezes em um curto período de tempo. Desbloqueie a conta e tente a operação novamente.</p>
             </td>
           </tr>
           <tr>
@@ -1344,7 +1343,7 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates that the user specified an incorrect current password when performing a password change operation. Specify the correct current password and try again.</p>
+              <p>Esse evento indica que o usuário especificou uma senha atual incorreta durante a operação de alteração de senha. Especifique a senha atual correta e tente novamente.</p>
             </td>
           </tr>
           <tr>
@@ -1358,22 +1357,22 @@ The user’s account is in a protected group, such as domain or enterprise admin
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event occurs when the Password Writeback service attempts to set a password on your local directory which does not meet the password age, history, complexity, or filtering requirements of the domain.</p>
+              <p>Esse evento ocorre quando o serviço de write-back de senha tenta definir uma senha em seu diretório local que não atende à idade, ao histórico, à complexidade da senha ou a requisitos de filtragem do domínio.</p>
               <ul>
                 <li class="unordered">
-If you have a minimum password age, and have recently changed the password within that window of time, you will not be able to change the password again until it reaches the specified age in your domain. For testing purposes, minimum age should be set to 0.<br\><br\></li>
+										Se você tiver um tempo de vida mínimo da senha e tiver alterado recentemente a senha dentro desse intervalo de tempo, não poderá alterar a senha novamente até atingir a data especificada em seu domínio. Para fins de teste, a idade mínima deve ser definida como 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-If you have password history requirements enabled, then you must select a password that has not been used in the last N times, where N is the password history setting. If you do select a password that has been used in the last N times, then you will see a failure in this case. For testing purposes, history should be set to 0.<br\><br\></li>
+										Se você tiver requisitos de histórico de senha habilitados, deve selecionar uma senha que não foi usada nas últimas X vezes, onde X é a configuração de histórico de senha. Se você selecionar uma senha que foi usada nas últimas X vezes, você verá uma falha. Para fins de teste, o histórico deve ser definido como 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-If you have password complexity requirements, all of them will be enforced when the user attempts to change or reset a password.<br\><br\></li>
+										Se você tiver requisitos de complexidade de senha, todos eles serão aplicados quando o usuário tentar alterar ou redefinir uma senha.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-If you have password filters enabled, and a user selects a password which does not meet the filtering criteria, then the reset or change operation will fail.<br\><br\></li>
+										Se você tiver filtros de senha ativados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -1388,7 +1387,7 @@ If you have password filters enabled, and a user selects a password which does n
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>This event indicates there was an issue writing a password back to your on-premises directory due to a configuration issue with Active Directory. Check the Azure AD Connect machine’s Application event log for messages from the ADSync service for more information on what error occurred. </p>
+              <p>Esse evento indica que houve um problema na gravação de senha no seu diretório local devido a um problema de configuração com o Active Directory. Verifique as mensagens do serviço ADSync no log de eventos de aplicativo do Azure AD Connect do computador para saber mais sobre o erro. </p>
             </td>
           </tr>
           <tr>
@@ -1402,7 +1401,7 @@ If you have password filters enabled, and a user selects a password which does n
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>DEPRECATED – This event is not present in Azure AD Connect, only very early builds of DirSync which supported writeback.</p>
+              <p>PRETERIDO – Esse evento não está presente no Azure AD Connect, somente em compilações antigas do DirSync que davam suporte ao write-back.</p>
             </td>
           </tr>
           <tr>
@@ -1416,7 +1415,7 @@ If you have password filters enabled, and a user selects a password which does n
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>DEPRECATED – This event is not present in Azure AD Connect, only very early builds of DirSync which supported writeback.</p>
+              <p>PRETERIDO – Esse evento não está presente no Azure AD Connect, somente em compilações antigas do DirSync que davam suporte ao write-back.</p>
             </td>
           </tr>
           <tr>
@@ -1430,87 +1429,84 @@ If you have password filters enabled, and a user selects a password which does n
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>DEPRECATED – This event is not present in Azure AD Connect, only very early builds of DirSync which supported writeback.</p>
+              <p>PRETERIDO – Esse evento não está presente no Azure AD Connect, somente em compilações antigas do DirSync que davam suporte ao write-back.</p>
             </td>
           </tr>
         </tbody></table>
 
-## <a name="troubleshoot-password-writeback-connectivity"></a>Troubleshoot Password Writeback connectivity
+## Solucionar problemas de conectividade de write-back de senha
 
-If you are experiencing service interruptions with the Password Writeback component of Azure AD Connect, here are some quick steps you can take to resolve this:
+Se você estiver enfrentando interrupções de serviço com o componente de write-back de senha do Azure AD Connect, abaixo estão algumas etapas rápidas que você pode seguir para resolver esse problema:
 
- - [Restart the Azure AD Connect Sync Service](#restart-the-azure-AD-Connect-sync-service)
- - [Disable and re-enable the Password Writeback feature](#disable-and-re-enable-the-password-writeback-feature)
- - [Install the latest Azure AD Connect release](#install-the-latest-azure-ad-connect-release)
- - [Troubleshoot Password Writeback](#troubleshoot-password-writeback)
+ - [Reiniciar o serviço de sincronização do Azure AD Connect](#restart-the-azure-AD-Connect-sync-service)
+ - [Desabilitar e reabilitar o recurso de write-back de senha](#disable-and-re-enable-the-password-writeback-feature)
+ - [Instalar a versão mais recente do Azure AD Connect](#install-the-latest-azure-ad-connect-release)
+ - [Solucionar problemas de write-back de senha](#troubleshoot-password-writeback)
 
-In general, we recommend that you execute these steps in the order above in order to recover your service in the most rapid manner.
+Em geral, recomendamos que você execute essas etapas na ordem acima para recuperar o serviço da maneira mais rápida.
 
-### <a name="restart-the-azure-ad-connect-sync-service"></a>Restart the Azure AD Connect Sync Service
-Restarting the Azure AD Connect Sync Service can help to resolve connectivity issues or other transient issues with the service.
+### Reiniciar o serviço de sincronização do Azure AD Connect
+A reinicialização do serviço de sincronização do Azure AD Connect pode ajudar a resolver problemas de conectividade ou outros problemas temporários com o serviço.
 
- 1. As an administrator, click **Start** on the server running **Azure AD Connect**.
- 2. Type **“services.msc”** in the search box and press **Enter**.
- 3. Look for the **Microsoft Azure AD Connect** entry.
- 4. Right-click on the service entry, click **Restart**, and wait for the operation to complete.
+ 1.	Como administrador, clique em **Iniciar** no servidor que executa o **Azure AD Connect**.
+ 2.	Digite **"Services.msc"** na caixa de pesquisa e pressione **Enter**.
+ 3.	Procure a entrada do **Microsoft Azure AD Connect**.
+ 4.	Com o botão direito do mouse na entrada do serviço, clique em **Reiniciar** e aguarde a conclusão da operação.
 
     ![][002]
 
-These steps will re-establish your connection with the cloud service and resolve any interruptions you may be experiencing.  If restarting the Sync Service does not resolve your issue, we recommend that you try to disable and re-enable the Password Writeback feature as a next step.
+Essas etapas irão restabelecer a conexão com o serviço em nuvem e resolver qualquer interrupção que você esteja enfrentando. Se a reinicialização do serviço de sincronização não resolver o seu problema, recomendamos que você tente desabilitar e reabilitar o recurso de write-back de senha como uma próxima etapa.
 
-### <a name="disable-and-re-enable-the-password-writeback-feature"></a>Disable and re-enable the Password Writeback feature
-Disabling and re-enabling the Password Writeback feature can help to resolve connectivity issues.
+### Desabilitar e reabilitar o recurso de write-back de senha
+Desabilitar e reabilitar o recurso de write-back de senha podem ajudar a resolver problemas de conectividade.
 
- 1. As an administrator, open the **Azure AD Connect configuration wizard**.
- 2. On the **Connect to Azure AD** dialog, enter your **Azure AD global admin credentials**
- 3. On the **Connect to AD DS** dialog, enter your **AD Domain Services admin credentials**.
- 4. On the **Uniquely identifying your users** dialog, click the **Next** button.
- 5. On the **Optional features** dialog, uncheck the **Password write-back** checkbox.
+ 1.	Como administrador, abra o **Assistente de configuração do Azure AD Connect**.
+ 2.	No diálogo **Conectar ao Azure AD**, insira suas **credenciais de administrador global do Azure AD**
+ 3.	No diálogo **Conectar-se ao AD DS**, insira suas **credenciais de administrador de serviços de domínio do AD**.
+ 4.	No diálogo **Identificar exclusivamente os seus usuários**, clique no botão **Próximo**.
+ 5.	No diálogo **Recursos opcionais**, desmarque a caixa de seleção **Write-back de senha**.
 
     ![][003]
 
- 6. Click **Next** through the remaining dialog pages without changing anything until you get to the **Ready to configure** page.
- 7. Ensure that the configure page shows the **Password write-back option as disabled** and then click the green **Configure** button to commit your changes.
- 8. On the **Finished** dialog, deselect the **Synchronize now** option, and then click **Finish** to close the wizard.
- 9. Re-open the **Azure AD Connect configuration wizard**.
- 10.    **Repeat steps 2-8**, except ensure you **check the Password write-back option** on the **Optional features** screen to re-enable the service.
+ 6.	Clique em **Próximo** nas páginas de diálogo restantes sem alterar nada até chegar à página **Pronto para configurar**.
+ 7.	Verifique se a página de configuração mostra a **Opção de write-back de senha como desabilitada** e clique no botão verde **Configurar** para confirmar as suas alterações.
+ 8.	No diálogo **Concluído**, desmarque a opção **Sincronizar agora** e clique em **Concluir** para fechar o assistente.
+ 9.	Abra novamente o **Assistente de configuração do Azure AD Connect**.
+ 10.	**Repita as etapas de 2 a 8**, mas confirme que você **marcou a opção de write-back de senha** na tela **Recursos opcionais** para reabilitar o serviço.
 
     ![][004]
 
-These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing.
+Essas etapas irão restabelecer a conexão com o serviço em nuvem e resolver qualquer interrupção que você esteja enfrentando.
 
-If disabling and re-enabling the Password Writeback feature does not resolve your issue, we recommend that you try to re-install Azure AD Connect as a next step.
+Se desabilitar e reabilitar o recurso de write-back de senha não resolver o seu problema, recomendamos que você tente instalar novamente o Azure AD Connect como uma próxima etapa.
 
-### <a name="install-the-latest-azure-ad-connect-release"></a>Install the latest Azure AD Connect release
-Re-installing the Azure AD Connect package will resolve any configuration issues which may be affecting your ability to either connect to our cloud services or to manage passwords in your local AD environment.
-We recommend, you perform this step only after attempting the first two steps described above.
+### Instalar a versão mais recente do Azure AD Connect
+A reinstalação do pacote do Azure AD Connect resolverá qualquer problema de configuração que possa estar afetando a sua capacidade de se conectar aos nossos serviços em nuvem ou de gerenciar senhas em seu ambiente AD local. Recomendamos que você execute esta etapa somente após tentar as duas primeiras etapas descritas acima.
 
- 1. Download the latest version of Azure AD Connect [here](active-directory-aadconnect.md#install-azure-ad-connect).
- 2. Since you have already installed Azure AD Connect, you will only need to perform an in-place upgrade to update your Azure AD Connect installation to the latest version.
- 3. Execute the downloaded package and follow the on-screen instructions to update your Azure AD Connect machine.  No additional manual steps are required unless you have customized the out of box sync rules, in which case you should **back these up before proceeding with upgrade and manually re-deploy them after you are finished**.
+ 1.	Baixe a versão mais recente do Azure AD Connect [aqui](active-directory-aadconnect.md#install-azure-ad-connect).
+ 2.	Uma vez que você já tenha instalado o Azure AD Connect, só precisará realizar uma atualização in-loco para atualizar sua instalação do Azure AD na versão mais recente.
+ 3.	Execute o pacote baixado e siga as instruções na tela para atualizar o computador do Azure AD Connect. Não há etapas manuais adicionais necessárias, a menos que você tenha personalizado as regras para sincronização fora da caixa; nesse caso, você deve **fazer o backup antes de prosseguir com a atualização e reimplantá-lo novamente depois de terminar**.
 
-These steps will re-establish your connection with our cloud service and resolve any interruptions you may be experiencing.
+Essas etapas irão restabelecer a conexão com o serviço em nuvem e resolver qualquer interrupção que você esteja enfrentando.
 
-If installing the latest version of the Azure AD Connect server does not resolve your issue, we recommend that you try disabling and re-enabling Password Writeback as a final step after installing the latest sync QFE.
+Se a instalação da versão mais recente do servidor Azure AD Connect não resolver o seu problema, recomendamos que você tente desabilitar e reabilitar o write-back de senha como uma etapa final depois de instalar a QFE de sincronização mais recente.
 
-If that does not resolve your issue, then we recommend that you take a look at [Troubleshoot Password Writeback](#troubleshoot-password-writeback) and the [Azure AD password Management FAQ](active-directory-passwords-faq.md) to see if your issue may be discussed there.
+Se isso não resolver o problema, recomendamos que você dê uma olhada em [Solucionar problemas de write-back de senha](#troubleshoot-password-writeback) e [Perguntas frequentes sobre o gerenciamento de senhas do Azure AD](active-directory-passwords-faq.md) para ver se o problema pode ter sido discutido ali.
 
 
-<br/>
-<br/>
-<br/>
+<br/> <br/> <br/>
 
-## <a name="links-to-password-reset-documentation"></a>Links to password reset documentation
-Below are links to all of the Azure AD Password Reset documentation pages:
+## Links para a documentação de redefinição de senha
+Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
-* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
-* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
-* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
-* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
-* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
-* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
-* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+* [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
+* [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
+* [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
+* [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
+* [**Obter percepções**](active-directory-passwords-get-insights.md) - saiba mais sobre nossos recursos integrados de relatórios
+* [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
+* [**Saiba mais**](active-directory-passwords-learn-more.md) - aprofunde-se nos detalhes técnicos do funcionamento do serviço
 
 
 
@@ -1519,8 +1515,4 @@ Below are links to all of the Azure AD Password Reset documentation pages:
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

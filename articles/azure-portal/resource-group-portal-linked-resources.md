@@ -1,42 +1,37 @@
 <properties 
-    pageTitle="Related and linked resources in the tile gallery" 
-    description="Learn about related and linked resources that are displayed in the tile gallery of the Azure preview portal." 
-    services="azure-portal" 
-    documentationCenter="" 
-    authors="adamabdelhamed" 
-    manager="wpickett" 
-    editor=""/>
+	pageTitle="Recursos vinculados e relacionados na galeria de blocos" 
+	description="Saiba mais sobre recursos relacionados e vinculados que são exibidos na galeria de blocos do portal de visualização do Azure." 
+	services="azure-portal" 
+	documentationCenter="" 
+	authors="adamabdelhamed" 
+	manager="wpickett" 
+	editor=""/>
 
 <tags 
-    ms.service="azure-portal" 
-    ms.workload="multiple" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/16/2015" 
-    ms.author="adamab"/>
+	ms.service="azure-portal" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/16/2015" 
+	ms.author="adamab"/>
 
+# Recursos vinculados e relacionados na galeria de blocos
 
-# <a name="related-and-linked-resources-in-the-tile-gallery"></a>Related and linked resources in the tile gallery
+A galeria de blocos permite que você encontre blocos para um determinado recurso e arraste-os para sua folha atual. Usando a galeria de blocos, você pode criar exibições de gerenciamento que abrangem os recursos. Para qualquer recurso especificado, os recursos relacionados incluem todos os recursos que compartilham o mesmo grupo de recursos que o recurso e todos os recursos vinculados para ou por meio do recurso.
 
-The tile gallery enables you to find tiles for a particular resource and drag them onto your current blade. Using the tile gallery, you can create management views that span resources. For any specified resource, the related resources include all of the resources that share the same resource group as the resource, and any resources that link to or from the resource.
+## Recursos vinculados no Gerenciador de Recursos do Azure
 
-## <a name="linked-resources-in-azure-resource-manager"></a>Linked resources in Azure Resource Manager
+A vinculação é um recurso do Gerenciador de Recursos do Azure. Ela permite que você declare relações entre recursos mesmo se eles não residirem no mesmo grupo de recursos. A vinculação não tem impacto sobre o tempo de execução de seus recursos, sem afetar a cobrança e sem afetar o acesso baseado em função. Ela é simplesmente um mecanismo que você pode usar para representar as relações para que as ferramentas, como a galeria de blocos, possam fornecer uma experiência de gerenciamento avançada. As ferramentas podem inspecionar os links usando a API de links e fornecer experiências de gerenciamento de relacionamento personalizadas também.
 
-Linking is a feature of the Azure Resource Manager.  It enables you to declare relationships between resources even if they do not reside in the same resource group. Linking has no impact on the runtime of your resources, no impact on billing, and no impact on role-based access.  It's simply a mechanism you can use to represent relationships so that tools like the tile gallery can provide a rich management experience.  Your tools can inspect the links using the links API and provide custom relationship management experiences as well. 
+## Como vinculo meus recursos?
 
-## <a name="how-do-i-link-my-resources?"></a>How do I link my resources?
+Quando você criar recursos por meio do portal ou implantando um modelo por meio do Azure PowerShell ou CLI do Azure, os links são criados automaticamente para alguns recursos dependentes. Você também pode vincular programaticamente os recursos usando a [API REST de recursos vinculados](https://msdn.microsoft.com/library/azure/mt238499.aspx) ou declarando as relações no modelo. Para obter uma discussão completa sobre como trabalhar com recursos vinculados, consulte [Vinculação de recursos no Gerenciador de Recursos do Azure](../resource-group-link-resources.md).
 
-When you create resources through the portal or by deploying a template through Azure PowerShell or Azure CLI, links are automatically created for some dependent resources. You can also programmatically link resources by using the [Linked Resources REST API](https://msdn.microsoft.com/library/azure/mt238499.aspx) or by declaring the relationships in the template. For a complete discussion of working with linked resources, see [Linking resources in Azure Resource Manager](../resource-group-link-resources.md).
+## Próximas etapas
 
-## <a name="next-steps"></a>Next steps
+- Se você precisar de uma introdução à criação de modelos do Gerenciador de Recursos do Azure, consulte [Criação de modelos](../resource-group-authoring-templates.md).
+- Para obter mais detalhes sobre como criar links entre recursos, consulte [Vinculação de recursos no Gerenciador de Recursos do Azure](../resource-group-link-resources.md).
+- Para saber mais sobre como trabalhar com grupos de recursos por meio do portal de visualização, consulte [Usando o Portal de visualização do Azure para gerenciar seus recursos do Azure](resource-group-portal.md).
 
-- If you need an introduction to writing Azure Resource Manager templates, see [Authoring templates](../resource-group-authoring-templates.md).
-- To dive into greater detail about creating links between resources, see [Linking resources in Azure Resource Manager](../resource-group-link-resources.md).
-- To understand more about working with resource groups through the preview portal, see [Using the Azure Preview Portal to manage your Azure resources](resource-group-portal.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

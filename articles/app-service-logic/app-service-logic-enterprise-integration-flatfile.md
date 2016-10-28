@@ -1,91 +1,77 @@
 <properties
-    pageTitle="Learn to encode or decode flat files using the Enterprise Integration Pack and Logic apps| Microsoft Azure App Service | Microsoft Azure"
-    description="Use the features of Enterprise Integration Pack and Logic apps to encode or decode flat files"
-    services="app-service\logic"
-    documentationCenter=".net,nodejs,java"
-    authors="msftman"
-    manager="erikre"
-    editor="cgronlun"/>
+	pageTitle="Aprenda a codificar ou decodificar arquivos simples usando o Enterprise Integration Pack e Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure"
+	description="Use os recursos do Enterprise Integration Pack e Aplicativos Lógicos para codificar ou decodificar arquivos simples"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="msftman"
+	manager="erikre"
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="logic-apps" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/08/2016" 
-    ms.author="deonhe"/>
+	ms.service="logic-apps" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/08/2016" 
+	ms.author="deonhe"/>
 
+# Integração corporativa com arquivos simples
 
-# <a name="enterprise-integration-with-flat-files"></a>Enterprise integration with flat files
+## Visão geral
 
-## <a name="overview"></a>Overview
+Talvez você queira codificar o conteúdo XML antes de enviá-lo para um parceiro de negócios em um cenário B2B (entre empresas). Em um aplicativo lógico criado pelo recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure, você pode usar o conector de codificação de arquivo simples para fazer isso. O aplicativo lógico criado por você pode obter seu conteúdo XML de diversas fontes, incluindo de um gatilho de solicitação HTTP ou de outro aplicativo, ou até mesmo de um dos vários [conectores](../connectors/apis-list.md). Para saber mais sobre os aplicativos lógicos, consulte o [documentação dos aplicativos lógicos](./app-service-logic-what-are-logic-apps.md "Saiba mais sobre os Aplicativos Lógicos").
 
-You may want to encode XML content before you send it to a business partner in a business-to-business (B2B) scenario. In a logic app made by the Logic Apps feature of the Azure App Service, you can use the flat file encoding connector to do this. The logic app that you create can get its XML content from a variety of sources, including from an HTTP request trigger, from another application, or even from one of the many [connectors](../connectors/apis-list.md). For more information about logic apps, see the [logic apps documentation](./app-service-logic-what-are-logic-apps.md "Learn more about Logic apps").  
+## Como criar o conector de codificação de arquivo simples
 
-## <a name="how-to-create-the-flat-file-encoding-connector"></a>How to create the flat file encoding connector
+Execute estas etapas para adicionar um conector de codificação de arquivo simples ao seu aplicativo lógico.
 
-Follow these steps to add a flat file encoding connector to your logic app.
+1. Crie um aplicativo lógico e [vincule-o à sua conta de integração](./app-service-logic-enterprise-integration-accounts.md "Saiba como vincular uma conta de integração a um Aplicativo lógico"). Esta conta contém o esquema que será usado para codificar os dados XML.
+2. Adicione um gatilho **Solicitação - quando uma solicitação HTTP é recebida** ao seu Aplicativo Lógico. ![Captura de tela do gatilho a ser selecionado](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)
+3. Adicione uma ação de codificação de arquivo simples, desta maneira:
 
-1. Create a logic app and [link it to your integration account](./app-service-logic-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app"). This account contains the schema you will use to encode the XML data.  
-2. Add a **Request - When an HTTP request is received** trigger to your logic app.  
-![Screenshot of trigger to select](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)    
-3. Add the flat file encoding action, as follows:
+    a. Selecione o sinal de **mais**.
 
-    a. Select the **plus** sign.
+	b. Selecione o link **Adicionar uma ação** (que aparece após a seleção do sinal de adição).
 
-    b. Select the **Add an action** link (appears after you have selected the plus sign).
+	c. Na caixa de pesquisa, insira *Simples* para filtrar todas as ações para aquela que você deseja usar.
 
-    c. In the search box, enter *Flat* to filter all the actions to the one that you want to use.
+	d. Escolha a ação **Codificação de Arquivo Simples** na lista. ![Captura de tela da opção Codificação de Arquivo Simples](./media/app-service-logic-enterprise-integration-flatfile/flatfile-2.png)
+4. Na caixa de texto **Codificação de Arquivo Simples**, selecione a caixa de texto **Conteúdo**. ![Captura de tela da caixa de texto Conteúdo](./media/app-service-logic-enterprise-integration-flatfile/flatfile-3.png)
+5. Selecione a marca body como o conteúdo que será codificado. A marca body preencherá o campo de conteúdo. ![Captura de tela da marca body](./media/app-service-logic-enterprise-integration-flatfile/flatfile-4.png)
+6. Escolha a caixa de listagem **Nome do Esquema** e escolha o esquema que você deseja usar para codificar o conteúdo da entrada. ![Captura de tela da caixa de listagem Nome do Esquema](./media/app-service-logic-enterprise-integration-flatfile/flatfile-5.png)
+7. Salve seu trabalho. ![Captura de tela do ícone Salvar](./media/app-service-logic-enterprise-integration-flatfile/flatfile-6.png)
 
-    d. Select the **Flat File Encoding** option from the list.   
-![Screenshot of Flat File Encoding option](./media/app-service-logic-enterprise-integration-flatfile/flatfile-2.png)   
-4. On the **Flat File Encoding** dialog box, select the **Content** text box.  
-![Screenshot of Content text box](./media/app-service-logic-enterprise-integration-flatfile/flatfile-3.png)  
-5. Select the body tag as the content that you want to encode. The body tag will populate the content field.     
-![Screenshot of body tag](./media/app-service-logic-enterprise-integration-flatfile/flatfile-4.png)  
-6. Select the **Schema Name** list box, and choose the schema you want to use to encode the input content.    
-![Screenshot of Schema Name list box](./media/app-service-logic-enterprise-integration-flatfile/flatfile-5.png)  
-7. Save your work.   
-![Screenshot of Save icon](./media/app-service-logic-enterprise-integration-flatfile/flatfile-6.png)  
+Neste ponto, você já configurou seu conector de codificação de arquivo simples. Em um aplicativo real, convém armazenar os dados codificados em um aplicativo de linha de negócios, como o Salesforce. Ou você pode enviar os dados codificados para um parceiro comercial. Você pode adicionar facilmente uma ação para enviar a saída da ação de codificação para o Salesforce ou seu parceiro comercial usando qualquer um dos outros conectores fornecido.
 
-At this point, you are finished setting up your flat file encoding connector. In a real world application, you may want to store the encoded data in a line-of-business application, such as Salesforce. Or you can send that encoded data to a trading partner. You can easily add an action to send the output of the encoding action to Salesforce, or to your trading partner, by using any one of the other connectors provided.
+Agora você pode testar seu conector fazendo uma solicitação ao ponto de extremidade HTTP e incluindo o conteúdo XML no corpo da solicitação.
 
-You can now test your connector by making a request to the HTTP endpoint, and including the XML content in the body of the request.  
+## Como criar o conector de decodificação de arquivo simples
 
-## <a name="how-to-create-the-flat-file-decoding-connector"></a>How to create the flat file decoding connector
+>[AZURE.NOTE] Para concluir estas etapas, você precisa ter um arquivo de esquema já carregado na conta de integração.
 
->[AZURE.NOTE] To complete these steps, you need to have a schema file already uploaded into you integration account.
+1. Adicione um gatilho **Solicitação - Quando uma solicitação HTTP é recebida** ao seu Aplicativo Lógico. ![Captura de tela do gatilho a ser selecionado](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)
+2. Adicione a ação de decodificação de arquivo simples, desta maneira:
 
-1. Add a **Request - When an HTTP request is received** trigger to your logic app.  
-![Screenshot of trigger to select](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)    
-2. Add the flat file decoding action, as follows:
+    a. Selecione o sinal de **mais**.
 
-    a. Select the **plus** sign.
+	b. Selecione o link **Adicionar uma ação** (que aparece após a seleção do sinal de adição).
 
-    b. Select the **Add an action** link (appears after you have selected the plus sign).
+	c. Na caixa de pesquisa, insira *Simples* para filtrar todas as ações para aquela que você deseja usar.
 
-    c. In the search box, enter *Flat* to filter all the actions to the one that you want to use.
+	d. Escolha a ação **Decodificação de Arquivo Simples** na lista. ![Captura de tela da opção Decodificação de Arquivo Simples](./media/app-service-logic-enterprise-integration-flatfile/flatfile-2.png)
+- Selecione o controle **Conteúdo**. Isso produz uma lista do conteúdo das etapas anteriores que você pode usar como o conteúdo para decodificação. Observe que o *Corpo* da solicitação HTTP de entrada estará disponível para uso como o conteúdo para decodificação. Você também pode inserir o conteúdo para decodificação diretamente no controle **Conteúdo**.
+- Selecione a marca *Body*. Observe que agora a marca body está no controle **Conteúdo**.
+- Selecione o nome do esquema que você deseja usar para decodificar o conteúdo. A captura de tela a seguir mostra que *OrderFile* é o nome do esquema selecionado. Esse nome de esquema foi carregado anteriormente na conta de integração.
 
-    d. Select the **Flat File Decoding** option from the list.   
-![Screenshot of Flat File Decoding option](./media/app-service-logic-enterprise-integration-flatfile/flatfile-2.png)   
-- Select the **Content** control. This produces a list of the content from earlier steps that you can use as the content to decode. Notice that the *Body* from the incoming HTTP request is available to be used as the content to decode. You can also enter the content to decode directly into the **Content** control.     
-- Select the *Body* tag. Notice the body tag is now in the **Content** control.
-- Select the name of the schema that you want to use to decode the content. The following screenshot shows that *OrderFile* is the selected schema name. This schema name had been uploaded into the integration account previously.
+ ![Captura de tela da caixa de diálogo Decodificação de Arquivo Simples](./media/app-service-logic-enterprise-integration-flatfile/flatfile-decode-1.png)
+- Salve seu trabalho. ![Captura de tela do ícone Salvar](./media/app-service-logic-enterprise-integration-flatfile/flatfile-6.png)
 
- ![Screenshot of Flat File Decoding dialog box](./media/app-service-logic-enterprise-integration-flatfile/flatfile-decode-1.png)    
-- Save your work.  
-![Screenshot of Save icon](./media/app-service-logic-enterprise-integration-flatfile/flatfile-6.png)    
+Neste ponto, você já configurou seu conector de decodificação de arquivo simples. Em um aplicativo real, convém armazenar os dados decodificados em um aplicativo de linha de negócios, como o Salesforce. Você pode adicionar facilmente uma ação para enviar a saída da ação de decodificação para o Salesforce.
 
-At this point, you are finished setting up your flat file decoding connector. In a real world application, you may want to store the decoded data in a line-of-business application such as Salesforce. You can easily add an action to send the output of the decoding action to Salesforce.
+Agora você pode testar seu conector fazendo uma solicitação ao ponto de extremidade HTTP e incluindo o conteúdo XML que você deseja decodificar no corpo da solicitação.
 
-You can now test your connector by making a request to the HTTP endpoint and including the XML content you want to decode in the body of the request.  
+## Próximas etapas
+- [Saiba mais sobre o Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack").
 
-## <a name="next-steps"></a>Next steps
-- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack").  
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

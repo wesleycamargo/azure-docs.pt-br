@@ -1,201 +1,196 @@
 <properties
-    pageTitle="Azure Event Hubs Archive walkthrough| Microsoft Azure"
-    description="Sample that uses the Azure Python SDK to demonstrate using the Event Hubs Archive feature."
-    services="event-hubs"
-    documentationCenter=""
-    authors="djrosanova"
-    manager="timlt"
-    editor=""/>
+	pageTitle="Passo a passo do Arquivamento dos Hubs de Eventos do Azure | Microsoft Azure"
+	description="Exemplo que usa o SDK do Python do Azure para demonstrar o uso do recurso Arquivamento dos Hubs de Eventos."
+	services="event-hubs"
+	documentationCenter=""
+	authors="djrosanova"
+	manager="timlt"
+	editor=""/>
 
 <tags
-    ms.service="event-hubs"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/13/2016"
-    ms.author="darosa;sethm"/>
+	ms.service="event-hubs"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/13/2016"
+	ms.author="darosa;sethm"/>
 
+# Passo a passo do Arquivamento dos Hubs de Eventos: Python
 
-# <a name="event-hubs-archive-walkthrough:-python"></a>Event Hubs Archive walkthrough: Python
+O Arquivamento dos Hubs de Eventos é um novo recurso dos Hubs de Eventos que permite que você envie automaticamente os dados de fluxo no Hub de Eventos a uma conta de Armazenamento de Blobs do Azure desejada. Isso facilita a execução de processamento em lote na transmissão de dados em tempo real. Este artigo descreve como usar o Arquivamento dos Hubs de Eventos com o Python. Para saber mais sobre Arquivamento dos Hubs de Eventos, confira o [artigo de visão geral](event-hubs-archive-overview.md).
 
-Event Hubs Archive is a new feature of Event Hubs that allows you to automatically deliver the stream data in your Event Hub to an Azure Blob Storage account of your choice. This makes it easy to perform batch processing on real-time streaming data. This article describes how to use Event Hubs Archive with Python. For more information about Event Hubs Archive, see the [overview article](event-hubs-archive-overview.md).
+Este exemplo usa o SDK do Python do Azure para demonstrar o uso do recurso Arquivamento. O sender.py envia telemetria de ambiente simulado para os Hubs de Eventos no formato JSON. O Hub de Eventos está configurado para usar o recurso Arquivamento a fim de gravar esses dados em armazenamento de blobs em lotes. Em seguida, o archivereader.py lê esses blobs e cria um arquivo de acréscimo por dispositivo e grava os dados em arquivos. csv.
 
-This sample uses the Azure Python SDK to demonstrate using the Archive feature. The sender.py sends simulated environmental telemetry to Event Hubs in JSON format. The Event Hub is configured to use the Archive feature to write this data to blob storage in batches. The archivereader.py then reads these blobs and creates an append file per device and writes the data into .csv files.
+O que será realizado
 
-What will be accomplished
+1.  Criar uma conta de Armazenamento de Blobs do Azure e um contêiner de blobs dentro dele, usando o portal do Azure
 
-1.  Create an Azure Blob Storage account and a blob container within it, using the Azure portal
+2.  Criar um namespace do Hub de Eventos usando o portal do Azure
 
-2.  Create an Event Hub namespace, using the Azure portal
+3.  Criar um Hub de Eventos com o recurso Arquivamento habilitado, usando o portal do Azure
 
-3.  Create an Event Hub with the Archive feature enabled, using the Azure portal
+4.  Enviar dados para o Hub de Eventos com um script Python
 
-4.  Send data to the Event Hub with a Python script
+5.  Ler os arquivos do arquivo e processá-los com outro script Python
 
-5.  Read the files from the archive and process them with another Python script
-
-Prerequisites
+Pré-requisitos
 
 1.  Python 2.7.x
 
-2.  An Azure subscription
+2.  Uma assinatura do Azure
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="create-an-azure-storage-account"></a>Create an Azure Storage account
+## Criar uma conta de Armazenamento do Azure
 
-1.  Log on to the [Azure portal][].
+1.  Faça logon no [portal do Azure][].
 
-2.  In the left navigation pane of the portal, click New, then click Data + Storage, and then click Storage Account.
+2.  No painel de navegação esquerdo do portal, clique em Novo, clique em Dados + Armazenamento e em Conta de Armazenamento.
 
-3.  Complete the fields in the storage account blade and click **Create**.
+3.  Preencha os campos na folha da conta de armazenamento e clique em **Criar**.
 
     ![][1]
 
-4.  After you see the **Deployments Succeeded** message, click on the new storage account and in the **Essentials** blade click **Blobs**. When the **Blob service** blade opens, click **+ Container** at the top. Name the container **archive**, then close the **Blob service** blade.
+4.  Depois de ver a mensagem **Implantações Bem-sucedidas**, clique na nova conta de armazenamento e, na folha **Essentials**, clique em **Blobs**. Quando a folha **Serviço Blob** abrir, clique em **+ Contêiner** na parte superior. Nomeie o **arquivo** do contêiner e feche a folha **Serviço Blob**.
 
-5.  Click **Access keys** in the left blade and copy the name of the storage account and the value of **key1**. Save these values to Notepad or some other temporary location.
+5.  Clique em **Chaves de acesso** na folha esquerda e copie o nome da conta de armazenamento e o valor de **key1**. Salve esses valores no Bloco de notas ou em outro local temporário.
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
-## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>Create a Python script to send events to your Event Hub
+## Criar um script Python para enviar eventos a seu Hub de Eventos
 
-1.  Open your favorite Python editor, such as [Visual Studio Code][].
+1.  Abra seu editor favorito do Python, como o [Visual Studio Code][].
 
-2.  Create a script called **sender.py**. This script will send 200 events to your Event Hub. They are simple environmental readings sent in JSON.
+2.  Crie um script chamado **sender.py**. Esse script enviará 200 eventos para seu Hub de Eventos. Eles são simples leituras de ambiente enviadas em JSON.
 
-3.  Paste the following code into sender.py:
+3.  Cole o seguinte código em sender.py:
 
-    ```
-    import uuid
-    import datetime
-    import random
-    import json
-    from azure.servicebus import ServiceBusService
-    
-    sbs = ServiceBusService(service_namespace='INSERT YOUR NAMESPACE NAME', shared_access_key_name='RootManageSharedAccessKey', shared_access_key_value='INSERT YOUR KEY')
-    devices = []
-    for x in range(0, 10):
-        devices.append(str(uuid.uuid4()))
-    
-    for y in range(0,20):
-        for dev in devices:
-            reading = {'id': dev, 'timestamp': str(datetime.datetime.utcnow()), 'uv': random.random(), 'temperature': random.randint(70, 100), 'humidity': random.randint(70, 100)}
-            s = json.dumps(reading)
-            sbs.send\_event('myhub', s)
-        print y
-    ```
-4.  Update the preceding code to use your namespace name and key values that you obtained when you created the Event Hubs namespace.
+	```
+	import uuid
+	import datetime
+	import random
+	import json
+	from azure.servicebus import ServiceBusService
+	
+	sbs = ServiceBusService(service_namespace='INSERT YOUR NAMESPACE NAME', shared_access_key_name='RootManageSharedAccessKey', shared_access_key_value='INSERT YOUR KEY')
+	devices = []
+	for x in range(0, 10):
+	    devices.append(str(uuid.uuid4()))
+	
+	for y in range(0,20):
+	    for dev in devices:
+	        reading = {'id': dev, 'timestamp': str(datetime.datetime.utcnow()), 'uv': random.random(), 'temperature': random.randint(70, 100), 'humidity': random.randint(70, 100)}
+	        s = json.dumps(reading)
+	        sbs.send\_event('myhub', s)
+	    print y
+	```
+4.  Atualize o código anterior para usar o nome do namespace e os valores de chave que você obteve quando criou o namespace dos Hubs de Eventos.
 
-## <a name="create-a-python-script-to-read-your-archive-files"></a>Create a Python script to read your archive files
+## Criar um script Python para ler os arquivos no arquivo
 
-1.  Fill out the blade and click **Create**.
+1.  Preencha a folha e clique em **Criar**.
 
-2.  Create a script called **archivereader.py**. This script will read the archive files and create a file per device to write the data only for that device.
+2.  Crie um script chamado **archivereader.py**. Esse script lerá os arquivos no arquivo e criará um arquivo por dispositivo para gravar os dados somente para esse dispositivo.
 
-3.  Paste the following code into archivereader.py:
+3.  Cole o código abaixo no archivereader.py:
 
-    ```
+	```
     import os
-    import string
-    import json
-    import avro.schema
-    from avro.datafile import DataFileReader, DataFileWriter
-    from avro.io import DatumReader, DatumWriter
-    from azure.storage.blob import BlockBlobService
-    
-    def processBlob(filename):
-        reader = DataFileReader(open(filename, 'rb'), DatumReader())
-        dict = {}
-        for reading in reader:
-            parsed\_json = json.loads(reading["Body"])
-            if not 'id' in parsed\_json:
-                return
-            if not dict.has\_key(parsed\_json['id']):
-            list = []
-            dict[parsed\_json['id']] = list
-        else:
-            list = dict[parsed\_json['id']]
-            list.append(parsed\_json)
-        reader.close()
-        for device in dict.keys():
-            deviceFile = open(device + '.csv', "a")
-            for r in dict[device]:
-                deviceFile.write(", ".join([str(r[x]) for x in r.keys()])+'\\n')
+	import string
+	import json
+	import avro.schema
+	from avro.datafile import DataFileReader, DataFileWriter
+	from avro.io import DatumReader, DatumWriter
+	from azure.storage.blob import BlockBlobService
+	
+	def processBlob(filename):
+	    reader = DataFileReader(open(filename, 'rb'), DatumReader())
+	    dict = {}
+	    for reading in reader:
+	        parsed\_json = json.loads(reading["Body"])
+	        if not 'id' in parsed\_json:
+	            return
+	        if not dict.has\_key(parsed\_json['id']):
+	        list = []
+	        dict[parsed\_json['id']] = list
+	    else:
+	        list = dict[parsed\_json['id']]
+	        list.append(parsed\_json)
+	    reader.close()
+	    for device in dict.keys():
+	        deviceFile = open(device + '.csv', "a")
+	        for r in dict[device]:
+	            deviceFile.write(", ".join([str(r[x]) for x in r.keys()])+'\\n')
 
-    def startProcessing(accountName, key, container):
-        print 'Processor started using path: ' + os.getcwd()
-        block\_blob\_service = BlockBlobService(account\_name=accountName, account\_key=key)
-        generator = block\_blob\_service.list\_blobs(container)
-        for blob in generator:
-            if blob.properties.content\_length != 0:
-                print('Downloaded a non empty blob: ' + blob.name)
-                cleanName = string.replace(blob.name, '/', '\_')
-                block\_blob\_service.get\_blob\_to\_path(container, blob.name, cleanName)
-                processBlob(cleanName)
-                os.remove(cleanName)
-            block\_blob\_service.delete\_blob(container, blob.name)
-    startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'archive')
+	def startProcessing(accountName, key, container):
+	    print 'Processor started using path: ' + os.getcwd()
+	    block\_blob\_service = BlockBlobService(account\_name=accountName, account\_key=key)
+	    generator = block\_blob\_service.list\_blobs(container)
+	    for blob in generator:
+	        if blob.properties.content\_length != 0:
+	            print('Downloaded a non empty blob: ' + blob.name)
+	            cleanName = string.replace(blob.name, '/', '\_')
+	            block\_blob\_service.get\_blob\_to\_path(container, blob.name, cleanName)
+	            processBlob(cleanName)
+	            os.remove(cleanName)
+	        block\_blob\_service.delete\_blob(container, blob.name)
+	startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'archive')
     ```
 
-4.  Be sure to paste the appropriate values for your storage account name and key in the call to `startProcessing`.
+4.  Não se esqueça de colar os valores apropriados do nome da sua conta de armazenamento e da chave na chamada para `startProcessing`.
 
-## <a name="run-the-scripts"></a>Run the scripts
+## Executar os scripts
 
-1.  Open a command prompt that has Python in its path, and then run these commands to install Python prerequisite packages:
+1.  Abra um prompt de comando com o Python em seu caminho e execute estes comandos para instalar os pacotes de pré-requisito do Python:
 
-    ```
+	```
     pip install azure-storage
-    pip install azure-servicebus
-    pip install avro
+	pip install azure-servicebus
+	pip install avro
     ```
   
-    If you have an earlier version of either azure-storage or azure you may need to use the **--upgrade** option
+    Se você tiver uma versão anterior do Azure ou do Armazenamento do Azure, talvez precise usar a opção **– atualizar**
 
-    You might also need to run the following (not necessary on most systems):
+    Você também precisa executar o seguinte (desnecessário na maioria dos sistemas):
 
     ```
     pip install cryptography
     ```
 
-2.  Change your directory to wherever you saved sender.py and archivereader.py, and run this command:
+2.  Altere o diretório para onde você salvou sender.py e archivereader.py e execute este comando:
 
     ```
     start python sender.py
     ```
     
-    This starts a new Python process to run the sender.
+    Isso inicia um novo processo de Python para executar o remetente.
 
-3. Now wait a few minutes for the archive to run. Then type the following command into your original command window:
+3. Agora, aguarde alguns minutos para que o arquivamento seja executado. Em seguida, digite o seguinte comando na janela de comando original:
 
     ```
     python archivereader.py
     ```
 
-This archive processor uses the local directory to download all the blobs from the storage account/container. It will process any that are not empty and write the results as .csv files into the local directory.
+Esse processador de arquivamento usa o diretório local para baixar todos os blobs do contêiner/da conta de armazenamento. Ele processa todos os que não estão vazios e grava os resultados como arquivos. csv no diretório local.
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-You can learn more about Event Hubs by visiting the following links:
+Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-- [Overview of Event Hubs Archive][]
-- A complete [sample application that uses Event Hubs][].
-- The [Scale out Event Processing with Event Hubs][] sample.
-- [Event Hubs overview][]
+- Visão geral do [arquivamento dos Hubs de Eventos][]
+- Um [aplicativo de exemplo completo que usa os Hubs de Evento][].
+- O exemplo de [Escala horizontal do processamento de eventos com Hubs de Eventos][].
+- [Visão geral de Hubs de Evento][]
  
 
-[Azure portal]: https://portal.azure.com/
-[Overview of Event Hubs Archive]: event-hubs-archive-overview.md
+[portal do Azure]: https://portal.azure.com/
+[arquivamento dos Hubs de Eventos]: event-hubs-archive-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
-[About Azure storage accounts]: https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
+[About Azure storage accounts]: https://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [Visual Studio Code]: https://code.visualstudio.com/
-[Event Hubs overview]: event-hubs-overview.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Visão geral de Hubs de Evento]: event-hubs-overview.md
+[aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Escala horizontal do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

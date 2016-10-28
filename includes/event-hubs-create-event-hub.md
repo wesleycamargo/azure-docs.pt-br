@@ -1,51 +1,49 @@
-## <a name="create-an-event-hub"></a>Create an Event Hub
+## Criar um Hub de Evento
 
-1. Log on to the [Azure portal][], and click **New** at the top left of the screen.
+1. Faça logon no [portal do Azure][] e clique em **Novo** na parte superior esquerda da tela.
 
-2. Click **Data + Analytics**, then click **Event Hubs**.
+2. Clique em **Dados + Análise** e clique em **Hubs de Eventos**.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 
-3. In the **Create namespace** blade, enter a namespace name. The system immediately checks to see if the name is available.
+3. Na folha **Criar um namespace**, insira um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub1.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub1.png)
 
-4. After making sure the namespace name is available, choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource. 
+4. Depois de verificar se o nome do namespace está disponível, escolha o tipo de preço (Básico ou Standard). Além disso, escolha uma assinatura do Azure, o grupo de recursos e o local no qual o recurso será criado.
 
-2. Click **Create** to create the namespace.
+2. Clique em **Criar** para criar o namespace.
 
-6. In the Event Hubs namespace list, click the newly-created namespace.      
+6. Na lista de namespaces do Hubs de Eventos, clique no namespace recém-criado.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub2.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub2.png)
 
-7. In the namespace blade, click **Event Hubs**.
+7. Na folha do namespace, clique em **Hubs de Eventos**.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub3.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub3.png)
 
-8. At the top of the blade, click **Add Event Hub**.
+8. Na parte superior da folha, clique em **Adicionar Hub de Eventos**.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub4.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub4.png)
 
-3. Type a name for your Event Hub, then click **Create**.
+3. Digite um nome para seu Hub de Eventos e clique em **Criar**.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub5.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub5.png)
 
-4. In the list of Event Hubs, click the newly created Event Hub name. 
+4. Na lista de Hubs de Eventos, clique no nome do Hub de Eventos recém-criado.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub6.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub6.png)
 
-5. Back in the namespace blade (not the specific Event Hub blade), click **Shared access policies**, and then click **RootManageSharedAccessKey**.
+5. Novamente na folha do namespace (e não na folha do Hub de Eventos específico), clique em **Políticas de acesso compartilhado** e clique em **RootManageSharedAccessKey**.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub7.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub7.png)
 
-5. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string to use later in the tutorial.
+5. Clique no botão de cópia para copiar a cadeia de conexão **RootManageSharedAccessKey** na área de transferência. Salve essa cadeia de conexão para usá-la posteriormente no tutorial.
 
-    ![](./media/event-hubs-create-event-hub/create-event-hub8.png)
+	![](./media/event-hubs-create-event-hub/create-event-hub8.png)
 
-Your Event Hub is now created, and you have the connection strings you need to send and receive events.
+Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa para enviar e receber eventos. 
 
-[Azure portal]: https://portal.azure.com/
+[portal do Azure]: https://portal.azure.com/
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

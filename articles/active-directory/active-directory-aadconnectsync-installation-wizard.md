@@ -1,94 +1,87 @@
 <properties
-    pageTitle="Azure AD Connect sync: Running the installation wizard a second time | Microsoft Azure"
-    description="Explains how the installation wizard works the second time you run it."
-    keywords="The Azure AD Connect installation wizard lets you configure maintenance settings the second time you run it"
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
+	pageTitle="Sincronização do Azure AD Connect: executar o assistente de instalação pela segunda vez | Microsoft Azure"
+	description="Explica como o assistente de instalação funciona na segunda vez que é executado."
+	keywords="O assistente de instalação do Azure AD Connect permite configurar as configurações de manutenção da segunda vez que é executado"
+	services="active-directory"
+	documentationCenter=""
+	authors="andkjell"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/31/2016"
-    ms.author="billmath"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2016"
+	ms.author="andkjell"/>
 
 
+# Sincronização do Azure AD Connect: executar o assistente de instalação pela segunda vez
+Na primeira vez que você executa o assistente de instalação do Azure AD Connect, ele explica como configurar a instalação. Se você executar o assistente de instalação novamente, ele oferecerá opções para manutenção.
 
-# <a name="azure-ad-connect-sync:-running-the-installation-wizard-a-second-time"></a>Azure AD Connect sync: Running the installation wizard a second time
-The first time you run the Azure AD Connect installation wizard, it walks you through how to configure your installation. If you run the installation wizard again, it offers options for maintenance.
+Você pode encontrar o assistente de instalação no menu Iniciar chamado **Azure Connect AD**.
 
-You can find the installation wizard in the start menu named **Azure AD Connect**.
+![Menu Iniciar](./media/active-directory-aadconnectsync-installation-wizard/startmenu.png)
 
-![Start menu](./media/active-directory-aadconnectsync-installation-wizard/startmenu.png)
+Ao iniciar o assistente de instalação, você vê uma página com as seguintes opções:
 
-When you start the installation wizard, you see a page with these options:
+![Página com uma lista de tarefas adicionais](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
 
-![Page with a list of additional tasks](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
+Se tiver instalado o ADFS com o Azure AD Connect, você terá ainda mais opções. As opções adicionais disponíveis para ADFS estão documentadas em [Gerenciamento do ADFS](active-directory-aadconnect-federation-management.md#ad-fs-management).
 
-If you have installed ADFS with Azure AD Connect, you have even more options. The additional options you have for ADFS are documented in [ADFS management](active-directory-aadconnect-federation-management.md#ad-fs-management).
+Selecione uma das tarefas e clique em **Avançar** para continuar.
 
-Select one of the tasks and click **Next** to continue.
+> [AZURE.IMPORTANT] Enquanto o assistente de instalação estiver aberto, todas as operações no mecanismo de sincronização serão suspensas. Lembre-se de fechar o assistente de instalação assim que concluir as alterações de configuração.
 
-> [AZURE.IMPORTANT] While you have the installation wizard open, all operations in the sync engine are suspended. Make sure you close the installation wizard as soon as you have completed your configuration changes.
+## Exibir a configuração atual
+Essa opção fornece uma visão rápida das opções configuradas no momento.
 
-## <a name="view-current-configuration"></a>View current configuration
-This option gives you a quick view of your currently configured options.
+![Página com uma lista de todas as opções e seus estados](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
 
-![Page with a list of all options and their state](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
+Clique em **Voltar** para voltar. Se você selecionar **Sair**, o assistente de instalação será fechado.
 
-Click **Previous** to go back. If you select **Exit**, you close the installation wizard.
+## Personalizar opções de sincronização
+Esta opção é usada para fazer alterações na configuração de sincronização. Você vê um subconjunto das opções do caminho de instalação de configuração personalizada. Você vê essa opção mesmo que tenha usado a instalação expressa inicialmente.
 
-## <a name="customize-synchronization-options"></a>Customize synchronization options
-This option is used to make changes to the sync configuration. You see a subset of options from the custom configuration installation path. You see this option even if you used express installation initially.
+- [Adicionar mais diretórios](active-directory-aadconnect-get-started-custom.md#connect-your-directories). Para remover um diretório, consulte [Excluir um Conector](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
+- [Alterar a filtragem de domínio e de unidade organizacional](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
+- Remova a filtragem de grupo.
+- [Alterar recursos opcionais](active-directory-aadconnect-get-started-custom.md#optional-features).
 
-- [Add more directories](active-directory-aadconnect-get-started-custom.md#connect-your-directories). For removing a directory, see [Delete a Connector](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
-- [Change Domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
-- Remove Group filtering.
-- [Change optional features](active-directory-aadconnect-get-started-custom.md#optional-features).
+As outras opções de instalação inicial não podem ser alteradas e não estão disponíveis. Essas opções são:
 
-The other options from the initial installation cannot be changed and are not available. These options are:
+- Altere o atributo a ser usado para userPrincipalName e sourceAnchor.
+- Altere o método de ingresso para objetos de uma floresta diferente.
+- Habilite a filtragem baseada em grupo.
 
-- Change the attribute to use for userPrincipalName and sourceAnchor.
-- Change the joining method for objects from different forest.
-- Enable group-based filtering.
+## Atualizar esquema de diretório
+Essa opção é usada se você alterou o esquema em uma das suas florestas do AD DS locais. Por exemplo você pode ter instalado o Exchange ou atualizado para um esquema do Windows Server 2012 com objetos de dispositivo. Nesse caso, você precisa instruir o Azure AD Connect para ler o esquema novamente do AD DS e atualizar seu cache. Essa ação também regenera as Regras de Sincronização. Se você adicionar o esquema do Exchange, por exemplo, as Regras de Sincronização para o Exchange serão adicionadas à configuração.
 
-## <a name="refresh-directory-schema"></a>Refresh directory schema
-This option is used if you have changed the schema in one of your on-premises AD DS forests. For example, you might have installed Exchange or upgraded to a Windows Server 2012 schema with device objects. In this case, you need to instruct Azure AD Connect to read the schema again from AD DS and update its cache. This action also regenerates the Sync Rules. If you add the Exchange schema, as an example, the Sync Rules for Exchange are added to the configuration.
+Quando você seleciona essa opção, todos os diretórios na sua configuração são listados. Você pode manter a configuração padrão e atualizar todas as florestas ou desmarcar algumas delas.
 
-When you select this option, all the directories in your configuration are listed. You can keep the default setting and refresh all forests or unselect some of them.
+![Página com uma lista de todos os diretórios no ambiente](./media/active-directory-aadconnectsync-installation-wizard/refreshschema.png)
 
-![Page with a list of all directories in the environment](./media/active-directory-aadconnectsync-installation-wizard/refreshschema.png)
+## Configurar modo de preparo
+Essa opção permite habilitar e desabilitar o modo de preparo no servidor. Encontre mais informações sobre o modo de preparo e como ele é usado em [Operações](active-directory-aadconnectsync-operations.md#staging-mode).
 
-## <a name="configure-staging-mode"></a>Configure staging mode
-This option allows you to enable and disable staging mode on the server. More information about staging mode and how it is used can be found in [Operations](active-directory-aadconnectsync-operations.md#staging-mode).
+A opção mostra se o teste está habilitado ou desabilitado atualmente: ![Opção que também está mostrando o estado atual do modo de preparo](./media/active-directory-aadconnectsync-installation-wizard/stagingmodecurrentstate.png)
 
-The option shows if staging is currently enabled or disabled:  
-![Option that is also showing the current state of staging mode](./media/active-directory-aadconnectsync-installation-wizard/stagingmodecurrentstate.png)
+Para alterar o estado, selecione essa opção e marque ou desmarque a caixa de seleção. ![Opção que também está mostrando o estado atual do modo de preparo](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
-To change the state, select this option and select or unselect the checkbox.  
-![Option that is also showing the current state of staging mode](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
+## Alterar a entrada do usuário
+Esta opção permite mudar da sincronização de senha para federação ou o oposto. Você não pode alterar para **não configurar**.
 
-## <a name="change-user-sign-in"></a>Change user sign-in
-This option allows you to change from password sync to federation or the other way around. You cannot change to **do not configure**.
+Para obter mais informações sobre essa opção, consulte [entrada do usuário](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
 
-For more information on this option, see [user sign-in](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
+## Próximas etapas
 
-## <a name="next-steps"></a>Next steps
+- Saiba mais sobre o modelo de configuração usado pela sincronização do Azure AD Connect em [Noções básicas do provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
-- Learn more about the configuration model used by Azure AD Connect sync in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+**Tópicos de visão geral**
 
-**Overview topics**
+- [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
+- [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
-- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

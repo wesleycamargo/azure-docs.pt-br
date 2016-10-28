@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Troubleshoot common Azure deployment errors | Microsoft Azure"
-   description="Describes how to resolve common errors when you deploy resources to Azure using Azure Resource Manager."
+   pageTitle="Solução de erros comuns de implantação do Azure | Microsoft Azure"
+   description="Descreve como resolver erros comuns ao implantar recursos no Azure usando o Azure Resource Manager."
    services="azure-resource-manager"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
    editor="tysonn"
-   keywords="deployment error, azure deployment, deploy to azure"/>
+   keywords="erro de implantação, implantação do azure, implante no azure"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -18,47 +18,46 @@
    ms.date="07/14/2016"
    ms.author="tomfitz"/>
 
+# Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 
-# <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Troubleshoot common Azure deployment errors with Azure Resource Manager
+Este tópico descreve como é possível resolver alguns erros de implantação comuns do Azure que você pode encontrar. Se você precisa de mais informações sobre o que deu errado com sua implantação, primeiro confira [Exibir operações de implantação](resource-manager-troubleshoot-deployments-portal.md) e depois volte a este artigo para obter ajuda sobre como resolver o erro.
 
-This topic describes how you can resolve some common Azure deployment errors you may encounter. If you need more information about what went wrong with your deployment, first see [View deployment operations](resource-manager-troubleshoot-deployments-portal.md) and then come back to this article for help with resolving the error.
+## Modelo ou recurso inválido
 
-## <a name="invalid-template-or-resource"></a>Invalid template or resource
-
-When deploying a template, you may receive:
+Ao implantar um modelo, você pode receber:
 
     Code=InvalidTemplate 
     Message=Deployment template validation failed
 
-If you receive an error stating that either the template or a property on a resource is invalid, you may have a syntax error in your template. This error is easy to make because template expressions can be intricate. For example, the following name assignment for a storage account contains one set of brackets, three functions, three sets of parentheses, one set of single quotes, and one property:
+Se você receber um erro informando que o modelo ou uma propriedade em um recurso é inválida, terá um erro de sintaxe em seu modelo. Esse erro é fácil de cometer porque as expressões do modelo podem ser complexas. Por exemplo, a atribuição de nome a seguir para uma conta de armazenamento contém um par de colchetes, três funções, três pares de parênteses, um par de aspas simples e uma propriedade:
 
     "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 
-If you do not provide all of the matching syntax, the template will produce a value that is very different than your intention.
+Se você não fornecer toda a sintaxe correspondente, o modelo produzirá um valor muito diferente de sua intenção.
 
-When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) or [Visual Studio Code](resource-manager-vs-code.md) which can warn you about syntax errors. 
+Quando você receber esse tipo de erro, examine cuidadosamente a sintaxe da expressão. Considere usar um editor JSON como o [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) ou o [Visual Studio Code](resource-manager-vs-code.md) que pode avisá-lo sobre os erros de sintaxe.
 
-## <a name="incorrect-segment-lengths"></a>Incorrect segment lengths
+## Comprimentos de segmento incorretos
 
-Another invalid template error occurs when the resource name is not in the correct format.
+Outro erro de modelo inválido ocorre quando o nome do recurso não está no formato correto.
 
     Code=InvalidTemplate
     Message=Deployment template validation failed: 'The template resource {resource-name}' 
     for type {resource-type} has incorrect segment lengths.
 
-A root level resource must one less segment in the name than in the resource type. Each segment is differentiated by a slash. In the following example, the type has 2 segments and the name has 1 segment, so it is a **valid name**.
+Um recurso no nível-raiz deve ser um segmento a menos no nome que no tipo de recurso. Cada segmento é diferenciado por uma barra. No exemplo a seguir, o tipo tem dois segmentos e o nome tem um segmento, portanto, é um **nome válido**.
 
     {
       "type": "Microsoft.Web/serverfarms",
       "name": "myHostingPlanName",
 
-But the next example is **not a valid name** because it has the same number of segments as the type.
+Mas o exemplo a seguir não é **um nome válido** porque ele tem o mesmo número de segmentos do tipo.
 
     {
       "type": "Microsoft.Web/serverfarms",
       "name": "appPlan/myHostingPlanName",
 
-For child resources, the type and name must have the same number of segments. This makes sense because the full name and type for the child includes the parent name and type, so the full name still has one less segment than the full type. 
+Para os recursos-filho, o tipo e o nome devem ter o mesmo número de segmentos. Isso faz sentido, porque o nome completo e o tipo para o filho incluem o nome do pai e o tipo, portanto, o nome completo ainda tem um segmento a menos que o tipo completo.
 
     "resources": [
         {
@@ -70,27 +69,27 @@ For child resources, the type and name must have the same number of segments. Th
                     "type": "secrets",
                     "name": "appPassword",
 
-Getting the segments right can be particularly tricky with Resource Manager types that are applied across resource providers. For example, applying a resource lock to a web site requires a type with 4 segments. Therefore, the name is 3 segments:
+Ter os segmentos corretos pode ser especialmente difícil com os tipos de Gerenciador de Recursos que são aplicados nos provedores de recursos. Por exemplo, aplicar um bloqueio de recurso para um site da Web requer um tipo com quatro segmentos. Portanto, o nome tem três segmentos:
 
     {
         "type": "Microsoft.Web/sites/providers/locks",
         "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
 
-## <a name="resource-name-already-taken-or-is-already-used-by-another-resource"></a>Resource name already taken or is already used by another resource
+## O nome do recurso já obtido ou já usado por outro recurso
 
-For some resources, most notably storage accounts, database servers, and web sites, you must provide a name for the resource that is unique across all of Azure. If you do not provide a unique name, you may receive an error like:
+Para alguns recursos, especialmente as contas de armazenamento, servidores do banco de dados e sites da Web, você deve fornecer um nome para o recurso que seja exclusivo em todo o Azure. Se você não fornecer um nome exclusivo, receberá um erro como:
 
     Code=StorageAccountAlreadyTaken 
     Message=The storage account named mystorage is already taken.
 
-You can create a unique name by concatenating your naming convention with the result of the [uniqueString](resource-group-template-functions.md#uniquestring) function.
+Você pode criar um nome exclusivo concatenando a convenção de nomenclatura com o resultado da função [uniqueString](resource-group-template-functions.md#uniquestring).
 
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
     "type": "Microsoft.Storage/storageAccounts",
 
-## <a name="cannot-find-resource-during-deployment"></a>Cannot find resource during deployment
+## Não é possível localizar o recurso durante a implantação
 
-Resource Manager optimizes deployment by creating resources in parallel, when possible. If one resource must be deployed after another resource, you need to use the **dependsOn** element in your template to create a dependency on the other resource. For example, when deploying a web app, the App Service plan must exist. If you have not specified that the web app is dependent on the App Service plan, Resource Manager will create both resources at the same time. You will receive an error stating that the App Service plan resource cannot be found, because it does not exist yet when attempting to set a property on the web app. You can prevent this error by setting the dependency in the web app.
+O Gerenciador de Recursos otimiza a implantação criando recursos em paralelo, quando possível. Se um recurso precisar ser implantado após outro recurso, você precisará usar o elemento **dependsOn** em seu modelo para criar uma dependência no outro recurso. Por exemplo, ao implantar um aplicativo Web, o plano do Serviço de Aplicativo deve existir. Se você não tiver especificado que o aplicativo Web é dependente do plano do Serviço de Aplicativo, o Gerenciador de Recursos criará os dois recursos ao mesmo tempo. Você receberá um erro informando que o recurso do plano do Serviço de Aplicativo não pode ser encontrado porque ele ainda não existe quando tentar definir uma propriedade no aplicativo Web. Você pode evitar esse erro configurando a dependência no aplicativo Web.
 
     {
       "apiVersion": "2015-08-01",
@@ -102,83 +101,82 @@ Resource Manager optimizes deployment by creating resources in parallel, when po
       ...
     }
 
-## <a name="could-not-find-member-'copy'-on-object"></a>Could not find member 'copy' on object
+## Não foi possível encontrar o membro 'copy' no objeto
 
-You encounter this error when you have applied the **copy** element to a part of the template that does not support this element. You can only apply the copy element to a resource type. You cannot apply copy to a property within a resource type. For example, you apply copy to a virtual machine, but you cannot apply it to the OS disks for a virtual machine. In some cases, you can convert a child resource to a parent resource to create a copy loop. For more information about using copy, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+Você encontrou esse erro quando aplicou o elemento **copy** em uma parte do modelo que não dá suporte a esse elemento. Só é possível aplicar o elemento copy em um tipo de recurso. Não é possível aplicar a cópia em uma propriedade dentro de um tipo de recurso. Por exemplo, você aplica a cópia em uma máquina virtual, mas não pode aplicá-la nos discos do SO para uma máquina virtual. Em alguns casos, você pode converter um recurso-filho em um recurso-pai para criar um loop de cópia. Para obter mais informações sobre como usar a cópia, consulte [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
 
-## <a name="sku-not-available"></a>SKU not available
+## SKU não disponível
 
-When deploying a resource (typically a virtual machine), you may receive the following error code and error message:
+Ao implantar um recurso (normalmente uma máquina virtual), você pode receber o seguinte código de erro e a mensagem de erro:
 
     Code: SkuNotAvailable
     Message: The requested tier for resource '<resource>' is currently not available in location '<location>' for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
 
-You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected. You have two options to resolve this issue:
+Você recebe esse erro quando o recurso SKU selecionado (como o tamanho da VM) não está disponível para o local escolhido. Você tem duas opções para resolver esse problema:
 
-1.  Log into portal and begin adding a new resource through the UI. As you set the values, you will see the available SKUs for that resource.
+1.	Faça logon no portal e comece a adicionar um novo recurso por meio da interface do usuário. Quando você definir os valores, verá os SKUs disponíveis desse recurso.
 
-    ![available skus](./media/resource-manager-common-deployment-errors/view-sku.png)
+    ![skus disponíveis](./media/resource-manager-common-deployment-errors/view-sku.png)
 
-2.  If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, please reach out to [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
+2.	Se não for possível encontrar um SKU adequado na região ou uma região alternativa que atenda às suas necessidades de negócios, entre em contato o [Suporte do Azure](https://portal.azure.com/#create/Microsoft.Support).
 
 
-## <a name="no-registered-provider-found"></a>No registered provider found
+## Nenhum provedor registrado encontrado
 
-When deploying resource, you may receive the following error code and message:
+Ao implantar recursos, você pode receber o seguinte código de erro e a mensagem:
 
     Code: NoRegisteredProviderFound
     Message: No registered resource provider found for location '<location>' and API version '<api-version>' for type '<resource-type>'.
 
-You receive this error for one of three reasons:
+Você recebe esse erro por um dos três motivos:
 
-1. Location not supported for the resource type
-2. API version not supported for the resource type
-3. The resource provider has not been registered for your subscription
+1. Local não suportado para o tipo de recurso
+2. Versão da API não suportada para o tipo de recurso
+3. O provedor de recursos não foi registrado para sua assinatura
 
-The error message should give you suggestions for the supported locations and API versions. You can change your template to one of the suggested values. Most providers are registered automatically by the Azure portal or the command-line interface you are using, but not all. If you have not used a particular resource provider before, you may need to register that provider. You can discover more about resource providers with the following commands.
+A mensagem de erro deve fornecer sugestões para os locais com suporte e as versões da API. Você pode alterar o modelo para um dos valores sugeridos. A maioria dos provedores são registrados automaticamente pelo portal do Azure ou pela interface de linha de comando que você está usando, mas nem todos. Se você não usou um provedor de recursos específico antes, precisará registrá-lo. Você pode descobrir mais sobre os provedores de recursos com os seguintes comandos.
 
-### <a name="powershell"></a>PowerShell
+### PowerShell
 
-To see your registration status, use **Get-AzureRmResourceProvider**.
+Para ver o status do registro, use **Get-AzureRmResourceProvider**.
 
     Get-AzureRmResourceProvider -ListAvailable
 
-To register a provider, use **Register-AzureRmResourceProvider** and provide the name of the resource provider you wish to register.
+Para registrar um provedor, use **Register-AzureRmResourceProvider** e forneça o nome do provedor de recursos que você deseja registrar.
 
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
 
-To get the supported locations for a particular type of resource, use:
+Para obter os locais com suporte para um determinado tipo de recurso, use:
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 
-To get the supported API versions for a particular type of resource, use:
+Para obter as versões da API com suporte para um determinado tipo de recurso, use:
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 
-### <a name="azure-cli"></a>Azure CLI
+### CLI do Azure
 
-To see whether the provider is registered, use the `azure provider list` command.
+Para ver se o provedor está registrado, use o comando `azure provider list`.
 
     azure provider list
 
-To register a resource provider, use the `azure provider register` command, and specify the *namespace* to register.
+Para registrar um provedor de recursos, use o comando `azure provider register` e especifique o *namespace* para registrar.
 
     azure provider register Microsoft.Cdn
 
-To see the supported locations and API versions for a resource provider, use:
+Para ver os locais com suporte e as versões da API para um provedor de recursos, use:
 
     azure provider show -n Microsoft.Compute --json > compute.json
 
-## <a name="quota-exceeded"></a>Quota exceeded
+## Cota excedida
 
-You might have issues when deployment exceeds a quota, which could be per resource group, subscriptions, accounts, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a virtual machine with more cores than the permitted amount, you will receive an error stating the quota has been exceeded.
-For complete quota information, see [Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md).
+Você pode ter problemas quando a implantação ultrapassar uma cota, que pode ser por grupo de recursos, assinaturas, contas e outros escopos. Por exemplo, sua assinatura pode estar configurada para limitar o número de núcleos de uma região. Se tentar implantar uma máquina virtual com mais núcleos do que o valor permitido, você receberá um erro informando que a cota foi excedida. Para obter informações completas sobre cotas, consulte [Limites, cotas e restrições de serviço e assinatura do Azure](azure-subscription-service-limits.md).
 
-To examine your subscription's quotas for cores, you can use the `azure vm list-usage` command in the Azure CLI. The following example illustrates that the core quota for a free trial account is 4:
+Para examinar as cotas de núcleos da assinatura, você deve usar o comando `azure vm list-usage` na CLI do Azure. O exemplo a seguir ilustra que a cota de núcleo de uma conta de avaliação gratuita é 4:
 
     azure vm list-usage
 
-Which returns:
+Que retorna:
 
     info:    Executing command vm list-usage
     Location: westus
@@ -187,17 +185,17 @@ Which returns:
     data:    Cores  Count  0             4
     info:    vm list-usage command OK
 
-If you were to try to deploy a template that creates more than 4 cores into the West US region on the above subscription, you would get a deployment error that might look something like this (either in the portal or by investigating the deployment logs):
+Se você tentar implantar um modelo que crie mais de 4 núcleos para a região Oeste dos EUA na assinatura acima, obterá um erro de implantação que pode ser semelhante ao seguinte (no portal ou investigando os logs de implantação):
 
     statusCode:Conflict
     serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     statusMessage:{"error":{"code":"OperationNotAllowed","message":"Operation results in exceeding quota limits of Core. Maximum allowed: 4, Current in use: 4, Additional requested: 2."}}
 
-Or in PowerShell, you can use the **Get-AzureRmVMUsage** cmdlet.
+Ou no PowerShell, você pode usar o cmdlet **Get-AzureRmVMUsage**.
 
     Get-AzureRmVMUsage
 
-Which returns:
+Que retorna:
 
     ...
     CurrentValue : 0
@@ -209,62 +207,58 @@ Which returns:
     Unit         : null
     ...
 
-In these cases, you should go to the portal and file a support issue to raise your quota for the region into which you want to deploy.
+Nesses casos, você deve ir para o portal e abrir um problema de suporte para aumentar a cota para a região na qual você deseja implantar.
 
-> [AZURE.NOTE] Remember that for resource groups, the quota is for each individual region, not for the entire subscription. If you need to deploy 30 cores in West US, you have to ask for 30 Resource Manager cores in West US. If you need to deploy 30 cores in any of the regions to which you have access, you should ask for 30 resource Manager cores in all regions.
+> [AZURE.NOTE] Lembre-se de que, para grupos de recursos, a cota é para cada região individual, não para a assinatura inteira. Se você precisar implantar 30 núcleos no Oeste dos EUA, será necessário pedir 30 núcleos do Gerenciador de Recursos no Oeste dos EUA. Se precisar implantar 30 núcleos em qualquer uma das regiões às quais tenha acesso, você deverá solicitar 30 núcleos do Gerenciador de recursos em todas as regiões.
 
 
-## <a name="authorization-failed"></a>Authorization failed
+## Falha na autorização
 
-You may receive an error during deployment because the account or service principal attempting to deploy the resources does not have access to perform those actions. Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. For example, if your account is assigned to the Reader role, it will not be able to create new resources. In that case, you should see an error message indicating that authorization failed.
+Você pode receber um erro durante a implantação porque a conta ou a entidade de serviço que está tentando implantar os recursos de serviço não tem acesso para executar essas ações. O Azure Active Directory permite que você ou seu administrador controlem quais identidades podem acessar os recursos com um alto grau de precisão. Por exemplo, se sua conta está atribuída à função Leitor, ela não poderá criar novos recursos. Nesse caso, você deve ver uma mensagem de erro indicando que houve falha na autorização.
 
-For more information about role-based access control, see [Azure Role-Based Access Control](./active-directory/role-based-access-control-configure.md).
+Para obter mais informações sobre o controle de acesso baseado em funções, consulte [Controle de Acesso Baseado em Funções do Azure](./active-directory/role-based-access-control-configure.md).
 
-In addition to role-based access control, your deployment actions may be limited by policies on the subscription. Through policies, the administrator can enforce conventions on all resources deployed in the subscription. For example, an administrator can require that a particular tag value be provided for a resource type. If you have not fulfilled the policy requirements, you will receive an error during deployment. For more information about policies, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+Além de controle de acesso baseado em função, suas ações de implantação podem ser limitadas por políticas na assinatura. Por meio de políticas, o administrador pode impor convenções a todos os recursos implantados na assinatura. Por exemplo, um administrador pode exigir que um valor de marca específico seja fornecido para um tipo de recurso. Se não tiver cumprido os requisitos da política, você receberá um erro durante a implantação. Para obter mais informações sobre as políticas, consulte [Usar a política para gerenciar os recursos e controlar o acesso](resource-manager-policy.md).
 
-## <a name="troubleshooting-virtual-machines"></a>Troubleshooting virtual machines
+## Solucionando problemas das máquinas virtuais
 
-| Error | Articles |
+| Erro | Artigos |
 | -------- | ----------- |
-| Custom script extension errors | [Windows VM extension failures](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br />or<br />[Linux VM extension failures](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) |
-| OS image provisioning errors | [New Windows VM errors](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />or<br />[New Linux VM errors](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md ) |
-| Allocation failures | [Windows VM allocation failures](./virtual-machines/virtual-machines-windows-allocation-failure.md)<br />or<br />[Linux VM allocation failures](./virtual-machines/virtual-machines-linux-allocation-failure.md) |
-| Secure Shell (SSH) errors when attempting to connect | [Secure Shell connections to Linux VM](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) |
-| Errors connecting to application running on VM | [Application running on Windows VM](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />or<br />[Application running on a Linux VM](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) |
-| Remote Desktop connection errors | [Remote Desktop connections to Windows VM](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) |
-| Connection errors resolved by re-deploying | [Redeploy Virtual Machine to new Azure node](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) |
-| Cloud service errors | [Cloud service deployment problems](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
+| Erros de extensão de script personalizado | [Falhas de extensão da VM do Windows](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md)<br />ou<br />[Falhas de extensão da VM do Linux](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md) |
+| Erros de provisionamento de imagem do SO | [Novos erros da VM do Windows](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)<br />ou<br />[Novos erros da VM do Linux](./virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md) |
+| Falhas na alocação | [Falhas de alocação da VM do Windows](./virtual-machines/virtual-machines-windows-allocation-failure.md)<br />ou<br />[Falhas de alocação da VM do Linux](./virtual-machines/virtual-machines-linux-allocation-failure.md) |
+| Erros do Secure Shell (SSH) ao tentar conectar | [Conexões do Secure Shell com a VM do Linux](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) |
+| Erros ao conectar o aplicativo em execução na VM | [Aplicativo em execução na VM do Windows](./virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md)<br />ou<br />[Aplicativo em execução na VM do Linux](./virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md) |
+| Erros de conexão da Área de Trabalho Remota | [Conexões da Área de Trabalho Remota com a VM do Windows](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) |
+| Erros de conexão resolvidos com a reimplantação | [Reimplantar Máquina Virtual em um novo nó do Azure](./virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) |
+| Erros do serviço de nuvem | [Problemas de implantação do serviço de nuvem](./cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
 
-## <a name="troubleshooting-other-services"></a>Troubleshooting other services
+## Solucionando problemas de outros serviços
 
-The following table is not a complete list of troubleshooting topics for Azure. Instead, it focuses on issues related to deploying or configuring resources. If you need help troubleshooting run-time issues with a resource, see the documentation for that Azure service.
+A tabela a seguir não é uma lista completa de tópicos de solução de problemas do Azure. Pelo contrário, ela foca nos problemas relacionados à implantação ou à configuração dos recursos. Se você precisar de ajuda para solucionar os problemas de execução com um recurso, confira a documentação desse serviço do Azure.
 
-| Service | Article |
+| O Barramento de | Artigo |
 | -------- | -------- |
-| Automation | [Troubleshooting tips for common errors in Azure Automation](./automation/automation-troubleshooting-automation-errors.md) |
-| Azure Stack | [Microsoft Azure Stack troubleshooting](./azure-stack/azure-stack-troubleshooting.md) |
-| Azure Stack | [Web Apps and Azure Stack](./azure-stack/azure-stack-webapps-troubleshoot-known-issues.md ) |
-| Data Factory | [Troubleshoot Data Factory issues](./data-factory/data-factory-troubleshoot.md) |
-| Service Fabric | [Troubleshoot common issues when you deploy services on Azure Service Fabric](./service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
-| Site Recovery | [Monitor and troubleshoot protection for virtual machines and physical servers](./site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
-| Storage | [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](./storage/storage-monitoring-diagnosing-troubleshooting.md) |
-| StorSimple | [Troubleshoot StorSimple device deployment issues](./storsimple/storsimple-troubleshoot-deployment.md) |
-| SQL Database | [Troubleshoot connection issues to Azure SQL Database](./sql-database/sql-database-troubleshoot-common-connection-issues.md) |
-| SQL Data Warehouse | [Troubleshooting Azure SQL Data Warehouse](./sql-data-warehouse/sql-data-warehouse-troubleshoot.md) |
+| Automação | [Dicas de solução de problemas para erros comuns na Automação do Azure](./automation/automation-troubleshooting-automation-errors.md) |
+| Azure Stack | [Solução de problemas do Microsoft Azure Stack](./azure-stack/azure-stack-troubleshooting.md) |
+| Azure Stack | [Aplicativos Web e Azure Stack](./azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) |
+| Data Factory | [Solucionar problemas da Data Factory](./data-factory/data-factory-troubleshoot.md) |
+| Service Fabric | [Solucionar problemas comuns quando você implanta serviços no Azure Service Fabric](./service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
+| Recuperação de Site | [Monitorar e solucionar problemas de proteção para máquinas virtuais e sites físicos](./site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
+| Armazenamento | [Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure](./storage/storage-monitoring-diagnosing-troubleshooting.md) |
+| StorSimple | [Solucionar problemas de implantação do dispositivo StorSimple](./storsimple/storsimple-troubleshoot-deployment.md) |
+| Banco de Dados SQL | [Solucionar problemas de conexão no Banco de Dados SQL do Azure](./sql-database/sql-database-troubleshoot-common-connection-issues.md) |
+| SQL Data Warehouse | [Solução de problemas do Azure SQL Data Warehouse](./sql-data-warehouse/sql-data-warehouse-troubleshoot.md) |
 
-## <a name="understand-when-a-deployment-is-ready"></a>Understand when a deployment is ready
+## Entenda quando uma implantação está pronta
 
-Azure Resource Manager reports success on a deployment when all providers return from deployment successfully. However, that this does not necessarily mean that your resource group is "active and ready for your users". For example, a deployment may need to download upgrades, wait on non-template resources, or install complex scripts or some other executable activity that Azure does not know about because it is not an activity that a provider is tracking. In these cases, it can be some time before your resources are ready for real-world use. As a result, you should expect that the deployment status succeeds some time before your deployment can be used.
+O Azure Resource Manager informa o êxito de uma implantação quando todos os provedores são retornados da implantação com êxito. No entanto, isso não significa necessariamente que seu grupo de recursos está "ativo e pronto para seus usuários". Por exemplo, uma implantação pode precisar baixar atualizações, aguardar recursos que não são de modelo ou instalar scripts complexos, ou realizar alguma outra atividade executável sobre a qual o Azure não sabe, sobre porque ela não é uma atividade que um provedor está acompanhando. Nesses casos, pode levar algum tempo antes que os recursos estejam prontos para uso no mundo real. Como resultado, você deve esperar que o status da implantação seja bem-sucedida algum tempo antes que sua implantação possa ser usada.
 
-You can prevent Azure from reporting deployment success, however, by creating a custom script for your custom template -- using the [CustomScriptExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/) for example -- that knows how to monitor the entire deployment for system-wide readiness and returns successfully only when users can interact with the entire deployment. If you want to ensure that your extension is the last to run, use the **dependsOn** property in your template.
+Você pode impedir o Azure de relatar êxito da implantação, no entanto, ao criar um script personalizado para seu modelo personalizado - usando o [CustomScriptExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/), por exemplo - que sabe como monitorar toda a implantação para preparação de todo o sistema e retorna com êxito somente quando os usuários podem interagir com toda a implantação. Se você quiser garantir que sua extensão seja a última a ser executada, use a propriedade **dependsOn** em seu modelo.
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-- To learn about auditing actions, see [Audit operations with Resource Manager](resource-group-audit.md).
-- To learn about actions to determine the errors during deployment, see [View deployment operations](resource-manager-troubleshoot-deployments-portal.md).
+- Para saber sobre as ações de auditoria, consulte [Auditar operações com o Gerenciador de Recursos](resource-group-audit.md).
+- Para saber sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](resource-manager-troubleshoot-deployments-portal.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

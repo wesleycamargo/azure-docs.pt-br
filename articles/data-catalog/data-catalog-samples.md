@@ -1,42 +1,37 @@
 <properties
-    pageTitle="Data Catalog developer samples | Microsoft Azure"
-    description="This article provides an overview of the available developer samples for the Data Catalog REST API."
-    services="data-catalog"
-    documentationCenter=""
-    authors="spelluru"
-    manager=""
-    editor=""
-    tags=""/>
+	pageTitle="Exemplos de desenvolvedor do Catálogo de Dados | Microsoft Azure"
+	description="Este artigo fornece uma visão geral dos exemplos de desenvolvedor disponíveis para a API REST do Catálogo de Dados."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager=""
+	editor=""
+	tags=""/>
 <tags
-    ms.service="data-catalog"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-catalog"
-    ms.date="09/06/2016"
-    ms.author="spelluru"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="09/06/2016"
+	ms.author="spelluru"/>
 
 
+# Exemplos de desenvolvedor do Catálogo de Dados
+Comece a desenvolver aplicativos de Catálogo de Dados usando a API REST do Catálogo de Dados. A API REST do Catálogo de Dados é uma API baseada em REST que fornece acesso programático aos recursos do Catálogo de Dados para registrar, anotar e pesquisar ativos de dados programaticamente.
 
-# <a name="data-catalog-developer-samples"></a>Data Catalog developer samples
-Get started developing Data Catalog apps using the Data Catalog REST API. The Data Catalog REST API is a REST-based API that provides programmatic access to Data Catalog resources to register, annotate, and search data assets programmatically.
+Eis os exemplos que temos no GitHub:
 
-Here are the samples we have on GitHub:
+- [Introdução ao Catálogo de Dados do Azure](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-get-started/)
 
-- [Get started with Azure Data Catalog](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-get-started/)
+  Um exemplo que mostra como autenticar com o AD do Azure para registrar, pesquisar e excluir um ativo de dados usando a API REST do Catálogo de Dados.
 
-  A sample that shows you how to authenticate with Azure AD to Register, Search, and Delete a data asset using the Data Catalog REST API.
+- [Registrar e anotar em massa](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)
 
-- [Bulk register and annotate](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)
+  Um exemplo que mostra como registrar os ativos de dados em massa a partir de uma planilha do Excel usando a API REST do Catálogo de Dados e o Open XML.
 
-  A sample that shows you how to bulk register data assets from an Excel workbook using Data Catalog REST API and Open XML.
+- [Ferramenta de importação/exportação](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
 
-- [Import/Export tool](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
+  Um exemplo que mostra como usar a API REST do Catálogo de Dados para buscar ativos no Catálogo de Dados do Azure e serializá-los em um arquivo. Ele também demonstra como obter um conjunto de ativos serializado como JSON e enviá-los ao catálogo. Ele oferece suporte para a exportação de um subconjunto do catálogo usando uma consulta de pesquisa.
 
-  A sample that shows how to use the Data Catalog REST API to fetch assets from the Azure Data Catalog and serialize them into a file. It also demonstrates how to take a set of assets serialized as JSON and push them into the catalog. It supports exporting a subset of the catalog using a search query.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

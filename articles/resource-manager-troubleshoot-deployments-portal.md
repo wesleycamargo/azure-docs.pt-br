@@ -1,6 +1,6 @@
 <properties
-   pageTitle="View deployment operations with portal | Microsoft Azure"
-   description="Describes how to use the Azure portal to detect errors from Resource Manager deployment."
+   pageTitle="Exibir operações de implantação com o portal | Microsoft Azure"
+   description="Descreve como usar o portal do Azure para detectar e corrigir problemas com a implantação do Resource Manager."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -17,99 +17,94 @@
    ms.date="06/15/2016"
    ms.author="tomfitz"/>
 
-
-# <a name="view-deployment-operations-with-azure-portal"></a>View deployment operations with Azure Portal
+# Exibir operações de implantação com o Portal do Azure
 
 > [AZURE.SELECTOR]
 - [Portal](resource-manager-troubleshoot-deployments-portal.md)
 - [PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-- [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
-- [REST API](resource-manager-troubleshoot-deployments-rest.md)
+- [CLI do Azure](resource-manager-troubleshoot-deployments-cli.md)
+- [API REST](resource-manager-troubleshoot-deployments-rest.md)
 
-You can view the operations for a deployment through the Azure portal. You may be most interested in viewing the operations when you have received an error during deployment so this article focuses on viewing operations that have failed. The portal provides an interface that enables you to easily find the errors and determine potential fixes.
+Você pode exibir as operações para uma implantação por meio do portal do Azure. Você pode estar mais interessado em ver as operações quando recebeu um erro durante a implantação para que este artigo foque em exibir as operações que falharam. O portal fornece uma interface que permite encontrar facilmente os erros e determinar as possíveis correções.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
-## <a name="use-deployment-operations-to-troubleshoot"></a>Use deployment operations to troubleshoot
+## Usar operações de implantação para solucionar problemas
 
-To see the deployment operations, use the following steps:
+Para ver as operações de implantação, use as etapas a seguir:
 
-1. For the resource group involved in the deployment, notice the status of the last deployment. You can select this status to get more details.
+1. Para o grupo de recursos envolvido na implantação, observe o status da última implantação. Selecione esse status para obter mais detalhes.
 
-    ![deployment status](./media/resource-manager-troubleshoot-deployments-portal/deployment-status.png)
+    ![status da implantação](./media/resource-manager-troubleshoot-deployments-portal/deployment-status.png)
 
-2. You will see the recent deployment history. Select the deployment that failed.
+2. Você verá o histórico recente da implantação. Selecione a implantação que falhou.
 
-    ![deployment status](./media/resource-manager-troubleshoot-deployments-portal/select-deployment.png)
+    ![status da implantação](./media/resource-manager-troubleshoot-deployments-portal/select-deployment.png)
 
-3. Select **Failed. Click here for details** to see a description of why the deployment failed. In the image below, the DNS record is not unique.  
+3. Selecione **Falhou. Clique aqui para obter detalhes** para ver uma descrição do motivo da implantação ter falhado. Na imagem abaixo, o registro DNS não é exclusivo.
 
-    ![view failed deployment](./media/resource-manager-troubleshoot-deployments-portal/view-error.png)
+    ![exibir implantação com falha](./media/resource-manager-troubleshoot-deployments-portal/view-error.png)
 
-    This error message should be enough for you to begin troubleshooting. However, if you need more details about which tasks were completed, you can view the operations as shown in the following steps.
+    Essa mensagem de erro deve ser suficiente para você começar a solucionar o problema. No entanto, se você precisar de mais detalhes sobre quais tarefas foram concluídas, poderá exibir as operações, como mostrado nas etapas a seguir.
 
-4. You can view all of the deployment operations in the **Deployment** blade. Select any operation to see more details.
+4. Você pode exibir todas as operações de implantação na folha **Implantação**. Selecione qualquer operação para ver mais detalhes.
 
-    ![view operations](./media/resource-manager-troubleshoot-deployments-portal/view-operations.png)
+    ![exibir operações](./media/resource-manager-troubleshoot-deployments-portal/view-operations.png)
 
-    In this case, you see that the storage account, virtual network, and availability set were successfully created. The public IP address failed, and other resources were not attempted.
+    Neste caso, verá que a conta de armazenamento, a rede virtual e o conjunto de disponibilidades foram criados com êxito. O endereço IP público falhou e outros recursos não foram tentados.
 
-5. You can view events for the deployment by selecting **Events**.
+5. Você pode exibir os eventos para a implantação selecionando **Eventos**.
 
-    ![view events](./media/resource-manager-troubleshoot-deployments-portal/view-events.png)
+    ![exibir eventos](./media/resource-manager-troubleshoot-deployments-portal/view-events.png)
 
-6. You see all of the events for the deployment and select any one for more details.
+6. Você verá todos os eventos para a implantação e selecione qualquer um para obter mais detalhes.
 
-    ![see events](./media/resource-manager-troubleshoot-deployments-portal/see-all-events.png)
+    ![consultar eventos](./media/resource-manager-troubleshoot-deployments-portal/see-all-events.png)
 
-## <a name="use-audit-logs-to-troubleshoot"></a>Use audit logs to troubleshoot
+## Usar os logs de auditoria para solucionar problemas
 
 [AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
-To see errors for a deployment, use the following steps:
+Para ver os erros de uma implantação, use as seguintes etapas:
 
-1. View the audit logs for a resource group by selecting **Audit Logs**.
+1. Exiba os logs de auditoria para um grupo de recursos selecionando **Logs de Auditoria**.
 
-    ![select audit logs](./media/resource-manager-troubleshoot-deployments-portal/select-audit-logs.png)
+    ![selecionar logs de auditoria](./media/resource-manager-troubleshoot-deployments-portal/select-audit-logs.png)
 
-2. In the **Audit Logs** blade, you will see a summary of recent operations for all of the resource groups in your subscription. It includes a graphical representation of the time and status of the operations, as well as a list of the operations.
+2. Na folha **Logs de Auditoria**, você verá um resumo das operações recentes de todos os grupos de recursos em sua assinatura. Ele incluirá uma representação gráfica do tempo e do status das operações, bem como uma lista das operações.
 
-    ![show actions](./media/resource-manager-troubleshoot-deployments-portal/audit-summary.png)
+    ![mostrar ações](./media/resource-manager-troubleshoot-deployments-portal/audit-summary.png)
 
-3. You can filter your view of the audit logs to focus on particular conditions. Select **Filter** at the top of the **Audit logs** blade.
+3. Você pode filtrar a exibição dos logs de auditoria para se concentrar em determinadas condições. Selecione **Filtrar**, na parte superior da folha **Logs de auditoria**.
 
-    ![filter logs](./media/resource-manager-troubleshoot-deployments-portal/filter-logs.png)
+    ![filtrar logs](./media/resource-manager-troubleshoot-deployments-portal/filter-logs.png)
 
-4. From the **Filter** blade, select conditions to restrict your view of the audit logs to only those operations you want to see. For example, you can filter operations to only display errors for the resource group.
+4. Na folha **Filtro**, selecione as condições para restringir a exibição dos logs de auditoria somente às operações que você deseja ver. Por exemplo, você pode filtrar as operações para exibir somente os erros do grupo de recursos.
 
-    ![set filter options](./media/resource-manager-troubleshoot-deployments-portal/set-filter.png)
+    ![definir opções de filtragem](./media/resource-manager-troubleshoot-deployments-portal/set-filter.png)
 
-5. You can further filter operations by setting a time span. The following image filters the view to a particular 20-minute timespan.
+5. Você pode filtrar ainda mais as operações, definindo um intervalo de tempo. A imagem a seguir filtra a exibição para um período específico de 20 minutos.
 
-    ![set time](./media/resource-manager-troubleshoot-deployments-portal/select-time.png)
+    ![definir tempo](./media/resource-manager-troubleshoot-deployments-portal/select-time.png)
 
-6. You can select any of the operations in the list. Pick the operation that contains the error you wish to research.
+6. Você pode escolher qualquer uma das operações na lista. Escolha a operação que contém o erro que você deseja pesquisar.
 
-    ![select operation](./media/resource-manager-troubleshoot-deployments-portal/select-operation.png)
+    ![selecionar operação](./media/resource-manager-troubleshoot-deployments-portal/select-operation.png)
   
-7. You will see all of the events for that operation. Notice the **Correlation IDS** in the summary. This ID is used to track related events. It can be helpful when working with technical support to troubleshoot an issue. You can select any of event to see details about the event.
+7. Você verá todos os eventos para essa operação. Observe as **IDs de Correlação** no resumo. Essa ID é usada para monitorar eventos relacionados. Ela pode ser útil ao trabalhar com o suporte técnico para solucionar um problema. Você pode selecionar qualquer evento para ver os detalhes sobre o evento.
 
-    ![select event](./media/resource-manager-troubleshoot-deployments-portal/select-event.png)
+    ![selecionar evento](./media/resource-manager-troubleshoot-deployments-portal/select-event.png)
 
-8. You will see details about the event. In particular, pay attention to the **Properties** for information about the error.
+8. Você verá detalhes sobre o evento. Preste atenção, especificamente, nas **Propriedades** para saber mais sobre o erro.
 
-    ![show audit log details](./media/resource-manager-troubleshoot-deployments-portal/audit-details.png)
+    ![mostrar detalhes do log de auditoria](./media/resource-manager-troubleshoot-deployments-portal/audit-details.png)
 
-The filter you applied to the audit log is retained the next time you view it, so you may need to change those values to broaden your view of the operations.
+O filtro aplicado no log de auditoria será mantido na próxima vez que o exibir, portanto, você pode precisar alterar esses valores para ampliar a exibição das operações.
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-- For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- To learn about using the audit logs to monitor other types of actions, see [Audit operations with Resource Manager](resource-group-audit.md).
-- To validate your deployment prior to executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
+- Para obter ajuda com a resolução de determinados erros de implantação, consulte [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- Para saber mais sobre como usar os logs de auditoria para monitorar outros tipos de ações, consulte [Operações de auditoria com o Gerenciador de Recursos](resource-group-audit.md).
+- Para validar sua implantação antes de executá-la, consulte [Implantar um grupo de recursos com um modelo do Azure Resource Manager](resource-group-template-deploy.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

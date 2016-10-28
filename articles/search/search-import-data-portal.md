@@ -1,128 +1,122 @@
 <properties
-    pageTitle="Import data to Azure Search using indexers in the Azure Portal | Microsoft Azure | Hosted cloud search service"
-    description="Use the Azure Search Import Data Wizard in the Azure Portal to crawl data from Azure Blob storage, table stroage, SQL Database, and SQL Server on Azure VMs."
-    services="search"
-    documentationCenter=""
-    authors="HeidiSteen"
-    manager="jhubbard"
-    editor=""
+	pageTitle="Importar dados para a Pesquisa do Azure usando indexadores no Portal do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
+	description="Use o Assistente de Dados de Importação do Azure Search no Portal do Azure para rastrear dados do Armazenamento de Blobs do Azure, armazenamento de tabela, Banco de Dados SQL e SQL Server em VMs do Azure."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="jhubbard"
+	editor=""
     tags="Azure Portal"/>
 
 <tags
-    ms.service="search"
-    ms.devlang="na"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="heidist"/>
+	ms.service="search"
+	ms.devlang="na"
+	ms.workload="search"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.date="08/29/2016"
+	ms.author="heidist"/>
 
+# Importar dados para a Pesquisa do Azure usando o portal
 
-# <a name="import-data-to-azure-search-using-the-portal"></a>Import data to Azure Search using the portal
+O Portal do Azure fornece um assistente de **Importação de Dados** no painel do Azure Search para carregar os dados em um índice.
 
-The Azure portal provides an **Import Data** wizard on the Azure Search dashboard for loading data into an index. 
+  ![Importar Dados na barra de comandos][1]
 
-  ![Import Data on the command bar][1]
+Internamente, o assistente configura e invoca um *indexador*, automatizando várias etapas do processo de indexação:
 
-Internally, the wizard configures and invokes an *indexer*, automating several steps of the indexing process: 
+- Conexão a uma fonte de dados externa na assinatura atual do Azure
+- Geração automática de um esquema de índice com base na estrutura de dados de origem
+- Criação de documentos com base em um conjunto de linhas recuperado da fonte de dados
+- Upload de documentos no índice em seu serviço de pesquisa
 
-- Connect to an external data source in the current Azure subscription
-- Autogenerate an index schema based on the source data structure
-- Create documents based on a rowset retrieved from the data source
-- Upload documents to the index in your search service
+Você pode experimentar este fluxo de trabalho usando dados de exemplo no DocumentDB. Visite [Introdução ao Azure Search no Portal do Azure](search-get-started-portal.md) para obter instruções.
 
-You can try out this workflow using sample data in DocumentDB. Visit [Get started with Azure Search in the Azure Portal](search-get-started-portal.md) for instructions.
+## Fontes de dados com suporte do Assistente para Importação de Dados
 
-## <a name="data-sources-supported-by-the-import-data-wizard"></a>Data sources supported by the Import Data Wizard
+O Assistente de importação de dados oferece suporte às seguintes fontes de dados:
 
-The Import Data wizard supports the following data sources: 
+- Banco de Dados SQL do Azure
+- Dados relacionais do SQL Server em uma VM do Azure
+- Banco de Dados de Documentos do Azure
+- Armazenamento de Blobs do Azure (em versão de visualização)
+- Armazenamento de Tabelas do Azure (em versão de visualização)
 
-- Azure SQL Database
-- SQL Server relational data on an Azure VM
-- Azure DocumentDB
-- Azure Blob storage (in preview)
-- Azure Table storage (in preview)
+Um conjunto de dados bidimensional é uma entrada exigida. Você só pode importar de uma única tabela, exibição do banco de dados ou estrutura de dados equivalente. Você deve criar essa estrutura de dados antes de executar o assistente.
 
-A flattened dataset is a required input. You can only import from a single table, database view, or equivalent data structure. You should create this data structure before running the wizard.
+Observe que algumas indexadores ainda estão em versão de visualização, isso significa que a definição do indexador é amparada pela versão de visualização da API. Consulte [Visão geral do indexador](search-indexer-overview.md) para saber mais e obter links.
 
-Note that a few of the indexers are still in preview, which means the indexer definition is backed by the preview version of the API. See [Indexer overview](search-indexer-overview.md) for more information and links.
+## Conectar aos seus dados
 
-## <a name="connect-to-your-data"></a>Connect to your data
+1. Entre no [Portal do Azure](https://portal.azure.com) e abra o painel de serviço. Você pode clicar em **Serviços de pesquisa** na barra de salto para mostrar os serviços existentes na assinatura atual.
 
-1. Sign in to the [Azure Portal](https://portal.azure.com) and open service dashboard. You can click **Search services** in the jump bar to show the existing services in the current subscription. 
+2. Clique em **Importar Dados** na barra de comandos para deslizar e abrir a folha Importar Dados.
 
-2. Click **Import Data** on the command bar to slide open the Import Data blade.  
-
-3. Click **Connect to your data** to specify a data source definition used by an indexer. For intra-subscription data sources, the wizard can usually detect and read connection information, minimizing overall configuration requirements.
+3. Clique em **Conectar a seus dados** para especificar uma definição de fonte de dados usada por um indexador. Para fontes de dados dentro da assinatura, normalmente o assistente pode detectar e ler as informações de conexão, reduzindo os requisitos gerais de configuração.
 
 | | |
 |--------|------------|
-|**Existing data source** | If you already have indexers defined in your search service, you can select an existing data source definition for another import.|
-|**Azure SQL Database** | Service name, credentials for a database user with read permission, and a database name can be specified either on the page or via an ADO.NET connection string. Choose the connection string option to view or customize properties. <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection.|
-|**SQL Server on Azure VM** | Specify a fully-qualified service name, user ID and password, and database as a connection string. To use this data source, you must have previously installed a certificate in the local store that encrypts the connection. <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection.
-|**DocumentDB** |Requirements include the account, database, and collection. All documents in the collection will be included in the index. You can define a query to flatten or filter the rowset, or to detect changed documents for subsequent data refresh operations.|
-|**Azure Blob Storage** | Requirements include the storage account and a container. Optionally, if blob names follow a virtual naming convention for grouping purposes, you can specify the virtual directory portion of the name as a folder under container. See [Indexing Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md) for more information. |
-|**Azure Table Storage** | Requirements include the storage account and a table name. Optionally, you can specify a query to retrieve a subset of the tables. See [Indexing Table Storage (preview)](search-howto-indexing-azure-tables.md) for more information. |
+|**Fonte de dados existente** | Se já houver indexadores definidos em seu serviço de pesquisa, selecione uma definição de fonte de dados existente para outra importação.|
+|**Banco de Dados SQL do Azure** | É possível especificar o nome do serviço, credenciais para um usuário de banco de dados com permissão de leitura e um nome de banco de dados na página ou por meio de uma cadeia de conexão do ADO.NET. Escolha a opção de cadeia de conexão para exibir ou personalizar as propriedades. <br/><br/>A tabela ou exibição que fornece o conjunto de linhas deve ser especificada na página. Essa opção aparece após o êxito da conexão, fornecendo uma lista suspensa para que você possa fazer uma seleção.|
+|**SQL Server em VM do Azure** | Especifique um nome de serviço totalmente qualificado, a ID e a senha de usuário e um banco de dados como uma cadeia de conexão. Para usar esta fonte de dados, você deve ter instalado um certificado no repositório local que criptografa a conexão. <br/><br/>A tabela ou exibição que fornece o conjunto de linhas deve ser especificada na página. Essa opção aparece após o êxito da conexão, fornecendo uma lista suspensa para que você possa fazer uma seleção.
+|**Banco de Dados de Documentos** |Os requisitos incluem a conta, o banco de dados e a coleção. Todos os documentos na coleção serão incluídos no índice. Você pode definir uma consulta para nivelar ou filtrar o conjunto de linhas, ou para detectar documentos alterados para operações de atualização de dados subsequentes.|
+|**Armazenamento de Blobs do Azure** | Os requisitos incluem a conta de armazenamento e um contêiner. Como opção, se os nomes de blob seguirem uma convenção de nomenclatura virtual para fins de agrupamento, você poderá especificar a parte do diretório virtual do nome como uma pasta no contêiner. Confira [Indexação do Armazenamento de Blobs (visualização)](search-howto-indexing-azure-blob-storage.md) para saber mais. |
+|**Armazenamento de Tabelas do Azure** | Os requisitos incluem a conta de armazenamento e um nome de tabela. Como opção, você pode especificar uma consulta para recuperar um subconjunto das tabelas. Confira [Indexação do Armazenamento de Tabelas (visualização)](search-howto-indexing-azure-tables.md) para saber mais. |
 
-## <a name="customize-target-index"></a>Customize target index
+## Personalizar o índice de destino
 
-A preliminary index is typically inferred from the dataset. Add, edit, or delete fields to complete the schema. Additionally, set attributes at the field level to determine its subsequent search behaviors.
+Normalmente, um índice preliminar é inferido do conjunto de dados. Adicionar, editar ou excluir campos para concluir o esquema. Além disso, defina os atributos no nível do campo para determinar seus comportamentos de pesquisa subsequentes.
 
-1. In **Customize target index**, specify the name and a **Key** used to uniquely identify each document. The Key must be a string. If field values include spaces or dashes be sure to set advanced options in **Import your data** to suppress the validation check for these characters.
+1. Em **Personalizar índice de destino**, especifique o nome e uma **chave** usados para identificar exclusivamente cada documento. A Chave deve ser uma cadeia de caracteres. Se os valores de campo incluem espaços ou traços, defina as opções avançadas em **Importar seus dados** para suprimir a verificação de validação para esses caracteres.
 
-2. Review and revise the remaining fields. Field name and type are typically filled in for you. You can change the data type.
+2. Analise e revise os campos restantes. O nome e o tipo do campo geralmente são preenchidos para você. Você pode alterar o tipo de dados.
 
-3. Set index attributes for each field:
+3. Defina os atributos de índice de cada campo:
 
- - Retrievable returns the field in search results.
- - Filterable allows the field to be referenced in filter expressions.
- - Sortable allows the field to be used in a sort.
- - Facetable enables the field for faceted navigation.
- - Searchable enables full-text search.
+ - Recuperável retorna o campo nos resultados da pesquisa.
+ - Filtrável permite que o campo seja referenciado em expressões de filtro.
+ - Classificável permite que o campo seja usado em uma classificação.
+ - Com faceta habilita o campo para a navegação com faceta.
+ - Pesquisável habilita a pesquisa de texto completo.
   
-4. Click the **Analyzer** tab if you want to specify a language analyzer at the field level. Only language analyzers can be specified at this time. Using a custom analyzer or a non-language analyzer like Keyword, Pattern, and so forth, will require code.
+4. Clique na guia **Analisador** se desejar especificar um analisador de idiomas no nível do campo. Somente os analisadores de idioma podem ser especificados no momento. O uso de um analisador personalizado ou de um analisador que não é de linguagem, como o Keyword, o Pattern etc., exige código.
 
- - Click **Searchable** to designate full-text search on the field and enable the Analyzer drop-down list.
- - Choose the analyzer you want. See [Create an index for documents in multiple language](search-language-support.md) for details.
+ - Clique em **Pesquisável** para designar a pesquisa de texto completo no campo e habilitar a lista suspensa Analisador.
+ - Escolha o analisador que quiser. Confira [Criar um índice para documentos em vários idiomas](search-language-support.md) para obter detalhes.
 
-5. Click the **Suggester** to enable type-ahead query suggestions on selected fields.
+5. Clique em **Sugestor** para habilitar o preenchimento automático de sugestões de consulta nos campos selecionados.
 
 
-## <a name="import-your-data"></a>Import your data
+## Importar seus dados
 
-1. In **Import your data**, provide a name for the indexer. Recall that the product of the Import Data wizard is an indexer. Later, if you want to view or edit it, you'll select it from the portal rather than by rerunning the wizard. 
+1. Em **Importar seus dados**, forneça um nome para o indexador. Lembre-se de que o produto do assistente para Importação de Dados é um indexador. Posteriormente, se você quiser exibir ou editá-lo, selecione-o no portal em vez de executar novamente o assistente.
 
-2. Specify the schedule, which is based on the regional time zone in which the service is provisioned.
+2. Especifique o cronograma, que tem base no fuso horário regional no qual o serviço é provisionado.
 
-3. Set advanced options to specify thresholds on whether indexing can continue if a document is dropped. Additionally, you can specify whether **Key** fields are allowed to contain spaces and slashes.  
+3. Defina opções avançadas para especificar os limites de continuação da indexação no caso de um documento ser descartado. Além disso, você pode especificar se os campos **Chave** podem conter espaços e barras.
 
-## <a name="edit-an-existing-indexer"></a>Edit an existing indexer
+## Editar um indexador existente
 
-In the service dashboard, double-click on the Indexer tile to slide out a list of all indexers created for your subscription. Double-click one of the indexers to run, edit or delete it. You can replace the index with another existing one, change the data source, and set options for error thresholds during indexing.
+No painel do serviço, clique duas vezes no bloco Indexador para deslizar uma lista de todos os indexadores criados para sua assinatura. Clique duas vezes em um dos indexadores para executá-lo, editá-lo ou excluí-lo. Você pode substituir o índice por outro existente, alterar a fonte de dados e definir opções para os limites de erro durante a indexação.
 
-## <a name="edit-an-existing-index"></a>Edit an existing index
+## Editar um indexador existente
 
-In Azure Search, structural updates to an index will require a rebuild of that index, which consists of deleting the index, recreating the index, and reloading data. Structural updates include changing a data type and renaming or deleting a field.
+Na Pesquisa do Azure, as atualizações estruturais em um índice exigirão uma recompilação desse índice, que consiste em excluir o índice, recriá-lo e recarregar os dados. As atualizações estruturais incluem alterar um tipo de dados e renomear ou excluir um campo.
 
-Edits that don't require a rebuild include adding a new field, changing scoring profiles, changing suggesters, or changing language analyzers. See [Update Index](https://msdn.microsoft.com/library/azure/dn800964.aspx) for more information.
+As edições que não exigem a recriação incluem adicionar um novo campo, alterar os perfis de pontuação, mudar as sugestões ou alterar os analistas de linguagem. Consulte [Atualizar Índice](https://msdn.microsoft.com/library/azure/dn800964.aspx) para obter mais informações.
 
-## <a name="next-step"></a>Next step
+## Próxima etapa
 
-Review these links to learn more about indexers:
+Consulte estes links para saber mais sobre os indexadores:
 
-- [Indexing Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
-- [Indexing DocumentDB](../documentdb/documentdb-search-indexer.md)
-- [Indexing Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md)
-- [Indexing Table Storage (preview)](search-howto-indexing-azure-tables.md)
+- [Indexação do Banco de Dados SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [Indexação do DocumentDB](../documentdb/documentdb-search-indexer.md)
+- [Indexação do Armazenamento de Blobs (preview)](search-howto-indexing-azure-blob-storage.md)
+- [Indexação do Armazenamento de Tabelas (preview)](search-howto-indexing-azure-tables.md)
 
 
 
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

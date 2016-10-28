@@ -1,109 +1,107 @@
 <properties
-    pageTitle="Get started with queue storage and Visual Studio connected services (ASP.NET) | Microsoft Azure"
-    description="How to get started using Azure Queue storage in an ASP.NET project in Visual Studio after connecting to a storage account using Visual Studio connected services"
-    services="storage"
-    documentationCenter=""
-    authors="TomArcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Introdução ao armazenamento de fila e aos serviços conectados do Visual Studio (ASP.NET) | Microsoft Azure"
+	description="Como começar a usar o armazenamento de Fila do Azure em um projeto do ASP.NET no Visual Studio após a conexão a uma conta de armazenamento usando os serviços conectados do Visual Studio"
+	services="storage"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="storage"
-    ms.workload="web"
-    ms.tgt_pltfrm="vs-getting-started"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="tarcher"/>
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/15/2016"
+	ms.author="tarcher"/>
 
-
-# <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services"></a>Get started with Azure Queue storage and Visual Studio connected services
+# Introdução ao armazenamento de Fila do Azure e serviços conectados do Visual Studio
 
 [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Overview
+## Visão geral
 
-This article describes how get started using Azure Queue storage in Visual Studio after you have created or referenced an Azure storage account in an ASP.NET project by using the  Visual Studio **Add Connected Services** dialog.
+Este artigo descreve como começar a usar o armazenamento de Filas do Azure no Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure em um projeto ASP.NET usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio.
 
-We'll show you how to create and access an Azure Queue in your storage account. We'll also show you how to perform basic queue operations, such as adding, modifying, reading and removing queue messages. The samples are written in C# code and use the [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
+Mostraremos como criar e acessar uma Fila do Azure em sua conta de armazenamento. Também mostraremos como realizar operações básicas de fila, como adicionar, modificar, ler e remover entidades de fila. Os exemplos são escritos em código C# e usam a [Biblioteca de Cliente do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Para saber mais sobre ASP.NET, confira [ASP.NET](http://www.asp.net).
 
-Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
+O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento.
 
-## <a name="access-queues-in-code"></a>Access queues in code
+## Acessar filas em código
 
-To access queues in ASP.NET projects, you need to include the following items to any C# source file that access Azure Queue storage.
+Para acessar filas em projetos do ASP.NET, você precisa incluir os itens a seguir para qualquer arquivo de origem C# que acesse o armazenamento de Fila do Azure.
 
-1. Make sure the namespace declarations at the top of the C# file include these **using** statements.
+1. Verifique se as declarações de namespace na parte superior do arquivo C# incluem estas instruções de **uso**.
 
-        using Microsoft.Framework.Configuration;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Queue;
+		using Microsoft.Framework.Configuration;
+		using Microsoft.WindowsAzure.Storage;
+		using Microsoft.WindowsAzure.Storage.Queue;
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration.
+2. Obtenha um objeto **CloudStorageAccount** que represente as informações da conta de armazenamento. Use o seguinte código para obter a sua cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure.
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-3. Get a **CloudQueueClient** object to reference the queue objects in your storage account.  
+3. Obtenha um objeto **CloudQueueClient** para referenciar objetos de fila em sua conta de armazenamento.
 
-        // Create the CloudQueueClient object for this storage account.
-        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+	    // Create the CloudQueueClient object for this storage account.
+    	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-4. Get a **CloudQueue** object to reference a specific queue.
+4. Obtenha um objeto **CloudQueue** para referenciar uma fila específica.
 
-        // Get a reference to a queue named "messageQueue"
-        CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
+    	// Get a reference to a queue named "messageQueue"
+	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
-**NOTE** Use all of the above code in front of the code in the following samples.
+**OBSERVAÇÃO:** use todos os códigos acima diante do código nos exemplos a seguir.
 
-## <a name="create-a-queue-in-code"></a>Create a queue in code
+## Criar uma fila em código
 
-To create an Azure queue in code, just add a call to **CreateIfNotExists** to the code above.
+Para criar uma fila do Azure no código, basta adicionar uma chamada para **CreateIfNotExists** ao código acima.
 
-    // Create the messageQueue if it does not exist
-    messageQueue.CreateIfNotExists();
+	// Create the messageQueue if it does not exist
+	messageQueue.CreateIfNotExists();
 
-## <a name="add-a-message-to-a-queue"></a>Add a message to a queue
+## Adicionar uma mensagem a uma fila
 
-To insert a message into an existing queue, create a new **CloudQueueMessage** object, then call the **AddMessage** method.
+Para inserir uma mensagem em uma fila existente, crie um novo objeto **CloudQueueMessage** e chame o método **AddMessage**.
 
-A **CloudQueueMessage** object can be created from either a string (in UTF-8 format) or a byte array.
+Um objeto **CloudQueueMessage** pode ser criado por meio de uma cadeia de caracteres (em formato UTF-8) ou de uma matriz de bytes.
 
-Here is an example which inserts the message 'Hello, World'.
+Aqui está um exemplo que insere a mensagem “Hello, World”.
 
-    // Create a message and add it to the queue.
-    CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-    messageQueue.AddMessage(message);
+	// Create a message and add it to the queue.
+	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
+	messageQueue.AddMessage(message);
 
-## <a name="read-a-message-in-a-queue"></a>Read a message in a queue
+## Ler uma mensagem em uma fila
 
-You can peek at the message in the front of a queue without removing it from the queue by calling the PeekMessage() method.
+Você pode espiar a mensagem na frente de uma fila sem removê-la da fila, chamando o método PeekMessage().
 
-    // Peek at the next message
+	// Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 
-## <a name="read-and-remove-a-message-in-a-queue"></a>Read and remove a message in a queue
+## Ler e remover uma mensagem em uma fila
 
-Your code can remove (de-queue) a message from a queue in two steps.
-1. Call GetMessage() to get the next message in a queue. A message returned from GetMessage() becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds.
-2.  To finish removing the message from the queue, call **DeleteMessage**.
+Seu código pode remover uma mensagem de uma fila em duas etapas.
+1. Chame GetMessage() para obter a próxima mensagem em uma fila. As mensagens retornadas de GetMessage() tornam-se invisíveis para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos.
+2.	Para concluir a remoção da mensagem da fila, chame **DeleteMessage**.
 
-This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. The following code calls **DeleteMessage** right after the message has been processed.
+Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. O código a seguir chamará **DeleteMessage** logo depois que a mensagem tiver sido processada.
 
-    // Get the next message in the queue.
-    CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
+	// Get the next message in the queue.
+	CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
 
-    // Process the message in less than 30 seconds
+	// Process the message in less than 30 seconds
 
-    // Then delete the message.
-    await messageQueue.DeleteMessage(retrievedMessage);
+	// Then delete the message.
+	await messageQueue.DeleteMessage(retrievedMessage);
 
 
-## <a name="use-additional-options-for-de-queuing-messages"></a>Use additional options for de-queuing messages
+## Use opções adicionais para remover mensagens da fila
 
-There are two ways you can customize message retrieval from a queue.
-First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter invisibility timeout, allowing your code more or less time to fully process each message. The following code example uses the **GetMessages** method to get 20 messages in one call. Then it processes each message using a **foreach** loop. It also sets the invisibility timeout to five minutes for each message. Note that the 5 minutes starts for all messages at the same time, so after 5 minutes have passed since the call to **GetMessages**, any messages which have not been deleted will become visible again.
+Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O exemplo de código a seguir usa o método **GetMessages** para receber 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **foreach**. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem. Observe que os 5 minutos começam para todas as mensagens ao mesmo tempo; portanto, depois de 5 minutos desde a chamada para **GetMessages**, todas as mensagens que não tenham sido excluídas se tornarão visíveis novamente.
 
     // Create the queue client.
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -117,22 +115,22 @@ First, you can get a batch of messages (up to 32). Second, you can set a longer 
         queue.DeleteMessage(message);
     }
 
-## <a name="get-the-queue-length"></a>Get the queue length
+## Obter o tamanho da fila
 
-You can get an estimate of the number of messages in a queue. The **FetchAttributes** method asks the queueservice to retrieve the queue attributes, including the message count. The **ApproximateMethodCount** property returns the last value retrieved by the **FetchAttributes** method, without calling the queueservice.
+Você pode obter uma estimativa do número de mensagens em uma fila. O método **FetchAttributes** solicita que o serviço fila recupere os atributos da fila, incluindo a contagem de mensagens. A propriedade **ApproximateMethodCount** retorna o último valor recuperado pelo método **FetchAttributes**, sem chamar o serviço fila.
 
-    // Fetch the queue attributes.
-    messageQueue.FetchAttributes();
+	// Fetch the queue attributes.
+	messageQueue.FetchAttributes();
 
     // Retrieve the cached approximate message count.
     int? cachedMessageCount = messageQueue.ApproximateMessageCount;
 
-    // Display number of messages.
-    Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
+	// Display number of messages.
+	Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
-## <a name="use-async-await-pattern-with-common-queueapis"></a>Use Async-Await pattern with common queueAPIs
+## Usar padrão Async-Await com APIs comuns de fila
 
-This example shows how to use the Async-Await pattern with common queueAPIs. The sample calls the async version of each of the given methods, this can be seen by the Async post-fix of each method. When an async method is used the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)] (https://msdn.microsoft.com/library/hh191443.aspx)
+Este exemplo mostra como usar o padrão Async-Await com APIs de fila comuns. O exemplo chama a versão assíncrona de cada um dos métodos determinados, o que pode ser visto pela pós-correção Async de cada método. Quando um método assíncrono é usado, o padrão async-await suspende a execução local até que a chamada seja concluída. Esse comportamento permite que o thread atual faça outro trabalho que ajude a evitar gargalos de desempenho e melhora a capacidade de resposta geral do aplicativo. Para obter mais detalhes sobre como usar o padrão Async-Await no .NET, confira [Async e Await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
     // Create a message to put in the queue
     CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
@@ -149,18 +147,15 @@ This example shows how to use the Async-Await pattern with common queueAPIs. The
     await messageQueue.DeleteMessageAsync(retrievedMessage);
     Console.WriteLine("Deleted message");
 
-## <a name="delete-a-queue"></a>Delete a queue
+## Excluir uma fila
 
-To delete a queue and all the messages contained in it, call the **Delete** method on the queue object.
+Para excluir uma fila e todas as mensagens que ela contém, chame o método **Delete** no objeto fila.
 
     // Delete the queue.
     messageQueue.Delete();
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

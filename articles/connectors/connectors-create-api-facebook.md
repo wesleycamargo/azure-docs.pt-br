@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Add the Facebook connector in your Logic Apps | Microsoft Azure"
-    description="Overview of the Facebook connector with REST API parameters"
+    pageTitle="Adicionar o conector do Facebook ao seus aplicativos lógicos | Microsoft Azure"
+    description="Visão geral do conector do Facebook com os parâmetros de API REST"
     services=""
     documentationCenter="" 
     authors="MandiOhlinger"
@@ -17,433 +17,422 @@
    ms.date="08/18/2016"
    ms.author="mandia"/>
 
+# Introdução ao conector do Facebook
+Conecte-se ao Facebook e publique em uma linha do tempo, recebe um feed de página e muito mais.
 
-# <a name="get-started-with-the-facebook-connector"></a>Get started with the Facebook connector
-Connect to Facebook and post to a timeline, get a page feed, and more. 
-
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
-
-
-With Facebook, you can:
-
-- Build your business flow based on the data you get from Facebook. 
-- Use a trigger when a new post is received.
-- Use actions that post to your timeline, get a page feed, and more. These actions get a response, and then make the output available for other actions. For example, when there is a new post on your timeline, you can take that post and push it to your Twitter feed. 
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 
+Com o Facebook, você pode:
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+- Criar seu fluxo de negócios com base nos dados que você obtém do Facebook.
+- Usar um gatilho quando uma nova publicação for recebida.
+- Usar ações que publicam em sua linha do tempo, obtêm uma feed de página e mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando há uma nova publicação em sua linha do tempo, você pode publicá-la e enviá-la ao seu feed do Twitter.
 
-## <a name="triggers-and-actions"></a>Triggers and actions
-The Facebook connector includes the following trigger and actions. 
 
-| Triggers | Actions|
+
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+
+## Gatilhos e ações
+O conector do Facebook inclui o gatilho e as ações a seguir.
+
+| Gatilhos | Ações|
 | --- | --- |
-| <ul><li>When there is a new post on my timeline</li></ul> |<ul><li>Get feed from my timeline</li><li>Post to my timeline</li><li>When there is a new post on my timeline</li><li>Get page feed</li><li>Get user timeline</li><li>Post to page</li></ul>
+| <ul><li>Quando há uma nova publicação em minha linha do tempo</li></ul> |<ul><li>Obter feed de minha linha do tempo</li><li>Publicar em minha linha do tempo</li><li>Quando há uma nova publicação em minha linha de tempo</li><li>Obter feed da página</li><li>Obter linha do tempo do usuário</li><li>Publicar na página</li></ul>
 
-All connectors support data in JSON and XML formats.
+Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
-## <a name="create-a-connection-to-facebook"></a>Create a connection to Facebook
-When you add this connector to your logic apps, you must authorize logic apps to connect to your Facebook.
+## Criar uma conexão com o Facebook
+Quando você adiciona esse conector aos seus aplicativos lógicos, precisa autorizar que os aplicativos lógicos se conectem ao Facebook.
 
-1. Sign in to your Facebook account
-2. Select **Authorize**, and allow your logic apps to connect and use your Facebook. 
+1. Entre em sua conta do Facebook
+2. Selecione **Autorizar** e permita que seus aplicativos lógicos se conectem e usem o Facebook.
 
->[AZURE.INCLUDE [Steps to create a connection to Facebook](../../includes/connectors-create-api-facebook.md)]
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o Facebook](../../includes/connectors-create-api-facebook.md)]
 
->[AZURE.TIP] You can use this same Facebook connection in other logic apps.
+>[AZURE.TIP] Você pode usar esta conexão com o Facebook em outros aplicativos lógicos.
 
-## <a name="swagger-rest-api-reference"></a>Swagger REST API reference
-Applies to version: 1.0.
+## Referência da API REST do Swagger
+Aplica-se à versão: 1.0.
 
-### <a name="get-feed-from-my-timeline"></a>Get feed from my timeline
-Gets the feeds from the logged in user's timeline.  
-```GET: /me/feed```
+### Obter feed de minha linha de tempo
+Obtém os feeds da linha do tempo do usuário conectado. ```GET: /me/feed```
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|fields|string|no|query|none |Specify the fields you want returned. Example (id,name,picture).|
-|limit|integer|no|query| none|Maximum number of posts to be retrieved|
-|with|string|no|query| none|Restrict the list of posts to only those with location attached.|
-|filter|string|no|query| none|Retrieve only posts that match a particular stream filter.|
+|fields|string|não|query|nenhum |Especifica os campos que você deseja retornar. Exemplo (id, nome, imagem).|
+|limite|inteiro|não|query| nenhum|Número máximo de publicações para recuperação|
+|por:|string|não|query| nenhum|Restringe a lista de publicações apenas às com local conectado.|
+|filtro|string|não|query| nenhum|Recupera apenas as publicações que correspondem a um filtro de fluxo específico.|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Resposta
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|400|Bad Request|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|400|Solicitação incorreta|
+|500|Erro interno do servidor|
+|padrão|Falha na operação.|
 
 
-### <a name="post-to-my-timeline"></a>Post to my timeline
-Post a status message to the logged in user's timeline.  
-```POST: /me/feed```
+### Publicar em minha linha do tempo
+Publique uma mensagem de status na linha do tempo do usuário conectado. ```POST: /me/feed```
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|post|string |yes|body|none |New message to be posted|
+|post|string |sim|corpo|nenhum |Nova mensagem a ser publicada|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Resposta
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|400|Bad Request|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|400|Solicitação incorreta|
+|500|Erro interno do servidor|
+|padrão|Falha na Operação.|
 
 
-### <a name="when-there-is-a-new-post-on-my-timeline"></a>When there is a new post on my timeline
-Triggers a new flow when there is a new post on the logged in user's timeline.  
-```GET: /trigger/me/feed```
+### Quando há uma nova publicação em minha linha do tempo
+Dispara um novo fluxo quando há uma nova publicação na linha do tempo do usuário conectado. ```GET: /trigger/me/feed```
 
-There are no parameters. 
+Não há parâmetros.
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Resposta
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|400|Bad Request|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|400|Solicitação incorreta|
+|500|Erro interno do servidor|
+|padrão|Falha na Operação.|
 
 
-### <a name="get-page-feed"></a>Get page feed
-Get posts from the feed of a specified page.  
-```GET: /{pageId}/feed```
+### Obter feed da página
+Obter publicações do feed de uma página especificada. ```GET: /{pageId}/feed```
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|pageId|string|yes|path| none|Id of the page from which posts have to be retrieved.|
-|limit|integer|no|query| none|Maximum number of posts to be retrieved|
-|include_hidden|boolean|no|query|none |Whether or not to include any posts that were hidden by the Page|
-|fields|string|no|query|none |Specify the fields you want returned. Example (id,name,picture).|
+|pageId|string|sim|path| nenhum|ID da página da qual as publicações devem ser recuperadas.|
+|limite|inteiro|não|query| nenhum|Número máximo de publicações para recuperação|
+|include\_hidden|Booliano|não|query|nenhum |Se deseja ou não incluir quaisquer publicações que foram ocultas pela página|
+|fields|string|não|query|nenhum |Especifica os campos que você deseja retornar. Exemplo (id, nome, imagem).|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Resposta
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|400|Bad Request|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|400|Solicitação incorreta|
+|500|Erro interno do servidor|
+|padrão|Falha na Operação.|
 
 
-### <a name="get-user-timeline"></a>Get user timeline
-Get Posts from a user's timeline.  
-```GET: /{userId}/feed```
+### Obter a linha do tempo do usuário
+Obtenha as publicações da linha do tempo de um usuário. ```GET: /{userId}/feed```
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|userId|string|yes|path|none |Id of the user whose timeline have to be retrieved.|
-|limit|integer|no|query|none |Maximum number of posts to be retrieved|
-|with|string|no|query|none |Restrict the list of posts to only those with location attached.|
-|filter|string|no|query| none|Retrieve only posts that match a particular stream filter.|
-|fields|string|no|query| none|Specify the fields you want returned. Example (id,name,picture).|
+|coluna|string|sim|path|nenhum |ID do usuário cuja linha do tempo precisa ser recuperada.|
+|limite|inteiro|não|query|nenhum |Número máximo de publicações para recuperação|
+|por:|string|não|query|nenhum |Restringe a lista de publicações apenas às com local conectado.|
+|filtro|string|não|query| nenhum|Recupera apenas as publicações que correspondem a um filtro de fluxo específico.|
+|fields|string|não|query| nenhum|Especifica os campos que você deseja retornar. Exemplo (id, nome, imagem).|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Resposta
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|400|Bad Request|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|400|Solicitação incorreta|
+|500|Erro interno do servidor|
+|padrão|Falha na Operação.|
 
 
-### <a name="post-to-page"></a>Post to page
-Post a message to a Facebook Page as the logged in user.  
-```POST: /{pageId}/feed```
+### Publicar na página
+Publicar uma mensagem em uma Página do Facebook como o usuário conectado. ```POST: /{pageId}/feed```
 
-| Name|Data Type|Required|Located In|Default Value|Description|
+| Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|pageId|string|yes|path|none |Id of the page to post.|
-|post|many |yes|body|none |New message to be posted.|
+|pageId|string|sim|path|nenhum |ID da página a ser postada.|
+|post|many |sim|corpo|nenhum |Nova mensagem a ser postada.|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Resposta
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|400|Bad Request|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|400|Solicitação incorreta|
+|500|Erro interno do servidor|
+|padrão|Falha na Operação.|
 
 
-## <a name="object-definitions"></a>Object definitions
+## Definições de objeto
 
-#### <a name="getfeedresponse"></a>GetFeedResponse
+#### GetFeedResponse
 
-|Property Name | Data Type | Required|
+|Nome da Propriedade | Tipo de Dados | Obrigatório|
 |---|---|---|
-|data|array|no|
+|data|array|não|
 
-#### <a name="triggerfeedresponse"></a>TriggerFeedResponse
+#### TriggerFeedResponse
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|data|array|no|
+|data|array|não|
 
-#### <a name="postitem:-a-single-entry-in-a-profile's-feed"></a>PostItem: A single entry in a profile's feed
-The profile could be a user, page, app, or group. 
+#### PostItem: uma única entrada no feed de um perfil
+O perfil pode ser um usuário, página, aplicativo ou grupo.
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|id|string|no|
-|admin_creator|array|no|
-|caption|string|no|
-|created_time|string|no|
-|description|string|no|
-|feed_targeting|not defined|no|
-|from|not defined|no|
-|icon|string|no|
-|is_hidden|boolean|no|
-|is_published|boolean|no|
-|link|string|no|
-|message|string|no|
-|name|string|no|
-|object_id|string|no|
-|picture|string|no|
-|place|not defined|no|
-|privacy|not defined|no|
-|properties|array|no|
-|source|string|no|
-|status_type|string|no|
-|story|string|no|
-|targeting|not defined|no|
-|to|array|no|
-|type|string|no|
-|updated_time|string|no|
-|with_tags|not defined|no|
+|ID|string|não|
+|admin\_creator|array|não|
+|caption|string|não|
+|created\_time|string|não|
+|description|string|não|
+|feed\_targeting|não definido|não|
+|from|não definido|não|
+|ícone|string|não|
+|is\_hidden|Booliano|não|
+|is\_published|Booliano|não|
+|link|string|não|
+|message|string|não|
+|name|string|não|
+|object\_id|string|não|
+|picture|string|não|
+|place|não definido|não|
+|privacy|não definido|não|
+|propriedades|array|não|
+|fonte|string|não|
+|status\_type|string|não|
+|story|string|não|
+|targeting|não definido|não|
+|para|array|não|
+|type|string|não|
+|updated\_time|string|não|
+|with\_tags|não definido|não|
 
-#### <a name="triggeritem:-a-single-entry-in-a-profile's-feed"></a>TriggerItem: A single entry in a profile's feed
-The profile could be a user, page, app, or group.
+#### TriggerItem: uma única entrada no feed de um perfil
+O perfil pode ser um usuário, página, aplicativo ou grupo.
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|id|string|no|
-|created_time|string|no|
-|from|not defined|no|
-|message|string|no|
-|type|string|no|
+|ID|string|não|
+|created\_time|string|não|
+|from|não definido|não|
+|message|string|não|
+|type|string|não|
 
-#### <a name="adminitem"></a>AdminItem
+#### AdminItem
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|id|string|no|
-|link|string|no|
+|ID|string|não|
+|link|string|não|
 
-#### <a name="propertyitem"></a>PropertyItem
+#### PropertyItem
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|name|string|no|
-|text|string|no|
-|href|string|no|
+|name|string|não|
+|texto|string|não|
+|href|string|não|
 
-#### <a name="userpostfeedrequest"></a>UserPostFeedRequest
+#### UserPostFeedRequest
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|message|string|yes|
-|link|string|no|
-|picture|string|no|
-|name|string|no|
-|caption|string|no|
-|description|string|no|
-|place|string|no|
-|tags|string|no|
-|privacy|not defined|no|
-|object_attachment|string|no|
+|message|string|sim|
+|link|string|não|
+|picture|string|não|
+|name|string|não|
+|caption|string|não|
+|description|string|não|
+|place|string|não|
+|marcas|string|não|
+|privacy|não definido|não|
+|object\_attachment|string|não|
 
-#### <a name="pagepostfeedrequest"></a>PagePostFeedRequest
+#### PagePostFeedRequest
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|message|string|yes|
-|link|string|no|
-|picture|string|no|
-|name|string|no|
-|caption|string|no|
-|description|string|no|
-|actions|array|no|
-|place|string|no|
-|tags|string|no|
-|object_attachment|string|no|
-|targeting|not defined|no|
-|feed_targeting|not defined|no|
-|published|boolean|no|
-|scheduled_publish_time|string|no|
-|backdated_time|string|no|
-|backdated_time_granularity|string|no|
-|child_attachments|array|no|
-|multi_share_end_card|boolean|no|
+|message|string|sim|
+|link|string|não|
+|picture|string|não|
+|name|string|não|
+|caption|string|não|
+|description|string|não|
+|actions|array|não|
+|place|string|não|
+|marcas|string|não|
+|object\_attachment|string|não|
+|targeting|não definido|não|
+|feed\_targeting|não definido|não|
+|published|Booliano|não|
+|scheduled\_publish\_time|string|não|
+|backdated\_time|string|não|
+|backdated\_time\_granularity|string|não|
+|child\_attachments|array|não|
+|multi\_share\_end\_card|Booliano|não|
 
-#### <a name="postfeedresponse"></a>PostFeedResponse
+#### PostFeedResponse
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|id|string|no|
+|ID|string|não|
 
-#### <a name="profilecollection"></a>ProfileCollection
+#### ProfileCollection
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|data|array|no|
+|data|array|não|
 
-#### <a name="useritem"></a>UserItem
+#### UserItem
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|id|string|no|
-|first_name|string|no|
-|last_name|string|no|
-|name|string|no|
-|gender|string|no|
-|about|string|no|
+|ID|string|não|
+|first\_name|string|não|
+|last\_name|string|não|
+|name|string|não|
+|gender|string|não|
+|about|string|não|
 
-#### <a name="actionitem"></a>ActionItem
+#### ActionItem
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|name|string|no|
-|link|string|no|
+|name|string|não|
+|link|string|não|
 
-#### <a name="targetitem"></a>TargetItem
+#### TargetItem
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|countries|array|no|
-|locales|array|no|
-|regions|array|no|
-|cities|array|no|
+|countries|array|não|
+|locales|array|não|
+|regions|array|não|
+|cities|array|não|
 
-#### <a name="feedtargetitem:-object-that-controls-news-feed-targeting-for-this-post"></a>FeedTargetItem: Object that controls news feed targeting for this post
-Anyone in these groups is more likely to see this post, others are less likely. Applies to Pages only.
+#### FeedTargetItem: objeto que controla o direcionamento do feed de notícias dessa publicação
+É mais provável que qualquer pessoa nesses grupos veja essa publicação, enquanto em outros a probabilidade é menor. Aplica-se somente às Páginas.
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|countries|array|no|
-|regions|array|no|
-|cities|array|no|
-|age_min|integer|no|
-|age_max|integer|no|
-|genders|array|no|
-|relationship_statuses|array|no|
-|interested_in|array|no|
-|college_years|array|no|
-|interests|array|no|
-|relevant_until|integer|no|
-|education_statuses|array|no|
-|locales|array|no|
+|countries|array|não|
+|regions|array|não|
+|cities|array|não|
+|age\_min|inteiro|não|
+|age\_max|inteiro|não|
+|genders|array|não|
+|relationship\_statuses|array|não|
+|interested\_in|array|não|
+|college\_years|array|não|
+|interests|array|não|
+|relevant\_until|inteiro|não|
+|education\_statuses|array|não|
+|locales|array|não|
 
-#### <a name="placeitem"></a>PlaceItem
+#### PlaceItem
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|id|string|no|
-|name|string|no|
-|overall_rating|number|no|
-|location|not defined|no|
+|ID|string|não|
+|name|string|não|
+|overall\_rating|número|não|
+|location|não definido|não|
 
-#### <a name="locationitem"></a>LocationItem
+#### LocationItem
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|city|string|no|
-|country|string|no|
-|latitude|number|no|
-|located_in|string|no|
-|longitude|number|no|
-|name|string|no|
-|region|string|no|
-|state|string|no|
-|street|string|no|
-|zip|string|no|
+|city|string|não|
+|country|string|não|
+|latitude|número|não|
+|located\_in|string|não|
+|longitude|número|não|
+|name|string|não|
+|region|string|não|
+|state|string|não|
+|street|string|não|
+|zip|string|não|
 
-#### <a name="privacyitem"></a>PrivacyItem
+#### PrivacyItem
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|description|string|no|
-|value|string|yes|
-|allow|string|no|
-|deny|string|no|
-|friends|string|no|
+|description|string|não|
+|value|string|sim|
+|allow|string|não|
+|deny|string|não|
+|friends|string|não|
 
-#### <a name="childattachmentsitem"></a>ChildAttachmentsItem
+#### ChildAttachmentsItem
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|link|string|no|
-|picture|string|no|
-|image_hash|string|no|
-|name|string|no|
-|description|string|no|
+|link|string|não|
+|picture|string|não|
+|image\_hash|string|não|
+|name|string|não|
+|description|string|não|
 
-#### <a name="postphotorequest"></a>PostPhotoRequest
+#### PostPhotoRequest
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|url|string|yes|
-|caption|string|no|
+|url|string|sim|
+|caption|string|não|
 
-#### <a name="postphotoresponse"></a>PostPhotoResponse
+#### PostPhotoResponse
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|id|string|yes|
-|post_id|string|yes|
+|ID|string|sim|
+|post\_id|string|sim|
 
-#### <a name="postvideorequest"></a>PostVideoRequest
+#### PostVideoRequest
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|videoData|string|yes|
-|description|string|yes|
-|title|string|yes|
-|uploadedVideoName|string|no|
+|videoData|string|sim|
+|description|string|sim|
+|título|string|sim|
+|uploadedVideoName|string|não|
 
-#### <a name="getphotoresponse"></a>GetPhotoResponse
+#### GetPhotoResponse
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|data|not defined|yes|
+|data|não definido|sim|
 
-#### <a name="getphotoresponseitem"></a>GetPhotoResponseItem
+#### GetPhotoResponseItem
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|url|string|yes|
-|is_silhouette|boolean|yes|
-|height|string|no|
-|width|string|no|
+|url|string|sim|
+|is\_silhouette|Booliano|sim|
+|height|string|não|
+|width|string|não|
 
-#### <a name="geteventresponse"></a>GetEventResponse
+#### GetEventResponse
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|data|array|yes|
+|data|array|sim|
 
-#### <a name="geteventresponseitem"></a>GetEventResponseItem
+#### GetEventResponseItem
 
-|Property Name | Data Type |Required|
+|Nome da Propriedade | Tipo de Dados |Obrigatório|
 |---|---|---|
-|id|string|yes|
-|name|string|yes|
-|start_time|string|no|
-|end_time|string|no|
-|timezone|string|no|
-|location|string|no|
-|description|string|no|
-|ticket_uri|string|no|
-|rsvp_status|string|yes|
+|ID|string|sim|
+|name|string|sim|
+|start\_time|string|não|
+|end\_time|string|não|
+|timezone|string|não|
+|location|string|não|
+|description|string|não|
+|ticket\_uri|string|não|
+|rsvp\_status|string|sim|
 
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

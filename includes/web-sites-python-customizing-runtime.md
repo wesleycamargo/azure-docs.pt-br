@@ -1,21 +1,18 @@
-Azure will determine the version of Python to use for its virtual environment with the following priority:
+O Azure determinará a versão do Python a usar para seu ambiente virtual com a seguinte ordem de prioridade:
 
-1. version specified in runtime.txt in the root folder
-1. version specified by Python setting in the web app configuration (the **Settings** > **Application Settings** blade for your web app in the Azure Portal)
-1. python-2.7 is the default if none of the above are specified
+1. versão especificada no runtime.txt na pasta raiz
+1. versão especificada pela configuração do Python na configuração do aplicativo Web (a folha **Configurações** > **Configurações do Aplicativo** para seu aplicativo Web no Portal do Azure)
+1. Python 2.7 é o padrão, se nenhuma das opções acima for especificada
 
-Valid values for the contents of 
+Os valores válidos para o conteúdo de
 
     \runtime.txt
 
-are:
+são:
 
 - python-2.7
 - python-3.4
 
-If the micro version (third digit) is specified, it is ignored.
+Se a versão micro (terceiro dígito) for especificada, ela será ignorada.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

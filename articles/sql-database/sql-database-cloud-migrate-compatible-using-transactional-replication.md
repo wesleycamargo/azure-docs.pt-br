@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Migrate to SQL Database using transactional replication | Microsoft Azure"
-   description="Microsoft Azure SQL Database, database migration, import database, transactional replication"
+   pageTitle="Migrar para o Banco de Dados SQL usando a replicação transacional | Microsoft Azure"
+   description="Banco de Dados SQL do Microsoft Azure, migração de banco de dados, importar banco de dados, replicação transacional"
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,56 +16,51 @@
    ms.date="08/23/2016"
    ms.author="carlrab"/>
 
-
-# <a name="migrate-sql-server-database-to-azure-sql-database-using-transactional-replication"></a>Migrate SQL Server database to Azure SQL Database using transactional replication
+# Migrar o banco de dados do SQL Server para o Banco de Dados SQL do Azure usando a replicação transacional
 
 > [AZURE.SELECTOR]
-- [SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-- [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-- [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [Transactional Replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+- [Assistente de Migração do SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+- [Exportar para um arquivo BACPAC](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [Importar de um arquivo BACPAC](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Replicação Transacional](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
-In this article, you learn to migrate a compatible SQL Server database to Azure SQL Database with minimal downtime using SQL Server transactional replication.
+Neste artigo, você aprenderá a migrar um banco de dados do SQL Server compatível para o Banco de Dados SQL do Azure com tempo de inatividade mínimo usando a replicação transacional do SQL Server.
 
-## <a name="understanding-the-transactional-replication-architecture"></a>Understanding the Transactional Replication architecture
+## Noções básicas sobre a arquitetura de Replicação Transacional
 
-When you cannot afford to remove your SQL Server database from production while the migration is occurring, you can use SQL Server transactional replication as your migration solution. To use this solution, you configure your Azure SQL Database as a subscriber to the on-premises SQL Server instance that you wish to migrate. The on-premises transactional replication distributor synchronizes data from the on-premises database to be synchronized (the publisher) while new transactions continue occur. 
+Quando não houver a possibilidade de remover seu banco de dados do SQL Server da produção durante a migração, você poderá usar a replicação transacional do SQL Server como sua solução de migração. Para usar esta solução, você pode configurar o Banco de Dados SQL do Azure como um assinante da instância do SQL Server local que você deseja migrar. O distribuidor de replicação transacional local sincroniza os dados do banco de dados local a ser sincronizado (o editor), enquanto as novas transações continuam a ocorrer.
 
-You can also use transactional replication to migrate a subset of your on-premises database. The publication that you replicate to Azure SQL Database can be limited to a subset of the tables in the database being replicated. For each table being replicated, you can limit the data to a subset of the rows and/or a subset of the columns.
+Você também pode usar a replicação transacional para migrar um subconjunto de seu banco de dados local. A publicação que você replica no Banco de Dados SQL do Azure pode ser limitada a um subconjunto de tabelas no banco de dados que está sendo replicado. Para cada tabela sendo replicada, você poderá limitar os dados a um subconjunto de linhas e/ou um subconjunto de colunas.
 
-With transactional replication, all changes to your data or schema show up in your Azure SQL Database. Once the synchronization is complete and you are ready to migrate, change the connection string of your applications to point them to your Azure SQL Database. Once transactional replication drains any changes left on your on-premises database and all your applications point to Azure DB, you can uninstall transactional replication. Your Azure SQL Database is now your production system.
+Com a replicação transacional, todas as alterações de dados ou esquema aparecem no seu Banco de Dados SQL do Azure. Quando a sincronização for concluída e você estiver pronto para migrar, altere a cadeia de conexão de seus aplicativos para apontá-los para seu Banco de Dados SQL do Azure. Assim que a replicação transacional realizar todas as alterações restantes em seu banco de dados local e todos os seus aplicativos apontarem para o Banco de Dados do Azure, você poderá desinstalar a replicação transacional. O Banco de Dados SQL do Azure agora é o sistema de produção.
 
- ![SeedCloudTR diagram](./media/sql-database-cloud-migrate/SeedCloudTR.png)
+ ![Diagrama do SeedCloudTR](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
-## <a name="transactional-replication-requirements"></a>Transactional Replication requirements
+## Requisitos de replicação transacional
 
-Transactional replication is a technology built-in and integrated with SQL Server since SQL Server 6.5. It is a mature and proven technology that most of DBAs know with which they have experience. With the [SQL Server 2016](https://www.microsoft.com/en-us/cloud-platform/sql-server), it is now possible to configure your Azure SQL Database as a [transactional replication subscriber](https://msdn.microsoft.com/library/mt589530.aspx) to your on-premises publication. The experience that you get setting it up from Management Studio is the same as if you set up a transactional replication subscriber on an on-premises server. Support for this scenario is supported when the publisher and the distributor are at least one of the following SQL Server versions:
+A replicação transacional é uma tecnologia interna e integrada ao SQL Server desde o SQL Server 6.5. É uma tecnologia madura e comprovada, conhecida pela maioria dos DBAs e na qual eles têm experiência. Com o [SQL Server 2016](https://www.microsoft.com/pt-BR/cloud-platform/sql-server), é possível configurar o Banco de Dados SQL do Azure como um [assinante de replicação transacional](https://msdn.microsoft.com/library/mt589530.aspx) para a sua publicação local. A experiência de configurá-lo no Management Studio é a mesma de configurar um assinante de replicação transacional em um servidor local. Haverá suporte para esse cenário quando o editor e o distribuidor estiverem em pelo menos uma das seguintes versões do SQL Server:
 
- - SQL Server 2016 and above 
- - SQL Server 2014 SP1 CU3 and above
- - SQL Server 2014 RTM CU10 and above
- - SQL Server 2012 SP2 CU8 and above
- - SQL Server 2012 SP3 and above
-
-
-> [AZURE.IMPORTANT] Use the latest version of SQL Server Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. Older versions of SQL Server Management Studio cannot set up SQL Database as a subscriber. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+ - SQL Server 2016 e posterior
+ - SQL Server 2014 SP1 CU3 e posterior
+ - SQL Server 2014 RTM CU10 e posterior
+ - SQL Server 2012 SP2 CU8 e posterior
+ - SQL Server 2012 SP3 e posterior
 
 
-## <a name="next-steps"></a>Next steps
-
-- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
-- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-- [SQL Server 2016 ](https://www.microsoft.com/en-us/cloud-platform/sql-server)
-
-## <a name="additional-resources"></a>Additional resources
-
-- [Transactional Replication](https://msdn.microsoft.com/library/mt589530.aspx)
-- [SQL Database V12](sql-database-v12-whats-new.md)
-- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
-- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
+> [AZURE.IMPORTANT] Você deve usar a versão mais recente do SQL Server Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. Versões anteriores do SQL Server Management Studio não podem configurar o Banco de Dados SQL como um assinante. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
+## Próximas etapas
 
-<!--HONumber=Oct16_HO2-->
+- [Versão mais recente do SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Versão mais recente do SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server 2016](https://www.microsoft.com/pt-BR/cloud-platform/sql-server)
 
+## Recursos adicionais
 
+- [Replicação Transacional](https://msdn.microsoft.com/library/mt589530.aspx)
+- [Banco de Dados SQL V12](sql-database-v12-whats-new.md)
+- [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
+- [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0824_2016-->

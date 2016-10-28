@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Virtual Array backup tutorial | Microsoft Azure"
-   description="Describes how to back up StorSimple Virtual Array shares and volumes."
+   pageTitle="Tutorial de backup do StorSimple Virtual Array | Microsoft Azure"
+   description="Descreve como fazer backup de volumes e compartilhamentos do StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,98 +15,93 @@
    ms.date="06/07/2016"
    ms.author="alkohli" />
 
+# Fazer backup de sua Matriz Virtual StorSimple
 
-# <a name="back-up-your-storsimple-virtual-array"></a>Back up your StorSimple Virtual Array
+## Visão geral 
 
-## <a name="overview"></a>Overview 
+Este tutorial se aplica ao Microsoft Azure StorSimple Virtual Array (também conhecido como o dispositivo virtual local StorSimple ou dispositivo virtual StorSimple), que executa a versão GA (disponibilidade geral) de março de 2016 ou as versões posteriores.
 
-This tutorial applies to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release or later versions.
-
-The StorSimple Virtual Array is a hybrid cloud storage on-premises virtual device that can be configured as a file server or an iSCSI server. It can create backups, restore from backups, and perform device failover if disaster recovery is needed. When configured as a file server, it also allows item-level recovery. This tutorial describes how to use the Azure classic portal or the StorSimple web UI to create scheduled and manual backups of your StorSimple Virtual Array.
+O StorSimple Virtual Array é um dispositivo virtual local de armazenamento em nuvem híbrida que pode ser configurado como servidor de arquivos ou um servidor iSCSI. Ele pode criar backups, restaurar de backups e executar failover de dispositivo, se houver necessidade de recuperação de desastre. Quando configurado como um servidor de arquivos, ele também permite a recuperação em nível de item. Este tutorial descreve como usar o portal clássico do Azure ou a interface do usuário da Web do StorSimple para criar backups agendados e manuais do seu StorSimple Virtual Array.
 
 
-## <a name="back-up-shares-and-volumes"></a>Back up shares and volumes
+## Fazer backup de compartilhamentos e volumes
 
-Backups provide point-in-time protection, improve recoverability, and minimize restore times for shares and volumes. You can back up a share or volume on your StorSimple device in two ways: **Scheduled** or **Manual**. Each of the methods is discussed in the following sections.
+Backups oferecem proteção pontual, melhoram a capacidade de recuperação e minimizam os tempos de compartilhamentos e volumes. É possível fazer backup de um compartilhamento ou volume em seu dispositivo StorSimple de duas maneiras: **Agendada** ou **Manual**. Cada um desses métodos é discutido nas seções a seguir.
 
-> [AZURE.NOTE] In this release, scheduled backups are created by a default policy that runs daily at a specified time and backs up all the shares or volumes on the device. It is not possible to create custom policies for scheduled backups at this time.
+> [AZURE.NOTE] Nesta versão, os backups agendados são criados por uma política padrão que é executada diariamente em um período especificado e faz backup de todos os volumes ou compartilhamentos no dispositivo. Não é possível criar políticas personalizadas para backups agendados no momento.
 
-## <a name="change-the-backup-schedule"></a>Change the backup schedule
+## Alterar o agendamento de backup
 
-Your StorSimple virtual device has a default backup policy that starts at a specified time of day (22:30) and backs up all the shares or volumes on the device once a day. You can change the time at which the backup starts, but the frequency and the retention (which specifies the number of backups to retain) cannot be changed. During these backups, the entire virtual device is backed up; therefore, we recommend that you schedule these backups for off-peak hours.
+O dispositivo virtual StorSimple tem uma política de backup padrão que é iniciada em uma hora específica do dia (22:30) e faz o backup de todos os volumes ou compartilhamentos no dispositivo uma vez por dia. Você pode alterar a hora de início do backup, mas a frequência e a retenção (que especifica o número de backups a serem retidos) não podem ser alteradas. Durante esses backups, todo o dispositivo virtual é submetido a backup; portanto, é recomendável agendar esses backups para fora do horário de pico.
 
-Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/) to change the default backup start time.
+Execute as etapas a seguir no [portal clássico do Azure](https://manage.windowsazure.com/) para alterar o horário de início do backup padrão.
 
-#### <a name="to-change-the-start-time-for-the-default-backup-policy"></a>To change the start time for the default backup policy
+#### Para alterar o horário de início para a política de backup padrão
 
-1. Navigate to the device **Configuration** tab.
+1. Navegue até a guia **Configuração** do dispositivo.
 
-2. Under the **Backup** section, specify the start time for the daily backup.
+2. Na seção **Backup**, especifique a hora de início para o backup diário.
 
-3. Click **Save**.
+3. Clique em **Salvar**.
 
-### <a name="take-a-manual-backup"></a>Take a manual backup
+### Fazer um backup manual
 
-In addition to scheduled backups, you can take a manual (on-demand) backup at any time.
+Além de backups agendados, você pode fazer um backup manual (sob demanda) a qualquer momento.
 
-#### <a name="to-create-a-manual-(on-demand)-backup"></a>To create a manual (on-demand) backup
+#### Para criar um backup manual (sob demanda)
 
-1. Navigate to the **Shares** tab or the **Volumes** tab.
+1. Navegue até a guia **Compartilhamentos** ou até a guia **Volumes**.
 
-2. At the bottom of the page, click **Backup all**. You will be prompted to verify that you would like to take the backup now. Click the check icon ![check icon](./media/storsimple-ova-backup/image3.png) to proceed with the backup.
+2. Na parte inferior da página, clique em **Fazer backup de tudo**. Você precisará verificar se gostaria de fazer o backup agora. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-ova-backup/image3.png) para continuar com o backup.
 
-    ![backup confirmation](./media/storsimple-ova-backup/image4.png)
+    ![confirmação de backup](./media/storsimple-ova-backup/image4.png)
 
-    You will be notified that a backup job is starting.
+    Você será notificado de que um trabalho de backup está iniciando.
 
-    ![backup starting](./media/storsimple-ova-backup/image5.png)
+    ![backup iniciando](./media/storsimple-ova-backup/image5.png)
 
-    You will be notified that the job was created successfully.
+    Você será notificado de que o trabalho foi criado com êxito.
 
-    ![backup job created](./media/storsimple-ova-backup/image7.png)
+    ![trabalho de backup criado](./media/storsimple-ova-backup/image7.png)
 
-3. To track the progress of the job, click **View Job**.
+3. Para acompanhar o progresso do trabalho, clique em **Exibir Trabalho**.
 
-4. After the backup job is finished, go to the **Backup catalog** tab. You should see your completed backup.
+4. Depois que o trabalho de backup for concluído, vá para a guia **Catálogo de backup**. Você deve ver o backup completo.
 
-    ![Completed backup](./media/storsimple-ova-backup/image8.png)
+    ![Backup concluído](./media/storsimple-ova-backup/image8.png)
 
-5. Set the filter selections to the appropriate device, backup policy, and time range, and then click the check icon ![check icon](./media/storsimple-ova-backup/image3.png).
+5. Defina as seleções de filtro para o dispositivo apropriado, a política de backup e o intervalo de tempo; depois, clique no ícone de verificação ![ícone de verificação](./media/storsimple-ova-backup/image3.png).
 
-    The backup should appear in the list of backup sets that is displayed in the catalog.
+    O backup deve aparecer na lista de conjuntos de backup que é exibida no catálogo.
 
-## <a name="view-existing-backups"></a>View existing backups
+## Exibir os backups existentes
 
-Perform the following steps in the Azure classic portal to view the existing backups.
+Execute as etapas a seguir no portal clássico do Azure para exibir os backups existentes.
 
-#### <a name="to-view-existing-backups"></a>To view existing backups
+#### Para exibir os backups existentes
 
-1. On the StorSimple Manager service page, click the **Backup catalog** tab.
+1. Na página do serviço Gerenciador do StorSimple, clique na guia **Catálogo de backup**.
 
-2. Select a backup set as follows:
+2. Selecione um conjunto de backup desta maneira:
 
-    1. Select the device.
+    1. Selecione o dispositivo.
 
-    2. In the drop-down list, choose the share or volume for the backup that you wish to select.
+    2. Na lista suspensa, escolha o compartilhamento ou volume para o backup que você deseja selecionar.
 
-    3. Specify the time range.
+    3. Especifique o intervalo de tempo.
 
-    4. Click the check icon ![](./media/storsimple-ova-backup/image3.png) to execute this query.
+    4. Clique no ícone de verificação ![](./media/storsimple-ova-backup/image3.png) para executar esta consulta.
 
-    The backups associated with the selected share or volume should appear in the list of backup sets.
+    Os backups associados ao compartilhamento ou volume selecionado devem aparecer na lista de conjuntos de backup.
 
-![video_icon](./media/storsimple-ova-backup/video_icon.png) **Video available**
+![video\_icon](./media/storsimple-ova-backup/video_icon.png) **Vídeo disponível**
 
-Watch the video to see how you can create shares, back up shares, and restore data on a StorSimple Virtual Array.
+Assista ao vídeo para ver como você pode criar compartilhamentos, fazer backup de compartilhamentos e restaurar dados em uma StorSimple Virtual Array.
 
 > [AZURE.VIDEO use-the-storsimple-virtual-array]
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-Learn more about [administering your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Saiba mais sobre como [administrar o StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

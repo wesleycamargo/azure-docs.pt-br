@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="How to migrate from Affinity Groups to a Regional Virtual Network (VNet)"
-   description="Learn how to migrate from affinity groups to regional vnets"
+   pageTitle="Como migrar de grupos de afinidades para uma rede virtual regional (VNet)"
+   description="Saiba como migrar de grupos de afinidades para VNets regionais"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,60 +15,55 @@
    ms.date="03/15/2016"
    ms.author="jdial" />
 
+# Como migrar de grupos de afinidades para uma rede virtual regional (VNet)
 
-# <a name="how-to-migrate-from-affinity-groups-to-a-regional-virtual-network-(vnet)"></a>How to migrate from Affinity Groups to a Regional Virtual Network (VNet)
+Você pode usar um grupo de afinidades para garantir que recursos criados dentro do mesmo grupo de afinidades sejam fisicamente hospedados por servidores que estejam próximos uns dos outros, permitindo que esses recursos se comuniquem mais rapidamente. Antigamente, os grupos de afinidades eram um requisito para a criação de redes virtuais (VNets). Na época, o serviço gerenciador de rede que gerenciava as VNets podia funcionar somente dentro de um conjunto de servidores físicos ou unidade de escala. As melhorias de arquitetura aumentaram o escopo de gerenciamento de rede para uma região.
 
-You can use an affinity group to ensure that resources created within the same affinity group are physically hosted by servers that are close together, enabling these resources to communicate quicker. In the past, affinity groups were a requirement for creating virtual networks (VNets). At that time, the network manager service that managed VNets could only work within a set of physical servers or scale unit. Architectural improvements have increased the scope of network management to a region.
+Como resultado dessas melhorias na arquitetura, os grupos de afinidade não são mais recomendados ou obrigatórios para redes virtuais. O uso de grupos de afinidades para VNets está sendo substituído por regiões. As VNets que estão associadas a regiões são chamadas de VNets regionais.
 
-As a result of these architectural improvements, affinity groups are no longer recommended, or required for virtual networks. The use of affinity groups for VNets is being replaced by regions. VNets that are associated with regions are called regional VNets.
+Além disso, recomendamos que você não use grupos de afinidades em geral. Tirando o requisito para VNets, os grupos de afinidades também foram importantes para garantir que recursos como computação e armazenamento fossem colocados próximos uns dos outros. No entanto, com a arquitetura atual de rede do Azure, esses requisitos de colocação não são mais necessários. Confira [Grupos de afinidades e VMs](#Affinity-groups-and-VMs) para algumas das hipóteses específicas restantes em que você possa precisar usar um grupo de afinidades.
 
-Additionally, we recommend that you don't use affinity groups in general. Aside from the VNet requirement, affinity groups were also important to use to ensure resources, such as compute and storage, were placed near each other. However, with the current Azure network architecture, these placement requirements are no longer necessary. See [Affinity groups and VMs](#Affinity-groups-and-VMs) for the few remaining specific cases where you may want to use an affinity group.
+## Criando e migrando para VNets regionais
 
-## <a name="creating-and-migrating-to-regional-vnets"></a>Creating and migrating to regional VNets
+No futuro, ao criar novas VNets, use *Região*. Você verá isso como uma opção no Portal de Gerenciamento. Observe que, no arquivo de configuração de rede, isso aparece como *Local*.
 
-Going forward, when creating new VNets, use *Region*. You'll see this as an option in the Management Portal. Note that in the network configuration file, this shows as *Location*.
+>[AZURE.IMPORTANT] Embora ainda seja tecnicamente possível criar uma rede virtual associada a um grupo de afinidades, não há nenhum motivo relevante para fazê-lo. Muitos novos recursos, como grupos de segurança de rede, somente estão disponíveis com o uso de uma VNet regional e não estão disponíveis para redes virtuais associadas a grupos de afinidades.
 
->[AZURE.IMPORTANT] Although it is still technically possible to create a virtual network that is associated with an affinity group, there is no compelling reason to do so. Many new features, such as Network Security Groups, are only available when using a regional VNet and are not available for virtual networks that are associated with affinity groups.
+### Sobre VNets atualmente associadas a grupos de afinidades
 
-### <a name="about-vnets-currently-associated-with-affinity-groups"></a>About VNets currently associated with affinity groups
+As redes virtuais que estão associadas a grupos de afinidades serão habilitadas para a migração para redes virtuais regionais. Para migrar para uma rede virtual regional, execute estas etapas:
 
-VNets that are currently associated with affinity groups are enabled for migration to regional VNets. To migrate to a regional VNet, follow these steps:
+1. Exportar o arquivo de configuração de rede. Você pode usar o PowerShell ou o Portal de Gerenciamento. Para obter instruções sobre como usar o Portal de gerenciamento, confira [Configurar a sua VNet usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md).
 
-1. Export the network configuration file. You can use PowerShell or the Management Portal. For instructions using the Management Portal, see [Configure your VNet using a Network Configuration File](virtual-networks-using-network-configuration-file.md).
+1. Edite o arquivo de configuração de rede substituindo os valores antigos pelos novos valores.
 
-1. Edit your network configuration file, replacing the old values with the new values. 
+	> [AZURE.NOTE] O **Local** é a região que você especificou para o grupo de afinidades que está associado a sua VNet. Por exemplo, se a VNet estiver associada a um grupo de afinidades que está localizado no Oeste dos EUA, quando você migrar, a sua localização deve apontar para o oeste dos EUA.
+	
+	Edite as seguintes linhas no arquivo de configuração de rede substituindo os valores pelos seus:
 
-    > [AZURE.NOTE] The **Location** is the region that you specified for the affinity group that is associated with your VNet. For example, if your VNet is associated with an affinity group that is located in West US, when you migrate, your Location must point to West US. 
-    
-    Edit the following lines in your network configuration file, replacing the values with your own: 
+	**Valor antigo:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\>
 
-    **Old value:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
+	**Novo valor:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
 
-    **New value:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+1. Salve suas alterações e [importe](virtual-networks-using-network-configuration-file.md) a configuração de rede para o Azure.
 
-1. Save your changes and [import](virtual-networks-using-network-configuration-file.md) the network configuration to Azure.
+>[AZURE.NOTE] Esta migração NÃO gera tempo de inatividade para seus serviços.
 
->[AZURE.NOTE] This migration does NOT cause any downtime to your services.
+## Grupos de afinidades e VMs
 
-## <a name="affinity-groups-and-vms"></a>Affinity groups and VMs
+Conforme mencionado anteriormente, os grupos de afinidades geralmente não são recomendados para máquinas virtuais. Você somente deve usar um grupo de afinidades quando um conjunto de VMs tiver que ter a menor latência de rede possível entre as máquinas virtuais. Ao colocar VMs em um grupo de afinidade, as VMs estarão todas na mesma unidade de escala ou cluster de cálculo.
 
-As mentioned previously, affinity groups are no longer generally recommended for VMs. You should use an affinity group only when a set of VMs must have the absolute lowest network latency between the VMs. By placing VMs in an affinity group, the VMs will all be placed in the same compute cluster or scale unit.
+É importante observar que o uso de um grupo de afinidades pode ter duas consequências possivelmente negativas:
 
-It's important to note that using an affinity group can have two, possibly negative, consequences:
+- O conjunto de tamanhos de máquina virtual será limitado ao conjunto de tamanhos das máquinas virtuais oferecido pela unidade de escala de computação.
 
-- The set of VM sizes will be limited to the set of VM sizes offered by the compute scale unit.
+- Há uma probabilidade maior de não se conseguir alocar uma nova VM. Isso acontece quando a unidade de escala específica do grupo de afinidades não tem capacidade insuficiente.
 
-- There is a higher probability of not being able to allocate a new VM. This happens when the specific scale unit for the affinity group is out of capacity.
+### O que fazer se você tiver uma máquina virtual em um grupo de afinidades
 
-### <a name="what-to-do-if-you-have-a-vm-in-an-affinity-group"></a>What to do if you have a VM in an affinity group
+Máquinas virtuais que estão atualmente em um grupo de afinidades não precisam ser removidas do grupo de afinidades.
 
-VMs that are currently in an affinity group do not need to be removed from the affinity group.
-
-Once a VM is deployed, it is deployed to a single scale unit. Affinity groups can restrict the set of available VM sizes for a new VM deployment, but any existing VM that is deployed is already restricted to the set of VM sizes available in the scale unit in which the VM is deployed. Because of this, removing a VM from the affinity group will have no effect.
+Quando uma máquina virtual é implantada, ela é implantada em uma única unidade de escala. Os grupos de afinidades pode restringir o conjunto de tamanhos de VM disponíveis para uma nova implantação de VM, mas qualquer VM existente já implantada fica restrita ao conjunto de tamanhos de VM disponíveis na unidade de escala em que a VM estiver implantada. Por isso, a remoção de uma máquina virtual do grupo de afinidades não terá consequências.
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

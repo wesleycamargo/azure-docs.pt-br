@@ -1,56 +1,51 @@
 <properties
-    pageTitle="Set up billing alerts for your Microsoft Azure subscriptions | Microsoft Azure"
-    description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises."
-    services=""
-    documentationCenter=""
-    authors="vikdesai"
-    manager="mbaldwin"
-    editor=""
-    tags="billing"
-    />
+	pageTitle="Configurar alertas de cobrança de suas assinaturas do Microsoft Azure | Microsoft Azure"
+	description="Descreve como você pode configurar alertas na sua conta do Azure para que possa evitar surpresas na cobrança."
+	services=""
+	documentationCenter=""
+	authors="vikdesai"
+	manager="msmbaldwin"
+	editor=""
+	tags="billing"
+	/>
 
 <tags
-    ms.service="billing"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/18/2016"
-    ms.author="vikdesai"/>
+	ms.service="billing"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/18/2016"
+	ms.author="vikdesai"/>
 
+# Configurar alertas de cobrança de suas assinaturas do Microsoft Azure
 
-# <a name="set-up-billing-alerts-for-your-microsoft-azure-subscriptions"></a>Set up billing alerts for your Microsoft Azure subscriptions
+Você está preocupado com o quanto você está gastando todos os meses com a sua assinatura do Azure? Se você for o administrador da conta de uma assinatura do Azure, você pode usar o serviço de alerta de cobrança do Azure para criar um alerta personalizado de cobrança que o ajudará a monitorar e gerenciar as atividades de cobrança de suas contas do Azure.
 
-Are you concerned about how much you're spending each month for your Azure subscription? If you’re the account administrator for an Azure subscription, you can use the Azure Billing Alert Service to create customized billing alerts that help you monitor and manage billing activity for your Azure accounts.
+Este é um serviço de visualização, portanto, a primeira coisa que você precisa fazer é registrar-se. Visite [a página de Recursos de Visualização](https://account.windowsazure.com/PreviewFeatures) no portal de gerenciamento de contas do Azure para habilitar esse recurso.
 
-This service is a preview service, so the first thing you have to do is sign up for it. Visit [the Preview Features page](https://account.windowsazure.com/PreviewFeatures) in the Azure account management portal to do enable this feature.
+## Definir os alertas de limite e destinatários de email
 
-## <a name="set-the-alert-threshold-and-email-recipients"></a>Set the alert threshold and email recipients
-
-After you receive the email confirmation that the billing service is turned on for your subscription, visit [the Subscriptions page](https://account.windowsazure.com/Subscriptions) in the account portal. Click the subscription you want to monitor, and then click **Alerts**.
+Depois de receber o email de confirmação de que o serviço de cobrança foi ativado para a sua assinatura, visite [a página Assinaturas](https://account.windowsazure.com/Subscriptions) no portal da conta. Clique na assinatura que você deseja monitorar e, em seguida, clique em **Alertas**.
 
 ![][Image1]
 
-Next, click **Add Alert** to create your first one - you can set up a total of five billing alerts per subscription, with a different threshold and up to two email recipients for each alert.
+Em seguida, clique em **Adicionar Alerta** para criar seu primeiro alerta - você pode configurar até cinco alertas de cobrança por assinatura, com um limite diferente e até dois destinatários de email para cada alerta.
 
 ![][Image2]
 
-When you add an alert, you give it a unique name, choose a spending threshold, and choose the email addresses where alerts will be sent. When setting up the threshold, you can choose either a **Billing Total** or a **Monetary Credit** from the **Alert For** list. For a billing total, an alert is sent when subscription spending exceeds the threshold. For a monetary credit, an alert is sent when monetary credits drop below the limit. Monetary credits usually apply to free trials and subscriptions associated with MSDN accounts.
+Quando você adiciona um alerta, você informa um nome exclusivo, escolhe um limite de gastos e escolhe os endereços de email para onde os alertas serão enviados. Ao configurar o limite, você pode escolher um **Total de cobrança** ou um **Crédito Monetário** na lista **Alerta para**. Para total de cobrança, um alerta é enviado quando o gasto com a assinatura excede o limite. Para crédito monetário, um alerta é enviado quando os créditos monetários reduzem abaixo do limite. Créditos monetários geralmente se aplicam a avaliações gratuitas e assinaturas associadas às contas do MSDN.
 
 ![][Image3]
 
-Azure supports any email address but doesn’t verify that the email address works, so double-check for typos.
+O Azure é compatível com qualquer endereço de email, mas não verifica o funcionamento do endereço de email, por isso, verifique atentamente se digitou corretamente.
 
-## <a name="check-on-your-alerts"></a>Check on your alerts
+## Verificar os seus alertas
 
-After you set up alerts, the Account Center lists them and shows how many more you can set up. For each alert, you see the date and time it was sent, whether it’s an alert for Billing Total or Monetary Credit, and the limit you set up. The date and time format is 24-hour Universal Time Coordinate (UTC) and the date is yyyy-mm-dd format. Click the plus sign for an alert in the list to edit it, or click the trash-can to delete it.
+Depois de configurar os alertas, o Centro de Contas lista e mostra quantos mais você pode configurar. Para cada alerta, você verá a data e a hora de envio, se é um alerta do Total de Cobrança ou de Crédito Monetário e o limite definido. O formato de data e hora é 24 horas - Hora Universal Coordenada (UTC) e a data usa o formato aaaa-mm-dd. Clique no sinal de adição de um alerta na lista para editá-lo ou clique na lixeira para excluí-lo.
 
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

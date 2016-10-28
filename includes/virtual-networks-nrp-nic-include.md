@@ -1,83 +1,80 @@
-## <a name="nic"></a>NIC
+## NIC
  
-A network interface card (NIC) resource provides network connectivity to an existing subnet in a VNet resource. Although you can create a NIC as a stand alone object, you need to associate it to another object to actually provide connectivity. A NIC can be used to connect a VM to a subnet, a public IP address, or a load balancer.  
+Um recurso de placa de interface de rede (NIC) fornece conectividade de rede com uma sub-rede existente em um recurso de VNet. Embora você possa criar uma NIC como um objeto autônomo, você precisa associá-la a outro objeto para fornecer a conectividade. Uma NIC pode ser usada para conectar uma VM a uma sub-rede, um endereço IP público ou um balanceador de carga.
 
-|Property|Description|Sample values|
+|Propriedade|Descrição|Valores de exemplo|
 |---|---|---|
-|**virtualMachine**|VM the NIC is associated with.|/subscriptions/{guid}/../Microsoft.Compute/virtualMachines/vm1|
-|**macAddress**|MAC address for the NIC|any value between 4 and 30|
-|**networkSecurityGroup**|NSG associated to the NIC|/subscriptions/{guid}/../Microsoft.Network/networkSecurityGroups/myNSG1|
-|**dnsSettings**|DNS settings for the NIC|see [PIP](#Public-IP-address)|
+|**virtualMachine**|A VM à qual a NIC está associada.|/subscriptions/{guid}/../Microsoft.Compute/virtualMachines/vm1|
+|**macAddress**|Endereço MAC da NIC|qualquer valor entre 4 e 30|
+|**networkSecurityGroup**|NSG associado à NIC|/subscriptions/{guid}/../Microsoft.Network/networkSecurityGroups/myNSG1|
+|**dnsSettings**|Configurações de DNS para a NIC|veja [PIP](#Public-IP-address)|
 
-A Network Interface Card, or NIC, represents a network interface that can be associated to a virtual machine (VM). A VM can have one or more NICs.
+Uma Placa de Interface de rede ou NIC representa uma interface de rede que pode ser associada a uma VM (máquina virtual). Uma VM pode ter uma ou mais NICs.
 
-![NIC's on a single VM](./media/resource-groups-networking/Figure3.png)
+![NICs em uma única VM](./media/resource-groups-networking/Figure3.png)
 
-### <a name="ip-configurations"></a>IP configurations
-NICs have a child object named **ipConfigurations** containing the following properties:
+### Configurações de IP
+NICs têm um objeto filho chamado **ipConfigurations** que contém as seguintes propriedades:
 
-|Property|Description|Sample values|
+|Propriedade|Descrição|Valores de exemplo|
 |---|---|---|
-|**subnet**|Subnet the NIC is onnected to.|/subscriptions/{guid}/../Microsoft.Network/virtualNetworks/myvnet1/subnets/mysub1|
-|**privateIPAddress**|IP address for the NIC in the subnet|10.0.0.8|
-|**privateIPAllocationMethod**|IP allocation method|Dynamic or Static|
-|**enableIPForwarding**|Whether the NIC can be used for routing|true or false|
-|**primary**|Whether the NIC is the primary NIC for the VM|true or false|
-|**publicIPAddress**|PIP associated with the NIC|see [DNS Settings](#DNS-settings)|
-|**loadBalancerBackendAddressPools**|Back end address pools the NIC is associated with||
-|**loadBalancerInboundNatRules**|Inbound load balancer NAT rules the NIC is associated with||
+|**subnet**|A sub-rede à qual a NIC está conectada.|/subscriptions/{guid}/../Microsoft.Network/virtualNetworks/myvnet1/subnets/mysub1|
+|**privateIPAddress**|Endereço IP da NIC na sub-rede|10\.0.0.8|
+|**privateIPAllocationMethod**|Método de alocação de IP|Dinâmico ou estático|
+|**enableIPForwarding**|Se a NIC pode ser usada para roteamento|true ou false|
+|**primary**|Se a NIC é a NIC primária para a VM|true ou false|
+|**publicIPAddress**|PIP associado à NIC|consulte [Configurações DNS](#DNS-settings)|
+|**loadBalancerBackendAddressPools**|Pools de endereços de back-end aos quais a NIC está associada||
+|**loadBalancerInboundNatRules**|Regras de NAT do balanceador de carga às quais a NIC está associada||
 
-Sample public IP address in JSON format:
+Endereço IP de público exemplo, no formato JSON:
 
-    {
-        "name": "lb-nic1-be",
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be",
-        "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-        "type": "Microsoft.Network/networkInterfaces",
-        "location": "eastus",
-        "properties": {
-            "provisioningState": "Succeeded",
-            "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-            "ipConfigurations": [
-                {
-                    "name": "NIC-config",
-                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/NIC-config",
-                    "etag": "W/\"0027f1a2-3ac8-49de-b5d5-fd46550500b1\"",
-                    "properties": {
-                        "provisioningState": "Succeeded",
-                        "privateIPAddress": "10.0.0.4",
-                        "privateIPAllocationMethod": "Dynamic",
-                        "subnet": {
-                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet"
-                        },
-                        "loadBalancerBackendAddressPools": [
-                            {
-                                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool"
-                            }
-                        ],
-                        "loadBalancerInboundNatRules": [
-                            {
-                                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1"
-                            }
-                        ]
-                    }
-                }
-            ],
-            "dnsSettings": { ... },
-            "macAddress": "00-0D-3A-10-F1-29",
-            "enableIPForwarding": false,
-            "primary": true,
-            "virtualMachine": {
-                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Compute/virtualMachines/web1"
-            }
-        }
-    }
+	{
+	    "name": "lb-nic1-be",
+	    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be",
+	    "etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+	    "type": "Microsoft.Network/networkInterfaces",
+	    "location": "eastus",
+	    "properties": {
+	        "provisioningState": "Succeeded",
+	        "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	        "ipConfigurations": [
+	            {
+	                "name": "NIC-config",
+	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/NIC-config",
+	                "etag": "W/"0027f1a2-3ac8-49de-b5d5-fd46550500b1"",
+	                "properties": {
+	                    "provisioningState": "Succeeded",
+	                    "privateIPAddress": "10.0.0.4",
+	                    "privateIPAllocationMethod": "Dynamic",
+	                    "subnet": {
+	                        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet"
+	                    },
+	                    "loadBalancerBackendAddressPools": [
+	                        {
+	                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool"
+	                        }
+	                    ],
+	                    "loadBalancerInboundNatRules": [
+	                        {
+	                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1"
+	                        }
+	                    ]
+	                }
+	            }
+	        ],
+	        "dnsSettings": { ... },
+	        "macAddress": "00-0D-3A-10-F1-29",
+	        "enableIPForwarding": false,
+	        "primary": true,
+	        "virtualMachine": {
+	            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Compute/virtualMachines/web1"
+	        }
+	    }
+	}
 
-### <a name="additional-resources"></a>Additional resources
+### Recursos adicionais
 
-- Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163579.aspx) for NICs.
+- Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163579.aspx) para obter NICs.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

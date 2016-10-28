@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Protecting Azure SQL service in Azure Security Center  | Microsoft Azure"
-   description="This document addresses recommendations in Azure Security Center that help you protect Azure SQL service and stay in compliance with security policies."
+   pageTitle="Protegendo o serviço do SQL Azure na Central de Segurança do Azure | Microsoft Azure"
+   description="Este documento endereça as recomendações na Central de Segurança do Azure que ajudam a proteger o serviço do SQL Azure e cumprir as políticas de segurança."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,37 +16,32 @@
    ms.date="08/04/2016"
    ms.author="terrylan"/>
 
+# Protegendo o serviço do SQL Azure na Central de Segurança do Azure
 
-# <a name="protecting-azure-sql-service-in-azure-security-center"></a>Protecting Azure SQL service in Azure Security Center
+A Central de Segurança do Azure analisa o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria recomendações que orientam você durante o processo de configuração dos controles necessários. As recomendações se aplicam aos tipos de recursos do Azure: máquinas virtuais (VMs), rede, aplicativos e SQL.
 
-Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.  Recommendations apply to Azure resource types: virtual machines (VMs), networking, SQL, and applications.
+Este artigo endereça as recomendações que se aplicam ao serviço do SQL Azure. As recomendações do serviço do SQL Azure giram em torno de como ativar a auditoria para os bancos de dados e os servidores SQL do Azure e como habilitar a criptografia para os bancos de dados SQL. Use a tabela a seguir como referência para ajudá-lo a entender as recomendações disponíveis do serviço SQL e o que cada uma delas fará se você as aplicar.
 
-This article addresses recommendations that apply to Azure SQL service.  Azure SQL service recommendations center around enabling auditing for Azure SQL servers and databases and enabling encryption for SQL databases.  Use the table below as a reference to help you understand the available SQL service recommendations and what each one will do if you apply it.
+## Recomendações disponíveis do serviço SQL
 
-## <a name="available-sql-service-recommendations"></a>Available SQL service recommendations
-
-|Recommendation|Description|
+|Recomendações|Descrição|
 |-----|-----|
-|[Enable server SQL Auditing](security-center-enable-auditing-on-sql-servers.md)|Recommends that you turn on auditing for Azure SQL servers (Azure SQL service only; doesn't include SQL running on your virtual machines).|
-|[Enable database SQL Auditing](security-center-enable-auditing-on-sql-databases.md)|Recommends that you turn on auditing for Azure SQL databases (Azure SQL service only; doesn't include SQL running on your virtual machines).|
-|[Enable Transparent Data Encryption on SQL databases](security-center-enable-transparent-data-encryption.md)|Recommends that you enable encryption for SQL databases (Azure SQL service only).|
+|[Habilitar a auditoria do servidor SQL](security-center-enable-auditing-on-sql-servers.md)|Recomenda que você habilite auditoria para servidores Azure SQL (somente serviço Azure SQL; não inclui SQL em execução em máquinas virtuais).|
+|[Habilitar auditoria para Banco de Dados SQL](security-center-enable-auditing-on-sql-databases.md)|Recomenda que você habilite auditoria para bancos de dados do Azure SQL (somente serviço Azure SQL; não inclui SQL em execução em máquinas virtuais).|
+|[Habilitar Transparent Data Encryption em bancos de dados SQL](security-center-enable-transparent-data-encryption.md)|Recomenda que você habilite a criptografia para bancos de dados SQL (apenas serviço do Azure SQL).|
 
-## <a name="see-also"></a>See also
+## Confira também
 
-To learn more about recommendations that apply to other Azure resource types, see the following:
+Para saber mais sobre as recomendações que se aplicam aos outros tipos de recursos do Azure, consulte o seguinte:
 
-- [Protecting your virtual machines in Azure Security Center](security-center-virtual-machine-recommendations.md)
-- [Protecting your applications in Azure Security Center](security-center-application-recommendations.md)
-- [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
+- [Protegendo suas máquinas virtuais na Central de Segurança do Azure](security-center-virtual-machine-recommendations.md)
+- [Protegendo seus aplicativos na Central de segurança do Azure](security-center-application-recommendations.md)
+- [Protegendo sua rede na Central de Segurança do Azure](security-center-network-recommendations.md)
 
-To learn more about Security Center, see the following:
+Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+- [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e a responder a alertas de segurança.
+- [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

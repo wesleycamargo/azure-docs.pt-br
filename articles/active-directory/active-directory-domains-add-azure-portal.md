@@ -1,104 +1,95 @@
 <properties
-    pageTitle="Add your custom domain name to Azure Active Directory preview | Microsoft Azure"
-    description="How to add your company's domain names to Azure Active Directory, and how to verify the domain name."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeffsta"
-    manager="femila"
-    editor=""/>
+	pageTitle="Adicionar seu nome de domínio personalizado à visualização do Azure Active Directory | Microsoft Azure"
+	description="Como adicionar os nomes de domínio da sua empresa ao Azure Active Directory e como verificar o nome de domínio."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeffsta"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/30/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="curtand"/>
 
+# Adicionar um nome de domínio personalizado à visualização do Azure Active Directory
 
-# <a name="add-a-custom-domain-name-to-azure-active-directory-preview"></a>Add a custom domain name to Azure Active Directory preview
+Você tem um ou mais nomes de domínio que sua organização usa para fazer negócios, e seus usuários entram em sua rede corporativa usando seu nome de domínio corporativo. Agora que você está usando a visualização do Azure Active Directory (Azure AD), também poderá adicionar seu nome de domínio corporativo ao AD do Azure também. [O que está na visualização?](active-directory-preview-explainer.md) Isso permite que você atribua os nomes de usuário do seu diretório que sejam familiares para seus usuários, como 'alice@contoso.com'. O processo é simples:
 
-> [AZURE.SELECTOR]
-- [Azure portal](active-directory-domains-add-qzure-portal.md)
-- [Azure classic portal](active-directory-add-domain.md)
+1. Adicionar o nome de domínio personalizado ao diretório
+2. Adicionar uma entrada DNS para o nome de domínio no registrador de nome de domínio
+3. Verifique o nome de domínio personalizado no Azure AD
 
-You've got one or more domain names that your organization uses to do business, and your users sign in to your corporate network using your corporate domain name. Using Azure Active Directory (Azure AD) preview, you can add your corporate domain name to Azure AD as well. [What's in the preview?](active-directory-preview-explainer.md) This allows you to assign user names in the directory that are familiar to your users, such as ‘alice@contoso.com.’ The process is simple:
+## Como adicionar um nome de domínio?
 
-1. Add the custom domain name to your directory
-2. Add a DNS entry for the domain name at the domain name registrar
-3. Verify the custom domain name in Azure AD
+1.  Entre no [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global para o diretório.
 
-## <a name="how-do-i-add-a-domain-name?"></a>How do I add a domain name?
+2.  Selecione **Mais serviços**, insira **Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
 
-1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+    ![Abrindo o gerenciamento de usuários](./media/active-directory-domains-add-azure-portal/user-management.png)
 
-2.  Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
+3. Na folha ***nome do diretório***, selecione **Nomes de domínio**.
 
-    ![Opening user management](./media/active-directory-domains-add-azure-portal/user-management.png)
+4. Na folha ***nome do diretório* -nomes de domínio**, selecione o comando **Adicionar**.
 
-3. On the ***directory-name*** blade, select **Domain names**.
+  ![Selecionando o comando Adicionar](./media/active-directory-domains-add-azure-portal/add-command.png)
 
-4. On the ***directory-name* - Domain names** blade, select the **Add** command.
+5. Na folha **Nome de domínio**, insira o nome do seu domínio personalizado na caixa, como "contoso.com" e, em seguida, selecione **Adicionar domínio**. Inclua .com, .net ou outra extensão de nível superior.
 
-  ![Selecting the Add command](./media/active-directory-domains-add-azure-portal/add-command.png)
+6. Na folha ***domainname*** (ou seja, a folha que é aberta com o novo nome de domínio no título), obtenha informações de entrada de DNS que o Azure AD usará para verificar se sua organização possui o nome de domínio personalizado.
 
-5. On the **Domain name** blade, enter the name of your custom domain in the box, such as 'contoso.com', and then select **Add Domain**. Be sure to include the .com, .net, or other top-level extension.
+  ![obter informações de entrada DNS](./media/active-directory-domains-add-azure-portal/get-dns-info.png)
 
-6. On the ***domainname*** blade (that is, the blade that opens that has your new domain name in the title), get the DNS entry information that Azure AD will use to verify that your organization owns the custom domain name.
+Agora que você adicionou o nome de domínio, o AD do Azure deverá verificar se a sua organização é proprietária do nome de domínio. Antes que o AD do Azure possa executar essa verificação, você deverá adicionar uma entrada DNS ao arquivo de zona DNS para o nome de domínio. Essa tarefa pode ser concluída no site do registrador de nome de domínio para o nome de domínio.
 
-  ![get DNS entry information](./media/active-directory-domains-add-azure-portal/get-dns-info.png)
+## Adicione a entrada DNS no registrador de nome de domínio para o domínio
 
-Now that you've added the domain name, Azure AD must verify that your organization owns the domain name. Before Azure AD can perform this verification, you must add a DNS entry in the DNS zone file for the domain name. This task is performed at the website for domain name registrar for the domain name.
+A próxima etapa para usar o nome de domínio personalizado com o Azure AD é atualizar o arquivo de zona DNS do domínio. Isso habilita o Azure AD a verificar se a organização possui o nome de domínio personalizado.
 
-## <a name="add-the-dns-entry-at-the-domain-name-registrar-for-the-domain"></a>Add the DNS entry at the domain name registrar for the domain
+1.  Entre no registrador de nome de domínio para o domínio. Se você não tem acesso para atualizar a entrada DNS, peça à pessoa ou à equipe que tem esse acesso para concluir a etapa 2 e avisá-lo quando ela for concluída.
 
-The next step to use your custom domain name with Azure AD is to update the DNS zone file for the domain. This enables Azure AD to verify that your organization owns the custom domain name.
+2.  Atualize o arquivo de zona DNS para o domínio adicionando a entrada DNS fornecida pelo AD do Azure. Essa entrada DNS permitirá que o AD do Azure verifique sua propriedade do domínio. A entrada DNS não altera nenhum comportamento, como o roteamento de emails ou a hospedagem na Web.
 
-1.  Sign in to the domain name registrar for the domain. If you don't have access to update the DNS entry, ask the person or team who has this access to complete step 2 and to let you know when it is completed.
+Para obter ajuda sobre essa adição da entrada DNS, leia [Instruções para adicionar uma entrada DNS em registradores DNS populares](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)
 
-2.  Update the DNS zone file for the domain by adding the DNS entry provided to you by Azure AD. This DNS entry enables Azure AD to verify your ownership of the domain. The DNS entry doesn't change any behaviors such as mail routing or web hosting.
+## Verificar o nome de domínio com o AD do Azure
 
-For help with this adding the DNS entry, read [Instructions for adding a DNS entry at popular DNS registrars](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)
+Após adicionar a entrada DNS, você está pronto para verificar o nome de domínio com o Azure AD.
 
-## <a name="verify-the-domain-name-with-azure-ad"></a>Verify the domain name with Azure AD
+Um nome de domínio só poderá ser verificado depois que os registros DNS forem propagados. Essa propagação geralmente leva apenas alguns segundos, mas às vezes pode levar uma hora ou mais. Se a verificação não funcionar na primeira vez, tente novamente mais tarde.
 
-Once you have added the DNS entry, you are ready to verify the domain name with Azure AD.
+1.  Entre no [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global para o diretório.
 
-A domain name can be verified only after the DNS records have propagated. This propagation often takes only seconds, but it can sometimes take an hour or more. If verification doesn’t work the first time, try again later.
+2.  Selecione **Procurar**, insira Gerenciamento de Usuário na caixa de texto e, em seguida, selecione **Enter**.
 
-1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+    ![Abrindo o gerenciamento de usuários](./media/active-directory-domains-add-azure-portal/user-management.png)
 
-2.  Select **Browse**, enter User Management in the text box, and then select **Enter**.
+3. Na folha **Gerenciamento de usuário – Nomes de domínio**, selecione o nome de domínio não verificado que você deseja verificar.
 
-    ![Opening user management](./media/active-directory-domains-add-azure-portal/user-management.png)
+4. Na folha ***domainname*** (ou seja, a folha que é aberta com o novo nome de domínio no título), selecione **Verificar** para concluir a verificação.
 
-3. On the **User management - Domain names** blade, select the unverified domain name that you want to verify.
+Agora você pode [atribuir nomes de usuário que incluam o nome de domínio personalizado](active-directory-create-users-azure-portal.md).
 
-4. On the ***domainname*** blade (that is, the blade that opens that has your new domain name in the title), select **Verify** to complete the verification.
+## Solucionar problemas
 
-Now you can [assign user names that include your custom domain name](active-directory-users-create-azure-portal.md).
+Se você não puder verificar um nome de domínio personalizado, tente o seguinte. Começaremos com as mais comuns e trabalharemos até as menos comuns.
 
-## <a name="troubleshooting"></a>Troubleshooting
+1.	**Aguarde uma hora**. Os registros DNS precisam ser propagados para que o Azure AD possa verificar o domínio. Isso pode levar uma hora ou mais.
 
-If you can't verify a custom domain name, try the following. We'll start with the most common and work down to the least common.
+2.	**Verifique se o registro DNS foi inserido e se está correto**. Conclua essa etapa no site do registrador de nome de domínio do domínio. O Azure AD não poderá verificar o nome de domínio se a entrada DNS não estiver presente no arquivo de zona DNS ou se não for uma correspondência exata da entrada DNS que o Azure AD forneceu. Se você não tiver acesso para atualizar os registros DNS parado domínio no registrador de nome de domínio, compartilhe a entrada DNS com a pessoa ou equipe em sua organização que tem acesso a isso e peça-lhe que adicione a entrada DNS.
 
-1.  **Wait an hour**. DNS records need to propagate before Azure AD can verify the domain. This can take an hour or more.
+3.	**Exclua o nome de domínio de outro diretório no Azure AD**. Um nome de domínio pode ser verificado apenas em um único diretório. Se um nome de domínio tiver sido verificado anteriormente em outro diretório, deverá ser excluído de lá para poder ser verificado no novo diretório. Para saber mais sobre a exclusão de nomes de domínio, leia [Gerenciar nomes de domínio personalizados](active-directory-domains-manage-azure-portal.md).
 
-2.  **Ensure the DNS record was entered, and that it is correct**. Complete this step at the website for the domain name registrar for the domain. Azure AD cannot verify the domain name if the DNS entry is not present in the DNS zone file, or if it is not an exact match with the DNS entry that Azure AD provided you. If you do not have access to update DNS records for the domain at the domain name registrar, share the DNS entry with the person or team at your organization who has this access, and ask them to add the DNS entry.
+## Adicionar mais nomes de domínio personalizados
 
-3.  **Delete the domain name from another directory in Azure AD**. A domain name can be verified in only a single directory. If a domain name was previously verified in another directory, it must be deleted there before it can be verified in your new directory. To learn about deleting domain names, read [Manage custom domain names](active-directory-domains-manage-azure-portal.md).    
+Se sua organização usa vários nomes de domínio personalizados, como 'contoso.com' e 'contosobank.com', você pode adicionar até 900 nomes de domínio. Use as mesmas etapas deste artigo para adicionar cada nome de domínio.
 
-## <a name="add-more-custom-domain-names"></a>Add more custom domain names
+## Próximas etapas
 
-If your organization uses multiple custom domain names, such as ‘contoso.com’ and ‘contosobank.com’, you can add them up to a maximum of 900 domain names. Use the same steps in this article to add each of your domain names.
+[Gerenciar nomes de domínio personalizados](active-directory-domains-manage-azure-portal.md)
 
-## <a name="next-steps"></a>Next steps
-
-[Manage custom domain names](active-directory-domains-manage-azure-portal.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,13 +1,10 @@
-The Azure Backup service has two types of vaults - the Backup vault and the Recovery Services vault. The Backup vault came first. Then the Recovery Services vault came along to support the expanded Resource Manager deployments. Microsoft recommends using Resource Manager deployments unless you specifically require a Classic deployment.
+O serviço de Backup do Azure tem dois tipos de cofres – o cofre de Backup e o cofre de Serviços de Recuperação. O Cofre de Backup veio primeiro. Em seguida, o Cofre dos Serviços de Recuperação surgiu no mercado para oferecer suporte às implantações expandidas do Gerenciador de Recursos. A Microsoft recomenda o uso das implantações do Resource Manager, a menos que você exija especificamente uma implantação Clássica.
 
-| **Deployment** | **Portal** | **Vault** |
+| **Implantação** | **Portal** | **Cofre** |
 |-----------|------|-----|
-|Classic|[Classic](https://manage.windowsazure.com)|Backup|
-|Resource Manager|[Azure](https://portal.azure.com)|Recovery Services|
+|Clássico|[Clássico](https://manage.windowsazure.com)|Backup|
+|Gerenciador de Recursos|[As tabelas](https://portal.azure.com)|Serviços de Recuperação|
 
-> [AZURE.NOTE] Backup vaults cannot protect Resource Manager-deployed solutions. However, you can use a Recovery Services vault to protect classically-deployed servers and VMs.  
+> [AZURE.NOTE] Cofres de backup não podem ser usados para proteger soluções implantadas pelo Resource Manager. No entanto, você pode usar um cofre de Serviços de Recuperação para proteger VMs e servidores implantados de modo clássico.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

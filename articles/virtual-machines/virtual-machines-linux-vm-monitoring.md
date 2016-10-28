@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Enable or Disabling Azure VM Monitoring"
-   description="Describes How to Enable or Disable Azure VM Monitoring"
+   pageTitle="Habilitar ou desabilitar o monitoramento da VM do Azure"
+   description="Descreve como habilitar ou desabilitar o monitoramento da VM do Azure"
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="kmouss"
@@ -16,53 +16,46 @@
    ms.date="02/08/2016"
    ms.author="kmouss"/>
    
+# Habilitar ou desabilitar o monitoramento da VM do Azure
 
-# <a name="enable-or-disable-azure-vm-monitoring"></a>Enable or Disable Azure VM Monitoring
+Esta seção descreve como habilitar ou desabilitar o monitoramento de máquinas virtuais em execução no Azure. Por padrão, o monitoramento é habilitado nas máquinas virtuais do Azure se implantadas pelo [portal do Azure](https://portal.azure.com) e os gráficos de monitoramento são fornecidos por padrão com um período de um minuto. Você pode habilitar ou desabilitar o monitoramento usando o portal ou a interface de linha de comando do Azure para Mac, Linux e Windows (a CLI do Azure).
 
-This section describes how to enable or disable monitoring on Virtual machines running on Azure. By default monitoring is enabled on Azure Virtual machines if deployed from the [Azure portal](https://portal.azure.com) and monitoring graphs are provided by default with a 1-minute period. You can enable or disable monitoring using the portal or Azure Command-line Interface for Mac, Linux, and Windows (the Azure CLI). 
-
-## <a name="enable-/-disable-monitoring-through-the-azure-portal"></a>Enable / Disable Monitoring through the Azure Portal
+## Habilitar/desabilitar o monitoramento por meio do portal do Azure
  
-You can enable  monitoring of your Azure VM, which provides data about your instance in 1-minute periods. (storage changes apply). Detailed diagnostics data is then available for the VM in the portal graphs or through the API. By default, Azure portal enables monitoring, but you can turn it off as described below. You can enable monitoring while the VM is running or in stopped state.
+É possível habilitar o monitoramento da VM do Azure, que fornece dados sobre a sua instância em períodos de um minuto (aplicam-se alterações de armazenamento). Os dados detalhados de diagnóstico são então disponibilizados para a VM nos gráficos de portal ou por meio da API. Por padrão, o portal do Azure permite o monitoramento, mas você pode desativá-lo, conforme descrito abaixo. Você pode habilitar o monitoramento enquanto a VM estiver em execução ou no estado parado.
 
-- Open the Azure portal at **[https://portal.azure.com](https://portal.azure.com)**
+- Abra o portal do Azure em **[https://portal.azure.com](https://portal.azure.com)**
 
-- In the left navigation, click Virtual machines.
+- Na navegação à esquerda, clique em Máquinas virtuais.
 
-- In the list Virtual machines, select a running or stopped instance. Virtual machine blad will open.
+- Na lista de máquinas virtuais, escolha uma instância em execução ou parada. A folha Máquina virtual será aberta.
 
-- Click "All settings".
+- Clique em "Todas as configurações".
 
-- Click "Diagnostics".
+- Clique em "Diagnóstico".
 
-- Change status to On or Off. You can also pick in this blade the level of monitoring details you would like to enable for your virtual machine.
+- Altere o status para Ativado ou Desativado. Nessa folha, você também pode escolher o nível de detalhes de monitoramento que deseja habilitar para a máquina virtual.
 
-[Azure.Note] The Diagnostics On switch is the default when you create a new virtual machine
+[Azure.Note] A opção Diagnóstico Ativado é o padrão quando você cria uma nova máquina virtual
 
-![Enable / Disable Monitoring through the Azure Portal.][1]
+![Habilite/desabilite o monitoramento por meio do Portal do Azure.][1]
 
 
-## <a name="enable-/-disable-monitoring-with-azure-cli"></a>Enable / Disable Monitoring with Azure CLI
+## Habilitar/desabilitar o monitoramento com a CLI do Azure
  
-To enable monitoring for an Azure VM.
+Para habilitar o monitoramento de uma VM do Azure.
 
-- Create a file named such as PrivateConfig.json with the following content.
-        { "storageAccountName":"the storage account to receive data", "storageAccountKey":"the key of the account" }
-- Run the following Azure CLI command.
+- Crie um arquivo denominado PrivateConfig.json com o conteúdo a seguir. { "storageAccountName":"a conta de armazenamento para receber dados", "storageAccountKey":"a chave da conta" }
+- Execute o comando da CLI do Azure a seguir.
 
         azure vm extension set myvm LinuxDiagnostic Microsoft.OSTCExtensions 2.0 --private-config-path PrivateConfig.json
 
-[Azure.Note] You can change from version 2.0 to a later version when available. 
+[Azure.Note] É possível alterar da versão 2.0 para uma versão posterior quando disponível.
 
-For more details about configuring monitoring metrics and samples, visit the document - **[Using Linux Diagnostic Extension to Monitor Linux VM’s performance and diagnostic data](virtual-machines-linux-classic-diagnostic-extension.md).
+Para obter mais detalhes sobre como configurar as métricas de monitoramento e exemplos, acesse o documento que descreve **[como usar a extensão de diagnóstico do Linux para monitorar dados de desempenho e diagnóstico da VM Linux](virtual-machines-linux-classic-diagnostic-extension.md).
 
 <!--Image references-->
 [1]: ./media/virtual-machines-linux-vm-monitoring/portal-enable-disable.png
  
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,25 +1,23 @@
-## <a name="using-azure-portal"></a>Using Azure portal
+## Usando o Portal do Azure
 
-1. Select the VM you wish to redeploy, and click the 'Redeploy' button in the 'Settings' blade. Scroll down to see the **Support and Troubleshooting** section that contains the 'Redeploy' button as in the following example:
+1. Selecione a VM que você deseja reimplantar e clique no botão 'Reimplantar' na folha 'Configurações'. Role para baixo para ver a seção **Suporte e solução de problemas** que contém o botão 'Reimplantar' como no exemplo a seguir:
 
-    ![Azure VM blade](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
+	![Folha VM do Azure](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
 
-2. To confirm the operation, click the 'Redeploy' button:
+2. Para confirmar a operação, clique no botão 'Reimplantar':
 
-    ![Redeploy a VM blade](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
+	![Folha Reimplantar uma VM](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
 
-3. The **Status** of the VM changes to *Updating* as the VM prepares to redeploy, as in the following example:
+3. O **Status** da VM muda para *Atualizando* à medida que a VM é preparada para a reimplantação, como no exemplo a seguir:
 
-    ![VM updating](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
+	![VM atualizando](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
 
-4. The **Status** then changes to *Starting* as the VM boots up on a new Azure host, as in the following example:
+4. O **Status** mudará para *Iniciando* enquanto a VM é inicializada em um novo host do Azure, como no exemplo a seguir:
 
-    ![VM starting](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
+	![VM iniciando](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
 
-5. After the VM finishes the boot process, the **Status** then returns to *Running*, indicating the VM has been successfully redeployed:
+5. Após a conclusão do processo de inicialização da VM, o **Status** retornará a *Em execução*, indicando que a VM foi reimplantada com êxito:
 
-    ![VM running](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
+	![VM em execução](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

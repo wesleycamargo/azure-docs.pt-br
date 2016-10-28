@@ -1,259 +1,259 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with Learning at Work | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and Learning at Work."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Tutorial: integração do Azure Active Directory com o Learning at Work | Microsoft Azure"
+	description="Saiba como configurar o logon único entre o Azure Active Directory e o Learning at Work."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/29/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
+	ms.author="jeedes"/>
 
 
+# Tutorial: Integração do Azure Active Directory com o Learning at Work
 
-# <a name="tutorial:-azure-active-directory-integration-with-learning-at-work"></a>Tutorial: Azure Active Directory integration with Learning at Work
+Neste tutorial, você aprenderá a integrar o Learning at Work ao Azure AD (Azure Active Directory).
 
-In this tutorial, you learn how to integrate Learning at Work with Azure Active Directory (Azure AD).
+A integração do Learning at Work ao Azure AD oferece os seguintes benefícios:
 
-Integrating Learning at Work with Azure AD provides you with the following benefits:
+- No Azure AD, você pode controlar quem tem acesso ao Learning at Work
+- Você pode habilitar seus usuários a fazerem logon automaticamente no Learning at Work (logon único) com suas contas do Azure AD
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
-- You can control in Azure AD who has access to Learning at Work
-- You can enable your users to automatically get signed-on to Learning at Work (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## Pré-requisitos
 
-## <a name="prerequisites"></a>Prerequisites
+Para configurar a integração do Azure AD ao Learning at Work, você precisa dos seguintes itens:
 
-To configure Azure AD integration with Learning at Work, you need the following items:
-
-- An Azure AD subscription
-- A Learning at Work (Saba Cloud) single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- Uma assinatura do AD do Azure
+- Uma assinatura com logon único habilitado do Learning at Work (Saba Cloud)
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
-## <a name="scenario-description"></a>Scenario Description
-In this tutorial, you test Azure AD single sign-on in a test environment.
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
-The scenario outlined in this tutorial consists of two main building blocks:
-
-1. Adding Learning at Work from the gallery
-2. Configuring and testing Azure AD single sign-on
+- Não use o ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## <a name="adding-learning-at-work-from-the-gallery"></a>Adding Learning at Work from the gallery
-To configure the integration of Learning at Work into Azure AD, you need to add Learning at Work from the gallery to your list of managed SaaS apps.
+## Descrição do cenário
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
 
-**To add Learning at Work from the gallery, perform the following steps:**
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-
-    ![Active Directory][1]
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Applications][2]
-
-4. Click **Add** at the bottom of the page.
-
-    ![Applications][3]
-
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-
-    ![Applications][4]
-
-6. In the search box, type **Learning at Work**.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_01.png)
-
-7. In the results pane, select **Learning at Work**, and then click **Complete** to add the application.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_06.png)
+1. Adicionar Learning at Work da galeria
+2. Configurar e testar o logon único do AD do Azure
 
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Learning at Work based on a test user called "Britta Simon".
+## Adicionar Learning at Work da galeria
+Para configurar a integração do Learning at Work ao Azure AD, você precisa adicionar o Learning at Work por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Learning at Work is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Learning at Work needs to be established.
+**Para adicionar o Learning at Work por meio da galeria, realize as seguintes etapas:**
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Learning at Work.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
-To configure and test Azure AD single sign-on with Learning at Work, you need to complete the following building blocks:
+	![Active Directory][1]
+2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Learning at Work test user](#creating-a-predictix-price-reporting-test-user)** - to have a counterpart of Britta Simon in Learning at Work that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
+	![Aplicativos][2]
 
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Learning at Work application.
+4. Clique em **Adicionar** na parte inferior da página.
+
+	![Aplicativos][3]
+
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+
+	![Aplicativos][4]
+
+6. Na caixa de pesquisa, digite **Learning at Work**.
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_01.png)
+
+7. No painel de resultados, selecione **Learning at Work** e clique em **Concluir** para adicionar o aplicativo.
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_06.png)
 
 
-**To configure Azure AD single sign-on with Learning at Work, perform the following steps:**
+##  Configurar e testar o logon único do AD do Azure
+Nesta seção, você configurará e testará o logon único do Azure AD com o Learning at Work, com base em uma usuária de teste chamada "Brenda Fernandes".
 
-1. In the classic portal, on the **Learning at Work** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
-     
-    ![Configure Single Sign-On][6] 
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Learning at Work é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Learning at Work.
 
-2. On the **How would you like users to sign on to Learning at Work** page, select **Azure AD Single Sign-On**, and then click **Next**.
+Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no Azure AD como o valor de **nome de usuário** no Learning at Work.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_03.png) 
+Para configurar e testar o logon único do Azure AD com o Learning at Work, você precisa concluir os seguintes blocos de construção:
 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criando um usuário de teste do Learning at Work](#creating-a-predictix-price-reporting-test-user)** - para ter um equivalente de Brenda Fernandes no Learning at Work que esteja vinculado à representação dela no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_04.png) 
+### Configuração do logon único do Azure AD
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Learning at Work application using the following pattern: `https://\<company name\>.sabacloud.com/Saba/Web/<company code>`
-    
-    b. In the **Identifier** textbox, type the URL using the following pattern: `https://<company name>.sabacloud.com/Saba/SAML/sso/alias/<company name>``
+Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único no aplicativo Learning at Work.
 
-    c. click **Next**
+
+**Para configurar o logon único do Azure AD com o Learning at Work, realize as seguintes etapas:**
+
+1. No portal clássico, na página de integração de aplicativos do **Learning at Work**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+	 
+	![Configurar o logon único][6]
+
+2. Na página **Como você deseja que os usuários façam logon no Learning at Work**, selecione **Logon único do Azure AD** e clique em **Avançar**.
+
+	![Configurar o logon único](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_03.png)
+
+3. Na página de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:
+
+	![Configurar o logon único](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_04.png)
+
+    a. Na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para entrar no aplicativo Learning at Work usando o seguinte padrão: `https://<company name>.sabacloud.com/Saba/Web/<company code>`
+	
+	b. Na caixa de texto **Identificador**, digite a URL usando o seguinte padrão: ' https://<nome da empresa>.sabacloud.com/Saba/SAML/sso/alias/<nome da empresa>'
+
+	c. Clique em **Avançar**
  
-4. On the **Configure single sign-on at Learning at Work** page, perform the following steps:
+4. Na página **Configurar logon único no Learning at Work**, execute as seguintes etapas:
 
-    ![Configure Single Sign-On](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_05.png)
+	![Configurar o logon único](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_05.png)
 
-    a. Click **Download metadata**, and then save the file on your computer.
+    a. Clique em **Baixar metadados** e salve o arquivo no computador.
 
-    b. Click **Next**.
+    b. Clique em **Próximo**.
 
 
-5. To get SSO configured for your application, contact Learning at Work (Saba Cloud) support team and provide them with the following:
+5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do Learning at Work (Saba Cloud) e forneça o seguinte:
 
-    • The downloaded metadata
+	• Os metadados baixados
 
-    • The **Issuer Url**
+	• A **Url do Emissor**
 
-    • The **SAML SSO URL**
+	• A **URL de SSO do SAML**
 
-    • The **Single Sign Out Service URL**
+	• A **URL do Serviço de Logoff Único**
 
-6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
-    
-    ![Azure AD Single Sign-On][10]
+6. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+	
+	![Logon único do AD do Azure][10]
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+7. Na página **Confirmação de logon único**, clique em **Concluir**.
  
-    ![Azure AD Single Sign-On][11]
+	![Logon único do AD do Azure][11]
 
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
+### Criação de um usuário de teste do AD do Azure
+Nesta seção, você criará uma usuária de teste no portal clássico chamada Brenda Fernandes.
 
 
-![Create Azure AD User][20]
+![Criar um usuário do AD do Azure][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_09.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_09.png)
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. To display the list of users, in the menu on the top, click **Users**.
+3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_03.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_03.png)
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_04.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_04.png)
 
-5. On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_05.png) 
+5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Click **Next**.
+    c. Clique em **Próximo**.
 
-6.  On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_06.png) 
+6.  Na página de caixa de diálogo **Perfil do Usuário**, realize as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    a. Na caixa de texto **Nome**, digite **Brenda**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
 
-    d. In the **Role** list, select **User**.
+    d. Na lista **Função**, selecione **Usuário**.
 
-    e. Click **Next**.
+    e. Clique em **Próximo**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. Na página do diálogo **Obter senha temporária**, clique em **Criar**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_07.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. Na página do diálogo **Obter senha temporária**, realize as seguintes etapas:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_08.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-learning-at-work-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    a. Anote o valor da **Nova Senha**.
 
-    b. Click **Complete**.   
-
-
-
-### <a name="creating-an-learning-at-work-test-user"></a>Creating an Learning at Work test user
-
-In this section, you create a user called Britta Simon in Learning at Work. Please work with Learning at Work support team to add the users in the Learning at Work platform.
+    b. Clique em **Concluído**.
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Learning at Work.
+### Criar um usuário de teste do Learning at Work
 
-![Assign User][200] 
-
-**To assign Britta Simon to Learning at Work, perform the following steps:**
-
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Assign User][201] 
-
-2. In the applications list, select **Learning at Work**.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_50.png) 
-
-3. In the menu on the top, click **Users**.
-
-    ![Assign User][203]
-
-4. In the Users list, select **Britta Simon**.
-
-5. In the toolbar on the bottom, click **Assign**.
-
-    ![Assign User][205]
+Nesta seção, você deve criar uma usuária chamada Brenda Fernandes no Learning at Work. Trabalhe com a equipe de suporte do Learning at Work para adicionar usuários na plataforma Learning at Work.
 
 
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+### Atribuição do usuário de teste do AD do Azure
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Learning at Work.
 
-When you click the Learning at Work tile in the Access Panel, you should get automatically signed-on to your Learning at Work application.
+![Atribuir usuário][200]
+
+**Para atribuir Brenda Fernandes ao Learning at Work, execute as seguintes etapas:**
+
+1. No portal clássico, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
+
+	![Atribuir usuário][201]
+
+2. Na lista de aplicativos, selecione **Learning at Work**.
+
+	![Configurar o logon único](./media/active-directory-saas-learning-at-work-tutorial/tutorial_learningatwork_50.png)
+
+3. No menu na parte superior, clique em **Usuários**.
+
+	![Atribuir usuário][203]
+
+4. Na lista de usuários, selecione **Brenda Fernandes**.
+
+5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
+
+	![Atribuir usuário][205]
 
 
-## <a name="additional-resources"></a>Additional Resources
+### Teste do logon único
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+
+Quando você clicar no bloco Learning at Work no Painel de Acesso, deverá ser automaticamente conectado ao aplicativo Learning at Work.
+
+
+## Recursos adicionais
+
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -274,8 +274,4 @@ When you click the Learning at Work tile in the Access Panel, you should get aut
 [204]: ./media/active-directory-saas-learning-at-work-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-learning-at-work-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!----HONumber=AcomDC_0720_2016-->

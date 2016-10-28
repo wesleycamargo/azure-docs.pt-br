@@ -1,10 +1,8 @@
-## <a name="get-started-with-azure-devtest-labs"></a>Get started with Azure DevTest Labs
-New to Azure? [Create a free Azure account](https://azure.microsoft.com/free)
+## Introdução a Azure DevTest Labs
+Você é novo no Azure? [Criar uma conta gratuita do Azure](https://azure.microsoft.com/free)
 
-Already on Azure? Click the following button to create a lab in DevTest Labs!
+Já está no Azure? Clique no botão a seguir para criar um laboratório em DevTest Labs!
 
-[![Get started with Azure DevTest Labs in minutes](./media/devtest-lab-try-it-out/get-started.png)](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
+[![Introdução ao Azure DevTest Labs em minutos](./media/devtest-lab-try-it-out/get-started.png)](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

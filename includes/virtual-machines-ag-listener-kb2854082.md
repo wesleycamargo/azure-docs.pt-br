@@ -1,14 +1,10 @@
-Next, if any servers on the cluster are running Windows Server 2008 R2 or Windows Server 2012, you must verify that the hotfix [KB2854082](http://support.microsoft.com/kb/2854082) is installed on each of the on-premises servers or Azure VMs that are part of the cluster. Any server or VM that is in the cluster, but not in the availability group, should also have this hotfix installed.
+A seguir, se algum servidor no cluster estiver executando o Windows Server 2008 R2 ou o Windows Server 2012, você deverá verificar se o hotfix [KB2854082](http://support.microsoft.com/kb/2854082) está instalado em cada um dos servidores locais ou nas VMs do Azure que fazem parte do cluster. Qualquer servidor ou VM que esteja no cluster, mas não no grupo de disponibilidade, também deverá ter esse hotfix instalado.
 
-In the remote desktop session for each of the cluster nodes, download [KB2854082](http://support.microsoft.com/kb/2854082) to a local directory. Then, install the hotfix on each of the cluster nodes sequentially. If the cluster service is currently running on the cluster node, the server is restarted at the end of the hotfix installation.
+Na sessão da área de trabalho remota para cada um de nós do cluster, baixe [KB2854082](http://support.microsoft.com/kb/2854082)para um diretório local. Em seguida, instale o hotfix em cada um dos nós do cluster, em sequência. Se o serviço do cluster está sendo executado no nó do cluster, o servidor é reiniciado no final da instalação do hotfix.
 
->[AZURE.WARNING] Stopping the cluster service or restarting the server affects the quorum health of your cluster and the availability group, and may cause your cluster to go offline. To maintain the high availability of your cluster during installation, make sure that:
+>[AZURE.WARNING] Parar o serviço de cluster ou reiniciar o servidor afeta a integridade de quorum do seu cluster e o grupo de disponibilidade, e pode fazer com que o cluster fique offline. Para manter a alta disponibilidade do seu cluster durante a instalação, verifique se:
 >
-> - The cluster is in optimal quorum health, 
-> - All cluster nodes are online before installing the hotfix on any node, and
-> - Allow the hotfix installation to run to completion on one node, including fully restarting the server, before installing the hotfix on any other node in the cluster.
-
-
-<!--HONumber=Oct16_HO2-->
-
+> - O cluster está na integridade de quorum ideal, 
+> - Todos os nós de cluster estão online antes de instalar o hotfix em qualquer nó, e
+> - Permite a instalação do hotfix para executar até a conclusão em um nó, incluindo reinicialização completa do servidor, antes de instalar o hotfix em qualquer outro nó do cluster.
 

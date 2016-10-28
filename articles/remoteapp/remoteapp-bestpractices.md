@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure RemoteApp best practices | Microsoft Azure"
-    description="Best practices for configuring and using Azure RemoteApp."
+    pageTitle="Práticas recomendadas do RemoteApp do Azure | Microsoft Azure"
+    description="Práticas recomendadas para configurar e usar o RemoteApp do Azure"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -15,40 +15,35 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
-
-# <a name="best-practices-for-configuring-and-using-azure-remoteapp"></a>Best practices for configuring and using Azure RemoteApp
+# Práticas recomendadas para configurar e usar o RemoteApp do Azure
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
-The following information can help you configure and use Azure RemoteApp productively.
+As informações a seguir podem ajudá-lo a configurar e usar o RemoteApp do Azure de forma produtiva.
 
-## <a name="connectivity"></a>Connectivity
-
-
-- Always use the latest client version. Using older clients might result in connectivity issues and other degraded experiences. Enabling automatic application updates for your device will ensure that the latest client is always installed.
-- Always use the most stable and reliable internet connection available to you.  
-- Use only supported proxy connections for optimal connectivity performance.  The SOCKS proxy is not supported.
-
-## <a name="applications"></a>Applications
+## Conectividade
 
 
-- Save and close RemoteApp applications when you are done with the application. Not closing the application might result in data loss.
-- Validate custom applications before using them in Azure RemoteApp. This includes ensuring they work on a multi-session platform and don’t consume unnecessary resources such as memory and CPU that might starve another user in the same collection. For information, download and review the [Application Compatibility Best Practices for Remote Desktop Services](http://www.dabcc.com/resources/Application%20Compatibility%20Best%20Practices%20for%20Remote%20Desktop%20Services.pdf).
+- Sempre use a versão mais recente do cliente. Usar clientes mais antigos pode resultar em problemas de conectividade e outras experiências degradadas. A habilitação de atualizações automáticas do aplicativo para o dispositivo irá garantir que o cliente mais recente esteja sempre instalado.
+- Sempre use a conexão de internet mais estável e confiável disponível para você.
+- Use apenas conexões de proxy suportadas para desempenho ideal de conectividade. Não há suporte para o proxy SOCKS.
 
-## <a name="configuration-and-management"></a>Configuration and management
-
-
-- Keep your template images up to date, installing software updates and other critical fixes as needed. This ensures that as Azure RemoteApp auto-scales to meet your capacity, each instance is patched.  
-- Make sure your Active Directory Federation Services (AD FS) deployment is secure and reliable. Otherwise client authentications might fail, preventing users from accessing Azure RemoteApp.
-- Configure template images with installed applications, roles, or features such that they are stateless. They should not rely on any instances of the virtual machines in a RemoteApp service being in a persistent state.
-    - Store all user data in user profiles or other storage locations external to the service, such as on-premises file shares or OneDrive.
-    - Store shared data in storage locations external to the service, such as on-premises file shares or OneDrive.
-    - Configure any system-wide settings in the template image rather than on individual virtual machines in a service.
-    - Disable automatic software updates for published applications - instead apply them manually to the template image and test them before you deploy  from the template.
+## Aplicativos
 
 
+- Salve e feche os aplicativos do RemoteApp ao terminar com o aplicativo. O não fechamento do aplicativo pode resultar em perda de dados.
+- Valide aplicativos personalizados antes de usá-los no RemoteApp do Azure. Isso inclui garantir que eles funcionam em uma plataforma de várias sessões e não consomem recursos desnecessários, como memória e CPU que podem enfraquecer outro usuário na mesma coleção. Para obter informações, baixe e analise as [Práticas recomendadas de compatibilidade de aplicativos para os serviços de área de trabalho remota](http://www.dabcc.com/resources/Application%20Compatibility%20Best%20Practices%20for%20Remote%20Desktop%20Services.pdf).
 
-<!--HONumber=Oct16_HO2-->
+## Configuração e gerenciamento
 
 
+- Mantenha suas imagens de modelo atualizadas, instale atualizações de software e outras correções críticas, conforme necessário. Isso garante que, como o RemoteApp do Azure se redimensiona automaticamente para atender sua capacidade, cada instância é corrigida.
+- Verifique se a sua implantação de serviços de Federação do Active Directory (AD FS) está segura e confiável. Caso contrário, as autenticações do cliente podem falhar, impedindo que os usuários acessem o RemoteApp do Azure.
+- Configure imagens de modelo com aplicativos instalados, funções ou recursos que estão sem monitoramento do estado. Elas não devem confiar em todas as instâncias das máquinas virtuais em um serviço do RemoteApp estando em um estado persistente.
+	- Armazene todos os dados do usuário em perfis de usuário ou outros locais de armazenamento externos para o serviço, como compartilhamentos de arquivo local ou OneDrive.
+	- Armazene dados compartilhados em locais de armazenamento externos para o serviço, como compartilhamentos de arquivo local ou OneDrive.
+	- Configure quaisquer configurações gerais do sistema na imagem do modelo em vez de em máquinas virtuais individuais em um serviço.
+	- Desabilite atualizações automáticas de software para aplicativos publicados - em vez disso, aplique-as manualmente à imagem do modelo e teste-as antes da implantação do modelo.
+
+<!---HONumber=AcomDC_0921_2016-->

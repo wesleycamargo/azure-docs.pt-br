@@ -1,17 +1,15 @@
-Type | Service | Trigger | Input | Output 
+Tipo | O Barramento de | Gatilho | Entrada | Saída 
 -----|---------|---------|-------|--------
-Schedule | Azure Functions | &#10004; |  | 
-HTTP (REST or webhook) | Azure Functions | &#10004; |  | &#10004;\*
-Blob Storage | Azure Storage | &#10004; | &#10004; | &#10004; 
-Events | Azure Event Hubs | &#10004; | | &#10004;
-Queues | Azure Storage | &#10004; |  | &#10004;
-Tables | Azure Storage |  | &#10004; | &#10004;
-Tables | Azure Mobile Apps |  | &#10004; | &#10004;
-No-SQL DB | Azure DocumentDB |  | &#10004; | &#10004;
-Push Notifications | Azure Notification Hubs | | | &#10004;
+Agenda | Funções do Azure | &#10004; | | 
+HTTP (REST ou webhook) | Funções do Azure | &#10004; | | &#10004;*
+Armazenamento de Blob | Armazenamento do Azure | &#10004; | &#10004; | &#10004; 
+Eventos | Hubs de eventos do Azure | &#10004; | | &#10004;
+Filas | Armazenamento do Azure | &#10004; | | &#10004;
+Tabelas | Armazenamento do Azure | | &#10004; | &#10004;
+Tabelas | Aplicativos Móveis do Azure | | &#10004; | &#10004;
+Banco de dados No SQL | Banco de Dados de Documentos do Azure | | &#10004; | &#10004;
+Notificações por Push | Hubs de Notificação do Azure | | | &#10004;
 
-(\* - The http out binding requires an http trigger)
+(*- A HTTP Out requer um gatilho de HTTP)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0608_2016-->

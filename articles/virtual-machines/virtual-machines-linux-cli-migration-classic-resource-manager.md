@@ -1,166 +1,161 @@
 <properties
-    pageTitle="Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI | Microsoft Azure"
-    description="This article walks through the platform-supported migration of resources from classic to Azure Resource Manager by using Azure CLI"
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Migrar recursos de IaaS do modelo clássico para o Azure Resource Manager usando a CLI do Azure | Microsoft Azure"
+	description="Este artigo apresenta a migração de recursos com suporte da plataforma do modelo clássico para o Azure Resource Manager usando a CLI do Azure"
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/19/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/19/2016"
+	ms.author="cynthn"/>
 
+# Migrar recursos de IaaS do modelo clássico para o Azure Resource Manager usando a CLI do Azure
 
-# <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI
+Estas etapas mostram como usar a CLI (interface de linha de comando) do Azure para migrar recursos de IaaS (infraestrutura como serviço) do modelo de implantação clássico para o modelo de implantação do Azure Resource Manager. O artigo exige a [CLI do Azure](../xplat-cli-install.md).
 
-These steps show you how to use Azure command-line interface (CLI) commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure CLI](../xplat-cli-install.md).
+>[AZURE.NOTE] Todas as operações descritas aqui são idempotentes. Caso você tenha algum problema que não seja um recurso sem suporte ou um erro de configuração, recomendamos que repita a operação de preparação, anulação ou confirmação. Em seguida, a plataforma repetirá a ação.
 
->[AZURE.NOTE] All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform will then try the action again.
+## Etapa 1: preparar para a migração
 
-## <a name="step-1:-prepare-for-migration"></a>Step 1: Prepare for migration
+Veja a seguir algumas das práticas que recomendamos durante a avaliação de migração dos recursos de IaaS do modelo clássico para o Gerenciador de Recursos:
 
-Here are a few best practices that we recommend as you evaluate migrating IaaS resources from classic to Resource Manager:
+- Leia a [lista de recursos ou de configurações sem suporte](virtual-machines-windows-migration-classic-resource-manager.md). Caso você tenha máquinas virtuais que usam recursos ou configurações sem suporte, recomendamos que aguarde até que o suporte para o recurso/configuração seja anunciado. Como alternativa, é possível remover esse recurso ou mudar a configuração para habilitar a migração, caso ela atenda às suas necessidades.
+-	Se você tiver scripts automatizados que implantam sua infraestrutura e aplicativos atualmente, tente criar uma configuração de teste semelhante usando esses scripts para migração. Você também pode configurar ambientes de exemplo usando o portal do Azure.
 
-- Read through the [list of unsupported configurations or features](virtual-machines-windows-migration-classic-resource-manager.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the feature/configuration support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
--   If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
+## Etapa 2: Definir sua assinatura e registrar o provedor
 
-## <a name="step-2:-set-your-subscription-and-register-the-provider"></a>Step 2: Set your subscription and register the provider
+Para cenários de migração, é necessário instalar seu ambiente tanto para o modelo clássico quanto para o Gerenciador de Recursos. [Instale a CLI do Azure](../xplat-cli-install.md) e [selecione sua assinatura](../xplat-cli-connect.md).
 
-For migration scenarios, you need to set up your environment for both classic and Resource Manager. [Install Azure CLI](../xplat-cli-install.md) and [select your subscription](../xplat-cli-connect.md).
+Entre em sua conta.
+	
+	azure login
 
-Sign-in to your account.
-    
-    azure login
+Selecione a assinatura do Azure usando o seguinte comando.
 
-Select the Azure subscription by using the following command.
+	azure account set "<azure-subscription-name>"
 
-    azure account set "<azure-subscription-name>"
+>[AZURE.NOTE] O registro é uma etapa única, mas é preciso executá-lo uma vez antes de tentar a migração. Sem o registro, você verá a seguinte mensagem de erro
 
->[AZURE.NOTE] Registration is a one time step but it needs to be done once before attempting migration. Without registering you'll see the following error message 
+>	*BadRequest : Subscription is not registered for migration.* 
 
->   *BadRequest : Subscription is not registered for migration.* 
+Registre-se no provedor de recursos de migração usando o comando a seguir. Observe que, em alguns casos, esse comando atinge o tempo limite. No entanto, o registro será bem-sucedido.
 
-Register with the migration resource provider by using the following command. Note that in some cases, this command times out. However, the registration will be successful.
+	azure provider register Microsoft.ClassicInfrastructureMigrate
 
-    azure provider register Microsoft.ClassicInfrastructureMigrate
+Aguarde cinco minutos para concluir o registro. É possível verificar o status da aprovação usando o comando a seguir. Verifique se RegistrationState é `Registered` antes de continuar.
 
-Please wait five minutes for the registration to finish. You can check the status of the approval by using the following command. Make sure that RegistrationState is `Registered` before you proceed.
+	azure provider show Microsoft.ClassicInfrastructureMigrate
 
-    azure provider show Microsoft.ClassicInfrastructureMigrate
+Agora mude a CLI para o modo `asm`.
 
-Now switch CLI to the `asm` mode.
+	azure config mode asm
 
-    azure config mode asm
+## Etapa 3: Verifique se você tem uma quantidade suficiente de núcleos de Máquina Virtual do Azure Resource Manager na região do Azure de sua implantação atual ou VNET
 
-## <a name="step-3:-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Step 3: Make sure you have enough Azure Resource Manager Virtual Machine cores in the Azure region of your current deployment or VNET
-
-For this step you'll need to switch to `arm` mode. Do this with the following command.
+Nesta etapa, você precisará alternar para o modo `arm`. Faça isso com o seguinte comando.
 
 ```
 azure config mode arm
 ```
 
-You can use the following CLI command to check the current amount of cores you have in Azure Resource Manager. To learn more about core quotas, see [Limits and the Azure Resource Manager](../articles/azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+Você pode usar o seguinte comando da CLI para verificar a quantidade atual de núcleos no Azure Resource Manager. Para saber mais sobre cotas de núcleos, veja [Limites e o Azure Resource Manager](../articles/azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 ```
 
-Once you're done verifying this step, you can switch back to `asm` mode.
+Quando você terminar de verificar esta etapa, volte para o modo `asm`.
 
-    azure config mode asm
-
-
-## <a name="step-4:-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Step 4: Option 1 - Migrate virtual machines in a cloud service 
-
-Get the list of cloud services by using the following command, and then pick the cloud service that you want to migrate. Note that if the VMs in the cloud service are in a virtual network or if they have web/worker roles, you will get an error message.
-
-    azure service list
-
-Run the following command to get the deployment name for the cloud service from the verbose output. In most cases, the deployment name is the same as the cloud service name.
-
-    azure service show <serviceName> -vv
-
-Prepare the virtual machines in the cloud service for migration. You have two options to choose from.
-
-If you want to migrate the VMs to a platform-created virtual network, use the following command.
-
-    azure service deployment prepare-migration <serviceName> <deploymentName> new "" "" ""
-
-If you want to migrate to an existing virtual network in the Resource Manager deployment model, use the following command.
-
-    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> subnetName <vnetName>
-
-After the prepare operation is successful, you can look through the verbose output to get the migration state of the VMs and ensure that they are in the `Prepared` state.
-
-    azure vm show <vmName> -vv
-
-Check the configuration for the prepared resources by using either CLI or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command.
-
-    azure service deployment abort-migration <serviceName> <deploymentName>
-
-If the prepared configuration looks good, you can move forward and commit the resources by using the following command.
-
-    azure service deployment commit-migration <serviceName> <deploymentName>
+	azure config mode asm
 
 
-    
-## <a name="step-4:-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Step 4: Option 2 -  Migrate virtual machines in a virtual network
+## Etapa 4: Opção 1 – Migrar máquinas virtuais em um serviço de nuvem 
 
-Pick the virtual network that you want to migrate. Note that if the virtual network contains web/worker roles or VMs with unsupported configurations, you will get a validation error message.
+Obtenha a lista de serviços de nuvem usando o comando a seguir e escolha o serviço de nuvem que deseja migrar. Observe que, se as VMs no serviço de nuvem estiverem em uma rede virtual ou se tiverem funções web/de trabalho, você receberá uma mensagem de erro.
 
-Get all the virtual networks in the subscription by using the following command.
+	azure service list
 
-    azure network vnet list
-    
-The output will look something like this:
+Execute a comando a seguir para obter o nome da implantação do serviço de nuvem por meio da saída detalhada. Na maioria dos casos, o nome da implantação é igual ao nome do serviço de nuvem.
 
-![Screenshot of the command line with the entire virtual network name highlighted.](./media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
+	azure service show <serviceName> -vv
 
-In the above example, the **virtualNetworkName** is the entire name **"Group classicubuntu16 classicubuntu16"**.
+Prepare as máquinas virtuais no serviço de nuvem para migração. Você tem duas opções entre as quais escolher.
 
-Prepare the virtual network of your choice for migration by using the following command.
+Se quiser migrar as máquinas virtuais em uma rede virtual criada por plataforma, use o comando a seguir.
 
-    azure network vnet prepare-migration <virtualNetworkName>
+	azure service deployment prepare-migration <serviceName> <deploymentName> new "" "" ""
 
-Check the configuration for the prepared virtual machines by using either CLI or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command.
+Se quiser migrar para uma rede virtual existente no modelo de implantação do Gerenciador de Recursos, use o comando a seguir.
 
-    azure network vnet abort-migration <virtualNetworkName>
+	azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> subnetName <vnetName>
 
-If the prepared configuration looks good, you can move forward and commit the resources by using the following command.
+Após uma operação de preparação bem-sucedida, você poderá examinar a saída detalhada para obter o estado de migração das VMs e assegurar que as elas estejam no estado `Prepared`.
 
-    azure network vnet commit-migration <virtualNetworkName>
+	azure vm show <vmName> -vv
 
-## <a name="step-5:-migrate-a-storage-account"></a>Step 5: Migrate a storage account
+Verifique a configuração dos recursos preparados usando a CLI ou o portal do Azure. Se você não estiver pronto para a migração e desejar voltar para o estado anterior, use o comando a seguir.
 
-Once you're done migrating the virtual machines, we recommend you migrate the storage account.
+	azure service deployment abort-migration <serviceName> <deploymentName>
 
-Prepare the storage account for migration by using the following command
+Se a configuração preparada estiver correta, será possível continuar e confirmar os recursos usando o comando a seguir.
 
-    azure storage account prepare-migration <storageAccountName>
-
-Check the configuration for the prepared storage account by using either CLI or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command.
-
-    azure storage account abort-migration <storageAccountName>
-
-If the prepared configuration looks good, you can move forward and commit the resources by using the following command.
-
-    azure storage account commit-migration <storageAccountName>
-
-## <a name="next-steps"></a>Next steps
-
-- [Platform-supported migration of IaaS resources from classic to Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
-- [Technical deep dive on platform-supported migration from classic to Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+	azure service deployment commit-migration <serviceName> <deploymentName>
 
 
+	
+## Etapa 4: Opção 2 – Migrar máquinas virtuais em uma rede virtual
 
-<!--HONumber=Oct16_HO2-->
+Selecione a rede virtual que você deseja migrar. Observe que, se a rede virtual contiver funções web/de trabalho ou VMs com configurações sem suporte, você receberá uma mensagem de erro de validação.
 
+Obtenha todas as redes virtuais na assinatura usando o comando a seguir.
 
+	azure network vnet list
+	
+A saída será parecida com esta:
+
+![Captura de tela da linha de comando com o nome inteiro da rede virtual realçado.](./media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
+
+No exemplo acima, **virtualNetworkName** é o nome inteiro **“Grupo classicubuntu16 classicubuntu16”**.
+
+Prepare a rede virtual de sua preferência para migração usando o comando a seguir.
+
+	azure network vnet prepare-migration <virtualNetworkName>
+
+Verifique a configuração para as máquinas virtuais preparadas usando a CLI ou o portal do Azure. Se você não estiver pronto para a migração e desejar voltar para o estado anterior, use o comando a seguir.
+
+	azure network vnet abort-migration <virtualNetworkName>
+
+Se a configuração preparada estiver correta, será possível continuar e confirmar os recursos usando o comando a seguir.
+
+	azure network vnet commit-migration <virtualNetworkName>
+
+## Etapa 5: Migrar uma conta de armazenamento
+
+Depois de concluir a migração das máquinas virtuais, recomendamos a migração da conta de armazenamento.
+
+Prepare a conta de armazenamento para migração usando o comando a seguir
+
+	azure storage account prepare-migration <storageAccountName>
+
+Verifique a configuração da conta de armazenamento preparada usando a CLI ou o Portal do Azure. Se você não estiver pronto para a migração e desejar voltar para o estado anterior, use o comando a seguir.
+
+	azure storage account abort-migration <storageAccountName>
+
+Se a configuração preparada estiver correta, será possível continuar e confirmar os recursos usando o comando a seguir.
+
+	azure storage account commit-migration <storageAccountName>
+
+## Próximas etapas
+
+- [Migração de recursos de IaaS com suporte da plataforma do Clássico para o Gerenciador de Recursos](virtual-machines-windows-migration-classic-resource-manager.md)
+- [Análise técnica aprofundada sobre a migração com suporte da plataforma do Clássico para o Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+
+<!---HONumber=AcomDC_0907_2016-->

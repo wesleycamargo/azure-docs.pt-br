@@ -1,187 +1,182 @@
 <properties
-    pageTitle="Designing your network infrastructure for disaster recovery | Microsoft Azure"
-    description="This article discusses network design considerations for Azure Site Recovery"
-    services="site-recovery"
-    documentationCenter=""
-    authors="prateek9us"
-    manager="jwhit"
-    editor=""/>
+	pageTitle="Criando sua infraestrutura de rede para a recuperação de desastres | Microsoft Azure"
+	description="Este artigo analisa as considerações de design de rede para o Azure Site Recovery"
+	services="site-recovery"
+	documentationCenter=""
+	authors="prateek9us"
+	manager="jwhit"
+	editor=""/>
 
 <tags
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage-backup-recovery"
-    ms.date="09/19/2016"
-    ms.author="pratshar"/>
+	ms.service="site-recovery"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="storage-backup-recovery"
+	ms.date="09/19/2016"
+	ms.author="pratshar"/>
+
+#  Criando sua infraestrutura de rede para a recuperação de desastres
+
+Este artigo é direcionado a profissionais de TI que são responsáveis pela arquitetura, implementação e suporte para a infraestrutura da continuidade de negócios e recuperação de desastres (BCDR), e que desejam aproveitar o Microsoft Azure Site Recovery (ASR) para dar suporte e fortalecer seus serviços BCDR. Este documento analisa as considerações práticas para a implantação do servidor do System Center Virtual Machine Manager, os prós e contras das sub-redes ampliadas vs. o failover da sub-rede e como estruturar a recuperação de desastres para os sites virtuais no Microsoft Azure.
+
+## Visão geral
+
+[O Azure Site Recovery (ASR)](https://azure.microsoft.com/services/site-recovery/) é um serviço do Microsoft Azure que gerencia a proteção e a recuperação de seus aplicativos virtualizados para fins da continuidade de negócios e recuperação de desastres (BCDR). Este documento destina-se para guiar o leitor no processo de criação de redes, focando em arquitetar intervalos IP e sub-redes no site de recuperação de desastres ao replicar as máquinas virtuais (VMs) usando o Site Recovery.
+
+Além disso, este artigo demonstra como o Site Recovery permite arquitetar e implementar um datacenter virtual multissite para dar suporte aos serviços BCDR no momento do teste ou de um desastre.
+
+Em um mundo onde todos esperam uma conectividade 24/7, é mais importante do que nunca manter sua infraestrutura e aplicativos funcionando. A finalidade da Continuidade de Negócios e Recuperação de Desastres (BCDR) é restaurar os componentes com falha para que a organização possa retomar rapidamente as operações normais. Desenvolver estratégias de recuperação de desastres para lidar com eventos devastadores e improváveis é um grande desafio. Isso é devido à dificuldade inerente de prever o futuro, especialmente quando se trata de eventos improváveis e de alto custo para fornecer as medidas adequadas de proteção contra catástrofes abrangentes.
+
+É crucial que o planejamento BCDR, Objetivo do Tempo de Recuperação (RTO) e Objetivo do Ponto de Recuperação (RPO) sejam definidos como parte de um plano de recuperação de desastres. Quando um desastre atinge o datacenter do cliente, usando o Azure Site Recovery, os clientes podem colocar online rapidamente (baixo RTO) suas máquinas virtuais replicadas localizadas no datacenter secundário ou no Microsoft Azure com uma perda mínima de dados (baixo RPO).
+
+O failover é possibilitado pelo ASR que inicialmente copia as máquinas virtuais designadas do datacenter primário para o datacenter secundário ou para o Azure (dependendo do cenário), em seguida, atualiza periodicamente as réplicas. Durante o planejamento da infraestrutura, o design da rede deve ser considerado como um gargalo em potencial que pode impedir que você atenda os objetivos RTO e RPO da empresa.
+
+Quando os administradores estiverem planejando implantar uma solução de recuperação de desastres, uma das principais questões em suas mentes será como a máquina virtual deve ser acessível após a conclusão do failover. O ASR permite que o administrador escolha a rede à qual uma máquina virtual deve ser conectada após o failover. Se o site primário for gerenciado por um servidor VMM, isso ocorre usando o mapeamento de rede. Confira [Preparar para mapeamento de rede](site-recovery-network-mapping.md) para obter mais detalhes.
+
+Ao criar a rede para o site de recuperação, o administrador tem duas opções:
+
+- Usar um intervalo de endereços IP diferente para a rede no site de recuperação. Nesse cenário, a máquina virtual, após o failover, terá um novo endereço IP e o administrador terá de fazer uma atualização de DNS. Leia mais sobre como fazer a atualização de DNS [aqui](site-recovery-vmm-to-vmm.md#test-your-deployment)
+- Usar o mesmo intervalo de endereços IP para a rede no site de recuperação. Em determinados cenários, os administradores preferem manter os endereços IP que eles têm no site primário, mesmo após o failover. Em um cenário normal, um administrador teria que atualizar as rotas para indicar o novo local dos endereços IP. Mas no cenário no qual uma VLAN ampliada é implantada entre os sites primário e de recuperação, reter os endereços IP para as máquinas virtuais torna-se uma opção atraente. Manter os mesmos endereços IP simplifica o processo de recuperação eliminando qualquer etapa pós-failover relacionada à rede.
 
 
-#  <a name="designing-your-network-infrastructure-for-disaster-recovery"></a>Designing your network infrastructure for disaster recovery
+Quando os administradores estiverem planejando implantar uma solução de recuperação de desastres, uma das principais questões em suas mentes será como os aplicativos ficarão acessíveis após a conclusão do failover. Até certo ponto, os aplicativos modernos são quase sempre dependentes da rede, portanto, mover fisicamente um serviço de um site para outro representa um desafio de rede. Há duas maneiras principais desse problema ser abordado nas soluções de recuperação de desastres. A primeira abordagem é manter endereços IP fixos. Apesar da movimentação dos serviços e dos servidores de hospedagem estarem em locais físicos diferentes, os aplicativos levam a configuração de endereço IP com eles para o novo local. A segunda abordagem envolve a alteração completa do endereço IP durante a transição para o site recuperado. Cada abordagem possui diversas variações de implementação que são resumidas abaixo.
 
-This article is directed to IT professionals who are responsible for architecting, implementing, and supporting business continuity and disaster recovery (BCDR) infrastructure, and who want to leverage Microsoft Azure Site Recovery (ASR) to support and enhance their BCDR services. This paper discusses practical considerations for System Center Virtual Machine Manager server deployment, the pros and cons of stretched subnets vs. subnet failover, and how to structure disaster recovery to virtual sites in Microsoft Azure.
+Ao criar a rede para o site de recuperação, o administrador tem duas opções:
 
-## <a name="overview"></a>Overview
+## Opção 1: Manter os endereços IP 
 
-[Azure Site Recovery (ASR)](https://azure.microsoft.com/services/site-recovery/) is a Microsoft Azure service that orchestrates the protection and recovery of your virtualized applications for business continuity disaster recovery (BCDR) purposes. This document is intended to guide the reader through the process of designing the networks, focusing on architecting IP ranges and subnets on the disaster recovery site, when replicating virtual machines (VMs) using Site Recovery.
+De uma perspectiva do processo de recuperação de desastres, usar endereços IP fixos parece ser o método mais fácil de implementar, mas tem uma série de desafios em potencial que tornam a abordagem menos popular na prática. O Azure Site Recovery fornece a capacidade de manter os endereços IP em todos os cenários. Antes de se decidir manter o IP, a devida consideração deve ser dada às restrições impostas nos recursos de failover. Vejamos os fatores que podem ajudá-lo a tomar uma decisão para manter os endereços IP ou não. Isso pode ser feito de duas maneiras, por meio de uma sub-rede ampliada ou pela realização de um failover de sub-rede completo.
 
-Furthermore, this article demonstrates how Site Recovery enables architecting and implementing a multisite virtual datacenter to support BCDR services at time of test or disaster.
+### Sub-rede ampliada
 
-In a world where everyone expects 24/7 connectivity, it is more important than ever to keep your infrastructure and applications up and running. The purpose of Business Continuity and Disaster Recovery (BCDR) is to restore failed components so the organization can quickly resume normal operations. Developing disaster recovery strategies to deal with unlikely, devastating events is very challenging. This is due to the inherent difficulty of predicting the future, particularly as it relates to improbable events, and the high cost to provide adequate measures of protection against far-reaching catastrophes. 
+Aqui, a sub-rede é disponibilizada simultaneamente nos locais primário e DR (recuperação de desastres). Simplificando, isso significa que você pode mover um servidor e sua configuração IP (Camada 3) para o segundo site, e a rede roteará o tráfego para o novo local automaticamente. Isso é trivial para se lidar do ponto de vista do servidor, mas há uma série de desafios:
 
-Crucial for BCDR planning, Recovery Time Objective (RTO) and Recovery Point Objective (RPO) must be defined as part of a disaster recovery plan. When a disaster strikes the customer’s data center, using Azure Site Recovery, customers can quickly (low RTO) bring online their replicated virtual machines located in either the secondary data center or Microsoft Azure with minimum data loss (low RPO). 
-
-Failover is made possible by ASR which initially copies designated virtual machines from the primary data center to the secondary data center or to Azure (depending on the scenario), and then periodically refreshes the replicas. During infrastructure planning, network design should be considered as potential bottleneck that can prevent you from meeting company RTO and RPO objectives.  
-
-When administrators are planning to deploy a disaster recovery solution, one of the key questions in their minds is how the virtual machine would be reachable after the failover is completed. ASR allows the administrator to choose the network to which a virtual machine would be connected to after failover. If the primary site is managed by a VMM server then this is achieved using Network Mapping. See [Prepare for network mapping](site-recovery-network-mapping.md) for more details.
-
-While designing the network for the recovery site, the administrator has two choices:
-
-- Use a different IP address range for the network at recovery site. In this scenario the virtual machine after failover will get a new IP address and the administrator would have to do a DNS update. Read more about how to do the DNS update [here](site-recovery-vmm-to-vmm.md#test-your-deployment) 
-- Use same IP address range for the network at the recovery site. In certain scenarios administrators prefer to retain the IP addresses that they have on the primary site even after the failover. In a normal scenario an administrator would have to update the routes to indicate the new location of the IP addresses. But in the scenario where a stretched VLAN is deployed between the primary and the recovery sites, retaining the IP addresses for the virtual machines becomes an attractive option. Keeping the same IP addresses simplifies the recovery process by taking away any network related post-failover steps.
+- Do ponto de vista da Camada 2 (camada do link de dados), irá requerer um equipamento de rede que possa gerenciar uma VLAN ampliada, mas isto se tornou um problema menor pois, agora, está amplamente disponível. O segundo problema e mais difícil é que ampliando a VLAN, o domínio de falha em potencial estende-se para os dois sites, basicamente se tornando um ponto único de falha. Embora seja uma ocorrência improvável, pode acontecer de uma tempestade de transmissão iniciar, mas não conseguir ser isolada. Encontramos opiniões mistas sobre esse último problema e vimos muitas implementações bem-sucedidas, bem como "nunca implementaremos essa tecnologia aqui".
+- A sub-rede ampliada não será possível se você estiver usando o Microsoft Azure como o site DR (recuperação de desastres).
 
 
-When administrators are planning to deploy a disaster recovery solution, one of the key questions in their mind is how the applications will be reachable after the failover is completed. Modern applications are almost always dependent on networking to some degree, so physically moving a service from one site to another represents a networking challenge. There are two main ways that this problem is dealt with in disaster recovery solutions. The first approach is to maintain fixed IP addresses. Despite the services moving and the hosting servers being in different physical locations, applications take the IP address configuration with them to the new location. The second approach involves completely changing the IP address during the transition into the recovered site. Each approach has several implementation variations which are summarized below.
+### Failover da sub-rede
 
-While designing the network for the recovery site, the administrator has two choices:
+É possível implementar o failover da sub-rede para obter os benefícios da solução de sub-rede ampliada descrita acima sem ampliar a sub-rede em vários sites. Aqui, qualquer sub-rede dada estaria presente no Site 1 ou Site 2, mas nunca em ambos os sites simultaneamente. Para manter o espaço do endereço IP no caso de um failover, é possível organizar por meio da programação a infraestrutura do roteador para mover as sub-redes de um site para outro. Em um cenário de failover, as sub-redes seriam movidas com suas VMs associadas protegidas. A principal desvantagem dessa abordagem é que, no caso de falha, você precisa mover toda a sub-rede, o que pode ser bom, mas pode afetar as considerações de granularidade do failover.
 
-## <a name="option-1:-retain-ip-addresses"></a>Option 1: Retain IP addresses 
+Vamos examinar como uma empresa fictícia, denominada Contoso, é capaz de replicar suas VMs para um local de recuperação durante o failover na sub-rede inteira. Primeiro, vejamos como a Contoso é capaz de gerenciar suas sub-redes enquanto replica as VMs entre dois locais, então, analisemos como o failover da sub-rede funciona quando o [Azure é usado como o site de recuperação de desastres](#failover-to-azure).
 
-From a disaster recovery process perspective, using fixed IP addresses appears to be the easiest method to implement, but it has a number of potential challenges which in practice make it the least popular approach. Azure Site Recovery provides the capability to retain the IP addresses in all scenarios. Before one decides to retain IP, appropriate thought should be given to the constraints it imposes on the failover capabilities. Let us look at the factors that can help you to make a decision to retain IP addresses, or not. This can be achieved in two ways, by using a stretched subnet or by doing a full subnet failover.
+#### Failover para um site local secundário
 
-### <a name="stretched-subnet"></a>Stretched subnet
+Vejamos um cenário no qual desejamos manter o IP de cada uma das VMs e fazer o failover na sub-rede inteira. O site principal tem aplicativos em execução na sub-rede 192.168.1.0/24. Quando o failover ocorre, todas as máquinas virtuais que fazem parte dessa sub-rede farão o failover para o site de recuperação e manterão seus endereços IP. As rotas terão de ser adequadamente modificadas para refletir o fato de que todas as máquinas virtuais que pertencem à sub-rede 192.168.1.0/24 agora foram movidas para o site de recuperação.
 
-Here the subnet is made available simultaneously in both primary and DR locations. In simple terms this means you can move a server and its IP (Layer 3) configuration to the second site and the network will route the traffic to the new location automatically. This is trivial to deal with from a server perspective but it has a number of challenges:
+Na ilustração a seguir, as rotas entre o site primário e o site de recuperação, o terceiro site e o site primário, e o terceiro site e o site de recuperação precisarão ser modificadas devidamente.
 
-- From a Layer 2 (data link layer) perspective, it will require networking equipment that can manage a stretched VLAN, but this has become less of a problem as it is now widely available. The second and more difficult problem is that by stretching the VLAN the potential fault domain is extended to both sites, essentially becoming a single point of failure. While this is an unlikely occurrence, it has happened that a broadcast storm started but could not be isolated. We have found mixed opinions about this last issue and have seen many successful implementations as well as “we will never implement this technology here”.
-- Stretched subnet is not possible if you are using Microsoft Azure as the DR site.
+As imagens a seguir mostram as sub-redes antes do failover. A sub-rede 192.168.0.1/24 está ativa no site primário antes do failover e se torna ativa no site de recuperação após o failover
 
+![Antes do failover](./media/site-recovery-network-design/network-design2.png)
 
-### <a name="subnet-failover"></a>Subnet failover
-
-It is possible to implement subnet failover to obtain the benefits of the stretched subnet solution described above without stretching the subnet across multiple sites. Here any given subnet would be present at Site 1 or Site 2, but never at both sites simultaneously. In order to maintain the IP address space in the event of a failover, it is possible to programmatically arrange for the router infrastructure to move the subnets from one site to another. In a failover scenario the subnets would move with the associated protected VMs. The main drawback to this approach is in the event of a failure you have to move the whole subnet, which may be OK but it may affect the failover granularity considerations. 
-
-Let’s examine how a fictional enterprise named Contoso is able to replicate its VMs to a recovery location while failing over the entire subnet. We will first look at how Contoso is able to manage their subnets while replicating VMs between two on-premises locations, and then we will discuss how subnet failover works when [Azure is used as the disaster recovery site](#failover-to-azure).
-
-#### <a name="failover-to-a-secondary-on-premises-site"></a>Failover to a secondary on-premises site
-
-Let us look at a scenario where we want retain the IP of each of the VMs and fail-over the complete subnet together. The primary site has applications running in subnet 192.168.1.0/24. When the failover happens, all the virtual machines that are part of this subnet will be failed over to the recovery site and retain their IP addresses. Routes will have to be appropriately modified to reflect the fact that all the virtual machines belonging to subnet 192.168.1.0/24 have now moved to the recovery site. 
-
-In the following illustration the routes between primary site and recovery site, third site and primary site, and third site and recovery site will have to be appropriately modified. 
-
-The following pictures shows the subnets before the failover. Subnet 192.168.0.1/24 is active on the Primary Site before the failover and becomes active of the Recovery Site after the failover 
-
-![Before Failover](./media/site-recovery-network-design/network-design2.png)
-
-Before failover
+Antes do failover
 
 
-The picture below shows networks and subnets after failover.
-    
-![After Failover](./media/site-recovery-network-design/network-design3.png)
+A figura a seguir mostra redes e sub-redes após o failover.
+	
+![Após o failover](./media/site-recovery-network-design/network-design3.png)
 
-After failover
+Após o failover
 
-In your secondary site is on-premises and you are using a VMM server to manage it then when enabling protection for a specific virtual machine, ASR will allocate networking resources according to the following workflow:
+Se o site secundário está no local e você está usando um servidor VMM para gerenciá-lo, ao habilitar a proteção para uma máquina virtual específica, o ASR aloca os recursos de rede de acordo com o seguinte fluxo de trabalho:
 
-- ASR allocates an IP address for each network interface on the virtual machine from the static IP address pool defined on the relevant network for each System Center VMM instance.
-- If the administrator defines the same IP address pool for the network on the recovery site as that of the IP address pool of the network on the primary site, while allocating the IP address to the replica virtual machine ASR would allocate the same IP address as that of the primary virtual machine.  The IP is reserved in VMM but not set as failover IP. Failover IP is set just before the failover.
+- O ASR aloca um endereço IP para cada interface de rede na máquina virtual a partir do pool de endereços IP estáticos definido na rede relevante para cada instância do VMM do System Center.
+- Se o administrador definir o mesmo pool de endereços IP, para a rede no site de recuperação, do pool de endereços IP da rede no site primário, enquanto aloca o endereço IP para a máquina virtual de réplica, o ASR alocará o mesmo endereço IP da máquina virtual primária. O IP é reservado no VMM, mas não definido como o IP de failover. O IP de failover é definido apenas antes do failover.
 
-![Retain IP address](./media/site-recovery-network-design/network-design4.png)
-    
-Figure 5
+![Manter o endereço IP](./media/site-recovery-network-design/network-design4.png)
+	
+Figura 5
 
-Figure 5 shows the Failover TCP/IP settings for the replica virtual machine (on the Hyper-V console). These settings would be populated just before the virtual machine is started after a failover
+A Figura 5 mostra as configurações do TCP/IP de Failover para a máquina virtual de réplica (no console do Hyper-V). Essas configurações seriam preenchidas antes da máquina virtual ser iniciada após um failover
 
-If the same IP is not available, ASR would allocate some other available IP address from the defined IP address pool. 
+Se o mesmo IP não estiver disponível, o ASR alocará outro endereço IP disponível a partir do pool de endereços IP definido.
 
-After the VM is enabled for protection you can use following sample script to verify the IP that has been allocated to the virtual machine. The same IP would be set as Failover IP and assigned to the VM at the time of failover:
+Depois da máquina virtual ser habilitada para a proteção, você poderá usar o seguinte script de exemplo para verificar o IP que foi alocado para a máquina virtual. O mesmo IP seria definido como o IP de Failover e atribuído à VM no momento do failover:
 
-        $vm = Get-SCVirtualMachine -Name <VM_NAME>
-        $na = $vm[0].VirtualNetworkAdapters>
-        $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-        $ip.address  
+    	$vm = Get-SCVirtualMachine -Name <VM_NAME>
+		$na = $vm[0].VirtualNetworkAdapters>
+		$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+		$ip.address  
 
->[AZURE.NOTE] In the scenario where virtual machines use DHCP, the management of IP addresses is completely outside the control of ASR. An administrator has to ensure that the DHCP server serving the IP addresses on the recovery site can serve from the same range as that of the primary site.
+>[AZURE.NOTE] No cenário no qual as máquinas virtuais usam o DHCP, o gerenciamento dos endereços IP fica completamente fora do controle do ASR. Um administrador precisa garantir que o servidor DHCP, que atende os endereços IP no site de recuperação, possa atender a partir do mesmo intervalo do site primário.
 
-#### <a name="failover-to-azure"></a>Failover to Azure
+#### Failover para o Azure
 
-Azure Site Recovery (ASR) allows Microsoft Azure to be used as a disaster recovery site for your virtual machines. In this case, you will need to deal with one more constraint. 
+O Azure Site Recovery (ASR) permite que o Microsoft Azure seja usado como um site de recuperação de desastres para suas máquinas virtuais. Nesse caso, você precisará lidar com mais uma restrição.
 
-Let’s examine a scenario where a fictional company named Woodgrove Bank has on-premises infrastructure hosting their line of business applications, and they are hosting their mobile applications on Azure. Connectivity between Woodgrove Bank VMs in Azure and on-premises servers is provided by a site-to-site (S2S) Virtual Private Network (VPN). S2S VPN allows Woodgrove Bank’s virtual network in Azure to be seen as an extension of Woodgrove Bank’s on-premises network. This communication is enabled by S2S VPN between Woodgrove Bank edge and Azure virtual network. Now Woodgrove wants to use ASR to replicate its workloads running in its datacenter to Azure. This option meets the needs of Woodgrove, which wants an economical DR option and is able to store data in public cloud environments. Woodgrove has to deal with applications and configurations which depend on hard-coded IP addresses, hence they have a requirement to retain IP addresses for their applications after failing over to Azure.
+Examinemos um cenário no qual uma empresa fictícia, denominada Banco Woodgrove, tem uma infraestrutura local que hospeda sua linha de aplicativos de negócios e eles estão hospedando seus aplicativos móveis no Azure. A conectividade entre as VMs do Banco Woodgrove no Azure e os servidores locais é fornecida por uma VPN (rede virtual privada) site a site (S2S). A VPN S2S permite que a rede virtual do Banco Woodgrove no Azure seja vista como uma extensão da rede do local do Banco. Essa comunicação é habilitada pela VPN S2S entre a borda do Banco Woodgrove e a rede virtual do Azure. Agora, o Woodgrove deseja usar o ASR para replicar suas cargas de trabalho em execução em seu datacenter para o Azure. Essa opção atenda às necessidades do Woodgrove, que deseja uma opção de DR (recuperação de desastres) econômica e capaz de armazenar os dados em ambientes de nuvem públicos. O Woodgrove tem de lidar com aplicativos e configurações que dependem de endereços IP codificados especificamente, então, precisa manter os endereços IP para seus aplicativos após o failover no Azure.
 
-Woodgrove has decided to assign IP addresses from IP address range (172.16.1.0/24, 172.16.2.0/24) to its resources running in Azure.
+O Woodgrove decidiu atribuir endereços IP do intervalo de endereços IP (172.16.1.0/24, 172.16.2.0/24) para seus recursos em execução no Azure.
 
-For Woodgrove to be able to replicate its virtual machines to Azure while retaining the IP addresses, an Azure Virtual Network needs to be created. It should be an extension of the on-premises network so that applications can failover from the on-premises site to Azure seamlessly. Azure allows you to add site-to-site as well as point-to-site VPN connectivity to the virtual networks created in Azure. When setting up your site-to-site connection, Azure network allows you to route traffic to the on-premises location (Azure calls it local-network) only if the IP address range is different from the on-premises IP address range, because Azure doesn’t support stretching subnets.  This means that if you have a subnet 192.168.1.0/24 on-premises, you can’t add a local-network 192.168.1.0/24 in the Azure network. This is expected because Azure doesn’t know that there are no active VMs in the subnet and that the subnet is being created only for DR purposes. To be able to correctly route network traffic out of an Azure network the subnets in the network and the local-network must not conflict. 
+Para o Woodgrove conseguir replicar suas máquinas virtuais no Azure, mantendo os endereços IP, uma Rede Virtual do Azure precisa ser criada. Deve ser uma extensão da rede local para que os aplicativos possam fazer o failover do site local para o Azure diretamente. O Azure permite que você adicione a conectividade VPN ponto a site, assim como a site a site, às redes virtuais criadas no Azure. Ao configurar sua conexão site a site, a rede Azure permitirá rotear o tráfego para o local (o Azure chama isso de rede local) somente se o intervalo de endereços IP for diferente do intervalo de endereços IP local porque o Azure não oferece suporte à ampliação das sub-redes. Isso significa que, se você tiver uma sub-rede 192.168.1.0/24 local, não é possível adicionar 192.168.1.0/24 na rede do Azure. Isso é esperado porque o Azure não sabe que não há nenhuma VMs ativa na sub-rede e que a sub-rede está sendo criada apenas para fins de recuperação de desastres. Para poder rotear corretamente o tráfego para fora de uma rede do Azure, as sub-redes na rede e a rede local não devem entrar em conflito.
 
-![Before Subnet Failover](./media/site-recovery-network-design/network-design7.png)
+![Antes do failover de sub-rede](./media/site-recovery-network-design/network-design7.png)
 
-Before failover
+Antes do failover
 
-To help Woodgrove fulfill their business requirements, we need to implement the following workflows:
+Para ajudar o Woodgrove a atender seus requisitos de negócios, precisamos implementar os fluxos de trabalho os seguir:
 
-- Create an additional network, let us call it Recovery Network, where the failed-over virtual machines would be created.
-- To ensure that the IP for a VM is retained after a failover, go to the Configure tab under VM properties, specify the same IP that the VM has on-premises, and then click Save. When the VM is failed over, Azure Site Recovery will assign the provided IP to the virtual machine. 
+- Crie uma rede adicional, chame-a de Rede de Recuperação, onde as máquinas virtuais de failover seriam criadas.
+- Para garantir que o IP de uma VM seja mantido após um failover, vá para a guia Configurar em Propriedades da VM, especifique o mesmo IP que d máquina virtual tem no local, em seguida, clique em Salvar. Quando a VM tiver um failover, o Azure Site Recovery atribuirá o IP fornecido para a máquina virtual.
 
-![Network properties](./media/site-recovery-network-design/network-design8.png)
+![Propriedades da rede](./media/site-recovery-network-design/network-design8.png)
 
-Once the failover is triggered and the virtual machines are created in the Recovery Network with the desired IP, connectivity to this network can be established using a [Vnet to Vnet Connection](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). If required this action can be scripted.  As we discussed in the previous section about subnet failover, even in the case of failover to Azure, routes would have to be appropriately modified to reflect that 192.168.1.0/24 has now moved to Azure. 
+Assim que o failover for inicializado e as máquinas virtuais forem criadas na Rede de Recuperação com o IP desejado, a conectividade com essa rede poderá ser estabelecida usando uma [Conexão Vnet a Vnet](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Se requerido, essa ação poderá ser por script. Como analisado na seção anterior sobre o failover da sub-rede, mesmo no caso de failover para o Azure, as rotas teriam que ser adequadamente modificadas para refletir que o 192.168.1.0/24 agora foi movido para o Azure.
 
-![After Subnet Failover](./media/site-recovery-network-design/network-design9.png)
+![Após o failover da sub-rede](./media/site-recovery-network-design/network-design9.png)
 
-After failover
+Após o failover
 
-If you don't have a 'Azure Network' as shown in the picture above. You can create a site to site vpn connection between your 'Primary Site' and 'Recovery Network' after the failover.  
+Se você não tiver uma rede' Azure' conforme mostrado na figura acima. Você pode criar uma conexão VPN site a site entre o 'site primário' e a 'rede de recuperação' após o failover.
 
 
-## <a name="option-2:-changing-ip-addresses"></a>Option 2: Changing IP addresses
+## Opção 2: alterar os endereços IP
 
-This approach seems to be the most prevalent based on what we have seen. It takes the form of changing the IP address of every VM that is involved in the failover. A drawback of this approach requires the incoming network to ‘learn’ that the application that was at IPx is now at IPy. Even if IPx and IPy are logical names, DNS entries typically have to be changed or flushed throughout the network, and cached entries in network tables have to be updated or flushed, therefore a downtime could be seen depending upon how the DNS infrastructure has been setup. These issues can be mitigated by using low TTL values in the case of intranet applications and using [Azure Traffic Manger with ASR](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) for internet based applications
+Essa abordagem parece ser mais predominante com base no que temos visto. Ela assume a forma de alterar o endereço IP de cada VM envolvida no failover. Uma desvantagem dessa abordagem requer que a rede de entrada 'saiba' que o aplicativo que estava em IPx, agora está em IPy. Mesmo se IPx e IPy forem nomes lógicos, as entradas DNS normalmente precisam ser alteradas ou liberadas em toda a rede e as entradas em cache nas tabelas de rede precisam ser atualizadas ou liberadas, portanto, um tempo de inatividade pode ser visto dependendo de como a infraestrutura do DNS foi configurada. Esses problemas podem ser reduzidos usando valores de TTL baixos no caso dos aplicativos de intranet e usando o [Gerenciador de Tráfego do Azure com ASR](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)para os aplicativos baseados na Internet.
 
-### <a name="changing-the-ip-addresses---illustration"></a>Changing the IP addresses - Illustration
+### Alterar os endereços IP - ilustração
 
-Let us look at the scenario where you are planning to use different IPs across the primary and the recovery sites. In the following example we also have a third site from where the applications hosted on primary or recovery site can be accessed.
+Vejamos o cenário no qual você planeja usar diferentes IPs nos sites primário e de recuperação. No exemplo a seguir, também temos um terceiro site de onde os aplicativos hospedados no site primário ou de recuperação podem ser acessados.
 
-![Different IP - Before Failover](./media/site-recovery-network-design/network-design10.png)
+![IP diferente - antes do failover](./media/site-recovery-network-design/network-design10.png)
 
-Figure 11
+Figura 11
 
-In Figure 11 there are some applications hosted in subnet 192.168.1.0/24 subnet on the primary site, and they have been configured to come up on the recovery site in subnet 172.16.1.0/24 after a failover. VPN connections/network routes have been configured appropriately so that all three sites can access each other.
+Na Figura 11, há alguns aplicativos hospedados na sub-rede 192.168.1.0/24 no site primário e eles foram configurados para aparecerem no site de recuperação na sub-rede 172.16.1.0/24 após um failover. Rotas de rede/conexões de VPN foram configuradas corretamente para que todos os três sites possam acessar um ao outro.
  
-As figure 12 shows, after failing over one or more applications, they will be restored in the recovery subnet. In this case we are not constrained to failover the entire subnet at the same time. No changes are required to reconfigure VPN or network routes. A failover and some DNS updates will make sure that applications remain accessible. If the DNS is configured to allow dynamic updates then the virtual machines would register themselves using the new IP once they start after a failover. 
+Como a Figura 12 mostra, depois do failover de um ou mais aplicativos, eles serão restaurados na sub-rede de recuperação. Nesse caso, não estamos restritos ao failover na sub-rede inteira ao mesmo tempo. Nenhuma alteração é necessária para reconfigurar a VPN nem as rotas da rede. Um failover e algumas atualizações DNS manterão os aplicativos acessíveis. Se o DNS for configurado para permitir atualizações dinâmicas, então, as máquinas virtuais se registrarão usando o novo IP assim que iniciarem após um failover.
 
-![Different IP - After Failover](./media/site-recovery-network-design/network-design11.png)
+![IP diferente - após o failover](./media/site-recovery-network-design/network-design11.png)
 
-Figure 12
+Figura 12
 
-After failing-over the replica virtual machine might have an IP address that isn’t the same as the IP address of the primary virtual machine. Virtual machines will update the DNS server that they are using after they start. DNS entries typically have to be changed or flushed throughout the network, and cached entries in network tables have to be updated or flushed, so it is not uncommon to be faced with downtime while these state changes take place. This issue can be mitigated by:
+Após o failover, a máquina virtual de réplica pode ter um endereço IP que não é igual ao endereço IP da máquina virtual primária. As máquinas virtuais atualizarão o servidor DNS que estiverem usando depois que forem iniciadas. As entradas DNS normalmente precisam ser alteradas ou liberadas em toda a rede e as entradas em cache nas tabelas de rede precisam ser atualizadas ou liberadas, portanto, não é incomum enfrentar tempo de inatividade enquanto ocorrem essas alterações de estado. Esse problema pode ser reduzido:
 
-- Using low TTL values for intranet applications.
-- Using Azure Traffic Manger with ASR  for internet based applications.
-- Using the following script within your recovery plan to update the DNS Server to ensure a timely update (The script is not required if the Dynamic DNS registration is configured)
+- Usando valores TTL baixos para aplicativos de intranet.
+- Usando o Gerenciador de Tráfego do Azure com o ASR para os aplicativos baseados na Internet.
+- Usando o script a seguir em seu plano de recuperação para atualizar o servidor DNS para garantir uma atualização em tempo hábil (o script não é necessário se o registro de DNS dinâmico estiver configurado)
 
-        string]$Zone,
-        [string]$name,
-        [string]$IP
-        )
-        $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-        $newrecord = $record.clone()
-        $newrecord.RecordData[0].IPv4Address  =  $IP
-        Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
-
-
-### <a name="changing-the-ip-addresses-–-dr-to-azure"></a>Changing the IP addresses – DR to Azure
-
-The [Networking Infrastructure Setup for Microsoft Azure as a Disaster Recovery Site](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) blog post explains how to setup the required Azure networking infrastructure when retaining IP addresses isn’t a requirement. It starts with describing the application and then look at how to setup networking on-premises and on Azure and then concluding with how to do a test failover and a planned failover.
+		string]$Zone,
+		[string]$name,
+		[string]$IP
+		)
+		$Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+		$newrecord = $record.clone()
+		$newrecord.RecordData[0].IPv4Address  =  $IP
+		Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 
+### Alterar os endereços IP – DR (recuperação de desastres) para o Azure
 
-## <a name="next-steps"></a>Next steps
-
-[Learn](site-recovery-network-mapping.md) how Site Recovery maps source and target networks when a VMM server is being used to manage the primary site. 
+A postagem [ Configuração da Infraestrutura de Rede como um Site de Recuperação de Desastres](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) do blog explica como configurar a infraestrutura de rede do Microsoft Azure necessária quando manter os endereços IP não é um requisito. Começa descrevendo o aplicativo, depois, examina como configurar a rede no local e no Azure, em seguida, termina com como fazer um failover de teste e um failover planejado.
 
 
 
-<!--HONumber=Oct16_HO2-->
+## Próximas etapas
 
+[Saiba](site-recovery-network-mapping.md) como a Recuperação de Site mapeia redes de origem e de destino quando um servidor VMM está sendo usado para gerenciar o site primário.
 
+<!---HONumber=AcomDC_0921_2016-->

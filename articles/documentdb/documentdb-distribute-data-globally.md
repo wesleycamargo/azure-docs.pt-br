@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Distribute data globally with DocumentDB | Microsoft Azure"
-   description="Learn about planet-scale geo-replication, failover, and data recovery using global databases from Azure DocumentDB, a fully managed NoSQL database service."
+   pageTitle="Distribuir dados globalmente com o Banco de Dados de Documentos | Microsoft Azure"
+   description="Saiba mais sobre replicação geográfica em nível mundial, failover e recuperação de dados usando bancos de dados globais do Banco de Dados de Documentos do Azure, um serviço de banco de dados NoSQL totalmente gerenciado."
    services="documentdb"
    documentationCenter=""
    authors="kiratp"
@@ -17,55 +17,54 @@
    ms.author="kipandya"/>
    
    
+# Distribute data globally with DocumentDBs (Distribuir dados globalmente com o Banco de Dados de Documentos)
 
-# <a name="distribute-data-globally-with-documentdb"></a>Distribute data globally with DocumentDB
+> [AZURE.NOTE] A distribuição global dos bancos de dados do Banco de Dados de Documentos geralmente é disponibilizada e habilitada automaticamente para contas do Banco de Dados de Documentos recentemente criadas. Estamos trabalhando para habilitar a distribuição global em todas as contas existentes, mas nesse ínterim, se quiser que a distribuição global seja habilitada para sua conta, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e nós a habilitaremos para você agora mesmo.
 
-> [AZURE.NOTE] Global distribution of DocumentDB databases is generally available and automatically enabled for any newly created DocumentDB accounts. We are working to enable global distribution on all existing accounts, but in the interim, if you want global distribution enabled on your account, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and we’ll enable it for you now.
-
-Azure DocumentDB is designed to meet the needs of IoT applications consisting of millions of globally distributed devices and internet scale applications that deliver highly responsive experiences to users across the world. These database systems face the challenge of achieving low latency access to application data from multiple geographic regions with well-defined data consistency and availability guarantees. As a globally distributed database system, DocumentDB simplifies the global distribution of data by offering fully managed, multi-region database accounts that provide clear tradeoffs between consistency, availability and performance, all with corresponding guarantees. DocumentDB database accounts are offered with high availability, single digit ms latencies, multiple [well-defined consistency levels] [consistency], transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. 
+O Banco de Dados de Documentos foi desenvolvido para atender às necessidades de aplicativos IoT que consistem em milhões de dispositivos globalmente distribuídos e aplicativos de escala de Internet que proporcionam experiências altamente responsivas aos usuários no mundo todo. Esses sistemas de banco de dados enfrentam o desafio de conseguir acesso de baixa latência a dados de aplicativo de várias regiões geográficas com garantias bem definidas de consistência e disponibilidade de dados. Como um sistema de banco de dados globalmente distribuído, o Banco de Dados de Documentos simplifica a distribuição global de dados oferecendo contas de banco de dados em várias regiões totalmente gerenciadas que fornecem claras compensações entre consistência, disponibilidade e desempenho, tudo com garantias correspondentes. As contas de banco de dados do Banco de Dados de Documentos são oferecidas com alta disponibilidade, latências de milissegundos de digito único, vários [níveis bem definidos de consistência][consistency], failover regional transparente com APIs de hospedagem múltipla e a capacidade de escalar elasticamente a produtividade e o armazenamento ao redor do mundo.
 
   
-## <a name="configuring-multi-region-accounts"></a>Configuring multi-region accounts
+## Configurando contas de várias regiões
 
-Configuring your DocumentDB account to scale across the globe can be done in less than a minute through the [Azure portal](documentdb-portal-global-replication.md). All you need to do is select the right consistency level among several supported well-defined consistency levels, and associate any number of Azure regions with your database account. DocumentDB consistency levels provide clear tradeoffs between specific consistency guarantee and performance. 
+A configuração da conta do Banco de Dados de Documentos para escalar no nível mundial pode ser realizada em menos de um minuto pelo [Portal do Azure](documentdb-portal-global-replication.md). Tudo o que você precisa fazer é selecionar o nível certo de consistência entre os diversos níveis de consistência bem definidos compatíveis, bem como associar qualquer número de regiões do Azure à sua conta de banco de dados. Os níveis de consistência do Banco de Dados de Documentos fornecem claras compensações entre garantia de consistência específica e desempenho.
 
-![DocumentDB offers multiple, well defined (relaxed) consistency models to choose from][1]
+![O Banco de Dados de Documentos oferece várias opções de modelos de consistência bem definidos (flexíveis) para sua escolha][1]
 
-DocumentDB offers multiple, well defined (relaxed) consistency models to choose from.
+O Banco de Dados de Documentos oferece várias opções de modelos de consistência bem definidos (flexíveis) para sua escolha.
 
-Selecting the right consistency level depends on data consistency guarantee your application needs. DocumentDB automatically replicates your data across all specified regions and guarantees the consistency that you have selected for your database account. 
-
-
-## <a name="using-multi-region-failover"></a>Using multi-region failover 
-
-Azure DocumentDB is able to transparently failover database accounts across multiple Azure regions – the new [multi-homing APIs][developingwithmultipleregions] guarantee that your app can continue to use a logical endpoint and is uninterrupted by the failover. Failover is controlled by you, providing the flexibility to rehome your database account in the event any of range of possible failure conditions occur, including application, infrastructure, service or regional failures (real or simulated). In the event of a DocumentDB regional failure, the service will transparently fail over your database account and your application continues to access data without losing availability. While DocumentDB offers [99.99% availability SLAs][sla], you can test your application’s end to end availability properties by simulating a regional failure both, [programmatically][arm] as well as through the Azure Portal.
+A seleção do nível certo de consistência depende da garantia da consistência dos dados de que seu aplicativo precisa. O Banco de Dados de Documentos replica automaticamente os dados em todas as regiões especificadas e garante a consistência que você selecionou para sua conta de banco de dados.
 
 
-## <a name="scaling-across-the-planet"></a>Scaling across the planet
-DocumentDB allows you to independently provision throughput and consume storage for each DocumentDB collection at any scale, globally across all the regions associated with your database account. A DocumentDB collection is automatically distributed globally and managed across all of the regions associated with your database account. Collections within your database account can be distributed across any of the Azure regions in which the [DocumentDB service is available][serviceregions]. 
+## Usando o failover de várias regiões 
 
-The throughput purchased and storage consumed for each DocumentDB collection is automatically provisioned across all regions equally. This allows your application to seamlessly scale across the globe [paying only for the throughput and storage you are using within each hour][pricing]. For instance, if you have provisioned 2 million RUs for a DocumentDB collection, then each of the regions associated with your database account gets 2 million RUs for that collection. This is illustrated below.
-
-![Scaling throughput for a DocumentDB collection across four regions][2]
-
-DocumentDB guarantees < 10 ms read and < 15 ms write latencies at P99. The read requests never span datacenter boundary to guarantee the [consistency requirements you have selected][consistency]. The writes are always quorum committed locally before they are acknowledged to the clients. Each database account is configured with write region priority. The region designated with highest priority will act as the current write region for the account. All SDKs will transparently route database account writes to the current write region. 
-
-Finally, since DocumentDB is completely [schema-agnostic][vldb] - you never have to worry about managing/updating schemas or secondary indexes across multiple datacenters. Your [SQL queries][sqlqueries] continue to work while your application and data models continue to evolve. 
+O Banco de Dados de Documentos é capaz de fazer failover de modo transparente de contas de banco de dados em várias regiões do Azure – as novas [APIs de hospedagem múltipla][developingwithmultipleregions] garantem que o aplicativo possa continuar usando um ponto de extremidade lógico e não seja interrompido pelo failover. O failover é controlado por você, fornecendo a flexibilidade para hospedar novamente sua conta de banco de dados no caso de ocorrer qualquer condição de falha, incluindo falhas de aplicativo, infraestrutura, serviço ou regionais (reais ou simuladas). Em caso de falha regional de um Banco de Dados de Documentos, o serviço fará failover de modo transparente da sua conta de banco de dados e o aplicativo continuará acessando os dados sem perder a disponibilidade. Embora o Banco de Dados de Documentos ofereça [SLAs de disponibilidade de 99,99%][sla], você pode testar as propriedades de disponibilidade completa do aplicativo simulando uma falha regional, tanto de [modo programático][arm], como pelo Portal do Azure.
 
 
-## <a name="enabling-global-distribution"></a>Enabling global distribution 
+## Escalando em nível mundial
+O Banco de Dados de Documentos permite que você provisione a produtividade de forma independente e consuma armazenamento de cada coleção do Banco de Dados de Documentos em qualquer escala, globalmente em todas regiões associadas à sua conta de banco de dados. Uma coleção do Banco de Dados de Documentos é distribuída automaticamente de forma global e gerenciada em todas regiões associadas à sua conta de banco de dados. As coleções na sua conta de banco de dados podem ser distribuídas em qualquer uma das regiões do Azure na qual o [serviço do Banco de Dados de Documentos esteja disponível][serviceregions].
 
-You can decide to make your data locally or globally distributed by either associating one or more Azure regions with a DocumentDB database account. You can add or remove regions to your database account at any time. To enable global distribution by using the portal, see [How to perform DocumentDB global database replication using the Azure portal](documentdb-portal-global-replication.md). To enable global distribution programatically, see [Developing with multi-region DocumentDB accounts](documentdb-developing-with-multiple-regions.md).
+A produtividade comprada e o armazenamento consumido para cada coleção do Banco de Dados de Documentos são provisionados automaticamente em todas as regiões igualmente. Isso permite que o aplicativo escale perfeitamente ao redor do mundo [pagando apenas pela produtividade e pelo armazenamento que você está usando a cada hora][pricing]. Por exemplo, se você tiver provisionado 2 milhões de RUs para uma coleção do Banco de Dados de Documentos, e cada uma das regiões associadas à conta do banco de dados obtiver 2 milhões de RUs para essa coleção. Isso é ilustrado abaixo.
 
-## <a name="next-steps"></a>Next steps
+![Escalando a produtividade para uma coleção do Banco de Dados de Documentos entre quatro regiões][2]
 
-Learn more about the distributing data globally with DocumentDB in the following articles:
+O Banco de Dados de Documentos garante latências de leitura inferiores a 10 ms e de gravação inferiores a 15 ms em P99. As solicitações de leitura nunca ultrapassam o limite do datacenter para garantir os [requisitos de consistência que você selecionou][consistency]. As gravações sempre são confirmadas pelo quorum localmente antes de serem confirmadas para os clientes. Cada conta de banco de dados é configurada com prioridade de região de gravação. A região designada com prioridade mais alta atuará como a região de gravação atual para a conta. Todos os SDKs encaminharão de modo transparente as gravações da conta do banco de dados para a região de gravação atual.
 
-* [Provisioning throughput and storage for a collection] [throughputandstorage]
-* [Multi-homing APIs via REST. .NET, Java, Python, and Node SDKs] [developingwithmultipleregions]
-* [Consistency Levels in DocumentDB] [consistency]
-* [Availability SLAs] [sla]
-* [Managing database account] [manageaccount]
+Por fim, uma vez que o Banco de Dados de Documentos é completamente [independente de esquema][vldb], você nunca terá que se preocupar com o gerenciamento/a atualização de esquemas ou índices secundários em vários datacenters. Suas [consultas de SQL][sqlqueries] continuarão funcionando enquanto os modelos de aplicativo e dados continuarem evoluindo.
+
+
+## Habilitando a distribuição global 
+
+Você pode optar por tornar os dados local ou globalmente distribuídos associando uma ou mais regiões do Azure a uma conta do banco de dados do Banco de Dados de Documentos. Você pode adicionar ou remover regiões à sua conta de banco de dados a qualquer momento. Para habilitar a distribuição global usando o portal, veja [Como executar a replicação global de banco de dados do Banco de Dados de Documentos usando o Portal do Azure](documentdb-portal-global-replication.md). Para habilitar a distribuição global de forma programática, veja [Desenvolver com contas do Banco de Dados de Documentos de várias regiões](documentdb-developing-with-multiple-regions.md).
+
+## Próximas etapas
+
+Saiba mais sobre como distribuir dados globalmente com o Banco de Dados de Documentos nos seguintes artigos:
+
+* [Provisionando de produtividade e armazenamento para uma coleção][throughputandstorage]
+* [Multi-homing APIs via REST. .NET, Java, Python, and Node SDKs (APIs de hospedagem múltipla via SDKs para REST, .NET, Java, Python e Node)][developingwithmultipleregions]
+* [Níveis de consistência no Banco de Dados de Documentos][consistency]
+* [SLAs de disponibilidade][sla]
+* [Gerenciando uma conta de banco de dados][manageaccount]
 
 [1]: ./media/documentdb-distribute-data-globally/consistency-tradeoffs.png
 [2]: ./media/documentdb-distribute-data-globally/collection-regions.png
@@ -81,15 +80,10 @@ Learn more about the distributing data globally with DocumentDB in the following
 [throughputandstorage]: documentdb-manage.md
 [arm]: documentdb-automation-resource-manager-cli.md
 [regions]: https://azure.microsoft.com/regions/
-[serviceregions]: https://azure.microsoft.com/en-us/regions/#services 
+[serviceregions]: https://azure.microsoft.com/regions/#services
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
-[sla]: https://azure.microsoft.com/support/legal/sla/documentdb/ 
+[sla]: https://azure.microsoft.com/support/legal/sla/documentdb/
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
 [sqlqueries]: documentdb-sql-query.md
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

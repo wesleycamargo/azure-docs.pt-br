@@ -1,134 +1,130 @@
 <properties
-    pageTitle="Collecting Data to Train your Model: Machine Learning Recommendations API | Microsoft Azure"
-    description="Azure Machine Learning Recommendations - Collecting Data to Train your Model"
-    services="cognitive-services"
-    documentationCenter=""
-    authors="luiscabrer"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Coletando Dados para Treinar seu Modelo: API de Recomendações do Aprendizado de Máquina | Microsoft Azure"
+	description="Recomendações do Aprendizado de Máquina do Azure - Coletando Dados para Treinar seu Modelo"
+	services="cognitive-services"
+	documentationCenter=""
+	authors="luiscabrer"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="cognitive-services"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="luisca"/>
+	ms.service="cognitive-services"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/06/2016"
+	ms.author="luisca"/>
+
+#  Coletando Dados para Treinar seu Modelo #
+
+A API de Recomendações aprende com suas transações anteriores para localizar quais itens devem ser recomendados para um usuário específico.
+
+Depois de criar um modelo, você precisará fornecer duas partes de informações antes de poder realizar qualquer treinamento: um arquivo de catálogo e os dados de uso.
+
+>   Se você ainda não fez isso, incentivamos que termine o [guia de início rápido](cognitive-services-recommendations-quick-start.md).
 
 
-#  <a name="collecting-data-to-train-your-model"></a>Collecting Data to Train your Model #
+## Dados do Catálogo ##
 
-The Recommendations API learns from your past transactions to find what items should be recommended to a particular user.
+### Formato do arquivo de catálogo ###
 
-After you have created a model, you will need to provide two piece of information before you can do any training: a catalog file, and usage data.
+O arquivo de catálogo contém informações sobre os itens oferecidos ao cliente. Os dados do catálogo devem seguir o seguinte formato:
 
->   If you have not done so already, we encourage you to complete the [quick start guide](cognitive-services-recommendations-quick-start.md).
+- Sem recursos – `<Item Id>,<Item Name>,<Item Category>[,<Description>]`
 
+- Com recursos – `<Item Id>,<Item Name>,<Item Category>,[<Description>],<Features list>`
 
-## <a name="catalog-data"></a>Catalog Data ##
+#### Linhas de Exemplo em um Arquivo de Catálogo
 
-### <a name="catalog-file-format"></a>Catalog file format ###
-
-The catalog file contains information about the items you are offering to your customer.
-The catalog data should follow the following format:
-
-- Without features - `<Item Id>,<Item Name>,<Item Category>[,<Description>]`
-
-- With features - `<Item Id>,<Item Name>,<Item Category>,[<Description>],<Features list>`
-
-#### <a name="sample-rows-in-a-catalog-file"></a>Sample Rows in a Catalog File
-
-Without features:
+Sem recursos:
 
     AAA04294,Office Language Pack Online DwnLd,Office
     AAA04303,Minecraft Download Game,Games
     C9F00168,Kiruna Flip Cover,Accessories
 
-With features:
+Com recursos:
 
     AAA04294,Office Language Pack Online DwnLd,Office,, softwaretype=productivity, compatibility=Windows
     BAB04303,Minecraft DwnLd,Games, softwaretype=gaming,, compatibility=iOS, agegroup=all
     C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia,, hardwaretype=mobile
 
-#### <a name="format-details"></a>Format details
+#### Detalhes do formato
 
-| Name | Mandatory | Type |  Description |
+| Nome | Obrigatório | Tipo | Descrição |
 |:---|:---|:---|:---|
-| Item Id |Yes | [A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 50 | Unique identifier of an item. |
-| Item Name | Yes | Any alphanumeric characters<br> Max length: 255 | Item name. |
-| Item Category | Yes | Any alphanumeric characters <br> Max length: 255 | Category to which this item belongs (e.g. Cooking Books, Drama…); can be empty. |
-| Description | No, unless features are present (but can be empty) | Any alphanumeric characters <br> Max length: 4000 | Description of this item. |
-| Features list | No | Any alphanumeric characters <br> Max length: 4000; Max number of features:20 | Comma-separated list of feature name=feature value that can be used to enhance model recommendation.|
+| Id do item |Sim | [A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máximo: 50 | Identificador exclusivo de um item |
+| Nome do Item | Sim | Qualquer caractere alfanumérico<br> Comprimento máximo: 255 | Nome do item. |
+| Categoria do Item | Sim | Qualquer caractere alfanumérico <br> Comprimento máximo: 255 | Categoria à qual este item pertence (por exemplo, Livros de Culinária, Drama...); pode estar vazia. |
+| Descrição | Não, a menos que os recursos estejam presentes (mas pode estar vazia) | Qualquer caractere alfanumérico <br> Comprimento máximo: 4000 | Descrição deste item. |
+| Lista de recursos | Não | Qualquer caractere alfanumérico <br> Comprimento máximo: 4.000; Número máximo de recursos: 20 | Lista separada por vírgulas de nome do recurso = valor do recurso que pode ser usada para aperfeiçoar a recomendação.|
 
-#### <a name="uploading-a-catalog-file"></a>Uploading a Catalog file
+#### Carregando um arquivo de Catálogo
 
-Look at the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f316efeda5650db055a3e1) for uploading a catalog file.  
+Veja a [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f316efeda5650db055a3e1) para carregar um arquivo de catálogo.
 
-Note that the content of the catalog file should be passed as the request body.
+Observe que o conteúdo do arquivo de catálogo deve ser passado como o corpo da solicitação.
 
-If you upload several catalog files to the same model with several calls, we will insert only the new catalog items. Existing items will remain with the original values. You cannot update catalog data by using this method.
+Se você carregar vários arquivos de catálogo para o mesmo modelo com várias chamadas, inseriremos apenas os novos itens de catálogo. Os itens existentes permanecerão com os valores originais. Você não pode atualizar os dados do catálogo usando este método.
 
->   Note: The maximum file size is 200MB.
->   The maximum number of items in the catalog supported is 100,000 items.
-
-
-## <a name="why-add-features-to-the-catalog?"></a>Why add features to the catalog?
-
-The recommendations engine creates a statistical model that tells you what items are likely to be liked or purchased by a customer. When you have a new product that has never been interacted with it is not possible to create a model on co-occurrences alone. Let's say you start offering a new "children's violin" in your store, since you have never sold that violin before you cannot tell what other items to recommend with that violin.
-
-That said, if the engine knows information about that violin (i.e. It's a musical instrument, it is for children ages 7-10, it is not an expensive violin, etc.), then the engine can learn from other products with similar features. For instance, you have sold violin's in the past and usually people that buy violins tend to buy classical music CDs and sheet music stands.  The system can find these connections between the features and provide recommendations based on the features while your new violin has little usage.
-
-Features are imported as part of the catalog data, and then their rank (or the importance of the feature in the model) is associated when a rank build is done. Feature rank can change according to the pattern of usage data and type of items. But for consistent usage/items, the rank should have only small fluctuations. The rank of features is a non-negative number. The number 0 means that the feature was not ranked (happens if you invoke this API prior to the completion of the first rank build). The date at which the rank was attributed is called the score freshness.
+>   Observação: o tamanho máximo do arquivo é de 200 MB. O número máximo de itens no catálogo com suporte é de 100.000 itens.
 
 
-###<a name="features-are-categorical"></a>Features are Categorical
+## Por que adicionar recursos ao catálogo?
 
-This means that you should create features that resemble a category. For instance, price=9.34 is not a categorical feature. On the other hand, a feature like priceRange=Under5Dollars is a categorical feature. Another common mistake is to use the name of the item as a feature. This would cause the name of an item to be unique so it would not describe a category. Make sure the features represent categories of items.
+O mecanismo de recomendações cria um modelo estatístico que informa quais itens provavelmente serão apreciados ou comprados por um cliente. Quando você tem um novo produto com o qual nunca interagiu, não é possível criar um modelo com as ocorrências apenas. Digamos que você inicie uma nova oferta de "violinos para crianças" em sua loja; como você nunca vendeu esse violino antes, não é possível dizer quais outros itens recomendar com ele.
 
+Dito isso, se o mecanismo conhece as informações sobre esse violino (ou seja, ele é um instrumento musical, é para crianças de 7 a 10 anos, não é um violino caro etc.), então, ele pode aprender com outros produtos com recursos semelhantes. Por exemplo, você vendeu o violino no passado e geralmente as pessoas que o compram tendem a comprar CDs de música clássica e suportes para partituras. O sistema pode encontrar essas conexões entre os recursos e fornecer recomendações com base nos recursos, enquanto o novo violino tem pouco uso.
 
-###<a name="how-many/which-features-should-i-use?"></a>How many/which features should I use?
-
-
-Ultimately the Recommendations build supports building a model with up to 20 features. You could assign more than 20 features to the items in your catalog, but you are expected to do a ranking build and pick only the features that rank high. (A feature with a rank of 2.0 or more is a really good feature to use!). 
+Os recursos são importados como parte dos dados do catálogo e sua classificação (ou a importância do recurso no modelo) é associada quando é feita uma compilação da classificação. A classificação de recursos pode mudar de acordo com o padrão dos dados de uso e tipo de itens. Mas, para uso/itens consistentes, a classificação deve ter apenas pequenas flutuações. A classificação de recursos é um número não negativo. O número 0 significa que o recurso não foi classificado (acontece se você invocar essa API antes da conclusão da primeira compilação de classificação). A data em que a classificação foi atribuída é chamada de atualização da pontuação.
 
 
-###<a name="when-are-features-actually-used?"></a>When are features actually used?
+###Os recursos são categóricos
 
-Features are used by the model when there is not enough transaction data to provide recommendations on transaction information alone. So features will have the greatest impact on “cold items” – items with few transactions. If all your items have sufficient transaction information you may not need to enrich your model with features.
+Isso significa que você deve criar recursos que se assemelhem a uma categoria. Por exemplo, o preço = 9,34 não é um recurso categórico. Por outro lado, um recurso como priceRange = Under5Dollars é um recurso categórico. Outro erro comum é usar o nome do item como um recurso. Isso faria com que o nome de um item fosse exclusivo e, portanto, ele não descreveria uma categoria. Verifique se os recursos representam categorias de itens.
 
 
-###<a name="using-product-features"></a>Using product features
+###Quantos/quais recursos devo usar?
 
-To use features as part of your build you need to:
 
-1. Make sure your catalog has features when you upload it.
+Por fim, a compilação de Recomendações oferece suporte à criação de um modelo com até 20 recursos. Você pode atribuir mais de 20 recursos aos itens do catálogo, mas deve fazer uma compilação de classificação e selecione apenas os recursos de alta classificação. (Um recurso com uma classificação 2,0 ou mais é um recurso muito bom a ser usado!).
 
-2. Trigger a ranking build. This will do the analysis on the importance/rank of the features.
 
-3. Trigger a recommendations build, setting the following build parameters: Set useFeaturesInModel to true, allowColdItemPlacement to true, and modelingFeatureList should be set to the comma separated list of features that you want to use to enhance your model. See [Recommendations build type parameters](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0) for more information.
+###Quando os recursos são realmente usados?
 
+Os recursos são usados pelo modelo quando não há dados de transação suficientes para fornecer recomendações apenas sobre as informações de transação. Então, os recursos terão um o maior impacto sobre os "itens frios" – itens com poucas transações. Se todos os itens têm informações suficientes sobre a transação, talvez não seja necessário enriquecer seu modelo com recursos.
+
+
+###Usando recursos do produto
+
+Para usar os recursos como parte da compilação, você precisa:
+
+1. Verificar se o catálogo tem recursos quando você o carrega.
+
+2. Inicializar uma compilação de classificação. Isso fará a análise da importância/classificação dos recursos.
+
+3. Disparar uma compilação das recomendações, definir os seguintes parâmetros de compilação: defina useFeaturesInModel para true, allowColdItemPlacement para true e modelingFeatureList deve ser definido para a lista separada por vírgulas dos recursos que você deseja usar para aprimorar seu modelo. Consulte [Parâmetros do tipo para compilar as recomendações](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0) para obter mais informações.
 
 
 
 
-## <a name="usage-data"></a>Usage Data ##
-A usage file contains information about how those items are used, or the transactions from your business.
 
-#### <a name="usage-format-details"></a>Usage Format details
-A usage file is a CSV (comma separated value) file where each row in a usage file represents an interaction between a user and an item. Each row is formatted as follows:<br>
-`<User Id>,<Item Id>,<Time>,[<Event>]`
+## Dados de uso ##
+Um arquivo de uso contém informações sobre como esses itens são usados ou as transações de sua empresa.
+
+#### Detalhes do Formato de uso
+Um arquivo de uso é um arquivo CSV (valores separados por vírgula) no qual cada linha em um arquivo de uso representa uma interação entre um usuário e um item. Cada linha é formatada da seguinte maneira:<br> `<User Id>,<Item Id>,<Time>,[<Event>]`
 
 
 
-| Name  | Mandatory | Type | Description
+| Nome | Obrigatório | Tipo | Descrição
 |-------|------------|------|---------------
-|User Id|         Yes|[A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 255 |Unique identifier of a user.
-|Item Id|Yes|[A-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Max length: 50|Unique identifier of an item.
-|Time|Yes|Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)|Time of data.
-|Event|No | One of the following:<br>• Click<br>• RecommendationClick<br>•  AddShopCart<br>• RemoveShopCart<br>• Purchase| The type of transaction. |
+|Id de usuário| Sim|[A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máximo: 255 |Identificador exclusivo de um usuário.
+|Id do item|Sim|[A-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máximo: 50|Identificador exclusivo de um item
+|Hora|Sim|Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)|Hora dos dados.
+|Evento|Não | Um dos seguintes:<br>• clique em<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Compra| O tipo de transação. |
 
-#### <a name="sample-rows-in-a-usage-file"></a>Sample Rows in a Usage File
+#### Linhas de Exemplo em um Arquivo de Uso
 
     00037FFEA61FCA16,288186200,2015/08/04T11:02:52,Purchase
     0003BFFDD4C2148C,297833400,2015/08/04T11:02:50,Purchase
@@ -137,28 +133,22 @@ A usage file is a CSV (comma separated value) file where each row in a usage fil
     0003BFFDD4C20B63,297833400,2015/08/04T11:02:12,Purchase
     00037FFEC8567FB8,297833400,2015/08/04T11:02:04,Purchase
 
-#### <a name="uploading-a-usage-file"></a>Uploading a usage file
+#### Carregar um arquivo de uso
 
-Look at the [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f316efeda5650db055a3e2) for uploading usage files.
-Note that you need to pass the content of the usage file as the body of the HTTP call.
+Veja a [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f316efeda5650db055a3e2) para carregar os arquivos de uso. Observe que você precisa passar o conteúdo do arquivo de uso como o corpo da chamada HTTP.
 
->  Note:
+>  Observação:
 
->  Maximum file size: 200MB. You may upload several usage files.
+>  Tamanho máximo do arquivo: 200 MB. Você pode carregar vários arquivos de uso.
 
->  You need to upload a catalog file before you start adding usage data to your model. Only items in the catalog file will be used during the training phase. All other items will be ignored.
+>  Você precisa carregar um arquivo de catálogo antes de começar a adicionar dados de uso ao seu modelo. Apenas os itens no arquivo de catálogo serão usados durante a fase de treinamento. Todos os outros itens serão ignorados.
 
-## <a name="how-much-data-do-you-need?"></a>How much data do you need?
+## Qual é a quantidade de dados de que você precisa?
 
-The quality of your model is heavily dependent on the quality and quantity of your data.
-The system learns when users buy different items (We call this co-occurrences). For FBT builds, it is also important to know which items are purchased in the same transactions. 
+A qualidade do seu modelo é muito dependente da qualidade e da quantidade de dados. O sistema aprende quando os usuários compram itens diferentes (Chamamos isso de ocorrências conjuntas). Para as compilações FBT, também é importante saber quais itens são comprados nas mesmas transações.
 
-A good rule of thumb is to have most items be in 20 transactions or more, so if you had 10,000 items in your catalog, we would recommend that you have at least 20 times that number of transactions or about 200,000 transactions. Once again, this is a rule of thumb. You will need to experiment with your data.
+Uma boa regra é que a maioria dos itens tenha 20 transações ou mais, portanto, se você tivesse 10.000 itens no catálogo, recomendaríamos que tivesse pelo menos 20 vezes esse número de transações, ou cerca de 200.000 transações. Mais uma vez, essa é uma apenas uma boa regra. Você precisará fazer experiências com seus dados.
 
-Once you have created a model, you can perform an [offline evaluation](cognitive-services-recommendations-buildtypes.md) to check how well your model is likely to perform.
+Depois de criar um modelo, você poderá executar uma [avaliação offline](cognitive-services-recommendations-buildtypes.md) para verificar o quanto seu modelo provavelmente será bem executado.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

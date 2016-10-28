@@ -1,126 +1,125 @@
 <properties 
-    pageTitle="Authenticate with Mobile Engagement REST APIs - manual setup"
-    description="Describes how to manually setup authentication for Mobile Engagement REST APIs" 
-    services="mobile-engagement" 
-    documentationCenter="mobile" 
-    authors="piyushjo"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Autenticar com APIs REST do Mobile Engagement - configuração manual"
+	description="Descreve como configurar manualmente a autenticação para APIs REST do Mobile Engagement" 
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="mobile-engagement"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="mobile-multiple"
-    ms.workload="mobile" 
-    ms.date="08/19/2016"
-    ms.author="piyushjo"/>
+	ms.service="mobile-engagement"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.workload="mobile" 
+	ms.date="08/19/2016"
+	ms.author="piyushjo"/>
+
+# Autenticar com APIs REST do Mobile Engagement - configuração manual
+
+Esta é uma documentação de apêndice de [Autenticar com APIs REST do Mobile Engagement](mobile-engagement-api-authentication.md). Leia esse artigo primeiro para obter o contexto. Ele descreve uma maneira alternativa de fazer a configuração única da autenticação para APIs REST do Mobile Engagement usando o portal do Azure.
+
+>[AZURE.NOTE] As instruções a seguir se baseiam nesse [Guia do Active Directory](../resource-group-create-service-principal-portal.md) e são personalizadas para o que é necessário para a autenticação de APIs do Mobile Engagement. Portanto, consulte-o para entender as etapas abaixo em detalhes.
+
+1. Faça logon na sua conta do Azure por meio do [portal clássico](https://manage.windowsazure.com/).
+
+2. Selecione **Active Directory** no painel à esquerda.
+
+     ![selecionar Active Directory][1]
+
+3. Escolha o **Active Directory Padrão** em seu portal do Azure.
+
+     ![escolher o diretório][2]
+
+	>[AZURE.IMPORTANT] Essa abordagem funciona somente quando você está trabalhando no Active Directory padrão de sua conta, e não funcionará se você estiver fazendo isso em um Active Directory que você criou em sua conta.
+
+4. Para exibir os aplicativos em seu diretório, clique em **Aplicativos**.
+
+     ![exibir aplicativos][3]
+
+5. Clique em **ADICIONAR**.
+
+     ![adicionar aplicativo][4]
+
+6. Clique em **Adicionar um aplicativo que minha organização está desenvolvendo**.
+
+     ![novo aplicativo][5]
+
+6. Preencha o nome do aplicativo e selecione o tipo de aplicativo como **APLICATIVO WEB E/OU API WEB** e clique no botão Avançar.
+
+     ![nomear aplicativo][6]
+
+7. Você pode fornecer qualquer URL fictícia para **URL de LOGON** e **URI da ID do APLICATIVO**. Elas não são usadas em nosso cenário e as próprias URLs não são validadas.
+
+     ![propriedades do aplicativo][7]
+
+8. Ao final deste artigo, você terá um aplicativo AAD com o nome fornecido anteriormente, como o seguinte. Este é o seu **NOME\_APLICATIVO\_AD**, anote-o.
+
+     ![nome do aplicativo][8]
+
+9. Clique no nome do aplicativo e clique em **Configurar**.
+
+     ![configurar aplicativo][9]
+
+10. Anote a ID do cliente que será usada como **ID\_CLIENTE** para as chamadas de sua API.
+
+     ![configurar aplicativo][10]
+
+11. Role a tela para baixo até a seção **Chaves** e adicione uma chave com duração de dois anos (validade) de preferência e clique em **Salvar**.
+
+     ![configurar aplicativo][11]
 
 
-# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Authenticate with Mobile Engagement REST APIs - manual setup
+12. Copie imediatamente o valor mostrado para a chave, pois ele será exibido apenas agora e não será armazenado, portanto, não será exibido novamente. Se você perdê-lo, terá que gerar uma nova chave. Esse será o **SEGREDO\_DO\_CLIENTE** para suas chamadas à API.
 
-This is an appendix documentation to [Authenticate with Mobile Engagement REST APIs](mobile-engagement-api-authentication.md). Make sure you read it first to get the context. This describes an alternate way to do the One-time setup for setting up your authentication for the Mobile Engagement REST APIs using the Azure Portal. 
+     ![configurar aplicativo][12]
 
->[AZURE.NOTE] The instructions below are based on this [Active Directory guide](../resource-group-create-service-principal-portal.md) and customized for what is required for authentication for Mobile Engagement APIs. So refer to it if you want to understand the steps below in detail. 
-
-1. Login to your Azure Account through the [classic portal](https://manage.windowsazure.com/).
-
-2. Select **Active Directory** from the left pane.
-
-     ![select Active Directory][1]
-
-3. Choose the **Default Active Directory** in your Azure portal. 
-
-     ![choose directory][2]
-
-    >[AZURE.IMPORTANT] This approach works only when you are working in the default Active Directory of your account and will not work if you are doing this in an Active Directory that you have created in your account. 
-
-4. To view the applications in your directory, click on **Applications**.
-
-     ![view applications][3]
-
-5. Click on **ADD**. 
-
-     ![add application][4]
-
-6. Click on **Add an application my organization is developing**
-
-     ![new application][5]
-
-6. Fill in name of the application and select the type of application as **WEB APPLICATION AND/OR WEB API** and click the next button.
-
-     ![name application][6]
-
-7. You can provide any dummy URLs for **SIGN-ON URL** and **APP ID URI**. They are not used for our scenario and the URLs themselves are not validated.  
-
-     ![application properties][7]
-
-8. At the end of this, you will have an AAD app with the name you provided previously like the following. This is your **AD\_APP\_NAME** and make a note of it.  
-
-     ![app name][8]
-
-9. Click on the app name and click on **Configure**.
-
-     ![configure app][9]
-
-10. Make a note of the CLIENT ID that will be used as **CLIENT\_ID** for your API calls. 
-
-     ![configure app][10]
-
-11. Scroll down to the **Keys** section and add a key with preferably 2 years (expiry) duration and click **Save**. 
-
-     ![configure app][11]
-
-
-12. Immediately copy the value which is shown for the key as it is only shown now and is not stored so will not be displayed ever again. If you lose it then you will have to generate a new key. This will be the **CLIENT_SECRET** for your API calls. 
-
-     ![configure app][12]
-
-    >[AZURE.IMPORTANT] This key will expire at the end of the duration that you specified so make sure to renew it when the time comes otherwise your API authentication will not work anymore. You can also delete and recreate this key if you think that it has been compromised.
+	>[AZURE.IMPORTANT] Essa chave expirará ao final da duração especificada, portanto lembre-se de renová-la quando chegar a hora, caso contrário a autenticação da API não funcionará mais. Você também pode excluir e recriar essa chave se achar que ela foi comprometida.
  
-13. Click on **VIEW ENDPOINTS** button now which will open up the **App Endpoints** dialog box. 
+13. Clique no botão **EXIBIR PONTOS DE EXTREMIDADE**, o que abrirá a caixa de diálogo **Pontos de Extremidade do Aplicativo**.
 
-    ![][13]
+	![][13]
 
-14. From the App Endpoints dialog box, copy the **OAUTH 2.0 TOKEN ENDPOINT**. 
+14. Na caixa de diálogo Pontos de Extremidade do Aplicativo, copie o **PONTO DE EXTREMIDADE DO TOKEN OAUTH 2.0**.
 
-    ![][14]
+	![][14]
 
-15. This endpoint will be in the following form where the GUID in the URL is your **TENANT_ID** so make a note of it: 
+15. Esse ponto de extremidade terá o seguinte formato, em que o GUID na URL é seu **ID\_DE\_LOCATÁRIO**, então anote-o:
 
-        https://login.microsoftonline.com/<GUID>/oauth2/token
+		https://login.microsoftonline.com/<GUID>/oauth2/token
 
-16. Now we will proceed to configure the permissions on this app. For this you will have to open up the [Azure portal](https://portal.azure.com). 
+16. Agora, configuraremos as permissões nesse aplicativo. Para isso, você precisará abrir o [portal do Azure](https://portal.azure.com).
 
-17. Click on **Resource Groups** and find the **Mobile Engagement** resource group.  
+17. Clique em **Grupos de Recursos** e localize o grupo de recursos **Mobile Engagement**.
 
-    ![][15]
+	![][15]
 
-18. Click the **Mobile Engagement** resource group and navigate to the **Settings** blade here. 
+18. Clique no grupo de recursos **Mobile Engagement** e navegue até a folha **Configurações**.
 
-    ![][16]
+	![][16]
 
-19. Click on **Users** in the Settings blade and then click on **Add** to add a user. 
+19. Clique em **Usuários** na folha Configurações e clique em **Adicionar** para adicionar um usuário.
 
-    ![][17]
+	![][17]
 
-20. Click on **Select a role**
+20. Clique em **Selecionar uma função**
 
-    ![][18]
+	![][18]
 
-21. Click on **Owner**
+21. Clique em **Proprietário**
 
-    ![][19]
+	![][19]
 
-22. Search for the name of your application **AD\_APP\_NAME** in the Search box. You will not see this by default here. Once you find it, select it and click on **Select** at the bottom of the blade. 
+22. Procure o nome de seu aplicativo **NOME\_APLICATIVO\_AD** na caixa Pesquisar. Você não verá ele por padrão aqui. Depois de encontrá-lo, selecione-o e clique em **Selecionar** na parte inferior da folha.
 
-    ![][20]
+	![][20]
 
-23. On the **Add Access** blade, it will show up as **1 user, 0 groups**. Click **OK** on this blade to confirm the change. 
+23. Na folha **Adicionar Acesso**, ele aparecerá como **1 usuário, 0 grupos**. Clique em **OK** nessa folha para confirmar a alteração.
 
-    ![][21]
+	![][21]
 
-You have now completed the required AAD configuration and you are all set to call the APIs. 
+Agora você concluiu a configuração necessária do AAD e está pronto para chamar as APIs.
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication-manual/active-directory.png
@@ -145,11 +144,4 @@ You have now completed the required AAD configuration and you are all set to cal
 [20]: ./media/mobile-engagement-api-authentication-manual/add-user-select.png
 [21]: ./media/mobile-engagement-api-authentication-manual/add-access-final.png
 
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

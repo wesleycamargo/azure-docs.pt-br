@@ -1,15 +1,13 @@
-1. Select **+ New step** to add the action.  
-- Select the **Add an action** link. This opens the search box where you can search for any action you would like to take. For this example, SharePoint actions are of interest.    
-![SFTP condition image 1](./media/connectors-create-api-sftp/condition-1.png)    
-- Select **Choose a value** on the left. 
-![SFTP condition image 2](./media/connectors-create-api-sftp/condition-2.png)    
-- Select **File content** to indicate that you want to evaluate the file contents in the condition.      
-![SFTP condition image 3](./media/connectors-create-api-sftp/condition-3.png)   
-- Select *contains* from the list of operators.       
-![SFTP condition image 4](./media/connectors-create-api-sftp/condition-4.png)   
-- Select **Choose a value** on the right and enter *ExtractMeFirst*. In this example, ExtractMeFirst is a value that is expected to be in a file by persons who have access to the SFTP folder to indicate that it is an archive file that should be extracted.  
-![SFTP condition image 5](./media/connectors-create-api-sftp/condition-5.png)   
+1. Selecione **+ Nova etapa** para adicionar a ação.
+- Selecione o link **Adicionar uma ação**. Isso abre a caixa de pesquisa, na qual é possível procurar qualquer ação que você deseja realizar. Neste exemplo, as ações do SharePoint são pontos de interesse.  
+![Imagem de condição de SFTP 1](./media/connectors-create-api-sftp/condition-1.png)  
+- Selecione **Escolher um valor** à esquerda.  
+![Imagem de condição de SFTP 2](./media/connectors-create-api-sftp/condition-2.png)  
+- Selecione **Conteúdo do arquivo** para indicar que você deseja avaliar o conteúdo do arquivo na condição.  
+![Imagem de condição de SFTP 3](./media/connectors-create-api-sftp/condition-3.png)  
+- Selecione *contém* da lista de operadores.  
+![Imagem de condição de SFTP 4](./media/connectors-create-api-sftp/condition-4.png)  
+- Selecione **Escolha um valor** à direita e digite *ExtractMeFirst*. Neste exemplo, ExtractMeFirst é um valor que pessoas com acesso à pasta SFTP esperam que esteja em um arquivo para indicar que se trata de um arquivo que deve ser extraído.  
+![Imagem de condição de SFTP 5](./media/connectors-create-api-sftp/condition-5.png)  
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

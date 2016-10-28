@@ -1,103 +1,98 @@
 <properties
-    pageTitle="Create text analytics models in Azure Machine Learning Studio | Microsoft Azure"
-    description="How to create text analytics models in Azure Machine Learning Studio using modules for text preprocessing, N-grams or feature hashing"
-    services="machine-learning"
-    documentationCenter=""
-    authors="rastala"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Criar modelos de análise de texto no Azure Machine Learning Studio | Microsoft Azure"
+	description="Como criar modelos de análise de texto no Azure Machine Learning Studio usando módulos de pré-processamento de texto, N-gramas ou hash de recursos"
+	services="machine-learning"
+	documentationCenter=""
+	authors="rastala"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="roastala" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/06/2016"
+	ms.author="roastala" />
 
 
+#Criar modelos de análise de texto no Azure Machine Learning Studio
 
-#<a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Create text analytics models in Azure Machine Learning Studio
+Você pode usar o Azure Machine Learning para criar e operacionalizar modelos de análise de texto. Esses modelos podem ajudá-lo a resolver, por exemplo, problemas de classificação de documento ou análise de sentimento.
 
-You can use Azure Machine Learning to build and operationalize text analytics models. These models can help you solve, for example, document classification or sentiment analysis problems.
+Em um experimento de análise de texto, geralmente, você pode:
 
-In a text analytics experiment, you would typically:
+ 1. Limpar e pré-processar o conjunto de dados de texto
+ 2. Extrair vetores de recurso numérico de um texto pré-processado
+ 3. Treinar o modelo de classificação ou regressão
+ 4. Pontuar e validar o modelo
+ 5. Implantar o modelo na produção
 
- 1. Clean and preprocess text dataset
- 2. Extract numeric feature vectors from pre-processed text
- 3. Train classification or regression model
- 4. Score and validate the model
- 5. Deploy the model to production
+Neste tutorial, você aprenderá essas etapas conforme examinamos um modelo de análise de sentimento usando o conjunto de dados Amazon Book Reviews (consulte o artigo de pesquisa “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” de John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007). Esse conjunto de dados consiste em pontuações de crítica (1-2 ou 4-5) e um texto de forma livre. O objetivo é prever a pontuação da crítica: baixa (1-2) ou alta (4-5).
 
-In this tutorial, you learn these steps as we walk through a sentiment analysis model using Amazon Book Reviews dataset (see this research paper “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” by John Blitzer, Mark Dredze, and Fernando Pereira; Association of Computational Linguistics (ACL), 2007.) This dataset consists of review scores (1-2 or 4-5) and a free-form text. The goal is to predict the review score: low (1-2) or high (4-5).
+Você pode encontrar os experimentos abordados neste tutorial na Galeria do Cortana Intelligence:
 
-You can find experiments covered in this tutorial at Cortana Intelligence Gallery:
+[Prever crítica literária](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 
-[Predict Book Reviews] (https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
+[Prever crítica literária – Experimento preditivo](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
-[Predict Book Reviews - Predictive Experiment] (https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
+## Etapa 1: Limpar e pré-processar o conjunto de dados de texto
 
-## <a name="step-1:-clean-and-preprocess-text-dataset"></a>Step 1: Clean and preprocess text dataset
+Começamos o experimento dividindo as pontuações de crítica em buckets categóricos altos e baixos para formular o problema como uma classificação de duas classes. Usamos os módulos [Editar Metadados](https://msdn.microsoft.com/library/azure/dn905986.aspx) e [Agrupar Valores Categóricos](https://msdn.microsoft.com/library/azure/dn906014.aspx).
 
-We begin the experiment by dividing the review scores into categorical low and high buckets to formulate the problem as two-class classification. We use [Edit Metadata] (https://msdn.microsoft.com/library/azure/dn905986.aspx) and [Group Categorical Values] (https://msdn.microsoft.com/library/azure/dn906014.aspx) modules.
+![Criar rótulo](./media/machine-learning-text-analytics-module-tutorial/create-label.png)
 
-![Create Label](./media/machine-learning-text-analytics-module-tutorial/create-label.png)
+Em seguida, limpamos o texto usando o módulo [Pré-processar Texto](https://msdn.microsoft.com/library/azure/mt762915.aspx). A limpeza reduz o ruído no conjunto de dados, ajuda a encontrar os recursos mais importantes e melhora a precisão do modelo final. Removemos palavras irrelevantes (stop words) – palavras comuns, como “o” ou “um” – bem como números, caracteres especiais, caracteres duplicados, endereços de email e URLs. Também convertemos o texto em minúsculas, fazemos a lematização das palavras e detectamos os limites de sentença, que são então indicados pelo símbolo “|||” no texto pré-processado.
 
-Then, we clean the text using [Preprocess Text] (https://msdn.microsoft.com/library/azure/mt762915.aspx) module. The cleaning reduces the noise in the dataset, help you find the most important features, and improve the accuracy of the final model. We remove stopwords - common words such as "the" or "a" - and numbers, special characters, duplicated characters, email addresses, and URLs. We also convert the text to lowercase, lemmatize the words, and detect sentence boundaries that are then indicated by "|||" symbol in pre-processed text.
+![Pré-processar texto](./media/machine-learning-text-analytics-module-tutorial/preprocess-text.png)
 
-![Preprocess Text](./media/machine-learning-text-analytics-module-tutorial/preprocess-text.png)
+E se você quiser usar uma lista personalizada de palavras irrelevantes? Você pode passá-la como uma entrada opcional. Também é possível usar uma expressão regular personalizada da sintaxe em C# para substituir subcadeias de caracteres e remover palavras por parte da fala: substantivos, verbos ou adjetivos.
 
-What if you want to use a custom list of stopwords? You can pass it in as optional input. You can also use custom C# syntax regular expression to replace substrings, and remove words by part of speech: nouns, verbs, or adjectives.
+Após a conclusão do pré-processamento, dividimos os dados em conjuntos de treinamento e teste.
 
-After the preprocessing is complete, we split the data into train and test sets.
+## Etapa 2: Extrair vetores de recurso numérico de um texto pré-processado
 
-## <a name="step-2:-extract-numeric-feature-vectors-from-pre-processed-text"></a>Step 2: Extract numeric feature vectors from pre-processed text
+Para criar um modelo para dados de texto, normalmente, você precisa converter o texto de forma livre em vetores de recurso numérico. Neste exemplo, usamos o módulo [Extrair Recursos de N-grama de Texto](https://msdn.microsoft.com/library/azure/mt762916.aspx) para transformar os dados de texto em um formato desse tipo. Este módulo usa uma coluna de palavras separadas por espaço em branco e calcula um dicionário de palavras ou N-gramas de palavras, que aparecem no conjunto de dados. Em seguida, ele conta quantas vezes cada palavra, ou N-gram, é exibida em cada registro e cria vetores de recurso das contagens. Neste tutorial, definimos o tamanho do N-grama como 2, para que nossos vetores de recurso incluam palavras individuais e combinações de duas palavras subsequentes.
 
-To build a model for text data, you typically have to convert free-form text into numeric feature vectors. In this example, we use [Extract N-Gram Features from Text] (https://msdn.microsoft.com/library/azure/mt762916.aspx) module to transform the text data to such format. This module takes a column of whitespace-separated words and computes a dictionary of words, or N-grams of words, that appear in your dataset. Then, it counts how many times each word, or N-gram, appears in each record, and creates feature vectors from those counts. In this tutorial, we set N-gram size to 2, so our feature vectors include single words and combinations of two subsequent words.
+![Extrair N-gramas](./media/machine-learning-text-analytics-module-tutorial/extract-ngrams.png)
 
-![Extract N-grams](./media/machine-learning-text-analytics-module-tutorial/extract-ngrams.png)
+Aplicamos a pesagem TF*IDF (Frequência de Termo Frequência Inversa do Documento) a contagens de N-grama. Essa abordagem adiciona o peso de palavras que aparecem frequentemente em um único registro, mas que são raras em todo o conjunto de dados. Outras opções incluem o binário, TF e a pesagem de gráfico.
 
-We apply TF*IDF (Term Frequency Inverse Document Frequency) weighting to N-gram counts. This approach adds weight of words that appear frequently in a single record but are rare across the entire dataset. Other options include binary, TF, and graph weighing.
+Geralmente, esses recursos de texto têm alta dimensionalidade. Por exemplo, se seu corpus tiver 100.000 palavras exclusivas, seu espaço de recurso terá 100.000 dimensões ou mais, caso sejam usados N-gramas. O módulo Extrair Recursos de N-grama fornece um conjunto de opções para reduzir a dimensionalidade. Você pode optar por excluir palavras que são curtas ou longas, muito incomuns ou muito frequentes que têm um valor preditivo significativo. Neste tutorial, excluímos N-gramas que aparecem em menos de 5 registros ou em mais de 80% dos registros.
 
-Such text features often have high dimensionality. For example, if your corpus has 100,000 unique words, your feature space would have 100,000 dimensions, or more if N-grams are used. The Extract N-Gram Features module gives you a set of options to reduce the dimensionality. You can choose to exclude words that are short or long, or too uncommon or too frequent to have significant predictive value. In this tutorial, we exclude N-grams that appear in fewer than 5 records or in more than 80% of records.
+Além disso, você pode usar a seleção de recursos para selecionar apenas os recursos que estão mais correlacionados ao seu destino de previsão. Usamos a seleção de recursos Qui Quadrado para selecionar 1.000 recursos. Você pode exibir o vocabulário de palavras selecionadas ou N-gramas clicando na saída correta do módulo Extrair N-gramas.
 
-Also, you can use feature selection to select only those features that are the most correlated with your prediction target. We use Chi-Squared feature selection to select 1000 features. You can view the vocabulary of selected words or N-grams by clicking the right output of Extract N-grams module.
+Como uma abordagem alternativa ao uso de Extrair Recursos de N-grama, você pode usar o módulo Hash de Recursos. No entanto, observe que o [Hash de Recursos](https://msdn.microsoft.com/library/azure/dn906018.aspx) não traz funcionalidades de seleção de recursos internos nem a pesagem TF*IDF.
 
-As an alternative approach to using Extract N-Gram Features, you can use Feature Hashing module. Note though that [Feature Hashing] (https://msdn.microsoft.com/library/azure/dn906018.aspx) does not have build-in feature selection capabilities, or TF*IDF weighing.
+## Etapa 3: Treinar o modelo de classificação ou regressão
 
-## <a name="step-3:-train-classification-or-regression-model"></a>Step 3: Train classification or regression model
+Agora o texto foi transformado em colunas de recurso numérico. O conjunto de dados ainda contém colunas de cadeia de caracteres de estágios anteriores e, portanto, usamos Selecionar Colunas no Conjunto de Dados para excluí-las.
 
-Now the text has been transformed to numeric feature columns. The dataset still contains string columns from previous stages, so we use Select Columns in Dataset to exclude them.
+Em seguida, usamos a [Regressão Logística de Duas Classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) para prever nosso destino: pontuação de crítica alta ou baixa. Neste ponto, o problema de análise de texto foi transformado em um problema de classificação regular. Você pode usar as ferramentas disponíveis no Azure Machine Learning para melhorar o modelo. Por exemplo, você pode experimentar com diferentes classificadores para descobrir quão precisos são os resultados fornecidos ou usar o ajuste de hiperparâmetro para melhorar a precisão.
 
-We then use [Two-Class Logistic Regression] (https://msdn.microsoft.com/library/azure/dn905994.aspx) to predict our target: high or low review score. At this point, the text analytics problem has been transformed into a regular classification problem. You can use the tools available in Azure Machine Learning to improve the model. For example, you can experiment with different classifiers to find out how accurate results they give, or use hyperparameter tuning to improve the accuracy.
+![Treinar e pontuar](./media/machine-learning-text-analytics-module-tutorial/scoring-text.png)
 
-![Train and Score](./media/machine-learning-text-analytics-module-tutorial/scoring-text.png)
+## Etapa 4: Pontuar e validar o modelo
 
-## <a name="step-4:-score-and-validate-the-model"></a>Step 4: Score and validate the model
+Como você validará o modelo treinado? Pontuamos o modelo em relação ao conjunto de dados de teste e avaliamos a precisão. No entanto, o modelo aprendeu o vocabulário de N-gramas e seus pesos do conjunto de dados de treinamento. Por isso, devemos usar esse vocabulário e os pesos ao extrair recursos dos dados de teste, em vez de criar o vocabulário novamente. Portanto, adicionamos o módulo Extrair Recursos de N-grama à ramificação de pontuação do experimento, conectamos o vocabulário de saída da ramificação de treinamento e definimos o modo de vocabulário como somente leitura. Também desabilitamos a filtragem de N-gramas por frequência, definindo o mínimo como 1 instância e o máximo como 100%, bem como desativamos a seleção de recursos.
 
-How would you validate the trained model? We score it against the test dataset and evaluate the accuracy. However, the model learned the vocabulary of N-grams and their weights from the training dataset. Therefore, we should use that vocabulary and those weights when extracting features from test data, as opposed to creating the vocabulary anew. Therefore, we add Extract N-Gram Features module to the scoring branch of the experiment, connect the output vocabulary from training branch, and set the vocabulary mode to read-only. We also disable the filtering of N-grams by frequency by setting the minimum to 1 instance and maximum to 100%, and turn off the feature selection.
+Depois que a coluna de texto nos dados de teste foi transformada em colunas de recurso numérico, excluímos as colunas de cadeia de caracteres de estágios anteriores como fizemos na ramificação de treinamento. Em seguida, usamos o módulo Pontuar Modelo para fazer previsões e o módulo Avaliar Modelo para avaliar a precisão.
 
-After the text column in test data has been transformed to numeric feature columns, we exclude the string columns from previous stages like in training branch. We then use Score Model module to make predictions and Evaluate Model module to evaluate the accuracy.
+## Etapa 5: Implantar o modelo na produção
 
-## <a name="step-5:-deploy-the-model-to-production"></a>Step 5: Deploy the model to production
+O modelo está quase pronto para ser implantado na produção. Quando implantado como um serviço Web, ele usa a cadeia de caracteres de texto de forma livre como entrada e retorna uma previsão “alta” ou “baixa”. Ele usa o vocabulário de N-gram aprendido para transformar o texto em recursos e o modelo de regressão logística treinado para fazer uma previsão desses recursos.
 
-The model is almost ready to be deployed to production. When deployed as web service, it takes free-form text string as input, and return a prediction "high" or "low." It uses the learned N-gram vocabulary to transform the text to features, and trained logistic regression model to make a prediction from those features. 
+Para configurar o experimento preditivo, primeiro salvamos o vocabulário de N-grama como conjunto de dados e o modelo de regressão logística treinado da ramificação de treinamento do experimento. Em seguida, salvamos o experimento usando “Salvar Como” para criar um gráfico de experimento para o experimento preditivo. Removemos o módulo Dividir Dados e a ramificação de treinamento do experimento. Em seguida, conectamos o vocabulário de N-grama salvo e o modelo anteriormente aos módulos Extrair Recursos de N-grama e Pontuar Modelo, respectivamente. Também removemos o módulo Avaliar Modelo.
 
-To set up the predictive experiment, we first save the N-gram vocabulary as dataset, and the trained logistic regression model from the training branch of the experiment. Then, we save the experiment using "Save As" to create an experiment graph for predictive experiment. We remove the Split Data module and the training branch from the experiment. We then connect the previously saved N-gram vocabulary and model to Extract N-Gram Features and Score Model modules, respectively. We also remove the Evaluate Model module.
+Inserimos o módulo Selecionar Colunas no Conjunto de Dados antes do módulo Pré-processar Texto para remover a coluna de rótulo e desmarcamos a opção “Acrescentar a coluna de pontuação ao conjunto de dados” em Pontuar Módulo. Dessa forma, o serviço Web não solicita o rótulo que está tentando prever e não retorna os recursos de entrada em resposta.
 
-We insert Select Columns in Dataset module before Preprocess Text module to remove the label column, and unselect "Append score column to dataset" option in Score Module. That way, the web service does not request the label it is trying to predict, and does not echo the input features in response.
+![Experimento preditivo](./media/machine-learning-text-analytics-module-tutorial/predictive-text.png)
 
-![Predictive Experiment](./media/machine-learning-text-analytics-module-tutorial/predictive-text.png)
+Agora temos um experimento que pode ser publicado como um serviço Web e chamado com APIs de execução em lotes ou solicitação-resposta.
 
-Now we have an experiment that can be published as a web service and called using request-response or batch execution APIs.
+## Próximas etapas
 
-## <a name="next-steps"></a>Next Steps
+Saiba mais sobre os módulos de análise de texto na [documentação do MSDN](https://msdn.microsoft.com/library/azure/dn905886.aspx).
 
-Learn about text analytics modules from [MSDN documentation] (https://msdn.microsoft.com/library/azure/dn905886.aspx).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

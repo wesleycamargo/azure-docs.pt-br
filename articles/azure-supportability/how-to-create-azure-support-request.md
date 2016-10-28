@@ -1,100 +1,88 @@
 <properties
-     pageTitle="How to create an Azure support request | Microsoft Azure"
-     description="How to create an Azure support request."
-     services="Azure Supportability"
-     documentationCenter=""
-     authors="ganganarayanan"
-     manager="scotthit"
-     editor=""/>
+	 pageTitle="Como criar uma solicitação de suporte do Azure | Microsoft Azure"
+	 description="Como criar uma solicitação de suporte do Azure."
+	 services="Azure Supportability"
+	 documentationCenter=""
+	 authors="ganganarayanan"
+	 manager="scotthit"
+	 editor=""/>
 
 <tags
-     ms.service="azure-supportability"
-     ms.workload="na"
-     ms.tgt_pltfrm="na"
-     ms.devlang="na"
-     ms.topic="article"
-     ms.date="07/25/2016"
-     ms.author="gangan"/>
+	 ms.service="azure-supportability"
+	 ms.workload="na"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="07/25/2016"
+	 ms.author="gangan"/>
 
+# Como criar uma solicitação de suporte do Azure
 
-# <a name="how-to-create-an-azure-support-request"></a>How to create an Azure support request
+## Resumo
+Os clientes do Azure podem criar e gerenciar solicitações de suporte no Portal do Azure, [https://portal.azure.com](https://portal.azure.com). Com base nos comentários dos clientes, atualizamos a experiência de solicitação de suporte com foco em três metas principais:
 
-## <a name="summary"></a>Summary
-Azure customers can create and manage support requests in the Azure portal, [https://portal.azure.com](https://portal.azure.com).
-Based on customer feedback, we’ve updated the support request experience to focus on three main goals:
+- **Otimizada**: reduzir cliques e folhas para simplificar o processo de envio de uma solicitação de suporte.
+- **Integrada**: quando você estiver solucionando um problema com um recurso do Azure, deverá ser fácil abrir uma solicitação de suporte para esse recurso sem alternância de contexto.
+- **Eficiente**: reunir as principais informações que o engenheiro de suporte precisará para resolver eficazmente o problema.
 
-- **Streamlined**: Reduce clicks and blades to make the process of submitting a support request simple.
-- **Integrated**: When you’re troubleshooting an issue with an Azure resource, it should be easy to open a support request for that resource without switching context.
-- **Efficient**: Gather the key information your support engineer will need to efficiently resolve your issue.
+## Introdução
+Você pode criar uma solicitação de suporte no menu de navegação superior ou diretamente na folha de um recurso.
 
-## <a name="getting-started"></a>Getting started
-You can create a support request from the top navigation menu or directly from a resource blade.
+**Na barra de navegação superior**
 
-**From the top navigation bar**
+![Nova solicitação de suporte](./media/how-to-create-azure-support-request/NewSupportRequest.png)
 
-![New Support Request](./media/how-to-create-azure-support-request/NewSupportRequest.png)
+**Na folha de um recurso**
 
-**From a resource blade**
+![No contexto](./media/how-to-create-azure-support-request/Incontext.png)
 
-![In context](./media/how-to-create-azure-support-request/Incontext.png)
+## Noções básicas
+A primeira etapa do processo de solicitação de suporte coleta informações básicas sobre o problema e seu plano de suporte.
 
-## <a name="basics"></a>Basics
-The first step of the support request process gathers basic information about your issue and your support plan.
+Vamos ver um exemplo: Você está com dificuldades técnicas em sua máquina virtual e suspeita de um problema com a conectividade da rede. A escolha do serviço ("Máquina Virtual executando o Windows") e o recurso (o nome da máquina virtual) na primeira etapa do assistente inicia o processo de obter ajuda para esse problema.
 
-Let’s take an example: You’re facing technical difficulties with your virtual machine and suspect a network connectivity issue.
-Selecting the service ("Virtual Machine running Windows") and the resource (the name of your virtual machine) in the first step of the wizard starts the process of getting help for this issue.
+![Folha de Noções básicas](./media/how-to-create-azure-support-request/Basics.png)
 
-![Basics blade](./media/how-to-create-azure-support-request/Basics.png)
+>[AZURE.NOTE] O Azure fornece suporte ilimitado para o gerenciamento das assinaturas (itens como cobrança, ajustes de cota e transferências de conta). Para obter suporte técnico, você precisa de um plano de suporte. [Saiba mais sobre planos de suporte](https://azure.microsoft.com/support/plans).
 
->[AZURE.NOTE] Azure provides unlimited support for subscription management (things like billing, quota adjustments, and account transfers). For technical support, you need a support plan. [Learn more about support plans](https://azure.microsoft.com/support/plans).
+## Problema
+A segunda etapa do assistente coleta detalhes adicionais sobre o problema. Fornecer detalhes precisos nesta etapa nos permite encaminhar seu caso para o melhor engenheiro de suporte e começar a diagnosticar o problema assim que possível.
 
-## <a name="problem"></a>Problem
-The second step of the wizard gathers additional details about the issue. Providing accurate details in this step allows us to route your case to the best support engineer for the issue and to begin diagnosing the issue as soon as possible.
+![Folha do problema](./media/how-to-create-azure-support-request/Problem.png)
 
-![Problem blade](./media/how-to-create-azure-support-request/Problem.png)
+Continuando com o exemplo acima de conectividade da máquina virtual, você preencheria este formulário para indicar um problema de conectividade de rede e forneceria mais detalhes sobre ele, incluindo a hora aproximada em que o problema ocorreu.
 
-Continuing with the virtual machine connectivity example from above, you would fill out this form to indicate a network connectivity issue, and you would provide further details about the issue, including the approximate time when you experienced the issue.
+## Ajuda relacionada
+Em alguns casos, fornecemos links de ajuda relacionada para solucionar o problema. Se os documentos recomendados não ajudarem, você poderá continuar o processo de criação de uma solicitação de suporte. ![Ajuda relacionada](./media/how-to-create-azure-support-request/RelatedHelp.png)
 
-## <a name="related-help"></a>Related Help
-For some problems, we provide related help links to troubleshoot the issue. If the recommended documents do not help, you can continue through the process to create a support request.
-![Related help](./media/how-to-create-azure-support-request/RelatedHelp.png)
+## Informações de contato
+A última etapa do assistente confirma suas informações de contato para que saibamos como contatar você. ![Informações de contato](./media/how-to-create-azure-support-request/ContactInformation.png)
 
-## <a name="contact-information"></a>Contact Information
-The last step of the wizard confirms your contact information so we know how to reach you.
-![Contact Information](./media/how-to-create-azure-support-request/ContactInformation.png)
+Dependendo da severidade do problema, poderá ser solicitado que você indique se deseja que entremos em contato durante o horário comercial ou se prefere uma resposta em qualquer hora do dia, todos os dias da semana. ![Informações de contato 24 horas por dia, 7 dias por semana](./media/how-to-create-azure-support-request/ContactInformation-2.png)
 
-Depending on the severity of your issue, you may be asked to indicate if you would like us to contact you during business hours or if you would prefer a 24x7 response, which means we may contact you at any time.
-![Contact Information 24x7](./media/how-to-create-azure-support-request/ContactInformation-2.png)
+## Gerenciar solicitações de suporte
+Depois de criar a solicitação de suporte, você pode exibir os detalhes na página **Gerenciar Solicitações de Suporte**.
 
-## <a name="manage-support-requests"></a>Manage support requests
-After you create the support request, you can view the details from the **Manage Support Requests** page.
+**Na barra de navegação superior**
 
-**From the top navigation bar**
+![Link Gerenciar Solicitações de Suporte](./media/how-to-create-azure-support-request/ManageSupportRequest-link.png)
 
-![Manage Support Request link](./media/how-to-create-azure-support-request/ManageSupportRequest-link.png)
+Na página **Gerenciar solicitações de suporte**, é possível exibir todas as solicitações de suporte e o respectivo status. ![Gerenciar Solicitações de Suporte](./media/how-to-create-azure-support-request/ManageSupportRequest.png)
 
-On the **Manage support requests** page, you can view all support requests and their status.
-![Manage Support Request](./media/how-to-create-azure-support-request/ManageSupportRequest.png)
+Escolha a solicitação de suporte para exibir os detalhes, incluindo a severidade e o tempo esperado que será necessário para um engenheiro de suporte responder. ![VID](./media/how-to-create-azure-support-request/VID.png)
 
-Select the support request to view details, including severity and the expected time it will take for a support engineer to respond.
-![VID](./media/how-to-create-azure-support-request/VID.png)
+Se quiser alterar a severidade da solicitação, clique no bloco **Impacto nos negócios**. No exemplo anterior, a solicitação está configurada para Severidade C.
 
-If you want to change the severity of the request, click the **Business impact** tile. In the preceeding example, the request is currently set to Severity C.
+Clicar no bloco mostra a lista de severidades que é possível atribuir a uma solicitação de suporte em aberto.
 
-Clicking the tile shows you the list of severities you can assign to an open support request.
-
->[AZURE.NOTE] The maximum severity level depends on your support plan. [Learn more about support plans](https://azure.microsoft.com/support/plans).
+>[AZURE.NOTE] O nível máximo de severidade depende do seu plano de suporte. [Saiba mais sobre planos de suporte](https://azure.microsoft.com/support/plans).
 
 ![VID-2](./media/how-to-create-azure-support-request/VID-2.png)
 
-## <a name="feedback"></a>Feedback
-We are always open to feedback and suggestions! Please send us your [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Additionally, you can engage with us via [Twitter](https://twitter.com/azuresupport) or the [MSDN forums](https://social.msdn.microsoft.com/Forums/azure).
+## Comentários
+Estamos sempre abertos a comentários e sugestões! Envie-nos suas [sugestões](https://feedback.azure.com/forums/266794-support-feedback). Além disso, você pode interagir conosco pelo [Twitter](https://twitter.com/azuresupport) ou nos [fóruns do MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
-## <a name="learn-more"></a>Learn more
-[Azure Support FAQ](https://azure.microsoft.com/support/faq)
+## Saiba mais
+[Perguntas frequentes sobre o suporte do Azure](https://azure.microsoft.com/support/faq).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

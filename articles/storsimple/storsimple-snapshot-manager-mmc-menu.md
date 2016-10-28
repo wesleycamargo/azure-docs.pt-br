@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Snapshot Manager MMC menu actions | Microsoft Azure"
-   description="Describes how to use the standard Microsoft Management Console (MMC) menu actions in StorSimple Snapshot Manager."
+   pageTitle="Ações de menu do MMC do StorSimple Snapshot Manager | Microsoft Azure"
+   description="Descreve como usar as ações de menu padrão do Console de Gerenciamento Microsoft (MMC) no StorSimple Snapshot Manager."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,120 +15,115 @@
    ms.date="04/25/2016"
    ms.author="v-sharos" />
 
+# Usar as ações de menu do MMC no StorSimple Snapshot Manager
 
-# <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Use the MMC menu actions in StorSimple Snapshot Manager
+## Visão geral
 
-## <a name="overview"></a>Overview
+No StorSimple Snapshot Manager, você verá as seguintes ações listadas em todos os menus de ação e todas as variações do painel de **Ações**.
 
-In StorSimple Snapshot Manager, you will see the following actions listed on all action menus and all variations of the **Actions** pane. 
+- Visualizar
+- Nova Janela a Partir Daqui 
+- Atualizar 
+- Exportar Lista 
+- Ajuda 
 
-- View
-- New Window from Here 
-- Refresh 
-- Export List 
-- Help 
+Essas ações fazem parte do MMC (Console de Gerenciamento Microsoft) e não são específicas ao StorSimple Snapshot Manager. Este tutorial descreve essas ações e explica como usar cada uma delas no StorSimple Snapshot Manager.
 
-These actions are part of the Microsoft Management Console (MMC) and are not specific to StorSimple Snapshot Manager. This tutorial describes these actions and explains how to use each of them in StorSimple Snapshot Manager.
+## Visualizar
 
-## <a name="view"></a>View
+Você pode usar a opção **Exibição** para alterar a exibição do painel **Resultados** e alterar o modo de exibição da janela do console.
 
-You can use the **View** option to change the **Results** pane view and to change the console window view. 
+#### Para alterar o modo de exibição de painel de Resultados
 
-#### <a name="to-change-the-results-pane-view"></a>To change the Results pane view
+1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+2. No painel **Escopo**, clique com o botão direito em qualquer nó ou expanda o nó e clique em um item do painel **Resultados** e clique na opção **Exibição**.
 
-2. In the **Scope** pane, right-click any node or expand the node and right-click an item in the **Results** pane, and then click the **View** option. 
+3. Para adicionar ou remover as colunas que aparecem no painel **Resultados**, clique em **Adicionar/Remover Colunas**. A caixa de diálogo **Adicionar/Remover Colunas** é exibida.
 
-3. To add or remove the columns that appear in the **Results** pane, click **Add/Remove Columns**. The **Add/Remove Columns** dialog box appears.
+    ![Adicionar ou remover colunas do painel de Resultados](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Add_remove_columns.png)
 
-    ![Add or remove columns from Results pane](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Add_remove_columns.png) 
+4. Preencha o formulário da seguinte maneira:
 
-4. Complete the form as follows:
+    - Selecione itens da lista de colunas **Disponível** e clique em **Adicionar** para adicioná-los à **Colunas exibidas**. 
 
-    - Select items from the **Available** columns list and click **Add** to add them to the **Displayed columns** list. 
+    - Clique nos itens na lista **Colunas exibidas** e clique em **Remover** para removê-los da lista.
 
-    - Click items in the **Displayed columns** list, and click **Remove** to remove them from the list. 
+    - Selecione um item na lista de colunas **Exibidas** e clique em **Mover para cima** ou **Mover para baixo** para mover o item para cima ou para baixo na lista.
 
-    - Select an item in the **Displayed** columns list and click **Move Up** or **Move Down** to move the item up or down in the list. 
+    - Clique em **Restaurar Padrões** para retornar para a configuração padrão do painel **Resultados**.
 
-    - Click **Restore Defaults** to return to the default **Results** pane configuration. 
+5. Quando tiver concluído suas seleções, clique em **OK**.
 
-5. When you are finished with your selections, click **OK**. 
+#### Para alterar a exibição da janela de console
 
-#### <a name="to-change-the-console-window-view"></a>To change the console window view
+1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+2. No painel **Escopo**, clique com o botão direito em qualquer nó, clique em **Exibição** e, depois, clique em **Personalizar**. A caixa de diálogo **Personalizar** é exibida.
 
-2. In the **Scope** pane, right-click any node, click **View**, and then click **Customize**. The **Customize** dialog box appears.
+    ![Personalizar a janela do console](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Customize.png)
 
-    ![Customize the console window](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Customize.png) 
+3. Marque ou desmarque as caixas de seleção para exibir ou ocultar itens na janela do console. Quando tiver concluído suas seleções, clique em **OK**.
 
-3. Select or clear the check boxes to show or hide items in the console window. When you are finished with your selections, click **OK**.
+## Nova Janela a Partir Daqui
 
-## <a name="new-window-from-here"></a>New Window from Here
+Você pode usar a opção **Nova Janela a Partir Daqui** para abrir uma nova janela do console.
 
-You can use the **New Window from Here** option to open a new console window.
+#### Para abrir uma nova janela do console
 
-#### <a name="to-open-a-new-console-window"></a>To open a new console window
+1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+2. No painel **Escopo**, clique com o botão direito em qualquer nó e clique em **Nova Janela a Partir Daqui**.
 
-2. In the **Scope** pane, right-click any node, and then click **New Window from Here**. 
+    Uma nova janela aparece, mostrando apenas o escopo que você selecionou. Por exemplo, se você clicar com o botão direito no nó **Políticas de Backup**, a nova janela mostrará apenas o nó **Políticas de Backup** no painel **Escopo** e uma lista de políticas de backup definidas no painel **Resultados**. Veja os exemplos a seguir.
 
-    A new window appears, showing only the scope that you selected. For example, if you right-click the **Backup Policies** node, the new window will show only the **Backup Policies** node in the **Scope** pane and a list of defined backup policies in the **Results** pane. See the following example.
-
-    ![New Window from Here](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_NewWindow.png) 
+    ![Nova Janela a Partir Daqui](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_NewWindow.png)
  
-## <a name="refresh"></a>Refresh
+## Atualizar
 
-You can use the **Refresh** action to update the console window.
+Você pode usar a ação **Atualizar** para atualizar a janela do console.
 
-#### <a name="to-update-the-console-window"></a>To update the console window
+#### Para atualizar a janela do console
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.
 
-2. In the **Scope** pane, right-click any node or expand the node and right-click an item in the **Results** pane, and then click **Refresh**. 
+2. No painel **Escopo**, clique com o botão direito em qualquer nó ou expanda o nó e clique com o botão direito em um item do painel **Resultados** e clique em **Atualizar**.
 
-## <a name="export-list"></a>Export List
+## Exportar Lista
 
-You can use the **Export List** action to save a list in a comma-separated value (CSV) file. For example, you can export the list of backup policies or the backup catalog. You can then import the CSV file into a spreadsheet application for analysis.
+Você pode usar a ação **Exportar Lista** para salvar uma lista em um arquivo CSV (valores separados por vírgulas). Por exemplo, você pode exportar a lista de políticas de backup ou o catálogo de backups. Em seguida, você pode importar o arquivo CSV em um aplicativo de planilha para análise.
 
-#### <a name="to-save-a-list-in-a-comma-separated-value-(csv)-file"></a>To save a list in a comma-separated value (CSV) file
+#### Para salvar uma lista em um arquivo CSV (valores separados por vírgulas)
 
-1. Click the desktop icon to start StorSimple Snapshot Manager. 
+1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager. 
 
-2. In the **Scope** pane, right-click any node or expand the node and right-click an item in the **Results** pane, and then click **Export List**. 
+2. No painel **Escopo**, clique com o botão direito em qualquer nó ou expanda o nó e clique com o botão direito em um item do painel de **Resultados** e clique em **Exportar Lista**.
 
-3. The **Export List** dialog box appears. Complete the form as follows: 
+3. A caixa de diálogo **Exportar Lista** é exibida. Preencha o formulário da seguinte maneira:
 
-    1. In the **File name** box, type a name for the CSV file or click the arrow to select from the drop-down list.
+    1. Na caixa **Nome de arquivo**, digite um nome para o arquivo CSV ou clique na seta para selecionar na lista suspensa.
 
-    2. In the **Save as type** box, click the arrow and select a file type from the drop-down list.
+    2. Na caixa **Salvar como tipo**, clique na seta e selecione um tipo de arquivo na lista suspensa.
 
-    3. To save only selected items, select the rows and then click the **Save Only Selected Rows** check box. To save all exported lists, clear the **Save Only Selected Rows** check box.
+    3. Para salvar apenas os itens selecionados, selecione as linhas e marque a caixa de seleção **Salvar apenas linhas selecionadas**. Para salvar todas as listas exportadas, desmarque a caixa de seleção **Salvar apenas linhas selecionadas**.
 
-    4. Click **Save**.
+    4. Clique em **Salvar**.
 
-    ![Export list as a comma-separated value file](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
+    ![Exportar lista como um arquivo de valores separados por vírgula](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png)
  
-## <a name="help"></a>Help
+## Ajuda
 
-You can use the **Help** menu to view available online help for StorSimple Snapshot Manager and the MMC.
+Você pode usar o menu **Ajuda** para exibir a ajuda online disponível para o MMC e o StorSimple Snapshot Manager.
 
-#### <a name="to-view-available-online-help"></a>To view available online help
+#### Para exibir a ajuda online disponível
 
-1. Click the desktop icon to start StorSimple Snapshot Manager.
+1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.
 
-2. In the **Scope** pane, right-click any node or expand the node and right-click an item in the **Results** pane, and then click **Help**. 
+2. No painel **Escopo**, clique com o botão direito em qualquer nó ou expanda o nó e clique com o botão direito em um item do painel **Resultados** e clique em **Ajuda**.
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-- Learn more about the [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).
-- Learn more about [using StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Saiba mais sobre [a interface do usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
+- Saiba mais sobre [como usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0427_2016-->

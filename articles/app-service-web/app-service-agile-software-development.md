@@ -1,290 +1,285 @@
 <properties
-    pageTitle="Agile software development with Azure App Service"
-    description="Learn how to create high-scale complex applications with Azure App Service in a way that supports agile software development."
-    services="app-service"
-    documentationCenter=""
-    authors="cephalin"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure"
+	description="Aprenda a criar aplicativos complexos de grande escala com o Serviço de Aplicativo do Azure, de forma a oferecer suporte ao desenvolvimento de software Agile."
+	services="app-service"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/01/2016"
-    ms.author="cephalin"/>
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/01/2016"
+	ms.author="cephalin"/>
 
 
+# Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure #
 
-# <a name="agile-software-development-with-azure-app-service"></a>Agile software development with Azure App Service #
+Neste tutorial, você aprenderá como criar aplicativos complexos de grande escala com o [Serviço de Aplicativo do Azure](/services/app-service/), de forma a oferecer suporte ao [desenvolvimento de software Agile](https://en.wikipedia.org/wiki/Agile_software_development). Ele pressupõe que você já sabe como [implantar aplicativos complexos de modo previsível no Azure](app-service-deploy-complex-application-predictably.md).
 
-In this tutorial, you will learn how to create high-scale complex applications with [Azure App Service](/services/app-service/) in a way that supports [agile software development](https://en.wikipedia.org/wiki/Agile_software_development). It assumes that you already know how to [deploy complex applications predictably in Azure](app-service-deploy-complex-application-predictably.md).
+Limitações em processos técnicos muitas vezes podem atrapalhar o êxito da implementação das metodologias Agile. O Serviço de Aplicativo do Azure, com recursos como [publicação contínua](app-service-continuous-deployment.md), [ambientes de preparo](web-sites-staged-publishing.md) (slots) e [monitoramento](web-sites-monitor.md), quando associado com sabedoria à coordenação e ao gerenciamento da implantação no[Gerenciador de Recursos do Azure](../resource-group-overview.md), pode ser parte de uma solução excelente para desenvolvedores que adotam o desenvolvimento de software Agile.
 
-Limitations in technical processes can often stand in the way of successful implementation of agile methodologies. Azure App Service with features such as [continuous publishing](app-service-continuous-deployment.md), [staging environments](web-sites-staged-publishing.md) (slots), and [monitoring](web-sites-monitor.md), when coupled wisely with the orchestration and management of deployment in [Azure Resource Manager](../resource-group-overview.md), can be part of a great solution for developers who embrace agile software development.
+A tabela a seguir é uma breve lista que mostra os requisitos associados ao desenvolvimento Agile e como os serviços do Azure habilitam cada um deles.
 
-The following table is a short list of requirements associated with agile development, and how Azure services enables each of them.
-
-| Requirement | How Azure enables |
+| Requisito | Como o Azure o habilita |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| - Build with every commit<br>- Build automatically and fast | When configured with continuous deployment, Azure App Service can function as live-running builds based on a dev branch. Every time code is pushed to the branch, it is automatically built and running live in Azure.|
-| - Make builds self-testing | Load tests, web tests, etc., can be deployed with the Azure Resource Manager template.|
-| - Perform tests in a clone of production environment | Azure Resource Manager templates can be used to create clones of the Azure production environment (including app settings, connection string templates, scaling, etc.) for testing quickly and predictably.|
-| - View result of latest build easily | Continuous deployment to Azure from a repository means that you can test new code in a live application immediately after you commit your changes. |
-| - Commit to the main branch every day<br>- Automate deployment | Continuous integration of a production application with a repository’s main branch automatically deploys every commit/merge to the main branch to production. |
+| - Compilação com cada confirmação<br>- Compilação automática e rápida | Quando configurado com a implantação contínua, o Serviço de Aplicativo do Azure pode funcionar como compilações em execução em tempo real com base em uma ramificação de desenvolvimento. Sempre que o código é enviado por push para a ramificação, ele é compilado automaticamente e executado em tempo real no Azure.|
+| - Realizar autoteste de compilações | Testes de carregamento, testes da web etc. podem ser implantados com o modelo do Gerenciador de Recursos do Azure.|
+| - Executar testes em um clone do ambiente de produção | Os modelos do Gerenciador de Recursos do Azure podem ser usados para criar clones de um ambiente de produção do Azure (incluindo as configurações do aplicativo, modelos de cadeia de conexão, escala etc.) para o teste de modo rápido e previsível.|
+| - Exibir o resultado da compilação mais recente com facilidade | Com a implantação contínua no Azure a partir de um repositório, você pode testar o novo código em um aplicativo em tempo real, imediatamente após confirmar suas alterações. |
+| - Enviar confirmações diárias para a ramificação principal <br>- Automatizar a implantação | A integração contínua de um aplicativo de produção com a ramificação principal do repositório permite a implantação automática de cada confirmação/mesclagem na ramificação principal para a produção. |
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="what-you-will-do"></a>What you will do ##
+## O que você fará ##
 
-You will walk through a typical dev-test-stage-production workflow in order to publish new changes to the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) sample application, which consists of two [web apps](/services/app-service/web/), one being a frontend (FE) and the other being a Web API backend (BE), and a [SQL database](/services/sql-database/). You will work with the deployment architecture shown below:
+Você verá um fluxo de trabalho dev-test-stage-production típico para publicar novas alterações no aplicativo de exemplo [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp), que consiste em dois [aplicativos Web](/services/app-service/web/), sendo um front-end (FE) e um back-end (BE) da API Web, e um [banco de dados SQL](/services/sql-database/). Você trabalhará com a arquitetura de implantação mostrada abaixo:
 
 ![](./media/app-service-agile-software-development/what-1-architecture.png)
 
-To put the picture into words :
+Colocando em palavras:
 
--   The deployment architecture is separated into three distinct environments (or [resource groups](../resource-group-overview.md) in Azure), each with its own [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), [scaling](web-sites-scale.md) settings, and SQL database. 
--   Each environment can be managed separately. They can even exist in different subscriptions.
--   Staging and production are implemented as two slots of the same App Service app. The master branch is setup for continuous integration with the staging slot.
--   When a commit to master branch is verified on the staging slot (with production data), the verified staging app is swapped into the production slot [with no downtime](web-sites-staged-publishing.md).
+-	A arquitetura de implantação é separada em três ambientes distintos (ou [grupos de recursos](../resource-group-overview.md) no Azure), cada um com seu próprio [plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), configurações de [escala](web-sites-scale.md) e banco de dados SQL.
+-	Cada ambiente pode ser gerenciado separadamente. Eles podem até mesmo existir em assinaturas diferentes.
+-	O preparo e a produção são implementados como dois slots do mesmo aplicativo de Serviço de Aplicativo. A ramificação mestre está configurada para integração contínua com o slot de preparo.
+-	Quando uma confirmação para a ramificação mestre é verificada no slot de preparo (com dados de produção), o aplicativo de preparo verificado é trocado no slot de produção [sem tempo de inatividade](web-sites-staged-publishing.md).
 
-The production and staging environment is defined by the template at [*&lt;repository_root>*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json).
+O ambiente de preparo e produção é definido pelo modelo em [*&lt;raiz\_do\_repositório>*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json).
 
-The dev and test environments are defined by the template at [*&lt;repository_root>*/ARMTemplates/Dev.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/Dev.json).
+Os ambientes de desenvolvimento e teste são definidos pelo modelo em [*&lt;raiz\_do\_repositório>*/ARMTemplates/Dev.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/Dev.json).
 
-You will also use the typical branching strategy, with code moving from the dev branch up to the test branch, then to the master branch (moving up in quality, so to speak).
+Você também usará a estratégia de ramificação típica, com código movendo-se da ramificação de desenvolvimento até a ramificação de teste, e em seguida para a ramificação mestre (com melhora na qualidade, por assim dizer).
 
-![](./media/app-service-agile-software-development/what-2-branches.png) 
+![](./media/app-service-agile-software-development/what-2-branches.png)
 
-## <a name="what-you-will-need"></a>What you will need ##
+## O que será necessário ##
 
--   An Azure account
--   A [GitHub](https://github.com/) account
--   Git Shell (installed with [GitHub for Windows](https://windows.github.com/)) - this enables you to run both the Git and PowerShell commands in the same session 
--   Latest [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi) bits
--   Basic understanding of the following:
-    -   [Azure Resource Manager](../resource-group-overview.md) template deployment (also see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md))
-    -   [Git](http://git-scm.com/documentation)
-    -   [PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
+-	Uma conta do Azure
+-	Uma conta do [GitHub](https://github.com/)
+-	Git Shell (instalado com [GitHub para Windows](https://windows.github.com/)) — permite que você execute comandos Git e do PowerShell na mesma sessão
+-	Bits do [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi) mais recentes
+-	Noções básicas sobre:
+	-	Implantação do modelo do [Gerenciador de Recursos do Azure](../resource-group-overview.md) (consulte também[Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md))
+	-	[Git](http://git-scm.com/documentation)
+	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE] You need an Azure account to complete this tutorial:
-> + You can [open an Azure account for free](/pricing/free-trial/) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
-> + You can [activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/) - Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
+> [AZURE.NOTE] Você de uma conta do Azure para concluir este tutorial:
+> + É possível [abrir uma conta do Azure gratuitamente](/pricing/free-trial/) – você obtém créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, é possível manter a conta e utilizar os serviços gratuitos do Azure, como Aplicativos Web.
+> + É possível [ativar os benefícios para assinantes do Visual Studio](/pricing/member-offers/msdn-benefits-details/) – todos os meses, sua assinatura do Visual Studio concede créditos que podem ser usados para experimentar serviços pagos do Azure.
 >
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-## <a name="set-up-your-production-environment"></a>Set up your production environment ##
+## Configurar seu ambiente de produção ##
 
->[AZURE.NOTE] The script used in this tutorial will automatically configure continuous publishing from your GitHub repository. This requires that your GitHub credentials are already stored in Azure, otherwise the scripted deployment will fail when attempting to configure source control settings for the web apps. 
+>[AZURE.NOTE] O script usado neste tutorial configurará automaticamente a publicação contínua de seu repositório GitHub. Isso requer que as credenciais do GitHub já estejam armazenadas no Azure; caso contrário, a implantação de scripts falhará ao tentar definir configurações de controle de origem para aplicativos Web.
 >
->To store your GitHub credentials in Azure, create a web app in the [Azure Portal](https://portal.azure.com/) and [configure GitHub deployment](app-service-continuous-deployment.md). You only need to do this once. 
+>Para armazenar suas credenciais do GitHub no Azure, crie um aplicativo Web no [Portal do Azure](https://portal.azure.com/) e [configure a implantação do GitHub](app-service-continuous-deployment.md). Você só precisa fazer isso uma vez.
 
-In a typical DevOps scenario, you have an application that’s running live in Azure, and you want to make changes to it through continuous publishing. In this scenario, you have a template that you developed, tested, and used to deploy the production environment. You will set it up in this section.
+Em um cenário típico de DevOps, você tem um aplicativo que está em execução em tempo real no Azure e deseja fazer alterações nele por meio de publicação contínua. Nesse cenário, você tem um modelo que desenvolveu, testou e usou para implantar o ambiente de produção. Você o configurará nesta seção.
 
-1.  Create your own fork of the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) repository. For information on creating your fork, see [Fork a Repo](https://help.github.com/articles/fork-a-repo/). Once your fork is created, you can see it in your browser.
+1.	Crie sua própria bifurcação do repositório [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp). Para obter informações sobre como criar a bifurcação, consulte [Bifurcar um repositório](https://help.github.com/articles/fork-a-repo/). Depois que a bifurcação é criada, você pode vê-la no navegador.
  
-    ![](./media/app-service-agile-software-development/production-1-private-repo.png)
+	![](./media/app-service-agile-software-development/production-1-private-repo.png)
 
-2.  Open a Git Shell session. If you don't have Git Shell yet, install [GitHub for Windows](https://windows.github.com/) now.
+2.	Abra uma sessão do Git Shell. Se ainda não tiver o Git Shell, instale o [GitHub para Windows](https://windows.github.com/) agora.
 
-3.  Create a local clone of your fork by executing the following command:
+3.	Crie um clone local de seu bifurcação executando o seguinte comando:
 
-        git clone https://github.com/<your_fork>/ToDoApp.git 
+		git clone https://github.com/<your_fork>/ToDoApp.git 
 
-4.  Once you have your local clone, navigate to *&lt;repository_root>*\ARMTemplates, and run the deploy.ps1 script as follows:
+4.	Depois que tiver o clone local, navegue até *&lt;raiz\_do\_repositório>*\\ARMTemplates e execute o script deploy.ps1 da seguinte maneira:
 
-        .\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git
+		.\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git
 
-4.  When prompted, type in the desired username and password for database access.
+4.	Quando solicitado, digite o nome de usuário desejado e a senha para acesso ao banco de dados.
 
-    You should see the provisioning progress of various Azure resources. When deployment completes, the script will launch the application in the browser and give you a friendly beep.
+	Você deverá ver o progresso de provisionamento de vários recursos do Azure. Quando a implantação for concluída, o script iniciará o aplicativo no navegador e emitirá um bipe.
 
-    ![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
+	![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
  
-    >[AZURE.TIP] Take a look at *&lt;repository_root>*\ARMTemplates\Deploy.ps1, to see how it generates resources with unique IDs. You can use the same approach to create clones of the same deployment without worrying about conflicting resource names.
+	>[AZURE.TIP] Dê uma olhada em *&lt;raiz\_do\_repositório>*\\ARMTemplates\\Deploy.ps1 para ver como ele gera recursos com IDs exclusivas. Você pode usar a mesma abordagem para criar clones da mesma implantação sem se preocupar com conflitos entre os nomes de recursos.
  
-6.  Back in your Git Shell session, run:
+6.	De volta à sessão do Git Shell, execute:
 
-        .\swap –Name ToDoApp<unique_string>master
+		.\swap –Name ToDoApp<unique_string>master
 
-    ![](./media/app-service-agile-software-development/production-4-swap.png)
+	![](./media/app-service-agile-software-development/production-4-swap.png)
 
-7.  When the script finishes, go back to browse to the frontend’s address (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/) to see the application running in production.
+7.	Quando o script for concluído, volte para navegar até endereço do front-end (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/) para ver o aplicativo em execução na produção.
  
-5.  Log into the [Azure Portal](https://portal.azure.com/) and take a look at what’s created.
+5.	Faça logon no [Portal do Azure](https://portal.azure.com/) e veja o que foi criado.
 
-    You should be able to see two web apps in the same resource group, one with the `Api` suffix in the name. If you look at the resource group view, you will also see the SQL Database and server, the App Service plan, and the staging slots for the web apps. Browse through the different resources and compare them with *&lt;repository_root>*\ARMTemplates\ProdAndStage.json to see how they are configured in the template.
+	Você deverá ver dois aplicativos Web no mesmo grupo de recursos, um com o sufixo `Api` no nome. Se examinar o modo de exibição do grupo de recursos, você também verá o banco de dados SQL e o servidor, o plano do Serviço de Aplicativo e os slots de preparo dos aplicativos Web. Navegue pelos diferentes recursos e compare-os com *&lt;raiz\_repositório>*\\ARMTemplates\\ProdAndStage.json para ver como eles são configurados no modelo.
 
-    ![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
+	![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
-You have now set up the production environment. Next, you will kick off a new update to the application.
+Agora você configurou o ambiente de produção. Em seguida, você iniciará uma nova atualização para o aplicativo.
 
-## <a name="create-dev-and-test-branches"></a>Create dev and test branches ##
+## Criar o desenvolvimento e testar ramificações ##
 
-Now that you have a complex application running in production in Azure, you will make an update to your application in accordance with agile methodology. In this section, you will create the dev and test branches that you will need to make the required updates.
+Agora que há um aplicativo complexo em execução em produção no Azure, você fará uma atualização para o aplicativo de acordo com a metodologia Agile. Nesta seção, você criará as ramificações de desenvolvimento e teste das quais precisará para fazer as atualizações necessárias.
 
-1.  Create the test environment first. In your Git Shell session, run the following commands to create the environment for a new branch called **NewUpdate**. 
+1.	Crie o ambiente de teste primeiro. Na sessão do Git Shell, execute os seguintes comandos para criar o ambiente para uma nova ramificação chamada **NewUpdate**.
 
-        git checkout -b NewUpdate
-        git push origin NewUpdate 
-        .\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch NewUpdate
+		git checkout -b NewUpdate
+		git push origin NewUpdate 
+		.\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch NewUpdate
 
-1.  When prompted, type in the desired username and password for database access. 
+1.	Quando solicitado, digite o nome de usuário desejado e a senha para acesso ao banco de dados.
 
-    When deployment completes, the script will launch the application in the browser and give you a friendly beep. And just like that, you now have a new branch with its own test environment. Take a moment to review a few things about this test environment:
+	Quando a implantação for concluída, o script iniciará o aplicativo no navegador e emitirá um bipe. Desse modo, você terá uma nova ramificação com ambiente de teste próprio. Dedique um momento para examinar algumas coisas sobre esse ambiente de teste:
 
-    -   You can create it in any Azure subscription. That means the production environment can be managed separately from your test environment.
-    -   Your test environment is running live in Azure.
-    -   Your test environment is identical to the production environment, except for the staging slots and the scaling settings. You can know this because these are the only differences between ProdandStage.json and Dev.json.
-    -   You can manage your test environment in its own App Service plan, with a different price tier (such as **Free**).
-    -   Deleting this test environment will be as simple as deleting the resource group. You will find out how to do this [later](#delete).
+	-	Você pode criá-lo em qualquer assinatura do Azure. Isso significa que o ambiente de produção pode ser gerenciado separadamente do ambiente de teste.
+	-	Seu ambiente de teste está em execução em tempo real no Azure.
+	-	Seu ambiente de teste é idêntico ao ambiente de produção, exceto pelos slots de preparo e pelas configurações de escala. Isso pode ser observado porque essas são as únicas diferenças entre ProdandStage.json e Dev.json.
+	-	Você pode gerenciar o ambiente de teste em seu próprio plano do Serviço de Aplicativo, com uma faixa de preço diferente (como **Gratuito**).
+	-	Excluir esse ambiente de teste é tão simples quanto excluir o grupo de recursos. Você verá como fazer isso [posteriormente](#delete).
 
-2.  Go on to create a dev branch by running the following commands:
+2.	Continue com a criação de uma ramificação de desenvolvimento. Para isso, execute os seguintes comandos:
 
-        git checkout -b Dev
-        git push origin Dev
-        .\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch Dev
+		git checkout -b Dev
+		git push origin Dev
+		.\deploy.ps1 -TemplateFile .\Dev.json -RepoUrl https://github.com/<your_fork>/ToDoApp.git -Branch Dev
 
-3.  When prompted, type in the desired username and password for database access. 
+3.	Quando solicitado, digite o nome de usuário desejado e a senha para acesso ao banco de dados.
 
-    Take a moment to review a few things about this dev environment: 
+	Dedique um momento para examinar algumas coisas sobre esse ambiente de desenvolvimento:
 
-    -   Your dev environment has a configuration identical to the test environment because it’s deployed using the same template.
-    -   Each dev environment can be created in the developer’s own Azure subscription, leaving the test environment to be separately managed.
-    -   Your dev environment is running live in Azure.
-    -   Deleting the dev environment is as simple as deleting the resource group. You will find out how to do this [later](#delete).
+	-	Seu ambiente de desenvolvimento tem uma configuração idêntica ao ambiente de teste porque foi implantado usando o mesmo modelo.
+	-	Cada ambiente de desenvolvimento pode ser criado na assinatura do Azure do desenvolvedor, deixando o ambiente de teste para ser gerenciado separadamente.
+	-	O ambiente de desenvolvimento está em execução em tempo real no Azure.
+	-	Excluir o ambiente de desenvolvimento é tão simples quanto excluir o grupo de recursos. Você verá como fazer isso [posteriormente](#delete).
 
->[AZURE.NOTE] When you have multiple developers working on the new update, each of them can easily create a branch and dedicated dev environment by doing the following:
+>[AZURE.NOTE] Quando houver vários desenvolvedores trabalhando na nova atualização, cada um deles poderá criar facilmente uma ramificação e um ambiente de desenvolvimento dedicado fazendo o seguinte:
 >
->1. Create their own fork of the repository in GitHub (see [Fork a Repo](https://help.github.com/articles/fork-a-repo/)).
->2. Clone the fork on their local machine
->3. Run the same commands to create their own dev branch and environment.
+>1.	Criar suas próprias bifurcações do repositório no GitHub (consulte [Bifurcar um repositório](https://help.github.com/articles/fork-a-repo/)).
+>2.	Clonar a bifurcação na máquina local
+>3.	Execute os mesmos comandos para criar ramificação e ambiente de desenvolvimento próprios.
 
-When you’re done, your GitHub fork should have three branches:
+Quando terminar, a bifurcação GitHub deverá ter três ramificações:
 
 ![](./media/app-service-agile-software-development/test-1-github-view.png)
 
-And you should have six web apps (three sets of two) in three separate resource groups:
+E você deverá ter seis aplicativos Web (três conjuntos de dois) em três grupos de recursos separados:
 
 ![](./media/app-service-agile-software-development/test-2-all-webapps.png)
  
->[AZURE.NOTE] Note that ProdandStage.json specifies the production environment to use the **Standard** pricing tier, which is appropriate for scalability of the production application.
+>[AZURE.NOTE] Observe que ProdandStage.json especifica o ambiente de produção para usar o tipo de preço **Standard**, que é adequada para a escalabilidade do aplicativo de produção.
 
-## <a name="build-and-test-every-commit"></a>Build and test every commit ##
+## Compilar e testar cada confirmação ##
 
-The template files ProdAndStage.json and Dev.json already specify the source control parameters, which by default sets up continuous publishing for the web app. Therefore, every commit to the GitHub branch triggers an automatic deployment to Azure from that branch. Let’s see how your setup works now.
+Os arquivos de modelo ProdAndStage.json e Dev.json já especificam os parâmetros de controle de origem, que, por padrão, configuram a publicação contínua para o aplicativo Web. Portanto, cada confirmação para a ramificação GitHub dispara uma implantação automática no Azure dessa ramificação. Vejamos como a configuração funciona.
 
-1.  Make sure that you’re in the Dev branch of the local repository. To do this, run the following command in Git Shell:
+1.	Certifique-se de que você está na ramificação de desenvolvimento do repositório local. Para fazer isso, execute o seguinte comando no Git Shell:
 
-        git checkout Dev
+		git checkout Dev
 
-2.  Make a simple change to the app’s UI layer by changing the code to use [Bootstrap](http://getbootstrap.com/components/) lists. Open *&lt;repository_root>*\src\MultiChannelToDo.Web\index.cshtml and make the highlighted change below:
+2.	Faça uma alteração simples na camada de interface do usuário do aplicativo alterando o código para usar listas de [inicialização](http://getbootstrap.com/components/). Abra *&lt;raiz\_do\_repositório>*\\src\\MultiChannelToDo.Web\\app\\index.cshtml e faça a alteração realçada abaixo:
 
-    ![](./media/app-service-agile-software-development/commit-1-changes.png)
+	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
-    >[AZURE.NOTE] If you can't read the image above: 
-    >
-    >- In line 18, change `check-list` to `list-group`.
-    >- In line 19, change `class="check-list-item"` to `class="list-group-item"`.
+	>[AZURE.NOTE] Se você não puder ler a imagem acima:
+	>
+	>- Na linha 18, altere `check-list` para `list-group`.
+	>- Na linha 19, altere `class="check-list-item"` para `class="list-group-item"`.
 
-3.  Save the change. Back in Git Shell, run the following commands:
+3.	Salve a alteração. De volta ao Git Shell, execute os seguintes comandos:
 
-        cd <repository_root>
-        git add .
-        git commit -m "changed to bootstrap style"
-        git push origin Dev
+		cd <repository_root>
+		git add .
+		git commit -m "changed to bootstrap style"
+		git push origin Dev
  
-    These git commands are similar to "checking in your code" in another source control system like TFS. When you run `git push`, the new commit triggers an automatic code push to Azure, which then rebuilds the application to reflect the change in the dev environment.
+	Esses comandos git são semelhantes à "verificação em seu código" em outro sistema de controle de origem, como o TFS. Quando você executa `git push`, a nova confirmação dispara um envio de código por push automático ao Azure, que recompila o aplicativo para refletir a alteração no ambiente de desenvolvimento.
 
-4.  To verify that this code push to your dev environment has occurred, go to your dev environment’s web app blade and look at the **Deployment** part. You should be able to see your latest commit message there.
+4.	Para verificar se esse código foi enviado por push ao ambiente de desenvolvimento, vá até a folha de aplicativo Web do ambiente de desenvolvimento e examine a parte **Implantação**. Você deverá ser capaz de ver a última mensagem de confirmação.
 
-    ![](./media/app-service-agile-software-development/commit-2-deployed.png)
+	![](./media/app-service-agile-software-development/commit-2-deployed.png)
 
-5.  From there, click **Browse** to see the new change in the live application in Azure.
+5.	A partir dali, clique em **Procurar** para ver a nova alteração no aplicativo em tempo real no Azure.
 
-    ![](./media/app-service-agile-software-development/commit-3-webapp-in-browser.png)
+	![](./media/app-service-agile-software-development/commit-3-webapp-in-browser.png)
 
-    This is a pretty minor change to the application. However, many times new changes to a complex web application has unintended and undesirable side effects. Being able to easily test every commit in live builds enables you to catch these issues before your customers see them.
+	Essa é uma alteração secundária no aplicativo. No entanto, muitas vezes, novas alterações em um aplicativo Web complexo têm efeitos colaterais não intencionais e indesejáveis. A capacidade de testar facilmente cada confirmação em compilações em tempo real permite capturar esses problemas antes que os clientes os vejam.
 
-By now, you should be comfortable with the realization that, as a developer on the **NewUpdate** project, you will be able to easily create a dev environment for yourself, then build every commit and test every build.
+Agora você já deve estar familiarizado com o conceito de que, como desenvolvedor do projeto **NewUpdate**, você poderá criar um ambiente de desenvolvimento para si mesmo com facilidade e, em seguida, compilar cada confirmação e testar cada compilação.
 
-## <a name="merge-code-into-test-environment"></a>Merge code into test environment ##
+## Mesclar o código no ambiente de teste ##
 
-When you’re ready to push your code from Dev branch up to NewUpdate branch, it’s the standard git process:
+Quando você estiver pronto para enviar por push o seu código da ramificação de desenvolvimento para a ramificação NewUpdate, use o processo git padrão:
 
-1.  Merge any new commits to NewUpdate into the Dev branch in GitHub, such as commits created by other developers. Any new commit on GitHub will trigger a code push and build in the dev environment. You can then make sure your code in Dev branch still works with the latest bits from NewUpdate branch.
+1.	Mescle todas as novas confirmações de NewUpdate na ramificação de desenvolvimento no GitHub, como confirmações criadas por outros desenvolvedores. Qualquer nova confirmação no GitHub disparará um push de código e uma compilação no ambiente de desenvolvimento. Em seguida, você poderá verificar se o código na ramificação de desenvolvimento ainda funciona com os bits mais recentes da ramificação NewUpdate.
 
-2.  Merge all your new commits from Dev branch into NewUpdate branch on GitHub. This action triggers a code push and build in the test environment. 
+2.	Mescle todas as confirmações novas da ramificação de desenvolvimento na ramificação NewUpdate no GitHub. Essa ação aciona um push de código e uma compilação no ambiente de teste.
 
-Note again that because continuous deployment is already setup with these git branches, you don’t need to take any other action like running integration builds. You simply need to perform standard source control practices using git, and Azure will perform all the build processes for you.
+Mais uma vez, observe que, como a implantação contínua já está configurada com essas ramificações git, você não precisará realizar qualquer outra ação, como executar compilações de integração. Você só precisará executar as práticas de controle de origem padrão usando git, e o Azure executará todos os processos de compilação para você.
 
-Now, let’s push your code to **NewUpdate** branch. In Git Shell, run the following commands:
+Agora, vamos enviar o código para a ramificação **NewUpdate**. No Git Shell, execute os seguintes comandos:
 
-    git checkout NewUpdate
-    git pull origin NewUpdate
-    git merge Dev
-    git push origin NewUpdate
+	git checkout NewUpdate
+	git pull origin NewUpdate
+	git merge Dev
+	git push origin NewUpdate
 
-That’s it! 
+É isso!
 
-Go to the web app blade for your test environment to see your new commit (merged into NewUpdate branch) now pushed to the test environment. Then, click **Browse** to see that the style change is now running live in Azure.
+Vá para a folha de aplicativo Web do ambiente de teste para ver a nova confirmação (mesclada na ramificação NewUpdate) ser enviada por push para o ambiente de teste. Em seguida, clique em **Procurar** para observar a alteração de estilo em execução em tempo real no Azure.
 
-## <a name="deploy-update-to-production"></a>Deploy update to production ##
+## Implantar a atualização na produção ##
 
-Pushing code to the staging and production environment should feel no different than what you’ve already done when you pushed code to the test environment. It's really that simple. 
+O envio de código por push para o ambiente de produção e preparo não deve ser diferente do envio de código por push para o ambiente de teste. É muito simples.
 
-In Git Shell, run the following commands:
+No Git Shell, execute os seguintes comandos:
 
-    git checkout master
-    git pull origin master
-    git merge NewUpdate
-    git push origin master
+	git checkout master
+	git pull origin master
+	git merge NewUpdate
+	git push origin master
 
-Remember that based on the way the staging and production environment is setup in ProdandStage.json, your new code is pushed to the **Staging** slot and is running there. So if you navigate to the staging slot’s URL, you’ll see the new code running there. To do this, run the `Show-AzureWebsite` cmdlet in Git Shell.
+Lembre-se de que, com base na maneira como o ambiente de produção e preparo é configurado no ProdandStage.json, seu novo código é enviado por push para o slot **Preparo** e executado lá. Se navegar para a URL do slot de preparo, você verá o novo código em execução lá. Para fazer isso, execute o cmdlet `Show-AzureWebsite` no Git Shell.
 
-    Show-AzureWebsite -Name ToDoApp<unique_string>master -Slot Staging
+	Show-AzureWebsite -Name ToDoApp<unique_string>master -Slot Staging
  
-And now, after you’ve verified the update in the staging slot, the only thing left to do is to swap it into production. In Git Shell, just run the following commands:
+Depois de verificar a atualização no slot de preparo, a única coisa que resta a fazer é trocá-lo na produção. No Git Shell, execute os seguintes comandos:
 
-    cd <repository_root>\ARMTemplates
-    .\swap.ps1 -Name ToDoApp<unique_string>master
+	cd <repository_root>\ARMTemplates
+	.\swap.ps1 -Name ToDoApp<unique_string>master
 
-Congratulations! You’ve successfully published a new update to your production web application. What’s more is that you’ve just done it by easily creating dev and test environments, and building and testing every commit. These are crucial building blocks for agile software development.
+Parabéns! Você publicou com êxito uma nova atualização para o aplicativo Web de produção. E você já fez isso apenas criando facilmente os ambientes de teste/desenvolvimento e compilando/testando todas as confirmações. Esses são elementos fundamentais para o desenvolvimento de software Agile.
 
 <a name="delete"></a>
-## <a name="delete-dev-and-test-enviroments"></a>Delete dev and test enviroments ##
+## Excluir os ambientes de desenvolvimento e teste ##
 
-Because you have purposely architected your dev and test environments to be self-contained resource groups, it is very easy to delete them. To delete the ones you created in this tutorial, both the GitHub branches and Azure artifacts, just run the following commands in Git Shell:
+Como você projetou intencionalmente os ambientes de teste e desenvolvimento para serem grupos de recursos independentes, é muito fácil exclui-los. Para excluir os que você criou neste tutorial (as ramificações do GitHub e os artefatos do Azure), basta executar os seguintes comandos no Git Shell:
 
-    git branch -d Dev
-    git push origin :Dev
-    git branch -d NewUpdate
-    git push origin :NewUpdate
-    Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>dev-group -Force -Verbose
-    Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
+	git branch -d Dev
+	git push origin :Dev
+	git branch -d NewUpdate
+	git push origin :NewUpdate
+	Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>dev-group -Force -Verbose
+	Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
 
-## <a name="summary"></a>Summary ##
+## Resumo ##
 
-Agile software development is a must-have for many companies who want to adopt Azure as their application platform. In this tutorial, you have learned how to create and tear down exact replicas or near replicas of the production environment with ease, even for complex applications. You have also learned how to leverage this ability to create a development process that can build and test every single commit in Azure. This tutorial has hopefully shown you how you can best use Azure App Service and Azure Resource Manager together to create a DevOps solution that caters to agile methodologies. Next, you can build on this scenario by performing advanced DevOps techniques such as [testing in production](app-service-web-test-in-production-get-start.md). For a common testing-in-production scenario, see [Flighting deployment (beta testing) in Azure App Service](app-service-web-test-in-production-controlled-test-flight.md).
+O desenvolvimento de software Agile é indispensável para muitas empresas que desejam adotar o Azure como sua plataforma de aplicativos. Neste tutorial, você aprendeu a criar e eliminar réplicas exatas ou réplicas muito semelhantes do ambiente de produção com facilidade, mesmo para aplicativos complexos. Você também aprendeu como aproveitar essa capacidade para criar um processo de desenvolvimento capaz de compilar e testar cada confirmação única no Azure. Este tutorial mostrou como você pode usar Serviço de Aplicativo do Azure e o Gerenciador de Recursos do Azure em conjunto de modo mais adequado, a fim de criar uma solução de DevOps útil para metodologias Agile. Em seguida, você pode criar esse cenário executando técnicas avançadas de DevOps, por exemplo, [teste em produção](app-service-web-test-in-production-get-start.md). Para conhecer um cenário comum de teste em produção, consulte [Implantação de liberação de versões de pré-lançamento (teste beta) no Serviço de Aplicativo do Azure](app-service-web-test-in-production-controlled-test-flight.md).
 
-## <a name="more-resources"></a>More resources ##
+## Mais recursos ##
 
--   [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
--   [Agile Development in Practice: Tips and Tricks for Modernized Development Cycle](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
--   [Advanced deployment strategies for Azure Web Apps using Resource Manager templates](http://channel9.msdn.com/Events/Build/2015/2-620)
--   [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
--   [JSONLint - The JSON Validator](http://jsonlint.com/)
--   [ARMClient – Set up GitHub publishing to site](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
--   [Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
--   [David Ebbo’s Blog](http://blog.davidebbo.com/)
--   [Azure PowerShell](../powershell-install-configure.md)
--   [Azure Cross-Platform Command-Line Tools](../xplat-cli-install.md)
--   [Create or edit users in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
--   [Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
+-	[Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md)
+-	[Desenvolvimento Agile na prática: dicas e truques do ciclo de desenvolvimento modernizado](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
+-	[Estratégias de implantação avançada para aplicativos Web do Azure usando modelos do Gerenciador de Recursos](http://channel9.msdn.com/Events/Build/2015/2-620)
+-	[Criação de modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
+-	[JSONLint - o validador JSON](http://jsonlint.com/)
+-	[ARMClient – configurar publicação do GitHub no site](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
+-	[Ramificação Git – Conceitos básicos de ramificação e mesclagem](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+-	[Blog de David Ebbo](http://blog.davidebbo.com/)
+-	[PowerShell do Azure](../powershell-install-configure.md)
+-	[Ferramentas de linha de comando de plataformas cruzadas do Azure](../xplat-cli-install.md)
+-	[Criar ou editar usuários no AD do Azure](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
+-	[Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

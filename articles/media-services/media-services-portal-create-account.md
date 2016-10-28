@@ -1,113 +1,106 @@
 <properties
-    pageTitle=" Create an Azure Media Services account with the Azure portal | Microsoft Azure"
-    description="This tutorial walks you through the steps of creating an Azure Media Services account with the Azure portal."
-    services="media-services"
-    documentationCenter=""
-    authors="Juliako"
-    manager="erikre"
-    editor=""/>
+	pageTitle=" Criar uma conta do Serviços de Mídia do Azure com o portal do Azure | Microsoft Azure"
+	description="Este tutorial orienta você pelas etapas de criação de uma conta do Serviços de Mídia do Azure com o portal do Azure."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/07/2016"
-    ms.author="juliako"/>
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/07/2016"
+	ms.author="juliako"/>
 
 
-
-# <a name="create-an-azure-media-services-account-with-the-azure-portal"></a>Create an Azure Media Services account with the Azure portal
+# Criar uma conta do Serviços de Mídia do Azure com o portal do Azure
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+> [AZURE.NOTE] Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-The Azure portal provides a way to quickly create an Azure Media Services (AMS) account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure. At the time you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account.
+O portal do Azure fornece uma maneira de criar rapidamente uma conta de Serviços de Mídia do Azure (AMS). Você pode usar sua conta para acessar os Serviços de Mídia que permitem que você armazene, criptografe, codifique, gerencie e transmita conteúdo de mídia no Azure. Quando você cria uma conta de Serviços de Mídia, você também cria uma conta de armazenamento associada (ou usa uma existente) na mesma região geográfica que a conta de Serviços de Mídia.
 
-This article explains some common concepts and shows how to create a Media Services account with the Azure portal.
+Este artigo explica alguns conceitos comuns e mostra como criar uma conta do Serviços de Mídia com o portal do Azure.
 
-## <a name="concepts"></a>Concepts
+## Conceitos
 
-Accessing Media Services requires two associated accounts:
+O acesso aos Serviços de Mídia requer duas contas associadas:
 
-- A Media Services account. Your account gives you access to a set of cloud-based Media Services that are available in Azure. A Media Services account does not store actual media content. Instead it stores metadata about the media content and media processing jobs in your account. At the time you create the account, you select an available Media Services region. The region you select is a data center that stores the metadata records for your account.
+- Uma conta dos Serviços de Mídia. Sua conta fornece acesso a um conjunto de Serviços de Mídia baseado na nuvem que está disponível no Azure. Uma conta de Serviços de Mídia não armazena o conteúdo de mídia real. Em vez disso, armazena metadados sobre o conteúdo de mídia e os trabalhos de processamento de mídia em sua conta. No momento em que cria a conta, você seleciona uma região de Serviços de Mídia disponível. A região selecionada é um data center que armazena os registros dos metadados de sua conta.
 
-    Available Media Services (AMS) regions include the following: North Europe, West Europe, West US, East US, Southeast Asia, East Asia, Japan West, Japan East. Media Services does not use affinity groups.
-    
-    AMS is now also available in the following data centers: Brazil South, India West, India South, and India Central. You can now use the Azure  portal to create Media Service accounts and perform various tasks described here. However, Live Encoding is not enabled in these data centers. Further, not all types of Encoding Reserved Units are available in these data centers.
-    
-    - Brazil South: Only Standard and Basic Encoding Reserved Units are available.
-    - India West, India South: Provide storage blobs for media files; storage accounts must be located in the same geographic region as the Media Services account. When you create a Media Services account, you can either choose an existing storage account in the same region, or you can create a new storage account in the same region. If you delete a Media Services account, the blobs in your related storage account are not deleted.
+	As regiões de Serviços de Mídia Disponíveis (AMS) incluem o seguinte: Norte da Europa, Europa Ocidental, Oeste dos EUA, Leste dos EUA, Sudeste da Ásia, Ásia Oriental, Oeste do Japão, Leste do Japão. Os Serviços de Mídia não usam grupos de afinidade.
+	
+	O AMS agora também está disponível nos seguintes data centers: Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora você pode usar o portal do Azure para criar contas do Serviço de Mídia e realizar diversas tarefas descritas aqui. No entanto, a Codificação Ativa não está habilitada nesses datacenters. Além disso, nem todos os tipos de Unidades Reservadas para Codificação estão disponíveis nesses datacenters.
+	
+	- Sul do Brasil: somente as Unidades Reservadas para Codificação Standard e Básico estão disponíveis.
+	- Índia Ocidental, Sul da Índia: forneça blobs de armazenamento para arquivos de mídia; as contas de armazenamento devem estar localizadas na mesma região geográfica do que a conta do Serviços de Mídia. Quando cria uma conta de Serviços de Mídia, você pode escolher uma conta de armazenamento existente na mesma região ou criar uma nova conta de armazenamento na mesma região. Se você excluir uma conta de Serviços de Mídia, os blobs em sua conta de armazenamento relacionada não serão excluídos.
 
-## <a name="create-an-ams-account"></a>Create an AMS account
+## Criar uma conta do AMS
 
-The steps in this section show how to create an AMS account.
+As etapas nesta seção mostram como criar uma conta do AMS.
 
-1. Log in at the [Azure portal](https://portal.azure.com/).
-2. Click **+New** > **Media + CDN** > **Media Services**.
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+2. Clique em **+Novo** > **Mídia + CDN** > **Serviços de Mídia**.
 
-    ![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new1.png)
+	![Criar Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-new1.png)
 
-3. In **CREATE MEDIA SERVICES ACCOUNT** enter required values.
+3. Em **CRIAR CONTA DOS SERVIÇOS DE MÍDIA**, insira os valores necessários.
 
-    ![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new3.png)
-    
-    1. In **Account Name**, enter the name of the new AMS account. A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.
-    2. In Subscription, select among the different Azure subscriptions that you have access to.
-    
-    2. In **Resource Group**, select the new or existing resource.  A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](resource-group-overview.md#resource-groups).
-    3. In **Location**,  select the geographic region that will be used to store the media and metadata records for your Media Services account. This  region will be used to process and stream your media. Only the available Media Services regions appear in the drop-down list box. 
-    
-    3. In **Storage Account**, select a storage account to provide blob storage of the media content from your Media Services account. You can select an existing storage account in the same geographic region as your Media Services account, or you can create a storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Media Services accounts.
+	![Criar Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-new3.png)
+	
+	1. Em **Nome da Conta**, insira o nome da nova conta AMS. Um nome de conta de Serviços de Mídia deve ser composto de letras minúsculas ou números, sem espaços, e deve ter de 3 a 24 caracteres de comprimento.
+	2. Em Assinatura, selecione uma das diferentes assinaturas do Azure às quais você tem acesso.
+	
+	2. Em **Grupo de Recursos**, selecione o recurso novo ou existente. Um grupo de recursos é uma coleção de recursos que compartilham o ciclo de vida, as permissões e as políticas. Saiba mais [aqui](resource-group-overview.md#resource-groups).
+	3. Em **Localização**, selecione a região geográfica que será usada para armazenar os registros de mídia e metadados para sua conta de Serviços de Mídia. Essa região será usada para processar e transmitir a mídia. Somente as regiões de Serviços de Mídia disponíveis são exibidas na caixa da lista suspensa.
+	
+	3. Em **Conta de Armazenamento**, selecione uma conta de armazenamento para fornecer armazenamento de blobs do conteúdo de mídia de sua conta de Serviços de Mídia. Você pode selecionar uma conta de armazenamento existente na mesma região geográfica que sua conta de Serviços de Mídia ou criar uma conta de armazenamento. É criada uma nova conta de armazenamento na mesma região. As regras para nomes de contas de armazenamento são as mesmas que para contas de Serviços de Mídia.
 
-        Learn more about storage [here](storage-introduction.md).
+		Saiba mais sobre o armazenamento [aqui](storage-introduction.md).
 
-    4. Select **Pin to dashboard** to see the progress of the account deployment.
-    
-7. Click **Create** at the bottom of the form.
+	4. Selecione **Fixar no painel** para ver o progresso da implantação da conta.
+	
+7. Clique em **Criar** na parte inferior do formulário.
 
-    Once the account is successfully created, the status changes to **Running**. 
+	Quando a conta for criada com êxito, o status mudará para **Executando**.
 
-    ![Media Services settings](./media/media-services-portal-vod-get-started/media-services-settings.png)
+	![Configurações dos Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
-    To manage your AMS account (for example, upload videos, encode assets, monitor job progress) use the **Settings** window.
+	Para gerenciar sua conta AMS (por exemplo, carregar vídeos, codificar ativos, monitorar o andamento do trabalho), use a janela **Configurações**.
 
-## <a name="manage-keys"></a>Manage Keys
+## Gerenciar Chaves
 
-You need the account name and the primary key information to programmatically access the Media Services account.
+Será necessário o nome da conta e as informações da chave primária para acessar a conta de Serviços de Mídia de modo programático.
 
-1. In the Azure portal, select your account. 
+1. No Portal do Azure, selecione sua conta.
 
-    The **Settings** window appears on the right. 
+	A janela **Configurações** aparece à direita.
 
-2. In the **Settings** window, select **Keys**. 
+2. Na janela **Configurações**, selecione **Chaves**.
 
-    The **Manage keys** windows shows the account name and the primary and secondary keys is displayed. 
-3. Press the copy button to copy the values.
-    
-    ![Media Services Keys](./media/media-services-portal-vod-get-started/media-services-keys.png)
+	A janela **Gerenciar chaves** mostra o nome da conta e as chaves primária e secundária são exibidas.
+3. Pressione o botão Copiar para copiar os valores.
+	
+	![Chaves dos Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-You can now upload files into your AMS account. For more information, see [Upload files](media-services-portal-upload-files.md).
+Agora você pode carregar arquivos em sua conta do AMS. Para saber mais, veja [Carregar arquivos](media-services-portal-upload-files.md).
 
-## <a name="media-services-learning-paths"></a>Media Services learning paths
+## Roteiros de aprendizagem dos Serviços de Mídia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Fornecer comentários
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

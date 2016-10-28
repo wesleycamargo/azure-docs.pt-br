@@ -1,66 +1,65 @@
 <properties 
-    pageTitle="App Service API app triggers | Microsoft Azure" 
-    description="How to implement triggers in an API App in Azure App Service" 
-    services="logic-apps" 
-    documentationCenter=".net" 
-    authors="guangyang"
-    manager="wpickett" 
-    editor="jimbe"/>
+	pageTitle="Gatilhos de aplicativo da API do Serviço de Aplicativo | Microsoft Azure" 
+	description="Como implementar gatilhos em um aplicativo de API no Serviço de Aplicativo do Azure" 
+	services="logic-apps" 
+	documentationCenter=".net" 
+	authors="guangyang"
+	manager="wpickett" 
+	editor="jimbe"/>
 
 <tags 
-    ms.service="logic-apps" 
-    ms.workload="na" 
-    ms.tgt_pltfrm="dotnet" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/25/2016" 
-    ms.author="rachelap"/>
+	ms.service="logic-apps" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="dotnet" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2016" 
+	ms.author="rachelap"/>
+
+# Gatilhos de aplicativo de API do Serviço de Aplicativo do Azure
+
+>[AZURE.NOTE] Esta versão do artigo se aplica à versão do esquema 2014-12-01-preview de aplicativos de API.
 
 
-# <a name="azure-app-service-api-app-triggers"></a>Azure App Service API app triggers
+## Visão geral
 
->[AZURE.NOTE] This version of the article applies to API apps 2014-12-01-preview schema version.
+Este artigo explica como implementar gatilhos de aplicativo de API e consumi-los por meio de um aplicativo lógico.
 
+Todos os trechos de código mostrados neste tópico foram copiados do [exemplo de código do aplicativo de API do FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
-## <a name="overview"></a>Overview
+Observe que você precisará baixar o seguinte pacote do nuget para que o código neste artigo seja compilado e executado: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
-This article explains how to implement API app triggers and consume them from a Logic app.
+## O que são gatilhos de aplicativo de API?
 
-All of the code snippets in this topic are copied from the [FileWatcher API App code sample](http://go.microsoft.com/fwlink/?LinkId=534802). 
+É um cenário comum para um aplicativo de API disparar um evento para que os clientes do aplicativo de API possam realizar a ação apropriada em resposta ao evento. O mecanismo baseado em API REST que oferece suporte a esse cenário é chamado de gatilho de aplicativo de API.
 
-Note that you'll need to download the following nuget package for the code in this article to build and run: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
+Por exemplo, digamos que seu código de cliente está usando o [Aplicativo de API para conexão ao Twitter](../app-service-logic/app-service-logic-connector-twitter.md) e seu código precisa executar uma ação com base em novos tweets que contêm palavras específicas. Nesse caso, você pode definir um gatilho de sondagem ou de envio por push para facilitar essa necessidade.
 
-## <a name="what-are-api-app-triggers?"></a>What are API app triggers?
+## Gatilho de sondagem versus gatilho de envio
 
-It's a common scenario for an API app to fire an event so that clients of the API app can take the appropriate action in response to the event. The REST API based mechanism that supports this scenario is called an API app trigger. 
+Atualmente, há suporte para dois tipos de gatilhos:
 
-For example, let's say your client code is using the [Twitter Connector API app](../app-service-logic/app-service-logic-connector-twitter.md) and your code needs to perform an action based on new tweets that contain specific words. In this case, you might set up a poll or push trigger to facilitate this need.
+- Gatilho de sondagem - o cliente faz a sondagem no aplicativo de API buscando notificação de um determinado evento ter sido acionado
+- Disparador de envio - o cliente é notificado pelo aplicativo API quando um evento é acionado
 
-## <a name="poll-trigger-versus-push-trigger"></a>Poll trigger versus push trigger
+### Gatilho de sondagem
 
-Currently, two types of triggers are supported:
+Um gatilho de sondagem é implementado como uma API REST regular e espera que seus clientes (por exemplo, um aplicativo lógico) consultem-no para obter notificações. Enquanto o cliente pode manter o estado, o gatilho de sondagem em si é sem estado.
 
-- Poll trigger - Client polls the API app for notification of an event having been fired 
-- Push trigger - Client is notified by the API app when an event fires 
+As informações sobre os pacotes de solicitação e resposta a seguir ilustram alguns aspectos fundamentais do contrato de gatilho de sondagem.
 
-### <a name="poll-trigger"></a>Poll trigger
+- Solicitação
+    - Método HTTP: GET
+    - Parâmetros
+        - triggerState - esse parâmetro opcional permite que os clientes especifiquem seu estado para que o gatilho de sondagem possa decidir corretamente se deseja retornar ou não a notificação com base no estado especificado.
+        - Parâmetros específicos de API
+- Resposta
+    - Código de status **200** - a solicitação é válida e há uma notificação do gatilho. O conteúdo da notificação será o corpo da resposta. Um cabeçalho de "Tente novamente após" na resposta indica que os dados de notificação adicionais devem ser recuperados com uma chamada de solicitação subsequente.
+    - Código de status **202** - a solicitação é válida, mas não há uma nova notificação do gatilho.
+    - Código de status **4xx** - a solicitação não é válida. O cliente não deve tentar solicitar novamente.
+    - Código de status **5xx** - a solicitação resultou em um erro interno do servidor e/ou em um problema temporário. O cliente deve tentar solicitar novamente.
 
-A poll trigger is implemented as a regular REST API and expects its clients (such as a Logic app) to poll it in order to get notification. While the client may maintain state, the poll trigger itself is stateless. 
-
-The following information regarding the request and response packets illustrate some key aspects of the poll trigger contract:
-
-- Request
-    - HTTP method: GET
-    - Parameters
-        - triggerState - This optional parameter allows clients to specify their state so that the poll trigger can properly decide whether to return notification or not based on the specified state.
-        - API-specific parameters
-- Response
-    - Status code **200** - Request is valid and there is a notification from the trigger. The content of the notification will be the response body. A "Retry-After" header in the response indicates that additional notification data must be retrieved with a subsequent request call.
-    - Status code **202** - Request is valid, but there is no new notification from the trigger.
-    - Status code **4xx** - Request is not valid. The client should not retry the request.
-    - Status code **5xx** - Request has resulted in an internal server error and/or temporary issue. The client should retry the request.
-
-The following code snippet is an example of how to implement a poll trigger.
+O trecho de código a seguir é um exemplo de como implementar um gatilho de sondagem.
 
     // Implement a poll trigger.
     [HttpGet]
@@ -91,35 +90,33 @@ The following code snippet is an example of how to implement a poll trigger.
         }
     }
 
-To test this poll trigger, follow these steps:
+Para testar esse gatilho de sondagem, siga estas etapas:
 
-1. Deploy the API App with an authentication setting of **public anonymous**.
-2. Call the **touch** operation to touch a file. The following image shows a sample request via Postman.
-   ![Call Touch Operation via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-3. Call the poll trigger with the **triggerState** parameter set to a time stamp prior to Step #2. The following image shows the sample request via Postman.
-   ![Call Poll Trigger via Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
+1. Implante o Aplicativo de API com uma configuração de autenticação **Público (anônimo)**.
+2. Chame a operação **touch** para tocar em um arquivo. A imagem a seguir mostra um exemplo de solicitação via Postman. ![Operação de toque de chamada via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+3. Chame o gatilho de sondagem com o parâmetro **triggerState** definido como um carimbo de data/hora antes da etapa 2. A imagem a seguir mostra o exemplo de solicitação via Postman. ![Gatilho de sondagem de chamada via Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
-### <a name="push-trigger"></a>Push trigger
+### Gatilho de push
 
-A push trigger is implemented as a regular REST API that pushes notifications to clients who have registered to be notified when specific events fire.
+Um gatilho de push é implementado como uma API REST regular que envia notificações para clientes que se inscreveram para serem notificados quando eventos específicos forem disparados.
 
-The following information regarding the request and response packets illustrate some key aspects of the push trigger contract.
+As informações a seguir sobre os pacotes de solicitação e resposta ilustram alguns aspectos fundamentais do contrato de gatilho de push:
 
-- Request
-    - HTTP method: PUT
-    - Parameters
-        - triggerId: required - Opaque string (such as a GUID) that represents the registration of a push trigger.
-        - callbackUrl: required - URL of the callback to invoke when the event fires. The invocation is a simple POST HTTP call.
-        - API-specific parameters
-- Response
-    - Status code **200** - Request to register client successful.
-    - Status code **4xx** - Request is not valid. The client should not retry the request.
-    - Status code **5xx** - Request has resulted in an internal server error and/or temporary issue. The client should retry the request.
+- Solicitação
+    - Método HTTP: PUT
+    - Parâmetros
+        - triggerId: requerida - cadeia de caracteres opaca (como uma GUID) que representa o registro de um gatilho de push.
+        - callbackUrl: requerida - URL do retorno de chamada a ser invocado quando o evento for acionado. A chamada é uma chamada simples do HTTP POST.
+        - Parâmetros específicos de API
+- Resposta
+    - Código de status **200** - solicitação para registrar o cliente bem-sucedida.
+    - Código de status **4xx** - a solicitação não é válida. O cliente não deve tentar solicitar novamente.
+    - Código de status **5xx** - a solicitação resultou em um erro interno do servidor e/ou em um problema temporário. O cliente deve tentar solicitar novamente.
 - Callback
-    - HTTP method: POST
-    - Request body: Notification content.
+    - Método HTTP: POST
+    - Corpo da solicitação: conteúdo da notificação.
 
-The following code snippet is an example of how to implement a push trigger:
+O trecho de código a seguir é um exemplo de como implementar um gatilho de push:
 
     // Implement a push trigger.
     [HttpPut]
@@ -196,24 +193,21 @@ The following code snippet is an example of how to implement a push trigger:
         }
     }
 
-To test this poll trigger, follow these steps:
+Para testar esse gatilho de sondagem, siga estas etapas:
 
-1. Deploy the API App with an authentication setting of **public anonymous**.
-2. Browse to [http://requestb.in/](http://requestb.in/) to create a RequestBin which will serve as your callback URL.
-3. Call the push trigger with a GUID as **triggerId** and the RequestBin URL as **callbackUrl**.
-   ![Call Push Trigger via Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
-4. Call the **touch** operation to touch a file. The following image shows a sample request via Postman.
-   ![Call Touch Operation via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-5. Check the RequestBin to confirm that the push trigger callback is invoked with property output.
-   ![Call Poll Trigger via Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
+1. Implante o Aplicativo de API com uma configuração de autenticação **Público (anônimo)**.
+2. Navegue até [http://requestb.in/](http://requestb.in/) para criar um RequestBin que servirá como sua URL de retorno de chamada.
+3. Chame o disparador de envio com uma GUID como **triggerId** e a URL RequestBin como **callbackUrl**. ![Gatilho de push de chamada via Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
+4. Chame a operação **touch** para tocar em um arquivo. A imagem a seguir mostra um exemplo de solicitação via Postman. ![Operação de toque de chamada via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+5. Verifique o RequestBin para confirmar que o retorno de chamada do gatilho de push é invocado com a saída da propriedade. ![Gatilho de sondagem de chamada via Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
 
-### <a name="describe-triggers-in-api-definition"></a>Describe triggers in API definition
+### Descrever gatilhos na definição de API
 
-After implementing the triggers and deploying your API app to Azure, navigate to the **API Definition** blade in the Azure preview portal and you'll see that triggers are automatically recognized in the UI, which is driven by the Swagger 2.0 API definition of the API app.
+Depois de implementar os gatilhos e implantar seu aplicativo de API no Azure, navegue até a folha **definição API** no portal de visualização do Azure e você verá que os gatilhos são reconhecidos automaticamente na interface do usuário, que é orientada pela definição de API Swagger 2.0 do aplicativo de API.
 
-![API Definition Blade](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
+![Folha Definição de API](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
 
-If you click the **Download Swagger** button and open the JSON file, you'll see results similar to the following:
+Se você clicar no botão **Baixar Swagger** e abrir o arquivo JSON, você verá resultados semelhantes ao seguinte:
 
     "/api/files/poll/TouchedFiles": {
       "get": {
@@ -230,44 +224,44 @@ If you click the **Download Swagger** button and open the JSON file, you'll see 
       }
     }
 
-The extension property **x-ms-schedular-trigger** is how triggers are described in API definition, and is automatically added by the API app gateway when you request the API definition via the gateway if the request to one of the following criteria. (You can also add this property manually.)
+A propriedade de extensão **x-ms-schedular-trigger** é como os gatilhos são descritos na definição de API, e é adicionada automaticamente pelo gateway de aplicativo de API quando você solicita a definição de API por meio do gateway se a solicitação corresponde a um dos critérios a seguir. (Você pode também adicionar essa propriedade manualmente.)
 
-- Poll trigger
-    - If the HTTP method is **GET**.
-    - If the **operationId** property contains the string **trigger**.
-    - If the **parameters** property includes a parameter with a **name** property set to **triggerState**.
-- Push trigger
-    - If the HTTP method is **PUT**.
-    - If the **operationId** property contains the string **trigger**.
-    - If the **parameters** property includes a parameter with a **name** property set to **triggerId**.
+- Gatilho de sondagem
+    - Se o método HTTP é **GET**.
+    - Se a propriedade **operationId** contém a cadeia de caracteres **trigger**.
+    - Se a propriedade **parameters** inclui um parâmetro com uma propriedade **name** definida como **triggerState**.
+- Gatilho de push
+    - Se o método HTTP é **PUT**.
+    - Se a propriedade **operationId** contém a cadeia de caracteres **trigger**.
+    - Se a propriedade **parameters** inclui um parâmetro com uma propriedade **name** definida como **triggerId**.
 
-## <a name="use-api-app-triggers-in-logic-apps"></a>Use API app triggers in Logic apps
+## Usar gatilhos de aplicativo de API em aplicativos lógicos
 
-### <a name="list-and-configure-api-app-triggers-in-the-logic-apps-designer"></a>List and configure API app triggers in the Logic apps designer
+### Listar e configurar gatilhos de aplicativo de API no designer de aplicativos lógicos
 
-If you create a Logic app in the same resource group as the API app, you will be able to add it to the designer canvas simply by clicking it. The following images illustrate this:
+Se você criar um aplicativo lógico no mesmo grupo de recursos que o aplicativo de API, você poderá adicioná-la à tela do designer simplesmente clicando nele. As imagens a seguir ilustram isso:
 
-![Triggers in Logic App Designer](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
+![Gatilhos no Designer de Aplicativos Lógicos](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
 
-![Configure Poll Trigger in Logic App Designer](./media/app-service-api-dotnet-triggers/configurepolltriggerinlogicappdesigner.PNG)
+![Configurar o Gatilho de Sondagem no Designer de Aplicativos Lógicos](./media/app-service-api-dotnet-triggers/configurepolltriggerinlogicappdesigner.PNG)
 
-![Configure Push Trigger in Logic App Designer](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
+![Configurar o Gatilho de Push no Designer de Aplicativos Lógicos](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
 
-## <a name="optimize-api-app-triggers-for-logic-apps"></a>Optimize API app triggers for Logic apps
+## Otimizar gatilhos de aplicativo de API para aplicativos lógicos
 
-After you add triggers to an API app, there are a few things you can do to improve the experience when using the API app in a Logic app.
+Depois de adicionar gatilhos a um aplicativo de API, há algumas coisas que você pode fazer para melhorar a experiência ao usar o aplicativo de API em um aplicativo lógico.
 
-For instance, the **triggerState** parameter for poll triggers should be set to the following expression in the Logic app. This expression should evaluate the last invocation of the trigger from the Logic app, and return that value.  
+Por exemplo, o parâmetro **triggerState** para gatilhos sondagem deve ser definido como a expressão a seguir no aplicativo lógico. Essa expressão deve avaliar a última chamada do gatilho pelo aplicativo lógico e retornar esse valor.
 
-    @coalesce(triggers()?.outputs?.body?['triggerState'], '')
+	@coalesce(triggers()?.outputs?.body?['triggerState'], '')
 
-NOTE: For an explanation of the functions used in the expression above, refer to the documentation on [Logic App Workflow Definition Language](https://msdn.microsoft.com/library/azure/dn948512.aspx).
+OBSERVAÇÃO: Para obter uma explicação das funções usadas na expressão acima, consulte a documentação sobre [Linguagem de definição de fluxo de trabalho de aplicativos lógicos](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
-Logic app users would need to provide the expression above for the **triggerState** parameter while using the trigger. It is possible to have this value preset by the Logic app designer through the extension property **x-ms-scheduler-recommendation**.  The **x-ms-visibility** extension property can be set to a value of *internal* so that the parameter itself is not shown on the designer.  The following snippet illustrates that.
+Os usuários de aplicativos lógicos precisariam fornecer a expressão acima para o parâmetro **triggerState** ao usar o gatilho. É possível fazer com que esse valor seja predefinido pelo designer do aplicativo lógico por meio da propriedade de extensão **x-ms-scheduler-recommendation**. A propriedade de extensão **x-ms-visibility** pode ser definida com o um valor *internal* para que o parâmetro em si não seja exibido no designer. O trecho de código a seguir ilustra isso.
 
     "/api/Messages/poll": {
       "get": {
-        "operationId": "Messages_NewMessageTrigger",
+	    "operationId": "Messages_NewMessageTrigger",
         "parameters": [
           {
             "name": "triggerState",
@@ -283,11 +277,11 @@ Logic app users would need to provide the expression above for the **triggerStat
       }
     }
 
-For push triggers, the **triggerId** parameter must uniquely identify the Logic app. A recommended best practice is to set this property to the name of the workflow by using the following expression:
+Para gatilhos de envio, o parâmetro **triggerId** deve identificar o aplicativo lógico de modo único. Uma prática recomendada é definir essa propriedade como o nome do fluxo de trabalho, usando a seguinte expressão:
 
     @workflow().name
 
-Using the **x-ms-scheduler-recommendation** and **x-ms-visibility** extension properties in its API definiton, the API app can convey to the Logic app designer to automatically set this expression for the user.
+Usando as propriedades de extensão **x-ms-scheduler-recommendation** e **x-ms-visibility** em sua definição de API, o aplicativo de API pode transmitir ao designer de aplicativos lógicos uma instrução para definir automaticamente essa expressão para o usuário.
 
         "parameters":[  
           {  
@@ -300,13 +294,13 @@ Using the **x-ms-scheduler-recommendation** and **x-ms-visibility** extension pr
           },
 
 
-### <a name="add-extension-properties-in-api-defintion"></a>Add extension properties in API defintion
+### Adicionar propriedades de extensão na definição de API
 
-Additional metadata information - such as the extension properties **x-ms-scheduler-recommendation** and **x-ms-visibility** - can be added in the API defintion in one of two ways: static or dynamic.
+Informações adicionais de metadados - como as propriedades de extensão **x-ms-scheduler-recommendation** e **x-ms-visibility** -podem ser adicionadas à definição de API de dois modos: estáticos ou dinâmicos.
 
-For static metadata, you can directly edit the */metadata/apiDefinition.swagger.json* file in your project and add the properties manually.
+Para metadados estáticos, você pode editar diretamente o arquivo */metadata/apiDefinition.swagger.json* em seu projeto e adicionar as propriedades manualmente.
 
-For API apps using dynamic metadata, you can edit the SwaggerConfig.cs file to add an operation filter which can add these extensions.
+Para aplicativos de API usando metadados dinâmicos, você pode editar o arquivo SwaggerConfig.cs para adicionar um filtro de operação que possa adicionar essas extensões.
 
     GlobalConfiguration.Configuration 
         .EnableSwagger(c =>
@@ -317,7 +311,7 @@ For API apps using dynamic metadata, you can edit the SwaggerConfig.cs file to a
             }
 
 
-The following is an example of how this class can be implemented to facilitate the dynamic metadata scenario.
+Este é um exemplo de como essa classe pode ser implementada para facilitar o cenário de metadados dinâmicos.
 
     // Add extension properties on the triggerState parameter
     public class TriggerStateFilter : IOperationFilter
@@ -348,8 +342,4 @@ The following is an example of how this class can be implemented to facilitate t
     }
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

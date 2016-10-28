@@ -1,104 +1,97 @@
 <properties
-    pageTitle="Hybrid Identity: Directory integration tools comparison | Microsoft Azure"
-    description="This is page provides a comprehensive table that compares the various directory integration tools that can be used for directory integration."
-    services="active-directory"
-    documentationCenter=""
-    authors="billmath"
-    manager="femila"
-    editor="curtand"/>
+	pageTitle="Identidade Híbrida: comparação de ferramentas de integração de diretório | Microsoft Azure"
+	description="Esta é a página que fornece uma tabela abrangente que compara as diversas ferramentas de integração de diretório que podem ser usadas para a integridade de diretório."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="femila"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/08/2016"
-    ms.author="billmath"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
+# Comparação de ferramentas de integração de diretório da Identidade Híbrida
 
-# <a name="hybrid-identity-directory-integration-tools-comparison"></a>Hybrid Identity directory integration tools comparison
-
-Over the years the directory integration tools have grown and evolved.  This document is to help provide a consolidated view of these tools and a comparison of the features that are available in each.
+Ao longo dos anos, as ferramentas de integração de diretório cresceram e evoluíram. Este documento tem o objetivo de ajudar a fornecer uma visão consolidada dessas ferramentas e uma comparação dos recursos que estão disponíveis em cada uma.
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
->[AZURE.NOTE] Azure AD Connect incorporates the components and functionality previously released as Dirsync and AAD Sync. These tools are no longer being released individually, and all future improvements will be included in updates to Azure AD Connect, so that you always know where to get the most current functionality.
+>[AZURE.NOTE] O Azure AD Connect incorpora componentes e funcionalidades lançados anteriormente como Dirsync e AAD Sync. Essas ferramentas não são mais lançadas individualmente e todas as melhorias futuras serão incluídas nas atualizações do Azure AD Connect, para que você sempre saiba onde obter a funcionalidade mais atual.
 >
->DirSync and Azure AD Sync are deprecated. More information can be found in [here](active-directory-aadconnect-dirsync-deprecated.md).
+>DirSync e Azure AD Sync foram preteridos. Mais informações podem ser encontradas [aqui](active-directory-aadconnect-dirsync-deprecated.md).
 
 
-Use the following key for each of the tables.
+Use a seguinte chave para cada uma das tabelas.
 
-●  = Available Now  
-FR = Future Release  
-PP = Public Preview  
+● = Disponível Agora FR = Versão Futura PP = Visualização Pública
 
-## <a name="on-premises-to-cloud-synchronization"></a>On-Premises to Cloud Synchronization
+## Local para a sincronização de nuvem
 
-| Feature  | Azure Active Directory Connect  | Azure Active Directory Synchronization Services (AAD Sync) | Azure Active Directory Synchronization Tool (DirSync)| Forefront Identity Manager 2010 R2 (FIM) |Microsoft Identity Manager 2016 (MIM)|
+| Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure (sincronização do AAD) | Ferramenta de sincronização do Active Directory do Azure (DirSync)| O Forefront Identity Manager 2010 R2 (FIM) |Microsoft Identity Manager 2016 (MIM)|
 | :-------- |:--------:|:--------:|:--------:|:--------:|:--------:
-| Connect to single on-premises AD forest | ● | ● | ● | ● |● |
-| Connect to multiple on-premises AD forests |●  | ● |  | ● |● |
-| Connect to multiple on-premises Exchange Orgs | ● |  |  |  | |
-| Connect to single on-premises LDAP directory | FR |  |  | ● |● |
-| Connect to multiple on-premises LDAP directories |FR  |  |  | ● |● |
-| Connect to on-premises AD and on-premises LDAP directories |FR  |  |  | ● |● |
-| Connect to custom systems (i.e. SQL, Oracle, MySQL, etc.) | FR |  |  | ● |● |
-| Synchronize customer defined attributes (directory extensions) | ● |  |  |  |  |
-|Connect to on-premises HR (i.e., SAP, Oracle eBusiness,PeopleSoft)| FR |  |  | ● |● |
-|Supports FIM synchronization rules and connectors for provisioning to on-premises systems.|  |  |  | ● |● |
+| Conectar-se a única floresta do AD local | ● | ● | ● | ● |● |
+| Conectar-se a várias florestas do AD local |● | ● | | ● |● |
+| Conectar-se a várias organizações de Exchange local | ● | | | | |
+| Conectar-se a um único diretório LDAP local | FR | | | ● |● |
+| Conectar-se a vários diretórios LDAP local |FR | | | ● |● |
+| Conectar-se a diretórios AD locais e LDAP locais |FR | | | ● |● |
+| Conecte-se aos sistemas personalizados (por exemplo, SQL, Oracle, MySQL, etc.) | FR | | | ● |● |
+| Sincronize atributos definido pelo cliente (extensões de diretório) | ● | | | | |
+|Conectar-se ao RH local (isto é, SAP, Oracle eBusiness,PeopleSoft)| FR | | | ● |● |
+|Oferece suporte a regras de sincronização do FIM e conectores para provisionamento para os sistemas locais.| | | | ● |● |
 
-## <a name="cloud-to-on-premises-synchronization"></a>Cloud to On-Premises Synchronization
+## Nuvem para sincronização no local
 
-| Feature  | Azure Active Directory Connect  | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) |Microsoft Identity Manager 2016 (MIM)|
+| Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure | Ferramenta de sincronização do Active Directory do Azure (DirSync) | O Forefront Identity Manager 2010 R2 (FIM) |Microsoft Identity Manager 2016 (MIM)|
 | :-------- |:--------:|:--------:|:--------:|:--------:|:--------:
-| Writeback of devices | ● |  | ● |  ||
-| Attribute writeback (for Exchange hybrid deployment ) | ● | ● | ● | ● |● |
-| Writeback of users and groups objects |  ●|  | |  ||
-| Writeback of passwords (from self-service password reset (SSPR) and password change) |  ● | ● |  |  ||
+| Write-back de dispositivos | ● | | ● | ||
+| Write-back de atributo (para implantação híbrida do Exchange) | ● | ● | ● | ● |● |
+| Write-back de objetos de usuários e grupos | ●| | | ||
+| Write-back de senhas (de redefinição de senha de autoatendimento (SSPR) e alteração de senha) | ● | ● | | ||
 
 
 
-## <a name="authentication-feature-support"></a>Authentication Feature Support
+## Suporte ao recurso de autenticação
 
-| Feature  | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) |Microsoft Identity Manager 2016 (MIM)|
+| Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure | Ferramenta de sincronização do Active Directory do Azure (DirSync) | O Forefront Identity Manager 2010 R2 (FIM) |Microsoft Identity Manager 2016 (MIM)|
 | :-------- |:--------:|:--------:|:--------:|:--------:|:--------:
-| Password Sync for single on-premises AD forest | ● | ● | ● |  ||
-| Password Sync for multiple on-premises AD forests |  ●| ● |  |  ||
-| Single Sign-on with Federation | ● | ● | ● | ● |● |
-| Writeback of passwords (from SSPR and password change) |●  | ● |  |  ||
+| Sincronização de senha para a floresta única do AD local | ● | ● | ● | ||
+| Sincronização de senha para várias florestas do AD local | ●| ● | | ||
+| Logon único com federação | ● | ● | ● | ● |● |
+| Write-back de senhas (de alteração SSPR e senha) |● | ● | | ||
 
 
 
-## <a name="set-up-and-installation"></a>Set-up and Installation
+## Instalação e configuração
 
-| Feature  | Azure Active Directory Connect  | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Microsoft Identity Manager 2016 (MIM) |
+| Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure | Ferramenta de sincronização do Active Directory do Azure (DirSync) | Microsoft Identity Manager 2016 (MIM) |
 | :-------- |:--------:|:--------:|:--------:|:--------:
-| Supports installation on a Domain Controller | ● | ● | ● |  |
-| Supports installation using SQL Express | ● | ● | ● |  |
-| Easy upgrade from DirSync |● |  |  |  |
-| Localization of Admin UX to Windows Server languages | ● | ● | ● |  |
-|Localization of end user UX to Windows Server languages| |  |  |● |
-| Support for Windows Server 2008 and Windows Server 2008 R2 | ● for Sync, No for federation| ● | ●  | ● |
-| Support for Windows Server 2012 and Windows Server 2012 R2 | ● | ● | ● | ● |
+| Oferece suporte à instalação em um controlador de domínio | ● | ● | ● | |
+| Oferece suporte à instalação usando o SQL Express | ● | ● | ● | |
+| Atualização fácil de DirSync |● | | | |
+| Localização do UX do Administrador para linguagens do Windows Server | ● | ● | ● | |
+|Localização do UX do usuário final para linguagens do Windows Server| | | |● |
+| Suporte para Windows Server 2008 e Windows Server 2008 R2 | ● para sincronização, não para federação| ● | ● | ● |
+| Suporte para o Windows Server 2012 e Windows Server 2012 R2 | ● | ● | ● | ● |
 
-## <a name="filtering-and-configuration"></a>Filtering and Configuration
+## Filtragem e configuração
 
-Feature  | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM)| Microsoft Identity Manager 2016 (MIM)
+Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure | Ferramenta de sincronização do Active Directory do Azure (DirSync) | O Forefront Identity Manager 2010 R2 (FIM)| Microsoft Identity Manager 2016 (MIM)
 :-------- |:--------:|:--------:|:--------:|:--------:|:--------:|
-Filter on Domains and Organizational Units | ● | ● | ● | ●  | ●
-Filter on objects’ attribute values | ● | ● | ● | ●| ●
-Allow minimal set of attributes to be synchronized (MinSync) | ● | ● |  ||
-Allow different service templates to be applied for attribute flows |●  | ● |  ||
-Allow removing attributes from flowing from AD to Azure AD | ● | ● |  |  |
-Allow advanced customization for attribute flows | ● | ● |  | ●  | ●
+Filtrar em domínios e unidades organizacionais | ● | ● | ● | ● | ●
+Filtrar os valores de atributo de objetos | ● | ● | ● | ●| ●
+Permitir que um conjunto mínimo de atributos seja sincronizado (MinSync) | ● | ● | ||
+Permitir que os modelos de serviço diferentes a sejam aplicados para fluxos de atributo |● | ● | ||
+Permitir a remoção de atributos do fluxo do AD para o AD do Azure | ● | ● | | |
+Permitir a personalização avançada para fluxos de atributo | ● | ● | | ● | ●
 
-## <a name="next-steps"></a>Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+## Próximas etapas
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

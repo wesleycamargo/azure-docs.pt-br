@@ -1,145 +1,144 @@
 <properties
-    pageTitle="Azure AD v2.0 iOS App | Microsoft Azure"
-    description="How to build an iOS app that signs in users with both personal Microsoft account and work or school accounts by using third-party libraries."
-    services="active-directory"
-    documentationCenter=""
-    authors="brandwe"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Aplicativo iOS do Azure AD v2.0 | Microsoft Azure"
+	description="Como criar um aplicativo iOS que conecte usuários com a conta pessoal e as contas corporativas ou de estudante da Microsoft usando bibliotecas de terceiros."
+	services="active-directory"
+	documentationCenter=""
+	authors="brandwe"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="mobile-ios"
-    ms.devlang="objective-c"
-    ms.topic="article"
-    ms.date="06/28/2016"
-    ms.author="brandwe"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/28/2016"
+	ms.author="brandwe"/>
 
+# Adicionar entrada a um aplicativo iOS usando uma biblioteca de terceiros com a API do Graph usando o ponto de extremidade v2.0
 
-# <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v2.0-endpoint"></a>Add sign-in to an iOS app using a third-party library with Graph API using the v2.0 endpoint
+A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e OpenID Connect. Os desenvolvedores podem usar qualquer biblioteca desejada para integrar aos nossos serviços. Para ajudar os desenvolvedores a usar nossa plataforma com outras bibliotecas, escrevemos alguns guias passo a passo como este para demonstrar como configurar bibliotecas de terceiros que se conectam à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementa [a especificação RFC6749 do OAuth2](https://tools.ietf.org/html/rfc6749) pode se conectar à plataforma de identidade da Microsoft.
 
-The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. Developers can use any library they want to integrate with our services. To help developers use our platform with other libraries, we've written a few walkthroughs like this one to demonstrate how to configure third-party libraries to connect to the Microsoft identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) can connect to the Microsoft identity platform.
+Com o aplicativo que esse passo a passo cria, os usuários podem entrar na respectiva organização e pesquisar outros na organização usando a API do Graph.
 
-With the application that this walkthrough creates, users can sign in to their organization and then search for others in their organization by using the Graph API.
-
-If you're new to OAuth2 or OpenID Connect, much of this sample configuration may not make sense to you. We recommend that you read  [v2.0 Protocols - OAuth 2.0 Authorization Code Flow](active-directory-v2-protocols-oauth-code.md) for background.
+Se ainda não conhece o OAuth2 ou o OpenID Connect, grande parte desta configuração de exemplo pode não fazer muito sentido para você. Recomendamos ler o artigo [Protocolos v 2.0 – Fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md) para saber mais.
 
 
 > [AZURE.NOTE]
-    Some features of our platform that do have an expression in the OAuth2 or OpenID Connect standards, such as Conditional Access and Intune policy management, require you to use our open source Microsoft Azure Identity Libraries.
+    Alguns recursos da nossa plataforma que possuem uma expressão nos padrões OAuth2 ou OpenID Connect, como o Acesso Condicional e o gerenciamento de políticas do Intune, exigem que você use nossas Bibliotecas de Identidade do Microsoft Azure de software livre.
 
-The v2.0 endpoint does not support all Azure Active Directory scenarios and features.
+O ponto de extremidade v2.0 não dá suporte a todos os cenários e recursos do Azure Active Directory.
 
 > [AZURE.NOTE]
-    To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+    Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
 
-## <a name="download-code-from-github"></a>Download code from GitHub
-The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) or clone the skeleton:
+## Baixar o código do GitHub
+O código para este tutorial é mantido [no GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2). Para acompanhar, você pode [baixar o esqueleto do aplicativo como um .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) ou clonar o esqueleto:
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
 ```
 
-You can also just download the sample and get started right away:
+Você também pode apenas baixar o exemplo e começar imediatamente:
 
 ```
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
 ```
 
-## <a name="register-an-app"></a>Register an app
-Create a new app at the [Application registration portal](https://apps.dev.microsoft.com), or follow the detailed steps at  [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).  Make sure to:
+## Registrar um aplicativo
+Crie um novo aplicativo no [Portal de registro de aplicativos](https://apps.dev.microsoft.com) ou siga as etapas detalhadas em [Como registrar um aplicativo com o ponto de extremidade v 2.0](active-directory-v2-app-registration.md). Não se esqueça de:
 
-- Copy the **Application Id** that's assigned to your app because you'll need it soon.
-- Add the **Mobile** platform for your app.
-- Copy the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
+- Copiar a **ID do Aplicativo** atribuída ao seu aplicativo, pois você precisará dela em breve.
+- Adicione a plataforma **Móvel** de seu aplicativo.
+- Copiar o **URI de redirecionamento** do portal. Você deve usar o valor padrão de `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## <a name="download-the-third-party-nxoauth2-library-and-create-a-workspace"></a>Download the third-party NXOAuth2 library and create a workspace
+## Baixar a biblioteca de terceiros NXOAuth2 e criar um espaço de trabalho
 
-For this walkthrough, you will use the OAuth2Client from GitHub, which is an OAuth2 library for Mac OS X and iOS (Cocoa and Cocoa touch). This library is based on draft 10 of the OAuth2 spec. It implements the native application profile and supports the authorization endpoint of the user. These are all the things you'll need to integrate with the Microsoft identity platform.
+Neste passo a passo, você usará o OAuth2Client do GitHub, que é uma biblioteca do OAuth2 para Mac OS X e iOS (Cocoa e Cocoa touch). Essa biblioteca baseia-se no rascunho 10 da especificação OAuth2. Ela implementa o perfil de aplicativo nativo e dá suporte ao ponto de extremidade de autorização do usuário. Isso é tudo de que você precisa para a integração à plataforma de identidade da Microsoft.
 
-### <a name="add-the-library-to-your-project-by-using-cocoapods"></a>Add the library to your project by using CocoaPods
+### Adicionar a biblioteca ao seu projeto usando o CocoaPods
 
-CocoaPods is a dependency manager for Xcode projects. It manages the previous installation steps automatically.
+O CocoaPods é um gerenciador de dependência para projetos do Xcode. Ele gerencia automaticamente as etapas de instalação anteriores.
 
 ```
 $ vi Podfile
 ```
-1. Add the following to this podfile:
+1. Adicione o seguinte a esse podfile:
 
-    ```
-     platform :ios, '8.0'
+	```
+	 platform :ios, '8.0'
 
-     target 'QuickStart' do
+	 target 'QuickStart' do
 
-     pod 'NXOAuth2Client'
+	 pod 'NXOAuth2Client'
 
-     end
-    ```
+	 end
+	```
 
-2. Load the podfile by using CocoaPods. This will create a new Xcode workspace that you will load.
+2. Carregue o podfile usando o CocoaPods. Isso criará um novo espaço de trabalho Xcode que será carregado.
 
-    ```
-    $ pod install
-    ...
-    $ open QuickStart.xcworkspace
-    ```
+	```
+	$ pod install
+	...
+	$ open QuickStart.xcworkspace
+	```
 
-## <a name="explore-the-structure-of-the-project"></a>Explore the structure of the project
+## Explorar a estrutura do projeto
 
-The following structure is set up for our project in the skeleton:
+Temos a seguinte estrutura configurada para nosso projeto no esqueleto:
 
-- A Master View with a UPN Search
-- A Detail View for the data about the selected user
-- A Login View where a user can sign in to the app to query the graph
+- Um modo de exibição mestre com uma pesquisa UPN
+- Uma Exibição de Detalhes para os dados sobre o usuário selecionado
+- Um Modo de Exibição de Logon onde um usuário pode se conectar ao aplicativo para consultar o gráfico
 
-We will move to various files in the skeleton to add authentication. Other parts of the code, such as the visual code, do not pertain to identity but are provided for you.
+Passaremos por diversos arquivos no esqueleto para adicionar autenticação. Outras partes do código, como o código visual, não pertencem à identidade, mas são fornecidas para você.
 
-## <a name="set-up-the-settings.plst-file-in-the-library"></a>Set up the settings.plst file in the library
+## Configurar o arquivo settings.plst na biblioteca
 
--   In the QuickStart project, open the `settings.plist` file. Replace the values of the elements in the section to reflect the values that you used in the Azure portal. Your code will reference these values whenever it uses the Active Directory Authentication Library.
-    -   The `clientId` is the client ID of your application that you copied from the portal.
-    -   The `redirectUri` is the redirect URL that the portal provided.
+-	No projeto Início rápido, abra o arquivo `settings.plist`. Substitua os valores dos elementos na seção para refletir os valores que você usou no Portal do Azure. Seu código fará referência a esses valores sempre que ele usar a Biblioteca de Autenticação do Active Directory.
+    -	O `clientId` é a ID do cliente do seu aplicativo que você copiou do portal.
+    -	O `redirectUri` é a URL de redirecionamento fornecida pelo portal.
 
-## <a name="set-up-the-nxoauth2client-library-in-your-loginviewcontroller"></a>Set up the NXOAuth2Client library in your LoginViewController
+## Configurar a biblioteca NXOAuth2Client no seu LoginViewController
 
-The NXOAuth2Client library requires some values to get set up. After you complete that task, you can use the acquired token to call the Graph API. Because `LoginView` will be called any time we need to authenticate, it makes sense to put configuration values in to that file.
+A biblioteca NXOAuth2Client requer alguns valores para sua configuração. Depois de concluir essa tarefa, você poderá usar o token obtido para chamar a API do Graph. Como `LoginView` será chamado sempre que você precisar autenticar, faz sentido colocar os valores de configuração nesse arquivo.
 
-- Let's add some values to the  `LoginViewController.m` file to set the context for authentication and authorization. Details about the values follow the code.
+- Vamos adicionar alguns valores ao arquivo `LoginViewController.m` para definir o contexto para autenticação e autorização. Os detalhes sobre os valores estão abaixo do código.
 
-    ```objc
-    NSString *scopes = @"openid offline_access User.Read";
-    NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
-    NSString *loginURL = @"https://login.microsoftonline.com/common/login";
-    NSString *bhh = @"urn:ietf:wg:oauth:2.0:oob?code=";
-    NSString *tokenURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/token";
-    NSString *keychain = @"com.microsoft.azureactivedirectory.samples.graph.QuickStart";
-    static NSString * const kIDMOAuth2SuccessPagePrefix = @"session_state=";
-    NSURL *myRequestedUrl;
-    NSURL *myLoadedUrl;
-    bool loginFlow = FALSE;
-    bool isRequestBusy;
-    NSURL *authcode;
-    ```
+	```objc
+	NSString *scopes = @"openid offline_access User.Read";
+	NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
+	NSString *loginURL = @"https://login.microsoftonline.com/common/login";
+	NSString *bhh = @"urn:ietf:wg:oauth:2.0:oob?code=";
+	NSString *tokenURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/token";
+	NSString *keychain = @"com.microsoft.azureactivedirectory.samples.graph.QuickStart";
+	static NSString * const kIDMOAuth2SuccessPagePrefix = @"session_state=";
+	NSURL *myRequestedUrl;
+	NSURL *myLoadedUrl;
+	bool loginFlow = FALSE;
+	bool isRequestBusy;
+	NSURL *authcode;
+	```
 
-Let's look at details about the code.
+Vamos examinar os detalhes do código.
 
-The first string is for `scopes`.  The `User.Read` value allows you to read the basic profile of the signed in user.
+A primeira cadeia de caracteres é para `scopes`. O valor `User.Read` permite que você leia o perfil básico do usuário conectado.
 
-You can learn more about all the available scopes at [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes).
+É possível saber mais sobre todos os escopos disponíveis em [Escopos de permissão do Microsoft Graph](https://graph.microsoft.io/docs/authorization/permission_scopes).
 
-For `authURL`, `loginURL`, `bhh`, and `tokenURL`, you should use the values provided previously. If you use the open source Microsoft Azure Identity Libraries, we pull this data down for you by using our metadata endpoint. We've done the hard work of extracting these values for you.
+Para `authURL`, `loginURL`, `bhh` e `tokenURL`, você deve usar os valores fornecidos anteriormente. Se usar as Bibliotecas de Identidades do Microsoft Azure de software livre, obteremos esses dados para você usando nosso ponto de extremidade de metadados. Fizemos o trabalho pesado de extrair esses valores para você.
 
-The `keychain` value is the container that the NXOAuth2Client library will use to create a keychain to store your tokens. If you'd like to get single sign-on (SSO) across numerous apps, you can specify the same keychain in each of your applications and request the use of that keychain in your Xcode entitlements. This is explained in the Apple documentation.
+O valor `keychain` é o contêiner que a biblioteca NXOAuth2Client usará na criação de um conjunto de chaves para armazenar seus tokens. Se quiser obter SSO (logon único) entre vários aplicativos, você poderá especificar o mesmo conjunto de chaves em cada um dos aplicativos, bem como solicitar o uso desse conjunto de chaves em seus direitos de XCode. Isso é explicado na documentação da Apple.
 
-The rest of these values are required to use the library and create places for you to carry values to the context.
+O restante desses valores é necessário para usar a biblioteca e criar locais para transmitir valores ao contexto.
 
-### <a name="create-a-url-cache"></a>Create a URL cache
+### Criar um cache de URL
 
-Inside `(void)viewDidLoad()`, which is always called after the view is loaded, the following code primes a cache for our use.
+Dentro de `(void)viewDidLoad()`, que sempre é chamado depois que o modo de exibição é carregado, o código a seguir inicia um cache para nosso uso.
 
-Add the following code:
+Adicione os códigos a seguir:
 
 ```objc
 - (void)viewDidLoad {
@@ -155,9 +154,9 @@ Add the following code:
 }
 ```
 
-### <a name="create-a-webview-for-sign-in"></a>Create a WebView for sign-in
+### Criar um Modo de Exibição da Web para conexão
 
-A WebView can prompt the user for additional factors like SMS text message (if configured) or return error messages to the user. Here you'll set up the WebView and then later write the code to handle the callbacks that will happen in the WebView from the identity services.
+Um Modo de Exibição da Web pode solicitar ao usuário fatores adicionais, como mensagem de texto SMS (se configurada), ou retornar mensagens de erro ao usuário. Aqui, vamos configurar o Modo de Exibição da Web e, posteriormente, escreveremos o código para manipular os retornos de chamada que ocorrerão no Modo de Exibição da Web dos serviços de identidade.
 
 ```objc
 -(void)requestOAuth2Access {
@@ -172,9 +171,9 @@ A WebView can prompt the user for additional factors like SMS text message (if c
 }
 ```
 
-### <a name="override-the-webview-methods-to-handle-authentication"></a>Override the WebView methods to handle authentication
+### Substituir os métodos do Modo de Exibição da Web para manipular a autenticação
 
-To tell the WebView what happens when a user needs to sign in as discussed previously, you can paste the following code.
+Para informar ao Modo de Exibição da Web o que acontecerá quando um usuário precisa se conectar, conforme discutido anteriormente, você pode colar o código a seguir.
 
 ```objc
 - (void)resolveUsingUIWebView:(NSURL *)URL {
@@ -226,9 +225,9 @@ To tell the WebView what happens when a user needs to sign in as discussed previ
 }
 ```
 
-### <a name="write-code-to-handle-the-result-of-the-oauth2-request"></a>Write code to handle the result of the OAuth2 request
+### Escrever código para manipular o resultado da solicitação de OAuth2
 
-The following code will handle the redirectURL that returns from the WebView. If authentication wasn't successful, the code will try again. Meanwhile, the library will provide the error that you can see in the console or handle asynchronously.
+O código a seguir vai manipular a URL de redirecionamento que retorna do Modo de Exibição da Web. Se a autenticação não foi bem-sucedida, o código tentará novamente. Enquanto isso, a biblioteca fornecerá o erro que você pode ver no console ou manipular de modo assíncrono.
 
 ```objc
 - (void)handleOAuth2AccessResult:(NSString *)accessResult {
@@ -247,9 +246,9 @@ The following code will handle the redirectURL that returns from the WebView. If
 }
 ```
 
-### <a name="set-up-the-oauth-context-(called-account-store)"></a>Set up the OAuth Context (called account store)
+### Configurar o contexto de OAuth (chamado repositório de conta)
 
-Here you can call `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:tokenURL:redirectURL:forAccountType:]` on the shared account store for each service that you want the application to be able to access. The account type is a string that is used as an identifier for a certain service. Because you are accessing the Graph API, the code refers to it as `"myGraphService"`. You then set up an observer that will tell you when anything changes with the token. After you get the token, you return the user back to the `masterView`.
+Aqui, você pode chamar `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:tokenURL:redirectURL:forAccountType:]` no repositório de conta compartilhado para cada serviço que deseja que o aplicativo possa acessar. O tipo de conta é uma cadeia de caracteres usada como um identificador para um determinado serviço. Como você está acessando a API do Graph, o código se refere a ele como `"myGraphService"`. Em seguida, configure um observador que informará quando algo mudar no token. Assim que obtiver o token, você retornará o usuário de volta para `masterView`.
 
 
 
@@ -296,18 +295,18 @@ Here you can call `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:to
 }
 ```
 
-## <a name="set-up-the-master-view-to-search-and-display-the-users-from-the-graph-api"></a>Set up the Master View to search and display the users from the Graph API
+## Configurar o Modo de Exibição Mestre para pesquisar e exibir os usuários da API do Graph
 
-A Master-View-Controller (MVC) app that displays the returned data in the grid is beyond the scope of this walkthrough, and many online tutorials explain how to build one. All this code is in the skeleton file. However, you do need to deal with a few things in this MVC application:
+Um aplicativo MVC (Master-View-Controller) que exibe os dados retornados na grade está além do escopo deste passo a passo, e muitos tutoriais online explicam como criar um. Todo esse código está no arquivo de esqueleto. No entanto, você precisa realizar algumas tarefas nesse aplicativo MVC:
 
-* Intercept when a user types something in the search field
-* Provide an object of data back to the MasterView so it can display the results in the grid
+* Interceptar quando um usuário digitar algo no campo de pesquisa
+* Fornecer um objeto de dados de volta para o MasterView para poder exibir os resultados na grade
 
-We'll do those below.
+Faremos isso a seguir.
 
-### <a name="add-a-check-to-see-if-you're-logged-in"></a>Add a check to see if you're logged in
+### Adicionar uma verificação para ver se você se conectou
 
-The application does little if the user is not signed in, so it's smart to check if there is already a token in the cache. If not, you redirect to the LoginView for the user to sign in. If you recall, the best way to do actions when a view loads is to use the `viewDidLoad()` method that Apple provides us.
+O aplicativo fará muito pouco se o usuário não estiver conectado. Portanto, é uma boa ideia verificar se já há um token no cache. Caso contrário, redirecione para o Modo de Exibição de Logon para que o usuário se conecte. Como você sabe, a melhor maneira de realizar ações quando um modo de exibição é carregado é usar o método `viewDidLoad()` fornecido pela Apple.
 
 ```objc
 - (void)viewDidLoad {
@@ -327,9 +326,9 @@ The application does little if the user is not signed in, so it's smart to check
         }
 ```
 
-### <a name="update-the-table-view-when-data-is-received"></a>Update the Table View when data is received
+### Atualizar o Modo de Exibição de Tabela após o recebimento de dados
 
-When the Graph API returns data, you need to display the data. For simplicity, here is all the code to update the table. You can just paste the right values in your MVC boilerplate code.
+Quando a API do Graph retorna dados, você precisa exibi-los. Para simplificar, aqui está todo o código para atualizar a tabela. Você pode simplesmente colar os valores corretos em seu código de texto clichê do MVC.
 
 ```objc
 #pragma mark - Table View
@@ -364,9 +363,9 @@ When the Graph API returns data, you need to display the data. For simplicity, h
 
 ```
 
-### <a name="provide-a-way-to-call-the-graph-api-when-someone-types-in-the-search-field"></a>Provide a way to call the Graph API when someone types in the search field
+### Fornecer uma maneira de chamar a API do Graph quando alguém digitar no campo de pesquisa
 
-When a user types a search in the box, you need to shove that over to the Graph API. The `GraphAPICaller` class, which you will build in the following code, separates the lookup functionality from the presentation. For now, let's write the code that feeds any search characters to the Graph API. We do this by providing a method called `lookupInGraph`, which takes the string that we want to search for.
+Quando um usuário digita uma pesquisa na caixa, é preciso transmitir isso para a API do Graph. A classe `GraphAPICaller`, que você criará no código a seguir, separa a funcionalidade de pesquisa da apresentação. Por enquanto, vamos escrever o código que alimenta todos os caracteres de pesquisa na API do Graph. Fazemos isso fornecendo um método chamado `lookupInGraph`, que usa a cadeia de caracteres que queremos pesquisar.
 
 ```objc
 
@@ -403,13 +402,13 @@ if (searchText.length > 0) {
 }
 ```
 
-## <a name="write-a-helper-class-to-access-the-graph-api"></a>Write a Helper class to access the Graph API
+## Escrever uma classe auxiliar para acessar a API do Graph
 
-This is the core of our application. Whereas the rest was inserting code in the default MVC pattern from Apple, here you write code to query the graph as the user types and then return that data. Here's the code, and a detailed explanation follows it.
+Essa é a parte principal do nosso aplicativo. Enquanto o restante estava inserindo código no padrão MVC da Apple, aqui vamos escrever código para consultar o gráfico conforme o usuário digita e retornar os dados. O código está abaixo e uma explicação detalhada vem a seguir.
 
-### <a name="create-a-new-objective-c-header-file"></a>Create a new Objective C header file
+### Criar um novo arquivo de cabeçalho em Objective-C
 
-Name the file `GraphAPICaller.h`, and add the following code.
+Nomeie o arquivo `GraphAPICaller.h` e adicione o código a seguir.
 
 ```objc
 @interface GraphAPICaller : NSObject<NSURLConnectionDataDelegate>
@@ -420,12 +419,12 @@ Name the file `GraphAPICaller.h`, and add the following code.
 @end
 ```
 
-Here you see that a specified method takes a string and returns a completionBlock. This completionBlock, as you may have guessed, will update the table by providing an object with populated data in real time as the user searches.
+Aqui, você vê que um método especificado usa uma cadeia de caracteres e retorna um completionBlock. Este completionBlock, como você já deve ter adivinhado, atualizará a tabela ao fornecer um objeto com os dados populados em tempo real à medida que o usuário pesquisa.
 
 
-### <a name="create-a-new-objective-c-file"></a>Create a new Objective C file
+### Criar um novo arquivo Objective-C
 
-Name the file `GraphAPICaller.m`, and add the following method.
+Nomeie o arquivo `GraphAPICaller.m` e adicione o método a seguir.
 
 ```objc
 +(void) searchUserList:(NSString*)searchString
@@ -495,25 +494,25 @@ Name the file `GraphAPICaller.m`, and add the following method.
 
 ```
 
-Let's go through this method in detail.
+Vamos analisar esse método em detalhes.
 
-The core of this code is in the `NXOAuth2Request`, method which takes the parameters that you've already defined in the settings.plist file.
+A parte principal desse código está no método `NXOAuth2Request`, que usa os parâmetros que você já definiu no arquivo settings.plist.
 
-The first step is to construct the right Graph API call. Because you are calling `/users`, you specify that by appending it to the Graph API resource along with the version. It makes sense to put these in an external settings file because these can change as the API evolves.
+A primeira etapa é construir a chamada correta à da API do Graph. Uma vez que você está chamando `/users`, especifique isso acrescentando-o ao recurso da API do Graph com a versão. Faz sentido colocar tudo em um arquivo de configurações externas, pois eles podem mudar conforme a API evolui.
 
 
 ```objc
 NSString *graphURL = [NSString stringWithFormat:@"%@%@/users", data.graphApiUrlString, data.apiversion];
 ```
 
-Next, you need to specify parameters that you will also provide to the Graph API call. It is *very important* that you do not put the parameters in the resource endpoint because that is scrubbed for all non-URI conforming characters at runtime. All query code must be provided in the parameters.
+Em seguida, é preciso especificar parâmetros que você também fornecerá à chamada da API do Graph. É *muito importante* que você não coloque os parâmetros no ponto de extremidade do recurso, já que ele é removido de todos os caracteres fora de conformidade com o URI no tempo de execução. Todo o código de consulta deve ser fornecido nos parâmetros.
 
 ```objc
 
 NSDictionary* params = [self convertParamsToDictionary:searchString];
 ```
 
-You might notice this calls a `convertParamsToDictionary` method that you haven't written yet. Let's do so now at the end of the file:
+Observe que isso chama um método `convertParamsToDictionary` que você ainda não escreveu. Vamos fazer isso agora no final do arquivo:
 
 ```objc
 +(NSDictionary*) convertParamsToDictionary:(NSString*)searchString
@@ -530,7 +529,7 @@ You might notice this calls a `convertParamsToDictionary` method that you haven'
 }
 
 ```
-Next, let's use the `NXOAuth2Request` method to get data back from the API in JSON format.
+Em seguida, vamos usar o método `NXOAuth2Request` para obtermos dados da API no formato JSON.
 
 ```objc
 NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
@@ -552,7 +551,7 @@ NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
                            NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
 ```
 
-Finally, let's look at how you return the data to the MasterViewController. The data returns as serialized and needs to be deserialized and loaded in an object that the MainViewController can consume. For this purpose, the skeleton has a `User.m/h` file that creates a User object. You populate that User object with information from the graph.
+Por fim, veremos como é possível retornar os dados para o MasterViewController. Os dados são retornados como serializados e precisam ser desserializados e carregados em um objeto que o MainViewController possa consumir. Para essa finalidade, o esqueleto tem um arquivo `User.m/h` que cria um objeto User. Popule esse objeto User com informações do gráfico.
 
 ```objc
                            // We can grab the top most JSON node to get our graph data.
@@ -581,16 +580,12 @@ Finally, let's look at how you return the data to the MasterViewController. The 
 ```
 
 
-## <a name="run-the-sample"></a>Run the sample
+## Execute o exemplo
 
-If you've used the skeleton or followed along with the walkthrough your application should now run. Start the simulator and click **Sign in** to use the application.
+Se você tiver usado o esqueleto ou seguido junto com o passo a passo, seu aplicativo já poderá ser executado. Inicie o simulador e clique em **Entrar** para usar o aplicativo.
 
-## <a name="get-security-updates-for-our-product"></a>Get security updates for our product
+## Obter atualizações de segurança para nosso produto
 
-We encourage you to get notifications of when security incidents occur by visiting the [Security TechCenter](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
+É recomendável obter notificações quando ocorrerem incidentes de segurança visitando a página [Segurança TechCenter](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

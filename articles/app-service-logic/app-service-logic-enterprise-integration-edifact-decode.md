@@ -1,97 +1,93 @@
 <properties 
-    pageTitle="Learn about Enterprise Integration Pack Decode EDIFACT Message Connector | Microsoft Azure App Service | Microsoft Azure" 
-    description="Learn how to use partners with the Enterprise Integration Pack and Logic apps" 
-    services="logic-apps" 
-    documentationCenter=".net,nodejs,java"
-    authors="padmavc" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Saiba mais sobre o conector Decodificar Mensagem EDIFACT do Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
+	description="Saiba como usar parceiros com o Enterprise Integration Pack e aplicativos Lógicos" 
+	services="logic-apps" 
+	documentationCenter=".net,nodejs,java"
+	authors="padmavc" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="logic-apps" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="padmavc"/>
+	ms.service="logic-apps" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/15/2016" 
+	ms.author="padmavc"/>
 
+# Introdução à Decodificar Mensagem EDIFACT
 
-# <a name="get-started-with-decode-edifact-message"></a>Get started with Decode EDIFACT Message
+Valida o EDI e as propriedades específicas de parceiro, gera um documento XML para cada conjunto de transação e gera a confirmação de transação processada.
 
-Validates EDI and partner-specific properties, generates XML document for each transaction set and generates acknowledgment for processed transaction.
+## Criar a conexão
 
-## <a name="create-the-connection"></a>Create the connection
+### Pré-requisitos
 
-### <a name="prerequisites"></a>Prerequisites
+* Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
 
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
+* Uma Conta de Integração é necessária para usar o conector de Decodificar mensagem EDIFACT. Veja os detalhes de como criar uma [Conta de Integração](./app-service-logic-enterprise-integration-create-integration-account.md), [parceiros](./app-service-logic-enterprise-integration-partners.md) e um [contrato EDIFACT](./app-service-logic-enterprise-integration-edifact.md)
 
-* An Integration Account is required to use Decode EDIFACT message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-partners.md) and [EDIFACT agreement](./app-service-logic-enterprise-integration-edifact.md)
+### Conecte-se à opção Decodificar Mensagem EDIFACT usando as seguintes etapas:
 
-### <a name="connect-to-decode-edifact-message-using-the-following-steps:"></a>Connect to Decode EDIFACT Message using the following steps:
+1. [Criar um Aplicativo Lógico](./app-service-logic-create-a-logic-app.md) fornece um exemplo.
 
-1. [Create a Logic App](./app-service-logic-create-a-logic-app.md) provides an example.
+2. Esse conector não tem gatilhos. Use outros gatilhos para iniciar o Aplicativo Lógico, como um gatilho de solicitação. No designer de Aplicativo Lógico, adicione um gatilho e uma ação. Escolha Mostrar APIs gerenciadas da Microsoft na lista suspensa e digite "EDIFACT" na caixa de pesquisa. Escolha Decodificar Mensagem EDIFACT
 
-2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter "EDIFACT" in the search box.  Select Decode EDIFACT Message
+	![pesquisar EDIFACT](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)
+	
+3. Se ainda não tiver criado conexões com a Conta de Integração, você deverá fornecer os detalhes de conexão
 
-    ![search EDIFACT](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)
-    
-3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details
+	![criar uma conta de integração](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage2.png)
 
-    ![create integration account](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage2.png)  
+4. Insira os detalhes da Conta de Integração. As propriedades com um asterisco são obrigatórias
 
-4. Enter the Integration Account details.  Properties with an asterisk are required
+	| Propriedade | Detalhes |
+	| -------- | ------- |
+	| Nome da Conexão * | Digite um nome para a conexão |
+	| Conta de Integração * | Insira o nome da Conta de Integração. Certifique-se de que sua Conta de Integração e que o Aplicativo Lógico estejam no mesmo local do Azure |
 
-  	| Property | Details |
-  	| -------- | ------- |
-  	| Connection Name * | Enter any name for your connection |
-  	| Integration Account * | Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location |
+	Uma vez concluída, os detalhes da conexão se parecerão com estes
 
-    Once complete, your connection details look similar to the following
+	![conta de integração criada](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage3.png)
 
-    ![integration account created](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage3.png)  
+5. Escolha **Criar**
 
-5. Select **Create**
+6. Observe que a conexão foi criada
 
-6. Notice the connection has been created
+	![detalhes da conexão da conta de integração](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage5.png)
 
-    ![integration account connection details](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage5.png)  
+7. Escolha a mensagem do arquivo simples EDIFACT para decodificar
 
-7. Select EDIFACT flat file message to decode
+	![fornecer campos obrigatórios](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage5.png)
 
-    ![provide mandatory fields](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage5.png)  
+## A Decodificação EDIFACT faz o seguinte
 
-## <a name="edifact-decode-does-following"></a>EDIFACT Decode does following
+* Resolve o contrato correspondendo o qualificador e o identificador do remetente com o qualificador e o identificador do receptor
+* Divide diversos intercâmbios em uma única mensagem em mensagens separadas.
+* Valida o envelope no contrato de parceiro comercial
+* Desmonta o intercâmbio.
+* Valida o EDI e as propriedades específicas de parceiro incluem
+	* Validação da estrutura do envelope de intercâmbio.
+	* Validação de esquema do envelope em relação ao esquema de controle.
+	* Validação de esquema dos elementos de dados do conjunto de transações em relação ao esquema de mensagem.
+	* Validação de EDI executadas em elementos de dados do conjunto de transação
+* Verifica se os números de controle de conjunto de intercâmbio, grupo e transações não estão duplicados (se configurados)
+	* Verifica o número de controle de intercâmbio em relação aos intercâmbios recebidos anteriormente.
+	* Verifica o número de controle de grupo em relação a outros números de controle de grupo no intercâmbio.
+	* Verifica o número de controle do conjunto de transações em relação a outros números de controle de conjunto de transações nesse grupo.
+* Gera um documento XML para cada conjunto de transações.
+* Converte o intercâmbio inteiro em XML
+	* Dividir intercâmbio como conjuntos de transação – suspender conjuntos de transações no erro: analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado. Se a validação de um ou mais conjuntos de transações no intercâmbio falhar, a Decodificação EDIFACT suspenderá somente esses conjuntos de transações.
+	* Dividir intercâmbio como conjuntos de transação – suspender intercâmbio no erro: analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado. Se a validação de um ou mais conjuntos de transações do intercâmbio falhar, a Decodificação EDIFACT suspenderá o intercâmbio inteiro.
+	* Preservar intercâmbio - suspender conjuntos de transações no erro: cria um documento XML para o intercâmbio em lote inteiro. A Decodificação EDIFACT suspende somente os conjuntos de transações com falha na validação, enquanto continua processando todos os outros conjuntos de transações
+	* Preservar intercâmbio - suspender intercâmbio no erro: cria um documento XML para o intercâmbio em lote inteiro. Se a validação de um ou mais conjuntos de transações do intercâmbio falhar, a Decodificação EDIFACT suspenderá o intercâmbio inteiro.
+* Gera uma confirmação técnica (controle) e/ou funcional (se configurado).
+	* Uma confirmação técnica ou o CONTRL ACK reporta os resultados de uma verificação sintática do intercâmbio completo recebido.
+	* Uma confirmação funcional confirma aceitar ou rejeitar um intercâmbio recebido ou um grupo
 
-* Resolve the agreement by matching the sender qualifier & identifier and receiver qualifier & identifier
-* Splits multiple interchanges in a single message into separate.
-* Validates the envelope against trading partner agreement
-* Disassembles the interchange.
-* Validates EDI and partner-specific properties includes
-    * Validation of the structure of the interchange envelope.
-    * Schema validation of the envelope against the control schema.
-    * Schema validation of the transaction-set data elements against the message schema.
-    * EDI validation performed on transaction-set data elements
-* Verifies that the interchange, group, and transaction set control numbers are not duplicates (if configured) 
-    * Checks the interchange control number against previously received interchanges. 
-    * Checks the group control number against other group control numbers in the interchange. 
-    * Checks the transaction set control number against other transaction set control numbers in that group.
-* Generates an XML document for each transaction set.
-* Converts the entire interchange to XML 
-    * Split Interchange as transaction sets - suspend transaction sets on error: Parses each transaction set in an interchange into a separate XML document. If one or more transaction sets in the interchange fail validation, then EDIFACT Decode suspends only those transaction sets. 
-    * Split Interchange as transaction sets - suspend interchange on error: Parses each transaction set in an interchange into a separate XML document.  If one or more transaction sets in the interchange fail validation, then EDIFACT Decode suspends the entire interchange.
-    * Preserve Interchange - suspend transaction sets on error: Creates an XML document for the entire batched interchange. EDIFACT Decode suspends only those transaction sets that fail validation, while continuing to process all other transaction sets
-    * Preserve Interchange - suspend interchange on error: Creates an XML document for the entire batched interchange. If one or more transaction sets in the interchange fail validation, then EDIFACT Decode suspends the entire interchange, 
-* Generates a Technical (control) and/or Functional acknowledgment (if configured).
-    * A Technical Acknowledgment or the CONTRL ACK reports the results of a syntactical check of the complete received interchange.
-    * A functional acknowledgment acknowledges accept or reject a received interchange or a group
+## Próximas etapas
 
-## <a name="next-steps"></a>Next steps
+[Saiba mais sobre o Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
 
-[Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

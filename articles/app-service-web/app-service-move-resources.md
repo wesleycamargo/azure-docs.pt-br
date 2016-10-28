@@ -1,34 +1,29 @@
 <properties
-    pageTitle="Move Web App Resources to another Resource Group"
-    description="Describes the scenarios where you can move Web Apps and App Services from one Resource Group to another."
-    services="app-service"
-    documentationCenter=""
-    authors="ZainRizvi"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Mover os recursos do aplicativo Web para outro grupo de recursos"
+	description="Descreve os cenários em que você pode mover aplicativos Web e Serviços de Aplicativos de um grupo de recursos para outro."
+	services="app-service"
+	documentationCenter=""
+	authors="ZainRizvi"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/04/2016"
-    ms.author="zarizvi"/>
-    
+	ms.service="app-service"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
+	ms.author="zarizvi"/>
+	
+# Configurações de movimentação com suporte
 
-# <a name="supported-move-configurations"></a>Supported Move Configurations
+Você pode mover os recursos de aplicativo Web do Azure usando a [API de recursos de movimentação ARM](../resource-group-move-resources.md).
 
-You can move Azure Web App resources using the [ARM Move Resources Api](../resource-group-move-resources.md).
+Atualmente, os aplicativos Web do Azure dão suporte para os seguintes cenários de movimentação:
 
-Azure Web Apps currently supports the following move scenarios:
+* Mover todo o conteúdo de um grupo de recursos (aplicativos Web, planos de serviços de aplicativos e certificados) para outro grupo de recursos 
+	* Observação: o grupo de recursos de destino não pode conter nenhum recurso Microsoft.Web nesse cenário
+* Mover aplicativos Web individuais para um grupo de recursos diferente, enquanto ainda os hospeda em seu plano de serviço de aplicativo atual (o plano de serviço de aplicativo permanece no grupo de recursos antigo)
 
-* Moving the entire contents of a resource group (web apps, app service plans, and certificates) to another resource group 
-    * Note: The destination resource group can not contain any Microsoft.Web resources in this scenario
-* Moving individual web apps to a different resource group, while still hosting them in their current app service plan (the app service plan stays in the old resource group)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Manager template for key vault | Microsoft Azure"
-   description="Shows the Resource Manager schema for deploying key vaults through a template."
+   pageTitle="Modelo do Gerenciador de Recursos para o cofre da chave | Microsoft Azure"
+   description="Mostra o esquema do Gerenciador de Recursos para a implantação de cofres da chave por meio de um modelo."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,14 +16,13 @@
    ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
+# Esquema de modelo do cofre da chave
 
-# <a name="key-vault-template-schema"></a>Key vault template schema
+Cria um cofre de chave.
 
-Creates a key vault.
+## Formato de esquema
 
-## <a name="schema-format"></a>Schema format
-
-To create a key vault, add the following schema to the resources section of your template.
+Para criar um cofre da chave, adicione o esquema a seguir à seção de recursos de seu modelo.
 
     {
         "type": "Microsoft.KeyVault/vaults",
@@ -55,60 +54,60 @@ To create a key vault, add the following schema to the resources section of your
         ]
     }
 
-## <a name="values"></a>Values
+## Valores
 
-The following tables describe the values you need to set in the schema.
+As tabelas a seguir descrevem os valores necessários para definir no esquema.
 
-| Name | Value |
+| Nome | Valor |
 | ---- | ---- | 
-| type | Enum<br />Required<br />**Microsoft.KeyVault/vaults**<br /><br />The resource type to create. |
-| apiVersion | Enum<br />Required<br />**2015-06-01** or **2014-12-19-preview**<br /><br />The API version to use for creating the resource. | 
-| name | String<br />Required<br />A name that is unique across Azure.<br /><br />The name of the key vault to create. Consider using the [uniqueString](resource-group-template-functions.md#uniquestring) function with your naming convention to create a unique name, as shown in the example below. |
-| location | String<br />Required<br />A valid region for key vaults. To determine valid regions, see [supported regions](resource-manager-supported-services.md#supported-regions).<br /><br />The region to host the key vault. |
-| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that specifies the type of key vault to create. |
-| resources | Array<br />Optional<br />Permitted values: [Key vault secret resources](resource-manager-template-keyvault-secret.md)<br /><br />Child resources for the key vault. |
+| type | Enum<br />Obrigatório<br />**Microsoft.KeyVault/vaults**<br /><br />O tipo de recurso a ser criado. |
+| apiVersion | Enum<br />Obrigatório<br />**2015-06-01** ou **2014-12-19-preview**<br /><br />A versão da API a ser usada para criar o recurso. | 
+| name | Cadeia de caracteres<br />Obrigatório<br />Um nome que seja exclusivo no Azure.<br /><br />O nome do cofre de chaves a ser criado. Considere usar a função [uniqueString](resource-group-template-functions.md#uniquestring) com sua convenção de nomenclatura para criar um nome exclusivo, como mostrado no exemplo abaixo. |
+| location | Cadeia de caracteres<br />Obrigatório<br />Uma região válida para cofres de chaves. Para determinar as regiões válidas, consulte as [regiões com suporte](resource-manager-supported-services.md#supported-regions).<br /><br />A região que hospedará o cofre de chaves. |
+| propriedades | Objeto<br />Obrigatório<br />[Objeto properties](#properties)<br /><br />Um objeto que especifica o tipo de cofre de chaves a ser criado. |
+| recursos | Matriz<br />Opcional<br />Valores permitidos: [recursos secretos do cofre de chaves](resource-manager-template-keyvault-secret.md)<br /><br />Recursos filhos do cofre de chaves. |
 
 <a id="properties" />
-### <a name="properties-object"></a>properties object
+### properties object
 
-| Name | Value |
+| Nome | Valor |
 | ---- | ---- | 
-| enabledForDeployment | Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for Virtual Machine or Service Fabric deployment. |
-| enabledForTemplateDeployment | Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for use in Resource Manager template deployments. For more information, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md) |
-| enabledForVolumeEncryption | Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for volume encryption. |
-| tenantId | String<br />Required<br />**Globally-unique identifier**<br /><br />The tenant identifier for the subscription. You can retrieve it with the [Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) PowerShell cmdlet or the **azure account show** Azure CLI command. |
-| accessPolicies | Array<br />Required<br />[accessPolicies object](#accesspolicies)<br /><br />An array of up to 16 objects that specify the permissions for the user or service principal. |
-| sku | Object<br />Required<br />[sku object](#sku)<br /><br />The SKU for the key vault. |
+| enabledForDeployment | Booliano<br />Opcional<br />**true** ou **false**<br /><br />Especifica se o cofre está habilitado para implantação da Máquina Virtual ou do Service Fabric. |
+| enabledForTemplateDeployment | Booliano<br />Opcional<br />**true** ou **false**<br /><br />Especifica se o cofre está habilitado para uso em implantações de modelo do Resource Manager. Para obter mais informações, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md) |
+| enabledForVolumeEncryption | Booliano<br />Opcional<br />**true** ou **false**<br /><br />Especifica se o cofre está habilitado para criptografia de volume. |
+| tenantId | Cadeia de caracteres<br />Obrigatório<br />**Globally-unique identifier**<br /><br />O identificador do locatário para a assinatura. Você pode recuperá-lo com o cmdlet [Get-AzureRMSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) do PowerShell ou o comando **azure account show** da CLI do Azure. |
+| accessPolicies | Matriz<br />Obrigatório<br />[Objeto accessPolicies](#accesspolicies)<br /><br />Uma matriz de até 16 objetos que especificam as permissões do usuário ou da entidade de serviço. |
+| sku | Objeto<br />Obrigatório<br />[Objeto sku](#sku)<br /><br />O SKU do cofre de chaves. |
 
 <a id="accesspolicies" />
-### <a name="properties.accesspolicies-object"></a>properties.accessPolicies object
+### properties.accessPolicies object
 
-| Name | Value |
+| Nome | Valor |
 | ---- | ---- | 
-| tenantId | String<br />Required<br />**Globally-unique identifier**<br /><br />The tenant identifier of the Azure Active Directory tenant containing the **objectId** in this access policy |
-| objectId | String<br />Required<br />**Globally-unique identifier**<br /><br />The object identifier of the Azure Active Directory user or service principal that will have access to the vault. You can retrieve the value from either the [Get-AzureRmADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) or the [Get-AzureRmADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx) PowerShell cmdlets, or the **azure ad user** or **azure ad sp** Azure CLI commands. |
-| permissions | Object<br />Required<br />[permissions object](#permissions)<br /><br />The permissions granted on this vault to the Active Directory object. |
+| tenantId | Cadeia de caracteres<br />Obrigatório<br />**Globally-unique identifier**<br /><br />O identificador do locatário do Azure Active Directory que contém o **objectId** nesta política de acesso |
+| ID do objeto | Cadeia de caracteres<br />Obrigatório<br />**Globally-unique identifier**<br /><br />O identificador de objeto do usuário ou da entidade de serviço do Azure Active Directory que terá acesso ao cofre. Você pode recuperar o valor com os cmdlets [Get-AzureRMADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) ou [Get-AzureRMADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx) do PowerShell ou com os comandos **azure ad user** ou **azure ad sp** da CLI do Azure. |
+| permissões | Objeto<br />Obrigatório<br />[Objeto permissions](#permissions)<br /><br />As permissões concedidas para este cofre ao objeto do Active Directory. |
 
 <a id="permissions" />
-### <a name="properties.accesspolicies.permissions-object"></a>properties.accessPolicies.permissions object
+### properties.accessPolicies.permissions object
 
-| Name | Value |
+| Nome | Valor |
 | ---- | ---- | 
-| keys | Array<br />Required<br />**all**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />The permissions granted on keys in this vault to this Active Directory object. This value must be specified as an array of one or more permitted values. |
-| secrets | Array<br />Required<br />**all**, **delete**, **get**, **list**, **set**<br /><br />The permissions granted on secrets in this vault to this Active Directory object. This value must be specified as an array of one or more permitted values. |
+| chaves | Matriz<br />Obrigatório<br />**all**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />As permissões concedidas para as chaves neste cofre a este objeto do Active Directory. Esse valor deve ser especificado como uma matriz de um ou mais valores permitidos. |
+| segredos | Matriz<br />Obrigatório<br />**all**, **delete**, **get**, **list**, **set**<br /><br />As permissões concedidas para segredos no cofre a esse objeto do Active Directory. Esse valor deve ser especificado como uma matriz de um ou mais valores permitidos. |
 
 <a id="sku" />
-### <a name="properties.sku-object"></a>properties.sku object
+### objeto properties.sku
 
-| Name | Value |
+| Nome | Valor |
 | ---- | ---- | 
-| name | Enum<br />Required<br />**standard**, or **premium** <br /><br />The service tier of KeyVault to use.  Standard supports secrets and software-protected keys.  Premium adds support for HSM-protected keys. |
-| family | Enum<br />Required<br />**A** <br /><br />The sku family to use. |
+| name | Enum<br />Obrigatório<br />**standard**, or **premium** <br /><br />A camada de serviço do KeyVault a ser usada. O tipo de preço Standard dá suporte a segredos e chaves protegidas por software. O tipo de preço Premium adiciona suporte para chaves protegidas pelo HSM. |
+| família | Enum<br />Obrigatório<br />**A** <br /><br />A família de SKU a ser usada. |
  
-    
-## <a name="examples"></a>Examples
+	
+## Exemplos
 
-The following example deploys a key vault and secret.
+O exemplo a seguir implanta um cofre da chave e um segredo.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -234,21 +233,16 @@ The following example deploys a key vault and secret.
         }]
     }
 
-## <a name="quickstart-templates"></a>Quickstart templates
+## Modelos de início rápido
 
-The following quickstart template deploys a key vault.
+O modelo de início rápido a seguir implanta um cofre da chave.
 
-- [Create Key Vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)
-
-
-## <a name="next-steps"></a>Next steps
-
-- For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
-- For an example of referencing a key vault secret when deploying templates, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
+- [Criar Cofre da Chave](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)
 
 
+## Próximas etapas
 
+- Para obter informações gerais sobre cofres de chave, veja [Introdução ao Cofre da Chave do Azure](./key-vault/key-vault-get-started.md).
+- Para obter um exemplo de como fazer referência a um segredo do cofre da chave durante a implantação de modelos, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

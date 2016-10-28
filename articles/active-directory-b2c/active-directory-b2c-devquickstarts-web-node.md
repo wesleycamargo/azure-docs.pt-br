@@ -1,28 +1,24 @@
 <properties
-    pageTitle="Add sign-in to a Node.js web app for Azure B2C | Microsoft Azure"
-    description="How to build a Node.js web app that signs in users by using a B2C tenant."
-    services="active-directory-b2c"
-    documentationCenter=""
-    authors="brandwe"
-    manager="msmbaldwin"
-    editor=""/>
+	pageTitle="Adicionar a entrada a um aplicativo Web do Node.js para o Azure B2C | Microsoft Azure"
+	description="Como criar um aplicativo Web do Node.js que conecta os usuários usando um locatário do B2C."
+	services="active-directory-b2c"
+	documentationCenter=""
+	authors="brandwe"
+	manager="msmbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
+	ms.service="active-directory-b2c"
+	ms.workload="identity"
   ms.tgt_pltfrm="na"
-    ms.devlang="javascript"
-    ms.topic="hero-article"
-    ms.date="07/22/2016"
-    ms.author="brandwe"/>
+	ms.devlang="javascript"
+	ms.topic="hero-article"
+	ms.date="07/22/2016"
+	ms.author="brandwe"/>
 
 
+# Azure AD B2C: adicionar entrada a um aplicativo Web do Node.js
 
-# <a name="azure-ad-b2c:-add-sign-in-to-a-node.js-web-app"></a>Azure AD B2C: Add sign-in to a Node.js web app
+> [AZURE.WARNING] Nossas desculpas, mas o tutorial requer manutenção importante, e decidimos desativá-lo por algum pouco. Há um tutorial do .NET equivalente disponível no [guia do desenvolvedor](active-directory-b2c-overview.md).
 
-> [AZURE.WARNING] Our deepest apologies, but his tutorial requires some important maintenance and we've decicided to take it down for a little while.  We have an equivalent .NET tutorial available in our [developer guide](active-directory-b2c-overview.md).
-
-
-<!--HONumber=Oct16_HO4-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

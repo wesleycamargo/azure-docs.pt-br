@@ -10,10 +10,8 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-powershell
 articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.md
 
 -->
-You can increase or decrease compute by adjusting Data Warehouse Units (DWUs). The default is 400 DWUs. Compute resources increase linearly as the DWUs increase. For example, changing DWUs from 400 to 800 will double the compute resources. 
+Você pode aumentar ou diminuir a computação ao ajustar as DWUs (Unidades de Data Warehouse). O padrão é 400 DWUs. Os recursos de computação aumentam linearmente com o aumento de DWUs. Por exemplo, alterar DWUs de 400 para 800 duplicará os recursos de computação.
 
-For a list of the current DWU settings, see the Service Level Objective in [Service capacity limits](../articles/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+Para obter uma lista das configurações atuais de DWU, consulte o Objetivo de Nível de Serviço em [limites de capacidade de Serviço](../articles/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0427_2016-->

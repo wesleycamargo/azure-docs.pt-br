@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Continuous integration for Service Fabric | Microsoft Azure"
-   description="Get an overview of how to set up continuous integration for a Service Fabric application by using Visual Studio Team Services (VSTS)."
+   pageTitle="Integração contínua para o Service Fabric | Microsoft Azure"
+   description="Obtenha uma visão geral de como configurar a integração contínua para um aplicativo do Service Fabric usando o VSTS (Visual Studio Team Services)."
    services="service-fabric"
    documentationCenter="na"
    authors="mthalman-msft"
@@ -15,127 +15,122 @@
    ms.date="08/01/2016"
    ms.author="mthalman" />
 
+# Configurar a integração contínua para um aplicativo do Service Fabric usando o Visual Studio Team Services
 
-# <a name="set-up-continuous-integration-for-a-service-fabric-application-by-using-visual-studio-team-services"></a>Set up continuous integration for a Service Fabric application by using Visual Studio Team Services
+Este artigo descreve as etapas para configurar a integração contínua para um aplicativo do Azure Service Fabric usando o Visual Studio Team Services (VSTS) e assim garantir que seu aplicativo seja criado, empacotado e implantado de forma automática.
 
-This article describes the steps to set up continuous integration for an Azure Service Fabric application by using Visual Studio Team Services (VSTS), to ensure that your application is built, packaged, and deployed in an automated fashion.
+Este documento reflete o procedimento atual e deve ser alterado ao longo do tempo.
 
-This document reflects the current procedure and is expected to change over time.
+## Pré-requisitos
 
-## <a name="prerequisites"></a>Prerequisites
+Siga estas etapas para começar:
 
-To get started, follow these steps:
+1. Verifique se você tem acesso a uma conta do Team Services ou [crie uma](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) por conta própria.
 
-1. Ensure that you have access to a Team Services account or [create one](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) yourself.
+2. Verifique se você tem acesso a um projeto de equipe do Team Services ou [crie um](https://www.visualstudio.com/docs/setup-admin/create-team-project) por conta própria.
 
-2. Ensure that you have access to a Team Services team project or [create one](https://www.visualstudio.com/docs/setup-admin/create-team-project) yourself.
+3. Verifique se você tem um cluster do Service Fabric no qual você pode implantar seu aplicativo ou crie um usando o [Portal do Azure](service-fabric-cluster-creation-via-portal.md), um [o modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) ou o [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
-3. Ensure that you have a Service Fabric cluster to which you can deploy your application or create one using the [Azure Portal](service-fabric-cluster-creation-via-portal.md), an [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md), or [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
+4. Certifique-se de que você já tenha criado um projeto do Aplicativo do Service Fabric (.sfproj). Você deve ter um projeto que foi criado ou atualizado com o Service Fabric SDK 2.1 ou superior (o arquivo de .sfproj deve conter um valor da propriedade ProjectVersion 1.1 ou superior).
 
-4. Ensure that you have already created a Service Fabric Application (.sfproj) project. You must have a project that was created or upgraded with Service Fabric SDK 2.1 or higher (the .sfproj file should contain a ProjectVersion property value of 1.1 or higher).
+>[AZURE.NOTE] Agentes de build personalizado não são mais necessários. Os agentes hospedados do Team Services agora têm o software de gerenciamento de cluster do Service Fabric pré-instalado, permitindo a implantação de seus aplicativos diretamente de agentes.
 
->[AZURE.NOTE] Custom build agents are no longer required. Team Services hosted agents now come pre-installed with Service Fabric cluster management software, allowing for deployment of your applications directly from those agents.
+## Configurar e compartilhar seus arquivos de origem
 
-## <a name="configure-and-share-your-source-files"></a>Configure and share your source files
+A primeira coisa que você vai querer fazer é preparar um perfil de publicação para uso pelo processo de implantação que será executado no Team Services. O perfil de publicação deve ser configurado para direcionar o cluster que você preparou anteriormente:
 
-The first thing you'll want to do is prepare a publish profile for use by the deployment process that will execute within Team Services.  The publish profile should be configured to target the cluster that you've previously prepared:
+1.	Escolha um perfil de publicação no seu projeto de Aplicativo que você deseja usar para o fluxo de trabalho de integração contínuo e siga [publicar instruções](service-fabric-publish-app-remote-cluster.md) sobre como publicar um aplicativo para um cluster remoto. Na verdade, não é necessário publicar o aplicativo. Você pode simplesmente clicar o hyperlink **Salvar** no diálogo Publicar depois de configurar os itens corretamente.
+2.	Caso deseje que seu aplicativo seja atualizado para cada implantação que ocorre no Team Services, recomendamos que você configure o perfil de publicação para habilitar a atualização. No mesmo diálogo Publicar usado na etapa 1, verifique se a caixa de seleção **Atualizar Aplicativo** está marcada. Saiba mais sobre como [definir configurações de atualização adicionais](service-fabric-visualstudio-configure-upgrade.md). Clique no hyperlink **Salvar** para salvar as configurações no perfil de publicação.
+3.	Certifique-se de que você salvou as alterações para o perfil de publicação e cancele o diálogo Publicar.
+4.	Agora é hora de [compartilhar seus arquivos de origem do projeto de Aplicativo](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#vs) com o Team Services. Depois que os arquivos de origem estiverem acessíveis no Team Services, você poderá passar para a próxima etapa de geração de compilações.
 
-1.  Choose a publish profile within your Application project that you want to use for your continuous integration workflow and follow the [publish instructions](service-fabric-publish-app-remote-cluster.md) on how to publish an application to a remote cluster. You don't actually need to publish your application though. You can simply click the **Save** hyperlink in the publish dialog once you've configured things appropriately.
-2.  If you want your application to be upgraded for each deployment that occurs within Team Services, you'll want to configure the publish profile to enable upgrade. In the same publish dialog used in step 1, ensure that the **Upgrade the Application** checkbox is checked.  Learn more about [configuring additional upgrade settings](service-fabric-visualstudio-configure-upgrade.md). Click the **Save** hyperlink to save the settings to the publish profile.
-3.  Ensure that you've saved your changes to the publish profile and cancel the publish dialog.
-4.  Now it's time to [share your Application project source files](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#vs) with Team Services. Once your source files are accessible in Team Services, you can now move on to the next step of generating builds. 
+## Criar a definição de build
 
-## <a name="create-a-build-definition"></a>Create a build definition
+Uma definição de build do Team Services descreve um fluxo de trabalho composto por um conjunto de etapas de compilação que são executadas sequencialmente. O objetivo da definição de build que você criará é produzir um pacote de aplicativos do Service Fabric, bem como incluir outros arquivos complementares que podem ser usados para implantar eventualmente o aplicativo em um cluster. Saiba mais sobre as [definições de build](https://www.visualstudio.com/docs/build/define/create) do Team Services.
 
-A Team Services build definition describes a workflow that is composed of a set of build steps that are executed sequentially. The goal of the build definition that you'll be creating is to produce a Service Fabric application package, as well as including some other supplemental files, that can be used to eventually deploy the application to a cluster. Learn more about Team Services [build definitions](https://www.visualstudio.com/docs/build/define/create).
+### Criar uma definição de modelo de build
 
-### <a name="create-a-definition-from-the-build-template"></a>Create a definition from the build template
+1.	Abra o projeto de equipe no Visual Studio Team Services.
+2.	Selecione a guia **Compilar**.
+3.	Selecione o sinal **+** verde para criar uma nova definição de build.
+4.	Na caixa de diálogo que é aberta, selecione o **Aplicativo do Service Fabric** dentro da categoria de modelo **Compilar**.
+5.	Selecione **Avançar**.
+6.	Selecione o repositório e a ramificação associada ao seu aplicativo do Service Fabric.
+7.	Selecione a fila de agente que você deseja usar. Há suporte para agentes hospedados.
+8.	Selecione **Criar**.
+9. Salve a definição de build e dê um nome a ela.
+10. A seguir está uma descrição das etapas de build geradas pelo modelo:
 
-1.  Open your team project in Visual Studio Team Services.
-2.  Select the **Build** tab.
-3.  Select the green **+** sign to create a new build definition.
-4.  In the dialog that opens, select **Azure Service Fabric Application** within the **Build** template category.
-5.  Select **Next**.
-6.  Select the repository and branch associated with your Service Fabric application.
-7.  Select the agent queue you wish to use. Hosted agents are supported.
-8.  Select **Create**.
-9. Save the build definition and provide a name.
-10. The following is a description of the build steps generated by the template:
-
-| Build step | Description |
+| Etapa de build | Descrição |
 | --- | --- |
-| Nuget restore | Restores the NuGet packages for the solution. |
-| Build solution \*.sln | Builds the entire solution. |
-| Build solution \*.sfproj | Generates the Service Fabric application package that will be used to deploy the application. Note that the application package location is specified to be within the build's artifact directory. |
-| Update Service Fabric App Versions | Updates the version values contained in the application package's manifest files to allow for upgrade support. See the [task documentation page](https://go.microsoft.com/fwlink/?LinkId=820529) for more information. |
-| Copy Files | Copies the publish profile and application parameters files to the build's artifacts in order to be consumed for deployment. |
-| Publish Artifact | Publishes the build's artifacts. This allows a release definition to consume the build's artifacts. |
+| Restauração do NuGet | Restaura os pacotes do NuGet para a solução. |
+| Compilar solução *.sln | Compila a solução inteira. |
+| Compilar solução *.sfproj | Gera o pacote de aplicativos do Service Fabric que será usado para implantar o aplicativo. Observe que a localização do pacote de aplicativos é especificado para estar dentro do diretório de artefato do build. |
+| Atualizar Versões de Aplicativo do Service Fabric | Atualiza os valores de versão contidos nos arquivos de manifesto do pacote de aplicativos para permitir o suporte à atualização. Consulte a [página de documentação da tarefa](https://go.microsoft.com/fwlink/?LinkId=820529) para obter mais informações. |
+| Copiar Arquivos | Copia os arquivos de parâmetros do aplicativo e o perfil de publicação para artefatos de build para ser consumido para implantação. |
+| Publicar o Artefato | Publica os artefatos de build. Isso permite que uma definição de versão consuma os artefatos de build. |
 
-### <a name="verify-the-default-set-of-tasks"></a>Verify the default set of tasks
+### Verifique o conjunto de tarefas padrão
 
-1.  Verify the **Solution** input field for the **NuGet restore** and **Build solution** build steps.  By default, these build steps will execute upon all solution files that are contained in the associated repository.  If you only want the build definition to operate on one of those solution files, you need to explicitly update the path to that file.
-2.  Verify the **Solution** input field for the **Package application** build step.  By default, this build step assumes only one Service Fabric Application project (.sfproj) exists in the repository.  If you have multiple such files in your repository and want to target only one of them for this build definition, you need to explicitly update the path to that file.  If you want to package multiple Application projects in your repository, you need to create additional **Visual Studio Build** steps in the build definition that each target an Application project.  You would then also need to update the **MSBuild Arguments** field for each of those build steps so that the package location is unique for each of them.
-3.  Verify the versioning behavior defined in the **Update Service Fabric App Versions** build step.  By default, this build step appends the build number to all version values in the application package's manifest files. See the [task documentation page](https://go.microsoft.com/fwlink/?LinkId=820529) for more information. This is useful for supporting upgrade of your application since each upgrade deployment requires different version values from the previous deployment. If you're not intending to use application upgrade in your workflow, you may consider disabling this build step. In fact, it must be disabled if your intention is to produce a build that can be used to overwrite an existing Service Fabric application because deployment will fail if the version of the application produced by the build does not match the version of the application in the cluster.
-4.  If your solution contains a .NET Core project, you must ensure that your build definition contains a build step that restores the dependencies defined by any project.json files.  To do this, follow these steps:
-   1. Select **Add build step...**.
-   2. Locate the **Command Line** task within the Utility tab and click its Add button.
-   3. For the task's input fields, use the following values:
-      1. Tool: dotnet
-      2. Arguments: restore
-   4. Drag the task so that it is immediately after the **NuGet restore** step.
-5.  Save any changes you've made to the build definition.
+1.	Verifique o campo de entrada **Solução** para as etapas de build **Restauração NuGet** e **Solução de build**. Por padrão, essas etapas serão executadas após todos os arquivos de solução que estão contidos no repositório associado. Se você quiser que apenas a definição de build opere em um desses arquivos de solução, você precisará atualizar explicitamente o caminho para esse arquivo.
+2.	Verifique o campo de entrada **Solução** para a etapa de build **Empacotar aplicativo**. Por padrão, essa etapa de build presume que existe apenas um projeto do Aplicativo do Service Fabric (.sfproj) no repositório. Se você tiver vários desses arquivos no repositório e desejar ter como alvo apenas um para essa definição de build, você precisará atualizar explicitamente o caminho desse arquivo. Se você quiser empacotar vários projetos de aplicativo em seu repositório, precisará criar etapas adicionais do **Visual Studio Build** na definição de build que cada um direciona a um projeto de Aplicativo. Então, você também precisa atualizar o campo **Argumentos de MSBuild** para cada uma dessas etapas de build para que a localização do pacote seja exclusiva para cada um deles.
+3.	Verifique o comportamento de controle de versão definido na etapa de build **Atualizar Versões de Aplicativo do Service Fabric**. Por padrão, essa etapa de build acrescenta o número de build a todos os valores de versão nos arquivos de manifesto do pacote de aplicativos. Consulte a [página de documentação da tarefa](https://go.microsoft.com/fwlink/?LinkId=820529) para obter mais informações. Isso é útil para dar suporte à atualização do seu aplicativo, pois cada implantação de atualização exige valores de versão diferentes da implantação anterior. Se você não pretende usar a atualização do aplicativo em seu fluxo de trabalho, você pode considerar desabilitar esta etapa de build. Na verdade, ele deverá ser desabilitado se sua intenção é produzir um build que pode ser usado para substituir um aplicativo do Service Fabric existente, pois a implantação falhará se a versão do aplicativo produzido pelo build não coincidir com a versão do aplicativo no cluster.
+4.	Se sua solução contiver um projeto .NET Core, você deverá garantir que sua definição de build contenha uma etapa de build que restaura as dependências definidas por qualquer arquivo project.json. Para fazer isso, siga estas etapas:
+   1. Selecione **Adicionar etapa de build...**.
+   2. Localize a tarefa **Linha de comando** dentro da guia do utilitário de tarefa e clique no botão Adicionar.
+   3. Para campos de entrada da tarefa, use os seguintes valores:
+      1. Ferramenta: dotnet
+      2. Argumentos: restore
+   4. Arraste a tarefa para que ela fique imediatamente após a etapa **restauração do NuGet**.
+5.	Salve as alterações feitas à definição de build.
 
-### <a name="try-it"></a>Try it
+### Experimente
 
-Select **Queue Build** to manually start a build. Builds will also be triggered upon push or check-in. Once you've verified that the build is executing successfully, you can now move on to defining a release definition that will deploy your application to a cluster.
+Selecione **Enfileirar Build** para iniciar um build. As compilações também serão disparadas no envio por push ou no check-in. Depois de verificar que o build está em execução com êxito, você agora pode passar a definição de uma definição de versão que implantará seu aplicativo em um cluster.
 
-## <a name="create-a-release-definition"></a>Create a release definition
+## Criar uma definição de versão
 
-A Team Services release definition describes a workflow that is composed of a set of tasks that are executed sequentially. The goal of the release definition that you'll be creating is to take an application package and deploy it to a cluster. When used together, the build definition and release definition can execute the entire workflow from starting with source files to ending with a running application in your cluster. Learn more about Team Services [release definitions](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+Uma definição de versão do Team Services descreve um fluxo de trabalho composto por um conjunto de tarefas que são executadas sequencialmente. O objetivo da definição de versão que você criará é usar um pacote de aplicativos e implantá-lo em um cluster. Quando usados juntos, a definição de build e a definição de lançamento podem executar todo o fluxo de trabalho, começando com arquivos de origem e terminando com um aplicativo em execução no cluster. Saiba mais sobre as [definições de versão](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition) do Team Services.
 
-### <a name="create-a-definition-from-the-release-template"></a>Create a definition from the release template
+### Criar uma definição de modelo de versão
 
-1.  Open your project in Visual Studio Team Services.
-2.  Select the **Release** tab.
-3.  Select the green **+** sign to create a new release definition and select **Create release definition** in the menu.
-4.  In the dialog that opens, select **Azure Service Fabric Deployment** within the **Deployment** template category.
-5.  Select **Next**.
-6.  Select the build definition you want to use as the source of this release definition.  The release definition will reference the artifacts that were produced by the selected build definition.
-7.  Check the **Continuous deployment** check box if you wish to have Team Services automatically create a new release and deploy the Service Fabric application whenever a build completes.
-8.  Select the agent queue you wish to use. Hosted agents are supported.
-9.  Select **Create**.
-10. Edit the definition name by clicking the pencil icon at the top of the page.
-11. Select the cluster to which your application should be deployed from the **Cluster Connection** input field of the task. The cluster connection provides the necessary information that allows the deployment task to connect to the cluster. If you do not yet have a cluster connection for your cluster, select the **Manage** hyperlink next to the field to add one. On the page that opens, perform the following steps:
-    1. Select **New Service Endpoint** and then select **Azure Service Fabric** from the menu.
-    2. Select the type of authentication being used by the cluster targeted by this endpoint.
-    2. Define a name for your connection in the **Connection Name** field.  Typically, you would use the name of your cluster.
-    3. Define the client connection endpoint URL in the **Cluster Endpoint** field.  Example: https://contoso.westus.cloudapp.azure.com:19000.
-    4. For Azure Active Directory credentials, define the credentials you want to use to connect to the cluster in the **Username** and **Password** fields.
-    5. For Certificate Based authentication, define the Base64 encoding of the client certificate file in the **Client Certificate** field.  See the help pop-up on that field for info on how to get that value.  If your certificate is password-protected, define the password in the **Password** field.
-    6. Confirm your changes by clicking **OK**. After navigating back to your release definition, click the refresh icon on the **Cluster Connection** field to see the endpoint you just added.
-12. Save the release definition.
+1.	Abra o projeto no Visual Studio Team Services.
+2.	Selecione a guia **Versão**.
+3.	Selecionar o símbolo **+** em verde para criar uma nova definição de versão e selecione **Criar definição de versão** no menu.
+4.	No diálogo aberto, selecione **Implantação do Azure Service Fabric** na categoria de modelo **Implantação**.
+5.	Selecione **Avançar**.
+6.	Selecione a definição de build que você deseja usar como a origem dessa definição de versão. A definição de lançamento fará referência aos artefatos produzidos pela definição de build selecionada.
+7.	Marque a caixa de seleção **Implantação contínua** se desejar que o Team Services crie automaticamente uma nova versão e implante o aplicativo Service Fabric sempre que um build for concluído.
+8.	Selecione a fila de agente que você deseja usar. Há suporte para agentes hospedados.
+9.	Selecione **Criar**.
+10.	Edite o nome da definição clicando no ícone de lápis na parte superior da página.
+11.	Selecione o cluster no qual seu aplicativo deve ser implantado no campo de entrada **Conexão do Cluster** da tarefa. A conexão do cluster fornece as informações necessárias que permitem que a tarefa de implantação se conecte ao cluster. Se você ainda não tiver uma conexão de cluster para o cluster, selecione o hyperlink **Gerenciar** ao lado do campo para adicionar uma. Na página aberta, execute as seguintes etapas:
+    1. Selecione **Novo Ponto de Extremidade de Serviço** e, em seguida, selecione **Azure Service Fabric** no menu.
+    2. Selecione o tipo de autenticação usada pelo cluster direcionada por esse ponto de extremidade.
+    2. Defina um nome para a conexão no campo **Nome da Conexão**. Normalmente, você poderia usar o nome do cluster.
+    3. Definir a URL de ponto de extremidade de conexão do cliente no campo **Ponto de Extremidade do Cluster**. Exemplo: https://contoso.westus.cloudapp.azure.com:19000.
+    4. Para as credenciais do Azure Active Directory, defina as credenciais que você deseja usar para se conectar ao cluster nos campos **Nome de Usuário** e **Senha**.
+    5. Para a autenticação baseada em certificado, defina a codificação de Base64 do arquivo de certificado do cliente no campo **Certificado de Cliente**. Consulte o pop-up de ajuda nesse campo para obter informações sobre como obter esse valor. Se seu certificado for protegido por senha, defina a senha no campo **Senha**.
+    6. Confirme suas alterações clicando em **OK**. Depois de navegar de volta para a definição de versão, clique no ícone para atualizar no campo **Conexão do Cluster** para ver o ponto de extremidade que você acabou de adicionar.
+12.	Salve a definição da versão.
 
-The definition that is created consists of one task of type **Service Fabric Application Deployment**. See the [task documentation page](https://go.microsoft.com/fwlink/?LinkId=820528) for more information about this task.
+A definição que é criada consiste em uma tarefa do tipo **Implantação do Aplicativo Service Fabric**. Consulte a [página de documentação da tarefa](https://go.microsoft.com/fwlink/?LinkId=820528) para obter mais informações sobre essa tarefa.
 
-### <a name="verify-the-template-defaults"></a>Verify the template defaults
+### Verifique os padrões de modelo
 
-1.  Verify the **Publish Profile** input field for the **Deploy Service Fabric Application** task. By default, this field references a publish profile named Cloud.xml contained in the build's artifacts. If you want to reference a different publish profile or if the build contains multiple application packages in its artifacts, you need to update the path appropriately.
-2.  Verify the **Application Package** input field for the **Deploy Service Fabric Application** task. By default, this references the default application package path used in the build definition template.  If you've modified the default application package path in the build definition, you need to update the path appropriately here as well.
+1.	Verifique o campo de entrada **Perfil de Publicação** para a tarefa **Implantar Aplicativo do Service Fabric**. Por padrão, esse campo faz referência a um perfil de publicação denominado Cloud.xml contido nos artefatos do build. Se você deseja fazer referência a um perfil de publicação diferente ou se o build contiver vários pacotes de aplicativos em seus artefatos, você precisará atualizar o caminho adequadamente.
+2.	Verifique o campo de entrada **Pacote de Aplicativos** para a tarefa **Implantar Aplicativo do Service Fabric**. Por padrão, isso faz referência ao caminho do pacote de aplicativos padrão usado no modelo de definição de build. Se você tiver modificado o caminho do pacote de aplicativos padrão na definição de build, também precisará atualizar o caminho adequadamente aqui.
 
-### <a name="try-it"></a>Try it
+### Experimente
 
-Select **Create Release** from the **Release** button menu to manually create a release. In the dialog that opens, select the build that you want to base the release on and then click **Create**. If you enabled continuous deployment, releases will also be created automatically when the associated build definition completes a build.
+Selecione **Criar Versão** no menu de botão **Versão** para criar manualmente uma versão. Na caixa de diálogo que é aberta, selecione o build no qual você deseja basear a versão e clique em **Criar**. Se você tiver habilitado a implantação contínua, versões também serão criadas automaticamente quando a definição de build associada concluir um build.
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-To learn more about continuous integration with Service Fabric applications, read the following articles:
+Para saber mais sobre a integração contínua com aplicativos do Service Fabric, leia os artigos a seguir:
 
- - [Team Services documentation home](https://www.visualstudio.com/docs/overview)
- - [Build management in Team Services](https://www.visualstudio.com/docs/build/overview)
- - [Release management in Team Services](https://www.visualstudio.com/docs/release/overview)
+ - [Início da documentação do Team Services](https://www.visualstudio.com/docs/overview)
+ - [Gerenciamento de build no Team Services](https://www.visualstudio.com/docs/build/overview)
+ - [Gerenciamento de versão no Team Services](https://www.visualstudio.com/docs/release/overview)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

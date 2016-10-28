@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple virtual device Update 2| Microsoft Azure"
-   description="Learn how to create, deploy, and manage a StorSimple virtual device in a Microsoft Azure virtual network. (Applies to StorSimple Update 2)."
+   pageTitle="Atualização 2 do dispositivo virtual do StorSimple | Microsoft Azure"
+   description="Saiba como criar, implantar e gerenciar um dispositivo virtual StorSimple em uma rede virtual do Microsoft Azure. (Aplica-se ao StorSimple Atualização 2)."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,290 +15,284 @@
    ms.date="09/23/2016"
    ms.author="alkohli" />
 
-
-# <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Deploy and manage a StorSimple virtual device in Azure
-
-
-##<a name="overview"></a>Overview
-The StorSimple 8000 series virtual device is an additional capability that comes with your Microsoft Azure StorSimple solution. The StorSimple virtual device runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts. This tutorial describes how to deploy and manage a virtual device in Azure and is applicable to all the virtual devices running software version Update 2 and lower.
+# Implantar e gerenciar um dispositivo virtual StorSimple no Azure
 
 
-#### <a name="virtual-device-model-comparison"></a>Virtual device model comparison
+##Visão geral
+O dispositivo virtual StorSimple série 8000 é um recurso adicional que acompanha a sua solução Microsoft Azure StorSimple. O dispositivo virtual StorSimple é executado em uma máquina virtual em uma rede virtual do Microsoft Azure e você pode usá-lo para fazer backup e clonar dados de seus hosts. Este tutorial descreve como implantar e gerenciar um dispositivo virtual no Azure e é aplicável a todos os dispositivos virtuais executando a versão do software Update 2 e inferior.
 
-The StorSimple virtual device is available in two models, a standard 8010 (formerly known as the 1100) and a premium 8020 (introduced in Update 2). A comparison of the two models is tabulated below.
+
+#### Comparação do modelo de dispositivo virtual
+
+O dispositivo virtual StorSimple está disponível em dois modelos, um padrão 8010 (anteriormente conhecido como 1100) e um premium 8020 (apresentado na atualização 2). Uma comparação dos dois modelos é mostrada na tabela abaixo.
 
 
-| Device model          | 8010<sup>1</sup>                                                                     | 8020                                                                                                                               |
+| Modelo do dispositivo | 8010<sup>1</sup> | 8020 |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| **Maximum capacity**      | 30 TB                                                                     | 64 TB                                                                                                                                |
-| **Azure VM**              | Standard_A3 (4 cores, 7 GB memory)                                                                      | Standard_DS3 (4 cores, 14 GB memory)                                                                                                                          |
-| **Version compatibility** | Versions running pre-Update 2 or later                                             | Versions running Update 2 or later                                                                                                  |
-| **Region availability**   | All Azure regions                                                         | Azure regions that support Premium Storage<br></br>For a list of regions, see [supported regions for 8020](#supported-regions-for-8020) |
-| **Storage type**          | Uses Azure Standard Storage for local disks<br></br> Learn how to [create a Standard Storage account]() | Uses Azure Premium Storage for local disks<sup>2</sup> <br></br>Learn how to [create a Premium Storage account](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)                                                               |
-| **Workload guidance**     | Item level retrieval of files from backups                                              | Cloud dev and test scenarios, low latency, higher performance workloads <br></br>Secondary device for disaster recovery                                                                                            |
+| **Capacidade máxima** | 30 TB | 64 TB |
+| **VM do Azure** | Standard\_A3 (4 núcleos, 7 GB de memória) | Standard\_DS3 (4 núcleos, 14 GB de memória) |
+| **Compatibilidade de versão** | Versões com pré-Atualização 2 ou posterior | Versões com Atualização 2 ou posterior |
+| **Disponibilidade de região** | Todas as regiões do Azure | Regiões do Azure que dão suporte ao Armazenamento Premium<br></br>Para obter uma lista de regiões, veja [regiões com suporte para 8020](#supported-regions-for-8020) |
+| **Tipo de armazenamento** | Usa o Armazenamento Standard do Azure para discos locais<br></br> Saiba como [criar uma conta de Armazenamento Standard]() | Usa o Armazenamento Premium do Azure para discos locais<sup>2</sup> <br></br>Saiba como [criar uma conta de Armazenamento Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Diretrizes sobre carga de trabalho** | Recuperação no nível de item de arquivos de backups | Cenários de desenvolvimento e teste na nuvem, baixa latência, cargas de trabalho de desempenho mais altas <br></br>Dispositivo secundário para recuperação de desastre |
  
-<sup>1</sup> *Formerly known as the 1100*.
+<sup>1</sup> *Conhecido anteriormente como 1100*.
 
-<sup>2</sup> *Both the 8010 and 8020 use Azure Standard Storage for the cloud tier. The difference only exists in the local tier within the device*.
+<sup>2</sup> *O 8010 e o 8020 usam o Armazenamento Standard do Azure para a camada de nuvem. A diferença existe apenas na camada de local do dispositivo*.
 
-#### <a name="supported-regions-for-8020"></a>Supported regions for 8020
+#### Regiões com suporte para 8020
 
-The Premium Storage regions that are currently supported for 8020 are tabulated below. This list will be continuously updated as Premium Storage becomes available in more regions. 
+As regiões de armazenamento Premium que atualmente têm suporte para 8020 estão na tabela abaixo. Essa lista será atualizada continuamente conforme o armazenamento Premium se tornar disponível em mais regiões.
 
-| S. no.                                                  | Currently supported in regions |
+| S. no. | Atualmente, com suporte nas regiões |
 |---------------------------------------------------------|--------------------------------|
-| 1                                                       | Central US                     |
-| 2                                                       |  East US                       |
-| 3                                                       |  East US 2                     |
-| 4                                                       | West US                        |
-| 5                                                       | North Europe                   |
-| 6                                                       | West Europe                    |
-| 7                                                       | Southeast Asia                 |
-| 8                                                       | Japan East                     |
-| 9                                                       | Japan West                     |
-| 10                                                      | Australia East                 |
-| 11                                                      | Australia Southeast*           |
-| 12                                                      | East Asia*                     |
-| 13                                                      | South Central US*              |
+| 1 | Centro dos EUA |
+| 2 | Leste dos EUA |
+| 3 | Leste dos EUA 2 |
+| 4 | Oeste dos EUA |
+| 5 | Norte da Europa |
+| 6 | Europa Ocidental |
+| 7 | Sudeste Asiático |
+| 8 | Leste do Japão |
+| 9 | Oeste do Japão |
+| 10 | Leste da Austrália |
+| 11 | Sudeste da Austrália* |
+| 12 | Ásia Oriental* |
+| 13 | Centro-Sul dos EUA* |
 
-*Premium Storage was launched recently in these geos.
+*O armazenamento Premium foi lançado recentemente nessas áreas geográficas.
 
-This article describes the step-by-step process of deploying a StorSimple virtual device in Azure. After reading this article, you will:
+Este artigo descreve o processo passo a passo de implantação de um dispositivo virtual do StorSimple no Azure. Depois de ler este artigo, você irá:
 
-- Understand how the virtual device differs from the physical device.
+- Entenda as diferenças entre o dispositivo virtual e o dispositivo físico.
 
-- Be able to create and configure the virtual device.
+- Esteja apto a criar e configurar o dispositivo virtual.
 
-- Connect to the virtual device.
+- Conecte-se ao dispositivo virtual.
 
-- Learn how to work with the virtual device.
+- Saiba como trabalhar com o dispositivo virtual.
 
-This tutorial applies to all the StorSimple virtual devices running Update 2 and higher. 
+Este tutorial se aplica a todos os dispositivos virtuais do StorSimple que executam a Atualização 2 e superior.
 
-## <a name="how-the-virtual-device-differs-from-the-physical-device"></a>How the virtual device differs from the physical device
+## Como o dispositivo virtual difere do dispositivo físico
 
-The StorSimple virtual device is a software-only version of StorSimple that runs on a single node in a Microsoft Azure Virtual Machine. The virtual device supports disaster recovery scenarios in which your physical device is not available, and is appropriate for use in item-level retrieval from backups, on-premises disaster recovery, and cloud dev and test scenarios.
+O dispositivo virtual StorSimple é uma versão somente de software do StorSimple, que é executado em um único nó em uma Máquina Virtual do Microsoft Azure. O dispositivo virtual dá suporte a cenários de recuperação de desastre em que o seu dispositivo físico não está disponível e é adequado para uso em recuperação no nível do item de cenários de back-ups, recuperação de desastre local e desenvolvimento e teste na nuvem.
 
-#### <a name="differences-from-the-physical-device"></a>Differences from the physical device
+#### Diferenças do dispositivo físico
 
-The following table shows some key differences between the StorSimple virtual device and the StorSimple physical device.
+A tabela abaixo mostra algumas das principais diferenças entre o dispositivo virtual do StorSimple e o dispositivo físico do StorSimple.
 
-|                             | Physical device                                          | Virtual device                                                                            |
+| | Dispositivo físico | Dispositivo virtual |
 |-----------------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| **Location**                    | Resides in the datacenter.                               | Runs in Azure.                                                                            |
-| **Network interfaces**          | Has six network interfaces: DATA 0 through DATA 5.                  | Has only one network interface: DATA 0.                                        |
-| **Registration**                | Registered during the configuration step.                | Registration is a separate task.                                                          |
-| **Service data encryption key** | Regenerate on the physical device and then update the virtual device with the new key.           | Cannot regenerate from the virtual device. |
+| **Localidade** | Reside no datacenter. | É executado no Azure. |
+| **Interfaces de rede** | Tem seis interfaces de rede: DATA 0 a DATA 5. | Tem apenas uma interface de rede: DATA 0. |
+| **Registro** | Registrado durante a etapa de configuração. | O registro é uma tarefa separada. |
+| **Chave de criptografia de dados do serviço** | Gere novamente no dispositivo físico e, em seguida, atualize o dispositivo virtual com a nova chave. | Não pode gerar novamente do dispositivo virtual. |
 
 
-## <a name="prerequisites-for-the-virtual-device"></a>Prerequisites for the virtual device
+## Pré-requisitos para o dispositivo virtual
 
-The following sections explain the configuration prerequisites for your StorSimple virtual device. Prior to deploying a virtual device, review the [security considerations for using a virtual device](storsimple-security.md#storsimple-virtual-device-security).
+As seções a seguir explicam os pré-requisitos de configuração para o dispositivo virtual do StorSimple. Antes de implantar um dispositivo virtual, examine as [considerações sobre segurança para uso de um dispositivo virtual](storsimple-security.md#storsimple-virtual-device-security).
 
-#### <a name="azure-requirements"></a>Azure requirements
+#### Requisitos do Azure
 
-Before you provision the virtual device, you need to make the following preparations in your Azure environment:
+Antes de provisionar o dispositivo virtual, você precisará fazer as seguintes preparações no seu ambiente do Azure:
 
-- For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. More information on [regions that are currently supported for 8020](#supported-regions-for-8020).
-- It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid or if the DNS server is not able to resolve IP addresses correctly, the creation of the virtual device will fail.
-- Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios. 
-- You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements:                            
-    - Be Windows or Linux VMs with iSCSI Initiator software installed.
-    - Be running in the same virtual network as the virtual device.
-    - Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device.
+- Para o dispositivo virtual, [configure uma rede virtual no Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Se usar o Armazenamento Premium, você deve criar uma rede virtual em uma região do Azure que dá suporte ao Armazenamento Premium. Para saber mais sobre [regiões que atualmente têm suporte para 8020](#supported-regions-for-8020).
+- É aconselhável utilizar o servidor DNS padrão fornecido pelo Azure em vez de especificar o nome do seu próprio servidor DNS. Se o nome do servidor DNS não for válido ou se o servidor DNS não conseguir resolver endereços IP corretamente, a criação do dispositivo virtual falhará.
+- Ponto a site e site a site são opcionais, mas não obrigatórios. Se desejar, você pode configurar essas opções para cenários mais avançados.
+- É possível criar [Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-linux-about.md) (servidores de host) na rede virtual que podem usar os volumes expostos pelo dispositivo virtual. Esses servidores devem atender aos seguintes requisitos:
+	- Ser VMs do Windows ou do Linux com software Iniciador iSCSI instalado.
+	- Estar em execução na mesma rede virtual que o dispositivo virtual.
+	- Ser capaz de se conectar ao destino iSCSI do dispositivo virtual por meio do endereço IP interno do dispositivo virtual.
 
-- Make sure you have configured support for iSCSI and cloud traffic on the same virtual network.
+- Verifique se você configurou o suporte para tráfego iSCSI e de nuvem na mesma rede virtual.
 
 
-#### <a name="storsimple-requirements"></a>StorSimple requirements
+#### Requisitos do StorSimple
 
-Make the following updates to your Azure StorSimple service before you create a virtual device:
+Faça as seguintes atualizações para o seu serviço do Azure StorSimple antes de criar um dispositivo virtual:
 
 
-- Add [access control records](storsimple-manage-acrs.md) for the VMs that are going to be host servers for your virtual device.
+- Adicione [registros de controle de acesso](storsimple-manage-acrs.md) às máquinas virtuais que serão os servidores de host para seu dispositivo virtual.
 
-- Use a [storage account](storsimple-manage-storage-accounts.md#add-a-storage-account) in the same region as the virtual device. Storage accounts in different regions may result in poor performance. You can use a Standard or Premium Storage account with the virtual device. More information on how to create a [Standard Storage account]() or a [Premium Storage account](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+- Use uma [conta de armazenamento](storsimple-manage-storage-accounts.md#add-a-storage-account) na mesma região do dispositivo virtual. Contas de armazenamento em regiões diferentes podem resultar em baixo desempenho. Você pode usar uma conta de Armazenamento Standard ou Premium com o dispositivo virtual. Mais informações sobre como criar uma [conta de Armazenamento Standard]() ou uma [conta de Armazenamento Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 
-- Use a different storage account for virtual device creation from the one used for your data. Using the same storage account may result in poor performance.
+- Use uma conta de armazenamento para a criação do dispositivo virtual diferente da usada para seus dados. O uso da mesma conta de armazenamento pode resultar em baixo desempenho.
 
-Make sure that you have the following information before you begin:
+Certifique-se de ter as seguintes informações antes de começar:
 
-- Your Azure classic portal account with access credentials.
+- Sua conta do portal clássico do Azure com credenciais de acesso.
 
-- A copy of the service data encryption key from your physical device.
+- Uma cópia da chave de criptografia de dados de serviço de seu dispositivo físico.
 
 
-## <a name="create-and-configure-the-virtual-device"></a>Create and configure the virtual device
+## Criar e configurar o dispositivo virtual
 
-Before performing these procedures, make sure that you have met the [Prerequisites for the virtual device](#prerequisites-for-the-virtual-device). 
+Antes de executar esses procedimentos, certifique-se de que você atendeu aos [pré-requisitos para o dispositivo virtual](#prerequisites-for-the-virtual-device).
 
-After you have created a virtual network, configured a StorSimple Manager service, and registered your physical StorSimple device with the service, you can use the following steps to create and configure a StorSimple virtual device. 
+Depois de criar uma rede virtual, configurar um serviço do StorSimple Manager e registrar seu dispositivo físico do StorSimple no serviço, você poderá usar as etapas a seguir para criar e configurar um dispositivo virtual do StorSimple.
 
-### <a name="step-1:-create-a-virtual-device"></a>Step 1: Create a virtual device
+### Etapa 1: criar um dispositivo virtual
 
-Perform the following steps to create the StorSimple virtual device.
+Execute as seguintes etapas para criar o dispositivo virtual StorSimple.
 
-[AZURE.INCLUDE [Create a virtual device](../../includes/storsimple-create-virtual-device-u2.md)]
+[AZURE.INCLUDE [Criar um dispositivo virtual](../../includes/storsimple-create-virtual-device-u2.md)]
 
-If the creation of the virtual device fails in this step, you may not have connectivity to the Internet. For more information, go to [troubleshoot Internet connectivity failures](#troubleshoot-internet-connectivity-errors) when creatig a virtual device.
+Se a criação do dispositivo virtual falha nesta etapa, você pode não ter conectividade com a Internet. Para obter mais informações, vá para [solucionar problemas de falhas de conectividade com a Internet](#troubleshoot-internet-connectivity-errors) ao criar um dispositivo virtual.
 
 
-### <a name="step-2:-configure-and-register-the-virtual-device"></a>Step 2: Configure and register the virtual device
+### Etapa 2: configurar e registrar o dispositivo virtual
 
-Before starting this procedure, make sure that you have a copy of the service data encryption key. The service data encryption key was created when you configured your first StorSimple device and you were instructed to save it in a secure location. If you do not have a copy of the service data encryption key, you must contact Microsoft Support for assistance.
+Antes de iniciar este procedimento, verifique se você tem uma cópia da chave de criptografia de dados de serviço. A chave de criptografia de dados do serviço foi criada quando você configurou o primeiro dispositivo StorSimple e foi orientado a salvá-la em um local seguro. Se você não tiver uma cópia da chave de criptografia dos dados de serviço, deverá contatar o Suporte da Microsoft para obter assistência.
 
-Perform the following steps to configure and register your StorSimple virtual device.
-[AZURE.INCLUDE [Configure and register a virtual device](../../includes/storsimple-configure-register-virtual-device.md)]
+Execute as seguintes etapas para configurar e registrar o dispositivo virtual StorSimple
+[AZURE.INCLUDE [Configurar e registrar um dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
 
-### <a name="step-3:-(optional)-modify-the-device-configuration-settings"></a>Step 3: (Optional) Modify the device configuration settings
+### Etapa 3: (opcional) Modificar as definições de configuração do dispositivo
 
-The following section describes the device configuration settings needed for the StorSimple virtual device if you want to use CHAP, StorSimple Snapshot Manager or change the Device Administrator password.
+A seção a seguir descreve as definições de configuração de dispositivo necessárias para o dispositivo virtual do StorSimple se você desejar usar o CHAP, o StorSimple Snapshot Manager ou alterar a senha do Administrador do Dispositivo.
 
-#### <a name="configure-the-chap-initiator"></a>Configure the CHAP initiator
+#### Configurar o iniciador CHAP
 
-This parameter contains the credentials that your virtual device (target) expects from the initiators (servers) that are attempting to access the volumes. The initiators will provide a CHAP user name and a CHAP password to identify themselves to your device during this authentication. For detailed steps, go to [Configure CHAP for your device](storsimple-configure-chap.md#unidirectional-or-one-way-authentication).
+Este parâmetro contém as credenciais que o dispositivo virtual (destino) espera dos iniciadores (servidores) que estão tentando acessar os volumes. Os iniciadores fornecerão um nome de usuário CHAP e uma senha CHAP para identificá-los para o dispositivo durante essa autenticação. Para obter etapas detalhadas, vá para [Configurar o CHAP para seu dispositivo](storsimple-configure-chap.md#unidirectional-or-one-way-authentication).
 
-#### <a name="configure-the-chap-target"></a>Configure the CHAP target
+#### Configurar o destino CHAP
 
-This parameter contains the credentials that your virtual device uses when a CHAP-enabled initiator requests mutual or bi-directional authentication. Your virtual device will use a Reverse CHAP user name and Reverse CHAP password to identify itself to the initiator during this authentication process. Note that CHAP target settings are global settings. When these are applied, all the volumes connected to the storage virtual device will use CHAP authentication. For detailed steps, go to [Configure CHAP for your device](storsimple-configure-chap.md#bidirectional-or-mutual-authentication).
+Esse parâmetro contém as credenciais usadas pelo dispositivo virtual quando um iniciador compatível com CHAP solicita autenticação mútua ou bidirecional. Seu dispositivo virtual usará um nome de usuário CHAP Reverso e uma senha CHAP Reversa para identificar a si mesmo para o iniciador durante esse processo de autenticação. Observe que as configurações de destino de CHAP são configurações globais. Quando elas forem aplicadas, todos os volumes conectados ao dispositivo virtual de armazenamento usarão a autenticação CHAP. Para obter etapas detalhadas, vá para [Configurar o CHAP para seu dispositivo](storsimple-configure-chap.md#bidirectional-or-mutual-authentication).
 
-#### <a name="configure-the-storsimple-snapshot-manager-password"></a>Configure the StorSimple Snapshot Manager password
+#### Configurar a senha do Gerenciador de Instantâneos StorSimple
 
-StorSimple Snapshot Manager software resides on your Windows host and allows administrators to manage backups of your StorSimple device in the form of local and cloud snapshots.
+O software Gerenciador de Instantâneos StorSimple software reside no host Windows e permite que os administradores gerenciem backups do seu dispositivo StorSimple na forma de instantâneos locais e de nuvem.
 
->[AZURE.NOTE] For the virtual device, your Windows host is an Azure virtual machine.
+>[AZURE.NOTE] Para o dispositivo virtual, seu host do Windows é uma máquina virtual do Azure.
 
-When configuring a device in the StorSimple Snapshot Manager, you will be prompted to provide the StorSimple device IP address and password to authenticate your storage device. For detailed steps, go to [Configure StorSimple Snapshot Manager password](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
+Ao configurar um dispositivo no Gerenciador de Instantâneos StorSimple, você deverá fornecer o endereço IP do dispositivo StorSimple e a senha para autenticar o dispositivo de armazenamento. Para obter etapas detalhadas, vá para [Configurar senha do StorSimple Snapshot Manager](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
 
-#### <a name="change-the-device-administrator-password"></a>Change the device administrator password 
+#### Alterar a senha de administrador do dispositivo 
 
-When you use the Windows PowerShell interface to access the virtual device, you will be required to enter a device administrator password. For the security of your data, you are required to change this password before the virtual device can be used. For detailed steps, go to [Configure device administrator password](storsimple-change-passwords.md#change-the-device-administrator-password).
+Quando você usar a interface do Windows PowerShell para acessar o dispositivo virtual, será solicitada a inserção de uma senha de administrador do dispositivo. Para a segurança de seus dados, será necessário alterar essa senha para que o dispositivo virtual possa ser usado. Para obter etapas detalhadas, vá para [Configurar senha de administrador do dispositivo](storsimple-change-passwords.md#change-the-device-administrator-password).
 
-## <a name="connect-remotely-to-the-virtual-device"></a>Connect remotely to the virtual device
-Remote access to your virtual device via the Windows PowerShell interface is not enabled by default. You need to enable remote management on the virtual device first, and then enable it on the client that will be used to access your virtual device.
+## Conectar-se remotamente ao dispositivo virtual
+O acesso remoto ao seu dispositivo virtual por meio da interface do Windows PowerShell não está habilitado por padrão. Você precisa habilitar o gerenciamento remoto primeiro no dispositivo virtual e então habilitá-lo no cliente que será usado para acessar seu dispositivo virtual.
 
-The two-step process to connect remotely is detailed below.
+O processo de duas etapas para se conectar remotamente é detalhado abaixo.
 
-### <a name="step-1:-configure-remote-management"></a>Step 1: Configure remote management
+### Etapa 1: configurar o gerenciamento remoto
 
-Perform the following steps to configure remote management for your StorSimple virtual device.
+Execute as etapas a seguir para configurar o gerenciamento remoto para seu dispositivo virtual StorSimple.
 
-[AZURE.INCLUDE [Configure remote management via HTTP for virtual device](../../includes/storsimple-configure-remote-management-http-device.md)]
+[AZURE.INCLUDE [Configurar o gerenciamento remoto via HTTP para o dispositivo virtual](../../includes/storsimple-configure-remote-management-http-device.md)]
 
-### <a name="step-2:-remotely-access-the-virtual-device"></a>Step 2: Remotely access the virtual device
+### Etapa 2: acessar remotamente o dispositivo virtual
 
-After you have enabled remote management on the StorSimple device configuration page, you can use Windows PowerShell remoting to connect to the virtual device from another virtual machine inside the same virtual network; for example, you can connect from the host VM that you configured and used to connect iSCSI. In most deployments, you will have already opened a public endpoint to access your host VM that you can use for accessing the virtual device.
+Depois de habilitar o gerenciamento remoto na página de configuração do dispositivo do StorSimple, você poderá usar a comunicação remota do Windows PowerShell para se conectar ao dispositivo virtual de outra máquina virtual na mesma rede virtual; por exemplo, é possível se conectar da VM host configurada e usada para conectar o iSCSI. Na maioria das implantações, você irá já terá aberto um ponto de extremidade público para acessar sua VM host que poderá ser usada para acessar o dispositivo virtual.
 
->[AZURE.WARNING] **For enhanced security, we strongly recommend that you use HTTPS when connecting to the endpoints and then delete the endpoints after you have completed your PowerShell remote session.**
+>[AZURE.WARNING] **Para maior segurança, é altamente recomendável que você use HTTPS durante a conexão com os pontos de extremidade e, em seguida, exclua os pontos de extremidade depois de concluir sua sessão remota do PowerShell.**
 
-You should follow the procedures in [Connecting remotely to your StorSimple device](storsimple-remote-connect.md) to set up remoting for your virtual device.
+Você deve seguir os procedimentos em [Conectar-se remotamente ao seu dispositivo do StorSimple](storsimple-remote-connect.md) para configurar a comunicação remota de seu dispositivo virtual.
 
-## <a name="connect-directly-to-the-virtual-device"></a>Connect directly to the virtual device
+## Conectar-se diretamente ao dispositivo virtual
 
-You can also connect directly to the virtual device. If you want to connect directly to the virtual device from another computer outside the virtual network or outside the Microsoft Azure environment, you need to create additional endpoints as described in the following procedure. 
+Você também pode se conectar diretamente ao dispositivo virtual. Se você quiser se conectar diretamente ao dispositivo virtual de outro computador fora da rede virtual ou do ambiente do Microsoft Azure, precisará criar pontos de extremidade adicionais, como descrito no procedimento a seguir.
 
-Perform the following steps to create a public endpoint on the virtual device.
+Execute as seguintes etapas para criar o dispositivo virtual StorSimple.
 
-[AZURE.INCLUDE [Create public endpoints on a virtual device](../../includes/storsimple-create-public-endpoints-virtual-device.md)]
+[AZURE.INCLUDE [Criar pontos de extremidade públicos em um dispositivo virtual](../../includes/storsimple-create-public-endpoints-virtual-device.md)]
 
-We recommend that you connect from another virtual machine inside the same virtual network because this practice minimizes the number of public endpoints on your virtual network. When you use this method, you simply connect to the virtual machine through a Remote Desktop session and then configure that virtual machine for use as you would any other Windows client on a local network. You do not need to append the public port number because the port will already be known.
+É recomendável que você se conecte de outra máquina virtual dentro da mesma rede virtual porque essa prática minimiza o número de pontos de extremidade públicos em sua rede virtual. Quando você usar esse método, simplesmente se conectará à máquina virtual por meio de uma sessão de Área de Trabalho Remota e configurará essa máquina virtual para uso como o faria com qualquer outro cliente do Windows em uma rede local. Você não precisa anexar o número da porta pública porque a porta já será conhecida.
 
-## <a name="work-with-the-storsimple-virtual-device"></a>Work with the StorSimple virtual device
+## Trabalhar com o dispositivo virtual StorSimple
 
-Now that you have created and configured the StorSimple virtual device, you are ready to start working with it. You can work with volume containers, volumes, and backup policies on a virtual device just as you would on a physical StorSimple device; the only difference is that you need to make sure that you select the virtual device from your device list. Refer to [use the StorSimple Manager service to manage a virtual device](storsimple-manager-service-administration.md) for step-by-step procedures of the various management tasks for the virtual device.
+Agora que você criou e configurado o dispositivo virtual StorSimple, está pronto para começar a trabalhar com ele. Você pode trabalhar com contêineres de volume, volumes e políticas de backup em um dispositivo virtual assim como faria em um dispositivo StorSimple físico; a única diferença é que você precisará certificar-se de selecionar o dispositivo virtual na sua lista de dispositivos. Veja [usar o serviço do StorSimple Manager para gerenciar um dispositivo virtual](storsimple-manager-service-administration.md) para obter procedimentos passo a passo das várias tarefas de gerenciamento para o dispositivo virtual.
 
-The following sections discuss some of the differences you will encounter when working with the virtual device.
+As seções a seguir discutem as diferenças que você encontrará ao trabalhar com o dispositivo virtual.
 
-### <a name="maintain-a-storsimple-virtual-device"></a>Maintain a StorSimple virtual device
+### Manter um dispositivo virtual StorSimple
 
-Because it is a software-only device, maintenance for the virtual device is minimal when compared to maintenance for the physical device. You have the following options:
+Como é um dispositivo somente de software, a manutenção para o dispositivo virtual é mínima quando comparada à manutenção do dispositivo físico. Você tem as seguintes opções:
 
-- **Software updates** – You can view the date that the software was last updated, together with any update status messages. You can use the **Scan updates** button at the bottom of the page to perform a manual scan if you want to check for new updates. If updates are available, click **Install Updates** to install. Because there is only a single interface on the virtual device, this means that there will be a slight service interruption when updates are applied. The virtual device will shut down and restart (if necessary) to apply any updates that have been released. For a step-by-step procedure, go to [update your device](storsimple-update-device.md#install-regular-updates-via-the-azure-classic-portal).
-- **Support package** – You can create and upload a support package to help Microsoft Support troubleshoot issues with your virtual device. For a step-by-step procedure, go to [create and manage a support package](storsimple-create-manage-support-package.md).
+- **Atualizações de software** – você pode exibir a data em que o software foi atualizado pela última vez, junto com quaisquer mensagens de status de atualização. Você pode usar o botão **Verificar atualizações** na parte inferior da página para executar uma verificação manual em busca de novas atualizações. Se houver atualizações disponíveis, clique em **Instalar Atualizações** para instalá-las. Como há apenas uma única interface do dispositivo virtual, isso significa que haverá uma ligeira interrupção do serviço quando as atualizações forem aplicadas. O dispositivo virtual será automaticamente desligado e reiniciará (se for necessário) para aplicar todas as atualizações liberadas. Para obter um procedimento passo a passo, vá para [atualizar o dispositivo](storsimple-update-device.md#install-regular-updates-via-the-azure-classic-portal).
+- **Pacote de suporte** – você pode criar e carregar um pacote de suporte para ajudar o Suporte da Microsoft a solucionar problemas com seu dispositivo virtual. Para obter um procedimento passo a passo, vá para [criar e gerenciar um pacote de suporte](storsimple-create-manage-support-package.md).
 
-### <a name="storage-accounts-for-a-virtual-device"></a>Storage accounts for a virtual device
+### Contas de armazenamento para um dispositivo virtual
 
-Storage accounts are created for use by the StorSimple Manager service, by the virtual device, and by the physical device. When you create your storage accounts, we recommend that you use a region identifier in the friendly name to help ensure that the region is consistent throughout all of the system components. For a virtual device, it is important that all of the components be in the same region to prevent performance issues.
+As contas de armazenamento são criadas para uso pelo serviço Gerenciador do StorSimple, pelo dispositivo virtual e pelo dispositivo físico. Quando você cria suas contas de armazenamento, é recomendável que você use um identificador de região no nome amigável para ajudar a garantir que a região seja consistente em todos os componentes do sistema. Para um dispositivo virtual, é importante que todos os componentes estejam na mesma região para evitar problemas de desempenho.
 
-For a step-by-step procedure, go to [add a storage account](storsimple-manage-storage-accounts.md#add-a-storage-account).
+Para obter um procedimento passo a passo, vá para [adicionar uma conta de armazenamento](storsimple-manage-storage-accounts.md#add-a-storage-account).
 
-### <a name="deactivate-a-storsimple-virtual-device"></a>Deactivate a StorSimple virtual device
+### Desativar um dispositivo virtual StorSimple
 
-Deactivating a virtual device deletes the VM and the resources created when it was provisioned. After the virtual device is deactivated, it cannot be restored to its previous state. Before you deactivate the virtual device, make sure to stop or delete clients and hosts that depend on it.
+Desativar um dispositivo virtual exclui a VM e os recursos criados quando ela foi provisionada. Depois que o dispositivo virtual for desativado, ele não poderá ser restaurado ao estado anterior. Antes de desativar o dispositivo virtual, pare ou exclua clientes e hosts que dependem dele.
 
-Deactivating a virtual device results in the following actions:
+Desativar um dispositivo virtual resulta nas seguintes ações:
 
-- The virtual device is removed.
+- O dispositivo virtual é removido.
 
-- The OS disk and data disks created for the virtual device are removed.
+- O disco do SO e os discos de dados criados para o dispositivo virtual são removidos.
 
-- The hosted service and virtual network created during provisioning are retained. If you are not using them, you should delete them manually.
+- O serviço hospedado e a rede virtual criados durante o provisionamento são mantidos. Se você não os estiver usando, deverá excluí-los manualmente.
 
-- Cloud snapshots created for the virtual device are retained.
+- Instantâneos de nuvem criados para o dispositivo virtual são mantidos.
 
-For a step-by-step procedure, go to [Deactivate and delete your StorSimple device](storsimple-deactivate-and-delete-device.md).
+Para obter um procedimento passo a passo, vá para [Desativar e excluir seu dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
-As soon as the virtual device is shown as deactivated on the StorSimple Manager service page, you can delete the virtual device from device list on the **Devices** page.
+Assim que o dispositivo virtual for mostrado como desativado na página do serviço do StorSimple Manager, você poderá excluir o dispositivo virtual da lista de dispositivos na página **Dispositivos**.
 
 
-### <a name="start,-stop-and-restart-a-virtual-device"></a>Start, stop and restart a virtual device
-Unlike the StorSimple physical device, there is no power on or power off button to push on a StorSimple virtual device. However, there may be occasions where you need to stop and restart the virtual device. For example, some updates might require that the VM be restarted to finish the update process. The easiest way for you to start, stop, and restart a virtual device is to use the Virtual Machines Management Console.
+### Iniciar, parar e reiniciar um dispositivo virtual
+Ao contrário do dispositivo físico do StorSimple, não há um botão liga/desliga em um dispositivo virtual do StorSimple. No entanto, pode haver ocasiões em que você precisará parar e reiniciar o dispositivo virtual. Por exemplo, algumas atualizações podem exigir que a VM seja reiniciada para a conclusão do processo de atualização. A maneira mais fácil de iniciar, parar e reiniciar um dispositivo virtual é usar o Console de Gerenciamento de Máquinas Virtuais.
 
-When you look at the Management Console, the virtual device status is **Running** because it is started by default after it is created. You can start, stop, and restart a virtual machine at any time.
+Quando você examinar o Console de Gerenciamento, o status do dispositivo virtual será **Em execução** porque ele é iniciado por padrão após sua criação. É possível iniciar, parar e reiniciar uma máquina virtual a qualquer momento.
 
-[AZURE.INCLUDE [Stop and restart virtual device](../../includes/storsimple-stop-restart-virtual-device.md)]
+[AZURE.INCLUDE [Parar e reiniciar o dispositivo virtual](../../includes/storsimple-stop-restart-virtual-device.md)]
 
-### <a name="reset-to-factory-defaults"></a>Reset to factory defaults
+### Redefinir para os padrões de fábrica
 
-If you decide that you just want to start over with your virtual device, simply deactivate and delete it and then create a new one. Just like when your physical device is reset, your new virtual device will not have any updates installed; therefore, make sure to check for updates before using it.
+Se você decidir que deseja apenas recriar seu dispositivo virtual, simplesmente desative-o e exclua-o e então crie um novo. Assim como quando o dispositivo físico é redefinido, o novo dispositivo virtual não terá qualquer atualização instalada; portanto, verifique se há atualizações antes de usá-lo.
 
 
-## <a name="fail-over-to-the-virtual-device"></a>Fail over to the virtual device
+## Failover para o dispositivo virtual
 
-Disaster recovery (DR) is one of the key scenarios that the StorSimple virtual device was designed for. In this scenario, the physical StorSimple device or entire datacenter might not be available. Fortunately, you can use a virtual device to restore operations in an alternate location. During DR, the volume containers from the source device change ownership and are transferred to the virtual device. The prerequisites for DR are that the virtual device has been created and configured, all the volumes within the volume container have been taken offline, and the volume container has an associated cloud snapshot.
+A recuperação de desastres (RD) é um dos principais cenários para os quais o dispositivo virtual StorSimple foi projetado. Nesse cenário, o dispositivo físico StorSimple ou o datacenter inteiro podem não estar disponível. Felizmente, você pode usar um dispositivo virtual para restaurar operações em um local alternativo. Durante a RD, os contêineres de volume do dispositivo de origem alteram a propriedade e são transferidos para o dispositivo de destino. Os pré-requisitos para a RD são que o dispositivo virtual tenha sido criado e configurado, todos os volumes no contêiner de volume tenham sido colocados offline e o contêiner de volume tenha um de instantâneo de nuvem associado.
 
 >[AZURE.NOTE] 
 >
-> - When using a virtual device as the secondary device for DR, keep in mind that the 8010 has 30 TB of Standard Storage and 8020 has 64 TB of Premium Storage. The higher capacity 8020 virtual device may be more suited for a DR scenario.
-> - You cannot failover or clone from a device running Update 2 to a device running pre-Update 1 software. You can however fail over a device running Update 2 to a device running Update 1 (1.1 or 1.2)
+> - Ao usar um dispositivo virtual como o dispositivo secundário para recuperação de desastre, tenha em mente que o 8010 tem 30 TB de Armazenamento Standard e o 8020 tem 64 TB de Armazenamento Premium. O dispositivo virtual 8020 com uma maior capacidade pode ser mais adequado para um cenário de recuperação de desastre.
+> - Não é possível executar failover ou clonar um dispositivo que executa a Atualização 2 para um dispositivo que executa um software anterior à Atualização 1. No entanto, é possível executar failover de um dispositivo com a Atualização 2 para um dispositivo com a Atualização 1 (1.1 ou 1.2)
 
-For a step-by-step procedure, go to [failover to a virtual device](storsimple-device-failover-disaster-recovery.md#fail-over-to-a-storsimple-virtual-device).
+Para obter um procedimento passo a passo, vá para [executar failover para um dispositivo virtual](storsimple-device-failover-disaster-recovery.md#fail-over-to-a-storsimple-virtual-device).
  
 
-## <a name="shut-down-or-delete-the-virtual-device"></a>Shut down or delete the virtual device
+## Desligar ou excluir o dispositivo virtual
 
-If you previously configured and used a StorSimple virtual device but now want to stop accruing compute charges for its use, you can shut down the virtual device. Shutting down the virtual device doesn’t delete its operating system or data disks in storage. It does stop charges accruing on your subscription, but storage charges for the OS and data disks will continue.
+Se você configurou previamente e usou um dispositivo virtual StorSimple, mas agora deseja parar de acumular encargos de computação para seu uso, poderá desligar o dispositivo virtual. Desligar o dispositivo virtual não exclui seu sistema operacional ou os discos de dados do armazenamento. Isso para o acúmulo de encargos em sua assinatura, mas os encargos de armazenamento para os discos de sistema operacional e de dados continuarão.
 
-If you delete or shut down the virtual device, it will appear as **Offline** on the Devices page of the StorSimple Manager service. You can choose to deactivate or delete the device if you also wish to delete the backups created by the virtual device. For more information, see [Deactivate and delete a StorSimple device](storsimple-deactivate-and-delete-device.md).
+Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Offline** na página Dispositivos do serviço Gerenciador do StorSimple. Você pode optar por desativar ou excluir o dispositivo se também desejar excluir os backups criados pelo dispositivo virtual. Para saber mais, confira [Desativar e excluir um dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
-[AZURE.INCLUDE [Shut down a virtual device](../../includes/storsimple-shutdown-virtual-device.md)]
+[AZURE.INCLUDE [Desligar um dispositivo virtual](../../includes/storsimple-shutdown-virtual-device.md)]
 
-[AZURE.INCLUDE [Delete a virtual device](../../includes/storsimple-delete-virtual-device.md)]
+[AZURE.INCLUDE [Excluir um dispositivo virtual](../../includes/storsimple-delete-virtual-device.md)]
 
    
-## <a name="troubleshoot-internet-connectivity-errors"></a>Troubleshoot Internet connectivity errors 
+## Solucionar problemas de erros de conectividade com a Internet 
 
-During the creation of a virtual device, if there is no connectivity to the Internet, the creation step will fail. To troubleshoot if the failure is because of Internet connectivity, perform the following steps in the Azure classic portal:
+Durante a criação de um dispositivo virtual, se não houver nenhuma conectividade com a Internet, a etapa de criação falhará. Para solucionar problemas se a falha ocorrer devido à conectividade com a Internet, execute as seguintes etapas no portal clássico do Azure:
 
-1. Create a Windows server 2012 virtual machine in Azure. This virtual machine should use the same storage account, VNet and subnet as used by your virtual device. If you already have an existing Windows Server host in Azure using the same storage account, Vnet and subnet, you can also use it to troubleshoot the Internet connectivity.
-2. Remote log into the virtual machine created in the preceding step. 
-3. Open a command window inside the virtual machine (Win + R and then type `cmd`).
-4. Run the following cmd at the prompt.
+1. Crie uma máquina virtual do Windows Server 2012 no Azure. Essa máquina virtual deve usar a mesma conta de armazenamento, VNet e sub-rede usadas por seu dispositivo virtual. Se você já tiver um host do Windows Server existente no Azure usando a mesma conta de armazenamento, VNet e sub-rede, também poderá usá-lo para solucionar os problemas de conectividade com a Internet.
+2. Faça logon remoto na máquina virtual criada na etapa anterior.
+3. Abra uma janela de comando dentro da máquina virtual (Win + R e digite `cmd`).
+4. Execute o seguinte comando no prompt.
 
-    `nslookup windows.net`
+	`nslookup windows.net`
 
-5. If `nslookup` fails, then Internet connectivity failure is preventing the virtual device from registering to the StorSimple Manager service. 
-6. Make the required changes to your virtual network to ensure that the virtual device is able to access Azure sites such as “windows.net”.
+5. Se `nslookup` falhar, então, a falha de conectividade com a Internet está impedindo que o dispositivo virtual se registre no serviço StorSimple Manager.
+6. Faça as alterações necessárias em sua rede virtual para garantir que o dispositivo virtual seja capaz de acessar os sites do Azure, como o "windows.net".
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-- Learn how to [use the StorSimple Manager service to manage a virtual device](storsimple-manager-service-administration.md).
+- Saiba como [Usar o serviço StorSimple Manager para gerenciar um dispositivo virtual](storsimple-manager-service-administration.md).
  
-- Understand how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md). 
+- Entenda como [restaurar um volume do StorSimple de um conjunto de backups](storsimple-restore-from-backup-set.md).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,36 +1,35 @@
 <properties
-    pageTitle="Handling State in Resource Manager Templates | Microsoft Azure"
-    description="Shows recommended approaches for using complex objects to share state data with Azure Resource Manager templates and linked templates"
-    services="azure-resource-manager"
-    documentationCenter=""
-    authors="tfitzmac"
-    manager="timlt"
-    editor="tysonn"/>
+	pageTitle="Tratando do estado em modelos do Resource Manager | Microsoft Azure"
+	description="Mostra abordagens recomendadas para usar objetos complexos para compartilhar dados de estado com modelos e modelos vinculados do Gerenciador de Recursos do Azure"
+	services="azure-resource-manager"
+	documentationCenter=""
+	authors="tfitzmac"
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
-    ms.service="azure-resource-manager"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/12/2016"
-    ms.author="tomfitz"/>
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
+	ms.author="tomfitz"/>
+
+# Compartilhando estado em modelos do Gerenciador de Recursos do Azure
+
+Este tópico mostra as melhores práticas para gerenciar e compartilhar o estado em modelos. Os parâmetros e variáveis mostrados neste tópico são exemplos dos tipos de objetos que você pode definir para organizar seus requisitos de implantação convenientemente. A partir desses exemplos, você pode implementar seus próprios objetos com valores de propriedade que façam sentido para o seu ambiente.
+
+Este tópico faz parte de um whitepaper mais amplo. Para ler o documento completo, baixe [Considerações e práticas comprovadas de modelos ARM de nível mundial](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 
-# <a name="sharing-state-in-azure-resource-manager-templates"></a>Sharing state in Azure Resource Manager templates
+## Fornecer configurações padrão
 
-This topic shows best practices for managing and sharing state within templates. The parameters and variables shown in this topic are examples of the type of objects you can define to conveniently organize your deployment requirements. From these examples, you can implement your own objects with property values that make sense for your environment.
+Em vez de oferecer um modelo com total flexibilidade e inúmeras variações, um padrão comum é fornecer a capacidade de selecionar configurações conhecidas; na verdade, tamanhos de camiseta padrão como tamanho único, pequeno, médio e grande. Outros exemplos de tamanhos de camiseta são ofertas de produtos, como community edition ou enterprise edition. Em outros casos, podem se tratar de configurações de uma tecnologia específicas para uma determinada carga de trabalho - como mapear/reduzir ou no SQL.
 
-This topic is part of a larger whitepaper. To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+Com objetos complexos, você pode criar variáveis que contenham coleções de dados, às vezes conhecidos como "conjunto de propriedades", e usar esses dados para orientar a declaração de recurso em seu modelo. Essa abordagem fornece boas configurações conhecidas, de tamanhos variados que são pré-configurados para os clientes. Sem configurações conhecidas, os clientes finais devem determinar o tamanho do cluster por conta própria, levar em consideração restrições de recursos de plataforma e fazer cálculos para identificar o particionamento resultante de contas de armazenamento e outros recursos (devido a restrições de recursos e de tamanho do cluster). É mais fácil dar suporte a um pequeno número de configurações conhecidas; além disso, o uso de um pequeno número delas resulta em uma melhor experiência para o cliente e pode ajudá-lo a oferecer um maior nível de densidade.
 
-
-## <a name="provide-standard-configuration-settings"></a>Provide standard configuration settings
-
-Rather than offer a template that provides total flexibility and countless variations, a common pattern is to provide the ability to select known configurations — in effect, standard t-shirt sizes such as sandbox, small, medium, and large. Other examples of t-shirt sizes are product offerings, such as community edition or enterprise edition. In other cases, it may be workload specific configurations of a technology – such as map reduce or no sql.
-
-With complex objects, you can create variables that contain collections of data, sometimes known as "property bags" and use that data to drive the resource declaration in your template. This approach provides good, known configurations of varying sizes that are preconfigured for customers. Without known configurations, end customers must determine cluster sizing on their own, factor in platform resource constraints, and do math to identify the resulting partitioning of storage accounts and other resources (due to cluster size and resource constraints). In addition to making a better experience for the customer, a small number of known configurations is easier to support and can help you deliver a higher level of density.
-
-The following example shows how to define variables that contain complex objects for representing collections of data. The collections define values that are used for virtual machine size, network settings, operating system settings and availability settings.
+O exemplo a seguir mostra como definir variáveis que contêm objetos complexos para representar coleções de dados. As coleções definem os valores que são usados para o tamanho da máquina virtual, as configurações de rede, as configurações de sistema operacional e as configurações de disponibilidade.
 
     "variables": {
       "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
@@ -109,9 +108,9 @@ The following example shows how to define variables that contain complex objects
       }
     }
 
-Notice that the **tshirtSize** variable concatenates the t-shirt size you provided through a parameter (**Small**, **Medium**, **Large**) to the text **tshirtSize**. You will use this variable to retrieve the associated complex object variable for that t-shirt size.
+Observe que a variável **tshirtSize** concatena o tamanho de camiseta que você forneceu através de um parâmetro (**Small**, **Medium**, **Large**) ao texto **tshirtSize**. Você usará essa variável para recuperar a variável de objeto complexo associada para o tamanho de camiseta.
 
-You can then reference these variables later in the template. The ability to reference named-variables and their properties simplifies the template syntax, and makes it easy to understand context. The following example defines a resource to deploy by using the objects shown above to set values. For example, note that the VM size is set by retrieving the value for `variables('tshirtSize').vmSize` while the value for the disk size is retrieved from `variables('tshirtSize').diskSize`. In addition, the URI for a linked template is set with the value for `variables('tshirtSize').vmTemplate`.
+Você pode fazer referência a essas variáveis posteriormente no modelo. A capacidade de fazer referência a variáveis nomeadas e às suas propriedades simplifica a sintaxe de modelo e facilita o entendimento do contexto. O exemplo a seguir define um recurso para implantar usando os objetos mostrados acima para definir valores. Por exemplo, observe que o tamanho da VM é definido pela recuperação do valor de `variables('tshirtSize').vmSize`, enquanto o valor do tamanho do disco é recuperado de `variables('tshirtSize').diskSize`. Além disso, o URI de um modelo vinculado é definido com o valor de `variables('tshirtSize').vmTemplate`.
 
     "name": "master-node",
     "type": "Microsoft.Resources/deployments",
@@ -166,24 +165,24 @@ You can then reference these variables later in the template. The ability to ref
       }
     }
 
-## <a name="pass-state-to-a-template"></a>Pass state to a template
+## Passar o estado para um modelo
 
-You share state into a template through parameters that you provide directly during deployment.
+Você pode compartilhar o estado em um modelo por meio de parâmetros fornecidos diretamente durante a implantação.
 
-The following table lists commonly-used parameters in templates.
+A tabela a seguir lista os parâmetros normalmente usados em modelos.
 
-Name | Value | Description
+Nome | Valor | Descrição
 ---- | ----- | -----------
-location    | String from a constrained list of Azure regions   | The location where the resources will be deployed.
-storageAccountNamePrefix    | String    | Unique DNS name for the Storage Account where the VM's disks will be placed
-domainName  | String    | Domain name of the publicly accessible jumpbox VM in the format: **{domainName}.{location}.cloudapp.com** For example: **mydomainname.westus.cloudapp.azure.com**
-adminUsername   | String    | Username for the VMs
-adminPassword   | String    | Password for the VMs
-tshirtSize  | String from a constrained list of offered t-shirt sizes   | The named scale unit size to provision. For example, "Small", "Medium", "Large"
-virtualNetworkName  | String    | Name of the virtual network that the consumer wants to use.
-enableJumpbox   | String from a constrained list (enabled/disabled) | Parameter that identifies whether to enable a jumpbox for the environment. Values: "enabled", "disabled"
+location | Cadeia de caracteres de uma lista restrita de regiões do Azure | O local onde os recursos serão implantados.
+storageAccountNamePrefix | Cadeia de caracteres | Nome DNS exclusivo da conta de armazenamento na qual serão colocados os discos da VM
+domainName | Cadeia de caracteres | Nome de domínio da VM jumpbox publicamente acessível no formato: **{domainName}.{local}.cloudapp.com** Por exemplo: **nomedomeudomínio.westus.cloudapp.azure.com**
+adminUsername | Cadeia de caracteres | Nome de usuário das VMs
+adminPassword | Cadeia de caracteres | A senha das VMs
+tshirtSize | Cadeia de caracteres de uma lista restrita de tamanhos de camiseta oferecidos | O tamanho da unidade de escala nomeada para provisionamento. Por exemplo, "Pequeno", "Médio", "Grande"
+virtualNetworkName | Cadeia de caracteres | Nome da rede virtual que o consumidor deseja usar.
+enableJumpbox | Cadeia de caracteres de uma lista restrita (habilitada/desabilitada) | Parâmetro que identifica se um Jumpbox será habilitado para o ambiente. Valores: "habilitado", "desabilitado"
 
-The **tshirtSize** parameter used in the previous section is defined as:
+O parâmetro **tshirtSize** usado na seção anterior é definido como:
 
     "parameters": {
       "tshirtSize": {
@@ -201,17 +200,17 @@ The **tshirtSize** parameter used in the previous section is defined as:
     }
 
 
-## <a name="pass-state-to-linked-templates"></a>Pass state to linked templates
+## Passar o estado para modelos vinculados
 
-When connecting to linked templates, you will often use a mix of static and generated variables.
+Ao conectar-se aos modelos vinculados, geralmente você utilizará uma combinação de variáveis estáticas e geradas.
 
-### <a name="static-variables"></a>Static variables
+### Variáveis estáticas
 
-Static variables are often used to provide base values, such as URLs, that are used throughout a template.
+Variáveis estáticas geralmente são usadas para fornecer valores de base, como URLs, que são usados em um modelo.
 
-In the template excerpt below, `templateBaseUrl` specifies the root location for the template in GitHub. The next line builds a new variable `sharedTemplateUrl` that concatenates the base URL with the known name of the shared resources template. Below that, a complex object variable is used to store a t-shirt size, where the base URL is concatenated to the known configuration template location and stored in the `vmTemplate` property.
+No trecho do modelo abaixo, `templateBaseUrl` especifica o local raiz do modelo no GitHub. A próxima linha cria uma nova variável `sharedTemplateUrl`, que concatena o URL base com o nome conhecido do modelo de recursos compartilhados. Abaixo dela, uma variável de objeto complexo é usada para armazenar um tamanho de camiseta, em que o URL base é concatenado ao local do modelo de configuração conhecido e armazenado na propriedade `vmTemplate`.
 
-The benefit of this approach is that if the template location changes, you only need to change the static variable in one place which passes it throughout the linked templates.
+O benefício desta abordagem é que, se o local do modelo for alterado, você só precisará alterar a variável estática em um único lugar, que a passará para os modelos vinculados.
 
     "variables": {
       "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
@@ -232,19 +231,19 @@ The benefit of this approach is that if the template location changes, you only 
       }
     }
 
-### <a name="generated-variables"></a>Generated variables
+### Variáveis geradas
 
-In addition to static variables, a number of variables are generated dynamically. This section identifies some of the common types of generated variables.
+Além de variáveis estáticas, diversas variáveis são geradas dinamicamente. Esta seção identifica alguns dos tipos comuns de variáveis geradas.
 
-#### <a name="tshirtsize"></a>tshirtSize
+#### tshirtSize
 
-You are familiar with this generated variable from the examples above.
+Você está familiarizado com essa variável gerada dos exemplos acima.
 
-#### <a name="networksettings"></a>networkSettings
+#### networkSettings
 
-In a capacity, capability, or end-to-end scoped solution template, the linked templates typically create resources that exist on a network. One straightforward approach is to use a complex object to store network settings and pass them to linked templates.
+Em um modelo de capacidade, recurso ou solução de escopo completa, os modelos vinculados normalmente criam recursos que existem em uma rede. Uma abordagem simples é usar um objeto complexo para armazenar as configurações de rede e passá-las para modelos vinculados.
 
-An example of communicating network settings can be seen below.
+Um exemplo de configurações de rede de comunicação pode ser visto abaixo.
 
     "networkSettings": {
       "vnetName": "[parameters('virtualNetworkName')]",
@@ -263,9 +262,9 @@ An example of communicating network settings can be seen below.
       }
     }
 
-#### <a name="availabilitysettings"></a>availabilitySettings
+#### availabilitySettings
 
-Resources created in linked templates are often placed in an availability set. In the following example, the availability set name is specified and also the fault domain and update domain count to use.
+Recursos criados em modelos vinculados geralmente são colocados em um conjunto de disponibilidade. No exemplo a seguir, o nome do conjunto de disponibilidade é especificado e também a contagem de domínios de falha e de atualização para uso.
 
     "availabilitySetSettings": {
       "name": "pgsqlAvailabilitySet",
@@ -273,11 +272,11 @@ Resources created in linked templates are often placed in an availability set. I
       "udCount": 5
     }
 
-If you need multiple availability sets (for example, one for master nodes and another for data nodes), you can use a name as a prefix, specify multiple availability sets, or follow the model shown earlier for creating a variable for a specific t-shirt size.
+Se precisar de vários conjuntos de disponibilidade (por exemplo, um para nós mestres e outro para nós de dados), você pode usar um nome como um prefixo, especificar vários conjuntos de disponibilidade ou seguir o modelo mostrado anteriormente para a criação de uma variável para um tamanho de camiseta específico.
 
-#### <a name="storagesettings"></a>storageSettings
+#### storageSettings
 
-Storage details are often shared with linked templates. In the example below, a *storageSettings* object provides details about the storage account and container names.
+Detalhes de armazenamento geralmente são compartilhados com modelos vinculados. No exemplo abaixo, um objeto *storageSettings* fornece detalhes sobre os nomes de contêiner e da conta de armazenamento.
 
     "storageSettings": {
         "vhdStorageAccountName": "[parameters('storageAccountName')]",
@@ -285,11 +284,11 @@ Storage details are often shared with linked templates. In the example below, a 
         "destinationVhdsContainer": "[concat('https://', parameters('storageAccountName'), variables('vmStorageAccountDomain'), '/', variables('vmStorageAccountContainerName'), '/')]"
     }
 
-#### <a name="ossettings"></a>osSettings
+#### osSettings
 
-With linked templates, you may need to pass operating system settings to various nodes types across different known configuration types. A complex object is an easy way to store and share operating system information and also makes it easier to support multiple operating system choices for deployment.
+Com modelos vinculados, você precisa passar configurações do sistema operacional para vários tipos de nós em todos os tipos de configuração diferentes conhecidos. Um objeto complexo é uma maneira fácil de armazenar e compartilhar informações de sistema operacional e também torna mais fácil dar suporte a várias opções de sistema operacional para implantação.
 
-The following example shows an object for *osSettings*:
+O exemplo a seguir mostra um objeto para *osSettings*:
 
     "osSettings": {
       "imageReference": {
@@ -300,9 +299,9 @@ The following example shows an object for *osSettings*:
       }
     }
 
-#### <a name="machinesettings"></a>machineSettings
+#### machineSettings
 
-A generated variable, *machineSettings* is a complex object containing a mix of core variables for creating a new VM: administrator user name and password, a prefix for the VM names, and an operating system image reference as shown below:
+Uma variável gerada, *machineSettings*, é um objeto complexo que contém uma mistura de variáveis principais para a criação de uma nova VM: o nome de usuário e a senha de administrador, um prefixo para os nomes de VM e uma referência de imagem de sistema operacional, como mostrado abaixo:
 
     "machineSettings": {
         "adminUsername": "[parameters('adminUsername')]",
@@ -316,19 +315,19 @@ A generated variable, *machineSettings* is a complex object containing a mix of 
         }
     },
 
-Note that *osImageReference* retrieves the values from the *osSettings* variable defined in the main template. That means you can easily change the operating system for a VM—entirely or based on the preference of a template consumer.
+Observe que *osImageReference* recupera os valores da variável *osSettings* definida no modelo principal. Isso significa que você pode alterar facilmente o sistema operacional de uma VM — completamente ou com base na preferência de um consumidor de modelo.
 
-#### <a name="vmscripts"></a>vmScripts
+#### vmScripts
 
-The *vmScripts* object contains details about the scripts to download and execute on a VM instance, including outside and inside references. Outside references include the infrastructure. Inside references include the installed software installed and configuration.
+O objeto *vmScripts* contém detalhes sobre os scripts a serem baixados e executados em uma instância de VM, incluindo referências externas e internas. Referências externas incluem a infraestrutura. Referências internas incluem o software instalado e a configuração.
 
-You use the *scriptsToDownload* property to list the scripts to download to the VM.
+Você usa a propriedade *scriptsToDownload* para listar os scripts a serem baixados na VM.
 
-As the example below shows, this object also contains references to command-line arguments for different types of actions. These actions include executing the default installation for each individual node, an installation that runs after all nodes are deployed, and any additional scripts that may be specific to a given template.
+Como o exemplo a seguir mostra, esse objeto também contém referências aos argumentos de linha de comando de diferentes tipos de ações. Essas ações incluem a execução da instalação padrão para cada nó individual, uma instalação que é executada depois que todos os nós são implantados e quaisquer scripts adicionais que possam ser específicos de um determinado modelo.
 
-This example is from a template used to deploy MongoDB, which requires an arbiter to deliver high availability. The *arbiterNodeInstallCommand* has been added to *vmScripts* to install the arbiter.
+Este exemplo é de um modelo usado para implantar MongoDB, que requer um arbitrador para oferecer alta disponibilidade. O *arbiterNodeInstallCommand* foi adicionado a *vmScripts* para instalar o arbitrador.
 
-The variables section is where you’ll find the variables that define the specific text to execute the script with the proper values.
+A seção de variáveis é onde você encontrará as variáveis que definem o texto específico para executar o script com os valores adequados.
 
     "vmScripts": {
         "scriptsToDownload": [
@@ -341,11 +340,11 @@ The variables section is where you’ll find the variables that define the speci
     },
 
 
-## <a name="return-state-from-a-template"></a>Return state from a template
+## Retornar o estado de um modelo
 
-Not only can you pass data into a template, you can also share data back to the calling template. In the **outputs** section of a linked template, you can provide key/value pairs that can be consumed by the source template.
+Você pode não só passar dados para um modelo, mas também pode compartilhar dados de volta para o modelo de chamada. Na seção **outputs** de um modelo vinculado, você pode fornecer os pares de chave-valor que podem ser consumidos pelo modelo de origem.
 
-The following example shows how to pass the private IP address generated in a linked template.
+O exemplo a seguir mostra como passar o endereço IP privado gerado em um modelo vinculado.
 
     "outputs": {
         "masterip": {
@@ -354,11 +353,11 @@ The following example shows how to pass the private IP address generated in a li
          }
     }
 
-Within the main template, you can use that data with the following syntax:
+No modelo principal, você pode usar esses dados com a seguinte sintaxe:
 
     "[reference('master-node').outputs.masterip.value]"
 
-You can use this expression in either the outputs section or the resources section of the main template. You cannot use the expression in the variables section because it relies on the runtime state. To return this value from the main template, use:
+Você pode usar essa expressão na seção de saídas ou na seção de recursos do modelo principal. Não é possível usar a expressão na seção de variáveis porque ela se baseia no estado de tempo de execução. Para retornar esse valor do modelo principal, use:
 
     "outputs": { 
       "masterIpAddress": {
@@ -366,11 +365,11 @@ You can use this expression in either the outputs section or the resources secti
         "type": "string"
       }
      
-For an example of using the outputs section of a linked template to return data disks for a virtual machine, see [Creating multiple data disks for a Virtual Machine](resource-group-create-multiple.md#creating-multiple-data-disks-for-a-virtual-machine).
+Para obter um exemplo de como usar a seção de saídas de um modelo vinculado para retornar discos de dados para uma máquina virtual, consulte [Criando vários discos de dados para uma Máquina Virtual](resource-group-create-multiple.md#creating-multiple-data-disks-for-a-virtual-machine).
 
-## <a name="define-authentication-settings-for-virtual-machine"></a>Define authentication settings for virtual machine
+## Definir configurações de autenticação para uma máquina virtual
 
-You can use the same pattern shown above for configuration settings to specify the authentication settings for a virtual machine. You create a parameter for passing in the type of authentication.
+Você pode usar o mesmo padrão mostrado acima para definições de configuração, com o fim de especificar as configurações de autenticação para uma máquina virtual. Você cria um parâmetro para passar o tipo de autenticação.
 
     "parameters": {
       "authenticationType": {
@@ -386,7 +385,7 @@ You can use the same pattern shown above for configuration settings to specify t
       }
     }
 
-You add variables for the different authentication types, and a variable to store which type is used for this deployment based on the value of the parameter.
+Adicione variáveis para os tipos de autenticação diferentes, bem como uma variável para armazenar qual tipo é usado para essa implantação com base no valor do parâmetro.
 
     "variables": {
       "osProfile": "[variables(concat('osProfile', parameters('authenticationType')))]",
@@ -414,7 +413,7 @@ You add variables for the different authentication types, and a variable to stor
       }
     }
 
-When defining the virtual machine, you set the **osProfile** to the variable you created.
+Ao definir a máquina virtual, você define o **osProfile** para a variável que criou.
 
     {
       "type": "Microsoft.Compute/virtualMachines",
@@ -423,13 +422,8 @@ When defining the virtual machine, you set the **osProfile** to the variable you
     }
 
 
-## <a name="next-steps"></a>Next steps
-- To learn about the sections of the template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
-- To see the functions that are available within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md)
+## Próximas etapas
+- Para saber mais sobre as seções do modelo, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md)
+- Para ver as funções que estão disponíveis em um modelo, confira [Funções do modelo do Azure Resource Manager](resource-group-template-functions.md).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

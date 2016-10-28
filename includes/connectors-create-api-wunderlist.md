@@ -1,28 +1,18 @@
-### <a name="prerequisites"></a>Prerequisites
-- A Wunderlist account  
+### Pré-requisitos
+- Uma conta do Wunderlist  
 
-Before you can use your Wunderlist account in a Logic app, you must authorize the Logic app to connect to your Wunderlist account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Antes de usar sua conta do Wunderlist em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do Wunderlist. Felizmente, você pode fazer isso facilmente a partir de seu aplicativo lógico no Portal do Azure.
 
-Here are the steps to authorize your Logic app to connect to your Wunderlist account:
+Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do Wunderlist:
 
 
-1. To create a connection to Wunderlist, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Wunderlist* in the search box. Select the trigger or action you'll like to use:  
-  ![](./media/connectors-create-api-wunderlist/wunderlist-0.png)
-2. If you haven't created any connections to Wunderlist before, you'll get prompted to provide your Wunderlist credentials. These credentials will be used to authorize your Logic app to connect to, and access your Wunderlist account's data:   
-  ![](./media/connectors-create-api-wunderlist/wunderlist-1.png)  
-2. Provide your credentials then select the button to sign in  
-  ![](./media/connectors-create-api-wunderlist/wunderlist-2.png)  
-3. You'll then be told what the Logic app will have permissions to do with your Wunderlist account. If you agree, select the button to indicate your agreement. 
-  ![](./media/connectors-create-api-wunderlist/wunderlist-4.png)  
-4. Finally, select the **Authorize** button  
-  ![](./media/connectors-create-api-wunderlist/wunderlist-5.png)  
+1. Para criar uma conexão com o Wunderlist, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa, em seguida, digite *Wunderlist* na caixa de pesquisa. Selecione o gatilho ou ação que gostaria de usar: ![](./media/connectors-create-api-wunderlist/wunderlist-0.png)
+2. Se você não tiver criado quaisquer conexões Wunderlist antes, será solicitado a fornecer suas credenciais do Wunderlist. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta do Wunderlist e usá-los: ![](./media/connectors-create-api-wunderlist/wunderlist-1.png)  
+2. Forneça suas credenciais e selecione o botão para entrar ![](./media/connectors-create-api-wunderlist/wunderlist-2.png)  
+3. Em seguida, você será informado o que o aplicativo lógico terá permissões para fazer com sua conta do Wunderlist. Se você concordar, selecione o botão para indicar sua aceitação. ![](./media/connectors-create-api-wunderlist/wunderlist-4.png)  
+4. Por fim, selecione o botão **Autorizar** ![](./media/connectors-create-api-wunderlist/wunderlist-5.png)  
 
 
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
 
 

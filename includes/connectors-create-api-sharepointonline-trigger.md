@@ -1,18 +1,16 @@
-In this example, I will show you how to use the **SharePoint Online - When a new item is created** trigger to initiate a logic app workflow when a new item is created in a SharePoint Online list.
+Neste exemplo, mostrarei como usar o gatilho **SharePoint Online – Quando um novo item é criado** para iniciar um fluxo de trabalho do aplicativo lógico quando um novo item é criado em uma lista do SharePoint Online.
 
->[AZURE.NOTE]You will get prompted to sign into your SharePoint account if you have not already created a *connection* to SharePoint Online.  
+>[AZURE.NOTE]Você será solicitado a entrar na sua conta do SharePoint se você ainda não tiver criado uma *conexão* no SharePoint Online.  
 
-1. Enter *sharepoint* in the search box on the logic apps designer then select the **SharePoint Online - When a new item is created**  trigger.  
-![SharePoint online trigger image ](./media/connectors-create-api-sharepointonline/trigger-1.png)  
-- The **When a new item is created** control is displayed.  
-![SharePoint online trigger image 2](./media/connectors-create-api-sharepointonline/trigger-2.png)   
-- Select a **Site URL**. This is the SharePoint online site you want to monitor for new items to trigger your workflow.  
-![SharePoint online trigger image 3](./media/connectors-create-api-sharepointonline/trigger-3.png)   
-- Select a **List name**. This is the list on the SharePoint Online site you want to monitor for new items that will trigger your workflow.  
-![SharePoint online trigger image 4](./media/connectors-create-api-sharepointonline/trigger-4.png)   
+1. Digite *sharepoint* na caixa de pesquisa no designer de aplicativos lógicos e selecione gatilho **SharePoint Online – Quando um novo item é criado**.  
+![Imagem de gatilho do SharePoint Online](./media/connectors-create-api-sharepointonline/trigger-1.png)  
+- O controle **Quando um novo item é criado** aparece.  
+![Imagem de gatilho 2 do SharePoint Online](./media/connectors-create-api-sharepointonline/trigger-2.png)  
+- Selecione uma **URL do Site**. Esse é o site do SharePoint Online que você deseja monitorar para novos itens dispararem o fluxo de trabalho.  
+![Imagem de gatilho 3 do SharePoint Online](./media/connectors-create-api-sharepointonline/trigger-3.png)  
+- Selecione um **nome da lista**. Essa é a lista no site do SharePoint Online que você deseja monitorar para novos itens que vão disparar seu fluxo de trabalho.  
+![Imagem de gatilho 4 do SharePoint Online](./media/connectors-create-api-sharepointonline/trigger-4.png)  
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow. This will take place each time a new item is created in SharePoint Online list you selected.  
+Neste ponto, seu aplicativo lógico foi configurado com um gatilho que iniciará uma execução de outros gatilhos e ações no fluxo de trabalho. Isso ocorrerá sempre que um novo item é criado na lista do SharePoint Online que você selecionou.  
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

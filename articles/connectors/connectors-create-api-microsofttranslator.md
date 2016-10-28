@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Add the Microsoft Translator in logic apps| Microsoft Azure"
-    description="Overview of the Microsoft Translator connector with REST API parameters"
+    pageTitle="Adicionar o Microsoft Translator aos aplicativos lógicos | Microsoft Azure"
+    description="Visão geral do conector do Microsoft Translator com parâmetros da API REST"
     services=""
     suite=""
     documentationCenter="" 
@@ -18,130 +18,120 @@
    ms.date="08/18/2016"
    ms.author="mandia"/>
 
+# Introdução ao conector do Microsoft Translator
+Conecte-se ao Microsoft Translator para traduzir texto, detectar um idioma e muito mais. Com o Microsoft Translator, você pode:
 
-# <a name="get-started-with-the-microsoft-translator-connector"></a>Get started with the Microsoft Translator connector
-Connect to Microsoft Translator to translate text, detect a language, and more. With Microsoft Translator, you can: 
+- Compile seu fluxo de negócios baseado nos dados obtidos do Microsoft Translator.
+- Use ações para traduzir texto, detectar um idioma e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um novo arquivo é criado no Dropbox, você pode traduzir o texto contido no arquivo para outro idioma usando o Microsoft Translator.
 
-- Build your business flow based on the data you get from Microsoft Translator. 
-- Use actions to translate text, detect a language, and more. These actions get a response, and then make the output available for other actions. For example, when a new file is created in Dropbox, you can translate the text in the file to another language using Microsoft Translator.
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Gatilhos e ações
+O Microsoft Translator inclui as seguintes ações. Não há nenhum gatilho.
 
-## <a name="triggers-and-actions"></a>Triggers and actions
-Microsoft Translator includes the following actions. There are no triggers.
-
-Triggers | Actions
+Gatilhos | Ações
 --- | ---
-None | <ul><li>Detect language</li><li>Text to speech</li><li>Translate text</li><li>Get languages</li><li>Get speech languages</li></ul>
+Nenhum | <ul><li>Detectar idioma</li><li>Conversão de texto em fala</li><li>Traduzir texto</li><li>Obter idiomas</li><li>Obter idiomas de fala</li></ul>
 
-All connectors support data in JSON and XML formats.
-
-
-## <a name="create-a-connection-to-microsoft-translator"></a>Create a connection to Microsoft Translator
-
->[AZURE.INCLUDE [Steps to create a connection to Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]
+Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
 
-## <a name="swagger-rest-api-reference"></a>Swagger REST API reference
-Applies to version: 1.0.
+## Criar uma conexão com o Microsoft Translator
 
-### <a name="detect-language"></a>Detect language    
-Detects source language of given text.  
-```GET: /Detect```
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+
+## Referência da API REST do Swagger
+Aplica-se à versão: 1.0.
+
+### Detectar o idioma    
+Detecta o idioma de origem de determinado texto. ```GET: /Detect```
+
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|query|string|yes|query|none |Text whose language will be identified|
+|query|string|sim|query|nenhum |O texto cujo idioma será identificado|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Resposta
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|padrão|Falha na Operação.|
 
 
-### <a name="text-to-speech"></a>Text to speech    
-Converts a given text into speech as an audio stream in wave format.  
-```GET: /Speak```
+### Texto em fala    
+Converte determinado texto em fala como uma transmissão de áudio no formato wave. ```GET: /Speak```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|query|string|yes|query|none |Text to convert|
-|language|string|yes|query|none |Language code to generate speech (example: 'en-us')|
+|query|string|sim|query|nenhum |Texto a ser convertido|
+|idioma|string|sim|query|nenhum |Código de idioma para gerar fala (exemplo: “pt-BR”)|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Resposta
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|padrão|Falha na Operação.|
 
 
-### <a name="translate-text"></a>Translate text    
-Translates text to a specified language using Microsoft Translator.  
-```GET: /Translate```
+### Traduzir o texto    
+Traduz o texto para um idioma especificado usando o Microsoft Translator. ```GET: /Translate```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|query|string|yes|query|none |Text to translate|
-|languageTo|string|yes|query| none|Target language code (example: 'fr')|
-|languageFrom|string|no|query|none |Source language; if not provided, Microsoft Translator will try to auto-detect. (example: en)|
-|category|string|no|query|general |Translation category (default: 'general')|
+|query|string|sim|query|nenhum |Texto a ser traduzido|
+|languageTo|string|sim|query| nenhum|Código do idioma de destino (exemplo: “fr”)|
+|languageFrom|string|não|query|nenhum |Idioma de origem; se não tiver sido fornecido, o Microsoft Translator tentará detectá-lo automaticamente. (exemplo: en)|
+|categoria|string|não|query|geral |Categoria de tradução (padrão: “geral”)|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Resposta
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|padrão|Falha na Operação.|
 
 
-### <a name="get-languages"></a>Get languages    
-Retrieves all languages that Microsoft Translator supports.  
-```GET: /TranslatableLanguages```
+### Obter linguagens    
+Recupera todos os idiomas com suporte do Microsoft Translator. ```GET: /TranslatableLanguages```
 
-There are no parameters for this call. 
+Não existem parâmetros para esta chamada.
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Resposta
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|padrão|Falha na Operação.|
 
 
-### <a name="get-speech-languages"></a>Get speech languages    
-Retrieves the languages available for speech synthesis.  
-```GET: /SpeakLanguages``` 
+### Obter idiomas de fala    
+Recupera os idiomas disponíveis para sintetização de voz. ```GET: /SpeakLanguages```
 
-There are no parameters for this call.
+Não existem parâmetros para esta chamada.
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Resposta
+|Nome|Descrição|
 |---|---|
 |200|OK|
-|default|Operation Failed.|
+|padrão|Falha na Operação.|
 
-## <a name="object-definitions"></a>Object definitions
+## Definições de objeto
 
-#### <a name="language:-language-model-for-microsoft-translator-translatable-languages"></a>Language: language model for Microsoft Translator translatable languages
+#### Idioma: modelo de idioma para os idiomas traduzíveis do Microsoft Translator
 
-|Property Name | Data Type | Required|
+|Nome da Propriedade | Tipo de Dados | Obrigatório|
 |---|---|---|
-|Code|string|no|
-|Name|string|no|
+|Código|string|não|
+|Nome|string|não|
 
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Go back to the [APIs list](apis-list.md).
+Volte para a [Lista de APIs](apis-list.md).
 
 
 <!--References-->
 [5]: https://datamarket.azure.com/developer/applications/
 [6]: ./media/connectors-create-api-microsofttranslator/register-your-application.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

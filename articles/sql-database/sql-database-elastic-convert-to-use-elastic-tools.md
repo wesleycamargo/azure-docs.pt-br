@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Migrate existing databases to scale-out | Microsoft Azure"
-   description="Convert sharded databases to use elastic database tools by creating a shard map manager"
+   pageTitle="Migrar bancos de dados existentes para escala horizontal | Microsoft Azure"
+   description="Converter bancos de dados fragmentados para usar ferramentas de banco de dados elástico criando um gerenciador de mapa de fragmentos"
    services="sql-database"
    documentationCenter=""
    authors="ddove"
@@ -13,174 +13,173 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="10/24/2016"
+   ms.date="04/26/2016"
    ms.author="ddove"/>
 
+# Migrar bancos de dados existentes para escala horizontal
 
-# <a name="migrate-existing-databases-to-scale-out"></a>Migrate existing databases to scale-out
+Gerencie com facilidade seus bancos de dados fragmentados e escalonados horizontalmente existentes, usando as ferramentas de banco de dados do Banco de Dados SQL (como a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Você deve primeiro converter um conjunto existente de bancos de dados para usar o [gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md).
 
-Easily manage your existing scaled-out sharded databases using Azure SQL Database database tools (such as the [Elastic Database client library](sql-database-elastic-database-client-library.md)). You must first convert an existing set of databases to use the [shard map manager](sql-database-elastic-scale-shard-map-management.md). 
+## Visão geral
+Para migrar um banco de dados fragmentado existente:
 
-## <a name="overview"></a>Overview
-To migrate an existing sharded database: 
+1. Prepare o [banco de dados do gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md).
+2. Criar o mapa de fragmentos.
+3. Preparar os fragmentos individuais.
+2. Adicione os mapeamentos ao mapa de fragmentos.
 
-1. Prepare the [shard map manager database](sql-database-elastic-scale-shard-map-management.md).
-2. Create the shard map.
-3. Prepare the individual shards.  
-2. Add mappings to the shard map.
+Essas técnicas podem ser implementadas usando a [biblioteca de cliente .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ou os scripts do PowerShell encontrados em [Azure SQL DB - Scripts de ferramentas de Banco de Dados Elástico](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Os exemplos aqui usam os scripts do PowerShell.
 
-These techniques can be implemented using either the [.NET Framework client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
+Para saber mais sobre o ShardMapManager, confira [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). Para obter uma visão geral das ferramentas de banco de dados elástico, confira [Visão geral dos recursos do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md).
 
-For more information about the ShardMapManager, see [Shard map management](sql-database-elastic-scale-shard-map-management.md). For an overview of the elastic database tools, see [Elastic Database features overview](sql-database-elastic-scale-introduction.md).
+## Preparar o banco de dados do gerenciador de mapa de fragmentos
 
-## <a name="prepare-the-shard-map-manager-database"></a>Prepare the shard map manager database
+O gerenciador de mapa de fragmentos é um banco de dados especial que contém os dados para gerenciar bancos de dados escalonados horizontalmente. Você pode usar um banco de dados existente ou criar um novo banco de dados. Observe que um banco de dados que atua como gerenciador de mapa de fragmentos não deve ser o mesmo banco de dados de um fragmento. Observe também que o script do PowerShell não cria o banco de dados para você.
 
-The shard map manager is a special database that contains the data to manage scaled-out databases. You can use an existing database, or create a new database. Note that a database acting as shard map manager should not be the same database as a shard. Also note that the PowerShell script does not create the database for you. 
+## Etapa 1: criar um gerenciador de mapa de fragmentos
 
-## <a name="step-1:-create-a-shard-map-manager"></a>Step 1: create a shard map manager
+	# Create a shard map manager. 
+	New-ShardMapManager -UserName '<user_name>' 
+	-Password '<password>' 
+	-SqlServerName '<server_name>' 
+	-SqlDatabaseName '<smm_db_name>' 
+	#<server_name> and <smm_db_name> are the server name and database name 
+	# for the new or existing database that should be used for storing 
+	# tenant-database mapping information.
 
-    # Create a shard map manager. 
-    New-ShardMapManager -UserName '<user_name>' 
-    -Password '<password>' 
-    -SqlServerName '<server_name>' 
-    -SqlDatabaseName '<smm_db_name>' 
-    #<server_name> and <smm_db_name> are the server name and database name 
-    # for the new or existing database that should be used for storing 
-    # tenant-database mapping information.
+### Para recuperar o gerenciador de mapa de fragmentos
 
-### <a name="to-retrieve-the-shard-map-manager"></a>To retrieve the shard map manager
+Após a criação, você pode recuperar o gerenciador de mapa de fragmentos com este cmdlet. Esta etapa será necessária toda vez que você precisar usar o objeto ShardMapManager.
 
-After creation, you can retrieve the shard map manager with this cmdlet. This step is needed every time you need to use the ShardMapManager object.
-
-    # Try to get a reference to the Shard Map Manager  
-    $ShardMapManager = Get-ShardMapManager -UserName '<user_name>' 
-    -Password '<password>' 
-    -SqlServerName '<server_name>' 
-    -SqlDatabaseName '<smm_db_name>' 
+	# Try to get a reference to the Shard Map Manager  
+	$ShardMapManager = Get-ShardMapManager -UserName '<user_name>' 
+	-Password '<password>' 
+	-SqlServerName '<server_name>' 
+	-SqlDatabaseName '<smm_db_name>' 
 
   
-## <a name="step-2:-create-the-shard-map"></a>Step 2: create the shard map
+## Etapa 2: criar o mapa de fragmentos
 
-You must select the type of shard map to create. The choice depends on the database architecture: 
+Você deve selecionar o tipo do mapa de fragmentos a criar. A escolha depende da arquitetura do banco de dados:
 
-1. Single tenant per database (For terms, see the [glossary](sql-database-elastic-scale-glossary.md).) 
-2. Multiple tenants per database (two types):
-    3. List mapping
-    4. Range mapping
+1. Um locatário único por banco de dados (para termos, consulte o [glossário](sql-database-elastic-scale-glossary.md).)
+2. Vários locatários por banco de dados (dois tipos):
+	3. Mapeamento de lista
+	4. Mapeamento de intervalo
  
 
-For a single-tenant model, create a **list mapping** shard map. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies management.
+Para um modelo de locatário único, crie um mapa de fragmentos de **mapeamento de lista**. O modelo de locatário único atribui um banco de dados por locatário. Esse é um modelo eficaz para desenvolvedores de SaaS, pois simplifica o gerenciamento.
 
-![List mapping][1]
+![Mapeamento de lista][1]
 
-The multi-tenant model assigns several tenants to a single database (and you can distribute groups of tenants across multiple databases). Use this model when you expect each tenant to have small data needs. In this model, we assign a range of tenants to a database using **range mapping**. 
+O modelo multilocatário atribui vários locatários a um banco de dados individual (e você pode distribuir grupos de locatários entre vários bancos de dados). Use esse modelo quando você esperar que cada locatário tenha necessidades de dados pequenas. Nesse modelo, atribuímos um intervalo de locatários a um banco de dados usando **mapeamento de intervalo**.
  
 
-![Range mapping][2]
+![Mapeamento de intervalo][2]
 
-Or you can implement a multi-tenant database model using a *list mapping* to assign multiple tenants to a single database. For example, DB1 is used to store information about tenant id 1 and 5, and DB2 stores data for tenant 7 and tenant 10. 
+Ou então, você pode implementar um modelo de banco de dados multilocatário usando um *mapeamento de lista* para atribuir vários locatários a um banco de dados individual. Por exemplo, DB1 é usado para armazenar informações sobre os locatários com IDs 1 e 5, e DB2 armazena dados dos locatários 7 e 10.
 
-![Muliple tenants on single DB][3] 
+![Vários locatários em um banco de dados individual][3]
 
-**Based on your choice, choose one of these options:**
+**Com base na sua escolha, escolha uma destas opções:**
 
-### <a name="option-1:-create-a-shard-map-for-a-list-mapping"></a>Option 1: create a shard map for a list mapping
-Create a shard map using the ShardMapManager object. 
+### Opção 1: criar um mapa de fragmentos para um mapeamento de lista
+Crie um mapa de fragmentos usando o objeto ShardMapManager.
 
-    # $ShardMapManager is the shard map manager object. 
-    $ShardMap = New-ListShardMap -KeyType $([int]) 
-    -ListShardMapName 'ListShardMap' 
-    -ShardMapManager $ShardMapManager 
+	# $ShardMapManager is the shard map manager object. 
+	$ShardMap = New-ListShardMap -KeyType $([int]) 
+	-ListShardMapName 'ListShardMap' 
+	-ShardMapManager $ShardMapManager 
  
  
-### <a name="option-2:-create-a-shard-map-for-a-range-mapping"></a>Option 2: create a shard map for a range mapping
+### Opção 2: criar um mapa de fragmentos para um mapeamento de intervalo
 
-Note that to utilize this mapping pattern, tenant id values needs to be continuous ranges, and it is acceptable to have gap in the ranges by simply skipping the range when creating the databases.
+Observe que, para utilizar esse padrão de mapeamento, os valores de ID de locatário precisam ser intervalos contínuos. É aceitável ter lacunas nos intervalos simplesmente ignorando o intervalo ao criar os bancos de dados.
 
-    # $ShardMapManager is the shard map manager object 
-    # 'RangeShardMap' is the unique identifier for the range shard map.  
-    $ShardMap = New-RangeShardMap 
-    -KeyType $([int]) 
-    -RangeShardMapName 'RangeShardMap' 
-    -ShardMapManager $ShardMapManager 
+	# $ShardMapManager is the shard map manager object 
+	# 'RangeShardMap' is the unique identifier for the range shard map.  
+	$ShardMap = New-RangeShardMap 
+	-KeyType $([int]) 
+	-RangeShardMapName 'RangeShardMap' 
+	-ShardMapManager $ShardMapManager 
 
-### <a name="option-3:-list-mappings-on-a-single-database"></a>Option 3: List mappings on a single database
-Setting up this pattern also requires creation of a list map as shown in step 2, option 1.
+### Opção 3: mapeamentos de lista em um banco de dados individual
+A configuração desse padrão também exige a criação de um mapa de lista conforme mostrado na etapa 2, opção 1.
 
-## <a name="step-3:-prepare-individual-shards"></a>Step 3: Prepare individual shards
+## Etapa 3: preparar os fragmentos individuais
 
-Add each shard (database) to the shard map manager. This prepares the individual databases for storing mapping information. Execute this method on each shard.
-     
-    Add-Shard 
-    -ShardMap $ShardMap 
-    -SqlServerName '<shard_server_name>' 
-    -SqlDatabaseName '<shard_database_name>'
-    # The $ShardMap is the shard map created in step 2.
+Adicione cada fragmento (banco de dados)ao gerenciador de mapa de fragmentos. Isso prepara os bancos de dados individuais para armazenar informações de mapeamento. Execute esse método em cada fragmento.
+	 
+	Add-Shard 
+	-ShardMap $ShardMap 
+	-SqlServerName '<shard_server_name>' 
+	-SqlDatabaseName '<shard_database_name>'
+	# The $ShardMap is the shard map created in step 2.
  
 
-## <a name="step-4:-add-mappings"></a>Step 4: Add mappings
+## Etapa 4: Adicionar mapeamentos
 
-The addition of mappings depends on the kind of shard map you created. If you created a list map, you add list mappings. If you created a range map, you add range mappings.
+A adição de mapeamentos depende do tipo de mapa de fragmentos criado. Se tiver criado um mapa de lista, você adicionará mapeamentos de lista. Se tiver criado um mapa de intervalo, você adicionará mapeamentos de intervalo.
 
-### <a name="option-1:-map-the-data-for-a-list-mapping"></a>Option 1: map the data for a list mapping
+### Opção 1: mapear os dados para um mapeamento de lista
 
-Map the data by adding a list mapping for each tenant.  
+Mapeie os dados adicionando um mapeamento de lista para cada locatário.
 
-    # Create the mappings and associate it with the new shards 
-    Add-ListMapping 
-    -KeyType $([int]) 
-    -ListPoint '<tenant_id>' 
-    -ListShardMap $ShardMap 
-    -SqlServerName '<shard_server_name>' 
-    -SqlDatabaseName '<shard_database_name>' 
+	# Create the mappings and associate it with the new shards 
+	Add-ListMapping 
+	-KeyType $([int]) 
+	-ListPoint '<tenant_id>' 
+	-ListShardMap $ShardMap 
+	-SqlServerName '<shard_server_name>' 
+	-SqlDatabaseName '<shard_database_name>' 
 
-### <a name="option-2:-map-the-data-for-a-range-mapping"></a>Option 2: map the data for a range mapping
+### Opção 2: mapear os dados para um mapeamento de intervalo
 
-Add the range mappings for all the tenant id range – database associations:
+Adicione os mapeamentos de intervalo para todo o intervalo de IDs de locatário – associações de banco de dados:
 
-    # Create the mappings and associate it with the new shards 
-    Add-RangeMapping 
-    -KeyType $([int]) 
-    -RangeHigh '5' 
-    -RangeLow '1' 
-    -RangeShardMap $ShardMap 
-    -SqlServerName '<shard_server_name>' 
-    -SqlDatabaseName '<shard_database_name>' 
-
-
-### <a name="step-4-option-3:-map-the-data-for-multiple-tenants-on-a-single-database"></a>Step 4 option 3: map the data for multiple tenants on a single database
-
-For each tenant, run the Add-ListMapping (option 1, above). 
+	# Create the mappings and associate it with the new shards 
+	Add-RangeMapping 
+	-KeyType $([int]) 
+	-RangeHigh '5' 
+	-RangeLow '1' 
+	-RangeShardMap $ShardMap 
+	-SqlServerName '<shard_server_name>' 
+	-SqlDatabaseName '<shard_database_name>' 
 
 
-## <a name="checking-the-mappings"></a>Checking the mappings
+### Etapa 4, opção 3: mapear os dados de vários locatários em um banco de dados individual
 
-Information about the existing shards and the mappings associated with them can be queried using following commands:  
-
-    # List the shards and mappings 
-    Get-Shards -ShardMap $ShardMap 
-    Get-Mappings -ShardMap $ShardMap 
-
-## <a name="summary"></a>Summary
-
-Once you have completed the setup, you can begin to use the Elastic Database client library. You can also use [data dependent routing](sql-database-elastic-scale-data-dependent-routing.md) and [multi-shard query](sql-database-elastic-scale-multishard-querying.md).
-
-## <a name="next-steps"></a>Next steps
+Para cada locatário, execute o Add-ListMapping (opção 1, acima).
 
 
-Get the PowerShell scripts from [Azure SQL DB-Elastic Database tools sripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+## Verificando os mapeamentos
 
-The tools are also on GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
+Informações sobre os fragmentos existentes e os mapeamentos associados a eles podem ser consultadas usando os seguintes comandos:
 
-Use the split-merge tool to move data to or from a multi-tenant model to a single tenant model. See [Split merge tool](sql-database-elastic-scale-get-started.md).
+	# List the shards and mappings 
+	Get-Shards -ShardMap $ShardMap 
+	Get-Mappings -ShardMap $ShardMap 
 
-## <a name="additional-resources"></a>Additional resources
+## Resumo
 
-For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Após ter concluído a configuração, você pode começar a usar a biblioteca de cliente do Banco de Dados Elástico. Pode também usar [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) e [consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md).
 
-## <a name="questions-and-feature-requests"></a>Questions and Feature Requests
+## Próximas etapas
 
-For questions, please reach out to us on the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
+
+Obtenha os scripts do PowerShell de [Azure SQL DB - Scripts de ferramentas de Banco de Dados Elástico](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+
+As ferramentas também estão no GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
+
+Use a ferramenta de divisão e mesclagem para mover dados de/para um modelo multilocatário de/para um modelo de locatário único. Consulte [Ferramenta de divisão e mesclagem](sql-database-elastic-scale-get-started.md).
+
+## Recursos adicionais
+
+Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+## Perguntas e solicitações de recursos
+
+Em caso de dúvidas, entre em contato conosco pelo fórum [Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e, para solicitações de recursos, adicione-as ao [Fórum de comentários do SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png
@@ -188,8 +187,4 @@ For questions, please reach out to us on the [SQL Database forum](http://social.
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

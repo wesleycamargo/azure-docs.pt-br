@@ -1,274 +1,268 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with ADP GlobalView | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and ADP GlobalView."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Tutorial: Integração do Azure Active Directory ao ADP GlobalView | Microsoft Azure"
+	description="Saiba como configurar o logon único entre o Azure Active Directory e o ADP GlobalView."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/07/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/07/2016"
+	ms.author="jeedes"/>
 
 
+# Tutorial: Integração do Azure Active Directory ao ADP GlobalView
 
-# <a name="tutorial:-azure-active-directory-integration-with-adp-globalview"></a>Tutorial: Azure Active Directory integration with ADP GlobalView
+O objetivo deste tutorial é mostrar como integrar o ADP GlobalView ao Azure AD (Azure Active Directory). A integração do ADP GlobalView ao Azure AD oferece os seguintes benefícios:
 
-The objective of this tutorial is to show you how to integrate ADP GlobalView with Azure Active Directory (Azure AD).  
-Integrating ADP GlobalView with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to ADP GlobalView
-- You can enable your users to automatically get signed-on to ADP GlobalView (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+- No AD do Azure, você poderá controlar quem tem acesso ao ADP GlobalView
+- Você pode permitir que seus usuários façam logon automaticamente no ADP GlobalView (logon único) com suas contas do AD do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## Pré-requisitos
 
-To configure Azure AD integration with ADP GlobalView, you need the following items:
+Para configurar a integração do AD do Azure com o ADP GlobalView, você precisará dos seguintes itens:
 
-- An Azure AD subscription
-- A ADP GlobalView single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- Uma assinatura do AD do Azure
+- Uma assinatura do ADP GlobalView com logon único habilitado
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
-## <a name="scenario-description"></a>Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
-The scenario outlined in this tutorial consists of two main building blocks:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
-1. Adding ADP GlobalView from the gallery
-2. Configuring and testing Azure AD single sign-on
+- Não use o ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## <a name="adding-adp-globalview-from-the-gallery"></a>Adding ADP GlobalView from the gallery
-To configure the integration of ADP GlobalView into Azure AD, you need to add ADP GlobalView from the gallery to your list of managed SaaS apps.
+## Descrição do cenário
+O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-**To add ADP GlobalView from the gallery, perform the following steps:**
+1. Adição do ADP GlobalView da galeria
+2. Configurar e testar o logon único do AD do Azure
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
 
-    ![Active Directory][1]
+## Adição do ADP GlobalView da galeria
+Para configurar a integração do ADP GlobalView com o AD do Azure, você precisará adicionar o ADP GlobalView à sua lista de aplicativos SaaS gerenciados da galeria.
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+**Para adicionar o ADP GlobalView da galeria, execute as seguintes etapas:**
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
-    ![Applications][2]
+	![Active Directory][1]
 
-4. Click **Add** at the bottom of the page.
+2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-    ![Applications][3]
+3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
 
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+	![Aplicativos][2]
 
-    ![Applications][4]
+4. Clique em **Adicionar** na parte inferior da página.
 
-6. In the search box, type **ADP GlobalView**.
+	![Aplicativos][3]
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_01.png)
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 
-7. In the results pane, select **ADP GlobalView**, and then click **Complete** to add the application.
+	![Aplicativos][4]
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_06.png)
+6. Na caixa de pesquisa, digite **ADP GlobalView**.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with ADP GlobalView based on a test user called "Britta Simon".
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_01.png)
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in ADP GlobalView to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in ADP GlobalView needs to be established.  
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in ADP GlobalView.
+7. No painel de resultados, escolha **ADP GlobalView** e clique em **Concluir** para adicionar o aplicativo.
 
-To configure and test Azure AD single sign-on with ADP GlobalView, you need to complete the following building blocks:
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_06.png)
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a ADP GlobalView test user](#creating-a-adp-globalview-test-user)** - to have a counterpart of Britta Simon in ADP GlobalView that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+##  Configurar e testar o logon único do AD do Azure
+O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o ADP GlobalView, com base em um usuário de teste chamado "Brenda Fernandes".
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
+Para que o logon único funcione, o AD do Azure precisa saber qual usuário do ADP GlobalView é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no ADP GlobalView. Essa relação de vinculação é estabelecida por meio da atribuição do valor de **nome de usuário** no Azure AD como o valor de **Nome de Usuário** no ADP GlobalView.
 
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your ADP GlobalView application.
+Para configurar e testar o logon único do AD do Azure com o ADP GlobalView, você precisará concluir os seguintes blocos de construção:
 
-Your ADP GlobalView application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The claim name will always be **"PersonImmutableID"** and the value of which we have mapped to ExtensionAttribute2 which contains the EmployeeID of the user. Here the user mapping fron Azure AD to ADP GlobalView will be done on the EmployeeID but you can map this to a different value also based on your application settings. So please work with ADP GlobalView team first to use the correct identifier of a user and map that value with the **"PersonImmutableID"** claim. You can also map the Email and UserID claim as shown in the picture.
+1. **[Configurando o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criando um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
+4. **[Criar um usuário de teste do ADP GlobalView](#creating-a-adp-globalview-test-user)**: para ter um equivalente de Brenda Fernandes no ADP GlobalView que esteja vinculado à representação dela no Azure AD.
+5. **[Atribuindo o usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
+
+### Configuração do logon único do AD do Azure
+
+O objetivo desta seção é habilitar o logon único do AD do Azure no portal clássico do Azure e configurar o logon único em seu aplicativo do ADP GlobalView.
+
+Seu aplicativo ADP GlobalView espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos de token SAML. A captura de tela a seguir mostra um exemplo disso. O nome da declaração sempre será **"PersonImmutableID"** e o valor que mapeamos para ExtensionAttribute2 que contém o EmployeeID do usuário. Aqui, o mapeamento do usuário do AD do Azure para o ADP GlobalView será feito com o EmployeeID, mas isso pode ser mapeado para um valor diferente também baseado em suas configurações do aplicativo. Portanto, trabalhe com a equipe do ADP GlobalView primeiro para usar o identificador correto de um usuário e mapear esse valor com a declaração **"PersonImmutableID"**. Você também pode mapear a declaração de Email e ID de usuário, conforme mostra na imagem.
  
-![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_02.png) 
+![Configurar o logon único](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_02.png)
 
-Before you can configure the SAML assertion, you need to contact your ADP GlobalView support team and request the value of the unique identifier attribute for your tenant. You need this value to configure the custom claim for your application.
+Antes de configurar a declaração SAML, você precisará entrar em contato com a equipe de suporte do ADP GlobalView e solicitar o valor do atributo de identificador exclusivo para seu locatário. Você precisa desse valor para configurar a declaração personalizada para seu aplicativo.
 
 
-**To configure Azure AD single sign-on with ADP GlobalView, perform the following steps:**
+**Para configurar o logon único do AD do Azure com o ADP GlobalView, execute as seguintes etapas:**
 
-1. In the Azure classic portal, on the **ADP GlobalView** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. No portal clássico do Azure, na página de integração do aplicativo **ADP GlobalView**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
 
-    ![Configure Single Sign-On][6] 
+	![Configurar o logon único][6]
 
-2. On the **How would you like users to sign on to ADP GlobalView** page, select **Azure AD Single Sign-On**, and then click **Next**.
+2. Na página **Como você deseja que os usuários façam logon no ADP GlobalView**, escolha **Logon Único do Azure AD** e clique em **Avançar**.
  
-    ![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_03.png) 
+	![Configurar o logon único](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_03.png)
 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+3. Na página de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:
 
-    ![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_04.png) 
+	![Configurar o logon único](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_04.png)
 
 
-    a. In the **Identifier** textbox, type the URL used to idenify ADP GlobalView application using one the following patterns: **“https://\<server name\>.globalview.adp.com/federate2”**, **“https://\<server name\>.globalview.adp.com/federate”** 
+    a. Na caixa de texto **Identificador**, digite a URL usada para identificar o aplicativo ADP GlobalView usando um dos padrões a seguir: **“https://<nome do servidor>.globalview.adp.com/federate2”**, **“https://<nome do servidor>.globalview.adp.com/federate”**
 
 
-    b. In the **Reply URL** textbox, type the URL used by Azure AD to post the response to the ADP GlobalView application, using one of the following patterns: **“https://\<server name\>.globalview.adp.com/federate2/sp/ACS.saml2”**, **“https://\<server name\>.globalview.adp.com/federate/sp/ACS.saml2”**
+    b. Na caixa de texto **URL de Resposta**, digite a URL usada pelo Azure AD para postar a resposta no aplicativo ADP GlobalView, usando um dos seguintes padrões: **“https://<nome do servidor>.globalview.adp.com/federate2/sp/ACS.saml2”**, **“https://<nome do servidor>.globalview.adp.com/federate/sp/ACS.saml2”**
 
-    c. Click **Next**.
+    c. Clique em **Avançar**.
 
 
-4. On the **Configure single sign-on at ADP GlobalView** page, perform the following steps:
+4. Na página **Configurar logon único no ADP GlobalView**, execute as seguintes etapas:
 
-    ![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_05.png) 
+	![Configurar o logon único](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_05.png)
 
-    a. Click **Download certificate**, and then save the file on your computer.
+    a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
-    b. Click **Next**.
+    b. Clique em **Avançar**.
 
 
-5. To get SSO configured for your application, contact your ADP GlobalView support team and provide them with the following: 
+5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do ADP GlobalView e forneça o seguinte:
 
-    - The downloaded certificate file
-    - Entity ID
-    - SAML SSO URL
-    - Single Sign-Out Service URL
+    - O arquivo de certificado baixado
+    - ID da Entidade
+    - URL do SSO de SAML
+    - URL do Serviço de Logoff Único
 
 
-    > [AZURE.NOTE] After **ADP GlobalView** team configure the instance, get the **RelayState** value from them and request to Azure AD to configure that for your application instance. You can send this value, your Azure AD tenanat id and application id to Azure AD team on [waadpartners@microsoft.com](mailTo:waadpartners@microsoft.com). After this configuring only you can test the integration and it will work. So please note that this is important configuration step for this application integration to work.
+    > [AZURE.NOTE] Depois que a equipe do **ADP GlobalView** configurar a instância, obtenha o valor de **RelayState** e solicite ao Azure AD para configurá-lo para a instância do seu aplicativo. Você pode enviar esse valor, sua ID de locatário do Azure AD e a ID do aplicativo para a equipe do Azure AD no endereço [waadpartners@microsoft.com](mailTo:waadpartners@microsoft.com). Somente após essa configuração você poderá testar a integração, e ela funcionará. Portanto, observe que essa etapa de configuração é importante para que a integração com o aplicativo funcione.
 
-6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
 
-    ![Azure AD Single Sign-On][10]
+	![Logon único do AD do Azure][10]
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+7. Na página **Confirmação de logon único**, clique em **Concluir**.
 
-    ![Azure AD Single Sign-On][11]
+	![Logon único do AD do Azure][11]
 
 
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure classic portal called Britta Simon.  
-In the Users list, select **Britta Simon**.
+### Criação de um usuário de teste do AD do Azure
+O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes. Na lista de usuários, selecione **Brenda Fernandes**.
 
-![Create Azure AD User][20]
+![Criar um usuário do AD do Azure][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_09.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_09.png)
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. To display the list of users, in the menu on the top, click **Users**.
+3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_03.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_03.png)
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_04.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_04.png)
 
-5. On the **Tell us about this user** dialog page, perform the following steps:
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_05.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
-    c. Click **Next**.
+    c. Clique em **Avançar**.
 
-6.  On the **User Profile** dialog page, perform the following steps:
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_06.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    a. Na caixa de texto **Nome**, digite **Brenda**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
 
-    d. In the **Role** list, select **User**.
+    d. Na lista **Função**, selecione **Usuário**.
 
-    e. Click **Next**.
+    e. Clique em **Avançar**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_07.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_08.png) 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    a. Anote o valor da **Nova Senha**.
 
-    b. Click **Complete**.   
+    b. Clique em **Concluído**.
 
 
 
-### <a name="creating-a-adp-globalview-test-user"></a>Creating a ADP GlobalView test user
+### Criar um usuário de teste do ADP GlobalView
 
-The objective of this section is to create a user called Britta Simon in ADP GlobalView. Please work with ADP GlobalView support team to add the users in the ADP GlobalView account. 
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no ADP GlobalView. Trabalhe com a equipe de suporte do ADP GlobalView para adicionar os usuários na conta do ADP GlobalView.
 
 
-> [AZURE.NOTE] If you need to create an user manually, you need to contact the ADP GlobalView support team.
+> [AZURE.NOTE] Se precisar criar um usuário manualmente, entre em contato com a equipe de suporte do ADP GlobalView.
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+### Atribuição do usuário de teste do AD do Azure
 
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to ADP GlobalView.
+O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao ADP GlobalView.
 
-![Assign User][200] 
+![Atribuir usuário][200]
 
-**To assign Britta Simon to ADP GlobalView, perform the following steps:**
+**Para atribuir Brenda Fernandes ao ADP GlobalView, execute as seguintes etapas:**
 
-1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
 
-    ![Assign User][201] 
+	![Atribuir usuário][201]
 
-2. In the applications list, select **ADP GlobalView**.
+2. Na lista de aplicativos, escolha **ADP GlobalView**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_50.png) 
+	![Configurar o logon único](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_50.png)
 
-1. In the menu on the top, click **Users**.
+1. No menu na parte superior, clique em **Usuários**.
 
-    ![Assign User][203] 
+	![Atribuir usuário][203]
 
-1. In the Users list, select **Britta Simon**.
+1. Na lista de usuários, selecione **Brenda Fernandes**.
 
-2. In the toolbar on the bottom, click **Assign**.
+2. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
 
-    ![Assign User][205]
+	![Atribuir usuário][205]
 
 
 
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+### Teste do logon único
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
-When you click the ADP GlobalView tile in the Access Panel, you should get automatically signed-on to your ADP GlobalView application.
+O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso. Ao clicar no bloco do ADP GlobalView no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo do ADP GlobalView.
 
 
-## <a name="additional-resources"></a>Additional Resources
+## Recursos adicionais
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -289,8 +283,4 @@ When you click the ADP GlobalView tile in the Access Panel, you should get autom
 [204]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

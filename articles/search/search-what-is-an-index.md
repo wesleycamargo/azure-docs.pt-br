@@ -1,78 +1,73 @@
 <properties
-    pageTitle="Create an Azure Search index | Microsoft Azure | Hosted cloud search service"
-    description="What is an index in Azure Search and how is it used?"
-    services="search"
-    documentationCenter=""
+	pageTitle="Criar um índice de Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
+	description="O que é um índice na Pesquisa do Azure e como é usado?"
+	services="search"
+	documentationCenter=""
 authors="ashmaka"
 />
 
 <tags
-    ms.service="search"
-    ms.devlang="na"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"/>
+	ms.service="search"
+	ms.devlang="na"
+	ms.workload="search"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.date="08/29/2016"
+	ms.author="ashmaka"/>
 
-
-# <a name="create-an-azure-search-index"></a>Create an Azure Search index
+# Criar um índice de pesquisa do Azure
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-an-index.md)
+- [Visão geral](search-what-is-an-index.md)
 - [Portal](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
 - [REST](search-create-index-rest-api.md)
 
-## <a name="what-is-an-index?"></a>What is an index?
+## O que é um índice?
 
-An *index* is a persistent store of *documents* and other constructs used by an Azure Search service. A document is a single unit of searchable data in your index. For example, an e-commerce retailer might have a document for each item they sell, a news organization might have a document for each article, etc. Mapping these concepts to more familiar database equivalents: an *index* is conceptually similar to a *table*, and *documents* are roughly equivalent to *rows* in a table.
+Um *índice* é o armazenamento persistente de *documentos* e outras construções usados por um serviço da Pesquisa do Azure. Um documento é um dado pesquisável da unidade no índice. Por exemplo, uma loja de comércio eletrônico pode ter um documento para cada item vendido, uma agência de notícias pode ter um documento para cada artigo etc. Mapeando esses conceitos para equivalentes de banco de dados mais conhecidos: um *índice* é conceitualmente semelhante a uma *tabela* e *documentos* são equivalentes a *linhas* em uma tabela.
 
-When you add/upload documents and submit search queries to Azure Search, you submit your requests to a specific index in your search service.
+Quando você adiciona/carrega documentos e envia consultas de pesquisa para a Pesquisa do Azure, envia suas solicitações para um índice específico em seu serviço de pesquisa.
 
-## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Field types and attributes in an Azure Search index
+## Tipos de campo e atributos em um índice da Pesquisa do Azure
 
-As you define your schema, you must specify the name, type, and attributes of each field in your index. The field type classifies the data that is stored in that field. Attributes are set on individual fields to specify how the field is used. The following tables enumerate the types and attributes you can specify.
+Quando você define o esquema, deve especificar o nome, tipo e atributos de cada campo no índice. O tipo de campo classifica os dados armazenados nesse campo. Os atributos são definidos em campos individuais para especificar como o campo será usado. A tabela a seguir enumera os tipos e atributos que você pode especificar.
 
 
-### <a name="field-types"></a>Field types
-|Type|Description|
+### Tipos de campo
+|Tipo|Descrição|
 |------------|-----------|
-|*Edm.String*|Text that can optionally be tokenized for full-text search (word-breaking, stemming, etc).|
-|*Collection(Edm.String)*|A list of strings that can optionally be tokenized for full-text search. There is no theoretical upper limit on the number of items in a collection, but the 16 MB upper limit on payload size applies to collections.|
-|*Edm.Boolean*|Contains true/false values.|
-|*Edm.Int32*|32-bit integer values.|
-|*Edm.Int64*|64-bit integer values.|
-|*Edm.Double*|Double-precision numeric data.|
-|*Edm.DateTimeOffset*|Date time values represented in the OData V4 format (e.g. `yyyy-MM-ddTHH:mm:ss.fffZ` or `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`).|
-|*Edm.GeographyPoint*|A point representing a geographic location on the globe.|
+|*Edm.String*|O texto que opcionalmente pode ser indexado para a pesquisa de texto completo (separação de palavras, derivação etc).|
+|*Collection(Edm.String)*|Uma lista de cadeias de caracteres que opcionalmente podem ser indexadas para a pesquisa de texto completo. Não há nenhum limite teórico superior no número de itens em uma coleção, mas o limite superior de 16 MB no tamanho da carga se aplica às coleções.|
+|*Edm.Boolean*|Contém valores true/false.|
+|*Edm.Int32*|Valores inteiros de 32 bits.|
+|*Edm.Int64*|Valores inteiros de 64 bits.|
+|*Edm.Double*|Dados numéricos de dupla precisão.|
+|*Edm.DateTimeOffset*|Valores de data e hora representados no formato OData V4 (por exemplo, `yyyy-MM-ddTHH:mm:ss.fffZ` ou `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`).|
+|*Edm.GeographyPoint*|Um ponto que representa uma localização geográfica em todo o mundo.|
 
-You can find more detailed information about Azure Search's [supported data types on MSDN](https://msdn.microsoft.com/library/azure/dn798938.aspx).
+Você pode encontrar informações mais detalhadas sobre os [tipos de dados com suporte no MSDN](https://msdn.microsoft.com/library/azure/dn798938.aspx) da Pesquisa do Azure.
 
 
 
-### <a name="field-attributes"></a>Field attributes
-|Attribute|Description|
+### Atributos do campo
+|Atributo|Descrição|
 |------------|-----------|
-|*Key*|A string that provides the unique ID of each document, used for document look up. Every index must have one key. Only one field can be the key, and its type must be set to Edm.String.|
-|*Retrievable*|Specifies whether a field can be returned in a search result.|
-|*Filterable*|Allows the field to be used in filter queries.|
-|*Sortable*|Allows a query to sort search results using this field.|
-|*Facetable*|Allows a field to be used in a [faceted navigation](search-faceted-navigation.md) structure for user self-directed filtering. Typically fields containing repetitive values that you can use to group multiple documents together (for example, multiple documents that fall under a single brand or service category) work best as facets.|
-|*Searchable*|Marks the field as full-text searchable.|
+|*Chave*|Uma cadeia de caracteres que fornece a ID exclusiva de cada documento, usada para pesquisar documentos. Todos os índices devem ter uma chave. Somente um campo pode ser a chave e seu tipo deve ser definido para Edm.String.|
+|*Recuperável*|Especifica se um campo pode ser retornado em um resultado da pesquisa.|
+|*Filtrável*|Permite que o campo seja usado nas consultas de filtro.|
+|*Classificável*|Permite que uma consulta classifique os resultados da pesquisa usando esse campo.|
+|*Com faceta*|Permite que um campo seja usado em uma estrutura de [navegação mista](search-faceted-navigation.md) para a filtragem autodirecionada do usuário. Normalmente, os campos que contêm valores repetidos que você pode usar para agrupar vários documentos (por exemplo, vários documentos que estejam em uma única categoria de marca ou de serviço) funcionam melhor como facetas.|
+|*Pesquisável*|Marca o campo como texto completo pesquisável.|
 
-You can find more detailed information about Azure Search's [index attributes on MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx).
-
-
-
-## <a name="guidance-for-defining-an-index-schema"></a>Guidance for defining an index schema
-
-As you design your index, take your time in the planning phase to think through each decision. It is important that you keep your search user experience and business needs in mind when designing your index as each field must be assigned the [proper attributes](https://msdn.microsoft.com/library/azure/dn798941.aspx). Changing an index after it is deployed involves rebuilding and reloading the data.
-
-
-If data storage requirements change over time, you can increase or decrease capacity by adding or removing partitions. For details, see [Manage your Search service in Azure](search-manage.md) or [Service Limits](search-limits-quotas-capacity.md).
+Você pode encontrar informações mais detalhadas sobre os [atributos de índice no MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx) da Pesquisa do Azure.
 
 
 
-<!--HONumber=Oct16_HO2-->
+## Diretrizes para definir um esquema de índice
+
+Ao projetar o índice, reserve algum tempo na fase de planejamento para pensar em cada decisão. É importante ter em mente suas necessidades de negócios e experiência de usuário de pesquisa ao projetar o índice, pois cada campo deve ter os [atributos apropriados](https://msdn.microsoft.com/library/azure/dn798941.aspx). A alteração de um índice após sua implantação envolve a recriação e o recarregamento dos dados.
 
 
+Se os requisitos do armazenamento de dados mudarem com o tempo, você poderá aumentar ou diminuir a capacidade adicionando ou removendo as partições. Para obter detalhes, confira [Gerenciar o serviço de Pesquisa no Azure](search-manage.md) ou [Limites de serviço](search-limits-quotas-capacity.md).
+
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,6 +1,6 @@
 <properties
- pageTitle="Manage virtual machine extensions | Microsoft Azure"
- description="Describes how to add, find, update, and remove extensions for Azure virtual machines, in the classic deployment model."
+ pageTitle="Gerenciar extensões de máquina virtual | Microsoft Azure"
+ description="Descreve como adicionar, localizar, atualizar e remover extensões para máquinas virtuais do Azure, no modelo de implantação clássica."
  services="virtual-machines-windows"
  documentationCenter=""
  authors="squillace"
@@ -16,17 +16,12 @@
  ms.date="08/29/2016"
  ms.author="rasquill"/>
 
+#Gerenciar extensões de máquina virtual
 
-#<a name="manage-virtual-machine-extensions"></a>Manage virtual machine extensions
-
-Describes how to find, add, modify, or remove VM Extensions with either Windows or Linux Virtual Machines on Azure.
+Descreve como localizar, adicionar, modificar ou remover extensões de VM com máquinas virtuais Windows ou Linux no Azure.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-classic-manage-extensions](../../includes/virtual-machines-common-classic-manage-extensions.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

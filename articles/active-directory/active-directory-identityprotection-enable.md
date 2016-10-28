@@ -1,62 +1,57 @@
 <properties
-    pageTitle="Enabling Azure Active Directory Identity Protection | Microsoft Azure"
-    description="Learn how to enable Azure Active Directory Identity Protection."
-    services="active-directory"
-    keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
-    documentationCenter=""
-    authors="markusvi"
-    manager="femila"
-    editor=""/>
+	pageTitle="Habilitando o Azure Active Directory Identity Protection | Microsoft Azure"
+	description="Saiba como habilitar o Azure Active Directory Identity Protection."
+	services="active-directory"
+	keywords="azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
+	documentationCenter=""
+	authors="markusvi"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/12/2016"
-    ms.author="markvi"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/07/2016"
+	ms.author="markvi"/>
+
+# Habilitando o Azure Active Directory Identity Protection 
+
+O Azure Active Directory Identity Protection é um novo recurso que fornece uma exibição consolidada de atividades de entrada suspeitas e possíveis vulnerabilidades e, com notificações, recomendações de correção e políticas baseadas em risco, ajuda você a proteger sua empresa.
+
+O serviço detecta atividades suspeitas para identidades de usuário final e com privilégios (administrador) com base em sinais como ataques de força bruta, vazamento de credenciais, entradas de locais desconhecidos, dispositivos infectados, de modo a proteger essas atividades em tempo real. E o que é mais importante, com base nessas atividades suspeitas, uma severidade de risco de usuário é calculada e as políticas baseadas em risco podem ser configuradas e proteger automaticamente as identidades de sua organização. Para obter mais detalhes, confira [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 
 
-# <a name="enabling-azure-active-directory-identity-protection"></a>Enabling Azure Active Directory Identity Protection 
+Este tópico mostra como habilitar o Azure Active Directory Identity Protection.
 
-Azure Active Directory Identity Protection is a new capability that provides a consolidated view into suspicious sign-in activities and potential vulnerabilities and with notifications, remediation recommendations and risk-based policies helps you protect your business. 
-
-The service detects suspicious activities for end user and privileged (admin) identities based on signals like brute force attacks, leaked credentials, sign ins from unfamiliar locations, infected devices, to protect against these activities in real-time. More importantly, based on these suspicious activities, a user risk severity is computed and risk-based policies can be configured and automatically protect the identities of your organization. For more details, see [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+## Etapas para habilitar o Azure Active Directory Identity Protection 
 
 
-This topics shows how to enable Azure Active Directory Identity Protection.
+1. [Entre](https://ms.portal.azure.com/) no Portal do Azure como administrador.
 
-## <a name="steps-to-enable-azure-active-directory-identity-protection"></a>Steps to enable Azure Active Directory Identity Protection 
+1. No Portal do Azure, clique em **Marketplace**.
 
+	![Criação](./media/active-directory-identityprotection-enable/01.png "Criação")
 
-1. [Sign-on](https://ms.portal.azure.com/) to your Azure portal as global administrator. 
+1. Na lista de aplicativos, escolha **Segurança + Identidade**.
 
-1. In the Azure portal, click **Marketplace**.
+	![Criação](./media/active-directory-identityprotection-enable/02.png "Criação")
 
-    ![Create](./media/active-directory-identityprotection-enable/01.png "Create")
+1. Clique em **Azure AD Identity Protection**.
 
-1. In the applications list, click **Security + Identity**.
+	![Criação](./media/active-directory-identityprotection-enable/03.png "Criação")
 
-    ![Create](./media/active-directory-identityprotection-enable/02.png "Create")
+1. Na folha **Azure AD Identity Protection**, clique em **Criar**.
 
-1. Click **Azure AD Identity Protection**.
-
-    ![Create](./media/active-directory-identityprotection-enable/03.png "Create")
-
-1. On the **Azure AD Identity Protection** blade, click **Create**.
-
-    ![Create](./media/active-directory-identityprotection-enable/04.png "Create")
+	![Criação](./media/active-directory-identityprotection-enable/04.png "Criação")
 
 
 
-## <a name="next-steps"></a>Next Steps
+## Próximas etapas
 
  - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

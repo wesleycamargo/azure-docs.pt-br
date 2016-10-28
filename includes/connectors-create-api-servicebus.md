@@ -1,24 +1,21 @@
-### <a name="prerequisites"></a>Prerequisites
+### Pré-requisitos
 
-You must have a [Service Bus](https://azure.microsoft.com/services/service-bus/) account.  
+Você deve ter uma conta do [Barramento de Serviço](https://azure.microsoft.com/services/service-bus/).
 
-Before you can use your Azure Service Bus account in a logic app, you must authorize the logic app to connect to your service bus account. Fortunately, you can do this easily from within your logic app on the Azure portal.  
+Antes de usar sua conta do Barramento de Serviço do Azure em um aplicativo lógico, você deve autorizá-lo a se conectar à conta do barramento de serviço. Felizmente, você pode fazer isso com facilidade usando seu aplicativo lógico no Portal do Azure.
 
-Here are the steps to authorize your logic app to connect to your Service Bus account:  
+Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à conta do Barramento de Serviço:
 
-1. To create a connection to Service Bus, in the logic app designer, select **Show Microsoft managed APIs** in the drop-down list. Then enter **service bus** in the search box. Select the trigger or action you want to use.  
-    ![Service Bus connection image 1](./media/connectors-create-api-servicebus/servicebus-1.png)  
+1. Para criar uma conexão com o barramento de serviço, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa e digite *barramento de serviço* na caixa de pesquisa. Selecione o gatilho ou ação que você deseja usar:  
+    ![Imagem de conexão do barramento de serviço 1](./media/connectors-create-api-servicebus/servicebus-1.png)
+    
+2. Se você ainda não tiver criado nenhuma conexão com o barramento de serviço, será solicitado que você informe suas credenciais do barramento de serviço. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta do barramento de serviço e usá-los. O conector do barramento de serviço precisa da cadeia de conexão para o namespace do barramento de serviço, e também requer permissões para **Gerenciar**. Para saber se a cadeia de conexão é para o namespace ou para uma entidade específica, analise se ela contém o parâmetro `EntityPath`: se contiver, ela não será a cadeia de conexão ideal para um aplicativo lógico.  
+    ![Cadeia de conexão do barramento de serviço](./media/connectors-create-api-servicebus/connectionstring.png)
 
-2. If you haven't created any connections to Service Bus before, you'll be prompted to provide your Service Bus credentials. These credentials are used to authorize your logic app to connect to and access your Service Bus account's data. The Service Bus connector needs the connection string for the Service Bus namespace. It also requires **Manage** permissions. A good way to know if your connection string is for the namespace or a specific entity is if it contains the `EntityPath` parameter. If it does, it is not the right connection string for a logic app.  
-    ![Service Bus connection string](./media/connectors-create-api-servicebus/connectionstring.png)
+1. Após receber a cadeia de conexão para o namespace, você pode usá-lo para a Conexão de API em Aplicativos Lógicos.  
+    ![Imagem de conexão do barramento de serviço 2](./media/connectors-create-api-servicebus/servicebus-2.png)
 
-1. After you have received the connection string for the namespace, you can use it for the API connection in Logic Apps.  
-    ![Service Bus connection image 2](./media/connectors-create-api-servicebus/servicebus-2.png)  
+3. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico:  
+    ![Imagem de conexão do barramento de serviço 3](./media/connectors-create-api-servicebus/servicebus-3.png)
 
-3. Notice the connection has been created, and you are now free to proceed with the other steps in your logic app.  
-    ![Service Bus connection image 3](./media/connectors-create-api-servicebus/servicebus-3.png)   
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

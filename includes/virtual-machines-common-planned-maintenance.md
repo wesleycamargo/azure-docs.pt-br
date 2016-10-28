@@ -1,89 +1,89 @@
 
 
-## <a name="memory-preserving-updates"></a>Memory-preserving updates
+## Atualizações que preservam a memória
 
-For a class of updates in Microsoft Azure, customers will not see any impact to their running virtual machines. Many of these updates are to components or services that can be updated without interfering with the running instance. Some of these updates are platform infrastructure updates on the host operating system that can be applied without requiring a full reboot of the virtual machines.
+Para uma classe de atualizações no Microsoft Azure, os clientes não sentirão qualquer impacto em suas máquinas virtuais em execução. Muitas dessas atualizações são componentes ou serviços que podem ser atualizados sem interferir na instância em execução. Algumas são atualizações de infraestrutura de plataforma no sistema operacional do host, que podem ser aplicadas sem exigir uma reinicialização completa das máquinas virtuais.
 
-These updates are accomplished with technology that enables in-place live migration, also called a “memory-preserving” update. When updating, the virtual machine is placed into a “paused” state, preserving the memory in RAM, while the underlying host operating system receives the necessary updates and patches. The virtual machine is resumed within 30 seconds of being paused. After resuming, the clock of the virtual machine is automatically synchronized.
+Essas atualizações são realizadas com uma tecnologia que permite a migração dinâmica in-loco, também chamada de uma atualização para “preservar a memória”. Durante a atualização, a máquina virtual é colocada em estado de "pausa", preservando a memória RAM, enquanto o sistema operacional subjacente do host recebe as atualizações e os patches necessários. A máquina virtual é retomada após 30 segundos no estado de pausa. Após ser reiniciada, o relógio da máquina virtual será sincronizado automaticamente.
 
-Not all updates can be deployed by using this mechanism, but given the short pause period, deploying updates in this way greatly reduces impact to virtual machines.
+Nem todas as atualizações podem ser implantadas usando esse mecanismo, mas, dado o breve período de pausa, a implantação de atualizações dessa maneira reduz muito o impacto nas máquinas virtuais.
 
-Multi-instance updates (for virtual machines in an availability set) are applied one update domain at a time.  
+Para máquinas virtuais de múltiplas instâncias (em um conjunto de disponibilidade), essas atualizações são aplicadas em um domínio por vez.
 
-## <a name="virtual-machine-configurations"></a>Virtual machine configurations
+## Configurações de máquina virtual
 
-There are two kinds of virtual machine configurations: multi-instance and single-instance. In a multi-instance configuration, similar virtual machines are placed in an availability set.
+Existem dois tipos de configurações de máquina virtual: instâncias múltiplas e instância única. Em uma configuração de várias instâncias, as máquinas virtuais semelhantes são colocadas em um conjunto de disponibilidade.
 
-The multi-instance configuration provides redundancy across physical machines, power, and network, and it is recommended to ensure the availability of your application. All virtual machines in the availability set should serve the same purpose to your application.
+A configuração de várias instâncias fornece redundância entre computadores físicos, potência e rede, sendo recomendada para garantir a disponibilidade do aplicativo. Todas as máquinas virtuais do conjunto de disponibilidade devem servir ao mesmo propósito para seu aplicativo.
 
-For more information about configuring your virtual machines for high availability, refer to [Manage the availability of your Windows virtual machines](../articles/virtual-machines/virtual-machines-windows-manage-availability.md) or [Manage the availability of your Linux virtual machines](../articles/virtual-machines/virtual-machines-linux-manage-availability.md).
+Para obter mais informações sobre como configurar as máquinas virtuais para alta disponibilidade, consulte [Manage the availability of your Windows virtual machines](../articles/virtual-machines/virtual-machines-windows-manage-availability.md) ou [Manage the availability of your Linux virtual machines](../articles/virtual-machines/virtual-machines-linux-manage-availability.md).
 
-By contrast, a single-instance configuration is used for standalone virtual machines that are not placed in an availability set. These virtual machines do not qualify for the service level agreement (SLA), which requires that two or more virtual machines are deployed under the same availability set.
+Por outro lado, uma configuração de instância única é usada para máquinas virtuais autônomas que não são colocadas em um conjunto de disponibilidade. Essas máquinas virtuais não se qualificam para o contrato de nível de serviço (SLA), que exige duas ou mais máquinas virtuais sejam implantadas no mesmo conjunto de disponibilidade.
 
-For more information about SLAs, refer to the "Cloud Services, Virtual Machines and Virtual Network" section of [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+Para saber mais sobre SLAs, consulte a seção "Serviços de Nuvem, máquinas virtuais e rede virtual" dos [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/).
 
 
-## <a name="multi-instance-configuration-updates"></a>Multi-instance configuration updates
+## Atualizações de configuração de várias instâncias
 
-During planned maintenance, the Azure platform first updates the set of virtual machines that are hosted in a multi-instance configuration. This causes a reboot to these virtual machines with approximately 15 minutes of downtime.
+Durante a manutenção planejada, a plataforma Microsoft Azure primeiro atualiza o conjunto de máquinas virtuais que estão hospedadas em uma configuração de várias instâncias. Isso causa uma reinicialização para essas máquinas virtuais com aproximadamente 15 minutos de tempo de inatividade.
 
-In a multi-instance configuration update, virtual machines are updated in a way that preserves availability throughout the process, assuming that each virtual machine serves a similar function as the others in the set.
+Em uma atualização da configuração de várias instâncias, as máquinas virtuais são atualizadas de maneira a preservar a disponibilidade ao longo de todo o processo, pressupondo que cada máquina atenda a uma função semelhante às outras no conjunto.
 
-Each virtual machine in your availability set is assigned an update domain and a fault domain by the underlying Azure platform. Each update domain is a group of virtual machines that will be rebooted in the same time window. Each fault domain is a group of virtual machines that share a common power source and network switch.
+Para cada máquina virtual em seu conjunto de disponibilidade, será atribuído um domínio de atualização e domínio de falha pela plataforma subjacente do Azure. Cada domínio de atualização é um grupo de máquinas virtuais que serão reinicializadas na mesma janela de tempo. Cada domínio de falha é um grupo de máquinas virtuais que compartilham uma mesma fonte de energia e um mesmo comutador de rede.
 
-For more information about update domains and fault domains, see [Configure multiple virtual machines in an availability set for redundancy](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+Para saber mais sobre domínios de atualização e domínios de falha, consulte [Configurar várias máquinas virtuais em um conjunto de disponibilidade para redundância](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
-To prevent update domains from going offline at the same time, the maintenance is performed by shutting down each virtual machine in an update domain, applying the update to the host machines, restarting the virtual machines, and moving on to the next update domain. The planned maintenance event ends after all update domains have been updated.
+Para impedir que os domínios de atualização fiquem offline ao mesmo tempo, a manutenção é executada, desligando cada máquina virtual em um domínio de atualização, aplicando a atualização para as máquinas de host, reiniciando as máquinas virtuais e passando para o próximo domínio de atualização. O evento de manutenção planejada termina depois que todos os domínios de atualização tiverem sido atualizados.
 
-The order of the update domains that are being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time. Today, Azure offers 1-week advanced notification for planned maintenance of virtual machines in the multi-instance configuration.
+A ordem dos domínios de atualização que estão sendo reinicializados não pode continuar em sequência durante a manutenção planejada, mas somente um domínio de atualização é reinicializado por vez. Atualmente, o Azure oferece notificação com 1 semana de antecedência para manutenção planejada de máquinas virtuais na configuração de várias instâncias.
 
-After a virtual machine is restored, here is an example of what your Windows Event Viewer might display:
+Depois que uma máquina virtual é restaurada, aqui está um exemplo do que pode exibir o Visualizador de Eventos do Windows:
 
 <!--Image reference-->
 ![][image2]
 
-Use the viewer to determine which virtual machines are configured in a multi-instance configuration using the Azure portal, Azure PowerShell, or Azure CLI. For example, to determine which virtual machines are in a multi-instance configuration, you can browse the list of virtual machines with the Availability Set column added to the virtual machines browse dialog. In the following example, the Example-VM1 and Example-VM2 virtual machines are in a muilti-instance configuration:
+Use o visualizador para determinar quais máquinas virtuais são configuradas em uma configuração de várias instâncias usando o portal do Azure, Azure PowerShell ou CLI do Azure. Por exemplo, para determinar quais máquinas virtuais estão em uma configuração de várias instâncias, você pode procurar a lista de máquinas virtuais com a coluna Conjunto de Disponibilidade adicionada à caixa de diálogo de procura das máquinas virtuais. No exemplo a seguir, as máquinas virtuais Exemplo-VM1 e Exemplo-VM2 estão em uma configuração de várias instâncias:
 
 <!--Image reference-->
 ![][image4]
 
-## <a name="single-instance-configuration-updates"></a>Single-instance configuration updates
+## Atualizações de configuração de instância única
 
-After the multi-instance configuration updates are complete, Azure will perform single-instance configuration updates. This update also causes a reboot to your virtual machines that are not running in availability sets.
+Depois de concluir as atualizações de configuração de várias instâncias, o Azure executará atualizações de configuração de instância única. Essa atualização causará uma reinicialização das máquinas virtuais que não estão em execução nos conjuntos de disponibilidade.
 
-Please note that even if you have only one instance running in an availability set, the Azure platform treats it as a multi-instance configuration update.
+Observe que mesmo se você tiver apenas uma instância em execução em um conjunto de disponibilidade, a plataforma do Azure tratará isso como uma atualização de configuração de várias instâncias.
 
-For virtual machines in a single-instance configuration, virtual machines are updated by shutting down the virtual machines, applying the update to the host machine, and restarting the virtual machines, approximately 15 minutes of downtime. These updates are run across all virtual machines in a region in a single maintenance window.
+Para máquinas virtuais em uma configuração de instância única, as máquinas virtuais são atualizadas pelo seu desligamento, com a aplicação da atualização ao computador host e a reinicialização das máquinas virtuais, com aproximadamente 15 minutos de tempo de inatividade. Essas atualizações são executadas em todas as máquinas virtuais de uma região em uma única janela de manutenção.
 
-This planned maintenance event will impact the availability of your application for this type of virtual machine configuration. Azure offers a 1-week advanced notification for planned maintenance of virtual machines in the single-instance configuration.
+Esse evento de manutenção planejada afetará a disponibilidade do aplicativo para esse tipo de configuração de máquina virtual. O Azure oferece notificações de manutenção planejada de máquinas virtuais com uma semana de antecedência na configuração de instância única.
 
-## <a name="email-notification"></a>Email notification
+## Notificação por email
 
-For single-instance and multi-instance virtual machine configurations only, Azure sends email communication in advance to alert you of the upcoming planned maintenance (1-week in advance). This email will be sent to the subscription administrator and co-administrator email accounts. Here is an example of this type of email:
+Somente para configurações de máquina virtual de única instância ou várias instâncias, o Azure envia um comunicado prévio por email para alertar você sobre a próxima manutenção planejada (com 1 semana de antecedência). Este email será enviado para as contas de email do administrador e coadministrador da assinatura. Veja um exemplo desse tipo de email:
 
 <!--Image reference-->
 ![][image1]
 
-## <a name="region-pairs"></a>Region pairs
+## Pares de regiões
 
-When executing maintenance, Azure will only update the Virtual Machine instances in a single region of its pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. This will be scheduled at a separate time, enabling failover or load balancing between regions. However, other regions such as North Europe can be under maintenance at the same time as East US.
+Ao executar a manutenção, o Azure atualizará apenas as instâncias de Máquina Virtual em uma única região de seu par. Por exemplo, ao atualizar as Máquinas Virtuais no Centro-Norte dos EUA, o Azure não atualizará qualquer Máquina Virtual no Centro-Sul dos EUA ao mesmo tempo. Isso será agendado em outro momento, permitindo o failover ou o balanceamento de carga entre regiões. No entanto, outras regiões, como o Norte da Europa, podem estar em manutenção simultaneamente com Leste dos EUA.
 
-Please refer to the following table for information regarding current region pairs:
+Veja a tabela a seguir para saber mais sobre os atuais pares de regiões:
 
-Region 1 | Region 2
+Região 1 | Região 2
 :----- | ------:
-North Central US | South Central US
-East US | West US
-US East 2 | Central US
-North Europe | West Europe
-South East Asia | East Asia
-East China | North China
-Japan East | Japan West
-Brazil South | South Central US
-Australia Southeast | Australia East
-India Central | India South
-India West | India South
-US Gov Iowa | US Gov Virginia
+Centro-Norte dos EUA | Centro-Sul dos Estados Unidos
+Leste dos EUA | Oeste dos EUA
+Leste dos EUA 2 | Centro dos EUA
+Norte da Europa | Europa Ocidental
+Sudeste da Ásia | Ásia Oriental
+China Oriental | Norte da China
+Leste do Japão | Oeste do Japão
+Sul do Brasil | Centro-Sul dos Estados Unidos
+Sudeste da Austrália | Leste da Austrália
+Centro da Índia | Sul da Índia
+Oeste da Índia | Sul da Índia
+Gov. dos EUA – Iowa | Gov. dos EUA – Virgínia
 
 <!--Anchors-->
 [image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
@@ -96,9 +96,4 @@ US Gov Iowa | US Gov Virginia
 [Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
 [Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
-
-
-
-<!--HONumber=Oct16_HO2-->
-
 

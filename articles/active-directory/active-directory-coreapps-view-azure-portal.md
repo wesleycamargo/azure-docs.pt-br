@@ -1,47 +1,42 @@
 <properties
-    pageTitle="View all the enterprise apps that I can manage in Azure Active Directory preview | Microsoft Azure"
-    description="How to see a list of the enterprise apps that you have the permissions to manage in Azure Active Directory"
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Exibir todos os aplicativos empresariais que posso gerenciar na visualização do Azure Active Directory | Microsoft Azure"
+	description="Como ver uma lista dos aplicativos empresariais que você tem permissão para gerenciar no Azure Active Directory"
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/30/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="curtand"/>
 
+# Exibir todos os aplicativos empresariais que posso gerenciar na visualização do Azure Active Directory
 
-# <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory-preview"></a>View all the enterprise apps that I can manage in Azure Active Directory preview
+Você pode gerenciar seus aplicativos empresariais na visualização do Azure AD (Azure Active Directory). [O que há na visualização?](active-directory-preview-explainer.md) Isso inclui exibir os aplicativos que você pode gerenciar, atribuir usuários ou grupos a um aplicativo, manter propriedades para o aplicativo, como o nome/logotipo do aplicativo e, até mesmo, desabilitar um aplicativo para que nenhum usuário possa entrar nele.
 
-You can manage your enterprise applications in the Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) This includes viewing the apps you can manage, assigning users or groups to an app, maintaining properties for the app such as the application name/logo, and even disabling an application so that no users can sign in to it.
+## Como exibo todos os meus aplicativos?
 
-## <a name="how-do-i-view-all-my-apps?"></a>How do I view all my apps?
+1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+2. Escolha **Mais serviços**, insira **Azure Active Directory** na caixa de texto e selecione **Enter**.
 
-2. Select **More services**, enter **Azure Active Directory** in the text box, and then select **Enter**.
+3. Na folha **Azure Active Directory –** ***nomedodiretório*** (ou seja, a folha do Azure AD para o diretório que você está gerenciando), escolha **Aplicativos empresariais**.
 
-3. On the **Azure Active Directory -** ***directoryname*** blade (that is, the Azure AD blade for the directory you are managing), select **Enterprise applications**.
+	![Abrir aplicativos empresariais](./media/active-directory-coreapps-view-azure-portal/open-enterprise-apps.png)
 
-    ![Opening Enterprise apps](./media/active-directory-coreapps-view-azure-portal/open-enterprise-apps.png)
+4. Na folha **Aplicativos empresariais**, escolha **Todos os aplicativos**. Nessa folha, é possível escolher os aplicativos a serem gerenciados, alterar as colunas exibidas ou filtrar a lista para encontrar o aplicativo desejado (por exemplo, exibir apenas aplicativos desabilitados).
 
-4. On the **Enterprise applications** blade, select **All applications**. From this blade you can select apps to manage, change the displayed columns, or filter the list to find that app you want (for example, to view only disabled apps).
+## Próximas etapas
 
-## <a name="next-steps"></a>Next steps
+- [Atribuir um usuário ou um grupo a um aplicativo empresarial](active-directory-coreapps-assign-user-azure-portal.md)
+- [Remover uma atribuição de usuário ou de grupo de um aplicativo empresarial](active-directory-coreapps-remove-assignment-user-azure-portal.md)
+- [Desabilitar as entradas de usuário em um aplicativo empresarial](active-directory-coreapps-disable-app-azure-portal.md)
+- [Alterar o nome ou logotipo de um aplicativo empresarial](active-directory-coreapps-change-app-logo-azure-portal.md)
 
-- [Assign a user or group to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
-- [Remove a user or group assignment from an enterprise app](active-directory-coreapps-remove-assignment-azure-portal.md)
-- [Disable user sign-ins for an enterprise app](active-directory-coreapps-disable-app-azure-portal.md)
-- [Change the name or logo of an enterprise app](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

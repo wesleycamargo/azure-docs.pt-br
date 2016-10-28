@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Guide to creating a solution template for the  Marketplace | Microsoft Azure"
-   description="Detailed instructions of how to create, certify and deploy a Multi-VM Image Solution Template for purchase on the Azure Marketplace."
+   pageTitle="Guia para a criação de um modelo de solução para o Marketplace | Microsoft Azure"
+   description="Instruções detalhadas sobre como criar, certificar e implantar um Modelo de Solução de imagem com múltiplas VMs para compra no Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -16,57 +16,52 @@
       ms.date="07/27/2016"
       ms.author="hascipio; v-divte" />
 
+# Guia para criar um modelo de solução para o Azure Marketplace
+Após concluir a etapa 1, [Criação da conta e registro][link-acct-creation], falamos sobre a criação de um modelo de solução compatível com o Azure em [Pré-requisitos técnicos para criar um modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md). Agora, orientaremos você pelas etapas de criação de um modelo de solução para várias VMs no [Portal de Publicação][link-pubportal] para o Azure Marketplace.
 
-# <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guide to create a solution template for Azure Marketplace
-After completing step 1, [Account creation and registration][link-acct-creation], we guided you on the creation of an Azure-compatible solution template at [Technical prerequisites for creating a solution template](marketplace-publishing-solution-template-creation-prerequisites.md). Now we will walk you through the steps for creating a solution template for multiple VMs on the [Publishing Portal][link-pubportal] for the Azure Marketplace.
+## Criar sua oferta de modelo de solução no Portal de Publicação
+Vá para [https://publish.windowsazure.com](http://publish.windowsazure.com). Ao fazer logon pela primeira vez no [Portal de Publicação](https://publish.windowsazure.com/), use a mesma conta utilizada para o registro de perfil de vendedor de sua empresa. Posteriormente, você poderá adicionar qualquer funcionário de sua empresa como um coadministrador no Portal de Publicação.
 
-## <a name="create-your-solution-template-offer-in-the-publishing-portal"></a>Create your solution template offer in the Publishing Portal
-Go to  [https://publish.windowsazure.com](http://publish.windowsazure.com). When signing in for the first time to the [Publishing Portal](https://publish.windowsazure.com/), use the same account with which your company’s seller profile was registered. Later, you can add any employee of your company as a co-admin in the Publishing Portal.
+### 1\. Selecione "Modelos de solução"
 
-### <a name="1.-select-"solution-templates""></a>1. Select "Solution templates"
+  ![desenho][img-pubportal-menu-sol-templ]
 
-  ![drawing][img-pubportal-menu-sol-templ]
+### 2\. Crie um novo modelo de solução
 
-### <a name="2.-create-a-new-solution-template"></a>2. Create a new solution template
+  ![desenho][img-pubportal-sol-templ-new]
 
-  ![drawing][img-pubportal-sol-templ-new]
+### 3\. Comece com as topologias
+Um modelo de solução é um "pai" para todas as suas topologias. Você pode definir várias topologias em uma oferta/modelo de solução. Quando uma oferta passa para teste, todas as suas topologias a acompanham. Siga as etapas abaixo para definir sua oferta:
 
-### <a name="3.-start-with-topologies"></a>3. Start with topologies
-A solution template is a "parent" to all of its topologies. You can define multiple topologies in one offer/solution template. When an offer is pushed to staging, it is pushed with all of its topologies. Follow the steps below to define your offer:     
-
-- Create a Topology: “Topology Identifier” is typically the name of the topology for the solution template. The topology identifier is used in the URL as shown below:
+- Criar uma topologia: geralmente, “Identificador de Topologia” é o nome da topologia para o modelo da solução. O identificador de topologia é usado na URL, como mostrado abaixo:
 
   Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-  Azure Portal: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
+  Portal do Azure: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 
-- Add a new version.
+- Adicionar uma nova versão.
 
-### <a name="4.-get-your-topology-versions-certified"></a>4. Get your topology versions certified
-Upload a zip file that contains all required files to provision that particular version of the topology. This zip file must contain the following:
+### 4\. Certifique as versões de sua topologia
+Carregue um arquivo zip contendo todos os arquivos necessários para provisionar essa versão específica da topologia. Este arquivo zip deve conter o seguinte:
 
-- *mainTemplate.json* and *createUiDefinition.json* file at its root directory.
-- Any linked templates and all required scripts.
+- arquivo *mainTemplate.json* e *createUiDefinition.json* no diretório raiz.
+- Quaisquer modelos vinculados e todos os scripts necessários.
 
-  > [AZURE.TIP] While your developers work on creating the solution template topologies and getting them certified, the business, marketing, and/or legal departments of your company can work on the marketing and legal content.
+  > [AZURE.TIP] Enquanto seus desenvolvedores trabalham na criação e certificação de topologias do modelo de solução, os departamentos comercial, de marketing e/ou jurídico de sua empresa podem trabalhar no conteúdo jurídico e de marketing.
 
-## <a name="next-steps"></a>Next steps
-Now that you created your solution template and uploaded the zip file, please follow the instructions in the [Marketplace marketing content guide](marketplace-publishing-push-to-staging.md) before pushing the offer to staging. To see the full set of marketplace publishing articles, visit [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
+## Próximas etapas
+Agora que você criou seu modelo de solução e carregou o arquivo zip, siga as instruções no [guia de conteúdo de marketing do Marketplace](marketplace-publishing-push-to-staging.md) antes de passar a oferta para o preparo. Para ver o conjunto completo de artigos de publicação do Marketplace, acesse [Como publicar e gerenciar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md).
 
-You might also be interested in these related articles:
+Você também pode se interessar por estes artigos relacionados:
 
-- VM images: [About Virtual Machine Images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-- VM extensions: [VM Agent and VM Extensions Overview](https://msdn.microsoft.com/library/azure/dn832621.aspx) and [Azure VM Extensions and Features](https://msdn.microsoft.com/library/azure/dn606311.aspx)
-- Azure Resource Manager: [Authoring Azure ARM Templates](../resource-group-authoring-templates.md) and [Simple ARM Template Examples](https://github.com/rjmax/ArmExamples)
-- Storage account throttles: [How to Monitor for Storage Account Throttling](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) and [Premium storage](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage)
+- Imagens de VM: [Sobre Imagens da Máquina Virtual no Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
+- Extensões de VM: [Visão geral sobre Agente de VM e Extensões de VM](https://msdn.microsoft.com/library/azure/dn832621.aspx) e [Extensões de VM e recursos do Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+- Gerenciador de Recursos do Azure (ARM): [Criando modelos ARM do Azure](../resource-group-authoring-templates.md) e [Exemplos de modelos simples de ARM](https://github.com/rjmax/ArmExamples)
+- Limites da conta de armazenamento: [Como monitorar o limite da conta de armazenamento](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) e [Armazenamento Premium](../storage/storage-premium-storage.md#scalability-and-performance-targets-whpt-BRing-premium-storage)
 
-[img-pubportal-menu-sol-templ]:media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
-[img-pubportal-sol-templ-new]:media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
-[link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
-[link-pubportal]:https://publish.windowsazure.com
+[img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
+[img-pubportal-sol-templ-new]: media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
+[link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
+[link-pubportal]: https://publish.windowsazure.com
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

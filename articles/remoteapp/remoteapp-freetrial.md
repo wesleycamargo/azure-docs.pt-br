@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Free 30 day trial of Azure RemoteApp | Microsoft Azure"
-    description="Check out the 30 day free trial for Azure RemoteApp."
+    pageTitle="Versão de avaliação gratuita de 30 dias do RemoteApp do Azure | Microsoft Azure"
+    description="Confira a avaliação gratuita de 30 dias para o RemoteApp do Azure."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,24 +18,19 @@
 
 
 
-
-# <a name="free-30-day-trial-of-azure-remoteapp"></a>Free 30 day trial of Azure RemoteApp
+# Versão de avaliação gratuita de 30 dias do RemoteApp do Azure
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
-If you have an Azure subscription, you can try [Azure RemoteApp free for 30 days](https://www.remoteapp.windowsazure.com/en/tour.aspx). To start, simply sign in to the Azure Management Portal, navigate to the Azure RemoteApp node, and then create a collection. This is a great way to test drive the full administrative experience before converting to a paid subscription of Azure RemoteApp.  
+Se você tiver uma assinatura do Azure, poderá avaliar o [Azure RemoteApp gratuitamente por 30 dias](https://www.remoteapp.windowsazure.com/en/tour.aspx). Para começar, simplesmente entre no Portal de Gerenciamento do Azure, navegue até o nó RemoteApp do Azure e crie uma coleção. Essa é uma ótima maneira de avaliar a experiência administrativa completa antes da conversão para uma assinatura paga do Azure RemoteApp.
 
-While in trial mode, you can create two collections with a 10 user per collection limit. There are no other limitations. You can convert your trial to a paid subscription at any time. After 30 days your collections will go into disabled state if you don’t convert to paid subscription.
+No modo de avaliação, você pode criar duas coleções com um usuário 10 por limite de coleção. Não há nenhuma outra limitação. Você pode converter a versão de avaliação para uma assinatura paga a qualquer momento. Após 30 dias, suas coleções entrarão em estado desabilitado se você não converter para assinatura paga.
 
->[AZURE.NOTE] The Azure SLA does not apply to collections created in trial mode.  
+>[AZURE.NOTE] O SLA do Azure não se aplica às coleções criadas no modo de avaliação.
 
-Can’t wait? Watch a quick video on how to [create a cloud deployment](https://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/).
+Não pode esperar? Assista a um vídeo rápido sobre como [criar uma implantação de nuvem](https://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/).
 
-Got feedback? Post questions to [the discussion forums](https://feedback.azure.com/forums/247748-azure-remoteapp/). If you have an [Azure support plan](https://azure.microsoft.com/support/plans/), you can submit a support case. Everyone can submit feedback on our [Feedback forum](https://feedback.azure.com/forums/247748-azure-remoteapp/).  
+Recebeu comentários? Poste perguntas nos [fóruns de discussão](https://feedback.azure.com/forums/247748-azure-remoteapp/). Se você tiver um [plano de suporte do Azure](https://azure.microsoft.com/support/plans/), pode enviar um caso de suporte. Qualquer pessoa pode enviar comentários no nosso [Fórum de comentários](https://feedback.azure.com/forums/247748-azure-remoteapp/).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

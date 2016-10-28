@@ -1,66 +1,60 @@
 <properties 
-    pageTitle="Vehicle telemetry analytics solution playbook | Microsoft Azure" 
-    description="Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits." 
-    services="machine-learning" 
-    documentationCenter="" 
-    authors="bradsev" 
-    manager="jhubbard" 
-    editor="cgronlun" />
+	pageTitle="Manual da solução de análise de telemetria do veículo | Microsoft Azure" 
+	description="Use os recursos do Cortana Intelligence para obter informações preditivas em tempo real sobre a integridade do veículo e hábitos de condução." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="jhubbard" 
+	editor="cgronlun" />
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/12/2016" 
-    ms.author="bradsev" />
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/12/2016" 
+	ms.author="bradsev" />
 
 
+# Manual da solução de análise de telemetria do veículo
 
-# <a name="vehicle-telemetry-analytics-solution-playbook"></a>Vehicle telemetry analytics solution playbook
-
-This **menu** links to the chapters in this playbook. 
+Este **menu** fornece links para os capítulos deste manual.
 
 [AZURE.INCLUDE [cap-vehicle-telemetry-playbook-selector](../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-## <a name="overview"></a>Overview
-Super computers have moved out of the lab and are now parked in our garage! These cutting-edge automobiles contain a myriad of sensors, giving them the ability to track and monitor millions of events every second. We expect that by 2020, most of these cars will have been connected to the internet. Imagine tapping into this wealth of data to provide best in class safety, reliability and driving experience! Microsoft has made this dream a reality with Cortana Intelligence.
+## Visão geral
+Os supercomputadores foram retirados do laboratório e agora estão estacionados em nossa garagem! Esses automóveis de ponta contêm uma infinidade de sensores, dando-lhes a capacidade de acompanhar e monitorar milhões de eventos por segundo. Esperamos que até 2020, a maioria desses carros esteja conectada à Internet. Imagine-se explorando essa riqueza de dados para fornecer o melhor da segurança, confiabilidade e experiência de condução! A Microsoft tornou esse sonho uma realidade por meio do Cortana Intelligence.
 
-Microsoft’s Cortana Intelligence is a fully managed big data and advanced analytics suite that enables you to transform your data into intelligent action. We want to introduce you to the Cortana Intelligence Vehicle Telemetry Analytics Solution Template. This solution demonstrates how car dealerships, automobile manufacturers, and insurance companies can use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits. 
+O Cortana Intelligence da Microsoft é um pacote de análise avançada e de Big Data totalmente gerenciado que o habilita a transformar seus dados em ação inteligente. Gostaríamos de apresentar o Modelo de Solução de Análise de Telemetria do Veículo do Cortana Intelligence. Esta solução demonstra como concessionárias, fabricantes de automóveis e seguradoras podem usar os recursos do Cortana Intelligence para obter informações preditivas em tempo real sobre a integridade do veículo e hábitos de condução.
 
-The solution is implemented as a [lambda architecture pattern](https://en.wikipedia.org/wiki/Lambda_architecture) showing the full potential of the Cortana Intelligence platform for real-time and batch processing. The solution: 
+A solução é implementada como um [padrão de arquitetura lambda](https://en.wikipedia.org/wiki/Lambda_architecture), mostrando o potencial completo da plataforma do Cortana Intelligence para processamento em tempo real e em lote. A solução:
 
-- provides a Vehicle Telematics simulator
-- leverages Event Hubs for ingesting millions of simulated vehicle telemetry events into Azure 
-- uses Stream Analytics to gain real-time insights on vehicle health
--  persists the data into long-term storage for richer batch analytics. 
-- takes advantage of Machine Learning for anomaly detection in real-time and batch processing to gain predictive insights.
-- leverages HDInsight to transform data at scale and Data Factory to handle orchestration, scheduling, resource management, and monitoring of the batch processing pipeline 
-- gives this solution a rich dashboard for real-time data and predictive analytics visualizations using Power BI
+- fornece um simulador de Telemática do Veículo
+- aproveita os Hubs De eventos para a ingestão de milhões de eventos de telemetria simulados do veículo no Azure
+- usa o Stream Analytics para obter informações em tempo real sobre a integridade do veículo
+-  mantém os dados em um armazenamento de longo prazo para análise em e lote mais detalhada.
+- aproveita o Aprendizado de Máquina para a detecção de anomalias em tempo real e o processamento em lote para obter informações preditivas.
+- aproveita o HDInsight para transformar dados em escala e o Data Factory para lidar com a orquestração, agendamento, gerenciamento de recursos e monitoramento do pipeline de processamento em lote
+- fornece essa solução a um painel avançado para os dados em tempo real e as visualizações da análise preditiva usando Power BI
 
-## <a name="architecture"></a>Architecture
+## Arquitetura
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
-*Figure 1 – Vehicle Telemetry Analytics Solution Architecture*
+![](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png) *Figura 1 – Arquitetura da solução de análise de telemetria do veículo*
 
-This solution includes the following **Cortana Intelligence components** and showcases their end to end integration
-
-
-- **Event Hubs** for ingesting millions of vehicle telemetry events into Azure.
-- **Stream Analytics** for gaining real-time insights on vehicle health and persists that data into long-term storage for richer batch analytics.
-- **Machine Learning** for anomaly detection in real-time and batch processing to gain predictive insights.
-- **HDInsight** is leveraged to transform data at scale
-- **Data Factory** handles orchestration, scheduling, resource management and monitoring of the batch processing pipeline.
-- **Power BI** gives this solution a rich dashboard for real-time data and predictive analytics visualizations.
-
-This solution accesses two different **data sources**: 
-
-- **Simulated vehicle signals and diagnostics**: A vehicle telematics simulator emits diagnostic information and signals that correspond to the state of the vehicle and the driving pattern at a given point in time. 
-- **Vehicle catalog**: A reference dataset containing a VIN to model mapping.
+Essa solução inclui os seguintes **componentes do Cortana Intelligence** e apresenta sua integração de ponta a ponta
 
 
+- **Hubs de Eventos** para a ingestão de milhões de eventos de telemetria do veículo no Azure.
+- **Stream Analytics** para obter informações em tempo real sobre a integridade do veículo e persistir esses dados no armazenamento de longo prazo para uma análise de lote mais avançada.
+- **Aprendizado de Máquina** para a detecção de anomalias em tempo real e o processamento em lote para obter informações preditivas.
+- O **HDInsight** é utilizado para transformar dados em escala
+- O **Data Factory** lida com a orquestração, o agendamento, o gerenciamento de recursos e o monitoramento do pipeline de processamento em lote.
+- O **PowerBI** fornece essa solução a um painel avançado para os dados em tempo real e as visualizações da análise preditiva.
 
-<!--HONumber=Oct16_HO2-->
+Essa solução acessa duas **fontes de dados** diferentes:
 
+- **Sinais de veículo e diagnóstico simulados**: um simulador de telemática do veículo emite informações de diagnóstico e sinais que correspondem ao estado do veículo e ao padrão de condução em um determinado momento.
+- **Catálogo do veículo**: um conjunto de dados de referência que contém um VIN para o mapeamento do modelo.
 
+<!---HONumber=AcomDC_0914_2016-->

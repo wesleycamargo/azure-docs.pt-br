@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure portal keyboard shortcuts | Microsoft Azure"
-   description="This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts."
+   pageTitle="Atalhos de teclado do portal do Azure | Microsoft Azure"
+   description="Este artigo será sempre uma lista atualizada dos atalhos de teclado que funciona em todo o portal do Azure. Serviços individuais podem ter seus próprios atalhos de teclado especializados."
    services="azure-portal"
    documentationCenter=""
    authors="flanakin"
@@ -16,39 +16,33 @@
    ms.date="02/07/2016"
    ms.author="micflan"/>
 
+# Atalhos de teclado do portal do Azure
 
-# <a name="azure-portal-keyboard-shortcuts"></a>Azure portal keyboard shortcuts
+## Hubs abertos
 
-## <a name="open-hubs"></a>Open hubs
-
-| Shortcut | Action |
+| Atalho | Ação |
 |--------|----------|
-| N | Notifications |
-| / | Browse services |
-| A | Active sessions |
-| B | Billing |
-| C | Create |
+| N | Notificações |
+| / | Procurar Serviços |
+| Uma | Sessões ativas |
+| B | Cobrança |
+| C | Criar |
 
-## <a name="navigation"></a>Navigation
+## Navegação
 
-| Shortcut | Action |
+| Atalho | Ação |
 |--------|----------|
-| H | Azure Start dashboard |
-| F | First open blade |
-| J | Previous open blade |
-| K | Next open blade |
-| L | Last open blade |
-| - | Minimize blade or restore from maximized |
-| + | Maximize blade or restore from minimized |
-| # | Close current blade |
-| ¦ | Close all blades |
-| , | Move focus to command bar |
-| . | Move focus to navigation bar |
-| ? | View keyboard shortcuts |
+| H | Painel de início do Azure |
+| F | Primeira folha aberta |
+| J | Folha aberta anterior |
+| K | Próxima folha aberta |
+| L | Última folha aberta |
+| - | Minimizar folha ou restaurar de maximizada |
+| + | Maximizar a folha ou restaurar de minimizada |
+| # | Fechar folha atual |
+| ¦ | Fechar todas as folhas |
+| , | Mover o foco para a barra de comandos |
+|. | Mover o foco para a barra de navegação |
+|? | Exibir atalhos de teclado |
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0504_2016-->

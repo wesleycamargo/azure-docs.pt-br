@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Get started with Azure Data Lake Analytics using Azure Command-line Interface | Microsoft Azure" 
-   description="Learn how to use the Azure Command-line Interface to create a Data Lake Store account, create a Data Lake Analytics job using U-SQL, and submit the job. " 
+   pageTitle="Introdução à Análise Azure Data Lake usando a Interface de linha de comando do Azure | Microsoft Azure" 
+   description="Saiba como usar a interface de linha de comando do Azure para criar uma conta do Repositório Data Lake, criar um trabalho da Análise Data Lake usando U-SQL e enviar o trabalho. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
@@ -16,93 +16,92 @@
    ms.date="05/16/2016"
    ms.author="edmaca"/>
 
-
-# <a name="tutorial:-get-started-with-azure-data-lake-analytics-using-azure-command-line-interface-(cli)"></a>Tutorial: get started with Azure Data Lake Analytics using Azure Command-line Interface (CLI)
+# Tutorial: Introdução à Análise Azure Data Lake usando o a CLI (interface de linha de comando) do Azure
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 
-Learn how to use Azure CLI to create Azure Data Lake Analytics accounts, define Data Lake Analytics jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analytics accounts. For more information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
+Saiba como usar a CLI do Azure para criar contas da Análise Azure Data Lake, definir trabalhos de Análise Data Lake em [U-SQL](data-lake-analytics-u-sql-get-started.md) e enviar trabalhos para contas da Análise Data Lake. Para saber mais sobre a Análise Data Lake, consulte a [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
 
-In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
+Neste tutorial, você desenvolverá um trabalho que lê um arquivo TSV (valores separados por tabulação) e o converte em um arquivo CSV (valores separados por vírgulas). Para acompanhar o mesmo tutorial usando outras ferramentas compatíveis, clique nas guias na parte superior desta seção.
 
-##<a name="prerequisites"></a>Prerequisites
+##Pré-requisitos
 
-Before you begin this tutorial, you must have the following:
+Antes de começar este tutorial, você deve ter o seguinte:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **Azure CLI**. See [Install and configure Azure CLI](../xplat-cli-install.md).
-    - Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
-- **Authentication**, using the following command:
+- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **CLI do Azure**. Consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md).
+	- Baixe e instale o **pré-lançamento das** [ferramentas de CLI do Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) para concluir esta demonstração.
+- **Autenticação**, usando o seguinte comando:
 
-        azure login
-    For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
-- **Switch to the Azure Resource Manager mode**, using the following command:
+		azure login
+	Para obter mais informações sobre a autenticação usando uma conta de trabalho ou escolar, veja [Conectar-se a uma assinatura do Azure da CLI do Azure](../xplat-cli-connect.md).
+- **Alterne para o modo Gerenciador de Recursos do Azure** usando o seguinte comando:
 
-        azure config mode arm
-        
-## <a name="create-data-lake-analytics-account"></a>Create Data Lake Analytics account
+		azure config mode arm
+		
+## Criar conta da Análise Data Lake
 
-You must have a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following:
+Você deve ter uma conta da Análise Data Lake antes de executar trabalhos. Para criar uma conta da Análise Data Lake, você deve especificar o seguinte:
 
-- **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](../resource-group-overview.md) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
+- **Grupo de Recursos do Azure**: é necessário criar uma conta da Análise Data Lake em um grupo de Recursos do Azure. O [Gerenciador de Recursos do Azure](../resource-group-overview.md) permite trabalhar com os recursos do seu aplicativo como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada.
 
-    To enumerate the resource groups in your subscription:
+	Para enumerar os grupos de recursos em sua assinatura:
     
-        azure group list 
+    	azure group list 
     
-    To create a new resource group:
+	Para criar um novo grupo de recursos:
 
-        azure group create -n "<Resource Group Name>" -l "<Azure Location>"
+		azure group create -n "<Resource Group Name>" -l "<Azure Location>"
 
-- **Data Lake Analytics account name**
-- **Location**: one of the Azure data centers that supports Data Lake Analytics.
-- **Default Data Lake account**: each Data Lake Analytics account has a default Data Lake account.
+- **Nome da conta da Análise Data Lake**
+- **Local**: um dos datacenters do Azure que dá suporte à Análise Data Lake.
+- **Conta padrão do Data Lake**: cada conta da Análise Data Lake tem uma conta padrão do Data Lake.
 
-    To list the existing Data Lake account:
-    
-        azure datalake store account list
+	Para listar a conta existente do Data Lake:
+	
+		azure datalake store account list
 
-    To create a new Data Lake account:
+	Para criar uma nova conta do Data Lake:
 
-        azure datalake store account create "<Data Lake Store Account Name>" "<Azure Location>" "<Resource Group Name>"
+		azure datalake store account create "<Data Lake Store Account Name>" "<Azure Location>" "<Resource Group Name>"
 
-    > [AZURE.NOTE] The Data Lake account name must only contain lowercase letters and numbers.
-
-
-
-**To create a Data Lake Analytics account**
-
-        azure datalake analytics account create "<Data Lake Analytics Account Name>" "<Azure Location>" "<Resource Group Name>" "<Default Data Lake Account Name>"
-
-        azure datalake analytics account list
-        azure datalake analytics account show "<Data Lake Analytics Account Name>"          
-
-![Data Lake Analytics show account](./media/data-lake-analytics-get-started-cli/data-lake-analytics-show-account-cli.png)
-
-> [AZURE.NOTE] The Data Lake Analytics account name must only contain lowercase letters and numbers.
+	> [AZURE.NOTE] O nome da conta do Data Lake deve conter apenas letras minúsculas e números.
 
 
-## <a name="upload-data-to-data-lake-store"></a>Upload data to Data Lake Store
 
-In this tutorial, you will process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
+**Para criar uma conta da Análise Data Lake**
 
-The Azure Portal provides a user interface for copying some sample data files to the default Data Lake account, which include a search log file. See [Prepare source data](data-lake-analytics-get-started-portal.md#prepare-source-data) to upload the data to the default Data Lake Store account.
+		azure datalake analytics account create "<Data Lake Analytics Account Name>" "<Azure Location>" "<Resource Group Name>" "<Default Data Lake Account Name>"
 
-To upload files using cli, use the following command:
+		azure datalake analytics account list
+		azure datalake analytics account show "<Data Lake Analytics Account Name>"			
 
-    azure datalake store filesystem import "<Data Lake Store Account Name>" "<Path>" "<Destination>"
-    azure datalake store filesystem list "<Data Lake Store Account Name>" "<Path>"
+![Conta de exibição da Análise Data Lake](./media/data-lake-analytics-get-started-cli/data-lake-analytics-show-account-cli.png)
 
-Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
+> [AZURE.NOTE] O nome da conta da Análise Data Lake deve conter apenas letras minúsculas e números.
 
-## <a name="submit-data-lake-analytics-jobs"></a>Submit Data Lake Analytics jobs
 
-The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
+## Carregar dados no Repositório Data Lake
 
-**To create a Data Lake Analytics job script**
+Neste tutorial, você processará alguns logs de pesquisa. O log de pesquisa pode ser armazenado no Repositório Data Lake ou no Armazenamento de Blob do Azure.
 
-- Create a text file with following U-SQL script, and save the text file to your workstation:
+O Portal do Azure fornece uma interface do usuário para copiar alguns arquivos de dados de exemplo na conta padrão do Data Lake, o que inclui um arquivo de log de pesquisa. Consulte [Preparar dados de origem](data-lake-analytics-get-started-portal.md#prepare-source-data) para carregar os dados na conta do Repositório Data Lake.
+
+Para carregar arquivos usando a CLI, use o seguinte comando:
+
+  	azure datalake store filesystem import "<Data Lake Store Account Name>" "<Path>" "<Destination>"
+  	azure datalake store filesystem list "<Data Lake Store Account Name>" "<Path>"
+
+A Análise Data Lake também pode acessar o armazenamento de Blob do Azure. Para carregar dados no Armazenamento de Blob do Azure, consulte [Usando a CLI do Azure com o Armazenamento do Azure](../storage/storage-azure-cli.md).
+
+## Enviar trabalhos da Análise Data Lake
+
+Os trabalhos da Análise Data Lake são escritos na linguagem U-SQL. Para saber mais sobre o U-SQL, consulte [Introdução à linguagem U-SQL](data-lake-analytics-u-sql-get-started.md) e [Referência da linguagem U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+
+**Para criar um script de trabalho da Análise Data Lake**
+
+- Crie um arquivo de texto com o seguinte script U-SQL e salve o arquivo de texto em sua estação de trabalho:
 
         @searchlog =
             EXTRACT UserId          int,
@@ -119,51 +118,46 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
-    This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**. 
+	Este script U-SQL lê o arquivo de dados de origem usando **Extractors.Tsv()** e cria um arquivo .csv usando **Outputters.Csv()**.
     
-    Don't modify the two paths unless you copy the source file into a different location.  Data Lake Analytics will create the output folder if it doesn't exist.
-    
-    It is simpler to use relative paths for files stored in default data Lake accounts. You can also use absolute paths.  For example 
+    Não modifique os dois caminhos, a menos que você copie o arquivo de origem para um local diferente. A Análise Data Lake criará a pasta de saída se ela não existir.
+	
+	É mais simples usar caminhos relativos para arquivos armazenados em contas padrão do Data Lake. Você também pode usar caminhos absolutos. Por exemplo,
     
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
-    You must use absolute paths to access files in linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
+    Você deve usar caminhos absolutos para acessar os arquivos em contas do Armazenamento vinculadas. A sintaxe para os arquivos armazenados na conta do Armazenamento do Azure vinculada é:
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE] Azure Blob container with public blobs or public containers access permissions are not currently supported.      
+    >[AZURE.NOTE] Atualmente, não há suporte para o contêiner de Blob do Azure com permissões de acesso de blobs públicos ou de contêineres públicos.
 
+	
+**Para enviar o trabalho**
+
+
+	azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" "<Script>"
     
-**To submit the job**
-
-
-    azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" "<Script>"
     
-    
-The following commands can be used to list jobs, get job details, and cancel jobs:
+Os seguintes comandos podem ser usados para listar trabalhos, obter detalhes de trabalhos e cancelar trabalhos:
 
-    azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job Id>"
-    azure datalake analytics job list "<Data Lake Analytics Account Name>"
-    azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>"
+  	azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job Id>"
+  	azure datalake analytics job list "<Data Lake Analytics Account Name>"
+	azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>"
 
-After the job is completed, you can use the following cmdlets to list the file, and download the file:
-    
+Depois que o trabalho for concluído, você poderá usar os seguintes cmdlets para listar o arquivo e baixá-lo:
+	
     azure datalake store filesystem list "<Data Lake Store Account Name>" "/Output"
-    azure datalake store filesystem export "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" "<Destination>"
-    azure datalake store filesystem read "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" <Length> <Offset>
+	azure datalake store filesystem export "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" "<Destination>"
+	azure datalake store filesystem read "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" <Length> <Offset>
 
-## <a name="see-also"></a>See also
+## Confira também
 
-- To see the same tutorial using other tools, click the tab selectors on the top of the page.
-- To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-- To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
-- For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).
-- To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
+- Para ver o mesmo tutorial usando outras ferramentas, clique nos seletores de guias na parte superior da página.
+- Para ver uma consulta mais complexa, consulte [Analisar logs de site usando a Análise Data Lake do Azure](data-lake-analytics-analyze-weblogs.md).
+- Para começar a desenvolver aplicativos U-SQL, consulte [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+- Para aprender a usar o U-SQL, veja [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
+- Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
+- Para obter uma visão geral da Análise Data Lake, consulte [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

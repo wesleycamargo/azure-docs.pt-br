@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Testing the performance of a cloud service | Microsoft Azure"
-   description="Test the performance of a cloud service using the Visual Studio profiler"
+   pageTitle="Testando o desempenho de um serviço de nuvem | Microsoft Azure"
+   description="Testar o desempenho de um serviço de nuvem usando o criador de perfil do Visual Studio"
    services="visual-studio-online"
    documentationCenter="n/a"
    authors="TomArcher"
@@ -16,140 +16,134 @@
    ms.author="tarcher" />
 
 
+# Testando o desempenho de um serviço de nuvem 
 
-# <a name="testing-the-performance-of-a-cloud-service"></a>Testing the performance of a cloud service 
+##Visão geral
 
-##<a name="overview"></a>Overview
+Você pode testar o desempenho de um serviço de nuvem das seguintes maneiras:
 
-You can test the performance of a cloud service in the following ways:
+- Use o Diagnóstico do Azure para coletar informações sobre solicitações e conexões e para examinar estatísticas de site que mostram o desempenho do serviço da perspectiva do cliente. Para começar, consulte [Configuração de diagnóstico para os Serviços de Nuvem do Azure e Máquinas Virtuais](http://go.microsoft.com/fwlink/p/?LinkId=623009).
 
-- Use Azure Diagnostics to collect information about requests and connections, and to review site statistics that show how the service performs from a customer perspective. To get started with , see [Configuring diagnostics for Azure Cloud Services and Virtual Machines]( http://go.microsoft.com/fwlink/p/?LinkId=623009).
+- Use o criador de perfil do Visual Studio para obter uma análise detalhada dos aspectos computacionais de como o serviço é executado. Como descrito neste tópico, você pode usar o criador de perfil para medir o desempenho à medida que um serviço é executado no Azure. Para saber mais sobre como usar o criador de perfil para medir o desempenho à medida que um serviço é executado localmente em um emulador de computação, consulte [Testando o desempenho de um Serviço de Nuvem de Azure localmente no emulador de computação usando o criador de perfil do Visual Studio](http://go.microsoft.com/fwlink/p/?LinkId=262845).
 
-- Use the Visual Studio profiler to get an in-depth analysis of the computational aspects of how the service runs. As this topic describes, you can use the profiler to measure performance as a service runs in Azure. For information about how to use the profiler to measure performance as a service runs locally in a compute emulator, see [Testing the Performance of an Azure Cloud Service Locally in the Compute Emulator Using the Visual Studio Profiler](http://go.microsoft.com/fwlink/p/?LinkId=262845).
 
 
+## Escolhendo um método de teste de desempenho
 
-## <a name="choosing-a-performance-testing-method"></a>Choosing a performance testing method
+###Use o Diagnóstico do Azure para coletar:###
 
-###<a name="use-azure-diagnostics-to-collect:###"></a>Use Azure Diagnostics to collect:###
+- Estatísticas em páginas ou em da Web, como solicitações e conexões.
 
-- Statistics on web pages or services, such as requests and connections.
+- Estatísticas sobre funções, como a frequência com que uma função é reiniciada.
 
-- Statistics on roles, such as how often a role is restarted.
+- Informações gerais sobre o uso de memória, como a porcentagem de tempo que o coletor de lixo ocupa ou o conjunto de memória de uma função em execução.
 
-- Overall information about memory usage, such as the percentage of time that the garbage collector takes or the memory set of a running role.
+###Use o criador de perfil do Visual Studio para:###
 
-###<a name="use-the-visual-studio-profiler-to:###"></a>Use the Visual Studio profiler to:###
+- Determinar quais funções demoram mais.
 
-- Determine which functions take the most time.
+- Medir quanto tempo leva cada parte de um programa de computação intensivo.
 
-- Measure how much time each part of a computationally intensive program takes.
+- Comparar relatórios detalhados de desempenho de duas versões de um serviço.
 
-- Compare detailed performance reports for two versions of a service.
+- Analisar a alocação de memória em mais detalhes do que o nível de alocações de memória individuais.
 
-- Analyze memory allocation in more detail than the level of individual memory allocations.
+- Analisar problemas de simultaneidade em código multi-threaded.
 
-- Analyze concurrency problems in multithreaded code.
+Quando você usa o criador de perfil, pode coletar dados quando um serviço de nuvem é executado localmente ou no Azure.
 
-When you use the profiler, you can collect data when a cloud service runs locally or in Azure.
+###Colete dados de perfil localmente para:###
 
-###<a name="collect-profiling-data-locally-to:###"></a>Collect profiling data locally to:###
+- Testar o desempenho de uma parte de um serviço de nuvem, como a execução de uma função de trabalho específica, que não exige uma carga simulada realística.
 
-- Test the performance of a part of a cloud service, such as the execution of specific worker role, that doesn’t require a realistic simulated load.
+- Testar o desempenho de um serviço de nuvem isoladamente, em condições controladas.
 
-- Test the performance of a cloud service in isolation, under controlled conditions.
+- Testar o desempenho de um serviço de nuvem antes de implantá-lo no Azure.
 
-- Test the performance of a cloud service before you deploy it to Azure.
+- Testar o desempenho de um serviço de nuvem em particular, sem afetar as implantações existentes.
 
-- Test the performance of a cloud service privately, without disturbing the existing deployments.
+- Testar o desempenho do serviço sem incorrer em encargos para execução no Azure.
 
-- Test the performance of the service without incurring charges for running in Azure.
+###Colete dados de perfil no Azure para:###
 
-###<a name="collect-profiling-data-in-azure-to:###"></a>Collect profiling data in Azure to:###
+- Testar o desempenho de um serviço de nuvem sob uma carga real ou simulada.
 
-- Test the performance of a cloud service under a simulated or real load.
+- Usar o método de instrumentação de coletar dados de criação de perfil, como este tópico descreverá posteriormente.
 
-- Use the instrumentation method of collecting profiling data, as this topic describes later.
+- Testar o desempenho do serviço no mesmo ambiente, como quando o serviço é executado na produção.
 
-- Test the performance of the service in the same environment as when the service runs in production.
+Você geralmente simula uma carga para testar serviços de nuvem em condições normais ou de estresse.
 
-You typically simulate a load to test cloud services under normal or stress conditions.
+## Criando um perfil de serviço de nuvem no Azure
 
-## <a name="profiling-a-cloud-service-in-azure"></a>Profiling a cloud service in Azure
+Ao publicar seu serviço de nuvem do Visual Studio, você poderá analisar o serviço e especificar as configurações de criação de perfil que fornecem as informações desejadas. Uma sessão de criação de perfil é iniciada para cada instância de uma função. Para obter mais informações sobre como publicar seu serviço do Visual Studio, consulte [Publicando em um Serviço de Nuvem do Azure do Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx).
 
-When you publish your cloud service from Visual Studio, you can profile the service and specify the profiling settings that give you the information that you want. A profiling session is started for each instance of a role. For more information about how to publish your service from Visual Studio, see [Publishing to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx).
+Para saber mais sobre o perfil de desempenho no Visual Studio, consulte [Guia de criação de perfis de desempenho para iniciantes](https://msdn.microsoft.com/library/azure/ms182372.aspx) e [Analisando o desempenho do aplicativo usando ferramentas de criação de perfil](https://msdn.microsoft.com/library/azure/z9z62c29.aspx).
 
-To understand more about performance profiling in Visual Studio, see [Beginners Guide to Performance Profiling](https://msdn.microsoft.com/library/azure/ms182372.aspx) and [Analyzing Application Performance by Using Profiling Tools](https://msdn.microsoft.com/library/azure/z9z62c29.aspx).
+>[AZURE.NOTE] Você pode habilitar o IntelliTrace ou a criação de perfis quando publicar seu serviço de nuvem. Não é possível habilitar ambos.
 
->[AZURE.NOTE] You can enable either IntelliTrace or profiling when you publish your cloud service. You can't enable both.
+###Métodos de coleção do criador de perfil
 
-###<a name="profiler-collection-methods"></a>Profiler collection methods
+Você pode usar diferentes métodos de coleção para a criação de perfil com base nos seus problemas de desempenho:
 
-You can use different collection methods for profiling, based on your performance issues:
+- **Amostragem de CPU** - esse método coleta estatísticas de aplicativo que são úteis para a análise inicial de problemas de utilização de CPU. A amostragem de CPU é o método sugerido para iniciar a maioria das investigações de desempenho. Há pouco impacto sobre o aplicativo para o qual o perfil está sendo criado quando você coleta dados de amostragem de CPU.
 
-- **CPU sampling** - This method collects application statistics that are useful for initial analysis of CPU utilization issues. CPU sampling is the suggested method for starting most performance investigations. There is a low impact on the application that you are profiling when you collect CPU sampling data.
+- **Instrumentação** - esse método coleta dados detalhados de tempo úteis para a análise concentrada e para analisar problemas de desempenho de entrada/saída. O método de instrumentação registra cada entrada, saída e a chamada de função das funções em um módulo durante uma execução da criação de perfil. Este método é útil para coletar informações detalhadas de tempo sobre uma seção de seu código e para compreender o impacto das operações de entrada e de saída no desempenho do aplicativo. Este método está desabilitado para um computador que esteja executando um sistema operacional de 32 bits. Esta opção só estará disponível quando você executar o serviço de nuvem no Azure, e não localmente no emulador de computação.
 
-- **Instrumentation** -This method collects detailed timing data that is useful for focused analysis and for analyzing input/output performance issues. The instrumentation method records each entry, exit, and function call of the functions in a module during a profiling run. This method is useful for gathering detailed timing information about a section of your code and for understanding the impact of input and output operations on application performance. This method is disabled for a computer running a 32-bit operating system. This option is available only when you run the cloud service in Azure, not locally in the compute emulator.
+- **Alocação de memória do .NET** -esse método coleta dados de alocação de memória do .NET Framework usando o método de criação de perfil de amostragem. Os dados coletados incluem o número e o tamanho dos objetos alocados.
 
-- **.NET Memory Allocation** - This method collects .NET Framework memory allocation data by using the sampling profiling method. The collected data includes the number and size of allocated objects.
+- **Simultaneidade** - esse método coleta dados de contenção de recursos e dados de execução de thread e processo úteis na análise de aplicativos multi-threaded e multiprocessados. O método de simultaneidade coleta dados para cada evento que bloqueia a execução de seu código, como quando um thread aguarda que o acesso bloqueado a um recurso de aplicativo seja liberado. Este método é útil para analisar aplicativos multi-threaded.
 
-- **Concurrency** - This method collects resource contention data, and process and thread execution data that is useful in analyzing multi-threaded and multi-process applications. The concurrency method collects data for each event that blocks execution of your code, such as when a thread waits for locked access to an application resource to be freed. This method is useful for analyzing multi-threaded applications.
+- Você também pode habilitar **Criação de Perfil de Interação de Camadas**, que oferece informações adicionais sobre os tempos de execução de chamadas ADO.NET síncronas em funções de aplicativos de várias camadas que se comunicam com um ou mais bancos de dados. Você pode coletar dados de interação de camadas com qualquer um dos métodos de criação de perfil. Para saber mais sobre a criação de perfil de interação de camadas, consulte [Exibição de interações de camada](https://msdn.microsoft.com/library/azure/dd557764.aspx).
 
-- You can also enable **Tier Interaction Profiling**, which provides additional information about the execution times of synchronous ADO.NET calls in functions of multi-tiered applications that communicate with one or more databases. You can collect tier interaction data with any of the profiling methods. For more information about tier interaction profiling, see [Tier Interactions View](https://msdn.microsoft.com/library/azure/dd557764.aspx).
+## Definindo configurações de criação de perfil
 
-## <a name="configuring-profiling-settings"></a>Configuring profiling settings
+A seguinte ilustração mostra como definir as configurações de criação de perfil na caixa de diálogo Publicar Aplicativo do Azure.
 
-The following illustration shows how to configure your profiling settings from the Publish Azure Application dialog box.
+![Definir configurações de criação de perfil](./media/vs-azure-tools-performance-profiling-cloud-services/IC526984.png)
 
-![Configure Profiling Settings](./media/vs-azure-tools-performance-profiling-cloud-services/IC526984.png)
+>[AZURE.NOTE] Para habilitar a caixa de seleção **Habilitar criação de perfil**, você deve ter o criador de perfil instalado no computador local que está usando para publicar seu serviço de nuvem. Por padrão, o criador de perfil é instalado quando você instala o Visual Studio.
 
->[AZURE.NOTE] To enable the **Enable profiling** check box, you must have the profiler installed on the local computer that you are using to publish your cloud service. By default, the profiler is installed when you install Visual Studio.
+### Para definir configurações de criação de perfil
 
-### <a name="to-configure-profiling-settings"></a>To configure profiling settings
+1. No Gerenciador de Soluções, abra o menu de atalho para o seu projeto do Azure e escolha **Publicar**. Para obter etapas detalhadas sobre como publicar um serviço de nuvem, consulte [Publicando um serviço na nuvem usando as ferramentas do Azure](http://go.microsoft.com/fwlink/p?LinkId=623012).
 
-1. In Solution Explorer, open the shortcut menu for your Azure project, and then choose **Publish**. For detailed steps about how to publish a cloud service, see [Publishing a cloud service using the Azure tools](http://go.microsoft.com/fwlink/p?LinkId=623012).
+1. Na caixa de diálogo **Publicar Aplicativo do Azure**, escolha a guia **Configurações Avançadas**.
 
-1. In the **Publish Azure Application** dialog box, chose the **Advanced Settings** tab.
+1. Para habilitar a criação de perfil, marque a caixa de seleção **Habilitar criação de perfil**.
 
-1. To enable profiling, select the **Enable profiling** check box.
+1. Para definir suas configurações de criação de perfil, escolha o hiperlink **Configurações**. A caixa de diálogo Configurações de Criação de Perfil aparecerá.
 
-1. To configure your profiling settings, choose the **Settings** hyperlink. The Profiling Settings dialog box appears.
+1. Dos botões de opção **Qual método de criação de perfil você gostaria de usar**, escolha o tipo de criação de perfil de que você precisa.
 
-1. From the **What method of profiling would you like to use** option buttons, choose the type of profiling that you need.
+1. Para coletar os dados de criação de perfil de interação de camada, marque a caixa de seleção **Habilitar Criação de Perfil de Interação de Camada**.
 
-1. To collect the tier interaction profiling data, select the **Enable Tier Interaction Profiling** check box.
+1. Para salvar as configurações, escolha o **OK** botão.
 
-1. To save the settings, choose the **OK** button.
+    Quando você publica este aplicativo, essas configurações são usadas para criar a sessão de criação de perfil para cada função.
 
-    When you publish this application, these settings are used to create the profiling session for each role.
+## Exibindo relatórios de criação de perfil
 
-## <a name="viewing-profiling-reports"></a>Viewing Profiling Reports
+Uma sessão de criação de perfil é gerada para cada instância de uma função no serviço de nuvem. Para exibir seus relatórios de criação de perfil de cada sessão do Visual Studio, você pode exibir a janela Gerenciador de Servidores e escolher o nó de computação do Azure para selecionar uma instância de uma função. Em seguida, será possível exibir o relatório de criação de perfil como mostrado na ilustração a seguir.
 
-A profiling session is created for each instance of a role in your cloud service. To view your profiling reports of each session from Visual Studio, you can view the Server Explorer window and then choose the Azure Compute node to select an instance of a role. You can then view the profiling report as shown in the following illustration.
+![Exibir relatórios de criação de perfil do Azure](./media/vs-azure-tools-performance-profiling-cloud-services/IC748914.png)
 
-![View Profiling Report from Azure](./media/vs-azure-tools-performance-profiling-cloud-services/IC748914.png)
+### Para exibir relatórios de criação de perfil
 
-### <a name="to-view-profiling-reports"></a>To view profiling reports
+1. Para exibir a janela Gerenciador de Servidores no Visual Studio, na barra de menus, escolha Exibir, Gerenciador de Servidores.
 
-1. To view the Server Explorer window in Visual Studio, on the menu bar choose View, Server Explorer.
+1. Escolha o nó de Computação do Azure e escolha o nó de implantação do Azure para o serviço de nuvem que você selecionou para o perfil ao publicar no Visual Studio.
 
-1. Choose the Azure Compute node, and then choose the Azure deployment node for the cloud service that you selected to profile when you published from Visual Studio.
+1. Para exibir relatórios de criação de perfil para uma instância, escolha a função no serviço, abra o menu de atalho para uma instância específica e, em seguida, escolha **Exibir Relatório de Criação de Perfil**.
 
-1. To view profiling reports for an instance, choose the role in the service, open the shortcut menu for a specific instance, and then choose **View Profiling Report**.
+    O relatório, um arquivo .vsp, agora é baixado do Azure e o status do download é exibido no log de atividades do Azure. Quando o download é concluído, o relatório de criação de perfil é exibido em uma guia no editor do Visual Studio denominada <Nome da função>_<Número da instância>_<identificador>.vsp. Serão exibidos dados de resumo para o relatório.
 
-    The report, a .vsp file, is now downloaded from Azure, and the status of the download appears in the  Azure Activity Log. When the download completes, the profiling report appears in a tab in the editor for Visual Studio named <Role name>_<Instance Number>_<identifier>.vsp. Summary data for the report appears.
+1. Para mostrar diferentes modos de exibição do relatório, na lista Modo de Exibição Atual, escolha o tipo de exibição desejado. Para saber mais, consulte [Exibições de relatório de ferramentas de criação de perfil](https://msdn.microsoft.com/library/azure/bb385755.aspx).
 
-1. To display different views of the report, in the Current View list, choose the type of view that you want. For more information, see [Profiling Tools Report Views](https://msdn.microsoft.com/library/azure/bb385755.aspx).
+## Próximas etapas
 
-## <a name="next-steps"></a>Next steps
+[Depurando serviços de nuvem](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-[Debugging Cloud Services](https://msdn.microsoft.com/library/azure/ee405479.aspx)
+[Publicando em um Serviço de Nuvem do Azure do Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-[Publishing to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

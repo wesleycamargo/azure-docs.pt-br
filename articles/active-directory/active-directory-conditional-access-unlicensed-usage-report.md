@@ -1,56 +1,49 @@
 <properties
-    pageTitle="Unlicensed Usage Report | Microsoft Azure"
-    description="The unlicensed usage report helps you identify unlicensed users that are using paid Azure AD features."
-    services="active-directory"
-    documentationCenter=""
-    authors="MarkusVi"
-    manager="femila"
-    editor=""/>
+	pageTitle="Relatório de uso não licenciado | Microsoft Azure"
+	description="O relatório de uso não licenciado ajuda a identificar usuários sem licença que estejam usando recursos pagos do Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="markusvi"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/20/2016"
-    ms.author="markvi"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/25/2016"
+	ms.author="markvi"/>
 
+# Relatório de uso não licenciado
 
-# <a name="unlicensed-usage-report"></a>Unlicensed usage report
+O relatório de uso não licenciado ajuda a identificar usuários sem licença que estejam usando recursos pagos do Azure AD. Isso permite fazer melhor uso das licenças que você comprou e identificar quando você poderá precisar de mais licenças.
 
-The unlicensed usage report helps you identify unlicensed users that are using paid Azure AD features. This allows you to make better use of licenses that you have purchased and to identify you know when you may need additional licenses. 
+O relatório mostra o uso ativo dos recursos pagos nos últimos 30 dias.
 
-The report shows active usage of the paid features in the last 30 days. 
-
-## <a name="report-structure"></a>Report structure
+## Estrutura de relatório
  
-| Column name          |    Description |
+| Nome da coluna |	Descrição |
 | :--                  | :--         |
-| Unlicensed User      |    Name of the user |
-| Feature              | The feature name. For example: conditional access |
-| Application Accessed | The name of the application that is being accessed with the feature. For example: Office 365 SharePoint Online |
+| Usuário Não Licenciado |	Nome do usuário |
+| Recurso | O nome do recurso. Por exemplo: acesso condicional |
+| Aplicativo acessado | O nome do aplicativo que está sendo acessado com o recurso. Por exemplo: Office 365 SharePoint Online |
 
  
-> [AZURE.NOTE] If a user account has been deleted the ‘Unlicensed User’ column will be populated with an ID, like 1003000090D8B285
+> [AZURE.NOTE] Se uma conta de usuário tiver sido excluída, a coluna 'Usuário Não Licenciado' será preenchida com uma ID, como 1003000090D8B285
 
 
-## <a name="conditional-access-feature"></a>Conditional access feature
+## Recurso de acesso condicional
 
-Unlicensed users will be flagged when they access a service that has conditional access policy applied if they do not have an Azure AD Premium license. 
+Os usuários não licenciados serão sinalizados quando acessarem um serviço com a política de acesso condicional aplicada se não tiverem uma licença do Azure AD Premium.
 
-This applies to MFA / Location policies as well as device polices that use Intune.
+Isso se aplica a políticas de MFA/Local, bem como a políticas de dispositivos que usam o Intune.
  
 
-## <a name="see-also"></a>See also
+## Consulte também
 
-- [Using Conditional Access with Office 365 and other Azure Active Directory connected apps](active-directory-conditional-access.md)
-- [Getting started with conditional access to Azure AD](active-directory-conditional-access-azuread-connected-apps.md) 
+- [Usar o acesso condicional com o Office 365 e com outros aplicativos conectados ao Azure Active Directory](active-directory-conditional-access.md)
+- [Introdução ao acesso condicional ao Azure AD](active-directory-conditional-access-azuread-connected-apps.md)
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

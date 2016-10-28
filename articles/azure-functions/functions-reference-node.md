@@ -1,38 +1,37 @@
 <properties
-    pageTitle="Azure Functions NodeJS developer reference | Microsoft Azure"
-    description="Understand how to develop Azure Functions using NodeJS."
-    services="functions"
-    documentationCenter="na"
-    authors="christopheranderson"
-    manager="erikre"
-    editor=""
-    tags=""
-    keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
+	pageTitle="Referência do desenvolvedor de NodeJS do Azure Functions | Microsoft Azure"
+	description="Entenda como desenvolver Azure Functions usando NodeJS."
+	services="functions"
+	documentationCenter="na"
+	authors="christopheranderson"
+	manager="erikre"
+	editor=""
+	tags=""
+	keywords="azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"/>
 
 <tags
-    ms.service="functions"
-    ms.devlang="nodejs"
-    ms.topic="reference"
-    ms.tgt_pltfrm="multiple"
-    ms.workload="na"
-    ms.date="05/13/2016"
-    ms.author="chrande"/>
+	ms.service="functions"
+	ms.devlang="nodejs"
+	ms.topic="reference"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="05/13/2016"
+	ms.author="chrande"/>
 
-
-# <a name="azure-functions-nodejs-developer-reference"></a>Azure Functions NodeJS developer reference
+# Referência do desenvolvedor de NodeJS do Azure Functions
 
 > [AZURE.SELECTOR]
-- [C# script](../articles/azure-functions/functions-reference-csharp.md)
-- [F# script](../articles/azure-functions/functions-reference-fsharp.md)
+- [Script C#](../articles/azure-functions/functions-reference-csharp.md)
+- [Script em F#](../articles/azure-functions/functions-reference-fsharp.md)
 - [Node.js](../articles/azure-functions/functions-reference-node.md)
 
-The Node/JavaScript experience for Azure Functions makes it easy to export a function which is passed a `context` object for communicating with the runtime, and for receiving and sending data via bindings.
+A experiência de Node/JavaScript para o Azure Functions torna mais fácil exportar uma função que é passada para um objeto `context` se comunicar com o tempo de execução e para receber e enviar dados por meio de bindings.
 
-This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
+Este artigo pressupõe que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md).
 
-## <a name="exporting-a-function"></a>Exporting a function
+## Exportando uma função
 
-All JavaScript functions must export a single `function` via `module.exports` for the runtime to find the function and run it. This function must always include a `context` object.
+Todas as funções JavaScript devem exportar uma única `function` via `module.exports` para o tempo de execução localizar a função e executá-la. Esta função sempre deve incluir um objeto `context`.
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -48,17 +47,17 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-Bindings of `direction === "in"` are passed along as function arguments, meaning you can use [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) to dynamically handle new inputs (for example, by using `arguments.length` to iterate over all your inputs). This functionality is very convenient if you only have a trigger with no additional inputs, as you can predictably access your trigger data without referencing your `context` object.
+Os bindings de `direction === "in"` são passados como argumentos de função, o que significa que você pode usar [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) para lidar dinamicamente com novas entradas (por exemplo, usando `arguments.length` para iterar por todas as suas entradas). Essa funcionalidade será muito conveniente se você tiver apenas um gatilho sem nenhuma entrada adicional, pois será possível acessar seus dados de gatilho de maneira previsível, sem fazer referência ao objeto `context`.
 
-The arguments are always passed along to the function in the order they occur in *function.json*, even if you don't specify them in your exports statement. For example, if you have `function(context, a, b)` and change it to `function(context, a)`, you can still get the value of `b` in function code by referring to `arguments[3]`.
+Os argumentos sempre são passados para a função na ordem em que ocorrem em *function.json*, mesmo se você não especificá-los na sua instrução de exportações. Por exemplo, se tiver `function(context, a, b)` e alterá-lo para `function(context, a)`, você ainda poderá obter o valor de `b` no código de função, fazendo referência ao `arguments[3]`.
 
-All bindings, regardless of direction, are also passed along on the `context` object (see below). 
+Todos os bindings, independentemente da direção, também são transmitidos por todo o objeto `context` (veja abaixo).
 
-## <a name="context-object"></a>context object
+## objeto de contexto
 
-The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime.
+O tempo de execução usa um objeto `context` para passar dados de/para sua função e permitir que você se comunique com o tempo de execução.
 
-The context object is always the first parameter to a function and should always be included because it has methods such as `context.done` and `context.log` which are required to correctly use the runtime. You can name the object whatever you like (i.e. `ctx` or `c`).
+O objeto de contexto sempre é o primeiro parâmetro para uma função e sempre deve ser incluído porque tem métodos como `context.done` e `context.log`, que são necessários para usar corretamente o tempo de execução. Você pode nomear o objeto de acordo com a sua preferência (por exemplo, `ctx` ou `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -67,9 +66,9 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="context.bindings"></a>context.bindings
+## context.bindings
 
-The `context.bindings` object collects all your input and output data. The data is added onto the `context.bindings` object via the `name` property of the binding. For instance, given the following binding definition in *function.json*, you can access the contents of the queue via `context.bindings.myInput`. 
+O objeto `context.bindings` coleta todos os dados de entrada e de saída. Os dados são adicionados ao objeto `context.bindings` por meio da propriedade `name` do binding. Por exemplo, dada a seguinte definição de binding *function.json*, você pode acessar o conteúdo da fila por meio de `context.bindings.myInput`.
 
 ```json
     {
@@ -91,9 +90,9 @@ context.bindings.myOutput = {
 
 ## `context.done([err],[propertyBag])`
 
-The `context.done` function tells the runtime that you're done running. This is important to call when you're done with the function; if you don't, the runtime will still never know that your function completed. 
+A função `context.done` informa ao tempo de execução que você terminou de executar. Isso é importante para chamar quando você tiver terminado com a função. Caso contrário, o tempo de execução ainda não saberá que a função foi concluída.
 
-The `context.done` function allows you to pass back a user-defined error to the runtime, as well as a property bag of properties which will overwrite the properties on the `context.bindings` object.
+A função `context.done` permite que você passe um erro definido pelo usuário de volta para o tempo de execução, bem como um recipiente de propriedades que substituirá as propriedades no objeto `context.bindings`.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -105,9 +104,9 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 //  -> text: hello there, world, noNumber: true
 ```
 
-## <a name="context.log(message)"></a>context.log(message)
+## context.log(message)
 
-The `context.log` method allows you to output log statements that are correlated together for logging purposes. If you use `console.log`, your messages will only show for process level logging, which isn't as useful.
+O método `context.log` permite obter instruções de log de saída que são correlacionadas para fins de registro. Se você usar `console.log`, suas mensagens aparecerão apenas para o log de nível de processo, o que não será tão útil.
 
 ```javascript
 /* You can use context.log to log output specific to this 
@@ -115,23 +114,23 @@ function. You can access your bindings via context.bindings */
 context.log({hello: 'world'}); // logs: { 'hello': 'world' } 
 ```
 
-The `context.log` method supports the same parameter format that the Node [util.format method](https://nodejs.org/api/util.html#util_util_format_format) supports. So, for example, code like this:
+O método `context.log` dá suporte ao mesmo formato de parâmetro que o Node [util.format method](https://nodejs.org/api/util.html#util_util_format_format). Desta forma, por exemplo, um código como este:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
 context.log('Request Headers = ' + JSON.stringify(req.headers));
 ```
 
-can be written like this:
+pode ser escrito da seguinte forma:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-## <a name="http-triggers:-context.req-and-context.res"></a>HTTP triggers: context.req and context.res
+## Gatilhos HTTP: context.req e context.res
 
-In the case of HTTP Triggers, because it is such a common pattern to use `req` and `res` for the HTTP request and response objects, we decided to make it easy to access those on the context object, instead of forcing you to use the full `context.bindings.name` pattern.
+No caso de gatilhos de HTTP, como é um padrão comum usar `req` e `res` para os objetos de solicitação e de resposta HTTP, decidimos facilitar o acesso a eles no objeto de contexto, em vez de forçá-lo a usar todo o padrão de `context.bindings.name` completo.
 
 ```javascript
 // You can access your http request off of the context ...
@@ -140,23 +139,23 @@ if(context.req.body.emoji === ':pizza:') context.log('Yay!');
 context.res = { status: 202, body: 'You successfully ordered more coffee!' };   
 ```
 
-## <a name="node-version-&-package-management"></a>Node Version & Package Management
+## Versão do Node e gerenciamento de pacote
 
-The node version is currently locked at `5.9.1`. We're investigating adding support for more versions and making it configurable.
+A versão do Node está bloqueada em `5.9.1` no momento. Estamos investigando a adição de suporte para mais versões e para torná-las configuráveis.
 
-You can include packages in your function by uploading a *package.json* file to your function's folder in the function app's file system. For file upload instructions, see the **How to update function app files** section of the [Azure Functions developer reference topic](functions-reference.md#fileupdate). 
+Você pode incluir pacotes em sua função, carregando um arquivo *package.json* na pasta da sua função no sistema de arquivos do aplicativo de funções. Para obter instruções de como carregar um arquivo, confira a seção **Como atualizar os arquivos de aplicativo de funções** do [tópico de referência do desenvolvedor do Azure Functions](functions-reference.md#fileupdate).
 
-You can also use `npm install` in the function app's SCM (Kudu) command line interface:
+Você também pode usar `npm install` na interface de linha de comando do aplicativo de funções SCM (Kudu):
 
-1. Navigate to: `https://<function_app_name>.scm.azurewebsites.net`.
+1. Navegue até: `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Click **Debug Console > CMD**.
+2. Clique em **Console de Depuração > CMD**.
 
-3. Navigate to `D:\home\site\wwwroot\<function_name>`.
+3. Navegue até `D:\home\site\wwwroot<function_name>`.
 
-4. Run `npm install`.
+4. Execute `npm install`.
 
-Once the packages you need are installed, you import them to your function in the usual ways (i.e. via `require('packagename')`)
+Depois que os pacotes necessários forem instalados, você os importa para a função da maneira usual (por exemplo, via `require('packagename')`)
 
 ```javascript
 // Import the underscore.js library
@@ -169,9 +168,9 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-## <a name="environment-variables"></a>Environment variables
+## Variáveis de ambiente
 
-To get an environment variable or an app setting value, use `process.env`, as shown in the following code example:
+Para obter uma variável de ambiente ou um valor de configuração do aplicativo, use `process.env`, conforme mostrado no exemplo de código a seguir:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -190,21 +189,17 @@ function GetEnvironmentVariable(name)
 }
 ```
 
-## <a name="typescript/coffeescript-support"></a>TypeScript/CoffeeScript support
+## Suporte a TypeScript/CoffeeScript
 
-There isn't, yet, any direct support for auto-compiling TypeScript/CoffeeScript via the runtime, so that would all need to be handled outside the runtime, at deployment time. 
+Ainda não há suporte direto para compilação automática de TypeScript/CoffeeScript por meio do tempo de execução, por isso seria necessário manipulá-los fora do tempo de execução, no tempo de implantação.
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-For more information, see the following resources:
+Para saber mais, consulte os recursos a seguir:
 
-* [Azure Functions developer reference](functions-reference.md)
-* [Azure Functions C# developer reference](functions-reference-csharp.md)
-* [Azure Functions F# developer reference](functions-reference-fsharp.md)
-* [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+* [Referência do desenvolvedor do Azure Functions](functions-reference.md)
+* [Referência do desenvolvedor de C# do Azure Functions](functions-reference-csharp.md)
+* [Referência do desenvolvedor em F# do Azure Functions](functions-reference-fsharp.md)
+* [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

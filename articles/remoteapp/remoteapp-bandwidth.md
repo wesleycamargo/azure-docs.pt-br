@@ -1,11 +1,11 @@
 
 <properties 
-    pageTitle="Estimate Azure RemoteApp network bandwidth usage | Microsoft Azure"
-    description="Learn about the network bandwidth requirements for your Azure RemoteApp collections and apps."
-    services="remoteapp"
-    documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+    pageTitle="Uso de largura de banda de rede estimado do Azure RemoteApp | Microsoft Azure"
+	description="Saiba mais sobre os requisitos de largura de banda de rede para as coleções e aplicativos do Azure RemoteApp."
+	services="remoteapp"
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -16,34 +16,30 @@
     ms.date="08/15/2016" 
     ms.author="elizapo" />
 
-
-# <a name="estimate-azure-remoteapp-network-bandwidth-usage"></a>Estimate Azure RemoteApp network bandwidth usage 
+# Estimar o uso de largura de banda de rede do Azure RemoteApp 
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 
-Azure RemoteApp uses the Remote Desktop Protocol (RDP) to communicate between applications running in the Azure cloud and your users. This article provides some basic guidelines you can use to estimate that network usage and potentially evaluate network bandwidth usage per Azure RemoteApp user.
+O Azure RemoteApp usa o RDP (protocolo RDP) para a comunicação entre aplicativos em execução na nuvem do Azure e seus usuários. Este artigo fornece algumas diretrizes básicas que você pode usar para calcular esse uso da rede e potencialmente avaliar o uso de largura de banda de rede por usuário do Azure RemoteApp.
 
-Estimating bandwidth usage per user is very complex and requires running multiple applications simultaneously in multitasking scenarios where applications might impact each other's performance based on their demand for network bandwidth. Even the type of Remote Desktop client (such as Mac client versus HTML5 client) can lead to different bandwidth results. To help you work through these complications, we'll break the usage scenarios into several of the common categories to replicate real-world scenarios. (Where the real-world scenario is, of course, a mix of categories and differs by user.)
+Estimar o uso de largura de banda por usuário é muito complexo e exige executar vários aplicativos simultaneamente em cenários multitarefa, nos quais os aplicativos podem afetar o desempenho uns dos outros com base em sua demanda de largura de banda de rede. Até mesmo o tipo de cliente de Área de Trabalho Remota (como o cliente Mac versus cliente HTML5) pode levar a resultados diferentes de largura de banda. Para ajudá-lo a superar essas complicações, dividiremos os cenários de uso em várias das categorias comuns para imitar cenários reais. (Em que o cenário real é, obviamente, uma mistura de categorias e difere por usuário.)
 
-Before we go further - note that we assume RDP provides a good to excellent experience for most usage scenarios on networks with latency below 120 ms and bandwidth over 5 MBs - this is based on RDP's ability to dynamically adjust by using the available network bandwidth and the estimated application bandwidth needs. This article goes beyond those "most usage scenarios" to look at the edge, where scenarios begin to unwind and user experience begins to degrade.
+Antes de nos aprofundarmos mais - Observe que podemos presumir que o RDP fornece uma experiência boa a excelente para a maioria dos cenários de uso em redes com latência abaixo de 120 ms e largura de banda superior a 5 MB - isso é baseado na capacidade do RDP de se ajustar dinamicamente usando a largura de banda de rede disponível e a largura de banda estimada que o aplicativo precisa. Este artigo vai além daqueles "cenários de mais uso" para observar a borda, em que os cenários começam a desenrolar e experiência do usuário começa a degradar-se.
 
-Now check out the following articles for the details, including factors to consider, baseline recommendations, and what we did not include in our estimates.
+Agora, confira os artigos a seguir para obter detalhes, incluindo fatores a considerar, recomendações de linha de base e o que não incluímos em nossas estimativas.
 
-- [How do network bandwidth and quality of experience work together?](remoteapp-bandwidthexperience.md)
-- [Testing your network bandwidth usage with some common scenarios](remoteapp-bandwidthtests.md)
-- [Quick guidelines if you don't have the time or ability to test](remoteapp-bandwidthguidelines.md)
-
-
-## <a name="what-are-we-not-including?"></a>What are we not including?
-
-When you review the proposed tests and our overall (and admittedly generic) recommendations, be aware that there are several factors that we did not consider. For example, the user experience complications provided by the asymmetric nature of upload vs. download bandwidth. The asymmetric nature of most Wi-Fi networks will additionally impact the performance and the user experience perception. For interactive scenarios the downstream traffic may be prioritized lower than the upstream, which may increase the number of lost video or audio frames and therefore impact the user perception of the streaming experience. You can run your own experiments to see what is good for your specific use case and network.
-
-Although we discuss device redirection, we did not take into consideration the bandwidth impact of the network traffic caused by attached devices, like storage, printers, scanners, web cameras, and other USB devices. The effect of those devices usually spikes the bandwidth needs temporarily and goes away when the task is complete. But if done frequently, that bandwidth demand could be quite noticeable.
-
-We also do not discuss how one user can impact other users within the same network. For example, one user consuming 4K video on a 100 MB/s network might significantly impact other users on that same network trying to do the same task. Unfortunately it gets progressively harder to determine the impact of concurrent usage to give a common or all-encompassing recommendation about how the system performs at aggregate. All we can say is that the underlying protocol technology will make the best use of the available network bandwidth, but it does have its limitations.
+- [Como a largura de banda de rede e a qualidade da experiência funcionam juntas?](remoteapp-bandwidthexperience.md)
+- [Testando o uso da largura de banda de sua rede com alguns cenários comuns](remoteapp-bandwidthtests.md)
+- [Diretrizes rápidas se você não tiver o tempo nem capacidade para teste](remoteapp-bandwidthguidelines.md)
 
 
-<!--HONumber=Oct16_HO2-->
+## O que não estamos incluindo?
 
+Ao examinar os testes propostos e nossas recomendações gerais (e reconhecidamente genéricas), lembre-se de que há vários fatores que nós não consideramos. Por exemplo, as complicações de experiência de usuário fornecidas pela natureza assimétrica da largura de banda de upload vs. download. A natureza assimétrica da maioria das redes Wi-Fi afetará, adicionalmente, o desempenho e a percepção da experiência do usuário. Para cenários interativos, o tráfego downstream pode ter uma prioridade menor do que o upstream, que pode aumentar o número de quadros de vídeos ou áudio perdidos e, portanto, afetar a percepção da experiência de streaming pelo usuário. Você pode executar seus próprios testes para ver o que é bom para sua rede e caso de uso específico.
 
+Embora, discutamos o redirecionamento de dispositivo, podemos não levar em consideração o impacto de largura de banda do tráfego de rede causado por dispositivos conectados, como armazenamento, impressoras, scanners, câmeras Web e outros dispositivos USB. O efeito desses dispositivos geralmente aumenta as necessidades de largura de banda em picos temporariamente e desaparece quando a tarefa for concluída. Mas se feito com frequência, essa demanda de largura de banda poderá ser bastante perceptível.
+
+Também não discutimos como um usuário pode afetar outros usuários na mesma rede. Por exemplo, um usuário consumindo 4K vídeo em uma rede de 100 MB/s pode afetar significativamente outros usuários na mesma rede tentando fazer a mesma tarefa. Infelizmente, torna-se progressivamente mais difícil determinar o impacto de uso simultâneo para fornecer uma recomendação comum ou totalmente abrangente sobre o desempenho do sistema durante a agregação. Tudo o que podemos dizer é que a tecnologia de protocolo subjacente fará o melhor uso da largura de banda de rede disponível, mas ela tem suas limitações.
+
+<!---HONumber=AcomDC_0817_2016-->

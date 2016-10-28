@@ -1,140 +1,133 @@
 <properties 
-    pageTitle="Create custom artifacts for your DevTest Labs VM | Microsoft Azure"
-    description="Learn how to author your own artifacts for use with DevTest Labs"
-    services="devtest-lab,virtual-machines"
-    documentationCenter="na"
-    authors="tomarcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Criar artefatos personalizados para sua VM dos Laboratórios de Desenvolvimento/Teste | Microsoft Azure"
+	description="Aprenda a criar seus próprios artefatos para uso com Laboratórios de Desenvolvimento/Teste"
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="devtest-lab"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/25/2016"
-    ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2016"
+	ms.author="tarcher"/>
 
-
-#<a name="create-custom-artifacts-for-your-devtest-labs-vm"></a>Create custom artifacts for your DevTest Labs VM
+#Criar artefatos personalizados para suas VM dos Laboratórios de Desenvolvimento/Teste.
 
 > [AZURE.VIDEO how-to-author-custom-artifacts] 
 
-## <a name="overview"></a>Overview
-**Artifacts** are used to deploy and configure your application after a VM is provisioned. An artifact consists of an artifact definition file and other script files that are stored in a folder in a git repository. Artifact definition files consist of JSON and expressions that you can use to specify what you want to install on a VM. For example, you can define the name of artifact, command to run, and parameters that are made available when the command is run. You can refer to other script files within the artifact definition file by name.
+## Visão geral
+**Artefatos** são usados para implantar e configurar seu aplicativo após o provisionamento de uma VM. Um artefato é composto por um arquivo de definição de artefato e outros arquivos de script que são armazenados em uma pasta em um repositório git. Arquivos de definição de artefato são formados por JSON e expressões que você pode usar para especificar o que você deseja instalar em uma VM. Por exemplo, você pode definir o nome do artefato, comando a ser executado e parâmetros disponibilizados quando o comando é executado. Você pode consultar por nome outros arquivos de script dentro do arquivo de definição de artefato.
 
-##<a name="artifact-definition-file-format"></a>Artifact definition file format
-The following example shows the sections that make up the basic structure of a definition file.
+##Formato do arquivo de definição de artefato
+O exemplo a seguir mostra as seções que compõem a estrutura básica de um arquivo de definição.
 
-    {
-      "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2015-01-01/dtlArtifacts.json",
-      "title": "",
-      "description": "",
-      "iconUri": "",
-      "targetOsType": "",
-      "parameters": {
-        "<parameterName>": {
-          "type": "",
-          "displayName": "",
-          "description": ""
-        }
-      },
-      "runCommand": {
-        "commandToExecute": ""
-      }
-    }
+	{
+	  "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2015-01-01/dtlArtifacts.json",
+	  "title": "",
+	  "description": "",
+	  "iconUri": "",
+	  "targetOsType": "",
+	  "parameters": {
+	    "<parameterName>": {
+	      "type": "",
+	      "displayName": "",
+	      "description": ""
+	    }
+	  },
+	  "runCommand": {
+	    "commandToExecute": ""
+	  }
+	}
 
-| Element name | Required? | Description
+| Nome do elemento | Obrigatório? | Descrição
 | ------------ | --------- | -----------
-| $schema      | No        | Location of the JSON schema file that helps in testing the validity of the definition file.
-| title        | Yes       | Name of the artifact displayed in the lab.
-| description  | Yes       | Description of the artifact displayed in the lab.
-| iconUri      | No        | Uri of the icon displayed in the lab.
-| targetOsType | Yes       | Operating system of the VM where artifact will be installed. Supported options are: Windows and Linux.
-| parameters   | No        | Values that are provided when artifact install command is run on a machine. This helps in customizing your artifact.
-| runCommand   | Yes       | Artifact install command that is executed on a VM.
+| $schema | Não | Local do arquivo de esquema JSON que ajuda a testar a validade do arquivo de definição.
+| título | Sim | Nome do artefato exibido no laboratório.
+| description | Sim | Descrição do artefato exibido no laboratório.
+| iconUri | Não | URI do ícone exibido no laboratório.
+| targetOsType | Sim | Sistema operacional da VM na qual o artefato será instalado. As opções com suporte são: Windows e Linux.
+| parameters | Não | Valores fornecidos quando o comando de instalação do artefato é executado em um computador. Isso ajuda a personalizar o artefato.
+| runCommand | Sim | Comando de instalação do artefato executado em uma VM.
 
-###<a name="artifact-parameters"></a>Artifact parameters
+###Parâmetros do artefato
 
-In the parameters section of the definition file, you specify which values a user can input when installing an artifact. You can refer to these values in the artifact install command.
+Na seção de parâmetros do arquivo de definição, especifique os valores que um usuário pode inserir ao instalar um artefato. Você pode consultar esses valores no comando de instalação do artefato.
 
-You define parameters will the following structure.
+Defina os parâmetros com a seguinte estrutura:
 
-    "parameters": {
-        "<parameterName>": {
-          "type": "<type-of-parameter-value>",
-          "displayName": "<display-name-of-parameter>",
-          "description": "<description-of-parameter>"
-        }
-      }
+	"parameters": {
+	    "<parameterName>": {
+	      "type": "<type-of-parameter-value>",
+	      "displayName": "<display-name-of-parameter>",
+	      "description": "<description-of-parameter>"
+	    }
+	  }
 
-| Element name | Required? | Description
+| Nome do elemento | Obrigatório? | Descrição
 | ------------ | --------- | -----------
-| type         | Yes       | Type of parameter value. See the list below for the allowed types:
-| displayName    Yes       | Name of the parameter that is displayed to a user in the lab.
-| description  | Yes       | Description of the parameter that is displayed in the lab.
+| type | Sim | Tipo do valor do parâmetro. Consulte a seguir a lista de tipos permitidos:
+| displayName Yes | Nome do parâmetro exibido para um usuário no laboratório.
+| description | Sim | Descrição do parâmetro exibido no laboratório.
 
-The allowed types are:
+Os tipos permitidos são:
 
-- string – any valid JSON string
-- int – any valid JSON integer
-- bool – any valid JSON Boolean
-- array – any valid JSON array
+- string - qualquer cadeia de caracteres JSON válida
+- int - qualquer inteiro JSON válido
+- bool - qualquer booliano JSON válido
+- array - qualquer matriz JSON válida
 
-##<a name="artifact-expressions-and-functions"></a>Artifact expressions and functions
+##Expressões e funções de artefatos
 
-You can use expression and functions to construct the artifact install command.
-Expressions are enclosed with brackets ([ and ]), and are evaluated when the artifact is installed. Expressions can appear anywhere in a JSON string value and always return another JSON value. If you need to use a literal string that starts with a bracket [, you must use two brackets [[.
-Typically, you use expressions with functions to construct a value. Just like in JavaScript, function calls are formatted as functionName(arg1,arg2,arg3)
+Você pode usar expressões e funções para construir o comando de instalação do artefato. As expressões são colocadas entre colchetes ([ e ]) e avaliadas quando o artefato é instalado. As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON e sempre retornam outro valor JSON. Se precisar usar uma cadeia de caracteres literal que comece com um colchete [, você deverá usar dois colchetes [[. Normalmente, você usa expressões com funções para construir um valor. Assim como no JavaScript, as chamadas de função são formatadas como functionName(arg1,arg2,arg3)
 
-The following list shows common functions.
+A lista a seguir mostra funções comuns.
 
-- parameters(parameterName) - Returns a parameter value that is provided when the artifact command is run.
-- concat(arg1,arg2,arg3, …..) -     Combines multiple string values. This function can take any number of arguments.
+- Parameters(ParameterName): Retorna um valor de parâmetro fornecido quando o comando do artefato é executado.
+- concat(arg1, arg2, arg3,...): Combina vários valores de cadeia de caracteres. Essa função pode conter qualquer número de argumentos.
 
-The following example shows how to use expression and functions to construct a value.
+O exemplo a seguir mostra como usar expressões e funções para construir um valor.
 
-    runCommand": {
-         "commandToExecute": "[concat('powershell.exe -File startChocolatey.ps1'
-    , ' -RawPackagesList ', parameters('packages')
-    , ' -Username ', parameters('installUsername')
-    , ' -Password ', parameters('installPassword'))]"
-    }
+	runCommand": {
+	     "commandToExecute": "[concat('powershell.exe -File startChocolatey.ps1'
+	, ' -RawPackagesList ', parameters('packages')
+	, ' -Username ', parameters('installUsername')
+	, ' -Password ', parameters('installPassword'))]"
+	}
 
-##<a name="create-a-custom-artifact"></a>Create a custom artifact
+##Criar um artefato personalizado
 
-Create your custom artifact by following steps below:
+Crie seu artefato personalizado executando as etapas abaixo:
 
-1. Install a JSON editor - You will need a JSON editor to work with artifact definition files. We recommend using [Visual Studio Code](https://code.visualstudio.com/), which is available for Windows, Linux and OS X.
+1. Instalar um editor de JSON: você precisará de um editor de JSON para trabalhar com arquivos de definição de artefato. Recomendamos o uso do [Visual Studio Code](https://code.visualstudio.com/), que está disponível para Windows, Linux e OS X.
 
-1. Get a sample artifactfile.json - Check out the artifacts created by Azure DevTest Labs team at our [GitHub repository](https://github.com/Azure/azure-devtestlab) where we have created a rich library of artifacts that will help you create your own artifacts. Download an artifact definition file and make changes to it to create your own artifacts.
+1. Obter um exemplo de artifactfile.json: verifique os artefatos criados pela equipe dos Laboratórios de Desenvolvimento/Teste do Azure em nosso [repositório GitHub](https://github.com/Azure/azure-devtestlab), no qual criamos uma vasta biblioteca de artefatos que ajudarão você a criar seus próprios artefatos. Baixe um arquivo de definição de artefato e faça as alterações nele para criar seus próprios artefatos.
 
-1. Make use of IntelliSense - Leverage IntelliSense to see valid elements that can be used to construct an artifact definition file. You can also see the different options for values of an element. For example, IntelliSense show you the two choices of Windows or Linux when editing the **targetOsType** element.
+1. Usar o IntelliSense: aproveite o IntelliSense para ver os elementos válidos que podem ser usados para construir um arquivo de definição de artefato. Você também pode ver as opções diferentes de valores para um elemento. Por exemplo, o IntelliSense mostra a você as duas opções, Windows ou Linux, ao editar o elemento **targetOsType**.
 
-1. Store the artifact in a git repository
-    1. Create a separate directory for each artifact where the directory name is the same as the artifact name.
-    1. Store the artifact definition file (artifactfile.json) in the directory you created.
-    1. Store the scripts that are referenced from the artifact install command.
+1. Armazenar o artefato em um repositório git
+	1. Crie um diretório separado para cada artefato, em que o nome do diretório é igual ao nome do artefato.
+	1. Armazene o arquivo de definição de artefato (artifactfile.json) no diretório que você criou.
+	1. Armazene os scripts referenciados pelo comando de instalação de artefato.
 
-    Here is an example of how an artifact folder might look:
+	Veja um exemplo de como uma pasta de artefatos pode ser:
 
-    ![Artifact git repo example](./media/devtest-lab-artifact-author/git-repo.png)
+	![Exemplo de repositório git de artefatos](./media/devtest-lab-artifact-author/git-repo.png)
 
-1. Add the artifacts repository to the lab - Refer to the article, [Add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).
+1. Adicione o repositório de artefatos ao laboratório: consulte o artigo [Adicionar um repositório de artefato Git a um laboratório](devtest-lab-add-artifact-repo.md).
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="related-blog-posts"></a>Related blog posts
-- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
-- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+## Postagens de blogs relacionadas
+- [Como solucionar problemas de falha de Artefatos no AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
+- [Ingressar uma VM ao domínio de AD existente usando o modelo do ARM no Laboratório de Teste de Desenvolvimento do Azure](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-- Learn how to [add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).
+- Saiba como [adicionar um repositório de artefatos Git a um laboratório](devtest-lab-add-artifact-repo.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

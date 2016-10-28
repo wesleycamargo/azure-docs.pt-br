@@ -1,55 +1,49 @@
 <properties
-    pageTitle="What are VM scale sets? | Microsoft Azure"
-    description="Learn about VM scale sets."
-    keywords="linux virtual machine,virtual machine scale sets" 
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="gatneil"
-    manager="madhana"
-    editor="tysonn"
-    tags="azure-resource-manager" />
+	pageTitle="O que são conjuntos de escala de VM? | Microsoft Azure"
+	description="Saiba mais sobre os conjuntos de escala de VM."
+	keywords="máquina virtual linux, conjuntos de dimensionamento de máquina virtual" 
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="gatneil"
+	manager="madhana"
+	editor="tysonn"
+	tags="azure-resource-manager" />
 
 <tags
-    ms.service="virtual-machine-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/24/2016"
-    ms.author="gatneil"/>
+	ms.service="virtual-machine-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/24/2016"
+	ms.author="gatneil"/>
 
+# O que são conjuntos de escala de máquina virtual?
 
-# <a name="what-are-virtual-machine-scale-sets?"></a>What are virtual machine scale sets?
+Conjuntos de Escala de Máquina Virtual permitem gerenciar diversas Máquinas Virtuais como um conjunto. Em um alto nível, conjuntos de escala têm os seguintes prós e contras:
 
-Virtual Machine Scale Sets allow you to manage multiple VMs as a set. At a high level, scale sets have the following pros and cons:
+Prós:
 
-Pros:
+1. Alta disponibilidade. Cada conjunto de escala coloca suas VMs em um Conjunto de Disponibilidade com 5 FDs (Domínios de Falha) e 5 UDs (Domínios de Atualização) para garantir a disponibilidade (para obter mais informações sobre UDs e de FDs, consulte [disponibilidade da VM](./virtual-machines-linux-manage-availability.md)). 
+2. Fácil integração com o Balanceador de Carga do Azure e o Gateway de Aplicativo.
+3. Fácil integração com Autoescala do Azure.
+4. Simplifica implantação, gerenciamento e limpeza de VMs.
+5. Suporte a tipos comuns do Windows e Linux, bem como imagens personalizadas.
 
-1. High availability. Each scale set puts its VMs into an Availability Set with 5 Fault Domains (FDs) and 5 Update Domains (UDs) to ensure availability (for more information on FDs and UDs, see [VM availability](./virtual-machines-linux-manage-availability.md)). 
-2. Easy integration with Azure Load Balancer and App Gateway.
-3. Easy integration with Azure Autoscale.
-4. Simplified deployment, management, and clean up of VMs.
-5. Support common Windows and Linux flavors, as well as custom images.
+Contras:
 
-Cons:
+1. Não é possível anexar discos de dados para instâncias de VM em um conjunto de escala. Em vez disso, deve-se usar Armazenamento de Blobs, Arquivos do Azure, Tabelas do Azure ou outras soluções de armazenamento.
 
-1. Cannot attach data disks to VM instances in a scale set. Instead, must use Blob Storage, Azure Files, Azure Tables, or other storage solution.
-
-## <a name="quick-create-using-azure-cli"></a>Quick-create using Azure CLI
+## Criação rápida usando a CLI do Azure
 
 [AZURE.INCLUDE [cli-vmss-quick-create](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-For general information, check out the [main landing page for scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+Para obter informações gerais, confira a [página de aterrissagem principal para conjuntos de escala](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
-For more documentation, check out the [main documentation page for scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
+Para obter mais documentação, confira a [página de documentação principal para conjuntos de escala](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
 
-For example Resource Manager templates using scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
+Para modelos do Resource Manager de exemplo usando conjuntos de escala, procure por "vmss" no [repositório github de Modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0413_2016-->

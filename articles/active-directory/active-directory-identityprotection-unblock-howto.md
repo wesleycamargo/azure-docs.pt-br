@@ -1,81 +1,75 @@
 <properties
-    pageTitle="Azure Active Directory Identity Protection - How to unblock users | Microsoft Azure"
-    description="Learn how unblock users that were blocked by an Azure Active Directory Identity Protection policy."
-    services="active-directory"
-    keywords="azure active directory identity protection, unblock user"
-    documentationCenter=""
-    authors="markusvi"
-    manager="femila"
-    editor=""/>
+	pageTitle="Azure Active Directory Identity Protection - como desbloquear usuários | Microsoft Azure"
+	description="Saiba como desbloquear usuários que foram bloqueados por uma política do Azure Active Directory Identity Protection."
+	services="active-directory"
+	keywords="azure active directory identity protection, desbloquear usuário"
+	documentationCenter=""
+	authors="markusvi"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/20/2016"
-    ms.author="markvi"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/20/2016"
+	ms.author="markvi"/>
+
+#Azure Active Directory Identity Protection - como desbloquear usuários
+
+Com o Azure Active Directory Identity Protection, você pode configurar políticas para bloquear os usuários se as condições configuradas forem satisfeitas. Normalmente, um usuário bloqueado entra em contato com o suporte técnico para ser desbloqueado. Este tópico explica as etapas que você pode executar para desbloquear um usuário bloqueado.
 
 
-#<a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection - How to unblock users
+## Determinar o motivo do bloqueio
 
-With Azure Active Directory Identity Protection, you can configure policies to block users if the configured conditions are satisfied. Typically, a blocked user contacts help desk to become unblocked. This topics explains the steps you can perform to unblock a blocked user.
+Como uma primeira etapa para desbloquear um usuário, você precisa determinar o tipo de política que bloqueou o usuário porque as próximas etapas dependerão dela. Com o Azure Active Directory Identity Protection, um usuário pode ser bloqueado ou por uma política de risco de entrada ou por uma política de risco de usuário.
 
+Você pode obter o tipo de política que bloqueou um usuário do título na caixa de diálogo apresentado ao usuário durante uma tentativa de entrada:
 
-## <a name="determine-the-reason-for-blocking"></a>Determine the reason for blocking
-
-As a first step to unblock a user, you need to determine the type of policy that has blocked the user because your next steps are depending on it. With Azure Active Directory Identity Protection, a user can be either blocked by a sign-in risk policy or a user risk policy. 
-
-You can get the type of policy that has blocked a user from the heading in the dialog that was presented to the user during a sign-in attempt:
-
-|Policy | User dialog|
+|Política | Diálogo do usuário|
 |--- | --- |
-|Sign-in risk | ![Blocked sign-in](./media/active-directory-identityprotection-unblock-howto/02.png) |
-|User risk | ![Blocked account](./media/active-directory-identityprotection-unblock-howto/104.png) |
+|Risco de entrada | ![Entrada bloqueada](./media/active-directory-identityprotection-unblock-howto/02.png) |
+|Risco do usuário | ![Conta bloqueada](./media/active-directory-identityprotection-unblock-howto/104.png) |
 
 
-A user that is blocked by:
+Um usuário bloqueado por:
 
-- A sign-in risk policy is also known as suspicious sign-in
-- A user risk policy is also known as an account at risk
+- Uma política de risco de entrada também é conhecida como entrada suspeita
+- Uma política de risco de usuário também é conhecida como uma conta em risco
 
  
-## <a name="unblocking-suspicious-sign-ins"></a>Unblocking suspicious sign-ins
+## Desbloqueio de entradas suspeitas
 
-To unblock a suspicious sign-in, you have the following options:
+Para desbloquear uma entrada suspeita, você tem as seguintes opções:
 
-1. **Sign-in from a familiar location or device** - A common reason for blocked suspicious sign-ins are sign-in attempts from unfamiliar locations or devices. Your users can quickly determine whether this is the blocking reason by trying to sign-in from a familiar location or device.
+1. **Entrada de um local ou dispositivo familiar** - uma razão comum para entradas suspeitas bloqueadas são as tentativas de entrada de locais ou de dispositivos desconhecidos. Os usuários podem determinar rapidamente se esse é o motivo do bloqueio, tentando entrar de um dispositivo ou local familiar.
 
 
-3. **Exclude from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. See [sign-in risk policy](active-directory-identityprotection.md#sign-in-risk-policy) for more details.
+3. **Exclusão da política** - se você acha que a configuração atual de sua política de entrada está causando problemas para usuários específicos, pode excluir os usuários dela. Veja [política de risco de entrada](active-directory-identityprotection.md#sign-in-risk-policy) para obter mais detalhes.
  
-4. **Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy. See [sign-in risk policy](active-directory-identityprotection.md#sign-in-risk-policy) for more details.
+4. **Desabilitar política** - se você achar que sua configuração de política está causando problemas para todos os usuários, poderá desabilitar a política. Veja [política de risco de entrada](active-directory-identityprotection.md#sign-in-risk-policy) para obter mais detalhes.
 
 
-## <a name="unblocking-accounts-at-risk"></a>Unblocking accounts at risk
+## Desbloqueio de contas em risco
 
-To unblock an account at risk, you have the following options:
+Para desbloquear uma conta em risco, você tem as seguintes opções:
 
-1. **Reset password** - You can reset the user's password. See [manual secure password reset](active-directory-identityprotection.md#manual-secure-password-reset) for more details.
+1. **Redefinir senha** - você pode redefinir a senha do usuário. Veja [redefinição manual de senha segura](active-directory-identityprotection.md#manual-secure-password-reset) para obter mais detalhes.
 
-2. **Dismiss all risk events** - The user risk policy blocks a user if the configured user risk level for blocking access has been reached. You can reduce a user's risk level by manually closing reported risk events. For more details, see [closing risk events manually](active-directory-identityprotection.md#closing-risk-events-manually).
+2. **Descartar todos os eventos de risco** - a política de risco de usuário bloqueará um usuário se o nível de risco de usuário configurado para o bloqueio de acesso tiver sido atingido. Você pode reduzir o nível de risco de um usuário ao fechar manualmente os eventos de risco relatados. Para obter mais detalhes, veja [fechando eventos de risco manualmente](active-directory-identityprotection.md#closing-risk-events-manually).
 
-3. **Exclude from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. See [user risk policy](active-directory-identityprotection.md#user-risk-policy) for more details.
+3. **Exclusão da política** - se você acha que a configuração atual de sua política de entrada está causando problemas para usuários específicos, pode excluir os usuários dela. Veja [política de risco de usuário](active-directory-identityprotection.md#user-risk-policy) para obter mais detalhes.
  
-4. **Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy. See [user risk policy](active-directory-identityprotection.md#user-risk-policy) for more details.
+4. **Desabilitar política** - se você achar que sua configuração de política está causando problemas para todos os usuários, poderá desabilitar a política. Veja [política de risco de usuário](active-directory-identityprotection.md#user-risk-policy) para obter mais detalhes.
 
 
 
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
- Do you want to know more about Azure AD Identity Protection? Check out [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+ Você deseja saber mais sobre o Azure AD Identity Protection? Confira [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
  
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

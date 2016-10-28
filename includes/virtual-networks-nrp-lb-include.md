@@ -1,82 +1,82 @@
-## <a name="load-balancer"></a>Load Balancer
-A load balancer is used when you want to scale your applications. Typical deployment scenarios involve applications running on multiple VM instances. The VM instances are fronted by a load balancer that helps to distribute network traffic to the various instances. 
+## Balanceador de carga
+Um balanceador de carga é usado quando você deseja dimensionar seus aplicativos. Cenários comuns de implantação envolvem aplicativos executados em várias instâncias de VM. As instâncias de VM são apoiadas por um balanceador de carga, que ajuda a distribuir o tráfego de rede para as várias instâncias.
 
-![NIC's on a single VM](./media/resource-groups-networking/figure8.png)
+![NICs em uma única VM](./media/resource-groups-networking/figure8.png)
 
-| Property | Description |
+| Propriedade | Descrição |
 |---|---|
-| *frontendIPConfigurations* | a Load balancer can include one or more front end IP addresses, otherwise known as a virtual IPs (VIPs). These IP addresses serve as ingress for the traffic and can be public IP or private IP |
-|*backendAddressPools* | these are IP addresses associated with the VM NICs to which load will be distributed |
-|*loadBalancingRules* | a rule property maps a given front end IP and port combination to a set of back end IP addresses and port combination. With a single definition of a load balancer resource, you can define multiple load balancing rules, each rule reflecting a combination of a front end IP and port and back end IP and port associated with virtual machines. The rule is one port in the front end pool to many virtual machines in the back end pool |  
-| *Probes* | probes enable you to keep track of the health of VM instances. If a health probe fails, the virtual machine instance will be taken out of rotation automatically |
-| *inboundNatRules* | NAT rules defining the inbound traffic flowing through the front end IP and distributed to the back end IP to a specific virtual machine instance. NAT rule is one port in the front end pool to one virtual machine in the back end pool | 
+| *frontendIPConfigurations* | um balanceador de carga pode incluir um ou mais endereços IP front-end, também conhecidos como VIPs (IPs virtuais). Esses endereços de IP servem como entrada para o tráfego e podem ser IP público ou IP privado |
+|*backendAddressPools* | estes são os endereços IP associados a NICs de VM aos quais a carga será distribuída. |
+|*loadBalancingRules* | uma propriedade de regra mapeia determinada combinação de porta e IP front-end para um conjunto de endereços IP back-end e combinação de portas. Com uma única definição de um recurso de balanceador de carga, você pode definir várias regras de balanceamento de carga, cada regra refletindo uma combinação de um IP de front-end e porta e outra combinação de IP de back-end e porta, ambas associadas às máquinas virtuais. A regra é uma porta no pool de front-end para várias máquinas virtuais no pool de back-end |  
+| *Investigações* | as investigações permitem que você controle a integridade das instâncias VM. Se um teste de integridade falhar, a instância de máquina virtual será retirada automaticamente do rodízio. |
+| *inboundNatRules* | regras NAT definem o tráfego de entrada que flui pelo IP front-end e é distribuído para o IP back-end para a instância de uma máquina virtual específica. A regra NUT é uma porta no pool de front-end para uma máquina virtual no pool de back-end | 
 
-Example of load balancer template in Json format:
+Exemplo de modelo de Balanceador de carga no formato Json:
 
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "dnsNameforLBIP": {
-          "type": "string",
-          "metadata": {
-            "description": "Unique DNS name"
-          }
-        },
-        "location": {
-          "type": "string",
-          "allowedValues": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ],
-          "metadata": {
-            "description": "Location to deploy"
-          }
-        },
-        "addressPrefix": {
-          "type": "string",
-          "defaultValue": "10.0.0.0/16",
-          "metadata": {
-            "description": "Address Prefix"
-          }
-        },
-        "subnetPrefix": {
-          "type": "string",
-          "defaultValue": "10.0.0.0/24",
-          "metadata": {
-            "description": "Subnet Prefix"
-          }
-        },
-        "publicIPAddressType": {
-          "type": "string",
-          "defaultValue": "Dynamic",
-          "allowedValues": [
-            "Dynamic",
-            "Static"
-          ],
-          "metadata": {
-            "description": "Public IP type"
-          }
-        }
-      },
-      "variables": {
-        "virtualNetworkName": "virtualNetwork1",
-        "publicIPAddressName": "publicIp1",
-        "subnetName": "subnet1",
-        "loadBalancerName": "loadBalancer1",
-        "nicName": "networkInterface1",
-        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
-        "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
-        "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
-        "nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]",
-        "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
-        "backEndIPConfigID": "[concat(variables('nicId'),'/ipConfigurations/ipconfig1')]"
-      },
-      "resources": [
+	{
+	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	  "contentVersion": "1.0.0.0",
+	  "parameters": {
+	    "dnsNameforLBIP": {
+	      "type": "string",
+	      "metadata": {
+	        "description": "Unique DNS name"
+	      }
+	    },
+	    "location": {
+	      "type": "string",
+	      "allowedValues": [
+	        "East US",
+	        "West US",
+	        "West Europe",
+	        "East Asia",
+	        "Southeast Asia"
+	      ],
+	      "metadata": {
+	        "description": "Location to deploy"
+	      }
+	    },
+	    "addressPrefix": {
+	      "type": "string",
+	      "defaultValue": "10.0.0.0/16",
+	      "metadata": {
+	        "description": "Address Prefix"
+	      }
+	    },
+	    "subnetPrefix": {
+	      "type": "string",
+	      "defaultValue": "10.0.0.0/24",
+	      "metadata": {
+	        "description": "Subnet Prefix"
+	      }
+	    },
+	    "publicIPAddressType": {
+	      "type": "string",
+	      "defaultValue": "Dynamic",
+	      "allowedValues": [
+	        "Dynamic",
+	        "Static"
+	      ],
+	      "metadata": {
+	        "description": "Public IP type"
+	      }
+	    }
+	  },
+	  "variables": {
+	    "virtualNetworkName": "virtualNetwork1",
+	    "publicIPAddressName": "publicIp1",
+	    "subnetName": "subnet1",
+	    "loadBalancerName": "loadBalancer1",
+	    "nicName": "networkInterface1",
+	    "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+	    "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
+	    "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
+	    "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
+	    "nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]",
+	    "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
+	    "backEndIPConfigID": "[concat(variables('nicId'),'/ipConfigurations/ipconfig1')]"
+	  },
+	  "resources": [
     {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/publicIPAddresses",
@@ -183,14 +183,11 @@ Example of load balancer template in Json format:
         ]
       }
     }
-      ]
-    }
+	  ]
+	}
 
-### <a name="additional-resources"></a>Additional resources
+### Recursos adicionais
 
-Read [load balancer REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx) for more information.
+Para obter mais informações, leia [API REST do balanceador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1223_2015-->

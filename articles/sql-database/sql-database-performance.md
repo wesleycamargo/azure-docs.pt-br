@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure SQL Database Performance Insight | Microsoft Azure" 
-   description="The Azure SQL Database provides performance tools to help you identify areas that can improve current query performance." 
+   pageTitle="Análise de Desempenho de Banco de Dados SQL do Azure| Microsoft Azure" 
+   description="O Banco de Dados SQL do Azure fornece ferramentas de desempenho para ajudá-lo a identificar áreas em que é possível melhorar o desempenho de consulta atual." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -16,60 +16,56 @@
    ms.date="07/19/2016"
    ms.author="sstein"/>
 
+# Análise de Desempenho de Banco de Dados SQL
 
-# <a name="sql-database-performance-insight"></a>SQL Database Performance Insight
+O Banco de Dados SQL do Azure fornece ferramentas de desempenho para ajudá-lo a identificar e melhorar o desempenho dos bancos de dados, fornecendo recomendações e ações de ajuste inteligentes.
 
-Azure SQL Database provides performance tools to help you identify and improve the performance of your databases by providing intelligent tuning actions and recommendations. 
-
-1. Browse to your database in the [Azure Portal](http://portal.azure.com) and click **All settings** > **Performance ** > **Overview** to open the **Performance** page. 
-
-
-2. Click **Recommendations** to open the [SQL Database Advisor](#sql-database-advisor), and click **Queries** to open [Query Performance Insight](#query-performance-insight).
-
-    ![View Performance](./media/sql-database-performance/entries.png)
+1. Navegue até seu banco de dados no [Portal do Azure](http://portal.azure.com) e clique em **Todas as configurações** > **Desempenho** > **Visão geral** para abrir a página **Desempenho**.
 
 
+2. Clique em **Recomendações** para abrir o [Advisor do Banco de Dados SQL](#sql-database-advisor), então clique em **Consultas** para abrir [Análise de Desempenho de Consultas](#query-performance-insight).
 
-## <a name="performance-overview"></a>Performance Overview
-
-Clicking on **Overview** or on the **Performance** tile will take you to the performance dashboard for your database. This view provides a summary of your database performance, and helps you with performance tuning and troubleshooting. 
-
-![Performance](./media/sql-database-performance/performance.png)
-
-- The **Recommendations** tile provides a breakdown of tuning recommendations for your database (top 3 recommendations are shown if there are more). Clicking this tile takes you to **SQL Database Advisor**. 
-- The **Tuning activity** tile provides a summary of the ongoing and completed tuning actions for your database, giving you a quick view into the history of tuning activity. Clicking this tile takes you to the full tuning history view for your database.
-- The **Auto-tuning** tile shows the auto-tuning configuration for your database (which tuning actions are configured to be automatically applied to your database). Clicking this tile opens the automation configuration dialog.
-- The **Database queries** tile shows the summary of the query performance for your database (overall DTU usage and top resource consuming queries). Clicking this tile takes you to **Query Performance Insight**.
+    ![Exibir Desempenho](./media/sql-database-performance/entries.png)
 
 
 
-## <a name="sql-database-advisor"></a>SQL Database Advisor
+## Visão geral do desempenho
+
+Clicar no bloco **Visão geral** ou **Desempenho** levará você ao painel de desempenho do banco de dados. Essa exibição fornece um resumo do desempenho de seu banco de dados e lhe ajudará com ajustes e solução de problemas de desempenho.
+
+![Desempenho](./media/sql-database-performance/performance.png)
+
+- O bloco **Recomendações** fornece uma divisão das recomendações de ajuste para seu banco de dados (as 3 principais recomendações serão exibidas, se existirem mais). Clicar nesse bloco leva você para o **Advisor do Banco de Dados SQL**.
+- O bloco **Atividade de ajuste** fornece um resumo das atividades de ajuste em andamento e concluídas para o banco de dados, oferecendo uma visão rápida do histórico de atividades de ajuste. Clicar nesse bloco leva você para a exibição do histórico completo de ajustes do banco de dados.
+- O bloco **Ajuste automático** mostra a configuração de ajuste automático do banco de dados (quais ações de ajuste estão configuradas para serem aplicadas automaticamente ao banco de dados). Clicar nesse bloco abre a caixa de diálogo de configuração de automação.
+- O bloco **Consultas de banco de dados** mostra o resumo do desempenho de consulta do banco de dados (uso geral de DTU e consultas com maior consumo de recursos). Clicar nesse bloco leva para **Análise de Desempenho de Consultas**.
 
 
-[SQL Database Advisor](sql-database-advisor.md) provides intelligent tuning recommendations that can help improve your database's performance. 
 
-- Recommendations on which indexes to create or drop (and an option to apply index recommendations automatically without any user interaction and automatically rolling back recommendations that have a negative impact on performance).
-- Recommendations when schema issues are identified in the database.
-- Recommendations when queries can benefit from parameterized queries.
+## Advisor do Banco de Dados SQL
 
 
+O [Advisor do Banco de Dados SQL](sql-database-advisor.md) fornece recomendações de ajuste inteligentes que podem ajudar a melhorar o desempenho de seu banco de dados.
+
+- Recomendações sobre quais índices criar ou remover (e uma opção para aplicar as recomendações de índice automaticamente sem qualquer interação com o usuário, revertendo automaticamente recomendações com impacto negativo sobre o desempenho).
+- Recomendações quando problemas de esquema são identificados no banco de dados.
+- Recomendações quando consultas podem se beneficiar de consultas parametrizadas.
 
 
-## <a name="query-performance-insight"></a>Query Performance Insight
-
-[Query Performance Insight](sql-database-query-performance.md) allows you to spend less time troubleshooting database performance by providing:
-
-- Deeper insight into your databases resource (DTU) consumption. 
-- The top CPU consuming queries, which can potentially be tuned for improved performance. 
-- The ability to drill down into the details of a query. 
 
 
-## <a name="additional-resources"></a>Additional resources
+## Visão de Desempenho de Consulta
 
-- [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md)
-- [When should an elastic database pool be used?](sql-database-elastic-pool-guidance.md)
+A [Análise de Desempenho de Consultas](sql-database-query-performance.md) permite que você gaste menos tempo solucionando problemas de desempenho de banco de dados, fornecendo o seguinte:
+
+- Mais informações sobre o consumo de recursos de bancos de dados (DTU).
+- As consultas que mais consomem CPU, que potencialmente podem ser ajustadas para melhorar o desempenho.
+- A capacidade de fazer drill down nos detalhes de uma consulta.
 
 
-<!--HONumber=Oct16_HO2-->
+## Recursos adicionais
 
+- [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados únicos](sql-database-performance-guidance.md)
+- [Quando um Pool de Banco de Dados Elástico deve ser usado?](sql-database-elastic-pool-guidance.md)
 
+<!---HONumber=AcomDC_0720_2016-->

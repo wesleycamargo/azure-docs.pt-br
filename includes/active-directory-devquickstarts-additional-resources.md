@@ -1,14 +1,11 @@
-## <a name="additional-resources"></a>Additional Resources
+## Recursos adicionais
 
-- [The Azure AD Developer's Guide](../articles/active-directory/active-directory-developers-guide.md)
-- [Azure AD Samples on GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=active-directory)
+- [Guia do desenvolvedor do Azure AD](../articles/active-directory/active-directory-developers-guide.md)
+- [Exemplos do Azure AD no GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=active-directory)
 - [CloudIdentity.com](http://cloudidentity.com)
 
-## <a name="get-security-updates-for-our-products"></a>Get security updates for our products
+## Obter atualizações de segurança para nossos produtos
 
-We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
+Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0608_2016-->

@@ -1,43 +1,42 @@
 <properties 
-    pageTitle="Redeploy Linux Virtual Machines | Microsoft Azure" 
-    description="Describes how to redeploy Linux virtual machines to mitigate SSH connection issues." 
-    services="virtual-machines-linux" 
-    documentationCenter="virtual-machines" 
-    authors="iainfoulds" 
-    manager="timlt"
-    tags="azure-resource-manager,top-support-issue" 
+	pageTitle="Reimplantar as máquinas virtuais Linux | Microsoft Azure" 
+	description="Descreve como reimplantar máquinas virtuais Linux para atenuar problemas de conexão SSH." 
+	services="virtual-machines-linux" 
+	documentationCenter="virtual-machines" 
+	authors="iainfoulds" 
+	manager="timlt"
+	tags="azure-resource-manager,top-support-issue" 
 />
-    
+	
 
 <tags 
-    ms.service="virtual-machines-linux" 
-    ms.devlang="na" 
-    ms.topic="support-article" 
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure" 
-    ms.date="09/19/2016" 
-    ms.author="iainfou" 
+	ms.service="virtual-machines-linux" 
+	ms.devlang="na" 
+	ms.topic="support-article" 
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure" 
+	ms.date="09/19/2016" 
+	ms.author="iainfou" 
 />
 
+# Reimplantar a máquina virtual em um novo nó do Azure
 
-# <a name="redeploy-virtual-machine-to-new-azure-node"></a>Redeploy virtual machine to new Azure node
+Se você enfrentou dificuldades para solucionar problemas de SSH ou de acesso ao aplicativo em uma VM (máquina virtual) do Azure, reimplantar a VM pode ajudar. Quando você reimplanta uma VM, ela é movida para um novo nó dentro da infraestrutura do Azure e, depois, é ligada novamente, mantendo todas as suas opções de configuração e recursos associados. Este artigo mostra como reimplantar uma VM usando a CLI do Azure ou o Portal do Azure.
 
-If you have been facing difficulties troubleshooting SSH or application access to an Azure virtual machine (VM), redeploying the VM may help. When you redeploy a VM, it moves the VM to a new node within the Azure infrastructure and then powers it back on, retaining all your configuration options and associated resources. This article shows you how to redeploy a VM using Azure CLI or the Azure portal.
-
-> [AZURE.NOTE] After you redeploy a VM, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated. 
+> [AZURE.NOTE] Depois que você reimplanta uma VM, o disco temporário será perdido e os endereços IP dinâmicos associados ao adaptador de rede virtual serão atualizados.
 
 
-## <a name="using-azure-cli"></a>Using Azure CLI
+## Usando a CLI do Azure
 
-Make sure you have the [latest Azure CLI installed](../xplat-cli-install.md) on your machine and you are in Resource Manager mode (`azure config mode arm`).
+Verifique se você tem a [CLI do Azure mais recente instalada](../xplat-cli-install.md) em seu computador e se você está no modo do Resource Manager (`azure config mode arm`).
 
-Use the following Azure CLI command to redeploy your virtual machine:
+Use o seguinte comando da CLI do Azure para reimplantar sua máquina virtual:
 
 ```bash
 azure vm redeploy --resourcegroup <resourcegroup> --vm-name <vmname> 
 ```
 
-You can see the status of the VM change as it goes through the redeploy process. The `PowerState` of the VM goes from 'Running' to 'Updating', then 'Starting', and finally 'Running' as it goes through the process of redeploying to a new host. Check the status of the VMs within a resource group with:
+Você pode ver o status da VM mudar enquanto percorre o processo de reimplantação. O `PowerState` da VM muda de 'Em execução' para 'Atualizando', depois para 'Iniciando' e finalmente para 'Em execução' enquanto percorre o processo de reimplantação para um novo host. Verifique o status das VMs dentro de um grupo de recursos com:
 
 ```bash
 azure vm list -g <resourcegroup>
@@ -47,10 +46,7 @@ azure vm list -g <resourcegroup>
 [AZURE.INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 
-## <a name="next-steps"></a>Next steps
-If you are having issues connecting to your VM, you can find specific help on [troubleshooting SSH connections](virtual-machines-linux-troubleshoot-ssh-connection.md) or [detailed SSH troubleshooting steps](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md). If you cannot access an application running on your VM, you can also read [application troubleshooting issues](virtual-machines-linux-troubleshoot-app-connection.md).
+## Próximas etapas
+Se você estiver enfrentando problemas para se conectar à sua VM., encontre ajuda específica em [Solução de problemas de conexões SSH](virtual-machines-linux-troubleshoot-ssh-connection.md) ou [Etapas detalhadas de solução de problemas de SSH](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md). Você também pode ler [problemas com a solução de problemas de aplicativo](virtual-machines-linux-troubleshoot-app-connection.md) se não conseguir acessar um aplicativo em execução em sua VM.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,35 +1,29 @@
 <!--author=v-sharos last changed: 11/06/15-->
 
-#### <a name="to-add-a-storsimple-backup-policy"></a>To add a StorSimple backup policy
+#### Para adicionar uma política de backup do StorSimple
 
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
+1. Na página **Início Rápido** do dispositivo, clique na guia **Políticas de Backup**. Isso o levará para a página **Políticas de Backup**.
 
-2. At the bottom of the page, click **Add** to start the Add Backup Policy wizard.
+2. Na parte inferior da página, clique em **Adicionar** para iniciar o assistente Adicionar Política de Backup.
 
-    ![Add a backup policy 1](./media/storsimple-add-backup-policy-u2/AddBackupPolicy1.png)
+    ![Adicionar uma política 1 de backup](./media/storsimple-add-backup-policy-u2/AddBackupPolicy1.png)
 
-3. In the **Add Backup Policy** dialog box, under **Define your backup policy**, do the following:
+3. Na caixa de diálogo **Adicionar Política de Backup**, em **Definir sua política de backup**, faça o seguinte:
 
-    1. Specify a backup policy name that contains between 3 and 150 characters.
-    2. Click the check box(es) to assign one or more volumes to this backup policy. Note that you cannot select volumes that use different cloud service providers. If you are using multiple cloud service providers, based on your first selection, the list will show volumes belonging to only that cloud service provider. This will allow you to group volumes belonging to a single cloud service provider in a snapshot.
-    3. Click the arrow icon ![arrow icon](./media/storsimple-add-backup-policy-u2/HCS_ArrowIcon-include.png) to go to the next page.
+    1. Especifique um nome que contenha de 3 a 150 caracteres para sua política de backup.
+    2. Clique nas caixas de seleção para atribuir um ou mais volumes a esta política de backup. Observe que você não pode selecionar volumes que usam provedores de serviço de nuvem diferentes. Se estiver usando vários provedores de serviços de nuvem, com base na sua primeira seleção, a lista suspensa mostrará os volumes que pertencem apenas a esse provedor de serviços de nuvem. Isso permitirá que você agrupe os volumes pertencentes a um único provedor de serviços de nuvem em um instantâneo.
+    3. Clique no ícone de seta ![ícone de seta](./media/storsimple-add-backup-policy-u2/HCS_ArrowIcon-include.png) para ir para a próxima página.
 
-     ![Add a backup policy 2](./media/storsimple-add-backup-policy-u2/AddBackupPolicy2.png)
+     ![Adicionar uma política 2 de backup](./media/storsimple-add-backup-policy-u2/AddBackupPolicy2.png)
 
-4. Under **Define a schedule**, do the following:
-    1. In the **Type of Backup** box, select **Cloud Snapshot** or **Local Snapshot** from the drop-down list.
-    2. Indicate the frequency of backups (specify a number and then choose **Days** or **Weeks** from the drop-down list.
-    3. Enter a retention schedule.
-    4. Enter a time and date for the backup policy to begin.  
-    6. Click the check icon ![check icon](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) to save the policy.
+4. Em **Definir um agendamento**, faça o seguinte:
+    1. Na caixa **Tipo de Backup** selecione **Instantâneo de Nuvem** ou **Instantâneo Local** na lista suspensa.
+    2. Indique a frequência dos backups (Especifique um número e, em seguida, escolha **Dias** ou **Semanas** na lista suspensa.
+    3. Insira um agendamento de retenção.
+    4. Insira o dia e a hora de início da política de backup.  
+    6. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) para salvar a política.
 
-The newly added policy will be displayed in the tabular view on the **Backup Policies** page.
+A política recém-adicionada será exibida no modo de exibição tabular na página **Políticas de Backup**.
  
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1217_2015-->

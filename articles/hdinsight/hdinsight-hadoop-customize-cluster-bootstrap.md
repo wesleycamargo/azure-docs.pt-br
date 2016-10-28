@@ -1,26 +1,25 @@
 <properties
-    pageTitle="Customize HDInsight Clusters using bootstrap | Microsoft Azure"
-    description="Learn how to customize HDInsight clusters using bootstrap."
-    services="hdinsight"
-    documentationCenter=""
-    authors="mumian"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal"/>
+	pageTitle="Personalizar clusters do HDInsight usando a Inicialização | Microsoft Azure"
+	description="Saiba como personalizar os clusters HDInsight usando a Inicialização."
+	services="hdinsight"
+	documentationCenter=""
+	authors="mumian"
+	manager="jhubbard"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/02/2016"
-    ms.author="jgao"/>
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2016"
+	ms.author="jgao"/>
 
+# Personalizar clusters do HDInsight usando a Inicialização
 
-# <a name="customize-hdinsight-clusters-using-bootstrap"></a>Customize HDInsight clusters using Bootstrap
-
-Sometimes, you want to configure the configuration files which include:
+Às vezes, você deseja configurar os arquivos de configuração que incluem:
 
 - clusterIdentity.xml
 - core-site.xml
@@ -38,86 +37,86 @@ Sometimes, you want to configure the configuration files which include:
 - webhcat-site.xml
 - yarn-site.xml
 
-The clusters can't retain the changes due to re-imaging. For more information on re-imaging, see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). To keep the changes through the clusters' lifetime, you can use HDInsight cluster customization during the creation process. This is the recommended way to change configurations of a cluster and persist across these Azure reimage reboot restart events. These configuration changes are applied before service start, so services needn’t be restarted. 
+Os clusters não podem reter as alterações devido à recriação das imagens. Para saber mais sobre a recriação de imagens, consulte [A instância de função é reinicializada devido a atualizações do SO](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Para manter as alterações durante o tempo de vida dos clusters, você pode usar a personalização de clusters do HDInsight durante o processo de criação. Essa é a maneira recomendável de mudar as configurações de um cluster e persisti-las entre esses eventos de reinicialização do refazimento de imagem do Azure. Essas mudanças de configuração são aplicadas antes do início de um serviço para que os serviços não precisem ser reiniciados.
 
-There are 3 methods to use bootstrap:
+Há três métodos para usar a Inicialização:
 
-- Use Azure PowerShell
+- Usar PowerShell do Azure
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
     
-- Use .NET SDK
-- Use Azure Resource Manager template
+- Usar o SDK do .NET
+- Usar o modelo do Azure Resource Manager
 
-For information on installing additional components on HDInsight cluster during the creation time, see :
+Para obter informações sobre como instalar componentes adicionais no cluster do HDInsight durante o tempo de criação, consulte:
 
-- [Customize HDInsight clusters using Script Action (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
-- [Customize HDInsight clusters using Script Action (Windows)](hdinsight-hadoop-customize-cluster.md)
+- [Personalizar os clusters HDInsight usando a Ação de Script (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
+- [Personalizar os Clusters HDInsight usando a Ação de Script (Windows)](hdinsight-hadoop-customize-cluster.md)
 
-## <a name="use-azure-powershell"></a>Use Azure PowerShell
+## Usar PowerShell do Azure
 
-The following PowerShell code customizes a Hive configuration:
+O seguinte código do PowerShell personaliza uma configuração de Hive:
 
-    # hive-site.xml configuration
-    $hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
-    
-    $config = New-AzureRmHDInsightClusterConfig `
-        | Set-AzureRmHDInsightDefaultStorage `
-            -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
-            -StorageAccountKey $defaultStorageAccountKey `
-        | Add-AzureRmHDInsightConfigValues `
-            -HiveSite $hiveConfigValues 
-    
-    New-AzureRmHDInsightCluster `
-        -ResourceGroupName $existingResourceGroupName `
-        -ClusterName $clusterName `
-        -Location $location `
-        -ClusterSizeInNodes $clusterSizeInNodes `
-        -ClusterType Hadoop `
-        -OSType Windows `
-        -Version "3.2" `
-        -HttpCredential $httpCredential `
-        -Config $config 
+	# hive-site.xml configuration
+	$hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
+	
+	$config = New-AzureRmHDInsightClusterConfig `
+		| Set-AzureRmHDInsightDefaultStorage `
+			-StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+			-StorageAccountKey $defaultStorageAccountKey `
+		| Add-AzureRmHDInsightConfigValues `
+			-HiveSite $hiveConfigValues 
+	
+	New-AzureRmHDInsightCluster `
+		-ResourceGroupName $existingResourceGroupName `
+		-ClusterName $clusterName `
+		-Location $location `
+		-ClusterSizeInNodes $clusterSizeInNodes `
+		-ClusterType Hadoop `
+		-OSType Windows `
+		-Version "3.2" `
+		-HttpCredential $httpCredential `
+		-Config $config 
 
-A complete working PowerShell script can be found in [Appendix-A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample).
+Um script do PowerShell em funcionamento completo pode ser encontrado no [Apêndice A](#hdinsight-hadoop-customize-cluster-bootstrap.md/appx-a:-powershell-sample).
 
-**To verify the change:**
+**Para verificar a alteração:**
 
-1. Sign on to the [Azure portal](https://portal.azure.com).
-2. On the left pane, click **Browse**, and then click **HDInsight Clusters**.
-3. Click the cluster you just created using the PowerShell script.
-4. Click **Dashboard** from the top of the blade to open the Ambari UI.
-5. Click **Hive** from the left menu.
-6. Click **HiveServer2** from **Summary**.
-7. Click the **Configs** tab.
-8. Click **Hive** from the left menu.
-9. Click the **Advanced** tab.
-10. Scroll down and then expand **Advanced hive-site**.
-11. Look for **hive.metastore.client.socket.timeout** in the section.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. No painel esquerdo, clique em **Procurar** e, em seguida, clique em **Clusters do HDInsight**.
+3. Clique no cluster que você acabou de criar usando o script do PowerShell.
+4. Clique em **Painel** na parte superior da folha para abrir a interface do usuário do Ambari.
+5. Clique em **Hive** no menu à esquerda.
+6. Clique em **HiveServer2** em **Resumo**.
+7. Selecione a guia **Configurações**.
+8. Clique em **Hive** no menu à esquerda.
+9. Selecione a guia **Avançado**.
+10. Role para baixo e expanda **Site Hive Avançado**.
+11. Procure **hive.metastore.client.socket.timeout** na seção.
 
-Some more samples on customizing other configuration files:
+Alguns outros exemplos de personalização de outros arquivos de configuração:
 
-    # hdfs-site.xml configuration
-    $HdfsConfigValues = @{ "dfs.blocksize"="64m" } #default is 128MB in HDI 3.0 and 256MB in HDI 2.1
+	# hdfs-site.xml configuration
+	$HdfsConfigValues = @{ "dfs.blocksize"="64m" } #default is 128MB in HDI 3.0 and 256MB in HDI 2.1
 
-    # core-site.xml configuration
-    $CoreConfigValues = @{ "ipc.client.connect.max.retries"="60" } #default 50
+	# core-site.xml configuration
+	$CoreConfigValues = @{ "ipc.client.connect.max.retries"="60" } #default 50
 
-    # mapred-site.xml configuration
-    $MapRedConfigValues = @{ "mapreduce.task.timeout"="1200000" } #default 600000
+	# mapred-site.xml configuration
+	$MapRedConfigValues = @{ "mapreduce.task.timeout"="1200000" } #default 600000
 
-    # oozie-site.xml configuration
-    $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
+	# oozie-site.xml configuration
+	$OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 
-For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluster creation](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
+Para obter mais informações, confira o blog de Azim Uddin chamado [Personalizando a criação de Clusters HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
 
-## <a name="use-.net-sdk"></a>Use .NET SDK
+## Usar o SDK do .NET
 
-See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
+Veja [Criar clusters baseados em Linux no HDInsight usando o SDK do .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
-## <a name="use-resource-manager-template"></a>Use Resource Manager template
+## Usar modelo do Resource Manager
 
-You can use bootstrap in Resource Manager template:
+Você pode usar o bootstrap no modelo do Resource Manager:
 
     "configurations": {
         …
@@ -129,18 +128,18 @@ You can use bootstrap in Resource Manager template:
     }
 
 
-![hdinsight hadoop customize cluster bootstrap azure resource manager template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![hdinsight, hadoop, personalizar cluster, inicialização, modelo do azure resource manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 
 
-## <a name="see-also"></a>See also
+## Confira também
 
-- [Create Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.
-- [Develop Script Action scripts for HDInsight][hdinsight-write-script]
-- [Install and use Spark on HDInsight clusters][hdinsight-install-spark]
-- [Install and use R on HDInsight clusters][hdinsight-install-r]
-- [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
-- [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
+- [Criar clusters Hadoop no HDInsight][hdinsight-provision-cluster] fornece instruções sobre como criar um cluster HDInsight usando outras opções personalizadas.
+- [Desenvolver scripts de Ação de Script para o HDInsight][hdinsight-write-script]
+- [Instalar e usar o Spark em clusters HDInsight][hdinsight-install-spark]
+- [Instalar e usar R em clusters do HDInsight][hdinsight-install-r]
+- [Instalar e usar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md).
+- [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
@@ -149,11 +148,11 @@ You can use bootstrap in Resource Manager template:
 [powershell-install-configure]: powershell-install-configure.md
 
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster creation"
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Estágios durante a criação de cluster"
 
-## <a name="appx-a:-powershell-sample"></a>Appx-A: PowerShell sample
+## Apêndice A: exemplo do PowerShell
 
-This PowerShell script creates an HDInsight cluster and customizes a Hive setting:
+Esse script do PowerShell cria um cluster do HDInsight e personaliza uma configuração de Hive:
 
     ####################################
     # Set these variables
@@ -262,8 +261,4 @@ This PowerShell script creates an HDInsight cluster and customizes a Hive settin
 
     #endregion
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

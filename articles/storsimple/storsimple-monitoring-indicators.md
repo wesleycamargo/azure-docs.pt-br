@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="StorSimple monitoring indicators | Microsoft Azure" 
-    description="Describes the light-emitting diodes (LEDs) and audible alarms used to monitor the status of the StorSimple device."
+    pageTitle="Indicadores de monitoramento do StorSimple | Microsoft Azure" 
+    description="Descreve os LEDs e os alarmes usados para monitorar o status do dispositivo StorSimple."
     services="storsimple"
     documentationCenter="NA"
     authors="alkohli"
@@ -15,244 +15,243 @@
     ms.date="08/18/2016"
     ms.author="alkohli" />
 
+# Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo   
 
-# <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Use StorSimple monitoring indicators to manage your device   
+## Visão geral
 
-## <a name="overview"></a>Overview
+O seu dispositivo StorSimple inclui diodos emissores de luz (LEDs) e alarmes que você pode usar para monitorar os módulos e o status geral do dispositivo StorSimple. Os indicadores de monitoramento podem ser encontrados nos componentes de hardware do compartimento primário do dispositivo e o do compartimento EBOD. Os indicadores de monitoramento podem ser LEDs ou alarmes audíveis.
 
-Your StorSimple device includes light-emitting diodes (LEDs) and alarms that you can use to monitor the modules and overall status of the StorSimple device. The monitoring indicators can be found on the hardware components of the device's primary enclosure and the EBOD enclosure. The monitoring indicators can be either LEDs or audible alarms.
+Há três estados de LED usados para indicar o status de um módulo: verde, verde intermitente a vermelho-âmbar ou vermelho-âmbar.
 
-There are three LED states used to indicate the status of a module: green, flashing green to red-amber, or red-amber.  
+- LEDs verdes representam o status de funcionamento adequado.
+- Verde intermitente a vermelho-âmbar representam a presença de condições não críticas que podem exigir a intervenção do usuário.
+- LEDs vermelho-âmbar indicam que há uma falha crítica presente no módulo.
 
-- Green LEDs represent a healthy operating status.  
-- Flashing green to red-amber LEDs represent the presence of non-critical conditions that might require user intervention.  
-- Red-amber LEDs indicate that there is a critical fault present within the module.  
+O restante deste artigo descreve os vários LEDs indicadores de monitoramento, seus locais no dispositivo StorSimple, o status do dispositivo com base em estados do LED e quaisquer alarmes audíveis associados.
 
-The remainder of this article describes the various monitoring indicator LEDs, their locations on the StorSimple device, the device status based on the LED states, and any associated audible alarms.
+## LEDs indicadores no painel frontal
 
-## <a name="front-panel-indicator-leds"></a>Front panel indicator LEDs
+O painel frontal, também conhecido como o *painel de operações* ou *painel ops*, exibe o status agregado de todos os módulos no sistema. O painel frontal é idêntico no compartimento StorSimple primário e no compartimento EBOD, e é ilustrado abaixo.
 
-The front panel, also known as the *operations panel* or *ops panel*, displays the aggregate status of all the modules in the system. The front panel is identical on the StorSimple primary and the EBOD enclosure, and is illustrated below.  
-
-   ![Device front panel][1]
+   ![Painel frontal do dispositivo][1]
  
-The front panel contains the following indicators:  
+O painel frontal contém os seguintes indicadores:
 
-1. Mute button
-2. Power indicator LED (green/red-amber)
-3. Module fault indicator LED (ON red-amber/OFF)
-4. Logical fault indicator LED (ON red-amber/OFF
-5. Unit ID display  
+1. Botão silenciar
+2. LED Indicador de energia (verde/vermelho-âmbar)
+3. LED indicador de falha de módulo (aceso vermelho-âmbar/apagado)
+4. LED indicador de falha lógica (aceso vermelho-âmbar/apagado)
+5. Exibição da ID da unidade
 
-The major difference between the front panel LEDs for the device and those for the EBOD enclosure is the **System Unit Identification Number** shown on the LED display. The default unit ID displayed on the device is **00**, whereas the default unit ID displayed on the EBOD enclosure is **01**. This allows you to quickly differentiate between the device and the EBOD enclosure when the device is turned on. If your device is turned off, use the information provided in [Turn on a new device](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) to differentiate the device from the EBOD enclosure.  
+A principal diferença entre os LEDs do painel frontal do dispositivo e do compartimento EBOD é o **Número de Identificação da Unidade de Sistema** mostrado na tela do LED. A unidade padrão exibida no dispositivo de ID é **00**, enquanto que a ID de unidade padrão exibida no compartimento EBOD é **01**. Isso permite que você possa diferenciar rapidamente entre o dispositivo e o compartimento EBOD quando o dispositivo está ativado. Se o dispositivo estiver desligado, use as informações fornecidas em [Ligar um novo dispositivo](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) para diferenciar o dispositivo do compartimento EBOD.
 
-## <a name="front-panel-led-status"></a>Front panel LED status  
+## Status do LED do painel frontal  
 
-Use the following table to identify the status indicated by the LEDs on the front panel for the device or the EBOD enclosure.  
+Use a tabela a seguir para identificar o status indicado pelos LEDs no painel frontal do dispositivo ou do compartimento EBOD.
 
-|System power | Module fault | Logical fault | Alarm | Status|
+|Energia do sistema | Falha do módulo | Falha lógica | Alarme | Status|
 |-------------|---------------|-----------------|-------|-------|
-|Red-amber | OFF     | OFF | N/A | AC power lost, operating on backup power, or AC power ON and the controller modules were removed.|
-|Green | ON | ON | N/A | Ops panel power on (5s) test state|
-|Green | OFF | OFF | N/A | Power on, all functions good|
-|Green | ON |N/A | PCM fault LEDs, fan fault LEDs | Any PCM fault, fan fault, over or under temperature|
-| Green | ON | N/A | I/O module LEDs  | Any controller module fault|
-| Green | ON | N/A | N/A | Enclosure logic fault|
-| Green | Flash | N/A | Module status LED on controller module. PCM fault LEDs, fan fault LEDs | Unknown controller module type installed, I2C bus failure, controller module vital product data (VPD) configuration error |
+|Vermelho-âmbar | DESATIVADO | DESATIVADO | N/D | Perda de energia CA, operando com energia reserva ou energia CA ativada e os módulos do controlador foram removidos.|
+|Verde | ATIVADO | ATIVADO | N/D | Estado de teste do painel de operações ligado (5s)|
+|Verde | DESATIVADO | DESATIVADO | N/D | Energia ligada, todas as funções em boas condições|
+|Verde | ATIVADO |N/D | LEDs de falha do ventilador, LEDs de falha de PCM | Qualquer falha de PCM, falha do ventilador, temperatura acima ou abaixo do recomendado|
+| Verde | ATIVADO | N/D | LEDs de módulo de E/S | Qualquer falha do módulo do controlador|
+| Verde | ATIVADO | N/D | N/D | Falha lógica no compartimento|
+| Verde | Piscando | N/D | LED de status de módulo no módulo do controlador. LEDs de falha do ventilador, LEDs de falha de PCM | Tipo de módulo controlador desconhecido instalado, falha de barramento I2C, erro de configuração dos dados vitais do produto (VPD) do módulo do controlador |
 
-## <a name="power-cooling-module-(pcm)-indicator-leds"></a>Power cooling module (PCM) indicator LEDs   
+## LEDs indicadores de refrigeração do módulo de energia (PCM)   
 
-Power cooling module (PCM) indicator LEDs can be found on the back of the primary enclosure or EBOD enclosure on each PCM module. This topic discusses how to use the following LEDs to monitor the status of your StorSimple device.  
+LEDs indicadores de refrigeração do módulo de energia (PCM) podem ser encontrados na parte traseira do compartimento principal ou do compartimento EBOD em cada módulo PCM. Este tópico discute como usar os seguintes LEDs para monitorar o status do seu dispositivo StorSimple.
 
-- PCM LEDs for the primary enclosure
-- PCM LEDs for the EBOD enclosure
+- LEDs de PCM para o compartimento principal
+- LEDs de PCM para o compartimento EBOD
 
-## <a name="pcm-leds-for-the-primary-enclosure"></a>PCM LEDs for the primary enclosure  
+## LEDs de PCM para o compartimento principal  
 
-The StorSimple device has a 764W PCM module with an additional battery. The following illustration shows the LED panel for the device.  
+O dispositivo StorSimple tem um módulo PCM de 764W com uma bateria adicional. A ilustração a seguir mostra o painel de LED para o dispositivo.
 
-   ![PCM LEDs on the primary enclosure][2]
+   ![LEDs de PCM no compartimento principal][2]
 
-LED legend:
+Legenda do LED:
 
-1. AC power failure
-2. Fan failure
-3. Battery fault
+1. Falha de energia CA
+2. Falha do ventilador
+3. Falha de bateria
 4. PCM OK
-5. DC failure
-6. Battery good  
+5. Falha de CC
+6. Bateria boa
 
-The status of the PCM is indicated on the LED panel. The device PCM LED panel has six LEDs. Four of these LEDs display the status of the power supply and the fan. The remaining two LEDs indicate the status of the backup battery module in the PCM. You can use the following tables to determine the status of the PCM.  
+O status do PCM é indicado no painel do LED O painel do LED do PCM do dispositvo possui seis LEDs. Quatro destes LEDs exibem o status da fonte de energia e do ventilador. Os outros dois LEDs indicam o status do módulo da bateria de backup no PCM. Você pode usar as tabelas a seguir para determinar o status do PCM.
 
-### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>PCM indicator LEDs for power supply and fan
-| Status | PCM OK (green) | AC fail (amber) | Fan fail (amber) | DC fail (amber) |
+### LEDs indicadores do PCM para a fonte de energia e para o ventilador
+| Status | PCM OK (verde) | Falha de CA (âmbar) | Falha do ventilador (âmbar) | Falha de DC (âmbar) |
 |--------|----------------|-----------------------|------------------|----------------------|
-| No AC power (to enclosure) | OFF | OFF | OFF | OFF|
-| No AC power (this PCM only) | OFF | ON | OFF | ON |
-| AC present PCM ON - OK     | ON | OFF | OFF | OFF |
-| PCM fail (fan fail) | OFF | OFF | ON | N/A |
-| PCM fault (over amp, over voltage, over current) | OFF | ON | ON | ON |
-| PCM (fan out of tolerance) | ON | OFF | OFF | ON |
-| Standby mode | Flashing | OFF | OFF | OFF |
-| PCM firmware download | OFF | Flashing | Flashing | Flashing |
+| Sem energia de CA (para o compartimento) | DESATIVADO | DESATIVADO | DESATIVADO | DESATIVADO|
+| Sem energia de CA (somente este PCM) | DESATIVADO | ATIVADO | DESATIVADO | ATIVADO |
+| CA presente PCM ligado - OK | ATIVADO | DESATIVADO | DESATIVADO | DESATIVADO |
+| Falha no PCM (falha do ventilador) | DESATIVADO | DESATIVADO | ATIVADO | N/D |
+| Falha no PCM (excesso de amperagem, sobretensão, sobrecorrente) | DESATIVADO | ATIVADO | ATIVADO | ATIVO |
+| PCM (ventilador fora da tolerância) | ATIVADO | DESATIVADO | DESATIVADO | ATIVADO |
+| Modo standby | Piscando | DESATIVADO | DESATIVADO | DESATIVADO |
+| Download de firmware do PCM | DESATIVADO | Piscando | Piscando | Piscando |
 
-### <a name="pcm-indicator-leds-for-the-backup-battery"></a>PCM indicator LEDs for the backup battery  
+### LEDs indicadores do PCM para a bateria de backup  
 
-| Status | Battery good (green) | Battery fault (amber) |
+| Status | Bateria boa (verde) | Falha na bateria (âmbar) |
 |--------|----------------------|-----------------------|
-| Battery not present | OFF | OFF |
-| Battery present and charged | ON | OFF |
-| Battery charging or maintenance discharge | Flashing | OFF |
-| Battery “soft” fault (recoverable) | OFF | Flashing |
-| Battery “hard” fault (non-recoverable) | OFF | ON |
-| Battery disarmed | Flashing | OFF |
+| Bateria ausente | DESATIVADO | DESATIVADO |
+| Bateria presente e carregada | ATIVADO | DESATIVADO |
+| Bateria carregando ou descarga de manutenção | Piscando | DESATIVADO |
+| Falha “pequena” na bateria (recuperável) | DESATIVADO | Piscando |
+| Falha “grave” na bateria (não recuperável) | DESATIVADO | ATIVADO |
+| Bateria desarmada | Piscando | DESATIVADO |
 
-## <a name="pcm-leds-for-the-ebod-enclosure"></a>PCM LEDs for the EBOD enclosure  
+## LEDs de PCM para o compartimento EBOD  
 
-The EBOD enclosure has a 580W PCM and no additional battery. The PCM panel for the EBOD enclosure has indicator LEDs only for the power supplies and the fan. The following illustration shows these LEDs.
+O compartimento EBOD possui um PCM de 580W e nenhuma bateria adicional. O painel do PCM para o compartimento EBOD possui LEDs indicadores para as fontes de energia e para o ventilador. A ilustração a seguir mostra estes LEDs.
 
-   ![PCM LEDs on the EBOD enclosure][3] 
+   ![LEDs de PCM no compartimento EBOD][3]
  
-You can use the following table to determine the status of the PCM.  
+Você pode usar a tabela a seguir para determinar o status do PCM.
 
-| Status | PCM OK (green) | AC fail (amber) | Fan fail (amber) | DC fail (amber) |
+| Status | PCM OK (verde) | Falha de CA (âmbar) | Falha do ventilador (âmbar) | Falha de DC (âmbar) |
 |--------|---------------|------------------------|------------------|----------------------|
-| No AC power (to enclosure) | OFF | OFF | OFF | OFF |
-| No AC power (this PCM only) | OFF | ON | OFF | ON |
-| AC present PCM ON – OK | ON | OFF | OFF | OFF |
-| PCM fail (fan fail) | OFF | OFF | ON | X |
-| PCM fault (over amp, over voltage, over current | OFF | ON | ON | ON |
-| PCM (fan out of tolerance) | ON | OFF | OFF | ON |
-| Standby model | Flashing | OFF | OFF | OFF |
-| PCM firmware download | OFF | Flashing | Flashing | Flashing |
+| Sem energia de CA (para o compartimento) | DESATIVADO | DESATIVADO | DESATIVADO | DESATIVADO |
+| Sem energia de CA (somente este PCM) | DESATIVADO | ATIVADO | DESATIVADO | ATIVADO |
+| CA presente PCM ligado - OK | ATIVADO | DESATIVADO | DESATIVADO | DESATIVADO |
+| Falha no PCM (falha do ventilador) | DESATIVADO | DESATIVADO | ATIVADO | X |
+| Falha no PCM (excesso de amperagem, sobretensão, sobrecorrente | DESATIVADO | ATIVADO | ATIVADO | ATIVO |
+| PCM (ventilador fora da tolerância) | ATIVADO | DESATIVADO | DESATIVADO | ATIVADO |
+| Modelo standby | Piscando | DESATIVADO | DESATIVADO | DESATIVADO |
+| Download de firmware do PCM | DESATIVADO | Piscando | Piscando | Piscando |
 
-## <a name="controller-module-indicator-leds"></a>Controller module indicator LEDs  
+## LEDs indicadores do módulo do controlador  
 
-The StorSimple device contains LEDs for the primary controller and the EBOD controller modules.   
+O dispositivo StorSimple contém LEDs para o controlador primário e para os módulos do controlador EBOD.
 
-### <a name="monitoring-leds-for-the-primary-controller"></a>Monitoring LEDs for the primary controller
-The following illustration helps you identify the LEDs on the primary controller. (All of the components are listed to aid in orientation.)  
+### LEDs de monitoramento para o controlador primário.
+A ilustração a seguir ajuda a identificar os LEDs no controlador primário. (Todos os componentes são listados para ajudar na orientação.)
 
-   ![Monitoring LEDs - primary controller][4]
+   ![LEDs de monitoramento - controlador primário][4]
  
-Use the following table to determine whether the controller module is operating correctly.  
+Use a tabela a seguir para determinar se o módulo do controlador está operando corretamente.
 
-### <a name="controller-indicator-leds"></a>Controller indicator LEDs  
+### LEDs indicadores do controlador  
 
-| LED | Description                                                                            
+| LED | Descrição                                                                            
 |---- | ----------- |
-| ID LED (blue) | Indicates that the module is being identified. If the blue LED is blinking on a running controller, then the controller is the active controller and the other one is the standby controller. For more information, see [Identify the active controller on your device](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device). |
-| Fault LED (amber) | Indicates a fault in the controller.        
-| OK LED (green) | Steady green indicates that the controller is OK. Flashing green indicates a controller VPD configuration error. |
-| SAS activity LEDs (green) | Steady green indicates a connection with no current activity. Flashing green indicates the connection has ongoing activity. |
-| Ethernet status LEDs | Right side indicates link/network activity: (steady green) link active, (flashing green) network activity. Left side indicates network speed: (yellow) 1000 Mb/s, (green) 100 Mb/s, and (OFF) 10 Mb/s. Depending on the component model, this light might blink even if the network interface is not enabled. |
-| POST LEDs | Indicates the boot progress when the controller is turned on. If the StorSimple device fails to boot, this LED will help Microsoft Support identify the point in the boot process at which the failure occurred. |
+| LED de ID (azul) | Indica se o módulo está sendo identificado. Se o LED azul estiver piscando em um controlador em execução, então o controlador é o controlador ativo e o outro é o controlador standby. Para saber mais, consulte [Identificar o controlador ativo no seu dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device). |
+| LED de falha (âmbar) | Indica uma falha no controlador.        
+| LED de OK (verde) | Um verde estável indica que o controlador está OK. Verde piscando indica um erro de configuração de VPD do controlador. |
+| LEDs de atividade de SAS (verde) | Verde estável indica uma conexão sem atividade. Verde piscando indica que a conexão possui atividade em andamento. |
+| LEDs de status de Ethernet | O lado direito indica atividade do link/rede: (verde estável) link ativo, (verde piscando) atividade de rede. O lado esquerdo indica a velocidade da rede: (amarelo) 1000 Mb/s, (verde) 100 Mb/s e (OFF) 10 Mb/s Dependendo do modelo do componente essa luz pode piscar mesmos se a interface de rede não estiver habilitada. |
+| LEDs de POST | Indica se o andamento da inicialização quando o controlador estiver ligado. Se o dispositivo StorSimple falhar durante a inicialização, esse LED ajudará a Microsoft a identificar o ponto no processo de incialização onde ocorreu a falha. |
 
 >[AZURE.IMPORTANT] 
-If the fault LED is lit, there is a problem with the controller module that might be resolved by restarting the controller. Please contact Microsoft Support if restarting the controller does not resolve this issue.  
+Se o LED de falha estiver aceso, há um problema com o módulo do controlador que pode ser resolvido através da reinicialização do controlador. Entre em contato com o Suporte da Microsoft se a reinicialização do controlador não resolver esse problema.
 
 
-### <a name="monitoring-leds-for-the-ebod-(ebod-enclosure)"></a>Monitoring LEDs for the EBOD (EBOD enclosure)  
+### Monitorando LEDs para o EBOD (compartimento EBOD)  
 
-Each of the 6 Gb/s SAS EBOD controllers has LEDs that indicate its status as shown in the following illustration.  
+Cada um dos controladores EBOD de SAS de 6 Gb/s possui LEDs que indicam o seu status conforme mostrado na ilustração a seguir.
 
-  ![Monitoring LEDs - EBOD enclosure][5]
+  ![LEDs de monitoramento - compartimento EBOD][5]
 
-Use the following table to determine whether the EBOD controller module is operating normally.  
+Use a tabela a seguir para determinar se o módulo do controlador EBOD está operando normalmente.
 
-### <a name="ebod-controller-module-indicator-leds"></a>EBOD controller module indicator LEDs  
+### LEDs indicadores do módulo do controlador EBOD  
 
-|Status | I/O module OK (green) | I/O module fault (amber) | Host port activity (green) |
+|Status | Módulo de E/S OK (verde) | Falha no módulo de E/S (âmbar) | Atividade da porta do host (verde) |
 |-------|----------------------|-------------------------------|----------------------------|
-| Controller module OK | ON | OFF | - |
-| Controller module fault | OFF | ON | - |
-| No external host port connection | - | - | OFF |
-| External host port connection – no activity | - | - | ON |
-| External host port connection - activity | - | - | Flashing |
-| Controller module metadata error | Flashing | - | - |
+| Módulo do controlador OK | ON | OFF | - |
+| Falha no módulo do controlador | OFF | ON | - |
+| Nenhuma conexão externa da porta do host | - | - | OFF |
+| Conexão externa da porta do host – sem atividade | - | - | ON |
+| Conexão externa da porta do host - atividade | - | - | Piscando |
+| Erro de metadados do módulo do controlador | Piscando | - | - |
 
-## <a name="disk-drive-indicator-leds-for-the-primary-enclosure-and-ebod-enclosure"></a>Disk drive indicator LEDs for the primary enclosure and EBOD enclosure
+## LEDs indicadores do drive de disco para o compartimento primário e para o compartimento EBOD
 
-The StorSimple device has disk drives located in both the primary enclosure and the EBOD enclosure. Each disk drive contains monitoring indicator LEDs, as described in this section. 
+O dispositivo StorSimple possui drives de disco localizados no compartimento primário e no compartimento EBOD. Cada drive de disco contém LEDs de indicador de monitoramento, conforme descrito nesta seção.
 
-For the disk drives, the drive status is indicated by a green LED and a red-amber LED mounted on the front of each drive carrier module. The following illustration shows these LEDs.
+Para os drives de disco, o status do drive é indicado por um LED verde e um LED vermelho-âmbar montado na parte da frente de cada módulo portador do drive. A ilustração a seguir mostra estes LEDs.
 
-  ![Disk drive LEDs][6]
+  ![LEDs de unidade de disco][6]
  
-Use the following table to determine the state of each disk drive, which in turn affects the overall front panel LED status.  
+Use a tabela a seguir para determinar o estado de cada drive de disco que, por sua vez, afeta o status geral do LED do painel frontal.
 
-### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>Disk drive indicator LEDs for the EBOD enclosure  
+### LEDs do indicador do drive de disco para o compartimento EBOD  
 
-| Status | Activity OK LED (green) | Fault LED (red-amber) | Associated ops panel LED |
+| Status | LED de Atividade OK (verde) | LED de falha (vermelho) | LED do painel de operações associado |
 |-------|--------------------------|----------------------|-------------------------|
-| No drive installed | OFF | OFF | None |
-| Drive installed and operational | Flashing on/off with activity | X | None |
-| SCSI Enclosure Services (SES) device identity set | ON | Flashing 1 second on/1 second off | None |
-| SES device fault bit set | ON | ON | Logical fault (red) |
-| Power control circuit failure | OFF | ON | Module fault (red) |
+| Nenhum driver instalado | DESATIVADO | DESATIVADO | Nenhum |
+| Driver instalado e operacional | Piscando com atividade | X | Nenhum |
+| Conjunto de identidades do dispositivo Enclosure Services do SCSI (SES) | ATIVADO | Piscando 1 segundo ligado/1 segundo desligado | Nenhum |
+| Conjunto de bits de falha do dispositivo SES | ATIVADO | ATIVADO | Falha lógica (vermelha) |
+| Falha no circuito de controle de energia | DESATIVADO | ATIVADO | Falha no módulo (vermelho) |
 
-## <a name="audible-alarms"></a>Audible alarms  
+## Alarmes audíveis  
 
-A StorSimple device contains audible alarms associated with both the primary enclosure and the EBOD enclosure. An audible alarm is located on the front panel (also known as the ops panel) of both enclosures. The audible alarm indicates when a fault condition is present. The following conditions will activate the alarm:  
+Um dispositivo StorSimple contém alarmes audíveis associados com o compartimento primário e com o compartimento EBOD. Um alarme audível é localizando no painel frontal (também chamado de painel de operações) de ambos os compartimentos. O alarme audível indica quando uma condição de falha está presente. As condições a seguir ativarão o alarme:
 
-- Fan fault or failure
-- Voltage out of range
-- Over or under temperature condition
-- Thermal overrun
-- System fault
-- Logical fault
-- Power supply fault
-- Removal of a power cooling module (PCM)  
+- Falha do ventilador
+- Tensão fora dos limites
+- Temperatura acima ou abaixo dos limites
+- Saturação térmica
+- Falha no sistema
+- Falha lógica
+- Falha no fornecimento de energia
+- Remoção de um módulo de refrigeração de energia (PCM)
 
-The following table describes the various alarm states.  
+A tabela a seguir descreve os vários estados de alarme.
 
-### <a name="alarm-states"></a>Alarm states  
+### Estados de alarme.  
 
-| Alarm state | Action | Action with mute button pressed |
+| Estado de alarme | Ação | Ação com o botão de mudo pressionado |
 |------------|---------|---------------------------------|
-| S0 | Normal mode: silent | Beep twice |
-| S1 | Fault mode: 1 second on/1 second off | Transition to S2 or S3 (see notes) |
-| S2 | Remind mode: intermittent beep | None |
-| S3 | Muted mode: silent | None |
-| S4 | Critical fault mode: continuous alarm | Not available: mute not active |
+| S0 | Modo normal: silencioso | Dois bipes |
+| S1 | Modo de falha: 1 segundo ligado/1 segundo desligado | Transição para S2 ou S3 (consulte as observações) |
+| S2 | Modo lembrete: bipe intermitente | Nenhum |
+| S3 | Modo mudo: silencioso | Nenhum |
+| S4 | Modo de falha crítica: alarme contínuo | Não disponível: mudo não ativo |
 
 > [AZURE.NOTE] 
 
->  - In alarm state S1, if you do not press mute within 2 minutes, the state automatically transitions to S2 or S3.  
->  - Alarm states S1 to S4 return to S0 after the fault condition is cleared.  
->  - Critical fault state S4 can be entered from any other state.  
+>  - No estado de alarme S1, se você não apertar mudo em até 2 minutos, o estado faz uma transição automática para S2 ou S3.
+>  - Os estados de alarme S1 a S4 retornam para S0 após a condição de falha ter sido resolvida.
+>  - O estado de falha crítica S4 pode ser inserido a partir de qualquer outro estado.
 
-You can mute the audible alarm by pressing the mute button on the ops panel. Automatic muting will occur after two minutes if the mute switch is not manually operated. When the alarm is muted, it will continue to sound with short intermittent beeps to indicate that a problem still exists. The alarm will be silent when all the problems are cleared.  
+Você pode silenciar o alarme audível apertando o botão de mudo no painel de operações. Um silenciament automático ocorrerá após dois minutos se o botão de mudo não for manualmente acionado. Quando o alarme estiver mudo, ele continuará a soar através de bipes curtos e intermitentes para indicar que ainda existe um problema. O alarme será silenciado quando todos os problemas forem resolvidos.
 
-The following table describes the various alarm conditions.  
+A tabela a seguir descreve as várias condições de alarme.
 
-### <a name="alarm-conditions"></a>Alarm conditions  
+### Condições de alarme.  
 
-| Status | Severity | Alarm | Ops panel LED |
+| Status | Severidade | Alarme | LED do painel de operações |
 |--------|---------|--------|----------------|
-| PCM alert – loss of DC power from a single PCM | Fault – no loss of redundancy | S1 | Module fault|
-|PCM alert – loss of DC power from a single PCM | Fault – loss of redundancy | S1 | Module fault |
-| PCM fan fail | Fault – loss of redundancy | S1 | Module fault |
-| SBB module detected PCM fault | Fault | S1 | Module fault |
-| PCM removed | Configuration error | None | Module fault |
-| Enclosure configuration error | Fault – critical | S1 | Module fault |
-| Low warning temperature alert | Warning | S1 | Module fault |
-| High warning temperature alert | Warning | S1 | Module fault |
-| Over temperature alarm | Fault – critical | S1 | Module fault |
-| I2C bus failure | Fault – loss of redundancy | S1 | Module fault |
-| Ops panel communication error (I2C) | Fault – critical     | S1 | Module fault |
-| Controller error | Fault – critical | S1 | Module fault |
-| SBB interface module fault | Fault – critical | S1 | Module fault |
-| SBB interface module fault – No functioning modules remaining | Fault – critical | S4 | Module fault |
-| SBB interface module removed | Warning | None | Module fault |
-| Drive power control fault | Warning – no loss of drive power | S1 | Module fault |
-| Drive power control fault | Fault – critical; loss of drive power | S1 | Module fault |
-| Drive removed | Warning | None | Module fault |
-| Insufficient power available | Warning | none | Module fault |
+| Alerta de PCM – perda de energia de CC de um único PCM | Falha – nenhuma perda de redundância | S1 | Falha do módulo|
+|Alerta de PCM – perda de energia de CC de um único PCM | Falha – perda de redundância | S1 | Falha do módulo |
+| Falha do ventilador do PCM | Falha – perda de redundância | S1 | Falha do módulo |
+| Falha do PCM detectada no módulo do SBB | Falha | S1 | Falha do módulo |
+| PCM removido | Erro de configuração | Nenhum | Falha do módulo |
+| Erro de configuração do compartimento | Falha – crítica | S1 | Falha do módulo |
+| Alerta aviso de temperatura baixa | Aviso | S1 | Falha do módulo |
+| Alerta aviso de temperatura alta | Aviso | S1 | Falha do módulo |
+| Alarme de sobretemperatura | Falha – crítica | S1 | Falha do módulo |
+| Falha do barramento I2C | Falha – perda de redundância | S1 | Falha do módulo |
+| Erro de comunicação do painel de operações (I2C) | Falha – crítica | S1 | Falha do módulo |
+| Erro no controlador | Falha – crítica | S1 | Falha do módulo |
+| Falha do módulo da interface SBB | Falha – crítica | S1 | Falha do módulo |
+| Falha no módulo da interface SBB – Nenhum módulo em funcionamento restante | Falha – crítica | S4 | Falha do módulo |
+| Módulo da interface SBB removido | Aviso | Nenhum | Falha do módulo |
+| Falha de controle de energia do drive | Aviso – nenhuma perda de energia no drive | S1 | Falha do módulo |
+| Falha de controle de energia do drive | Falha – crítica; perda de energia do drive | S1 | Falha do módulo |
+| Drive removido | Aviso | Nenhum | Falha do módulo |
+| Energia insuficiente disponível | Aviso | nenhum | Falha do módulo |
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-Learn more about [StorSimple hardware components and status](storsimple-monitor-hardware-status.md).
+Saiba mais sobre os [componentes e o status de hardware do StorSimple](storsimple-monitor-hardware-status.md).
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
@@ -263,8 +262,4 @@ Learn more about [StorSimple hardware components and status](storsimple-monitor-
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

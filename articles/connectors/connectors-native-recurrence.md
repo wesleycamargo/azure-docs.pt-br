@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Add the recurrence trigger in logic apps | Microsoft Azure"
-    description="Overview of the recurrence trigger, and how to use it with an Azure logic app."
-    services=""
-    documentationCenter=""
-    authors="jeffhollan"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+	pageTitle="Adicionar o gatilho de recorrência em aplicativos lógicos | Microsoft Azure"
+	description="Visão geral do gatilho de recorrência e como usá-lo com um aplicativo lógico do Azure."
+	services=""
+	documentationCenter=""
+	authors="jeffhollan"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,53 +17,47 @@
    ms.date="07/18/2016"
    ms.author="jehollan"/>
 
+# Introdução ao gatilho de recorrência
 
-# <a name="get-started-with-the-recurrence-trigger"></a>Get started with the recurrence trigger
+Usando o gatilho de recorrência, você pode criar fluxos de trabalho poderosos na nuvem.
 
-By using the recurrence trigger, you can create powerful workflows in the cloud.
+Por exemplo, você pode:
 
-For example, you can:
+- Agendar um fluxo de trabalho para executar um procedimento armazenado SQL todos os dias.
+- Enviar por email um resumo de todos os tweets da semana passada sobre uma determinada hashtag.
 
-- Schedule a workflow to run a SQL stored procedure every day.
-- Email a summary of all tweets within the last week about a certain hashtag.
+Para começar a usar o gatilho de recorrência em um aplicativo lógico, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To get started using the recurrence trigger in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Usar um gatilho de recorrência
 
-## <a name="use-a-recurrence-trigger"></a>Use a recurrence trigger
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
 
-A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
+Veja uma sequência de exemplo de como configurar um gatilho de recorrência em um aplicativo lógico:
 
-Here’s an example sequence of how to set up a recurrence trigger in a logic app:
+1. Adicione o gatilho **Recorrência** como a primeira etapa em um aplicativo lógico.
+2. Preencha os parâmetros para o intervalo de recorrência.
 
-1. Add the **Recurrence** trigger as the first step in a logic app.
-2. Fill in the parameters for the recurrence interval.
+O aplicativo lógico iniciará uma execução depois de cada intervalo de tempo.
 
-The logic app now starts a run after each interval of time.
+![Gatilho HTTP](./media/connectors-native-recurrence/using-trigger.png)
 
-![HTTP trigger](./media/connectors-native-recurrence/using-trigger.png)
+## Detalhes do gatilho
 
-## <a name="trigger-details"></a>Trigger details
+O gatilho de recorrência tem as propriedades a seguir que você pode configurar.
 
-The recurrence trigger has the following properties that you can configure.
+Ele dispara um aplicativo lógico depois de um intervalo de tempo especificado. Um * significa que é um campo obrigatório.
 
-It fires a logic app after a specified time interval.
-A * means that it is a required field.
-
-|Display name|Property name|Description|
+|Nome de exibição|Nome da propriedade|Descrição|
 |---|---|---|
-|Frequency*|frequency|The unit of time: `Second`, `Minute`, `Hour`, `Day`, or `Year`.|
-|Interval*|interval|The interval of the given frequency for the recurrence.|
-|Time Zone|timeZone|If a start time is provided without a UTC offset, this time zone will be used.|
-|Start time|startTime|The start time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).|
+|Frequência*|frequência|A unidade de tempo: `Second`, `Minute`, `Hour`, `Day` ou `Year`.|
+|Intervalo*|intervalo|O intervalo da frequência determinada para a recorrência.|
+|Fuso horário|timeZone|Se uma hora de início for fornecida sem uma diferença UTC, este fuso horário será usado.|
+|Hora de início|startTime|A hora de início no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).|
 <br>
 
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Agora, experimente a plataforma e [crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

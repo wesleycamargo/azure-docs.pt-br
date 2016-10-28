@@ -1,6 +1,6 @@
 <properties
- pageTitle="IoT Hub device management overview | Microsoft Azure"
- description="This article provides an overview of device management in Azure IoT Hub: enterprise device lifecycle, reboot, factory reset, firmware update, configuration, device twins, queries, jobs"
+ pageTitle="Visão geral do gerenciamento de dispositivo | Microsoft Azure"
+ description="Visão geral do gerenciamento de dispositivos do Hub IoT do Azure"
  services="iot-hub"
  documentationCenter=""
  authors="bzurcher"
@@ -13,94 +13,92 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="10/03/2016"
+ ms.date="09/16/2016"
  ms.author="bzurcher"/>
 
 
-# <a name="overview-of-azure-iot-hub-device-management-(preview)"></a>Overview of Azure IoT Hub device management (preview)
 
-## <a name="introduction"></a>Introduction
+# Visão geral do gerenciamento de dispositivos do Hub IoT do Azure (preview)
 
-Azure IoT Hub provides the features and an extensibility model that enable device and back-end developers to build robust IoT device management solutions. IoT devices range from constrained sensors and single purpose microcontrollers, to powerful gateways that route communications for groups of devices.  In addition, the use cases and requirements for IoT operators vary significantly across industries.  Despite this variation, Azure IoT Hub device management provides the capabilities, patterns, and code libraries to cater to a diverse set of devices and end users.
+## A abordagem de gerenciamento de dispositivo do Azure IoT
 
-A crucial part of creating a successful enterprise IoT solution to provide a strategy for how operators handle the ongoing management of their collection of devices. IoT operators require simple and reliable tools and applications that enable them to focus on the more strategic aspects of their jobs. This article provides:
+O gerenciamento de dispositivo do Hub IoT do Azure fornece os recursos e o modelo de extensibilidade para os dispositivos e back-ends aproveitarem o gerenciamento de dispositivos IoT para a diversidade de dispositivos e protocolos em IoT. Os dispositivos na IoT variam de sensores muito restritos, microcontroladores com finalidade única, a gateways mais poderosos que capacitam outros dispositivos e protocolos. As soluções de IoT também variam consideravelmente em domínios verticais e aplicativos com casos de uso exclusivos dos operadores em cada domínio. As soluções de IoT podem aproveitar os recursos, padrões e bibliotecas de código de gerenciamento de dispositivo do Hub IoT, para habilitar um gerenciamento de dispositivo para seu conjunto diversificado de dispositivos e usuários.
 
-- A brief overview of Azure IoT Hub approach to device management.
-- A description of common device management principles.
-- A description of the device lifecycle.
-- An overview of common device management patterns.
+## Introdução
 
-## <a name="iot-device-management-principles"></a>IoT device management principles
+Uma parte fundamental da criação de uma solução de IoT bem-sucedida é fornecer uma estratégia para os operadores lidarem com o gerenciamento contínuo de sua frota de dispositivos. Os operadores de IoT exigem ferramentas e aplicativos simples e confiáveis, e que os permitam se concentrar nos aspectos mais estratégicos de seus trabalhos. O Hub IoT do Azure fornece a você os blocos de construção para criar aplicativos de IoT que facilitam os padrões mais importantes de gerenciamento de dispositivo.
 
-IoT brings with it a unique set of device management challenges and every enterprise-class solution must address the following principles:
+Considera-se que os dispositivos estão sendo gerenciados pelo Hub IoT quando eles executam um aplicativo simples, chamado de agente de gerenciamento de dispositivo, que conecta o dispositivo com segurança à nuvem. O código do agente permite que um operador do lado do aplicativo confirme remotamente o status do dispositivo e realize operações de gerenciamento, como aplicar alterações de configuração de rede ou implantar atualizações de firmware.
 
-![Azure IoT Hub device management principles graphic][img-dm_principles]
+## Princípios de gerenciamento de dispositivo IoT
 
-- **Scale and automation**: IoT solutions require simple tools that can automate routine tasks and enable a relatively small operations staff to manage millions of devices. Day-to-day, operators expect to handle device operations remotely, in bulk, and to only be alerted when issues arise that require their direct attention.
+O IoT traz com ele um conjunto exclusivo de desafios de gerenciamento e uma solução deve considerar os seguintes princípios de gerenciamento de dispositivo IoT:
 
-- **Openness and compatibility**: The IoT device ecosystem is extraordinarily diverse. Management tools must be tailored to accommodate a multitude of device classes, platforms, and protocols. Operators must be able to support many types of devices, from the most constrained embedded single-process chips, to powerful and fully functional computers.
+![][img-dm_principles]
 
-- **Context awareness**: IoT environments are dynamic and ever-changing. Service reliability is paramount. Device management operations must factor in SLA maintenance windows, network and power states, in-use conditions, and device geolocation to ensure that maintenance downtime doesn't affect critical business operations or create dangerous conditions.
+- **Escala e automação**: o IoT exige ferramentas simples que podem automatizar tarefas de rotina e capacitar uma equipe de operações relativamente pequena a gerenciar milhões de dispositivos. Diariamente, os operadores esperam lidar com operações de dispositivo remotamente, em massa, e só receberem alertas quando surgirem problemas que exijam sua atenção direta.
 
-- **Service many roles**: Support for the unique workflows and processes of IoT operations roles is crucial. The operations staff must work harmoniously with the given constraints of internal IT departments.  They must also find sustainable ways to surface realtime device operations information to supervisors and other business managerial roles.
+- **Abertura e compatibilidade**: o ecossistema de dispositivos do IoT é incrivelmente diverso. Ferramentas de gerenciamento devem ser personalizadas a fim de acomodar vários protocolos, classes e plataformas de dispositivos. Os operadores devem ser capazes de dar suporte a todos os dispositivos, desde os chips de processo único incorporados mais restritos, até computadores eficientes e totalmente funcionais.
 
-## <a name="iot-device-lifecycle"></a>IoT device lifecycle
+- **Reconhecimento de contexto**: os ambientes de IoT são dinâmicos e estão em constante mudança. A confiabilidade do serviço é fundamental. Operações de gerenciamento de dispositivo devem considerar as janelas de manutenção do SLA, os estados de energia e de rede, as condições em uso e a localização geográfica do dispositivo para garantir que esse tempo de inatividade para a manutenção não afete operações comerciais críticas ou crie condições perigosas.
 
-There is a set of general device management stages that are common to all enterprise IoT projects. In Azure IoT, there are five stages within the IoT device lifecycle:
+- **Atende muitas funções**: o suporte aos fluxos de trabalho e processos exclusivos das funções de operações do IoT é crucial. A equipe de operações também deve trabalhar de forma harmoniosa com as restrições específicas de departamentos de TI internos, e divulgar informações relevantes sobre as operações do dispositivo para os supervisores e outras funções de gerenciamento.
 
-![The five Azure IoT device lifecycle phases: plan, provision, configure, monitor, retire][img-device_lifecycle]
+## Ciclo de vida do dispositivo IoT 
 
-Within each of these five stages, there are several device operator requirements that should be fulfilled to provide a complete solution:
+Embora os projetos de IoT sejam bastante variados, há um conjunto de padrões comuns de gerenciamento de dispositivos. No Azure IoT, esses padrões são identificados dentro do ciclo de vida do dispositivo IoT, que é composto por cinco estágios distintos:
 
-- **Plan**: Enable operators to create a device metadata scheme that enables them to easily and accurately query for, and target a group of devices for bulk management operations. You can use the device twin to store this device metadata in the form of tags and properties.
+![][img-device_lifecycle]
 
-    *Further reading*: [Get started with device twins][lnk-twins-getstarted], [Understand device twins][lnk-twins-devguide], [How to use twin properties][lnk-twin-properties]
+1. **Planejamento**: permita que os operadores criem um esquema de propriedade de dispositivo que os permita consultar de forma fácil e precisa, e selecionar um grupo de dispositivos para operações de gerenciamento em massa.
 
-- **Provision**: Securely provision new devices to IoT Hub and enable operators to immediately discover device capabilities.  Use the IoT Hub device registry to create flexible device identities and credentials, and perform this operation in bulk by using a job. Build devices to report their capabilities and conditions through device properties in the device twin.
+    *Blocos de construção relacionados*: [Introdução ao gêmeos de dispositivo][lnk-twins-getstarted], [Como usar propriedades gêmeas][lnk-twin-properties]
 
-    *Further reading*: [Manage device identities][lnk-identity-registry], [Bulk management of device identities][lnk-bulk-identity], [How to use twin properties][lnk-twin-properties]
+2. **Provisionamento**: autentique novos dispositivos com segurança no Hub IoT e permita que os operadores descubram imediatamente os recursos e o estado atual do dispositivo.
 
-- **Configure**: Facilitate bulk configuration changes and firmware updates to devices while maintaining both health and security. Perform these device management operations in bulk by using desired properties or with direct methods and broadcast jobs.
+    *Blocos de construção relacionados*: [Introdução ao Hub IoT][lnk-hub-getstarted], [Como usar propriedades gêmeas][lnk-twin-properties]
 
-    *Further reading*:  [Use direct methods][lnk-c2d-methods], [Invoke a direct method on a device][lnk-methods-devguide], [How to use twin properties][lnk-twin-properties], [Schedule and broadcast jobs][lnk-jobs], [Schedule jobs on multiple devices][lnk-jobs-devguide]
+3. **Configurar**: facilite as alterações de configuração em massa e atualizações de firmware em dispositivos enquanto mantém a integridade e a segurança.
 
-- **Monitor**: Monitor overall device collection health, the status of ongoing operations, and alert operators to issues that might require their attention.  Apply the device twin to allow devices to report realtime operating conditions and status of update operations. Build powerful dashboard reports that surface the most immediate issues by using device twin queries.
+    *Blocos de construção relacionados*: [Como usar propriedades gêmeas][lnk-twin-properties], [Métodos C2D][lnk-c2d-methods], [Trabalhos de transmissão/agendamento][lnk-jobs]
 
-    *Further reading*: [How to use twin properties][lnk-twin-properties], [Query language for twins and jobs][lnk-query-language]
+4. **Monitoramento**: monitore a integridade geral da frota de dispositivos e o status das implementações de atualização em andamento para alertar os operadores sobre problemas que possam exigir atenção.
 
-- **Retire**:  Replace or decommission devices after a failure, upgrade cycle, or at the end of the service lifetime.  Use the device twin to maintain device info if the physical device is being replaced, or archived if being retired. Use the IoT Hub device registry for securely revoking device identities and credentials.
+    *Blocos de construção relacionados*: [Como usar propriedades gêmeas][lnk-twin-properties]
 
-    *Further reading*: [How to use twin properties][lnk-twin-properties], [Manage device identities][lnk-identity-registry]
+5. **Desativação**: substitua ou encerre os dispositivos após uma falha, ciclo de atualização ou ao final da vida útil do serviço.
 
-## <a name="iot-hub-device-management-patterns"></a>IoT Hub device management patterns
+    *Blocos de construção relacionados*:
+    
+## Padrões de gerenciamento de dispositivo do Hub IoT
 
-IoT Hub enables the following set of device management patterns.  The [device management tutorials][lnk-get-started] show you in more detail how to extend these patterns to fit your exact scenario and how to design new patterns based on these core templates.
+O Hub IoT habilita o seguinte conjunto de padrões de gerenciamento de dispositivo (iniciais). Conforme exibido nos [tutoriais][lnk-get-started], você pode estender esses padrões para ajustar ao seu cenário exato e criar novos padrões para outros cenários com base nesses padrões principais.
 
-- **Reboot** - The back-end application informs the device through a direct method that it has initiated a reboot.  The device uses the device twin reported properties to update the reboot status of the device.
+1. **Reinicialização** - o aplicativo back-end informa ao dispositivo por meio de um método D2C que uma reinicialização foi iniciada. O dispositivo usa as propriedades reportadas do dispositivo gêmeo para atualizar o status de reinicialização do dispositivo.
 
-    ![Azure IoT Hub device management reboot pattern graphic][img-reboot_pattern]
+    ![][img-reboot_pattern]
 
-- **Factory Reset** - The back-end application informs the device through a direct method that it has initiated a factory reset.  The device uses the device twin reported properties to update the factory reset status of the device.
+2. **Reinicialização de fábrica** - o aplicativo back-end informa ao dispositivo por meio de um método D2C que uma reinicialização de fábrica foi iniciada. O dispositivo usa as propriedades reportadas do dispositivo gêmeo para atualizar o status de reinicialização de fábrica do dispositivo.
 
-    ![Azure IoT Hub device management factory reset pattern graphic][img-facreset_pattern]
+    ![][img-facreset_pattern]
 
-- **Configuration** - The back-end application uses the device twin desired properties to configure software running on the device.  The device uses the device twin reported properties to update configuration status of the device.
+3. **Configuração** - o aplicativo de back-end usa as propriedades do dispositivo gêmeo desejado para configurar o software em execução no dispositivo. O dispositivo usa as propriedades reportadas do dispositivo gêmeo para atualizar o status de configuração do dispositivo.
 
-    ![Azure IoT Hub device management configuration pattern graphic][img-config_pattern]
+    ![][img-config_pattern]
 
-- **Firmware Update** - The back-end application informs the device through a direct method that it has initiated a firmware update.  The device initiates a multistep process to download the firmware package, apply the firmware package, and finally reconnect to the IoT Hub service.  Throughout the mult-step process, the device uses the device twin reported properties to update the progress and status of the device.
+4. **Atualização de firmware** - o aplicativo back-end informa ao dispositivo por meio de um método D2C que uma atualização de firmeware foi iniciada. O dispositivo inicia um processo de várias etapas para baixar o pacote de firmware, aplicar o pacote de firmware e finalmente se reconectar ao serviço do Hub IoT. Durante o processo com várias etapas, o dispositivo usa as propriedades reportadas do dispositivo gêmeo para atualizar o progresso e o status do dispositivo.
 
-    ![Azure IoT Hub device management firmware update pattern graphic][img-fwupdate_pattern]
+    ![][img-fwupdate_pattern]
 
-- **Reporting progress and status** - The application back-end runs device twin queries, across a set of devices, to report on the status and progress of actions running on the devices.
+5. **Relatório de progresso e status** - O back-end do aplicativo executa consultas do dispositivo gêmeo, em um conjunto de dispositivos, para reportar o status e o progresso das ações em execução no dispositivo.
 
-    ![Azure IoT Hub device management reporting progress and status pattern graphic][img-report_progress_pattern]
+    ![][img-report_progress_pattern]
 
-## <a name="next-steps"></a>Next Steps
+## Próximas etapas
 
-You can use the capabilities, patterns, and code libraries that Azure IoT Hub device management provides, to create IoT applications that fulfill the enterprise IoT operator requirements within in each device lifecycle stage.
+Usando os blocos de construção fornecidos pelo Hub IoT do Azure, os desenvolvedores podem criar aplicativos de IoT que atendem os requisitos específicos de operador de IoT dentro em cada estágio do ciclo de vida de dispositivo.
 
-To continue learning about the Azure IoT Hub device management features, see the [Get started with Azure IoT Hub device management][lnk-get-started] tutorial.
+Para continuar a aprender sobre as funcionalidades de gerenciamento de dispositivos do Hub IoT do Azure, confira o tutorial [Introdução ao gerenciamento de dispositivos do Hub IoT do Azure][lnk-get-started].
 
 <!-- Images and links -->
 [img-dm_principles]: media/iot-hub-device-management-overview/image4.png
@@ -111,20 +109,11 @@ To continue learning about the Azure IoT Hub device management features, see the
 [img-reboot_pattern]: media/iot-hub-device-management-overview/reboot-pattern.png
 [img-report_progress_pattern]: media/iot-hub-device-management-overview/report-progress-pattern.png
 
-[lnk-twins-devguide]: iot-hub-devguide-device-twins.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-twins-getstarted]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-hub-getstarted]: iot-hub-csharp-csharp-getstarted.md
-[lnk-identity-registry]: iot-hub-devguide-identity-registry.md
-[lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
-[lnk-query-language]: iot-hub-devguide-query-language
 [lnk-c2d-methods]: iot-hub-c2d-methods.md
-[lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-schedule-jobs.md
-[lnk-jobs-devguide]: iot-hub-devguide-jobs.md
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

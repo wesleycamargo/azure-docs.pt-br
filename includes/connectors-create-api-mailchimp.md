@@ -1,20 +1,11 @@
-### <a name="prerequisites"></a>Prerequisites
-- A [MailChimp](https://www.MailChimp.com/) account 
+### Pré-requisitos
+- Uma conta do [MailChimp](https://www.MailChimp.com/) 
 
-Before you can use your MailChimp account in a Logic app, you must authorize the Logic app to connect to your MailChimp account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Antes de usar sua conta do MailChimp em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do MailChimp. Felizmente, você pode fazer isso facilmente a partir de seu aplicativo lógico no Portal do Azure.
 
-Here are the steps to authorize your Logic app to connect to your MailChimp account:
+Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do MailChimp:
 
-1. To create a connection to MailChimp, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *MailChimp* in the search box. Select the trigger or action you'll like to use:  
-  ![MailChimp step 1](./media/connectors-create-api-mailchimp/mailchimp-1.png)
-2. If you haven't created any connections to MailChimp before, you'll get prompted to provide your MailChimp credentials. These credentials will be used to authorize your Logic app to connect to, and access your MailChimp account's data:  
-  ![MailChimp step 2](./media/connectors-create-api-mailchimp/mailchimp-2.png)
-3. Provide your MailChimp user name and password to authorize your Logic app:  
-  ![MailChimp step 3](./media/connectors-create-api-mailchimp/mailchimp-3.png)   
-4. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-  ![MailChimp step 4](./media/connectors-create-api-mailchimp/mailchimp-4.png)
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+1. Para criar uma conexão com o MailChimp, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa, em seguida, digite *MailChimp* na caixa de pesquisa. Selecione o gatilho ou ação que gostaria de usar: ![Etapa 1 do MailChimp](./media/connectors-create-api-mailchimp/mailchimp-1.png)
+2. Se você não tiver criado quaisquer conexões MailChimp antes, será solicitado a fornecer suas credenciais do MailChimp. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta do MailChimp e usá-los: ![Etapa 2 do MailChimp](./media/connectors-create-api-mailchimp/mailchimp-2.png)
+3. Forneça seu nome de usuário do MailChimp e a senha para autorizar seu aplicativo lógico: ![Etapa 3 do MailChimp](./media/connectors-create-api-mailchimp/mailchimp-3.png)   
+4. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico: ![Etapa 4 do MailChimp](./media/connectors-create-api-mailchimp/mailchimp-4.png)

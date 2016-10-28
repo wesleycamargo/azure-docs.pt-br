@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Deploy multi NIC VMs using the Azure CLI in Resource Manager | Microsoft Azure"
-   description="Learn how to deploy multi NIC VMs using the Azure CLI in Resource Manager"
+   pageTitle="Implantar VMs com várias NICs usando a CLI do Azure no Gerenciador de Recursos | Microsoft Azure"
+   description="Saiba como implantar VMs com várias NICs usando a CLI do Azure no Gerenciador de Recursos"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,8 +17,7 @@
    ms.date="02/02/2016"
    ms.author="jdial" />
 
-
-#<a name="deploy-multi-nic-vms-using-the-azure-cli"></a>Deploy multi NIC VMs using the Azure CLI
+#Implantar VMs de várias NICs usando a CLI do Azure
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
 
@@ -28,311 +27,307 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Currently, you cannot have VMs with a single NIC and VMs with multiple NICs in the same resource group. Therefore, you need to implement the back end servers in a different resource group than all other components. The steps below use a resource group named *IaaSStory* for the main resource group, and *IaaSStory-BackEnd* for the back end servers.
+No momento, você não pode ter VMs com uma única NIC e VMs com várias NICs no mesmo grupo de recursos. Portanto, você precisa implementar servidores back-end em um grupo de recursos diferente de todos os outros componentes. As etapas a seguir usam um grupo de recursos chamado *IaaSStory* para o grupo de recursos principal e *IaaSStory-BackEnd* para os servidores de back-end.
 
-## <a name="prerequisites"></a>Prerequisites
+## Pré-requisitos
 
-Before you can deploy the back end servers, you need to deploy the main resource group with all the necessary resources for this scenario. To deploy these resources, follow the steps below.
+Antes de implantar os servidor de back-end, você deve implantar o grupo de recursos principal com todos os recursos necessários para este cenário. Para implantar esses recursos, faça o seguinte:
 
-1. Navigate to [the template page](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
-2. In the template page, to the right of **Parent resource group**, click **Deploy to Azure**.
-3. If needed, change the parameter values, then follow the steps in the Azure preview portal to deploy the resource group.
+1. Navegue até [a página do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
+2. Na página do modelo, à direita do **Grupo de recursos pai**, clique em **Implantar no Azure**.
+3. Caso necessário, altere os valores de parâmetro e siga as etapas no Portal de visualização do Azure para implantar o grupo de recursos.
 
-> [AZURE.IMPORTANT] Make sure your storage account names are unique. You cannot have duplicate storage account names in Azure.
+> [AZURE.IMPORTANT] Verifique se os nomes da conta de armazenamento são exclusivos. Você não pode ter nomes de conta de armazenamento duplicados no Azure.
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## <a name="deploy-the-back-end-vms"></a>Deploy the back end VMs
+## Implantar VMs de back-end
 
-The backend VMs depend on the creation of the resources listed below.
+As VMs de back-end dependem da criação dos recursos descritos abaixo.
 
-- **Storage account for data disks**. For better performance, the data disks on the database servers will use solid state drive (SSD) technology, which requires a premium storage account. Make sure the Azure location you deploy to support premium storage.
-- **NICs**. Each VM will have two NICs, one for database access, and one for management.
-- **Availability set**. All database servers will be added to a single availability set, to ensure at least one of the VMs is up and running during maintenance.
+- **Conta de armazenamento para discos de dados**. Para obter um melhor desempenho, os discos de dados dos servidores de banco de dados usam a tecnologia SDD (unidade de estado sólido), que requer uma conta de Armazenamento Premium. Verifique se o local do Azure no qual você vai implantar é compatível com o Armazenamento Premium.
+- **NICs**. Cada VM tem duas NICs, uma para acesso ao banco de dados e outra para gerenciamento.
+- **Conjunto de disponibilidade**. Todos os servidores de banco de dados são adicionados a um conjunto de disponibilidade único, para garantir que pelo menos uma das VMs está ativa e em execução durante a manutenção.
 
-### <a name="step-1---start-your-script"></a>Step 1 - Start your script
+### Etapa 1 – Iniciar o script
 
-You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-cli.sh). Follow the steps below to change the script to work in your environment.
+Você pode baixar o script bash completo usado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-cli.sh). Realize os procedimentos abaixo para alterar o script para funcionar em seu ambiente.
 
-1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
+1. Altere os valores das variáveis a seguir com base no grupo de recursos existente implantado acima, no tópico [Pré-requisitos](#Prerequisites).
 
-        existingRGName="IaaSStory"
-        location="westus"
-        vnetName="WTestVNet"
-        backendSubnetName="BackEnd"
-        remoteAccessNSGName="NSG-RemoteAccess"
+		existingRGName="IaaSStory"
+		location="westus"
+		vnetName="WTestVNet"
+		backendSubnetName="BackEnd"
+		remoteAccessNSGName="NSG-RemoteAccess"
 
-2. Change the values of the variables below based on the values you want to use for your backend deployment.
+2. Altere os valores das variáveis a seguir de acordo com os valores que deseja usar na implantação do back-end.
 
-        backendRGName="IaaSStory-Backend"
-        prmStorageAccountName="wtestvnetstorageprm"
-        avSetName="ASDB"
-        vmSize="Standard_DS3"
-        diskSize=127
-        publisher="Canonical"
-        offer="UbuntuServer"
-        sku="14.04.2-LTS"
-        version="latest"
-        vmNamePrefix="DB"
-        osDiskName="osdiskdb"
-        dataDiskName="datadisk"
-        nicNamePrefix="NICDB"
-        ipAddressPrefix="192.168.2."
-        username='adminuser'
-        password='adminP@ssw0rd'
-        numberOfVMs=2
+		backendRGName="IaaSStory-Backend"
+		prmStorageAccountName="wtestvnetstorageprm"
+		avSetName="ASDB"
+		vmSize="Standard_DS3"
+		diskSize=127
+		publisher="Canonical"
+		offer="UbuntuServer"
+		sku="14.04.2-LTS"
+		version="latest"
+		vmNamePrefix="DB"
+		osDiskName="osdiskdb"
+		dataDiskName="datadisk"
+		nicNamePrefix="NICDB"
+		ipAddressPrefix="192.168.2."
+		username='adminuser'
+		password='adminP@ssw0rd'
+		numberOfVMs=2
 
-3. Retrieve the ID for the `BackEnd` subnet where the VMs will be created. You need to do this since the NICs to be associated to this subnet are in a different resource group.
+3. Recuperar a ID para a sub-rede `BackEnd` onde as VMs serão criadas. Você precisa fazer isso, pois as NICs a serem associadas a esta sub-rede estão em um grupo de recursos diferente.
 
-        subnetId="$(azure network vnet subnet show --resource-group $existingRGName \
-                        --vnet-name $vnetName \
-                        --name $backendSubnetName|grep Id)"
-        subnetId=${subnetId#*/}
+		subnetId="$(azure network vnet subnet show --resource-group $existingRGName \
+		                --vnet-name $vnetName \
+		                --name $backendSubnetName|grep Id)"
+		subnetId=${subnetId#*/}
 
-    >[AZURE.TIP] The first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal).
+	>[AZURE.TIP] O primeiro comando acima usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipulação de cadeia de caracteres](http://tldp.org/LDP/abs/html/string-manipulation.html) (mais especificamente, a remoção de subcadeia de caracteres).
 
-4. Retrieve the ID for the `NSG-RemoteAccess` NSG. You need to do this since the NICs to be associated to this NSG are in a different resource group.
+4. Recuperar a ID para o NSG `NSG-RemoteAccess`. Você precisa fazer isso, pois as NICs a serem associadas a este NSG estão em um grupo de recursos diferente.
 
-        nsgId="$(azure network nsg show --resource-group $existingRGName \
-                        --name $remoteAccessNSGName|grep Id)"
-        nsgId=${nsgId#*/}
+		nsgId="$(azure network nsg show --resource-group $existingRGName \
+		                --name $remoteAccessNSGName|grep Id)"
+		nsgId=${nsgId#*/}
 
-### <a name="step-2---create-necessary-resources-for-your-vms"></a>Step 2 - Create necessary resources for your VMs
+### Etapa 2 – Criar recursos necessários para as VMs
 
-1. Create a new resource group for all backend resources. Notice the use of the `$backendRGName` variable for the resource group name, and `$location` for the Azure region.
+1. Crie um novo grupo de recursos para todos os recursos de back-end. Observe o uso da variável `$backendRGName` para o nome do grupo de recursos e `$location` para a região do Azure.
 
-        azure group create $backendRGName $location
+		azure group create $backendRGName $location
 
-2. Create a premium storage account for the OS and data disks to be used by yours VMs.
+2. Crie uma conta de armazenamento Premium para o sistema operacional e discos de dados a ser usada por suas VMs.
 
-        azure storage account create $prmStorageAccountName \
-            --resource-group $backendRGName \
-            --location $location \
-            --type PLRS
+		azure storage account create $prmStorageAccountName \
+		    --resource-group $backendRGName \
+		    --location $location \
+			--type PLRS
 
-3. Create an availability set for the VMs.
+3. Criar um conjunto de disponibilidade para as VMs.
 
-        azure availset create --resource-group $backendRGName \
-            --location $location \
-            --name $avSetName
+		azure availset create --resource-group $backendRGName \
+		    --location $location \
+		    --name $avSetName
 
-### <a name="step-3---create-the-nics-and-backend-vms"></a>Step 3 - Create the NICs and backend VMs
+### Etapa 3 - criar as NICs e as VMs de back-end
 
-1. Start a loop to create multiple VMs, based on the `numberOfVMs` variables.
+1. Inicie um loop para criar várias VMs, com base em variáveis `numberOfVMs`.
 
-        for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
-        do
+		for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
+		do
 
-2. For each VM, create a NIC for database access.
+2. Para cada VM, crie uma NIC para acesso ao banco de dados.
 
-            nic1Name=$nicNamePrefix$suffixNumber-DA
-            x=$((suffixNumber+3))
-            ipAddress1=$ipAddressPrefix$x
-            azure network nic create --name $nic1Name \
-                --resource-group $backendRGName \
-                --location $location \
-                --private-ip-address $ipAddress1 \
-                --subnet-id $subnetId
+		    nic1Name=$nicNamePrefix$suffixNumber-DA
+		    x=$((suffixNumber+3))
+		    ipAddress1=$ipAddressPrefix$x
+		    azure network nic create --name $nic1Name \
+		        --resource-group $backendRGName \
+		        --location $location \
+		        --private-ip-address $ipAddress1 \
+		        --subnet-id $subnetId
 
-3. For each VM, create a NIC for remote access. Notice the `--network-security-group` parameter, used to associate the NIC to an NSG.
+3. Para cada VM, crie uma NIC para acesso remoto. Observe que o parâmetro `--network-security-group`, usado para associar a NIC a um NSG.
 
-            nic2Name=$nicNamePrefix$suffixNumber-RA
-            x=$((suffixNumber+53))
-            ipAddress2=$ipAddressPrefix$x
-            azure network nic create --name $nic2Name \
-                --resource-group $backendRGName \
-                --location $location \
-                --private-ip-address $ipAddress2 \
-                --subnet-id $subnetId $vnetName \
-                --network-security-group-id $nsgId
+		    nic2Name=$nicNamePrefix$suffixNumber-RA
+		    x=$((suffixNumber+53))
+		    ipAddress2=$ipAddressPrefix$x
+		    azure network nic create --name $nic2Name \
+		        --resource-group $backendRGName \
+		        --location $location \
+		        --private-ip-address $ipAddress2 \
+		        --subnet-id $subnetId $vnetName \
+		        --network-security-group-id $nsgId
 
-4. Create the VM.
+4. Crie a VM.
 
-            azure vm create --resource-group $backendRGName \
-                --name $vmNamePrefix$suffixNumber \
-                --location $location \
-                --vm-size $vmSize \
-                --subnet-id $subnetId \
-                --availset-name $avSetName \
-                --nic-names $nic1Name,$nic2Name \
-                --os-type linux \
-                --image-urn $publisher:$offer:$sku:$version \
-                --storage-account-name $prmStorageAccountName \
-                --storage-account-container-name vhds \
-                --os-disk-vhd $osDiskName$suffixNumber.vhd \
-                --admin-username $username \
-                --admin-password $password
+		    azure vm create --resource-group $backendRGName \
+		        --name $vmNamePrefix$suffixNumber \
+		        --location $location \
+		        --vm-size $vmSize \
+		        --subnet-id $subnetId \
+		        --availset-name $avSetName \
+		        --nic-names $nic1Name,$nic2Name \
+		        --os-type linux \
+		        --image-urn $publisher:$offer:$sku:$version \
+		        --storage-account-name $prmStorageAccountName \
+		        --storage-account-container-name vhds \
+		        --os-disk-vhd $osDiskName$suffixNumber.vhd \
+		        --admin-username $username \
+		        --admin-password $password
 
-5. For each VM, create two data disks, and end the loop with the `done` command.
+5. Para cada VM, criar dois discos de dados e encerre o loop com o comando `done`.
 
-            azure vm disk attach-new --resource-group $backendRGName \
-                --vm-name $vmNamePrefix$suffixNumber \        
-                --storage-account-name $prmStorageAccountName \
-                --storage-account-container-name vhds \
-                --vhd-name $dataDiskName$suffixNumber-1.vhd \
-                --size-in-gb $diskSize \
-                --lun 0
+		    azure vm disk attach-new --resource-group $backendRGName \
+		        --vm-name $vmNamePrefix$suffixNumber \        
+		        --storage-account-name $prmStorageAccountName \
+		        --storage-account-container-name vhds \
+		        --vhd-name $dataDiskName$suffixNumber-1.vhd \
+		        --size-in-gb $diskSize \
+		        --lun 0
 
-            azure vm disk attach-new --resource-group $backendRGName \
-                --vm-name $vmNamePrefix$suffixNumber \        
-                --storage-account-name $prmStorageAccountName \
-                --storage-account-container-name vhds \
-                --vhd-name $dataDiskName$suffixNumber-2.vhd \
-                --size-in-gb $diskSize \
-                --lun 1
-        done
-
-
-### <a name="step-4---run-the-script"></a>Step 4 - Run the script
-
-Now that you downloaded and changed the script based on your needs, run the script to create the back end database VMs with multiple NICs.
-
-1. Save your script and run it from your **Bash** terminal. You will see the initial output, as shown below.
-
-        info:    Executing command group create
-        info:    Getting resource group IaaSStory-Backend
-        info:    Creating resource group IaaSStory-Backend
-        info:    Created resource group IaaSStory-Backend
-        data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
-        data:    Name:                IaaSStory-Backend
-        data:    Location:            westus
-        data:    Provisioning State:  Succeeded
-        data:    Tags: null
-        data:
-        info:    group create command OK
-        info:    Executing command storage account create
-        info:    Creating storage account
-        info:    storage account create command OK
-        info:    Executing command availset create
-        info:    Looking up the availability set "ASDB"
-        info:    Creating availability set "ASDB"
-        info:    availset create command OK
-        info:    Executing command network nic create
-        info:    Looking up the network interface "NICDB1-DA"
-        info:    Creating network interface "NICDB1-DA"
-        info:    Looking up the network interface "NICDB1-DA"
-        data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-DA
-        data:    Name                            : NICDB1-DA
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : westus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 192.168.2.4
-        data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
-        data:
-        info:    network nic create command OK
-        info:    Executing command network nic create
-        info:    Looking up the network interface "NICDB1-RA"
-        info:    Creating network interface "NICDB1-RA"
-        info:    Looking up the network interface "NICDB1-RA"
-        data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-RA
-        data:    Name                            : NICDB1-RA
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : westus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    Network security group          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/networkSecurityGroups/NSG-RemoteAccess
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 192.168.2.54
-        data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
-        data:
-        info:    network nic create command OK
-        info:    Executing command vm create
-        info:    Looking up the VM "DB1"
-        info:    Using the VM Size "Standard_DS3"
-        info:    The [OS, Data] Disk or image configuration requires storage account
-        info:    Looking up the storage account wtestvnetstorageprm
-        info:    Looking up the availability set "ASDB"
-        info:    Found an Availability set "ASDB"
-        info:    Looking up the NIC "NICDB1-DA"
-        info:    Looking up the NIC "NICDB1-RA"
-        info:    Creating VM "DB1"
-
-2. After a few minutes, the execution will end and you will see the rest of the output as shown below.
-
-        info:    vm create command OK
-        info:    Executing command vm disk attach-new
-        info:    Looking up the VM "DB1"
-        info:    Looking up the storage account wtestvnetstorageprm
-        info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk1-1.vhd
-        info:    Updating VM "DB1"
-        info:    vm disk attach-new command OK
-        info:    Executing command vm disk attach-new
-        info:    Looking up the VM "DB1"
-        info:    Looking up the storage account wtestvnetstorageprm
-        info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk1-2.vhd
-        info:    Updating VM "DB1"
-        info:    vm disk attach-new command OK
-        info:    Executing command network nic create
-        info:    Looking up the network interface "NICDB2-DA"
-        info:    Creating network interface "NICDB2-DA"
-        info:    Looking up the network interface "NICDB2-DA"
-        data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-DA
-        data:    Name                            : NICDB2-DA
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : westus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 192.168.2.5
-        data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
-        data:
-        info:    network nic create command OK
-        info:    Executing command network nic create
-        info:    Looking up the network interface "NICDB2-RA"
-        info:    Creating network interface "NICDB2-RA"
-        info:    Looking up the network interface "NICDB2-RA"
-        data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-RA
-        data:    Name                            : NICDB2-RA
-        data:    Type                            : Microsoft.Network/networkInterfaces
-        data:    Location                        : westus
-        data:    Provisioning state              : Succeeded
-        data:    Enable IP forwarding            : false
-        data:    Network security group          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/networkSecurityGroups/NSG-RemoteAccess
-        data:    IP configurations:
-        data:      Name                          : NIC-config
-        data:      Provisioning state            : Succeeded
-        data:      Private IP address            : 192.168.2.55
-        data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
-        data:
-        info:    network nic create command OK
-        info:    Executing command vm create
-        info:    Looking up the VM "DB2"
-        info:    Using the VM Size "Standard_DS3"
-        info:    The [OS, Data] Disk or image configuration requires storage account
-        info:    Looking up the storage account wtestvnetstorageprm
-        info:    Looking up the availability set "ASDB"
-        info:    Found an Availability set "ASDB"
-        info:    Looking up the NIC "NICDB2-DA"
-        info:    Looking up the NIC "NICDB2-RA"
-        info:    Creating VM "DB2"
-        info:    vm create command OK
-        info:    Executing command vm disk attach-new
-        info:    Looking up the VM "DB2"
-        info:    Looking up the storage account wtestvnetstorageprm
-        info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk2-1.vhd
-        info:    Updating VM "DB2"
-        info:    vm disk attach-new command OK
-        info:    Executing command vm disk attach-new
-        info:    Looking up the VM "DB2"
-        info:    Looking up the storage account wtestvnetstorageprm
-        info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk2-2.vhd
-        info:    Updating VM "DB2"
-        info:    vm disk attach-new command OK
+		    azure vm disk attach-new --resource-group $backendRGName \
+		        --vm-name $vmNamePrefix$suffixNumber \        
+		        --storage-account-name $prmStorageAccountName \
+		        --storage-account-container-name vhds \
+		        --vhd-name $dataDiskName$suffixNumber-2.vhd \
+		        --size-in-gb $diskSize \
+		        --lun 1
+		done
 
 
+### Etapa 4 – Executar o script
 
-<!--HONumber=Oct16_HO2-->
+Agora que você baixou e alterou o script de acordo com suas necessidades, execute o script para criar VMs do banco de dados de back-end com várias NICs.
 
+1. Salve seu script e execute-o em seu terminal **Bash**. A saída inicial será exibida, conforme mostrado abaixo:
 
+		info:    Executing command group create
+		info:    Getting resource group IaaSStory-Backend
+		info:    Creating resource group IaaSStory-Backend
+		info:    Created resource group IaaSStory-Backend
+		data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
+		data:    Name:                IaaSStory-Backend
+		data:    Location:            westus
+		data:    Provisioning State:  Succeeded
+		data:    Tags: null
+		data:
+		info:    group create command OK
+		info:    Executing command storage account create
+		info:    Creating storage account
+		info:    storage account create command OK
+		info:    Executing command availset create
+		info:    Looking up the availability set "ASDB"
+		info:    Creating availability set "ASDB"
+		info:    availset create command OK
+		info:    Executing command network nic create
+		info:    Looking up the network interface "NICDB1-DA"
+		info:    Creating network interface "NICDB1-DA"
+		info:    Looking up the network interface "NICDB1-DA"
+		data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-DA
+		data:    Name                            : NICDB1-DA
+		data:    Type                            : Microsoft.Network/networkInterfaces
+		data:    Location                        : westus
+		data:    Provisioning state              : Succeeded
+		data:    Enable IP forwarding            : false
+		data:    IP configurations:
+		data:      Name                          : NIC-config
+		data:      Provisioning state            : Succeeded
+		data:      Private IP address            : 192.168.2.4
+		data:      Private IP Allocation Method  : Static
+		data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
+		data:
+		info:    network nic create command OK
+		info:    Executing command network nic create
+		info:    Looking up the network interface "NICDB1-RA"
+		info:    Creating network interface "NICDB1-RA"
+		info:    Looking up the network interface "NICDB1-RA"
+		data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-RA
+		data:    Name                            : NICDB1-RA
+		data:    Type                            : Microsoft.Network/networkInterfaces
+		data:    Location                        : westus
+		data:    Provisioning state              : Succeeded
+		data:    Enable IP forwarding            : false
+		data:    Network security group          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/networkSecurityGroups/NSG-RemoteAccess
+		data:    IP configurations:
+		data:      Name                          : NIC-config
+		data:      Provisioning state            : Succeeded
+		data:      Private IP address            : 192.168.2.54
+		data:      Private IP Allocation Method  : Static
+		data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
+		data:
+		info:    network nic create command OK
+		info:    Executing command vm create
+		info:    Looking up the VM "DB1"
+		info:    Using the VM Size "Standard_DS3"
+		info:    The [OS, Data] Disk or image configuration requires storage account
+		info:    Looking up the storage account wtestvnetstorageprm
+		info:    Looking up the availability set "ASDB"
+		info:    Found an Availability set "ASDB"
+		info:    Looking up the NIC "NICDB1-DA"
+		info:    Looking up the NIC "NICDB1-RA"
+		info:    Creating VM "DB1"
+
+2. Depois de alguns minutos, a execução será encerrada e você verá o restante da saída conforme mostrado abaixo.
+
+		info:    vm create command OK
+		info:    Executing command vm disk attach-new
+		info:    Looking up the VM "DB1"
+		info:    Looking up the storage account wtestvnetstorageprm
+		info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk1-1.vhd
+		info:    Updating VM "DB1"
+		info:    vm disk attach-new command OK
+		info:    Executing command vm disk attach-new
+		info:    Looking up the VM "DB1"
+		info:    Looking up the storage account wtestvnetstorageprm
+		info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk1-2.vhd
+		info:    Updating VM "DB1"
+		info:    vm disk attach-new command OK
+		info:    Executing command network nic create
+		info:    Looking up the network interface "NICDB2-DA"
+		info:    Creating network interface "NICDB2-DA"
+		info:    Looking up the network interface "NICDB2-DA"
+		data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-DA
+		data:    Name                            : NICDB2-DA
+		data:    Type                            : Microsoft.Network/networkInterfaces
+		data:    Location                        : westus
+		data:    Provisioning state              : Succeeded
+		data:    Enable IP forwarding            : false
+		data:    IP configurations:
+		data:      Name                          : NIC-config
+		data:      Provisioning state            : Succeeded
+		data:      Private IP address            : 192.168.2.5
+		data:      Private IP Allocation Method  : Static
+		data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
+		data:
+		info:    network nic create command OK
+		info:    Executing command network nic create
+		info:    Looking up the network interface "NICDB2-RA"
+		info:    Creating network interface "NICDB2-RA"
+		info:    Looking up the network interface "NICDB2-RA"
+		data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-RA
+		data:    Name                            : NICDB2-RA
+		data:    Type                            : Microsoft.Network/networkInterfaces
+		data:    Location                        : westus
+		data:    Provisioning state              : Succeeded
+		data:    Enable IP forwarding            : false
+		data:    Network security group          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/networkSecurityGroups/NSG-RemoteAccess
+		data:    IP configurations:
+		data:      Name                          : NIC-config
+		data:      Provisioning state            : Succeeded
+		data:      Private IP address            : 192.168.2.55
+		data:      Private IP Allocation Method  : Static
+		data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
+		data:
+		info:    network nic create command OK
+		info:    Executing command vm create
+		info:    Looking up the VM "DB2"
+		info:    Using the VM Size "Standard_DS3"
+		info:    The [OS, Data] Disk or image configuration requires storage account
+		info:    Looking up the storage account wtestvnetstorageprm
+		info:    Looking up the availability set "ASDB"
+		info:    Found an Availability set "ASDB"
+		info:    Looking up the NIC "NICDB2-DA"
+		info:    Looking up the NIC "NICDB2-RA"
+		info:    Creating VM "DB2"
+		info:    vm create command OK
+		info:    Executing command vm disk attach-new
+		info:    Looking up the VM "DB2"
+		info:    Looking up the storage account wtestvnetstorageprm
+		info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk2-1.vhd
+		info:    Updating VM "DB2"
+		info:    vm disk attach-new command OK
+		info:    Executing command vm disk attach-new
+		info:    Looking up the VM "DB2"
+		info:    Looking up the storage account wtestvnetstorageprm
+		info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk2-2.vhd
+		info:    Updating VM "DB2"
+		info:    vm disk attach-new command OK
+
+<!---HONumber=AcomDC_0824_2016-->

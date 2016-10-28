@@ -1,6 +1,6 @@
 <properties
-   pageTitle="How to upgrade projects to the current version of the Azure tools | Microsoft Azure"
-   description="Learn how to upgrade an Azure project in Visual Studio to the current version of the Azure tools"
+   pageTitle="Como atualizar projetos para a versão atual das ferramentas do Azure | Microsoft Azure"
+   description="Aprenda como atualizar um projeto do Azure no Visual Studio para a versão atual das ferramentas do Azure"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,45 +15,40 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Como atualizar projetos para a versão atual das ferramentas do Azure para Visual Studio
 
-# <a name="how-to-upgrade-projects-to-the-current-version-of-the-azure-tools-for-visual-studio"></a>How to upgrade projects to the current version of the Azure Tools for Visual Studio
+## Visão geral
 
-## <a name="overview"></a>Overview
+Depois de instalar a versão atual das Ferramentas do Azure (ou uma versão anterior mais recente que a 1.6), todos os projetos criados usando as Ferramentas do Azure de versão anterior à 1.6 (novembro de 2011) serão atualizados automaticamente assim que você abri-los. Se você criou projetos usando a versão 1.6 (novembro de 2011) dessas ferramentas e você ainda tiver a versão instalada, pode abrir esses projetos na versão anterior e posteriormente decidir se deseja atualizá-los.
 
-After you install the current release of the Azure Tools (or a previous release that's newer than 1.6), any projects that were created by using a Azure Tools release before 1.6 (November 2011) will be automatically upgraded as soon as you open them. If you created projects by using the 1.6 (November 2011) release of those tools and you still have that release installed, you can open those projects in the older release and decide later whether to upgrade them.
+## Como o projeto muda quando você o atualiza
 
-## <a name="how-your-project-changes-when-you-upgrade-it"></a>How your project changes when you upgrade it
+Se um projeto é atualizado automaticamente ou se você especificar que deseja atualizá-lo, o projeto será modificado para funcionar com as versões atuais de determinados assemblies e algumas propriedades também são alteradas conforme descrito nesta seção. Se seu projeto exigir outras alterações para ser compatível com a versão mais recente das ferramentas, você deve fazer essas alterações manualmente.
 
-If a project is automatically upgraded or you specify that you want to upgrade it, your project is modified to work with current versions of certain assemblies, and some properties are also changed as this section describes. If your project requires other changes to be compatible with the newer version of the tools, you must make those changes manually.
+- O arquivo Web.config para funções web e o arquivo app.config para funções de trabalho são atualizados para fazer referência à versão mais recente do Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitoirTraceListener.dll.
 
-- The web.config file for web roles and the app.config file for worker roles are updated to reference the newer version of Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitoirTraceListener.dll.
+- Os assemblies Microsoft.WindowsAzure.StorageClient.dll, Microsoft.WindowsAzure.Diagnostics.dll e Microsoft.WindowsAzure.ServiceRuntime.dll são atualizados para novas versões.
 
-- The Microsoft.WindowsAzure.StorageClient.dll, Microsoft.WindowsAzure.Diagnostics.dll, and Microsoft.WindowsAzure.ServiceRuntime.dll assemblies are upgraded to the new versions.
+- Perfis de publicação que foram armazenados no arquivo de projeto do Azure (.ccproj) são movidos para um arquivo separado, com a extensão .azurePubXml, no subdiretório **Publicar** .
 
-- Publish profiles that were stored in the Azure project file (.ccproj) are moved to a separate file, with the extension .azurePubXml, in the **Publish** subdirectory.
+- Algumas propriedades no perfil de publicação são atualizadas para dar suporte a recursos novos e alterados. **AllowUpgrade** é substituído por **DeploymentReplacementMethod** porque você pode atualizar um serviço de nuvem implantado simultaneamente ou gradativamente.
 
-- Some properties in the publish profile are updated to support new and changed features. **AllowUpgrade** is replaced by **DeploymentReplacementMethod** because you can update a deployed cloud service simultaneously or incrementally.
+- A propriedade **UseIISExpressByDefault** é adicionada e definida como false para que o servidor Web usado para depurar não seja alterado automaticamente de Serviços de Informações da Internet (IIS) para IIS Express. O IIS Express é o servidor Web padrão para projetos que são criados com as versões mais recentes das ferramentas.
 
-- The property **UseIISExpressByDefault** is added and set to false so that the web server that’s used for debugging won’t automatically change from Internet Information Services (IIS) to IIS Express. IIS Express is the default web server for projects that are created with the newer releases of the tools.
+- Se o Caching do Azure está hospedado em uma ou mais funções de seu projeto, algumas propriedades na configuração de serviço (arquivo .csdef) e a definição de serviço (arquivo .cscfg) são alteradas quando um projeto é atualizado. Se o projeto usa o pacote NuGet de Caching do Azure, o projeto é atualizado para a versão mais recente do pacote. Você deve abrir o arquivo web.config e verificar se a configuração do cliente foi mantida corretamente durante o processo de atualização. Se você adicionar as referências aos assemblies de cliente de Caching do Azure sem usar o pacote NuGet, esses assemblies não serão atualizados. Você deve atualizar manualmente essas referências às novas versões.
 
-- If Azure Caching is hosted in one or more of your project’s roles, some properties in the service configuration (.cscfg file) and service definition (.csdef file) are changed when a project is upgraded. If the project uses the Azure Caching NuGet package, the project is upgraded to the most recent version of the package. You should open the web.config file and verify that the client configuration was maintained properly during the upgrade process. If you added the references to Azure Caching client assemblies without using the NuGet package, these assemblies won't be updated; you must manually update these references to the new versions.
+>[AZURE.IMPORTANT] Para projetos F #, você deve atualizar manualmente as referências aos assemblies do Azure para que eles façam referência às versões mais recentes desses assemblies.
 
->[AZURE.IMPORTANT] For F# projects, you must manually update references to Azure assemblies so that they reference the newer versions of those assemblies.
+### Como atualizar um projeto do Azure para a versão atual
 
-### <a name="how-to-upgrade-an-azure-project-to-the-current-release"></a>How to upgrade an Azure project to the current release
+1. Instale a versão atual das ferramentas do Azure na instalação do Visual Studio que você deseja usar para o projeto atualizado e, em seguida, abra o projeto que você deseja atualizar. Se o projeto foi criado com ferramentas do Azure versão anterior à 1.6 (novembro de 2011), o projeto é atualizado automaticamente para a versão atual. Se o projeto foi criado com a versão de novembro de 2011 e essa versão ainda estiver instalada, o projeto será aberto nessa versão.
 
-1. Install the current version of the Azure Tools into the installation of Visual Studio that you want to use for the upgraded project, and then open the project that you want to upgrade. If the project was created with a Azure Tools release before 1.6 (November 2011), the project is automatically upgraded to the current version. If the project was created with the November 2011 release and that release is still installed, the project opens in that release.
+1. No Gerenciador de Soluções, abra o menu de atalho para o nó do projeto, escolha **Propriedades**, e, em seguida, escolha a guia **Aplicativo** na caixa de diálogo que aparece.
 
-1. In Solution Explorer, open the shortcut menu for the project node, choose **Properties**, and then choose the **Application** tab of the dialog box that appears.
+    A guia **Aplicativo** exibe a versão das ferramentas que está associada com o projeto. Se for exibida a versão atual das ferramentas do Azure, o projeto já foi atualizado. Se você instalou uma versão mais recente das ferramentas do que aquela mostrada pela guia, um botão **Atualizar** é exibido.
 
-    The **Application** tab shows the tools version that’s associated with the project. If the current version of Azure Tools appears, the project has already been upgraded. If you've installed a newer version of the tools than what the tab shows, an **Upgrade** button appears.
+1. Escolha o botão **Atualizar** para atualizar um projeto para a versão atual das ferramentas.
 
-1. Choose the **Upgrade** button to upgrade a project to the current version of the tools.
+1. Compile o projeto e resolva os erros resultantes das alterações de API. Para obter informações sobre como modificar seu código para a nova versão, consulte a documentação da API específica.
 
-1. Build the project, and then address any errors that result from API changes. For information about how to modify your code for the new version, see the documentation for the specific API.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

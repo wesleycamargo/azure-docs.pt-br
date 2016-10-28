@@ -1,75 +1,74 @@
 <properties 
-    pageTitle="Copy an Azure SQL database using PowerShell | Microsoft Azure" 
-    description="Create copy of an Azure SQL database using PowerShell" 
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+    pageTitle="Copiar um banco de dados SQL do Azure usando o PowerShell | Microsoft Azure" 
+    description="Criar cópia de um Banco de Dados SQL do Azure usando o PowerShell" 
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.date="09/08/2016"
-    ms.author="sstein"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"/>
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.date="09/08/2016"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"/>
 
 
-
-# <a name="copy-an-azure-sql-database-using-powershell"></a>Copy an Azure SQL database using PowerShell
+# Copiar um banco de dados SQL do Azure usando o PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Overview](sql-database-copy.md)
-- [Azure portal](sql-database-copy-portal.md)
+- [Visão geral](sql-database-copy.md)
+- [Portal do Azure](sql-database-copy-portal.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
-This article shows how to copy a SQL database with PowerShell to the same server, to a different server, or copy a database into an [elastic database pool](sql-database-elastic-pool.md). The database copy operation uses the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/mt603644.aspx) cmdlet. 
+Este artigo mostra como copiar um banco de dados SQL com o PowerShell para o mesmo servidor ou um servidor diferente ou copiar um banco de dados para um [pool de banco de dados elástico](sql-database-elastic-pool.md). A operação de cópia do banco de dados usa o cmdlet [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/mt603644.aspx).
 
 
-To complete this article, you need the following:
+Para concluir este artigo, você precisa do seguinte:
 
-- An Azure SQL database (a database to copy). If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
-- The latest version of Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-
-
-Many new features of SQL Database are only supported when you are using the [Azure Resource Manager deployment model](../resource-group-overview.md), so examples use the [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx) for Resource Manager. The existing classic deployment model [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx) are supported for backward compatibility, but we recommend you use the Resource Manager cmdlets.
+- Um banco de dados SQL do Azure (um banco de dados para cópia). Se você não tiver um banco de dados SQL, crie um executando as etapas neste artigo: [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
+- Versão mais recente do Azure PowerShell. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
 
->[AZURE.NOTE] Depending on the size of your database, the copy operation may take some time to complete.
+Muitos recursos novos do Banco de Dados SQL só terão suporte quando você estiver usando o [modelo de implantação do Azure Resource Manager](../resource-group-overview.md), portanto, os exemplos usam os [cmdlets do PowerShell do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) para o Resource Manager. Os cmdlets do Banco de Dados SQL do Azure (clássico) do [modelo de implantação clássico existente](https://msdn.microsoft.com/library/azure/dn546723.aspx) têm suporte para a compatibilidade com versões anteriores, mas é recomendável usar os cmdlets do Resource Manager.
 
 
-## <a name="copy-a-sql-database-to-the-same-server"></a>Copy a SQL database to the same server
+>[AZURE.NOTE] Dependendo do tamanho do banco de dados, a operação de cópia poderá demorar a ser concluída.
 
-To create the copy on the same server, omit the `-CopyServerName` parameter (or set it to the same server).
+
+## Copiar um banco de dados SQL para o mesmo servidor
+
+Para criar a cópia no mesmo servidor, omita o parâmetro `-CopyServerName` (ou defina-o para o mesmo servidor).
 
     New-AzureRmSqlDatabaseCopy -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -CopyDatabaseName "database1_copy"
 
-## <a name="copy-a-sql-database-to-a-different-server"></a>Copy a SQL database to a different server
+## Copiar um banco de dados SQL para um servidor diferente
 
-To create the copy on a different server, include the `-CopyServerName` parameter and set it to a different server. The *copy* server must already exist. If it is in a different resource group, then you must also include the `-CopyResourceGroupName` parameter.
+Para criar a cópia em um servidor diferente, inclua o parâmetro `-CopyServerName` e defina-o para um servidor diferente. O servidor de *cópia* já deve existir. Se ele estiver em um grupo de recursos diferente, você também deverá incluir o parâmetro `-CopyResourceGroupName`.
 
     New-AzureRmSqlDatabaseCopy -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -CopyServerName "server2" -CopyDatabaseName "database1_copy"
 
 
-## <a name="copy-a-sql-database-into-an-elastic-database-pool"></a>Copy a SQL database into an elastic database pool
+## Copiar um banco de dados SQL para um pool de banco de dados elástico
 
-To create a copy of a SQL database in a pool, set the `-ElasticPoolName` parameter to an existing pool.
+Para criar uma cópia de um banco de dados SQL em um pool, defina o parâmetro `-ElasticPoolName` para um pool existente.
 
     New-AzureRmSqlDatabaseCopy -ResourceGroupName "resourcegoup1" -ServerName "server1" -DatabaseName "database1" -CopyResourceGroupName "poolResourceGroup" -CopyServerName "poolServer1" -CopyDatabaseName "database1_copy" -ElasticPoolName "poolName"
 
 
-## <a name="resolve-logins"></a>Resolve logins
+## Resolver logons
 
-To resolve logins after the copy operation completes, see [Resolve logins](sql-database-copy-transact-sql.md#resolve-logins-after-the-copy-operation-completes)
+Para resolver logons após a conclusão da operação de cópia, confira [Resolver logons](sql-database-copy-transact-sql.md#resolve-logins-after-the-copy-operation-completes)
 
 
-## <a name="example-powershell-script"></a>Example PowerShell script
+## Exemplo de script do PowerShell
 
-The following script assumes all resource groups, servers, and the pool already exist (replace the variable values with your existing resources). Everything must exist, except for the database copy.
+O script a seguir pressupõe que todos os grupos de recursos, os servidores e o pool já existam (substitua os valores de variáveis por seus recursos existentes). Tudo deve existir, exceto a cópia do banco de dados.
 
     # Sign in to Azure and set the subscription to work with
     # ------------------------------------------------------
@@ -108,27 +107,23 @@ The following script assumes all resource groups, servers, and the pool already 
 
     
 
-## <a name="next-steps"></a>Next steps
+## Próximas etapas
 
-- See [Copy an Azure SQL database](sql-database-copy.md) for an overview of copying an Azure SQL Database.
-- See [Copy an Azure SQL database using the Azure portal](sql-database-copy-portal.md) to copy a database using the Azure portal.
-- See [Copy an Azure SQL database using T-SQL](sql-database-copy-transact-sql.md) to copy a database using Transact-SQL.
-- See [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md) to learn about managing users and logins when copying a database to a different logical server.
+- Confira [Copiar um Banco de Dados SQL do Azure](sql-database-copy.md) para ter uma visão geral de como copiar um Banco de Dados SQL do Azure.
+- Confira [Copiar um banco de dados SQL do Azure usando o Portal do Azure](sql-database-copy-portal.md) para copiar um banco de dados usando o Portal do Azure.
+- Confira [Copiar um banco de dados SQL do Azure usando o Transact-SQL](sql-database-copy-transact-sql.md) para copiar um banco de dados usando o Transact-SQL.
+- Confira [Como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md) para saber mais sobre como gerenciar logons e usuários ao copiar um banco de dados para um servidor lógico diferente.
 
 
-## <a name="additional-resources"></a>Additional resources
+## Recursos adicionais
 
 - [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt603644.aspx)
 - [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/mt603687.aspx)
-- [Manage logins](sql-database-manage-logins.md)
-- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
-- [Export the database to a BACPAC](sql-database-export.md)
-- [Business Continuity Overview](sql-database-business-continuity.md)
-- [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
-- [Azure SQL Database PowerShell Cmdlet Reference](https://msdn.microsoft.com/library/mt574084.aspx)
+- [Gerenciar logons](sql-database-manage-logins.md)
+- [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
+- [Exportar o banco de dados para um BACPAC](sql-database-export.md)
+- [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
+- [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Referência de cmdlet do PowerShell de Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/mt574084.aspx)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

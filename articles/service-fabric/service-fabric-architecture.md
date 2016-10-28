@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric architecture | Microsoft Azure"
-   description="Service Fabric is a distributed systems platform used to build scalable, reliable, and easily-managed applications for the cloud. This article shows the architecture of Service Fabric."
+   pageTitle="Arquitetura do Service Fabric | Microsoft Azure"
+   description="A Malha do Serviço é uma plataforma de sistemas distribuídos usada para criar aplicativos escalonáveis, confiáveis e facilmente gerenciados para a nuvem. Este artigo mostra a arquitetura da malha de serviço."
    services="service-fabric"
    documentationCenter=".net"
    authors="rishirsinha"
@@ -16,54 +16,49 @@
    ms.date="06/09/2016"
    ms.author="rsinha"/>
 
+# Arquitetura do Service Fabric
 
-# <a name="service-fabric-architecture"></a>Service Fabric architecture
+O Service Fabric é criado com subsistemas em camadas. Esses subsistemas permitem escrever aplicativos:
 
-Service Fabric is built with layered subsystems. These subsystems enable you to write applications that are:
+* Altamente disponível
+* Escalonável
+* Gerenciáveis
+* Testável
 
-* Highly available
-* Scalable
-* Manageable
-* Testable
+A figura a seguir mostra os subsistemas principais do Service Fabric.
 
-The following diagram shows the major subsystems of Service Fabric.
+![Diagrama da arquitetura do Service Fabric](media/service-fabric-architecture/service-fabric-architecture.png)
 
-![Diagram of Service Fabric architecture](media/service-fabric-architecture/service-fabric-architecture.png)
+Em um sistema distribuído, a capacidade de estabelecer uma comunicação segura entre os nós em um cluster é crucial. Na base da pilha está o subsistema de transporte, que fornece comunicação segura entre os nós. Acima do subsistema de transporte, encontra-se o subsistema de federação, que agrupa os diferentes nós em uma única entidade (clusters nomeados) para que o Service Fabric possa detectar falhas, executar eleição de líder e permitir o roteamento de forma consistente. O subsistema de confiabilidade, na camada mais alta do subsistema de federação, é responsável pela confiabilidade dos serviços do Service Fabric por meio de mecanismos como replicação, gerenciamento de recursos e failover. O subsistema de federação também serve como base para o subsistema de hospedagem e de ativação, que gerencia o ciclo de vida de um aplicativo em um único nó. O subsistema de gerenciamento gerencia o ciclo de vida de aplicativos e de serviços. O subsistema de capacidade de teste ajuda os desenvolvedores de aplicativos a testar seus serviços por meio de falhas simuladas antes e depois da implantação de aplicativos e de serviços em ambientes de produção. O Service Fabric oferece a capacidade de resolver locais de serviço por meio de seu subsistema de comunicação. Os modelos de programação de aplicativo apresentados aos desenvolvedores estão em camadas sobre esses subsistemas, junto com o modelo de aplicativo para habilitar as ferramentas.
 
-In a distributed system, the ability to securely communicate between nodes in a cluster is crucial. At the base of the stack is the transport subsystem, which provides secure communication between nodes. Above the transport subsystem lies the federation subsystem, which clusters the different nodes into a single entity (named clusters) so that Service Fabric can detect failures, perform leader election, and provide consistent routing. The reliability subsystem, layered on top of the federation subsystem, is responsible for the reliability of Service Fabric services through mechanisms such as replication, resource management, and failover. The federation subsystem also underlies the hosting and activation subsystem, which manages the lifecycle of an application on a single node. The management subsystem manages the lifecycle of applications and services. The testability subsystem helps application developers test their services through simulated faults before and after deploying applications and services to production environments. Service Fabric provides the ability to resolve service locations through its communication subsystem. The application programming models exposed to developers are layered on top of these subsystems along with the application model to enable tooling.
+## Subsistema de transporte
+O subsistema de transporte implementa um canal de comunicação de datagrama ponto a ponto. Esse canal é usado para a comunicação dentro de clusters do Service Fabric e para a comunicação entre clientes e o cluster do Service Fabric. Ele dá suporte a padrão de comunicação unidirecional e de solicitação-resposta, que oferece a base para a implementação de difusão e de multicast na camada de Federação. O subsistema de transporte protege a comunicação usando certificados X509 ou segurança do Windows. Esse subsistema é usado internamente pelo Service Fabric e não pode ser acessado diretamente pelos desenvolvedores para a programação de aplicativo.
 
-## <a name="transport-subsystem"></a>Transport subsystem
-The transport subsystem implements a point-to-point datagram communication channel. This channel is used for communication within service fabric clusters and communication between the service fabric cluster and clients. It supports one-way and request-reply communication patterns, which provides the basis for implementing broadcast and multicast in the Federation layer. The transport subsystem secures communication by using X509 certificates or Windows security. This subsystem is used internally by Service Fabric and is not directly accessible to developers for application programming.
+## Subsistema de federação
+Para justificar um conjunto de nós em um sistema distribuído, você precisa ter uma visão consistente do sistema. O subsistema de federação usa os primitivos da comunicação fornecidos pelo subsistema de transporte e junta vários nós em um único cluster unificado que ele pode justificar. Ele fornece os primitivos de sistemas distribuídos necessários para outros subsistemas - detecção de falhas, eleição de líder e roteamento consistente. O subsistema de federação é criado sobre tabelas de hash distribuídas com um espaço de token de 128 bits. O subsistema cria uma topologia de anel sobre os nós, com cada nó no anel sendo alocado a um subconjunto do espaço de token para a propriedade. Para detecção de falha, a camada usa um mecanismo de concessão baseado em heartbeat e arbitragem. O subsistema de federação também garante através de uma junção complexa e protocolos de saída que somente um único proprietário de um token exista a qualquer momento. Isso oferece garantias de eleição de líder e de roteamento consistente.
 
-## <a name="federation-subsystem"></a>Federation subsystem
-In order to reason about a set of nodes in a distributed system, you need to have a consistent view of the system. The federation subsystem uses the communication primitives provided by the transport subsystem and stitches the various nodes into a single unified cluster that it can reason about. It provides the distributed systems primitives needed by the other subsystems - failure detection, leader election, and consistent routing. The federation subsystem is built on top of distributed hash tables with a 128-bit token space. The subsystem creates a ring topology over the nodes, with each node in the ring being allocated a subset of the token space for ownership. For failure detection, the layer uses a leasing mechanism based on heart beating and arbitration. The federation subsystem also guarantees through intricate join and departure protocols that only a single owner of a token exists at any time. This provide leader election and consistent routing guarantees.
+## Subsistema de confiabilidade
+O subsistema de confiabilidade fornece o mecanismo para manter o estado de um serviço do Service Fabric altamente disponível por meio do uso do _Replicator_, do _Gerenciador de Failover_ e do _Balanceador de Recurso_.
 
-## <a name="reliability-subsystem"></a>Reliability subsystem
-The reliability subsystem provides the mechanism to make the state of a Service Fabric service highly available through the use of the _Replicator_, _Failover Manager_, and _Resource Balancer_.
+* O Replicador garante que as alterações de estado da réplica principal serviço automaticamente serão replicadas para réplicas secundárias, mantendo a consistência entre as réplicas primárias e secundárias em um conjunto de réplicas do serviço. O replicador é responsável pelo gerenciamento de quorum entre as réplicas no conjunto de réplicas. Ele interage com a unidade de failover para obter a lista de operações a replicar, e o agente de reconfiguração fornece-a com a configuração do conjunto de réplicas. Essa configuração indica em quais réplicas as operações devem ser replicadas. O Service Fabric fornece um replicador padrão chamado Fabric Replicator, que pode ser usado pela API de modelo de programação para tornar o estado do serviço altamente disponível e confiável.
+* O Gerenciador de Failover garante que quando os nós forem adicionados ou removidos do cluster, a carga será automaticamente redistribuída entre os nós disponíveis. Se um nó do cluster falhar, o cluster automaticamente reconfigurará as réplicas de serviço para manter a disponibilidade.
+* O Gerenciador de Recursos coloca o domínio de falha entre réplicas de serviço no cluster e garante que todas as unidades de failover estejam operacionais. O Gerenciador de Recursos também faz o balanceamento de recursos de serviço no pool compartilhado subjacente de nós de cluster para atingir a distribuição de carga uniforme ideal.
 
-* The Replicator ensures that state changes in the primary service replica will automatically be replicated to secondary replicas, maintaining consistency between the primary and secondary replicas in a service replica set. The replicator is responsible for quorum management among the replicas in the replica set. It interacts with the failover unit to get the list of operations to replicate, and the reconfiguration agent provides it with the configuration of the replica set. That configuration indicates which replicas the operations need to be replicated. Service Fabric provides a default replicator called Fabric Replicator, which can be used by the programming model API to make the service state highly available and reliable.
-* The Failover Manager ensures that when nodes are added to or removed from the cluster, the load is automatically redistributed across the available nodes. If a node in the cluster fails, the cluster will automatically reconfigure the service replicas to maintain availability.
-* The Resource Manager places service replicas across failure domain in the cluster and ensures that all failover units are operational. The Resource Manager also balances service resources across the underlying shared pool of cluster nodes to achieve optimal uniform load distribution.
+## Subsistema de gerenciamento
+O subsistema de gerenciamento oferece serviços de ponta a ponta e gerenciamento de ciclo de vida do aplicativo. Os cmdlets do PowerShell e as APIs administrativas permitem provisionar, implantar, corrigir, atualizar e desprovisionar aplicativos sem perda de disponibilidade. O subsistema de gerenciamento faz isso por meio dos serviços a seguir.
 
-## <a name="management-subsystem"></a>Management subsystem
-The management subsystem provides end-to-end service and application lifecycle management. PowerShell cmdlets and administrative APIs enable you to provision, deploy, patch, upgrade, and de-provision applications without loss of availability. The management subsystem performs this through the following services.
-
-* **Cluster Manager**: This is the primary service that interacts with the Failover Manager from reliability to place the applications on the nodes based on the service placement constraints. The Resource Manager in failover subsystem ensures that the constraints are never broken. The cluster manager manages the lifecycle of the applications from provision to de-provision. It integrates with the health manager to ensure that application availability is not lost from a semantic health perspective during upgrades.
-* **Health Manager**: This service enables health monitoring of applications, services, and cluster entities. Cluster entities (such as nodes, service partitions, and replicas) can report health information, which is then aggregated into the centralized health store. This health information provides an overall point-in-time health snapshot of the services and nodes distributed across multiple nodes in the cluster, enabling you to take any needed corrective actions. Health query APIs enable you to query the health events reported to the health subsystem. The health query APIs return the raw health data stored in the health store or the aggregated, interpreted health data for a specific cluster entity.
-* **Image Store**: This service provides storage and distribution of the application binaries. This service provides a simple distributed file store where the applications are uploaded to and downloaded from.
-
-
-## <a name="hosting-subsystem"></a>Hosting subsystem
-The cluster manager informs the hosting subsystem (running on each node) which services it needs to manage for a particular node. The hosting subsystem then manages the lifecycle of the application on that node. It interacts with the reliability and health components to ensure that the replicas are properly placed and are healthy.
-
-## <a name="communication-subsystem"></a>Communication subsystem
-This subsystem provides reliable messaging within the cluster and service discovery through the Naming service. The Naming service resolves service names to a location in the cluster and enables users to manage service names and properties. Using the Naming service, clients can securely communicate with any node in the cluster to resolve a service name and retrieve service metadata. Using a simple Naming client API, users of Service Fabric can develop services and clients capable of resolving the current network location despite node dynamism or the re-sizing of the cluster.
-
-## <a name="testability-subsystem"></a>Testability subsystem
-Testability is a suite of tools specifically designed for testing services built on Service Fabric. The tools let a developer easily induce meaningful faults and run test scenarios to exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled and safe manner. Testability also provides a mechanism to run longer tests that can iterate through various possible failures without losing availability. This provides you with a test-in-production environment.
+* **Gerenciador de Cluster**: esse é o principal serviço que interage com o Gerenciador de Failover de confiabilidade para posicionar os aplicativos nos nós com base nas restrições de posicionamento de serviço. O Gerenciador de Recursos no subsistema de failover faz com que as restrições nunca sejam desfeitas. O gerenciador de cluster gerencia o ciclo de vida dos aplicativos de provisionamento para desprovisionamento. Ele se integra ao gerenciador de integridade para garantir que a disponibilidade de aplicativos não seja perdida de uma perspectiva de semântica de integridade durante as atualizações.
+* **Gerenciador de Integridade**: esse serviço permite o monitoramento de integridade de aplicativos, serviços e entidades de cluster. As entidades de cluster (como os nós, as partições de serviço e as réplicas) podem relatar informações de integridade, que são então agregadas a um repositório centralizado de integridade. Essas informações de integridade fornecem um instantâneo da integridade geral de um ponto no tempo dos serviços e nós distribuídas em vários nós no cluster, permitindo que você tome as ações corretivas necessárias. As APIs de consulta de integridade permitem consultar os eventos de integridade relatados ao subsistema de integridade. As APIs de consulta de integridade retornam os dados brutos de integridade armazenados no repositório de integridade ou os dados de integridade agregados e interpretados de uma entidade de cluster específica.
+* **Repositório de Imagens**: esse serviço permite o armazenamento e a distribuição dos binários do aplicativo. O serviço fornece armazenamento de arquivos distribuídos simples, onde os aplicativos são carregados e de onde são baixados.
 
 
+## Subsistema de hospedagem
+O gerenciador de cluster informa o subsistema de hospedagem (em execução em cada nó), os serviços que precisa para gerenciar um nó específico. O subsistema de hospedagem, em seguida, gerencia o ciclo de vida do aplicativo nesse nó. Ele interage com os componentes de confiabilidade e integridade para garantir que as réplicas estão posicionadas corretamente e estão íntegras.
 
-<!--HONumber=Oct16_HO2-->
+## Subsistema de comunicação
+Esse subsistema fornece um sistema de mensagens confiável dentro do cluster e descoberta de serviço por meio do serviço de nomenclatura. O serviço de nomenclatura resolve nomes de serviço para um local no cluster e permite aos usuários gerenciar propriedades e nomes de serviço. Usando o serviço de nomenclatura, os clientes podem comunicar-se com segurança com qualquer nó no cluster para resolver um nome de serviço e recuperar metadados de serviço. Usando uma API de cliente de nomenclatura simples de nomenclatura, os usuários do Service Fabric podem desenvolver serviços e clientes capazes de resolver o local de rede atual, independentemente do dinamismo do nó ou do redimensionamento do cluster.
 
+## Subsistema de capacidade de teste
+Capacidade de teste é um conjunto de ferramentas desenvolvidas especificamente para testar serviços criados com base na malha de serviço. As ferramentas permitem que um desenvolvedor induza com facilidade falhas significativas e execute cenários de teste para praticar e validar os vários estados e transições pelos quais o serviço passa durante o ciclo de vida, tudo de uma maneira segura e controlada. A capacidade de teste também fornece um mecanismo para executar testes mais longos que podem iterar por várias possíveis falhas sem perder a disponibilidade. Isso fornece a você um ambiente de teste em produção.
 
+<!---HONumber=AcomDC_0629_2016-->
