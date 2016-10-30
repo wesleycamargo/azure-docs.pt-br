@@ -14,14 +14,15 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/04/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
-# Sincronização do Azure AD Connect: agendador
-Este tópico descreve o agendador interno na Sincronização do Azure AD Connect (também conhecido como mecanismo de sincronização).
+
+# <a name="azure-ad-connect-sync:-scheduler"></a>Sincronização do Azure AD Connect: agendador
+Este tópico descreve o agendador interno na sincronização do Azure AD Connect (também conhecido como mecanismo de sincronização).
 
 Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
 
-## Visão geral
+## <a name="overview"></a>Visão geral
 A sincronização do Azure AD Connect sincronizará mudanças ocorridas em seu diretório local usando um agendador. Há dois processos de agendador, um para sincronização de senha e outro para sincronização de atributo/objeto, e tarefas de manutenção. Este tópico abordará as tarefas.
 
 Em versões anteriores, o agendador de objetos e atributos ficava fora do mecanismo de sincronização e o agendador de tarefas do Windows ou um serviço separado do Windows era usado para disparar o processo de sincronização. O agendador faz parte dos recursos internos nas versões 1.1 do mecanismo de sincronização e permite alguma personalização. A frequência de sincronização do novo padrão é de 30 minutos.
@@ -33,7 +34,7 @@ O agendador é responsável por duas tarefas:
 
 O agendador em si está sempre em execução, mas ele pode ser configurado para executar apenas uma ou nenhuma dessas tarefas. Por exemplo, se você precisar ter seu próprio processo de ciclo de sincronização, poderá desabilitar essa tarefa no agendador, mas ainda executar a tarefa de manutenção.
 
-## Configuração do agendador
+## <a name="scheduler-configuration"></a>Configuração do agendador
 Para ver as configurações atuais, acesse o PowerShell e execute `Get-ADSyncScheduler`. Ele mostrará algo assim:
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
@@ -60,25 +61,30 @@ Você pode alterar algumas dessas configurações com `Set-ADSyncScheduler`. Os 
 
 A configuração do agendador é armazenada no Azure AD. Se tiver um servidor de preparo, qualquer alteração no servidor primário também afetará o servidor de preparo (com exceção de IsStagingModeEnabled).
 
-### CustomizedSyncCycleInterval
-Sintaxe: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss` d - dias, HH - horas, mm - minutos, ss - segundos
+### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
+Sintaxe: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
+ d - dias, HH - horas, mm - minutos, ss - segundos
 
-Exemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00` alterará o Agendador para executar a cada três horas.
+Exemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
+ alterará o Agendador para executar a cada três horas.
 
-Exemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0` alterará o Agendador para executar diariamente.
+Exemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
+ alterará o Agendador para executar diariamente.
 
-## Iniciar o agendador
+## <a name="start-the-scheduler"></a>Iniciar o agendador
 Por padrão, o agendador será executado a cada 30 minutos. Em alguns casos, é bom executar um ciclo de sincronização entre os ciclos agendados ou terá que executar um tipo diferente.
 
-**Ciclo de sincronização delta** Um ciclo de sincronização delta inclui as seguintes etapas:
+**Ciclo de sincronização delta**  
+ Um ciclo de sincronização delta inclui as seguintes etapas:
 
 - Importação delta em todos os conectores
 - Sincronização delta em todos os conectores
 - Exportação em todos os conectores
 
-É possível que você tenha uma alteração urgente que deva ser sincronizada imediatamente e precise executar um ciclo manualmente. Se precisar executar um ciclo manualmente, execute `Start-ADSyncSyncCycle -PolicyType Delta` no PowerShell.
+É possível que você tenha uma alteração urgente que deva ser sincronizada imediatamente e precise executar um ciclo manualmente. Se precisar executar um ciclo manualmente, execute `Start-ADSyncSyncCycle -PolicyType Delta`no PowerShell.
 
-**Ciclo de sincronização completo** Caso tenha feito uma das alterações de configuração a seguir, será necessário executar um ciclo de sincronização completo (também conhecido como Inicial):
+**Ciclo de sincronização completo**  
+Caso tenha feito uma das alterações de configuração a seguir, será necessário executar um ciclo de sincronização completo (também conhecido como Inicial):
 
 - Adicionou mais objetos ou atributos para serem importados de um diretório de origem
 - Realizou alterações nas regras de sincronização
@@ -92,25 +98,25 @@ Se você tiver realizado uma dessas alterações, precisará executar um ciclo d
 
 Para iniciar um ciclo de sincronização completo, execute `Start-ADSyncSyncCycle -PolicyType Initial` em um prompt do PowerShell. Isso iniciará um ciclo completo de sincronização.
 
-## Parar o agendador
+## <a name="stop-the-scheduler"></a>Parar o agendador
 Se o agendador estiver executando um ciclo de sincronização, talvez seja necessário interrompê-lo. Por exemplo, se você iniciar o assistente de instalação e receber este erro:
 
 ![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)
 
 Se um ciclo de sincronização estiver em execução, você não poderá alterar a configuração. Você pode aguardar até que o agendador conclua o processo ou pode interrompê-lo para realizar suas alterações logo em seguida. Parar o ciclo atual não é prejudicial e as alterações ainda não processadas serão processadas na próxima execução.
 
-1. Comece informando o agendador para interromper o ciclo atual com o cmdlet `Stop-ADSyncSyncCycle` do PowerShell.
+1. Comece informando o agendador para interromper o ciclo atual com o cmdlet `Stop-ADSyncSyncCycle`do PowerShell.
 2. Parar o agendador não interromperá a tarefa atual do conector atual. Para forçar a interrupção do Conector, execute as seguintes ações: ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
     - Inicie o **Serviço de Sincronização** no menu Iniciar. Vá para **Conectores**, realce o Conector com o estado **Executando** e selecione **Parar** em Ações.
 
 O agendador ainda está ativo e será iniciado novamente na próxima oportunidade.
 
-## Agendador personalizado
-Os cmdlets documentados nesta seção só estão disponíveis no build [1\.1.130.0](active-directory-aadconnect-version-history.md#111300) e posteriores.
+## <a name="custom-scheduler"></a>Agendador personalizado
+Os cmdlets documentados nesta seção só estão disponíveis no build [1.1.130.0](active-directory-aadconnect-version-history.md#111300) e posteriores.
 
 Se o agendador interno não atender às suas necessidades, você poderá fazer o agendamento dos Conectores usando o PowerShell.
 
-### Invoke-ADSyncRunProfile
+### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
 Você pode iniciar um perfil para um Conector desta forma:
 
 ```
@@ -119,7 +125,7 @@ Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name
 
 Os nomes a serem usados como [Nomes de conector](active-directory-aadconnectsync-service-manager-ui-connectors.md) e [Nomes de Perfil de Execução](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) podem ser encontrados na [Interface do Usuário do Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
 
-![Invocar perfil de execução](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)
+![Invocar perfil de execução](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)  
 
 O cmdlet `Invoke-ADSyncRunProfile` é síncrono, ou seja, ele não retornará o controle até que o Conector tenha concluído a operação, seja com êxito ou com erro.
 
@@ -134,21 +140,26 @@ Quando você agendar seus Conectores, a recomendação é agendá-los na seguint
 
 Se você examinar o agendador interno, esta será a ordem em que os Conectores serão executados.
 
-### Get-ADSyncConnectorRunStatus
+### <a name="get-adsyncconnectorrunstatus"></a>Get-ADSyncConnectorRunStatus
 Você também pode monitorar o mecanismo de sincronização para ver se ele está ocupado ou ocioso. Esse cmdlet retornará um resultado vazio se o mecanismo de sincronização estiver ocioso e não estiver executando um Conector. Se um Conector estiver em execução, ele retornará o nome do Conector.
 
 ```
 Get-ADSyncConnectorRunStatus
 ```
 
-![Status de execução do conector](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png) Na imagem acima, a primeira linha é de um estado em que o mecanismo de sincronização está ocioso. A segunda linha é de quando o Conector do Azure AD está em execução.
+![Status de execução do conector](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png)  
+ Na imagem acima, a primeira linha é de um estado em que o mecanismo de sincronização está ocioso. A segunda linha é de quando o Conector do Azure AD está em execução.
 
-## Agendador e o assistente de instalação
+## <a name="scheduler-and-installation-wizard"></a>Agendador e o assistente de instalação
 Se você iniciar o assistente de instalação, o agendador será temporariamente suspenso. Isso ocorre porque pressupõe-se que você fará alterações na configuração e elas não podem ser aplicadas se o mecanismo de sincronização estiver ativamente em execução. Por esse motivo, não deixe o assistente de instalação aberto, já que ele impedirá que o mecanismo de sincronização execute ações de sincronização.
 
-## Próximas etapas
-Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+## <a name="next-steps"></a>Próximas etapas
+Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

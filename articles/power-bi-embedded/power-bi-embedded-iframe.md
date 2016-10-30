@@ -1,10 +1,10 @@
 <properties
    pageTitle="Como usar o Power BI Embedded com REST | Microsoft Azure"
-   description="Saiba como usar o Power BI Embedded com o REST "
+   description="Saiba como usar o Power BI Embedded com o REST  "
    services="power-bi-embedded"
    documentationCenter=""
-   authors="mgblythe"
-   manager="NA"
+   authors="guyinacube"
+   manager="erikre"
    editor=""
    tags=""/>
 <tags
@@ -13,29 +13,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="08/02/2016"
-   ms.author="mblythe"/>
-
-# Como usar o Power BI Embedded com REST
+   ms.date="10/04/2016"
+   ms.author="asaxton"/>
 
 
-## Power BI Embedded: o que é e para que serve
+# <a name="how-to-use-power-bi-embedded-with-rest"></a>Como usar o Power BI Embedded com REST
+
+
+## <a name="power-bi-embedded:-what-it-is-and-what-it's-for"></a>Power BI Embedded: o que é e para que serve
 Uma visão geral do Power BI Embedded é descrita no [site oficial do Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/), mas vamos dar uma rápida olhada antes de adentrarmos nos detalhes sobre como usá-lo com o REST.
 
 Ele é realmente bem simples. Muitas vezes, um ISV quer usar as visualizações dinâmicas de dados do [Power BI](https://powerbi.microsoft.com) em seu próprio aplicativo como blocos de construção da interface de usuário.
 
 Mas, você sabe, inserir relatórios ou blocos do Power BI em sua página da Web já é possível sem o serviço do Azure Power BI Embedded, usando a **API do Power BI**. Quando quiser compartilhar relatórios na mesma organização, você pode inserir os relatórios com a autenticação do Azure AD. O usuário que exibe os relatórios deve fazer logon usando sua própria conta do Azure AD. Quando quiser compartilhar relatórios com todos os usuários (incluindo os externos), você pode simplesmente inseri-los com acesso anônimo.
 
-Porém, como você pode ver, essa simples solução de inserção não atende totalmente às necessidades de um aplicativo ISV. A maioria dos aplicativos ISV precisa distribuir os dados para seus próprios clientes, não necessariamente usuários em sua própria organização. Por exemplo, se você estiver distribuindo algum serviço para a empresa A e a empresa B, os usuários na empresa A deverão ver apenas os dados de sua própria empresa. Isto é, a multilocação é necessária para a distribuição.
+Porém, como você pode ver, essa simples solução de inserção não atende totalmente às necessidades de um aplicativo ISV.
+A maioria dos aplicativos ISV precisa distribuir os dados para seus próprios clientes, não necessariamente usuários em sua própria organização. Por exemplo, se você estiver distribuindo algum serviço para a empresa A e a empresa B, os usuários na empresa A deverão ver apenas os dados de sua própria empresa. Isto é, a multilocação é necessária para a distribuição.
 
 O aplicativo ISV também pode oferecer seus próprios métodos de autenticação, como autenticação de formulário, autenticação básica, etc. Assim, a solução de inserção deve colaborar com esses métodos existentes de autenticação de modo seguro. Também é necessário para os usuários poder usar esses aplicativos ISV sem a compra extra ou o licenciamento de uma assinatura do Power BI.
 
- O **Power BI Embedded** foi desenvolvido precisamente para esses tipo de cenário ISV. Agora que fizemos essa rápida introdução, vamos entrar nos detalhes
+ **Power BI Embedded** foi desenvolvido precisamente para esses tipo de cenário ISV. Agora que fizemos essa rápida introdução, vamos entrar nos detalhes
 
-Você pode usar o SDK para .NET (C#) ou Node.js a fim de criar seu aplicativo facilmente com o Power BI Embedded. Mas, neste artigo, explicaremos sobre o fluxo do HTTP (incluindo AuthN) do Power BI sem SDKs. Entendendo esse fluxo, você pode criar seu aplicativo **com qualquer linguagem de programação**, além de poder entender profundamente a essência do Power BI Embedded.
+Você pode usar o SDK para .NET \(C#) ou Node.js a fim de criar seu aplicativo facilmente com o Power BI Embedded. Mas, neste artigo, explicaremos sobre o fluxo do HTTP \(incluindo AuthN) do Power BI sem SDKs. Entendendo esse fluxo, você pode criar seu aplicativo **com qualquer linguagem de programação**, além de poder entender profundamente a essência do Power BI Embedded.
 
-## Criar a coleção de espaços de trabalho do Power BI e obter tecla de acesso (provisionamento)
-O Power BI Embedded é um dos serviços do Azure. Apenas o ISV que usa o Portal do Azure é cobrado pelo uso (sessão de usuário por hora). O usuário que exibe o relatório não é cobrado, e nem mesmo uma assinatura do Azure é exigida. Antes de iniciar o desenvolvimento do nosso aplicativo, devemos criar a **coleção de espaços de trabalho do Power BI** usando o Portal do Azure.
+## <a name="create-power-bi-workspace-collection,-and-get-access-key-\(provisioning)"></a>Criar a coleção de espaços de trabalho do Power BI e obter tecla de acesso \(provisionamento)
+O Power BI Embedded é um dos serviços do Azure. Apenas o ISV que usa o Portal do Azure é cobrado pelo uso \(sessão de usuário por hora). O usuário que exibe o relatório não é cobrado, e nem mesmo uma assinatura do Azure é exigida.
+Antes de iniciar o desenvolvimento do nosso aplicativo, devemos criar a **coleção de espaços de trabalho do Power BI** usando o Portal do Azure.
 
 Cada espaço de trabalho do Power BI Embedded é o espaço de trabalho de cada cliente (locatário), e podemos adicionar muitos espaços de trabalho em cada coleção de espaços de trabalho. A mesma tecla de acesso é usada em cada coleção de espaços de trabalho. Em vigor, a coleção de espaços de trabalho é o limite de segurança do Power BI Embedded.
 
@@ -45,16 +48,19 @@ Quando concluirmos a criação da coleção de espaços de trabalho, copie a tec
 
 ![](media\power-bi-embedded-iframe\copy-access-key.png)
 
-> [AZURE.NOTE] Também podemos provisionar a coleção de espaços de trabalho e obter a tecla de acesso por meio da API REST. Para saber mais, confira [Power BI Resource Provider APIs](https://msdn.microsoft.com/library/azure/mt712306.aspx) (APIs do provedor de recursos do Power BI).
+> [AZURE.NOTE] Também podemos provisionar a coleção de espaços de trabalho e obter a tecla de acesso por meio da API REST. Para saber mais, confira [Power BI Resource Provider APIs](https://msdn.microsoft.com/library/azure/mt712306.aspx)(APIs do provedor de recursos do Power BI).
 
-## Criar o arquivo .pbix com o Power BI Desktop
-Em seguida, devemos criar a conexão de dados e os relatórios a serem inseridos. Para essa tarefa, não há programação nem código. Vamos usar apenas o Power BI Desktop. Neste artigo, não entraremos em detalhes sobre como usar o Power BI Desktop. Se precisar de ajuda aqui, confira [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/). Em nosso exemplo, usaremos apenas o [Exemplo de Análise de Varejo](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/).
+## <a name="create-.pbix-file-with-power-bi-desktop"></a>Criar o arquivo .pbix com o Power BI Desktop
+Em seguida, devemos criar a conexão de dados e os relatórios a serem inseridos.
+Para essa tarefa, não há programação nem código. Vamos usar apenas o Power BI Desktop.
+Neste artigo, não entraremos em detalhes sobre como usar o Power BI Desktop. Se precisar de ajuda aqui, confira [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/). Em nosso exemplo, usaremos apenas o [Exemplo de Análise de Varejo](https://powerbi.microsoft.com/documentation/powerbi-sample-datasets/).
 
 ![](media\power-bi-embedded-iframe\power-bi-desktop-1.png)
 
-## Criar um espaço de trabalho do Power BI
+## <a name="create-a-power-bi-workspace"></a>Criar um espaço de trabalho do Power BI
 
-Agora que o provisionamento foi feito, vamos começar a criar o espaço de trabalho de um cliente na coleção de espaços de trabalho por meio das APIs REST. A seguinte Solicitação HTTP POST (REST) está criando o novo espaço de trabalho em nossa coleção de espaços de trabalho existente. Em nosso exemplo, o nome da coleção de espaços de trabalho é **mypbiapp**. Definimos apenas a tecla de acesso, que copiamos anteriormente, como **AppKey**. A autenticação é muito simples!
+Agora que o provisionamento foi feito, vamos começar a criar o espaço de trabalho de um cliente na coleção de espaços de trabalho por meio das APIs REST. A seguinte Solicitação HTTP POST (REST) está criando o novo espaço de trabalho em nossa coleção de espaços de trabalho existente. Em nosso exemplo, o nome da coleção de espaços de trabalho é **mypbiapp**.
+Definimos apenas a tecla de acesso, que copiamos anteriormente, como **AppKey**. A autenticação é muito simples!
 
 **Solicitação HTTP**
 
@@ -80,8 +86,8 @@ RequestId: 4220d385-2fb3-406b-8901-4ebe11a5f6da
 
 A **workspaceId** retornada é usada para as chamadas à API subsequentes a seguir. Nosso aplicativo deve manter esse valor.
 
-## Importar o arquivo .pbix no espaço de trabalho
-Cada espaço de trabalho pode hospedar um único arquivo do Power BI Desktop com um conjunto de dados (incluindo configurações de fonte de dados) e relatórios. Podemos importar nosso arquivo .pbix no espaço de trabalho, conforme mostrado no código abaixo. Como você pode ver, podemos carregar o binário do arquivo .pbix usando diversas partes de MIME em http.
+## <a name="import-.pbix-file-into-the-workspace"></a>Importar o arquivo .pbix no espaço de trabalho
+Cada espaço de trabalho pode hospedar um único arquivo do Power BI Desktop com um conjunto de dados \(incluindo configurações de fonte de dados) e relatórios. Podemos importar nosso arquivo .pbix no espaço de trabalho, conforme mostrado no código abaixo. Como você pode ver, podemos carregar o binário do arquivo .pbix usando diversas partes de MIME em http.
 
 O fragmento de uri **32960a09-6366-4208-a8bb-9e0678cdbb9d** é a workspaceId e o parâmetro de consulta **datasetDisplayName** é o nome do conjunto de dados a ser criado. O conjunto de dados criado contém todos os artefatos relacionados aos dados no arquivo .pbix, como dados importados, o ponteiro para a fonte de dados etc.
 
@@ -164,7 +170,7 @@ RequestId: eb2c5a85-4d7d-4cc2-b0aa-0bafee4b1606
 }
 ```
 
-## Conectividade da fonte de dados (e multilocação de dados)
+## <a name="data-source-connectivity-\(and-multi-tenancy-of-data)"></a>Conectividade da fonte de dados \(e multilocação de dados)
 Embora quase todos os artefatos no arquivo .pbix sejam importados para nosso espaço de trabalho, as credenciais das fontes de dados não são. Como resultado, ao usar o **modo DirectQuery**, o relatório inserido não poderá ser exibido corretamente. Mas, ao usar o **Modo de importação**, poderemos exibir o relatório usando os dados importados existentes. Nesse caso, devemos definir a credencial usando as etapas a seguir por meio das chamadas à REST.
 
 Em primeiro lugar, devemos obter a fonte de dados do gateway. Sabemos que a **id** do conjunto de dados é a id retornada anteriormente.
@@ -190,13 +196,13 @@ RequestId: 574b0b18-a6fa-46a6-826c-e65840cf6e15
       "id": "5f7ee2e7-4851-44a1-8b75-3eb01309d0ea",
       "gatewayId": "ca17e77f-1b51-429b-b059-6b3e3e9685d1",
       "datasourceType": "Sql",
-      "connectionDetails": "{"server":"testserver.database.windows.net","database":"testdb01"}"
+      "connectionDetails": "{\"server\":\"testserver.database.windows.net\",\"database\":\"testdb01\"}"
     }
   ]
 }
 ```
 
-Usando a id de gateway retornada e a id da fonte de dados (veja a **gatewayId** anterior e a **id** no resultado retornado), podemos mudar a credencial dessa fonte de dados como se segue:
+Usando a id de gateway retornada e a id da fonte de dados \(veja a **gatewayId** anterior e a **id** no resultado retornado), podemos mudar a credencial dessa fonte de dados como se segue:
 
 **Solicitação HTTP**
 
@@ -222,7 +228,7 @@ Content-Type: application/octet-stream
 RequestId: 0e533c13-266a-4a9d-8718-fdad90391099
 ```
 
-Em produção, também podemos definir a cadeia de conexão diferente para cada espaço de trabalho usando a API REST. (ou seja, podemos separar o banco de dados para cada cliente).
+Em produção, também podemos definir a cadeia de conexão diferente para cada espaço de trabalho usando a API REST. \(ou seja, podemos separar o banco de dados para cada cliente.)
 
 Veja a seguir a mudança da cadeia de conexão da fonte de dados por meio de REST.
 
@@ -236,21 +242,21 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Ou, podemos usar a Segurança em Nível de Linha no Power BI Embedded e separar os dados para cada usuário em um relatório. Consequentemente, podemos provisionar cada relatório de cliente com o mesmo .pbix (interface de usuário etc.) e diferentes fontes de dados.
+Ou, podemos usar a Segurança em Nível de Linha no Power BI Embedded e separar os dados para cada usuário em um relatório. Consequentemente, podemos provisionar cada relatório de cliente com o mesmo .pbix \(interface de usuário etc.) e diferentes fontes de dados.
 
 > [AZURE.NOTE] Se você estiver usando o **Modo de importação** em vez do **Modo DirectQuery**, não há como atualizar os modelos por meio da API. As fontes de dados locais por meio do gateway do Power BI ainda não têm suporte no Power BI Embedded. No entanto, você vai querer realmente ficar de olho no [blog do Power BI](https://powerbi.microsoft.com/blog/) para saber das novidades e o que virá nas versões futuras.
 
-## Autenticação e hospedagem (inserção) de relatórios em nossa página da Web
+## <a name="authentication-and-hosting-(embedding)-reports-in-our-web-page"></a>Autenticação e hospedagem (inserção) de relatórios em nossa página da Web
 
 Na API REST anterior, podemos usar a tecla de acesso **AppKey** em si como o cabeçalho da autorização. Como essas chamadas podem ser tratadas no servidor back-end, ela é segura.
 
-Porém, quando inserimos o relatório em nossa página da Web, esse tipo de informação de segurança pode ser tratado usando JavaScript (front-end). Sendo assim, o valor do cabeçalho da autorização deve ser protegido. Se nossa tecla de acesso for descoberta por um usuário ou código mal-intencionado, eles poderão chamar qualquer operação usando essa chave.
+Porém, quando inserimos o relatório em nossa página da Web, esse tipo de informação de segurança pode ser tratado usando JavaScript \(front-end). Sendo assim, o valor do cabeçalho da autorização deve ser protegido. Se nossa tecla de acesso for descoberta por um usuário ou código mal-intencionado, eles poderão chamar qualquer operação usando essa chave.
 
-Quando inserimos o relatório em nossa página da Web, devemos usar o token calculado no lugar da tecla de acesso **AppKey**. Nosso aplicativo deve criar o JWT (Token Web JSON) OAuth, que consiste em declarações e na assinatura digital calculada. Conforme ilustrado abaixo, este JWT OAuth são tokens de cadeia de caracteres codificados delimitados por ponto.
+Quando inserimos o relatório em nossa página da Web, devemos usar o token calculado no lugar da tecla de acesso **AppKey**. Nosso aplicativo deve criar o Token Web JSON \(JWT) OAuth, que consiste em declarações e na assinatura digital calculada. Conforme ilustrado abaixo, este JWT OAuth são tokens de cadeia de caracteres codificados delimitados por ponto.
 
 ![](media\power-bi-embedded-iframe\oauth-jwt.png)
 
-Primeiramente, devemos preparar o valor de entrada, que é assinado posteriormente. Esse valor é a cadeia de caracteres (rfc4648) codificada da url em base64 do seguinte json, limitada pelo caractere de ponto (.). Mais adiante, explicaremos como obter a identificação de relatório.
+Primeiramente, devemos preparar o valor de entrada, que é assinado posteriormente. Esse valor é a cadeia de caracteres (rfc4648) codificada da url em base64 do seguinte json, limitada pelo caractere de ponto \(.). Mais adiante, explicaremos como obter a identificação de relatório.
 
 > [AZURE.NOTE] Se quisermos usar RLS (Segurança em Nível de Linha) com o Power BI Embedded, também deveremos especificar **nome de usuário** e **funções** nas declarações.
 
@@ -274,9 +280,9 @@ Primeiramente, devemos preparar o valor de entrada, que é assinado posteriormen
 }
 ```
 
-Em seguida, devemos criar a cadeia de caracteres codificada em base64 de HMAC (a assinatura) com o algoritmo SHA256. Esse valor de entrada assinado é a cadeia de caracteres anterior.
+Em seguida, devemos criar a cadeia de caracteres codificada em base64 de HMAC \(a assinatura) com o algoritmo SHA256. Esse valor de entrada assinado é a cadeia de caracteres anterior.
 
-Por fim, devemos combinar o valor de entrada e a cadeia de caracteres de assinatura usando o caractere de ponto (.). A cadeia de caracteres completa é o token de aplicativo para a inserção de relatório. Mesmo se o token de aplicativo for descoberto por um usuário mal-intencionado, ele não poderá obter a tecla de acesso original. Esse token de aplicativo vai expirar rapidamente.
+Por fim, devemos combinar o valor de entrada e a cadeia de caracteres de assinatura usando o caractere de ponto \(.). A cadeia de caracteres completa é o token de aplicativo para a inserção de relatório. Mesmo se o token de aplicativo for descoberto por um usuário mal-intencionado, ele não poderá obter a tecla de acesso original. Esse token de aplicativo vai expirar rapidamente.
 
 Veja um exemplo de PHP para essas etapas:
 
@@ -287,18 +293,18 @@ $accesskey = "MpaUgrTv5e...";
 
 // 2. construct input value
 $token1 = "{" .
-  ""typ":"JWT"," .
-  ""alg":"HS256"" .
+  "\"typ\":\"JWT\"," .
+  "\"alg\":\"HS256\"" .
   "}";
 $token2 = "{" .
-  ""wid":"32960a09-6366-4208-a8bb-9e0678cdbb9d"," . // workspace id
-  ""rid":"2027efc6-a308-4632-a775-b9a9186f087c"," . // report id
-  ""wcn":"mypbiapp"," . // workspace collection name
-  ""iss":"PowerBISDK"," .
-  ""ver":"0.2.0"," .
-  ""aud":"https://analysis.windows.net/powerbi/api"," .
-  ""nbf":" . date("U") . "," .
-  ""exp":" . date("U" , strtotime("+1 hour")) .
+  "\"wid\":\"32960a09-6366-4208-a8bb-9e0678cdbb9d\"," . // workspace id
+  "\"rid\":\"2027efc6-a308-4632-a775-b9a9186f087c\"," . // report id
+  "\"wcn\":\"mypbiapp\"," . // workspace collection name
+  "\"iss\":\"PowerBISDK\"," .
+  "\"ver\":\"0.2.0\"," .
+  "\"aud\":\"https://analysis.windows.net/powerbi/api\"," .
+  "\"nbf\":" . date("U") . "," .
+  "\"exp\":" . date("U" , strtotime("+1 hour")) .
   "}";
 $inputval = rfc4648_base64_encode($token1) .
   "." .
@@ -306,9 +312,9 @@ $inputval = rfc4648_base64_encode($token1) .
 
 // 3. get encoded signature
 $hash = hash_hmac("sha256",
-	$inputval,
-	$accesskey,
-	true);
+    $inputval,
+    $accesskey,
+    true);
 $sig = rfc4648_base64_encode($hash);
 
 // 4. show result (which is the apptoken)
@@ -327,7 +333,7 @@ function rfc4648_base64_encode($arg) {
 ?>
 ```
 
-## Por fim, inserir o relatório na página da Web
+## <a name="finally,-embed-the-report-into-the-web-page"></a>Por fim, inserir o relatório na página da Web
 
 Para inserir nosso relatório, devemos obter a url inserida e a **id** do relatório usando a API REST a seguir.
 
@@ -359,7 +365,8 @@ RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
 }
 ```
 
-Podemos inserir o relatório em nosso aplicativo Web usando o token de aplicativo anterior. Se observarmos o próximo código de exemplo, a primeira parte é a mesma do exemplo anterior. Na última parte, este exemplo mostra a **embedUrl** (veja o resultado anterior) no iframe, que está postando o token de aplicativo no iframe.
+Podemos inserir o relatório em nosso aplicativo Web usando o token de aplicativo anterior.
+Se observarmos o próximo código de exemplo, a primeira parte é a mesma do exemplo anterior. Na última parte, este exemplo mostra a **embedUrl** \(veja o resultado anterior) no iframe, que está postando o token de aplicativo no iframe.
 
 > [AZURE.NOTE] Você precisará alterar o valor da id de relatório para um dos seus valores. Além disso, devido a um bug em nosso sistema de gerenciamento de conteúdo, a marcação de iframe no exemplo de código é lida literalmente. Remova o texto limitado da marcação caso copie e cole esse código de exemplo.
 
@@ -370,18 +377,18 @@ Podemos inserir o relatório em nosso aplicativo Web usando o token de aplicativ
 
     // 2. construct input value
     $token1 = "{" .
-      ""typ":"JWT"," .
-      ""alg":"HS256"" .
+      "\"typ\":\"JWT\"," .
+      "\"alg\":\"HS256\"" .
       "}";
     $token2 = "{" .
-      ""wid":"32960a09-6366-4208-a8bb-9e0678cdbb9d"," . // workspace id
-      ""rid":"2027efc6-a308-4632-a775-b9a9186f087c"," . // report id
-      ""wcn":"mypbiapp"," . // workspace collection name
-      ""iss":"PowerBISDK"," .
-      ""ver":"0.2.0"," .
-      ""aud":"https://analysis.windows.net/powerbi/api"," .
-      ""nbf":" . date("U") . "," .
-      ""exp":" . date("U" , strtotime("+1 hour")) .
+      "\"wid\":\"32960a09-6366-4208-a8bb-9e0678cdbb9d\"," . // workspace id
+      "\"rid\":\"2027efc6-a308-4632-a775-b9a9186f087c\"," . // report id
+      "\"wcn\":\"mypbiapp\"," . // workspace collection name
+      "\"iss\":\"PowerBISDK\"," .
+      "\"ver\":\"0.2.0\"," .
+      "\"aud\":\"https://analysis.windows.net/powerbi/api\"," .
+      "\"nbf\":" . date("U") . "," .
+      "\"exp\":" . date("U" , strtotime("+1 hour")) .
       "}";
     $inputval = rfc4648_base64_encode($token1) .
       "." .
@@ -389,9 +396,9 @@ Podemos inserir o relatório em nosso aplicativo Web usando o token de aplicativ
 
     // 3. get encoded signature value
     $hash = hash_hmac("sha256",
-    	$inputval,
-    	$accesskey,
-    	true);
+        $inputval,
+        $accesskey,
+        true);
     $sig = rfc4648_base64_encode($hash);
 
     // 4. get apptoken
@@ -448,7 +455,11 @@ Aqui está nosso resultado:
 Neste momento, o Power BI Embedded mostra o relatório somente no iframe. Mas, fique atento ao [Blog do Power BI](). Melhorias futuras poderão usar novas APIs do lado do cliente que nos permitirão enviar informações ao iframe, bem como removê-las. Algo bem interessante!
 
 
-## Confira também
+## <a name="see-also"></a>Confira também
 - [Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

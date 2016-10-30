@@ -16,24 +16,26 @@
    ms.date="09/28/2016"
    ms.author="oanapl"/>
 
-# Introdução ao monitoramento da integridade do Service Fabric
+
+# <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
 O Service Fabric do Azure introduz um modelo de integridade que fornece avaliação e relatório de integridade avançados, flexíveis e extensíveis. O modelo permite o monitoramento do estado quase em tempo real do cluster e dos serviços que são executados nele. Você pode obter as informações sobre integridade facilmente e corrigir possíveis problemas antes que eles se espalhem e causem interrupções massivas. No modelo comum, os serviços enviam relatórios com base na respectiva exibição local e as informações são agregadas para fornecer uma exibição geral no nível de cluster.
 
 Os componentes do Service Fabric usam esse modelo de integridade avançado para reportar o respectivo estado atual. É possível usar o mesmo mecanismo para reportar a integridade de seus aplicativos. Se investir em relatórios de integridade de alta qualidade que capturam suas condições personalizadas, você poderá detectar e corrigir problemas do seu aplicativo em execução com muito mais facilidade.
 
 > [AZURE.NOTE] Iniciamos o subsistema de integridade para atender à necessidade de atualizações monitoradas. O Service Fabric fornece aplicativos monitorados e atualizações de cluster que garantem a disponibilidade completa, sem tempo de inatividade e mínima ou nenhuma intervenção do usuário. Para atingir essas metas, a atualização verifica a integridade com base em políticas de atualização configuradas e só prossegue quando a integridade respeita os limites desejados. Caso contrário, a atualização é automaticamente revertida ou pausada para dar aos administradores a oportunidade de corrigir os problemas. Para saber mais sobre atualizações de aplicativo, consulte [este artigo](service-fabric-application-upgrade.md).
 
-## Repositório de Integridade
+## <a name="health-store"></a>Repositório de Integridade
 O Repositório de Integridade mantém informações relacionadas à integridade sobre entidades no cluster para facilidade de recuperação e avaliação. Ele é implementado como um serviço com estado persistente da Malha do Serviço, garantindo alta disponibilidade e escalabilidade. O Repositório de Integridade faz parte do aplicativo **fabric:/System** e é disponibilizado quando o cluster é ativado e está em execução.
 
-## Hierarquia e entidades de integridade
+## <a name="health-entities-and-hierarchy"></a>Hierarquia e entidades de integridade
 As entidades de integridade são organizadas em uma hierarquia lógica que captura as interações e dependências entre diferentes entidades. As entidades e a hierarquia são criadas automaticamente pelo Repositório de Integridade com base nos relatórios recebidos dos componentes do Service Fabric.
 
-As entidades de integridade espelham as entidades do Service Fabric. (Por exemplo, a **entidade de aplicativo de integridade** corresponde a uma instância do aplicativo implantada no cluster, a **entidade de nó de integridade** corresponde a um nó de cluster do Service Fabric.) A hierarquia de integridade captura as interações das entidades do sistema e é a base para a avaliação avançada de integridade. Você pode aprender sobre os principais conceitos do Service Fabric em [Visão geral técnica do Service Fabric](service-fabric-technical-overview.md). Para saber mais sobre aplicativos, vá para [Modelo de aplicativo do Service Fabric](service-fabric-application-model.md).
+As entidades de integridade espelham as entidades do Service Fabric. (Por exemplo, a **entidade de aplicativo de integridade** corresponde a uma instância do aplicativo implantada no cluster, enquanto a **entidade de nó de integridade** corresponde a um nó de cluster do Service Fabric). A hierarquia de integridade captura as interações das entidades do sistema e é a base para a avaliação avançada de integridade. Você pode aprender sobre os principais conceitos do Service Fabric em [Visão geral técnica do Service Fabric](service-fabric-technical-overview.md). Para saber mais sobre aplicativos, confira [Modelo de aplicativo do Service Fabric](service-fabric-application-model.md).
 
 As entidades de integridade e a hierarquia proporcionam relatório, depuração e monitoramento efetivos do cluster e dos aplicativos. O modelo de integridade oferece uma representação precisa e *granular* da integridade das muitas partes móveis do cluster.
 
-![Entidades de integridade.][1] As entidades de integridade, organizadas em uma hierarquia com base nas relações de pai/filho.
+![Entidades de integridade.][1]
+ As entidades de integridade, organizadas em uma hierarquia com base nas relações de pai/filho.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
@@ -59,11 +61,12 @@ A granularidade do modelo de integridade facilita a detecção e correção dos 
 
 A hierarquia de integridade é composta por relações de pai/filho. Um cluster é composto de nós e aplicativos. Os aplicativos possuem serviços e aplicativos implantados. Os aplicativos implantados possuem pacotes de serviço implantados. Os serviços têm partições, e cada partição tem uma ou mais réplicas. Há uma relação especial entre nós e entidades implantadas. Se um nó não estiver íntegro conforme reportado por seu componente de sistema de autoridade (Serviço do Gerenciador de Failover), ele afetará os aplicativos implantados, os pacotes de serviço e as réplicas implantadas nele.
 
-A hierarquia de integridade representa o estado mais recente do sistema com base em relatórios de integridade mais recentes, que é uma informação quase em tempo real. Os watchdogs internos e externos podem reportar as mesmas entidades com base na lógica específica do aplicativo ou nas condições monitoradas personalizadas. Os relatórios do usuário coexistem com os relatórios do sistema.
+A hierarquia de integridade representa o estado mais recente do sistema com base em relatórios de integridade mais recentes, que é uma informação quase em tempo real.
+Os watchdogs internos e externos podem reportar as mesmas entidades com base na lógica específica do aplicativo ou nas condições monitoradas personalizadas. Os relatórios do usuário coexistem com os relatórios do sistema.
 
 Planeje para investir em como relatar e responder à integridade durante o criação de um serviço de nuvem grande para facilitar para o serviço depurar, monitorar e operar.
 
-## Estados de integridade
+## <a name="health-states"></a>Estados de integridade
 O Service Fabric usa três estados de integridade para descrever se uma entidade está íntegra ou não: OK, Aviso e Erro. Qualquer relatório enviado ao Repositório de Integridade deve especificar um desses estados. O resultado da avaliação de integridade é um desses estados.
 
 Os [estados de integridade](https://msdn.microsoft.com/library/azure/system.fabric.health.healthstate) possíveis são:
@@ -76,15 +79,16 @@ Os [estados de integridade](https://msdn.microsoft.com/library/azure/system.fabr
 
 - **Desconhecido**. A entidade não existe no repositório de integridade. Esse resultado pode ser obtido em consultas distribuídas que mesclam resultados de vários componentes. Por exemplo, a consulta para obter a lista de nós vai para **FailoverManager** e **HealthManager** e a consulta para obter a lista de aplicativos vai para **ClusterManager** e **HealthManager**. Essas consultas mesclam os resultados de vários componentes do sistema. Se outro componente do sistema retornar uma entidade que não alcançou ou foi eliminada do Repositório de Integridade, o resultado mesclado terá um estado de integridade desconhecido.
 
-## Políticas de integridade
+## <a name="health-policies"></a>Políticas de integridade
 O Repositório de Integridade aplica políticas de integridade para determinar se uma entidade está íntegra com base em seus relatórios e filhos.
 
 > [AZURE.NOTE] As políticas de integridade podem ser especificadas no manifesto do cluster (para avaliação de integridade do cluster e do nó) ou no manifesto do aplicativo (para avaliação de aplicativo e qualquer um de seus filhos). As solicitações de avaliação de integridade também podem passar pelas políticas de avaliação de integridade personalizadas, que são usadas apenas para avaliação.
 
 Por padrão, o Service Fabric aplica regras rígidas (tudo deve estar íntegro) para a relação hierárquica pai-filho. Se mesmo um dos filhos tem um evento não íntegro, o pai será considerado não íntegro.
 
-### Política de integridade do cluster
-A [política de integridade do cluster](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.aspx) é usada para avaliar o estado de integridade do cluster e os estados de integridade do nó. A política pode ser definida no manifesto do cluster. Se não estiver presente, a política padrão (zero falhas toleradas) é usada. A política de integridade do cluster contém:
+### <a name="cluster-health-policy"></a>Política de integridade do cluster
+A [política de integridade do cluster](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.aspx) é usada para avaliar o estado de integridade do cluster e os estados de integridade do nó. A política pode ser definida no manifesto do cluster. Se não estiver presente, a política padrão (zero falhas toleradas) é usada.
+A política de integridade do cluster contém:
 
 - [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.considerwarningaserror.aspx). Especifica se os relatórios de integridade Aviso devem ser tratados como erros durante a avaliação de integridade. Padrão: falso.
 
@@ -92,7 +96,8 @@ A [política de integridade do cluster](https://msdn.microsoft.com/library/azure
 
 - [MaxPercentUnhealthyNodes](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes.aspx). Especifica a porcentagem máxima tolerada de nós que podem estar não íntegros antes de o cluster ser considerado com erro. Em clusters grandes, sempre há nós desativados ou ausentes para reparo, de modo que esse percentual deve ser configurado para tolerá-los.
 
-- [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx). O mapa da política de integridade do tipo de aplicativo pode ser usado durante a avaliação da integridade do cluster para descrever tipos especiais de aplicativo. Por padrão, todos os aplicativos são colocados em um pool e avaliados com MaxPercentUnhealthyApplications. Se alguns tipos de aplicativos tiverem que ser tratados de forma diferente, eles poderão ser criados fora do pool global. Em vez disso, eles são avaliados em relação às porcentagens associadas com seu nome de tipo de aplicativo no mapa. Por exemplo, em um cluster, há milhares de aplicativos de diferentes tipos e algumas instâncias de aplicativo de controle de um tipo especial de aplicativo. Os aplicativos de controle nunca deve apresentar erro. Você pode especificar MaxPercentUnhealthyApplications global como 20% para tolerar algumas falhas, mas para o tipo de aplicativo "ControlApplicationType", defina MaxPercentUnhealthyApplications como 0. Dessa forma, se alguns dos muitos aplicativos estiverem em estado não íntegro, mas abaixo da porcentagem de não integridade global, o estado do cluster será Aviso. Um estado de integridade de aviso não afeta a atualização do cluster nem outros recursos de monitoramento disparados pelo estado de integridade Erro. Mas, até mesmo um controle de aplicativo em erro poderia tornar o cluster não íntegro, que dispara a reversão ou pausa a atualização de cluster, dependendo da configuração de atualização. Para os tipos de aplicativo definidos no mapa, todas as instâncias do aplicativo são retiradas do pool global de aplicativos. Eles são avaliados com base no número total de aplicativos do tipo de aplicativo, usando MaxPercentUnhealthyApplications específico do mapa. O restante dos aplicativos permanece no pool global e é avaliado com MaxPercentUnhealthyApplications.
+- [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx). O mapa da política de integridade do tipo de aplicativo pode ser usado durante a avaliação da integridade do cluster para descrever tipos especiais de aplicativo. Por padrão, todos os aplicativos são colocados em um pool e avaliados com MaxPercentUnhealthyApplications. Se alguns tipos de aplicativos tiverem que ser tratados de forma diferente, eles poderão ser criados fora do pool global. Em vez disso, eles são avaliados em relação às porcentagens associadas com seu nome de tipo de aplicativo no mapa. Por exemplo, em um cluster, há milhares de aplicativos de diferentes tipos e algumas instâncias de aplicativo de controle de um tipo especial de aplicativo. Os aplicativos de controle nunca deve apresentar erro. Você pode especificar MaxPercentUnhealthyApplications global como 20% para tolerar algumas falhas, mas para o tipo de aplicativo "ControlApplicationType", defina MaxPercentUnhealthyApplications como 0. Dessa forma, se alguns dos muitos aplicativos estiverem em estado não íntegro, mas abaixo da porcentagem de não integridade global, o estado do cluster será Aviso. Um estado de integridade de aviso não afeta a atualização do cluster nem outros recursos de monitoramento disparados pelo estado de integridade Erro. Mas, até mesmo um controle de aplicativo em erro poderia tornar o cluster não íntegro, que dispara a reversão ou pausa a atualização de cluster, dependendo da configuração de atualização.
+Para os tipos de aplicativo definidos no mapa, todas as instâncias do aplicativo são retiradas do pool global de aplicativos. Eles são avaliados com base no número total de aplicativos do tipo de aplicativo, usando MaxPercentUnhealthyApplications específico do mapa. O restante dos aplicativos permanece no pool global e é avaliado com MaxPercentUnhealthyApplications.
 
 O exemplo a seguir é um trecho de um manifesto do cluster. Para definir as entradas no mapa do tipo de aplicativo, prefixe o nome do parâmetro com “ApplicationTypeMaxPercentUnhealthyApplications-”, seguido do nome do tipo de aplicativo.
 
@@ -107,8 +112,9 @@ O exemplo a seguir é um trecho de um manifesto do cluster. Para definir as entr
 </FabricSettings>
 ```
 
-### Política de integridade do aplicativo
-A [política de integridade do aplicativo](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.aspx) descreve como a avaliação da agregação dos estados de eventos e filhos é feita para aplicativos e seus filhos. Ela pode ser definida no manifesto do aplicativo, **ApplicationManifest.xml**, no pacote de aplicativos. Se nenhuma política for especificada, o Service Fabric suporá que a entidade não está íntegra se ela tiver um relatório de integridade ou um filho no estado de integridade com erro ou aviso. As políticas configuráveis são:
+### <a name="application-health-policy"></a>Política de integridade do aplicativo
+A [política de integridade do aplicativo](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.aspx) descreve como a avaliação da agregação dos estados de eventos e filhos é feita para aplicativos e seus filhos. Ela pode ser definida no manifesto do aplicativo, **ApplicationManifest.xml**, no pacote de aplicativos. Se nenhuma política for especificada, o Service Fabric suporá que a entidade não está íntegra se ela tiver um relatório de integridade ou um filho no estado de integridade com erro ou aviso.
+As políticas configuráveis são:
 
 - [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Especifica se os relatórios de integridade Aviso devem ser tratados como erros durante a avaliação de integridade. Padrão: falso.
 
@@ -118,7 +124,7 @@ A [política de integridade do aplicativo](https://msdn.microsoft.com/library/az
 
 - [ServiceTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap.aspx). Fornece um mapa de políticas de integridade do serviço por tipo de serviço. Estas políticas substituem as políticas de integridade do tipo de serviço padrão para cada tipo de serviço especificado. Por exemplo, se um aplicativo tiver um tipo de serviço de gateway sem estado e um tipo de serviço de mecanismo com estado, você poderá configurar as políticas de integridade da avaliação de maneira diferente. Ao especificar a política por tipo de serviço você permite um controle mais granular da integridade do serviço.
 
-### Políticas de integridade do tipo de serviço
+### <a name="service-type-health-policy"></a>Políticas de integridade do tipo de serviço
 A [política de integridade do tipo de serviço](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.aspx) especifica como avaliar e agregar os serviços e os filhos dos serviços. A política contém:
 
 - [MaxPercentUnhealthyPartitionsPerService](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice.aspx). Especifica a porcentagem máxima tolerada de partições não íntegras antes de um serviço ser considerado não íntegro. Porcentagem padrão: zero.
@@ -149,10 +155,10 @@ O exemplo a seguir é um trecho de um manifesto do aplicativo:
     </Policies>
 ```
 
-## Avaliação da integridade
+## <a name="health-evaluation"></a>Avaliação da integridade
 Os usuários ou serviços automatizados podem avaliar a integridade de qualquer entidade a qualquer momento. Para avaliar a integridade de uma entidade, o Repositório de Integridade agrega todos os relatórios de integridade na entidade e avalia todos os seus filhos (quando aplicável). O algoritmo de agregação de integridade usa políticas de integridade que especificam como avaliar os relatórios de integridade e como agregar estados de integridade dos filhos (quando aplicável).
 
-### Agregação do relatório de integridade
+### <a name="health-report-aggregation"></a>Agregação do relatório de integridade
 Uma entidade pode ter vários relatórios de integridade enviados por diferentes relatores (componentes do sistema ou watchdogs) em propriedades diferentes. A agregação usa as políticas de integridade associadas, especificamente o membro ConsiderWarningAsError da política de integridade do aplicativo ou cluster. ConsiderWarningAsError especifica como avaliar os avisos.
 
 O estado de integridade agregada é disparado pelos *piores* relatórios de integridade da entidade. Se houver pelo menos um relatório de integridade com Erro, o estado de integridade agregada será um erro.
@@ -171,7 +177,7 @@ A agregação do relatório de integridade com relatório de aviso e ConsiderWar
 
 [3]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-warning.png
 
-### Agregação de integridade de filhos
+### <a name="child-health-aggregation"></a>Agregação de integridade de filhos
 O estado de integridade agregada de uma entidade reflete os estados de integridade dos filhos (quando aplicável). O algoritmo para agregar estados de integridade dos filhos usa as políticas aplicáveis de integridade com base no tipo de entidade.
 
 ![Agregação de integridade de entidades filho.][4]
@@ -190,12 +196,12 @@ Depois que o Repositório de Integridade tiver avaliado todos os filhos, ele agr
 
 - Se os filhos com estados de erro respeitarem a porcentagem máxima permitida de filhos não íntegros, o estado de integridade agregada é um aviso.
 
-## Relatório de integridade
+## <a name="health-reporting"></a>Relatório de integridade
 Os componentes do sistema, os aplicativos do System Fabric e os watchdogs internos/externos podem ser relatados em relação às entidades do Service Fabric. Os relatores fazem uma determinação *local* da integridade da entidades monitoradas com base em algumas condições que estão monitorando. Eles não precisam observar nenhum estado global ou dados agregados. O comportamento desejado é ter relatores simples e organismos não complexos que precisariam observar muitas circunstâncias para inferir quais informações enviar.
 
 Para enviar dados de integridade ao repositório de integridade, o relator precisa identificar a entidade afetada e criar um relatório de integridade. O relatório pode então ser enviado por meio da API usando [FabricClient.HealthClient.ReportHealth](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient_members.aspx), do PowerShell ou da REST.
 
-### Relatórios de integridade
+### <a name="health-reports"></a>Relatórios de integridade
 Os [relatórios de integridade](https://msdn.microsoft.com/library/azure/system.fabric.health.healthreport.aspx) de cada uma das entidades no cluster contêm as seguintes informações:
 
 - **SourceId**. Uma cadeia de caracteres que identifica exclusivamente o relator do evento de integridade.
@@ -232,7 +238,7 @@ Os [relatórios de integridade](https://msdn.microsoft.com/library/azure/system.
 
 Essas quatro informações: SourceId, identificador da entidade, Propriedade e HealthState são obrigatórios para cada relatório de integridade. A cadeia de caracteres SourceId não pode iniciar com o prefixo "**System.**", que é reservado para relatórios do sistema. Para a mesma entidade, há apenas um relatório para a mesma origem e propriedade. Vários relatórios para a mesma fonte e propriedade substituirão uns aos outros, seja no lado do cliente de integridade (se estiverem divididos em lotes), seja no lado do Repositório de Integridade. A substituição é baseada nos números da sequência: relatórios mais recentes (com número de sequência mais alto) substituem os relatórios mais antigos.
 
-### Eventos de integridade
+### <a name="health-events"></a>Eventos de integridade
 Internamente, o Repositório de Integridade mantém os [eventos de integridade](https://msdn.microsoft.com/library/azure/system.fabric.health.healthevent.aspx), que contêm todas as informações de relatórios e metadados adicionais. Os metadados incluem a hora em que o relatório foi fornecido ao cliente de integridade e a hora em que ele foi modificado no lado do servidor. Os eventos de integridade são retornados pelas [consultas de integridade](service-fabric-view-entities-aggregated-health.md#health-queries).
 
 Os metadados adicionados contêm:
@@ -253,7 +259,7 @@ Os campos de transição de estado podem ser usados para gerar alertas mais inte
 
 - Se uma propriedade estiver alternando entre aviso e erro, determine por quanto tempo ele esteve não íntegro (isto é, não OK). Por exemplo, um alerta se a propriedade não esteve íntegra por mais de 5 minutos pode ser traduzido em: (HealthState != Ok e Agora - LastOkTransitionTime > 5 minutos).
 
-## Exemplo: relatar e avaliar integridade do aplicativo
+## <a name="example:-report-and-evaluate-application-health"></a>Exemplo: relatar e avaliar integridade do aplicativo
 O exemplo a seguir envia um relatório de integridade por meio PowerShell no aplicativo **fabric:/WordCount** da origem **MyWatchdog**. O relatório de integridade contém informações sobre a propriedade de integridade "availability" em um estado de integridade de erro, com TimeToLive infinito. Em seguida, ele consulta a integridade do aplicativo, que retornará erro do estado de integridade agregada e o evento de integridade relatado como parte da lista de eventos de integridade.
 
 ```powershell
@@ -321,12 +327,13 @@ HealthEvents                    :
                                   Transitions           : Ok->Error = 3/23/2016 3:27:56 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-## Uso do modelo de integridade
-O modelo de integridade permite que os serviços de nuvem e a plataforma subjacente do Service Fabric ajustem a escala, pois o monitoramento e a determinação da integridade são distribuídos entre os diferentes monitores no cluster. Outros sistemas têm um único serviço centralizado no nível de cluster, que analisa todas as informações *potencialmente* úteis emitidas pelos serviços. Essa abordagem impede a escalabilidade dos mesmos. Isso também impede que eles coletem informações bastante específicas que ajudam a identificar problemas e problemas potenciais mais próximos possíveis da causa raiz.
+## <a name="health-model-usage"></a>Uso do modelo de integridade
+O modelo de integridade permite que os serviços de nuvem e a plataforma subjacente do Service Fabric ajustem a escala, pois o monitoramento e a determinação da integridade são distribuídos entre os diferentes monitores no cluster.
+Outros sistemas têm um único serviço centralizado no nível de cluster, que analisa todas as informações *potencialmente* úteis emitidas pelos serviços. Essa abordagem impede a escalabilidade dos mesmos. Isso também impede que eles coletem informações bastante específicas que ajudam a identificar problemas e problemas potenciais mais próximos possíveis da causa raiz.
 
 O modelo de integridade é muito usado para monitoramento e diagnóstico, para avaliar a integridade do cluster e do aplicativo, bem como para atualizações monitoradas. Outros serviços usam os dados de integridade para executar reparos automáticos, para criar histórico de integridade do cluster e para emitir alertas em determinadas condições.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Como exibir relatórios de integridade do Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Usar relatórios de integridade do sistema para solução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
@@ -339,4 +346,8 @@ O modelo de integridade é muito usado para monitoramento e diagnóstico, para a
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

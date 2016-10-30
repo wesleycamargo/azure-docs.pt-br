@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Inscrever-se no Azure como uma organização"
-	description="Saiba como você pode usar uma conta do trabalho ou escola para aproveitar as contas de usuário existentes, políticas, configurações ou implantações de servidor local já existente e melhorar a eficiência entre a infraestrutura de identidade local da sua organização e o Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Inscrever-se no Azure como uma organização"
+    description="Saiba como você pode usar uma conta do trabalho ou escola para aproveitar as contas de usuário existentes, políticas, configurações ou implantações de servidor local já existente e melhorar a eficiência entre a infraestrutura de identidade local da sua organização e o Azure AD."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/13/2016"
-	ms.author="markvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"
+    ms.author="markvi"/>
 
 
-# Inscrever-se no Azure como uma organização
+
+# <a name="sign-up-for-azure-as-an-organization"></a>Inscrever-se no Azure como uma organização
 
 Até recentemente, era possível se inscrever para uma nova assinatura do Microsoft Azure usando apenas a sua Conta da Microsoft (Windows Live ID). Agora, o Azure oferece suporte aos dois seguintes métodos de conta para inscrição:
 
@@ -25,7 +26,7 @@ Até recentemente, era possível se inscrever para uma nova assinatura do Micros
 
 * **Contas corporativas ou acadêmicas** (emitidas por um administrador para uso comercial/acadêmico): fornecem acesso a todos os serviços de nuvem da Microsoft no nível de pequena, média e grande empresa, como o Azure, o Microsoft Intune ou o Office 365. Quando você se inscreve para um desses serviços como uma organização, um diretório com base em nuvem é provisionado automaticamente no Active Directory do Azure para representar sua organização. [Saiba mais](active-directory-administer.md)
 
-	Depois que esse diretório tiver sido criado, um administrador pode criar usuários e atribuir licenças a eles com base em quais assinaturas de serviço de nuvem que precisam de acesso, como o Azure.
+    Depois que esse diretório tiver sido criado, um administrador pode criar usuários e atribuir licenças a eles com base em quais assinaturas de serviço de nuvem que precisam de acesso, como o Azure.
 
 Deseja inscrever-se no Azure como uma organização? [**Inscreva-se agora**](https://azure.microsoft.com/pricing/purchase-options/)
 
@@ -35,4 +36,8 @@ Deseja inscrever-se no Azure como uma organização? [**Inscreva-se agora**](htt
 * [O que é o AD do Azure?](active-directory-whatis.md)
 * [Usar sua infraestrutura de identidade local na nuvem](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

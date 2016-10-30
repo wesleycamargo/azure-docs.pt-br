@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="ipv6, azure load balancer, pilha dual, ip público, ipv6 nativo, móvel, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -18,16 +19,17 @@
     ms.author="sewhee"
 />
 
-# Criar um balanceador de carga voltado para a Internet com IPv6 no Azure Resource Manager usando a CLI do Azure
+
+# <a name="create-an-internet-facing-load-balancer-with-ipv6-in-azure-resource-manager-using-the-azure-cli"></a>Criar um balanceador de carga voltado para a Internet com IPv6 no Azure Resource Manager usando a CLI do Azure
 
 > [AZURE.SELECTOR]
-- [PowerShell](load-balancer-IPv6-internet-ps.md)
-- [CLI do Azure](load-balancer-IPv6-internet-cli.md)
-- [Modelo](load-balancer-IPv6-internet-template.md)
+- [PowerShell](./load-balancer-ipv6-internet-ps.md)
+- [CLI do Azure](./load-balancer-ipv6-internet-cli.md)
+- [Modelo](./load-balancer-ipv6-internet-template.md)
 
 Um Azure Load Balancer é um balanceador de carga de Camada 4 (TCP, UDP). O balanceador de carga fornece alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço de integridade em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. O Azure Load Balancer também pode apresentar esses serviços em várias portas, vários endereços IP ou ambos.
 
-## Exemplo de cenário de implantação
+## <a name="example-deployment-scenario"></a>Exemplo de cenário de implantação
 
 O diagrama a seguir ilustra a solução de balanceamento de carga que está sendo implantada usando o exemplo de modelo descrito neste artigo.
 
@@ -41,7 +43,7 @@ Nesse cenário, você criará os seguintes recursos do Azure:
 - um Conjunto de disponibilidade que contém as duas VMs
 - duas regras de balanceamento de carga para mapear os VIPs públicos para os pontos de extremidade privados
 
-## Implantar a solução usando a CLI do Azure
+## <a name="deploying-the-solution-using-the-azure-cli"></a>Implantar a solução usando a CLI do Azure
 
 As etapas a seguir mostram como criar um balanceador de carga para a Internet usando o Azure Resource Manager com a CLI. Com o Azure Resource Manager, todos os recursos são criados e configurados individualmente e colocados juntos para criar um recurso.
 
@@ -55,7 +57,7 @@ Para implantar um balanceador de carga, crie e configure os seguintes objetos:
 
 Para saber mais, confira [Suporte do Azure Resource Manager para Balanceador de Carga](load-balancer-arm.md).
 
-## Configurar seu ambiente da CLI para usar o Azure Resource Manager
+## <a name="set-up-your-cli-environment-to-use-azure-resource-manager"></a>Configurar seu ambiente da CLI para usar o Azure Resource Manager
 
 Neste exemplo, executamos as ferramentas da CLI em uma janela de comando do PowerShell. Não estamos usando os cmdlets do Azure PowerShell, mas podemos usar recursos de script do PowerShell para melhorar a legibilidade e a reutilização.
 
@@ -95,7 +97,7 @@ Neste exemplo, executamos as ferramentas da CLI em uma janela de comando do Powe
         $lbName = "myIPv4IPv6Lb"
         ```
 
-## Crie um grupo de recursos, um balanceador de carga, uma rede virtual e sub-redes
+## <a name="create-a-resource-group,-a-load-balancer,-a-virtual-network,-and-subnets"></a>Crie um grupo de recursos, um balanceador de carga, uma rede virtual e sub-redes
 
 1. Criar um grupos de recursos
 
@@ -114,7 +116,7 @@ Neste exemplo, executamos as ferramentas da CLI em uma janela de comando do Powe
         $subnet1 = azure network vnet subnet create --resource-group $rgname --name $subnet1Name --address-prefix $subnet1Prefix --vnet-name $vnetName
         $subnet2 = azure network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
 
-## Criar endereços IP públicos para o pool de front-end
+## <a name="create-public-ip-addresses-for-the-front-end-pool"></a>Criar endereços IP públicos para o pool de front-end
 
 1. Configurar as variáveis do PowerShell
 
@@ -126,9 +128,10 @@ Neste exemplo, executamos as ferramentas da CLI em uma janela de comando do Powe
         $publicipV4 = azure network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --ip-version IPv4 --allocation-method Dynamic --domain-name-label $dnsLabel
         $publicipV6 = azure network public-ip create --resource-group $rgname --name $publicIpv6Name --location $location --ip-version IPv6 --allocation-method Dynamic --domain-name-label $dnsLabel
 
-    >[AZURE.IMPORTANT] O balanceador de carga usa o rótulo de domínio do IP público como FQDN. Isso é uma mudança da implantação clássica, que usa o nome do serviço de nuvem como o FQDN do balanceador de carga. Neste exemplo, o FQDN é *contoso09152016.southcentralus.cloudapp.azure.com*.
+    >[AZURE.IMPORTANT] O balanceador de carga usa o rótulo de domínio do IP público como FQDN. Isso é uma mudança da implantação clássica, que usa o nome do serviço de nuvem como o FQDN do balanceador de carga.
+    >Neste exemplo, o FQDN é *contoso09152016.southcentralus.cloudapp.azure.com*.
 
-## Criar pools de front-end e back-end
+## <a name="create-front-end-and-back-end-pools"></a>Criar pools de front-end e back-end
 
 Este exemplo cria o pool de IPs de front-end, que recebe o tráfego de rede de entrada no balanceador de carga, e o pool de IPs de back-end, no qual o pool de front-end envia o tráfego de rede com balanceamento de carga.
 
@@ -146,7 +149,7 @@ Este exemplo cria o pool de IPs de front-end, que recebe o tráfego de rede de e
         $backendAddressPoolV4 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV4Name --lb-name $lbName
         $backendAddressPoolV6 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
 
-## Criar a investigação, regras de NAT e regras de LB
+## <a name="create-the-probe,-nat-rules,-and-lb-rules"></a>Criar a investigação, regras de NAT e regras de LB
 
 Este exemplo cria os seguintes itens:
 
@@ -226,7 +229,7 @@ Este exemplo cria os seguintes itens:
         info:    network lb show
 
 
-## Criar NICs
+## <a name="create-nics"></a>Criar NICs
 
 Crie NICs e associe-os às regras NAT, regras do balanceador de carga e investigações.
 
@@ -249,7 +252,7 @@ Crie NICs e associe-os às regras NAT, regras do balanceador de carga e investig
         $nic2 = azure network nic create --name $nic2Name --resource-group $rgname --location $location --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule1V4Id
         $nic2IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic2Name
 
-## Crie os recursos de VM de back-end e anexe cada NIC
+## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>Crie os recursos de VM de back-end e anexe cada NIC
 
 Para criar VMs, você deve ter uma conta de armazenamento. Para o balanceamento de carga, as VMs precisam ser membros de um conjunto de disponibilidade. Para saber mais sobre a criação de VMs, consulte [Criar uma VM do Azure usando o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
@@ -269,7 +272,7 @@ Para criar VMs, você deve ter uma conta de armazenamento. Para o balanceamento 
         $vmUserName = "vmUser"
         $mySecurePassword = "PlainTextPassword*1"
 
-    >[AZURE.WARNING] Este exemplo usa o nome de usuário e a senha para as VMs em texto não sem formatação. Tome o cuidado apropriado ao usar credenciais de modo transparente. Para um método mais seguro de tratamento de credenciais no PowerShell, consulte o cmdlet [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx).
+    >[AZURE.WARNING] Este exemplo usa o nome de usuário e a senha para as VMs em texto não sem formatação. Tome o cuidado apropriado ao usar credenciais de modo transparente. Para um método mais seguro de tratamento de credenciais no PowerShell, consulte o cmdlet [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) .
 
 2. Criar o conjunto de disponibilidade e a conta de armazenamento
 
@@ -287,7 +290,7 @@ Para criar VMs, você deve ter uma conta de armazenamento. Para o balanceamento 
 
         $vm2 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm2Name --nic-id $nic2Id --os-disk-vhd $osDisk2Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn  --storage-account-name $storageAccountName --disable-bginfo-extension
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 [Introdução à configuração de um balanceador de carga interno](load-balancer-get-started-ilb-arm-cli.md)
 
@@ -295,4 +298,8 @@ Para criar VMs, você deve ter uma conta de armazenamento. Para o balanceamento 
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

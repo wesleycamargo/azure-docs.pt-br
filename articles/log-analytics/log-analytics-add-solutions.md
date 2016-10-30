@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Adicionar soluções do Log Analytics por meio da Galeria de Soluções | Microsoft Azure"
-	description="As soluções do Log Analytics são uma coleção de lógica, visualização e regras de aquisição de dados que fornecem as métricas que giram em torno de uma área de problema específica."
-	services="log-analytics"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Adicionar soluções do Log Analytics por meio da Galeria de Soluções | Microsoft Azure"
+    description="As soluções do Log Analytics são uma coleção de lógica, visualização e regras de aquisição de dados que fornecem as métricas que giram em torno de uma área de problema específica."
+    services="log-analytics"
+    documentationCenter=""
+    authors="bandersmsft"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="log-analytics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/28/2016"
-	ms.author="banders"/>
+    ms.service="log-analytics"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"
+    ms.author="banders"/>
 
-# Adicionar soluções do Log Analytics por meio da Galeria de Soluções
+
+# <a name="add-log-analytics-solutions-from-the-solutions-gallery"></a>Adicionar soluções do Log Analytics por meio da Galeria de Soluções
 
 As soluções do Log Analytics são uma coleção de **lógica**, **visualização** e **regras de aquisição de dados** que fornecem as métricas que giram em torno de uma área de problema específica. Este artigo lista as soluções com suporte do Log Analytics e explica como adicionar e removê-las usando a Galeria de Soluções.
 
@@ -34,7 +35,7 @@ Depois de adicionar uma solução, os dados são coletados dos servidores em sua
 Você pode facilmente remover uma solução quando ela não for mais necessário. Quando você remove uma solução, seus dados não são enviados ao OMS, o que pode reduzir a quantidade de dados usados pela sua cota diária, caso você tenha uma.
 
 
-## Soluções com suporte no Microsoft Monitoring Agent
+## <a name="solutions-supported-by-the-microsoft-monitoring-agent"></a>Soluções com suporte no Microsoft Monitoring Agent
 
 Neste momento, os servidores conectados diretamente ao OMS com o uso do Microsoft Monitoring Agent podem usar a maioria das soluções disponíveis, incluindo:
 
@@ -54,31 +55,42 @@ No entanto, as soluções a seguir *não* têm suporte do Microsoft Monitoring A
 
 Consulte [Conectando o Operations Manager ao Log Analytics](log-analytics-om-agents.md) para obter informações sobre como conectar o agente SCOM ao Log Analytics.
 
-### Para adicionar uma solução usando a Galeria de Soluções
+### <a name="to-add-a-solution-using-the-solutions-gallery"></a>Para adicionar uma solução usando a Galeria de Soluções
 
-1. Na página Visão geral do OMS, clique no bloco **Galeria de Soluções**.![galeria de soluções](./media/log-analytics-add-solutions/sol-gallery.png)
+1. Na página Visão geral do OMS, clique no bloco **Solutions Gallery** .    
+    ![galeria de soluções](./media/log-analytics-add-solutions/sol-gallery.png)
 2. Na página Galeria de Soluções do OMS, saiba mais sobre cada solução disponível. Clique no nome da solução que deseja adicionar ao OMS.
 3. Na página para a solução que você escolheu, são exibidas informações detalhadas sobre a solução. Clique em **Adicionar**.
 4. Um novo bloco para a solução que você adicionou é mostrado na página Visão geral no OMS e será possível começar a usá-lo depois que o serviço de OMS processar seus dados.
 
-## Para configurar as soluções
+## <a name="to-configure-solutions"></a>Para configurar as soluções
 1. Você precisará configurar algumas soluções. Por exemplo, você precisará configurar a Automação, o Azure Site Recovery e o Backup antes de usá-los.
-2. Para ver qualquer uma dessas soluções, clique em seu bloco na página Visão geral.![configurar solução](./media/log-analytics-add-solutions/configure-additional.png)
-3. Em seguida, configure a solução com as informações necessárias e clique em **Salvar**.![configurar solução](./media/log-analytics-add-solutions/configure.png)
+2. Para ver qualquer uma dessas soluções, clique em seu bloco na página Visão geral.  
+    ![configurar solução](./media/log-analytics-add-solutions/configure-additional.png)
+3. Em seguida, configure a solução com as informações necessárias e clique em **Salvar**.  
+    ![configurar solução](./media/log-analytics-add-solutions/configure.png)
 
-### Para remover uma solução usando a Galeria de Soluções
+### <a name="to-remove-a-solution-using-the-solutions-gallery"></a>Para remover uma solução usando a Galeria de Soluções
 
-1. Na página Visão geral do OMS, clique no bloco **Configurações**.
+1. Na página Visão geral do OMS, clique no bloco **Configurações** .
 2. Na página Configurações, sob a guia Soluções, clique em **Remover** para a solução que deseja remover.
 3. No diálogo de confirmação, clique em **Sim** para remover a solução.
 
-## Detalhes da coleta de dados para recursos e soluções do OMS
+## <a name="data-collection-details-for-oms-features-and-solutions"></a>Detalhes da coleta de dados para recursos e soluções do OMS
 
-A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para as soluções e os recursos do OMS.
+A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para as soluções e os recursos do OMS. Agentes diretos e agentes do SCOM são essencialmente os mesmos, no entanto, o agente direto inclui uma funcionalidade adicional para permitir a conexão com o espaço de trabalho do OMS e o encaminhamento por um proxy. Se você usar um agente do SCOM, ele deve ser direcionado como um agente do OMS para se comunicar com o OMS. Agentes do SCOM nesta tabela são agentes do OMS que estão conectados ao SCOM. Consulte [Conectar o Operations Manager ao Log Analytics](log-analytics-om-agents.md) para obter informações sobre como conectar seu ambiente existente do SCOM ao OMS.
+
+>[AZURE.NOTE] O tipo de agente que você usa determina como os dados são enviados ao OMS, com as seguintes condições:
+
+- Você usa o agente direto ou um agente do OMS anexado ao SCOM.
+- Quando o SCOM é necessário, os dados do agente do SCOM para a solução são sempre enviados ao OMS usando o grupo de gerenciamento do SCOM. Além disso, quando o SCOM é necessário, apenas o agente do SCOM é usado pela solução.
+- Quando o SCOM não é necessário e a tabela mostra que os dados do agente do SCOM são enviados ao OMS usando o grupo de gerenciamento, os dados do agente do SCOM são sempre enviados ao OMS usando grupos de gerenciamento. Agentes diretos ignoram o grupo de gerenciamento e enviam seus dados diretamente ao OMS.
+- Quando os dados do agente do SCOM não são enviados usando um grupo de gerenciamento, os dados são enviados diretamente ao OMS, ignorando o grupo de gerenciamento.
+
 
 |tipo de dados| plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
 |---|---|---|---|---|---|---|---|
-|Avaliação do AD|Windows|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|	7 dias|
+|Avaliação do AD|Windows|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|  7 dias|
 |Status de replicação do AD|Windows|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|5 dias|
 |Alertas (Nagios)|Linux|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|na chegada|
 |Alertas (Zabbix)|Linux|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|1 minuto|
@@ -90,12 +102,14 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 |Avaliação de configuração (Supervisor herdado)|Windows|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)| duas vezes por dia|
 |ETW|Windows|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|5 minutos|
 |Logs IIS|Windows|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|5 minutos|
+|Cofres de Chaves|Windows|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|10 minutos|
+|Gateways do aplicativo de rede|Windows|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|10 minutos|
 |Grupos de segurança de rede|Windows|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|10 minutos|
 |Office 365|Windows|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|após a notificação|
 |Contadores de desempenho|Windows|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|conforme agendado, mínimo de 10 segundos|
 |Contadores de desempenho|Linux|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|conforme agendado, mínimo de 10 segundos|
 |Service Fabric|Windows|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|5 minutos|
-|Avaliação do SQL|Windows|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|	7 dias|
+|Avaliação do SQL|Windows|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)| 7 dias|
 |SurfaceHub|Windows|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|na chegada|
 |Syslog|Linux|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|do armazenamento do Azure: 10 minutos; do agente: na chegada|
 |Atualizações do Sistema|Windows|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)| pelo menos, 2 vezes por dia e 15 minutos após a instalação de uma atualização|
@@ -104,7 +118,7 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 |Logs de eventos do Windows|Windows|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)| para o armazenamento do Azure: 1 min; para o agente: na chegada|
 |Dados durante a transmissão|Windows (2012 R2/8.1 ou posterior)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)| a cada minuto|
 
-## Recursos e Soluções do Log Analytics em preview
+## <a name="log-analytics-preview-solutions-and-features"></a>Recursos e Soluções do Log Analytics em preview
 
 Executando um serviço e seguindo as práticas recomendadas de DevOps, somos capazes de firmar parceria com os clientes para desenvolver recursos e soluções.
 
@@ -117,7 +131,7 @@ Durante a preview pública, disponibilizamos o recurso ou solução para todos o
 - Os recursos de preview aparecerão na guia Configurações e podem ser habilitados por qualquer usuário
 - As soluções de preview podem ser adicionadas por meio da galeria ou usando um script publicado
 
-### O que devo saber sobre Recursos e Soluções em preview?
+### <a name="what-should-i-know-about-preview-features-and-solutions?"></a>O que devo saber sobre Recursos e Soluções em preview?
 
 Estamos empolgados com os novos recursos e soluções e adoraríamos trabalhar junto com você para desenvolvê-los.
 
@@ -125,11 +139,11 @@ No entanto, os recursos e soluções de preview não são ideais para todos, por
 
 Ao habilitar um recurso de preview por meio do portal, você verá um aviso para lembrar que o recurso está em preview.
 
-#### Para previews *particulares* e *públicas*
+#### <a name="for-both-*private*-and-*public*-preview"></a>Para previews *particulares* e *públicas*
 
 O seguinte se aplica a previews públicas e particulares:
 
-- As coisas podem não funcionar corretamente sempre. 
+- As coisas podem não funcionar corretamente sempre.
   - Os problemas variam de pequenos incômodos até algo parar totalmente de funcionar
 - Há um potencial para a preview ter um impacto negativo em seus sistemas / ambiente
   - Tentamos evitar que coisas negativas aconteçam com os sistemas que você está usando com o OMS, mas às vezes pode ocorrer algo inesperado
@@ -150,7 +164,7 @@ O seguinte se aplica a previews públicas e particulares:
 - A IU (interface do usuário) estará incompleta e pode ser alterada diariamente
 - Previews públicas podem não ser apropriadas para seus sistemas de produção / críticos
 
-#### Para preview *particular*
+#### <a name="for-*private*-preview"></a>Para preview *particular*
 
 Além dos itens acima, o seguinte é específico para previews particulares:
 
@@ -162,18 +176,22 @@ Além dos itens acima, o seguinte é específico para previews particulares:
 - Não execute em sistemas de produção / críticos
 
 
-### Como obter acesso a recursos e soluções de preview particular?
+### <a name="how-do-i-get-access-to-private-preview-features-and-solutions?"></a>Como obter acesso a recursos e soluções de preview particular?
 
 Nós o convidamos clientes para previews particulares por meio de várias maneiras diferentes dependendo da preview.
 
 - Responder a pesquisa de cliente mensal e conceder permissão para acompanhar você melhoram suas chances de ser convidado para uma preview particular.
 - A equipe de contas da Microsoft pode indicar você.
-- Você pode se inscrever com base nos detalhes publicados no twitter [msopsmgmt](https://twitter.com/msopsmgmt) 
-- Inscreva-se com base em eventos da comunidade que compartilham detalhes, encontre-nos em reuniões, conferências e nas comunidades online. 
+- Você pode se inscrever com base nos detalhes publicados no twitter [msopsmgmt](https://twitter.com/msopsmgmt)
+- Inscreva-se com base em eventos da comunidade que compartilham detalhes, encontre-nos em reuniões, conferências e nas comunidades online.
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - [Pesquise logs](log-analytics-log-searches.md) para exibir informações detalhadas coletadas pelas soluções.
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

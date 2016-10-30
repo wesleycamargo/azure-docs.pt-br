@@ -13,11 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/20/2016"
+    ms.date="10/10/2016"
     ms.author="markusvi"/>
 
 
-# Noções básicas sobre o acesso aos recursos do Azure
+
+# <a name="understanding-resource-access-in-azure"></a>Noções básicas sobre o acesso aos recursos do Azure
 
 
 > [AZURE.NOTE] Este tópico explica os conceitos sobre como usar os administradores de assinatura para controlar o acesso aos recursos no portal do Azure completo. Como alternativa, o portal de visualização do Azure fornece [O controle de acesso baseado em funções](role-based-access-control-configure.md) para que os recursos do Azure possam ser gerenciados com mais precisão.
@@ -33,7 +34,7 @@ As assinaturas também têm uma associação com um diretório. O diretório def
 <br><br>![Controle de acesso no Azure][2]
 
 
-A funcionalidade no Portal clássico do Azure permite que os SAs que se conectaram usando uma Conta da Microsoft para alterar o diretório que uma assinatura está associada usando o comando **Editar Diretório** na página **Assinaturas** nas **Configurações**. Observe que esta operação tem implicações no controle de acesso da assinatura.
+A funcionalidade no Portal clássico do Azure permite que os SAs que se conectaram usando uma Conta da Microsoft alterem o diretório ao qual uma assinatura está associada usando o comando **Editar Diretório** na página **Assinaturas** em **Configurações**. Observe que esta operação tem implicações no controle de acesso da assinatura.
 
 
 
@@ -54,9 +55,9 @@ No caso mais simples, uma organização (como por exemplo, Contoso) fará a cobr
 
 Os usuários com assinaturas em vários diretórios têm a capacidade de alternar o contexto atual do Portal clássico do Azure usando o filtro de assinatura. Internamente, isso resulta em um logon separado para um diretório diferente, mas isso é feito diretamente usando logon único (SSO).
 
-Operações como mover recursos entre as assinaturas podem ser mais difíceis como resultado desta visão única de diretório de assinaturas. Para executar a transferência de recursos, talvez seja necessário primeiro usar o comando **Editar Diretório** na página de assinaturas em **Configurações** para associar as assinaturas ao mesmo diretório.
+Operações como mover recursos entre as assinaturas podem ser mais difíceis como resultado desta visão única de diretório de assinaturas. Para executar a transferência de recursos, talvez seja necessário usar primeiro o comando **Editar Diretório** na página Assinaturas em **Configurações** para associar as assinaturas ao mesmo diretório.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre como alterar administradores para uma assinatura do Azure, veja [Como adicionar ou alterar as funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md)
 
@@ -72,4 +73,8 @@ Operações como mover recursos entre as assinaturas podem ser mais difíceis co
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

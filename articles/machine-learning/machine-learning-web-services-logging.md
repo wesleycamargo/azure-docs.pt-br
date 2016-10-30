@@ -1,47 +1,70 @@
 <properties 
-	pageTitle="Registro em log de serviços Web de Aprendizado de Máquina | Microsoft Azure" 
-	description="Saiba como habilitar o registro em log de serviços Web de Aprendizado de Máquina. O registro em log fornece informações adicionais para ajudar a solucionar problemas com as APIs." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="raymondlaghaeian" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+    pageTitle="Registro em log de serviços Web de Aprendizado de Máquina | Microsoft Azure" 
+    description="Saiba como habilitar o registro em log de serviços Web de Aprendizado de Máquina. O registro em log fornece informações adicionais para ajudar a solucionar problemas com as APIs." 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="raymondlaghaeian" 
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data" 
-	ms.date="08/09/2016"
-	ms.author="raymondl;garye"/>
+    ms.service="machine-learning"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data" 
+    ms.date="10/05/2016"
+    ms.author="raymondl;garye"/>
 
-#Habilitar o log de serviços Web de Aprendizado de Máquina  
 
-Este documento fornece informações sobre o recurso de log de Serviços Web AM do Azure. Habilitar o registro nos serviços Web fornece informações adicionais para ajudar a solucionar problemas das APIs, o número do erro e uma mensagem.
+# <a name="enable-logging-for-machine-learning-web-services"></a>Habilitar o log de serviços Web de Aprendizado de Máquina  
 
--	Como habilitar o log em Serviços Web:
-	-	Faça logon no [Portal Clássico do Azure](https://manage.windowsazure.com/)
-	-	Clique em Aprendizado de Máquina e depois em Espaço de trabalho e na opção de menu Serviço Web.
-	-	Na lista de Serviços Web, clique no nome do serviço Web
-	-	Na lista de pontos de extremidade, clique no nome do ponto de extremidade
-	-	Clique na opção de menu Configurar
-	-	Defina o Nível de Rastreamento de Diagnóstico como Erro ou Todos e clique em Salvar na barra de menus inferior
--	Qual é o efeito de habilitar o registro em log:
-	-	Quando o Registro em Log estiver habilitado, todos os diagnósticos/erros do ponto de extremidade selecionado serão registrados na Conta de Armazenamento do Azure vinculada ao espaço de trabalho do usuário. Você pode ver essa conta de armazenamento no modo de exibição do Painel do Portal Clássico do Azure (parte inferior da seção Visão Rápida) do seu espaço de trabalho.
--	Como exibir os logs:
-	-	Os logs podem ser exibidos usando qualquer uma das várias ferramentas disponíveis para ‘explorar’ uma Conta de Armazenamento do Azure. A maneira mais fácil pode ser simplesmente navegar até a Conta de Armazenamento no Portal Clássico do Azure e então clicar na guia CONTÊINERES. Em seguida, você verá um Contêiner chamado **ml-diagnostics**. Esse contêiner armazena todas as informações de diagnóstico para todos os pontos de extremidade do serviço da Web para todos os espaços de trabalho associados a esta Conta de Armazenamento.
--	Quais são os detalhes do blob de log:
-	-	Cada blob no contêiner mantém as informações de diagnóstico para exatamente o seguinte:
-		-	Uma execução do método Batch-Execution
-		-	Uma execução do método Request-Response
-		-	Inicialização de um contêiner de Request-Response
-	-	O nome de cada blob tem um prefixo no seguinte formato: {Id do Espaço de Trabalho}-{Id do serviço Web}-{Id do Ponto de Extremidade}/{Tipo de log}
--	O tipo de log assume um dos seguintes valores:
-	- lote
-	- pontuação/solicitações
-	- pontuação/init
+Este documento fornece informações sobre o recurso de registro em log de serviços Web clássicos. Habilitar o log em serviços Web fornece informações adicionais, além de apenas um número de erro e uma mensagem, o que pode ajudar a solucionar suas chamadas para as APIs de Machine Learning.  
 
+Para habilitar o log nos serviços Web no portal clássico do Azure:   
+
+1.  Entre no [portal clássico do Azure](https://manage.windowsazure.com/)
+2.  Na coluna de recursos à esquerda, clique em **MACHINE LEARNING**.
+3.  Clique em seu espaço de trabalho e, em seguida, em **SERVIÇOS WEB**.
+4.  Na lista de serviços Web, clique no nome do serviço Web.
+5.  Na lista de pontos de extremidade, clique no nome do ponto de extremidade.
+6.  Clique em **CONFIGURAR**.
+7.  Defina o **DIAGNOSTICS TRACE LEVEL** como *Erro* ou *Todos* e, em seguida, clique em **SALVAR**.
+
+Para habilitar o registro em log no portal de serviços Web do Azure Machine Learning.
+
+1. Entre no [portal de serviços Web do Azure Machine Learning](https://services.azureml.net).
+2. Clique em Classic Web Services.
+3.  Na lista de serviços Web, clique no nome do serviço Web.
+4.  Na lista de pontos de extremidade, clique no nome do ponto de extremidade.
+5.  Clique em **Configurar**.
+6.  Defina **Registro em log** como *Erro* ou *Todos*, e, em seguida, clique em **SALVAR**.
+
+## <a name="the-effects-of-enabling-logging"></a>Os efeitos de habilitar o registro em log
+
+Quando o registro em log estiver habilitado, todos os diagnósticos e erros do ponto de extremidade selecionado serão registrados na Conta de Armazenamento do Azure vinculada ao espaço de trabalho do usuário. Você pode ver essa conta de armazenamento no modo de exibição do Painel do portal clássico do Azure (parte inferior da seção Visão Rápida) do seu espaço de trabalho.  
+
+Os logs podem ser exibidos usando qualquer uma das várias ferramentas disponíveis para 'explorar' uma Conta de Armazenamento do Azure. A maneira mais fácil pode ser simplesmente navegar até a Conta de Armazenamento no portal clássico do Azure e, então, clicar em **CONTÊINERES**. Em seguida, você verá um Contêiner chamado **ml-diagnostics**. Esse contêiner armazena todas as informações de diagnóstico para todos os pontos de extremidade do serviço da Web para todos os espaços de trabalho associados a esta Conta de Armazenamento. 
  
+## <a name="log-blob-detail-information"></a>Informações detalhadas do log blob
 
-<!---HONumber=AcomDC_0914_2016-->
+Cada blob no contêiner mantém as informações de diagnóstico para exatamente o seguinte:
+
+-   Uma execução do método Batch-Execution  
+-   Uma execução do método Request-Response  
+-   Inicialização de um contêiner de Request-Response
+  
+O nome de cada blob tem um prefixo da seguinte forma: 
+
+{ID do espaço de trabalho}-{ID do serviço Web}-{ID do ponto de extremidade}/{Tipo de log}  
+
+Sendo que Tipo de log assume um dos seguintes valores:  
+
+- lote  
+- pontuação/solicitações  
+- pontuação/init  
+
+
+<!--HONumber=Oct16_HO2-->
+
+

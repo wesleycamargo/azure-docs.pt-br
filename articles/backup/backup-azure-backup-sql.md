@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Backup do Azure para cargas de trabalho do SQL Server usando o DPM | Microsoft Azure"
-	description="Uma introdução ao backup de bancos de dados do SQL Server usando o serviço do Backup do Azure"
-	services="backup"
-	documentationCenter=""
-	authors="adigan"
-	manager="Nkolli1"
-	editor=""/>
+    pageTitle="Backup do Azure para cargas de trabalho do SQL Server usando o DPM | Microsoft Azure"
+    description="Uma introdução ao backup de bancos de dados do SQL Server usando o serviço do Backup do Azure"
+    services="backup"
+    documentationCenter=""
+    authors="adigan"
+    manager="Nkolli1"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="giridham; jimpark;markgal;trinadhk"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="adigan;giridham; jimpark;markgal;trinadhk"/>
 
 
-# Backup do Azure para cargas de trabalho do SQL Server usando o DPM
+
+# <a name="azure-backup-for-sql-server-workloads-using-dpm"></a>Backup do Azure para cargas de trabalho do SQL Server usando o DPM
 
 Este artigo guia você pelas etapas de configuração para o backup de bancos de dados do SQL Server usando o Backup do Azure.
 
@@ -29,12 +30,12 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
 2. Criar cópias de backup sob demanda no Azure.
 3. Recuperar o banco de dados do Azure.
 
-## Antes de começar
+## <a name="before-you-start"></a>Antes de começar
 Antes de começar, verifique se todos os [pré-requisitos](../backup-azure-dpm-introduction.md#prerequisites) para usar o Backup do Microsoft Azure para proteger as cargas de trabalho foram atendidos. Os pré-requisitos abrangem tarefas como criar um cofre de backup, baixar as credenciais do cofre, instalar o Agente de Backup do Azure e registrar o servidor no cofre.
 
-## Criar política de backup para proteger bancos de dados SQL Server no Azure
+## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Criar política de backup para proteger bancos de dados SQL Server no Azure
 
-1. No servidor DPM, clique no espaço de trabalho **Proteção**.
+1. No servidor DPM, clique no espaço de trabalho **Proteção** .
 
 2. Na faixa de opções da ferramenta, clique em **Novo** para criar um novo grupo de proteção.
 
@@ -50,19 +51,19 @@ Antes de começar, verifique se todos os [pré-requisitos](../backup-azure-dpm-i
 
     ![Selecione o banco de dados SQL](./media/backup-azure-backup-sql/pg-databases.png)
 
-6. Forneça um nome para o grupo de proteção e marque a caixa de seleção **Desejo proteção online**.
+6. Forneça um nome para o grupo de proteção e marque a caixa de seleção **Desejo proteção online** .
 
     ![Método de proteção de dados: disco de curto prazo e Azure Online](./media/backup-azure-backup-sql/pg-name.png)
 
-7. Na tela **Especificar Objetivos de Curto Prazo**, inclua as entradas necessárias para criar pontos de backup em disco.
+7. Na tela **Especificar Objetivos de Curto Prazo** , inclua as entradas necessárias para criar pontos de backup em disco.
 
-    Aqui vemos que o **intervalo de retenção** está definido como *5 dias* e a **Frequência de sincronização** está definida como uma vez cada *15 minutos*, que é a frequência na qual o backup é feito. O **Backup Completo Expresso** é definido como *20h*.
+    Aqui vemos que o **intervalo de retenção** está definido como *5 dias* e a **Frequência de sincronização** está definida como uma vez cada *15 minutos*, que é a frequência na qual o backup é feito. **Backup Completo Expresso** é definido como *20h*.
 
     ![Objetivos de curto prazo](./media/backup-azure-backup-sql/pg-shortterm.png)
 
     >[AZURE.NOTE] Às 20h (de acordo com a entrada da tela), um ponto de backup é criado diariamente transferindo os dados que foram modificados do ponto de backup das 20h do dia anterior. Esse processo é chamado de **Backup Completo Expresso**. Enquanto os logs de transição são sincronizados a cada 15 minutos, se houver a necessidade de recuperar o banco de dados às 9h, o ponto será criado reproduzindo novamente os logs do último ponto de backup completo expresso (20h, neste caso).
 
-8. Clique em **Próximo**.
+8. Clique em **Próximo**
 
     O DPM mostra o espaço de armazenamento total disponível e a utilização do espaço de disco potencial.
 
@@ -72,13 +73,13 @@ Antes de começar, verifique se todos os [pré-requisitos](../backup-azure-dpm-i
 
     Se a opção **Aumentar os volumes automaticamente** estiver selecionada, o DPM poderá considerar o aumento do volume de backup conforme os dados de produção aumentarem. Se a opção **Aumentar os volumes automaticamente** não estiver selecionada, o DPM limitará o armazenamento de backup usado para fazer backup de fontes de dados no grupo de proteção.
 
-9. Os administradores recebem a opção de transferir este backup inicial manualmente (fora da rede) para evitar o congestionamento de largura de banda ou pela rede. Eles também podem configurar a hora em que a transferência inicial pode acontecer. Clique em **Avançar**.
+9. Os administradores recebem a opção de transferir este backup inicial manualmente (fora da rede) para evitar o congestionamento de largura de banda ou pela rede. Eles também podem configurar a hora em que a transferência inicial pode acontecer. Clique em **Próximo**.
 
     ![Método de replicação inicial](./media/backup-azure-backup-sql/pg-manual.png)
 
     A cópia de backup inicial exige a transferência de toda a fonte de dados (banco de dados SQL) do servidor de produção (computador do SQL Server) para o servidor DPM. Esses dados podem ser grandes e transferir os dados pela rede pode exceder a largura de banda. Por esse motivo, os administradores podem optar por transferir o backup inicial: **Manualmente** (usando mídia removível) para evitar o congestionamento de largura de banda ou **Automaticamente pela rede** (em um horário especificado).
 
-    Quando o backup inicial for concluído, os demais backups são backups incrementais além da cópia de backup inicial. Os backups incrementais tendem a ser pequenos e são facilmente transferidos pela rede.
+    Quando o backup inicial for concluído, os backups restantes serão backups incrementais na cópia de backup inicial. Os backups incrementais tendem a ser pequenos e são facilmente transferidos pela rede.
 
 10. Escolha quando deseja que a verificação de consistência seja executada e clique em **Avançar**.
 
@@ -107,11 +108,11 @@ Antes de começar, verifique se todos os [pré-requisitos](../backup-azure-dpm-i
     Neste exemplo:
 
     - Os backups são feitos uma vez por dia às 12h e às 20h (parte inferior da tela) e são mantidos por 180 dias.
-    - O backup no sábado às 12h é retido por 104 semanas
-    - O backup no último sábado às 12h é retido por 60 meses
+    - O backup no sábado às 12h é mantido por 104 semanas
+    - O backup no último sábado às 12h é mantido por 60 meses
     - O backup no último sábado de março às 12h é mantido por 10 anos
 
-14. Clique em **Avançar** e selecione a opção apropriada para transferir a cópia do backup inicial para o Azure. Você pode escolher **Automaticamente pela rede** ou **Backup Offline**.
+14. Clique em **Avançar** e selecione a opção apropriada para transferir a cópia do backup inicial para o Azure. Você pode escolher **automaticamente pela rede** ou **Backup Offline**.
 
     - **Automaticamente pela rede** transfere os dados de backup para o Azure de acordo com o agendamento escolhido para backup.
     - Como o **Backup Offline** funciona é explicado no [Fluxo de trabalho de backup offline no Backup do Azure](backup-azure-backup-import-export.md).
@@ -122,7 +123,7 @@ Antes de começar, verifique se todos os [pré-requisitos](../backup-azure-dpm-i
 
     ![Criação de grupo de proteção em andamento](./media/backup-azure-backup-sql/pg-summary.png)
 
-## Backup sob demanda de um banco de dados SQL Server
+## <a name="on-demand-backup-of-a-sql-server-database"></a>Backup sob demanda de um banco de dados SQL Server
 Embora as etapas anteriores tenham criado uma política de backup, um "ponto de recuperação" é criado somente quando ocorre o primeiro backup. Em vez de esperar o Agendador ser ativado, as etapas a seguir irão disparar a criação de um ponto de recuperação manualmente.
 
 1. Aguarde até que o status do grupo de proteção mostre **OK** para o banco de dados antes de criar o ponto de recuperação.
@@ -135,16 +136,16 @@ Embora as etapas anteriores tenham criado uma política de backup, um "ponto de 
 
 3. Escolha **Proteção Online** no menu suspenso e clique em **OK**. Isso inicia a criação de um ponto de recuperação no Azure.
 
-    ![Criar ponto de recuperação](./media/backup-azure-backup-sql/sqlbackup-azure.png)
+    ![Criar Ponto de Recuperação](./media/backup-azure-backup-sql/sqlbackup-azure.png)
 
-4. Você pode exibir o andamento do trabalho no espaço de trabalho **Monitoramento**, em que encontrará um trabalho em andamento como o mostrado na figura a seguir.
+4. Você pode exibir o andamento do trabalho no espaço de trabalho **Monitoramento** , em que encontrará um trabalho em andamento como o mostrado na figura a seguir.
 
     ![Console de monitoramento](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
-## Recuperar um banco de dados SQL Server no Azure
+## <a name="recover-a-sql-server-database-from-azure"></a>Recuperar um banco de dados SQL Server no Azure
 As seguintes etapas são necessárias para recuperar uma entidade protegida (banco de dados SQL Server) do Azure.
 
-1. Abra o Console de gerenciamento do servidor DPM. Navegue até o espaço de trabalho **Recuperação**, onde é possível ver os servidores incluídos no backup pelo DPM. Procure o banco de dados necessário (nesse caso, ReportServer$MSDPM2012). Selecione uma hora para **Recuperar de** que termine com **Online**.
+1. Abra o Console de gerenciamento do servidor DPM. Navegue até o espaço de trabalho **Recuperação** , onde é possível ver os servidores incluídos no backup pelo DPM. Procure o banco de dados necessário (nesse caso, ReportServer$MSDPM2012). Selecione uma hora para **Recuperar de** que termine com **Online**.
 
     ![Selecione um ponto de recuperação](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 
@@ -152,15 +153,15 @@ As seguintes etapas são necessárias para recuperar uma entidade protegida (ban
 
     ![Recuperar do Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
 
-3. O DPM mostra os detalhes do ponto de recuperação. Clique em **Avançar**. Para substituir o banco de dados, selecione o tipo de recuperação **Recuperar na instância original do SQL Server**. Clique em **Avançar**.
+3. O DPM mostra os detalhes do ponto de recuperação. Clique em **Próximo**. Para substituir o banco de dados, selecione o tipo de recuperação **Recuperar na instância original do SQL Server**. Clique em **Próximo**.
 
     ![Recuperar no local original](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     Neste exemplo, o DPM permite a recuperação do banco de dados para outra instância do SQL Server ou em uma pasta de rede autônoma.
 
-4. Na tela **Especificar opções de recuperação**, você pode selecionar as opções de recuperação, como a limitação do uso da largura de banda de rede para restringir a largura de banda usada pela recuperação. Clique em **Próximo**.
+4. Na tela **Especificar opções de recuperação** , você pode selecionar as opções de recuperação, como a limitação do uso da largura de banda de rede para restringir a largura de banda usada pela recuperação. Clique em **Próximo**.
 
-5. Na tela **Resumo**, você vê todas as configurações de recuperação fornecidas até agora. Clique em **Recuperar**.
+5. Na tela **Resumo** , você vê todas as configurações de recuperação fornecidas até agora. Clique em **Recuperar**.
 
     O status de Recuperação mostra que o banco de dados está sendo recuperado. Você pode clicar em **Fechar** para fechar o assistente e exibir o andamento no espaço de trabalho **Monitoramento**.
 
@@ -168,8 +169,12 @@ As seguintes etapas são necessárias para recuperar uma entidade protegida (ban
 
     Após a conclusão da recuperação, o banco de dados restaurado será consistente com o aplicativo.
 
-### Próximas etapas:
+### <a name="next-steps:"></a>Próximas etapas:
 
-• [Perguntas frequentes sobre o Backup do Azure](backup-azure-backup-faq.md)
+•   [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

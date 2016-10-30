@@ -1,22 +1,23 @@
 <properties 
-	pageTitle="Usar o PowerShell para criar uma VM com um servidor de relatório no modo nativo | Microsoft Azure"
-	description="Este tópico descreve e fornece orientação para a implantação e a configuração de um servidor de relatório em modo nativo do SQL Server Reporting Services em uma Máquina Virtual do Azure. "
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="guyinacube"
-	manager="mblythe"
-	editor="monicar" 
-	tags="azure-service-management"/>
+    pageTitle="Usar o PowerShell para criar uma VM com um servidor de relatório no modo nativo | Microsoft Azure"
+    description="Este tópico descreve e fornece orientação para a implantação e a configuração de um servidor de relatório em modo nativo do SQL Server Reporting Services em uma Máquina Virtual do Azure. "
+    services="virtual-machines-windows"
+    documentationCenter="na"
+    authors="guyinacube"
+    manager="erikre"
+    editor="monicar" 
+    tags="azure-service-management"/>
 <tags 
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="05/13/2016"
-	ms.author="asaxton" />
+    ms.service="virtual-machines-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="10/04/2016"
+    ms.author="asaxton" />
 
-# Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo
+
+# <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
  
@@ -27,157 +28,157 @@ Este tópico descreve e fornece orientação para a implantação e a configura�
 >
 >Depois de criar a VM na etapa 1, vá até a seção Usar o script para configurar o servidor de relatório e HTTP. Após a execução do script, o servidor de relatório estará pronto para ser usado.
 
-## Pré-requisitos e suposições
+## <a name="prerequisites-and-assumptions"></a>Pré-requisitos e suposições
 
 - **Assinatura do Azure**: verifique o número de núcleos disponíveis em sua Assinatura do Azure. Se você criar o tamanho recomendado de VM, **A3**, precisará de **4** núcleos disponíveis. Se você usar um tamanho de VM **A2**, precisará de **2** núcleos disponíveis.
-	
-	- Para verificar o limite de núcleos de sua assinatura, no portal clássico do Azure, clique em CONFIGURAÇÕES no painel esquerdo e clique em USO no menu superior.
-	
-	- Para aumentar a cota de núcleos, entre em contato com o [Suporte do Azure](https://azure.microsoft.com/support/options/). Para saber mais sobre o tamanho da VM, consulte [Tamanhos de máquinas virtuais do Azure](virtual-machines-linux-sizes.md).
+    
+    - Para verificar o limite de núcleos de sua assinatura, no portal clássico do Azure, clique em CONFIGURAÇÕES no painel esquerdo e clique em USO no menu superior.
+    
+    - Para aumentar a cota de núcleos, entre em contato com o [Suporte do Azure](https://azure.microsoft.com/support/options/). Para saber mais sobre o tamanho da VM, consulte [Tamanhos de máquinas virtuais do Azure](virtual-machines-linux-sizes.md).
 
 - **Script do Windows PowerShell**: o tópico supõe que você tenha um conhecimento funcional básico do Windows PowerShell. Para saber mais sobre como usar o Windows PowerShell, consulte o seguinte:
 
-	- [Iniciando o Windows PowerShell no Windows Server](https://technet.microsoft.com/library/hh847814.aspx)
-	
-	- [Introdução ao Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
+    - [Iniciando o Windows PowerShell no Windows Server](https://technet.microsoft.com/library/hh847814.aspx)
+    
+    - [Introdução ao Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
 
-## Etapa 1: provisionar uma máquina virtual do Azure
+## <a name="step-1:-provision-an-azure-virtual-machine"></a>Etapa 1: provisionar uma máquina virtual do Azure
 
 1. Navegue até o portal clássico do Azure.
 
 1. Clique em **Máquinas Virtuais** no painel esquerdo.
 
-	![máquinas virtuais do microsoft azure](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
+    ![máquinas virtuais do microsoft azure](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
 
 1. Clique em **Novo**.
 
-	![botão novo](./media/virtual-machines-windows-classic-ps-sql-report/IC692019.gif)
+    ![botão novo](./media/virtual-machines-windows-classic-ps-sql-report/IC692019.gif)
 
 1. Clique em **Da Galeria**.
 
-	![nova vm da galeria](./media/virtual-machines-windows-classic-ps-sql-report/IC692020.gif)
+    ![nova vm da galeria](./media/virtual-machines-windows-classic-ps-sql-report/IC692020.gif)
 
 1. Clique em **SQL Server 2014 RTM Standard – Windows Server 2012 R2** e clique na seta para continuar.
 
-	![avançar](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+    ![Próximo](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
-	Se você precisar do recurso de assinaturas voltadas para dados do Reporting Services, escolha **SQL Server 2014 RTM Enterprise – Windows Server 2012 R2**. Para saber mais sobre as edições do SQL Server e o suporte dos recursos, consulte [Recursos com Suporte das Edições do SQL Server 2012](https://msdn.microsoft.com/library/cc645993.aspx#Reporting).
+    Se você precisar do recurso de assinaturas voltadas para dados do Reporting Services, escolha **SQL Server 2014 RTM Enterprise – Windows Server 2012 R2**. Para saber mais sobre as edições do SQL Server e o suporte dos recursos, consulte [Recursos com Suporte das Edições do SQL Server 2012](https://msdn.microsoft.com/library/cc645993.aspx#Reporting).
 
-1. Na página **Configuração da máquina virtual**, edite os seguintes campos:
-									
-	- Se houver mais de uma **DATA DE LANÇAMENTO DA VERSÃO**, selecione a versão mais recente.
-	
-	- **Nome da Máquina Virtual**: o nome da máquina também é usado na próxima página de configuração como o nome DNS do Serviço de Nuvem padrão. O nome DNS deve ser exclusivo em todo o serviço do Azure. Considere a configuração da VM com um nome de computador que descreva a utilização da VM. Por exemplo, ssrsnativecloud.
-	
-	- **Camada**: Standard
-	
-	- **Tamanho:A3** é o tamanho recomendado da VM para as cargas de trabalho do SQL Server. Se uma VM for usada apenas como um servidor de relatório, o tamanho de VM A2 será suficiente, a menos que o servidor de relatório enfrente uma grande carga de trabalho. Para saber mais sobre preços da VM, consulte [Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
-	
-	- **Novo Nome de Usuário**: o nome fornecido é criado como um administrador na VM.
-	
-	- **Nova Senha** e **Confirmar**. Essa senha será usada para a nova conta de administrador, portanto, recomendamos o uso de uma senha forte.
-	
-	- Clique em **Próximo**. ![avançar](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+1. Na página **Configuração da máquina virtual** , edite os seguintes campos:
+                                    
+    - Se houver mais de uma **DATA DE LANÇAMENTO DA VERSÃO**, selecione a versão mais recente.
+    
+    - **Nome da Máquina Virtual**: o nome da máquina também é usado na próxima página de configuração como o nome DNS do Serviço de Nuvem padrão. O nome DNS deve ser exclusivo em todo o serviço do Azure. Considere a configuração da VM com um nome de computador que descreva a utilização da VM. Por exemplo, ssrsnativecloud.
+    
+    - **Camada**: Standard
+    
+    - **Tamanho:A3** é o tamanho recomendado da VM para as cargas de trabalho do SQL Server. Se uma VM for usada apenas como um servidor de relatório, o tamanho de VM A2 será suficiente, a menos que o servidor de relatório enfrente uma grande carga de trabalho. Para saber mais sobre preços da VM, consulte [Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
+    
+    - **Novo Nome de Usuário**: o nome fornecido é criado como um administrador na VM.
+    
+    - **Nova Senha** e **Confirmar**. Essa senha será usada para a nova conta de administrador, portanto, recomendamos o uso de uma senha forte.
+    
+    - Clique em **Próximo**. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
 1. Na próxima página edite os campos a seguir:
 
-	- **Serviço de Nuvem**: selecione **Criar um novo Serviço de Nuvem**.
-	
-	- **Nome DNS do Serviço de Nuvem**: é o nome DNS público do Serviço de Nuvem associado à VM. O nome padrão é o nome que você digitou para a VM. Se em etapas posteriores do tópico você criar um certificado SSL confiável e o nome DNS for usado para o valor de "**Emitido para**" do certificado.
-	
-	- **Região/Grupo de Afinidades/Rede Virtual**: escolha a região mais próxima de seus usuários finais.
-	
-	- **Conta de Armazenamento**: use uma conta de armazenamento gerada automaticamente.
-	
-	- **Conjunto de Disponibilidades**: nenhum.
-	
-	- **PONTOS DE EXTREMIDADE**: mantenha os pontos de extremidade **Área de Trabalho Remota** e **PowerShell** e adicione o ponto de extremidade HTTP ou HTTPS, dependendo de seu ambiente.
+    - **Serviço de Nuvem**: selecione **Criar um novo Serviço de Nuvem**.
+    
+    - **Nome DNS do Serviço de Nuvem**: é o nome DNS público do Serviço de Nuvem associado à VM. O nome padrão é o nome que você digitou para a VM. Se em etapas posteriores do tópico você criar um certificado SSL confiável e o nome DNS for usado para o valor de "**Emitido para**" do certificado.
+    
+    - **Região/Grupo de Afinidades/Rede Virtual**: escolha a região mais próxima de seus usuários finais.
+    
+    - **Conta de Armazenamento**: use uma conta de armazenamento gerada automaticamente.
+    
+    - **Conjunto de Disponibilidades**: nenhum.
+    
+    - **PONTOS DE EXTREMIDADE**: mantenha os pontos de extremidade **Área de Trabalho Remota** e **PowerShell** e adicione o ponto de extremidade HTTP ou HTTPS, dependendo de seu ambiente.
 
-		- **HTTP**: as portas pública e privada padrão são **80**. Se você usar uma porta privada diferente de 80, modifique **$HTTPport = 80** no script http.
+        - **HTTP**: as portas pública e privada padrão são **80**. Se você usar uma porta privada diferente de 80, modifique **$HTTPport = 80** no script http.
 
-		- **HTTPS**: as portas pública e privada padrão são **443**. Uma prática recomendada de segurança é alterar a porta privada e configurar o firewall e o servidor de relatório para usar a porta privada. Para saber mais sobre os pontos de extremidade, consulte [Como Configurar a Comunicação com uma Máquina Virtual](virtual-machines-windows-classic-setup-endpoints.md). Se você usar uma porta diferente da 443, altere o parâmetro **$HTTPsport = 443** no script HTTPS.
-	
-	- Clique em Próximo. ![avançar](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+        - **HTTPS**: as portas pública e privada padrão são **443**. Uma prática recomendada de segurança é alterar a porta privada e configurar o firewall e o servidor de relatório para usar a porta privada. Para saber mais sobre os pontos de extremidade, consulte [Como Configurar a Comunicação com uma Máquina Virtual](virtual-machines-windows-classic-setup-endpoints.md). Se você usar uma porta diferente da 443, altere o parâmetro **$HTTPsport = 443** no script HTTPS.
+    
+    - Clique em Próximo. ![Próximo](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
-1. Na última página do assistente, mantenha o padrão **Instalar o agente de VM** selecionado. As etapas neste tópico não utilizam o agente de VM, mas se você planeja manter essa VM, o agente de VM e as extensões permitirão o aprimoramento da VM. Para saber mais sobre o agente de VM, consulte [Agente de VM e Extensões – Parte 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Uma das extensões padrão instaladas e em execução é a “BGINFO”, que exibe na área de trabalho da VM informações sobre o sistema, por exemplo, o IP interno e o espaço disponível na unidade.
+1. Na última página do assistente, mantenha o padrão **Instalar o agente de VM** selecionado. As etapas neste tópico não utilizam o agente de VM, mas se você planeja manter essa VM, o agente de VM e as extensões permitirão o aprimoramento da VM.  Para saber mais sobre o agente de VM, consulte [Agente de VM e Extensões – Parte 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Uma das extensões padrão instaladas e em execução é a “BGINFO”, que exibe na área de trabalho da VM informações sobre o sistema, por exemplo, o IP interno e o espaço disponível na unidade.
 
-1. Clique em Concluído. ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+1. Clique em Concluído. ![Ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 
 1. O **Status** da VM é exibido como **Iniciando (Provisionando)** durante o processo de provisionamento. Em seguida, é exibido como **Executando** quando a VM é provisionada e está pronta para ser usada.
 
-## Etapa 2: criar um certificado de servidor
+## <a name="step-2:-create-a-server-certificate"></a>Etapa 2: criar um certificado de servidor
 
 >[AZURE.NOTE] Se você não exigir o HTTPS no servidor de relatório, poderá **ignorar a etapa 2** e ir para a seção **Usar o script para configurar o servidor de relatório e HTTP**. Use o script HTTP para configurar rapidamente o servidor de relatório e deixá-lo pronto para uso.
 
 Para usar HTTPS na VM, será necessário um certificado SSL confiável. Dependendo do cenário, você poderá usar um dos dois métodos a seguir:
 
-- Um certificado SSL válido emitido por uma Autoridade de Certificação (CA) e de confiança da Microsoft. Exige-se que os certificados raiz de CA sejam distribuídos por meio do Microsoft Root Certificate Program. Para saber mais sobre esse programa, consulte [SSL Root Certificate Program (CAs membros) do Windows e do Windows Phone 8](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) e [Introdução ao Microsoft Root Certificate Program](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
+- Um certificado SSL válido emitido por uma Autoridade de Certificação (CA) e de confiança da Microsoft. Exige-se que os certificados raiz de CA sejam distribuídos por meio do Microsoft Root Certificate Program. Para saber mais sobre esse programa, consulte [SSL Root Certificate Program (CAs membros) do Windows](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) e do [Windows Phone 8 e Introdução ao Microsoft Root Certificate Program](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
 
 - Um certificado autoassinado. Os certificados autoassinados não são recomendados para ambientes de produção.
 
-### Para usar um certificado criado por uma Autoridade de Certificação (CA) confiável
+### <a name="to-use-a-certificate-created-by-a-trusted-certificate-authority-(ca)"></a>Para usar um certificado criado por uma Autoridade de Certificação (CA) confiável
 
-1. **Solicite um certificado do servidor para o site em uma autoridade de certificação**.
+1. **Solicite um certificado do servidor para o site em uma autoridade de certificação**. 
 
-	Você pode usar o Assistente de Certificado de Servidor Web para gerar um arquivo de solicitação de certificado (Certreq.txt) e enviá-lo a uma autoridade de certificação ou para gerar uma solicitação para uma autoridade de certificação online. Por exemplo, os Serviços de Certificados da Microsoft no Windows Server 2012. Dependendo do nível de garantia de identificação oferecido por seu certificado de servidor, talvez demore alguns dias até vários meses para que a autoridade de certificação aprove sua solicitação e envie um arquivo de certificado.
+    Você pode usar o Assistente de Certificado de Servidor Web para gerar um arquivo de solicitação de certificado (Certreq.txt) e enviá-lo a uma autoridade de certificação ou para gerar uma solicitação para uma autoridade de certificação online. Por exemplo, os Serviços de Certificados da Microsoft no Windows Server 2012. Dependendo do nível de garantia de identificação oferecido por seu certificado de servidor, talvez demore alguns dias até vários meses para que a autoridade de certificação aprove sua solicitação e envie um arquivo de certificado. 
 
-	Para saber mais sobre como solicitar certificados de servidor, consulte o seguinte:
-	
-	- Use [Certreq](https://technet.microsoft.com/library/cc725793.aspx), [Certreq](https://technet.microsoft.com/library/cc725793.aspx).
-	
-	- Ferramentas de segurança para administrar o Windows Server 2012.
+    Para saber mais sobre como solicitar certificados de servidor, consulte o seguinte: 
+    
+    - Use [Certreq](https://technet.microsoft.com/library/cc725793.aspx), [Certreq](https://technet.microsoft.com/library/cc725793.aspx).
+    
+    - Ferramentas de segurança para administrar o Windows Server 2012.
 
-	[Ferramentas de segurança para administrar o Windows Server 2012](https://technet.microsoft.com/library/jj730960.aspx)
+    [Ferramentas de segurança para administrar o Windows Server 2012](https://technet.microsoft.com/library/jj730960.aspx)
 
-	>[AZURE.NOTE] O campo **emitido para** do certificado SSL confiável deve ser igual ao **NOME DNS do Serviço de Nuvem** usado para a nova VM.
+    >[AZURE.NOTE] O campo **emitido para** do certificado SSL confiável deve ser igual ao **NOME DNS do Serviço de Nuvem** usado para a nova VM.
 
 1. **Instale o certificado do servidor no servidor Web**. Nesse caso, o servidor Web é a VM que hospeda o servidor de relatório, e o site é criado em etapas posteriores durante a configuração do Reporting Services. Para saber mais sobre como instalar o certificado do servidor no servidor Web usando o snap-in do MMC de Certificados, consulte [Instalar um certificado de servidor](https://technet.microsoft.com/library/cc740068).
-	
-	Se você quiser usar o script incluído neste tópico para configurar o servidor de relatório, o valor de **impressão digital** dos certificados será exigido como um parâmetro do script. Consulte a próxima seção para obter detalhes sobre como obter a impressão digital do certificado.
+    
+    Se você quiser usar o script incluído neste tópico para configurar o servidor de relatório, o valor de **impressão digital** dos certificados será exigido como um parâmetro do script. Consulte a próxima seção para obter detalhes sobre como obter a impressão digital do certificado.
 
 1. Atribua o certificado do servidor ao servidor de relatório. A atribuição será concluída na próxima seção, após a configuração do servidor de relatório.
 
-### Para usar o certificado autoassinado de máquinas virtuais
+### <a name="to-use-the-virtual-machines-self-signed-certificate"></a>Para usar o certificado autoassinado de máquinas virtuais
 
 Um certificado autoassinado foi criado na VM quando a VM foi provisionada. O certificado tem o mesmo nome que o nome DNS da VM. Para evitar erros de certificado, é necessário que o certificado seja de confiança na própria VM e também de todos os usuários do site.
 
 1. Para confiar na CA raiz do certificado na VM Local, adicione o certificado às **Autoridades de Certificação Raiz Confiáveis**. A seguir, um resumo dos métodos exigidos. Para obter etapas detalhadas sobre como confiar na CA, consulte [Instalar um Certificado do Servidor](https://technet.microsoft.com/library/cc740068).
 
-	1. No portal clássico do Azure, selecione a VM e clique em conectar. Dependendo da configuração do navegador, talvez seja necessário salvar um arquivo .rdp para conectar-se à VM.
-	
-		![conectar-se à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use o nome de usuário da VM, o nome de usuário e a senha que você configurou na criação da VM.
-	
-		Por exemplo, na imagem a seguir, o nome da VM é **ssrsnativecloud** e o nome de usuário é **testuser**.
-		
-		![o logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
-	
-	1. Execute mmc.exe. Para saber mais, consulte [Como Exibir Certificados com o Snap-in do MMC](https://msdn.microsoft.com/library/ms788967.aspx).
-	
-	1. No menu **Arquivo** do aplicativo do console, adicione o snap-in **Certificados**, selecione **Conta de Computador** quando solicitado e clique em **Próximo**.
-	
-	1. Selecione **Computador Local** para gerenciar e clique em **Concluir**.
-	
-	1. Clique em **Ok**, expanda os nós **Certificados - Pessoal** e clique em **Certificados**. O certificado recebe o nome com base no nome DNS da VM e termina com **cloudapp.net**. Clique com o botão direito do mouse no nome do certificado e clique em **Copiar**.
-	
-	1. Expanda o nó **Autoridades de Certificação Raiz Confiáveis**, clique com botão direito do mouse em **Certificados** e clique em **Colar**.
-	
-	1. Para validar, clique duas vezes no nome do certificado em **Autoridades de Certificação Raiz Confiáveis**, verifique se não há erros e veja seu certificado. Se você quiser usar o script HTTPS incluído neste tópico para configurar o servidor de relatório, o valor da **Impressão digital** dos certificados será exigido como um parâmetro do script. **Para obter o valor da impressão digital**, preencha o seguinte. Também há um exemplo do PowerShell para recuperar a impressão digital na seção [Usar o script para configurar o servidor de relatório e HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
-		
-		1. Clique duas vezes no nome do certificado, por exemplo, ssrsnativecloud.cloudapp.net.
-		
-		1. Clique na guia **Detalhes**.
-		
-		1. Clique em **Impressão digital**. O valor da impressão digital é exibido no campo detalhes, por exemplo, ‎a6 08 3c df f9 0b f7 e3 7c 25 ed a4 ed 7e ac 91 9c 2c fb 2f.
-		
-		1. Copie a impressão digital e salve o valor para mais tarde ou edite o script agora.
-		
-		1. (*) Antes de executar o script, remova os espaços entre os pares de valores. Por exemplo, a impressão digital observada anteriormente agora seria ‎a6083cdff90bf7e37c25eda4ed7eac919c2cfb2f.
-		
-		1. Atribua o certificado do servidor ao servidor de relatório. A atribuição será concluída na próxima seção, após a configuração do servidor de relatório.
+    1. No portal clássico do Azure, selecione a VM e clique em conectar. Dependendo da configuração do navegador, talvez seja necessário salvar um arquivo .rdp para conectar-se à VM.
+    
+        ![conectar-se à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  Use o nome de usuário da VM, o nome de usuário e a senha que você configurou na criação da VM. 
+    
+        Por exemplo, na imagem a seguir, o nome da VM é **ssrsnativecloud** e o nome de usuário é **testuser**.
+        
+        ![o logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    
+    1. Execute mmc.exe. Para saber mais, consulte [Como Exibir Certificados com o Snap-in do MMC](https://msdn.microsoft.com/library/ms788967.aspx).
+    
+    1. No menu **Arquivo** do aplicativo do console, adicione o snap-in **Certificados**, selecione **Conta de Computador** quando solicitado e clique em **Próximo**.
+    
+    1. Selecione **Computador Local** para gerenciar e clique em **Concluir**.
+    
+    1. Clique em **Ok**, expanda os nós **Certificados - Pessoal** e clique em **Certificados**. O certificado recebe o nome com base no nome DNS da VM e termina com **cloudapp.net**. Clique com o botão direito do mouse no nome do certificado e clique em **Copiar**.
+    
+    1. Expanda o nó **Autoridades de Certificação Raiz Confiáveis**, clique com botão direito do mouse em **Certificados** e clique em **Colar**.
+    
+    1. Para validar, clique duas vezes no nome do certificado em **Autoridades de Certificação Raiz Confiáveis** , verifique se não há erros e veja seu certificado. Se você quiser usar o script HTTPS incluído neste tópico para configurar o servidor de relatório, o valor da **Impressão digital** dos certificados será exigido como um parâmetro do script. **Para obter o valor da impressão digital**, preencha o seguinte. Também há um exemplo do PowerShell para recuperar a impressão digital na seção [Usar o script para configurar o servidor de relatório e HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
+        
+        1. Clique duas vezes no nome do certificado, por exemplo, ssrsnativecloud.cloudapp.net.
+        
+        1. Clique na guia **Detalhes** .
+        
+        1. Clique em **Impressão digital**. O valor da impressão digital é exibido no campo detalhes, por exemplo, ‎a6 08 3c df f9 0b f7 e3 7c 25 ed a4 ed 7e ac 91 9c 2c fb 2f.
+        
+        1. Copie a impressão digital e salve o valor para mais tarde ou edite o script agora.
+        
+        1. (*) Antes de executar o script, remova os espaços entre os pares de valores. Por exemplo, a impressão digital observada anteriormente agora seria ‎a6083cdff90bf7e37c25eda4ed7eac919c2cfb2f.
+        
+        1. Atribua o certificado do servidor ao servidor de relatório. A atribuição será concluída na próxima seção, após a configuração do servidor de relatório.
 
 Se você estiver usando um certificado SSL autoassinado, o nome no certificado já corresponderá ao nome de host da VM. Portanto, o DNS da máquina já estará registrado globalmente e poderá ser acessado de qualquer cliente.
 
-## Etapa 3: configurar servidor de relatório
+## <a name="step-3:-configure-the-report-server"></a>Etapa 3: configurar servidor de relatório
 
 Esta seção descreve a configuração da VM como um servidor de relatório em modo nativo do Reporting Services. Você pode usar um dos métodos a seguir para configurar o servidor de relatório:
 
@@ -189,17 +190,17 @@ Para obter etapas mais detalhadas, consulte a seção [Conectar a Máquina Virtu
 
 **Nota de Autenticação:** a autenticação do Windows é o método de autenticação recomendado e é a autenticação padrão do Reporting Services. Somente os usuários configurados na VM podem acessar o Reporting Services e podem receber as funções do Reporting Services.
 
-### Usar o script para configurar o servidor de relatório e HTTP
+### <a name="use-script-to-configure-the-report-server-and-http"></a>Usar o script para configurar o servidor de relatório e HTTP
 
 Para usar o script do Windows PowerShell a fim de configurar o servidor de relatório, conclua as etapas a seguir. A configuração inclui HTTP, não HTTPS:
 
 1. No portal clássico do Azure, selecione a VM e clique em conectar. Dependendo da configuração do navegador, talvez seja necessário salvar um arquivo .rdp para conectar-se à VM.
 
-	![conectar-se à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use o nome de usuário da VM, o nome de usuário e a senha que você configurou na criação da VM.
+    ![conectar-se à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  Use o nome de usuário da VM, o nome de usuário e a senha que você configurou na criação da VM. 
 
-	Por exemplo, na imagem a seguir, o nome da VM é **ssrsnativecloud** e o nome de usuário é **testuser**.
-	
-	![o logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    Por exemplo, na imagem a seguir, o nome da VM é **ssrsnativecloud** e o nome de usuário é **testuser**.
+    
+    ![o logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 
 1. Na VM, abra **ISE do Windows PowerShell** com privilégios administrativos. O ISE do PowerShell está instalado por padrão no Windows Server 2012. Recomendamos o uso do ISE, em vez de uma janela padrão do Windows PowerShell, para que você possa colar o script no ISE, modificar e executar o script.
 
@@ -207,120 +208,120 @@ Para usar o script do Windows PowerShell a fim de configurar o servidor de relat
 
 1. Copie o script a seguir e cole-o no painel de script do ISE do Windows PowerShell.
 
-		## This script configures a Native mode report server without HTTPS
-		$ErrorActionPreference = "Stop"
-		
-		$server = $env:COMPUTERNAME
-		$HTTPport = 80 # change the value if you used a different port for the private HTTP endpoint when the VM was created.
-		
-		## Set PowerShell execution policy to be able to run scripts
-		Set-ExecutionPolicy RemoteSigned -Force
-		
-		## Utility method for verifying an operation's result
-		function CheckResult
-		{
-		    param($wmi_result, $actionname)
-		    if ($wmi_result.HRESULT -ne 0) {
-		        write-error "$actionname failed. Error from WMI: $($wmi_result.Error)"
-		    }
-		}
-		
-		$starttime=Get-Date
-		write-host -foregroundcolor DarkGray $starttime StartTime
-		
-		## ReportServer Database name - this can be changed if needed
-		$dbName='ReportServer'
-		
-		## Register for MSReportServer_ConfigurationSetting
-		## Change the version portion of the path to "v11" to use the script for SQL Server 2012
-		$RSObject = Get-WmiObject -class "MSReportServer_ConfigurationSetting" -namespace "root\Microsoft\SqlServer\ReportServer\RS_MSSQLSERVER\v12\Admin"
-		
-		## Report Server Configuration Steps
-		
-		## Setting the web service URL ##
-		write-host -foregroundcolor green "Setting the web service URL"
-		write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-		$time=Get-Date
-		write-host -foregroundcolor DarkGray $time
-		
-		## SetVirtualDirectory for ReportServer site
-		    write-host 'Calling SetVirtualDirectory'
-		    $r = $RSObject.SetVirtualDirectory('ReportServerWebService','ReportServer',1033)
-		    CheckResult $r "SetVirtualDirectory for ReportServer"
-		
-		## ReserveURL for ReportServerWebService - port $HTTPport (for local usage)
-		    write-host "Calling ReserveURL port $HTTPport"
-		    $r = $RSObject.ReserveURL('ReportServerWebService',"http://+:$HTTPport",1033)
-		    CheckResult $r "ReserveURL for ReportServer port $HTTPport" 
-		   
-		## Setting the Database ##
-		write-host -foregroundcolor green "Setting the Database"
-		write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-		$time=Get-Date
-		write-host -foregroundcolor DarkGray $time
-		
-		## GenerateDatabaseScript - for creating the database
-		    write-host "Calling GenerateDatabaseCreationScript for database $dbName"
-		    $r = $RSObject.GenerateDatabaseCreationScript($dbName,1033,$false)
-		    CheckResult $r "GenerateDatabaseCreationScript"
-		    $script = $r.Script
-		
-		## Execute sql script to create the database
-		    write-host 'Executing Database Creation Script'
-		    $savedcvd = Get-Location
-		    Import-Module SQLPS              ## this automatically changes to sqlserver provider
-		    Invoke-SqlCmd -Query $script
-		    Set-Location $savedcvd
-		  
-		## GenerateGrantRightsScript 
-		    $DBUser = "NT Service\ReportServer"
-		    write-host "Calling GenerateDatabaseRightsScript with user $DBUser"
-		    $r = $RSObject.GenerateDatabaseRightsScript($DBUser,$dbName,$false,$true)
-		    CheckResult $r "GenerateDatabaseRightsScript"
-		    $script = $r.Script
-		
-		## Execute grant rights script
-		    write-host 'Executing Database Rights Script'
-		    $savedcvd = Get-Location
-		    cd sqlserver:\
-		    Invoke-SqlCmd -Query $script
-		    Set-Location $savedcvd
-		
-		## SetDBConnection - uses Windows Service (type 2), username is ignored
-		    write-host "Calling SetDatabaseConnection server $server, DB $dbName"
-		    $r = $RSObject.SetDatabaseConnection($server,$dbName,2,'','')
-		    CheckResult $r "SetDatabaseConnection"  
-		
-		## Setting the Report Manager URL ##
-		
-		write-host -foregroundcolor green "Setting the Report Manager URL"
-		write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-		$time=Get-Date
-		write-host -foregroundcolor DarkGray $time
-		
-		## SetVirtualDirectory for Reports (Report Manager) site
-		    write-host 'Calling SetVirtualDirectory'
-		    $r = $RSObject.SetVirtualDirectory('ReportManager','Reports',1033)
-		    CheckResult $r "SetVirtualDirectory"
-		
-		## ReserveURL for ReportManager  - port $HTTPport
-		    write-host "Calling ReserveURL for ReportManager, port $HTTPport"
-		    $r = $RSObject.ReserveURL('ReportManager',"http://+:$HTTPport",1033)
-		    CheckResult $r "ReserveURL for ReportManager port $HTTPport"
-		
-		write-host -foregroundcolor green "Open Firewall port for $HTTPport"
-		write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-		$time=Get-Date
-		write-host -foregroundcolor DarkGray $time
-		
-		## Open Firewall port for $HTTPport
-		    New-NetFirewallRule -DisplayName “Report Server (TCP on port $HTTPport)” -Direction Inbound –Protocol TCP –LocalPort $HTTPport
-		    write-host "Added rule Report Server (TCP on port $HTTPport) in Windows Firewall"
-		
-		write-host 'Operations completed, Report Server is ready'
-		write-host -foregroundcolor DarkGray $starttime StartTime
-		$time=Get-Date
-		write-host -foregroundcolor DarkGray $time
+        ## This script configures a Native mode report server without HTTPS
+        $ErrorActionPreference = "Stop"
+        
+        $server = $env:COMPUTERNAME
+        $HTTPport = 80 # change the value if you used a different port for the private HTTP endpoint when the VM was created.
+        
+        ## Set PowerShell execution policy to be able to run scripts
+        Set-ExecutionPolicy RemoteSigned -Force
+        
+        ## Utility method for verifying an operation's result
+        function CheckResult
+        {
+            param($wmi_result, $actionname)
+            if ($wmi_result.HRESULT -ne 0) {
+                write-error "$actionname failed. Error from WMI: $($wmi_result.Error)"
+            }
+        }
+        
+        $starttime=Get-Date
+        write-host -foregroundcolor DarkGray $starttime StartTime
+        
+        ## ReportServer Database name - this can be changed if needed
+        $dbName='ReportServer'
+        
+        ## Register for MSReportServer_ConfigurationSetting
+        ## Change the version portion of the path to "v11" to use the script for SQL Server 2012
+        $RSObject = Get-WmiObject -class "MSReportServer_ConfigurationSetting" -namespace "root\Microsoft\SqlServer\ReportServer\RS_MSSQLSERVER\v12\Admin"
+        
+        ## Report Server Configuration Steps
+        
+        ## Setting the web service URL ##
+        write-host -foregroundcolor green "Setting the web service URL"
+        write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        $time=Get-Date
+        write-host -foregroundcolor DarkGray $time
+        
+        ## SetVirtualDirectory for ReportServer site
+            write-host 'Calling SetVirtualDirectory'
+            $r = $RSObject.SetVirtualDirectory('ReportServerWebService','ReportServer',1033)
+            CheckResult $r "SetVirtualDirectory for ReportServer"
+        
+        ## ReserveURL for ReportServerWebService - port $HTTPport (for local usage)
+            write-host "Calling ReserveURL port $HTTPport"
+            $r = $RSObject.ReserveURL('ReportServerWebService',"http://+:$HTTPport",1033)
+            CheckResult $r "ReserveURL for ReportServer port $HTTPport" 
+           
+        ## Setting the Database ##
+        write-host -foregroundcolor green "Setting the Database"
+        write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        $time=Get-Date
+        write-host -foregroundcolor DarkGray $time
+        
+        ## GenerateDatabaseScript - for creating the database
+            write-host "Calling GenerateDatabaseCreationScript for database $dbName"
+            $r = $RSObject.GenerateDatabaseCreationScript($dbName,1033,$false)
+            CheckResult $r "GenerateDatabaseCreationScript"
+            $script = $r.Script
+        
+        ## Execute sql script to create the database
+            write-host 'Executing Database Creation Script'
+            $savedcvd = Get-Location
+            Import-Module SQLPS              ## this automatically changes to sqlserver provider
+            Invoke-SqlCmd -Query $script
+            Set-Location $savedcvd
+          
+        ## GenerateGrantRightsScript 
+            $DBUser = "NT Service\ReportServer"
+            write-host "Calling GenerateDatabaseRightsScript with user $DBUser"
+            $r = $RSObject.GenerateDatabaseRightsScript($DBUser,$dbName,$false,$true)
+            CheckResult $r "GenerateDatabaseRightsScript"
+            $script = $r.Script
+        
+        ## Execute grant rights script
+            write-host 'Executing Database Rights Script'
+            $savedcvd = Get-Location
+            cd sqlserver:\
+            Invoke-SqlCmd -Query $script
+            Set-Location $savedcvd
+        
+        ## SetDBConnection - uses Windows Service (type 2), username is ignored
+            write-host "Calling SetDatabaseConnection server $server, DB $dbName"
+            $r = $RSObject.SetDatabaseConnection($server,$dbName,2,'','')
+            CheckResult $r "SetDatabaseConnection"  
+        
+        ## Setting the Report Manager URL ##
+        
+        write-host -foregroundcolor green "Setting the Report Manager URL"
+        write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        $time=Get-Date
+        write-host -foregroundcolor DarkGray $time
+        
+        ## SetVirtualDirectory for Reports (Report Manager) site
+            write-host 'Calling SetVirtualDirectory'
+            $r = $RSObject.SetVirtualDirectory('ReportManager','Reports',1033)
+            CheckResult $r "SetVirtualDirectory"
+        
+        ## ReserveURL for ReportManager  - port $HTTPport
+            write-host "Calling ReserveURL for ReportManager, port $HTTPport"
+            $r = $RSObject.ReserveURL('ReportManager',"http://+:$HTTPport",1033)
+            CheckResult $r "ReserveURL for ReportManager port $HTTPport"
+        
+        write-host -foregroundcolor green "Open Firewall port for $HTTPport"
+        write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        $time=Get-Date
+        write-host -foregroundcolor DarkGray $time
+        
+        ## Open Firewall port for $HTTPport
+            New-NetFirewallRule -DisplayName “Report Server (TCP on port $HTTPport)” -Direction Inbound –Protocol TCP –LocalPort $HTTPport
+            write-host "Added rule Report Server (TCP on port $HTTPport) in Windows Firewall"
+        
+        write-host 'Operations completed, Report Server is ready'
+        write-host -foregroundcolor DarkGray $starttime StartTime
+        $time=Get-Date
+        write-host -foregroundcolor DarkGray $time
 
 1. Se você criou a VM com uma porta HTTP diferente de 80, modifique o parâmetro $HTTPport = 80.
 
@@ -328,238 +329,238 @@ Para usar o script do Windows PowerShell a fim de configurar o servidor de relat
 
 1. Execute o script.
 
-**Validação**: para verificar se a funcionalidade básica do servidor de relatório está funcionando, consulte a seção [Verificar a configuração](#verify-the-configuration), mais adiante neste tópico.
+**Validação**: para verificar se a funcionalidade básica do servidor de relatório está funcionando, consulte a seção [Verificar a configuração](#verify-the-configuration) , mais adiante neste tópico.
 
-### Usar o script para configurar o servidor de relatório e HTTPS
+### <a name="use-script-to-configure-the-report-server-and-https"></a>Usar o script para configurar o servidor de relatório e HTTPS
 
 Para usar o Windows PowerShell a fim de configurar o servidor de relatório, conclua as etapas a seguir. A configuração inclui HTTPS, não HTTP.
 
 1. No portal clássico do Azure, selecione a VM e clique em conectar. Dependendo da configuração do navegador, talvez seja necessário salvar um arquivo .rdp para conectar-se à VM.
 
-	![conectar-se à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use o nome de usuário da VM, o nome de usuário e a senha que você configurou na criação da VM.
+    ![conectar-se à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  Use o nome de usuário da VM, o nome de usuário e a senha que você configurou na criação da VM. 
 
-	Por exemplo, na imagem a seguir, o nome da VM é **ssrsnativecloud** e o nome de usuário é **testuser**.
+    Por exemplo, na imagem a seguir, o nome da VM é **ssrsnativecloud** e o nome de usuário é **testuser**.
 
-	![o logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![o logon inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 
 1. Na VM, abra **ISE do Windows PowerShell** com privilégios administrativos. O ISE do PowerShell está instalado por padrão no Windows Server 2012. Recomendamos o uso do ISE, em vez de uma janela padrão do Windows PowerShell, para que você possa colar o script no ISE, modificar e executar o script.
 
 1. Para habilitar a execução de scripts, execute o seguinte comando do Windows PowerShell:
 
-		Set-ExecutionPolicy RemoteSigned
+        Set-ExecutionPolicy RemoteSigned
 
-	Em seguida, você pode executar o seguinte procedimento para verificar a política:
+    Em seguida, você pode executar o seguinte procedimento para verificar a política:
 
-		Get-ExecutionPolicy
+        Get-ExecutionPolicy
 
-1. No **ISE do Windows PowerShell**, clique no menu **Exibir** e clique em **Mostrar Painel de Script**.
+1. No ISE do **Windows PowerShell**, clique no menu **Exibir** e clique em **Mostrar Painel de Script**.
 
 1. Copie o script a seguir e cole-o no painel de script do ISE do Windows PowerShell.
 
-		## This script configures the report server, including HTTPS
-		$ErrorActionPreference = "Stop"
-		$httpsport=443 # modify if you used a different port number when the HTTPS endpoint was created.
-		
-		# You can run the following command to get (.cloudapp.net certificates) so you can copy the thumbprint / certificate hash
-		#dir cert:\LocalMachine -rec | Select-Object * | where {$_.issuer -like "*cloudapp*" -and $_.pspath -like "*root*"} | select dnsnamelist, thumbprint, issuer
-		#
-		# The certifacte hash is a REQUIRED parameter
-		$certificatehash="" 
-		# the certificate hash should not contain spaces
-		
-		if ($certificatehash.Length -lt 1) 
-		{
-		    write-error "certificatehash is a required parameter"
-		} 
-		# Certificates should be all lower case
-		$certificatehash=$certificatehash.ToLower()
-		$server = $env:COMPUTERNAME
-		# If the certificate is not a wildcard certificate, comment out the following line, and enable the full $DNSNAme reference.
-		$DNSName="+"
-		#$DNSName="$server.cloudapp.net"
-		$DNSNameAndPort = $DNSName + ":$httpsport"
-		
-		## Utility method for verifying an operation's result
-		function CheckResult
-		{
-		    param($wmi_result, $actionname)
-		    if ($wmi_result.HRESULT -ne 0) {
-		        write-error "$actionname failed. Error from WMI: $($wmi_result.Error)"
-		    }
-		}
-		
-		$starttime=Get-Date
-		write-host -foregroundcolor DarkGray $starttime StartTime
-		
-		## ReportServer Database name - this can be changed if needed
-		$dbName='ReportServer'
-		
-		write-host "The script will use $DNSNameAndPort as the DNS name and port" 
-		
-		## Register for MSReportServer_ConfigurationSetting
-		## Change the version portion of the path to "v11" to use the script for SQL Server 2012
-		$RSObject = Get-WmiObject -class "MSReportServer_ConfigurationSetting" -namespace "root\Microsoft\SqlServer\ReportServer\RS_MSSQLSERVER\v12\Admin"
-		
-		## Reporting Services Report Server Configuration Steps
-		
-		## 1. Setting the web service URL ##
-		write-host -foregroundcolor green "Setting the web service URL"
-		write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-		$time=Get-Date
-		write-host -foregroundcolor DarkGray $time
-		
-		## SetVirtualDirectory for ReportServer site
-		    write-host 'Calling SetVirtualDirectory'
-		    $r = $RSObject.SetVirtualDirectory('ReportServerWebService','ReportServer',1033)
-		    CheckResult $r "SetVirtualDirectory for ReportServer"
-		
-		## ReserveURL for ReportServerWebService - port 80 (for local usage)
-		    write-host 'Calling ReserveURL port 80'
-		    $r = $RSObject.ReserveURL('ReportServerWebService','http://+:80',1033)
-		    CheckResult $r "ReserveURL for ReportServer port 80" 
-		
-		## ReserveURL for ReportServerWebService - port $httpsport
-		    write-host "Calling ReserveURL port $httpsport, for URL: https://$DNSNameAndPort"
-		    $r = $RSObject.ReserveURL('ReportServerWebService',"https://$DNSNameAndPort",1033)
-		    CheckResult $r "ReserveURL for ReportServer port $httpsport" 
-		
-		## CreateSSLCertificateBinding for ReportServerWebService port $httpsport
-		    write-host "Calling CreateSSLCertificateBinding port $httpsport, with certificate hash: $certificatehash"
-		    $r = $RSObject.CreateSSLCertificateBinding('ReportServerWebService',$certificatehash,'0.0.0.0',$httpsport,1033)
-		    CheckResult $r "CreateSSLCertificateBinding for ReportServer port $httpsport" 
-		    
-		## 2. Setting the Database ##
-		write-host -foregroundcolor green "Setting the Database"
-		write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-		$time=Get-Date
-		write-host -foregroundcolor DarkGray $time
-		
-		## GenerateDatabaseScript - for creating the database
-		    write-host "Calling GenerateDatabaseCreationScript for database $dbName"
-		    $r = $RSObject.GenerateDatabaseCreationScript($dbName,1033,$false)
-		    CheckResult $r "GenerateDatabaseCreationScript"
-		    $script = $r.Script
-		
-		## Execute sql script to create the database
-		    write-host 'Executing Database Creation Script'
-		    $savedcvd = Get-Location
-		    Import-Module SQLPS                    ## this automatically changes to sqlserver provider
-		    Invoke-SqlCmd -Query $script
-		    Set-Location $savedcvd
-		  
-		## GenerateGrantRightsScript 
-		    $DBUser = "NT Service\ReportServer"
-		    write-host "Calling GenerateDatabaseRightsScript with user $DBUser"
-		    $r = $RSObject.GenerateDatabaseRightsScript($DBUser,$dbName,$false,$true)
-		    CheckResult $r "GenerateDatabaseRightsScript"
-		    $script = $r.Script
-		
-		## Execute grant rights script
-		    write-host 'Executing Database Rights Script'
-		    $savedcvd = Get-Location
-		    cd sqlserver:\
-		    Invoke-SqlCmd -Query $script
-		    Set-Location $savedcvd
-		
-		## SetDBConnection - uses Windows Service (type 2), username is ignored
-		    write-host "Calling SetDatabaseConnection server $server, DB $dbName"
-		    $r = $RSObject.SetDatabaseConnection($server,$dbName,2,'','')
-		    CheckResult $r "SetDatabaseConnection"  
-		
-		## 3. Setting the Report Manager URL ##
-		
-		write-host -foregroundcolor green "Setting the Report Manager URL"
-		write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-		$time=Get-Date
-		write-host -foregroundcolor DarkGray $time
-		
-		## SetVirtualDirectory for Reports (Report Manager) site
-		    write-host 'Calling SetVirtualDirectory'
-		    $r = $RSObject.SetVirtualDirectory('ReportManager','Reports',1033)
-		    CheckResult $r "SetVirtualDirectory"
-		
-		## ReserveURL for ReportManager  - port 80
-		    write-host 'Calling ReserveURL for ReportManager, port 80'
-		    $r = $RSObject.ReserveURL('ReportManager','http://+:80',1033)
-		    CheckResult $r "ReserveURL for ReportManager port 80"
-		
-		## ReserveURL for ReportManager - port $httpsport
-		    write-host "Calling ReserveURL port $httpsport, for URL: https://$DNSNameAndPort"
-		    $r = $RSObject.ReserveURL('ReportManager',"https://$DNSNameAndPort",1033)
-		    CheckResult $r "ReserveURL for ReportManager port $httpsport" 
-		
-		## CreateSSLCertificateBinding for ReportManager port $httpsport
-		    write-host "Calling CreateSSLCertificateBinding port $httpsport with certificate hash: $certificatehash"
-		    $r = $RSObject.CreateSSLCertificateBinding('ReportManager',$certificatehash,'0.0.0.0',$httpsport,1033)
-		    CheckResult $r "CreateSSLCertificateBinding for ReportManager port $httpsport" 
-		
-		write-host -foregroundcolor green "Open Firewall port for $httpsport"
-		write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-		$time=Get-Date
-		write-host -foregroundcolor DarkGray $time
-		
-		## Open Firewall port for $httpsport
-		    New-NetFirewallRule -DisplayName “Report Server (TCP on port $httpsport)” -Direction Inbound –Protocol TCP –LocalPort $httpsport
-		    write-host "Added rule Report Server (TCP on port $httpsport) in Windows Firewall"
-		
-		write-host 'Operations completed, Report Server is ready'
-		write-host -foregroundcolor DarkGray $starttime StartTime
-		$time=Get-Date
-		write-host -foregroundcolor DarkGray $time
+        ## This script configures the report server, including HTTPS
+        $ErrorActionPreference = "Stop"
+        $httpsport=443 # modify if you used a different port number when the HTTPS endpoint was created.
+        
+        # You can run the following command to get (.cloudapp.net certificates) so you can copy the thumbprint / certificate hash
+        #dir cert:\LocalMachine -rec | Select-Object * | where {$_.issuer -like "*cloudapp*" -and $_.pspath -like "*root*"} | select dnsnamelist, thumbprint, issuer
+        #
+        # The certifacte hash is a REQUIRED parameter
+        $certificatehash="" 
+        # the certificate hash should not contain spaces
+        
+        if ($certificatehash.Length -lt 1) 
+        {
+            write-error "certificatehash is a required parameter"
+        } 
+        # Certificates should be all lower case
+        $certificatehash=$certificatehash.ToLower()
+        $server = $env:COMPUTERNAME
+        # If the certificate is not a wildcard certificate, comment out the following line, and enable the full $DNSNAme reference.
+        $DNSName="+"
+        #$DNSName="$server.cloudapp.net"
+        $DNSNameAndPort = $DNSName + ":$httpsport"
+        
+        ## Utility method for verifying an operation's result
+        function CheckResult
+        {
+            param($wmi_result, $actionname)
+            if ($wmi_result.HRESULT -ne 0) {
+                write-error "$actionname failed. Error from WMI: $($wmi_result.Error)"
+            }
+        }
+        
+        $starttime=Get-Date
+        write-host -foregroundcolor DarkGray $starttime StartTime
+        
+        ## ReportServer Database name - this can be changed if needed
+        $dbName='ReportServer'
+        
+        write-host "The script will use $DNSNameAndPort as the DNS name and port" 
+        
+        ## Register for MSReportServer_ConfigurationSetting
+        ## Change the version portion of the path to "v11" to use the script for SQL Server 2012
+        $RSObject = Get-WmiObject -class "MSReportServer_ConfigurationSetting" -namespace "root\Microsoft\SqlServer\ReportServer\RS_MSSQLSERVER\v12\Admin"
+        
+        ## Reporting Services Report Server Configuration Steps
+        
+        ## 1. Setting the web service URL ##
+        write-host -foregroundcolor green "Setting the web service URL"
+        write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        $time=Get-Date
+        write-host -foregroundcolor DarkGray $time
+        
+        ## SetVirtualDirectory for ReportServer site
+            write-host 'Calling SetVirtualDirectory'
+            $r = $RSObject.SetVirtualDirectory('ReportServerWebService','ReportServer',1033)
+            CheckResult $r "SetVirtualDirectory for ReportServer"
+        
+        ## ReserveURL for ReportServerWebService - port 80 (for local usage)
+            write-host 'Calling ReserveURL port 80'
+            $r = $RSObject.ReserveURL('ReportServerWebService','http://+:80',1033)
+            CheckResult $r "ReserveURL for ReportServer port 80" 
+        
+        ## ReserveURL for ReportServerWebService - port $httpsport
+            write-host "Calling ReserveURL port $httpsport, for URL: https://$DNSNameAndPort"
+            $r = $RSObject.ReserveURL('ReportServerWebService',"https://$DNSNameAndPort",1033)
+            CheckResult $r "ReserveURL for ReportServer port $httpsport" 
+        
+        ## CreateSSLCertificateBinding for ReportServerWebService port $httpsport
+            write-host "Calling CreateSSLCertificateBinding port $httpsport, with certificate hash: $certificatehash"
+            $r = $RSObject.CreateSSLCertificateBinding('ReportServerWebService',$certificatehash,'0.0.0.0',$httpsport,1033)
+            CheckResult $r "CreateSSLCertificateBinding for ReportServer port $httpsport" 
+            
+        ## 2. Setting the Database ##
+        write-host -foregroundcolor green "Setting the Database"
+        write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        $time=Get-Date
+        write-host -foregroundcolor DarkGray $time
+        
+        ## GenerateDatabaseScript - for creating the database
+            write-host "Calling GenerateDatabaseCreationScript for database $dbName"
+            $r = $RSObject.GenerateDatabaseCreationScript($dbName,1033,$false)
+            CheckResult $r "GenerateDatabaseCreationScript"
+            $script = $r.Script
+        
+        ## Execute sql script to create the database
+            write-host 'Executing Database Creation Script'
+            $savedcvd = Get-Location
+            Import-Module SQLPS                    ## this automatically changes to sqlserver provider
+            Invoke-SqlCmd -Query $script
+            Set-Location $savedcvd
+          
+        ## GenerateGrantRightsScript 
+            $DBUser = "NT Service\ReportServer"
+            write-host "Calling GenerateDatabaseRightsScript with user $DBUser"
+            $r = $RSObject.GenerateDatabaseRightsScript($DBUser,$dbName,$false,$true)
+            CheckResult $r "GenerateDatabaseRightsScript"
+            $script = $r.Script
+        
+        ## Execute grant rights script
+            write-host 'Executing Database Rights Script'
+            $savedcvd = Get-Location
+            cd sqlserver:\
+            Invoke-SqlCmd -Query $script
+            Set-Location $savedcvd
+        
+        ## SetDBConnection - uses Windows Service (type 2), username is ignored
+            write-host "Calling SetDatabaseConnection server $server, DB $dbName"
+            $r = $RSObject.SetDatabaseConnection($server,$dbName,2,'','')
+            CheckResult $r "SetDatabaseConnection"  
+        
+        ## 3. Setting the Report Manager URL ##
+        
+        write-host -foregroundcolor green "Setting the Report Manager URL"
+        write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        $time=Get-Date
+        write-host -foregroundcolor DarkGray $time
+        
+        ## SetVirtualDirectory for Reports (Report Manager) site
+            write-host 'Calling SetVirtualDirectory'
+            $r = $RSObject.SetVirtualDirectory('ReportManager','Reports',1033)
+            CheckResult $r "SetVirtualDirectory"
+        
+        ## ReserveURL for ReportManager  - port 80
+            write-host 'Calling ReserveURL for ReportManager, port 80'
+            $r = $RSObject.ReserveURL('ReportManager','http://+:80',1033)
+            CheckResult $r "ReserveURL for ReportManager port 80"
+        
+        ## ReserveURL for ReportManager - port $httpsport
+            write-host "Calling ReserveURL port $httpsport, for URL: https://$DNSNameAndPort"
+            $r = $RSObject.ReserveURL('ReportManager',"https://$DNSNameAndPort",1033)
+            CheckResult $r "ReserveURL for ReportManager port $httpsport" 
+        
+        ## CreateSSLCertificateBinding for ReportManager port $httpsport
+            write-host "Calling CreateSSLCertificateBinding port $httpsport with certificate hash: $certificatehash"
+            $r = $RSObject.CreateSSLCertificateBinding('ReportManager',$certificatehash,'0.0.0.0',$httpsport,1033)
+            CheckResult $r "CreateSSLCertificateBinding for ReportManager port $httpsport" 
+        
+        write-host -foregroundcolor green "Open Firewall port for $httpsport"
+        write-host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        $time=Get-Date
+        write-host -foregroundcolor DarkGray $time
+        
+        ## Open Firewall port for $httpsport
+            New-NetFirewallRule -DisplayName “Report Server (TCP on port $httpsport)” -Direction Inbound –Protocol TCP –LocalPort $httpsport
+            write-host "Added rule Report Server (TCP on port $httpsport) in Windows Firewall"
+        
+        write-host 'Operations completed, Report Server is ready'
+        write-host -foregroundcolor DarkGray $starttime StartTime
+        $time=Get-Date
+        write-host -foregroundcolor DarkGray $time
 
 1. Modifique o parâmetro **$certificatehash** no script:
 
-	- Esse é um parâmetro **obrigatório**. Se você não tiver salvo o valor do certificado nas etapas anteriores, use um dos métodos a seguir para copiar o valor de hash do certificado da impressão digital dos certificados:
+    - Esse é um parâmetro **obrigatório** . Se você não tiver salvo o valor do certificado nas etapas anteriores, use um dos métodos a seguir para copiar o valor de hash do certificado da impressão digital dos certificados:
 
-		Na VM, abra o ISE do Windows PowerShell e execute o seguinte comando:
+        Na VM, abra o ISE do Windows PowerShell e execute o seguinte comando:
 
-			dir cert:\LocalMachine -rec | Select-Object * | where {$_.issuer -like "*cloudapp*" -and $_.pspath -like "*root*"} | select dnsnamelist, thumbprint, issuer
+            dir cert:\LocalMachine -rec | Select-Object * | where {$_.issuer -like "*cloudapp*" -and $_.pspath -like "*root*"} | select dnsnamelist, thumbprint, issuer
 
-		A saída parecerá com o seguinte: Se o script retornar uma linha em branco, a VM não terá um certificado configurado, por exemplo. Consulte a seção [Para usar o Certificado Autoassinado das Máquinas Virtuais](#to-use-the-virtual-machines-self-signed-certificate).
-	
-	OU
-	
-	- Na VM, execute mmc.exe e adicione o snap-in **Certificados**.
-	
-	- Sob o nó **Autoridades de Certificação Raiz Confiáveis**, clique duas vezes no nome do certificado. Se você estiver usando o certificado autoassinado da VM, o certificado receberá o nome com base no nome DNS da VM e terminará com **cloudapp.net**.
-	
-	- Clique na guia **Detalhes**.
-	
-	- Clique em **Impressão digital**. O valor da impressão digital é exibido no campo detalhes, por exemplo, af 11 60 b6 4b 28 8d 89 0a 82 12 ff 6b a9 c3 66 4f 31 90 48
-	
-	- **Antes de executar o script**, remova os espaços entre os pares de valores. Por exemplo, af1160b64b288d890a8212ff6ba9c3664f319048
+        A saída parecerá com o seguinte: Se o script retornar uma linha em branco, a VM não terá um certificado configurado, por exemplo. Consulte a seção [Para usar o Certificado Autoassinado das Máquinas Virtuais](#to-use-the-virtual-machines-self-signed-certificate).
+    
+    OU
+    
+    - Na VM, execute mmc.exe e adicione o snap-in **Certificados** .
+    
+    - Sob o nó **Autoridades de Certificação Raiz Confiáveis** , clique duas vezes no nome do certificado. Se você estiver usando o certificado autoassinado da VM, o certificado receberá o nome com base no nome DNS da VM e terminará com **cloudapp.net**.
+    
+    - Clique na guia **Detalhes** .
+    
+    - Clique em **Impressão digital**. O valor da impressão digital é exibido no campo detalhes, por exemplo, af 11 60 b6 4b 28 8d 89 0a 82 12 ff 6b a9 c3 66 4f 31 90 48
+    
+    - **Antes de executar o script**, remova os espaços entre os pares de valores. Por exemplo, af1160b64b288d890a8212ff6ba9c3664f319048
 
-1. Modifique o parâmetro **$httpsport**:
+1. Modifique o parâmetro **$httpsport** : 
 
-	- Se você usou a porta 443 para o ponto de extremidade HTTPS, não será necessário atualizar esse parâmetro no script. Caso contrário, use o valor de porta selecionado quando você configurou o ponto de extremidade HTTPS privado na VM.
+    - Se você usou a porta 443 para o ponto de extremidade HTTPS, não será necessário atualizar esse parâmetro no script. Caso contrário, use o valor de porta selecionado quando você configurou o ponto de extremidade HTTPS privado na VM.
 
-1. Modifique o parâmetro **$DNSName**:
+1. Modifique o parâmetro **$DNSName** : 
 
-	- O script é configurado para obter um certificado curinga $DNSName = "+". Se você não quiser configurar uma associação de certificado curinga, comente $DNSName ="+"e habilite a linha a seguir, a referência completa de $DNSNAme, ##$DNSName="$server.cloudapp.net".
+    - O script é configurado para obter um certificado curinga $DNSName = "+". Se você não quiser configurar uma associação de certificado curinga, comente $DNSName ="+"e habilite a linha a seguir, a referência completa de $DNSNAme, ##$DNSName="$server.cloudapp.net".
 
-		Altere o valor de $DNSName se não quiser usar o nome DNS da máquina virtual para o Reporting Services. Se você usar o parâmetro, o certificado também deverá usar esse nome, e será necessário registrar o nome globalmente em um servidor DNS.
+        Altere o valor de $DNSName se não quiser usar o nome DNS da máquina virtual para o Reporting Services. Se você usar o parâmetro, o certificado também deverá usar esse nome, e será necessário registrar o nome globalmente em um servidor DNS.
 
 1. Atualmente, o script está configurado para o Reporting Services. Se você quiser executar o script do Reporting Services, modifique a parte da versão do caminho até o namespace para "v11", na instrução Get-WmiObject.
 
 1. Execute o script.
 
-**Validação**: para verificar se a funcionalidade básica do servidor de relatório está funcionando, consulte a seção [Verificar a configuração](#verify-the-connection) mais adiante neste tópico. Para verificar a associação do certificado, abra um prompt de comando com privilégios administrativos e execute o seguinte comando:
+**Validação**: para verificar se a funcionalidade básica do servidor de relatório está funcionando, consulte a seção [Verificar a configuração](#verify-the-connection) , mais adiante neste tópico. Para verificar a associação do certificado, abra um prompt de comando com privilégios administrativos e execute o seguinte comando:
 
-	netsh http show sslcert
+    netsh http show sslcert
 
 O resultado incluirá o seguinte:
 
-	IP:port                      : 0.0.0.0:443
+    IP:port                      : 0.0.0.0:443
 
-	Certificate Hash             : f98adf786994c1e4a153f53fe20f94210267d0e7
+    Certificate Hash             : f98adf786994c1e4a153f53fe20f94210267d0e7
 
-### Usar o Gerenciador de Configuração para configurar o servidor de relatório
+### <a name="use-configuration-manager-to-configure-the-report-server"></a>Usar o Gerenciador de Configuração para configurar o servidor de relatório
 
 Se você não quiser executar o script do PowerShell para configurar o servidor de relatório, execute as etapas nesta seção para usar o gerenciador de configuração em modo nativo do Reporting Services para configurar o servidor de relatório.
 
 1. No portal clássico do Azure, selecione a VM e clique em conectar. Use o nome de usuário e a senha configurados durante a criação da VM.
 
-	![conectar-se à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
+    ![conectar-se à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
 
 1. Execute a atualização do Windows e instale as atualizações da VM. Se for necessário reinicializar a VM, reinicie e reconecte-se à VM no portal clássico do Azure.
 
@@ -571,33 +572,33 @@ Se você não quiser executar o script do PowerShell para configurar o servidor 
 
 1. Por padrão, o RS está configurado para a porta HTTP 80 com IP "Todos Atribuídos". Para adicionar HTTPS:
 
-	1. Em **Certificado SSL**: selecione o certificado que você deseja usar, por exemplo, [nome da VM].cloudapp.net. Se não houver um certificado listado, consulte a seção **Etapa 2: Criar um Certificado do Servidor** para obter informações sobre como instalar e confiar no certificado na VM.
-	
-	1. Em **Porta SSL**: escolha 443. Se você tiver configurado o ponto de extremidade HTTPS privado na VM com uma porta privada diferente, use esse valor aqui.
-	
-	1. Clique em **Aplicar** e aguarde a conclusão da operação.
+    1. Em **Certificado SSL**: selecione o certificado que você deseja usar, por exemplo, [nome da VM].cloudapp.net. Se não houver um certificado listado, consulte a seção **Etapa 2: Criar um Certificado do Servidor** para obter informações sobre como instalar e confiar no certificado na VM.
+    
+    1. Em **Porta SSL**: escolha 443. Se você tiver configurado o ponto de extremidade HTTPS privado na VM com uma porta privada diferente, use esse valor aqui.
+    
+    1. Clique em **Aplicar** e aguarde a conclusão da operação.
 
 1. No painel esquerdo, clique em **Banco de Dados**.
 
-	1. Clique em **Alterar Banco de Dado**s.
-	
-	1. Clique em **Criar um novo banco de dados do servidor de relatório** e clique em **Próximo**.
-	
-	1. Mantenha o **Nome do Servidor** padrão: como o nome da VM e mantenha o **Tipo de Autenticação** padrão como **Usuário Atual** – **Segurança Integrada**. Clique em **Próximo**.
-	
-	1. Mantenha o **Nome do Banco de Dados** padrão como **ReportServer** e clique em **Próximo**.
-	
-	1. Mantenha o **Tipo de Autenticação** padrão como **Credenciais do Serviço** e clique em **Próximo**.
-	
-	1. Clique em **Avançar** na página **Resumo**.
-	
-	1. Quando a configuração estiver concluída, clique em **Concluir**.
+    1. Clique em **Alterar Banco de Dado**s.
+    
+    1. Clique em **Criar um novo banco de dados do servidor de relatório** e clique em **Próximo**.
+    
+    1. Mantenha o **Nome do Servidor** padrão: como o nome da VM e mantenha o **Tipo de Autenticação** padrão como **Usuário Atual** – **Segurança Integrada**. Clique em **Próximo**.
+    
+    1. Mantenha o **Nome do Banco de Dados** padrão como **ReportServer** e clique em **Próximo**.
+    
+    1. Mantenha o **Tipo de Autenticação** padrão como **Credenciais do Serviço** e clique em **Próximo**.
+    
+    1. Clique em **Próximo** on the **Resumo** .
+    
+    1. Quando a configuração estiver concluída, clique em **Concluir**.
 
 1. No painel esquerdo, clique em **URL do Gerenciador de Relatórios**. Mantenha o **Diretório Virtual** padrão como **Relatórios** e clique em **Aplicar**.
 
 1. Clique em **Sair** para fechar o Gerenciador de Configuração do Reporting Services.
 
-## Etapa 4: abrir a porta do Firewall do Windows
+## <a name="step-4:-open-windows-firewall-port"></a>Etapa 4: abrir a porta do Firewall do Windows
 
 >[AZURE.NOTE] Se você tiver usado um dos scripts para configurar o servidor de relatório, ignore esta seção. O script incluiu uma etapa para abrir a porta do firewall. A porta padrão era 80 para HTTP e 443 para HTTPS.
 
@@ -613,35 +614,35 @@ Se você tiver configurado uma porta privada para HTTPS diferente de 443, modifi
 
 1. Se você tiver usado uma porta diferente de 443 ao configurar o ponto de extremidade HTTPS na VM, atualize a porta no comando a seguir e execute o comando:
 
-		New-NetFirewallRule -DisplayName “Report Server (TCP on port 443)” -Direction Inbound –Protocol TCP –LocalPort 443
+        New-NetFirewallRule -DisplayName “Report Server (TCP on port 443)” -Direction Inbound –Protocol TCP –LocalPort 443
 
 1. Após a conclusão do comando, **Ok** será exibido no prompt de comando.
 
 Para verificar se a porta está aberta, abra uma janela do Windows PowerShell e execute o seguinte comando:
 
-	get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
+    get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
 
-## Verificar a configuração
+## <a name="verify-the-configuration"></a>Verificar a configuração
 
 Para verificar se a funcionalidade básica do servidor de relatório está funcionando, abra seu navegador com privilégios administrativos e navegue até as seguintes URLs do servidor de relatório e do gerenciador de relatório:
 
 - Na VM, navegue até a URL do servidor de relatório:
 
-		http://localhost/reportserver
+        http://localhost/reportserver
 
 - Na VM, navegue até a URL do gerenciador de relatório:
 
-		http://localhost/Reports
+        http://localhost/Reports
 
-- No computador local, navegue até o Gerenciador de relatório **remoto** na VM. Atualize o nome DNS no exemplo a seguir, conforme apropriado. Quando receber uma solicitação por uma senha, use as credenciais de administrador que você criou durante o provisionamento da VM. O nome de usuário está no formato [Domínio] [nome de usuário], em que o domínio é o nome de computador da VM, por exemplo, ssrsnativecloud\\testuser. Se você não estiver usando HTTP**S**, remova o **s** do URL. Consulte a próxima seção para saber mais sobre como criar usuários adicionais na VM.
+- No computador local, navegue até o Gerenciador de relatório **remoto** na VM. Atualize o nome DNS no exemplo a seguir, conforme apropriado. Quando receber uma solicitação por uma senha, use as credenciais de administrador que você criou durante o provisionamento da VM. O nome de usuário está no formato [Domínio]\[nome de usuário], em que o domínio é o nome de computador da VM, por exemplo, ssrsnativecloud\testuser. Se você não estiver usando HTTP**S**, remova o **s** da URL. Consulte a próxima seção para saber mais sobre como criar usuários adicionais na VM.
 
-		https://ssrsnativecloud.cloudapp.net/Reports
+        https://ssrsnativecloud.cloudapp.net/Reports
 
 - No computador local, navegue até a URL do servidor de relatório remoto. Atualize o nome DNS no exemplo a seguir, conforme apropriado. Se você não estiver usando HTTPS, remova o s da URL.
 
-		https://ssrsnativecloud.cloudapp.net/ReportServer
+        https://ssrsnativecloud.cloudapp.net/ReportServer
 
-## Criar usuários e atribuir funções
+## <a name="create-users-and-assign-roles"></a>Criar usuários e atribuir funções
 
 Após a configuração e verificação do servidor de relatório, uma tarefa administrativa comum é criar um ou mais usuários e atribuir usuários às funções do Reporting Services. Para saber mais, confira o seguinte:
 
@@ -651,7 +652,7 @@ Após a configuração e verificação do servidor de relatório, uma tarefa adm
 
 - [Criar e gerenciar atribuições de função](https://msdn.microsoft.com/library/ms155843.aspx)
 
-## Para criar e publicar relatórios na máquina virtual do Azure
+## <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>Para criar e publicar relatórios na máquina virtual do Azure
 
 A tabela a seguir resume algumas opções disponíveis para publicação de relatórios existentes de um computador local para o servidor de relatório hospedado na Máquina Virtual do Microsoft Azure:
 
@@ -659,35 +660,35 @@ A tabela a seguir resume algumas opções disponíveis para publicação de rela
 
 - **Construtor de Relatórios**: a máquina virtual inclui a versão de um clique do Construtor de Relatórios do Microsoft SQL Server. Para iniciar o Construtor de relatórios pela primeira vez na máquina virtual:
 
-	1. Inicie o navegador com privilégios administrativos.
-	
-	1. Navegue até o gerenciador de relatórios na máquina virtual e clique em **Construtor de Relatórios** na faixa de opções.
+    1. Inicie o navegador com privilégios administrativos.
+    
+    1. Navegue até o gerenciador de relatórios na máquina virtual e clique em **Construtor de Relatórios** na faixa de opções.
 
-	Para saber mais, consulte [Instalando, Desinstalando e Dando Suporte ao Construtor de Relatórios](https://technet.microsoft.com/library/dd207038.aspx).
+    Para saber mais, consulte [Instalando, Desinstalando e Dando Suporte ao Construtor de Relatórios](https://technet.microsoft.com/library/dd207038.aspx).
 
 - **SQL Server Data Tools: VM**: se você criou a VM com o SQL Server 2012, o SQL Server Data Tools estará instalado na máquina virtual e poderá ser usado para criar **Projetos do Servidor de Relatório** e relatórios na máquina virtual. O SQL Server Data Tools pode publicar os relatórios no servidor de relatório na máquina virtual.
-	
-	Se você tiver criado a VM com o SQL Server 2014, instale o SQL Server Data Tools - BI para Visual Studio. Para saber mais, confira o seguinte:
+    
+    Se você tiver criado a VM com o SQL Server 2014, instale o SQL Server Data Tools - BI para Visual Studio. Para saber mais, confira o seguinte:
 
-	- [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
+    - [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
 
-	- [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)
+    - [Microsoft SQL Server Data Tools - Business Intelligence para Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)
 
-	- [SQL Server Data Tools e SQL Server Business Intelligence (SSDT-BI)](http://curah.microsoft.com/30004/sql-server-data-tools-ssdt-and-sql-server-business-intelligence)
+    - [SQL Server Data Tools e SQL Server Business Intelligence (SSDT-BI)](http://curah.microsoft.com/30004/sql-server-data-tools-ssdt-and-sql-server-business-intelligence)
 
 - **SQL Server Data Tools: Remoto**: no computador local, crie um projeto do Reporting Services no SQL Server Data Tools que contenha os relatórios do Reporting Services. Configure o projeto para conectar-se à URL do serviço Web.
 
-	![propriedades de projeto ssdt para projeto SSRS](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
+    ![propriedades de projeto ssdt para projeto SSRS](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
 
 - **Usar script**: use o script para copiar o conteúdo do servidor de relatório. Para saber mais, consulte [Exemplo de Script rs.exe do Reporting Services para Migrar o Conteúdo entre os Servidores de Relatório](https://msdn.microsoft.com/library/dn531017.aspx).
 
-## Minimizar o custo se você não estiver usando a VM
+## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>Minimizar o custo se você não estiver usando a VM
 
 >[AZURE.NOTE] Para minimizar os encargos de suas Máquinas Virtuais do Azure quando elas não estiverem em uso, finalize a VM no portal clássico do Azure. Se você usar as opções de energia do Windows em uma VM para desligá-la, ainda receberá a cobrança do mesmo valor para a máquina virtual. Para reduzir os encargos, é necessário finalizar a VM no portal clássico do Azure. Se você não precisar mais da VM, lembre-se de excluí-la e também os arquivos .vhd associados para evitar os encargos de armazenamento. Para saber mais, consulte a seção de perguntas frequentes em [Detalhes de Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-## Mais informações
+## <a name="more-information"></a>Mais informações
 
-### Recursos
+### <a name="resources"></a>Recursos
 
 - Para obter um conteúdo semelhante relacionado a uma implantação de servidor único do Business Intelligence do SQL Server e do SharePoint 2013, consulte [Usar o Windows PowerShell para Criar uma VM do Azure com o BI do SQL Server e o SharePoint 2013](https://msdn.microsoft.com/library/azure/dn385843.aspx).
 
@@ -697,12 +698,16 @@ A tabela a seguir resume algumas opções disponíveis para publicação de rela
 
 - Para saber mais sobre o custo dos encargos de computação do Azure, consulte a guia Máquinas Virtuais da [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
 
-### Conteúdo da comunidade
+### <a name="community-content"></a>Conteúdo da comunidade
 
 - Para obter instruções detalhadas sobre como criar um servidor de relatório em modo nativo do Reporting Services sem usar script, consulte [Hospedando o serviço Relatórios SQL na máquina virtual Azure](http://adititechnologiesblog.blogspot.in/2012/07/hosting-sql-reporting-service-on-azure.html).
 
-### Links para outros recursos para SQL Server em VMs do Azure
+### <a name="links-to-other-resources-for-sql-server-in-azure-vms"></a>Links para outros recursos para SQL Server em VMs do Azure
 
 [Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

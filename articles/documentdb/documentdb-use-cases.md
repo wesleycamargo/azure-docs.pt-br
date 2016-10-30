@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Casos de uso comuns do Banco de Dados de Documentos | Microsoft Azure" 
-    description="Saiba mais sobre os principais cinco casos de uso para o Banco de Dados de Documentos: conteúdos gerados pelo usuário, registros de log de eventos, dados de catálogo, dados de preferências do usuário e IoT (Internet of Things, Internet das Coisas)." 
+    pageTitle="Common DocumentDB use cases | Microsoft Azure" 
+    description="Learn about the top five use cases for DocumentDB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT)." 
     services="documentdb" 
     authors="h0n" 
     manager="jhubbard" 
@@ -13,95 +13,100 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/08/2016" 
+    ms.date="10/28/2016" 
     ms.author="hawong"/>
 
-# Casos de uso comuns do Banco de Dados de Documentos
-Este artigo fornece uma visão geral dos vários casos de uso comuns do Banco de Dados de Documentos. As recomendações neste artigo servem como ponto de partida ao desenvolver seu aplicativo com o Banco de Dados de Documentos.
 
-Após ler este artigo, você poderá responder as perguntas a seguir:
+# <a name="common-documentdb-use-cases"></a>Common DocumentDB use cases
+This article provides an overview of several common use cases for DocumentDB.  The recommendations in this article serve as a starting point as you develop your application with DocumentDB.   
+
+After reading this article, you'll be able to answer the following questions: 
  
-- Quais são os casos de uso comuns do Banco de Dados de Documentos?
-- Quais são os benefícios de usar o Banco de Dados de Documentos como um repositório de conteúdo gerado pelo usuário?
-- Quais são os benefícios de usar o Banco de Dados de Documentos como um armazenamento de dados de catálogo?
-- Quais são os benefícios de usar o Banco de Dados de Documentos como um armazenamento de logs de evento?
-- Quais são os benefícios de usar o Banco de Dados de Documentos como um armazenamento de dados de preferência do usuário?
-- Quais são os benefícios de usar o Banco de Dados de Documentos como um armazenamento de dados para sistemas IoT (Internet of Things, Internet das Coisas)?
+- What are the common use cases for DocumentDB?
+- What are the benefits of using DocumentDB as a user generated content store?
+- What are the benefits of using DocumentDB as a catalog data store?
+- What are the benefits of using DocumentDB as a event log store?
+- What are the benefits of using DocumentDB as a user preferences data store?
+- What are the benefits of using DocumentDB as a data store for Internet of Things (IoT) systems?
 
-## Casos de uso comuns do Banco de Dados de Documentos
-O Banco de Dados de Documentos do Azure é um banco de dados NoSQL de finalidade geral que é usado em uma ampla gama de aplicativos e casos de uso. É uma boa escolha para qualquer aplicativo que precise de tempos de resposta em milissegundos e cuja escala precise ser rapidamente ajustada. Veja a seguir alguns atributos do Banco de Dados de Documentos que o tornam adequado para aplicativos de alto desempenho.
+## <a name="common-use-cases-for-documentdb"></a>Common use cases for DocumentDB
+Azure DocumentDB is a general purpose NoSQL database that is used in a wide range of applications and use cases. It is a good choice for any application that needs low order-of-millisecond response times, and needs to scale rapidly. The following are some attributes of DocumentDB that make it well-suited for high-performance applications.
 
-- O Banco de Dados de Documentos particiona naturalmente os dados para alta disponibilidade e escalabilidade.
-- O Banco de Dados de Documentos tem armazenamento com suporte de SSD com tempos de resposta de milissegundos e baixa latência.
-- O suporte do Banco de Dados de Documentos para níveis de consistência (como deterioração restrita, de sessão e eventual) proporciona taxas baixas em relação ao custo-desempenho.
-- O Banco de Dados de Documentos tem um modelo de preços flexível e amigável aos dados que mede o armazenamento e a produtividade de modo independente.
-- O modelo de produtividade reservado do Banco de Dados de Documentos permite a você pensar em termos de número de leituras/gravações em vez de CPU/memória/IOPs do hardware subjacente.
-- O design do Banco de Dados de Documentos permite ajustar a escala para grandes volumes de solicitação, na ordem de bilhões de solicitações por dia.
+- DocumentDB natively partitions your data for high availability and scalability.
+- DocumentDB's has SSD backed storage with low-latency order-of-millisecond response times.
+- DocumentDB's support for consistency levels like eventual, session and bounded-staleness allows for low cost-to performance-ratio. 
+- DocumentDB has a flexible data-friendly pricing model that meters storage and throughput independently.
+- DocumentDB's reserved throughput model allows you to think in terms of number of reads/writes instead of CPU/memory/IOPs of the underlying hardware.
+- DocumentDB's design lets you scale to massive request volumes in the order of billions of requests per day.
 
-Esses atributos são particularmente úteis quando se trata de aplicativos Web, móveis, de jogos e IoT, que precisam de tempos de resposta baixos e lidar com grandes volumes de leituras e gravações.
+These attributes are particularly beneficial when it comes to web, mobile, gaming and IoT applications that need low response times and need to handle massive amounts of reads and writes. 
 
-## Conteúdo gerado pelo usuário
-Um caso de uso comum para o Banco de Dados de Documentos é armazenar e consultar UGC (User Generated Content, conteúdo gerado pelo usuário) para aplicativos Web e móveis, particularmente aplicativos de mídia social. Alguns exemplos de UGC são sessões de bate-papo, tweets, postagens em blogs, classificações e comentários. Muitas vezes, o UGC em aplicativos de mídia social é uma mistura de texto de forma livre, propriedades, marcas e relações que não se limitam a uma estrutura rígida.
+## <a name="user-generated-content"></a>User generated content
+A common use case for DocumentDB is to store and query user generated content (UGC) for web and mobile applications, particularly social media applications.  Some examples of UGC are chat sessions, tweets, blog posts, ratings, and comments.  Often, the UGC in social media applications is a blend of free form text, properties, tags and relationships that are not bounded by rigid structure.   
 
-Conteúdos como bate-papos, comentários e postagens podem ser armazenados no Banco de Dados de Documentos sem a necessidade de transformações ou objetos complexos em camadas de mapeamento relacional. Propriedades de dados podem ser adicionadas ou modificadas facilmente para atender aos requisitos conforme os desenvolvedores iteram sobre o código do aplicativo, portanto, promovendo um desenvolvimento rápido.
+Content such as chats, comments, and posts can be stored in DocumentDB without requiring transformations or complex object to relational mapping layers.  Data properties can be added or modified easily to match requirements as developers iterate over the application code, thus promoting rapid development.  
 
-Aplicativos que se integram com várias redes sociais devem responder às mudanças nos esquemas destas redes. Como os dados são automaticamente indexados por padrão no Banco de Dados de Documentos, os dados estão prontos para serem consultados a qualquer momento. Portanto, esses aplicativos têm a flexibilidade para recuperar as projeções de acordo com suas respectivas necessidades.
+Applications that integrate with various social networks must respond to changing schemas from these networks.  As data is automatically indexed by default in DocumentDB, data is ready to be queried at any time.  Hence, these applications have the flexibility to retrieve projections as per their respective needs.       
 
-Muitos dos aplicativos sociais são executados em escala global e podem apresentar os padrões de uso imprevisíveis. Flexibilidade para dimensionar o armazenamento de dados é essencial, uma vez que a camada do aplicativo é dimensionada de acordo com a demanda de uso. Você pode escalar horizontalmente incluindo partições de dados adicionais em uma conta do Banco de Dados de Documentos. Além disso, você também pode criar contas adicionais do Banco de Dados de Documentos em várias regiões. Para saber mais sobre a disponibilidade da região do serviço do Banco de Dados de Documentos, consulte [Regiões do Azure](https://azure.microsoft.com/regions/#services).
+Many of the social applications run at global scale and can exhibit unpredictable usage patterns.  Flexibility in scaling the data store is essential as the application layer scales to match usage demand.  You can scale out by adding additional data partitions under a DocumentDB account.  In addition, you can also create additional DocumentDB accounts across multiple regions. For DocumentDB service region availability, see [Azure Regions](https://azure.microsoft.com/regions/#services).   
 
-## Dados de catálogo
-Os cenários de uso de dados de catálogo envolvem armazenar e consultar um conjunto de atributos para entidades, como pessoas, lugares e produtos. Alguns exemplos de dados de catálogo são contas de usuário, catálogos de produtos, registros de dispositivo para IoT e sistemas de listas de materiais. Os atributos desses dados podem variar e podem mudar ao longo do tempo para atender aos requisitos do aplicativo.
+## <a name="catalog-data"></a>Catalog data
+Catalog data usage scenarios involve storing and querying a set of attributes for entities such as people, places and products.  Some examples of catalog data are user accounts, product catalogs, device registries for IoT, and bill of materials systems.  Attributes for this data may vary and can change over time to fit application requirements.  
 
-Considere um exemplo de um catálogo de produto para um fornecedor de peças automotivas. Todas as partes podem ter seus próprios atributos além dos atributos comuns que todas as partes compartilham. Além disso, atributos de uma parte específica podem mudar no ano seguinte quando um novo modelo é liberado. Como um armazenamento de documentos JSON, o Banco de Dados de Documentos dá suporte a esquemas flexíveis e permite representar dados com propriedades aninhadas e, portanto, é adequado para armazenar dados de catálogo de produtos.
+Consider an example of a product catalog for an automotive parts supplier. Every part may have its own attributes in addition to the common attributes that all parts share.  Furthermore, attributes for a specific part can change the following year when a new model is released.  As a JSON document store, DocumentDB supports flexible schemas and allows you to represent data with nested properties, and thus it is well suited for storing product catalog data.       
 
-## Dados de série temporal e registro em log
-O registro em log do aplicativo geralmente é emitido em grandes volumes e pode ter atributos que variam com base na versão do aplicativo implantada ou nos eventos de log de componentes. Dados de log não estão limitados por relações complexas ou estruturas rígidas. Cada vez mais, os dados de log são mantidos no formato JSON, uma vez que o JSON é leve e fácil para leitura humana.
+## <a name="logging-and-time-series-data"></a>Logging and Time-series data
+Application logging is often emitted in large volumes and may have varying attributes based on the deployed application version or the component logging events.  Log data is not bounded by complex relationships or rigid structures. Increasingly, log data is persisted in JSON format since JSON is lightweight and easy for humans to read.
    
-Normalmente, há dois casos de uso importantes relacionados aos dados do log de eventos. O primeiro caso de uso é executar consultas ad hoc em um subconjunto dos dados para solução de problemas. Durante a solução de problemas, um subconjunto de dados é primeiramente recuperado do logs, normalmente por séries temporais. Em seguida, uma busca detalhada é executada filtrando o conjunto de dados com níveis de erro ou mensagens de erro. É aí que armazenar os logs de eventos no Banco de Dados de Documentos se torna uma vantagem. Os dados de log armazenados no Banco de Dados de Documentos são indexados automaticamente por padrão, assim, os dados estão prontos para serem consultados a qualquer momento. Além disso, os dados de log podem ser persistidos entre partições de dados como uma série temporal. Logs mais antigos podem ser colocados em armazenamento frio de acordo com sua política de retenção.
+There are typically two major use cases related to event log data.  The first use case is to perform ad-hoc queries over a subset of data for troubleshooting.  During troubleshooting, a subset of data is first retrieved from the logs, typically by time series.  Then, a drill-down is performed by filtering the dataset with error levels or error messages. This is where storing event logs in DocumentDB is an advantage. Log data stored in DocumentDB is automatically indexed by default, and thus it is ready to be queried at any time. In addition, log data can be persisted across data partitions as a time-series. Older logs can be rolled out to cold storage per your retention policy.          
 
-O segundo caso de uso envolve executar trabalhos de análise de dados offline em um grande volume de dados de log. Exemplos desse caso de uso incluem análise de disponibilidade de servidor, análise de erros de aplicativo e análise de dados de sequência de cliques. Normalmente, o Hadoop é usado para executar esses tipos de análises. Com o conector do Hadoop para o Banco de Dados de Documentos, bancos de dados do Bancos e Dados de Documentos funcionam como fontes de dados e coletores de trabalhos Pig, Hive e Map/Reduce. Para obter detalhes sobre o conector do Hadoop para o Banco de Dados de Documentos, consulte [Executar um trabalho do Hadoop com o Banco de Dados de Documentos e HDInsight](documentdb-run-hadoop-with-hdinsight.md).
+The second use case involves long running data analytics jobs performed offline over a large volume of log data.  Examples of this use case include server availability analysis, application error analysis, and clickstream data analysis.  Typically, Hadoop is used to perform these types of analyses.  With the Hadoop Connector for DocumentDB, DocumentDB databases function as data sources and sinks for Pig, Hive and Map/Reduce jobs. For details on the Hadoop Connector for DocumentDB, see [Run a Hadoop job with DocumentDB and HDInsight](documentdb-run-hadoop-with-hdinsight.md).      
 
-## Jogos
-A camada de banco de dados é um componente essencial dos aplicativos de jogos. Os jogos modernos executam o processamento gráfico em clientes móveis/console, mas dependem da nuvem para fornecer conteúdo personalizado, como estatísticas de jogos, integração em mídia social e tabelas com as melhores pontuações. Os jogos requerem latências extremamente baixas para leituras e gravações para proporcionar uma experiência envolvente no jogo, e a camada de banco de dados precisa lidar com altos e baixos nas taxas de solicitação durante inicializações de novos jogos e atualizações de recurso.
+## <a name="gaming"></a>Gaming
+The database tier is a crucial component of gaming applications. Modern games perform graphical processing on mobile/console clients, but rely on the cloud to deliver customized and personalized content like in-game stats, social media integration, and high-score leaderboards. Games require extremely low latencies for reads and writes to provide an engaging in-game experience, and the database tier needs to handle highs and lows in request rates during new game launches and feature updates.
 
-O Banco de Dados de Documentos é usado por jogos em grandes escalas como [The Walking Dead: No Man's Land](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) da [Next Games](http://www.nextgames.com/) e [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Em ambos casos de uso, as principais vantagens do Banco de Dados de Documentos foram as seguintes:
+DocumentDB is used by massive-scale games like [The Walking Dead: No Man's Land](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) by [Next Games](http://www.nextgames.com/), and [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). In both use cases, the key advantages of DocumentDB were the following:
 
-- O Banco de Dados de Documentos permite que o desempenho seja escalado verticalmente para cima ou para baixo de modo elástico. Isso permite que os jogos lidem com a atualização de perfis e estatísticas de dezenas a milhões de jogadores simultâneos fazendo uma única chamada à API.
-- O Banco de Dados de Documentos permite leituras e gravações em milissegundos, o que ajuda a evitar os atrasos durante as partidas dos jogos.
-- A indexação automática do Banco de Dados de Documentos permite filtragem em várias propriedades diferentes em tempo real, por exemplo, localização de jogadores por meio de suas IDs internas de jogador, do GameCenter, do Facebook, das IDs do Google ou de consulta baseada em associação do jogador em uma comunidade. Isso é possível sem a criação de indexação complexa ou infraestrutura de fragmentação.
-- Os recursos sociais, incluindo mensagens por bate-papo no jogo, associações a comunidades de jogadores, desafios concluídos, placares com as pontuações mais altas e gráficos sociais são mais fáceis de implementar com um esquema flexível.
-- O Banco de Dados de Documentos como uma PaaS (plataforma como serviço) gerenciada exigiu trabalho mínimo de configuração e gerenciamento, permitindo iteração rápida e reduzindo o tempo de colocação no mercado.
+- DocumentDB allows performance to be scaled up or down elastically. This allows games to handle updating profile and stats from dozens to millions of simultaneous gamers by making a single API call.
+- DocumentDB supports millisecond reads and writes to help avoid any lags during game play.
+- DocumentDB's automatic indexing allows for filtering against multiple different properties in real-time, e.g. locate players by their internal player IDs, or their GameCenter, Facebook, Google IDs, or query based on player membership in a guild. This is possible without building complex indexing or sharding infrastructure.
+- Social features including in-game chat messages, player guild memberships, challenges completed, high-score leaderboards, and social graphs are easier to implement with a flexible schema.
+- DocumentDB as a managed platform-as-a-service (PaaS) required minimal setup and management work to allow for rapid iteration, and reduce time to market.
 
 
-## Dados de preferências do usuário
-Hoje em dia, aplicativos Web e móveis mais modernos vêm com modos de exibição e experiências mais complexos. Esses modos de exibição e experiências são geralmente dinâmicos, atendendo as preferências ou o humor do usuário e as necessidades da marca. Portanto, os aplicativos precisam conseguir recuperar configurações personalizadas com eficiência para renderizar experiências e elementos da interface do usuário rapidamente.
+## <a name="user-preferences-data"></a>User preferences data
+Nowadays, most modern web and mobile applications come with complex views and experiences. These views and experiences are usually dynamic, catering to user preferences or moods and branding needs.  Hence, applications need to be able to retrieve personalized settings effectively in order to render UI elements and experiences quickly. 
 
-JSON é um formato eficiente para representar dados de layout de interface do usuário já que não é leve, mas pode ser facilmente interpretado pelo JavaScript. O Banco de Dados de Documentos oferece níveis de consistência ajustáveis que permitir leituras rápidas com gravações de baixa latência. Portanto, armazenar dados de layout da interface do usuário, incluindo configurações personalizadas, como documentos JSON no Banco de Dados de Documentos é um meio eficaz de obter esses dados.
+JSON is an effective format to represent UI layout data as it is not only lightweight, but also can be easily interpreted by JavaScript.  DocumentDB offers tunable consistency levels that allow fast reads with low latency writes. Hence, storing UI layout data including personalized settings as JSON documents in DocumentDB is an effective means to get this data across the wire.
 
-## Dados de sensor do dispositivo e IoT
-Casos de uso de IoT normalmente compartilham alguns padrões sobre como consomem, processam e armazenam dados. Em primeiro lugar, esses sistemas permitem a entrada de dados, podendo acomodar picos de dados de sensores de dispositivo de várias localidades. Em seguida, esses sistemas processam e analisar dados de streaming para obterem resultados em tempo real. E, por último, mas não menos importante, a maioria se não todos os dados acabarão aparecendo em um armazenamento de dados para consulta ad hoc e análise offline.
+## <a name="iot-and-device-sensor-data"></a>IoT and Device sensor data
+IoT use cases commonly share some patterns in how they ingest, process and store data.  First, these systems allow for data intake that can ingest bursts of data from device sensors of various locales.  Next, these systems process and analyze streaming data to derive real time insights. And last but not least, most if not all data will eventually land in a data store for adhoc querying and offline analytics.    
 
-O Microsoft Azure oferece serviços avançados que podem ser aproveitados para casos de uso de IoT. Os serviços de IoT do Azure são um conjunto de serviços, incluindo Hubs de eventos do Azure, Banco de Dados de Documentos do Azure, análise de fluxo do Azure, Hub de notificação do Azure, aprendizado de máquina do Azure, Azure HDInsight e PowerBI.
+Microsoft Azure offers rich services that can be leveraged for IoT use cases.  Azure IoT services are a set of services including Azure Event Hubs, Azure DocumentDB, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight, and PowerBI. 
 
-Picos de dados podem ser processados por Hubs de eventos do Azure que oferecem inclusão de dados de alta taxa de transferência com baixa latência. Dados incluídos que precisam ser processados para obter informações em tempo real podem ser encaminhados para análise de fluxo do Azure para análise em tempo real. Os dados podem ser carregados no Banco de Dados de Documentos para consultas ad hoc. Depois que os dados são carregados no Banco de Dados de Documentos, os dados estão prontos para serem consultados. Os dados no Banco de Dados de Documentos podem ser usados como dados de referência como parte da análise em tempo real. Além disso, os dados podem ser ainda mais refinados e processados conectando dados do Banco de Dados de Documentos com o HDInsight para trabalhos em Pig, Hive ou Map/Reduce. Dados refinados são carregados, em seguida, de volta ao Banco de Dados de Documentos para relatórios.
+Bursts of data can be ingested by Azure Event Hubs as it offers high throughput data ingestion with low latency. Data ingested that needs to be processed for real time insight can be funneled to Azure Stream Analytics for real time analytics. Data can be loaded into DocumentDB for adhoc querying. Once the data is loaded into DocumentDB, the data is ready to be queried.  The data in DocumentDB can be used as reference data as part of real time analytics. In addition, data can further be refined and processed by connecting DocumentDB data to HDInsight for Pig, Hive or Map/Reduce jobs.  Refined data is then loaded back to DocumentDB for reporting.   
 
-Para obter uma solução de IoT de exemplo usando o Banco de Dados de Documentos, EventHubs e Storm, consulte os [repositórios de exemplo do hdinsight-storm no GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
+For a sample IoT solution using DocumentDB, EventHubs and Storm, see the [hdinsight-storm-examples repository on GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
-Para obter mais informações sobre as ofertas do Azure para IoT, consulte [Criar a Internet das Coisas](http://www.microsoft.com/pt-BR/server-cloud/internet-of-things.aspx).
+For more information on Azure offerings for IoT, see [Create the Internet of Your Things](http://www.microsoft.com/en-us/server-cloud/internet-of-things.aspx).
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
  
-Para começar a usar o Banco de Dados de Documentos, você pode criar uma [conta](https://azure.microsoft.com/pricing/free-trial/) e seguir nosso [roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para conhecer o Banco de Dados de Documentos e localizar as informações necessárias.
+To get started with DocumentDB, you can create an [account](https://azure.microsoft.com/pricing/free-trial/) and then follow our [learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to learn about DocumentDB and find the information you need. 
 
-Ou, se você quiser ler mais sobre os clientes que usam o Banco de Dados de Documentos, as histórias dos clientes a seguir estão disponíveis:
+Or, if you'd like to read more about customers using DocumentDB, the following customer stories are available:
 
-- [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). O jogo The Walking Dead: No Man's Land alcança o primeiro lugar com o suporte do Banco de Dados de Documentos do Azure.
-- [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Como o Halo 5 implementou o jogo social usando o Banco de Dados de Documentos do Azure.
-- [Cortana Analytics Gallery](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Cortana Analytics Gallery – um site de comunidade escalonável criado com base no Banco de Dados de Documentos do Azure.
-- [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). Integrador líder oferece a empresas multinacionais informações globais em minutos com as tecnologias de nuvem flexíveis.
-- [News Republic](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). Adicionando inteligência às notícias para fornecer informações com a finalidade de engajar cidadãos.
-- [SGS International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18653). Para obter cores consistentes em todo o mundo, grandes marcas se voltam para a SGS. E a SGS se volta para o Azure.
-- [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608). O líder global Telenor usa a nuvem para se mover com a velocidade de uma start-up.
-- [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). A loja do futuro utiliza pesquisa rápida e um fluxo de dados fácil.
+- [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). The Walking Dead: No Man's Land game soars to #1 supported by Azure DocumentDB.
+- [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). How Halo 5 implemented social gameplay using Azure DocumentDB.
+- [Cortana Analytics Gallery](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Cortana Analytics Gallery - a scalable community site built on Azure DocumentDB.
+- [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). Leading Integrator Gives Multinational Firms Global Insight in Minutes with Flexible Cloud Technologies.
+- [News Republic](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). Adding intelligence to the news to provide information with purpose for engaged citizens. 
+- [SGS International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18653). For consistent color across the globe, major brands turn to SGS. And SGS turns to Azure.
+- [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608). Global leader Telenor uses the cloud to move with the speed of a startup. 
+- [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). The store of the future runs on speedy search and the easy flow of data.
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

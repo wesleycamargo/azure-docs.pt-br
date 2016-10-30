@@ -1,29 +1,30 @@
 <properties
-	pageTitle="Azure AD Connect e federação | Microsoft Azure"
-	description="Esta página é o local central para toda a documentação relativa às operações do AD FS usando o Azure AD Connect"
-	services="active-directory"
-	documentationCenter=""
-	authors="anandyadavmsft"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure AD Connect e federação | Microsoft Azure"
+    description="Esta página é o local central para toda a documentação relativa às operações do AD FS usando o Azure AD Connect"
+    services="active-directory"
+    documentationCenter=""
+    authors="anandyadavmsft"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="anandy"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/14/2016"
+    ms.author="anandy"/>
 
 
-# Azure AD Connect e federação
+
+# <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e federação
 
 O Azure AD Connect permite configurar a federação com o AD FS e o Azure AD locais. Com o logon federado, você pode habilitar os usuários a acessarem serviços baseados no Azure AD com suas senhas locais e, enquanto estão na rede corporativa, sem precisar digitar suas senhas novamente. A opção de federação com o AD FS permite que você implante um novo AD FS ou especifique um existente em um farm do Windows Server 2012 R2.
 
 Este tópico é a base das informações sobre funcionalidades relacionadas à Federação para o Azure AD Connect e relaciona links para todos os outros tópicos relacionados a ela. Para obter links para o Azure AD Connect, confira Integrando suas identidades locais ao Azure Active Directory.
 
-## Azure AD Connect – Tópicos sobre federação
+## <a name="azure-ad-connect---federation-topics"></a>Azure AD Connect – Tópicos sobre federação
 
 | Tópico | O que ele abrange e quando deve ser lido |
 |:------|:-----------|
@@ -43,9 +44,14 @@ Este tópico é a base das informações sobre funcionalidades relacionadas à F
 | [Modificando as regras de declaração do AD FS](active-directory-aadconnect-federation-management.md#modifying-ad-fs-claim-rules) | Modificar/adicionar regras de declaração do AD FS correspondentes à configuração de sincronização do Azure AD Connect |
 
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 * [Implantação do AD FS no Azure](active-directory-aadconnect-azure-adfs.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

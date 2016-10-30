@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="ipv6, azure load balancer, pilha dual, ip público, ipv6 nativo, móvel, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -18,16 +19,17 @@
     ms.author="sewhee"
 />
 
-# Implantar uma solução de balanceamento de carga voltada para a Internet com IPv6 usando um modelo
+
+# <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Implantar uma solução de balanceamento de carga voltada para a Internet com IPv6 usando um modelo
 
 > [AZURE.SELECTOR]
-- [PowerShell](load-balancer-ipv6-internet-ps.md)
-- [CLI do Azure](load-balancer-ipv6-internet-cli.md)
-- [Modelo](load-balancer-ipv6-internet-template.md)
+- [PowerShell](./load-balancer-ipv6-internet-ps.md)
+- [CLI do Azure](./load-balancer-ipv6-internet-cli.md)
+- [Modelo](./load-balancer-ipv6-internet-template.md)
 
 Um Azure Load Balancer é um balanceador de carga de Camada 4 (TCP, UDP). O balanceador de carga fornece alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço de integridade em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. O Azure Load Balancer também pode apresentar esses serviços em várias portas, vários endereços IP ou ambos.
 
-## Exemplo de cenário de implantação
+## <a name="example-deployment-scenario"></a>Exemplo de cenário de implantação
 
 O diagrama a seguir ilustra a solução de balanceamento de carga que está sendo implantada usando o exemplo de modelo descrito neste artigo.
 
@@ -41,9 +43,9 @@ Nesse cenário, você criará os seguintes recursos do Azure:
 - um Conjunto de disponibilidade que contém as duas VMs
 - duas VMs (máquinas virtuais)
 
-## Implantar o modelo usando o Portal do Azure
+## <a name="deploying-the-template-using-the-azure-portal"></a>Implantar o modelo usando o Portal do Azure
 
-Este artigo faz referência a um modelo publicado na galeria [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/). Você pode baixar o modelo da galeria ou iniciar a implantação no Azure diretamente da Galeria. Este artigo pressupõe que você baixou o modelo em seu computador local.
+Este artigo faz referência a um modelo publicado na galeria [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) . Você pode baixar o modelo da galeria ou iniciar a implantação no Azure diretamente da Galeria. Este artigo pressupõe que você baixou o modelo em seu computador local.
 
 1. Abra o Portal do Azure e entre com uma conta que tenha permissões para criar VMs e recursos de rede dentro de uma assinatura do Azure. Além disso, a menos que você esteja usando recursos existentes, a conta precisará de permissão para criar um grupo de recursos e uma conta de armazenamento.
 
@@ -85,7 +87,7 @@ Este artigo faz referência a um modelo publicado na galeria [Modelos de início
 
     ![lb-ipv6-portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
-## Validar a conectividade
+## <a name="validate-connectivity"></a>Validar a conectividade
 
 Quando o modelo tiver sido implantado com êxito, você poderá validar a conectividade concluindo às seguintes tarefas:
 
@@ -97,7 +99,7 @@ Quando o modelo tiver sido implantado com êxito, você poderá validar a conect
 >[AZURE.NOTE]
 O ICMP para IPv4 e IPv6 está bloqueado na rede do Azure. Como resultado, as ferramentas ICMP, como ping, sempre falham. Para testar a conectividade, use uma alternativa TCP como TCPing ou o cmdlet do PowerShell Test-NetConnection. Observe que os endereços IP mostrados no diagrama são exemplos de valores que você pode ver. Como os endereços IPv6 são atribuídos dinamicamente, os endereços que você receber serão diferentes e podem variar por região. Além disso, é comum que o endereço IPv6 público no balanceador de carga para comece com um prefixo diferente dos endereços IPv6 particulares no pool de back-end.
 
-## Variáveis e parâmetros do modelo
+## <a name="template-parameters-and-variables"></a>Variáveis e parâmetros de modelo
 
 Um modelo do Resource Manager contém diversas variáveis e parâmetros que você pode personalizar de acordo com suas necessidades. Variáveis são usadas para valores fixos os quais você não quer que um usuário altere. Os parâmetros são usados para valores os quais você deseja que um usuário forneça ao implantar o modelo. O modelo de exemplo está configurado para o cenário descrito neste artigo. Você pode personalizá-lo de acordo com as necessidades do seu ambiente.
 
@@ -128,4 +130,8 @@ O modelo de exemplo usado neste artigo inclui as variáveis e parâmetros a segu
 
 As variáveis restantes no modelo contêm valores derivados atribuídos quando o Azure cria os recursos. Não altere essas variáveis.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

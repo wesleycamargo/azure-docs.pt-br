@@ -1,29 +1,30 @@
 <properties
-	pageTitle="Implantar um aplicativo Web Sails.js no Serviço de Aplicativo do Azure"
-	description="Saiba como implantar um aplicativo do Node.js no Serviço de Aplicativo do Azure. Este tutorial mostra como implantar um aplicativo Web Sails.js."
-	services="app-service\web"
-	documentationCenter="nodejs"
-	authors="cephalin"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Implantar um aplicativo Web Sails.js no Serviço de Aplicativo do Azure"
+    description="Saiba como implantar um aplicativo do Node.js no Serviço de Aplicativo do Azure. Este tutorial mostra como implantar um aplicativo Web Sails.js."
+    services="app-service\web"
+    documentationCenter="nodejs"
+    authors="cephalin"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/23/2016"
-	ms.author="cephalin"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="nodejs"
+    ms.topic="article"
+    ms.date="09/23/2016"
+    ms.author="cephalin"/>
 
-# Implantar um aplicativo Web Sails.js no Serviço de Aplicativo do Azure
 
-Este tutorial mostra como implantar um aplicativo Sails.js no Serviço de Aplicativo do Azure. No processo, você pode reunir algum conhecimento geral sobre como configurar seu aplicativo Node.js para a execução no Serviço de Aplicativo.
+# <a name="deploy-a-sails.js-web-app-to-azure-app-service"></a>Implantar um aplicativo Web Sails.js no Serviço de Aplicativo do Azure
+
+Este tutorial mostra como implantar um aplicativo Sails.js no Serviço de Aplicativo do Azure. No processo, você pode reunir algum conhecimento geral sobre como configurar seu aplicativo Node.js para a execução no Serviço de Aplicativo. 
 
 Você deve ter conhecimento prático de Sails.js. Este tutorial não se destina a ajudá-lo com problemas relacionados à execução do Sail.js em geral.
 
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - [Node.js](https://nodejs.org/)
 - [Sails.js](http://sailsjs.org/get-started)
@@ -33,7 +34,7 @@ Você deve ter conhecimento prático de Sails.js. Este tutorial não se destina 
 
 >[AZURE.NOTE] Para ver o Serviço de Aplicativo do Azure em ação antes de se inscrever para uma conta do Azure, acesse [Experimente o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751). Lá, você poderá criar imediatamente um aplicativo de curta duração inicial no Serviço de Aplicativo — sem exigência de cartão de crédito e sem compromissos.
 
-## Etapa 1: criar um aplicativo do Sails.js localmente
+## <a name="step-1:-create-a-sails.js-app-locally"></a>Etapa 1: criar um aplicativo do Sails.js localmente
 
 Primeiro, crie rapidamente um aplicativo do Sails.js padrão em seu ambiente de desenvolvimento seguindo estas etapas:
 
@@ -47,7 +48,7 @@ Primeiro, crie rapidamente um aplicativo do Sails.js padrão em seu ambiente de 
 
     Verifique se você pode navegar para a home page padrão em http://localhost:1377.
 
-## Etapa 2: criar o recurso de aplicativo do Azure
+## <a name="step-2:-create-the-azure-app-resource"></a>Etapa 2: criar o recurso de aplicativo do Azure
 
 Em seguida, crie o recurso do Serviço de Aplicativo no Azure. Você implantará seu aplicativo Sails.js nele posteriormente.
 
@@ -59,7 +60,7 @@ Em seguida, crie o recurso do Serviço de Aplicativo no Azure. Você implantará
 
     Siga o aviso para continuar o logon em um navegador com uma conta da Microsoft que tenha sua assinatura do Azure.
 
-2. Verifique se você ainda está no diretório raiz do projeto Sails.js. Crie o recurso de aplicativo do Serviço de Aplicativo no Azure com um nome de aplicativo exclusivo com o próximo comando. A URL do aplicativo Web é http://&lt;appname>.azurewebsites.net.
+2. Verifique se você ainda está no diretório raiz do projeto Sails.js. Crie o recurso de aplicativo do Serviço de Aplicativo no Azure com um nome de aplicativo exclusivo com o próximo comando. A URL do aplicativo Web é http://&lt;nomedoaplicativo>.azurewebsites.net.
 
         azure site create --git <appname>
 
@@ -71,7 +72,7 @@ Em seguida, crie o recurso do Serviço de Aplicativo no Azure. Você implantará
     - Seu repositório inicializado no Git local é conectado ao novo aplicativo do Serviço de Aplicativo como um Git remoto, apropriadamente chamado “azure” e
     - E o arquivo iisnode.yml é criado no diretório raiz. Você pode usar esse arquivo para configurar o [iisnode](https://github.com/tjanczuk/iisnode), que o Serviço de Aplicativo usa para executar aplicativos Node.js.
 
-## Etapa 3: Configurar e implantar seu aplicativo Sails.js
+## <a name="step-3:-configure-and-deploy-your-sails.js-app"></a>Etapa 3: Configurar e implantar seu aplicativo Sails.js
 
  O trabalho com um aplicativo Sails.js no Serviço de Aplicativo consiste em três etapas principais:
 
@@ -86,7 +87,7 @@ Siga estas etapas:
         loggingEnabled: true
         logDirectory: iisnode
 
-    Agora o registro em log está habilitado para o iisnode. Para saber mais sobre como isso funciona, confira [Obter os logs de stdout e stderr do iisnode](app-service-web-nodejs-get-started.md#iisnodelog).
+    Agora o registro em log está habilitado para o iisnode. Para saber mais sobre como isso funciona, confira  [Obter os logs de stdout e stderr do iisnode](app-service-web-nodejs-get-started.md#iisnodelog).
 
 2. Abra config/env/production.js para configurar seu ambiente de produção e definir `port` e `hookTimeout`:
 
@@ -101,9 +102,9 @@ Siga estas etapas:
             ...
         };
 
-    Você pode encontrar a documentação para essas configurações na [Documentação do Sails.js](http://sailsjs.org/documentation/reference/configuration/sails-config).
+    Você pode encontrar a documentação para essas configurações na  [Documentação do Sails.js](http://sailsjs.org/documentation/reference/configuration/sails-config).
 
-    Em seguida, você precisa garantir que o [Grunt](https://www.npmjs.com/package/grunt) seja compatível com unidades de rede do Azure. Versões do Grunt inferiores a 1.0.0 usam um pacote [glob](https://www.npmjs.com/package/glob) desatualizado (inferior a 5.0.14), que não oferece suporte a unidades de rede.
+    Em seguida, você precisa garantir que o [Grunt](https://www.npmjs.com/package/grunt) seja compatível com unidades de rede do Azure. Versões do Grunt inferiores a 1.0.0 usam um pacote [glob](https://www.npmjs.com/package/glob) desatualizado (inferior a 5.0.14), que não oferece suporte a unidades de rede. 
 
 3. Abra o package.json e altere a versão do `grunt` para `1.0.0` e remova todos os pacotes do `grunt-*`. Sua propriedade `dependencies` deve ter esta aparência:
 
@@ -142,9 +143,11 @@ Siga estas etapas:
     
     ![](./media/app-service-web-nodejs-sails/sails-in-azure.png)
 
-## Solucionar problemas de implantação
+## <a name="troubleshoot-your-deployment"></a>Solucionar problemas de implantação
 
-Se seu aplicativo Sails.js falhar por algum motivo no Serviço de Aplicativo, encontre os logs de stderr para ajudar na solução de problemas. Para saber mais, confira [Obter os logs de stdout e stderr do iisnode](app-service-web-nodejs-sails.md#iisnodelog). Se ele foi iniciado com êxito, o log de stdout deve mostrar a mensagem familiar:
+Se seu aplicativo Sails.js falhar por algum motivo no Serviço de Aplicativo, encontre os logs de stderr para ajudar na solução de problemas.
+Para saber mais, confira [Obter os logs de stdout e stderr do iisnode](app-service-web-nodejs-sails.md#iisnodelog).
+Se ele foi iniciado com êxito, o log de stdout deve mostrar a mensagem familiar:
 
                 .-..-.
 
@@ -162,9 +165,9 @@ Se seu aplicativo Sails.js falhar por algum motivo no Serviço de Aplicativo, en
     To see your app, visit http://localhost:\\.\pipe\c775303c-0ebc-4854-8ddd-2e280aabccac
     To shut down Sails, press <CTRL> + C at any time.
 
-Você pode controlar a granularidade dos logs do stdout no arquivo [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging).
+Você pode controlar a granularidade dos logs do stdout no arquivo [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging) . 
 
-## Conectar-se a um banco de dados no Azure
+## <a name="connect-to-a-database-in-azure"></a>Conectar-se a um banco de dados no Azure
 
 Para se conectar a um banco de dados no Azure, crie o banco de dados de sua escolha no Azure, como Banco de Dados SQL, MySQL, MongoDB, Cache (Redis) do Azure, dentre outros, e use o [adaptador de repositório de dados](https://github.com/balderdashy/sails#compatibility) correspondente para se conectar a ele. As etapas nesta seção mostram como se conectar a um Banco de Dados MySQL no Azure.
 
@@ -174,7 +177,7 @@ Para se conectar a um banco de dados no Azure, crie o banco de dados de sua esco
 
         npm install sails-mysql --save
 
-3. Abra config/connections.js e adicione o seguinte objeto de conexão à lista:
+3. Abra config/connections.js e adicione o seguinte objeto de conexão à lista: 
 
         mySql: {
             adapter: 'sails-mysql',
@@ -209,28 +212,29 @@ Para se conectar a um banco de dados no Azure, crie o banco de dados de sua esco
     
     Essa configuração substitui as configurações no arquivo config/connections.js para o ambiente local. Esse arquivo é excluído pelo .gitignore padrão em seu projeto, portanto não será armazenado no Git. Agora, você será capaz de se conectar ao banco de dados MySQL de seu aplicativo Web e do ambiente de desenvolvimento local.
 
-4. Abra config/env/production.js para configurar seu ambiente de produção e adicione o seguinte objeto `models`:
+4. Abra config/env/production.js para configurar seu ambiente de produção e adicione o seguinte objeto `models` :
 
         models: {
             connection: 'mySql',
             migrate: 'safe'
         },
 
-4. Abra config/env/development.js para configurar seu ambiente de desenvolvimento e adicione o seguinte objeto `models`:
+4. Abra config/env/development.js para configurar seu ambiente de desenvolvimento e adicione o seguinte objeto `models` :
 
         models: {
             connection: 'mySql',
             migrate: 'alter'
         },
 
-    O `migrate: 'alter'` permite que você use os recursos de migração do banco de dados para criar e atualizar facilmente suas tabelas de banco de dados no MySQL. No entanto, o `migrate: 'safe'` é usado para seu ambiente (produção) do Azure, pois Sails.js não permite o uso de `migrate: 'alter'` em um ambiente de produção (confira a [Documentação do Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
+    `migrate: 'alter'` permite que você use os recursos de migração do banco de dados para criar e atualizar facilmente suas tabelas de banco de dados no MySQL. No entanto, o `migrate: 'safe'` é usado para seu ambiente (produção) do Azure, pois Sails.js não permite o uso de `migrate: 'alter'` em um ambiente de produção (confira a  [Documentação do Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
 
 4. No terminal, [gere](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) um [API de plano gráfico](http://sailsjs.org/documentation/concepts/blueprints) do Sails.js, como você faria normalmente, e execute `sails lift` para criar o banco de dados com a migração de banco de dados do Sails.js. Por exemplo:
 
          sails generate api mywidget
          sails lift
 
-    O modelo `mywidget` gerado por este comando está vazio, mas podemos usar isso para mostrar que temos conectividade com o banco de dados. Quando você executa o `sails lift`, ele cria as tabelas ausentes para os modelos usados por seu aplicativo.
+    O modelo `mywidget` gerado por este comando está vazio, mas podemos usar isso para mostrar que temos conectividade com o banco de dados.
+    Quando você executa o `sails lift`, ele cria as tabelas ausentes para os modelos usados por seu aplicativo.
 
 6. Acesse a API de plano gráfico que você acabou de criar no navegador. Por exemplo:
 
@@ -253,9 +257,13 @@ Para se conectar a um banco de dados no Azure, crie o banco de dados de sua esco
 
     Se a API retornar outra entrada nova, seu aplicativo Web do Azure estará falando com seu Banco de Dados MySQL.
 
-## Mais recursos
+## <a name="more-resources"></a>Mais recursos
 
 - [Get started with Node.js web apps in Azure App Service (Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure)](app-service-web-nodejs-get-started.md)
 - [Usando Módulos no Node.js com aplicativos do Microsoft Azure](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

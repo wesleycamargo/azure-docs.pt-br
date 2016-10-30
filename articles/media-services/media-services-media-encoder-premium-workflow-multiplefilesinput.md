@@ -1,26 +1,27 @@
 <properties
-	pageTitle="Usando vários arquivos de entrada e propriedades do componente com o Codificador Premium | Microsoft Azure"
-	description="Este tópico explica como usar setRuntimeProperties para usar vários arquivos de entrada e transmitir dados personalizados para o processador de mídia do Fluxo de Trabalho Premium do Codificador de Mídia."
-	services="media-services"
-	documentationCenter=""
-	authors="xpouyat"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Usando vários arquivos de entrada e propriedades do componente com o Codificador Premium | Microsoft Azure"
+    description="Este tópico explica como usar setRuntimeProperties para usar vários arquivos de entrada e transmitir dados personalizados para o processador de mídia do Fluxo de Trabalho Premium do Codificador de Mídia."
+    services="media-services"
+    documentationCenter=""
+    authors="xpouyat"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"  
-	ms.author="xpouyat;anilmur;juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"  
+    ms.author="xpouyat;anilmur;juliako"/>
 
-# Usando vários arquivos de entrada e propriedades do componente com o Codificador Premium
 
-## Visão geral
+# <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Usando vários arquivos de entrada e propriedades do componente com o Codificador Premium
 
-Há situações em que talvez você precise personalizar as propriedades do componente, especificar o conteúdo XML da Lista de Clipes ou enviar vários arquivos de entrada ao enviar uma tarefa com o processador de mídia **Fluxo de trabalho Premium de codificação de mídia**. Alguns exemplos incluem:
+## <a name="overview"></a>Visão geral
+
+Há situações em que talvez você precise personalizar as propriedades do componente, especificar o conteúdo XML da Lista de Clipes ou enviar vários arquivos de entrada ao enviar uma tarefa com o processador de mídia **Fluxo de trabalho Premium de codificação de mídia** . Alguns exemplos incluem:
 
 - Sobreposição de texto em vídeo e definição do valor do texto (por exemplo, a data atual) no tempo de execução de cada vídeo de entrada.
 - Personalização do XML da Lista de Clipes (para especificar um ou vários arquivos de origem, com ou sem corte etc.).
@@ -29,7 +30,7 @@ Há situações em que talvez você precise personalizar as propriedades do comp
 Para permitir que o **Fluxo de Trabalho Premium do Codificador de Mídia** reconheça que você está alterando algumas propriedades no fluxo de trabalho ao criar a tarefa ou enviar vários arquivos de entrada, é necessário usar uma cadeia de caracteres de configuração que contenha **setRuntimeProperties** e/ou **transcodeSource**. Este tópico explica como usá-los.
 
 
-## Sintaxe da cadeia de caracteres de configuração
+## <a name="configuration-string-syntax"></a>Sintaxe da cadeia de caracteres de configuração
 
 A cadeia de caracteres de configuração a ser definida na tarefa de codificação usa um documento XML com esta aparência:
 
@@ -54,9 +55,9 @@ Veja a seguir o código C# que lê a configuração XML em um arquivo e a transf
                                                   AssetCreationOptions.None);
 
 
-## Personalizando as propriedades do componente  
+## <a name="customizing-component-properties"></a>Personalizando as propriedades do componente  
 
-### Propriedade com um valor simples
+### <a name="property-with-a-simple-value"></a>Propriedade com um valor simples
 Em alguns casos, é útil personalizar uma propriedade do componente junto com o arquivo de fluxo de trabalho que será executado pelo Fluxo de Trabalho Premium do Codificador de Mídia.
 
 Suponha que você tenha criado um fluxo de trabalho que sobrepõe texto em vídeos, e que o texto (por exemplo, a data atual) deva ser definido em tempo de execução. É possível fazer isso enviando o texto a ser definido como o novo valor da propriedade de texto do componente de sobreposição por meio da tarefa de codificação. Você pode usar esse mecanismo para alterar outras propriedades de um componente no fluxo de trabalho (por exemplo, a posição ou a cor da sobreposição, a taxa de bits do codificador AVC etc.).
@@ -76,7 +77,7 @@ Exemplo:
     </transcodeRequest>
 
 
-### Propriedade com um valor XML
+### <a name="property-with-an-xml-value"></a>Propriedade com um valor XML
 
 Para definir uma propriedade que espere um valor XML, encapsule-a usando `<![CDATA[ and ]]>`.
 
@@ -112,9 +113,10 @@ Exemplo:
 >[AZURE.NOTE]Lembre-se de não colocar um retorno de carro logo após `<![CDATA[`.
 
 
-### Valor de propertyPath
+### <a name="propertypath-value"></a>Valor de propertyPath
 
-Nos exemplos anteriores, propertyPath era “/Entrada de Arquivo de Mídia/nomearquivo”, “/inactiveTimeout” ou “clipListXml”. Em geral, esse é o nome do componente que, por sua vez, é o nome da propriedade. O caminho pode ter mais ou menos níveis, como "/primarySourceFile" (pois a propriedade está na raiz do fluxo de trabalho) ou "/Processamento de Vídeo/Sobreposição Gráfica/Opacidade" (pois a Sobreposição está em um grupo).
+Nos exemplos anteriores, propertyPath era “/Entrada de Arquivo de Mídia/nomearquivo”, “/inactiveTimeout” ou “clipListXml”.
+Em geral, esse é o nome do componente que, por sua vez, é o nome da propriedade. O caminho pode ter mais ou menos níveis, como "/primarySourceFile" (pois a propriedade está na raiz do fluxo de trabalho) ou "/Processamento de Vídeo/Sobreposição Gráfica/Opacidade" (pois a Sobreposição está em um grupo).    
 
 Para verificar o caminho e o nome da propriedade, use o botão de ação ao lado de cada propriedade. Você pode clicar nesse botão de ação e escolher **Editar**. Isso mostrará o nome da propriedade e, logo acima dele, o namespace.
 
@@ -122,14 +124,14 @@ Para verificar o caminho e o nome da propriedade, use o botão de ação ao lado
 
 ![Propriedade](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
 
-## Vários arquivos de entrada
+## <a name="multiple-input-files"></a>Vários arquivos de entrada
 
 Cada tarefa enviada para o **Fluxo de Trabalho Premium do Codificador de Mídia** exige dois ativos:
 
 - O primeiro é um *Ativo de Fluxo de Trabalho* que contém um arquivo de fluxo de trabalho. Você pode criar arquivos de fluxo de trabalho usando o [Designer de Fluxo de Trabalho](media-services-workflow-designer.md).
 - O segundo é um *Ativo de Mídia* que contém o(s) arquivo(s) de mídia que você deseja codificar.
 
-Ao enviar vários arquivos de mídia para o codificador **Fluxo de Trabalho Premium do Codificador de Mídia**, as seguintes restrições se aplicam:
+Ao enviar vários arquivos de mídia para o codificador **Fluxo de Trabalho Premium do Codificador de Mídia** , as seguintes restrições se aplicam:
 
 - Todos os arquivos de mídia devem estar no mesmo *Ativo de Mídia*. Não há suporte para o uso de vários Ativos de Mídia.
 - Você deve definir o arquivo primário neste Ativo de Mídia (de preferência, esse é o arquivo de vídeo principal que o codificador deverá processar).
@@ -151,7 +153,7 @@ Conexões no fluxo de trabalho:
 *É possível conectar o XML da Lista de Clipes à Fonte de Mídia e usar transcodeSource.*
 
 
-### Personalização do XML da Lista de Clipes
+### <a name="clip-list-xml-customization"></a>Personalização do XML da Lista de Clipes
 É possível especificar o XML da Lista de Clipes no fluxo de trabalho, em tempo de execução, usando **transcodeSource** no XML da cadeia de caracteres de configuração. Isso exige que o marcador do XML da Lista de Clipes esteja conectado ao componente de Fonte de Mídia no fluxo de trabalho.
 
     <?xml version="1.0" encoding="utf-16"?>
@@ -245,7 +247,7 @@ Com outro corte preciso de quadro:
       </transcodeRequest>
 
 
-## Exemplo
+## <a name="example"></a>Exemplo
 
 Considere um exemplo no qual você deseja sobrepor uma imagem de logotipo no vídeo de entrada durante a codificação do vídeo. Neste exemplo, o vídeo de entrada é nomeado “MyInputVideo.mp4” e o logotipo é nomeado “MyLogo.png”. Você deve executar as seguintes etapas:
 
@@ -270,17 +272,17 @@ No exemplo acima, o nome do arquivo de vídeo é enviado ao componente de Entrad
 >[AZURE.NOTE]O nome do arquivo de vídeo é enviado à propriedade primarySourceFile. A razão disso é para que essa propriedade seja usada no fluxo de trabalho na criação do nome do arquivo de saída correto usando Expressões, por exemplo.
 
 
-### Criação de fluxo de trabalho passo a passo que sobrepõe um logotipo na parte superior do vídeo     
+### <a name="step-by-step-workflow-creation-that-overlays-a-logo-on-top-of-the-video"></a>Criação de fluxo de trabalho passo a passo que sobrepõe um logotipo na parte superior do vídeo     
 
 Estas são as etapas para criar um fluxo de trabalho que usa dois arquivos como entrada: um vídeo e uma imagem. Isto fará a sobreposição da imagem na parte superior do vídeo.
 
-Abra o **Designer de Fluxo de Trabalho** e escolha **Arquivo** > **Novo Espaço de Trabalho** > **Transcodificar Plano Gráfico**.
+Abra o **Designer de Fluxo de Trabalho** e selecione **Arquivo** > **Novo Espaço de Trabalho** > **Transcodificar Esquema**.
 
 O novo fluxo de trabalho mostra três elementos:
 
 - Arquivo de Origem Principal
 - XML da Lista de Clipes
-- Arquivo/Ativo de Saída
+- Arquivo/Ativo de Saída  
 
 ![Novo fluxo de trabalho de codificação](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture9_empty.png)
 
@@ -296,7 +298,7 @@ Em seguida, adicione o arquivo de vídeo que será usado para criar o fluxo de t
 *Fonte de Arquivo Primário*
 
 
-Em seguida, especifique o arquivo de vídeo no componente de Entrada do Arquivo de Mídia.
+Em seguida, especifique o arquivo de vídeo no componente de Entrada do Arquivo de Mídia.   
 
 ![Fonte de Entrada do Arquivo de Mídia](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture11_mediafileinput.png)
 
@@ -307,7 +309,7 @@ Assim que isso for feito, o componente Entrada do Arquivo de Mídia inspecionar�
 
 A próxima etapa é adicionar um “Atualizador de Tipo de Dados de Vídeo” para especificar o espaço de cores de Rec.709. Adicione um "Conversor de Formato de Vídeo" definido como tipo de Layout de Dados/Layout = Planar Configurável. Isso converterá a transmissão de vídeo em um formato que pode ser usado como uma fonte do componente de sobreposição.
 
-![Atualizador de Tipo de Dados e Conversor de Formato de vídeo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
+![Atualizador de tipo de dados e conversor de formato de vídeo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
 
 *Atualizador de tipo de dados e conversor de formato de vídeo*
 
@@ -331,7 +333,8 @@ Se quiser modificar a posição do logotipo no vídeo (por exemplo, talvez você
 *Posição da sobreposição*
 
 
-Para codificar a transmissão de vídeo para H.264, adicione os componentes do Codificador de Vídeo AVC e do codificador AAC à superfície do designer. Conecte os marcadores. Configure o codificador AAC e escolha Conversão de Formato de Áudio/Predefinição: 2.0 (L, R).
+Para codificar a transmissão de vídeo para H.264, adicione os componentes do Codificador de Vídeo AVC e do codificador AAC à superfície do designer. Conecte os marcadores.
+Configure o codificador AAC e escolha Conversão de Formato de Áudio/Predefinição: 2.0 (L, R).
 
 ![Codificadores de Áudio e Vídeo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
@@ -357,11 +360,11 @@ Você pode executar o fluxo de trabalho localmente para verificar se ele é exec
 
 Após a conclusão, você poderá executá-lo nos Serviços de Mídia do Azure.
 
-Primeiro, prepare um ativo nos Serviços de Mídia do Azure com dois arquivos: o arquivo de vídeo e o logotipo. Você pode fazer isso usando a API REST ou o .NET. Também é possível fazer isso usando o portal do Azure ou o AMSE ([Gerenciador dos Serviços de Mídia do Azure](https://github.com/Azure/Azure-Media-Services-Explorer)).
+Primeiro, prepare um ativo nos Serviços de Mídia do Azure com dois arquivos: o arquivo de vídeo e o logotipo. Você pode fazer isso usando a API REST ou o .NET. Também é possível fazer isso usando o portal do Azure ou o AMSE ( [Gerenciador dos Serviços de Mídia do Azure](https://github.com/Azure/Azure-Media-Services-Explorer) ).
 
 Este tutorial mostra como gerenciar ativos com o AMSE. Há duas maneiras de adicionar arquivos a um ativo:
 
-- Crie uma pasta local, copie os dois arquivos nela e arraste e solte a pasta na guia **Ativo**.
+- Crie uma pasta local, copie os dois arquivos nela e arraste e solte a pasta na guia **Ativo** .
 - Carregue o arquivo de vídeo como um ativo, exiba as informações do ativo, vá para a guia Arquivos e carregue um arquivo adicional (logotipo).
 
 >[AZURE.NOTE]Lembre-se de definir um arquivo primário no ativo (o arquivo de vídeo principal).
@@ -410,7 +413,7 @@ Após a conclusão do trabalho, o arquivo MP4 no ativo de saída exibirá a sobr
 Você pode baixar o fluxo de trabalho de exemplo no [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
 
-## Consulte também
+## <a name="see-also"></a>Consulte também
 
 - [Apresentando a codificação Premium nos Serviços de Mídia do Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
@@ -424,12 +427,16 @@ Você pode baixar o fluxo de trabalho de exemplo no [GitHub](https://github.com/
 
 - [Ferramenta do Explorador dos Serviços de Mídia do Azure](http://aka.ms/amse)
 
-## Roteiros de aprendizagem dos Serviços de Mídia
+## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornecer comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

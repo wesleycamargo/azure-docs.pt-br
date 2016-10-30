@@ -1,30 +1,31 @@
 <properties
-	pageTitle="Todos os tópicos do serviço SQL Server Stretch Database | Microsoft Azure"
-	description="Tabela de todos os tópicos existentes sobre o serviço do Azure chamado SQL Server Stretch Database em http://azure.microsoft.com/documentation/articles/, Título e descrição."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="DouglasL"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="Todos os tópicos do serviço SQL Server Stretch Database | Microsoft Azure"
+    description="Tabela de todos os tópicos existentes sobre o serviço do Azure chamado SQL Server Stretch Database em http://azure.microsoft.com/documentation/articles/, Título e descrição."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="DouglasL"
+    manager="jhubbard"
+    editor="MightyPen"/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="sql-server-stretch-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2016"
-	ms.author="DouglasL"/>
-
-
-# Todos os tópicos do serviço SQL Server Stretch Database do Azure
-
-Este tópico lista todos os tópicos que se aplicam diretamente ao serviço **SQL Server Stretch Database** do Azure. Você pode pesquisar palavras-chave nesta página da Web usando **Ctrl + F** para encontrar os tópicos de seu interesse atual.
+    ms.service="sql-server-stretch-database"
+    ms.workload="sql-server-stretch-database"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/05/2016"
+    ms.author="DouglasL"/>
 
 
 
+# <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Todos os tópicos do serviço SQL Server Stretch Database do Azure
 
-## Introdução
+Este tópico lista todos os tópicos que se aplicam diretamente ao serviço **SQL Server Stretch Database** do Azure. Você pode pesquisar palavras-chave nesta página da Web usando **Ctrl + F**para encontrar os tópicos de seu interesse atual.
+
+
+
+
+## <a name="get-started"></a>Introdução
 
 | &nbsp; | Title | Descrição |
 | --: | :-- | :-- |
@@ -35,7 +36,7 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço **SQ
 
 
 
-## Habilitar
+## <a name="enable"></a>Habilitar
 
 | &nbsp; | Title | Descrição |
 | --: | :-- | :-- |
@@ -45,7 +46,7 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço **SQ
 
 
 
-## Gerenciar
+## <a name="manage"></a>Gerenciar
 
 | &nbsp; | Title | Descrição |
 | --: | :-- | :-- |
@@ -56,7 +57,7 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço **SQ
 
 
 
-## Segurança
+## <a name="security"></a>Segurança
 
 | &nbsp; | Title | Descrição |
 | --: | :-- | :-- |
@@ -65,11 +66,16 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço **SQ
 
 
 
-## Backup e recuperação
+## <a name="backup-and-recovery"></a>Backup e recuperação
 
 | &nbsp; | Title | Descrição |
 | --: | :-- | :-- |
-| 14 | [Fazer backup de bancos de dados habilitados para o Stretch](sql-server-stretch-database-backup.md) | Saiba como fazer backup de bancos de dados habilitados para Stretch. |
-| 15 | [Restaurar o backup de bancos de dados habilitados para o Stretch](sql-server-stretch-database-restore.md) | Saiba como restaurar os bancos de dados habilitados para Stretch. |
+| 14 | [Fazer backup de bancos de dados habilitados para o Stretch](sql-server-stretch-database-backup.md) | \-Saiba como fazer backup de bancos de dados habilitados para Stretch. |
+| 15 | [Restaurar o backup de bancos de dados habilitados para o Stretch](sql-server-stretch-database-restore.md) | \-Saiba como restaurar bancos de dados habilitados para Stretch. |
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,27 +1,28 @@
 <properties 
     pageTitle="Filas, tópicos e assinaturas do Barramento de Serviço | Microsoft Azure"
     description="Visão geral de entidades do sistema de mensagens do Barramento de Serviço."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="06/20/2016"
+    ms.date="10/14/2016"
     ms.author="sethm" />
 
-# Filas, tópicos e assinaturas do Barramento de Serviço
+
+# <a name="service-bus-queues,-topics,-and-subscriptions"></a>Filas, tópicos e assinaturas do Barramento de Serviço
 
 O Barramento de Serviço do Microsoft Azure oferece suporte a um conjunto de tecnologias middleware orientado a mensagens, baseado em nuvem, incluindo o serviço de enfileiramento de mensagens confiável e o sistema de mensagens de publicação/assinatura durável. Esses recursos do sistema de mensagens agenciado podem ser considerados como recursos do sistema de mensagens separados que dão suporte a cenários de assinatura de publicação, de desacoplamento temporal e de balanceamento de carga usando a malha do sistema de mensagens do Barramento de Serviço. A comunicação desacoplada tem diversas vantagens; por exemplo, clientes e servidores podem se conectar como necessário e executar as operações deles de forma assíncrona.
 
-As entidades de mensagens que formam o núcleo dos recursos do sistema de mensagens agenciado no Barramento de Serviço são filas, tópicos/assinaturas, regras/ações e Hubs de Eventos.
+As entidades de mensagens que formam o núcleo dos recursos do sistema de mensagens agenciado no Barramento de Serviço são filas, tópicos/assinaturas e regras/ações.
 
-## Filas
+## <a name="queues"></a>Filas
 
 Filas oferecem entrega de mensagem do tipo PEPS (primeiro a entrar, primeiro a sair) para um ou mais consumidores concorrentes. Ou seja, normalmente espera-se que as mensagens sejam recebidas e processadas pelos receptores na ordem em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem. Um dos principais benefícios da utilização de filas é obter o “desacoplamento temporal” de componentes do aplicativo. Em outras palavras, os produtores (remetentes) e os consumidores (receptores) não precisam enviar e receber mensagens ao mesmo tempo porque as mensagens são armazenadas de forma duradoura na fila. Além disso, o produtor não precisa esperar por uma resposta do consumidor a fim de continuar a processar e enviar mensagens.
 
@@ -81,7 +82,7 @@ Observe que, se houver falha do aplicativo após o processamento da mensagem, ma
 
 Para saber mais e obter um exemplo de como criar e enviar mensagens bidirecionalmente nas filas, confira o [Tutorial .NET do sistema de mensagens agenciado do Barramento de Serviço](service-bus-brokered-tutorial-dotnet.md).
 
-## Tópicos e assinaturas
+## <a name="topics-and-subscriptions"></a>Tópicos e assinaturas
 
 Em contraste com as filas, em que cada mensagem é processada por um único consumidor, *tópicos* e *assinaturas* fornecem uma forma de comunicação de um para muitos em um padrão de *publicação/assinatura*. Útil para o dimensionamento para grandes números de destinatários, cada mensagem publicada é disponibilizada para cada assinatura registrada com o tópico. As mensagens são enviadas a um tópico e entregues a uma ou mais assinaturas associadas, dependendo das regras de filtro que puderem ser definidas por assinatura. As assinaturas podem usar filtros adicionais para restringir as mensagens que desejam receber. As mensagens são enviadas a um tópico da mesma forma como são enviadas para uma fila, mas as mensagens não são recebidas diretamente do tópico. Em vez disso, elas são recebidas de assinaturas. Uma assinatura de tópico é semelhante a uma fila virtual que recebe cópias das mensagens enviadas para o tópico. As mensagens são recebidas de uma assinatura de forma idêntica à maneira como são recebidas de uma fila.
 
@@ -142,7 +143,7 @@ while ((message = auditSubscriptionClient.Receive(TimeSpan.FromSeconds(5))) != n
 }
 ```
 
-### Regras e ações
+### <a name="rules-and-actions"></a>Regras e ações
 
 Em muitos cenários, as mensagens com características específicas precisam ser processadas de maneiras diferentes. Para habilitar isso, você pode configurar assinaturas para localizar as mensagens com as propriedades desejáveis e, em seguida, realizar determinadas modificações nessas propriedades. Embora as assinaturas do Barramento de Serviço vejam todas as mensagens enviadas para o tópico, você só poderá copiar um subconjunto dessas mensagens para a fila de assinatura virtual. Isso é feito usando filtros de assinatura. Tais modificações são chamadas de *ações de filtro*. Quando uma assinatura for criada, você poderá fornecer uma expressão de filtro que funcione nas propriedades da mensagem, as propriedades do sistema (por exemplo, **Label**) e as propriedades personalizadas do aplicativo (por exemplo, **StoreName**). A expressão de filtro SQL é opcional neste caso; sem uma expressão de filtro SQL, qualquer ação de filtro definida em uma assinatura será executada em todas as mensagens para essa assinatura.
 
@@ -154,24 +155,21 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 Com esse filtro de assinatura ativado, somente as mensagens com a propriedade `StoreName` definida como `Store1` são copiadas para a fila virtual para a assinatura de `Dashboard`.
 
-Para saber mais sobre possíveis valores de filtro, consulte a documentação das classes [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) e [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Além disso, veja os exemplos [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Sistema de mensagens agenciado: filtros avançados) e [Topic Filters](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Filtros do tópico).
+Para saber mais sobre possíveis valores de filtro, consulte a documentação das classes [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) e [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Além disso, veja os exemplos [Brokered Messaging: Advanced Filters (Sistema de mensagens agenciado: filtros avançados)](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) e [Topic Filters (Filtros do tópico)](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters).
 
-## Hubs de Eventos
-
-[Hubs de Eventos](https://azure.microsoft.com/services/event-hubs/) é um serviço de processamento de eventos usado para fornecer entrada a telemetria e eventos para o Azure em grande escala, com baixa latência e alta confiabilidade. Esse serviço, quando usado com outros serviços downstream, é especialmente útil em cenários de instrumentação de aplicativos, processamento de fluxo de trabalho ou experiência do usuário e [IoT (Internet das Coisas)](https://azure.microsoft.com/services/iot-hub/).
-
-Os Hubs de Eventos são um constructo de streaming de mensagens e, embora pareçam semelhantes a filas e tópicos, têm características bem diferentes. Por exemplo, os Hubs de Eventos não oferecem mensagens TTL, mensagens mortas, transações ou confirmações, já que esses são recursos do sistema de mensagens agenciado tradicional e não recursos de streaming. Os Hubs de Eventos fornecem outros recursos relacionados ao fluxo, como particionamento, preservação da ordem e reprodução de fluxo.
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte os seguintes tópicos avançados para saber mais e obter exemplos do uso de entidades do sistema de mensagens agenciado pelo Barramento de Serviço.
 
 - [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
-- [Tutorial .NET do sistema de mensagens agenciado do Barramento de Serviço](service-bus-brokered-tutorial-dotnet.md)
+- [Tutorial do .NET do sistema de mensagens agenciado do Barramento de Serviço](service-bus-brokered-tutorial-dotnet.md)
 - [Tutorial REST do sistema de mensagens agenciado do Barramento de Serviço](service-bus-brokered-tutorial-rest.md)
-- [Documentação dos Hubs de Eventos](https://azure.microsoft.com/documentation/services/event-hubs/)
-- [Guia do desenvolvedor de Hubs de Evento](../event-hubs/event-hubs-programming-guide.md)
 - [Exemplo de filtros do tópico](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 - [Sistema de mensagens agenciado: filtros avançados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

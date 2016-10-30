@@ -14,22 +14,23 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="08/24/2016"
-   ms.author="andkjell"/>
+   ms.author="billmath"/>
 
-# Azure AD Connect: atualização automática
+
+# <a name="azure-ad-connect:-automatic-upgrade"></a>Azure AD Connect: atualização automática
 Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
 
-## Visão geral
-Verificar se a instalação do Azure AD Connect está sempre atualizada nunca foi tão fácil após o lançamento do recurso de **atualização automática**. Esse recurso é habilitado por padrão para instalações rápidas e atualizações de DirSync. Quando uma nova versão for lançada, a instalação será atualizada automaticamente.
+## <a name="overview"></a>Visão geral
+Verificar se a instalação do Azure AD Connect está sempre atualizada nunca foi tão fácil após o lançamento do recurso de **atualização automática** . Esse recurso é habilitado por padrão para instalações rápidas e atualizações de DirSync. Quando uma nova versão for lançada, a instalação será atualizada automaticamente.
 
 A atualização automática é habilitada por padrão para o seguinte:
 
 - Instalação das configurações expressas e atualizações de DirSync.
 - Usar o SQL Express LocalDB, que é o que as configurações Expressas sempre usam. O DirSync com o SQL Express também usa o LocalDB.
-- A conta do AD é a conta MSOL\_ padrão criada pelas configurações Expressas e DirSync.
+- A conta do AD é a conta MSOL_ padrão criada pelas configurações Expressas e DirSync.
 - Ter menos de 100 mil objetos no metaverso.
 
-O estado atual da atualização automática pode ser exibido com o cmdlet `Get-ADSyncAutoUpgrade` do PowerShell. Ele contém os seguintes estados:
+O estado atual da atualização automática pode ser exibido com o cmdlet `Get-ADSyncAutoUpgrade`do PowerShell. Ele contém os seguintes estados:
 
 Estado | Comentário
 ---- | ----
@@ -43,7 +44,7 @@ A atualização automática está usando o Azure AD Connect Health para a infrae
 
 Se a interface do usuário **Synchronization Service Manager** estiver em execução no servidor, a atualização será suspensa até que a interface do usuário seja fechada.
 
-## Solucionar problemas
+## <a name="troubleshooting"></a>Solucionar problemas
 Se a sua instalação do Connect não for atualizada conforme o esperado, siga estas etapas para descobrir o que poderia estar errado.
 
 Primeiro, você não deve esperar que a atualização automática seja tentada no primeiro dia em que uma nova versão for lançada. Há uma aleatoriedade intencional antes que ocorra uma tentativa de atualização. Sendo assim, não se assuste se a instalação não for atualizada imediatamente.
@@ -52,9 +53,11 @@ Se você achar que algo não está certo, primeiro execute `Get-ADSyncAutoUpgrad
 
 Em seguida, verifique se que você abriu as URLs necessárias em seu proxy ou no firewall. A atualização automática está usando o Azure AD Connect Health conforme descrito na [Visão geral](#overview). Se você usar um proxy, certifique-se de que a Integridade foi configurada para usar um [servidor proxy](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Teste também a [conectividade de integridade](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) com o Azure AD.
 
-Com a conectividade com o Azure AD verificada, é hora de examinar os logs de eventos. Inicie o visualizador de eventos e examine o log de eventos do **Aplicativo**. Adicione um filtro de log de eventos para a fonte **Atualização do Azure AD Connect** e o intervalo de ID de evento **300-399**. ![Filtro de log de eventos para atualização automática](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogfilter.png)
+Com a conectividade com o Azure AD verificada, é hora de examinar os logs de eventos. Inicie o visualizador de eventos e examine o log de eventos do **Aplicativo** . Adicione um filtro de log de eventos para a fonte **Atualização do Azure AD Connect** e o intervalo de ID de evento **300-399**.  
+![Filtro de log de eventos para atualização automática](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogfilter.png)  
 
-Agora, você pode ver os logs de eventos associados ao status da atualização automática. ![Filtro de log de eventos para atualização automática](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogresult.png)
+Agora, você pode ver os logs de eventos associados ao status da atualização automática.  
+![Filtro de log de eventos para atualização automática](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogresult.png)  
 
 O código de resultado tem um prefixo com uma visão geral do estado.
 
@@ -81,17 +84,21 @@ UpgradeAbortedSyncExeInUse | A [interface do usuário do Synchronization Service
 UpgradeAbortedSyncOrConfigurationInProgress | O assistente de instalação está em execução ou uma sincronização foi agendada fora do agendador.
 **UpgradeNotSupported** |
 UpgradeNotSupportedCustomizedSyncRules | Você adicionou suas próprias regras personalizadas à configuração.
-UpgradeNotSupportedDeviceWritebackEnabled | Você habilitou o recurso [write-back de dispositivo](active-directory-aadconnect-feature-device-writeback.md).
-UpgradeNotSupportedGroupWritebackEnabled | Você habilitou o recurso [write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback).
+UpgradeNotSupportedDeviceWritebackEnabled | Você habilitou o recurso [write-back de dispositivo](active-directory-aadconnect-feature-device-writeback.md) .
+UpgradeNotSupportedGroupWritebackEnabled | Você habilitou o recurso [write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback) .
 UpgradeNotSupportedInvalidPersistedState | A instalação não é uma configuração Express ou uma atualização de DirSync.
 UpgradeNotSupportedMetaverseSizeExceeeded | Você tem mais de 100 mil objetos no metaverso.
 UpgradeNotSupportedMultiForestSetup | Você está se conectando a mais de uma floresta. A instalação expressa se conecta somente a uma floresta.
 UpgradeNotSupportedNonLocalDbInstall | Você não está usando um banco de dados SQL Server Express LocalDB.
-UpgradeNotSupportedNonMsolAccount | A [conta do Conector do AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) não é mais a conta MSOL\_ padrão.
+UpgradeNotSupportedNonMsolAccount | A [conta do Conector AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) não é mais a conta MSOL_ padrão.
 UpgradeNotSupportedStagingModeEnabled | O servidor está definido como em [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode).
-UpgradeNotSupportedUserWritebackEnabled | Você habilitou o recurso [write-back de usuário](active-directory-aadconnect-feature-preview.md#user-writeback).
+UpgradeNotSupportedUserWritebackEnabled | Você habilitou o recurso [write-back de usuário](active-directory-aadconnect-feature-preview.md#user-writeback) .
 
-## Próximas etapas
-Saiba mais sobre como [Integrar suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
+## <a name="next-steps"></a>Próximas etapas
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

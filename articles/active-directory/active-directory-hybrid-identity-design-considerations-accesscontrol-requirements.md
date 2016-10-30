@@ -1,23 +1,24 @@
 
 <properties
-	pageTitle="Considerações sobre design da identidade híbrida do Active Directory do Azure - determinar os requisitos de controle de acesso | Microsoft Azure"
-	description="Aborda os pilares da identidade e requisitos de acesso de identificação de recursos para usuários em um ambiente híbrido."
-	documentationCenter=""
-	services="active-directory"
-	authors="billmath"
-	manager="femila"
-	editor=""/>
+    pageTitle="Considerações sobre design da identidade híbrida do Active Directory do Azure - determinar os requisitos de controle de acesso | Microsoft Azure"
+    description="Aborda os pilares da identidade e requisitos de acesso de identificação de recursos para usuários em um ambiente híbrido."
+    documentationCenter=""
+    services="active-directory"
+    authors="billmath"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="08/08/2016"
-	ms.author="billmath"/>
+    ms.date="08/08/2016"
+    ms.author="billmath"/>
 
-# Determina os requisitos de controle de acesso para sua solução de identidade híbrida
+
+# <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determina os requisitos de controle de acesso para sua solução de identidade híbrida
 Quando uma organização está projetando sua solução de identidade híbrida, ela também pode usar essa oportunidade para examinar os requisitos de acesso para os recursos que pretende tornar disponível aos usuários. O acesso a dados cruza todos os quatro pilares da identidade, que são:
 
 - Administração
@@ -30,7 +31,7 @@ As seções a seguir abordarão a autenticação e a autorização com mais deta
 >[AZURE.NOTE]
 Leia [Os quatro pilares da identidade - gerenciamento de identidade na era da TI híbrida](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) para saber mais sobre cada um desses pilares.
 
-## Autenticação e autorização
+## <a name="authentication-and-authorization"></a>Autenticação e autorização
 Há cenários diferentes para autenticação e autorização; esses cenários terão requisitos específicos que devem ser atendidos pela solução de identidade híbrida que a empresa adotar. Cenários que envolvem a comunicação entre empresas (B2B) podem representar um desafio adicional para administradores de TI, pois estes precisam garantir que os métodos de autenticação e autorização usados pela organização possam se comunicar com seus parceiros comerciais. Durante o processo de criação de requisitos de autenticação e autorização, verifique se as seguintes perguntas são respondidas:
 
 - Sua organização irá autenticar e autorizar somente os usuários localizados em seu sistema de gerenciamento de identidade?
@@ -50,7 +51,7 @@ Qual modelo sua organização adotará vai variar de acordo com suas necessidade
 - Sua organização usa o logon único para aplicativos localizados no local ou na nuvem?
  - Em caso afirmativo, a adoção de um modelo de identidade híbrida afeta esse processo?
 
-## Controle de Acesso
+## <a name="access-control"></a>Controle de Acesso
 Embora a autenticação e a autorização sejam os principais elementos para habilitar o acesso a dados corporativos usando a validação do usuário, também é importante controlar o nível de acesso que esses usuários terão e o nível de acesso que os administradores terão sobre os recursos que gerenciam. Sua solução de identidade híbrida deve ser capaz de fornecer acesso granular ao controle de recursos, delegação e acesso à base de função. Verifique se as seguintes perguntas são respondidas sobre o controle de acesso:
 
 - Sua empresa tem mais de um usuário com privilégio elevado para gerenciar seu sistema de identidade?
@@ -64,13 +65,17 @@ Embora a autenticação e a autorização sejam os principais elementos para hab
  - Em caso afirmativo, onde estão localizados os recursos de destino (no local ou na nuvem)?
 
 >[AZURE.NOTE]
-Certifique-se de fazer anotações de cada resposta e entender o raciocínio por trás de resposta. [Definir a estratégia de proteção de dados](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e as vantagens/desvantagens de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades de sua empresa.
+Certifique-se de fazer anotações de cada resposta e entender o raciocínio por trás de resposta. [Definir a estratégia de proteção de dados](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e as vantagens/desvantagens de cada opção.  Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades de sua empresa.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 [Determinar requisitos de resposta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 
-## Consulte também
+## <a name="see-also"></a>Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Provisionamento de aplicativo com base em atributos com filtros de escopo | Microsoft Azure"
-	description="Saiba como usar filtros de escopo para impedir que objetos em aplicativos, que dão suporte a provisionamento automatizado de usuários, sejam provisionados, caso um objeto não satisfaça suas necessidades de negócios."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Provisionamento de aplicativo com base em atributos com filtros de escopo | Microsoft Azure"
+    description="Saiba como usar filtros de escopo para impedir que objetos em aplicativos, que dão suporte a provisionamento automatizado de usuários, sejam provisionados, caso um objeto não satisfaça suas necessidades de negócios."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/19/2016"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"
+    ms.author="markusvi"/>
 
 
-# Provisionamento de aplicativo com base em atributo com filtros de escopo
+
+# <a name="attribute-based-app-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
 
 O objetivo desta seção é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários serão provisionados no aplicativo.
 
@@ -25,10 +26,10 @@ O objetivo desta seção é explicar como usar filtros de escopo para definir re
 
 
 
-## Cláusulas e grupos de escopo
+## <a name="clauses-and-scope-groups"></a>Cláusulas e grupos de escopo
 
 
-![Filtro de Escopo][1]
+![Filtro de Escopo][1] 
 
 
 
@@ -37,28 +38,28 @@ Filtros de escopo são definidos por um ou mais **grupos de escopo** e cada um d
 
 Uma **cláusula** determina quais usuários têm permissão para passar pelo filtro de escopo, avaliando os atributos de cada usuário. Por exemplo, pode haver uma cláusula que requer que o atributo de “estado” de um usuário seja igual a Nova York, o que significa que somente os usuários de Nova York serão provisionados no aplicativo.
 
-![Nome do grupo de escopo][2]
+![Nome do grupo de escopo][2] 
 
 
 
-Cada **grupo de escopo** começa com uma **cláusula** obrigatória conforme mostrado na captura de tela acima. Essa cláusula simplesmente informa que o usuário deve primeiro ser atribuído ao aplicativo antes de ser avaliado por seus filtros de escopo. Essa cláusula não pode ser excluída nem modificada.
+Cada **grupo de escopo** começa com uma **cláusula** obrigatória, conforme mostrado na captura de tela acima. Essa cláusula simplesmente informa que o usuário deve primeiro ser atribuído ao aplicativo antes de ser avaliado por seus filtros de escopo. Essa cláusula não pode ser excluída nem modificada.
 
-Você pode adicionar novas cláusulas ou novos grupos de escopo, pressionando o botão adequado. Você pode dar um nome a cada grupo de escopo editando sua propriedade **Nome do Grupo de Escopo**.
-
-
+Você pode adicionar novas cláusulas ou novos grupos de escopo, pressionando o botão adequado. Você pode dar um nome a cada grupo de escopo editando sua propriedade **Nome do Grupo de Escopo** .
 
 
 
-## Como os filtros de escopo são avaliados
 
-Durante o provisionamento, testamos cada usuário atribuído em relação a seus filtros de escopo para determinar se esse usuário merece acesso ao aplicativo. Você pode pensar em cada cláusula como sendo um teste que o usuário deve passar para evitar ser filtrado.
 
-Se houver vários grupos de escopo definidos, cada usuário deverá passar em pelo menos um deles para acessar o aplicativo. Em cada grupo de escopo, no entanto, o usuário deve passar por cada cláusula única, a fim de passar para aquele grupo de escopo específico.
+## <a name="how-scoping-filters-are-evaluated"></a>Como os filtros de escopo são avaliados
+
+Durante o provisionamento, testamos cada usuário atribuído em relação a seus filtros de escopo para determinar se esse usuário merece acesso ao aplicativo. Você pode pensar em cada cláusula como sendo um teste que o usuário deve passar para evitar ser filtrado. 
+
+Se houver vários grupos de escopo definidos, cada usuário deverá passar em pelo menos um deles para acessar o aplicativo. Em cada grupo de escopo, no entanto, o usuário deve passar por cada cláusula única, a fim de passar para aquele grupo de escopo específico. 
 
 Em outras palavras, você pode pensar nos grupos de escopo como sendo agrupados por OR e pode considerar as cláusulas dentro deles como sendo agrupadas por AND. Por exemplo, considere o filtro de escopo abaixo:
 
 
-![Nome do grupo de escopo][2]
+![Nome do grupo de escopo][2]  
 
 
 De acordo com esse filtro de escopo, os usuários devem atender aos seguintes critérios para serem provisionados:
@@ -70,7 +71,7 @@ De acordo com esse filtro de escopo, os usuários devem atender aos seguintes cr
 3. Eles devem trabalhar em São Francisco ou no Canadá.
 
 
-##Artigos relacionados
+##<a name="related-articles"></a>Artigos relacionados
 
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 - [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS](active-directory-saas-app-provisioning.md)
@@ -85,4 +86,8 @@ De acordo com esse filtro de escopo, os usuários devem atender aos seguintes cr
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./active-directory-saas-scoping-filters/ic782813.png
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

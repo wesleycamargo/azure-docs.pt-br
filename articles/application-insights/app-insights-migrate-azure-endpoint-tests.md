@@ -1,37 +1,38 @@
 <properties 
-	pageTitle="Migrar do ponto de extremidade do Azure para os testes de disponibilidade do Application Insights" 
-	description="Estamos movendo os seus testes clássicos de monitoramento de ponto de extremidade do Azure para os testes de disponibilidade do Application Insights. Esperamos movê-los durante a semana de 22 de agosto de 2016."
-	services="application-insights" 
+    pageTitle="Migrar do ponto de extremidade do Azure para os testes de disponibilidade do Application Insights" 
+    description="Migrando os seus testes clássicos de monitoramento de ponto de extremidade do Azure para os testes de disponibilidade do Application Insights até 31 de outubro de 2016."
+    services="application-insights" 
     documentationCenter=""
-	authors="soubhagyadash" 
-	manager="douge"/>
+    authors="soubhagyadash" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/25/2016" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/25/2016" 
+    ms.author="awills"/>
  
-# Mudando do monitoramento do ponto de extremidade do Azure para os testes de disponibilidade do Application Insights
 
-Você usa o [Monitoramento de ponto de extremidade](https://blogs.msdn.microsoft.com/mast/2013/03/03/windows-azure-portal-update-configure-web-endpoint-status-monitoring-preview/) para seus aplicativos do Azure? Durante a semana de 22 de agosto de 2016, substituiremos esse recurso pelos novos e mais avançados [Testes de disponibilidade](app-insights-monitor-web-app-availability.md). Já criamos alguns dos novos testes, mas eles permanecerão desabilitados até 22 de agosto de 2016.
+# <a name="moving-from-azure-endpoint-monitoring-to-application-insights-availability-tests"></a>Mudando do monitoramento do ponto de extremidade do Azure para os testes de disponibilidade do Application Insights
 
-É possível editar os novos testes e fazer a modificação você mesmo, se quiser. Você pode encontrá-los no grupo de recursos Default-ApplicationInsights-CentralUS no [portal do Azure](https://portal.azure.com).
+Você usa o [Monitoramento de ponto de extremidade](https://blogs.msdn.microsoft.com/mast/2013/03/03/windows-azure-portal-update-configure-web-endpoint-status-monitoring-preview/) para seus aplicativos do Azure? Até *31 de outubro de 2016*, substituiremos esse recurso pelos novos e mais avançados [Testes de disponibilidade](app-insights-monitor-web-app-availability.md). Já criamos alguns dos novos testes, mas eles permanecerão desabilitados até 31 de outubro de 2016. 
+
+É possível editar os novos testes e fazer a modificação você mesmo, se quiser. Você pode encontrá-los no grupo de recursos Default-ApplicationInsights-CentralUS no [portal do Azure](https://portal.azure.com) .
 
 
-## O que são testes de disponibilidade?
+## <a name="what-are-availability-tests?"></a>O que são testes de disponibilidade?
 
-Os testes de disponibilidade são um recurso do Azure que verifica continuamente se qualquer serviço ou site está funcionando ao enviar solicitações HTTP a ele (testes únicos de ping ou testes na Web do Visual Studio) de até 16 locais no mundo todo.
+Os testes de disponibilidade são um recurso do Azure que verifica continuamente se qualquer serviço ou site está funcionando ao enviar solicitações HTTP a ele (testes únicos de ping ou testes na Web do Visual Studio) de até 16 locais no mundo todo. 
 
 No [Portal clássico do Azure](https://manage.windowsazure.com), esses testes eram chamados de Monitoramento de Ponto de Extremidade. O escopo deles era mais limitado. Os novos testes de disponibilidade apresentam uma melhoria significativa:
 
-* Até 10 testes na Web do Visual Studio ou testes de ping por recurso do Application Insights.
-* Até 16 locais no mundo todo para enviar solicitações de teste ao seu aplicativo Web. Maior controle dos critérios de sucesso de testes.
+* Até 10 testes na Web do Visual Studio ou testes de ping por recurso do Application Insights. 
+* Até 16 locais no mundo todo para enviar solicitações de teste ao seu aplicativo Web. Maior controle dos critérios de sucesso de testes. 
 * Teste de qualquer serviço ou site da Web - não apenas aplicativos Web do Azure.
-* Repetições de teste: redução de alertas de falsos positivos devido a problemas de rede temporários.
+* Repetições de teste: redução de alertas de falsos positivos devido a problemas de rede temporários. 
 * Os webhooks podem receber notificações de HTTP POST para os alertas.
 
 ![](./media/app-insights-migrate-azure-endpoint-tests/16-1test.png)
@@ -42,7 +43,7 @@ Os testes de disponibilidade fazem parte do [Visual Studio Application Insights]
 
 
 
-## O que está acontecendo com meus testes de ponto de extremidade?
+## <a name="so-what's-happening-to-my-endpoint-tests?"></a>O que está acontecendo com meus testes de ponto de extremidade?
 
 * Copiamos seus testes de monitoramento de ponto de extremidade para os novos testes de disponibilidade do Application Insights.
 * Os novos testes de disponibilidade estão desabilitados no momento e os testes de Ponto de Extremidade antigos ainda estão funcionando.
@@ -50,37 +51,37 @@ Os testes de disponibilidade fazem parte do [Visual Studio Application Insights]
  * Dispara quando mais de um local relata falhas em cinco minutos.
  * Envia um email ao administrador da assinatura.
 
-No [portal do Azure](https://portal.azure.com), você pode encontrar os testes migrados no grupo de recursos "Default-ApplicationInsights-CentralUS". Os nomes do teste são prefixados com "Migrated-".
+No [portal do Azure](https://portal.azure.com), você pode encontrar os testes migrados no grupo de recursos "Default-ApplicationInsights-CentralUS". Os nomes do teste são prefixados com "Migrated-". 
 
-## O que preciso fazer?
+## <a name="what-do-i-need-to-do?"></a>O que preciso fazer?
 
 * Se de alguma maneira não migramos seus testes, os novos testes de disponibilidade são [fáceis de configurar](app-insights-monitor-web-app-availability.md).
 
-### Opção A: não fazer nada. Deixe conosco.
+### <a name="option-a:-do-nothing.-leave-it-to-us."></a>Opção A: não fazer nada. Deixe conosco.
 
-**Durante a semana de 22 de agosto de 2016**, iremos:
+**Em 31 de outubro de 2016**, nós iremos:
 
 * Desabilitar os testes de ponto de extremidade antigos.
 * Habilitar os testes de disponibilidade migrados.
 
-### Opção B: você gerencia e/ou habilita os novos testes.
+### <a name="option-b:-you-manage-and/or-enable-the-new-tests."></a>Opção B: você gerencia e/ou habilita os novos testes.
 
-* Examine e edite os novos testes de disponibilidade no novo [portal do Azure](https://portal.azure.com).
+* Examine e edite os novos testes de disponibilidade no novo [portal do Azure](https://portal.azure.com). 
  * Examine os critérios de disparo
  * Examine os destinatários de email
 * Habilite os novos testes
-* Exclua os testes de ponto de extremidade antigos [no portal clássico](https://manage.windowsazure.com). Isso é aconselhável para evitar alertas duplicados e reduzir a carga do tráfego de teste no seu site. Caso contrário, nós os excluiremos em 22 de agosto de 2016.
+* Vamos desabilitar os testes de monitoramento de ponto de extremidade herdados em 31 de outubro de 2016 
 
 
-### Opção C: recusar
+### <a name="option-c:-opt-out"></a>Opção C: recusar
 
 Se você não quer usar os testes de disponibilidade, é possível excluí-los no [portal do Azure](https://portal.azure.com). Também há um link Cancelar assinatura no fim dos emails de notificação.
 
-Mesmo assim, excluiremos os testes de ponto de extremidade antigos em 22 de agosto de 2016.
+Mesmo assim, excluiremos os testes de ponto de extremidade antigos em 31 de outubro de 2016. 
 
-## Como edito os novos testes?
+## <a name="how-do-i-edit-the-new-tests?"></a>Como edito os novos testes?
 
-Entre no [portal do Azure](https://portal.azure.com) e encontre os testes na Web 'Migrated-':
+Entre no [portal do Azure](https://portal.azure.com) e encontre os testes na Web 'Migrated-': 
 
 ![Escolha Grupos de Recursos, Default-ApplicationInsights-CentralUS e abra os testes 'migrated'.](./media/app-insights-migrate-azure-endpoint-tests/20.png)
 
@@ -89,52 +90,57 @@ Edite e/ou habilite o teste:
 ![](./media/app-insights-migrate-azure-endpoint-tests/21.png)
 
 
-## Por que isso está acontecendo?
+## <a name="why-is-this-happening?"></a>Por que isso está acontecendo?
 
 Melhoria do serviço. O serviço de ponto de extremidade antigo era muito mais limitado. Você podia fornecer apenas duas URLs para testes simples de ping de 3 locais geográficos em uma VM ou um aplicativo Web do Azure. Os novos testes podem executar testes na Web de várias etapas de até 16 locais, e você pode especificar até 10 testes para um aplicativo. Você pode testar qualquer URL - não precisa ser um site do Azure.
 
-Os novos testes são configurados separadamente do aplicativo Web ou da VM que você está testando.
+Os novos testes são configurados separadamente do aplicativo Web ou da VM que você está testando. 
 
-Estamos migrando os testes para garantir que você continue tendo controle sobre eles usando o novo portal.
+Estamos migrando os testes para garantir que você continue tendo controle sobre eles usando o novo portal. 
 
-## O que é o Application Insights?
+## <a name="what-is-application-insights?"></a>O que é o Application Insights?
 
 Os novos testes de disponibilidade fazem parte do [Visual Studio Application Insights](app-insights-overview.md). Veja um [vídeo de dois minutos](http://go.microsoft.com/fwlink/?LinkID=733921).
 
-## Estou pagando pelos novos testes?
+## <a name="am-i-paying-for-the-new-tests?"></a>Estou pagando pelos novos testes?
 
-Os testes migrados são configurados em um recurso do Application Insights no plano Gratuito padrão. Isso permite a coleta de até cinco milhões de pontos de dados, que facilmente cobrem o volume de dados que seus testes usam atualmente.
+Os testes migrados são configurados em um recurso do Application Insights no plano Gratuito padrão. Isso permite a coleta de até cinco milhões de pontos de dados, que facilmente cobrem o volume de dados que seus testes usam atualmente. 
 
-É claro que, se você gostar do Application Insights e criar mais testes de disponibilidade ou adotar mais de seus recursos de diagnóstico e de monitoramento de desempenho, vai gerar mais pontos de dados. No entanto, o resultado seria você atingir a cota do plano Gratuito. Você não receberá uma fatura, a menos que opte pelos planos Standard ou Premium.
+É claro que, se você gostar do Application Insights e criar mais testes de disponibilidade ou adotar mais de seus recursos de diagnóstico e de monitoramento de desempenho, vai gerar mais pontos de dados.  No entanto, o resultado seria você atingir a cota do plano Gratuito. Você não receberá uma fatura, a menos que opte pelos planos Standard ou Premium. 
 
-[Saiba mais sobre os preços e o monitoramento de cotas do Application Insights](app-insights-pricing.md).
+[Saiba mais sobre os preços e o monitoramento de cotas do Application Insights](app-insights-pricing.md). 
 
-## O que é e não é migrado?
+## <a name="what-is-and-isn't-migrated?"></a>O que é e não é migrado?
 
 São preservados dos seus testes antigos de ponto de extremidade:
 
 * A URL de ponto de extremidade a ser testada.
 * Os locais geográficos dos quais as solicitações são enviadas.
 * A frequência do teste permanece por 5 minutos.
-* O tempo limite do teste permanece por 30 segundos.
+* O tempo limite do teste permanece por 30 segundos. 
 
 Não migrados:
 
 * Regra de gatilho de alerta. A regra que configuramos é disparada quando um local relata falhas em cinco minutos.
-* Os destinatários do alerta. Os emails de notificação serão enviados aos proprietários e aos coproprietários da assinatura.
+* Os destinatários do alerta. Os emails de notificação serão enviados aos proprietários e aos coproprietários da assinatura. 
 
-## Como encontro os novos testes?
+## <a name="how-do-i-find-the-new-tests?"></a>Como encontro os novos testes?
 
-Você pode editar qualquer dos testes novos, se quiser. Entre no [portal do Azure](https://portal.azure.com), abra **Grupos de Recursos** e selecione **Default-ApplicationInsights-CentralUS**. Nesse grupo, você encontrará os novos testes da Web. [Saiba mais sobre os novos testes de disponibilidade](app-insights-monitor-web-app-availability.md).
+Você pode editar qualquer dos testes novos, se quiser. Entre no [Portal do Azure](https://portal.azure.com), abra **Grupos de Recursos** e selecione **Default-ApplicationInsights-CentralUS**. Nesse grupo, você encontrará os novos testes da Web. [Saiba mais sobre os novos testes de disponibilidade](app-insights-monitor-web-app-availability.md).
 
 Observe que os novos emails de alerta serão enviados deste endereço: Alertas do Application Insights (ai-noreply@microsoft.com)
 
-## O que acontece se eu não fizer nada?
+## <a name="what-happens-if-i-do-nothing?"></a>O que acontece se eu não fizer nada?
 
-A Opção A será aplicada. Vamos habilitar os testes migrados e configurar as regras de alerta padrão, conforme mencionado acima. Você terá que adicionar as regras de alerta personalizadas e destinatários, conforme mencionado acima. Vamos desabilitar os testes de monitoramento de ponto de extremidade herdados.
+A Opção A será aplicada. Vamos habilitar os testes migrados e configurar as regras de alerta padrão, conforme mencionado acima. Você terá que adicionar as regras de alerta personalizadas e destinatários, conforme mencionado acima. Vamos desabilitar os testes de monitoramento de ponto de extremidade herdados. 
 
-## Onde posso fazer comentários sobre isso? 
+## <a name="where-can-i-provide-feedback-on-this?"></a>Onde posso fazer comentários sobre isso? 
 
-Agradecemos os seus comentários. [Envie-nos um email](mailto:vsai@microsoft.com).
+Agradecemos os seus comentários. [Envie-nos um email](mailto:vsai@microsoft.com). 
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+
