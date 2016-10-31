@@ -312,7 +312,7 @@ Resumo: este é o documento que você deverá ler primeiro se estiver pensando e
 
 Atualização: agosto de 2016
 
-[Este guia pode ser encontrado aqui] (guia de planejamento)
+[Este guia pode ser encontrado aqui] [guia de planejamento]
 ## <a name="<a-name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>deployment"></a><a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Implantação
 
 Título: SAP NetWeaver em VMs (máquinas virtuais) do Windows — guia de implantação
@@ -331,7 +331,7 @@ Resumo: este artigo aborda considerações sobre planejamento e implementação 
 
 Atualização: agosto de 2016
 
-[Esse guia pode ser encontrado aqui](guia dbms)
+[Esse guia pode ser encontrado aqui][guia dbms]
 
 ## <a name="<a-name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>high-availability-deployment-guide"></a><a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>Guia de implantação de alta disponibilidade
 
