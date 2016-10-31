@@ -1,23 +1,21 @@
 <properties
-    pageTitle="Novidades no Kit de Ferramentas do Azure para Eclipse"
-    description="Saiba mais sobre os recursos mais recentes do Kit de Ferramentas do Azure para Eclipse."
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Novidades no Kit de Ferramentas do Azure para Eclipse"
+	description="Saiba mais sobre os recursos mais recentes do Kit de Ferramentas do Azure para Eclipse."
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="08/26/2016" 
-    ms.author="robmcm;asirveda;martinsawicki"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/26/2016" 
+	ms.author="robmcm;asirveda;martinsawicki"/>
 
-
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
 
 # <a name="what's-new-in-the-azure-toolkit-for-eclipse"></a>Novidades no Kit de Ferramentas do Azure para Eclipse
 

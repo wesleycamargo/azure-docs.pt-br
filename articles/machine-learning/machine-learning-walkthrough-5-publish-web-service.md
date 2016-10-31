@@ -72,7 +72,7 @@ Quando você clica em **Instalar serviço Web**, várias coisas acontecem:
 - Os módulos que foram usados para treinamento são removidos. Especificamente:
   - [Arvore de decisão aumentada duas classes][two-class-boosted-decision-tree]
   - [Treinar modelo][train-model]
-  - [Dividir dados][divide]
+  - [Dividir dados](divide)
   - o segundo módulo [Executar Script R][execute-r-script] usado para dados do teste
 - O modelo treinado salvo é adicionado de volta ao teste.
 - Os módulos **Entrada de serviço Web** e **Saída de serviço Web** são adicionados.
