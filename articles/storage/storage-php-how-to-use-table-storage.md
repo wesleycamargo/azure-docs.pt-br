@@ -221,7 +221,7 @@ O método **TableRestProxy->getEntity** permite que você recupere uma única en
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Recuperar todas as entidades em uma partição
 
-As consultas de entidades são construídas usando filtros (para obter mais informações, consulte [Consultando tabelas e entidades](filtros)). Para recuperar todas as entidades na partição, use o filtro "PartitionKey eq *nome_da_partição*". O exemplo a seguir mostra como recuperar todas as entidades na partição `tasksSeattle` passando um filtro para o método **queryEntities** .
+As consultas de entidades são construídas usando filtros (para obter mais informações, consulte [Consultando tabelas e entidades][filtros]). Para recuperar todas as entidades na partição, use o filtro "PartitionKey eq *nome_da_partição*". O exemplo a seguir mostra como recuperar todas as entidades na partição `tasksSeattle` passando um filtro para o método **queryEntities** .
 
     require_once 'vendor/autoload.php';
 
@@ -253,7 +253,7 @@ As consultas de entidades são construídas usando filtros (para obter mais info
 
 ## <a name="retrieve-a-subset-of-entities-in-a-partition"></a>Recuperar um subconjunto de entidades em uma partição
 
-O mesmo padrão usado no exemplo anterior pode ser usado para recuperar qualquer subconjunto de entidades em uma partição. O subconjunto de entidades que você recuperar é determinado pelo filtro usado (para obter mais informações, consulte [Consultando tabelas e entidades](filtros)). O exemplo a seguir mostra como usar um filtro para recuperar todas as entidades em um determinado `Location` e uma `DueDate` menor do que uma data especificada.
+O mesmo padrão usado no exemplo anterior pode ser usado para recuperar qualquer subconjunto de entidades em uma partição. O subconjunto de entidades que você recuperar é determinado pelo filtro usado (para obter mais informações, consulte [Consultando tabelas e entidades][filtros]). O exemplo a seguir mostra como usar um filtro para recuperar todas as entidades em um determinado `Location` e uma `DueDate` menor do que uma data especificada.
 
     require_once 'vendor/autoload.php';
 

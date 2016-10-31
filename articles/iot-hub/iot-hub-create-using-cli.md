@@ -27,7 +27,7 @@ Você pode usar a Interface de linha de comando do Azure para criar e gerenciar 
 
 Para concluir este tutorial, você precisará do seguinte:
 
-- Uma conta ativa do Azure. Você pode criar uma [conta de avaliação gratuita do Azure](Ink-free-trial) em apenas alguns minutos.
+- Uma conta ativa do Azure. Você pode criar uma [conta de avaliação gratuita do Azure][Ink-free-trial] em apenas alguns minutos.
 - [Azure CLI 0.10.4][lnk-CLI-install] ou posterior. Se você já tiver a CLI do Azure, poderá validar a versão atual no prompt de comando com o seguinte comando:
 ```
     azure --version
@@ -62,7 +62,7 @@ Para definir o contexto de assinatura sob o qual você deseja executar o restant
     azure group create -n exampleResourceGroup -l westus
 ```
 
-> [AZURE.TIP] O artigo [Usar a CLI do Azure para gerenciar recursos do Azure e grupos de recursos](Ink-CLI-arm) fornece mais informações sobre como usar a CLI do Azure para gerenciar recursos do Azure. 
+> [AZURE.TIP] O artigo [Usar a CLI do Azure para gerenciar recursos do Azure e grupos de recursos][Ink-CLI-arm] fornece mais informações sobre como usar a CLI do Azure para gerenciar recursos do Azure. 
 
 
 ## <a name="create-and-iot-hub"></a>Crie um Hub IoT

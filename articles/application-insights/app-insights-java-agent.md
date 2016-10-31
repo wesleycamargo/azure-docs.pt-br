@@ -95,7 +95,7 @@ Por padrão, `reportExecutionTime` é true e `reportCaughtExceptions` é false.
 
 ## <a name="view-the-data"></a>Exibir os dados
 
-No recurso do Application Insights, a dependência remota e os tempos de execução do método agregados aparecem [no bloco Desempenho](métricas). 
+No recurso do Application Insights, a dependência remota e os tempos de execução do método agregados aparecem [no bloco Desempenho][métricas]. 
 
 Para procurar instâncias individuais de dependência, exceções e relatórios de método, abra [Pesquisar][diagnóstico]. 
 

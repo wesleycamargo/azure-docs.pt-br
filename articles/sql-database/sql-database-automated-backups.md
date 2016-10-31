@@ -17,7 +17,22 @@
    ms.author="carlrab"/>
 
 
+
+
+<!-- # H1 Title
+
+ H1 title should answer the question "What is in this topic?" Write the title in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
+-->
+
 # <a name="learn-about-sql-database-backups"></a>Saiba mais sobre o Banco de Dados SQL
+
+<!-- Introduction
+
+1. Sentence #1 begins with "Learn about ..." and gives the scope of what the article will cover.
+2. Sentence #2 explains the key capability or selling point of the feature.
+3. Sentence #3 begins with "Use this feature to ..." and gives a common use case.
+
+-->
 
 O Banco de Dados SQL cria um backup do banco de dados local a cada cinco minutos e usa RA-GRS (Armazenamento com redundância geográfica de acesso de leitura) do Azure para copiar alguns dos backups de banco de dados para outra região geográfica. Esses backups ocorrem **automaticamente e sem nenhum custo adicional**. Use backups de banco de dados local para [restaurar um banco de dados para um ponto no tempo](sql-database-point-in-time-restore-portal.md). Use backups com redundância geográfica para [restaurar o banco de dados para uma região geográfica diferente](sql-database-geo-restore-portal.md).  
 
