@@ -205,7 +205,7 @@ Esses são todos os pré-requisitos do Cofre de Chaves para configurar um modelo
 
 ![pesquisa pelo modelo de cluster do Service Fabric no portal do Azure.][SearchforServiceFabricClusterTemplate]
 
- 1. Entre no [portal do Azure][portal do azure].
+ 1. Entre no [portal do Azure](portal do azure).
 
  2. Clique em **+ Novo** para adicionar um novo modelo de recurso. Procure o modelo Cluster do Service Fabric no **Marketplace** em **Tudo**.
 

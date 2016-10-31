@@ -261,7 +261,7 @@ O whitepaper se concentrará em dois aspectos principais:
 * A primeira parte descreverá dois padrões de implantação (ambos com suporte) para aplicativos baseados na SAP NetWeaver no Azure. Ele também descreve a manipulação geral do Azure com implantações da SAP em mente.
 * A segunda parte detalhará a implementação dos dois diferentes cenários descritos na primeira parte.
 
-Para obter recursos adicionais, confira o capítulo [Recursos][planning-guide-1.2] neste documento.
+Para obter recursos adicionais, confira o capítulo [Recursos](planning-guide-1.2) neste documento.
 
 ### <a name="definitions-upfront"></a>Definições prévias
 No decorrer do documento, usaremos os termos a seguir:
@@ -422,7 +422,7 @@ Conforme você perceberá, existem diferentes famílias ou séries de máquinas 
 * Tipos de VM A0-A7: nem todas elas são certificadas para SAP. Primeira série de VMs com a qual o IaaS do Azure foi introduzido.
 * Tipos de VM A8-A11: instâncias de computação de alto desempenho. Em execução em hosts de computação diferentes e com melhor desempenho que outras VMs da série A.
 * Tipos de VM série D: desempenho superior a A0-A7. Nem todos os tipos de VM são certificados com SAP.
-* Tipos de VM da série DS: usam os mesmos hosts da série D, mas são capazes de conectar o Armazenamento Premium do Azure (confira o capítulo [Armazenamento Premium do Azure][planning-guide-3.3.2] deste documento). Outra vez, nem todos os tipos de VM são certificados com SAP.
+* Tipos de VM da série DS: usam os mesmos hosts da série D, mas são capazes de conectar o Armazenamento Premium do Azure (confira o capítulo [Armazenamento Premium do Azure](planning-guide-3.3.2) deste documento). Outra vez, nem todos os tipos de VM são certificados com SAP.
 * Tipos de VM da série G: tipos de VM de memória alta. 
 * Tipos de VM da Série GS: similares à Série G, mas incluem a opção de usar o Armazenamento Premium do Azure (confira o capítulo [Armazenamento Premium do Azure][planning-guide-3.3.2] deste documento). Ao usar as VMs da série GS como servidores de banco de dados, é obrigatório usar o Armazenamento Premium para arquivos de log de transações e dados do BD
 

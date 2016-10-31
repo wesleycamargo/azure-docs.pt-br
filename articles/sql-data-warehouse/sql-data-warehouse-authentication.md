@@ -48,7 +48,7 @@ Por padrão, a conexão se conecta ao banco de dados *mestre* e não ao banco de
 
 ## <a name="azure-active-directory-(aad)-authentication"></a>Autenticação do AAD (Azure Active Directory)
 
-[Azure Active Directory][O que é a autenticação do Azure Active Directory] É um mecanismo de conexão com o SQL Data Warehouse do Microsoft Azure usando identidades no Azure Active Directory (Azure AD). Com a autenticação do Azure Active Directory, você pode gerenciar centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em uma única localização central. O gerenciamento central de ID fornece um único local para gerenciar usuários do SQL Data Warehouse e simplifica o gerenciamento de permissões. 
+[Azure Active Directory](O que é a autenticação do Azure Active Directory) É um mecanismo de conexão com o SQL Data Warehouse do Microsoft Azure usando identidades no Azure Active Directory (Azure AD). Com a autenticação do Azure Active Directory, você pode gerenciar centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em uma única localização central. O gerenciamento central de ID fornece um único local para gerenciar usuários do SQL Data Warehouse e simplifica o gerenciamento de permissões. 
 
 ### <a name="benefits"></a>Benefícios
 

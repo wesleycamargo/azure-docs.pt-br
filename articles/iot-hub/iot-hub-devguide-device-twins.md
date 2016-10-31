@@ -37,7 +37,7 @@ Use os dispositivos gêmeos para:
 * Sincronizar o estado dos fluxos de trabalho de longa duração entre o back-end e o aplicativo do dispositivo, por exemplo, o back-end especificando a nova versão do firmware para instalação, e o aplicativo do dispositivo reportando os diversos estágios do processo de atualização.
 * Consultar os metadados, a configuração ou o estado do seu dispositivo.
 
-Use [mensagens do dispositivo para a nuvem][lnk d2c] para sequências de eventos com carimbo de data e hora, como a série temporal dos dados ou alarmes do sensor. Use [métodos da nuvem para o dispositivo][lnk-methods] para controle interativo de dispositivos, como ativar um ventilador.
+Use [mensagens do dispositivo para a nuvem](lnk d2c) para sequências de eventos com carimbo de data e hora, como a série temporal dos dados ou alarmes do sensor. Use [métodos da nuvem para o dispositivo][lnk-methods] para controle interativo de dispositivos, como ativar um ventilador.
 
 ## <a name="device-twins"></a>Dispositivos gêmeos
 
@@ -102,7 +102,7 @@ No objeto raiz estão as propriedades do sistema e os objetos de contêiner para
 
 No exemplo acima, o dispositivo gêmeo contém uma propriedade `batteryLevel` que é reportada pelo aplicativo do dispositivo. Essa propriedade torna possível a consultar e operação em dispositivos com base no último nível da bateria reportado. Outro exemplo teria os recursos de dispositivo de relatório do aplicativo do dispositivo ou as opções de conectividade.
 
-Observe como as propriedades reportadas simplificam cenários nos quais o back-end está interessado no último valor conhecido de uma propriedade. Use [mensagens do dispositivo para a nuvem][lnk-d2c] se o back-end precisar processar telemetria do dispositivo na forma de sequências de eventos com carimbo de data e hora, como uma série temporal.
+Observe como as propriedades reportadas simplificam cenários nos quais o back-end está interessado no último valor conhecido de uma propriedade. Use [mensagens do dispositivo para a nuvem](lnk-d2c) se o back-end precisar processar telemetria do dispositivo na forma de sequências de eventos com carimbo de data e hora, como uma série temporal.
 
 ### <a name="desired-configuration-example"></a>Exemplo de configuração desejada
 
