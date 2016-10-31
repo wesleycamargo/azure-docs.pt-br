@@ -3,7 +3,7 @@
 	description="Como criar uma API Web do Node JS que aceite tokens da conta pessoal da Microsoft e das contas corporativas ou de estudante."
 	services="active-directory"
 	documentationCenter="nodejs"
-	authors="HannibalSII"
+	authors="brandwe"
 	manager="mbaldwin"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="javascript"
 	ms.topic="article"
 	ms.date="09/16/2016"
-	ms.author="HannibalSII"/>
+	ms.author="brandwe"/>
 
 # Proteger uma API Web usando node.js
 

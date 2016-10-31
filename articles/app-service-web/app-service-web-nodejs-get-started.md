@@ -125,7 +125,7 @@ O Serviço de Aplicativo do Azure usa [iisnode] para executar aplicativos Node.j
     
 ## <a name="use-a-node.js-framework"></a>Usar uma estrutura de Node.js
 
-Se você usa uma estrutura Node.js popular, como [Sails.js][SAILSJS] ou [MEAN.js](MEANSJS) para desenvolver os aplicativos, pode implantá-los no Serviço de Aplicativo. Estruturas populares do Node.js têm suas peculiaridades específicas, e suas dependências de pacotes são atualizadas continuamente. No entanto, o Serviço de Aplicativo disponibiliza os logs stdout e stderr para você, para que possa saber exatamente o que está acontecendo com o aplicativo e fazer as alterações adequadas. Para saber mais, confira [Obter os logs de stdout e stderr do iisnode](#iisnodelog).
+Se você usa uma estrutura Node.js popular, como [Sails.js][SAILSJS] ou [MEAN.js][MEANSJS] para desenvolver os aplicativos, pode implantá-los no Serviço de Aplicativo. Estruturas populares do Node.js têm suas peculiaridades específicas, e suas dependências de pacotes são atualizadas continuamente. No entanto, o Serviço de Aplicativo disponibiliza os logs stdout e stderr para você, para que possa saber exatamente o que está acontecendo com o aplicativo e fazer as alterações adequadas. Para saber mais, confira [Obter os logs de stdout e stderr do iisnode](#iisnodelog).
 
 Os tutoriais a seguir mostram como trabalhar com uma estrutura específica no Serviço de Aplicativo:
 

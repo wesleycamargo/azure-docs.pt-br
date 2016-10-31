@@ -34,7 +34,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 + Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, veja [Avaliação Gratuita do Azure][lnk-free-trial].)
 
-Se você tiver seguido o tutorial [Introdução a gêmeos de dispositivo][lnk-twin-tutorial], você já terá um hub de gerenciamento de dispositivos habilitado e uma identidade de dispositivo chamada **myDeviceId**; você poderá então pular para a seção [Criar o aplicativo de dispositivo simulado](lnk-device app).
+Se você tiver seguido o tutorial [Introdução a gêmeos de dispositivo][lnk-twin-tutorial], você já terá um hub de gerenciamento de dispositivos habilitado e uma identidade de dispositivo chamada **myDeviceId**; você poderá então pular para a seção [Criar o aplicativo de dispositivo simulado][lnk-device app].
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
@@ -247,7 +247,7 @@ Neste tutorial, você definiu uma configuração desejada como *propriedades des
 Veja os recursos a seguir para saber como:
 
 - Enviar telemetria de dispositivos com o tutorial [Introdução ao Hub IoT][lnk-iothub-getstarted],
-- agendar ou executar operações em grandes conjuntos de dispositivos, veja o tutorial [Usar trabalhos para agendar e difundir operações de dispositivo](lnk de agendamento de trabalhos).
+- agendar ou executar operações em grandes conjuntos de dispositivos, veja o tutorial [Usar trabalhos para agendar e difundir operações de dispositivo][lnk de agendamento de trabalhos].
 - controlar dispositivos interativamente (como ativar um ventilador de um aplicativo controlado pelo usuário), com o tutorial [Usar métodos diretos][lnk-methods-tutorial].
 
 
