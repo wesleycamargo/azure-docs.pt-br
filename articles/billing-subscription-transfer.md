@@ -53,9 +53,9 @@ Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, p
 
 6.  O destinatário clica no link e segue as instruções, incluindo inserir suas informações de pagamento.
 
-    ![Primeira página da Web de transferência de assinatura](./media/billing-subscription-transfer/image4.png)
+    ![Primeira página da Web de transferência de assinatura](./media/billing-subscription-transfer/image4.PNG)
 
-    ![Segunda página da Web de transferência de assinatura](./media/billing-subscription-transfer/image5.png)
+    ![Segunda página da Web de transferência de assinatura](./media/billing-subscription-transfer/image5.PNG)
 
 7. Sucesso! Agora a assinatura será transferida.
 
