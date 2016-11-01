@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/10/2016"
-   ms.author="cakarst;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="cakarst;barbkess"/>
 
 
 
@@ -45,11 +45,11 @@ Para acompanhar este tutorial, você precisará de
     ![Ferramentas do Armazenamento do Azure](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## <a name="step-1:-add-sample-data-to-azure-blob-storage"></a>Etapa 1: Adicionar dados de exemplo ao armazenamento de blobs do Azure
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Etapa 1: Adicionar dados de exemplo ao armazenamento de blobs do Azure
 
 Para carregar dados, precisamos colocar alguns dados de exemplo em um armazenamento de blobs do Azure. Nesta etapa, preencheremos um blob do Armazenamento do Azure com dados de exemplo. Posteriormente, usaremos o PolyBase para carregar esses dados de exemplo no seu banco de dados do SQL Data Warehouse.
 
-### <a name="a.-prepare-a-sample-text-file"></a>R. Preparar um arquivo de texto de exemplo
+### <a name="a-prepare-a-sample-text-file"></a>R. Preparar um arquivo de texto de exemplo
 
 Para preparar um arquivo de texto de exemplo:
 
@@ -70,7 +70,7 @@ Para preparar um arquivo de texto de exemplo:
 20150101,1,3
 ```
 
-### <a name="b.-find-your-blob-service-endpoint"></a>B. Localizar o ponto de extremidade do serviço blob
+### <a name="b-find-your-blob-service-endpoint"></a>B. Localizar o ponto de extremidade do serviço blob
 
 Para localizar o ponto de extremidade do serviço blob:
 
@@ -84,7 +84,7 @@ Para localizar o ponto de extremidade do serviço blob:
 
     ![Ponto de extremidade do serviço blob](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### <a name="c.-find-your-azure-storage-key"></a>C. Encontrar a chave de armazenamento do Azure
+### <a name="c-find-your-azure-storage-key"></a>C. Encontrar a chave de armazenamento do Azure
 
 Para encontrar a chave de armazenamento do Azure:
 
@@ -95,7 +95,7 @@ Para encontrar a chave de armazenamento do Azure:
 
     ![Copiar a chave de armazenamento do Azure](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### <a name="d.-copy-the-sample-file-to-azure-blob-storage"></a>D. Copiar o arquivo de exemplo para o armazenamento de blobs do Azure
+### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. Copiar o arquivo de exemplo para o armazenamento de blobs do Azure
 
 Para copiar seus dados para o armazenamento de blobs do Azure:
 
@@ -113,7 +113,7 @@ Para copiar seus dados para o armazenamento de blobs do Azure:
 
 Confira também [Introdução ao utilitário de linha de comando AzCopy][].
 
-### <a name="e.-explore-your-blob-storage-container"></a>E. Explorar o contêiner de armazenamento de blobs
+### <a name="e-explore-your-blob-storage-container"></a>E. Explorar o contêiner de armazenamento de blobs
 
 Para ver o arquivo carregado no armazenamento de blobs:
 
@@ -126,7 +126,7 @@ Para ver o arquivo carregado no armazenamento de blobs:
     ![Exibir o blob de armazenamento do Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## <a name="step-2:-create-an-external-table-for-the-sample-data"></a>Etapa 2: Criar uma tabela externa para os dados de exemplo
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Etapa 2: Criar uma tabela externa para os dados de exemplo
 
 Nesta seção, criamos uma tabela externa que define os dados de exemplo.
 
@@ -216,7 +216,7 @@ No Pesquisador de Objetos do SQL Server no Visual Studio, você pode ver o forma
 
 ![Exibir tabela externa](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## <a name="step-3:-load-data-into-sql-data-warehouse"></a>Etapa 3: carregar dados no SQL Data Warehouse
+## <a name="step-3-load-data-into-sql-data-warehouse"></a>Etapa 3: carregar dados no SQL Data Warehouse
 
 Depois de criar a tabela externa, você poderá carregar os dados em uma nova tabela ou inseri-los em uma tabela existente.
 
@@ -236,7 +236,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Etapa 4: criar estatísticas sobre os dados recém-carregados
+## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Etapa 4: criar estatísticas sobre os dados recém-carregados
 
 O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou de atualização automática. Portanto, para obter um alto desempenho de consulta, é importante criar estatísticas em cada coluna de cada tabela após a primeira carga. Também é importante atualizar as estatísticas após alterações significativas nos dados.
 

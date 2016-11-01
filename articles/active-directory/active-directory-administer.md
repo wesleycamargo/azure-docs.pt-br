@@ -3,7 +3,7 @@
     description="Explica o que é um locatário do Azure AD e como gerenciar o Azure por meio do Active Directory do Azure"
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     writer="markvi"
     manager="femila"
     editor=""/>
@@ -20,7 +20,7 @@
 
 # <a name="administer-your-azure-ad-directory"></a>Administrar seu diretório do Azure AD
 
-## <a name="what-is-an-azure-ad-tenant?"></a>O que é um locatário AD Azure?
+## <a name="what-is-an-azure-ad-tenant"></a>O que é um locatário AD Azure?
 
 No local de trabalho físico, o termo “locatário” pode ser definido como um grupo ou empresa que ocupa um prédio. Por exemplo, sua organização pode possuir um escritório em um prédio. Esse prédio pode estar em uma rua com várias outras organizações. Sua organização seria considerada uma locatária desse prédio. Esse prédio é um ativo de sua organização, oferecendo segurança e garantindo que você possa conduzir os negócios com segurança. Ele também é separado das outras empresas em sua rua. Isso garante que sua organização e seus ativos estejam isolados de outras organizações.
 
@@ -30,7 +30,7 @@ Cada diretório do Azure AD é distinto e separado de outros diretórios do Azur
 
 ![Gerenciar o Active Directory do Azure][1]
 
-## <a name="how-can-i-get-an-azure-ad-directory?"></a>Como posso obter um diretório do Azure AD?
+## <a name="how-can-i-get-an-azure-ad-directory"></a>Como posso obter um diretório do Azure AD?
 
 O Azure AD oferece os principais recursos de gerenciamento de diretório e de identidade por trás da maioria dos serviços de nuvem da Microsoft, incluindo:
 
@@ -66,7 +66,7 @@ Se você ainda não tiver uma assinatura para um serviço de nuvem da Microsoft,
 - [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 - [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### <a name="manage-an-azure-provisioned-default-directory"></a>Gerenciar um diretório padrão de provisionamento do Azure
+### <a name="manage-an-azureprovisioned-default-directory"></a>Gerenciar um diretório padrão de provisionamento do Azure
 
 Hoje, um diretório é criado automaticamente ao se inscrever para o Azure, e sua assinatura é associada a esse diretório. Mas se você tiver originalmente se inscrito no Azure antes de outubro de 2013, um diretório não terá sido criado automaticamente. Nesse caso, o Azure pode ter "aterrado" sua conta fornecendo um diretório padrão para ela. Sua assinatura é então associada a esse diretório padrão.
 
@@ -95,7 +95,7 @@ Esses portais de conta e os cmdlets associados do PowerShell do Azure AD usados 
 Quando você fizer uma alteração nos dados da sua organização usando qualquer um dos portais (ou cmdlets) enquanto estiver conectado sob o contexto de um desses serviços, a alteração também será mostrada nos outros portais da próxima vez que entrar no contexto desse serviço, porque estes dados são compartilhados entre os serviços de nuvem da Microsoft para os quais você se inscreveu.
 Por exemplo, se você usou o Centro de Administração do Office 365 para bloquear a conexão de um usuário, essa ação impedirá que o usuário faça logon em qualquer outro serviço ao qual sua organização tenha se inscrito atualmente. Se você analisar a conta desse mesmo usuário sob o contexto do portal de contas do Microsoft Intune, você verá que o usuário está bloqueado.
 
-## <a name="how-can-i-add-and-manage-multiple-directories?"></a>Como posso adicionar e gerenciar vários diretórios?
+## <a name="how-can-i-add-and-manage-multiple-directories"></a>Como posso adicionar e gerenciar vários diretórios?
 
 Você pode adicionar um diretório do Azure AD no Portal de Gerenciamento do Azure. Selecione a extensão **Active Directory** à esquerda e clique em **Adicionar**.
 
@@ -115,7 +115,7 @@ Você pode gerenciar cada diretório como um recurso completamente independente:
 
 Observe também que, ao contrário de outros recursos do Azure, seus diretórios não são recursos filhos de uma assinatura do Azure. Então, se você cancelar ou permitir que a sua assinatura do Azure expire, ainda poderá acessar os dados de diretório usando o PowerShell do Azure AD, o Azure Graph API ou outras interfaces, como o Centro de Administração do Office 365. Você também pode associar outra assinatura ao diretório.
 
-## <a name="how-can-i-delete-an-azure-ad-directory?"></a>Como posso excluir um diretório do Azure AD?
+## <a name="how-can-i-delete-an-azure-ad-directory"></a>Como posso excluir um diretório do Azure AD?
 Um administrador global pode excluir um diretório do Azure AD a partir do portal. Quando um diretório é excluído, todos os recursos contidos no diretório também serão excluídos; portanto, você deve se certificar de que não precisa do diretório antes de excluí-lo.
 
 > [AZURE.NOTE]

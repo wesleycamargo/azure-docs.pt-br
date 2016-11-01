@@ -4,7 +4,7 @@
     services="active-directory"
     keywords="azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -37,7 +37,7 @@ Esta seção fornece as etapas para simular os seguintes tipos de evento de risc
 Outros eventos de risco não podem ser simulados de maneira segura.
 
 
-### <a name="sign-ins-from-anonymous-ip-addresses"></a>Entradas de endereços IP anônimos
+### <a name="signins-from-anonymous-ip-addresses"></a>Entradas de endereços IP anônimos
 
 Esse tipo de evento de risco identifica os usuários que entraram com êxito de um endereço IP que foi identificado como um endereço IP de proxy anônimo. Esses proxies geralmente são usados por usuários que desejam ocultar o endereço IP de seu dispositivo e podem ser usados com objetivos mal-intencionados.
 
@@ -50,7 +50,7 @@ Esse tipo de evento de risco identifica os usuários que entraram com êxito de 
 A entrada será exibida no painel do Identity Protection dentro de 5 minutos. 
 
 
-###<a name="sign-ins-from-unfamiliar-locations"></a>Entradas de locais desconhecidos
+###<a name="signins-from-unfamiliar-locations"></a>Entradas de locais desconhecidos
 
 O risco de locais desconhecidos é um mecanismo de avaliação de entrada em tempo real que considera locais de entrada anteriores (IP, Latitude/Longitude e ASN) para determinar os locais novos/desconhecidos. O sistema armazena IPs, Latitude/Longitude e ASNs anteriores de um usuário e os considera como locais “conhecidos”. Um local de entrada é considerado desconhecido se não corresponder a nenhum dos locais familiares existentes.
 
@@ -138,7 +138,7 @@ Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser ex
 <br>
 
  
-##<a name="sign-in-risk"></a>Risco de entrada
+##<a name="signin-risk"></a>Risco de entrada
 
  
 **Para testar um risco de entrada, realize as seguintes etapas:**

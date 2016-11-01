@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Relatórios do Azure Active Directory - visualização | Microsoft Azure"
-   description="Lista os diversos relatórios disponíveis na visualização do Azure Active Directory"
+   pageTitle="Azure Active Directory reporting - preview | Microsoft Azure"
+   description="Lists the various available reports for Azure Active Directory preview"
    services="active-directory"
    documentationCenter=""
-   authors="markusvi"
+   authors="MarkusVi"
    manager="femila"
    editor=""/>
 
@@ -16,208 +16,214 @@
    ms.date="09/30/2016"
    ms.author="markvi"/>
 
-# Relatórios do Azure Active Directory - visualização
+
+# <a name="azure-active-directory-reporting-preview"></a>Azure Active Directory reporting - preview
 
 > [AZURE.SELECTOR]
-- [Portal do Azure](active-directory-reporting-azure-portal.md)
-- [Portal clássico do Azure](active-directory-reporting-guide.md)
+- [Azure portal](active-directory-reporting-azure-portal.md)
+- [Azure classic portal](active-directory-reporting-guide.md)
 
-*Esta documentação é parte do [Guia de Relatórios do Active Directory do Azure](active-directory-reporting-guide.md).*
+*This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
-Com o relatório na visualização do Azure Active Directory, você obtém todas as informações de que precisa determinar como seu ambiente está se comportando. [O que há na visualização?](active-directory-preview-explainer.md)
+With reporting in the Azure Active Directory preview, you get all the information you need to determine how your environment is doing. [What's in the preview?](active-directory-preview-explainer.md)
 
-Há duas áreas principais de relatórios:
+There are two main areas of reporting:
 
-- **Atividades de entrada** – informações sobre o uso de aplicativos gerenciados e de atividades de entrada do usuário
+- **Sign-in activities** – Information about the usage of managed applications and user sign-in activities
 
-- **Logs de auditoria** - informações de auditoria sobre o gerenciamento de usuários e de grupos, os aplicativos gerenciados e as atividades de diretório
+- **Audit logs** - System activity information about users and group management, your managed applications and directory activities
 
-Dependendo do escopo dos dados que você estiver procurando, será possível acessar esses relatórios clicando em **Usuários e grupos** ou em **Aplicativos empresariais** na lista de serviços no [portal do Azure](https://portal.azure.com).
+Depending on the scope of the data you are looking for, you can access these reports either by clicking **Users and groups** or **Enterprise applications** in the services list in the [Azure portal](https://portal.azure.com).
 
-## Atividades de entrada
+## <a name="signin-activities"></a>Sign-in activities
 
-### Atividades de entrada do usuário
+### <a name="user-signin-activities"></a>User sign-in activities
 
-Com as informações fornecidas pelo relatório de entrada de usuário, você encontra respostas para perguntas como:
+With the information provided by the user sign-in report, you find answers to questions such as:
 
-- O que é o padrão de entrada de um usuário?
-- Quantos usuários entraram em uma semana?
-- Qual é o status dessas entradas?
+- What is the sign-in pattern of a user?
+- How many users have users signed in over a week?
+- What’s the status of these sign-ins?
 
-O ponto de entrada para esses dados é o gráfico de entrada do usuário na seção **Visão geral** em **Usuários e grupos**.
+Your entry point to this data is the user sign-in graph in the **Overview** section under **Users and groups**.
 
- ![Relatórios](./media/active-directory-reporting-azure-portal/05.png "Relatórios")
+ ![Reporting](./media/active-directory-reporting-azure-portal/05.png "Reporting")
 
-O gráfico de entrada do usuário mostra agregações semanais de entradas para todos os usuários em um determinado período de tempo. O padrão para o período é de 30 dias.
+The user sign-in graph shows weekly aggregations of sign ins for all users in a given time period. The default for the time period is 30 days.
 
-![Relatórios](./media/active-directory-reporting-azure-portal/02.png "Relatórios")
+![Reporting](./media/active-directory-reporting-azure-portal/02.png "Reporting")
 
-Quando você clica em um dia no gráfico de entradas, obtém uma lista detalhada das atividades de entrada.
+When you click on a day in the sign-in graph, you get a detailed list of the sign-in activities.
 
-![Relatórios](./media/active-directory-reporting-azure-portal/03.png "Relatórios")
+![Reporting](./media/active-directory-reporting-azure-portal/03.png "Reporting")
 
-Cada linha na lista de atividades de entrada oferece as informações detalhadas sobre a entrada selecionada, como:
+Each row in the sign-in activities list gives you the detailed information about the selected sign-in such as:
 
-- Quem entrou?
+- Who has signed in?
 
-- Qual era o UPN relacionado?
+- What was the related UPN?
 
-- Qual aplicativo era o destino da entrada?
+- What application was the target of the sign-in?
 
-- Qual é o endereço IP da entrada?
+- What is the IP address of the sign-in?
 
-- Qual era o status da entrada?
+- What was the status of the sign-in?
 
-### Uso de aplicativos gerenciados
+### <a name="usage-of-managed-applications"></a>Usage of managed applications
 
-Com uma exibição centrada no aplicativo de seus dados de entrada, você pode responder a perguntas como:
+With an application-centric view of your sign-in data, you can answer questions such as:
 
-- Quem está usando meus aplicativos?
+- Who is using my applications?
 
-- Quais são os três principais aplicativos em sua organização?
+- What are the top 3 applications in your organization?
 
-- Recentemente, eu implantei um aplicativo. Como ele está se saindo?
+- I have recently rolled out an application. How is it doing?
 
 
-Seu ponto de entrada para esses dados é composto pelos três principais aplicativos em sua organização no relatório dos 30 últimos dias, presente na seção **Visão geral**, em **Aplicativos empresariais**.
+Your entry point to this data is the top 3 applications in your organization within the last 30 days report in the **Overview** section under **Enterprise applications**.
 
- ![Relatórios](./media/active-directory-reporting-azure-portal/06.png "Relatórios")
+ ![Reporting](./media/active-directory-reporting-azure-portal/06.png "Reporting")
 
 
-As agregações semanais ao gráfico de uso do aplicativo de entradas para seus três principais aplicativos em um determinado período de tempo. O padrão para o período é de 30 dias.
+The app usage graph weekly aggregations of sign ins for your top 3 applications in a given time period. The default for the time period is 30 days.
 
-![Relatórios](./media/active-directory-reporting-azure-portal/78.png "Relatórios")
+![Reporting](./media/active-directory-reporting-azure-portal/78.png "Reporting")
 
-Se desejar, você pode definir o foco em um aplicativo específico.
+If you want to, you can set the focus on a specific application.
 
-![Relatórios](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Relatórios")
+![Reporting](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Reporting")
 
 
-Quando você clica em um dia no gráfico de uso do aplicativo, pode obter uma lista detalhada das atividades de entrada.
+When you click on a day in the app usage graph, you get a detailed list of the sign-in activities.
 
 
-![Relatórios](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Relatórios")
+![Reporting](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Reporting")
 
 
 
-A opção **Entradas** oferece uma visão geral completa de todos os eventos de entrada para seus aplicativos.
+The **Sign-ins** option gives you a complete overview of all sign-in events to your applications.
 
-![Relatórios](./media/active-directory-reporting-azure-portal/85.png "Relatórios")
+![Reporting](./media/active-directory-reporting-azure-portal/85.png "Reporting")
 
-Usando o seletor de coluna, você pode selecionar os campos de dados que deseja exibir.
+By using the column chooser, you can select the data fields you want to display.
 
-![Relatórios](./media/active-directory-reporting-azure-portal/column_chooser.png "Relatórios")
+![Reporting](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
 
 
-### Filtragem de entradas
+### <a name="filtering-signins"></a>Filtering sign-ins
 
-Você pode filtrar entradas por um intervalo de tempo para limitar a quantidade de dados exibidos.
+You can filter sign-ins by a time interval to limit the amount of displayed data.
 
-![Relatórios](./media/active-directory-reporting-azure-portal/927.png "Relatórios")
+![Reporting](./media/active-directory-reporting-azure-portal/927.png "Reporting")
 
 
-Outro método para filtrar as entradas das atividades de entrada é procurar itens específicos. O método search permite que você defina o escopo de suas entradas em torno de **usuários**, de **grupos** ou de **aplicativos** específicos.
+Another method to filter the entries of the sign-in activities is to search for specific entries.
+The search method enables you to scope your sign-ins around specific **users**, **groups** or **applications**.
 
 
-![Relatórios](./media/active-directory-reporting-azure-portal/84.png "Relatórios")
+![Reporting](./media/active-directory-reporting-azure-portal/84.png "Reporting")
 
-## Logs de auditoria
+## <a name="audit-logs"></a>Audit logs
 
-Os logs de auditoria no Azure Active Directory fornecem registros de atividades do sistema para fins de conformidade.
+The auditing logs in Azure Active Directory provide records of system activities for compliance.
 
-Há três categorias principais de auditoria de atividades relacionadas no portal do Azure:
+There are three main categories for auditing related activities in the Azure portal:
 
-- Usuários e grupos
+- Users and groups   
 
-- Aplicativos
+- Applications
 
-- Diretório
+- Directory   
 
 
-Para obter uma lista completa de atividades de relatório de auditoria, consulte o [lista de eventos de relatório de auditoria](active-directory-reporting-audit-events.md#list-of-audit-report-events).
+For a complete list of audit report activities, see the [list of audit report events](active-directory-reporting-audit-events.md#list-of-audit-report-events).
 
 
-O ponto de entrada para todos os dados de auditoria é **Logs de auditoria**, na seção **Atividade** do **Azure Active Directory**.
+Your entry point to all auditing data is **Audit logs** in the **Activity** section of **Azure Active Directory**.
 
 
-![Auditoria](./media/active-directory-reporting-azure-portal/61.png "Auditoria")
+![Auditing](./media/active-directory-reporting-azure-portal/61.png "Auditing")
 
 
-Um log de auditoria tem um modo de exibição de lista que mostra os atores (quem), as atividades (o que) e os destinos.
+An audit log has a list view that shows the actors (who), the activities (what) and the targets.
 
 
-![Auditoria](./media/active-directory-reporting-azure-portal/345.png "Auditoria")
+![Auditing](./media/active-directory-reporting-azure-portal/345.png "Auditing")
 
 
-Ao clicar em um item na exibição de lista, você poderá obter mais detalhes sobre ele.
+By clicking an item in the list view, you can get more details about it.
 
-![Auditoria](./media/active-directory-reporting-azure-portal/873.png "Auditoria")
+![Auditing](./media/active-directory-reporting-azure-portal/873.png "Auditing")
 
 
 
 
-### Logs de auditoria de usuários e grupos
+### <a name="users-and-groups-audit-logs"></a>Users and groups audit logs
 
 
-Com relatórios de auditoria baseados em grupos e usuários, você pode obter respostas a perguntas como:
+With user and group-based audit reports, you can get answers to questions such as:
 
-- Que tipos de atualizações foram aplicadas os usuários?
+- What types of updates have been applied the users?
 
-- Quantos usuários foram alterados?
+- How many users were changed?
 
-- Quantas senhas foram alteradas?
+- How many passwords were changed?
 
-- O que um administrador fez em um diretório?
+- What has an administrator done in a directory?
 
-- Quais são os grupos que foram adicionados?
+- What are the groups that have been added?
 
-- Existem grupos com alterações de associação?
+- Are there groups with membership changes?
 
-- Os proprietários do grupo foram alterados?
+- Have the owners of group been changed?
 
-- Quais licenças foram atribuídas a um grupo ou a um usuário?
+- What licenses have been assigned to a group or a user?
 
 
-Se você quiser analisar os dados de auditoria relacionados aos usuários e aos grupos, poderá encontrar uma exibição filtrada em **Logs de auditoria** na seção **Atividade** de **Usuários e Grupos**.
+If you just want to review auditing data that is related to users and groups, you can find a filtered view under **Audit logs** in the **Activity** section of **Users and Groups**.
 
 
-![Auditoria](./media/active-directory-reporting-azure-portal/93.png "Auditoria")
+![Auditing](./media/active-directory-reporting-azure-portal/93.png "Auditing")
 
 
-### Logs de auditoria de aplicativo
+### <a name="application-audit-logs"></a>Application audit logs
 
-Com relatórios de auditoria baseados em aplicativos, você pode obter respostas a perguntas como:
+With application-based audit reports, you can get answers to questions such as:
 
-- Quais aplicativos foram adicionados ou atualizados?
+- What are the applications that have been added or updated?
 
-- Quais aplicativos foram removidos?
+- What are the applications that have been removed?
 
-- Um princípio de serviço para um aplicativo foi alterado?
+- Has a service principle for an application changed?
 
-- Os nomes de aplicativos foram alterados?
+- Have the names of applications been changed?
 
-- Quem deu permissão a um aplicativo?
+- Who gave consent to an application?
 
 
-Se você quiser analisar os dados de auditoria relacionados aos aplicativos, poderá encontrar uma exibição filtrada em **Logs de auditoria** na seção **Atividade** de **Aplicativos empresariais**.
+If you just want to review auditing data that is related to applications, you can find a filtered view under **Audit logs** in the **Activity** section of **Enterprise applications**.
 
 
-![Auditoria](./media/active-directory-reporting-azure-portal/134.png "Auditoria")
+![Auditing](./media/active-directory-reporting-azure-portal/134.png "Auditing")
 
 
-### Filtragem de logs de auditoria
+### <a name="filtering-audit-logs"></a>Filtering audit logs
 
-Você pode filtrar um relatório de auditoria por um intervalo de tempo para limitar a quantidade de dados exibidos.
+You can filter an audit report by a time interval to limit the amount of displayed data.
 
-![Auditoria](./media/active-directory-reporting-azure-portal/324.png "Auditoria")
+![Auditing](./media/active-directory-reporting-azure-portal/324.png "Auditing")
 
-Outro método para filtrar as entradas de um log de auditoria é procurar itens específicos.
+Another method to filter the entries of a audit log is to search for specific entries.
 
-![Auditoria](./media/active-directory-reporting-azure-portal/237.png "Auditoria")
+![Auditing](./media/active-directory-reporting-azure-portal/237.png "Auditing")
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-Veja o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).
+See the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -3,7 +3,7 @@
     description="O objetivo deste tópico é fornecer as etapas que você precisa executar para configurar a porta necessária nos computadores que executam o agente Cloud App Discovery." 
     services="active-directory" 
     documentationCenter="" 
-    authors="markusvi" 
+    authors="MarkusVi" 
     manager="femila"/>
 
 <tags 

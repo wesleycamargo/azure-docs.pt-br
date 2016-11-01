@@ -2,7 +2,7 @@
     pageTitle="Introdução à autenticação baseada em certificado no Android | Microsoft Azure" 
     description="Saiba como configurar a autenticação baseada em certificado em soluções com dispositivos Android" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="MarkusVi"  
     documentationCenter="na" 
     manager="femila"/>
 <tags 
@@ -17,7 +17,7 @@
 
 
 
-# <a name="get-started-with-certificate-based-authentication-on-android---public-preview"></a>Introdução à autenticação baseada em certificado no Android — Visualização Pública  
+# <a name="get-started-with-certificate-based-authentication-on-android-public-preview"></a>Introdução à autenticação baseada em certificado no Android — Visualização Pública  
 
 > [AZURE.SELECTOR]
 - [iOS](active-directory-certificate-based-authentication-ios.md)

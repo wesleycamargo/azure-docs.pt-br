@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter=""
    authors="ronortloff"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/24/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="10/31/2016" 
+   ms.author="rortloff;barbkess"/>
 
 
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no Azure SQL Data Warehouse
@@ -31,7 +31,7 @@ As ferramentas de auditoria permitem e facilitam a adoção de padrões de confo
 + [Configurar a auditoria do banco de dados]
 + [Analisar os logs e relatórios de auditoria]
 
-##<a name="<a-id="subheading-1"></a>azure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Fundamentos da Auditoria do Banco de Dados do SQL Data Warehouse do Azure
+##<a name="a-idsubheading1aazure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Fundamentos da Auditoria do Banco de Dados do SQL Data Warehouse do Azure
 
 
 A auditoria do banco de dados do SQL Data Warehouse permite que você:
@@ -61,7 +61,7 @@ Uma política de auditoria pode ser definida para um banco de dados específico 
 Antes de configurar a auditoria, verifique se você está usando um ["Cliente de nível inferior"](sql-data-warehouse-auditing-downlevel-clients.md).
 
 
-##<a name="<a-id="subheading-2"></a>set-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configurar a auditoria do banco de dados
+##<a name="a-idsubheading2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configurar a auditoria do banco de dados
 
 1. Inicie o <a href="https://portal.azure.com" target="_blank">Portal do Azure</a>.
 
@@ -92,7 +92,7 @@ Antes de configurar a auditoria, verifique se você está usando um ["Cliente de
 9. Clique em **OK**.
 
 
-##<a name="<a-id="subheading-3">analyze-audit-logs-and-reports</a>"></a><a id="subheading-3">Analisar os logs e relatórios de auditoria</a>
+##<a name="a-idsubheading3analyze-audit-logs-and-reportsa"></a><a id="subheading-3">Analisar os logs e relatórios de auditoria</a>
 
 Logs de auditoria são agregados em uma coleção de tabelas de armazenamento com um prefixo **SQLDBAuditLogs** na conta de armazenamento do Azure que você escolheu durante a instalação. Você pode ver os arquivos de log usando uma ferramenta como o <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Gerenciador de Armazenamento do Azure</a>.
 
@@ -105,11 +105,11 @@ Para obter mais instruções detalhadas sobre como trabalhar com o modelo de rel
 ![][5]
 
 
-##<a name="<a-id="subheading-4">practices-for-usage-in-production</a>"></a><a id="subheading-4">Práticas para uso em produção</a>
+##<a name="a-idsubheading4practices-for-usage-in-productiona"></a><a id="subheading-4">Práticas para uso em produção</a>
 A descrição nesta seção refere-se às capturas de tela acima. É possível usar o <a href="https://portal.azure.com" target="_blank">Portal do Azure</a> ou o <a href= "https://manage.windowsazure.com/" target="_bank">Portal Clássico do Azure</a>.
 
 
-##<a name="<a-id="subheading-5"></a>storage-key-regeneration"></a><a id="subheading-5"></a>Regeneração de Chave de Armazenamento
+##<a name="a-idsubheading5astorage-key-regeneration"></a><a id="subheading-5"></a>Regeneração de Chave de Armazenamento
 
 Em produção, você provavelmente atualizará suas chaves de armazenamento periodicamente. Ao atualizar suas chaves, é necessário salvar novamente a política. O processo é o seguinte:
 
@@ -122,7 +122,7 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
 
 4. Volte para a interface do usuário de armazenamento e **regenere** a *Chave de Acesso Secundária* (como preparação para o próximo ciclo de atualização de chaves.
 
-##<a name="<a-id="subheading-6"></a>automation"></a><a id="subheading-6"></a>Automação
+##<a name="a-idsubheading6aautomation"></a><a id="subheading-6"></a>Automação
 Há vários cmdlets do PowerShell, que você pode usar para configurar a auditoria no Banco de Dados SQL do Azure. Para acessar os cmdlets de auditoria você deve estar executando o PowerShell no modo do Gerenciador de Recursos do Azure.
 
 > [AZURE.NOTE] O módulo do [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) está no modo de visualização. Ele pode não fornecer os mesmos recursos de gerenciamento que o módulo do Azure.

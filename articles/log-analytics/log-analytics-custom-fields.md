@@ -34,9 +34,9 @@ Quando você cria um campo personalizado, o Log Analytics deve compreender quais
 
 As seções a seguir fornecem o procedimento para criar um campo personalizado.  Na parte inferior deste artigo há um passo a passo de uma extração de exemplo.
 
-> [!NOTE] O campo personalizado é populado conforme os registros correspondentes aos critérios especificados são adicionados ao armazenamento de dados do OMS, então aparecerão nos registros coletados apenas depois que o campo personalizado for criado.  O campo personalizado não será adicionado aos registros que já estão no armazenamento de dados quando ele for criado.
+>[AZURE.NOTE] O campo personalizado é populado conforme os registros correspondentes aos critérios especificados são adicionados ao armazenamento de dados do OMS, então aparecerão nos registros coletados apenas depois que o campo personalizado for criado.  O campo personalizado não será adicionado aos registros que já estão no armazenamento de dados quando ele for criado.
 
-### <a name="step-1-–-identify-records-that-will-have-the-custom-field"></a>Etapa 1: Identificar registros que terão o campo personalizado
+### <a name="step-1-identify-records-that-will-have-the-custom-field"></a>Etapa 1: Identificar registros que terão o campo personalizado
 A primeira etapa é identificar os registros que obterão o campo personalizado.  Você inicia com uma [pesquisa de log standard](log-analytics-log-searches.md) e, em seguida, seleciona um registro para atuar como o modelo com o qual o Log Analytics aprenderá.  Quando você especifica que extrairá dados em um campo personalizado, o **Field Extraction Wizard** (Assistente de Extração de Campo) é aberto, no qual você valida e refina os critérios.
 
 2. Acesse a **Pesquisa de Log** e use uma [consulta para recuperar os registros](log-analytics-log-searches.md) que terão o campo personalizado.
@@ -45,7 +45,7 @@ A primeira etapa é identificar os registros que obterão o campo personalizado.
 4. O **Field Extraction Wizard (Assistente de Extração de Campo) é aberto** e o registro selecionado é exibido na coluna **Main Example** (Exemplo Principal).  O campo personalizado será definido para os registros com os mesmos valores nas propriedades selecionadas.  
 5. Se a seleção não for exatamente o que você deseja, selecione campos adicionais para restringir os critérios.  Para alterar os valores de campo para os critérios, você deve cancelar e selecionar um registro diferente que corresponde aos critérios desejados.
 
-### <a name="step-2---perform-initial-extract."></a>Etapa 2: Executar a extração inicial.
+### <a name="step-2-perform-initial-extract"></a>Etapa 2: Executar a extração inicial.
 Depois de identificar os registros que terão o campo personalizado, você identifica os dados que deseja extrair.  O Log Analytics usará essas informações para identificar padrões semelhantes em registros semelhantes.  Na próxima etapa, você poderá validar os resultados e fornecer mais detalhes para o Log Analytics usar em suas análises.
 
 1. Realce o texto no registro de exemplo que você deseja para popular o campo personalizado.  Em seguida, você verá uma caixa de diálogo para fornecer um nome para o campo e para realizar a extração inicial.  Os caracteres **\_CF** serão acrescentados automaticamente.
@@ -53,7 +53,7 @@ Depois de identificar os registros que terão o campo personalizado, você ident
 3. As seções **Resumo** e **Resultados da Pesquisa** exibem os resultados da extração para que você possa inspecionar sua precisão.  **Resumo** exibe os critérios usados para identificar registros e uma contagem de cada um dos valores de dados identificados.  **Resultados da Pesquisa** fornece uma lista detalhada dos registros que correspondem aos critérios.
 
 
-### <a name="step-3-–-verify-accuracy-of-the-extract-and-create-custom-field"></a>Etapa 3: Verificar a precisão da extração e criar o campo personalizado
+### <a name="step-3-verify-accuracy-of-the-extract-and-create-custom-field"></a>Etapa 3: Verificar a precisão da extração e criar o campo personalizado
 
 Após você ter executado a extração inicial, o Log Analytics exibirá seus resultados com base nos dados que já foram coletados.  Se os resultados parecerem precisos, você poderá criar o campo personalizado sem trabalho adicional.  Caso contrário, você pode refinar os resultados para que o Log Analytics possa melhorar sua lógica.
 
@@ -138,6 +138,7 @@ Agora podemos usar o campo personalizado como qualquer outra propriedade de regi
 
 - Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para criar consultas usando campos personalizados para os critérios.
 - Monitorar [arquivos de log personalizados](log-analytics-data-sources-custom-logs.md) que você analisa usando campos personalizados.
+
 
 
 <!--HONumber=Oct16_HO2-->

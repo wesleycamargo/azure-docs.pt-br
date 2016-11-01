@@ -4,7 +4,7 @@
     services="active-directory, virtual-network"
     keywords="máquina virtual do active directory, instalar floresta do active directory, vídeos do active directory do azure  "
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     tags=""/>
 
@@ -34,7 +34,7 @@ Você também pode estar interessado nestes tópicos relacionados:
 Nesse cenário, os usuários externos precisam acessar os aplicativos que são executados ingressados no domínio. As VMs que executam os servidores de aplicativos e as VMs que executam os controladores de domínio são instaladas em seus próprios serviços de nuvem em uma rede virtual do Azure. Elas também estão incluídas em um conjunto de disponibilidade para melhorar a tolerância a falhas.
 
 Floresta do ![Active Directory em máquinas virtuais na Rede Virtual do Azure ][1] 7
-## <a name="how-does-this-differ-from-on-premises?"></a>Como isso difere do local?
+## <a name="how-does-this-differ-from-onpremises"></a>Como isso difere do local?
 
 Não há muita diferença entre instalar um controlador de domínio no Azure em comparação com um local. As diferenças principais estão listadas na tabela a seguir.
 

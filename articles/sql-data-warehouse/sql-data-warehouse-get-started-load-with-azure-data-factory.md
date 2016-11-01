@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""
    tags="azure-sql-data-warehouse"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/13/2016"
+   ms.date="10/31/2016"
    ms.author="mausher;barbkess"/>
 
 
@@ -50,7 +50,7 @@ Antes de iniciar este tutorial, você precisa ter os recursos a seguir:
 
    + **AZCopy**: você precisa do AZCopy para copiar os dados de exemplo do cliente local para o Blob de Armazenamento do Azure. Para obter instruções de instalação, confira a [documentação do AZCopy][].
 
-## <a name="step-1:-copy-sample-data-to-azure-storage-blob"></a>Etapa 1: copiar dados de exemplo para o Blob de Armazenamento do Azure
+## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>Etapa 1: copiar dados de exemplo para o Blob de Armazenamento do Azure
 
 Depois que todas as partes estiverem prontas, você estará pronto para copiar dados de exemplo para o Blob de Armazenamento do Azure.
 
@@ -63,13 +63,13 @@ Depois que todas as partes estiverem prontas, você estará pronto para copiar d
     ````
 
 
-## <a name="step-2:-connect-resources-to-azure-data-factory"></a>Etapa 2: conectar recursos ao Azure Data Factory
+## <a name="step-2-connect-resources-to-azure-data-factory"></a>Etapa 2: conectar recursos ao Azure Data Factory
 
 Agora que os dados estão no lugar certo, podemos criar o pipeline do Azure Data Factory para mover os dados do armazenamento de blob do Azure para o SQL Data Warehouse.
 
 Para começar, abra o [Portal do Azure][] e selecione o data factory no menu à esquerda.
 
-### <a name="step-2.1:-create-linked-service"></a>Etapa 2.1: criar serviço vinculado
+### <a name="step-21-create-linked-service"></a>Etapa 2.1: criar serviço vinculado
 
 Vincule sua conta de armazenamento do Azure e oi SQL Data Warehouse ao data factory.  
 
@@ -90,7 +90,7 @@ Vincule sua conta de armazenamento do Azure e oi SQL Data Warehouse ao data fact
     }
     ```
 
-### <a name="step-2.2:-define-the-dataset"></a>Etapa 2.2: definir o conjunto de dados
+### <a name="step-22-define-the-dataset"></a>Etapa 2.2: definir o conjunto de dados
 
 Depois de criar os serviços vinculados, teremos de definir os conjuntos de dados.  Aqui, isso significa definir a estrutura dos dados que está sendo movida do armazenamento para o data warehouse.  Ler mais sobre a criação
 
@@ -148,7 +148,7 @@ Depois de criar os serviços vinculados, teremos de definir os conjuntos de dado
     }
     ```
 
-## <a name="step-3:-create-and-run-your-pipeline"></a>Etapa 3: criar e executar o pipeline
+## <a name="step-3-create-and-run-your-pipeline"></a>Etapa 3: criar e executar o pipeline
 
 Por fim, vamos configurar e executar o pipeline no Azure Data Factory.  Esta é a operação que concluirá a movimentação de dados reais.  Você pode encontrar uma exibição completa das operações que podem ser executadas com o SQL Data Warehouse e o Azure Data Factory [aqui][Mover dados no SQL Data Warehouse usando o Azure Data Factory].
 

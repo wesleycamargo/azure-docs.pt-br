@@ -3,7 +3,7 @@
     description="Você pode executar os serviços de domínio do Windows Server Active Directory (AD DS) ou os serviços de federação do Active Directory (AD FS) em máquinas virtuais do Azure."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     tags="azure-classic-portal"/>
 

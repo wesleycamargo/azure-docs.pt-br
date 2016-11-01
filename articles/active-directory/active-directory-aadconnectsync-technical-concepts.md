@@ -3,7 +3,7 @@
     description="Explica os conceitos técnicos da sincronização do Azure AD Connect."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -18,7 +18,7 @@
 
 
 
-# <a name="azure-ad-connect-sync:-technical-concepts"></a>Sincronização do Azure AD Connect: conceitos técnicos
+# <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronização do Azure AD Connect: conceitos técnicos
 Este artigo é um resumo do tópico [Entender a arquitetura](active-directory-aadconnectsync-technical-concepts.md).
 
 O Azure AD Connect Sync tem como base uma plataforma sólida de sincronização de metadiretório.

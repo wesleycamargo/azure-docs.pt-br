@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/01/2016"
+    ms.date="10/31/2016"
     ms.author="anandy"/>
 
 
@@ -38,7 +38,7 @@ Este artigo fornece detalhes sobre tarefas relacionadas ao AD FS (Serviços de F
 
 O Azure AD Connect fornece várias tarefas relacionadas ao AD FS que podem ser executadas usando o assistente do Azure AD Connect com mínima intervenção do usuário. Após instalar o Azure AD Connect executando o assistente, você pode executar o assistente novamente para executar tarefas adicionais.
 
-### <a name="repair-the-trust-<a-name=repairthetrust></a>"></a>Reparar a relação de confiança <a name=repairthetrust></a>
+### <a name="repair-the-trust-a-namerepairthetrusta"></a>Reparar a relação de confiança <a name=repairthetrust></a>
 
 O Azure AD Connect pode verificar a integridade atual da confiança do AD FS e Azure Active Directory e tomar as medidas apropriadas para reparar a relação de confiança. Siga estas etapas para reparar a confiança do Azure AD e AD FS.
 
@@ -63,7 +63,7 @@ O Azure AD Connect pode verificar a integridade atual da confiança do AD FS e A
 
 >[AZURE.NOTE] O Azure AD Connect só pode reparar ou agir em relação a certificados autoassinados. O Azure AD Connect não pode reparar certificados de terceiros.
 
-### <a name="add-an-ad-fs-server-<a-name=addadfsserver></a>"></a>Adicionar um servidor do AD FS <a name=addadfsserver></a>
+### <a name="add-an-ad-fs-server-a-nameaddadfsservera"></a>Adicionar um servidor do AD FS <a name=addadfsserver></a>
 
 > [AZURE.NOTE] O Azure AD Connect requer o arquivo de certificado PFX para adicionar um servidor do AD FS. Portanto, você só poderá executar essa operação se tiver configurado o farm do AD FS usando o Azure AD Connect.
 
@@ -89,7 +89,7 @@ O Azure AD Connect pode verificar a integridade atual da confiança do AD FS e A
 
     ![Instalação concluída](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
-### <a name="add-an-ad-fs-web-application-proxy-server-<a-name=addwapserver></a>"></a>Adicionar um servidor proxy de aplicativo Web do AD FS <a name=addwapserver></a>
+### <a name="add-an-ad-fs-web-application-proxy-server-a-nameaddwapservera"></a>Adicionar um servidor proxy de aplicativo Web do AD FS <a name=addwapserver></a>
 
 > [AZURE.NOTE] O Azure AD Connect requer o arquivo de certificado PFX para adicionar um servidor proxy de aplicativo Web. Portanto, você poderá executar esta operação somente se tiver configurado o farm do AD FS usando o Azure AD Connect.
 
@@ -116,7 +116,7 @@ O Azure AD Connect pode verificar a integridade atual da confiança do AD FS e A
 7. Clique em **Instalar** para concluir a configuração. Depois que a configuração for concluída, o assistente lhe dará a opção para verificar a conectividade com os servidores. Clique em **Verificar** para verificar a conectividade.
 ![Instalação concluída](media\active-directory-aadconnect-federation-management\WapServer8.PNG)
 
-### <a name="add-a-federated-domain-<a-name=addfeddomain></a>"></a>Adicionar um domínio federado <a name=addfeddomain></a>
+### <a name="add-a-federated-domain-a-nameaddfeddomaina"></a>Adicionar um domínio federado <a name=addfeddomain></a>
 
 É fácil adicionar um domínio a ser federado com o Azure AD usando o Azure AD Connect. O Azure AD Connect adiciona o domínio para federação e modifica as regras de declaração para refletir corretamente o emissor quando você tem vários domínios federados com o Azure AD.
 
@@ -141,7 +141,7 @@ O Azure AD Connect pode verificar a integridade atual da confiança do AD FS e A
 
 As seções a seguir fornecem detalhes sobre algumas das tarefas comuns que talvez você precise executar ao personalizar a página de entrada do AD FS.
 
-### <a name="add-a-custom-company-logo-or-illustration-<a-name=customlogo></a>"></a>Adicionar uma ilustração ou um logotipo da empresa personalizado <a name=customlogo></a>
+### <a name="add-a-custom-company-logo-or-illustration-a-namecustomlogoa"></a>Adicionar uma ilustração ou um logotipo da empresa personalizado <a name=customlogo></a>
 
 Para alterar o logotipo da empresa que é exibido na página de **Entrada** , use o seguinte cmdlet e sintaxe do Windows PowerShell.
 
@@ -152,13 +152,13 @@ Para alterar o logotipo da empresa que é exibido na página de **Entrada** , us
 > [AZURE.NOTE] O parâmetro *TargetName* é obrigatório. O tema padrão liberado com o AD FS é denominado Default.
 
 
-### <a name="add-a-sign-in-description-<a-name=addsignindescription></a>"></a>Adicionar uma descrição de entrada <a name=addsignindescription></a>
+### <a name="add-a-signin-description-a-nameaddsignindescriptiona"></a>Adicionar uma descrição de entrada <a name=addsignindescription></a>
 
 Para adicionar uma descrição à página de **Entrada**, use o seguinte cmdlet e sintaxe do Windows PowerShell.
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
-### <a name="modify-ad-fs-claim-rules-<a-name=modclaims></a>"></a>Modificar regras de declaração do AD FS <a name=modclaims></a>
+### <a name="modify-ad-fs-claim-rules-a-namemodclaimsa"></a>Modificar regras de declaração do AD FS <a name=modclaims></a>
 
 O AD FS dá suporte a uma linguagem de declarações avançada que você pode usar para criar regras de declaração personalizada. Para obter mais informações, confira [A função da linguagem de regras de declaração](https://technet.microsoft.com/library/dd807118.aspx).
 

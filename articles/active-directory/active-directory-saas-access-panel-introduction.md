@@ -3,7 +3,7 @@
     description="Saiba como usar as várias versões do painel de acesso (navegador da Web, aplicativo Android, iPhone e iPad) para acessar os aplicativos SaaS atribuídos a você."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -150,13 +150,13 @@ Se uma organização estiver usando aplicativos do Office 365 e o usuário for l
 
 Quando um usuário clica em um bloco do aplicativo para um aplicativo do Office 365, ele é redirecionado para esse aplicativo e conectado automaticamente.
 
-### <a name="microsoft-and-third-party-applications-configured-with-federation-based-sso"></a>Aplicativos da Microsoft e de terceiros configurados com o SSO baseado em federação
+### <a name="microsoft-and-thirdparty-applications-configured-with-federationbased-sso"></a>Aplicativos da Microsoft e de terceiros configurados com o SSO baseado em federação
 
 São aplicativos que o administrador adicionou na seção Active Directory do Portal de Gerenciamento do Azure com o modo de logon único definido como "*Logon único do Azure AD*". Um usuário só verá esses aplicativos se tiver acesso explicitamente concedido ao aplicativo pelo administrador.
 
 Quando um usuário clica em um bloco do aplicativo para um desses aplicativos, ele é redirecionado para esse aplicativo e conectado automaticamente.
 
-### <a name="password-based-sso-without-identity-provisioning"></a>SSO baseado em senha sem provisionamento de identidade
+### <a name="passwordbased-sso-without-identity-provisioning"></a>SSO baseado em senha sem provisionamento de identidade
 
 São aplicativos que o administrador adicionou na seção Active Directory do Portal de Gerenciamento do Azure com o modo de logon único definido como "*Logon único baseado em senha*". <br>  Todos os usuários no diretório verão todos os aplicativos configurados nesse modo.
 
@@ -166,7 +166,7 @@ Na próxima vez que um usuário clicar no bloco do aplicativo, ele será conecta
 
 Se as credenciais de um usuário forem alteradas no aplicativo de terceiros de destino, o usuário deverá também atualizar suas credenciais armazenadas no AD do Azure. Para atualizar as credenciais, um usuário deve selecionar o ícone no canto inferior direito do bloco do aplicativo e selecionar "Atualizar credenciais" para inserir novamente o nome de usuário e a senha para o aplicativo.
 
-### <a name="password-based-sso-with-identity-provisioning"></a>SSO baseado em senha com provisionamento de identidade
+### <a name="passwordbased-sso-with-identity-provisioning"></a>SSO baseado em senha com provisionamento de identidade
 
 São aplicativos que o administrador adicionou na seção Active Directory do Portal de Gerenciamento do Azure com o modo de logon único definido como "*Logon único baseado em senha*", além de provisionamento de identidade.
 

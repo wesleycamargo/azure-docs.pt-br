@@ -3,7 +3,7 @@
     description="Configurando redes conhecidas, você pode evitar ter endereços IP que pertencem à sua organização incluídos nos relatórios Entradas de várias regiões geográficas e Entradas de endereços IP com atividade suspeita." 
     services="active-directory" 
     documentationCenter="" 
-    authors="markusvi" 
+    authors="MarkusVi" 
     manager="femila"  
     editor=""/>
 
@@ -33,7 +33,7 @@ Por exemplo, isso pode ocorrer quando:
 Para impedir que esses casos gerem relatórios de segurança enganadores, você deverá adicionar intervalos de endereços IP conhecidos à lista de endereços IP públicos de sua organização.    
 
 
-###<a name="to-add-your-organization’s-public-ip-address-ranges,-perform-the-following-steps:"></a>Para adicionar os intervalos de endereços IP públicos da sua organização, execute as seguintes etapas: 
+###<a name="to-add-your-organizations-public-ip-address-ranges-perform-the-following-steps"></a>Para adicionar os intervalos de endereços IP públicos da sua organização, execute as seguintes etapas: 
 
 1.  Entre no [portal de gerenciamento do Azure](https://manage.windowsazure.com).
 
