@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/01/2016"
+    ms.date="06/27/2016"
     ms.author="billmath"/>
 
 
@@ -167,13 +167,13 @@ A autenticação foi bem-sucedida. Não foi possível recuperar as informações
 ### <a name="retrievedomains"></a>RetrieveDomains
 A autenticação foi bem-sucedida. Não foi possível recuperar informações de domínio do Azure AD.
 
-## <a name="troubleshooting-steps-for-previous-releases"></a>Etapas para solucionar problemas de versões anteriores.
+## <a name="troubleshooting-steps-for-previous-releases."></a>Etapas para solucionar problemas de versões anteriores.
 O assistente de conexão foi desativado a partir das versões com número de compilação 1.1.105.0 (lançada em fevereiro de 2016). Esta seção e a configuração não são mais necessárias, mas são mantidas como referência.
 
 Para que o assistente de conexão funcione, o winhttp deve ser configurado. Isso pode ser feito com o [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
 ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
-### <a name="the-signin-assistant-has-not-been-correctly-configured"></a>O assistente de conexão não foi configurado corretamente
+### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>O assistente de conexão não foi configurado corretamente
 Esse erro ocorre quando o Assistente de conexão não consegue acessar o proxy ou o proxy não está permitindo a solicitação.
 ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 
