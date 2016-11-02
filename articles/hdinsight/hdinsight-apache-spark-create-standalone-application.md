@@ -1,210 +1,215 @@
 <properties
-	pageTitle="Criar aplicativos scala autônomos para execução em clusters do HDInsight Spark | Microsoft Azure"
-	description="Saiba como criar um aplicativo Spark autônomos para executar em clusters do HDInsight Spark."
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="jhubbard"
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Create standalone scala applications to run on HDInsight Spark clusters | Microsoft Azure"
+    description="Learn how to create a standalone Spark application to run on HDInsight Spark clusters."
+    services="hdinsight"
+    documentationCenter=""
+    authors="nitinme"
+    manager="jhubbard"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="nitinme"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/28/2016"
+    ms.author="nitinme"/>
 
 
-# Criar um aplicativo Scala autônomo para ser executado no cluster do Apache Spark no HDInsight Linux
 
-Esse artigo fornece orientação passo a passo sobre como desenvolver aplicativos Spark autônomos escritos em Scala usando o Maven com IntelliJ IDEA. O artigo usa o Apache Maven como o sistema de build e começa com um arquétipo Maven existente para Scala fornecido pelo IntelliJ IDEA. Em um alto nível, criar um aplicativo Scala no IntelliJ IDEA envolverá as seguintes etapas:
+# <a name="create-a-standalone-scala-application-to-run-on-apache-spark-cluster-on-hdinsight-linux"></a>Create a standalone Scala application to run on Apache Spark cluster on HDInsight Linux
 
+This article provides step-by-step guidance on developing standalone Spark applications written in Scala using Maven with IntelliJ IDEA. The article uses Apache Maven as the build system and starts with an existing Maven archetype for Scala provided by IntelliJ IDEA.  At a high-level, creating a Scala application in IntelliJ IDEA will involve the following steps:
 
-* Usar o Maven como o sistema de compilação.
-* Atualize o arquivo do POM (Modelo de Objeto do Projeto) para resolver as dependências do módulo Spark.
-* Escreva seu aplicativo em Scala.
-* Gere um arquivo jar que pode ser enviado aos clusters HDInsight Spark.
-* Executar os aplicativos em um cluster do Spark usando Livy.
 
->[AZURE.NOTE] O HDInsight também fornece uma ferramenta de plug-in do IntelliJ IDEA para facilitar o processo de criação e envio de aplicativos para um cluster HDInsight Spark no Linux. Para obter mais informações, consulte [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark](hdinsight-apache-spark-intellij-tool-plugin.md).
+* Use Maven as the build system.
+* Update Project Object Model (POM) file to resolve Spark module dependencies.
+* Write your application in Scala.
+* Generate a jar file that can be submitted to HDInsight Spark clusters.
+* Run the application on Spark cluster using Livy.
 
+>[AZURE.NOTE] HDInsight also provides an IntelliJ IDEA plugin tool to ease the process of creating and submitting applications to an HDInsight Spark cluster on Linux. For more information, see [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark applications](hdinsight-apache-spark-intellij-tool-plugin.md).
 
-**Pré-requisitos**
 
-* Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Um cluster do Apache Spark no HDInsight no Linux. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
-* Kit de desenvolvimento Oracle Java. Você pode instalá-lo clicando [aqui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-* Um Java IDE. Este artigo usa IntelliJ IDEA 15.0.1. Você pode instalá-lo clicando [aqui](https://www.jetbrains.com/idea/download/).
+**Prerequisites**
 
+* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* A Java IDE. This article uses IntelliJ IDEA 15.0.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
 
-## Instalar o plug-in Scala para IntelliJ IDEA
 
-Se a instalação do IntelliJ IDEA não solicitar para habilitar o plug-in Scala, inicie IntelliJ IDEA e percorra as etapas a seguir para instalar o plug-in:
+## <a name="install-scala-plugin-for-intellij-idea"></a>Install Scala plugin for IntelliJ IDEA
 
-1. Inicie o IntelliJ IDEA e, na tela de boas-vindas, clique em **Configurar** e, em seguida, clique em **Plug-ins**.
+If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, launch IntelliJ IDEA and go through the following steps to install the plugin:
 
-	![Habilitar plug-in do scala](./media/hdinsight-apache-spark-create-standalone-application/enable-scala-plugin.png)
+1. Start IntelliJ IDEA and from welcome screen click **Configure** and then click **Plugins**.
 
-2. Na próxima tela, clique em **Instalar o plugin JetBrains** no canto inferior esquerdo. Na caixa de diálogo **Procurar plug-ins da JetBrains** que é aberta, pesquise por Scala e, em seguida, clique em **Instalar**.
+    ![Enable scala plugin](./media/hdinsight-apache-spark-create-standalone-application/enable-scala-plugin.png)
 
-	![Instalar o plug-in do scala](./media/hdinsight-apache-spark-create-standalone-application/install-scala-plugin.png)
+2. In the next screen, click **Install JetBrains plugin** from the lower left corner. In the **Browse JetBrains Plugins** dialog box that opens, search for Scala and then click **Install**.
 
-3. Depois que o plug-in for instalado com êxito, clique no **botão Reiniciar IntelliJ IDEA** para reiniciar o IDE.
+    ![Install scala plugin](./media/hdinsight-apache-spark-create-standalone-application/install-scala-plugin.png)
 
-## Criar um projeto de Scala autônomo
+3. After the plugin installs successfully, click the **Restart IntelliJ IDEA button** to restart the IDE.
 
-1. Inicie o IntelliJ IDEA e crie um novo projeto. Na caixa de diálogo Novo Projeto, faça o seguinte e, em seguida, clique em **Avançar**.
+## <a name="create-a-standalone-scala-project"></a>Create a standalone Scala project
 
-	![Criar projeto Maven](./media/hdinsight-apache-spark-create-standalone-application/create-maven-project.png)
+1. Launch IntelliJ IDEA and create a new project. In the new project dialog box, make the following choices, and then click **Next**.
 
-	* Selecione **Maven** como o tipo de projeto.
-	* Especifique um **SDK do projeto**. Clique em Novo e navegue até o diretório de instalação do Java, normalmente `C:\Program Files\Java\jdk1.8.0_66`.
-	* Selecione a opção **Criar do Arquétipo**.
-	* Na lista de arquétipos, selecione **org.scala-tools.archetypes:scala-archetype-simple**. Isso criará a estrutura de diretório certa e baixará as dependências padrão necessárias para gravar o programa Scala.
+    ![Create Maven project](./media/hdinsight-apache-spark-create-standalone-application/create-maven-project.png)
 
-2. Forneça os valores relevantes para **GroupId**, **ArtifactId** e **versão**. Clique em **Próximo**.
+    * Select **Maven** as the project type.
+    * Specify a **Project SDK**. Click New and navigate to the Java installation directory, typically `C:\Program Files\Java\jdk1.8.0_66`.
+    * Select the **Create from archetype** option.
+    * From the list of archetypes, select **org.scala-tools.archetypes:scala-archetype-simple**. This will create the right directory structure and download the required default dependencies to write Scala program.
 
-3. Na caixa de diálogo seguinte, na qual você especificará o diretório inicial do Maven e outras configurações do usuário, aceite os padrões e clique em **Avançar**.
+2. Provide relevant values for **GroupId**, **ArtifactId**, and **Version**. Click **Next**.
 
-4. Na última caixa de diálogo, especifique um nome de projeto e local e, em seguida, clique em **Concluir**.
+3. In the next dialog box, where you specify Maven home directory and other user settings, accept the defaults and click **Next**.
 
-5. Exclua o arquivo **MySpec.Scala** em **src\\test\\scala\\com\\microsoft\\spark\\example**. Você não precisa disso para o aplicativo.
+4. In the last dialog box, specify a project name and location and then click **Finish**.
 
-6. Se necessário, renomeie os arquivos de origem e de teste padrão. No painel à esquerda, no IntelliJ IDEA, navegue até **src\\main\\scala\\com.microsoft.spark.example**. Clique com botão direito em **App.scala**, clique em **Refatorar**, clique em Renomear Arquivo, forneça o novo nome para o aplicativo na caixa de diálogo e clique em **Refatorar**.
+5. Delete the **MySpec.Scala** file at **src\test\scala\com\microsoft\spark\example**. You do not need this for the application.
 
-	![Renomear arquivos](./media/hdinsight-apache-spark-create-standalone-application/rename-scala-files.png)
+6. If required, rename the default source and test files. From the left pane in the IntelliJ IDEA, navigate to **src\main\scala\com.microsoft.spark.example**. Right-click **App.scala**, click **Refactor**, click Rename file, and in the dialog box, provide the new name for the application and then click **Refactor**.
 
-7. Nas etapas subsequentes, você irá atualizar o pom.xml para definir as dependências do aplicativo Spark Scala. Para que essas dependências sejam baixadas e resolvidas automaticamente, você deve configurar o Maven adequadamente.
+    ![Rename files](./media/hdinsight-apache-spark-create-standalone-application/rename-scala-files.png)  
 
-	![Configurar Maven para downloads automáticos](./media/hdinsight-apache-spark-create-standalone-application/configure-maven.png)
+7. In the subsequent steps, you will update the pom.xml to define the dependencies for the Spark Scala application. For those dependencies to be downloaded and resolved automatically, you must configure Maven accordingly.
 
-	1. No menu **Arquivo**, clique em **Configurações**.
-	2. Na caixa de diálogo **Configurações**, navegue até **Compilação, Execução, Implantação** > **Ferramentas de Compilação** > **Maven** > **Importando**.
-	3. Selecione a opção para **Importar projetos Maven automaticamente**.
-	4. Clique em **Aplicar** e, em seguida, clique em **OK**.
+    ![Configure Maven for automatic downloads](./media/hdinsight-apache-spark-create-standalone-application/configure-maven.png)
 
+    1. From the **File** menu, click **Settings**.
+    2. In the **Settings** dialog box, navigate to **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
+    3. Select the option to **Import Maven projects automatically**.
+    4. Click **Apply**, and then click **OK**.
 
-8. Atualize o arquivo de origem Scala para incluir o código do aplicativo. Abra e substitua o código de exemplo existente pelo código a seguir e salve as alterações. Esse código lê os dados no HVAC.csv (disponível em todos os clusters Spark HDInsight), recupera as linhas com apenas um dígito na sexta coluna e grava a saída em **/HVACOut** no contêiner padrão de armazenamento do cluster.
 
-		package com.microsoft.spark.example
+8. Update the Scala source file to include your application code. Open and replace the existing sample code with the following code and save the changes. This code reads the data from the HVAC.csv (available on all HDInsight Spark clusters), retrieves the rows that only have one digit in the sixth column, and writes the output to **/HVACOut** under the default storage container for the cluster.
 
-		import org.apache.spark.SparkConf
-		import org.apache.spark.SparkContext
+        package com.microsoft.spark.example
 
-		/**
-		  * Test IO to wasb
-		  */
-		object WasbIOTest {
-		  def main (arg: Array[String]): Unit = {
-		    val conf = new SparkConf().setAppName("WASBIOTest")
-		    val sc = new SparkContext(conf)
+        import org.apache.spark.SparkConf
+        import org.apache.spark.SparkContext
 
-		    val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        /**
+          * Test IO to wasb
+          */
+        object WasbIOTest {
+          def main (arg: Array[String]): Unit = {
+            val conf = new SparkConf().setAppName("WASBIOTest")
+            val sc = new SparkContext(conf)
 
-		    //find the rows which have only one digit in the 7th column in the CSV
-		    val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
+            val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-		    rdd1.saveAsTextFile("wasbs:///HVACout")
-		  }
-		}
+            //find the rows which have only one digit in the 7th column in the CSV
+            val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
 
+            rdd1.saveAsTextFile("wasbs:///HVACout")
+          }
+        }
 
-9. Atualize o pom.xml.
 
-	1.  Dentro de `<project><properties>`, adicione o seguinte:
+9. Update the pom.xml.
 
-			<scala.version>2.10.4</scala.version>
-    		<scala.compat.version>2.10.4</scala.compat.version>
-			<scala.binary.version>2.10</scala.binary.version>
+    1.  Within `<project>\<properties>` add the following:
 
-	2. Dentro de `<project><dependencies>`, adicione o seguinte:
+            <scala.version>2.10.4</scala.version>
+            <scala.compat.version>2.10.4</scala.compat.version>
+            <scala.binary.version>2.10</scala.binary.version>
 
-			<dependency>
-		      <groupId>org.apache.spark</groupId>
-		      <artifactId>spark-core_${scala.binary.version}</artifactId>
-		      <version>1.4.1</version>
-		    </dependency>
+    2. Within `<project>\<dependencies>` add the following:
 
-	Salve as alterações a pom.xml.
+            <dependency>
+              <groupId>org.apache.spark</groupId>
+              <artifactId>spark-core_${scala.binary.version}</artifactId>
+              <version>1.4.1</version>
+            </dependency>
 
-10. Crie o arquivo .jar. O IntelliJ IDEA permite a criação de JAR como um artefato de um projeto. Execute as seguintes etapas:
+    Save changes to pom.xml.
 
-	1. No menu **Arquivo**, clique em **Estrutura do Projeto**.
-	2. Na caixa de diálogo **Estrutura do Projeto**, clique em **Artefatos** e, em seguida, clique no sinal de mais. Na caixa de diálogo pop-up, clique em **JAR** e, em seguida, clique em **Dos módulos com dependências**.
+10. Create the .jar file. IntelliJ IDEA enables creation of JAR as an artifact of a project. Perform the following steps.
 
-		![Criar JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-1.png)
+    1. From the **File** menu, click **Project Structure**.
+    2. In the **Project Structure** dialog box, click **Artifacts** and then click the plus symbol. From the pop-up dialog box, click **JAR**, and then click **From modules with dependencies**.
 
-	3. Na caixa de diálogo **Criar JAR de Módulos**, clique no botão de reticências (![reticências](./media/hdinsight-apache-spark-create-standalone-application/ellipsis.png)) em relação à **Classe Principal**.
+        ![Create JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-1.png)
 
-	4. Na caixa de diálogo **Selecionar Classe Principal**, selecione a classe que é exibida por padrão e, em seguida, clique em **OK**.
+    3. In the **Create JAR from Modules** dialog box, click the ellipsis (![ellipsis](./media/hdinsight-apache-spark-create-standalone-application/ellipsis.png) ) against the **Main Class**.
 
-		![Criar JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-2.png)
+    4. In the **Select Main Class** dialog box, select the class that appears by default and then click **OK**.
 
-	5. Na caixa de diálogo **Criar JAR de Módulos**, certifique-se de que a opção **extrair para o JAR de destino** esteja selecionada e, em seguida, clique em **OK**. Isso cria um JAR único com todas as dependências.
+        ![Create JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-2.png)
 
-		![Criar JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-3.png)
+    5. In the **Create JAR from Modules** dialog box, make sure that the option to **extract to the target JAR** is selected, and then click **OK**. This creates a single JAR with all dependencies.
 
-	6. A guia layout de saída lista todos os jars incluídos como parte do projeto Maven. Você pode selecionar e excluir aqueles dos quais o aplicativo Scala não tem qualquer dependência direta. Para o aplicativo que estamos criando aqui, você pode remover tudo, exceto o último (**saída de compilação SparkSimpleApp**). Selecione os jars para excluir e, em seguida, clique no ícone **Excluir**.
+        ![Create JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-3.png)
 
-		![Criar JAR](./media/hdinsight-apache-spark-create-standalone-application/delete-output-jars.png)
+    6. The output layout tab lists all the jars that are included as part of the Maven project. You can select and delete the ones on which the Scala application has no direct dependency. For the application we are creating here, you can remove all but the last one (**SparkSimpleApp compile output**). Select the jars to delete and then click the **Delete** icon.
 
-		Certifique-se de que a caixa **Compilar à criação** esteja marcada, o que garante que o jar seja criado sempre que o projeto for criado ou atualizado. Clique em **Aplicar** e em **OK**.
+        ![Create JAR](./media/hdinsight-apache-spark-create-standalone-application/delete-output-jars.png)
 
-	7. Na barra de menus, clique em **Compilar** e, em seguida, clique em **Criar Projeto**. Você também pode clicar em **Compilar Artefatos** para criar o jar. O jar de saída é criado em **\\out\\artifacts**.
+        Make sure **Build on make** box is selected, which ensures that the jar is created every time the project is built or updated. Click **Apply** and then **OK**.
 
-		![Criar JAR](./media/hdinsight-apache-spark-create-standalone-application/output.png)
+    7. From the menu bar, click **Build**, and then click **Make Project**. You can also click **Build Artifacts** to create the jar. The output jar is created under **\out\artifacts**.
 
-## Executar o aplicativo no cluster do Spark
+        ![Create JAR](./media/hdinsight-apache-spark-create-standalone-application/output.png)
 
-Para executar o aplicativo no cluster, faça o seguinte:
+## <a name="run-the-application-on-the-spark-cluster"></a>Run the application on the Spark cluster
 
-* **Copie o jar do aplicativo para o blob de armazenamento do Azure** associado ao cluster. Você pode usar [**AzCopy**](../storage/storage-use-azcopy.md), um utilitário de linha de comando, para fazer isso. Há muitos outros clientes também que você pode usar para carregar dados. É possível saber mais sobre eles em [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md).
+To run the application on the cluster, you must do the following:
 
-* **Use Livy para enviar um trabalho de aplicativo remotamente** para o cluster Spark. Os clusters Spark no HDInsight incluem Livy, que expõe pontos de extremidade REST para enviar remotamente trabalhos do Spark. Para obter mais informações, consulte [Enviar trabalhos do Spark remotamente usando Livy com clusters Spark no HDInsight](hdinsight-apache-spark-livy-rest-interface.md).
+* **Copy the application jar to the Azure storage blob** associated with the cluster. You can use [**AzCopy**](../storage/storage-use-azcopy.md), a command line utility, to do so. There are a lot of other clients as well that you can use to upload data. You can find more about them at [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md).
 
+* **Use Livy to submit an application job remotely** to the Spark cluster. Spark clusters on HDInsight includes Livy that exposes REST endpoints to remotely submit Spark jobs. For more information, see [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight](hdinsight-apache-spark-livy-rest-interface.md).
 
-## <a name="seealso"></a>Consulte também
 
+## <a name="<a-name="seealso"></a>see-also"></a><a name="seealso"></a>See also
 
-* [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-### Cenários
+* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-* [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
+### <a name="scenarios"></a>Scenarios
 
-* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Análise de log do site usando o Spark no HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
 
-### Criar e executar aplicativos
+* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-* [Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
+### <a name="create-and-run-applications"></a>Create and run applications
 
-### Ferramentas e extensões
+* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-* [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+### <a name="tools-and-extensions"></a>Tools and extensions
 
-* [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
-* [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Usar pacotes externos com blocos de notas Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-* [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-### Gerenciar recursos
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-* [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+### <a name="manage-resources"></a>Manage resources
 
-* [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

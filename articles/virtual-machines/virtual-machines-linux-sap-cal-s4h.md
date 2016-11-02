@@ -7,22 +7,24 @@ authors="hermanndms"
 manager="timlt" 
 editor="" 
 tags="azure-resource-manager" 
-  keywords=""/>
-<tags  
+  keywords=""/> 
+<tags 
   ms.service="virtual-machines-linux" 
   ms.devlang="na" 
   ms.topic="article" 
   ms.tgt_pltfrm="vm-linux" 
   ms.workload="infrastructure-services" 
   ms.date="09/15/2016" 
-  ms.author="hermannd"/>
+  ms.author="hermannd"/> 
 
 
-# Implantando S/4 HANA ou BW/4 HANA no Microsoft Azure 
 
-Este artigo descreve como implantar o S/4 HANA no Microsoft Azure via SAP Cloud Appliance Library 3.0. As capturas de tela mostram o processo passo a passo. Implantar outras soluções baseadas no SAP HANA, como BW/4 HANA, funciona da mesma maneira da perspectiva do processo. Basta selecionar uma solução diferente.
+# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Implantando S/4 HANA ou BW/4 HANA no Microsoft Azure 
 
-Para iniciar com a SAP Cloud Appliance Library (SAP CAL), acesse [aqui](https://cal.sap.com/). Há um blog do SAP sobre a nova [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+Este artigo descreve como implantar o S/4 HANA no Microsoft Azure via SAP Cloud Appliance Library 3.0.
+As capturas de tela mostram o processo passo a passo. Implantar outras soluções baseadas no SAP HANA, como BW/4 HANA, funciona da mesma maneira da perspectiva do processo. Basta selecionar uma solução diferente.
+
+Para iniciar com a SAP Cloud Appliance Library (SAP CAL), acesse [aqui](https://cal.sap.com/). Há um blog do SAP sobre a nova [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 
 As seguintes capturas de tela mostram passo a passo como implantar o S/4 HANA no Microsoft Azure. O processo funciona da mesma forma para as outras soluções, como o BW/4 HANA.
@@ -30,7 +32,8 @@ As seguintes capturas de tela mostram passo a passo como implantar o S/4 HANA no
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-1b.jpg)
 
-A primeira figura mostra todas as soluções baseadas no SAP CAL HANA disponíveis no Microsoft Azure. Como exemplo, a "edição local do SAP S/4 HANA" (solução na parte inferior na captura de tela) foi escolhida para o processo.
+A primeira figura mostra todas as soluções baseadas no SAP CAL HANA disponíveis no Microsoft Azure.
+Como exemplo, a "edição local do SAP S/4 HANA" (solução na parte inferior na captura de tela) foi escolhida para o processo.
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-2.jpg)
 
@@ -46,7 +49,8 @@ No novo portal do Azure, localiza-se o item "Assinaturas" no lado esquerdo. Cliq
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic7b.jpg)
 
-Selecionar uma das assinaturas e escolher "Certificados de Gerenciamento" explica que existe um novo conceito usando as "entidades de serviço" para o novo modelo do Azure Resource Manager. O CAL SAP não está adaptado ainda para esse novo modelo e ainda requer o modelo "clássico" e o antigo portal do Azure para trabalhar com os certificados de gerenciamento.
+Selecionar uma das assinaturas e escolher "Certificados de Gerenciamento" explica que existe um novo conceito usando as "entidades de serviço" para o novo modelo do Azure Resource Manager.
+O CAL SAP não está adaptado ainda para esse novo modelo e ainda requer o modelo "clássico" e o antigo portal do Azure para trabalhar com os certificados de gerenciamento.
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic4b.jpg)
 
@@ -66,7 +70,8 @@ Depois do certificado ser carregado, a conexão entre o SAP CAL e a assinatura d
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic10.jpg)
 
-Após a configuração de uma conta, é preciso selecionar uma solução que deve ser implantada e criar uma instância. Com o modo "básico", é realmente simples. Insira um nome de instância, escolha uma região do Azure e defina a senha principal para a solução.
+Após a configuração de uma conta, é preciso selecionar uma solução que deve ser implantada e criar uma instância.
+Com o modo "básico", é realmente simples. Insira um nome de instância, escolha uma região do Azure e defina a senha principal para a solução.
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic11.jpg)
 
@@ -88,4 +93,15 @@ Agora, é possível conectar a solução por meio do botão Conectar no portal d
 
 Uma opção é fazer logon na VM Windows do cliente e iniciar, por exemplo, a GUI do SAP pré-configurada.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

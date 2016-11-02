@@ -17,9 +17,10 @@
  ms.date="08/02/2016"
  ms.author="yurid"/>
 
+
 [AZURE.INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre como proteger sua solução IoT, confira [Proteger sua implantação IoT][lnk-security-deployment].
 
@@ -33,4 +34,7 @@ Você também pode explorar alguns dos outros recursos das soluções pré-confi
 
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

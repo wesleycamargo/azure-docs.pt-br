@@ -16,15 +16,16 @@
    ms.date="08/18/2016"
    ms.author="aglick"/>
 
-#Alta disponibilidade para aplicativos baseados no Microsoft Azure
+
+#<a name="high-availability-for-applications-built-on-microsoft-azure"></a>Alta disponibilidade para aplicativos baseados no Microsoft Azure
 
 Um aplicativo altamente disponível absorve flutuações em disponibilidade, carga e falhas temporárias em serviços dependentes e hardware. O aplicativo continua funcionando em um nível de resposta sistêmico e de usuário aceitável, conforme definido por requisitos de negócios ou SLAs (contratos de nível de serviço) de aplicativo.
 
-##Recursos de alta disponibilidade do Azure
+##<a name="azure-high-availability-features"></a>Recursos de alta disponibilidade do Azure
 
 O Azure tem muitos recursos internos da plataforma que oferecem suporte a aplicativos altamente disponíveis. Esta seção descreve alguns desses recursos principais. Para obter uma análise mais abrangente da plataforma, confira [Orientações técnicas de resiliência do Azure](./resiliency-technical-guidance.md).
 
-###Controlador de malha
+###<a name="fabric-controller"></a>Controlador de malha
 
 O controlador de malha do Azure provisiona e monitora a condição das instâncias de computação do Azure. O controlador de malha verifica o status do hardware e software de instâncias do computador host e convidado. Quando ele detecta uma falha, força os SLAs automaticamente, realocando as instâncias da VM. O conceito de domínios de falha e atualização dá ainda mais suporte ao SLA de computação.
 
@@ -36,7 +37,7 @@ O diagrama a seguir mostra recursos compartilhados do Azure que o controlador de
 
 Domínios de atualização são semelhantes a domínios de falha na função, mas oferecem suporte a atualizações em vez de falhas. Um domínio de atualização é uma unidade lógica de separação da instância que determina quais instâncias em um serviço específico serão atualizadas em um ponto no tempo. Por padrão, para a implantação do serviço hospedado, são definidos cinco domínios de atualização. No entanto, você pode alterar esse valor no arquivo de definição de serviço. Por exemplo, suponha que você tenha oito instâncias da sua função web. Haverá duas instâncias em três domínios de atualização e duas instâncias em um domínio de atualização. O Azure define a sequência de atualização, mas se baseia no número de domínio de atualização. Para saber mais sobre domínios de atualização, confira [Como atualizar um serviço de nuvem](../cloud-services/cloud-services-update-azure-service.md).
 
-###Recursos em outros serviços
+###<a name="features-in-other-services"></a>Recursos em outros serviços
 
 Além dos recursos de plataforma que são compatíveis com a computação de alta disponibilidade, o Azure insere recursos de alta disponibilidade em outros serviços. Por exemplo, o Armazenamento do Azure mantém três réplicas de todos dados de blob, tabela e fila. Ele também permite a opção de replicação geográfica para armazenar backups de blobs e tabelas em uma região secundária. A Rede de Distribuição de Conteúdo do Azure permite que os blobs sejam armazenados em cache em todo o mundo para redundância e escalabilidade. Banco de dados SQL do Azure mantém várias réplicas também.
 
@@ -45,12 +46,12 @@ Além da série de artigos [Orientações técnicas de resiliência](https://aka
 Embora o Azure ofereça vários recursos compatíveis com a alta disponibilidade, é importante compreender suas limitações:
 
 - Para computação, o Azure garante que as funções estejam disponíveis e em execução, mas ele não sabe se seu aplicativo está em execução ou sobrecarregado.
-- Para banco de dados SQL do Azure, os dados são replicados de forma síncrona dentro da região. Você pode optar pela replicação geográfica ativa, que permite até quatro cópias adicionais de banco de dados na mesma região (ou em regiões diferentes). Essas réplicas de banco de dados não são backups pontuais. Os bancos de dados SQL fornecem recursos de backup pontuais. Para saber mais sobre os recursos pontuais de Banco de Dados SQL, leia [Azure SQL Database Point in Time Restore (Recuperação pontual do Banco de Dados SQL)](https://azure.microsoft.com/blog/azure-sql-database-point-in-time-restore/) .
+- Para banco de dados SQL do Azure, os dados são replicados de forma síncrona dentro da região. Você pode optar pela replicação geográfica ativa, que permite até quatro cópias adicionais de banco de dados na mesma região (ou em regiões diferentes). Essas réplicas de banco de dados não são backups pontuais. Os bancos de dados SQL fornecem recursos de backup pontuais. Para saber mais sobre os recursos pontuais de Banco de Dados SQL, leia [Azure SQL Database Point in Time Restore (Recuperação pontual do Banco de Dados SQL)](https://azure.microsoft.com/blog/azure-sql-database-point-in-time-restore/).
 - Para armazenamento do Azure, tabela e blob de dados são replicados por padrão em uma região alternativa. No entanto, você não pode acessar as réplicas até que o Microsoft decida efetuar failover para o site alternativo. Um failover de região ocorre apenas no caso de uma interrupção prolongada de serviço de toda a região, e não há nenhum SLA para tempo de failover geográfico. Também é importante observar que qualquer dado corrompido se espalha rapidamente nas réplicas.
 
 Por esses motivos, você deve complementar os recursos de disponibilidade da plataforma com recursos de disponibilidade específicos do aplicativo. Os recursos de disponibilidade específicos de aplicativo incluem o instantâneo de blob para criação de backups pontuais dos dados do blob.
 
-###Conjuntos de disponibilidade para Máquinas Virtuais do Azure
+###<a name="availability-sets-for-azure-virtual-machines"></a>Conjuntos de disponibilidade para Máquinas Virtuais do Azure
 
 A maior parte deste artigo se concentra em serviços de nuvem, que usam um modelo PaaS (plataforma como serviço). No entanto, também há recursos de disponibilidade específicos de Máquinas Virtuais do Azure, que usam um modelo IaaS (infraestrutura como serviço). Para alcançar alta disponibilidade com Máquinas Virtuais, você deve usar conjuntos de disponibilidade. Um conjunto de disponibilidade serve a uma função semelhante aos domínios de falha e atualização. Em um conjunto de disponibilidade, o Azure posiciona as máquinas virtuais de uma maneira que impede a falhas de hardware localizadas e atividades de manutenção, desativando todos os computadores nesse grupo. Conjuntos de disponibilidade são necessários para obter o SLA do Azure para disponibilidade de máquinas virtuais.
 
@@ -60,11 +61,11 @@ O diagrama a seguir fornece uma representação de dois conjuntos de disponibili
 
 >[AZURE.NOTE] No diagrama anterior, o SQL Server está instalado e em execução em máquinas virtuais. Isso é diferente da discussão anterior sobre o Banco de Dados SQL do Azure, que fornece um banco de dados como um serviço gerenciado.
 
-##Estratégias de aplicativo para alta disponibilidade
+##<a name="application-strategies-for-high-availability"></a>Estratégias de aplicativo para alta disponibilidade
 
 A maioria das estratégias de aplicativo para alta disponibilidade envolve a redundância ou a remoção de dependências de hardware entre componentes de aplicativos. O design do aplicativo deve dar suporte a tolerância a falhas durante tempo de inatividade esporádico do Azure ou serviços de terceiros. As seções a seguir descrevem padrões de aplicativo para aumentar a disponibilidade dos serviços de nuvem.
 
-###Comunicação assíncrona e filas duráveis
+###<a name="asynchronous-communication-and-durable-queues"></a>Comunicação assíncrona e filas duráveis
 
 Considere a possibilidade de comunicação assíncrona entre serviços acoplados livremente para aumentar a disponibilidade de aplicativos do Azure. Nesse padrão, grave mensagens em filas de armazenamento ou em filas do Barramento de Serviço do Azure para processamento posterior. Quando você escreve a mensagem na fila, o controle a retorna imediatamente para o remetente da mensagem. Outra camada do aplicativo manipula a processamento de mensagens, geralmente implementada como uma função de trabalho. Se a função de trabalho falhar, as mensagens serão acumuladas na fila até que o serviço de processamento seja restaurado. Como a fila está disponível, não há nenhuma dependência direta entre o remetente front-end e o processador de mensagens. Isso elimina a necessidade de chamadas de serviço síncronas que podem ser um gargalo de produtividade em aplicativos distribuídos.
 
@@ -72,7 +73,7 @@ Uma variação disso usa armazenamento do Azure (blobs, tabelas, filas) ou filas
 
 Em ambos os cenários, a comunicação assíncrona e o armazenamento intermediário impedem que um serviço de back-end inativo interrompa o aplicativo inteiro. As filas servem como um intermediário lógico. Para saber mais sobre como escolher o serviço de enfileiramento correto, confira [Filas do Azure e filas de Barramento de Serviço do Azure — comparações e contrastes](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
-###Lógica de detecção e repetição de falhas
+###<a name="fault-detection-and-retry-logic"></a>Lógica de detecção e repetição de falhas
 
 Um ponto importante no design do aplicativo altamente disponível é usar a lógica de repetição no código para tratar normalmente um serviço temporariamente inativo. O [bloco de aplicativos de tratamento de falhas transitórias](https://msdn.microsoft.com/library/hh680934.aspx), desenvolvido pela equipe de Padrões e Práticas da Microsoft, ajuda os desenvolvedores de aplicativo nesse processo. A palavra "transitório" significa uma condição temporária que dura apenas por um período relativamente curto. No contexto deste artigo, o tratamento de falhas transitórias faz parte do desenvolvimento de um aplicativo altamente disponível. Exemplos de condições transitórias incluem erros intermitentes de rede e perda de conexões de banco de dados.
 
@@ -89,7 +90,7 @@ A estratégia de alto nível dentro de seu código é:
 
 Teste sua lógica de repetição em falhas simuladas para garantir que as repetições em operações sucessivas não resultem em um longo atraso inesperado. Faça isso antes de tomar a decisão de deixar a tarefa global.
 
-###Padrão de dados de referência para alta disponibilidade
+###<a name="reference-data-pattern-for-high-availability"></a>Padrão de dados de referência para alta disponibilidade
 
 Dados de referência são os dados somente leitura de um aplicativo. Esses dados fornecem o contexto de negócios dentro do qual o aplicativo gera dados transacionais durante uma operação de negócios. Dados transacionais são uma função pontual dos dados de referência. Portanto, sua integridade depende do instantâneo dos dados de referência no momento da transação. Essa é uma definição ampla, mas deve ser suficiente para nosso objetivo aqui.
 
@@ -103,7 +104,7 @@ Para aumentar a disponibilidade, as funções também devem conter um conjunto d
 
 Uma consideração para esse padrão é a velocidade de implantação e inicialização de suas funções. Se você estiver implantando ou baixando grandes quantidades de dados de referência na inicialização, isso poderá aumentar a quantidade de tempo que leva para criar novas implantações ou instâncias de função. Isso pode ser uma compensação aceitável para a autonomia de ter dados de referência imediatamente disponíveis em cada função em vez de depender de serviços de armazenamento externo.
 
-###Padrão de dados transacionais para alta disponibilidade
+###<a name="transactional-data-pattern-for-high-availability"></a>Padrão de dados transacionais para alta disponibilidade
 
 Dados transacionais são os dados que o aplicativo gera em um contexto de negócios. Dados transacionais são uma combinação do conjunto de processos de negócios que o aplicativo implementa e dos dados de referência que permitem esses processos. Exemplos de dados transacionais podem incluir pedidos, aviso de envio avançado, faturas e oportunidades de CRM (gerenciamento de relacionamento com o cliente). Os dados transacionais gerados serão alimentados em sistemas externos para manter um registro ou para processamento adicional.
 
@@ -135,12 +136,16 @@ Observe que o diagrama anterior mostra uma implementação dessa abordagem desac
  * O destino final pode ser o armazenamento do Azure ou um provedor de banco de dados diferente.
  * O Cache do Azure pode ser usado na camada Web para fornecer os requisitos imediatos de cache após a transação.
 
-###Padrões de escalabilidade
+###<a name="scalability-patterns"></a>Padrões de escalabilidade
 
-É importante observar que a escalabilidade do serviço de nuvem afeta diretamente a disponibilidade. Se uma carga maior fizer com que o serviço não responda, a impressão de usuário será a de que o aplicativo está inativo. Siga as práticas recomendadas para escalabilidade com base em sua carga esperada de aplicativo e em futuras expectativas. A escala mais alta envolve várias considerações, como o uso de uma única conta ou de várias contas de armazenamento, compartilhando entre vários bancos de dados, e estratégias de cache. Para uma visão detalhada desses padrões, confira [Best Practices for the Design of Large-Scale Services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/) (Práticas recomendadas para design de serviços em larga escala nos Serviços de Nuvem do Azure).
+É importante observar que a escalabilidade do serviço de nuvem afeta diretamente a disponibilidade. Se uma carga maior fizer com que o serviço não responda, a impressão de usuário será a de que o aplicativo está inativo. Siga as práticas recomendadas para escalabilidade com base em sua carga esperada de aplicativo e em futuras expectativas. A escala mais alta envolve várias considerações, como o uso de uma única conta ou de várias contas de armazenamento, compartilhando entre vários bancos de dados, e estratégias de cache. Para uma visão detalhada desses padrões, confira [Best Practices for the Design of Large-Scale Services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/)(Práticas recomendadas para design de serviços em larga escala nos Serviços de Nuvem do Azure).
 
-##Próximas etapas
+##<a name="next-steps"></a>Próximas etapas
 
 Este artigo faz parte de uma série de artigos com foco na [recuperação de desastres e alta disponibilidade para aplicativos criados no Microsoft Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). O próximo artigo desta série é [Recuperação de desastre para aplicativos criados no Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

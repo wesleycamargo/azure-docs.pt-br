@@ -17,7 +17,8 @@
    ms.author="chkuhtz"
 />
 
-# Múltiplos VIPs para o Azure Load Balancer
+
+# <a name="multiple-vips-for-azure-load-balancer"></a>Múltiplos VIPs para o Azure Load Balancer
 
 O Azure Load Balancer permite que você equilibre a carga de serviços em várias portas, vários endereços IP ou ambos. Você pode usar definições de balanceador de carga públicas e internas para fluxos de balanceamento de carga em um conjunto de VMs.
 
@@ -29,9 +30,9 @@ A tabela a seguir contém alguns exemplos de configurações de front-end:
 
 | VIP | Endereço IP | protocol | porta |
 |-----|------------|----------|------|
-|1|65\.52.0.1|TCP|80|
-|2|65\.52.0.1|TCP|_8080_|
-|3|65\.52.0.1|_UDP_|80|
+|1|65.52.0.1|TCP|80|
+|2|65.52.0.1|TCP|_8080_|
+|3|65.52.0.1|_UDP_|80|
 |4|_65.52.0.2_|TCP|80|
 
 A tabela mostra quatro front-ends diferentes. Os front-ends 1, 2 e 3 são um único VIP com várias regras. O mesmo endereço IP é usado, mas a porta ou o protocolo é diferente para cada front-end. Os front-ends 1 e 4 são um exemplo de Vários VIPs, onde o mesmo protocolo de front-end e porta são reutilizados em vários VIPs.
@@ -45,7 +46,7 @@ O Azure Load Balancer permite que você misture os dois tipos de regra na mesma 
 
 Vamos explorar esses cenários ainda mais, começando com o comportamento padrão.
 
-## Tipo de regra 1: nenhuma reutilização de porta de back-end
+## <a name="rule-type-#1:-no-backend-port-reuse"></a>Tipo de regra 1: nenhuma reutilização de porta de back-end
 
 ![Ilustração de vários VIPs](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
@@ -53,7 +54,7 @@ Nesse cenário, os VIPs de front-end serão configurados da seguinte maneira:
 
 | VIP | Endereço IP | protocol | porta |
 |-----|------------|----------|------|
-|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|
+|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|
 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|*65.52.0.2*|TCP|80|
 
 O DIP é o destino do fluxo de entrada. No pool de back-end, cada VM expõe o serviço desejado em uma porta exclusiva em um DIP. Esse serviço é associado ao front-end por meio de uma definição de regra.
@@ -62,21 +63,21 @@ Definimos duas regras:
 
 | Regra | Mapear front-end | Para pool de back-end |
 |------|--------------|-----------------|
-| 1 | ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 | ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 | ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
+| 2 | ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
 
 O mapeamento completo no Azure Load Balancer agora é o seguinte:
 
 | Regra | Endereço IP VIP | protocol | porta | Destino | porta |
 |------|----------------|----------|------|-----|------|
-|![regra](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|Endereço IP DIP|80|
-|![regra](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65\.52.0.2|TCP|80|Endereço IP DIP|81|
+|![Regra](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|Endereço IP DIP|80|
+|![Regra](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65.52.0.2|TCP|80|Endereço IP DIP|81|
 
 Cada regra deve produzir um fluxo com uma combinação exclusiva de endereço IP de destino e porta de destino. Ao variar a porta de destino do fluxo, várias regras podem proporcionar fluxos ao mesmo DIP em portas diferentes.
 
 Investigações de integridade são sempre direcionadas ao DIP de uma VM. Você deve garantir que sua investigação reflita a integridade da VM.
 
-## Tipo de regra 2: reutilização de porta de back-end usando o IP Flutuante
+## <a name="rule-type-#2:-backend-port-reuse-by-using-floating-ip"></a>Tipo de regra 2: reutilização de porta de back-end usando o IP Flutuante
 
 O Azure Load Balancer oferece a flexibilidade para reutilizar a porta front-end em vários VIPs, independentemente do tipo de regra usado. Além disso, alguns cenários de aplicativos preferem ou exigem a utilização da mesma porta por várias instâncias do aplicativo em uma única VM no pool de back-end. Exemplos comuns de reutilização de porta incluem clusters de alta disponibilidade, dispositivos virtuais de rede e exposição de vários pontos de extremidade TLS sem nova criptografia.
 
@@ -102,34 +103,38 @@ Vamos supor a mesma configuração de front-end que no cenário anterior:
 
 | VIP | Endereço IP | protocol | porta |
 |-----|------------|----------|------|
-|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|
+|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|
 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|*65.52.0.2*|TCP|80|
 
 Definimos duas regras:
 
 | Regra | Mapear front-end | Para pool de back-end |
 |------|--------------|-----------------|
-| 1 | ![regra](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 (na VM1 e VM2) |
-| 2 | ![regra](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 (na VM1 e VM2) |
+| 1 | ![Regra](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  VIP1:80 (na VM1 e VM2) |
+| 2 | ![Regra](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 | ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  VIP2:80 (na VM1 e VM2) |
 
 A tabela a seguir mostra o mapeamento completo no balanceador de carga:
 
 | Regra | Endereço IP VIP | protocol | porta | Destino | porta |
 |------|----------------|----------|------|-------------|------|
-|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65\.52.0.1|TCP|80|mesmo que o VIP (65.52.0.1)|mesmo que o VIP (80)|
-|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65\.52.0.2|TCP|80|mesmo que o VIP (65.52.0.2)|mesmo que o VIP (80)|
+|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|mesmo que o VIP (65.52.0.1)|mesmo que o VIP (80)|
+|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65.52.0.2|TCP|80|mesmo que o VIP (65.52.0.2)|mesmo que o VIP (80)|
 
 O destino do fluxo de entrada é o endereço VIP na interface de loopback na VM. Cada regra deve produzir um fluxo com uma combinação exclusiva de endereço IP de destino e porta de destino. Ao variar o endereço IP de destino do fluxo, a reutilização de porta é possível na mesma VM. O serviço é exposto ao balanceador de carga vinculando-o ao endereço IP do VIP e à porta da interface de loopback respectiva.
 
 Observe que este exemplo não altera a porta de destino. Embora esse seja um cenário de IP Flutuante, o Azure Load Balancer também oferece suporte à definição de uma regra para reescrever a porta de destino de back-end e diferenciar da porta de destino do front-end.
 
-O tipo de regra de IP Flutuante é a base de vários padrões de configuração do balanceador de carga. Um exemplo disponível atualmente é a configuração [AlwaysOn com vários ouvintes](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md). Ao longo do tempo, documentaremos mais esses cenários.
+O tipo de regra de IP Flutuante é a base de vários padrões de configuração do balanceador de carga. Um exemplo disponível atualmente é a configuração [AlwaysOn com vários ouvintes](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) . Ao longo do tempo, documentaremos mais esses cenários.
 
-## Limitações
+## <a name="limitations"></a>Limitações
 
 * Há suporte para várias configurações de VIP apenas com VMs de IaaS.
 * Com a regra de IP flutuante, seu aplicativo deve usar o DIP para fluxos de saída. Se o seu aplicativo se associar ao endereço VIP configurado na interface de loopback no sistema operacional convidado, SNAT não estará disponível para reescrever o fluxo de saída e o fluxo falhará.
 * Endereços IP públicos têm um efeito sobre a cobrança. Para saber mais, confira [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
-* Limites de assinatura são aplicados. Para saber mais, confira [Limites de serviço](../azure-subscription-service-limits.md#networking-limits).
+* Limites de assinatura são aplicados. Para saber mais, confira [Limites de serviço](../azure-subscription-service-limits.md#networking-limits) .
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

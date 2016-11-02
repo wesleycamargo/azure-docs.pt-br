@@ -1,26 +1,27 @@
 <properties
-	pageTitle="Introdução aos Hubs de Eventos com o C e Apache Storm | Microsoft Azure"
-	description="Siga este tutorial para começar a usar os Hubs de Eventos do Azure; enviar eventos em C; e receber eventos em um cluster do Apache Storm."
-	services="event-hubs"
-	documentationCenter=""
-	authors="jtaubensee"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Introdução aos Hubs de Eventos com o C e Apache Storm | Microsoft Azure"
+    description="Siga este tutorial para começar a usar os Hubs de Eventos do Azure; enviar eventos em C; e receber eventos em um cluster do Apache Storm."
+    services="event-hubs"
+    documentationCenter=""
+    authors="jtaubensee"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="event-hubs"
-	ms.workload="na"
-	ms.tgt_pltfrm="c"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="08/16/2016"
-	ms.author="jotaub;sethm"/>
+    ms.service="event-hubs"
+    ms.workload="na"
+    ms.tgt_pltfrm="c"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="08/16/2016"
+    ms.author="jotaub;sethm"/>
 
-# Introdução aos Hubs de Eventos
+
+# <a name="get-started-with-event-hubs"></a>Introdução aos Hubs de Eventos
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
-## Introdução
+## <a name="introduction"></a>Introdução
 
 Hubs de Eventos são um sistema de inclusão altamente dimensionável que pode receber milhões de eventos por segundo, permitindo que um aplicativo processe e analise grandes quantidades de dados produzidos por aplicativos e dispositivos conectados. Depois de coletados em Hubs de Evento, você pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento.
 
@@ -42,19 +43,19 @@ Para concluir este tutorial, você precisará do seguinte:
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-storm](../../includes/service-bus-event-hubs-get-started-receive-storm.md)]
 
-## Executar os aplicativos
+## <a name="run-the-applications"></a>Executar os aplicativos
 
 Agora você está pronto para executar os aplicativos.
 
-1.	Execute a classe **LogTopology** do Eclipse, então espere para ela iniciar os receptores para todas as partições.
+1.  Execute a classe **LogTopology** do Eclipse, então espere para ela iniciar os receptores para todas as partições.
 
-2.	Execute o programa **sender** e veja os eventos aparecerem na janela do receptor.
+2.  Execute o programa **sender** e veja os eventos aparecerem na janela do receptor.
 
-	![][23]
+    ![][23]
 
-> [AZURE.NOTE] Neste tutorial, apenas use o Storm no modo local para fins de desenvolvimento. Consulte a [Visão geral do HDInsight Storm] e a documentação oficial do [Apache Storm] para obter mais informações de implantações e padrões do Storm.
+> [AZURE.NOTE] Neste tutorial, apenas use o Storm no modo local para fins de desenvolvimento. Consulte a [Visão geral do HDInsight Storm] e a documentação oficial do [Apache Storm] para obter mais informações sobre implantações e padrões do Storm.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos integrando Hubs e Storm.
 
@@ -65,13 +66,17 @@ Os seguintes recursos estão disponíveis para o desenvolvimento de aplicativos 
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
-[portal clássico do Azure]: https://manage.windowsazure.com/
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Visão geral de Hubs de Eventos]: event-hubs-overview.md
+[Portal clássico do Azure]: https://manage.windowsazure.com/
+[Host do Processador de Eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Visão Geral dos Hubs de Eventos]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[Visão geral do HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md/
+[Visão geral do Storm no HDInsight]: ../hdinsight/hdinsight-storm-overview.md/
 [Analisar dados do sensor com o Storm e do HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Desenvolver aplicativos de processamento de dados de fluxo com SCP.NET e C# em Storm]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

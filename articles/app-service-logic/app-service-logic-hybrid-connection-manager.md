@@ -1,28 +1,29 @@
 <properties 
-	pageTitle="Uso do Gerenciador de Conexão Híbrida | Microsoft Azure" 
-	description="Instalar e configurar o Gerenciador de Conexão Híbrida e conectar-se aos conectores locais nos Aplicativos Lógicos" 
-	services="app-service\logic" 
-	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+    pageTitle="Uso do Gerenciador de Conexão Híbrida | Microsoft Azure" 
+    description="Instalar e configurar o Gerenciador de Conexão Híbrida e conectar-se aos conectores locais nos Aplicativos Lógicos" 
+    services="app-service\logic" 
+    documentationCenter=".net,nodejs,java"
+    authors="MandiOhlinger" 
+    manager="anneta" 
+    editor=""/>
 
 <tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/28/2016" 
-	ms.author="mandia"/>
+    ms.service="logic-apps" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/18/2016" 
+    ms.author="mandia"/>
 
-# Conecte-se aos conectores locais usando o Gerenciador de Conexão Híbrida
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. A disponibilidade geral (GA) de Aplicativos Lógicos usa um gateway para conectividade local. Leia mais sobre o novo [gateway](app-service-logic-gateway-connection.md) e a [GA de Aplicativos Lógicos](https://azure.microsoft.com/documentation/services/logic-apps/).
+# <a name="connect-to-on-premises-connectors-using-the-hybrid-connection-manager"></a>Conecte-se aos conectores locais usando o Gerenciador de Conexão Híbrida
 
-Para usar um sistema local, os Aplicativos Lógicos usam o Gerenciador de Conexão Híbrida. Alguns conectores podem se conectar a um sistema local, como SAP, SQL Server, SharePoint e assim por diante.
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. A disponibilidade geral (GA) de Aplicativos Lógicos usa um gateway para conectividade local. Leia mais sobre o novo [gateway](app-service-logic-gateway-connection.md) e o [GA de Aplicativos Lógicos](https://azure.microsoft.com/documentation/services/logic-apps/).
 
-O HCM (Gerenciador de Conexão Híbrida) é um instalador com clique único, instalado em um servidor IIS em sua rede, por trás do firewall. Usando uma retransmissão do Barramento de Serviço do Azure, o HCM autentica o sistema local com o conector no Azure.
+Para usar um sistema local, os Aplicativos Lógicos usam o Gerenciador de Conexão Híbrida. Alguns conectores podem se conectar a um sistema local, como SAP, SQL Server, SharePoint e assim por diante. 
+
+O HCM (Gerenciador de Conexão Híbrida) é um instalador com clique único, instalado em um servidor IIS em sua rede, por trás do firewall. Usando uma retransmissão do Barramento de Serviço do Azure, o HCM autentica o sistema local com o conector no Azure. 
 
 > [AZURE.NOTE] O Gerenciador de Conexão Híbrida será necessário apenas se você estiver se conectando a um recurso local por trás do firewall. Se não estiver se conectando a um sistema local, você não precisará do Gerenciador de Conexão Híbrida.
 
@@ -32,37 +33,51 @@ Para começar, você precisa do seguinte:
 - Informações de entrada do sistema local, incluindo nome de usuário e senha. Por exemplo, se estiver se conectando a um SQL Server local, você precisará da conta e senha de logon do SQL Server.
 - Informações do servidor local, incluindo número da porta e nome do servidor. Por exemplo, se estiver se conectando a um SQL Server local, você precisará do número da porta TCP e nome do SQL Server.
 
-## Obter a cadeia de conexão do Barramento de Serviço
+## <a name="get-the-service-bus-connection-string"></a>Obter a cadeia de conexão do Barramento de Serviço
 
-No portal do Azure, copie a cadeia de conexão SAS da raiz do Barramento de Serviço. Essa cadeia de conexão conecta o conector do Azure ao seu sistema local.
+No portal do Azure, copie a cadeia de conexão SAS da raiz do Barramento de Serviço. Essa cadeia de conexão conecta o conector do Azure ao seu sistema local. 
 
 1. No [Portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885), selecione o namespace do Barramento de Serviço e selecione **Informações de Conexão**:
 
-	![][SB_ConnectInfo]
+    ![][SB_ConnectInfo]
 
 2. Copie a cadeia de conexão SAS:
 
-	![][SB_SAS]
+    ![][SB_SAS]
 
-## Instalar o Gerenciador de Conexão Híbrida
+## <a name="install-the-hybrid-connection-manager"></a>Instalar o Gerenciador de Conexão Híbrida
 
-1. No [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecione o conector que você criou. Para abri-lo, você pode selecionar **Procurar**, selecionar **Aplicativos de API** e selecionar o conector ou aplicativo de API. <br/><br/> Em **Conexão híbrida**, a configuração está **incompleta**: <br/> ![][2]
+1. No [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecione o conector que você criou. Para abri-lo, você pode selecionar **Procurar**, selecionar **Aplicativos de API** e selecionar o conector ou o aplicativo de API. 
+<br/><br/>
+Em **Conexão híbrida**, a configuração está **incompleta**:
+<br/>
+![][2] 
 
 2. Selecione **Conexão híbrida**. A cadeia de conexão do Barramento de Serviço inserida anteriormente é listada.
-3. Copie a **cadeia de configuração principal**: <br/> ![][PrimaryConfigString]
+3. Copie a **cadeia de configuração principal**:
+<br/>
+![][PrimaryConfigString]
 
-4. Em **Gerenciador de Conexão Híbrida Local**, você pode baixar o Gerenciador de Conexão Híbrida ou instalá-lo diretamente por meio do portal. <br/><br/> Para instalar diretamente por meio do portal, vá para o servidor IIS local, navegue até o portal e selecione **Baixar e Configurar**. <br/><br/> Para baixar o Gerenciador de Conexão Híbrida, vá para o servidor IIS local e acesse o **aplicativo ClickOnce** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). A instalação inicia automaticamente para que você possa executá-la.
+4. Em **Gerenciador de Conexão Híbrida Local**, você pode baixar o Gerenciador de Conexão Híbrida ou instalá-lo diretamente por meio do portal. 
+<br/><br/>
+Para instalar diretamente por meio do portal, vá para o servidor IIS local, navegue até o portal e selecione **Baixar e Configurar**.
+<br/><br/>
+Para baixar o Gerenciador de Conexão Híbrida, vá para o servidor IIS local e vá para o **aplicativo ClickOnce** (http://hybridclickonce.azurewebsites.net/install/Microsoft.Azure.BizTalk.Hybrid.ClickOnce.application). A instalação inicia automaticamente para que você possa executá-la.
 
 5. Na janela **Configuração de Ouvinte**, digite a **cadeia de configuração principal** colada anteriormente (na etapa 3) e selecione **Instalar**.
 
-Quando a instalação estiver concluída, você verá isto: <br/> ![][3]
+Quando a instalação estiver concluída, você verá isto: 
+<br/>
+![][3] 
 
-Agora, quando você navegar para o conector novamente, o status da conexão híbrida será **Conectado**. Pode ser necessário fechar o conector e reabri-lo: <br/> ![][4]
+Agora, quando você navegar para o conector novamente, o status da conexão híbrida será **Conectado**. Pode ser necessário fechar o conector e reabri-lo: 
+<br/>
+![][4] 
 
 > [AZURE.NOTE] Para alternar para a cadeia de conexão secundária, execute novamente a configuração de conexão híbrida e insira a **cadeia de configuração secundária**.
 
 
-## Portas TCP e segurança
+## <a name="tcp-ports-and-security"></a>Portas TCP e segurança
 
 Quando você cria uma conexão híbrida, um site é criado no servidor IIS local. O servidor IIS pode estar uma rede de perímetro. Os requisitos de porta TCP no servidor IIS incluem:
 
@@ -76,57 +91,58 @@ Porta do sistema local | No sistema local, abra a porta usada pelo sistema. Por 
 
 [Hospedagem atrás de um firewall com o Barramento de Serviço](http://msdn.microsoft.com/library/azure/ee706729.aspx)
 
-## Solucionar problemas
+## <a name="troubleshooting"></a>Solucionar problemas
 
 ![][HCMFlow]
 
-### Solução de problemas locais
+### <a name="on-premises-troubleshooting"></a>Solução de problemas locais
 
 1. No servidor IIS, confirme se a função web do IIS está instalada e se todos os serviços do IIS foram iniciados.
 2. No servidor IIS, confirme se o Gerenciador de Conexão Híbrida está instalado e em execução:
- - No Gerenciador do IIS (inetmgr), o site ***MicrosoftAzureBizTalkHybridListener*** deve estar listado e em execução.
- - Esse site usa o ***HybridListenerAppPool*** executado como a conta interna de usuário local *NetworkService*. Esse AppPool também deve ser iniciado.
-3. No servidor IIS, confirme se o conector está instalado e em execução:
- - Um site é criado para o conector dos Aplicativos Lógicos. Por exemplo, se você criar um conector SQL, haverá um site ***MicrosoftSqlConnector\_nnn***. No Gerenciador do IIS (inetmgr), confirme se esse site está listado e iniciado.
- - Esse site usa seu próprio pool de aplicativos do IIS, denominado ***HybridAppPoolnnn***. Esse AppPool é executado como a conta interna de usuário local *NetworkService*. Esse site e o AppPool devem ser iniciados.
- - Procure o conector local. Por exemplo, se o site do seu conector usar a porta 6569, navegue até http://localhost:6569. Como não há documento padrão configurado, espera-se um `HTTP Error 403.14 - Forbidden error`.
+ - No Gerenciador do IIS (inetmgr), o site ***MicrosoftAzureBizTalkHybridListener*** deve estar listado e em execução. 
+ - Esse site usa o ***HybridListenerAppPool*** executado como a conta interna de usuário local do *NetworkService*. Esse AppPool também deve ser iniciado.
+3. No servidor IIS, confirme se o conector está instalado e em execução: 
+ - Um site é criado para o conector dos Aplicativos Lógicos. Por exemplo, se você criar um conector SQL, haverá um site ***MicrosoftSqlConnector_nnn***. No Gerenciador do IIS (inetmgr), confirme se esse site está listado e iniciado. 
+ - Esse site usa seu próprio pool de aplicativos do IIS, denominado ***HybridAppPoolnnn***. Esse AppPool é executado como a conta interna de usuário local *NetworkService* . Esse site e o AppPool devem ser iniciados. 
+ - Procure o conector local. Por exemplo, se o site do seu conector usar a porta 6569, navegue até http://localhost:6569. Como não há documento padrão configurado, espera-se um `HTTP Error 403.14 - Forbidden error` .
 4. Em seu firewall, confirme se as portas TCP listadas neste tópico estão abertas.
 5. Examine o sistema de origem ou de destino:
  - Alguns sistemas locais exigem arquivos de dependência adicionais. Por exemplo, se você estiver se conectando ao SAP local, alguns arquivos adicionais do SAP deverão ser instalados no servidor IIS.
  - Verifique a conectividade com o sistema usando a conta de logon. Por exemplo, a porta TCP usada pelo sistema deve estar aberta, como a porta 1433 para o SQL Server. A conta de logon que você inseriu no portal do Azure deve ter acesso ao sistema.
-6. No servidor IIS, verifique os erros dos logs de eventos.
-7. Limpe e reinstale o Gerenciador de Conexão Híbrida:
- - No IIS, exclua manualmente o site do conector e seu pool de aplicativos.
+6. No servidor IIS, verifique os erros dos logs de eventos. 
+7. Limpe e reinstale o Gerenciador de Conexão Híbrida: 
+ - No IIS, exclua manualmente o site do conector e seu pool de aplicativos. 
  - Execute novamente o Gerenciador de Conexão Híbrida e confirme se está inserindo a **cadeia de configuração principal** correta para o conector.
 
 
 
-### No Portal clássico do Azure
+### <a name="in-the-azure-classic-portal"></a>No Portal clássico do Azure
 
-1. Confirme se o namespace do Barramento de Serviço está em estado **Ativo**.
+1. Confirme se o namespace do Barramento de Serviço está em estado **Ativo** .
 2. Ao criar o conector, insira a cadeia de conexão SAS do Barramento de Serviço. Não insira a cadeia de conexão do ACS.
 
 
-## Perguntas frequentes
+## <a name="faq"></a>Perguntas frequentes
 
-**PERGUNTA**: Há dois Gerenciadores de Conexões Híbridas. Qual é a diferença?
+**PERGUNTA**: Há dois Gerenciadores de Conexões Híbridas. Qual é a diferença? 
 
-**Resposta**: a tecnologia de [conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) é usada principalmente por aplicativos Web (antigos sites) e aplicativos móveis (antigos serviços móveis) para estabelecer conexão local. Esse Gerenciador de Conexões Híbridas é sua própria [instalação](../biztalk-services/integration-hybrid-connection-create-manage.md) e usa um serviço BizTalk do Azure (em segundo plano). Ele dá suporte apenas aos protocolos TCP e HTTP.
+**Resposta**: a tecnologia de [conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) é usada principalmente por aplicativos Web (antigos sites) e aplicativos móveis (antigos serviços móveis) para estabelecer uma conexão local. Esse Gerenciador de Conexões Híbridas é sua própria [instalação](../biztalk-services/integration-hybrid-connection-create-manage.md) e usa um serviço BizTalk do Azure (em segundo plano). Ele dá suporte apenas aos protocolos TCP e HTTP.
 
-Com os conectores do Serviço de Aplicativo do Azure, também temos um Gerenciador de Conexão Híbrida. Esse Gerenciador de Conexão Híbrida *não* usar um serviço BizTalk do Azure (em segundo plano) e dá suporte a mais protocolos além de TCP e HTTP. Consulte a [Lista de aplicativos de API e conectores](app-service-logic-connectors-list.md).
+Com os conectores do Serviço de Aplicativo do Azure, também temos um Gerenciador de Conexão Híbrida.  Esse Gerenciador de Conexão Híbrida *não* usar um serviço BizTalk do Azure (em segundo plano) e dá suporte a mais protocolos além de TCP e HTTP. Consulte a [Lista de aplicativos de API e conectores](app-service-logic-connectors-list.md).
 
 Ambos usam o Barramento de Serviço do Azure para se conectar ao sistema local.
 
-**PERGUNTA**: Quando eu crio um aplicativo de API personalizado, posso usar o Gerenciador de Conexão Híbrida do Serviço de Aplicativo para estabelecer conexão local?
+**PERGUNTA**: Quando eu crio um aplicativo de API personalizado, posso usar o Gerenciador de Conexão Híbrida do Serviço de Aplicativo para estabelecer conexão local? 
 
 **Resposta**: Não no sentido tradicional. Você pode usar um conector interno e configurar o Gerenciador de Conexão Híbrida do Serviço de Aplicativo para se conectar ao sistema local. Em seguida, use esse conector com seu aplicativo de API personalizado, possivelmente usando um aplicativo lógico. No momento, você não pode desenvolver ou criar seu próprio aplicativo de API híbrido (como o conector SQL ou o conector de arquivo).
 
-Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e o Gerenciador de Conexão Híbrida. Nesse cenário, um serviço BizTalk do Azure é usado. [Conectar-se a um SQL Server local por meio de um aplicativo Web](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) pode ajudar.
+Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e o Gerenciador de Conexão Híbrida. Nesse cenário, um serviço BizTalk do Azure é usado. [Conectar-se a um SQL Server local por meio de um aplicativo Web](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) pode ajudar.  
 
 
-## Leia mais
+## <a name="read-more"></a>Leia mais
 
-[Monitorar seus aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md)<br/> [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/)
+[Monitorar os aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md)<br/>
+[Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/)
 
 
 
@@ -140,4 +156,8 @@ Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexõ
 
  
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

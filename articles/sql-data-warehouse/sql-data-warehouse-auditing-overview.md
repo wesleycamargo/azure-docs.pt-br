@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter=""
    authors="ronortloff"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,10 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/24/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="10/31/2016" 
+   ms.author="rortloff;barbkess"/>
 
-# Auditoria no Azure SQL Data Warehouse
+
+# <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no Azure SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Auditoria](sql-data-warehouse-auditing-overview.md)
@@ -30,7 +31,7 @@ As ferramentas de auditoria permitem e facilitam a adoção de padrões de confo
 + [Configurar a auditoria do banco de dados]
 + [Analisar os logs e relatórios de auditoria]
 
-##<a id="subheading-1"></a>Fundamentos da Auditoria do Banco de Dados do SQL Data Warehouse do Azure
+##<a name="a-idsubheading1aazure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Fundamentos da Auditoria do Banco de Dados do SQL Data Warehouse do Azure
 
 
 A auditoria do banco de dados do SQL Data Warehouse permite que você:
@@ -41,7 +42,7 @@ A auditoria do banco de dados do SQL Data Warehouse permite que você:
 
 Você pode configurar a auditoria para as categorias de eventos a seguir:
 
-**SQL simples** e **SQL parametrizado** para os quais os logs de auditoria coletados são classificados como
+**SQL simples** e **SQL parametrizado** para os quais os logs de auditoria coletados são classificados como  
 
 - **Acesso a dados**
 - **Alterações de esquema (DDL)**
@@ -60,25 +61,25 @@ Uma política de auditoria pode ser definida para um banco de dados específico 
 Antes de configurar a auditoria, verifique se você está usando um ["Cliente de nível inferior"](sql-data-warehouse-auditing-downlevel-clients.md).
 
 
-##<a id="subheading-2"></a>Configurar a auditoria do banco de dados
+##<a name="a-idsubheading2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>Configurar a auditoria do banco de dados
 
 1. Inicie o <a href="https://portal.azure.com" target="_blank">Portal do Azure</a>.
 
 2. Navegue até a folha de configuração do banco de dados do SQL Data Warehouse / SQL Server que você deseja auditar. Clique no botão **Configurações** na parte superior e, na folha de Configuração, selecione **Auditoria**.
 
-	![][1]
+    ![][1]
 
-3. Na folha de configuração de auditoria, primeiro desmarque a caixa de seleção **Herdar as configurações de auditoria do servidor**. Isso permite que você especifique as configurações para um determinado banco de dados.
+3. Na folha de configuração de auditoria, primeiro desmarque a caixa de seleção **Herdar as configurações de auditoria do servidor** . Isso permite que você especifique as configurações para um determinado banco de dados.
 
-	![][2]
+    ![][2]
 
-4. Em seguida, habilite a auditoria clicando no botão **ON**.
+4. Em seguida, habilite a auditoria clicando no botão **ON** .
 
-	![][3]
+    ![][3]
 
-5. Na folha de configuração de auditoria, selecione **DETALHES DE ARMAZENAMENTO** para abrir a Folha de Armazenamento de Logs de Auditoria. Selecione a conta de armazenamento do Azure na qual os logs serão salvos e o período de retenção. **Dica**: use a mesma conta de armazenamento para todos os bancos de dados auditados para aproveitar ao máximo os modelos de relatórios pré-configurados.
+5. Na folha de configuração de auditoria, selecione **DETALHES DE ARMAZENAMENTO** para abrir a Folha de Armazenamento de Logs de Auditoria. Selecione a conta de armazenamento do Azure na qual os logs serão salvos e o período de retenção. **Dica** : use a mesma conta de armazenamento para todos os bancos de dados auditados para aproveitar ao máximo os modelos de relatórios pré-configurados.
 
-	![][4]
+    ![][4]
 
 6. Clique no botão **OK** para salvar a configuração de detalhes do armazenamento.
 
@@ -86,12 +87,12 @@ Antes de configurar a auditoria, verifique se você está usando um ["Cliente de
 7. Em **REGISTRO EM LOG POR EVENTO**, clique em **SUCESSO** e **FALHA** para registrar todos os eventos ou escolha categorias de evento individuais.
 
 
-8. Se você estiver configurando a Auditoria para um banco de dados, talvez seja necessário alterar a cadeia de conexão do cliente para garantir que os dados de auditoria sejam capturados corretamente. Verifique o tópico [Modify Server FDQN in the connection string](sql-data-warehouse-auditing-downlevel-clients.md) (Modificar o FQDN do servidor na cadeia de conexão) para conexões de cliente de nível anterior.
+8. Se você estiver configurando a Auditoria para um banco de dados, talvez seja necessário alterar a cadeia de conexão do cliente para garantir que os dados de auditoria sejam capturados corretamente. Verifique o tópico [Modificar o FQDN do servidor na cadeia de conexão](sql-data-warehouse-auditing-downlevel-clients.md) para conexões de cliente de nível inferior.
 
 9. Clique em **OK**.
 
 
-##<a id="subheading-3">Analisar os logs e relatórios de auditoria</a>
+##<a name="a-idsubheading3analyze-audit-logs-and-reportsa"></a><a id="subheading-3">Analisar os logs e relatórios de auditoria</a>
 
 Logs de auditoria são agregados em uma coleção de tabelas de armazenamento com um prefixo **SQLDBAuditLogs** na conta de armazenamento do Azure que você escolheu durante a instalação. Você pode ver os arquivos de log usando uma ferramenta como o <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Gerenciador de Armazenamento do Azure</a>.
 
@@ -104,26 +105,27 @@ Para obter mais instruções detalhadas sobre como trabalhar com o modelo de rel
 ![][5]
 
 
-##<a id="subheading-4">Práticas para uso em produção</a>
+##<a name="a-idsubheading4practices-for-usage-in-productiona"></a><a id="subheading-4">Práticas para uso em produção</a>
 A descrição nesta seção refere-se às capturas de tela acima. É possível usar o <a href="https://portal.azure.com" target="_blank">Portal do Azure</a> ou o <a href= "https://manage.windowsazure.com/" target="_bank">Portal Clássico do Azure</a>.
 
 
-##<a id="subheading-5"></a>Regeneração de Chave de Armazenamento
+##<a name="a-idsubheading5astorage-key-regeneration"></a><a id="subheading-5"></a>Regeneração de Chave de Armazenamento
 
 Em produção, você provavelmente atualizará suas chaves de armazenamento periodicamente. Ao atualizar suas chaves, é necessário salvar novamente a política. O processo é o seguinte:
 
 
-1. Na folha de configuração de auditoria (descrita acima na seção de configuração de auditoria), altere a **Chave de Acesso de Armazenamento** de *Primária* para *Secundária* e clique em **SALVAR**. ![][4]
+1. Na folha de configuração de auditoria (descrita acima na seção de configuração de auditoria), altere a **Chave de Acesso de Armazenamento** de *Primária* para *Secundária* e clique em **SALVAR**.
+![][4]
 2. Acesse a folha de configuração de armazenamento e **regenere** a *Chave de Acesso Primária*.
 
 3. Volte para a folha de configuração de auditoria, altere a **Chave de Acesso de Armazenamento** de *Secundária* para *Primária* e pressione **SALVAR**.
 
 4. Volte para a interface do usuário de armazenamento e **regenere** a *Chave de Acesso Secundária* (como preparação para o próximo ciclo de atualização de chaves.
 
-##<a id="subheading-6"></a>Automação
+##<a name="a-idsubheading6aautomation"></a><a id="subheading-6"></a>Automação
 Há vários cmdlets do PowerShell, que você pode usar para configurar a auditoria no Banco de Dados SQL do Azure. Para acessar os cmdlets de auditoria você deve estar executando o PowerShell no modo do Gerenciador de Recursos do Azure.
 
-> [AZURE.NOTE] O módulo do [Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/dn654592.aspx) está no modo de visualização. Ele pode não fornecer os mesmos recursos de gerenciamento que o módulo do Azure.
+> [AZURE.NOTE] O módulo do [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) está no modo de visualização. Ele pode não fornecer os mesmos recursos de gerenciamento que o módulo do Azure.
 
 Quando você estiver no modo do Gerenciador de Recursos do Azure, execute `Get-Command *AzureSql*` para listar os cmdlets disponíveis.
 
@@ -144,4 +146,8 @@ Quando você estiver no modo do Gerenciador de Recursos do Azure, execute `Get-C
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

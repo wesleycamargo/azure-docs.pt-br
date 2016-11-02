@@ -16,7 +16,8 @@
     ms.date="08/31/2016"
     ms.author="sethm;shvija"/>
 
-# Criar um namespace dos Hubs de Eventos com um Hub de Eventos e um grupo de consumidores usando um modelo do Azure Resource Manager
+
+# <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Criar um namespace dos Hubs de Eventos com um Hub de Eventos e um grupo de consumidores usando um modelo do Azure Resource Manager
 
 Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace do Hubs de Evento com um Hub de Eventos e um grupo de consumidores. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades
 
@@ -25,9 +26,9 @@ Para saber mais sobre a criação de modelos, confira [Criando modelos do Azure 
 Para ver o modelo completo, veja o [Modelo de grupo de consumo e do Hub de Eventos][] no GitHub.
 
 >[AZURE.NOTE]
-Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][] e procure por Hubs de Eventos.
+>Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][] e procure por Hubs de Eventos.
 
-## O que você implantará?
+## <a name="what-will-you-deploy?"></a>O que você implantará?
 
 Com este modelo, você implantará um namespace Hubs de Evento com um Hub de Evento e grupo de consumidores.
 
@@ -37,13 +38,13 @@ Para executar a implantação automaticamente, clique no seguinte botão:
 
 [![Implantar no Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
-## Parâmetros
+## <a name="parameters"></a>Parâmetros
 
-Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores que deseja especificar quando o modelo é implantado. O modelo inclui uma seção chamada `Parameters`, que contém todos os valores de parâmetro. Você deve definir um parâmetro para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação ocorre. Não defina parâmetros para valores que permanecem sempre os mesmos. Cada valor de parâmetro é usado no modelo para definir os recursos que são implantados.
+Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores que deseja especificar quando o modelo é implantado. O modelo inclui uma seção chamada `Parameters` , que contém todos os valores de parâmetro. Você deve definir um parâmetro para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação ocorre. Não defina parâmetros para valores que permanecem sempre os mesmos. Cada valor de parâmetro é usado no modelo para definir os recursos que são implantados.
 
 O modelo define os parâmetros a seguir.
 
-### eventHubNamespaceName
+### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 
 O nome do namespace Hubs de Evento a criar.
 
@@ -53,7 +54,7 @@ O nome do namespace Hubs de Evento a criar.
 }
 ```
 
-### eventHubName
+### <a name="eventhubname"></a>eventHubName
 
 O nome do Hub de Evento criado no namespace Hubs de Evento.
 
@@ -63,7 +64,7 @@ O nome do Hub de Evento criado no namespace Hubs de Evento.
 }
 ```
 
-### eventHubConsumerGroupName
+### <a name="eventhubconsumergroupname"></a>eventHubConsumerGroupName
 
 O nome do grupo de consumo criado para o Hub de Evento.
 
@@ -73,7 +74,7 @@ O nome do grupo de consumo criado para o Hub de Evento.
 }
 ```
 
-### apiVersion
+### <a name="apiversion"></a>apiVersion
 
 A versão da API do modelo.
 
@@ -83,7 +84,7 @@ A versão da API do modelo.
 }
 ```
 
-## Recursos a implantar
+## <a name="resources-to-deploy"></a>Recursos a implantar
 
 Cria um namespace do tipo **Hubs de Eventos**, com um Hub de Eventos e um grupo de consumo.
 
@@ -128,34 +129,32 @@ Cria um namespace do tipo **Hubs de Eventos**, com um Hub de Eventos e um grupo 
    ],
 ```
 
-## Comandos para executar a implantação
+## <a name="commands-to-run-deployment"></a>Comandos para executar a implantação
 
 [AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-## PowerShell
+## <a name="powershell"></a>PowerShell
 
 ```
-New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
+New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 
-## CLI do Azure
+## <a name="azure-cli"></a>CLI do Azure
 
 ```
 azure config mode arm
 
-azure group deployment create <my-resource-group> <my-deployment-name> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
+azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
 ```
 
-## Próximas etapas
+[Criando modelos do Azure Resource Manager]: ../resource-group-authoring-templates.md
+[Modelos de início rápido do Azure]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
+[Usando o Azure PowerShell com o Azure Resource Manager]: ../powershell-azure-resource-manager.md
+[Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure]: ../xplat-cli-azure-resource-manager.md
+[Modelo de grupo de consumo e do Hub de Eventos]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
 
-Agora que você criou e implantou recursos usando o Azure Resource Manager, saiba como gerenciar esses recursos consultando estes artigos:
 
-- [Manage Event Hubs resources with the Service Bus Explorer (Gerenciar recursos de Hubs de Eventos com o Gerenciador do Barramento de Serviço)](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
-  [Criando modelos do Azure Resource Manager]: ../resource-group-authoring-templates.md
-  [Modelos de Início Rápido do Azure]: https://azure.microsoft.com/documentation/templates/?term=event+hubs
-  [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
-  [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-  [Modelo de grupo de consumo e do Hub de Eventos]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
+<!--HONumber=Oct16_HO2-->
 
-<!---HONumber=AcomDC_0907_2016-->
+

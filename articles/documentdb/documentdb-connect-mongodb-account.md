@@ -1,65 +1,66 @@
 <properties 
-	pageTitle="Conectar-se a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB | Microsoft Azure" 
-	description="Saiba como se conectar a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB, agora disponível para a versão de visualização. Conectar-se usando a cadeia de conexão do MongoDB." 
-	keywords="cadeia de conexão do mongodb"
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="" 
-	documentationCenter=""/>
+    pageTitle="Conectar-se a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB | Microsoft Azure" 
+    description="Saiba como se conectar a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB, agora disponível para a versão de visualização. Conectar-se usando a cadeia de conexão do MongoDB." 
+    keywords="cadeia de conexão do mongodb"
+    services="documentdb" 
+    authors="AndrewHoh" 
+    manager="jhubbard" 
+    editor="" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/23/2016" 
-	ms.author="mimig"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/23/2016" 
+    ms.author="anhoh"/>
 
-# Como se conectar a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB
 
-Saiba como se conectar a uma conta do Banco de Dados de Documentos do Azure com suporte de protocolo para MongoDB usando o formato de URI da cadeia de conexão padrão do MongoDB.
+# <a name="how-to-connect-to-a-documentdb-account-with-protocol-support-for-mongodb"></a>Como se conectar a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB
 
-## Obter informações sobre a cadeia de conexão da conta
+Saiba como se conectar a uma conta do Banco de Dados de Documentos do Azure com suporte de protocolo para MongoDB usando o formato de URI da cadeia de conexão padrão do MongoDB.  
+
+## <a name="get-the-account's-connection-string-information"></a>Obter informações sobre a cadeia de conexão da conta
 
 1. Em uma nova janela, entre no [Portal do Azure](https://portal.azure.com).
-2. Na barra **Navegação Esquerda** da folha Conta, clique em **Cadeia de Conexão**. Para navegar até a **Folha Conta**, na Barra de navegação rápida, clique em **Mais Serviços**, clique em **Banco de Dados de Documentos (NoSQL)** e selecione a conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
+2. Na barra **Navegação Esquerda** da folha Conta, clique em **Cadeia de Conexão**. Para navegar até a **Folha Conta**, na Barra de navegação rápida, clique em **Mais Serviços**, clique em **DocumentDB (NoSQL)** e selecione a conta do DocumentDB com suporte de protocolo para MongoDB.
 
-	![Captura de tela da folha Todas as Configurações](./media/documentdb-connect-mongodb-account/SettingsBlade.png)
+    ![Captura de tela da folha Todas as Configurações](./media/documentdb-connect-mongodb-account/SettingsBlade.png)
 
 3. A folha **Informações da Cadeia de Conexões** é aberta e tem todas as informações necessárias para se conectar à conta usando um driver para MongoDB, incluindo uma cadeia de conexão pré-construída.
 
-	![Captura de tela da folha de cadeia de conexão](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
+    ![Captura de tela da folha de cadeia de conexão](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
 
-## Requisitos da cadeia de conexão
+## <a name="connection-string-requirements"></a>Requisitos da cadeia de conexão
 
-É importante observar que o Banco de Dados de Documentos é compatível com o formato de URI da cadeia de conexão padrão do MongoDB, com alguns requisitos específicos: contas do Banco de Dados de Documentos exigem autenticação e comunicação segura via SSL. Sendo assim, o formato da cadeia de conexão é:
+É importante observar que o Banco de Dados de Documentos é compatível com o formato de URI da cadeia de conexão padrão do MongoDB, com alguns requisitos específicos: contas do Banco de Dados de Documentos exigem autenticação e comunicação segura via SSL.  Sendo assim, o formato da cadeia de conexão é:
 
-	mongodb://username:password@host:port/[database]?ssl=true
+    mongodb://username:password@host:port/[database]?ssl=true
 
 Onde os valores dessa cadeia de caracteres estão disponíveis na folha Cadeia de Conexão mostrada acima.
 
 - Nome de usuário (obrigatório)
-	- Nome da conta do Banco de Dados de Documentos
+    - Nome da conta do Banco de Dados de Documentos
 - Senha (obrigatória)
-	- Senha da conta do Banco de Dados de Documentos
+    - Senha da conta do Banco de Dados de Documentos
 - Host (obrigatório)
-	- FQDN da conta do Banco de Dados de Documentos
+    - FQDN da conta do Banco de Dados de Documentos
 - Porta (obrigatória)
-	- 10250
+    - 10250
 - Banco de dados (opcional)
-	- O banco de dados padrão usado pela conexão
+    - O banco de dados padrão usado pela conexão
 - ssl=true (obrigatório)
 
-Por exemplo, considere a conta mostrada nas Informações da Cadeia de Conexão acima. Uma cadeia de conexão válida é:
-	
-	mongodb://contoso123:<password@contoso123.documents.azure.com:10250/mydatabase?ssl=true
+Por exemplo, considere a conta mostrada nas Informações da Cadeia de Conexão acima.  Uma cadeia de conexão válida é:
+    
+    mongodb://contoso123:<password@contoso123.documents.azure.com:10250/mydatabase?ssl=true
 
-## Conectando-se com o driver de C# para MongoDB
-Como já mencionado, todas as contas do Banco de Dados de Documentos exigem autenticação e comunicação segura via SSL. Embora o formato de URI da cadeia de conexão do MongoDB permita um parâmetro de cadeia de consulta ssl=true, trabalhar com o driver de C# do MongoDB exige o uso do objeto MongoClientSettings na criação de um MongoClient. Considerando as informações de conta acima, o trecho de código a seguir mostra como se conectar à conta e trabalhar com o banco de dados "Tarefas".
+## <a name="connecting-with-the-c#-driver-for-mongodb"></a>Conectando-se com o driver de C# para MongoDB
+Como já mencionado, todas as contas do Banco de Dados de Documentos exigem autenticação e comunicação segura via SSL. Embora o formato de URI da cadeia de conexão do MongoDB permita um parâmetro de cadeia de consulta ssl=true, trabalhar com o driver de C# do MongoDB exige o uso do objeto MongoClientSettings na criação de um MongoClient.  Considerando as informações de conta acima, o trecho de código a seguir mostra como se conectar à conta e trabalhar com o banco de dados "Tarefas".
 
-	        MongoClientSettings settings = new MongoClientSettings();
+            MongoClientSettings settings = new MongoClientSettings();
             settings.Server = new MongoServerAddress("contoso123.documents.azure.com", 10250);
             settings.UseSsl = true;
             settings.SslSettings = new SslSettings();
@@ -74,14 +75,18 @@ Como já mencionado, todas as contas do Banco de Dados de Documentos exigem aute
             };
             MongoClient client = new MongoClient(settings);
             var database = client.GetDatabase("Tasks",);
-	
+    
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 
 - Saiba como [usar o MongoChef](documentdb-mongodb-mongochef.md) com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
-- Explore [amostras](documentdb-mongodb-samples.md) do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
+- Explore [amostras](documentdb-mongodb-samples.md)do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
 
  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

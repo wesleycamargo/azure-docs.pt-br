@@ -1,218 +1,190 @@
 <properties
-	pageTitle="Criar uma VM com o modelo do Resource Manager | Microsoft Azure"
-	description="Use um modelo do Resource Manager e o PowerShell para criar facilmente uma nova máquina virtual do Windows."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Criar uma VM com o modelo do Resource Manager | Microsoft Azure"
+    description="Use um modelo do Resource Manager e o PowerShell para criar facilmente uma nova máquina virtual do Windows."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="na"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="na"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/06/2016"
+    ms.author="davidmu"/>
 
-# Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos
+
+# <a name="create-a-windows-virtual-machine-with-a-resource-manager-template"></a>Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos
 
 Este artigo apresenta um modelo do Azure Resource Manager e mostra como usar o PowerShell para implantá-lo. O modelo implanta uma única máquina virtual que executa o Windows Server em uma nova rede virtual com uma única sub-rede.
 
 Deve levar cerca de 20 minutos para executar as etapas neste artigo.
 
-> [AZURE.IMPORTANT] Se você quiser que sua VM seja parte de um conjunto de disponibilidade, você precisará adicioná-la ao conjunto ao criar a VM. Atualmente, não há uma maneira de adicionar uma VM a um conjunto de disponibilidade após ela ter sido criada.
+> [AZURE.IMPORTANT] Se você quiser que sua VM seja parte de um conjunto de disponibilidade, adicione-a ao conjunto ao criá-la. Atualmente, não há uma maneira de adicionar uma VM a um conjunto de disponibilidade após ela ter sido criada.
 
-## Etapa 1: Criar o arquivo do modelo
+## <a name="step-1:-create-the-template-file"></a>Etapa 1: Criar o arquivo do modelo
 
 Você pode criar seu próprio modelo usando as informações encontradas em [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md). Você também pode implantar modelos que foram criados para você de [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 
-1. Abra seu editor de texto favorito e copie essas informações do JSON em um novo arquivo chamado *VirtualMachineTemplate.json*:
+1. Abra o editor de texto da sua preferência e adicione o devido elemento do esquema e o elemento contentVersion:
 
         {
           "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
+        }
+2. [Parâmetros](../resource-group-authoring-templates.md#parameters) nem sempre são necessários, mas eles fornecem uma maneira de entrar valores quando o modelo é implantado. Adicione o elemento parameters e seus elementos filho após o elemento contentVersion:
+
+        {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+          "contentVersion": "1.0.0.0",
           "parameters": {
-            "newStorageAccountName": {
-              "type": "string",
-              "metadata": {
-                "Description": "The name of the storage account where the VM disk is stored."
-              }
-            },
-            "adminUsername": {
-              "type": "string",
-              "metadata": {
-                "Description": "The name of the administrator account on the VM."
-              }
-            },
-            "adminPassword": {
-              "type": "securestring",
-              "metadata": {
-                "Description": "The administrator account password on the VM."
-              }
-            },
-            "dnsNameForPublicIP": {
-              "type": "string",
-              "metadata": {
-                "Description": "The name of the public IP address used to access the VM."
-              }
-            }
+            "adminUserName": { "type": "string" },
+            "adminPassword": { "type": "securestring" }
+          },
+        }
+
+3. [Variáveis](../resource-group-authoring-templates.md#variables) podem ser usadas em um modelo para especificar valores que podem ser alterados com frequência ou que precisam ser criados com base em uma combinação de valores de parâmetros. Adicione o elemento variables após a seção de parâmetros:
+
+        {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "adminUsername": { "type": "string" },
+            "adminPassword": { "type": "securestring" }
           },
           "variables": {
-            "location": "Central US",
-            "imagePublisher": "MicrosoftWindowsServer",
-            "imageOffer": "WindowsServer",
-            "windowsOSVersion": "2012-R2-Datacenter",
-            "OSDiskName": "osdisk1",
-            "nicName": "nc1",
-            "addressPrefix": "10.0.0.0/16",
-            "subnetName": "sn1",
-            "subnetPrefix": "10.0.0.0/24",
-            "storageAccountType": "Standard_LRS",
-            "publicIPAddressName": "ip1",
-            "publicIPAddressType": "Dynamic",
-            "vmStorageAccountContainerName": "vhds",
-            "vmName": "vm1",
-            "vmSize": "Standard_A0",
-            "virtualNetworkName": "vn1",
-            "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-            "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
+            "vnetID":"[resourceId('Microsoft.Network/virtualNetworks','myvn1')]",
+            "subnetRef": "[concat(variables('vnetID'),'/subnets/mysn1')]"  
+          },
+        }
+        
+4. [Recursos](../resource-group-authoring-templates.md#resources) como a máquina virtual, a rede virtual e a conta de armazenamento são definidos no modelo em seguida. Adicione a seção de recursos após a seção de variáveis:
+
+        {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "adminUsername": { "type": "string" },
+            "adminPassword": { "type": "securestring" }
+          },
+          "variables": {
+            "vnetID":"[resourceId('Microsoft.Network/virtualNetworks','myvn1')]",
+            "subnetRef": "[concat(variables('vnetID'),'/subnets/mysn1')]"
           },
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "name": "[parameters('newStorageAccountName')]",
+              "name": "mystorage1",
               "apiVersion": "2015-06-15",
-              "location": "[variables('location')]",
-              "properties": {
-                "accountType": "[variables('storageAccountType')]"
-              }
+              "location": "[resourceGroup().location]",
+              "properties": { "accountType": "Standard_LRS" }
             },
             {
               "apiVersion": "2016-03-30",
               "type": "Microsoft.Network/publicIPAddresses",
-              "name": "[variables('publicIPAddressName')]",
-              "location": "[variables('location')]",
+              "name": "myip1",
+              "location": "[resourceGroup().location]",
               "properties": {
-                "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-                "dnsSettings": {
-                  "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
-                }
+                "publicIPAllocationMethod": "Dynamic",
+                "dnsSettings": { "domainNameLabel": "mydns1" }
               }
             },
             {
               "apiVersion": "2016-03-30",
               "type": "Microsoft.Network/virtualNetworks",
-              "name": "[variables('virtualNetworkName')]",
-              "location": "[variables('location')]",
+              "name": "myvnet1",
+              "location": "[resourceGroup().location]",
               "properties": {
-                "addressSpace": {
-                  "addressPrefixes": [
-                    "[variables('addressPrefix')]"
-                  ]
-                },
-                "subnets": [
-                  {
-                    "name": "[variables('subnetName')]",
-                    "properties": {
-                      "addressPrefix": "[variables('subnetPrefix')]"
-                    }
-                  }
-                ]
+                "addressSpace": { "addressPrefixes": [ "10.0.0.0/16" ] },
+                "subnets": [ {
+                  "name": "mysn1",
+                  "properties": { "addressPrefix": "10.0.0.0/24" }
+                } ]
               }
             },
             {
               "apiVersion": "2016-03-30",
               "type": "Microsoft.Network/networkInterfaces",
-              "name": "[variables('nicName')]",
-              "location": "[variables('location')]",
+              "name": "mync1",
+              "location": "[resourceGroup().location]",
               "dependsOn": [
-                "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
-                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+                "Microsoft.Network/publicIPAddresses/myip1",
+                "Microsoft.Network/virtualNetworks/myvn1"
               ],
               "properties": {
-                "ipConfigurations": [
-                  {
-                    "name": "ipconfig1",
-                    "properties": {
-                      "privateIPAllocationMethod": "Dynamic",
-                      "publicIPAddress": {
-                        "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
-                      },
-                      "subnet": {
-                        "id": "[variables('subnetRef')]"
-                      }
-                    }
+                "ipConfigurations": [ {
+                  "name": "ipconfig1",
+                  "properties": {
+                    "privateIPAllocationMethod": "Dynamic",
+                    "publicIPAddress": {
+                      "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'myip1')]"
+                    },
+                    "subnet": { "id": "[variables('subnetRef')]" }
                   }
-                ]
+                } ]
               }
             },
             {
               "apiVersion": "2016-03-30",
               "type": "Microsoft.Compute/virtualMachines",
-              "name": "[variables('vmName')]",
-              "location": "[variables('location')]",
+              "name": "myvm1",
+              "location": "[resourceGroup().location]",
               "dependsOn": [
-                "[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName'))]",
-                "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+                "Microsoft.Network/networkInterfaces/mync1",
+                "Microsoft.Storage/storageAccounts/mystorage1"
               ],
               "properties": {
-                "hardwareProfile": {
-                  "vmSize": "[variables('vmSize')]"
-                },
+                "hardwareProfile": { "vmSize": "Standard_A1" },
                 "osProfile": {
-                  "computername": "[variables('vmName')]",
+                  "computerName": "myvm1",
                   "adminUsername": "[parameters('adminUsername')]",
                   "adminPassword": "[parameters('adminPassword')]"
                 },
                 "storageProfile": {
                   "imageReference": {
-                    "publisher": "[variables('imagePublisher')]",
-                    "offer": "[variables('imageOffer')]",
-                    "sku" : "[variables('windowsOSVersion')]",
-                    "version":"latest"
+                    "publisher": "MicrosoftWindowsServer",
+                    "offer": "WindowsServer",
+                    "sku": "2012-R2-Datacenter",
+                    "version" : "latest"
                   },
-                  "osDisk" : {
-                    "name": "osdisk",
+                  "osDisk": {
+                    "name": "myosdisk1",
                     "vhd": {
-                      "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
+                      "uri": "https://mystorage1.blob.core.windows.net/vhds/myosdisk1.vhd"
                     },
                     "caching": "ReadWrite",
                     "createOption": "FromImage"
                   }
                 },
                 "networkProfile": {
-                  "networkInterfaces": [
-                    {
-                      "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
-                    }
-                  ]
+                  "networkInterfaces" : [ {
+                    "id": "[resourceId('Microsoft.Network/networkInterfaces','mync1')]"
+                  } ]
                 }
               }
-            }
-          ]
-        }
-        
-    >[AZURE.NOTE] Este artigo cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, veja [Navegar e selecionar imagens de máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](virtual-machines-linux-cli-ps-findimage.md).
-    
-2. Salvar o arquivo de modelo.
+            } ]
+          }
+          
+    >[AZURE.NOTE] Este artigo cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, veja [Navegar e selecionar imagens de máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](virtual-machines-linux-cli-ps-findimage.md).  
+            
+2. Salve o arquivo de modelo como *VirtualMachineTemplate.json*.
 
-## Etapa 2: Criar o arquivo de parâmetros
+## <a name="step-2:-create-the-parameters-file"></a>Etapa 2: Criar o arquivo de parâmetros
 
-Para especificar valores para os parâmetros de recursos que foram definidos no modelo, você cria um arquivo de parâmetros que contém os valores e o envia ao Gerenciador de Recursos com o modelo.
+Para especificar valores para os parâmetros dos recursos que foram definidos no modelo, crie um arquivo de parâmetros contendo os valores usados na implantação do modelo.
 
-1. No editor de texto, copie essas informações de JSON para um novo arquivo chamado *Parameters.json*:
+1. No editor de texto, copie esse conteúdo do JSON em um novo arquivo chamado *Parameters.json*:
 
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
           "parameters": {
-            "newStorageAccountName": { "value": "mytestsa1" },
             "adminUserName": { "value": "mytestacct1" },
-            "adminPassword": { "value": "mytestpass1" },
-            "dnsNameForPublicIP": { "value": "mytestdns1" }
+            "adminPassword": { "value": "mytestpass1" }
           }
         }
 
@@ -220,17 +192,17 @@ Para especificar valores para os parâmetros de recursos que foram definidos no 
 
 2. Salve o arquivo de parâmetros.
 
-## Etapa 3: Instalar o Azure PowerShell
+## <a name="step-3:-install-azure-powershell"></a>Etapa 3: Instalar o Azure PowerShell
 
-Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura que deseja usar e entrar na sua conta do Azure.
+Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
 
-## Etapa 4: Criar um grupo de recursos
+## <a name="step-4:-create-a-resource-group"></a>Etapa 4: Criar um grupo de recursos
 
-Todos os recursos devem estar implantados em um grupo de recursos. Consulte a [Visão geral do Azure Resource Manager](../resource-group-overview.md) para obter mais informações.
+Todos os recursos devem estar implantados em um [grupo de recursos](../resource-group-overview.md).
 
 1. Obtenha uma lista dos locais disponíveis nos quais os recursos podem ser criados.
 
-	    Get-AzureRmLocation | sort DisplayName | Select DisplayName
+        Get-AzureRmLocation | sort DisplayName | Select DisplayName
 
 2. Substitua o valor **$locName** por uma localização na lista, por exemplo, **EUA Central**. Crie a variável.
 
@@ -241,7 +213,7 @@ Todos os recursos devem estar implantados em um grupo de recursos. Consulte a [V
         $rgName = "resource group name"
         New-AzureRmResourceGroup -Name $rgName -Location $locName
         
-    Você deverá ver algo assim:
+    Você deverá ver algo como este exemplo:
     
         ResourceGroupName : myrg1
         Location          : centralus
@@ -249,19 +221,15 @@ Todos os recursos devem estar implantados em um grupo de recursos. Consulte a [V
         Tags              :
         ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myrg1
 
-### Etapa 5: Criar os recursos com o modelo e os parâmetros
+## <a name="step-5:-create-the-resources-with-the-template-and-parameters"></a>Etapa 5: Criar os recursos com o modelo e os parâmetros
 
-1. Substitua o valor **$deployName** pelo nome da implantação. Substitua o valor **$templatePath** pelo caminho e nome do arquivo de modelo. Substitua o valor **$parameterFile** pelo caminho e nome do arquivo de parâmetros. Crie as variáveis.
+Substitua o valor **$templateFile** pelo caminho e nome do arquivo de modelo. Substitua o valor **$parameterFile** pelo caminho e nome do arquivo de parâmetros. Crie as variáveis e, em seguida, implante o modelo. 
 
-        $deployName="deployment name"
-        $templatePath = "template path"
+        $templateFile = "template file"
         $parameterFile = "parameter file"
+        New-AzureRmResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile $templateFile -TemplateParameterFile $parameterFile
 
-2. Implante o modelo.
-
-        New-AzureRmResourceGroupDeployment -ResourceGroupName "davidmurg6" -TemplateFile $templatePath -TemplateParameterFile $parameterFile
-
-    Você verá algo semelhante a:
+    You will see something like this:
 
         DeploymentName    : VirtualMachineTemplate
         ResourceGroupName : myrg1
@@ -272,18 +240,20 @@ Todos os recursos devem estar implantados em um grupo de recursos. Consulte a [V
         Parameters        :
                             Name             Type                       Value
                             ===============  =========================  ==========
-                            newStorageAccountName  String                     mytestsa1
                             adminUsername    String                     mytestacct1
                             adminPassword    SecureString
-                            dnsNameForPublicIP  String                     mytestdns1
 
         Outputs           :
 
-    >[AZURE.NOTE] Você também pode implantar os modelos e os parâmetros de uma conta de armazenamento do Azure. Para saber mais, consulte [Usando o Azure PowerShell com o Armazenamento do Azure](../storage-powershell-guide-full.md).
+>[AZURE.NOTE] Você também pode implantar os modelos e os parâmetros de uma conta de armazenamento do Azure. Para saber mais, consulte [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/storage-powershell-guide-full.md).
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
-- Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando problemas de implantações do grupo de recursos com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
-- Saiba como gerenciar a máquina virtual que você acabou de criar examinando [Gerenciar Máquinas Virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
+- Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando problemas de implantações do grupo de recursos com o portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
+- Saiba como gerenciar a máquina virtual que você criou examinando [Gerenciar Máquinas Virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Regiões e disponibilidade do Azure para VMs Linux | Microsoft Azure"
+   pageTitle="Regiões e disponibilidade para VMs Linux | Microsoft Azure"
    description="Conheça as regiões e os recursos de disponibilidade para executar máquinas virtuais Linux no Azure"
    services="virtual-machines-linux"
    documentationCenter=""
@@ -13,9 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="10/10/2016"
    ms.author="iainfou"/>
+
 
 [AZURE.INCLUDE [virtual-machines-common-regions-and-availability](../../includes/virtual-machines-common-regions-and-availability.md)]
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,45 +1,48 @@
 <properties
-	pageTitle="Funções Web e de trabalho do Python com o Visual Studio | Microsoft Azure"
-	description="Visão geral do uso do Python Tools para Visual Studio para criar serviços de nuvem do Azure, incluindo funções Web e de Trabalho."
-	services="cloud-services"
-	documentationCenter="python"
-	authors="thraka"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Funções Web e de trabalho do Python com o Visual Studio | Microsoft Azure"
+    description="Visão geral do uso do Python Tools para Visual Studio para criar serviços de nuvem do Azure, incluindo funções Web e de Trabalho."
+    services="cloud-services"
+    documentationCenter="python"
+    authors="thraka"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="hero-article"
-	ms.date="08/03/2016"
-	ms.author="adegeo"/>
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="python"
+    ms.topic="hero-article"
+    ms.date="08/03/2016"
+    ms.author="adegeo"/>
 
 
-# Funções Web e de trabalho do Python com Ferramentas Python para Visual Studio
+
+# <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções Web e de trabalho do Python com Ferramentas Python para Visual Studio
 
 Este artigo oferece uma visão geral do uso das funções Web e de trabalho do Python por meio das [Ferramentas Python para Visual Studio][]. Você aprenderá a usar o Visual Studio para criar e implantar um Serviço de Nuvem básico que usa Python.
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
  - Visual Studio 2013 ou 2015
- - [Python Tools for Visual Studio][] \(PTVS)
- - [Azure Ferramentas SDK para VS 2013][] ou [Azure Ferramentas SDK para VS 2015][]
+ - [Python Tools for Visual Studio][] (PTVS)
+ - [Ferramentas do SDK do Azure para VS 2013][] ou [Ferramentas do SDK do Azure para VS 2015][]
  - [Python 2.7 de 32 bits][] ou [Python 3.5 de 32 bits][]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## O que são funções Web e de Trabalho do Python?
+## <a name="what-are-python-web-and-worker-roles?"></a>O que são funções Web e de Trabalho do Python?
 
-O Azure fornece três modelos de computação para a execução de aplicativos: [recurso Aplicativos Web no Serviço de Aplicativo do Azure][execution model-web sites], [Máquinas Virtuais do Azure][execution model-vms] e [Serviços de Nuvem do Azure][execution model-cloud services]. Todos os três modelos oferecem suporte ao Python. Os Serviços de Nuvem, que incluem as funções Web e de trabalho, fornecem a *PaaS (plataforma como serviço)*. Dentro de um serviço de nuvem, uma função Web fornece um servidor web dos Serviços de Informações da Internet (IIS) dedicado para hospedar aplicativos web de front-end, enquanto uma função de trabalho pode executar tarefas assíncronas, de longa execução ou perpétuas independentes de interação com o usuário ou de entrada.
+O Azure fornece três modelos de computação para a execução de aplicativos: [recurso Aplicativos Web nos ][sites da web do modelo de execução do Serviço de Aplicativo do Azure], [vms do modelo de execução][ das máquinas virtuais do Azure] e [serviços de nuvem do modelo de execução][dos Serviços de Nuvem do Azure]. Todos os três modelos oferecem suporte ao Python. Os Serviços de Nuvem, que incluem as funções Web e de trabalho, fornecem a *PaaS (plataforma como serviço)*. Dentro de um serviço de nuvem, uma função Web fornece um servidor web dos Serviços de Informações da Internet (IIS) dedicado para hospedar aplicativos web de front-end, enquanto uma função de trabalho pode executar tarefas assíncronas, de longa execução ou perpétuas independentes de interação com o usuário ou de entrada.
 
-Para obter mais informações, consulte [O que é um Serviço de Nuvem?].
+Para saber mais, confira [O que é um Serviço de Nuvem?].
 
-> [AZURE.NOTE] *Deseja criar um site simples?* Se o seu cenário envolver apenas um front-end de site simples, considere usar um recurso Aplicativos Web leve no Serviço de Aplicativo do Azure. Você pode atualizar facilmente para um serviço de nuvem conforme o site cresce e suas necessidades mudam. Consulte o <a href="/develop/python/">Centro de Desenvolvedores do Python</a> para obter artigos que abordem o desenvolvimento do recurso Aplicativos Web no Serviço de Aplicativo do Azure. <br />
+> [AZURE.NOTE] *Procurando desenvolver um site simples?*
+Se o seu cenário envolver apenas um front-end de site simples, considere usar um recurso Aplicativos Web leve no Serviço de Aplicativo do Azure. Você pode atualizar facilmente para um serviço de nuvem conforme o site cresce e suas necessidades mudam. Consulte o <a href="/develop/python/">Centro de Desenvolvedores do Python</a> para obter artigos que abordem o desenvolvimento do recurso Aplicativos Web no Serviço de Aplicativo do Azure.
+<br />
 
 
-## Criação do projeto
+## <a name="project-creation"></a>Criação do projeto
 
 No Visual Studio, você pode escolher o **Serviço de Nuvem do Azure** na caixa de diálogo **Novo Projeto**, em **Python**.
 
@@ -53,13 +56,13 @@ O modelo de função de trabalho vem com o código de texto clichê para se cone
 
 ![Solução de serviço de nuvem](./media/cloud-services-python-ptvs/worker.png)
 
-Você pode adicionar funções Web ou de Trabalho a um serviço de nuvem existente a qualquer momento. Você pode escolher adicionar projetos existentes em sua solução ou criar projetos novos.
+Você pode adicionar funções Web ou de Trabalho a um serviço de nuvem existente a qualquer momento.  Você pode escolher adicionar projetos existentes em sua solução ou criar projetos novos.
 
 ![Adicionar comando de função](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
-Seu serviço de nuvem pode conter funções implementadas em diferentes idiomas. Por exemplo, uma função Web do Python pode ser implementada usando o Django, com funções de trabalho do Python ou do C#. Você pode se comunicar facilmente entre as funções usando filas do Barramento de Serviço ou filas de armazenamento.
+Seu serviço de nuvem pode conter funções implementadas em diferentes idiomas.  Por exemplo, uma função Web do Python pode ser implementada usando o Django, com funções de trabalho do Python ou do C#.  Você pode se comunicar facilmente entre as funções usando filas do Barramento de Serviço ou filas de armazenamento.
 
-## Instalar o Python no serviço de nuvem
+## <a name="install-python-on-the-cloud-service"></a>Instalar o Python no serviço de nuvem
 
 >[AZURE.WARNING] Os scripts de instalação instalados com o Visual Studio (no momento em que este artigo foi atualizado pela última vez) não funcionam. Esta seção descreve uma solução alternativa.
 
@@ -87,7 +90,7 @@ Os scripts abaixo foram escritos para o Python 3.5. Se você quiser usar a vers�
       </Variable>
       <Variable name="PYTHON2" value="off" />
     </Environment>
-	
+    
   </Task>
 
 </Startup>
@@ -110,7 +113,7 @@ As variáveis **PYTHON2** e **PYPATH** precisam ser adicionadas à tarefa de ini
 </Runtime>
 ```
 
-#### ServiceDefinition.csdef de exemplo
+#### <a name="sample-servicedefinition.csdef"></a>ServiceDefinition.csdef de exemplo
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -162,7 +165,7 @@ As variáveis **PYTHON2** e **PYPATH** precisam ser adicionadas à tarefa de ini
 
 Em seguida, crie os arquivos **PrepPython.ps1** e **PipInstaller.ps1** na pasta **./bin** da sua função.
 
-#### PrepPython.ps1
+#### <a name="preppython.ps1"></a>PrepPython.ps1
 
 Esse script instala o python. Se a variável de ambiente **PYTHON2** estiver definida como **ativada**, o Python 2.7 será instalado; caso contrário, o Python 3.5 será instalado.
 
@@ -172,44 +175,44 @@ $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
 if (-not $is_emulated){
-	Write-Output "Checking if python is installed...$nl"
-	if ($is_python2) {
-		& "${env:SystemDrive}\Python27\python.exe"  -V | Out-Null
-	}
-	else {
-		py -V | Out-Null
-	}
+    Write-Output "Checking if python is installed...$nl"
+    if ($is_python2) {
+        & "${env:SystemDrive}\Python27\python.exe"  -V | Out-Null
+    }
+    else {
+        py -V | Out-Null
+    }
 
-	if (-not $?) {
+    if (-not $?) {
 
-		$url = "https://www.python.org/ftp/python/3.5.2/python-3.5.2-amd64.exe"
-		$outFile = "${env:TEMP}\python-3.5.2-amd64.exe"
+        $url = "https://www.python.org/ftp/python/3.5.2/python-3.5.2-amd64.exe"
+        $outFile = "${env:TEMP}\python-3.5.2-amd64.exe"
 
-		if ($is_python2) {
-			$url = "https://www.python.org/ftp/python/2.7.12/python-2.7.12.amd64.msi"
-			$outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
-		}
-		
-		Write-Output "Not found, downloading $url to $outFile$nl"
-		Invoke-WebRequest $url -OutFile $outFile
-		Write-Output "Installing$nl"
+        if ($is_python2) {
+            $url = "https://www.python.org/ftp/python/2.7.12/python-2.7.12.amd64.msi"
+            $outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
+        }
+        
+        Write-Output "Not found, downloading $url to $outFile$nl"
+        Invoke-WebRequest $url -OutFile $outFile
+        Write-Output "Installing$nl"
 
-		if ($is_python2) {
-			Start-Process msiexec.exe -ArgumentList "/q", "/i", "$outFile", "ALLUSERS=1" -Wait
-		}
-		else {
-			Start-Process "$outFile" -ArgumentList "/quiet", "InstallAllUsers=1" -Wait
-		}
+        if ($is_python2) {
+            Start-Process msiexec.exe -ArgumentList "/q", "/i", "$outFile", "ALLUSERS=1" -Wait
+        }
+        else {
+            Start-Process "$outFile" -ArgumentList "/quiet", "InstallAllUsers=1" -Wait
+        }
 
-		Write-Output "Done$nl"
-	}
-	else {
-		Write-Output "Already installed"
-	}
+        Write-Output "Done$nl"
+    }
+    else {
+        Write-Output "Already installed"
+    }
 }
 ```
 
-#### PipInstaller.ps1
+#### <a name="pipinstaller.ps1"></a>PipInstaller.ps1
 
 Esse script chama o pip e instala todas as dependências no arquivo **requirements.txt**. Se a variável de ambiente **PYTHON2** estiver definida como **ativada**, o Python 2.7 será usado; caso contrário, o Python 3.5 será usado.
 
@@ -219,30 +222,30 @@ $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
 if (-not $is_emulated){
-	Write-Output "Checking if requirements.txt exists$nl"
-	if (Test-Path ..\requirements.txt) {
-		Write-Output "Found. Processing pip$nl"
+    Write-Output "Checking if requirements.txt exists$nl"
+    if (Test-Path ..\requirements.txt) {
+        Write-Output "Found. Processing pip$nl"
 
-		if ($is_python2) {
-			& "${env:SystemDrive}\Python27\python.exe" -m pip install -r ..\requirements.txt
-		}
-		else {
-			py -m pip install -r ..\requirements.txt
-		}
+        if ($is_python2) {
+            & "${env:SystemDrive}\Python27\python.exe" -m pip install -r ..\requirements.txt
+        }
+        else {
+            py -m pip install -r ..\requirements.txt
+        }
 
-		Write-Output "Done$nl"
-	}
-	else {
-		Write-Output "Not found$nl"
-	}
+        Write-Output "Done$nl"
+    }
+    else {
+        Write-Output "Not found$nl"
+    }
 }
 ```
 
-#### Modificar LaunchWorker.ps1
+#### <a name="modify-launchworker.ps1"></a>Modificar LaunchWorker.ps1
 
->[AZURE.NOTE] No caso de um projeto de **função de trabalho**, o arquivo **LauncherWorker.ps1** é necessário para executar o arquivo de inicialização. Em um projeto de **função web**, o arquivo de inicialização é definido nas propriedades do projeto.
+>[AZURE.NOTE] No caso de um projeto de **função de trabalho**, o arquivo **LauncherWorker.ps1** é necessário para executar o arquivo de inicialização. Em um projeto de **função Web**, o arquivo de inicialização é definido nas propriedades do projeto.
 
-O **bin\\LaunchWorker.ps1** foi originalmente criado para grande parte do trabalho de preparação, mas ele não funciona. Substitua o conteúdo desse arquivo pelo script a seguir.
+O **bin\LaunchWorker.ps1** foi originalmente criado para grande parte do trabalho de preparação, mas ele não funciona. Substitua o conteúdo desse arquivo pelo script a seguir.
 
 Esse script chama o arquivo **worker.py** do seu projeto python. Se a variável de ambiente **PYTHON2** estiver definida como **ativada**, o Python 2.7 será usado; caso contrário, o Python 3.5 será usado.
 
@@ -253,37 +256,37 @@ $nl = [Environment]::NewLine
 
 if (-not $is_emulated)
 {
-	Write-Output "Running worker.py$nl"
+    Write-Output "Running worker.py$nl"
 
-	if ($is_python2) {
-		cd..
-		iex "$env:PYPATH\python.exe worker.py"
-	}
-	else {
-		cd..
-		iex "py worker.py"
-	}
+    if ($is_python2) {
+        cd..
+        iex "$env:PYPATH\python.exe worker.py"
+    }
+    else {
+        cd..
+        iex "py worker.py"
+    }
 }
 else
 {
-	Write-Output "Running (EMULATED) worker.py$nl"
+    Write-Output "Running (EMULATED) worker.py$nl"
 
-	# Customize to your local dev environment
+    # Customize to your local dev environment
 
-	if ($is_python2) {
-		cd..
-		iex "$env:PYPATH\python.exe worker.py"
-	}
-	else {
-		cd..
-		iex "py worker.py"
-	}
+    if ($is_python2) {
+        cd..
+        iex "$env:PYPATH\python.exe worker.py"
+    }
+    else {
+        cd..
+        iex "py worker.py"
+    }
 }
 ```
 
-#### ps.cmd
+#### <a name="ps.cmd"></a>ps.cmd
 
-Os modelos do Visual Studio devem ter criado um arquivo **ps.cmd** na pasta **./bin**. Esse script de shell chama os scripts do wrapper do PowerShell acima e fornece registros em log com base no nome do wrapper chamado pelo PowerShell. Se esse arquivo não tiver sido criado, veja qual deve ser seu conteúdo.
+Os modelos do Visual Studio devem ter criado um arquivo **ps.cmd** na pasta **./bin**. Esse script de shell chama os scripts do wrapper do PowerShell acima e fornece registros em log com base no nome do wrapper chamado pelo PowerShell. Se esse arquivo não tiver sido criado, veja qual deve ser seu conteúdo. 
 
 ```bat
 @echo off
@@ -296,17 +299,17 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 
 
-## Executar localmente
+## <a name="run-locally"></a>Executar localmente
 
 Se você configurar seu projeto de serviço de nuvem como o projeto de inicialização e pressionar F5, o serviço de nuvem será executado no emulador do Azure local.
 
 Embora o PTVS ofereça suporte à inicialização no emulador, a depuração (por exemplo, pontos de interrupção) não funcionará.
 
-Para depurar suas funções Web e de Trabalho, você pode configurar o projeto de funções como o projeto de inicialização e depurá-lo. Você também pode definir vários projetos de inicialização. Clique com o botão direito do mouse na solução e selecione **Definir Projetos de Inicialização**.
+Para depurar suas funções Web e de Trabalho, você pode configurar o projeto de funções como o projeto de inicialização e depurá-lo.  Você também pode definir vários projetos de inicialização.  Clique com o botão direito do mouse na solução e selecione **Definir Projetos de Inicialização**.
 
 ![Propriedades do projeto de inicialização da solução](./media/cloud-services-python-ptvs/startup.png)
 
-## Publicar no Azure
+## <a name="publish-to-azure"></a>Publicar no Azure
 
 Para publicar, clique com o botão direito do mouse no projeto de serviço de nuvem na solução e selecione **Publicar**.
 
@@ -322,15 +325,15 @@ Algum progresso aparecerá na janela de saída e, então, você verá a janela L
 
 A implantação levará alguns minutos para ser concluída; em seguida, suas funções Web e/ou de Trabalho serão executadas no Azure!
 
-### Investigar os logs
+### <a name="investigate-logs"></a>Investigar os logs
 
-Depois que a máquina virtual do serviço de nuvem for iniciada e instalar o Python, você poderá examinar os logs para encontrar alguma mensagem de falha. Esses logs estão localizados na pasta **C:\\Resources\\Directory{função}\\LogFiles**. **PrepPython.err.txt** terá pelo menos um erro de quando o script tenta detectar se o Python está instalado e **PipInstaller.err.txt** pode reclamar sobre uma versão desatualizada do pip.
+Depois que a máquina virtual do serviço de nuvem for iniciada e instalar o Python, você poderá examinar os logs para encontrar alguma mensagem de falha. Esses logs estão localizados na pasta **C:\Resources\Directory\{função}\LogFiles**. **PrepPython.err.txt** terá pelo menos um erro de quando o script tenta detectar se o Python está instalado e **PipInstaller.err.txt** pode reclamar sobre uma versão desatualizada do pip.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter informações mais detalhadas sobre como usar funções Web e de trabalho nas Ferramentas Python para Visual Studio, consulte a documentação do PTVS:
 
-- [Projetos do serviço de nuvem][]
+- [Projetos do Serviço de Nuvem][]
 
 Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funções Web e de trabalho, como o uso do Armazenamento ou Barramento de Serviço do Azure, consulte os artigos a seguir.
 
@@ -338,33 +341,36 @@ Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funçõ
 - [Serviço Tabela][]
 - [Serviço Fila][]
 - [Filas do Barramento de Serviço][]
-- [Tópicos do Service Bus][]
+- [Tópicos do Barramento de Serviço][]
 
 
 <!--Link references-->
 
 [O que é um Serviço de Nuvem?]: cloud-services-choose-me.md
-[execution model-web sites]: ../app-service-web/app-service-web-overview.md
-[execution model-vms]: ../virtual-machines/virtual-machines-windows-about.md
-[execution model-cloud services]: cloud-services-choose-me.md
+[modelo de execução-sites]: ../app-service-web/app-service-web-overview.md
+[modelo de execução-vms]: ../virtual-machines/virtual-machines-windows-about.md
+[modelo de execução-serviços de nuvem]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
 [Serviço Blob]: ../storage/storage-python-how-to-use-blob-storage.md
 [Serviço Fila]: ../storage/storage-python-how-to-use-queue-storage.md
 [Serviço Tabela]: ../storage/storage-python-how-to-use-table-storage.md
-[Filas do Barramento de Serviço]: ../service-bus/service-bus-python-how-to-use-queues.md
-[Tópicos do Service Bus]: ../service-bus/service-bus-python-how-to-use-topics-subscriptions.md
+[Filas do Barramento de Serviço]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Tópicos do Barramento de Serviço]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
 
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Ferramentas Python para Visual Studio]: http://aka.ms/ptvs
-[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Python Tools para Visual Studio]: http://aka.ms/ptvs
+[Ferramentas Python para documentação do Visual Studio]: http://aka.ms/ptvsdocs
 [Projetos do serviço de nuvem]: http://go.microsoft.com/fwlink/?LinkId=624028
-[Azure Ferramentas SDK para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure Ferramentas SDK para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Ferramentas do SDK do Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Ferramentas do SDK do Azure para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 de 32 bits]: https://www.python.org/downloads/
 [Python 3.5 de 32 bits]: https://www.python.org/downloads/
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

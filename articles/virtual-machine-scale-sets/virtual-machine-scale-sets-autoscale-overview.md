@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Dimensionamento automático e conjuntos de dimensionamento da máquina virtual | Microsoft Azure"
-	description="Saiba como usar os recursos de diagnóstico e dimensionamento automático para dimensionar automaticamente as máquinas virtuais em um conjunto de dimensionamento."
+    pageTitle="Dimensionamento automático e conjuntos de dimensionamento da máquina virtual | Microsoft Azure"
+    description="Saiba como usar os recursos de diagnóstico e dimensionamento automático para dimensionar automaticamente as máquinas virtuais em um conjunto de dimensionamento."
     services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    documentationCenter=""
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="davidmu"/>
 
-# Dimensionamento automático e conjuntos de dimensionamento da máquina virtual
+
+# <a name="automatic-scaling-and-virtual-machine-scale-sets"></a>Dimensionamento automático e conjuntos de dimensionamento da máquina virtual
 
 O dimensionamento automático de máquinas virtuais em um conjunto de escala é a criação ou exclusão de máquinas no conjunto conforme for necessário para atender a necessidades de desempenho. À medida que o volume de trabalho cresce, um aplicativo pode exigir recursos adicionais para poder realizar suas tarefas no tempo adequado.
 
@@ -25,7 +26,7 @@ O dimensionamento automático é um processo automatizado que ajuda a facilitar 
 
 Configure o dimensionamento automático em um conjunto de escala usando um modelo do Azure Resource Manager, o Azure PowerShell ou a CLI do Azure.
 
-## Configure o dimensionamento usando modelos do Resource Manager
+## <a name="set-up-scaling-by-using-resource-manager-templates"></a>Configure o dimensionamento usando modelos do Resource Manager
 
 Em vez de implantar e gerenciar cada recurso do seu aplicativo separadamente, use um modelo que implanta todos os recursos em uma única operação coordenada. No modelo, os recursos do aplicativo são definidos e os parâmetros de implantação são especificados para ambientes diferentes. O modelo consiste em JSON e expressões que podem ser usados na criação de valores para sua implantação. Para saber mais, consulte [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md).
 
@@ -41,19 +42,19 @@ A capacidade identifica o número de máquinas virtuais no conjunto. Você pode 
 
 Altere automaticamente a capacidade de seu conjunto de escala usando a combinação do recurso autoscaleSettings e a extensão de diagnóstico.
 
-### Configurar a extensão do Diagnóstico do Azure
+### <a name="configure-the-azure-diagnostics-extension"></a>Configurar a extensão do Diagnóstico do Azure
 
 O dimensionamento automático só poderá ser feito se a coleta de métricas for bem-sucedida em cada máquina virtual do conjunto de escala. A Extensão de Diagnóstico do Azure fornece os recursos de monitoramento e diagnóstico para atender às necessidades de coleta de métricas do recurso de dimensionamento automático. Você pode instalar a extensão como parte do modelo do Resource Manager.
 
 Este exemplo mostra as variáveis que são usadas no modelo para configurar a extensão de diagnóstico:
 
-	"diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
-	"accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/', 'Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
-	"wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
-	"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\Thread Count" sampleRate="PT15S" unit="Percent"><annotation displayName="Thread Count" locale="pt-BR"/></PerformanceCounterConfiguration></PerformanceCounters>",
-	"wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
-	"wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
-	"wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
+    "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
+    "accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/', 'Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
+    "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
+    "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod=\"PT1M\"><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\Thread Count\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"Thread Count\" locale=\"en-us\"/></PerformanceCounterConfiguration></PerformanceCounters>",
+    "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId=\"')]",
+    "wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
+    "wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
 
 Parâmetros são fornecidos quando o modelo é implantado. Neste exemplo, o nome da conta de armazenamento na qual os dados são armazenados e o nome do conjunto de escala do qual os dados são coletados. Também neste exemplo do Windows Server, somente o contador de desempenho Contagem de threads é coletado. Todos os contadores de desempenho disponíveis no Windows ou Linux podem ser usados para coletar informações de diagnóstico e podem ser incluídos na configuração da extensão.
 
@@ -86,7 +87,7 @@ Quando a extensão de diagnóstico é executada, os dados são coletados em uma 
 
 ![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)
 
-### Configurar o recurso autoScaleSettings
+### <a name="configure-the-autoscalesettings-resource"></a>Configurar o recurso autoScaleSettings
 
 O recurso autoscaleSettings usa as informações da extensão de diagnóstico para decidir se deve aumentar ou diminuir o número de máquinas virtuais no conjunto de escala.
 
@@ -159,7 +160,7 @@ Este exemplo mostra a configuração do recurso no modelo:
 
 No exemplo acima, são criadas duas regras para definir as ações de dimensionamento automático. A primeira regra define a ação de escala horizontal e a segunda regra define a de redução horizontal. Esses valores são fornecidos nas regras:
 
-- **metricName** – este valor é igual ao contador de desempenho que você definiu na variável wadperfcounter para a extensão de diagnóstico. No exemplo acima, usamos o contador Contagem de Threads.
+- **metricName** – este valor é igual ao contador de desempenho que você definiu na variável wadperfcounter para a extensão de diagnóstico. No exemplo acima, usamos o contador Contagem de Threads.  
 - **metricResourceUri** – Este valor é o identificador de recurso do conjunto de escala de máquina virtual. Esse identificador contém o nome do grupo de recursos, o nome do provedor de recursos e o nome do conjunto de escala a ser dimensionado.
 - **timeGrain** – Este valor é a granularidade das métricas que são coletadas. No exemplo anterior, os dados são coletados em um intervalo de um minuto. Esse valor é usado em conjunto com timeWindow.
 - **statistic** – Este valor determina como as métricas são combinadas para acomodar a ação de dimensionamento automático. Os valores possíveis são: Média, Mín, Máx.
@@ -196,15 +197,15 @@ E uma máquina virtual é adicionada ao conjunto de escala:
 
 Após um período de resfriamento de cinco minutos, se o número médio de threads nas máquinas permanecer acima de 600, outra máquina será adicionada ao conjunto. Se a contagem de threads média permanecer abaixo 550, a capacidade do conjunto de escala será reduzida em um e uma máquina será removida do conjunto.
 
-## Configurar o dimensionamento usando o Azure PowerShell
+## <a name="set-up-scaling-using-azure-powershell"></a>Configurar o dimensionamento usando o Azure PowerShell
 
 Para ver exemplos de uso do PowerShell para configurar o dimensionamento automático, consulte [Exemplos de início rápido do PowerShell do Azure Insights](../azure-portal/insights-powershell-samples.md).
 
-## Configurar o dimensionamento usando a CLI do Azure
+## <a name="set-up-scaling-using-azure-cli"></a>Configurar o dimensionamento usando a CLI do Azure
 
 Para ver exemplos de uso da CLI do Azure para configurar o dimensionamento automático, consulte [Exemplos de início rápido da CLI entre plataformas do Azure Insights](../azure-portal/insights-cli-samples.md).
 
-## Investigar ações de dimensionamento
+## <a name="investigate-scaling-actions"></a>Investigar ações de dimensionamento
 
 - [Portal do Azure]() - Atualmente, você pode obter uma quantidade limitada de informações usando o portal.
 - [Gerenciador de Recursos do Azure]() – esta é a melhor ferramenta para explorar o estado atual do conjunto de escala. Siga este caminho e você deverá ver a exibição da instância do conjunto de dimensionamento criado: assinaturas > {sua assinatura} > resourceGroups > {seu grupo de recursos} > provedores > Microsoft.Compute > virtualMachineScaleSets > {seu conjunto de dimensionamento} > virtualMachines
@@ -215,7 +216,7 @@ Para ver exemplos de uso da CLI do Azure para configurar o dimensionamento autom
         
 - Conecte-se à máquina virtual de jumpbox exatamente como faria com qualquer outra máquina e, em seguida, você pode acessar remotamente as máquinas virtuais no conjunto de dimensionamento para monitorar os processos individuais.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - Veja [Dimensionar automaticamente as máquinas em um Conjunto de Dimensionamento da Máquina Virtual](virtual-machine-scale-sets-windows-autoscale.md) para ter um exemplo de como criar um conjunto de dimensionamento com o dimensionamento automático configurado.
 - Encontre exemplos de recursos de monitoramento do Azure Insights nos [exemplos de início rápido do PowerShell do Azure Insights](../azure-portal/insights-powershell-samples.md)
@@ -223,4 +224,8 @@ Para ver exemplos de uso da CLI do Azure para configurar o dimensionamento autom
 - Saiba como [Usar logs de auditoria para enviar notificações de alerta por email e webhook no Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
 - Saiba mais sobre [Cenários de dimensionamento automático avançado](./virtual-machine-scale-sets-advanced-autoscale.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

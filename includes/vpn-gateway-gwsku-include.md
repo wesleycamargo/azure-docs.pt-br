@@ -6,4 +6,13 @@ O Gateway de VPN pode usar os SKUs a seguir:
 - Standard
 - HighPerformance
 
-<!---HONumber=AcomDC_0928_2016-->
+Ao selecionar uma SKU, considere as seguintes limitações:
+
+- Se quiser usar um tipo PolicyBased VPN, você deverá usar a SKU de gateway Básica. VPNs PolicyBased (anteriormente chamadas de Roteamento Estático) não têm suporte em qualquer outro tipo de SKU.
+- BGP não tem suporte na SKU Básica.
+- Configurações de coexistência de ExpressRoute-Gateway de VPN não têm suporte na SKU Básica.
+
+
+<!--HONumber=Oct16_HO2-->
+
+

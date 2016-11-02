@@ -1,62 +1,63 @@
 <properties
-	pageTitle="Limitações do Stretch Database | Microsoft Azure"
-	description="Saiba mais sobre as limitações do Stretch Database."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+    pageTitle="Limitations for Stretch Database | Microsoft Azure"
+    description="Learn about limitations for Stretch Database."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="douglaslMS"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="douglasl"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/26/2016"
+    ms.author="anvang"/>
 
-# Limitações do Stretch Database
 
-Saiba mais sobre as limitações para tabelas habilitadas para o Stretch e sobre as limitações que no momento impedem você de habilitar o Stretch para uma tabela.
+# <a name="limitations-for-stretch-database"></a>Limitations for Stretch Database
 
-##  <a name="Caveats"></a> Limitações para tabelas habilitadas para o Stretch
+Learn about limitations for Stretch\-enabled tables, and about limitations that currently prevent you from enabling Stretch for a table.
 
-As tabelas habilitadas para o Stretch têm as limitações a seguir.
+##  <a name="<a-name="caveats"></a>-limitations-for-stretch\-enabled-tables"></a><a name="Caveats"></a> Limitations for Stretch\-enabled tables
 
-### Restrições
+Stretch\-enabled tables have the following limitations.
 
--   A exclusividade não é imposta para as restrições UNIQUE e as restrições PRIMARY KEY na tabela do Azure que contém os dados migrados.
+### <a name="constraints"></a>Constraints
 
-### Operações DML
+-   Uniqueness is not enforced for UNIQUE constraints and PRIMARY KEY constraints in the Azure table that contains the migrated data.
 
--   Não é possível ATUALIZAR ou EXCLUIR as linhas que foram migradas ou linhas elegíveis para migração em uma tabela habilitada para o Stretch ou em uma exibição que inclua tabelas habilitadas para o Stretch.
+### <a name="dml-operations"></a>DML operations
 
--   Você não pode inserir linhas com INSERT em uma tabela habilitada para Stretch em um servidor vinculado.
+-   You can't UPDATE or DELETE rows that have been migrated, or rows that are eligible for migration, in a Stretch\-enabled table or in a view that includes Stretch\-enabled tables.
 
-### Índices
+-   You can't INSERT rows into a Stretch\-enabled table on a linked server.
 
--   Não é possível criar um índice para uma exibição que inclui tabelas habilitadas para Stretch.
+### <a name="indexes"></a>Indexes
 
--   Os filtros nos índices do SQL Server não são propagados para a tabela remota.
+-   You can't create an index for a view that includes Stretch\-enabled tables.
 
-##  <a name="Limitations"></a> As limitações que atualmente impedem você de habilitar o Stretch para uma tabela
+-   Filters on SQL Server indexes are not propagated to the remote table.
 
-Os itens a seguir atualmente impedem você de habilitar o Stretch para uma tabela.
+##  <a name="<a-name="limitations"></a>-limitations-that-currently-prevent-you-from-enabling-stretch-for-a-table"></a><a name="Limitations"></a> Limitations that currently prevent you from enabling Stretch for a table
 
-### Propriedades de tabela
+The following items currently prevent you from enabling Stretch for a table.
 
--   Tabelas com mais de 1.023 colunas ou com mais de 998 índices
+### <a name="table-properties"></a>Table properties
 
--   FileTables ou tabelas com dados FILESTREAM
+-   Tables that have more than 1,023 columns or more than 998 indexes
 
--   Tabelas replicadas ou que estejam usando ativamente o Controle de Alterações ou a Captura de Alteração de Dados
+-   FileTables or tables that contain FILESTREAM data
 
--   Tabelas com otimização de memória
+-   Tables that are replicated, or that are actively using Change Tracking or Change Data Capture
 
-### Tipos de dados
+-   Memory\-optimized tables
 
--   texto, ntexto e imagem
+### <a name="data-types"></a>Data types
+
+-   text, ntext and image
 
 -   timestamp
 
@@ -64,36 +65,40 @@ Os itens a seguir atualmente impedem você de habilitar o Stretch para uma tabel
 
 -   XML
 
--   Tipos de dados CLR, incluindo geometria, geografia, hierarchyid e tipos CLR definidos pelo usuário
+-   CLR data types including geometry, geography, hierarchyid, and CLR user\-defined types
 
-### Tipos de coluna
+### <a name="column-types"></a>Column types
 
 -   COLUMN\_SET
 
--   Colunas computadas
+-   Computed columns
 
-### Restrições
+### <a name="constraints"></a>Constraints
 
--   Restrições padrão e restrições de verificação
+-   Default constraints and check constraints
 
--   Restrições de chave estrangeira que fazem referência à tabela. Em uma relação pai-filho (por exemplo, Order e Order\_Detail), você pode habilitar o Stretch para a tabela filho (Order\_Detail), mas não para a tabela pai (Order).
+-   Foreign key constraints that reference the table. In a parent\-child relationship \(for example, Order and Order\_Detail\), you can enable Stretch for the child table \(Order\_Detail\) but not for the parent table \(Order\).
 
-### Índices
+### <a name="indexes"></a>Indexes
 
--   Índices de texto completo
+-   Full text indexes
 
--   Índices XML
+-   XML indexes
 
--   Índices espaciais
+-   Spatial indexes
 
--   Exibições indexadas que fazem referência à tabela
+-   Indexed views that reference the table
 
-## Consulte também
+## <a name="see-also"></a>See also
 
-[Identificar bancos de dados e tabelas do Banco de Dados de Stretch executando o Supervisor do Banco de Dados de Stretch](sql-server-stretch-database-identify-databases.md)
+[Identify databases and tables for Stretch Database by running Stretch Database Advisor](sql-server-stretch-database-identify-databases.md)
 
-[Habilitar o Banco de Dados de Stretch para um banco de dados](sql-server-stretch-database-enable-database.md)
+[Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
 
-[Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md)
+[Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,21 +1,22 @@
 <properties 
-	pageTitle="Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java" 
-	description="Monitoramento estendido do seu site Java com o Application Insights" 
-	services="application-insights" 
+    pageTitle="Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java" 
+    description="Monitoramento estendido do seu site Java com o Application Insights" 
+    services="application-insights" 
     documentationCenter="java"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/24/2016" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/24/2016" 
+    ms.author="awills"/>
  
-# Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java
+
+# <a name="monitor-dependencies,-exceptions-and-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java
 
 *O Application Insights está em modo de visualização.*
 
@@ -24,16 +25,16 @@ Se você [instrumentou seu aplicativo Web em Java com o Application Insights][ja
 
 * **Dependências:** dados sobre chamadas de seu aplicativo a outros componentes, incluindo:
  * **Chamadas REST** feitas por meio de HttpClient, OkHttp e RestTemplate (Spring).
- * Chamadas **Redis** feitas por meio do cliente Jedis. Se a chamada demorar mais de 10 segundos, o agente também buscará os argumentos da chamada.
- * **[Chamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** – MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB ou Apache Derby DB. Há suporte para chamadas “executeBatch”. Para MySQL e PostgreSQL, se a chamada levar mais de 10 segundos, o agente relatará o plano de consulta.
+ * **Redis** feitas por meio do cliente Jedis. Se a chamada demorar mais de 10 segundos, o agente também buscará os argumentos da chamada.
+ * **[Chamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** – MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB ou Apache Derby DB. Há suporte para chamadas “executeBatch”. Para MySQL e PostgreSQL, se a chamada levar mais de 10 segundos, o agente relatará o plano de consulta. 
 * **Exceções capturadas:** dados sobre exceções que são manipuladas pelo código.
 * **Tempo de execução do método:** dados sobre o tempo necessário para executar métodos específicos.
 
 Para usar o agente Java, instale-o no servidor. Seus aplicativos Web devem ser instrumentados com o [SDK do Java do Application Insights][java].
 
-## Instalar o agente do Application Insights para Java
+## <a name="install-the-application-insights-agent-for-java"></a>Instalar o agente do Application Insights para Java
 
-1. No computador que está executando o servidor Java, [baixe o agente](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html).
+1. No computador que está executando o servidor Java, [baixe o agente](https://aka.ms/aijavasdk).
 2. Edite o script de inicialização do servidor de aplicativos e adicione a seguinte JVM:
 
     `javaagent:`*caminho completo para o arquivo JAR do agente*
@@ -45,11 +46,11 @@ Para usar o agente Java, instale-o no servidor. Seus aplicativos Web devem ser i
 
 3. Reinicie o servidor de aplicativos.
 
-## Configurar o agente
+## <a name="configure-the-agent"></a>Configurar o agente
 
 Crie um arquivo chamado `AI-Agent.xml` e coloque-o na mesma pasta que o arquivo JAR do agente.
 
-Defina o conteúdo do arquivo xml. Edite o exemplo a seguir para incluir ou omitir os recursos desejados.
+Defina o conteúdo do arquivo xml. Edite o exemplo a seguir para incluir ou omitir os recursos desejados. 
 
 ```XML
 
@@ -92,17 +93,17 @@ Você precisa habilitar a exceção de relatórios e o tempo de método para mé
 
 Por padrão, `reportExecutionTime` é true e `reportCaughtExceptions` é false.
 
-## Exibir os dados
+## <a name="view-the-data"></a>Exibir os dados
 
-No recurso do Application Insights, a dependência remota e os tempos de execução do método agregados aparecem [no bloco Desempenho][metrics].
+No recurso do Application Insights, a dependência remota e os tempos de execução do método agregados aparecem [no bloco Desempenho][métricas]. 
 
-Para procurar instâncias individuais de dependência, exceções e relatórios de método, abra [Pesquisar][diagnostic].
+Para procurar instâncias individuais de dependência, exceções e relatórios de método, abra [Pesquisar][diagnóstico]. 
 
 [Diagnosticando problemas de dependência – Saiba mais](app-insights-dependencies.md#diagnosis).
 
 
 
-## Perguntas? Problemas?
+## <a name="questions?-problems?"></a>Perguntas? Problemas?
 
 * Não há dados? [Definir exceções de firewall](app-insights-ip-addresses.md)
 * [Solucionar problemas de Java](app-insights-java-troubleshoot.md)
@@ -123,4 +124,8 @@ Para procurar instâncias individuais de dependência, exceções e relatórios 
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

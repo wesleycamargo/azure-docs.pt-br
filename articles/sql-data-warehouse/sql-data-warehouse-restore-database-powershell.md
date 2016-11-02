@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="Lakshmi1812"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/21/2016"
-   ms.author="lakshmir;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="lakshmir;barbkess"/>
 
-# Restaurar um Azure SQL Data Warehouse (PowerShell)
+
+# <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Restaurar um Azure SQL Data Warehouse (PowerShell)
 
 > [AZURE.SELECTOR]
 - [Visão geral][]
@@ -26,15 +27,15 @@
 
 Neste artigo, você aprenderá como restaurar um Azure SQL Data Warehouse usando o PowerShell.
 
-## Antes de começar
+## <a name="before-you-begin"></a>Antes de começar
 
-**Verifique sua capacidade de DTU.** Cada SQL Data Warehouse é hospedado por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão. Antes de restaurar um SQL Data Warehouse, verifique se o SQL Server tem cota de DTU suficiente restante para o banco de dados que está sendo restaurado. Para saber como calcular a DTU necessária ou para solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU][].
+**Verifique sua capacidade de DTU.**  Cada SQL Data Warehouse é hospedado por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão.  Antes de restaurar um SQL Data Warehouse, verifique se o SQL Server tem cota de DTU suficiente restante para o banco de dados que está sendo restaurado. Para saber como calcular a DTU necessária ou para solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU][].
 
-### Instalar o PowerShell
+### <a name="install-powershell"></a>Instalar o PowerShell
 
-Para usar o Azure PowerShell com o SQL Data Warehouse, você precisará instalar a versão 1.0 ou superior do Azure PowerShell. Você pode verificar a versão executando **Get-Module -ListAvailable -Name AzureRM**. A versão mais recente pode ser instalada pelo [Microsoft Web Platform Installer][]. Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][].
+Para usar o Azure PowerShell com o SQL Data Warehouse, você precisará instalar a versão 1.0 ou superior do Azure PowerShell.  Você pode verificar a versão executando **Get-Module -ListAvailable -Name AzureRM**.  A versão mais recente pode ser instalada pelo [Microsoft Web Platform Installer][].  Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][].
 
-## Restaurar um banco de dados ativo ou pausado
+## <a name="restore-an-active-or-paused-database"></a>Restaurar um banco de dados ativo ou pausado
 
 Para restaurar um banco de dados por meio de um instantâneo, use o cmdlet [Restore-AzureRmSqlDatabase][] do PowerShell.
 
@@ -81,9 +82,9 @@ $RestoredDatabase.status
 >[AZURE.NOTE] Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo [Configurar o banco de dados após a recuperação][].
 
 
-## Restaurar um banco de dados excluído
+## <a name="restore-a-deleted-database"></a>Restaurar um banco de dados excluído
 
-Para restaurar um banco de dados excluído, use o cmdlet [Restore-AzureRmSqlDatabase][].
+Para restaurar um banco de dados excluído, use o cmdlet [Restore-AzureRmSqlDatabase][] .
 
 1. Abra o Windows PowerShell.
 2. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
@@ -116,9 +117,9 @@ $RestoredDatabase.status
 >[AZURE.NOTE] Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo [Configurar o banco de dados após a recuperação][].
 
 
-## Restaurar por meio de uma região geográfica do Azure
+## <a name="restore-from-an-azure-geographical-region"></a>Restaurar por meio de uma região geográfica do Azure
 
-Para recuperar um banco de dados, use o cmdlet [Restore-AzureRmSqlDatabase][].
+Para recuperar um banco de dados, use o cmdlet [Restore-AzureRmSqlDatabase][] .
 
 1. Abra o Windows PowerShell.
 2. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
@@ -142,13 +143,13 @@ $GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGrou
 $GeoRestoredDatabase.status
 ```
 
->[AZURE.NOTE] Para configurar o banco de dados após a conclusão da restauração, consulte [Configurar o banco de dados após a recuperação][].
+>[AZURE.NOTE] Para configurar o banco de dados após a conclusão da restauração, consulte [Configurar o banco de dados após a recuperação][]. 
 
 
 O banco de dados recuperado será habilitado para TDE se o banco de dados de origem for habilitado para TDE.
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre os recursos de continuidade dos negócios das edições do Banco de Dados SQL do Azure, leia a [Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure][].
 
 <!--Image references-->
@@ -156,7 +157,7 @@ Para saber mais sobre os recursos de continuidade dos negócios das edições do
 <!--Article references-->
 [Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure]: sql-database-business-continuity.md
 [Solicitar uma alteração de cota de DTU]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
-[Configure your database after recovery]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
+[Configurar o banco de dados após a recuperação]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [Como instalar e configurar o Azure PowerShell]: powershell-install-configure.md
 [Visão geral]: ./sql-data-warehouse-restore-database-overview.md
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
@@ -168,7 +169,11 @@ Para saber mais sobre os recursos de continuidade dos negócios das edições do
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
 <!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

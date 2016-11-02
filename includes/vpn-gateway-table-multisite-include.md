@@ -1,9 +1,9 @@
-Você pode configurar uma conexão entre sua rede virtual e vários sites locais. Consulte a tabela abaixo para obter mais informações. Podemos atualizar esta tabela conforme os novos artigos, novos modelos de implantação e ferramentas adicionais ficam disponíveis para esta configuração. Quando um artigo estiver disponível, o vincularemos diretamente da tabela.
+|**Método/modelo de implantação**| **Portal do Azure** | **Portal clássico** | **PowerShell**|
+|---|---|---|---|
+| **Gerenciador de Recursos**      |[Artigo](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)| Sem suporte | Suportado|
+| **Clássico** | Sem suporte | Sem suporte | [Artigo](vpn-gateway-multi-site.md) | 
+ 
 
-| | **Implantação Clássica** | **Implantação do Gerenciador de Recursos** |
-|-----------------------------------------|-------------|---------------------|
-| **Portal clássico** | Sem suporte | Sem suporte |
-| **Portal do Azure** | Sem suporte | Sem suporte |
-| **PowerShell** | [Artigo](../articles/vpn-gateway/vpn-gateway-multi-site.md) | Sim |
+<!--HONumber=Oct16_HO2-->
 
-<!---HONumber=AcomDC_0224_2016-->
+

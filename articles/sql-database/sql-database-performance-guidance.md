@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Banco de Dados SQL do Azure de desempenho para bancos de dados únicos | Microsoft Azure"
-	description="Este artigo pode ajudar você a escolher a camada de serviço para seu aplicativo. Nele, também recomendamos formas de ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure."
-	services="sql-database"
-	documentationCenter="na"
-	authors="CarlRabeler"
-	manager="jhubbard"
-	editor="" />
+    pageTitle="Banco de Dados SQL do Azure de desempenho para bancos de dados únicos | Microsoft Azure"
+    description="Este artigo pode ajudar você a escolher a camada de serviço para seu aplicativo. Nele, também recomendamos formas de ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure."
+    services="sql-database"
+    documentationCenter="na"
+    authors="CarlRabeler"
+    manager="jhubbard"
+    editor="" />
 
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="09/13/2016"
-	ms.author="carlrab" />
+    ms.service="sql-database"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="data-management"
+    ms.date="09/13/2016"
+    ms.author="carlrab" />
 
-# Banco de Dados SQL do Azure e desempenho para bancos de dados únicos
+
+# <a name="azure-sql-database-and-performance-for-single-databases"></a>Banco de Dados SQL do Azure e desempenho para bancos de dados únicos
 
 O Banco de Dados SQL do Azure oferece três [camadas de serviço](sql-database-service-tiers.md): Básica, Standard e Premium. Cada camada de serviço isola os recursos que o banco de dados SQL pode usar e garante um desempenho previsível para o nível de serviço em questão. Neste artigo, oferecemos orientações que podem ajudá-lo a escolher a camada de serviço para seu aplicativo. Também abordamos de que formas você pode ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure.
 
@@ -31,22 +32,22 @@ Estas são as três camadas de serviço do Banco de Dados SQL do Azure entre as 
 
 Em cada camada de serviço, você define o nível de desempenho, de modo que você tem a flexibilidade de pagar apenas pela capacidade de que precisa. Você pode [ajustar a capacidade](sql-database-scale-up.md), aumentando ou reduzindo-a, conforme a carga de trabalho mudar. Por exemplo, se a carga de trabalho do banco de dados for intensa durante a temporada de compras de volta às aulas, você poderá aumentar o nível de desempenho do banco de dados durante um período definido, de julho a setembro. Você pode reduzi-lo quando sua temporada de pico terminar. Você pode minimizar o que pagará otimizando seu ambiente de nuvem para a periodicidade dos seus negócios. Esse modelo também funciona bem para ciclos de lançamento de produto de software. Uma equipe de teste pode alocar capacidade ao executar testes e liberar essa capacidade quando os testes forem concluídos. Em um modelo de solicitação de capacidade, você paga pela capacidade conforme precisa dela e evita gastos com recursos dedicados que raramente são usados.
 
-## Por que usar camadas de serviço?
+## <a name="why-service-tiers?"></a>Por que usar camadas de serviço?
 
 Embora cada carga de trabalho de banco de dados possa ser diferente, a finalidade das camadas de serviço é fornecer previsibilidade de desempenho em vários níveis de desempenho. Clientes com requisitos de recursos de bancos de dados de grande escala podem trabalhar em um ambiente de computação mais dedicado.
 
-### Casos de uso comuns das camadas de serviço
+### <a name="common-service-tier-use-cases"></a>Casos de uso comuns das camadas de serviço
 
-#### Basic
+#### <a name="basic"></a>Básica
 
 - **Você está apenas começando a usar o Banco de Dados SQL do Azure**. Aplicativos que estão em desenvolvimento normalmente não precisam de altos níveis de desempenho. Os bancos de dados Básico são um ambiente ideal de desenvolvimento de banco de dados por uma faixa de preço reduzida.
 - **Você tem um banco de dados com um único usuário**. Aplicativos que associam um único usuário a um banco de dados normalmente não têm requisitos altos em termos de simultaneidade e desempenho. Esses aplicativos são candidatos à camada de serviço Básica.
 
-#### Standard
+#### <a name="standard"></a>Standard
 
 - **Seu banco de dados tem várias solicitações simultâneas**. Aplicativos que atendem mais de um usuário por vez normalmente precisam de níveis de desempenho mais altos. Por exemplo, sites que recebem tráfego moderado ou aplicativos departamentais que exigem mais recursos são bons candidatos para a camada de serviço Standard.
 
-#### Premium
+#### <a name="premium"></a>Premium
 
 A maioria dos casos de uso da camada de serviço Premium tem uma ou mais destas características:
 
@@ -56,36 +57,36 @@ A maioria dos casos de uso da camada de serviço Premium tem uma ou mais destas 
 
 O nível de serviço necessário para seu banco de dados SQL depende dos requisitos de carga de pico para cada dimensão de recurso. Alguns aplicativos usam quantidades comuns de um recurso, mas têm requisitos significativos para outros recursos.
 
-## Limites e recursos da camada de serviço
+## <a name="service-tier-capabilities-and-limits"></a>Limites e recursos da camada de serviço
 Cada camada de serviço e nível de desempenho é associado a limites e características de desempenho diferentes. Esta tabela descreve essas características de um banco de dados individual.
 
-[AZURE.INCLUDE [Tabela de camadas de serviço do Banco de Dados SQL](../../includes/sql-database-service-tiers-table.md)]
+[AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 As seções a seguir trazem mais informações sobre como ver o uso relacionado a esses limites.
 
-### Armazenamento OLTP in-memory máximo
+### <a name="maximum-in-memory-oltp-storage"></a>Armazenamento OLTP in-memory máximo
 
-Você pode usar a exibição **sys.dm\_db\_resource\_stats** para monitorar o uso de armazenamento do Azure na memória. Para obter mais informações sobre o monitoramento, consulte [Monitorar o armazenamento OLTP na memória](sql-database-in-memory-oltp-monitoring.md).
+Você pode usar a exibição **sys.dm_db_resource_stats** para monitorar o uso de armazenamento do Azure na memória. Para obter mais informações sobre o monitoramento, consulte [Monitorar o armazenamento OLTP na memória](sql-database-in-memory-oltp-monitoring.md).
 
 >[AZURE.NOTE] Atualmente, a visualização de OLTP (transação online) do Azure na memória tem suporte apenas para bancos de dados individuais. Você não pode usá-la em bancos de dados em pools de bancos de dados elásticos.
 
-### Máximo de solicitações simultâneas
+### <a name="maximum-concurrent-requests"></a>Máximo de solicitações simultâneas
 
 Para ver o número de solicitações simultâneas, execute esta consulta Transact-SQL em seu banco de dados SQL:
 
-	SELECT COUNT(*) AS [Concurrent_Requests]
-	FROM sys.dm_exec_requests R
+    SELECT COUNT(*) AS [Concurrent_Requests]
+    FROM sys.dm_exec_requests R
 
 Para analisar a carga de trabalho de um banco de dados local do SQL Server, modifique a consulta a fim de filtrar o banco de dados específico que você deseja analisar. Por exemplo, se você tiver um banco de dados local chamado MyDatabase, esta consulta Transact-SQL retornará a contagem de solicitações simultâneas nesse banco de dados:
 
-	SELECT COUNT(*) AS [Concurrent_Requests]
-	FROM sys.dm_exec_requests R
-	INNER JOIN sys.databases D ON D.database_id = R.database_id
-	AND D.name = 'MyDatabase'
+    SELECT COUNT(*) AS [Concurrent_Requests]
+    FROM sys.dm_exec_requests R
+    INNER JOIN sys.databases D ON D.database_id = R.database_id
+    AND D.name = 'MyDatabase'
 
 Isso é apenas um instantâneo em um único ponto no tempo. Para entender melhor sua carga de trabalho e seus requisitos de solicitações simultâneas, você precisará coletar muitas amostras durante algum tempo.
 
-### Máximo de logons simultâneos
+### <a name="maximum-concurrent-logins"></a>Máximo de logons simultâneos
 
 Você pode analisar seus padrões de usuário e de aplicativo para ter uma ideia da frequência de logons. Você também pode executar cargas reais em um ambiente de teste para ter certeza de que não está atingindo esse ou outros limites mencionados neste artigo. Não há uma única consulta ou DMV (exibição de gerenciamento dinâmico) que mostre a contagem de logons simultâneos ou o histórico.
 
@@ -93,52 +94,52 @@ Se vários clientes usarem a mesma cadeia de conexão, o serviço autenticará c
 
 >[AZURE.NOTE] Atualmente, esse limite não se aplica a bancos de dados em pools de bancos de dados elásticos.
 
-### Máximo de sessões
+### <a name="maximum-sessions"></a>Máximo de sessões
 
 Para ver o número de sessões ativas atuais, execute esta consulta Transact-SQL em seu banco de dados SQL:
 
-	SELECT COUNT(*) AS [Sessions]
-	FROM sys.dm_exec_connections
+    SELECT COUNT(*) AS [Sessions]
+    FROM sys.dm_exec_connections
 
 Se você estiver analisando uma carga de trabalho local do SQL Server, modifique a consulta para se concentrar em um banco de dados específico. Essa consulta ajuda a determinar possíveis necessidades de sessão do banco de dados, caso você esteja considerando movê-lo para o Banco de Dados SQL do Azure.
 
-	SELECT COUNT(*)  AS [Sessions]
-	FROM sys.dm_exec_connections C
-	INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
-	INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-	WHERE D.name = 'MyDatabase'
+    SELECT COUNT(*)  AS [Sessions]
+    FROM sys.dm_exec_connections C
+    INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
+    INNER JOIN sys.databases D ON (D.database_id = S.database_id)
+    WHERE D.name = 'MyDatabase'
 
 Novamente, essas consultas retornam uma contagem pontual. Se coletar várias amostras ao longo do tempo, você terá a melhor compreensão do uso de sua sessão.
 
-Para análise de Banco de Dados SQL, você pode obter estatísticas históricas sobre as sessões. Consulte **sys.resource\_stats** e use a coluna **active\_session\_count**. Consulte a próxima sessão para obter mais informações sobre como usar esta exibição.
+Para análise de Banco de Dados SQL, você pode obter estatísticas históricas sobre as sessões. Consulte **sys.resource_stats** e use a coluna **active_session_count**. Consulte a próxima sessão para obter mais informações sobre como usar esta exibição.
 
-## Monitorar o uso de recursos
+## <a name="monitor-resource-use"></a>Monitorar o uso de recursos
 Duas exibições podem ajudar a monitorar o uso de recursos para um banco de dados SQL em relação à sua camada de serviço:
 
-- [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx)
-- [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+- [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
+- [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### sys.dm\_db\_resource\_stats
-Você pode usar a exibição [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) em cada banco de dados SQL. A exibição **sys.dm\_db\_resource\_stats** mostra dados de uso de recursos recentes em relação à camada de serviço. A porcentagem média de CPU, E/S de dados, gravações de log e memória é registrada a cada 15 segundos e armazenada por 1 hora.
+### <a name="sys.dm_db_resource_stats"></a>sys.dm_db_resource_stats
+Você pode usar a exibição [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) em cada banco de dados SQL. A exibição **sys.dm_db_resource_stats** mostra dados de uso de recursos recentes em relação à camada de serviço. A porcentagem média de CPU, E/S de dados, gravações de log e memória é registrada a cada 15 segundos e armazenada por 1 hora.
 
-Como essa exibição oferece uma visão mais granular do uso de recursos, use **sys.dm\_db\_resource\_stats** primeiro para qualquer análise de estado atual ou para solução de problemas. Por exemplo, esta consulta mostra o uso médio e máximo dos recursos do banco de dados atual durante a última hora:
+Como essa exibição oferece uma visão mais granular do uso de recursos, use **sys.dm_db_resource_stats** primeiro para qualquer análise de estado atual ou para solução de problemas. Por exemplo, esta consulta mostra o uso médio e máximo dos recursos do banco de dados atual durante a última hora:
 
-	SELECT  
-	    AVG(avg_cpu_percent) AS 'Average CPU use in percent',
-	    MAX(avg_cpu_percent) AS 'Maximum CPU use in percent',
-	    AVG(avg_data_io_percent) AS 'Average data I/O in percent',
-	    MAX(avg_data_io_percent) AS 'Maximum data I/O in percent',
-	    AVG(avg_log_write_percent) AS 'Average log write use in percent',
-	    MAX(avg_log_write_percent) AS 'Maximum log write use in percent',
-	    AVG(avg_memory_usage_percent) AS 'Average memory use in percent',
-	    MAX(avg_memory_usage_percent) AS 'Maximum memory use in percent'
-	FROM sys.dm_db_resource_stats;  
+    SELECT  
+        AVG(avg_cpu_percent) AS 'Average CPU use in percent',
+        MAX(avg_cpu_percent) AS 'Maximum CPU use in percent',
+        AVG(avg_data_io_percent) AS 'Average data I/O in percent',
+        MAX(avg_data_io_percent) AS 'Maximum data I/O in percent',
+        AVG(avg_log_write_percent) AS 'Average log write use in percent',
+        MAX(avg_log_write_percent) AS 'Maximum log write use in percent',
+        AVG(avg_memory_usage_percent) AS 'Average memory use in percent',
+        MAX(avg_memory_usage_percent) AS 'Maximum memory use in percent'
+    FROM sys.dm_db_resource_stats;  
 
-Para outras consultas, consulte os exemplos em [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+Para outras consultas, consulte os exemplos em [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-### sys.resource\_stats
+### <a name="sys.resource_stats"></a>sys.resource_stats
 
-A exibição [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) no banco de dados **mestre** tem mais informações que podem ajudá-lo a monitorar o desempenho do banco de dados SQL em sua camada de serviço e nível de desempenho específicos. Os dados são coletados a cada 5 minutos e são mantidos por aproximadamente 35 dias. Essa exibição é útil para uma análise de histórico de longo prazo de como seu banco de dados SQL usa recursos.
+A exibição [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) no banco de dados **mestre** tem mais informações que podem ajudá-lo a monitorar o desempenho do banco de dados SQL em sua camada de serviço e nível de desempenho específicos. Os dados são coletados a cada 5 minutos e são mantidos por aproximadamente 35 dias. Essa exibição é útil para uma análise de histórico de longo prazo de como seu banco de dados SQL usa recursos.
 
 O gráfico a seguir mostra o uso de recursos da CPU para um banco de dados Premium com o nível de desempenho P2 para cada hora em uma semana. Esse gráfico começa em uma segunda-feira, mostra 5 dias úteis e, depois, um fim de semana, em que ocorrem muito menos atividades no aplicativo.
 
@@ -148,84 +149,84 @@ Segundo os dados, atualmente esse banco de dados tem um pico de carga de CPU de 
 
 Observe que outros tipos de aplicativos podem interpretar o mesmo gráfico de forma diferente. Por exemplo, se um aplicativo tentar processar dados de folha de pagamento por dia e incluir o mesmo gráfico, esse tipo de modelo de "trabalho em lotes" poderá funcionar bem em um nível de desempenho P1. O nível de desempenho P1 tem 100 DTUs, comparadas a 200 DTUs do nível de desempenho P2. O nível de desempenho P1 fornece metade do desempenho do nível de desempenho P2. Portanto, 50% de uso da CPU em P2 equivale a 100% de uso da CPU em P1. Se o aplicativo não tiver tempo limite, talvez não faça diferença se um trabalho demora 2 horas ou 2,5 horas para ser concluído, desde que seja concluído hoje. Um aplicativo dessa categoria provavelmente pode usar um nível de desempenho P1. Você pode tirar proveito do fato de que há períodos do dia em que o uso de recursos é menor, o que significa que um "pico grande" pode ser extrapolado para um dos ciclos mais tarde. O nível de desempenho P1 pode ser bom para esse tipo de aplicativo (e economiza dinheiro), desde que os trabalhos possam ser concluídos no horário todos os dias.
 
-O Banco de Dados SQL do Azure expõe informações de recurso consumido para cada banco de dados ativo na exibição **sys.resource\_stats** do banco de dados **mestre** em cada servidor. Os dados na tabela são agregados em intervalos de cinco minutos. Com as camadas de serviço Básica, Standard e Premium, os dados podem demorar mais de 5 minutos para aparecer na tabela, o que significa que esses dados são mais úteis para análise histórica do que para análise em tempo real. Consulte a exibição **sys.resource\_stats** para ver o histórico recente de um banco de dados e validar se a reserva escolhida ofereceu o desempenho desejado quando necessário.
+O Banco de Dados SQL do Azure expõe informações de recurso consumido para cada banco de dados ativo na exibição **sys.resource_stats** do banco de dados **mestre** em cada servidor. Os dados na tabela são agregados em intervalos de cinco minutos. Com as camadas de serviço Básica, Standard e Premium, os dados podem demorar mais de 5 minutos para aparecer na tabela, o que significa que esses dados são mais úteis para análise histórica do que para análise em tempo real. Consulte a exibição **sys.resource_stats** para ver o histórico recente de um banco de dados e validar se a reserva escolhida ofereceu o desempenho desejado quando necessário.
 
->[AZURE.NOTE] Você precisa estar conectado ao banco de dados **mestre** de seu servidor lógico do banco de dados SQL para consultar **sys.resource\_stats** nos exemplos a seguir.
+>[AZURE.NOTE] Você precisa estar conectado ao banco de dados **mestre** de seu servidor lógico do banco de dados SQL para consultar **sys.resource_stats** nos exemplos a seguir.
 
 Este exemplo mostra como os dados nesse modo de exibição são expostos:
 
-	SELECT TOP 10 *
-	FROM sys.resource_stats
-	WHERE database_name = 'resource1'
-	ORDER BY start_time DESC
+    SELECT TOP 10 *
+    FROM sys.resource_stats
+    WHERE database_name = 'resource1'
+    ORDER BY start_time DESC
 
-![Exibição do catálogo sys.resource\_stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
+![Exibição do catálogo sys.resource_stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
-O exemplo seguinte mostra diferentes maneiras de usar o modo de exibição de catálogo **sys.resource\_stats** para obter informações sobre como o banco de dados SQL usa recursos:
+O exemplo seguinte mostra diferentes maneiras de usar o modo de exibição de catálogo **sys.resource_stats** para obter informações sobre como o banco de dados SQL usa recursos:
 
 1. Para examinar o uso de recursos da última semana para o banco de dados userdb1, você pode executar esta consulta:
 
-		SELECT *
-		FROM sys.resource_stats
-		WHERE database_name = 'userdb1' AND
-		      start_time > DATEADD(day, -7, GETDATE())
-		ORDER BY start_time DESC;
+        SELECT *
+        FROM sys.resource_stats
+        WHERE database_name = 'userdb1' AND
+              start_time > DATEADD(day, -7, GETDATE())
+        ORDER BY start_time DESC;
 
-2. Para avaliar como sua carga de trabalho se ajusta ao nível de desempenho, você precisa fazer uma pesquisa detalhada de cada aspecto das métricas de recursos: CPU, leituras, gravações, número de trabalhadores e número de sessões. Veja uma consulta revisada usando **sys.resource\_stats** para relatar os valores médio e máximo dessas métricas de recursos:
+2. Para avaliar como sua carga de trabalho se ajusta ao nível de desempenho, você precisa fazer uma pesquisa detalhada de cada aspecto das métricas de recursos: CPU, leituras, gravações, número de trabalhadores e número de sessões. Veja uma consulta revisada usando **sys.resource_stats** para relatar os valores médio e máximo dessas métricas de recursos:
 
-		SELECT
-		    avg(avg_cpu_percent) AS 'Average CPU use in percent',
-		    max(avg_cpu_percent) AS 'Maximum CPU use in percent',
-		    avg(avg_data_io_percent) AS 'Average physical data I/O use in percent',
-		    max(avg_data_io_percent) AS 'Maximum physical data I/O use in percent',
-		    avg(avg_log_write_percent) AS 'Average log write use in percent',
-		    max(avg_log_write_percent) AS 'Maximum log write use in percent',
-		    avg(max_session_percent) AS 'Average % of sessions',
-		    max(max_session_percent) AS 'Maximum % of sessions',
-		    avg(max_worker_percent) AS 'Average % of workers',
-		    max(max_worker_percent) AS 'Maximum % of workers'
-		FROM sys.resource_stats
-		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+        SELECT
+            avg(avg_cpu_percent) AS 'Average CPU use in percent',
+            max(avg_cpu_percent) AS 'Maximum CPU use in percent',
+            avg(avg_data_io_percent) AS 'Average physical data I/O use in percent',
+            max(avg_data_io_percent) AS 'Maximum physical data I/O use in percent',
+            avg(avg_log_write_percent) AS 'Average log write use in percent',
+            max(avg_log_write_percent) AS 'Maximum log write use in percent',
+            avg(max_session_percent) AS 'Average % of sessions',
+            max(max_session_percent) AS 'Maximum % of sessions',
+            avg(max_worker_percent) AS 'Average % of workers',
+            max(max_worker_percent) AS 'Maximum % of workers'
+        FROM sys.resource_stats
+        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
-3. Com essas informações sobre os valores médio e máximo de cada métrica de recurso, você pode avaliar como sua carga de trabalho se ajusta ao nível de desempenho escolhido. Normalmente, os valores médios de **sys. resource\_stats** oferecem uma boa linha de base a ser usada em comparação ao tamanho de destino. Deve ser seu cartão de medida principal. Por exemplo, você pode estar usando a camada de serviço Standard com o nível de desempenho S2. Os percentuais médios de uso da CPU e leituras e gravações de E/S estão abaixo de 40%, o número médio de trabalhadores está abaixo de 50 e o número médio de sessões é inferior a 200. Talvez a carga de trabalho se enquadre no nível de desempenho S1. É fácil ver se o banco de dados se encaixa nos limites de sessão e de trabalho. Para ver se um banco de dados se enquadra em um nível de desempenho inferior em termos de CPU, leituras e gravações, divida o número de DTUs do nível de desempenho inferior pelo número de DTUs do nível de desempenho atual e multiplique o resultado por 100:
+3. Com essas informações sobre os valores médio e máximo de cada métrica de recurso, você pode avaliar como sua carga de trabalho se ajusta ao nível de desempenho escolhido. Normalmente, os valores médios de **sys.resource_stats** oferecem uma boa linha de base a ser usada em comparação ao tamanho de destino. Deve ser seu cartão de medida principal. Por exemplo, você pode estar usando a camada de serviço Standard com o nível de desempenho S2. Os percentuais médios de uso da CPU e leituras e gravações de E/S estão abaixo de 40%, o número médio de trabalhadores está abaixo de 50 e o número médio de sessões é inferior a 200. Talvez a carga de trabalho se enquadre no nível de desempenho S1. É fácil ver se o banco de dados se encaixa nos limites de sessão e de trabalho. Para ver se um banco de dados se enquadra em um nível de desempenho inferior em termos de CPU, leituras e gravações, divida o número de DTUs do nível de desempenho inferior pelo número de DTUs do nível de desempenho atual e multiplique o resultado por 100:
 
-	**S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
+    **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
 
-	O resultado é a diferença de desempenho relativa entre os dois níveis de desempenho em percentual. Se seu uso de recursos não ultrapassar esse valor, sua carga de trabalho poderá se enquadrar no nível de desempenho inferior. No entanto, você precisa examinar todos os intervalos de valores de uso de recursos e determinar, pelo percentual, com que frequência a carga de trabalho do banco de dados se enquadraria no nível de desempenho inferior. A consulta a seguir produz o percentual de ajuste por dimensão de recurso, com base no limite de 40% que calculamos neste exemplo:
+    O resultado é a diferença de desempenho relativa entre os dois níveis de desempenho em percentual. Se seu uso de recursos não ultrapassar esse valor, sua carga de trabalho poderá se enquadrar no nível de desempenho inferior. No entanto, você precisa examinar todos os intervalos de valores de uso de recursos e determinar, pelo percentual, com que frequência a carga de trabalho do banco de dados se enquadraria no nível de desempenho inferior. A consulta a seguir produz o percentual de ajuste por dimensão de recurso, com base no limite de 40% que calculamos neste exemplo:
 
-		SELECT
-		    (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
-		    ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
-		    ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
-		FROM sys.resource_stats
-		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+        SELECT
+            (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
+            ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
+            ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
+        FROM sys.resource_stats
+        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
-	Com base no SLO (objetivo do nível de serviço) do banco de dados, você pode decidir se sua carga de trabalho se enquadra no nível de desempenho inferior. Se o SLO da carga de trabalho do banco de dados é de 99,9% e a consulta anterior retorna valores superiores a 99,9% para as três dimensões de recursos, é provável que sua carga de trabalho se enquadre no nível de desempenho inferior.
+    Com base no SLO (objetivo do nível de serviço) do banco de dados, você pode decidir se sua carga de trabalho se enquadra no nível de desempenho inferior. Se o SLO da carga de trabalho do banco de dados é de 99,9% e a consulta anterior retorna valores superiores a 99,9% para as três dimensões de recursos, é provável que sua carga de trabalho se enquadre no nível de desempenho inferior.
 
-	Avaliar o percentual de ajuste também traz informações que indicam se você precisará ir para o próximo nível de desempenho para atender seu SLO. Por exemplo, userdb1 mostra o seguinte uso da CPU para a semana passada:
+    Avaliar o percentual de ajuste também traz informações que indicam se você precisará ir para o próximo nível de desempenho para atender seu SLO. Por exemplo, userdb1 mostra o seguinte uso da CPU para a semana passada:
 
-	| Percentual médio da CPU | Percentual máximo da CPU |
-	|---|---|
-	| 24,5 | 100,00 |
+  	| Percentual médio da CPU | Percentual máximo da CPU |
+  	|---|---|
+  	| 24,5 | 100,00 |
 
-	A média da CPU é de aproximadamente um quarto do limite do nível de desempenho, o que se ajustaria bem ao nível de desempenho do banco de dados. No entanto, o valor máximo mostra que o banco de dados atinge o limite do nível de desempenho. Você precisa ir para o próximo nível mais alto de desempenho? Você precisa avaliar quantas vezes sua carga de trabalho atinge 100% e compará-la ao SLO da carga de trabalho de seu banco de dados.
+    A média da CPU é de aproximadamente um quarto do limite do nível de desempenho, o que se ajustaria bem ao nível de desempenho do banco de dados. No entanto, o valor máximo mostra que o banco de dados atinge o limite do nível de desempenho. Você precisa ir para o próximo nível mais alto de desempenho? Você precisa avaliar quantas vezes sua carga de trabalho atinge 100% e compará-la ao SLO da carga de trabalho de seu banco de dados.
 
-		SELECT
-		(COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
-		,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent’
-		,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data I/O fit percent'
-		FROM sys.resource_stats
-		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+        SELECT
+        (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
+        ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent’
+        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data I/O fit percent'
+        FROM sys.resource_stats
+        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
-	Se essa consulta retornar um valor inferior a 99,9% para qualquer uma das três dimensões de recursos, considere passar para o nível de desempenho superior ou use técnicas de ajuste de aplicativo para reduzir a carga no banco de dados SQL.
+    Se essa consulta retornar um valor inferior a 99,9% para qualquer uma das três dimensões de recursos, considere passar para o nível de desempenho superior ou use técnicas de ajuste de aplicativo para reduzir a carga no banco de dados SQL.
 
 4. Este exercício também leva em consideração o aumento projetado da carga de trabalho no futuro.
 
-## Ajustar seu aplicativo
+## <a name="tune-your-application"></a>Ajustar seu aplicativo
 
 No SQL Server local tradicional, o processo de planejamento de capacidade inicial frequentemente é separado do processo de executar um aplicativo em produção. Hardwares e licenças de produtos são comprados primeiro e o ajuste de desempenho é feito posteriormente. Quando você usa o Banco de Dados SQL do Azure, é uma boa ideia integrar o processo de execução de um aplicativo e de seu ajuste. Com o modelo de pagamento pela capacidade sob demanda, você pode ajustar seu aplicativo para usar os recursos mínimos necessários no momento, em vez de provisionar excessivamente o hardware com base em palpites sobre os planos de crescimento futuro de um aplicativo, que frequentemente estão incorretos. Alguns clientes podem optar por não ajustar o aplicativo e, em vez disso, provisionar excessivamente os recursos de hardware. Essa abordagem poderá ser uma boa ideia se você não quiser alterar um aplicativo importante durante um período movimentado. Entretanto, ajustar o aplicativo pode minimizar os requisitos de recurso e diminuir as contas mensais quando você usar as camadas de serviço no Banco de Dados SQL do Azure.
 
-### Características do aplicativo
+### <a name="application-characteristics"></a>Características do aplicativo
 
 Embora as camadas de serviço do Banco de Dados SQL do Azure sejam projetadas para melhorar a estabilidade e a previsibilidade de desempenho de um aplicativo, algumas práticas recomendadas podem ajudá-lo a ajustar seu aplicativo para aproveitar melhor os recursos dentro de um nível de desempenho. Embora vários aplicativos tenham ganhos de desempenho significativos simplesmente passando para um nível de desempenho e/ou camada de serviço superior, nem todos os aplicativos precisam de ajuste adicional para se beneficiar de um nível de serviço mais elevado. Para melhorar o desempenho, considere realizar ajustes adicionais em aplicativos que têm estas características:
 
@@ -234,10 +235,10 @@ Embora as camadas de serviço do Banco de Dados SQL do Azure sejam projetadas pa
 - **Aplicativos com consultas de qualidade inferior**. Aplicativos que têm consultas mal ajustadas, especialmente aqueles na camada de acesso a dados, podem não se beneficiar de um nível de desempenho superior. Isso inclui consultas sem uma cláusula WHERE, com índices ausentes ou com estatísticas desatualizadas. Esses aplicativos se beneficiam de técnicas de ajuste de desempenho de consulta padrão. Para obter mais informações, consulte [Índices ausentes](#missing-indexes) e [Ajuste e dicas de consulta](#query-tuning-and-hinting).
 - **Aplicativos com design de acesso a dados de qualidade inferior**. Aplicativos com problemas de simultaneidade de acesso a dados intrínsecos, por exemplo, deadlock, talvez não se beneficiem da seleção de um nível mais alto de desempenho. Considere reduzir as viagens de ida e volta ao Banco de Dados SQL do Azure armazenando em cache os dados no lado do cliente usando o serviço de Caching do Azure ou outras tecnologias de cache. Consulte [Cache da camada de aplicativo](#application-tier-caching).
 
-## Técnicas de ajuste
+## <a name="tuning-techniques"></a>Técnicas de ajuste
 Nesta seção, vemos algumas técnicas que você pode usar para ajustar o Banco de Dados SQL do Azure para obter o melhor desempenho do seu aplicativo e executá-lo no menor nível de desempenho possível. Algumas dessas técnicas correspondem às práticas recomendadas tradicionais de ajuste do SQL Server, mas outras são específicas ao Banco de Dados SQL do Azure. Em alguns casos, você pode examinar os recursos consumidos por um banco de dados para localizar áreas para ajustar ainda mais, bem como ampliar técnicas tradicionais do SQL Server para que elas funcionem no Banco de Dados SQL do Azure.
 
-### Ferramentas do portal do Azure
+### <a name="azure-portal-tools"></a>Ferramentas do portal do Azure
 Você encontrará duas ferramentas no portal do Azure que podem ajudá-lo a analisar e corrigir problemas de desempenho com seu banco de dados SQL:
 
 - [Visão de Desempenho de Consulta](sql-database-query-performance.md)
@@ -245,26 +246,26 @@ Você encontrará duas ferramentas no portal do Azure que podem ajudá-lo a anal
 
 O portal do Azure tem mais informações sobre essas ferramentas e como usá-las. Recomendamos que primeiro você experimente as ferramentas no portal do Azure a fim de diagnosticar e corrigir os problemas com mais eficiência. Recomendamos que você use as abordagens de ajuste que discutiremos a seguir, para índices ausentes e ajustes de consultas, em casos especiais.
 
-### Índices ausentes
+### <a name="missing-indexes"></a>Índices ausentes
 Um problema comum no desempenho do banco de dados OLTP está relacionado ao design do banco de dados físico. Com frequência, os esquemas de banco de dados são projetados e enviados sem testes em escala (seja na carga ou no volume de dados). Infelizmente, o desempenho de um plano de consulta pode ser aceitável em pequena escala, mas pode ser comprometido substancialmente diante de volumes de dados de nível de produção. A origem mais comum desse problema é a falta de índices apropriados para satisfazer filtros ou outras restrições em uma consulta. Geralmente, os índices ausentes se manifestam como uma verificação de tabela quando uma busca de índice poderia bastar.
 
 Neste exemplo, o plano de consulta selecionado usa uma verificação, quando uma pesquisa seria suficiente:
 
-	DROP TABLE dbo.missingindex;
-	CREATE TABLE dbo.missingindex (col1 INT IDENTITY PRIMARY KEY, col2 INT);
-	DECLARE @a int = 0;
-	SET NOCOUNT ON;
-	BEGIN TRANSACTION
-	WHILE @a < 20000
-	BEGIN
-	    INSERT INTO dbo.missingindex(col2) VALUES (@a);
-	    SET @a += 1;
-	END
-	COMMIT TRANSACTION;
-	GO
-	SELECT m1.col1
-	FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1)
-	WHERE m1.col2 = 4;
+    DROP TABLE dbo.missingindex;
+    CREATE TABLE dbo.missingindex (col1 INT IDENTITY PRIMARY KEY, col2 INT);
+    DECLARE @a int = 0;
+    SET NOCOUNT ON;
+    BEGIN TRANSACTION
+    WHILE @a < 20000
+    BEGIN
+        INSERT INTO dbo.missingindex(col2) VALUES (@a);
+        SET @a += 1;
+    END
+    COMMIT TRANSACTION;
+    GO
+    SELECT m1.col1
+    FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1)
+    WHERE m1.col2 = 4;
 
 ![Plano de consulta com índices ausentes](./media/sql-database-performance-guidance/query_plan_missing_indexes.png)
 
@@ -272,113 +273,113 @@ O Banco de Dados SQL do Azure pode ajudá-lo a localizar e corrigir condições 
 
 Você pode usar esta consulta para avaliar possíveis índices ausentes:
 
-	SELECT CONVERT (varchar, getdate(), 126) AS runtime,
-	    mig.index_group_handle, mid.index_handle,
-	    CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact *
-	            (migs.user_seeks + migs.user_scans)) AS improvement_measure,
-	    'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' +
-	              CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + '
-	              (' + ISNULL (mid.equality_columns,'')
-	              + CASE WHEN mid.equality_columns IS NOT NULL
-	                          AND mid.inequality_columns IS NOT NULL
-	                     THEN ',' ELSE '' END + ISNULL (mid.inequality_columns, '')
-	              + ')'
-	              + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement,
-	    migs.*,
-	    mid.database_id,
-	    mid.[object_id]
-	FROM sys.dm_db_missing_index_groups AS mig
-	INNER JOIN sys.dm_db_missing_index_group_stats AS migs
-	    ON migs.group_handle = mig.index_group_handle
-	INNER JOIN sys.dm_db_missing_index_details AS mid
-	    ON mig.index_handle = mid.index_handle
-	ORDER BY migs.avg_total_user_cost * migs.avg_user_impact * (migs.user_seeks + migs.user_scans) DESC
+    SELECT CONVERT (varchar, getdate(), 126) AS runtime,
+        mig.index_group_handle, mid.index_handle,
+        CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact *
+                (migs.user_seeks + migs.user_scans)) AS improvement_measure,
+        'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' +
+                  CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + '
+                  (' + ISNULL (mid.equality_columns,'')
+                  + CASE WHEN mid.equality_columns IS NOT NULL
+                              AND mid.inequality_columns IS NOT NULL
+                         THEN ',' ELSE '' END + ISNULL (mid.inequality_columns, '')
+                  + ')'
+                  + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement,
+        migs.*,
+        mid.database_id,
+        mid.[object_id]
+    FROM sys.dm_db_missing_index_groups AS mig
+    INNER JOIN sys.dm_db_missing_index_group_stats AS migs
+        ON migs.group_handle = mig.index_group_handle
+    INNER JOIN sys.dm_db_missing_index_details AS mid
+        ON mig.index_handle = mid.index_handle
+    ORDER BY migs.avg_total_user_cost * migs.avg_user_impact * (migs.user_seeks + migs.user_scans) DESC
 
 Neste exemplo, a consulta resultou nesta sugestão:
 
-	CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])  
+    CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])  
 
 Após a criação, a mesma instrução SELECT escolhe um plano diferente, que usa uma busca em vez de uma verificação e executa o plano de forma mais eficiente:
 
 ![Plano de consulta com índices corrigidos](./media/sql-database-performance-guidance/query_plan_corrected_indexes.png)
 
-A ideia principal é que a capacidade de E/S de um sistema de mercadorias compartilhado é mais limitada do que a de um computador de servidor dedicado. Há o bônus de minimizar a E/S desnecessária e, assim, tirar o máximo proveito do sistema na DTU de cada nível de desempenho das camadas de serviço no Banco de Dados SQL do Azure. Opções adequadas de design de banco de dados físico podem melhorar significativamente a latência de consultas individuais, melhorar a produtividade de solicitações simultâneas tratadas por unidade de escala e minimizar os custos necessários para satisfazer a consulta. Para obter mais informações sobre os DMVs de índice ausente, veja [sys.dm\_db\_missing\_index\_details](https://msdn.microsoft.com/library/ms345434.aspx).
+A ideia principal é que a capacidade de E/S de um sistema de mercadorias compartilhado é mais limitada do que a de um computador de servidor dedicado. Há o bônus de minimizar a E/S desnecessária e, assim, tirar o máximo proveito do sistema na DTU de cada nível de desempenho das camadas de serviço no Banco de Dados SQL do Azure. Opções adequadas de design de banco de dados físico podem melhorar significativamente a latência de consultas individuais, melhorar a produtividade de solicitações simultâneas tratadas por unidade de escala e minimizar os custos necessários para satisfazer a consulta. Para obter mais informações sobre os DMVs de índice ausente, veja [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
 
-### Ajuste e dicas de consulta
+### <a name="query-tuning-and-hinting"></a>Ajuste e dicas de consulta
 O otimizador de consulta do Banco de Dados SQL do Azure é semelhante ao otimizador de consulta do SQL Server tradicional. A maioria das práticas recomendadas para o ajuste de consultas e a compreensão das limitações do modelo de raciocínio para o otimizador de consulta também se aplicam ao Banco de Dados SQL do Azure. Se ajustar consultas no Banco de Dados SQL, você poderá obter o benefício adicional de reduzir as demandas de recursos agregados. Seu aplicativo poderá ser executado com um custo menor do que um equivalente não ajustado, porque poderá ser executado em um nível de desempenho inferior.
 
 Um exemplo que é comum no SQL Server e que também se aplica ao Banco de Dados SQL do Azure é como o otimizador de consulta "detecta" parâmetros. Durante a compilação, o otimizador de consulta avalia o valor atual de um parâmetro para determinar se ele pode gerar um plano de consulta melhor. Embora muitas vezes essa estratégia possa levar a um plano de consulta significativamente mais rápido do que um plano compilado sem valores de parâmetro conhecidos, atualmente ele a funciona de modo imperfeito SQL Server e no Banco de Dados SQL do Azure. Algumas vezes, o parâmetro não é detectado, e algumas vezes é detectado mas o plano gerado está abaixo do ideal para o conjunto completo de valores de parâmetro em uma carga de trabalho. A Microsoft inclui dicas (diretivas) de consulta para que você possa especificar a intenção mais deliberadamente e substituir o comportamento padrão da detecção de parâmetro. Frequentemente, usando as dicas você consegue corrigir casos em que o comportamento padrão do Banco de Dados SQL do Azure ou do SQL Server é imperfeito para uma carga de trabalho específica do cliente.
 
 O exemplo a seguir demonstra como o processador de consultas pode gerar um plano que está abaixo do ideal para os requisitos de desempenho e recursos. Este exemplo também mostra que, se usar uma dica de consulta, você poderá reduzir requisitos de recursos e tempo de execução da consulta para o banco de dados SQL:
 
-	DROP TABLE psptest1;
-	CREATE TABLE psptest1(col1 int primary key identity, col2 int, col3 binary(200));
+    DROP TABLE psptest1;
+    CREATE TABLE psptest1(col1 int primary key identity, col2 int, col3 binary(200));
 
-	DECLARE @a int = 0;
-	SET NOCOUNT ON;
-	BEGIN TRANSACTION
-	WHILE @a < 20000
-	BEGIN
-	    INSERT INTO psptest1(col2) values (1);
-	    INSERT INTO psptest1(col2) values (@a);
-	    SET @a += 1;
-	END
-	COMMIT TRANSACTION
-	CREATE INDEX i1 on psptest1(col2);
-	GO
+    DECLARE @a int = 0;
+    SET NOCOUNT ON;
+    BEGIN TRANSACTION
+    WHILE @a < 20000
+    BEGIN
+        INSERT INTO psptest1(col2) values (1);
+        INSERT INTO psptest1(col2) values (@a);
+        SET @a += 1;
+    END
+    COMMIT TRANSACTION
+    CREATE INDEX i1 on psptest1(col2);
+    GO
 
-	CREATE PROCEDURE psp1 (@param1 int)
-	AS
-	BEGIN
-	    INSERT INTO t1 SELECT * FROM psptest1
-	    WHERE col2 = @param1
-	    ORDER BY col2;
-	END
-	GO
+    CREATE PROCEDURE psp1 (@param1 int)
+    AS
+    BEGIN
+        INSERT INTO t1 SELECT * FROM psptest1
+        WHERE col2 = @param1
+        ORDER BY col2;
+    END
+    GO
 
-	CREATE PROCEDURE psp2 (@param2 int)
-	AS
-	BEGIN
-	    INSERT INTO t1 SELECT * FROM psptest1 WHERE col2 = @param2
-	    ORDER BY col2
-	    OPTION (OPTIMIZE FOR (@param2 UNKNOWN))
-	END
-	GO
+    CREATE PROCEDURE psp2 (@param2 int)
+    AS
+    BEGIN
+        INSERT INTO t1 SELECT * FROM psptest1 WHERE col2 = @param2
+        ORDER BY col2
+        OPTION (OPTIMIZE FOR (@param2 UNKNOWN))
+    END
+    GO
 
-	CREATE TABLE t1 (col1 int primary key, col2 int, col3 binary(200));
-	GO
+    CREATE TABLE t1 (col1 int primary key, col2 int, col3 binary(200));
+    GO
 
 O código de configuração cria uma tabela que contém a distribuição de dados distorcida. O plano de consulta ideal varia dependendo do parâmetro selecionado. Infelizmente, o comportamento do cache de plano nem sempre recompila a consulta com base no valor do parâmetro mais comum. Portanto, é possível que um plano de qualidade inferior seja armazenado em cache e usado para vários valores, mesmo quando um plano diferente poderia ser uma opção melhor de modo geral. Em seguida, o plano de consulta cria dois procedimentos armazenados idênticos, com exceção de um que tem uma dica de consulta especial.
 
 **Exemplo, parte 1**
 
-	-- Prime Procedure Cache with scan plan
-	EXEC psp1 @param1=1;
-	TRUNCATE TABLE t1;
+    -- Prime Procedure Cache with scan plan
+    EXEC psp1 @param1=1;
+    TRUNCATE TABLE t1;
 
-	-- Iterate multiple times to show the performance difference
-	DECLARE @i int = 0;
-	WHILE @i < 1000
-	BEGIN
-	    EXEC psp1 @param1=2;
-	    TRUNCATE TABLE t1;
-	    SET @i += 1;
-	END
+    -- Iterate multiple times to show the performance difference
+    DECLARE @i int = 0;
+    WHILE @i < 1000
+    BEGIN
+        EXEC psp1 @param1=2;
+        TRUNCATE TABLE t1;
+        SET @i += 1;
+    END
 
 **Exemplo, parte 2**
 
 (Recomendamos que você espere pelo menos 10 minutos antes de começar a parte 2 do exemplo, para que os resultados sejam diferentes nos dados de telemetria resultantes).
 
-	EXEC psp2 @param2=1;
-	TRUNCATE TABLE t1;
+    EXEC psp2 @param2=1;
+    TRUNCATE TABLE t1;
 
-	DECLARE @i int = 0;
-	WHILE @i < 1000
-	BEGIN
-	    EXEC psp2 @param2=2;
-	    TRUNCATE TABLE t1;
-	    SET @i += 1;
-	END
+    DECLARE @i int = 0;
+    WHILE @i < 1000
+    BEGIN
+        EXEC psp2 @param2=2;
+        TRUNCATE TABLE t1;
+        SET @i += 1;
+    END
 
 Cada parte deste exemplo tenta executar uma instrução insert com parâmetros 1.000 vezes (para gerar uma carga suficiente para usar como um conjunto de dados de teste). Ao executar procedimentos armazenados, o processador de consultas examina o valor do parâmetro passado ao procedimento durante a primeira compilação ("detecção" de parâmetros). O processador armazena em cache o plano resultante e o usa para invocações posteriores, mesmo que o valor do parâmetro seja diferente. É possível que o plano ideal não seja usado em todos os casos. Às vezes, você precisa orientar o otimizador a escolher um plano que seja melhor para o caso médio em vez do caso específico de quando a consulta foi compilada pela primeira vez. Neste exemplo, o plano inicial gera um plano de "verificação" que lê todas as linhas para localizar cada valor que corresponda ao parâmetro:
 
@@ -394,22 +395,22 @@ A segunda parte do exemplo usa uma dica de consulta para dizer ao otimizador par
 
 ![Ajuste de consulta usando uma dica de consulta](./media/sql-database-performance-guidance/query_tuning_3.png)
 
-Você pode ver o efeito na tabela **sys.resource\_stats** (há um atraso entre o momento em que você executa o teste e quando os dados populam a tabela). Para este exemplo, a parte 1 foi executada durante a janela de tempo 22:25:00 e a parte 2 foi executada em 22:35:00. Observe que a janela de tempo anterior usou mais recursos do que a mais recente (devido a melhorias na eficiência do plano).
+Você pode ver o efeito na tabela **sys.resource_stats** (há um atraso entre o momento em que você executa o teste e quando os dados populam a tabela). Para este exemplo, a parte 1 foi executada durante a janela de tempo 22:25:00 e a parte 2 foi executada em 22:35:00. Observe que a janela de tempo anterior usou mais recursos do que a mais recente (devido a melhorias na eficiência do plano).
 
-	SELECT TOP 1000 *
-	FROM sys.resource_stats
-	WHERE database_name = 'resource1'
-	ORDER BY start_time DESC
+    SELECT TOP 1000 *
+    FROM sys.resource_stats
+    WHERE database_name = 'resource1'
+    ORDER BY start_time DESC
 
 ![Exemplos de resultados de ajustes de consulta](./media/sql-database-performance-guidance/query_tuning_4.png)
 
 >[AZURE.NOTE] Embora o volume neste exemplo seja propositalmente pequeno, o efeito de parâmetros de qualidade inferior pode ser significativo, especialmente em bancos de dados maiores. A diferença, em casos extremos, pode ficar entre segundos, para casos rápidos, e horas, para casos lentos.
 
-Você pode examinar **sys.resource\_stats** para determinar se o recurso para um teste usa mais ou menos recursos do que outro teste. Ao comparar dados, separe os testes por tempo de modo que eles não fiquem na mesma janela de tempo de 5 minutos na exibição **sys.resource\_stats**. O objetivo deste exercício é minimizar a quantidade total de recursos usados, não minimizar os recursos de pico. Em geral, a otimização de uma parte do código de latência também reduz o consumo de recursos. Certifique-se de que as alterações feitas em um aplicativo sejam necessárias e de que elas não afetem negativamente a experiência do cliente para alguém que possa estar usando dicas de consulta no aplicativo.
+Você pode examinar **sys.resource_stats** para determinar se o recurso para um teste usa mais ou menos recursos do que outro teste. Ao comparar dados, separe os testes por tempo de modo que eles não fiquem na mesma janela de tempo de 5 minutos na exibição **sys.resource_stats**. O objetivo deste exercício é minimizar a quantidade total de recursos usados, não minimizar os recursos de pico. Em geral, a otimização de uma parte do código de latência também reduz o consumo de recursos. Certifique-se de que as alterações feitas em um aplicativo sejam necessárias e de que elas não afetem negativamente a experiência do cliente para alguém que possa estar usando dicas de consulta no aplicativo.
 
 Se uma carga de trabalho tem um conjunto de consultas repetidas, normalmente faz sentido capturar e validar a natureza ideal dessas opções de plano, pois ela orienta a unidade de tamanho mínima de recursos necessária para hospedar o banco de dados. Depois de validar, volte a examinar os planos periodicamente para ter certeza de que eles não degradaram. Saiba mais sobre [dicas de consulta (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 
-### Fragmentação entre bancos de dados
+### <a name="cross-database-sharding"></a>Fragmentação entre bancos de dados
 Como o Banco de Dados SQL do Azure é executado no hardware de mercadoria, há limites inferiores de capacidade para um banco de dados individual em relação a uma instalação do SQL Server local tradicional. Alguns clientes usam técnicas de fragmentação para distribuir operações de banco de dados por vários bancos de dados quando elas não se ajustarem aos limites de um banco de dados individual no Banco de Dados SQL do Azure. A maioria dos clientes que usam técnicas de fragmentação no Banco de Dados SQL do Azure divide seus dados em uma única dimensão entre vários bancos de dados. Para esta abordagem, você precisa compreender que aplicativos OLTP executam com frequência transações que se aplicam somente a uma linha ou a um pequeno grupo de linhas no esquema.
 
 >[AZURE.NOTE] Agora, o Banco de Dados SQL fornece uma biblioteca para auxiliar com a fragmentação. Para saber mais, confira [Visão geral da biblioteca de cliente de Banco de Dados Elástico](sql-database-elastic-database-client-library.md).
@@ -418,23 +419,27 @@ Por exemplo, se um banco de dados contiver o nome do cliente, o pedido e os deta
 
 Embora a fragmentação do banco de dados não reduza a capacidade agregada de recursos de uma solução, ela é altamente eficaz para dar suporte a soluções muito grandes que são distribuídas em vários bancos de dados. Cada banco de dados pode ser executado em um nível de desempenho diferente para dar suporte a bancos de dados "efetivos" muito grandes, com altos requisitos de recursos.
 
-### Particionamento funcional
+### <a name="functional-partitioning"></a>Particionamento funcional
 Com frequência, os usuários do SQL Server combinam muitas funções um banco de dados individual. Por exemplo, se um aplicativo tiver lógica para gerenciar o inventário de uma loja, esse banco de dados poderá ter lógica associada ao controle de inventário, acompanhamento de ordens de compra, procedimentos armazenados e exibições indexadas/materializadas que gerenciam os relatórios de final de mês. Essa técnica facilita a administração do banco de dados para operações como backup, mas também requer que você dimensione o hardware para lidar com a carga de pico em todas as funções de um aplicativo.
 
 Se você usar uma arquitetura de escala horizontal no Banco de Dados SQL do Azure, será útil dividir funções diferentes de um aplicativo em bancos de dados diferentes. Usando essa técnica, cada aplicativo é dimensionado de forma independente. À medida que um aplicativo se torna mais ocupado (e a carga no banco de dados aumenta), o administrador pode escolher níveis de desempenho independentes para cada função do aplicativo. No limite, com essa arquitetura, um aplicativo pode ficar maior do que a capacidade de um único computador de mercadoria porque a carga está distribuída por várias máquinas.
 
-### Consultas em lote
+### <a name="batch-queries"></a>Consultas em lote
 Para aplicativos que acessam dados usando consultas ad-hoc frequentes de alto volume, uma grande parte do tempo de resposta é gasto na comunicação de rede entre a camada do aplicativo e a camada do Banco de Dados SQL. Mesmo quando o aplicativo e o Banco de Dados SQL do Azure estiverem no mesmo datacenter, a latência de rede entre os dois poderá ser aumentada por um grande número de operações de acesso a dados. Para reduzir as viagens de ida e volta da rede para as operações de acesso a dados, considere usar a opção de processar as consultas ad hoc em lote ou compilá-las como procedimentos armazenados. Se processar as consultas ad hoc, você poderá enviar várias consultas como um lote grande em uma única viagem ao Banco de Dados SQL do Azure. Se compilar consultas ad hoc em um procedimento armazenado, você poderá alcançar o mesmo resultado que teria processando-as em lote. O uso de um procedimento armazenado também oferece o benefício de aumentar as chances de armazenar em cache os planos de consulta no Banco de Dados SQL do Azure para usar o procedimento armazenado novamente.
 
 Alguns aplicativos apresentam gravação intensa. Às vezes, você pode reduzir a carga de E/S total em um banco de dados considerando como fazer as gravações em lote. Frequentemente, isso é tão simples quanto usar transações explícitas em vez de transações de confirmação automática em procedimentos armazenados e lotes ad hoc. Para ver uma avaliação das diferentes técnicas que você pode usar, consulte [Técnicas de envio em lote para aplicativos do Banco de Dados SQL no Azure](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx). Teste sua própria carga de trabalho para encontrar o modelo certo para envio em lote. Tenha em mente que um modelo pode ter garantias de consistência transacional ligeiramente diferentes. Para encontrar a carga de trabalho certa que minimiza o uso de recursos, é necessário encontrar a combinação certa de compensações de consistência e de desempenho.
 
-### Cache de camada de aplicativo
+### <a name="application-tier-caching"></a>Cache de camada de aplicativo
 Alguns aplicativos de banco de dados têm cargas de trabalho de leitura pesada. Camadas de cache podem reduzir a carga no banco de dados e, potencialmente, reduzir o nível de desempenho necessário para dar suporte a um banco de dados usando o Banco de Dados SQL do Azure. Com o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), se tiver uma carga de trabalho de leitura pesada, você poderá ler os dados de uma vez (ou talvez uma vez por computador da camada de aplicativo, dependendo de como estiver configurado) e armazenar esses dados fora do banco de dados SQL. Esta é uma forma de reduzir a carga do banco de dados (CPU e E/S de leitura), mas há um impacto na consistência transacional, porque os dados lidos do cache podem estar fora de sincronia com os dados no banco de dados. Embora em muitos aplicativos algum nível de inconsistência seja aceitável, isso não vale para todas as cargas de trabalho. É necessário compreender totalmente todos os requisitos do aplicativo antes de implementar uma estratégia de cache da camada do aplicativo.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre as camadas de serviço, consulte [Opções e desempenho de Banco de Dados SQL](sql-database-service-tiers.md)
 - Para obter mais informações sobre pools de banco de dados elástico, consulte [O que é um pool de banco de dados elástico do Azure?](sql-database-elastic-pool.md)
 - Para obter informações sobre desempenho e pools de banco de dados elástico, consulte [Quando considerar um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

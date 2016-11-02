@@ -18,7 +18,8 @@
    ms.author="masashin"/>
 
 
-# Diretrizes de Caching
+
+# <a name="caching-guidance"></a>Diretrizes de Caching
 
 [AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
@@ -30,16 +31,17 @@ O caching é mais eficaz quando uma instância do cliente lê repetidamente os m
 - Está sujeito a um alto nível de contenção.
 - Está bem distante quando a latência de rede pode causar a lentidão do acesso.
 
-## Caching em aplicativos distribuídos
+## <a name="caching-in-distributed-applications"></a>Caching em aplicativos distribuídos
 
 Aplicativos distribuídos normalmente implementam uma ou ambas as estratégias a seguir ao colocar dados em cache:
 
 - Usando um cache privado, onde os dados são mantidos localmente no computador que executa uma instância de um aplicativo ou de um serviço.
 - Usando um cache compartilhado, servindo como uma fonte comum que pode ser acessada por vários processos e/ou computadores.
 
-Em ambos os casos, o caching pode ser executado no lado do cliente e/ou do servidor. O caching do lado do cliente é feito pelo processo que fornece a interface de usuário para um sistema, como um navegador da Web ou um aplicativo de área de trabalho. O caching do lado do servidor é feito pelo processo que fornece os serviços de negócios que estão sendo executados remotamente.
+Em ambos os casos, o caching pode ser executado no lado do cliente e/ou do servidor. O caching do lado do cliente é feito pelo processo que fornece a interface de usuário para um sistema, como um navegador da Web ou um aplicativo de área de trabalho.
+O caching do lado do servidor é feito pelo processo que fornece os serviços de negócios que estão sendo executados remotamente.
 
-### Caching particular
+### <a name="private-caching"></a>Caching particular
 
 O tipo mais básico de cache é um repositório na memória. Ele é mantido no espaço de endereço de um único processo e acessado diretamente pelo código que é executado nesse processo. O acesso a esse tipo de cache é muito rápido. Ele também pode fornecer um meio extremamente eficiente para armazenar quantidades modestas de dados estáticos, já que o tamanho de um cache normalmente é restrito pelo volume de memória disponível no computador que hospeda o processo.
 
@@ -53,7 +55,7 @@ Pense em um cache como um instantâneo dos dados originais, em algum ponto no pa
 
 _Figura 1: Usando um cache em memória em instâncias diferentes de um aplicativo_
 
-### Cache compartilhado
+### <a name="shared-caching"></a>Cache compartilhado
 
 Usar um cache compartilhado pode ajudar a aliviar a preocupação de que os dados podem apresentar diferenças em cada cache, o que pode ocorrer com o caching em memória. O cache compartilhado garante que diferentes instâncias de aplicativo vejam os mesmos dados armazenados em cache. Ele faz isso colocando o cache em um local separado, normalmente hospedado como parte de um serviço separado, como mostra a Figura 2.
 
@@ -61,17 +63,18 @@ Usar um cache compartilhado pode ajudar a aliviar a preocupação de que os dado
 
 _Figura 2: Usando um cache compartilhado_
 
-Um benefício importante da abordagem de cache compartilhado é a escalabilidade que ele oferece. Muitos serviços de cache compartilhado são implementados usando um cluster de servidores e utilizam o software que distribui os dados pelo cluster de modo transparente. Uma instância do aplicativo simplesmente envia uma solicitação para o serviço de cache. A infraestrutura subjacente é responsável por determinar o local dos dados armazenados em cache no cluster. Você pode facilmente dimensionar o cache adicionando mais servidores.
+Um benefício importante da abordagem de cache compartilhado é a escalabilidade que ele oferece. Muitos serviços de cache compartilhado são implementados usando um cluster de servidores e utilizam o software que distribui os dados pelo cluster de modo transparente. Uma instância do aplicativo simplesmente envia uma solicitação para o serviço de cache.
+A infraestrutura subjacente é responsável por determinar o local dos dados armazenados em cache no cluster. Você pode facilmente dimensionar o cache adicionando mais servidores.
 
 Há duas desvantagens principais na abordagem de cache compartilhado:
 - O acesso ao cache é mais lento, pois ele não é mais mantido localmente para cada instância do aplicativo.
 - A necessidade de implementar um serviço de cache separado pode adicionar complexidade à solução.
 
-## Considerações para o uso de caching
+## <a name="considerations-for-using-caching"></a>Considerações para o uso de caching
 
 As seções a seguir descrevem detalhadamente as considerações para a criação e uso de um cache.
 
-### Decidir quando armazenar dados em cache
+### <a name="decide-when-to-cache-data"></a>Decidir quando armazenar dados em cache
 
 Caching pode melhorar drasticamente o desempenho, a escalabilidade e a disponibilidade. Quanto mais dados você tiver e quanto maior for o número de usuários que precisam acessar esses dados, maior serão as vantagens do caching. Isso ocorre porque o caching reduz a latência e a contenção associadas à manipulação de grandes volumes de solicitações simultâneas no armazenamento de dados original.
 
@@ -79,7 +82,7 @@ Por exemplo, um banco de dados pode oferecer suporte a uma quantidade limitada d
 
 Uma opção é armazenar em cache os dados lidos com frequência, mas que não são modificados frequentemente (por exemplo, os dados com uma proporção maior de operações de leitura em relação às operações de gravação). No entanto, não recomendamos o uso do cache como o repositório autoritativo de informações críticas. Em vez disso, certifique-se de que todas as alterações que seu aplicativo não pode perder sejam salvas sempre um armazenamento de dados persistente. Isso significa que se o cache ficar indisponível, o aplicativo ainda poderá continuar a operar usando o repositório de dados e você não perderá informações importantes.
 
-### Determinar como armazenar os dados em cache com eficiência
+### <a name="determine-how-to-cache-data-effectively"></a>Determinar como armazenar os dados em cache com eficiência
 
 A chave para uso eficiente de um cache reside em determinar os dados mais apropriados para ele e colocar esses dados em cache no momento apropriado. Os dados poderão ser adicionados ao cache sob demanda na primeira vez em que forem recuperados por um aplicativo. Isso significa que o aplicativo precisa buscar os dados apenas uma vez no armazenamento de dados e o acesso subsequente pode ser atendido pelo uso do cache.
 
@@ -99,17 +102,18 @@ O caching também pode ser usado para evitar a repetição de computações dura
 
 Um aplicativo pode modificar os dados mantidos em um cache. No entanto, recomendamos que você pense no cache como um armazenamento de dados temporários que pode desaparecer a qualquer momento. Não armazene dados valiosos somente no cache; mantenha as informações no repositório de dados original também. Isso significa que se o cache ficar indisponível, a possibilidade de perda de dados será minimizada.
 
-### Cache de dados altamente dinâmicos
+### <a name="cache-highly-dynamic-data"></a>Cache de dados altamente dinâmicos
 
 Quando você armazenar informações que mudem rapidamente em um repositório de dados persistente, ele poderá impor uma sobrecarga ao sistema. Por exemplo, considere um dispositivo que reporta continuamente o status ou alguma outra medida. Se um aplicativo decide não armazenar esses dados em cache tendo como motivo o fato de que as informações em cache quase sempre estariam desatualizadas, então a mesma consideração pode ser verdadeira ao armazenar e recuperar essas informações do repositório de dados. Durante o tempo utilizado para salvar e coletar esses dados, eles poderão ter mudado.
 
 Em uma situação como essa, considere as vantagens de armazenar as informações dinâmicas diretamente no cache em vez de no repositório de dados persistente. Se os dados não forem de caráter crítico e não necessitarem de auditoria, não terá importância se a alteração ocasional for perdida.
 
-### Gerenciar a expiração de dados em um cache
+### <a name="manage-data-expiration-in-a-cache"></a>Gerenciar a expiração de dados em um cache
 
 Na maioria dos casos, os dados armazenados em um cache são uma cópia dos dados mantidos no repositório de dados original. Os dados no repositório de dados original podem mudar depois de terem sido armazenado em cache, fazendo com que os dados em cache tornem-se obsoletos. Muitos sistemas de armazenamento em cache permitem configurar o cache para expirar dados e reduzir o período pelo qual os dados podem permanecer desatualizados.
 
-Quando os dados armazenados em cache expiram, são removidos do cache e o aplicativo deve recuperar os dados do repositório de dados original (ele pode colocar as informações recentemente coletadas novamente no cache). Você pode definir uma política de expiração padrão quando configura o cache. Em muitos serviços de cache, você também pode determinar o período de validade de objetos individuais ao armazená-los programaticamente no cache. Alguns caches permitem que você especifique o período de validade como um valor absoluto, ou como um valor deslizante, que faz com que o item seja removido do cache se não for acessado dentro do período especificado. Essa configuração substitui qualquer política de expiração em todo o cache, mas somente para os objetos especificados.
+Quando os dados armazenados em cache expiram, são removidos do cache e o aplicativo deve recuperar os dados do repositório de dados original (ele pode colocar as informações recentemente coletadas novamente no cache). Você pode definir uma política de expiração padrão quando configura o cache. Em muitos serviços de cache, você também pode determinar o período de validade de objetos individuais ao armazená-los programaticamente no cache.
+Alguns caches permitem que você especifique o período de validade como um valor absoluto, ou como um valor deslizante, que faz com que o item seja removido do cache se não for acessado dentro do período especificado. Essa configuração substitui qualquer política de expiração em todo o cache, mas somente para os objetos especificados.
 
 > [AZURE.NOTE] Considere cuidadosamente o período de validade para o cache e os objetos que ele contém. Se o período for definido com um valor excessivamente curto, os objetos expirarão rápido demais e isso reduzirá os benefícios de usar o cache. Se o período for definido com um valor excessivamente longo, você correrá o risco de os dados se tornarem obsoletos.
 
@@ -120,7 +124,7 @@ Algumas implementações de caching podem fornecer políticas de remoção adici
 - Uma política de primeiro a entrar, primeiro a sair (os dados mais antigos são removidos primeiro).
 - Uma política de remoção explícita baseada em um evento disparado (como a modificação dos dados).
 
-### Invalidar dados em um cache no lado do cliente
+### <a name="invalidate-data-in-a-client-side-cache"></a>Invalidar dados em um cache no lado do cliente
 
 Geralmente, os dados mantidos em um cache no lado do cliente são considerados fora da responsabilidade do serviço que fornece os dados ao cliente. Um serviço não pode forçar diretamente um cliente a adicionar ou a remover informações de um cache do lado do cliente.
 
@@ -128,16 +132,16 @@ Isso significa que é possível que um cliente que use um cache mal configurado 
 
 Se você estiver criando um aplicativo Web que sirva dados em uma conexão HTTP, poderá forçar implicitamente um cliente Web (como um navegador ou proxy Web) a coletar as informações mais recentes. Você poderá fazer isso se um recurso for atualizado por uma alteração no URI desse recurso. Os clientes Web normalmente usam o URI de um recurso como a chave no cache do lado do cliente. Portanto, se o URI for alterado, o cliente Web ignorará quaisquer versões de um recurso previamente armazenadas em cache e, em vez disso, buscará a nova versão.
 
-## Gerenciando simultaneidade em um cache
+## <a name="managing-concurrency-in-a-cache"></a>Gerenciando simultaneidade em um cache
 
 Caches são frequentemente projetados para serem compartilhados por várias instâncias de um aplicativo. Cada instância do aplicativo pode ler e modificar dados no cache. Consequentemente, os mesmos problemas de simultaneidade que surgem com qualquer repositório de dados compartilhado também são aplicáveis a um cache. Em uma situação em que um aplicativo precisa modificar dados mantidos no cache, talvez você precise garantir que as atualizações feitas por uma instância do aplicativo não substitua as alterações feitas por outra instância.
 
 Dependendo da natureza dos dados e da probabilidade de colisões, você pode adotar uma dessas duas abordagens para simultaneidade:
 
-- __Otimista.__ O aplicativo verifica, imediatamente antes de atualizar os dados, se eles sofreram alterações no cache desde que foram recuperados. Se os dados ainda são os mesmos, a alteração pode ser feita. Caso contrário, o aplicativo precisará decidir se quer atualizá-los. (A lógica de negócios que orienta essa decisão será específica do aplicativo). Essa abordagem é adequada para situações em que as atualizações são frequentes ou em que a ocorrência de colisões é improvável.
-- __Pessimista.__ Durante a recuperação dos dados, o aplicativo bloqueia o cache para impedir que outra instância altere esses dados. Esse processo garante que as colisões não ocorrerão, mas elas também poderão bloquear outras instâncias que precisem processar os mesmos dados. A simultaneidade pessimista pode afetar a escalabilidade de uma solução e é recomendada apenas para operações de curta duração. Essa abordagem pode ser apropriada para situações em que há maior probabilidade de colisões, especialmente se um aplicativo atualiza vários itens no cache e precisa garantir que essas alterações sejam aplicadas de modo consistente.
+- __Otimista.__  O aplicativo verifica, imediatamente antes de atualizar os dados, se eles sofreram alterações no cache desde que foram recuperados. Se os dados ainda são os mesmos, a alteração pode ser feita. Caso contrário, o aplicativo precisará decidir se quer atualizá-los. (A lógica de negócios que orienta essa decisão será específica do aplicativo). Essa abordagem é adequada para situações em que as atualizações são frequentes ou em que a ocorrência de colisões é improvável.
+- __Pessimista.__  Durante a recuperação dos dados, o aplicativo bloqueia o cache para impedir que outra instância altere esses dados. Esse processo garante que as colisões não ocorrerão, mas elas também poderão bloquear outras instâncias que precisem processar os mesmos dados. A simultaneidade pessimista pode afetar a escalabilidade de uma solução e é recomendada apenas para operações de curta duração. Essa abordagem pode ser apropriada para situações em que há maior probabilidade de colisões, especialmente se um aplicativo atualiza vários itens no cache e precisa garantir que essas alterações sejam aplicadas de modo consistente.
 
-### Implementar a alta disponibilidade e a escalabilidade e melhorar o desempenho
+### <a name="implement-high-availability-and-scalability,-and-improve-performance"></a>Implementar a alta disponibilidade e a escalabilidade e melhorar o desempenho
 
 Evite usar um cache como o repositório principal dos dados; essa é a função do repositório de dados original, por meio do qual o cache é preenchido. O repositório de dados original é responsável por garantir a persistência dos dados.
 
@@ -145,13 +149,15 @@ Tenha cuidado para não introduzir, em suas soluções, dependências críticas 
 
 Portanto, o aplicativo deve estar preparado para detectar a disponibilidade do serviço de cache e voltar para o repositório de dados original se o cache estiver inacessível. O [padrão Circuit-Breaker](http://msdn.microsoft.com/library/dn589784.aspx) é útil para lidar com esse cenário. O serviço que fornece o cache pode ser recuperado e, depois que ele se torna disponível, o cache pode ser populado novamente, já que os dados são lidos no armazenamento de dados original, seguindo uma estratégia como o [padrão Cache-aside](http://msdn.microsoft.com/library/dn589799.aspx).
 
-No entanto, pode ocorrer um impacto de escalabilidade no sistema se o aplicativo realizar o fallback para o armazenamento de dados original quando o cache estiver temporariamente indisponível. Durante a recuperação do armazenamento de dados, o armazenamento de dados original pode ser inundado com solicitações de dados, resultando em tempos limite e conexões com falha.
+No entanto, pode ocorrer um impacto de escalabilidade no sistema se o aplicativo realizar o fallback para o armazenamento de dados original quando o cache estiver temporariamente indisponível.
+Durante a recuperação do armazenamento de dados, o armazenamento de dados original pode ser inundado com solicitações de dados, resultando em tempos limite e conexões com falha.
 
 Considere a implementação de um cache local e privado em cada instância de um aplicativo, junto com o cache compartilhado que todas as instâncias do aplicativo acessam. Quando o aplicativo recupera um item, ele pode verificar primeiro em seu cache local, em seguida no cache compartilhado e, por fim, no armazenamento de dados original. O cache local pode ser preenchido usando os dados do cache compartilhado ou no banco de dados, se o cache compartilhado não estiver disponível.
 
 Essa abordagem requer configuração cuidadosa para impedir que o cache local se torne muito desatualizado em relação ao cache compartilhado. No entanto, o cache local atua como um buffer se o cache compartilhado estiver inacessível. A Figura 3 mostra essa estrutura.
 
-![Como usar um cache local e privado com um cache compartilhado](media/best-practices-caching/Caching3.png) _Figura 3: Usando um cache local e privado com um cache compartilhado_
+![Como usar um cache local e privado com um cache compartilhado](media/best-practices-caching/Caching3.png)
+ _Figura 3: Como usar um cache local e privado com um cache compartilhado_
 
 Para dar suporte a caches grandes que mantêm dados de vida útil relativamente longa, alguns serviços de cache fornecem uma opção de alta disponibilidade, que implementa o failover automático se o cache fica indisponível. Essa abordagem geralmente envolve a replicação dos dados em cache armazenados em um servidor de cache primário para um servidor de cache secundário, alternando para o servidor secundário se o servidor primário falha ou se a conectividade é perdida.
 
@@ -159,13 +165,15 @@ Para reduzir a latência associada à gravação em múltiplos destinos, a repli
 
 Se um cache compartilhado for grande, pode ser benéfico particionar os dados em cache em nós para reduzir as chances de contenção e melhorar a escalabilidade. Em vários caches compartilhados, há suporte para a capacidade de adicionar dinamicamente (e remover) nós e rebalancear os dados em partições. Essa abordagem pode envolver o clustering, em que a coleção de nós é apresentada a aplicativos cliente como um cache único e transparente. Internamente, no entanto, os dados ficam dispersos entre nós após uma estratégia de distribuição predefinida que equilibra a carga de maneira uniforme. O [documento Diretrizes de particionamento de dados](http://msdn.microsoft.com/library/dn589795.aspx) no site da Microsoft fornece mais informações sobre possíveis estratégias de particionamento.
 
-O clustering também pode aumentar a disponibilidade do cache. Se um nó falhar, o restante do cache ainda poderá ser acessado. O clustering é usado frequentemente em conjunto com a replicação e failover. Cada nó pode ser replicado, e a réplica pode ser colocada online rapidamente se o nó falhar.
+O clustering também pode aumentar a disponibilidade do cache. Se um nó falhar, o restante do cache ainda poderá ser acessado.
+O clustering é usado frequentemente em conjunto com a replicação e failover. Cada nó pode ser replicado, e a réplica pode ser colocada online rapidamente se o nó falhar.
 
-Muitas operações de leitura e gravação provavelmente envolvem valores ou objetos únicos de dados. No entanto, às vezes pode ser necessário armazenar ou recuperar rapidamente grandes volumes de dados. Por exemplo, a propagação de um cache pode envolver a gravação de centenas ou milhares de itens no cache. Um aplicativo também pode precisar recuperar uma grande quantidade de itens relacionados do cache como parte da mesma solicitação.
+Muitas operações de leitura e gravação provavelmente envolvem valores ou objetos únicos de dados. No entanto, às vezes pode ser necessário armazenar ou recuperar rapidamente grandes volumes de dados.
+Por exemplo, a propagação de um cache pode envolver a gravação de centenas ou milhares de itens no cache. Um aplicativo também pode precisar recuperar uma grande quantidade de itens relacionados do cache como parte da mesma solicitação.
 
 Muitos caches em larga escala oferecem operações em lote para esses fins. Isso permite que um aplicativo cliente empacote um grande volume de itens em uma única solicitação e reduza a sobrecarga associada à realização de uma grande quantidade de solicitações pequenas.
 
-## Caching e consistência eventual.
+## <a name="caching-and-eventual-consistency"></a>Caching e consistência eventual.
 
 Para que o padrão cache-aside funcione, a instância do aplicativo que preenche o cache deve ter acesso à versão mais recente e consistente dos dados. Em um sistema que implementa a consistência eventual (como um repositório de dados replicados), esse pode não ser o caso.
 
@@ -173,7 +181,7 @@ Uma instância de um aplicativo pode modificar um item de dados e invalidar a ve
 
 Para saber mais sobre como lidar com consistência de dados, consulte a página [Data consistency primer](http://msdn.microsoft.com/library/dn589800.aspx) no site da Microsoft.
 
-### Proteger dados em cache
+### <a name="protect-cached-data"></a>Proteger dados em cache
 
 Independentemente do serviço de cache que você usar, pense em como proteger os dados mantidos no cache contra o acesso não autorizado. Há dois problemas principais:
 
@@ -193,7 +201,7 @@ Se for necessário restringir o acesso a subconjuntos dos dados armazenados em c
 
 Você também deve proteger os dados conforme eles entram e saem do cache. Para fazer isso, você depende dos recursos de segurança fornecidos pela infraestrutura de rede usada pelos aplicativos cliente para se conectarem ao cache. Se o cache for implementado usando um servidor local dentro da mesma organização que hospeda os aplicativos cliente, pode ser que o isolamento da rede em si não exija etapas adicionais. Se o cache estiver localizado remotamente e exigir uma conexão TCP ou HTTP por uma rede pública (como a Internet), considere a possibilidade de implementar SSL.
 
-## Considerações sobre como implementar caching com o Microsoft Azure
+## <a name="considerations-for-implementing-caching-with-microsoft-azure"></a>Considerações sobre como implementar caching com o Microsoft Azure
 
 O Azure fornece o Cache Redis do Azure. Isso é uma implementação do cache Redis, que é um software livre, executado como um serviço em um datacenter do Azure. Ele fornece um serviço de cache que pode ser acessado de qualquer aplicativo do Azure, seja o aplicativo implementado como um serviço de nuvem, um site, ou dentro de uma máquina virtual do Azure. Os caches podem ser compartilhados por aplicativos cliente que têm a chave de acesso apropriada.
 
@@ -201,18 +209,21 @@ O Cache Redis do Azure é uma solução de caching de alto desempenho que oferec
 
  O Cache Redis do Azure é compatível com muitas das várias APIs usadas por aplicativos cliente. Se você tem aplicativos que já usam o Cache Redis do Azure em execução localmente, o Cache Redis do Azure oferece um caminho de migração rápido para o caching na nuvem.
 
-> [AZURE.NOTE] O Azure também fornece o Serviço de Cache Gerenciado. Esse serviço é baseado no mecanismo de Cache do Azure Service Fabric. Ele permite que você crie um cache distribuído que pode ser compartilhado por aplicativos vagamente vinculados. O cache é hospedado em servidores de alto desempenho em execução em um datacenter do Azure. No entanto, essa opção não é mais recomendada e é fornecida apenas para oferecer suporte a aplicativos existentes que foram criados para usá-la. Para todos os novos desenvolvimentos, use o Cache Redis do Azure.
+> [AZURE.NOTE] O Azure também fornece o Serviço de Cache Gerenciado. Esse serviço é baseado no mecanismo de Cache do Azure Service Fabric. Ele permite que você crie um cache distribuído que pode ser compartilhado por aplicativos vagamente vinculados. O cache é hospedado em servidores de alto desempenho em execução em um datacenter do Azure.
+No entanto, essa opção não é mais recomendada e é fornecida apenas para oferecer suporte a aplicativos existentes que foram criados para usá-la. Para todos os novos desenvolvimentos, use o Cache Redis do Azure.
 >
-> Além disso, o Azure oferece suporte a cache na função. Esse recurso permite que você crie um cache específico para um serviço de nuvem. O cache é hospedado por instâncias de uma função Web ou de trabalho, e só pode ser acessado por funções que operam como parte da mesma unidade de implantação de serviço de nuvem. (Uma unidade de implantação é o conjunto de instâncias de função implantadas como um serviço de nuvem em uma região específica). O cache é clusterizado, e todas as instâncias da função dentro da mesma unidade de implantação que hospeda o cache tornam-se parte do mesmo cluster de cache. No entanto, essa opção não é mais recomendada e é fornecida apenas para oferecer suporte a aplicativos existentes que foram criados para usá-la. Para todos os novos desenvolvimentos, use o Cache Redis do Azure.
+> Além disso, o Azure oferece suporte a cache na função. Esse recurso permite que você crie um cache específico para um serviço de nuvem.
+O cache é hospedado por instâncias de uma função Web ou de trabalho, e só pode ser acessado por funções que operam como parte da mesma unidade de implantação de serviço de nuvem. (Uma unidade de implantação é o conjunto de instâncias de função implantadas como um serviço de nuvem em uma região específica). O cache é clusterizado, e todas as instâncias da função dentro da mesma unidade de implantação que hospeda o cache tornam-se parte do mesmo cluster de cache. No entanto, essa opção não é mais recomendada e é fornecida apenas para oferecer suporte a aplicativos existentes que foram criados para usá-la. Para todos os novos desenvolvimentos, use o Cache Redis do Azure.
 >
-> O Serviço de Cache Gerenciado do Azure e o Cache na Função do Azure estão atualmente programados para desativação em 16 de novembro de 2016. Recomendamos que você migre para o Cache Redis do Azure antes da baixa. Para saber mais, visite a página [Qual oferta e tamanho de Cache Redis devo usar?](redis-cache/cache-faq.md#what-redis-cache-offering-and-size-should-i-use) no site da Microsoft.
+> O Serviço de Cache Gerenciado do Azure e o Cache na Função do Azure estão atualmente programados para desativação em 16 de novembro de 2016.
+Recomendamos que você migre para o Cache Redis do Azure antes da baixa. Para saber mais, visite a página   [Qual oferta e tamanho de Cache Redis do Azure devo usar?](redis-cache/cache-faq.md#what-redis-cache-offering-and-size-should-i-use) no site da Microsoft.
 
 
-### Recursos do Redis
+### <a name="features-of-redis"></a>Recursos do Redis
 
  O Redis é mais do que um simples servidor de cache. Ele fornece um banco de dados distribuído na memória com um conjunto abrangente de comandos que oferece suporte a vários cenários comuns. Eles serão descritos posteriormente neste documento, na seção Como usar o caching Redis. Essa seção resume alguns dos principais recursos oferecidos pelo Redis.
 
-### Redis como um banco de dados na memória
+### <a name="redis-as-an-in-memory-database"></a>Redis como um banco de dados na memória
 
 O Redis oferece suporte tanto a operações de leitura quanto de gravação. No Redis, as gravações podem ser protegidas contra falhas do sistema, seja armazenando-as periodicamente em um arquivo de instantâneo local ou em um arquivo de log do tipo que apenas acrescenta. Esse não é o caso em muitos caches (que devem ser considerados repositórios de dados transitórios).
 
@@ -220,11 +231,11 @@ O Redis oferece suporte tanto a operações de leitura quanto de gravação. No 
 
 > [AZURE.NOTE] O Redis não garante que todas as gravações serão salvas no caso de uma falha catastrófica, mas no pior caso possível, você deverá perder apenas os dados equivalentes a alguns segundos. Lembre-se de que um cache não se destina a agir como uma fonte de dados autoritativa, é responsabilidade dos aplicativos usando o cache garantir que os dados críticos sejam salvos com êxito em um repositório de dados apropriado. Para saber mais, confira o [padrão cache-aside](http://msdn.microsoft.com/library/dn589799.aspx).
 
-#### Tipos de dados do Redis
+#### <a name="redis-data-types"></a>Tipos de dados do Redis
 
 Redis é um repositório de chave-valor, onde os valores podem conter tipos simples ou estruturas de dados complexas como hashes, listas e conjuntos. Ele oferece suporte a um conjunto de operações atômicas nesses tipos de dados. As chaves podem ser permanentes ou marcadas com um tempo limite de expiração, ponto em que a chave e seu valor correspondente são automaticamente removidos do cache. Para saber mais sobre chaves e valores do Redis, visite a página [An introduction to Redis data types and abstractions](http://redis.io/topics/data-types-intro) (Uma introdução a abstrações e tipos de dados do Redis) no site do Redis.
 
-#### Replicação e clustering do Redis
+#### <a name="redis-replication-and-clustering"></a>Replicação e clustering do Redis
 
 O Redis oferece suporte à replicação de mestre/subordinado para ajudar a garantir a disponibilidade e manter a produtividade. As operações de gravação em um nó mestre Redis são replicadas para um ou mais nós subordinados. As operações de leitura podem ser realizadas pelo mestre ou por qualquer um dos subordinados.
 
@@ -234,13 +245,13 @@ O Redis também oferece clustering, o que permite que você distribua a carga e 
 
 Além disso, cada servidor no cluster pode ser replicado por meio da replicação de mestre/subordinados. Isso garante a disponibilidade em cada nó no cluster. Para saber mais sobre clustering e fragmentação, visite a [página de tutorial do cluster Redis](http://redis.io/topics/cluster-tutorial) no site do Redis.
 
-### Uso da memória no Redis
+### <a name="redis-memory-use"></a>Uso da memória no Redis
 
 Um cache Redis tem um tamanho limitado, dependendo dos recursos disponíveis no computador do host. Quando configura um servidor Redis, você pode especificar a quantidade máxima de memória que ele pode usar. Também é possível configurar uma chave em um cache Redis para ter um tempo de validade, após o qual ele será removido do cache automaticamente. Esse recurso pode ajudar a impedir que o cache de memória seja preenchido com dados antigos ou obsoletos.
 
 Conforme a memória é preenchida, o Redis pode remover automaticamente as chaves e seus valores, seguindo uma série de políticas. O padrão é LRU (menos utilizados recentemente), mas você também pode selecionar outras políticas como remover chaves aleatoriamente ou desativar completamente a remoção (nesse caso, as tentativas de adicionar itens ao cache falharão se o cache estiver cheio). A página [Using Redis as an LRU cache](http://redis.io/topics/lru-cache) (Usar Redis como uma cache LRU) fornece mais informações a respeito.
 
-### Lotes e transações do Redis
+### <a name="redis-transactions-and-batches"></a>Lotes e transações do Redis
 
 O Redis habilita um aplicativo cliente a enviar uma série de operações que leem e gravam dados em cache como uma transação atômica. Todos os comandos na transação têm garantia de serem executados em sequência, e nenhum comando emitido por outros clientes simultâneos será colocado entre eles.
 
@@ -252,7 +263,7 @@ O Redis implementa um modo de bloqueio otimista para ajudar a manter a consistê
 
 O Redis também oferece suporte ao envio em lote não transacional de solicitações. O protocolo Redis, que os clientes usam para enviar comandos para um servidor Redis, habilita um cliente a enviar uma série de operações como parte da mesma solicitação. Isso pode ajudar a reduzir a fragmentação de pacotes na rede. Quando o lote é processado, cada comando é executado. Se qualquer um desses comandos for malformado, será rejeitado (o que não acontece com uma transação), mas os comandos restantes serão executados. Além disso, não há nenhuma garantia quanto à ordem em que os comandos em lote serão processados.
 
-### Segurança no Redis
+### <a name="redis-security"></a>Segurança no Redis
 
 O Redis concentra-se puramente no fornecimento de acesso rápido aos dados, e foi projetado para execução em um ambiente confiável que pode ser acessado somente por clientes confiáveis. O Redis oferece suporte a um modelo de segurança limitada com base na autenticação da senha. (É possível remover a autenticação completamente, embora isso não seja recomendável).
 
@@ -266,7 +277,7 @@ Para saber mais, visite a página [Redis security](http://redis.io/topics/securi
 
 > [AZURE.NOTE] O Cache Redis do Azure fornece sua própria camada de segurança por meio da qual os clientes se conectam. Os servidores Redis subjacentes não são expostos à rede pública.
 
-### Usando o Cache Redis do Azure
+### <a name="using-the-azure-redis-cache"></a>Usando o Cache Redis do Azure
 
 O Cache Redis do Azure fornece acesso a servidores Redis executados em servidores hospedados em um datacenter do Azure; ele atua como uma fachada que fornece controle de acesso e segurança. Você pode provisionar um cache usando o Portal de Gerenciamento do Azure. O portal fornece várias configurações predefinidas, variando de um cache de 53 GB em execução como um serviço dedicado, que oferece suporte a comunicações SSL (para privacidade) e replicação de mestre/subordinados com uma disponibilidade de SLA de 99,9%, até um cache de 250 MB sem replicação (nenhuma garantia de disponibilidade) em execução em hardware compartilhado.
 
@@ -278,9 +289,9 @@ O Portal de Gerenciamento do Azure inclui uma exibição gráfica prática, que 
 
 Você também pode monitorar a CPU, memória e uso de rede para o cache.
 
-Para obter mais informações e exemplos que mostram como criar e configurar um Cache Redis do Azure, visite a página [Visão geral do Cache Redis do Azure](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/), no blog do Azure.
+Para obter mais informações e exemplos que mostram como criar e configurar um Cache Redis do Azure, visite a página [Visão geral do Cache Redis do Azure](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) , no blog do Azure.
 
-## Caching de estado de sessão e saída HTML
+## <a name="caching-session-state-and-html-output"></a>Caching de estado de sessão e saída HTML
 
 Se você criar aplicativos Web ASP.NET que são executados usando funções Web do Azure, você pode salvar informações de estado de sessão e de saída HTML em um Cache Redis do Azure. O provedor de estado de sessão de Cache Redis do Azure permite que você compartilhe informações de sessão entre diferentes instâncias de um aplicativo Web ASP .NET, e é muito útil em situações de Web farm em que a afinidade cliente-servidor não está disponível e o armazenamento de dados de sessão em cache na memória não seria apropriado.
 
@@ -290,19 +301,19 @@ Usar o Provedor de Estado de Sessão com o Cache Redis do Azure oferece vários 
 - ele dá suporte acesso controlado e simultâneo aos mesmos dados de estado de sessão para múltiplos leitores e um único gravador;
 - ele pode usar compactação para economizar memória e melhorar o desempenho da rede.
 
-Para obter mais informações, visite a página [Provedor de Estado de Sessão ASP.NET para Cache Redis do Azure](redis-cache/cache-aspnet-session-state-provider.md), no site da Microsoft.
+Para obter mais informações, visite a página [Provedor de Estado de Sessão ASP.NET para Cache Redis do Azure](redis-cache/cache-aspnet-session-state-provider.md) , no site da Microsoft.
 
 > [AZURE.NOTE] Não use o Provedor de Estado de Sessão para Cache Redis do Azure para aplicativos ASP.NET executados fora do ambiente do Azure. A latência de acessar o cache de fora do Azure pode eliminar os benefícios de desempenho obtidos pelo caching de dados.
 
-De modo similar, o Provedor de Cache de Saída para Cache Redis do Azure permite que você salve as respostas HTTP geradas por um aplicativo Web ASP .NET. Usar o Provedor de Cache de Saída com o Cache Redis do Azure pode melhorar os tempos de resposta dos aplicativos que processam saída HTML complexa; instâncias do aplicativo gerando respostas semelhantes podem fazer uso dos fragmentos de saída compartilhados no cache em vez de gerar essa saída HTML novamente. Para obter mais informações, visite a página [Provedor de Cache de Saída ASP.NET para Cache Redis do Azure](redis-cache/cache-aspnet-output-cache-provider.md), no site da Microsoft.
+De modo similar, o Provedor de Cache de Saída para Cache Redis do Azure permite que você salve as respostas HTTP geradas por um aplicativo Web ASP .NET. Usar o Provedor de Cache de Saída com o Cache Redis do Azure pode melhorar os tempos de resposta dos aplicativos que processam saída HTML complexa; instâncias do aplicativo gerando respostas semelhantes podem fazer uso dos fragmentos de saída compartilhados no cache em vez de gerar essa saída HTML novamente.  Para obter mais informações, visite a página [Provedor de Cache de Saída ASP.NET para Cache Redis do Azure](redis-cache/cache-aspnet-output-cache-provider.md) , no site da Microsoft.
 
-### Cache Redis do Azure
+### <a name="azure-redis-cache"></a>Cache Redis do Azure
 
 O Cache Redis do Azure fornece acesso aos servidores Redis hospedados em um datacenter do Azure. Ele atua como uma fachada que fornece controle de acesso e segurança. Você pode provisionar um cache usando o Portal do Azure.
 
 O portal fornece várias configurações predefinidas. Essas configurações variam desde um cache de 53 GB em execução como um serviço dedicado, que oferece suporte a comunicações SSL (para privacidade) e replicação de mestre/subordinados com uma disponibilidade de SLA de 99,9%, até um cache de 250 MB sem replicação (nenhuma garantia de disponibilidade) em execução em hardware compartilhado.
 
-Usando o Portal do Azure, você também pode configurar a política de remoção do cache, além de controlar o acesso ao cache adicionando usuários às funções fornecidas. Essas funções, que definem as operações que os membros podem executar, incluem Proprietário, Colaborador e Leitor. Por exemplo, os membros da função Proprietário têm controle completo sobre o cache (incluindo segurança) e seu conteúdo; os membros da função Colaborador podem ler e gravar informações no cache, enquanto os membros da função Leitor só podem recuperar dados por meio do cache.
+Usando o Portal do Azure, você também pode configurar a política de remoção do cache, além de controlar o acesso ao cache adicionando usuários às funções fornecidas.  Essas funções, que definem as operações que os membros podem executar, incluem Proprietário, Colaborador e Leitor. Por exemplo, os membros da função Proprietário têm controle completo sobre o cache (incluindo segurança) e seu conteúdo; os membros da função Colaborador podem ler e gravar informações no cache, enquanto os membros da função Leitor só podem recuperar dados por meio do cache.
 
 A maioria das tarefas administrativas é executada no Portal do Azure. Por esse motivo, muitos dos comandos administrativos disponíveis na versão padrão do Redis não estão disponíveis, incluindo a capacidade de modificar a configuração programaticamente, desligar o servidor Redis, configurar servidores subordinados adicionais ou salvar dados em disco de modo forçado.
 
@@ -312,13 +323,13 @@ Além disso, você pode criar alertas que enviam mensagens de email para um admi
 
 Você também pode monitorar a CPU, memória e uso de rede para o cache.
 
-Para obter mais informações e exemplos que mostram como criar e configurar um Cache Redis do Azure, visite a página [Visão geral do Cache Redis do Azure](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/), no blog do Azure.
+Para obter mais informações e exemplos que mostram como criar e configurar um Cache Redis do Azure, visite a página [Visão geral do Cache Redis do Azure](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) , no blog do Azure.
 
-## Caching de estado de sessão e saída HTML
+## <a name="caching-session-state-and-html-output"></a>Caching de estado de sessão e saída HTML
 
 Se você criar aplicativos Web ASP.NET que sejam executados usando funções Web do Azure, você pode salvar informações de estado de sessão e de saída HTML em um Cache Redis do Azure. O provedor de estado de sessão de Cache Redis do Azure permite que você compartilhe informações de sessão entre diferentes instâncias de um aplicativo Web ASP .NET, e é muito útil em situações de Web farm em que a afinidade cliente-servidor não está disponível e o armazenamento de dados de sessão em cache na memória não seria apropriado.
 
-Usar o provedor de estado de sessão com o Cache Redis do Azure oferece vários benefícios, incluindo:
+Usar o Provedor de Estado de Sessão com o Cache Redis do Azure oferece vários benefícios, incluindo:
 
 - O compartilhamento do estado de sessão com um grande número de instâncias de aplicativos Web ASP.NET.
 - Maior escalabilidade.
@@ -329,9 +340,9 @@ Para saber mais, visite a página [ASP.NET session state provider for Azure Redi
 
 > [AZURE.NOTE] Não use o provedor de estado de sessão para o Cache Redis do Azure com aplicativos ASP.NET executados fora do ambiente do Azure. A latência de acessar o cache de fora do Azure pode eliminar os benefícios de desempenho obtidos pelo caching de dados.
 
-De modo similar, o provedor de cache de saída para Cache Redis do Azure permite que você salve as respostas HTTP geradas por um aplicativo Web ASP .NET. O uso do provedor de cache de saída com o Cache Redis do Azure pode melhorar os tempos de resposta dos aplicativos que processam saídas HTML complexas. As instâncias de aplicativo que geram respostas semelhantes podem usar os fragmentos de saída compartilhados no cache, em vez de gerar essa saída HTML novamente. Para saber mais, visite a página [ASP.NET output cache provider for Azure Redis Cache (Provedor de cache de saída ASP.NET para Cache Redis do Azure)](redis-cache/cache-aspnet-output-cache-provider.md) no site da Microsoft.
+De modo similar, o Provedor de Cache de Saída para Cache Redis do Azure permite que você salve as respostas HTTP geradas por um aplicativo Web ASP .NET. O uso do provedor de cache de saída com o Cache Redis do Azure pode melhorar os tempos de resposta dos aplicativos que processam saídas HTML complexas. As instâncias de aplicativo que geram respostas semelhantes podem usar os fragmentos de saída compartilhados no cache, em vez de gerar essa saída HTML novamente. Para saber mais, visite a página [ASP.NET output cache provider for Azure Redis Cache (Provedor de cache de saída ASP.NET para Cache Redis do Azure)](redis-cache/cache-aspnet-output-cache-provider.md) no site da Microsoft.
 
-## Criando um cache Redis personalizado
+## <a name="building-a-custom-redis-cache"></a>Criando um cache Redis personalizado
 
 O Cache Redis do Azure atua como uma fachada para os servidores Redis subjacentes. Atualmente ele oferece suporte a um conjunto fixo de configurações, mas não oferece suporte ao clustering do Redis. Se você precisa de uma configuração avançada não contemplada pelo Cache Redis do Azure (como um cache maior que 53 GB), você pode criar e hospedar seus próprios servidores Redis usando máquinas virtuais do Azure.
 
@@ -341,7 +352,7 @@ Cada par de mestre/subordinado deve estar próximo um do outro para minimizar a 
 
 [AZURE.NOTE] Observe que, se implementar seu próprio cache Redis desse modo, você será responsável por monitorar, gerenciar e proteger o serviço.
 
-## Particionando um cache Redis
+## <a name="partitioning-a-redis-cache"></a>Particionando um cache Redis
 
 O particionamento de cache envolve dividir o cache por diversos computadores. Essa estrutura oferece várias vantagens em relação ao uso de um único servidor de cache, incluindo:
 
@@ -362,7 +373,7 @@ Para implementar o particionamento em um cache Redis, você pode usar uma das ab
 
 A página [Particionamento: como dividir dados entre várias instâncias do Redis](http://redis.io/topics/partitioning) no site do Redis fornece mais informações sobre a implementação do particionamento com o Redis.
 
-### Implementar aplicativos de cliente do Cache Redis
+### <a name="implement-redis-cache-client-applications"></a>Implementar aplicativos de cliente do Cache Redis
 
 O Redis oferece suporte a aplicativos cliente escritos em numerosas linguagens de programação. Se você está criando novos aplicativos usando o .NET Framework, a abordagem recomendada é usar a biblioteca de cliente Stackexchange.Redis. Esta biblioteca fornece um modelo de objeto do .NET Framework que abstrai os detalhes para conectar-se a um servidor Redis, enviar comandos e receber respostas. Ela está disponível no Visual Studio como um pacote NuGet. Você pode usar essa mesma biblioteca para se conectar a um cache Redis do Azure, ou a um cache Redis personalizado hospedado em uma máquina virtual.
 
@@ -514,9 +525,9 @@ var customer2 = cache.Wait(task2);
 
 A página [Documentação para o Cache Redis do Azure](https://azure.microsoft.com/documentation/services/cache/) no site da Microsoft fornece mais informações sobre como escrever aplicativos cliente capazes de usar o Cache Redis do Azure. Confira informações adicionais na [página Uso básico](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) no site do StackExchange.Redis.
 
-A página [Pipelines e multiplexadores](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) no mesmo site fornece mais informações sobre operações assíncronas e pipeline com Redis e a biblioteca do StackExchange. A próxima seção deste artigo, Como usar o caching do Redis, fornece exemplos de algumas das técnicas mais avançadas que você pode aplicar aos dados armazenados em um cache do Redis.
+A página [Pipelines e multiplexadores](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) no mesmo site fornece mais informações sobre operações assíncronas e pipeline com Redis e a biblioteca do StackExchange.  A próxima seção deste artigo, Como usar o caching do Redis, fornece exemplos de algumas das técnicas mais avançadas que você pode aplicar aos dados armazenados em um cache do Redis.
 
-## Como usar o caching do Redis
+## <a name="using-redis-caching"></a>Como usar o caching do Redis
 
 O uso mais simples de Redis para questões de armazenamento em cache é com pares chave/valor, nos quais o valor é uma cadeia de caracteres não interpretada de comprimento arbitrário, que pode conter quaisquer dados binários. (Essencialmente, é uma matriz de bytes que pode ser tratada como uma cadeia de caracteres). Esse cenário foi ilustrado na seção Implementar aplicativos de cliente do Cache Redis, anteriormente neste artigo.
 
@@ -528,7 +539,7 @@ Além de cadeias de caracteres binárias unidimensionais, um valor em um par cha
 
 Esta seção resume alguns casos de uso comuns para esses comandos e tipos de dados.
 
-### Executar operações atômicas e em lote
+### <a name="perform-atomic-and-batch-operations"></a>Executar operações atômicas e em lote
 
 O Redis oferece suporte a uma série de operações atômicas de obtenção e definição de valores de cadeia de caracteres. Essas operações removem os riscos de corrida possíveis que podem ocorrer ao usar comandos `GET` e `SET` separados. As operações disponíveis incluem:
 
@@ -549,7 +560,7 @@ O Redis oferece suporte a uma série de operações atômicas de obtenção e de
   // newValue should be 50
   ```
 
-- `GETSET` que recupera o valor associado a uma chave e altera-o para um novo valor. A biblioteca do StackExchange disponibiliza essa operação por meio do método `IDatabase.StringGetSetAsync`. O trecho de código a seguir mostra um exemplo desse método. Esse código retorna o valor atual associado à chave "data:counter" do exemplo anterior. Em seguida, ele redefine o valor desta chave como zero, tudo como parte da mesma operação:
+- `GETSET`que recupera o valor associado a uma chave e altera-o para um novo valor. A biblioteca do StackExchange disponibiliza essa operação por meio do método `IDatabase.StringGetSetAsync`. O trecho de código a seguir mostra um exemplo desse método. Esse código retorna o valor atual associado à chave "data:counter" do exemplo anterior. Em seguida, ele redefine o valor desta chave como zero, tudo como parte da mesma operação:
 
   ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
@@ -585,7 +596,7 @@ O Redis oferece suporte a uma série de operações atômicas de obtenção e de
 
 Você também pode combinar várias operações em uma única transação Redis, conforme descrito na seção Transações e lotes do Redis, anteriormente neste artigo. A biblioteca do StackExchange fornece suporte para transações por meio da interface `ITransaction`.
 
-Crie um objeto `ITransaction` usando o método `IDatabase.CreateTransaction`. Invoque comandos para a transação usando os métodos fornecidos pelo objeto `ITransaction`.
+Crie um objeto `ITransaction` usando o método `IDatabase.CreateTransaction`. Invoque comandos para a transação usando os métodos fornecidos pelo objeto `ITransaction` .
 
 A interface `ITransaction` fornece acesso a um conjunto de métodos semelhantes àqueles acessados pela interface `IDatabase`, exceto pelo fato de que todos os métodos são assíncronos. Isso significa que eles são executados apenas quando o método `ITransaction.Execute` é invocado. O valor retornado pelo método `ITransaction.Execute` indica se a transação foi criada com êxito (true) ou se falhou (false).
 
@@ -610,7 +621,7 @@ Se algum comando falhar, o processamento dos outros ainda continuará. Se você 
 
 Para obter mais informações, consulte a página [Transações em Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) no site Stackexchange.Redis.
 
-Ao executar operações em lote, você pode usar a interface `IBatch` da biblioteca do StackExchange. Essa interface fornece acesso a um conjunto de métodos semelhantes àqueles acessados pela interface `IDatabase`, exceto pelo fato de que todos os métodos são assíncronos.
+Ao executar operações em lote, você pode usar a interface `IBatch` da biblioteca do StackExchange. Essa interface fornece acesso a um conjunto de métodos semelhantes àqueles acessados pela interface `IDatabase` , exceto pelo fato de que todos os métodos são assíncronos.
 
 Você cria um objeto `IBatch` usando o método `IDatabase.CreateBatch` e, em seguida, executa o lote usando o método `IBatch.Execute`, conforme mostra o exemplo a seguir. Esse código simplesmente define um valor de cadeia de caracteres, incrementa e decrementa os mesmos contadores usados no exemplo anterior e exibe os resultados:
 
@@ -629,7 +640,7 @@ Console.WriteLine("{0}", t2.Result);
 
 É importante entender que ao contrário de uma transação, se um comando em um lote falhar por estar malformado, outros comandos ainda podem ser executados. O método `IBatch.Execute` não retorna qualquer indicação de sucesso ou falha.
 
-### Executar operações de cache do tipo disparar e esquecer
+### <a name="perform-fire-and-forget-cache-operations"></a>Executar operações de cache do tipo disparar e esquecer
 
 O Redis oferece suporte a operações do tipo disparar e esquecer usando sinalizadores de comando. Nessa situação, o cliente simplesmente inicia uma operação, mas não tem interesse no resultado e não espera até o comando ser concluído. O exemplo a seguir mostra como executar o comando INCR como uma operação de disparar e esquecer:
 
@@ -642,9 +653,9 @@ await cache.StringSetAsync("data:key1", 99);
 cache.StringIncrement("data:key1", flags: CommandFlags.FireAndForget);
 ```
 
-### Especificar chaves com validade automática
+### <a name="specify-automatically-expiring-keys"></a>Especificar chaves com validade automática
 
-Quando você armazena um item em um cache do Redis, você pode especificar um tempo limite após o qual o item será removido automaticamente do cache. Você também pode consultar quanto tempo uma chave ainda tem antes de expirar usando o comando `TTL`. Esse comando está disponível para aplicativos do StackExchange usando o método `IDatabase.KeyTimeToLive`.
+Quando você armazena um item em um cache do Redis, você pode especificar um tempo limite após o qual o item será removido automaticamente do cache. Você também pode consultar quanto tempo uma chave ainda tem antes de expirar usando o comando `TTL` . Esse comando está disponível para aplicativos do StackExchange usando o método `IDatabase.KeyTimeToLive` .
 
 O trecho de código a seguir mostra como configurar um tempo de expiração de 20 segundos em uma chave, e consulta do ciclo de vida restante da chave:
 
@@ -660,7 +671,7 @@ await cache.StringSetAsync("data:key1", 99, TimeSpan.FromSeconds(20));
 TimeSpan? expiry = cache.KeyTimeToLive("data:key1");
 ```
 
-Você também pode definir o horário de expiração para uma data e hora específicos usando o comando EXPIRE, disponível na biblioteca do StackExchange como o método `KeyExpireAsync`:
+Você também pode definir o horário de expiração para uma data e hora específicos usando o comando EXPIRE, disponível na biblioteca do StackExchange como o método `KeyExpireAsync` :
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -673,17 +684,17 @@ await cache.KeyExpireAsync("data:key1",
 ...
 ```
 
-> _Dica:_ você pode remover manualmente um item do cache usando o comando DEL, que está disponível por meio da biblioteca do StackExchange como o método `IDatabase.KeyDeleteAsync`.
+> _Dica:`IDatabase.KeyDeleteAsync` você pode remover manualmente um item do cache usando o comando DEL, que está disponível por meio da biblioteca do StackExchange como o método _.
 
-### Usar marcas para correlação cruzada entre itens em cache
+### <a name="use-tags-to-cross-correlate-cached-items"></a>Usar marcas para correlação cruzada entre itens em cache
 
 Um conjunto do Redis é uma coleção de vários itens que compartilham uma única chave. Você pode criar um conjunto usando o comando SADD. Você pode recuperar os itens em um conjunto usando o comando SMEMBERS. A biblioteca do StackExchange implementa o comando SADD com o método `IDatabase.SetAddAsync`, e o comando SMEMBERS com o método `IDatabase.SetMembersAsync`.
 
-Você também pode combinar conjuntos existentes para criar novos conjuntos usando os comandos SUNION (união de conjunto), SINTER (interseção de conjunto) e SDIFF (diferença de conjunto). A biblioteca do StackExchange unifica essas operações no método `IDatabase.SetCombineAsync`. O primeiro parâmetro para esse método especifica a operação set a ser executada.
+Você também pode combinar conjuntos existentes para criar novos conjuntos usando os comandos SUNION (união de conjunto), SINTER (interseção de conjunto) e SDIFF (diferença de conjunto). A biblioteca do StackExchange unifica essas operações no método `IDatabase.SetCombineAsync` . O primeiro parâmetro para esse método especifica a operação set a ser executada.
 
-Os trechos de código a seguir mostram como conjuntos podem ser úteis para armazenar e recuperar coleções de itens relacionados rapidamente. Esse código usa o tipo `BlogPost`, que foi descrito na seção Implementar aplicativos de cliente do Cache Redis, anteriormente neste artigo.
+Os trechos de código a seguir mostram como conjuntos podem ser úteis para armazenar e recuperar coleções de itens relacionados rapidamente. Esse código usa o tipo `BlogPost` , que foi descrito na seção Implementar aplicativos de cliente do Cache Redis, anteriormente neste artigo.
 
-Um objeto `BlogPost` contém quatro campos — uma ID, um título, uma pontuação de classificação e uma coleção de marcas. O primeiro trecho de código abaixo mostra os dados de exemplo usados para popular uma lista em C# com objetos `BlogPost`:
+Um objeto `BlogPost` contém quatro campos — uma ID, um título, uma pontuação de classificação e uma coleção de marcas. O primeiro trecho de código abaixo mostra os dados de exemplo usados para popular uma lista em C# com objetos `BlogPost` :
 
 ```csharp
 List<string[]> tags = new List<string[]>()
@@ -773,13 +784,13 @@ foreach (var value in await cache.SetMembersAsync("tag:iot:blog:posts"))
 }
 ```
 
-### Localizar itens acessados recentemente
+### <a name="find-recently-accessed-items"></a>Localizar itens acessados recentemente
 
 Uma tarefa comum exigida para muitos aplicativos é localizar os itens acessados mais recentemente. Por exemplo, um site de blog talvez queira exibir informações sobre as postagens de blog lidas mais recentemente.
 
 Você pode implementar essa funcionalidade usando uma lista do Redis. Uma lista do Redis contém vários itens que compartilham a mesma chave. A lista atua como uma fila com duas extremidades. Usando os comandos LPUSH (deslocar para a esquerda) e RPUSH (deslocar para a direita), você pode enviar itens para ambas as extremidades da lista. Você pode recuperar itens de qualquer das duas extremidades da lista usando os comandos LPOP e RPOP. Você também pode retornar um conjunto de elementos usando os comandos LRANGE e RRANGE.
 
-Os trechos de código a seguir mostram como você pode executar essas operações usando a biblioteca do StackExchange. Esse código usa o tipo `BlogPost` dos exemplos anteriores. Conforme uma postagem de blog é lida por um usuário, o método `IDatabase.ListLeftPushAsync` envia o título da postagem de blog para uma lista associada à chave "blog:recent\_posts" no cache do Redis.
+Os trechos de código a seguir mostram como você pode executar essas operações usando a biblioteca do StackExchange. Esse código usa o tipo `BlogPost` dos exemplos anteriores. Conforme uma postagem de blog é lida por um usuário, o método `IDatabase.ListLeftPushAsync` envia o título da postagem de blog para uma lista associada à chave "blog:recent_posts" no cache do Redis.
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -793,7 +804,7 @@ await cache.ListLeftPushAsync(
 
 Conforme mais postagens do blog são lidas, seus títulos são deslocados pela mesma lista. A lista é ordenada de acordo com a sequência na qual os títulos foram adicionados. As postagens de blog lidas mais recentemente ficam na direção da extremidade esquerda da lista. (Se a mesma postagem de blog for lida mais de uma vez, ela terá várias entradas na lista).
 
-Você pode exibir os títulos das postagens lidas mais recentemente usando o método `IDatabase.ListRange`. Este método usa a chave que contém a lista, um ponto inicial e um ponto final. O código a seguir recupera os títulos das 10 postagens de blog (itens de 0 a 9) posicionadas mais à esquerda na lista:
+Você pode exibir os títulos das postagens lidas mais recentemente usando o método `IDatabase.ListRange` . Este método usa a chave que contém a lista, um ponto inicial e um ponto final. O código a seguir recupera os títulos das 10 postagens de blog (itens de 0 a 9) posicionadas mais à esquerda na lista:
 
 ```csharp
 // Show latest ten posts
@@ -811,7 +822,7 @@ Para impedir que a lista aumente indefinidamente, você pode retirar itens perio
 await cache.ListTrimAsync(redisKey, 0, 5);
 ```
 
-### Implementar uma classificação
+### <a name="implement-a-leader-board"></a>Implementar uma classificação
 
 Por padrão, os itens em um conjunto não são mantidos em nenhuma ordem específica. Você pode criar um conjunto ordenado, usando o comando ZADD (o método `IDatabase.SortedSetAdd` na biblioteca do StackExchange). Os itens são ordenados por meio de um valor numérico chamado de pontuação, que é fornecido como um parâmetro para o comando.
 
@@ -847,7 +858,7 @@ foreach (var post in await cache.SortedSetRangeByRankWithScoresAsync(
 }
 ```
 
-O exemplo a seguir usa o método `IDatabase.SortedSetRangeByScoreWithScoresAsync`, que você pode usar para limitar os itens retornados àqueles cuja pontuação se encontra em um determinado intervalo:
+O exemplo a seguir usa o método `IDatabase.SortedSetRangeByScoreWithScoresAsync` , que você pode usar para limitar os itens retornados àqueles cuja pontuação se encontra em um determinado intervalo:
 
 ```csharp
 // Blog posts with scores between 5000 and 100000
@@ -858,7 +869,7 @@ foreach (var post in await cache.SortedSetRangeByScoreWithScoresAsync(
 }
 ```
 
-### Mensagem usando canais
+### <a name="message-by-using-channels"></a>Mensagem usando canais
 
 Além de atuar como um cache de dados, um servidor Redis oferece envio de mensagens por meio de um mecanismo de editor/assinante de alto desempenho. Aplicativos cliente podem se inscrever em um canal, enquanto outros aplicativos ou serviços podem publicar mensagens no canal. Aplicativos inscritos receberão então essas mensagens e poderão processá-las.
 
@@ -904,14 +915,14 @@ redisHostConnection.PreserveAsyncOrder = false;
 ISubscriber subscriber = redisHostConnection.GetSubscriber();
 ```
 
-## Diretrizes e padrões relacionados
+## <a name="related-patterns-and-guidance"></a>Diretrizes e padrões relacionados
 
 O padrão a seguir também pode ser relevante para seu cenário ao implementar caching em seus aplicativos:
 
 - O [padrão Cache-aside](http://msdn.microsoft.com/library/dn589799.aspx): esse padrão descreve como carregar dados em um cache sob demanda por meio de um repositório de dados. Esse padrão também ajuda a manter a consistência entre os dados armazenados no cache e os dados no repositório de dados original.
 - O [padrão Sharding](http://msdn.microsoft.com/library/dn589797.aspx) fornece informações sobre como implementar o particionamento horizontal, para ajudar a melhorar a escalabilidade ao armazenar e acessar grandes volumes de dados.
 
-## Mais informações
+## <a name="more-information"></a>Mais informações
 
 - A página [Classe MemoryCache](http://msdn.microsoft.com/library/system.runtime.caching.memorycache.aspx) no site da Microsoft.
 - A página [Documentação do Cache Redis do Azure](https://azure.microsoft.com/documentation/services/cache/) no site da Microsoft.
@@ -927,12 +938,16 @@ O padrão a seguir também pode ser relevante para seu cenário ao implementar c
 - A [página Transações](http://redis.io/topics/transactions) no site do Redis
 - A página [Segurança do Redis](http://redis.io/topics/security) no site do Redis
 - A página [Visão geral do Cache Redis do Azure](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) no blog do Azure
-- A página [Executando o Redis em uma VM Linux do CentOS no Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx), no site da Microsoft
+- A página [Executando o Redis em uma VM Linux do CentOS no Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) , no site da Microsoft
 - A página [ASP.NET session state provider for Azure Redis Cache (Provedor de estado de sessão ASP.NET para Cache Redis do Azure)](redis-cache/cache-aspnet-session-state-provider.md) no site da Microsoft
 - A página [ASP.NET output cache provider for Azure Redis Cache (Provedor de cache de saída ASP.NET para Cache Redis do Azure)](redis-cache/cache-aspnet-output-cache-provider.md) no site da Microsoft
 - A página [An Introduction to Redis data types and abstractions](http://redis.io/topics/data-types-intro) (Uma introdução a abstrações e tipos de dados do Redis), no site do Redis
-- A página [Uso básico](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md), no site StackExchange.Redis.
+- A página [Uso básico](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) , no site StackExchange.Redis.
 - Para saber mais, confira a página [Transações em Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) no repositório StackExchange.Redis.
-- O [Guia de particionamento de dados](http://msdn.microsoft.com/library/dn589795.aspx), no site da Microsoft.
+- O [Guia de particionamento de dados](http://msdn.microsoft.com/library/dn589795.aspx) , no site da Microsoft.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

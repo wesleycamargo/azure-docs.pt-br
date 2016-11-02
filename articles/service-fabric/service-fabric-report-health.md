@@ -16,7 +16,8 @@
    ms.date="09/28/2016"
    ms.author="oanapl"/>
 
-# Adicionar relatórios de integridade personalizados do Service Fabric
+
+# <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios de integridade personalizados do Service Fabric
 O Azure Service Fabric apresenta um [modelo de integridade](service-fabric-health-introduction.md) desenvolvido para sinalizar condições de cluster e aplicativo não íntegras em entidades específicas. O modelo de integridade usa **relatores de integridade** (componentes do sistema e watchdogs). O objetivo é facilitar e agilizar o diagnóstico e o reparo. Os criadores de serviço precisam pensar à frente sobre a integridade. Qualquer condição que possa afetar a integridade deve ser apontada, especialmente se ela puder ajudar a sinalizar problemas próximos da raiz. As informações de integridade podem economizar muito tempo e esforço na depuração e investigação quando o serviço estiver funcionando em escala na nuvem (privada ou do Azure).
 
 Os relatores da Malha de Serviço monitoram condições identificadas de interesse. Eles informam essas condições com base na respectiva exibição local. O [repositório de integridade](service-fabric-health-introduction.md#health-store) agrega dados de integridade enviados por todos os relatores para determinar se as entidades estão globalmente íntegras. O modelo foi desenvolvido com a intenção de ser completo, flexível e fácil de usar. A qualidade dos relatórios de integridade determina a precisão da exibição de integridade do cluster. Falsos positivos que mostram incorretamente problemas de integridade podem afetar negativamente atualizações ou outros serviços que usam dados de integridade. Exemplos de tais serviços são os serviços de reparo e os mecanismos de alerta. Portanto, é necessário um pouco de criatividade para fornecer relatórios que capturem condições de interesse da melhor forma possível.
@@ -51,7 +52,7 @@ Uma vez o design de relatório de integridade estiver claro, os relatórios de i
 
 > [AZURE.NOTE] O relatório de integridade é síncrono e representa apenas o trabalho de validação no lado do cliente. O fato de que o relatório é aceito pelo cliente de integridade, ou pelos objetos `Partition` ou `CodePackageActivationContext`, não significa que ele será aplicado no repositório. Ele será enviado de forma assíncrona e, possivelmente, em lote com outros relatórios. O processamento no servidor ainda pode falhar: o número de sequência é obsoleto, a entidade na qual o relatório deve ser aplicado foi excluída, etc.
 
-## Cliente de integridade
+## <a name="health-client"></a>Cliente de integridade
 Os relatórios de integridade são enviados ao repositório de integridade usando um cliente de integridade, que reside dentro do cliente de malha. O cliente de integridade pode ser configurado com o seguinte:
 
 - **HealthReportSendInterval**: o atraso entre a hora em que o relatório é adicionado ao cliente e a hora em que ele é enviado ao repositório de integridade. Usado para relatórios de lote em uma única mensagem, em vez de enviar uma mensagem para cada relatório. O envio em lote melhora o desempenho. Padrão: 30 segundos.
@@ -62,7 +63,8 @@ Os relatórios de integridade são enviados ao repositório de integridade usand
 
 > [AZURE.NOTE] Quando os relatórios são agrupados em lotes, o cliente de malha deve ser mantido em atividade até que, pelo menos, HealthReportSendInterval garanta que eles sejam enviados. Se a mensagem for perdida ou o repositório de integridade não puder aplicá-la devido a erros transitórios, o cliente da malha deverá ser mantido em atividade por mais tempo para que tenha a chance de tentar novamente.
 
-O armazenamento em buffer no cliente leva a exclusividade dos relatórios em consideração. Por exemplo, se um relator específico com problemas estiver relatando 100 relatórios por segundo na mesma propriedade da mesma entidade, os relatórios serão substituídos pela versão mais recente. Existe no máximo apenas um relatório assim na fila do cliente. Se o envio em lote estiver configurado, o número de relatórios enviados ao repositório de integridade é de apenas um por intervalo de envio. Este relatório é o último adicionado, que reflete o estado mais atual da entidade. Todos os parâmetros de configuração podem ser especificados quando `FabricClient` é criado, passando [FabricClientSettings](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx) com os valores desejados para as entradas relacionadas à integridade.
+O armazenamento em buffer no cliente leva a exclusividade dos relatórios em consideração. Por exemplo, se um relator específico com problemas estiver relatando 100 relatórios por segundo na mesma propriedade da mesma entidade, os relatórios serão substituídos pela versão mais recente. Existe no máximo apenas um relatório assim na fila do cliente. Se o envio em lote estiver configurado, o número de relatórios enviados ao repositório de integridade é de apenas um por intervalo de envio. Este relatório é o último adicionado, que reflete o estado mais atual da entidade.
+Todos os parâmetros de configuração podem ser especificados quando `FabricClient` é criado, passando [FabricClientSettings](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx) com os valores desejados para as entradas relacionadas à integridade.
 
 O exemplo a seguir cria um cliente de malha e especifica que os relatórios devem ser enviados quando forem adicionados. Em tempos limite e erros que podem ser recuperados, as repetições ocorrem a cada 40 segundos.
 
@@ -106,7 +108,7 @@ GatewayInformation   : {
 
 > [AZURE.NOTE] Para garantir que os serviços não autorizados não possam relatar a integridade em relação às entidades no cluster, o servidor pode ser configurado para aceitar somente solicitações de clientes protegidos. O `FabricClient` usado para o relatório deve ter a segurança habilitada para ser capaz de se comunicar com o cluster (por exemplo, com a autenticação Kerberos ou de certificado). Leia mais sobre [segurança de cluster](service-fabric-cluster-security.md).
 
-## Relatório nos serviços de baixo privilégio
+## <a name="report-from-within-low-privilege-services"></a>Relatório nos serviços de baixo privilégio
 Nos serviços do Service Fabric que não têm acesso administrativo ao cluster, você pode relatar integridade sobre entidades do contexto atual por meio de `Partition` ou `CodePackageActivationContext`.
 
 - Em serviços sem estado, use [IStatelessServicePartition.ReportInstanceHealth](https://msdn.microsoft.com/library/system.fabric.istatelessservicepartition.reportinstancehealth.aspx) para relatar a instância atual do serviço.
@@ -123,7 +125,7 @@ Nos serviços do Service Fabric que não têm acesso administrativo ao cluster, 
 
 > [AZURE.NOTE] Internamente, `Partition` e `CodePackageActivationContext` mantêm um cliente de integridade que é configurado com parâmetros padrão. Aplicam-se as mesmas considerações explicadas para [cliente de integridade](service-fabric-report-health.md#health-client). Os relatórios são em lote e enviados com base em um temporizador, de modo que os objetos devem ser mantidos ativos para que tenham a chance de enviar o relatório.
 
-## Projetar relatórios de integridade
+## <a name="design-health-reporting"></a>Projetar relatórios de integridade
 A primeira etapa da geração de relatórios de alta qualidade é identificar as condições que podem afetar a integridade do serviço. Qualquer condição que possa ajudar a sinalizar problemas no serviço ou cluster no início ou, melhor ainda, antes de um problema ocorrer, tem o potencial para economizar bilhões de dólares. Os benefícios incluem menos tempo de inatividade, menos horas à noite gastas para investigar e corrigir problemas e maior satisfação do cliente.
 
 Assim que as condições são identificadas, os desenvolvedores de watchdog precisam descobrir a melhor maneira de monitorá-las para atingir o equilíbrio entre sobrecarga e utilidade. Por exemplo, pense em um serviço que faça cálculos complexos usando alguns arquivos temporários em um compartilhamento. Um watchdog pode monitorar o compartilhamento para garantir que haja espaço suficiente disponível. Ele pode escutar notificações de alterações em arquivo ou diretório. Ele pode relatar um aviso se um limite inicial for atingido e um erro se o compartilhamento estiver cheio. Ao aviso, um sistema de reparo pode começar a remover arquivos mais antigos do compartilhamento. Em um erro, um sistema de reparo pode mover a réplica de serviço para outro nó. Observe como os estados de condição são descritos em termos de integridade: o estado da condição que pode ser considerada íntegra ou não íntegra (aviso ou erro).
@@ -134,7 +136,7 @@ Os relatórios de dentro do serviço monitorado nem sempre são uma opção. Um 
 
 Às vezes, um watchdog em execução no cluster também não é uma opção. Se a condição monitorada for a disponibilidade ou a funcionalidade do serviço como os usuários a veem, é melhor ter os watchdogs no mesmo local que os clientes do usuário. Lá, eles podem testar as operações da mesma forma que os usuários as chamam. Por exemplo, você pode ter um watchdog que reside fora do cluster e emite solicitações para o serviço e então verifica a latência e a exatidão do resultado. (Para um serviço de calculadora, por exemplo, 2+2 retorna 4 em um período de tempo razoável?)
 
-Depois que os detalhes do watchdog tiverem sido finalizados, escolha uma ID de origem que o identifique de modo exclusivo. Se vários watchdogs do mesmo tipo residirem no cluster, eles deverão relatar diferentes entidades ou, se relatarem a mesma entidade, deverão garantir que a propriedade ou a ID de origem seja diferente. Dessa forma, os relatórios poderão coexistir. A propriedade do relatório de integridade deve capturar a condição monitorada. (Para o exemplo anterior, a propriedade poderia ser **ShareSize**.) Se vários relatórios aplicarem-se à mesma condição, a propriedade deverá conter algumas informações dinâmicas que permitem a coexistência dos relatórios. Por exemplo, se houver vários compartilhamentos que precisem ser monitorados, o nome da propriedade poderá ser **ShareSize-sharename**.
+Depois que os detalhes do watchdog tiverem sido finalizados, escolha uma ID de origem que o identifique de modo exclusivo. Se vários watchdogs do mesmo tipo residirem no cluster, eles deverão relatar diferentes entidades ou, se relatarem a mesma entidade, deverão garantir que a propriedade ou a ID de origem seja diferente. Dessa forma, os relatórios poderão coexistir. A propriedade do relatório de integridade deve capturar a condição monitorada. (Para o exemplo anterior, a propriedade poderia ser **TamanhoDoCompartilhamento**). Se vários relatórios aplicarem-se à mesma condição, a propriedade deverá conter algumas informações dinâmicas que permitem a coexistência dos relatórios. Por exemplo, se houver vários compartilhamentos que precisem ser monitorados, o nome da propriedade poderá ser **TamanhoDoCompartilhamento-nomedocompartilhamento**.
 
 > [AZURE.NOTE] O repositório de integridade *não* deve ser usado para manter informações de status. Apenas informações relacionadas à integridade devem ser relatadas como integridade, uma vez que essas informações afetam a avaliação de integridade de uma entidade. O repositório de integridade não foi desenvolvido como um repositório para fins gerais. Ele usa a lógica de avaliação de integridade para agregar todos os dados no estado de integridade. O envio de informações não relacionadas à integridade (como relatórios de status com um estado de integridade OK) não afetará o estado de integridade agregado, mas poderá afetar negativamente o desempenho do Repositório de Integridade.
 
@@ -154,7 +156,7 @@ A condição monitorada poderá ser traduzida como um aviso se a tarefa não for
 
 No entanto, o relatório será gerado nos casos descritos acima; eles serão capturados na integridade do aplicativo quando a integridade for avaliada.
 
-## Relatar periodicamente x na transição
+## <a name="report-periodically-vs.-on-transition"></a>Relatar periodicamente x na transição
 Usando o modelo de relatório de integridade, os watchdogs podem enviar relatórios periodicamente ou nas transições. A forma recomendada para relatórios watchdog é periodicamente, pois o código é muito mais simples e menos sujeito a erros. Os watchdogs devem ser sempre buscar ser o mais simples possível para evitar bugs que disparem relatórios incorretos. Relatórios *não íntegro* incorretos afetam as avaliações de integridade e os cenários com base na integridade, incluindo atualizações. Os relatórios incorretos de *integridade* ocultam problemas no cluster, o que não é desejado.
 
 Para relatórios periódicos, o watchdog pode ser implementado com um temporizador. Em um retorno de chamada do temporizador, o watchdog pode verificar o estado e enviar um relatório com base no estado atual. Não é necessário ver qual relatório foi enviado anteriormente nem fazer qualquer otimização em termos de mensagens. O cliente de integridade tem lógica de envio em lote para ajudar com o desempenho. Enquanto o cliente de integridade for mantido em atividade, ele fará novas tentativas até que o relatório seja confirmado pelo Repositório de Integridade ou até que o watchdog gere um relatório mais recente com a mesma entidade, propriedade e origem.
@@ -163,10 +165,10 @@ Relatórios sobre transições exigem tratamento cuidadoso do estado. O watchdog
 
 Relatar transições faz sentido para serviços que relatam a si próprios, por meio de `Partition` ou `CodePackageActivationContext`. Quando o objeto local (réplica ou pacote de serviços implantado/aplicativo implantado) é removido, todos os seus relatórios também serão removidos. Esta limpeza automática alivia a necessidade de sincronização entre o relator e o Repositório de Integridade. Se o relatório for para a partição pai ou o aplicativo pai, será preciso tomar cuidado com o failover para evitar relatórios obsoletos no repositório de integridade. A lógica deve ser adicionada para manter o estado correto e limpar o relatório do repositório quando ele não for mais necessário.
 
-## Implementar relatório de integridade
+## <a name="implement-health-reporting"></a>Implementar relatório de integridade
 Quando os detalhes da entidade e do relatório estiverem claros, os relatórios de integridade podem ser enviados usando API, PowerShell ou REST.
 
-### API
+### <a name="api"></a>API
 Para relatar por meio da API, você precisa criar um relatório de integridade específico para o tipo de entidade que deseja relatar. Envie o relatório a um cliente de integridade. Como alternativa, crie informações de integridade e transmita-as aos métodos corretos de relatório em `Partition` ou `CodePackageActivationContext` para relatar em entidades atuais.
 
 O exemplo a seguir mostra um relatório periódico de um watchdog dentro do cluster. O watchdog verifica se um recurso externo pode ser acessado em um nó. O recurso é necessário para um manifesto do serviço no aplicativo. Mesmo que o recurso não esteja disponível, os outros serviços no aplicativo ainda poderão funcionar corretamente. Desse modo, o relatório é enviado na entidade do pacote de serviço implantado a cada 30 segundos.
@@ -199,7 +201,7 @@ public static void SendReport(object obj)
 }
 ```
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 Enviar relatórios de integridade com **Send-ServiceFabric*EntityType*HealthReport**.
 
 O exemplo a seguir mostra um relatório periódico sobre valores de CPU em um nó. Os relatórios devem ser enviados a cada 30 segundos e têm uma vida útil de dois minutos. Se eles expirarem, o relator está com problemas, de modo que o nó é avaliado com erro. Quando a CPU estiver acima de um limite, o relatório terá um estado de integridade de aviso. Quando a CPU permanece acima de um limite por mais do que o tempo configurado, ela é relatada como um erro. Caso contrário, o relator enviará um estado de integridade OK.
@@ -283,10 +285,10 @@ HealthEvents          :
                         Transitions           : ->Warning = 4/21/2015 9:12:32 PM
 ```
 
-### REST
+### <a name="rest"></a>REST
 Envie relatórios de integridade usando o REST com solicitações POST que vão para a entidade desejada e têm, no corpo, a descrição do relatório de integridade. Por exemplo, veja como enviar [relatórios de integridade do cluster](https://msdn.microsoft.com/library/azure/dn707640.aspx) ou [relatórios de integridade do serviço](https://msdn.microsoft.com/library/azure/dn707640.aspx) de REST. Todas as entidades têm suporte.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Com base nos dados de integridade, os criadores de serviço e administradores de cluster/aplicativo podem pensar em maneiras de consumir as informações. Por exemplo, eles podem configurar alertas com base no status de integridade para capturar problemas graves antes que eles provoquem interrupções. Os administradores também podem definir os sistemas de reparo para corrigir problemas automaticamente.
 
@@ -302,4 +304,8 @@ Com base nos dados de integridade, os criadores de serviço e administradores de
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

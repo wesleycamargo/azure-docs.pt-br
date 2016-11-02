@@ -1,28 +1,29 @@
 <properties
-	pageTitle="Visão geral conceitual dos nomes de domínio personalizados no Azure Active Directory | Microsoft Azure"
-	description="Explica a estrutura conceitual para usar nomes de domínio personalizados no Azure Active Directory, incluindo federação para logon único"
-	services="active-directory"
-	documentationCenter=""
-	authors="jeffsta"
-	manager="femila"
-	editor=""/>
+    pageTitle="Visão geral conceitual dos nomes de domínio personalizados no Azure Active Directory | Microsoft Azure"
+    description="Explica a estrutura conceitual para usar nomes de domínio personalizados no Azure Active Directory, incluindo federação para logon único"
+    services="active-directory"
+    documentationCenter=""
+    authors="jeffsta"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/18/2016"
-	ms.author="curtand;jeffsta"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/04/2016"
+    ms.author="curtand;jeffsta"/>
 
-# Visão geral conceitual dos nomes de domínio personalizados no Azure Active Directory
+
+# <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Visão geral conceitual dos nomes de domínio personalizados no Azure Active Directory
 
 Um nome de domínio é uma parte importante do identificador para muitos recursos de diretório: ele é parte de um nome de usuário ou endereço de email para um usuário, parte do endereço para um grupo e pode ser parte do URI da ID do aplicativo para um aplicativo. Um recurso no Azure AD (Azure Active Directory) pode incluir um nome de domínio já verificado como pertencente ao diretório que contém o recurso. Somente um administrador global pode executar tarefas de gerenciamento de domínio no Azure AD.
 
 Nomes de domínio no Azure AD são globalmente exclusivos. Um nome de domínio pode ser usado por um único Azure AD. Se um diretório do Azure AD verificar um nome de domínio, nenhum outro diretório do Azure AD poderá verificar ou usar o mesmo nome de domínio.
 
-## Nomes de domínio iniciais e personalizados
+## <a name="initial-and-custom-domain-names"></a>Nomes de domínio iniciais e personalizados
 
 Todo nome de domínio no Azure AD é um nome de domínio inicial ou um nome de domínio personalizado.
 
@@ -32,7 +33,7 @@ Na maioria dos ambientes de produção, um diretório tem pelo menos um domínio
 
 Antes de poder ser usado pelo Azure AD, o nome de domínio personalizado deve ser adicionado ao seu diretório e verificado.
 
-## Nomes de domínio verificados e não verificados
+## <a name="verified-and-unverified-domain-names"></a>Nomes de domínio verificados e não verificados
 
 O nome de domínio inicial de um diretório é avaliado implicitamente como verificado pelo Azure AD. Quando um administrador adiciona um nome de domínio personalizado a um Azure AD, ele está inicialmente em um estado não verificado. O Azure AD não permite que nenhum recurso do diretório use um nome de domínio não verificado. Isso garante que somente um diretório possa usar um nome de domínio específico e que a organização que usa o nome de domínio realmente o possui.
 
@@ -40,23 +41,23 @@ O Azure AD verifica a propriedade de um nome de domínio procurando por uma entr
 
 Adicionar uma entrada DNS ao arquivo de zona para o nome de domínio não afeta outros serviços de domínio como email ou hospedagem na Web.
 
-## Nomes de domínio federados e gerenciados
+## <a name="federated-and-managed-domain-names"></a>Nomes de domínio federados e gerenciados
 
 Um nome de domínio personalizado no Azure AD pode ser configurado para fornecer aos usuários uma experiência de logon federado entre o Active Directory local e o Azure AD. Configurar um domínio para federação requer atualizações para recursos privilegiados no Azure AD e também para o Active Directory do Windows Server. A configuração de um domínio federado deve ser realizada por meio do Azure AD Connect ou usando o PowerShell. A federação de um domínio personalizado não pode ser iniciada no portal clássico do Azure. [Assista a este vídeo para saber mais sobre como configurar o AD FS para entrada do usuário com o Azure AD Connect](http://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect).
 
 Domínios que não são federados algumas vezes são chamados de domínios gerenciados. O domínio inicial de um diretório do Azure AD é avaliado implicitamente como um domínio gerenciado.
 
-## Nomes de domínio primários
+## <a name="primary-domain-names"></a>Nomes de domínio primários
 
 O nome de domínio primário de um diretório é o nome de domínio que é pré-selecionado como valor padrão para a parte de "domínio" do nome de usuário quando um administrador cria um novo usuário no [portal clássico do Azure](https://manage.windowsazure.com/) ou em outro portal, como o portal de administração do Office 365. Um diretório pode ter apenas um nome de domínio primário. Um administrador pode alterar o nome de domínio primário para qualquer domínio personalizado verificado não federado ou para o domínio inicial.
 
-## Nomes de domínio no Azure AD e outros Microsoft Online Services
+## <a name="domain-names-in-azure-ad-and-other-microsoft-online-services"></a>Nomes de domínio no Azure AD e outros Microsoft Online Services
 
 Um nome de domínio deve ser verificado no Azure AD antes que possa ser usado por outro Microsoft Online Service, como Exchange Online, SharePoint Online e Intune. Normalmente, esses outros serviços exigem que um administrador adicione uma ou mais entradas DNS que são específicas ao serviço.
 
 Um aplicativo Web do Azure usa seu próprio mecanismo para verificar a propriedade de um domínio. Um domínio deve ser verificado para ser usado com o Azure AD, mesmo que tenha sido verificado anteriormente para ser usado por um aplicativo Web do Azure em uma assinatura que se baseia no Azure AD. Um aplicativo Web do Azure pode usar um nome de domínio que foi verificado em um diretório diferente do diretório que mantém o aplicativo Web.
 
-## Gerenciando nomes de domínio
+## <a name="managing-domain-names"></a>Gerenciando nomes de domínio
 
 Tarefas de gerenciamento de domínio podem ser realizadas no portal clássico do Azure e do PowerShell. Muitas tarefas podem ser realizadas usando a API do Graph do Azure AD (em preview pública).
 
@@ -68,4 +69,8 @@ Tarefas de gerenciamento de domínio podem ser realizadas no portal clássico do
 
 -   [Usando a API do Graph do Azure AD para gerenciar nomes de domínio no Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

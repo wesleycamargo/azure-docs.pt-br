@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Obter pré-aprovação por meio do programa Microsoft Azure Certified | Microsoft Azure"
-   description="Saiba mais sobre o programa de parceiro certificado do Microsoft Azure e como vender a imagem da sua máquina virtual, modelo de solução, serviço do desenvolvedor ou serviço de dados no Azure Marketplace"
+   pageTitle="Get pre-approved through the Microsoft Azure Certified program | Microsoft Azure"
+   description="Learn about the Microsoft Azure Certified partner program and how to get to sell your virtual machine image, solution template, developer service, or data service on the Azure Marketplace"
    services="marketplace-publishing"
    documentationCenter="na"
    authors="HannibalSII"
-   manager=" "
+   manager="hascipio"
    editor=""
    tags=""/>
 
@@ -17,27 +17,32 @@
    ms.date="07/21/2016"
    ms.author="anishk;hascipio"/>
 
-# Obter pré-aprovação por meio do programa de certificação do Microsoft Azure
 
-Este artigo fornece instruções de como se tornar certificado no Microsoft Azure. Para obter uma visão geral detalhada do programa de certificação do Microsoft Azure e seus benefícios, visite [http://azure.com/certified](http://azure.com/certified)
+# <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Get pre-approved via the Microsoft Azure Certified program
 
-> [AZURE.NOTE] A certificação do Azure é aplicável somente se você pretende criar uma Máquina Virtual, o modelo de solução e serviços de desenvolvedor para o Azure Marketplace. Se você não estiver criando algum desses artefatos, ignore esta etapa e avance para [Conta de vendedor da Microsoft: criação e registro](marketplace-publishing-accounts-creation-registration.md).
+This article provides instructions on how to become Microsoft Azure Certified. For a detailed overview of the Microsoft Azure Certified program and its benefits, visit [http://azure.com/certified](http://azure.com/certified).
 
-## Introdução
-1. É a primeira etapa no caminho para obter seu aplicativo ou serviço certificado e embutido para Azure Marketplace preencher o formulário de inscrição na página da Web [Microsoft Azure Certified](https://azure.microsoft.com/marketplace/partner-program/).
+> [AZURE.NOTE] The Azure certification is applicable only if you are going to create a virtual machine, a solution template, and developer services for the Azure Marketplace. If you are not creating any of these artifacts, please skip this step and move forward to [Microsoft seller account: creation and registration](marketplace-publishing-accounts-creation-registration.md).
 
-2. Se você atende aos critérios de qualificação básica pedimos que você compartilhe mais alguns detalhes sobre seus negócios e o aplicativo ou serviço que você deseja certificar. Quando tivermos todos os detalhes de você, examinaremos seu aplicativo para garantir que ele é uma boa opção para o Azure Marketplace. Se seu aplicativo for aprovado, começaremos a trabalhar com você para integrar sua solução ao Azure Marketplace.
+## <a name="getting-started"></a>Getting started
+1. The first step on the path to getting your application or service certified and onboarded to the Azure Marketplace is to fill out the application form on the [Microsoft Azure Certified](https://azure.microsoft.com/marketplace/partner-program/) webpage.
 
-3. Se você estiver trabalhando com um gerente de conta de parceiro ou gerente de parceiro DX, peça a ele para nomear você para o programa Azure Certified. Ou vá para a página da Web [Microsoft Azure Certified](http://azure.com/certified) , clique em **"Solicitar informações"** e preencha o formulário do aplicativo.
+2. If you meet the basic eligibility criteria, we will ask you to share some more details about your business and the application or service that you want to certify. When we have all the details from you, we will review your application to ensure that it’s a good fit for the Azure Marketplace. If your application is approved, we will start working with you to onboard your solution to the Azure Marketplace.
 
-**Países de “origem de venda”**
+3. If you are working with a Partner Account Manager or a DX Partner Manager, please ask them to nominate you for the Azure Certified program. Or go to the [Microsoft Azure Certified](http://azure.com/certified) webpage, click **Request Information**, and fill in the application form.
 
-> [AZURE.WARNING] Para vender seus serviços no Microsoft Azure Marketplace, sua entidade registrada precisa estar dentro dos países aprovados para "origem de venda". Essa restrição é por razões de pagamento e tributação. Estamos considerando a expansão dessa lista de países em um futuro próximo, portanto, fique atento. Para obter a lista completa, consulte seção 1b das [Políticas de participação do Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+**"Sell-from" countries**
 
-## Próxima etapa
-Depois que você receber aprovação prévia do programa Microsoft Azure Certified, você poderá prosseguir para [Conta de vendedor da Microsoft: criação e registro](marketplace-publishing-accounts-creation-registration.md).
+> [AZURE.WARNING] In order to sell your services on the Microsoft Azure Marketplace, your registered entity needs to be from one of the approved “sell-from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so stay tuned. For the complete list, see section 1b of the [Azure Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833).
 
-## Consulte também
-- [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
+## <a name="next-step"></a>Next step
+Once you have received pre-approval from the Microsoft Azure Certified program, you can proceed to [Microsoft seller account: creation and registration](marketplace-publishing-accounts-creation-registration.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+## <a name="see-also"></a>See also
+- [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

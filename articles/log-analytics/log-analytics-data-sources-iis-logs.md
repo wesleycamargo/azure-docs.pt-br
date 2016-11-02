@@ -1,6 +1,6 @@
 <properties
    pageTitle="Logs do IIS no Log Analytics | Microsoft Azure"
-   description="O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics. Este artigo descreve como configurar a coleta de logs do IIS e os detalhes dos registros que eles criam no repositório do OMS."
+   description="O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics.  Este artigo descreve como configurar a coleta de logs do IIS e os detalhes dos registros que eles criam no repositório do OMS."
    services="log-analytics"
    documentationCenter=""
    authors="bwren"
@@ -12,32 +12,34 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2016"
+   ms.date="10/18/2016"
    ms.author="bwren" />
 
-# Logs do IIS no Log Analytics
-O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics.
+
+# <a name="iis-logs-in-log-analytics"></a>Logs do IIS no Log Analytics
+O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics.  
 
 ![Logs IIS](media/log-analytics-data-sources-iis-logs/overview.png)
 
-## Configurando logs do IIS
-O Log Analytics coleta entradas de arquivos de log criados pelo IIS, por isso você deve [configurar o IIS para o registro em log](https://technet.microsoft.com/library/hh831775.aspx) e selecionar os campos que você deseja que o Log Analytics colete. O IIS não registra todos os campos por padrão, portanto você pode desejar selecionar manualmente os campos adicionais além dos campos padrão.
+## <a name="configuring-iis-logs"></a>Configurando logs do IIS
+O Log Analytics coleta entradas de arquivos de log criados pelo IIS, por isso você deve [configurar o IIS para o registro em log](https://technet.microsoft.com/library/hh831775.aspx).
 
-O Log Analytics dá suporte apenas a arquivos de log do IIS armazenados em formato W3C. Ele não coleta logs no formato nativo IIS ou NCSA.
+O Log Analytics só oferece suporte a arquivos de log do IIS armazenados em formato W3C e não oferece suporte a campos personalizados ou a registro em Log Avançado do IIS.  
+O Log Analytics não coleta logs no formato nativo IIS ou NCSA.
 
-Configure os logs do IIS no [menu Dados nas Configurações do Log Analytics](log-analytics-data-sources.md/configuring-data-sources). Não há nenhuma outra configuração necessária além da seleção de **Collect W3C format IIS log files** (Coletar arquivos de log do IIS no formato W3C).
+Configure os logs do IIS no [menu Dados nas Configurações do Log Analytics](log-analytics-data-sources.md#configuring-data-sources).  Não há nenhuma outra configuração necessária além da seleção de **Collect W3C format IIS log files**(Coletar arquivos de log do IIS no formato W3C).
 
 É recomendável, ao habilitar a coleta de log do IIS, definir a configuração de substituição de log do IIS em cada servidor.
 
 
-## Coleta de dados
+## <a name="data-collection"></a>Coleta de dados
 
-O Log Analytics coletará as entradas de log do IIS de cada fonte conectada aproximadamente a cada 15 minutos. O agente registrará seu lugar em cada log de eventos do qual ele realiza a coleta. Se o agente ficar offline por um período de tempo, o Log Analytics coletará os eventos de onde ele parou, mesmo que os eventos tenham sido criados enquanto o agente estava offline.
+O Log Analytics coleta as entradas de log do IIS de cada fonte conectada a cada 15 minutos, aproximadamente.  O agente registra seu lugar em cada log de eventos do qual ele realiza a coleta.  Se o agente fica offline, o Log Analytics coleta os eventos de onde ele parou, mesmo que os eventos tenham sido criados enquanto o agente estava offline.
 
 
-## Propriedades de registro de log do IIS
+## <a name="iis-log-record-properties"></a>Propriedades de registro de log do IIS
 
-Os registros log do IIS têm um tipo de **W3CIISLog** e têm as propriedades na tabela a seguir.
+Os registros log do IIS têm um tipo de **W3CIISLog** e têm as propriedades na tabela a seguir:
 
 | Propriedade | Descrição |
 |:--|:--|
@@ -49,7 +51,7 @@ Os registros log do IIS têm um tipo de **W3CIISLog** e têm as propriedades na 
 | csUserName | Nome do usuário autenticado que acessou o servidor. Os usuários anônimos são indicados por um hífen. |
 | csUriStem | Destino da solicitação, como uma página da Web. |
 | csUriQuery | Consulta, se houver, que o cliente estava tentando executar. |
-| ManagementGroupName | Nome do grupo de gerenciamento de agentes do SCOM. Para outros agentes, ele é AOI-<ID do espaço de trabalho> |
+| ManagementGroupName | Nome do grupo de gerenciamento para agentes do Operations Manager.  Para outros agentes, ele é AOI-\<ID do espaço de trabalho\> |
 | RemoteIPCountry | País do endereço IP do cliente. |
 | RemoteIPLatitude | Latitude do endereço IP do cliente. |
 | RemoteIPLongitude | Longitude do endereço IP do cliente. |
@@ -57,13 +59,13 @@ Os registros log do IIS têm um tipo de **W3CIISLog** e têm as propriedades na 
 | scSubStatus | Código de erro de substatus. |
 | scWin32Status | Código de status do Windows. |
 | sIP | Endereço IP do servidor Web. |
-| SourceSystem | OpsMgr |
+| SourceSystem  | OpsMgr |
 | sPort | Porta no servidor ao qual o cliente está conectado. |
 | sSiteName | Nome do site do IIS. |
 | TimeGenerated | Data e hora em que a entrada foi registrada. |
 | TimeTaken | Período para processar a solicitação em milissegundos. |
 
-## Pesquisas de log com logs do IIS
+## <a name="log-searches-with-iis-logs"></a>Pesquisas de log com logs do IIS
 
 A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros do log do IIS.
 
@@ -75,10 +77,14 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 | Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem | Contagem das entradas de log do IIS por URL para o host www.contoso.com. |
 | Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000| Total de bytes recebidos por cada computador com IIS. |
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - Configure o Log Analytics para coletar outras [fontes de dados](log-analytics-data-sources.md) para análise.
 - Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.
 - Configure alertas no Log Analytics para notificá-lo proativamente sobre condições importantes encontradas em logs do IIS.
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

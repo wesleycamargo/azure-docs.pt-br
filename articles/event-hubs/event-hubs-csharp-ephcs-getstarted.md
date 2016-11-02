@@ -1,26 +1,27 @@
 <properties
-	pageTitle="Introdução aos Hubs de Eventos em C# | Microsoft Azure"
-	description="Siga este tutorial para começar a usar os Hubs de Eventos do Azure com C# e a usar o EventProcessorHost."
-	services="event-hubs"
-	documentationCenter=""
-	authors="jtaubensee"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Introdução aos Hubs de Eventos em C# | Microsoft Azure"
+    description="Siga este tutorial para começar a usar os Hubs de Eventos do Azure com C# e a usar o EventProcessorHost."
+    services="event-hubs"
+    documentationCenter=""
+    authors="jtaubensee"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="event-hubs"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="09/02/2016"
-	ms.author="jotaub;sethm"/>
+    ms.service="event-hubs"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="09/02/2016"
+    ms.author="jotaub;sethm"/>
 
-# Introdução aos Hubs de Eventos
+
+# <a name="get-started-with-event-hubs"></a>Introdução aos Hubs de Eventos
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
-## Introdução
+## <a name="introduction"></a>Introdução
 
 Os Hubs de Eventos são um serviço que processa grandes quantidades de dados de eventos (telemetria) a partir de aplicativos e dispositivos conectados. Depois de coletar dados para Hubs de Eventos, você pode armazenar os dados usando um cluster de armazenamento ou transformá-los usando um provedor de análise em tempo real. Essa funcionalidade de coleta e processamento de eventos em grande escala é um componente fundamental de arquiteturas de aplicativos modernas, incluindo a IoT (Internet das Coisas).
 
@@ -38,7 +39,7 @@ Para concluir esse tutorial, você precisará do seguinte:
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
-## Executar os aplicativos
+## <a name="run-the-applications"></a>Executar os aplicativos
 
 Agora você está pronto para executar os aplicativos.
 
@@ -52,31 +53,30 @@ Agora você está pronto para executar os aplicativos.
 
 5. Clique em **Projeto de Inicialização** e clique no botão **Vários projetos de inicialização**. Defina a caixa **Ação** de ambos os projetos **Destinatário** e **Remetente** como **Iniciar**.
 
-	![][19]
+    ![][19]
 
 6. Clique em **Dependências do Projeto**. Na caixa **Projetos**, clique em **Remetente**. Na caixa **Depende de**, verifique se o **Destinatário** está marcado.
 
-	![][20]
+    ![][20]
 
-7. Clique em **OK** para descartar a caixa de diálogo **Propriedades**.
+7. Clique em **OK** para descartar o diálogo **Propriedades**.
 
-1.	Pressione F5 para executar o projeto **Destinatário** no Visual Studio e aguarde que ele inicie os destinatários para todas as partições.
+1.  Pressione F5 para executar o projeto **Destinatário** no Visual Studio e aguarde que ele inicie os destinatários para todas as partições.
 
-	![][21]
+    ![][21]
 
-2.	O projeto **Remetente** será executado automaticamente. Pressione **Enter** na janela do console e veja os eventos aparecerem na janela do destinatário.
+2.  O projeto **Remetente** será executado automaticamente. Pressione **Enter** na janela do console e veja os eventos aparecerem na janela do destinatário.
 
-	![][22]
+    ![][22]
 
 Pressione **Ctrl+C** na janela **Remetente** para encerrar o aplicativo do Remetente e pressione **Enter** na janela do Destinatário para finalizar o aplicativo.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e recebe dados, você pode passar para os seguintes cenários:
 
 - Um [aplicativo de exemplo completo que usa os Hubs de Evento][].
-- O exemplo de [Escala horizontal do processamento de eventos com Hubs de Eventos][].
-- Uma [solução de mensagens na fila][] usando filas do Barramento de Serviço.
+- O exemplo de [Escala horizontal do processamento de eventos com Hubs de Eventos][] .
 - [Visão geral de Hubs de Evento][]
 
 <!-- Images. -->
@@ -86,12 +86,16 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 [Host do Processador de Eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Visão geral de Hubs de Evento]: event-hubs-overview.md
+[Visão Geral dos Hubs de Eventos]: event-hubs-overview.md
 [aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Escala horizontal do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[solução de mensagens na fila]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
