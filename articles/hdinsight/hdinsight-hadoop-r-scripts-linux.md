@@ -1,149 +1,154 @@
 <properties
-	pageTitle="Instalar R no HDInsight baseado em Linux | Microsoft Azure"
-	description="Saiba como instalar e usar R para personalizar os clusters do Hadoop baseados em Linux."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Install R on Linux-based HDInsight | Microsoft Azure"
+    description="Learn how to install and use R to customize Linux-based Hadoop clusters."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/20/2016"
-	ms.author="larryfr"/>
-
-# Instalar e usar R em clusters Hadoop do HDInsight (visualização)
-
-Você pode instalar R em qualquer tipo de cluster no Hadoop no HDInsight usando a personalização de cluster **Ação de Script**. Isso permite que os analistas e cientistas de dados usem R para implantar a eficiente estrutura de programação MapReduce/YARN para processar grandes quantidades de dados em clusters Hadoop implantados no HDInsight.
-
-> [AZURE.IMPORTANT] A oferta da [camada premium](https://azure.microsoft.com/pricing/details/hdinsight/) do HDInsight inclui o Servidor R como parte do cluster HDInsight. Isso permite que os scripts R usem o MapReduce e o Spark para executar cálculos distribuídos. Para obter mais informações, veja [Get started using R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md) (Introdução ao uso do Servidor R no HDInsight).
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/01/2016"
+    ms.author="larryfr"/>
 
 
-## O que é R?
+# <a name="install-and-use-r-on-hdinsight-hadoop-clusters"></a>Install and use R on HDInsight Hadoop clusters
 
-O <a href="http://www.r-project.org/" target="_blank">Projeto R para computação de estatísticas</a> é uma linguagem de software livre e um ambiente de computação de estatísticas. O R fornece centenas de funções estatísticas de compilação e uma linguagem própria de programação que combina aspectos da programação funcional e orientada a objeto. Ele também fornece recursos abrangentes de gráficos. O R é o ambiente de programação preferencial para a maioria dos profissionais estatísticos e cientistas em uma ampla variedade de campos.
+You can install R on any type of cluster in Hadoop on HDInsight by using **Script Action** cluster customization. This enables data scientists and analysts to use R to deploy the powerful MapReduce/YARN programming framework to process large amounts of data on Hadoop clusters that are deployed in HDInsight.
 
-Os scripts R podem ser executados em clusters Hadoop no HDInsight que foram personalizados usando a ação de Script quando criado para instalar o ambiente de R. O R é compatível com o armazenamento de Blob do Azure (WASB) para que os dados armazenados nele possam ser processados usando R no HDInsight.
+> [AZURE.IMPORTANT] The [premium tier](https://azure.microsoft.com/pricing/details/hdinsight/) offering for HDInsight includes R Server as part of your HDInsight cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. For more information, see [Get started using R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md). 
 
-## O que o script faz
 
-A ação de script usada para instalar o R em seu cluster HDInsight instala os seguintes pacotes Ubuntu, que fornecem uma instalação básica do R:
+## <a name="what-is-r"></a>What is R?
 
-* [r-base](http://packages.ubuntu.com/precise/r-base): pacote R GNU base
-* [r-base-dev](http://packages.ubuntu.com/precise/r-base-dev): pacotes R GNU auxiliares
+The <a href="http://www.r-project.org/" target="_blank">R Project for Statistical Computing</a> is an open source language and environment for statistical computing. R provides hundreds of build-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities. R is the preferred programming environment for most professional statisticians and scientists in a wide variety of fields.
 
-Os seguintes pacotes RHadoop também são instalados, os quais fornecem integração com o MapReduce e o HDFS:
+R scripts can be run on Hadoop clusters in HDInsight that were customized using Script Action when created to install the R environment. R is compatible with Azure Blob Storage (WASB) so that data that is stored there can be processed using R on HDInsight.
 
-* [rmr2](https://github.com/RevolutionAnalytics/rmr2): permite que os desenvolvedores do R usem o MapReduce do Hadoop
-* [rhdfs](https://github.com/RevolutionAnalytics/rhdfs): permite que desenvolvedores do R usem HDFS do Hadoop (WASB para HDInsight)
+## <a name="what-the-script-does"></a>What the script does
 
-Além disso, os seguintes pacotes R são instalados:
+The script action used to install R on your HDInsight cluster installs the following Ubuntu packages, which provide a basic R installation:
 
-| Pacote R | O que ele oferece |
+* [r-base](http://packages.ubuntu.com/precise/r-base): Base GNU R package
+* [r-base-dev](http://packages.ubuntu.com/precise/r-base-dev): Auxilliary GNU R packages
+
+The following RHadoop packages are also installed, which provide integration with MapReduce and HDFS:
+
+* [rmr2](https://github.com/RevolutionAnalytics/rmr2): Allows R developers to use Hadoop MapReduce
+* [rhdfs](https://github.com/RevolutionAnalytics/rhdfs): Allows R developers to use Hadoop HDFS (WASB for HDInsight)
+
+Additionally, the following R packages are installed:
+
+| R package | What it provides |
 | --------- | ---------------- |
-| [rJava](https://cran.r-project.org/web/packages/rJava/index.html) | R de nível baixo para interface Java. |
-| [Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) | Integração entre R e C++. |
-| [RJSONIO](https://cran.r-project.org/web/packages/RJSONIO/index.html) | Serializar/desserializar objetos do R para JSON |
-| [bitops](https://cran.r-project.org/web/packages/bitops/index.html) | Funções para operações bit a bit em vetores de número inteiro. |
-| [digest](https://cran.r-project.org/web/packages/digest/index.html) | Crie resumos de hash criptográfico de objetos em R. |
-| [funcional](https://cran.r-project.org/web/packages/functional/index.html) | Curry, Compose e outras funções de ordem superior |
-| [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html) | Reestrutura de flexibilidade e dados agregados. |
-| [stringr](https://cran.r-project.org/web/packages/stringr/index.html) | Invólucros simples e consistentes para operações comuns de cadeia de caracteres. |
-| [plyr](https://cran.r-project.org/web/packages/plyr/index.html) | Ferramentas de divisão, aplicação e combinação de dados. |
-| [caTools](https://cran.r-project.org/web/packages/caTools/index.html) | Ferramentas de estatísticas de janela em movimento, GIF, Base64, ROC AUC etc. |
-| [stringdist](https://cran.r-project.org/web/packages/stringdist/index.html) | Aproximar a correspondência de cadeia de caracteres e funções de distância de cadeia de caracteres. |
+| [rJava](https://cran.r-project.org/web/packages/rJava/index.html) | A low level R to Java interface. |
+| [Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) | R and C++ integration. |
+| [RJSONIO](https://cran.r-project.org/web/packages/RJSONIO/index.html) | Serialize/deserialize R objects to JSON |
+| [bitops](https://cran.r-project.org/web/packages/bitops/index.html) | Functions for bitwise operations on integer vectors. |
+| [digest](https://cran.r-project.org/web/packages/digest/index.html) | Create Cryptographic Hash Digests of R Objects. |
+| [functional](https://cran.r-project.org/web/packages/functional/index.html) | Curry, Compose, and other higher-order functions |
+| [reshape2](https://cran.r-project.org/web/packages/reshape2/index.html) | Flexibly restructure and aggregate data. |
+| [stringr](https://cran.r-project.org/web/packages/stringr/index.html) | Simple, Consistent Wrappers for Common String Operations. |
+| [plyr](https://cran.r-project.org/web/packages/plyr/index.html) | Tools for Splitting, Applying and Combining Data. |
+| [caTools](https://cran.r-project.org/web/packages/caTools/index.html) | Tools for moving window statistics, GIF, Base64, ROC AUC, etc. |
+| [stringdist](https://cran.r-project.org/web/packages/stringdist/index.html) | Approximate String Matching and String Distance Functions. |
 
-## Instalar o R usando ações de script
+## <a name="install-r-using-script-actions"></a>Install R using Script Actions
 
-A ação de script a seguir é usada para instalar o R em um cluster HDInsight.https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+The following script action is used to install R on an HDInsight cluster. https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
     
-Esta seção fornece instruções sobre como usar o script ao criar um novo cluster usando o portal do Azure.
+This section provides instructions about how to use the script when creating a new cluster using the Azure portal. 
 
-> [AZURE.NOTE] Modelos do Azure PowerShell, da CLI do Azure, do SDK do .NET do HDInsight ou do Azure Resource Manager também podem ser usados para aplicar ações de script. Também é possível aplicar ações de script a clusters que já estão em execução. Para saber mais, veja [Personalizar clusters HDInsight com as Ações de Script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Azure PowerShell, the Azure CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Inicie o provisionamento de um cluster usando as etapas em [Provisionar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), mas não conclua o provisionamento.
+1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md#portal), but do not complete provisioning.
 
-2. Na folha **Configuração Opcional**, selecione **Ações de Script** e forneça as informações a seguir:
+2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
 
-	* __NOME__: insira um nome amigável para a ação de script.
-	* __URI DO SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
-	* __CABEÇALHO__: marque esta opção
-	* __TRABALHO__: marque essa opção
-	* __ZOOKEEPER__: marque essa opção para instalar no nó Zookeeper.
-	* __PARÂMETROS__: deixe este campo em branco
+    * __NAME__: Enter a friendly name for the script action.
+    * __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+    * __HEAD__: Check this option
+    * __WORKER__: Check this option
+    * __ZOOKEEPER__: Check this option to install on the Zookeeper node.
+    * __PARAMETERS__: Leave this field blank
 
-3. Na parte inferior das **Ações de Script**, use o botão **Selecionar** para salvar a configuração. Por fim, use o botão **Selecionar** na parte inferior da folha **Configuração Opcional** para salvar as informações de configuração opcional.
+3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
-4. Continue o provisionamento do cluster conforme descrito em [Provisionar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md#portal).
+4. Continue provisioning the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md#portal).
 
-## Executar scripts de R
+## <a name="run-r-scripts"></a>Run R scripts
 
-Após a conclusão do provisionamento do cluster, use as seguintes etapas para usar o R para executar uma operação de MapReduce no cluster.
+After the cluster has finished provisioning, use the following steps to use R to perform a MapReduce operation on the cluster.
 
-1. Conecte-se ao cluster HDInsight usando SSH:
+1. Connect to the HDInsight cluster using SSH:
 
-		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+        ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-	Para obter mais informações sobre como usar SSH com o HDInsight, consulte o seguinte:
+    For more information on using SSH with HDInsight, see the following:
 
-	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. Do prompt `username@hn0-CLUSTERNAME:~$`, digite o seguinte comando para iniciar uma sessão interativa de R:
+2. From the `username@hn0-CLUSTERNAME:~$` prompt, enter the following command to start an interactive R session:
 
-		R
+        R
 
-3. Digite o seguinte programa R. Isso gera os números de 1 a 100 e multiplica-os por 2.
+3. Enter the following R program. This generates the numbers 1 to 100 and then multiplies them by 2.
 
-		library(rmr2)
-		ints = to.dfs(1:100)
-		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
+        library(rmr2)
+        ints = to.dfs(1:100)
+        calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
 
-	A primeira linha chama o rmr2 da biblioteca do RHadoop, que é usado para operações de MapReduce.
+    The first line calls the RHadoop library rmr2, which is used for MapReduce operations.
 
-	A segunda linha gera valores de 1 a 100 e armazena-os no sistema de arquivos do Hadoop usando o `to.dfs`.
+    The second line generates values 1 - 100, then stores them to the Hadoop file system using `to.dfs`.
 
-	A terceira linha cria um processo MapReduce usando a funcionalidade fornecida pelo rmr2 e começa o processamento. Você verá várias linhas rolarem à medida que o processamento começar.
+    The third line creates a MapReduce process using functionality provided by rmr2, and begins processing. You should see several lines scroll past as the processing begins.
 
-4. Em seguida, use o seguinte para ver o caminho temporário no qual a saída do MapReduce foi adicionada:
+4. Next, use the following to see the temporary path that the MapReduce output was stored to:
 
-		print(calc())
+        print(calc())
 
-	Isso deve ser algo semelhante a `/tmp/file5f615d870ad2`. Para exibir a saída real, use o seguinte:
+    This should be something similar to `/tmp/file5f615d870ad2`. To view the actual output, use the following:
 
-		print(from.dfs(calc))
+        print(from.dfs(calc))
 
-	O resultado deve ser assim:
+    The output should look like this:
 
-		[1,]  1 2
-		[2,]  2 4
-		.
-		.
-		.
-		[98,]  98 196
-		[99,]  99 198
-		[100,] 100 200
+        [1,]  1 2
+        [2,]  2 4
+        .
+        .
+        .
+        [98,]  98 196
+        [99,]  99 198
+        [100,] 100 200
 
-5. Para sair do R, digite o seguinte:
+5. To exit R, enter the following:
 
-		q()
+        q()
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- [Instalar e usar o Hue em clusters HDInsight](hdinsight-hadoop-hue-linux.md). A Matiz é uma interface da Web que torna mais fácil criar, executar e salvar trabalhos Pig e Hive, bem como procurar o armazenamento padrão do cluster do HDInsight.
+- [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Hue is a web UI that makes it easy to create, run and save Pig and Hive jobs, as well as browse the default storage for your HDInsight cluster.
 
-- [Instalar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md). Use a personalização do cluster para instalar o Giraph em clusters de Hadoop do HDInsight. O Giraph permite que você realize processamento de tabelas usando o Hadoop, além de poder ser utilizado com o HDInsight do Azure.
+- [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.
 
-- [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md). Use a personalização do cluster para instalar o Solr em clusters de Hadoop do HDInsight. O Solr permite que você execute operações de pesquisa poderosas nos dados armazenados.
+- [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on stored data.
 
-- [Instalar a Matiz em clusters HDInsight](hdinsight-hadoop-hue-linux.md). Use a personalização do cluster para instalar o Hue em clusters de Hadoop do HDInsight. A Matiz é um conjunto de aplicativos da Web usado para interagir com um cluster Hadoop.
+- [Install Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Use cluster customization to install Hue on HDInsight Hadoop clusters. Hue is a set of Web applications used to interact with a Hadoop cluster.
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

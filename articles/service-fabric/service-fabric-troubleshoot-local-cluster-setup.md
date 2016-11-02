@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Solucionar problemas de sua configuração de cluster do Service Fabric local | Microsoft Azure"
-   description="Este artigo aborda um conjunto de sugestões para a solução de problemas do cluster de desenvolvimento local"
+   pageTitle="Troubleshoot your local Service Fabric cluster setup | Microsoft Azure"
+   description="This article covers a set of suggestions for troubleshooting your local development cluster"
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -13,20 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2016"
+   ms.date="10/29/2016"
    ms.author="seanmck"/>
 
-# Solucionar problemas de configuração do cluster de desenvolvimento local
 
-Se você tiver um problema ao interagir com o cluster de desenvolvimento local do Service Fabric do Azure, examine as sugestões a seguir para ver as possíveis soluções.
+# <a name="troubleshoot-your-local-development-cluster-setup"></a>Troubleshoot your local development cluster setup
 
-## Falhas de configuração do cluster
+If you run into an issue while interacting with your local Azure Service Fabric development cluster, review the following suggestions for potential solutions.
 
-### Não é possível limpar os logs da Malha do Serviço
+## <a name="cluster-setup-failures"></a>Cluster setup failures
 
-#### Problema
+### <a name="cannot-clean-up-service-fabric-logs"></a>Cannot clean up Service Fabric logs
 
-Ao executar o script DevClusterSetup, você vê um erro como este:
+#### <a name="problem"></a>Problem
+
+While running the DevClusterSetup script, you see an error like this:
 
     Cannot clean up C:\SfDevCluster\Log fully as references are likely being held to items in it. Please remove those and run this script again.
     At line:1 char:1 + .\DevClusterSetup.ps1
@@ -35,39 +36,39 @@ Ao executar o script DevClusterSetup, você vê um erro como este:
     + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,DevClusterSetup.ps1
 
 
-#### Solução
+#### <a name="solution"></a>Solution
 
-Feche a janela atual do PowerShell e inicie uma nova janela como um administrador. Agora você pode executar o script com êxito.
+Close the current PowerShell window and open a new PowerShell window as an administrator. You should now be able to successfully run the script.
 
-## Falhas de conexão do cluster
+## <a name="cluster-connection-failures"></a>Cluster connection failures
 
-### Cmdlets do PowerShell do Service Fabric não são reconhecidos no Azure PowerShell
+### <a name="service-fabric-powershell-cmdlets-are-not-recognized-in-azure-powershell"></a>Service Fabric PowerShell cmdlets are not recognized in Azure PowerShell
 
-#### Problema
+#### <a name="problem"></a>Problem
 
-Se você tentar executar qualquer um dos cmdlets do PowerShell do Service Fabric, como `Connect-ServiceFabricCluster` em uma janela do Azure PowerShell, ele falhará, dizendo que o cmdlet não é reconhecido. A razão para isso é que o Azure PowerShell usa a versão de 32 bits do Windows PowerShell (mesmo em versões de sistema operacional de 64 bits), enquanto os cmdlets do Service Fabric só funcionam em ambientes de 64 bits.
+If you try to run any of the Service Fabric PowerShell cmdlets, such as `Connect-ServiceFabricCluster` in an Azure PowerShell window, it fails, saying that the cmdlet is not recognized. The reason for this is that Azure PowerShell uses the 32-bit version of Windows PowerShell (even on 64-bit OS versions), whereas the Service Fabric cmdlets only work in 64-bit environments.
 
-#### Solução
+#### <a name="solution"></a>Solution
 
-Sempre execute os cmdlets do Service Fabric diretamente do Windows PowerShell.
+Always run Service Fabric cmdlets directly from Windows PowerShell.
 
->[AZURE.NOTE] A versão mais recente do Azure PowerShell não cria um atalho especial, então isso não deverá mais ocorrer.
+>[AZURE.NOTE] The latest version of Azure PowerShell does not create a special shortcut, so this should no longer occur.
 
-### Exceção de Inicialização de Tipo
+### <a name="type-initialization-exception"></a>Type Initialization exception
 
-#### Problema
+#### <a name="problem"></a>Problem
 
-Ao conectar-se com o cluster no PowerShell, você vê o erro TypeInitializationException para System.Fabric.Common.AppTrace.
+When you are connecting to the cluster in PowerShell, you see the error TypeInitializationException for System.Fabric.Common.AppTrace.
 
-#### Solução
+#### <a name="solution"></a>Solution
 
-A variável do caminho não foi definida corretamente durante a instalação. Saia do Windows e faça logon novamente. Isso atualiza seu caminho.
+Your path variable was not correctly set during installation. Please sign out of Windows and sign back in. This will fully refresh your path.
 
-### Falha de conexão do cluster com “O objeto está fechado”
+### <a name="cluster-connection-fails-with-object-is-closed"></a>Cluster connection fails with "Object is closed"
 
-#### Problema
+#### <a name="problem"></a>Problem
 
-Uma chamada para Connect-ServiceFabricCluster falha com um erro parecido com este:
+A call to Connect-ServiceFabricCluster fails with an error like this:
 
     Connect-ServiceFabricCluster : The object is closed.
     At line:1 char:1
@@ -76,27 +77,31 @@ Uma chamada para Connect-ServiceFabricCluster falha com um erro parecido com est
     + CategoryInfo : InvalidOperation: (:) [Connect-ServiceFabricCluster], FabricObjectClosedException
     + FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
 
-#### Solução
+#### <a name="solution"></a>Solution
 
-Feche a janela atual do PowerShell e inicie uma nova janela como um administrador. Agora você pode se conectar com êxito.
+Close the current PowerShell window and open a new PowerShell window as an administrator. You should now be able to successfully connect.
 
-### Exceção de Conexão ao Fabric Negada
+### <a name="fabric-connection-denied-exception"></a>Fabric Connection Denied exception
 
-#### Problema
+#### <a name="problem"></a>Problem
 
-Ao depurar no Visual Studio, você obtém um erro FabricConnectionDeniedException.
+When debugging from Visual Studio, you get a FabricConnectionDeniedException error.
 
-#### Solução
+#### <a name="solution"></a>Solution
 
-Geralmente, esse erro ocorre quando você tenta iniciar um processo de host de serviço manualmente, em vez de permitir que o tempo de execução da Malha do Serviço inicie-o para você.
+This error usually occurs when you try to try to start a service host process manually, rather than allowing the Service Fabric runtime to start it for you.
 
-Verifique se você não possui um projeto de serviço definido como projeto de inicialização na sua solução. Somente projetos de aplicativo da Malha do Serviço devem ser definidos como projetos de inicialização.
+Ensure that you do not have any service projects set as startup projects in your solution. Only Service Fabric application projects should be set as startup projects.
 
->[AZURE.TIP] Se, após a instalação, o cluster local começar a se comportar de forma anormal, você poderá redefini-lo usando o aplicativo de bandeja de sistema de gerenciador de cluster local. Isso removerá o cluster existente e configurará um novo. Observe que todos os aplicativos implantados e os dados associados serão removidos.
+>[AZURE.TIP] If, following setup, your local cluster begins to behave abnormally, you can reset it using the local cluster manager system tray application. This will remove the existing cluster and set up a new one. Please note that all deployed applications and associated data will be removed.
 
-## Próximas etapas
+## <a name="next-steps"></a>Next steps
 
-- [Entender e solucionar problemas de cluster com relatórios de integridade do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-- [Visualizando o cluster com o Explorador do Service Fabric](service-fabric-visualizing-your-cluster.md)
+- [Understand and troubleshoot your cluster with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+- [Visualize your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

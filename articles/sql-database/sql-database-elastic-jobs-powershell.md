@@ -1,677 +1,678 @@
 <properties 
-	pageTitle="Criar e gerenciar trabalhos do Banco de Dados Elástico usando o PowerShell" 
-	description="PowerShell usado para gerenciar pools do Banco de Dados SQL do Azure" 
-	services="sql-database" documentationCenter=""  
-	manager="jhubbard" 
-	authors="ddove"/>
+    pageTitle="Create and manage Elastic Database jobs using PowerShell" 
+    description="PowerShell used to manage Azure SQL Database pools" 
+    services="sql-database" documentationCenter=""  
+    manager="jhubbard" 
+    authors="ddove"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2016" 
-	ms.author="ddove" />
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/24/2016" 
+    ms.author="ddove" />
 
-# Criar e gerenciar trabalhos de banco de dados elástico de Banco de Dados SQL usando o PowerShell (visualização)
+
+# <a name="create-and-manage-a-sql-database-elastic-database-jobs-using-powershell-preview"></a>Create and manage a SQL Database elastic database jobs using PowerShell (preview)
 
 > [AZURE.SELECTOR]
-- [Portal do Azure](sql-database-elastic-jobs-create-and-manage.md)
+- [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
 
-As APIs do PowerShell para o recurso **trabalhos de Banco de Dados Elástico** (em visualização) permitem que você defina um grupo de bancos de dados no qual os scripts serão executados. Este artigo mostra como criar e gerenciar o recurso **trabalhos de Banco de Dados Elástico** usando cmdlets do PowerShell. Consulte [Visão geral dos trabalhos elásticos](sql-database-elastic-jobs-overview.md).
+The PowerShell APIs for **Elastic Database jobs** (in preview), let you define a group of databases against which scripts will execute. This article shows how to create and manage **Elastic Database jobs** using PowerShell cmdlets. See [Elastic jobs overview](sql-database-elastic-jobs-overview.md). 
 
-## Pré-requisitos
-* Uma assinatura do Azure. Para obter uma avaliação gratuita, confira [Um mês de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Um conjunto de bancos de dados criados com as ferramentas do Banco de Dados Elástico. Consulte [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
-* PowerShell do Azure. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
-* Pacote do PowerShell para **trabalhos de Banco de Dados Elástico**: consulte [Instalando trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-service-installation.md)
+## <a name="prerequisites"></a>Prerequisites
+* An Azure subscription. For a free trial, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* A set of databases created with the Elastic Database tools. See [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md).
+* Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* **Elastic Database jobs** PowerShell package: See [Installing Elastic Database jobs](sql-database-elastic-jobs-service-installation.md)
 
-### Selecionar sua assinatura do Azure
+### <a name="select-your-azure-subscription"></a>Select your Azure subscription
 
-Para selecionar a assinatura é necessário ter a ID ou o nome da assinatura (**-SubscriptionId** ou **-SubscriptionName**). Se você tiver várias assinaturas, poderá executar o cmdlet **Get-AzureRmSubscription** e copiar as informações da assinatura desejada do conjunto de resultados. Uma vez que você tenha suas informações de assinatura, execute o cmdlet a seguir para definir esta assinatura como padrão, ou seja, o destino para a criação e gerenciamento de trabalhos:
+To select the subscription you need your subscription Id (**-SubscriptionId**) or subscription name (**-SubscriptionName**). If you have multiple subscriptions you can run the **Get-AzureRmSubscription** cmdlet and copy the desired subscription information from the result set. Once you have your subscription information, run the following commandlet to set this subscription as the default, namely the target for creating and managing jobs:
 
-	Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
+    Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 
-O uso do [ISE do PowerShell](https://technet.microsoft.com/library/dd315244.aspx) é recomendado ao desenvolver e executar scripts do PowerShell em trabalhos de Banco de Dados Elástico.
+The [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) is recommended for usage to develop and execute PowerShell scripts against the Elastic Database jobs.
 
-## Objetos de trabalhos de Banco de Dados Elástico
+## <a name="elastic-database-jobs-objects"></a>Elastic Database jobs objects
 
-A tabela a seguir lista todos os tipos de objeto de **trabalhos de Banco de Dados Elástico** junto com sua descrição e as APIs do PowerShell relevantes.
+The following table lists out all the object types of **Elastic Database jobs** along with its description and relevant PowerShell APIs.
 
 <table style="width:100%">
   <tr>
-    <th>Tipo de objeto</th>
-    <th>Descrição</th>
-    <th>APIs do PowerShell relacionadas</th>
+    <th>Object Type</th>
+    <th>Description</th>
+    <th>Related PowerShell APIs</th>
   </tr>
   <tr>
-    <td>Credencial</td>
-    <td>Nome de usuário e senha para usar ao se conectar a bancos de dados para execução de scripts ou aplicação de DACPACs. <p>A senha é criptografada antes de enviar para e armazenar no banco de dados de trabalhos de banco de dados elástico. A senha é descriptografada pelo serviço trabalhos de Banco de Dados Elástico por meio da credencial criada e carregada por meio do script de instalação.</td>
-	<td><p>Get-AzureSqlJobCredential</p>
-	<p>New-AzureSqlJobCredential</p><p>Set-AzureSqlJobCredential</p></td></td>
+    <td>Credential</td>
+    <td>Username and password to use when connecting to databases for execution of scripts or application of DACPACs. <p>The password is encrypted before sending to and storing in the Elastic Database Jobs database.  The password is decrypted by the Elastic Database Jobs service via the credential created and uploaded from the installation script.</td>
+    <td><p>Get-AzureSqlJobCredential</p>
+    <p>New-AzureSqlJobCredential</p><p>Set-AzureSqlJobCredential</p></td></td>
   </tr>
 
   <tr>
     <td>Script</td>
-    <td>O script do Transact-SQL a ser usado para execução em bancos de dados. O script deve ser criado para ser idempotente, já que o serviço tentará novamente executar o script após a ocorrência de quaisquer falhas.
-	</td>
-	<td>
-	<p>Get-AzureSqlJobContent</p>
-	<p>Get-AzureSqlJobContentDefinition</p>
-	<p>New-AzureSqlJobContent</p>
-	<p>Set-AzureSqlJobContentDefinition</p>
-	</td>
+    <td>Transact-SQL script to be used for execution across databases.  The script should be authored to be idempotent since the service will retry execution of the script upon failures.
+    </td>
+    <td>
+    <p>Get-AzureSqlJobContent</p>
+    <p>Get-AzureSqlJobContentDefinition</p>
+    <p>New-AzureSqlJobContent</p>
+    <p>Set-AzureSqlJobContentDefinition</p>
+    </td>
   </tr>
 
   <tr>
     <td>DACPAC</td>
-    <td>O pacote de <a href="https://msdn.microsoft.com/library/ee210546.aspx">aplicativo da camada de dados</a> a ser aplicado a bancos de dados.
+    <td><a href="https://msdn.microsoft.com/library/ee210546.aspx">Data-tier application </a> package to be applied across databases.
 
-	</td>
-	<td>
-	<p>Get-AzureSqlJobContent</p>
-	<p>New-AzureSqlJobContent</p>
-	<p>Set-AzureSqlJobContentDefinition</p>
-	</td>
+    </td>
+    <td>
+    <p>Get-AzureSqlJobContent</p>
+    <p>New-AzureSqlJobContent</p>
+    <p>Set-AzureSqlJobContentDefinition</p>
+    </td>
   </tr>
   <tr>
-    <td>Destino do Banco de Dados</td>
-    <td>Nome do banco de dados e do servidor apontando para um Banco de Dados SQL do Azure.
+    <td>Database Target</td>
+    <td>Database and server name pointing to an Azure SQL Database.
 
-	</td>
-	<td>
-	<p>Get-AzureSqlJobTarget</p>
-	<p>New-AzureSqlJobTarget</p>
-	</td>
+    </td>
+    <td>
+    <p>Get-AzureSqlJobTarget</p>
+    <p>New-AzureSqlJobTarget</p>
+    </td>
   </tr>
   <tr>
-    <td>Destino do mapa de fragmentos</td>
-    <td>Combinação de um destino de banco de dados e uma credencial a ser usada para determinar as informações armazenadas em um mapa de fragmentos de banco de dados elástico.
-	</td>
-	<td>
-	<p>Get-AzureSqlJobTarget</p>
-	<p>New-AzureSqlJobTarget</p>
-	<p>Set-AzureSqlJobTarget</p>
-	</td>
+    <td>Shard Map Target</td>
+    <td>Combination of a database target and a credential to be used to determine information stored within an Elastic Database shard map.
+    </td>
+    <td>
+    <p>Get-AzureSqlJobTarget</p>
+    <p>New-AzureSqlJobTarget</p>
+    <p>Set-AzureSqlJobTarget</p>
+    </td>
   </tr>
 <tr>
-    <td>Destino de coleção personalizada</td>
-    <td>Grupo definido de bancos de dados a serem usados coletivamente para execução.</td>
-	<td>
-	<p>Get-AzureSqlJobTarget</p>
-	<p>New-AzureSqlJobTarget</p>
-	</td>
+    <td>Custom Collection Target</td>
+    <td>Defined group of databases to collectively use for execution.</td>
+    <td>
+    <p>Get-AzureSqlJobTarget</p>
+    <p>New-AzureSqlJobTarget</p>
+    </td>
   </tr>
 <tr>
-    <td>Destino filho de coleção personalizada</td>
-    <td>Destino do banco de dados que é referenciado em uma coleção personalizada.</td>
-	<td>
-	<p>Add-AzureSqlJobChildTarget</p>
-	<p>Remove-AzureSqlJobChildTarget</p>
-	</td>
+    <td>Custom Collection Child Target</td>
+    <td>Database target that is referenced from a custom collection.</td>
+    <td>
+    <p>Add-AzureSqlJobChildTarget</p>
+    <p>Remove-AzureSqlJobChildTarget</p>
+    </td>
   </tr>
 
 <tr>
-    <td>Trabalho</td>
+    <td>Job</td>
     <td>
-	<p>Definição de parâmetros para um trabalho que pode ser usado para disparar a execução ou para atender a um cronograma.</p>
-	</td>
-	<td>
-	<p>Get-AzureSqlJob</p>
-	<p>New-AzureSqlJob</p>
-	<p>Set-AzureSqlJob</p>
-	</td>
+    <p>Definition of parameters for a job that can be used to trigger execution or to fulfill a schedule.</p>
+    </td>
+    <td>
+    <p>Get-AzureSqlJob</p>
+    <p>New-AzureSqlJob</p>
+    <p>Set-AzureSqlJob</p>
+    </td>
   </tr>
 
 <tr>
-    <td>Execução do Trabalho</td>
+    <td>Job Execution</td>
     <td>
-	<p>Contêiner de tarefas necessárias para a execução de um script ou então para a aplicação de um DACPAC em um destino usando credenciais para conexões de banco de dados com falhas tratadas de acordo com uma política de execução.</p>
-	</td>
-	<td>
-	<p>Get-AzureSqlJobExecution</p>
-	<p>Start-AzureSqlJobExecution</p>
-	<p>Stop-AzureSqlJobExecution</p>
-	<p>Wait-AzureSqlJobExecution</p>
+    <p>Container of tasks necessary to fulfill either executing a script or applying a DACPAC to a target using credentials for database connections with failures handled in accordance to an execution policy.</p>
+    </td>
+    <td>
+    <p>Get-AzureSqlJobExecution</p>
+    <p>Start-AzureSqlJobExecution</p>
+    <p>Stop-AzureSqlJobExecution</p>
+    <p>Wait-AzureSqlJobExecution</p>
   </tr>
 
 <tr>
-    <td>Execução de tarefa de trabalho</td>
+    <td>Job Task Execution</td>
     <td>
-	<p>Unidade de trabalho individual para concluir um trabalho.</p>
-	<p>Se uma tarefa de trabalho não for capaz de executar com êxito, a mensagem de exceção resultante será registrada e uma nova tarefa de trabalho correspondente será criada e executada de acordo com a política de execução especificada.</p></p>
-	</td>
-	<td>
-	<p>Get-AzureSqlJobExecution</p>
-	<p>Start-AzureSqlJobExecution</p>
-	<p>Stop-AzureSqlJobExecution</p>
-	<p>Wait-AzureSqlJobExecution</p>
+    <p>Single unit of work to fulfill a job.</p>
+    <p>If a job task is not able to successfully execute, the resulting exception message will be logged and a new matching job task will be created and executed in accordance to the specified execution policy.</p></p>
+    </td>
+    <td>
+    <p>Get-AzureSqlJobExecution</p>
+    <p>Start-AzureSqlJobExecution</p>
+    <p>Stop-AzureSqlJobExecution</p>
+    <p>Wait-AzureSqlJobExecution</p>
   </tr>
 
 <tr>
-    <td>Política de execução de trabalho</td>
+    <td>Job Execution Policy</td>
     <td>
-	<p>Controla os tempos limite de execução do trabalho, os limites de repetição e os intervalos entre as tentativas.</p>
-	<p>O recurso trabalhos de banco de dados elástico inclui uma política de execução de trabalho padrão que gera, essencialmente, infinitas repetições de tarefas de trabalho com falha, com retirada exponencial de intervalos entre cada repetição.</p>
-	</td>
-	<td>
-	<p>Get-AzureSqlJobExecutionPolicy</p>
-	<p>New-AzureSqlJobExecutionPolicy</p>
-	<p>Set-AzureSqlJobExecutionPolicy</p>
-	</td>
+    <p>Controls job execution timeouts, retry limits and intervals between retries.</p>
+    <p>Elastic Database jobs includes a default job execution policy which cause essentially infinite retries of job task failures with exponential backoff of intervals between each retry.</p>
+    </td>
+    <td>
+    <p>Get-AzureSqlJobExecutionPolicy</p>
+    <p>New-AzureSqlJobExecutionPolicy</p>
+    <p>Set-AzureSqlJobExecutionPolicy</p>
+    </td>
   </tr>
 
 <tr>
-    <td>Agenda</td>
+    <td>Schedule</td>
     <td>
-	<p>Especificação baseada em tempo para execução, a ocorrer em um intervalo recorrente ou uma única vez.</p>
-	</td>
-	<td>
-	<p>Get-AzureSqlJobSchedule</p>
-	<p>New-AzureSqlJobSchedule</p>
-	<p>Set-AzureSqlJobSchedule</p>
-	</td>
+    <p>Time based specification for execution to take place either on a reoccurring interval or at a single time.</p>
+    </td>
+    <td>
+    <p>Get-AzureSqlJobSchedule</p>
+    <p>New-AzureSqlJobSchedule</p>
+    <p>Set-AzureSqlJobSchedule</p>
+    </td>
   </tr>
 
 <tr>
-    <td>Gatilhos de trabalho</td>
+    <td>Job Triggers</td>
     <td>
-	<p>Um mapeamento entre um trabalho e um cronograma, para disparar a execução do trabalho de acordo com esse cronograma.</p>
-	</td>
-	<td>
-	<p>New-AzureSqlJobTrigger</p>
-	<p>Remove-AzureSqlJobTrigger</p>
-	</td>
+    <p>A mapping between a job and a schedule to trigger job execution according to the schedule.</p>
+    </td>
+    <td>
+    <p>New-AzureSqlJobTrigger</p>
+    <p>Remove-AzureSqlJobTrigger</p>
+    </td>
   </tr>
 </table>
 
-## Tipos de grupo de trabalhos de Banco de Dados Elástico com suporte
-O trabalho executa os scripts Transact-SQL (T-SQL) ou o aplicativo de DACPACs em um grupo de bancos de dados. Quando um trabalho for enviado para ser executado em um grupo de bancos de dados, o trabalho se “expandirá” em trabalhos filhos, onde cada um deles realizará a execução solicitada em um único banco de dados no grupo.
+## <a name="supported-elastic-database-jobs-group-types"></a>Supported Elastic Database jobs group types
+The job executes Transact-SQL (T-SQL) scripts or application of DACPACs across a group of databases. When a job is submitted to be executed across a group of databases, the job “expands” the into child jobs where each performs the requested execution against a single database in the group. 
  
-Há dois tipos de grupos que você pode criar:
+There are two types of groups that you can create: 
 
-* Grupo [Mapa de Fragmentos](sql-database-elastic-scale-shard-map-management.md): quando um trabalho é enviado para um mapa de fragmentos, o trabalho consulta o mapa de fragmentos para determinar seu conjunto atual de fragmentos e cria trabalhos filho para cada fragmento no mapa de fragmentos.
-* Grupo Coleção Personalizada: um conjunto personalizado definido de bancos de dados. Quando um trabalho tem como alvo uma coleção personalizada, ele cria trabalhos filho para cada banco de dados atualmente na coleção personalizada.
+* [Shard Map](sql-database-elastic-scale-shard-map-management.md) group: When a job is submitted to target a shard map, the job queries the shard map to determine its current set of shards, and then creates child jobs for each shard in the shard map.
+* Custom Collection group: A custom defined set of databases. When a job targets a custom collection, it creates child jobs for each database currently in the custom collection.
 
-## Para definir a conexão com o recurso trabalhos de Banco de Dados Elástico
+## <a name="to-set-the-elastic-database-jobs-connection"></a>To set the Elastic Database jobs connection
 
-Uma conexão deve ser definida para o *banco de dados de controle* dos trabalhos antes de usar as APIs dos trabalhos. Executar esse cmdlet dispara uma janela de credencial para solicitar o nome de usuário e a senha criados durante a instalação do recurso trabalhos de Banco de Dados Elástico. Todos os exemplos fornecidos neste tópico pressupõem que a primeira etapa já foi executada.
+A connection needs to be set to the jobs *control database* prior to using the jobs APIs. Running this cmdlet triggers a credential window to pop up requesting the user name and password created when installing Elastic Database jobs. All examples provided within this topic assume that this first step has already been performed.
 
-Abrir uma conexão ao recurso trabalhos de Banco de Dados Elástico:
+Open a connection to the Elastic Database jobs:
 
-	Use-AzureSqlJobConnection -CurrentAzureSubscription 
+    Use-AzureSqlJobConnection -CurrentAzureSubscription 
 
-## Credenciais criptografadas no recurso trabalhos de Banco de Dados Elástico
+## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Encrypted credentials within the Elastic Database jobs
 
-As credenciais do banco de dados podem ser inseridas no *banco de dados de controle* dos trabalhos com a sua senha criptografada. É necessário armazenar as credenciais para habilitar os trabalhos que serão executados posteriormente (usando planos de trabalho).
+Database credentials can be inserted into the jobs *control database*  with its password encrypted. It is necessary to store credentials to enable jobs to be executed at a later time, (using job schedules).
  
-Criptografia funciona por meio de um certificado criado como parte do script de instalação. O script de instalação cria e carrega o certificado no Serviço de Nuvem do Azure para descriptografia das senhas criptografadas armazenadas. O Serviço de Nuvem do Azure armazena posteriormente a chave pública no *banco de dados de controle* dos trabalhos, o que permite que a interface do Portal Clássico do Azure ou a API do PowerShell criptografe uma senha fornecida sem exigir que o certificado seja instalado localmente.
+Encryption works through a certificate created as part of the installation script. The installation script creates and uploads the certificate into the Azure Cloud Service for decryption of the stored encrypted passwords. The Azure Cloud Service later stores the public key within the jobs *control database* which enables the PowerShell API or Azure Classic Portal interface to encrypt a provided password without requiring the certificate to be locally installed.
  
-As senhas das credenciais são criptografadas e protegidas contra usuários com acesso somente leitura a objetos do recurso trabalhos de Banco de Dados Elástico. Mas é possível que um usuário mal-intencionado com acesso de leitura/gravação aos objetos do recurso trabalhos de Banco de Dados Elástico extraia uma senha. As credenciais são projetadas para ser reutilizadas em execuções de trabalho. As credenciais são passadas aos bancos de dados de destino durante o estabelecimento de conexões. Atualmente, não existem restrições nos bancos de dados de destino usados para cada credencial. Um usuário mal-intencionado poderia adicionar um destino de banco de dados a um banco de dados sob o controle do usuário mal-intencionado. O usuário poderia em seguida iniciar um trabalho visando esse banco de dados para obter a senha da credencial.
+The credential passwords are encrypted and secure from users with read-only access to Elastic Database jobs objects. But it is possible for a malicious user with read-write access to Elastic Database Jobs objects to extract a password. Credentials are designed to be reused across job executions. Credentials are passed to target databases when establishing connections. There are currently no restrictions on the target databases used for each credential, malicious user could add a database target for a database under the malicious user's control. The user could subsequently start a job targeting this database to gain the credential's password.
 
-As práticas recomendadas de segurança para o recurso trabalhos de Banco de Dados Elástico incluem:
+Security best practices for Elastic Database jobs include:
 
-* Limite o uso das APIs somente a pessoas confiáveis.
-* As credenciais devem ter os privilégios mínimos necessários para executar a tarefa de trabalho. Mais informações podem ser vistas dentro desse artigo [Autorização e Permissões](https://msdn.microsoft.com/library/bb669084.aspx) do MSDN do SQL Server.
+* Limit usage of the APIs to trusted individuals.
+* Credentials should have the least privileges necessary to perform the job task.  More information can be seen within this [Authorization and Permissions](https://msdn.microsoft.com/library/bb669084.aspx) SQL Server MSDN article.
 
-### Para criar uma credencial criptografada para a execução de trabalhos nos bancos de dados
+### <a name="to-create-an-encrypted-credential-for-job-execution-across-databases"></a>To create an encrypted credential for job execution across databases
 
-Para criar uma nova credencial criptografada, o cmdlet [**Get-Credential**](https://technet.microsoft.com/library/hh849815.aspx) solicita um nome de usuário e senha que podem ser passados para o cmdlet [**New-AzureSqlJobCredential**](https://msdn.microsoft.com/library/mt346063.aspx).
+To create a new encrypted credential, the [**Get-Credential cmdlet**](https://technet.microsoft.com/library/hh849815.aspx) prompts for a user name and password that can be passed to the [**New-AzureSqlJobCredential cmdlet**](https://msdn.microsoft.com/library/mt346063.aspx).
 
-	$credentialName = "{Credential Name}"
-	$databaseCredential = Get-Credential
-	$credential = New-AzureSqlJobCredential -Credential $databaseCredential -CredentialName $credentialName
-	Write-Output $credential
+    $credentialName = "{Credential Name}"
+    $databaseCredential = Get-Credential
+    $credential = New-AzureSqlJobCredential -Credential $databaseCredential -CredentialName $credentialName
+    Write-Output $credential
 
-### Para atualizar as credenciais
+### <a name="to-update-credentials"></a>To update credentials
 
-Quando alterar as senhas, use o cmdlet [**Set-AzureSqlJobCredential**](https://msdn.microsoft.com/library/mt346062.aspx) e defina o parâmetro **CredentialName**
+When passwords change, use the [**Set-AzureSqlJobCredential cmdlet**](https://msdn.microsoft.com/library/mt346062.aspx) and set the **CredentialName** parameter.
 
-	$credentialName = "{Credential Name}"
-	Set-AzureSqlJobCredential -CredentialName $credentialName -Credential $credential 
+    $credentialName = "{Credential Name}"
+    Set-AzureSqlJobCredential -CredentialName $credentialName -Credential $credential 
 
-## Para definir um destino para o mapa de fragmentos de Banco de Dados Elástico
+## <a name="to-define-an-elastic-database-shard-map-target"></a>To define an Elastic Database shard map target
 
-Para executar um trabalho em todos os bancos de dados em um conjunto de fragmentos (criado usando a [biblioteca do cliente de Banco de Dados Elástico](sql-database-elastic-database-client-library.md)) use um mapa de fragmentos como destino para o bancos de dados. Este exemplo requer que você crie um aplicativo fragmentado usando a biblioteca do cliente de Banco de Dados Elástico. Consulte [Introdução ao exemplo de ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
+To execute a job against all databases in a shard set (created using [Elastic Database client library](sql-database-elastic-database-client-library.md)), use a shard map as the database target. This example requires a sharded application created using the Elastic Database client library. See [Getting started with Elastic Database tools sample](sql-database-elastic-scale-get-started.md).
 
-O banco de dados do gerenciador do mapa de fragmentos deve ser definido como um destino de banco de dados e, em seguida, o mapa de fragmentos específico deve ser especificado como um destino.
+The shard map manager database must be set as a database target and then the specific shard map must be specified as a target.
 
-	$shardMapCredentialName = "{Credential Name}"
-	$shardMapDatabaseName = "{ShardMapDatabaseName}" #example: ElasticScaleStarterKit_ShardMapManagerDb
-	$shardMapDatabaseServerName = "{ShardMapServerName}"
-	$shardMapName = "{MyShardMap}" #example: CustomerIDShardMap
-	$shardMapDatabaseTarget = New-AzureSqlJobTarget -DatabaseName $shardMapDatabaseName -ServerName $shardMapDatabaseServerName
-	$shardMapTarget = New-AzureSqlJobTarget -ShardMapManagerCredentialName $shardMapCredentialName -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapDatabaseServerName -ShardMapName $shardMapName
-	Write-Output $shardMapTarget
+    $shardMapCredentialName = "{Credential Name}"
+    $shardMapDatabaseName = "{ShardMapDatabaseName}" #example: ElasticScaleStarterKit_ShardMapManagerDb
+    $shardMapDatabaseServerName = "{ShardMapServerName}"
+    $shardMapName = "{MyShardMap}" #example: CustomerIDShardMap
+    $shardMapDatabaseTarget = New-AzureSqlJobTarget -DatabaseName $shardMapDatabaseName -ServerName $shardMapDatabaseServerName
+    $shardMapTarget = New-AzureSqlJobTarget -ShardMapManagerCredentialName $shardMapCredentialName -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapDatabaseServerName -ShardMapName $shardMapName
+    Write-Output $shardMapTarget
 
-## Criar um script T-SQL para execução em bancos de dados
+## <a name="create-a-tsql-script-for-execution-across-databases"></a>Create a T-SQL Script for execution across databases
 
-Ao criar scripts T-SQL para execução, é altamente recomendável criá-los para que sejam [idempotentes](https://en.wikipedia.org/wiki/Idempotence) e resistentes contra falhas. O recurso trabalhos de Banco de Dados Elástico tentará novamente a execução de um script sempre que ocorrer uma falha nessa execução, independentemente da classificação da falha.
+When creating T-SQL scripts for execution, it is highly recommended to build them to be [idempotent](https://en.wikipedia.org/wiki/Idempotence) and resilient against failures. Elastic Database jobs will retry execution of a script whenever execution encounters a failure, regardless of the classification of the failure.
 
-Use o cmdlet [**New-AzureSqlJobContent**](https://msdn.microsoft.com/library/mt346085.aspx) para criar e salvar um script para execução e defina os parâmetros **-ContentName** e **-CommandText**.
+Use the [**New-AzureSqlJobContent cmdlet**](https://msdn.microsoft.com/library/mt346085.aspx) to create and save a script for execution and set the **-ContentName** and **-CommandText** parameters.
 
-	$scriptName = "Create a TestTable"
+    $scriptName = "Create a TestTable"
 
-	$scriptCommandText = "
-	IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable')
-	BEGIN
-		CREATE TABLE TestTable(
-			TestTableId INT PRIMARY KEY IDENTITY,
-			InsertionTime DATETIME2
-		);
-	END
-	GO
-	INSERT INTO TestTable(InsertionTime) VALUES (sysutcdatetime());
-	GO"
+    $scriptCommandText = "
+    IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable')
+    BEGIN
+        CREATE TABLE TestTable(
+            TestTableId INT PRIMARY KEY IDENTITY,
+            InsertionTime DATETIME2
+        );
+    END
+    GO
+    INSERT INTO TestTable(InsertionTime) VALUES (sysutcdatetime());
+    GO"
 
-	$script = New-AzureSqlJobContent -ContentName $scriptName -CommandText $scriptCommandText
-	Write-Output $script
+    $script = New-AzureSqlJobContent -ContentName $scriptName -CommandText $scriptCommandText
+    Write-Output $script
 
-### Criar um novo script com base em um arquivo
-Se o script T-SQL é definido dentro de um arquivo, use-o para importar o script:
+### <a name="create-a-new-script-from-a-file"></a>Create a new script from a file
+If the T-SQL script is defined within a file, use this to import the script:
 
-	$scriptName = "My Script Imported from a File"
-	$scriptPath = "{Path to SQL File}"
-	$scriptCommandText = Get-Content -Path $scriptPath
-	$script = New-AzureSqlJobContent -ContentName $scriptName -CommandText $scriptCommandText
-	Write-Output $script
+    $scriptName = "My Script Imported from a File"
+    $scriptPath = "{Path to SQL File}"
+    $scriptCommandText = Get-Content -Path $scriptPath
+    $script = New-AzureSqlJobContent -ContentName $scriptName -CommandText $scriptCommandText
+    Write-Output $script
 
-### Para atualizar um script T-SQL para execução em bancos de dados  
+### <a name="to-update-a-tsql-script-for-execution-across-databases"></a>To update a T-SQL script for execution across databases  
 
-Esse script de PowerShell atualiza o texto do comando T-SQL para um script existente.
+This PowerShell script updates the T-SQL command text for an existing script.
 
-Defina as variáveis a seguir para refletirem a definição de script que deseja configurar:
+Set the following variables to reflect the desired script definition to be set:
 
-	$scriptName = "Create a TestTable"
-	$scriptUpdateComment = "Adding AdditionalInformation column to TestTable"
-	$scriptCommandText = "
-	IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable')
-	BEGIN
-	CREATE TABLE TestTable(
-		TestTableId INT PRIMARY KEY IDENTITY,
-		InsertionTime DATETIME2
-	);
-	END
-	GO
+    $scriptName = "Create a TestTable"
+    $scriptUpdateComment = "Adding AdditionalInformation column to TestTable"
+    $scriptCommandText = "
+    IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable')
+    BEGIN
+    CREATE TABLE TestTable(
+        TestTableId INT PRIMARY KEY IDENTITY,
+        InsertionTime DATETIME2
+    );
+    END
+    GO
 
-	IF NOT EXISTS (SELECT columns.name FROM sys.columns INNER JOIN sys.tables on columns.object_id = tables.object_id WHERE tables.name = 'TestTable' AND columns.name = 'AdditionalInformation')
-	BEGIN
+    IF NOT EXISTS (SELECT columns.name FROM sys.columns INNER JOIN sys.tables on columns.object_id = tables.object_id WHERE tables.name = 'TestTable' AND columns.name = 'AdditionalInformation')
+    BEGIN
     ALTER TABLE TestTable
     ADD AdditionalInformation NVARCHAR(400);
-	END
-	GO
+    END
+    GO
 
-	INSERT INTO TestTable(InsertionTime, AdditionalInformation) VALUES (sysutcdatetime(), 'test');
-	GO"
+    INSERT INTO TestTable(InsertionTime, AdditionalInformation) VALUES (sysutcdatetime(), 'test');
+    GO"
 
-### Para atualizar a definição para um script existente
+### <a name="to-update-the-definition-to-an-existing-script"></a>To update the definition to an existing script
 
-	Set-AzureSqlJobContentDefinition -ContentName $scriptName -CommandText $scriptCommandText -Comment $scriptUpdateComment 
+    Set-AzureSqlJobContentDefinition -ContentName $scriptName -CommandText $scriptCommandText -Comment $scriptUpdateComment 
 
-## Para criar um trabalho para executar um script em um mapa de fragmentos
+## <a name="to-create-a-job-to-execute-a-script-across-a-shard-map"></a>To create a job to execute a script across a shard map
 
-Esse script de PowerShell inicia um trabalho para execução de um script em cada fragmento de um mapa de fragmentos de Escala Elástica.
+This PowerShell script starts a job for execution of a script across each shard in an Elastic Scale shard map.
 
-Defina as variáveis a seguir para refletirem a definição de script e o destino desejados:
+Set the following variables to reflect the desired script and target:
 
-	$jobName = "{Job Name}"
-	$scriptName = "{Script Name}"
-	$shardMapServerName = "{Shard Map Server Name}"
-	$shardMapDatabaseName = "{Shard Map Database Name}"
-	$shardMapName = "{Shard Map Name}"
-	$credentialName = "{Credential Name}"
-	$shardMapTarget = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName 
-	$job = New-AzureSqlJob -ContentName $scriptName -CredentialName $credentialName -JobName $jobName -TargetId $shardMapTarget.TargetId
-	Write-Output $job
+    $jobName = "{Job Name}"
+    $scriptName = "{Script Name}"
+    $shardMapServerName = "{Shard Map Server Name}"
+    $shardMapDatabaseName = "{Shard Map Database Name}"
+    $shardMapName = "{Shard Map Name}"
+    $credentialName = "{Credential Name}"
+    $shardMapTarget = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName 
+    $job = New-AzureSqlJob -ContentName $scriptName -CredentialName $credentialName -JobName $jobName -TargetId $shardMapTarget.TargetId
+    Write-Output $job
 
-## Para executar um trabalho 
+## <a name="to-execute-a-job"></a>To execute a job 
 
-Esse script de PowerShell executa um trabalho existente:
+This PowerShell script executes an existing job:
 
-Atualize a variável a seguir para refletir o nome do trabalho desejado a ser executado:
+Update the following variable to reflect the desired job name to have executed:
 
-	$jobName = "{Job Name}"
-	$jobExecution = Start-AzureSqlJobExecution -JobName $jobName 
-	Write-Output $jobExecution
+    $jobName = "{Job Name}"
+    $jobExecution = Start-AzureSqlJobExecution -JobName $jobName 
+    Write-Output $jobExecution
  
-## Para recuperar o estado de uma única execução de trabalho
+## <a name="to-retrieve-the-state-of-a-single-job-execution"></a>To retrieve the state of a single job execution
 
-Use o cmdlet [**Get-AzureSqlJobExecution**](https://msdn.microsoft.com/library/mt346058.aspx) e defina o parâmetro **JobExecutionId** para exibir o estado de execução do trabalho.
+Use the [**Get-AzureSqlJobExecution cmdlet**](https://msdn.microsoft.com/library/mt346058.aspx) and set the **JobExecutionId** parameter to view the state of job execution.
 
-	$jobExecutionId = "{Job Execution Id}"
-	$jobExecution = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId
-	Write-Output $jobExecution
+    $jobExecutionId = "{Job Execution Id}"
+    $jobExecution = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId
+    Write-Output $jobExecution
 
-Use o mesmo cmdlet **Get-AzureSqlJobExecution** com o parâmetro **IncludeChildren** para exibir o estado de execuções de trabalhos filho, ou seja, o estado específico de cada execução do trabalho em relação a cada banco de dados a que o trabalho se destina.
+Use the same **Get-AzureSqlJobExecution** cmdlet with the **IncludeChildren** parameter to view the state of child job executions, namely the specific state for each job execution against each database targeted by the job.
 
-	$jobExecutionId = "{Job Execution Id}"
-	$jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
-	Write-Output $jobExecutions 
+    $jobExecutionId = "{Job Execution Id}"
+    $jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
+    Write-Output $jobExecutions 
 
-## Para exibir o estado em várias execuções de trabalho
+## <a name="to-view-the-state-across-multiple-job-executions"></a>To view the state across multiple job executions
 
-O cmdlet [**Get-AzureSqlJobExecution**](https://msdn.microsoft.com/library/mt346058.aspx) tem vários parâmetros opcionais que podem ser usados para exibir várias execuções de trabalho, filtradas por meio dos parâmetros fornecidos. O exemplo a seguir demonstra algumas das possíveis maneiras de usar o Get-AzureSqlJobExecution:
+The [**Get-AzureSqlJobExecution cmdlet**](https://msdn.microsoft.com/library/mt346058.aspx) has multiple optional parameters that can be used to display multiple job executions, filtered through the provided parameters. The following demonstrates some of the possible ways to use Get-AzureSqlJobExecution:
 
-Recupere todas as execuções de trabalhos ativos de nível superior:
+Retrieve all active top level job executions:
 
-	Get-AzureSqlJobExecution
+    Get-AzureSqlJobExecution
 
-Recupere todas as execuções do trabalho de nível superior, incluindo execuções de trabalhos inativos:
+Retrieve all top level job executions, including inactive job executions:
 
-	Get-AzureSqlJobExecution -IncludeInactive
+    Get-AzureSqlJobExecution -IncludeInactive
 
-Recupere todas as execuções de trabalhos filho de uma ID de execução de trabalho fornecida, incluindo execuções de trabalhos inativos:
+Retrieve all child job executions of a provided job execution ID, including inactive job executions:
 
-	$parentJobExecutionId = "{Job Execution Id}"
-	Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId –IncludeInactive -IncludeChildren
+    $parentJobExecutionId = "{Job Execution Id}"
+    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId –IncludeInactive -IncludeChildren
 
-Recupere todas as execuções de trabalho criadas usando uma combinação de agenda/trabalho, incluindo trabalhos inativos:
+Retrieve all job executions created using a schedule / job combination, including inactive jobs:
 
-	$jobName = "{Job Name}"
-	$scheduleName = "{Schedule Name}"
-	Get-AzureSqlJobExecution -JobName $jobName -ScheduleName $scheduleName -IncludeInactive
+    $jobName = "{Job Name}"
+    $scheduleName = "{Schedule Name}"
+    Get-AzureSqlJobExecution -JobName $jobName -ScheduleName $scheduleName -IncludeInactive
 
-Recupere todos os trabalhos direcionados a um mapa de fragmentos especificado, incluindo trabalhos inativos:
+Retrieve all jobs targeting a specified shard map, including inactive jobs:
 
-	$shardMapServerName = "{Shard Map Server Name}"
-	$shardMapDatabaseName = "{Shard Map Database Name}"
-	$shardMapName = "{Shard Map Name}"
-	$target = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName
-	Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    $shardMapServerName = "{Shard Map Server Name}"
+    $shardMapDatabaseName = "{Shard Map Database Name}"
+    $shardMapName = "{Shard Map Name}"
+    $target = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName
+    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
 
-Recupere todos os trabalhos direcionados a uma coleção personalizada especificada, incluindo trabalhos inativos:
+Retrieve all jobs targeting a specified custom collection, including inactive jobs:
 
-	$customCollectionName = "{Custom Collection Name}"
-	$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-	Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    $customCollectionName = "{Custom Collection Name}"
+    $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
+    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
  
-Recupere a lista de execuções de tarefas de trabalho contidas na execução de um trabalho específico:
+Retrieve the list of job task executions within a specific job execution:
 
-	$jobExecutionId = "{Job Execution Id}"
-	$jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
-	Write-Output $jobTaskExecutions 
+    $jobExecutionId = "{Job Execution Id}"
+    $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
+    Write-Output $jobTaskExecutions 
 
-Recupere detalhes de execução de tarefa de trabalho:
+Retrieve job task execution details:
 
-O script do PowerShell a seguir pode ser usado para exibir os detalhes de uma execução de tarefa de trabalho, o que é especialmente útil ao depurar falhas de execução.
+The following PowerShell script can be used to view the details of a job task execution, which is particularly useful when debugging execution failures.
 
-	$jobTaskExecutionId = "{Job Task Execution Id}"
-	$jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
-	Write-Output $jobTaskExecution
+    $jobTaskExecutionId = "{Job Task Execution Id}"
+    $jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
+    Write-Output $jobTaskExecution
 
-## Para recuperar falhas em execuções de tarefa de trabalho
+## <a name="to-retrieve-failures-within-job-task-executions"></a>To retrieve failures within job task executions
 
-O objeto **JobTaskExecution** inclui uma propriedade para o ciclo de vida da tarefa, junto com uma propriedade de mensagem. Se uma execução de tarefa de trabalho falhar, a propriedade de ciclo de vida será definida como *Falha*, e a propriedade de mensagem será definida como a mensagem de exceção resultante e sua pilha. Se um trabalho não foi bem-sucedido, é importante exibir os detalhes das tarefas de trabalho que não foram bem-sucedidas para um determinado trabalho.
+The **JobTaskExecution object** includes a property for the lifecycle of the task along with a message property. If a job task execution failed, the lifecycle property will be set to *Failed* and the message property will be set to the resulting exception message and its stack. If a job did not succeed, it is important to view the details of job tasks that did not succeed for a given job.
 
-	$jobExecutionId = "{Job Execution Id}"
-	$jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
-	Foreach($jobTaskExecution in $jobTaskExecutions) 
-		{
-		if($jobTaskExecution.Lifecycle -ne 'Succeeded')
-    		{
-        	Write-Output $jobTaskExecution
-    		}
-		}
+    $jobExecutionId = "{Job Execution Id}"
+    $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
+    Foreach($jobTaskExecution in $jobTaskExecutions) 
+        {
+        if($jobTaskExecution.Lifecycle -ne 'Succeeded')
+            {
+            Write-Output $jobTaskExecution
+            }
+        }
 
-## Para aguardar a conclusão da execução de um trabalho
+## <a name="to-wait-for-a-job-execution-to-complete"></a>To wait for a job execution to complete
 
-O script do PowerShell a seguir pode ser usado para aguardar a conclusão de uma tarefa de trabalho:
+The following PowerShell script can be used to wait for a job task to complete:
 
-	$jobExecutionId = "{Job Execution Id}"
-	Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId 
+    $jobExecutionId = "{Job Execution Id}"
+    Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId 
 
-## Criar uma política de execução personalizada
+## <a name="create-a-custom-execution-policy"></a>Create a custom execution policy
 
-O recurso trabalhos de Banco de Dados Elástico dá suporte à criação de políticas de execução personalizadas, que podem ser aplicadas ao iniciar trabalhos.
+Elastic Database jobs supports creating custom execution policies that can be applied when starting jobs.
   
-Atualmente, as políticas de execução permitem definir:
+Execution policies currently allow for defining:
 
-* Nome: o identificador para a política de execução.
-* Tempo Limite do Trabalho: tempo total antes que um trabalho seja cancelado pelo recurso Trabalhos de Banco de Dados Elástico.
-* Intervalo de Repetição Inicial: o intervalo de espera antes de primeira repetição de tentativa.
-* Intervalo Máximo de Repetição: limite de intervalos de repetição a usar.
-* Coeficiente de Retirada de Intervalo de Repetição: coeficiente usado para calcular o próximo intervalo entre as repetições de tentativas. A fórmula a seguir é usada: (Intervalo de Repetição Inicial) * Math.pow((Coeficiente de Retirada do Intervalo), (Número de Novas Tentativas) - 2).
-* Máximo de Tentativas: o número máximo de novas tentativas a repetir em um trabalho.
+* Name: Identifier for the execution policy.
+* Job Timeout: Total time before a job will be canceled by Elastic Database Jobs.
+* Initial Retry Interval: Interval to wait before first retry.
+* Maximum Retry Interval: Cap of retry intervals to use.
+* Retry Interval Backoff Coefficient: Coefficient used to calculate the next interval between retries.  The following formula is used: (Initial Retry Interval) * Math.pow((Interval Backoff Coefficient), (Number of Retries) - 2). 
+* Maximum Attempts: The maximum number of retry attempts to perform within a job.
 
-A política de execução padrão usa os seguintes valores:
+The default execution policy uses the following values:
 
-* Nome: política de execução padrão
-* Tempo Limite do Trabalho: 1 semana
-* Intervalo de Repetição Inicial: 100 milissegundos
-* Intervalo Máximo de Repetição: 30 minutos
-* Coeficiente de Intervalo de Repetição: 2
-* Máximo de Tentativas: 2.147.483.647
+* Name: Default execution policy
+* Job Timeout: 1 week
+* Initial Retry Interval:  100 milliseconds
+* Maximum Retry Interval: 30 minutes
+* Retry Interval Coefficient: 2
+* Maximum Attempts: 2,147,483,647
 
-Crie a política de execução desejada:
+Create the desired execution policy:
 
-	$executionPolicyName = "{Execution Policy Name}"
-	$initialRetryInterval = New-TimeSpan -Seconds 10
-	$jobTimeout = New-TimeSpan -Minutes 30
-	$maximumAttempts = 999999
-	$maximumRetryInterval = New-TimeSpan -Minutes 1
-	$retryIntervalBackoffCoefficient = 1.5
-	$executionPolicy = New-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval 
-	-RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
-	Write-Output $executionPolicy
+    $executionPolicyName = "{Execution Policy Name}"
+    $initialRetryInterval = New-TimeSpan -Seconds 10
+    $jobTimeout = New-TimeSpan -Minutes 30
+    $maximumAttempts = 999999
+    $maximumRetryInterval = New-TimeSpan -Minutes 1
+    $retryIntervalBackoffCoefficient = 1.5
+    $executionPolicy = New-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval 
+    -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
+    Write-Output $executionPolicy
 
-### Atualizar uma política de execução personalizada
+### <a name="update-a-custom-execution-policy"></a>Update a custom execution policy
 
-Atualize a política de execução que deseja atualizar:
+Update the desired execution policy to update:
 
-	$executionPolicyName = "{Execution Policy Name}"
-	$initialRetryInterval = New-TimeSpan -Seconds 15
-	$jobTimeout = New-TimeSpan -Minutes 30
-	$maximumAttempts = 999999
-	$maximumRetryInterval = New-TimeSpan -Minutes 1
-	$retryIntervalBackoffCoefficient = 1.5
-	$updatedExecutionPolicy = Set-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
-	Write-Output $updatedExecutionPolicy
+    $executionPolicyName = "{Execution Policy Name}"
+    $initialRetryInterval = New-TimeSpan -Seconds 15
+    $jobTimeout = New-TimeSpan -Minutes 30
+    $maximumAttempts = 999999
+    $maximumRetryInterval = New-TimeSpan -Minutes 1
+    $retryIntervalBackoffCoefficient = 1.5
+    $updatedExecutionPolicy = Set-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
+    Write-Output $updatedExecutionPolicy
  
-## Cancelar um trabalho
+## <a name="cancel-a-job"></a>Cancel a job
 
-O recurso trabalhos de Banco de Dados Elástico dá suporte a solicitações de cancelamento de trabalhos. Se o recurso trabalhos de Banco de Dados Elástico detecta uma solicitação de cancelamento de um trabalho que está atualmente em execução, ele tenta interromper o trabalho.
+Elastic Database Jobs supports cancellation requests of jobs.  If Elastic Database Jobs detects a cancellation request for a job currently being executed, it will attempt to stop the job.
 
-Há duas maneiras diferentes pelas quais o recurso Trabalhos de Banco de Dados Elástico pode executar um cancelamento:
+There are two different ways that Elastic Database Jobs can perform a cancellation:
 
-1. Cancelar tarefas atualmente em execução: se um cancelamento for detectado enquanto uma tarefa estiver em execução, será realizada uma tentativa de cancelamento no aspecto da tarefa atualmente em execução. Por exemplo: se houver uma consulta de execução longa sendo executada atualmente, quando houver uma tentativa de cancelamento, haverá também uma tentativa de cancelar a consulta.
-2. Tentativas de cancelar tarefa: se um cancelamento for detectado pelo thread de controle antes de uma tarefa ser iniciada para execução, o thread de controle evitará iniciar a tarefa e declarará a solicitação como cancelada.
+1. Cancel currently executing tasks: If a cancellation is detected while a task is currently running, a cancellation will be attempted within the currently executing aspect of the task.  For example: If there is a long running query currently being performed when a cancellation is attempted, there will be an attempt to cancel the query.
+2. Canceling task retries: If a cancellation is detected by the control thread before a task is launched for execution, the control thread will avoid launching the task and declare the request as canceled.
 
-Se for solicitado um cancelamento de trabalho para um trabalho pai, a solicitação de cancelamento será atendida para o trabalho pai e todos os seus trabalhos filho.
+If a job cancellation is requested for a parent job, the cancellation request will be honored for the parent job and for all of its child jobs.
  
-Para enviar uma solicitação de cancelamento, use o cmdlet [**Stop-AzureSqlJobExecution**](https://msdn.microsoft.com/library/mt346053.aspx) e defina o parâmetro **JobExecutionId**.
+To submit a cancellation request, use the [**Stop-AzureSqlJobExecution cmdlet**](https://msdn.microsoft.com/library/mt346053.aspx) and set the **JobExecutionId** parameter.
 
-	$jobExecutionId = "{Job Execution Id}"
-	Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
+    $jobExecutionId = "{Job Execution Id}"
+    Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
 
-## Para excluir um trabalho e o histórico do trabalho de forma assíncrona
+## <a name="to-delete-a-job-and-job-history-asynchronously"></a>To delete a job and job history asynchronously
 
-O recurso trabalhos de Banco de Dados Elástico dá suporte à exclusão assíncrona de trabalhos. Um trabalho pode ser marcado para exclusão e o sistema vai excluir o trabalho e todo o seu histórico de trabalho, depois que todas as execuções de trabalho para o trabalho em questão tenham sido concluídas. O sistema não cancelará automaticamente execuções de trabalhos ativos.
+Elastic Database jobs supports asynchronous deletion of jobs. A job can be marked for deletion and the system will delete the job and all its job history after all job executions have completed for the job. The system will not automatically cancel active job executions.  
 
-Invoque [**Stop AzureSqlJobExecution**](https://msdn.microsoft.com/library/mt346053.aspx) para cancelar as execuções do trabalho ativo.
+Invoke [**Stop-AzureSqlJobExecution**](https://msdn.microsoft.com/library/mt346053.aspx) to cancel active job executions.
 
-Para disparar a exclusão de trabalho, use o cmdlet [**Remove-AzureSqlJob**](https://msdn.microsoft.com/library/mt346083.aspx) e defina o parâmetro **JobName**.
+To trigger job deletion, use the [**Remove-AzureSqlJob cmdlet**](https://msdn.microsoft.com/library/mt346083.aspx) and set the **JobName** parameter.
 
-	$jobName = "{Job Name}"
-	Remove-AzureSqlJob -JobName $jobName
+    $jobName = "{Job Name}"
+    Remove-AzureSqlJob -JobName $jobName
  
-## Para criar um destino de banco de dados personalizado
+## <a name="to-create-a-custom-database-target"></a>To create a custom database target
 
-Você pode definir os destinos de banco de dados personalizado para execução direta ou para inclusão em um grupo de bancos de dados personalizado. Por exemplo, como os **pools de Banco de Dados Elástico** ainda não têm suporte direto usando as APIs do PowerShell, você pode criar um destino de banco de dados personalizado e um destino de coleção de bancos de dados personalizada que englobe todos os bancos de dados no pool.
+You can define custom database targets either for direct execution or for inclusion within a custom database group. For example, because **Elastic Database pools** are not yet directly supported using PowerShell APIs, you can create a custom database target and custom database collection target which encompasses all the databases in the pool.
 
-Defina as variáveis a seguir para refletirem as informações de banco de dados desejadas:
+Set the following variables to reflect the desired database information:
 
-	$databaseName = "{Database Name}"
-	$databaseServerName = "{Server Name}"
-	New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
+    $databaseName = "{Database Name}"
+    $databaseServerName = "{Server Name}"
+    New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
 
-## Para criar um destino para a coleção de bancos de dados personalizada
+## <a name="to-create-a-custom-database-collection-target"></a>To create a custom database collection target
 
-Use o cmdlet [**New-AzureSqlJobTarget**](https://msdn.microsoft.com/library/mt346077.aspx) para definir um destino de coleção de banco de dados personalizada para habilitar a execução em vários destinos de banco de dados definidos. Após criar um grupo de banco de dados,os bancos de dados podem ser associados ao destino da coleção personalizada.
+Use the [**New-AzureSqlJobTarget**](https://msdn.microsoft.com/library/mt346077.aspx) cmdlet to define a custom database collection target to enable execution across multiple defined database targets. After creating a database group, databases can be associated with the custom collection target.
 
-Defina as variáveis a seguir para refletir a configuração desejada para destino da coleção personalizada:
+Set the following variables to reflect the desired custom collection target configuration:
 
-	$customCollectionName = "{Custom Database Collection Name}"
-	New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
+    $customCollectionName = "{Custom Database Collection Name}"
+    New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
 
-### Para adicionar bancos de dados a um destino da coleção de bancos de dados personalizada
+### <a name="to-add-databases-to-a-custom-database-collection-target"></a>To add databases to a custom database collection target
 
-Para adicionar um banco de dados a uma coleção personalizada específica, use o cmdlet [**Add-AzureSqlJobChildTarget**](https://msdn.microsoft.comlibrary/mt346064.aspx).
+To add a database to a specific custom collection use the [**Add-AzureSqlJobChildTarget**](https://msdn.microsoft.comlibrary/mt346064.aspx) cmdlet.
 
-	$databaseServerName = "{Database Server Name}"
-	$databaseName = "{Database Name}"
-	$customCollectionName = "{Custom Database Collection Name}"
-	Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
+    $databaseServerName = "{Database Server Name}"
+    $databaseName = "{Database Name}"
+    $customCollectionName = "{Custom Database Collection Name}"
+    Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
 
-#### Examinar os bancos de dados contidos em um destino de coleção de bancos de dados personalizada
+#### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Review the databases within a custom database collection target
 
-Use o cmdlet [**Get-AzureSqlJobTarget**](https://msdn.microsoft.com/library/mt346077.aspx) para recuperar os bancos de dados filho dentro de um destino de coleção de bancos de dados personalizada.
+Use the [**Get-AzureSqlJobTarget**](https://msdn.microsoft.com/library/mt346077.aspx) cmdlet to retrieve the child databases within a custom database collection target. 
  
-	$customCollectionName = "{Custom Database Collection Name}"
-	$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-	$childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
-	Write-Output $childTargets
+    $customCollectionName = "{Custom Database Collection Name}"
+    $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
+    $childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
+    Write-Output $childTargets
 
-### Criar um trabalho para executar um script em um destino de coleção de bancos de dados personalizada
+### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Create a job to execute a script across a custom database collection target
 
-Use o cmdlet [**New-AzureSqlJob**](https://msdn.microsoft.com/library/mt346078.aspx) para criar um trabalho para um grupo de bancos de dados definidos por um destino de coleção de bancos de dados personalizada. O recurso trabalhos de Banco de Dados Elástico expandirá o trabalho em vários trabalhos filho, cada um correspondendo a um banco de dados associado ao destino de coleção de bancos de dados personalizada e assegurando que o script seja executado em cada banco de dados. Novamente, é importante que os scripts sejam idempotentes para que sejam resistentes em relação a novas tentativas.
+Use the [**New-AzureSqlJob**](https://msdn.microsoft.com/library/mt346078.aspx) cmdlet to create a job against a group of databases defined by a custom database collection target. Elastic Database jobs will expand the job into multiple child jobs each corresponding to a database associated with the custom database collection target and ensure that the script is executed against each database. Again, it is important that scripts are idempotent to be resilient to retries.
 
-	$jobName = "{Job Name}"
-	$scriptName = "{Script Name}"
-	$customCollectionName = "{Custom Collection Name}"
-	$credentialName = "{Credential Name}"
-	$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-	$job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -ContentName $scriptName -TargetId $target.TargetId
-	Write-Output $job
+    $jobName = "{Job Name}"
+    $scriptName = "{Script Name}"
+    $customCollectionName = "{Custom Collection Name}"
+    $credentialName = "{Credential Name}"
+    $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
+    $job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -ContentName $scriptName -TargetId $target.TargetId
+    Write-Output $job
 
-## Coleta de dados em bancos de dados
+## <a name="data-collection-across-databases"></a>Data collection across databases
 
-Você pode usar um trabalho para executar uma consulta em um grupo de bancos de dados e enviar os resultados para uma tabela específica. A tabela pode ser consultada após o fato para ver os resultados da consulta provenientes de cada banco de dados. Isso fornece um método assíncrono para executar uma consulta em vários bancos de dados. Tentativas fracassadas são processadas automaticamente por meio de novas tentativas.
+You can use a job to execute a query across a group of databases and send the results to a specific table. The table can be queried after the fact to see the query’s results from each database. This provides an asynchronous method to execute a query across many databases. Failed attempts are handled automatically via retries.
 
-A tabela de destino especificada será criada automaticamente se ainda não existir. A nova tabela coincide com o esquema do conjunto de resultados retornado. Se um script retornar vários conjuntos de resultados, o recurso trabalhos de Banco de Dados Elástico enviará somente o primeiro à tabela de destino.
+The specified destination table will be automatically created if it does not yet exist. The new table matches the schema of the returned result set. If a script returns multiple result sets, Elastic Database jobs will only send the first to the destination table.
 
-O script de PowerShell a seguir executa um script e coleta os resultados em uma tabela especificada. Esse script presume que foi criado um script T-SQL, que produz um único conjunto de resultados, e que um destino de coleção de bancos de dados personalizada foi criado.
+The following PowerShell script executes a script and collects its results into a specified table. This script assumes that a T-SQL script has been created which outputs a single result set and that a custom database collection target has been created.
 
-Esse script usa o cmdlet [**Get-AzureSqlJobTarget**](https://msdn.microsoft.com/library/mt346077.aspx). Defina os parâmetros para script, credenciais e destino de execução:
+This script uses the [**Get-AzureSqlJobTarget**](https://msdn.microsoft.com/library/mt346077.aspx) cmdlet. Set the parameters for script, credentials, and execution target:
 
-	$jobName = "{Job Name}"
-	$scriptName = "{Script Name}"
-	$executionCredentialName = "{Execution Credential Name}"
-	$customCollectionName = "{Custom Collection Name}"
-	$destinationCredentialName = "{Destination Credential Name}"
-	$destinationServerName = "{Destination Server Name}"
-	$destinationDatabaseName = "{Destination Database Name}"
-	$destinationSchemaName = "{Destination Schema Name}"
-	$destinationTableName = "{Destination Table Name}"
-	$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
+    $jobName = "{Job Name}"
+    $scriptName = "{Script Name}"
+    $executionCredentialName = "{Execution Credential Name}"
+    $customCollectionName = "{Custom Collection Name}"
+    $destinationCredentialName = "{Destination Credential Name}"
+    $destinationServerName = "{Destination Server Name}"
+    $destinationDatabaseName = "{Destination Database Name}"
+    $destinationSchemaName = "{Destination Schema Name}"
+    $destinationTableName = "{Destination Table Name}"
+    $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 
-### Para criar e iniciar um trabalho para cenários de coleta de dados
+### <a name="to-create-and-start-a-job-for-data-collection-scenarios"></a>To create and start a job for data collection scenarios
 
-Esse script usa o cmdlet [**Start-AzureSqlJobExecution**](https://msdn.microsoft.com/library/mt346055.aspx).
+This script uses the [**Start-AzureSqlJobExecution**](https://msdn.microsoft.com/library/mt346055.aspx) cmdlet.
  
-	$job = New-AzureSqlJob -JobName $jobName 
-	-CredentialName $executionCredentialName 
-	-ContentName $scriptName 
-	-ResultSetDestinationServerName $destinationServerName 
-	-ResultSetDestinationDatabaseName $destinationDatabaseName 
-	-ResultSetDestinationSchemaName $destinationSchemaName 
-	-ResultSetDestinationTableName $destinationTableName 
-	-ResultSetDestinationCredentialName $destinationCredentialName 
-	-TargetId $target.TargetId
-	Write-Output $job
-	$jobExecution = Start-AzureSqlJobExecution -JobName $jobName
-	Write-Output $jobExecution
+    $job = New-AzureSqlJob -JobName $jobName 
+    -CredentialName $executionCredentialName 
+    -ContentName $scriptName 
+    -ResultSetDestinationServerName $destinationServerName 
+    -ResultSetDestinationDatabaseName $destinationDatabaseName 
+    -ResultSetDestinationSchemaName $destinationSchemaName 
+    -ResultSetDestinationTableName $destinationTableName 
+    -ResultSetDestinationCredentialName $destinationCredentialName 
+    -TargetId $target.TargetId
+    Write-Output $job
+    $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
+    Write-Output $jobExecution
 
-## Para agendar um gatilho de execução de trabalho
+## <a name="to-schedule-a-job-execution-trigger"></a>To schedule a job execution trigger
 
-O script de PowerShell a seguir pode ser usado para criar uma agenda recorrente. Esse script usa um intervalo de minutos, mas o [**New-AzureSqlJobSchedule**](https://msdn.microsoft.com/library/mt346068.aspx) também dá suporte aos parâmetros -DayInterval, -HourInterval, -MonthInterval e -WeekInterval. Agendas que são executadas apenas uma vez podem ser criadas pela passagem de -OneTime.
+The following PowerShell script can be used to create a recurring schedule. This script uses a minute interval, but [**New-AzureSqlJobSchedule**](https://msdn.microsoft.com/library/mt346068.aspx) also supports -DayInterval, -HourInterval, -MonthInterval, and -WeekInterval parameters. Schedules that execute only once can be created by passing -OneTime.
 
-Crie uma nova agenda:
+Create a new schedule:
 
-	$scheduleName = "Every one minute"
-	$minuteInterval = 1
-	$startTime = (Get-Date).ToUniversalTime()
-	$schedule = New-AzureSqlJobSchedule 
+    $scheduleName = "Every one minute"
+    $minuteInterval = 1
+    $startTime = (Get-Date).ToUniversalTime()
+    $schedule = New-AzureSqlJobSchedule 
     -MinuteInterval $minuteInterval 
-	-ScheduleName $scheduleName 
-	-StartTime $startTime 
-	Write-Output $schedule
+    -ScheduleName $scheduleName 
+    -StartTime $startTime 
+    Write-Output $schedule
 
-### Para disparar um trabalho executado em um cronograma
+### <a name="to-trigger-a-job-executed-on-a-time-schedule"></a>To trigger a job executed on a time schedule
 
-Um gatilho de trabalho pode ser definido para fazer com que um trabalho seja executado segundo um cronograma. O script de PowerShell a seguir pode ser usado para criar um gatilho de trabalho.
+A job trigger can be defined to have a job executed according to a time schedule. The following PowerShell script can be used to create a job trigger.
 
-Use o [New-AzureSqlJobTrigger](https://msdn.microsoft.com/library/mt346069.aspx) e defina as variáveis a seguir para corresponder ao trabalho e à agenda desejados:
+Use [New-AzureSqlJobTrigger](https://msdn.microsoft.com/library/mt346069.aspx) and set the following variables to correspond to the desired job and schedule:
 
-	$jobName = "{Job Name}"
-	$scheduleName = "{Schedule Name}"
-	$jobTrigger = New-AzureSqlJobTrigger
-	-ScheduleName $scheduleName
-	–JobName $jobName
-	Write-Output $jobTrigger
+    $jobName = "{Job Name}"
+    $scheduleName = "{Schedule Name}"
+    $jobTrigger = New-AzureSqlJobTrigger
+    -ScheduleName $scheduleName
+    –JobName $jobName
+    Write-Output $jobTrigger
 
-### Para remover uma associação agendada para impedir o trabalho de ser executado segundo a agenda
+### <a name="to-remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>To remove a scheduled association to stop job from executing on schedule
 
-Para interromper a execução do trabalho recorrente por meio de um gatilho de trabalho, esse gatilho pode ser removido. Remova um gatilho de trabalho para impedir que um trabalho seja executado de acordo com um agendamento usando o cmdlet [**Remove-AzureSqlJobTrigger**](https://msdn.microsoft.com/library/mt346070.aspx).
+To discontinue reoccurring job execution through a job trigger, the job trigger can be removed. Remove a job trigger to stop a job from being executed according to a schedule using the [**Remove-AzureSqlJobTrigger cmdlet**](https://msdn.microsoft.com/library/mt346070.aspx).
 
-	$jobName = "{Job Name}"
-	$scheduleName = "{Schedule Name}"
-	Remove-AzureSqlJobTrigger 
-	-ScheduleName $scheduleName 
-	-JobName $jobName
+    $jobName = "{Job Name}"
+    $scheduleName = "{Schedule Name}"
+    Remove-AzureSqlJobTrigger 
+    -ScheduleName $scheduleName 
+    -JobName $jobName
 
-### Recuperar gatilhos de trabalho associados a um cronograma
+### <a name="retrieve-job-triggers-bound-to-a-time-schedule"></a>Retrieve job triggers bound to a time schedule
 
-O seguinte script PowerShell pode ser usado para obter e exibir os gatilhos de trabalho registrados para um horário de agendamento específico.
+The following PowerShell script can be used to obtain and display the job triggers registered to a particular time schedule.
 
-	$scheduleName = "{Schedule Name}"
-	$jobTriggers = Get-AzureSqlJobTrigger -ScheduleName $scheduleName
-	Write-Output $jobTriggers
+    $scheduleName = "{Schedule Name}"
+    $jobTriggers = Get-AzureSqlJobTrigger -ScheduleName $scheduleName
+    Write-Output $jobTriggers
 
-### Para recuperar gatilhos de trabalho associados a um trabalho 
+### <a name="to-retrieve-job-triggers-bound-to-a-job"></a>To retrieve job triggers bound to a job 
 
-Use o [Get-AzureSqlJobTrigger](https://msdn.microsoft.com/library/mt346067.aspx) para obter e exibir agendas que contenham um trabalho registrado.
+Use [Get-AzureSqlJobTrigger](https://msdn.microsoft.com/library/mt346067.aspx) to obtain and display schedules containing a registered job.
 
-	$jobName = "{Job Name}"
-	$jobTriggers = Get-AzureSqlJobTrigger -JobName $jobName
-	Write-Output $jobTriggers
+    $jobName = "{Job Name}"
+    $jobTriggers = Get-AzureSqlJobTrigger -JobName $jobName
+    Write-Output $jobTriggers
 
-## Para criar um DACPAC (aplicativo da camada de dados) para execução em bancos de dados
+## <a name="to-create-a-datatier-application-dacpac-for-execution-across-databases"></a>To create a data-tier application (DACPAC) for execution across databases
 
-Para criar um DACPAC, consulte [Aplicativos de camada de dados](https://msdn.microsoft.com/library/ee210546.aspx). Para implantar um DACPAC, use o cmdlet [New-AzureSqlJobContent](https://msdn.microsoft.com/library/mt346085.aspx). O DACPAC deve ser acessado pelo serviço. É recomendável carregar um DACPAC criado para o Armazenamento do Azure e criar uma [Assinatura de Acesso Compartilhado](../storage/storage-dotnet-shared-access-signature-part-1.md) para o DACPAC.
+To create a DACPAC, see [Data-Tier applications](https://msdn.microsoft.com/library/ee210546.aspx). To deploy a DACPAC, use the [New-AzureSqlJobContent cmdlet](https://msdn.microsoft.com/library/mt346085.aspx). The DACPAC must be accessible to the service. It is recommended to upload a created DACPAC to Azure Storage and create a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) for the DACPAC.
 
-	$dacpacUri = "{Uri}"
-	$dacpacName = "{Dacpac Name}"
-	$dacpac = New-AzureSqlJobContent -DacpacUri $dacpacUri -ContentName $dacpacName 
-	Write-Output $dacpac
+    $dacpacUri = "{Uri}"
+    $dacpacName = "{Dacpac Name}"
+    $dacpac = New-AzureSqlJobContent -DacpacUri $dacpacUri -ContentName $dacpacName 
+    Write-Output $dacpac
 
-### Para atualizar um DACPAC (aplicativo da camada de dados) para execução em bancos de dados
+### <a name="to-update-a-datatier-application-dacpac-for-execution-across-databases"></a>To update a data-tier application (DACPAC) for execution across databases
 
-DACPACs existentes registrados em Trabalhos do Banco de Dados Elástico podem ser atualizados para apontar para os novos URIs. Use o cmdlet [**Set-AzureSqlJobContentDefinition**](https://msdn.microsoft.com/library/mt346074.aspx) para atualizar o URI do DACPAC em um DACPAC existente registrado:
+Existing DACPACs registered within Elastic Database Jobs can be updated to point to new URIs. Use the [**Set-AzureSqlJobContentDefinition cmdlet**](https://msdn.microsoft.com/library/mt346074.aspx) to update the DACPAC URI on an existing registered DACPAC:
 
-	$dacpacName = "{Dacpac Name}"
-	$newDacpacUri = "{Uri}"
-	$updatedDacpac = Set-AzureSqlJobDacpacDefinition -ContentName $dacpacName -DacpacUri $newDacpacUri
-	Write-Output $updatedDacpac
+    $dacpacName = "{Dacpac Name}"
+    $newDacpacUri = "{Uri}"
+    $updatedDacpac = Set-AzureSqlJobDacpacDefinition -ContentName $dacpacName -DacpacUri $newDacpacUri
+    Write-Output $updatedDacpac
 
-## Para criar um trabalho para aplicar um DACPAC (aplicativo da camada de dados) em bancos de dados
+## <a name="to-create-a-job-to-apply-a-datatier-application-dacpac-across-databases"></a>To create a job to apply a data-tier application (DACPAC) across databases
 
-Após um DACPAC ter sido criado no recurso trabalhos de Banco de Dados Elástico, um trabalho poderá ser criado para aplicar o DACPAC em um grupo de bancos de dados. O seguinte script PowerShell pode ser usado para criar um trabalho DACPAC em uma coleção de bancos de dados personalizada:
+After a DACPAC has been created within Elastic Database Jobs, a job can be created to apply the DACPAC across a group of databases. The following PowerShell script can be used to create a DACPAC job across a custom collection of databases:
 
-	$jobName = "{Job Name}"
-	$dacpacName = "{Dacpac Name}"
-	$customCollectionName = "{Custom Collection Name}"
-	$credentialName = "{Credential Name}"
-	$target = Get-AzureSqlJobTarget 
-	-CustomCollectionName $customCollectionName
-	$job = New-AzureSqlJob 
-	-JobName $jobName 
-	-CredentialName $credentialName 
-	-ContentName $dacpacName -TargetId $target.TargetId
-	Write-Output $job 
+    $jobName = "{Job Name}"
+    $dacpacName = "{Dacpac Name}"
+    $customCollectionName = "{Custom Collection Name}"
+    $credentialName = "{Credential Name}"
+    $target = Get-AzureSqlJobTarget 
+    -CustomCollectionName $customCollectionName
+    $job = New-AzureSqlJob 
+    -JobName $jobName 
+    -CredentialName $credentialName 
+    -ContentName $dacpacName -TargetId $target.TargetId
+    Write-Output $job 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -680,4 +681,8 @@ Após um DACPAC ter sido criado no recurso trabalhos de Banco de Dados Elástico
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
