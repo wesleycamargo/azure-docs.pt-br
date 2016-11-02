@@ -6,6 +6,7 @@
     authors="sdwheeler"
     manager="carmonm"
     editor=""
+    keywords="ipv6, azure load balancer, pilha dual, ip público, ipv6 nativo, móvel, iot"
 />
 <tags
     ms.service="load-balancer"
@@ -17,7 +18,8 @@
     ms.author="sewhee"
 />
 
-# Configuração de DHCPv6 para VMs Linux
+
+# <a name="configuring-dhcpv6-for-linux-vms"></a>Configuração de DHCPv6 para VMs Linux
 
 Algumas das imagens de máquina virtual do Linux no Azure Marketplace não tem o DHCPv6 configurado por padrão. Para oferecer suporte a IPv6, o DHCPv6 deve ser configurado dentro da distribuição do SO Linux que você está usando. Distribuições diferentes do Linux têm maneiras diferentes de configurar o DHCPv6, pois usam pacotes diferentes.
 
@@ -27,7 +29,7 @@ Este documento descreve como habilitar o DHCPv6 para que a sua máquina virtual 
 
 >[AZURE.WARNING] A edição inadequada de arquivos de configuração de rede podem causar a perda de acesso à rede para sua VM. Recomendamos que você teste as alterações de configuração em sistemas de não produção. As instruções neste artigo foram testadas em versões mais recentes das imagens do Linux no Azure Marketplace. Consulte a documentação para a versão específica do Linux para obter instruções mais detalhadas.
 
-## Ubuntu
+## <a name="ubuntu"></a>Ubuntu
 
 1. Edite o arquivo `/etc/dhcp/dhclient6.conf` e adicione a linha a seguir:
 
@@ -50,7 +52,7 @@ Este documento descreve como habilitar o DHCPv6 para que a sua máquina virtual 
     # sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## Debian
+## <a name="debian"></a>Debian
 
 1. Edite o arquivo `/etc/dhcp/dhclient6.conf` e adicione a linha a seguir:
 
@@ -68,7 +70,7 @@ Este documento descreve como habilitar o DHCPv6 para que a sua máquina virtual 
     # sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## RHEL / CentOS / Oracle Linux
+## <a name="rhel-/-centos-/-oracle-linux"></a>RHEL / CentOS / Oracle Linux
 
 1. Edite o arquivo `/etc/sysconfig/network` e adicione o parâmetro a seguir:
 
@@ -85,11 +87,11 @@ Este documento descreve como habilitar o DHCPv6 para que a sua máquina virtual 
     # sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## SLES 11 & openSUSE 13
+## <a name="sles-11-&-opensuse-13"></a>SLES 11 & openSUSE 13
 
 Imagens recentes de SLES e openSUSE no Azure foram pré-configuradas com DHCPv6. Nenhuma alteração adicional é necessária ao usar essas imagens. Se você tiver uma VM baseada em uma imagem SUSE mais antiga ou personalizada, use as seguintes etapas:
 
-1. Instale o pacote `dhcp-client`, se for necessário:
+1. Instale o pacote `dhcp-client` , se for necessário:
 
     ```bash
     # sudo zypper install dhcp-client
@@ -105,7 +107,7 @@ Imagens recentes de SLES e openSUSE no Azure foram pré-configuradas com DHCPv6.
     # sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## SLES 12 e openSUSE Leap
+## <a name="sles-12-and-opensuse-leap"></a>SLES 12 e openSUSE Leap
 
 Imagens recentes de SLES e openSUSE no Azure foram pré-configuradas com DHCPv6. Nenhuma alteração adicional é necessária ao usar essas imagens. Se você tiver uma VM baseada em uma imagem SUSE mais antiga ou personalizada, use as seguintes etapas:
 
@@ -127,7 +129,7 @@ Imagens recentes de SLES e openSUSE no Azure foram pré-configuradas com DHCPv6.
     # sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## CoreOS
+## <a name="coreos"></a>CoreOS
 
 Imagens recentes de CoreOS no Azure foram pré-configuradas com DHCPv6. Nenhuma alteração adicional é necessária ao usar essas imagens. Se você tiver uma VM baseada em uma imagem CoreOS mais antiga ou personalizada, use as seguintes etapas:
 
@@ -145,4 +147,8 @@ Imagens recentes de CoreOS no Azure foram pré-configuradas com DHCPv6. Nenhuma 
     # sudo systemctl restart systemd-networkd
     ```
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

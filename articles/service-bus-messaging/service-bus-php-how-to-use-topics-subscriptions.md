@@ -1,23 +1,24 @@
 <properties 
-	pageTitle="Como usar os tópicos de Barramento de Serviço com PHP | Microsoft Azure" 
-	description="Saiba como usar tópicos do Barramento de Serviço com PHP no Azure." 
-	services="service-bus-messaging" 
-	documentationCenter="php" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Como usar os tópicos de Barramento de Serviço com PHP | Microsoft Azure" 
+    description="Saiba como usar tópicos do Barramento de Serviço com PHP no Azure." 
+    services="service-bus" 
+    documentationCenter="php" 
+    authors="sethmanheim" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="service-bus-messaging" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="05/10/2016" 
-	ms.author="sethm"/>
+    ms.service="service-bus" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="PHP" 
+    ms.topic="article" 
+    ms.date="05/10/2016" 
+    ms.author="sethm"/>
 
 
-# Como usar tópicos e assinaturas do Barramento de Serviço
+
+# <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Como usar tópicos e assinaturas do Barramento de Serviço
 
 [AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
@@ -25,7 +26,7 @@ Este artigo mostra como usar os tópicos e as assinaturas do Barramento de Servi
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-## Criar um aplicativo PHP
+## <a name="create-a-php-application"></a>Criar um aplicativo PHP
 
 O único requisito para a criação de um aplicativo PHP que acessa o serviço Blob do Azure é a referência de classes no [SDK do Azure para PHP](../php-download-sdk.md) em seu código. Você pode usar quaisquer ferramentas de desenvolvimento para criar seu aplicativo, ou o Bloco de Notas.
 
@@ -33,20 +34,20 @@ O único requisito para a criação de um aplicativo PHP que acessa o serviço B
 
 Este artigo descreve como usar os recursos de serviços que podem ser chamados em um aplicativo PHP localmente ou no código em execução em uma função web, uma função de trabalho ou um site do Azure.
 
-## Obter as bibliotecas de cliente do Azure
+## <a name="get-the-azure-client-libraries"></a>Obter as bibliotecas de cliente do Azure
 
 [AZURE.INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
-## Configurar seu aplicativo para usar o Barramento de serviço
+## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
 
 Para usar as APIs do barramento de serviço:
 
-1. Faça referência ao arquivo do carregador automático usando a instrução [require\_once][require-once].
+1. Fazer referência ao arquivo de carregador automático usando a instrução [require_once][require-once].
 2. Fazer referência a qualquer classe que você possa usar.
 
-O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
+O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServiceBusService**.
 
-> [AZURE.NOTE] Este exemplo (e outros exemplos neste artigo) pressupõe que você instalou as Bibliotecas de Cliente PHP para Azure por meio do Compositor. Se você tiver instalado as bibliotecas manualmente ou como um pacote PEAR, será necessário fazer referência ao arquivo de carregador automático **WindowsAzure.php**.
+> [AZURE.NOTE] Este exemplo (e outros exemplos neste artigo) pressupõe que você instalou as Bibliotecas de Cliente PHP para Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, será necessário fazer referência ao arquivo de carregador automático **WindowsAzure.php**.
 
 ```
 require_once 'vendor\autoload.php';
@@ -55,7 +56,7 @@ use WindowsAzure\Common\ServicesBuilder;
 
 Nos seguintes exemplos, a instrução `require_once` será mostrada sempre, mas somente as classes necessárias para executar o exemplo serão referenciadas.
 
-## Configurar uma conexão do Barramento de Serviço
+## <a name="set-up-a-service-bus-connection"></a>Configurar uma conexão do Barramento de Serviço
 
 Para instanciar um cliente do Barramento de Serviço do Azure, você deve primeiramente ter uma cadeia de conexão válida neste formato:
 
@@ -68,9 +69,9 @@ Em que `Endpoint` geralmente está no formato `https://[yourNamespace].servicebu
 Para criar qualquer cliente de serviço do Azure é necessário usar a classe **ServicesBuilder**. Você pode:
 
 * Passar a cadeia de conexão diretamente para ele.
-* Usar o **CloudConfigurationManager (CCM)** para verificar várias origens externas para a cadeia de conexão:
-	* Por padrão, ele vem com suporte para uma origem externa: variáveis de ambiente
-	* Você pode adicionar novas origens ao estender a classe **ConnectionStringSource**.
+* Usar **CloudConfigurationManager (CCM)** para verificar várias fontes externas da cadeia de conexão:
+    * Por padrão, ele vem com suporte para uma origem externa: variáveis de ambiente
+    * É possível adicionar novas origens ao estender a classe **ConnectionStringSource** .
 
 Para os exemplos descritos aqui, a cadeia de conexão é passada diretamente.
 
@@ -78,13 +79,13 @@ Para os exemplos descritos aqui, a cadeia de conexão é passada diretamente.
 require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
-	
+    
 $connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]";
 
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
 
-## Criar um tópico
+## <a name="create-a-topic"></a>Criar um tópico
 
 Você pode realizar operações de gerenciamento para os tópicos do Barramento de Serviço pela classe **ServiceBusRestProxy**. Um objeto **ServiceBusRestProxy** é construído por meio do método de fábrica **ServicesBuilder::createServiceBusService** com uma cadeia de conexão apropriada que encapsula as permissões de token para gerenciá-lo.
 
@@ -96,32 +97,32 @@ require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
 use WindowsAzure\ServiceBus\Models\TopicInfo;
-	
+    
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-	
-try	{		
-	// Create topic.
-	$topicInfo = new TopicInfo("mytopic");
-	$serviceBusRestProxy->createTopic($topicInfo);
+    
+try {       
+    // Create topic.
+    $topicInfo = new TopicInfo("mytopic");
+    $serviceBusRestProxy->createTopic($topicInfo);
 }
 catch(ServiceException $e){
-	// Handle exception based on error codes and messages.
-	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/dd179357
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	echo $code.": ".$error_message."<br />";
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/library/windowsazure/dd179357
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
 }
 ```
 
 > [AZURE.NOTE] Você pode usar o método `listTopics` em objetos `ServiceBusRestProxy` para verificar se já existe um tópico com um nome especificado em um namespace de serviço.
 
-## Criar uma assinatura
+## <a name="create-a-subscription"></a>Criar uma assinatura
 
 As assinaturas do tópico também são criadas com o método **ServiceBusRestProxy->createSubscription**. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens passadas para a fila virtual da assinatura.
 
-### Criar uma assinatura com o filtro padrão (MatchAll)
+### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
 
 O filtro **MatchAll** será o padrão usado se nenhum filtro for especificado quando uma nova assinatura for criada. Quando o filtro **MatchAll** é usado, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada 'mysubscription' e usa o filtro padrão **MatchAll**.
 
@@ -134,25 +135,25 @@ use WindowsAzure\ServiceBus\Models\SubscriptionInfo;
 
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-	
-try	{
-	// Create subscription.
-	$subscriptionInfo = new SubscriptionInfo("mysubscription");
-	$serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
+    
+try {
+    // Create subscription.
+    $subscriptionInfo = new SubscriptionInfo("mysubscription");
+    $serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
 }
 catch(ServiceException $e){
-	// Handle exception based on error codes and messages.
-	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/azure/dd179357
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	echo $code.": ".$error_message."<br />";
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/library/azure/dd179357
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
 }
 ```
 
-### Criar assinaturas com os filtros
+### <a name="create-subscriptions-with-filters"></a>Criar assinaturas com os filtros
 
-Você também pode configurar filtros que permitem especificar quais mensagens enviadas a um tópico devem aparecer dentro de uma assinatura específica do tópico. O tipo de filtro mais flexível compatível com as assinaturas é o **SqlFilter**, que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para obter mais informações sobre SqlFilters, consulte a [propriedade SqlFilter.SqlExpression][sqlfilter].
+Você também pode configurar filtros que permitem especificar quais mensagens enviadas a um tópico devem aparecer dentro de uma assinatura específica do tópico. O tipo de filtro mais flexível compatível com as assinaturas é o **SqlFilter**, que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para obter mais informações sobre SqlFilters, consulte a [Propriedade SqlFilter.SqlExpression][sqlfilter].
 
 > [AZURE.NOTE] Cada regra uma assinatura processa as mensagens de entrada independentemente, adicionando suas mensagens de resultado à assinatura. Além disso, cada nova assinatura tem um objeto **Regra** padrão com um filtro que adiciona todas as mensagens do tópico à assinatura. Para receber apenas as mensagens correspondentes ao filtro, você deve remover a regra padrão. Você pode remover a regra padrão usando o método `ServiceBusRestProxy->deleteRule`.
 
@@ -186,7 +187,7 @@ $ruleResult = $serviceBusRestProxy->createRule("mytopic", "LowMessages", $ruleIn
 
 Agora, quando uma mensagem é enviada ao tópico `mytopic`, ela sempre será entregue aos destinatários inscritos na assinatura `mysubscription` e entregue de forma seletiva aos destinatários inscritos nas assinaturas do `HighMessages` e `LowMessages` (dependendo do conteúdo da mensagem).
 
-## Enviar mensagens para um tópico
+## <a name="send-messages-to-a-topic"></a>Enviar mensagens para um tópico
 
 Para enviar uma mensagem a um tópico do Barramento de Serviço, seu aplicativo chamará o método **ServiceBusRestProxy->sendTopicMessage**. O código abaixo demonstra como enviar uma mensagem ao tópico `mytopic` que criamos acima no namespace de serviço `MySBNamespace`.
 
@@ -199,22 +200,22 @@ use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-		
-try	{
-	// Create message.
-	$message = new BrokeredMessage();
-	$message->setBody("my message");
-	
-	// Send message.
-	$serviceBusRestProxy->sendTopicMessage("mytopic", $message);
+        
+try {
+    // Create message.
+    $message = new BrokeredMessage();
+    $message->setBody("my message");
+    
+    // Send message.
+    $serviceBusRestProxy->sendTopicMessage("mytopic", $message);
 }
 catch(ServiceException $e){
-	// Handle exception based on error codes and messages.
-	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/azure/hh780775
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	echo $code.": ".$error_message."<br />";
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/library/azure/hh780775
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
 }
 ```
 
@@ -222,29 +223,29 @@ As mensagens enviadas aos tópicos de Barramento de Serviço são instâncias da
 
 ```
 for($i = 0; $i < 5; $i++){
-	// Create message.
-	$message = new BrokeredMessage();
-	$message->setBody("my message ".$i);
-			
-	// Set custom property.
-	$message->setProperty("MessageNumber", $i);
-			
-	// Send message.
-	$serviceBusRestProxy->sendTopicMessage("mytopic", $message);
+    // Create message.
+    $message = new BrokeredMessage();
+    $message->setBody("my message ".$i);
+            
+    // Set custom property.
+    $message->setProperty("MessageNumber", $i);
+            
+    // Send message.
+    $serviceBusRestProxy->sendTopicMessage("mytopic", $message);
 }
 ```
 
 Os tópicos do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em um tópico, mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. Este limite superior do tamanho do tópico é 5 GB. Para saber mais sobre cotas, consulte [Cotas do Barramento de Serviço][].
 
-## Receber mensagens de uma assinatura
+## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma assinatura
 
-A principal maneira de receber mensagens de uma assinatura é usando um método **ServiceBusRestProxy->receiveSubscriptionMessage**. As mensagens recebidas podem funcionar de dois modos diferentes: **ReceiveAndDelete** (o padrão) e **PeekLock**.
+A melhor maneira de receber mensagens de uma assinatura é usando um método **ServiceBusRestProxy->receiveSubscriptionMessage**. As mensagens recebidas podem funcionar de dois modos diferentes: **ReceiveAndDelete** (o padrão) e **PeekLock**.
 
 Quando o modo **ReceiveAndDelete** for usado, o recebimento será uma operação única, ou seja, quando o Barramento de Serviço receber uma solicitação de leitura de uma mensagem em uma assinatura, ele marcará a mensagem como sendo consumida e a retornará ao aplicativo. O modo **ReceiveAndDelete** é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
-No modo **PeekLock**, o recebimento de uma mensagem se torna uma operação de dois estágios, o possibilita o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento passando a mensagem recebida para **ServiceBusRestProxy->deleteMessage**. Quando o Barramento de Serviço vê a chamada **deleteMessage**, ele marca a mensagem como sendo consumida e remove-a da fila.
+No modo **PeekLock**, o recebimento de uma mensagem se torna uma operação de dois estágios, o que possibilita o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento passando a mensagem recebida para **ServiceBusRestProxy->deleteMessage**. Quando o Barramento de Serviço vê a chamada **deleteMessage**, ele marca a mensagem como sendo consumida e remove-a da fila.
 
-O exemplo a seguir mostra como receber e processar uma mensagem usando o modo **PeekLock** (não o modo padrão).
+O exemplo a seguir mostra como receber e processar uma mensagem usando o modo **PeekLock** (não o modo padrão). 
 
 ```
 require_once 'vendor/autoload.php';
@@ -255,45 +256,45 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-		
-try	{
-	// Set receive mode to PeekLock (default is ReceiveAndDelete)
-	$options = new ReceiveMessageOptions();
-	$options->setPeekLock();
-	
-	// Get message.
-	$message = $serviceBusRestProxy->receiveSubscriptionMessage("mytopic", "mysubscription", $options);
+        
+try {
+    // Set receive mode to PeekLock (default is ReceiveAndDelete)
+    $options = new ReceiveMessageOptions();
+    $options->setPeekLock();
+    
+    // Get message.
+    $message = $serviceBusRestProxy->receiveSubscriptionMessage("mytopic", "mysubscription", $options);
 
-	echo "Body: ".$message->getBody()."<br />";
-	echo "MessageID: ".$message->getMessageId()."<br />";
-		
-	/*---------------------------
-		Process message here.
-	----------------------------*/
-		
-	// Delete message. Not necessary if peek lock is not set.
-	echo "Deleting message...<br />";
-	$serviceBusRestProxy->deleteMessage($message);
+    echo "Body: ".$message->getBody()."<br />";
+    echo "MessageID: ".$message->getMessageId()."<br />";
+        
+    /*---------------------------
+        Process message here.
+    ----------------------------*/
+        
+    // Delete message. Not necessary if peek lock is not set.
+    echo "Deleting message...<br />";
+    $serviceBusRestProxy->deleteMessage($message);
 }
 catch(ServiceException $e){
-	// Handle exception based on error codes and messages.
-	// Error codes and messages are here:
-	// http://msdn.microsoft.com/library/azure/hh780735
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	echo $code.": ".$error_message."<br />";
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here:
+    // http://msdn.microsoft.com/library/azure/hh780735
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
 }
 ```
 
-## Como: tratar falhas do aplicativo e mensagens ilegíveis
+## <a name="how-to:-handle-application-crashes-and-unreadable-messages"></a>Como: tratar falhas do aplicativo e mensagens ilegíveis
 
-O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não for capaz de processar a mensagem por algum motivo, ele chamará o método **unlockMessage** na mensagem recebida (em vez do método **deleteMessage**). Isso fará com que o Barramento de Serviço desbloqueie a mensagem na fila e disponibilize-a para ser recebida novamente, pelo mesmo aplicativo de consumo ou por outro.
+O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não for capaz de processar a mensagem por algum motivo, ele chamará o método **unlockMessage** na mensagem recebida (em vez do método **deleteMessage**). Isso fará com que o Service Bus desbloqueie a mensagem na fila e disponibilize-a para que ela possa ser recebida novamente pelo mesmo aplicativo de consumo ou por outro.
 
 Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não conseguir processar a mensagem antes da expiração do tempo limite do bloqueio (por exemplo, em caso de falha do aplicativo), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
 
 Se houver falha do aplicativo após o processamento da mensagem, mas antes da solicitação **deleteMessage** ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra aos aplicativos para tratar a entrega de mensagem duplicada. Isso geralmente é feito com o método **getMessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
 
-## Excluir tópicos e assinaturas
+## <a name="delete-topics-and-subscriptions"></a>Excluir tópicos e assinaturas
 
 Para excluir um tópico ou uma assinatura, use os métodos **ServiceBusRestProxy -> deleteTopic** ou **ServiceBusRestProxy -> deleteSubscripton**, respectivamente. Observe que a exclusão de um tópico também exclui todas as assinaturas registradas com o tópico.
 
@@ -308,18 +309,18 @@ use WindowsAzure\Common\ServiceException;
 
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-	
-try	{		
-	// Delete topic.
-	$serviceBusRestProxy->deleteTopic("mytopic");
+    
+try {       
+    // Delete topic.
+    $serviceBusRestProxy->deleteTopic("mytopic");
 }
 catch(ServiceException $e){
-	// Handle exception based on error codes and messages.
-	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/azure/dd179357
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	echo $code.": ".$error_message."<br />";
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/library/azure/dd179357
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
 }
 ```
 
@@ -329,13 +330,17 @@ Ao usar o método **deleteSubscription**, você poderá excluir uma assinatura d
 $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, veja [Filas, tópicos e assinaturas][] para saber mais.
 
 [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
-[sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[sqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [require-once]: http://php.net/require_once
 [Cotas do Barramento de Serviço]: service-bus-quotas.md
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

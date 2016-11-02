@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Teste sua oferta VM para o Marketplace | Microsoft Azure"
-   description="Entenda como testar sua imagem VM para o Azure Marketplace."
+   pageTitle="Test your VM offer for the Marketplace | Microsoft Azure"
+   description="Understand how to test your VM image for the Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
-   manager=""
+   manager="hascipio"
    editor=""/>
 
 <tags
@@ -16,43 +16,48 @@
    ms.date="08/01/2016"
    ms.author="hascipio" />
 
-# Teste sua oferta VM para o Azure Marketplace em preparo
 
-Preparo significa implantar a SKU em uma "área restrita" privada, em que você poderá testar e validar sua funcionalidade antes de publicá-la no Marketplace. A SKU aparece no preparo como se o cliente tivesse implantado. Sua imagem VM deve estar certificada para ser enviada para preparação.
+# <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Test your VM offer for the Azure Marketplace in staging
 
-## Etapa 1: Envie por push sua oferta de preparo
+Staging means deploying your SKU in a private “sandbox” where you can test and validate its functionality before deploying it to the Marketplace. The SKU appears in staging just as it would to a customer who has deployed it. Your VM image must be certified to be pushed to staging.
 
-1. Na guia **Publicar** clique em **Enviar por Push para o preparo**.
+## <a name="step-1:-push-your-offer-to-staging"></a>Step 1: Push your offer to staging
 
-    ![desenho](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
+1. On the **Publish** tab, click **Push to Staging**.
 
-2. Se o Portal de publicação notificar qualquer erro, corrija-o.
-3.	Na caixa de diálogo **Quem pode acessar sua oferta preparada?** insira a lista de assinaturas do Azure que você usará para visualizar sua oferta no [portal de visualização do Azure](https://portal.azure.com).
+    ![drawing](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
 
-    >[AZURE.NOTE] No caso de Máquinas Virtuais e modelos de Solução, **não** coloque em lista de branca assinaturas do tipo CSP, DreamSpark ou Azure via Open.
+2. If the Publishing Portal notifies you of any errors, correct them.
+3.  In the **Who can access your staged offer?** dialog box, enter the list of Azure subscriptions that you will use to preview your offer in the [Azure preview portal](https://portal.azure.com).
+
+    >[AZURE.NOTE] In case of Virtual Machines and Solution templates, please **do not** whitelist subscriptions of type CSP, DreamSpark or Azure in Open.
 
 
-    > No caso de Máquinas Virtuais, quando você clica no botão **ENVIAR PARA PREPARO**, as etapas a seguir são executadas em segundo plano. Você poderá exibir o andamento de cada etapa na guia PUBLICAR do portal de Publicação. Verifique essa página regularmente (até que o status mostre PREPARADO) para obter informações sobre falhas que precisem ser corrigidas por você.
+    > In case of Virtual Machines, when you click on the button **PUSH TO STAGING**, the following steps are performed behind the scene. You will be able to view the progress of each step under the PUBLISH tab in the Publishing portal. You must check this page at regular interval (until the status shows STAGED) for any failure information which need correction from your end.
 
-    > - Inicialmente, sua solicitação é enviada à equipe de certificação, que valida o VHD. No entanto, se sua solicitação teve apenas alteração de marketing, a etapa de certificação será ignorada.
-    > - Uma vez concluída a certificação, a replicação da oferta começará em todos os datacenters do Azure. Geralmente, uma replicação leva de 24 a 48 horas para ser concluída, mas pode levar até uma semana dependendo do tamanho do VHD. No entanto, se sua solicitação teve apenas alteração de marketing, a replicação será mais rápida.
-    > - Quando a replicação for concluída, sua oferta será disponibilizada no [portal do Azure](http:/portal.azure.com). Nessa ocasião, o status da oferta passará para PREPARADO no portal de Publicação. Uma oferta preparada só ficará visível no [portal do Azure](http:/portal.azure.com) usando as identificações de email associadas à assinatura com as quais a oferta foi preparada.
+    > - At first your staging request goes to the certification team who validate the vhd. However, if your request has got only marketing change, then the certification step is skipped.
+    > - Once the certification is complete, replication of the offer start across all the Azure datacenters. It generally takes 24-48hours for the replication to complete but may take up to a week depending on the size of the vhd. However, if your request has got only marketing change, then the replication is faster.
+    > - When the replication is complete, then the offer will be available in the [Azure portal](http:/portal.azure.com). At that time the status become STAGED in the Publishing portal. A staged offer is visible in the [Azure portal](http:/portal.azure.com) only using the email id(s) associated with the subscription with which the offer is staged.
 
-4. Entre no [Portal de Visualização do Azure](https://portal.azure.com) usando uma das assinaturas do Azure acima indicadas na etapa anterior.
-5. Encontre sua oferta e valide seus pontos de imagem VM:
-  - Certifique-se de que o conteúdo de marketing aparece corretamente no Marketplace.
-  - Implantação de ponta a ponta da imagem VM.
+4. Sign in to the [Azure preview portal](https://portal.azure.com) by using one of the Azure subscriptions listed in the previous step.
+5. Find your offer and validate your VM image points:
+  - Make sure that marketing content shows up correctly in the Marketplace.
+  - End-to-end deployment of the VM image.
 
       ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
-> [AZURE.IMPORTANT] Sua oferta permanecerá no preparo até você notificar a Microsoft por meio do Portal de Publicação [guia **Publicar** > clique no botão **"Solicitar Aprovação para Envio à Produção"**] que você está pronto para enviar por push para produção. Este é um momento ideal para que todos os membros da sua equipe verifiquem tudo no preparo para que sua oferta seja listada.
+> [AZURE.IMPORTANT] Your offer will remain in staging until you notify Microsoft via the Publishing Portal [**Publish** tab > click on the button **"Request Approval to Push to Production"**] that you are ready to push to production. This is an ideal time to have all members of your team check over everything in preparation for your offer going listed.
 
-> A plataforma de preparo foi desenvolvida para que o editor teste oferta no modo de visualização. É enfaticamente desaconselhável usar essa plataforma para fins comerciais.
+> The staging platform is designed for testing the offer in a preview mode by the publisher. We strongly discourage using this platofrm for commerical purposes.
 
-## Próximas etapas
-Agora que a sua oferta está "preparada" e você testou a sua funcionalidade e conteúdo de marketing, prossiga para a oferta final e/ou a fase de publicação SKU, **Etapa 4**: [Implantar sua oferta no Marketplace](marketplace-publishing-push-to-production.md).
+## <a name="next-steps"></a>Next steps
+Now that your offer is "staged" and you have tested its functionality and marketing content, you can proceed to the final publishing phase, **Step 4**: [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md).
 
-## Consulte também
-- [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
+## <a name="see-also"></a>See also
+- [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

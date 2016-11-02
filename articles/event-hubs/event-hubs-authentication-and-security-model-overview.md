@@ -15,7 +15,8 @@
     ms.date="08/16/2016"
     ms.author="sethm;clemensv" />
 
-# Visão geral do modelo de autenticação e segurança dos Hubs de Eventos
+
+# <a name="event-hubs-authentication-and-security-model-overview"></a>Visão geral do modelo de autenticação e segurança dos Hubs de Eventos
 
 O modelo de segurança dos Hubs de Eventos atende aos seguintes requisitos:
 
@@ -23,9 +24,9 @@ O modelo de segurança dos Hubs de Eventos atende aos seguintes requisitos:
 - Um dispositivo não pode representar outro dispositivo.
 - Um dispositivo não autorizado pode ser impedido de enviar dados para um Hub de Eventos.
 
-## Autenticação de dispositivo
+## <a name="device-authentication"></a>Autenticação de dispositivo
 
-O modelo de segurança dos Hubs de Eventos se baseia em uma combinação de [tokens SAS (Assinatura de Acesso Compartilhado)](../service-bus/service-bus-shared-access-signature-authentication.md) e de *editores de eventos*. Um editor de eventos define um ponto de extremidade virtual para um Hub de Eventos. O editor só pode ser usado para enviar mensagens a um Hub de Eventos. Não é possível receber mensagens de um editor.
+O modelo de segurança dos Hubs de Eventos se baseia em uma combinação de tokens [SAS (Assinatura de Acesso Compartilhado)](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) e de *editores de eventos*. Um editor de eventos define um ponto de extremidade virtual para um Hub de Eventos. O editor só pode ser usado para enviar mensagens a um Hub de Eventos. Não é possível receber mensagens de um editor.
 
 Normalmente, um Hub de Eventos emprega um editor por dispositivo. Todas as mensagens enviadas a qualquer um dos editores de um Hub de Eventos são enfileiradas nesse Hub de Eventos. Os editores habilitam o controle de acesso detalhado e a limitação.
 
@@ -35,7 +36,7 @@ Embora não seja recomendado, é possível equipar os dispositivos com tokens qu
 
 Todos os tokens são assinados com uma chave SAS. Normalmente, todos os tokens são assinados com a mesma chave. Os dispositivos não estão cientes da chave; isso impede que dispositivos criem tokens.
 
-### Criar a chave SAS
+### <a name="create-the-sas-key"></a>Criar a chave SAS
 
 Ao criar um namespace de Hubs de Eventos, os Hubs de Eventos do Azure geram uma chave SAS de 256 bits chamada **RootManageSharedAccessKey**. Essa chave concede direitos de envio, escuta e gerenciamento ao namespace. Você pode criar chaves adicionais. É recomendável que você crie uma chave que conceda permissões de envio para o Hub de Eventos específico. No restante deste tópico, pressupõe-se que você tenha nomeado esta chave `EventHubSendKey`.
 
@@ -59,9 +60,9 @@ ed.Authorization.Add(eventHubSendRule);
 nm.CreateEventHub(ed);
 ```
 
-### Gerar tokens
+### <a name="generate-tokens"></a>Gerar tokens
 
-Você pode gerar tokens usando a chave SAS. Você deve criar somente um token por dispositivo. Tokens podem ser criados usando o seguinte método. Todos os tokens são gerados usando a chave **EventHubSendKey**. A cada token é atribuído um URI exclusivo.
+Você pode gerar tokens usando a chave SAS. Você deve criar somente um token por dispositivo. Tokens podem ser criados usando o seguinte método. Todos os tokens são gerados usando a chave **EventHubSendKey** . A cada token é atribuído um URI exclusivo.
 
 ```
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
@@ -83,17 +84,17 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 Normalmente, os tokens têm um tempo de vida semelhante a superior ao tempo de vida do dispositivo. Se o dispositivo tiver a capacidade de obter um novo token, tokens com um tempo de vida mais curto podem ser usados.
 
-### Dispositivos que enviam dados
+### <a name="devices-sending-data"></a>Dispositivos que enviam dados
 
 Depois que os tokens são criados, cada dispositivo é configurado com seu próprio token exclusivo.
 
 Quando envia dados a um Hub de Eventos, o dispositivo marca seu token com a solicitação de envio. Para evitar que um invasor intercepte e roube o token, a comunicação entre o dispositivo e o Hub de Eventos deve ocorrer em um canal criptografado.
 
-### Colocando dispositivos em lista negra
+### <a name="blacklisting-devices"></a>Colocando dispositivos em lista negra
 
 Se um token for roubado por um invasor, o invasor pode representar o dispositivo cujo token foi roubado. Colocar um dispositivo na lista negra inutiliza o dispositivo até que ele receba um novo token que usa um outro editor.
 
-## Autenticação de aplicativos back-end
+## <a name="authentication-of-back-end-applications"></a>Autenticação de aplicativos back-end
 
 Para autenticar aplicativos back-end que consomem os dados gerados por dispositivos, os Hubs de Eventos empregam um modelo de segurança que é semelhante ao modelo usado para os tópicos do Barramento de Serviço. Um grupo de consumidores de Hubs de Eventos é equivalente a uma assinatura de um tópico do Barramento de Serviço. Um cliente pode criar um grupo de consumidores se a solicitação para criar o grupo for acompanhada por um token que concede privilégios de gerenciamento para o Hub de Eventos ou para o namespace ao qual o Hub de Eventos pertence. Um cliente pode consumir dados de um grupo de consumidores, se a solicitação de recebimento é acompanhada por um token que concede direitos de recebimento no grupo consumidor, o Hub de eventos ou o namespace ao qual pertence o Hub de eventos.
 
@@ -101,7 +102,7 @@ A versão atual do Barramento de Serviço não dá suporte a regras SAS para ass
 
 Na ausência de autenticação SAS para grupos de consumidores individuais, você pode utilizar chaves SAS para proteger todos os grupos de consumidores com uma chave comum. Essa abordagem permite que um aplicativo consuma dados de qualquer um dos grupos de consumidores de um Hub de Eventos.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre os Hubs de Eventos, veja os tópicos a seguir:
 
@@ -111,7 +112,11 @@ Para saber mais sobre os Hubs de Eventos, veja os tópicos a seguir:
 
 [Visão geral de Hubs de Evento]: event-hubs-overview.md
 [aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[solução de mensagens na fila]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

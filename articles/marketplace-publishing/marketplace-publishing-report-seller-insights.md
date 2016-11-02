@@ -16,7 +16,8 @@
    ms.date="02/05/2016"
    ms.author="v-jeana; hascipio"/>
 
-# Entenda o relatório de insights do vendedor
+
+# <a name="understand-your-seller-insights-report"></a>Entenda o relatório de insights do vendedor
 
 **O que são os Insights do Vendedor?**
 
@@ -26,13 +27,13 @@ Todas as editoras de serviços do desenvolvedor com cobrança baseada no uso e V
 
 - **Email de boas-vindas:** como uma nova editora, você receberá um email de boas-vindas para notificá-lo de que você irá começar a receber os relatórios mensais de insights do vendedor.
 
-- **Relatórios de vendas mensais:** se tiver uso, você receberá um segundo email com seus relatórios e instruções sobre como acessar sua senha:
+- **Relatórios de vendas mensais:** se tiver usado, você receberá um segundo email com seus relatórios e instruções sobre como acessar sua senha:
 
     - Se você tiver uma VM ou SKU de serviços do desenvolvedor com cobrança baseada no uso, seu relatório mensal mostrará a você detalhes sobre pedidos, uso, mercados e detalhes do cliente para ofertas não BYOL (traga sua própria licença).
     - Esses arquivos são bloqueados com uma senha que apenas você e a Microsoft sabem para proteger os dados de seus clientes.
     - A Microsoft não enviará um relatório se nenhuma de suas ofertas tiver gerado uso durante o mês.
 
-## Entenda o relatório de insights do vendedor
+## <a name="understand-your-seller-insights-report"></a>Entenda o relatório de insights do vendedor
 
 
 **Pedidos por tipo de licença e SKU: guia Pedidos do Marketplace**
@@ -85,27 +86,31 @@ Essas guias fornecem os dados detalhados usados para gerar o relatório.
 
 Leia atentamente a isenção de responsabilidade legal. Se você tiver perguntas ou comentários, clique no link na parte inferior da isenção de responsabilidade para ser encaminhado para a página de suporte do Marketplace.
 
-## Solicitar um lembrete da senha
+## <a name="request-a-password-reminder"></a>Solicitar um lembrete da senha
 
-Navegue para https://publish.windowsazure.com/ e entre com suas credenciais da conta da Microsoft. ![passwordreminder][7]
+Navegue para https://publish.windowsazure.com/ e entre com as credenciais da sua conta da Microsoft.
+![passwordreminder][7]
 
-Selecione a guia **Editoras**. ![selectpublisherstab][8]
+Selecione a guia **Editoras** .
+![selectpublisherstab][8]
 
 
 Localize a ID do publicador na URL:
-- Use essa ID como a senha para abrir o arquivo do Excel de informações do vendedor. Esta será sua senha até outro aviso.
-- É recomendável usar o Microsoft Office 2013 com o Windows como o leitor da pasta de trabalho escolhido. Alguns usuários relataram problemas ao usar o Microsoft Office para Mac.
+- Use essa ID como a senha para abrir o arquivo do Excel de informações do vendedor.
+Esta será sua senha até outro aviso.
+- É recomendável usar o Microsoft Office 2013 com o Windows como o leitor da pasta de trabalho escolhido.  Alguns usuários relataram problemas ao usar o Microsoft Office para Mac.
 
 ![publisherid][9]
 
 
-## Próximas etapas  
+## <a name="next-steps"></a>Próximas etapas  
 Se você tiver perguntas relacionadas a relatórios e insights, entre em contato com nossa equipe de suporte:
 
 1. Navegue até as páginas de suporte em https://publish.windowsazure.com/.
 2. Na caixa **Tipo de problema**, selecione **Relatórios e Insights**.
 3. Na caixa **Categoria**, selecione **Perguntas relacionadas a relatórios**.
-4. Clique em **Iniciar solicitação**. ![sellerinsightsquestions][10]
+4. Clique em **Iniciar solicitação**.
+  ![sellerinsightsquestions][10]
 
 
 
@@ -120,4 +125,8 @@ Se você tiver perguntas relacionadas a relatórios e insights, entre em contato
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -12,10 +12,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/20/2016"
+   ms.date="10/10/2016"
    ms.author="ganesr"/>
 
-# Mova os circuitos da Rota Expressa do clássico para o modelo de implantação do Gerenciador de Recursos
+
+# <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mova os circuitos da Rota Expressa do clássico para o modelo de implantação do Gerenciador de Recursos
 
 Este artigo fornece uma visão geral do que significa mover um circuito da Rota Expressa do clássico para o modelo de implantação do Azure Resource Manager.
 
@@ -25,7 +26,7 @@ Você pode usar um único circuito da Rota Expressa para conectar as redes virtu
 
 ![Um circuito da Rota Expressa que vincula as redes virtuais nos dois modelos de implantação](./media/expressroute-move/expressroute-move-1.png)
 
-## Circuitos da Rota Expressa criados no modelo de implantação clássico
+## <a name="expressroute-circuits-that-are-created-in-the-classic-deployment-model"></a>Circuitos da Rota Expressa criados no modelo de implantação clássico
 
 Os circuitos da Rota Expressa criados no modelo de implantação clássico precisam ser movidos para o modelo de implantação do Gerenciador de Recursos primeiro para habilitar a conectividade com os modelos de implantação clássico e do Gerenciador de Recursos. Não há perda de conectividade nem interrupção quando uma conexão está sendo movida. Todos os links entre a rede virtual e o circuito no modelo de implantação clássico (dentro da mesma assinatura e entre as assinaturas) são preservados.
 
@@ -35,7 +36,7 @@ Depois de um circuito da Rota Expressa ser movido para o modelo de implantação
 
 Você não precisa envolver seu provedor de conectividade para realizar a migração.
 
-## Circuitos da Rota Expressa criados no modelo de implantação do Gerenciador de Recursos
+## <a name="expressroute-circuits-that-are-created-in-the-resource-manager-deployment-model"></a>Circuitos da Rota Expressa criados no modelo de implantação do Gerenciador de Recursos
 
 Você pode habilitar os circuitos da Rota Expressa criados no modelo de implantação do Gerenciador de Recursos para que sejam acessíveis a partir de ambos os modelos de implantação. Qualquer circuito da Rota Expressa em sua assinatura pode ser habilitado para ser acessado a partir de ambos os modelos de implantação.
 
@@ -47,7 +48,7 @@ Você pode habilitar os circuitos da Rota Expressa criados no modelo de implanta
 >[AZURE.IMPORTANT] Todas as cotas documentadas na página de [limites do serviço](../azure-subscription-service-limits.md) aplicam-se. Por exemplo, um circuito padrão pode ter no máximo 10 links de rede virtual/conexões nos modelos de implantação clássico e do Gerenciador de Recursos.
 
 
-## Controlando o acesso ao modelo de implantação clássico
+## <a name="controlling-access-to-the-classic-deployment-model"></a>Controlando o acesso ao modelo de implantação clássico
 
 Você pode habilitar um único circuito da Rota Expressa para vincular as redes virtuais em ambos os modelos de implantação definindo o parâmetro **allowClassicOperations** do circuito da Rota Expressa.
 
@@ -55,7 +56,7 @@ A definição de **allowClassicOperations** para TRUE permite vincular as redes 
 
 Definir **allowClassicOperations** para FALSE bloqueia o acesso ao circuito a partir do modelo de implantação clássico. Porém, todos os links da rede virtual no modelo de implantação clássico são preservados. Nesse caso, o circuito da Rota Expressa não é visível no modelo de implantação clássico.
 
-## Operações com suporte no modelo de implantação clássico
+## <a name="supported-operations-in-the-classic-deployment-model"></a>Operações com suporte no modelo de implantação clássico
 
 As seguintes operações clássicas têm suporte em um circuito da Rota Expressa quando **allowClassicOperations** é definido para TRUE:
 
@@ -68,17 +69,17 @@ Não é possível executar as seguintes operações clássicas quando **allowCla
  - Criar/atualizar/obter/excluir emparelhamentos BGP (Border Gateway Protocol ) para os emparelhamentos dos Azures privado e público, e da Microsoft
  - Excluir circuitos da Rota Expressa
 
-## Comunicação entre os modelos de implantação clássico do Gerenciador de Recursos
+## <a name="communication-between-the-classic-and-the-resource-manager-deployment-models"></a>Comunicação entre os modelos de implantação clássico do Gerenciador de Recursos
 
 O circuito da Rota Expressa atua como uma ponte entre os modelos de implantação clássico e do Gerenciador de Recursos. O tráfego entre as máquinas virtuais nas redes virtuais no modelo de implantação clássico e aquelas nas redes virtuais no modelo de implantação do Gerenciador Recursos fluirá pela Rota Expressa se ambas as redes virtuais estiverem vinculadas ao mesmo circuito da Rota Expressa.
 
 A taxa de transferência agregada é limitada pela capacidade da taxa de transferência do gateway de rede virtual. O tráfego não entra nas redes do provedor de conectividade nem em suas redes em tais casos. O fluxo do tráfego entre as redes virtuais está totalmente contido na rede da Microsoft.
 
-## Acesso aos recursos de emparelhamento do Azure público e da Microsoft
+## <a name="access-to-azure-public-and-microsoft-peering-resources"></a>Acesso aos recursos de emparelhamento do Azure público e da Microsoft
 
-Você pode continuar a acessar os recursos normalmente acessíveis por meio do emparelhamento do Azure público e do emparelhamento da Microsoft sem interrupções.
+Você pode continuar a acessar os recursos normalmente acessíveis por meio do emparelhamento do Azure público e do emparelhamento da Microsoft sem interrupções.  
 
-## O que tem suporte
+## <a name="what's-supported"></a>O que tem suporte
 
 Esta seção descreve o que tem suporte para os circuitos da Rota Expressa:
 
@@ -89,7 +90,7 @@ Esta seção descreve o que tem suporte para os circuitos da Rota Expressa:
  - O circuito da Rota Expressa atua como uma ponte entre os modelos de implantação clássico e do Gerenciador de Recursos. O tráfego entre as máquinas virtuais nas redes virtuais no modelo de implantação clássico e aquelas nas redes virtuais no modelo de implantação do Gerenciador Recursos fluirá pela Rota Expressa se ambas as redes virtuais estiverem vinculadas ao mesmo circuito da Rota Expressa.
  - A conectividade entre as assinaturas é suportada nos modelos de implantação clássico e do Gerenciador de Recursos.
 
-## O que não tem suporte
+## <a name="what's-not-supported"></a>O que não tem suporte
 
 Esta seção descreve o que não tem suporte para os circuitos da Rota Expressa:
 
@@ -97,17 +98,21 @@ Esta seção descreve o que não tem suporte para os circuitos da Rota Expressa:
  - Gerenciar o ciclo de vida de um circuito da Rota Expressa a partir do modelo de implantação clássico.
  - Suporte RBAC (Controle de Acesso Baseado em Funções) para o modelo de implantação clássico. Não é possível executar os controles RBAC para um circuito no modelo de implantação clássico. Nenhum administrador/coadministrator da assinatura pode vincular ou desvincular as redes virtuais para o circuito.
 
-## Configuração
+## <a name="configuration"></a>Configuração
 
 Siga as instruções descritas em [Mover um circuito da Rota Expressa do clássico para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-move-arm.md).
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter informações sobre o fluxo de trabalho, consulte [Fluxos de trabalho de provisionamento e estados do circuito da Rota Expressa](expressroute-workflows.md)
 - Para configurar sua conexão da Rota Expressa:
 
-	- [Criar um circuito da Rota Expressa](expressroute-howto-circuit-arm.md)
-	- [Configurar o roteamento](expressroute-howto-routing-arm.md)
-	- [Vincular uma rede virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-arm.md)
+    - [Criar um circuito da Rota Expressa](expressroute-howto-circuit-arm.md)
+    - [Configurar o roteamento](expressroute-howto-routing-arm.md)
+    - [Vincular uma rede virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

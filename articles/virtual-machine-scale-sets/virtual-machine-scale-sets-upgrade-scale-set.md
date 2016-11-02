@@ -1,24 +1,25 @@
 <properties
-	pageTitle="Implantar um aplicativo em conjuntos de escala de máquina virtual | Microsoft Azure"
-	description="Implantar um aplicativo em conjuntos de escala de máquina virtual"
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="gbowerman"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Implantar um aplicativo em conjuntos de escala de máquina virtual | Microsoft Azure"
+    description="Implantar um aplicativo em conjuntos de escala de máquina virtual"
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="gbowerman"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="guybo"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/13/2016"
+    ms.author="guybo"/>
 
 
-# Atualizar um conjunto de escala de máquina virtual
+
+# <a name="upgrade-a-virtual-machine-scale-set"></a>Atualizar um conjunto de escala de máquina virtual
 
 Este artigo descreve como você pode implementar uma atualização de sistema operacional para um conjunto de escala de máquina virtual do Azure sem nenhum tempo de inatividade. Nesse contexto, uma atualização do SO envolve uma alteração da versão ou SKU do SO, ou alteração do URI de uma imagem personalizada. Atualizar sem tempo de inatividade significa atualizar uma máquina virtual por vez ou em grupos (por exemplo, um domínio de falha por vez), em vez de todas de uma só vez. Ao fazer isso, todas as máquinas virtuais que não estiverem sendo atualizadas podem continuar em execução.
 
@@ -47,7 +48,7 @@ A sequência básica para alterar a versão/SKU do sistema operacional de uma im
 
 Com essas informações em mente, vamos ver como você pode atualizar a versão de um conjunto de escala no PowerShell, e usando a API REST. Esses exemplos abordam o caso de uma imagem de plataforma, mas este artigo fornece informações suficientes para adaptar esse processo a uma imagem personalizada.
 
-## PowerShell##
+## <a name="powershell##"></a>PowerShell##
 
 Este exemplo atualiza um conjunto de escala de máquina virtual do Windows para uma nova versão, 4.0.20160229. Depois de atualizar o modelo, ele atualiza uma instância da máquina virtual por vez.
 
@@ -78,21 +79,21 @@ $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
 
-## A API REST
+## <a name="the-rest-api"></a>A API REST
 
-Veja alguns exemplos de Python que usam a API REST do Azure para implantar uma atualização de versão do sistema operacional. Ambos usam a biblioteca leve de funções de wrapper da API REST do Azure, [azurerm](https://pypi.python.org/pypi/azurerm), para executar um GET no modelo de conjunto de escala, seguido por um PUT com um modelo atualizado. Eles também examinam os modos de exibição de instâncias da máquina virtual para identificar as máquinas virtuais por domínio de atualização.
+Veja alguns exemplos de Python que usam a API REST do Azure para implantar uma atualização de versão do sistema operacional. Ambos usam a biblioteca leve de funções de wrapper da API REST do Azure, [azurerm](https://pypi.python.org/pypi/azurerm) , para executar um GET no modelo de conjunto de escala, seguido por um PUT com um modelo atualizado. Eles também examinam os modos de exibição de instâncias da máquina virtual para identificar as máquinas virtuais por domínio de atualização.
 
-### Vmssupgrade
+### <a name="vmssupgrade"></a>Vmssupgrade
 
- O [Vmssupgrade](https://github.com/gbowerman/vmsstools) é o script em Python usado para distribuir uma atualização do SO para um conjunto de escala de máquina virtual em execução, um domínio de atualização por vez.
+ [Vmssupgrade](https://github.com/gbowerman/vmsstools) é o script em Python usado para distribuir uma atualização do SO para um conjunto de escala de máquina virtual em execução, um domínio de atualização por vez.
 
 ![Script Vmssupgrade para escolher máquinas virtuais ou um domínio de atualização](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssupgrade-screenshot.png)
 
 Esse script permite que você escolha as máquinas virtuais específicas para atualizar ou especificar um domínio de atualização. Ele dá suporte ao alterar uma versão da imagem de plataforma ou o URI de uma imagem personalizada.
 
-### Vmsseditor
+### <a name="vmsseditor"></a>Vmsseditor
 
-[Vmsseditor](https://github.com/gbowerman/vmssdashboard) é um editor para fins gerais para conjuntos de escala de máquina virtual que mostra o status da máquina virtual como um mapa de dados no qual uma linha representa um domínio de atualização. Entre outras coisas, você pode atualizar o modelo de um conjunto de escala com uma nova versão, SKU ou URI de imagem personalizada e, em seguida, selecionar domínios de falha para atualização. Ao fazer isso, todas as máquinas virtuais nesse domínio de atualização são atualizadas para o novo modelo. Como alternativa, você pode fazer uma atualização sem interrupção com base no tamanho de lote de sua escolha.
+[Vmsseditor](https://github.com/gbowerman/vmssdashboard) é um editor para fins gerais para conjuntos de escala de máquina virtual que mostra o status da máquina virtual como um mapa de dados no qual uma linha representa um domínio de atualização. Entre outras coisas, você pode atualizar o modelo de um conjunto de escala com uma nova versão, SKU ou URI de imagem personalizada e, em seguida, selecionar domínios de falha para atualização. Ao fazer isso, todas as máquinas virtuais nesse domínio de atualização são atualizadas para o novo modelo. Como alternativa, você pode fazer uma atualização sem interrupção com base no tamanho de lote de sua escolha.  
 
 A captura de tela a seguir mostra um modelo de um conjunto escala para o Ubuntu 14.04-2LTS versão 14.04.201507060. Muitas outras opções já foram adicionadas a essa ferramenta desde a captura dessa tela.
 
@@ -102,4 +103,8 @@ Depois de clicar em **Atualizar** e em **Obter Detalhes**, as máquinas virtuais
 
 ![Vmsseditor mostrando atualização em andamento](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

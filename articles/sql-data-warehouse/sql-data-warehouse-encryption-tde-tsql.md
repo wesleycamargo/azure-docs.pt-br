@@ -13,10 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/24/2016"
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="rortloff;barbkess"/>
 
-# Introdução ao Transparent Data Encryption (TDE)
+
+# <a name="get-started-with-transparent-data-encryption-tde"></a>Introdução ao Transparent Data Encryption (TDE)
 
 
 > [AZURE.SELECTOR]
@@ -25,11 +26,11 @@
 - [Criptografia (Portal)](sql-data-warehouse-encryption-tde.md)
 - [Criptografia (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-## Permissões necessárias
+## <a name="required-permssions"></a>Permissões necessárias
 
 Para habilitar a TDE (Transparent Data Encryption), você deve ser um administrador ou um membro da função dbmanager.
 
-## Habilitando a criptografia
+## <a name="enabling-encryption"></a>Habilitando a criptografia
 
 Siga estas etapas para habilitar a TDE para um SQL Data Warehouse:
 
@@ -40,7 +41,7 @@ Siga estas etapas para habilitar a TDE para um SQL Data Warehouse:
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
-## Desabilitando a criptografia
+## <a name="disabling-encryption"></a>Desabilitando a criptografia
 
 Siga estas etapas para desabilitar a TDE para um SQL Data Warehouse:
 
@@ -53,7 +54,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 
 > [AZURE.NOTE] Um SQL Data Warehouse em pausa deve ser retomado antes das mudanças nas configurações da TDE.
 
-## Verificando a criptografia
+## <a name="verifying-encryption"></a>Verificando a criptografia
 
 Para verificar o status de criptografia para um SQL Data Warehouse, siga estas etapas:
 
@@ -62,27 +63,31 @@ Para verificar o status de criptografia para um SQL Data Warehouse, siga estas e
 
 ```sql
 SELECT
-	[name],
-	[is_encrypted]
+    [name],
+    [is_encrypted]
 FROM
-	sys.databases;
+    sys.databases;
 ```
 
 Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica um banco de dados não criptografado.
 
-## DMVs de criptografia  
+## <a name="encryption-dmvs"></a>DMVs de criptografia  
 
-- [sys.databases][]
-- [sys.dm\_pdw\_nodes\_database\_encryption\_keys][]
+- [sys.databases][] 
+- [sys.dm_pdw_nodes_database_encryption_keys][]
 
 
 <!--Anchors-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
-[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
-[sys.dm\_pdw\_nodes\_database\_encryption\_keys]: https://msdn.microsoft.com/library/mt203922.aspx
+[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx  
+[sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx  
 
 <!--Image references-->
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

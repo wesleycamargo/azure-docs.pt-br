@@ -13,18 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/18/2016"
+   ms.date="10/17/2016"
    ms.author="juliako"/>
 
-# Notas de versão do SDK do Azure para .NET 2.9
 
-##Visão geral
+# <a name="azure-sdk-for-.net-2.9-release-notes"></a>Notas de versão do SDK do Azure para .NET 2.9
 
-Este documento contém as notas de versão do SDK do Azure para a versão do .NET 2.9.
+##<a name="overview"></a>Visão geral
+
+Este documento contém as notas de versão do SDK do Azure para a versão do .NET 2.9. 
 
 Para obter informações detalhadas sobre atualizações nesta versão, consulte a [Postagem de anúncio do SDK do Azure 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/).
 
-## Atualização 2 do SDK do Azure 2.9 para Visual Studio 2015 e Visual Studio "15" Preview
+## <a name="azure-sdk-2.9-for-visual-studio-2015-update-2-and-visual-studio-"15"-preview"></a>Atualização 2 do SDK do Azure 2.9 para Visual Studio 2015 e Visual Studio "15" Preview
  
 Esta atualização inclui as seguintes correções de bug:
 
@@ -33,30 +34,34 @@ Esta atualização inclui as seguintes correções de bug:
 
 Esta atualização inclui o novo recurso a seguir:
 
-- Suporte para Serviços de Aplicativos secundários na guia "Serviços" da caixa de diálogo de provisionamento do Serviço de Aplicativo.
+- Suporte para Serviços de Aplicativos secundários na guia "Serviços" da caixa de diálogo de provisionamento do Serviço de Aplicativo. 
 
-##Atualização 2 das Ferramentas do Azure Data Lake para Visual Studio 2015
+##<a name="azure-data-lake-tools-for-visual-studio-2015-update-2"></a>Atualização 2 das Ferramentas do Azure Data Lake para Visual Studio 2015
  
 Essa atualização inclui o seguinte:
 
-- As **Ferramentas do Azure Data Lake** para Visual Studio agora estão mescladas ao SDK do Azure para .NET. A ferramenta é instalada automaticamente ao instalar o SDK do Azure.
+- **Ferramentas do Azure Data Lake** para Visual Studio agora estão mescladas ao SDK do Azure para .NET. A ferramenta é instalada automaticamente ao instalar o SDK do Azure. 
 
-	A ferramenta é atualizada com frequência, acesse [aqui](http://aka.ms/datalaketool) para obter as atualizações.
+    A ferramenta é atualizada com frequência, acesse [aqui](http://aka.ms/datalaketool) para obter as atualizações.
 
-- O **Gerenciador de Servidores** agora permite exibir tudo e criar algumas entidades de metadados U-SQL. Para saber mais, confira [este](https://azure.microsoft.com/documentation/services/data-lake-analytics/) blog.
-
-
-##Ferramentas do HDInsight 
-
-As **Ferramentas do HDInsight** para Visual Studio agora dão suporte ao HDInsight versão 3.3, incluindo a exibição de gráficos Tez e outras correções de linguagem.
+- **Gerenciador de Servidores** agora permite exibir tudo e criar algumas entidades de metadados U-SQL. Para saber mais, confira [este](https://azure.microsoft.com/documentation/services/data-lake-analytics/) blog.
 
 
-##Gerenciador de Recursos do Azure 
+##<a name="hdinsight-tools"></a>Ferramentas do HDInsight 
+
+**Ferramentas do HDInsight** para Visual Studio agora dão suporte ao HDInsight versão 3.3, incluindo a exibição de gráficos Tez e outras correções de linguagem.
+
+
+##<a name="azure-resource-manager"></a>Gerenciador de Recursos do Azure 
 
 Essa versão adiciona o suporte para [KeyVault](../resource-manager-keyvault-parameter.md) para modelos ARM.
 
-##Consulte também
+##<a name="see-also"></a>Consulte também
 
 [Postagem de anúncio do SDK 2.9 do Azure](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

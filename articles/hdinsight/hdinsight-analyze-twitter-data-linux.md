@@ -1,29 +1,30 @@
 <properties
-	pageTitle="Analisar dados do Twitter com o Apache Hive no HDInsight | Microsoft Azure"
-	description="Aprenda a usar o Python para armazenar Tweets que contêm palavras-chave específicas. Em seguida, use o Hive e Hadoop no HDInsight para transformar os dados brutos do TWitter em uma tabela Hive pesquisável."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="jhubbard"
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Analisar dados do Twitter com o Apache Hive no HDInsight | Microsoft Azure"
+    description="Aprenda a usar o Python para armazenar Tweets que contêm palavras-chave específicas. Em seguida, use o Hive e Hadoop no HDInsight para transformar os dados brutos do TWitter em uma tabela Hive pesquisável."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="jhubbard"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="larryfr"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="larryfr"/>
 
-# Analisar dados do Twitter usando o Hive no HDInsight
+
+# <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analisar dados do Twitter usando o Hive no HDInsight
 
 Neste documento, você obterá tweets usando uma API de streaming do Twitter e então usará o Apache Hive em um cluster HDInsight baseado em Linux para processar os dados do formato JSON. O resultado será uma lista de usuários do Twitter que enviaram a maioria dos tweets com uma determinada palavra.
 
 > [AZURE.NOTE] Embora diversas partes deste documento possam ser usadas com clusters HDInsight baseados no Windows (Python, por exemplo), muitas etapas deste documento são específicas de clusters HDInsight baseados em Linux. Para obter as etapas específicas para um cluster baseado no Windows, confira [Analisar dados do Twitter usando o Hive no HDInsight](hdinsight-analyze-twitter-data.md).
 
-###Pré-requisitos
+###<a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
@@ -31,38 +32,38 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - Um __cliente SSH__. Para obter mais informações sobre como usar SSH com o HDInsight baseado em Linux, confira os seguintes artigos:
 
-	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 - __Python__ e [pip](https://pypi.python.org/pypi/pip)
 
-##Obtenha um feed do Twitter
+##<a name="get-a-twitter-feed"></a>Obtenha um feed do Twitter
 
-O Twitter permite que você recupere os [dados de cada tweet](https://dev.twitter.com/docs/platform-objects/tweets) como um documento JSON (JavaScript Object Notation) por meio de uma API REST. O [OAuth](http://oauth.net) é necessário para autenticação na API. Você também deve criar um _Aplicativo do Twitter_ com as configurações usadas para acessar a API.
+O Twitter permite que você recupere os [dados de cada tweet](https://dev.twitter.com/docs/platform-objects/tweets) como um documento JSON (JavaScript Object Notation) por meio de uma API REST. [OAuth](http://oauth.net) é necessário para autenticação na API. Você também deve criar um _Aplicativo do Twitter_ com as configurações usadas para acessar a API.
 
-###Criar um aplicativo do Twitter
+###<a name="create-a-twitter-application"></a>Criar um aplicativo do Twitter
 
 1. Em um navegador da Web, entre em [https://apps.twitter.com/](https://apps.twitter.com/). Clique no link **Inscreva-se agora** se você não tem uma conta do Twitter.
 2. Clique em **Criar Novo Aplicativo**.
-3. Digite o **Nome**, a **Descrição** e o **Site**. Você pode fazer uma URL para o campo **Site**. A tabela a seguir mostra alguns valores de exemplo para usar:
+3. Digite o **Nome**, a **Descrição** e o **Site**. Você pode fazer uma URL para o campo **Site** . A tabela a seguir mostra alguns valores de exemplo para usar:
 
-	| Campo | Valor |
-	|:----- |:----- |
-	| Nome | MyHDInsightApp |
-	| Descrição | MyHDInsightApp |
-	| Site | http://www.myhdinsightapp.com |
-	
+  	| Campo | Valor |
+  	|:----- |:----- |
+  	| Nome  | MyHDInsightApp |
+  	| Descrição | MyHDInsightApp |
+  	| Site | http://www.myhdinsightapp.com |
+    
 4. Marque **Sim, eu concordo** e, em seguida, clique em **Criar seu aplicativo do Twitter**.
-5. Clique na guia **Permissões**. A permissão padrão é **Somente leitura**. Isso é suficiente para este tutorial.
-6. Clique na guia **Chaves e Tokens de acesso**.
+5. Clique na guia **Permissões** . A permissão padrão é **Somente leitura**. Isso é suficiente para este tutorial.
+6. Clique na guia **Chaves e Tokens de acesso** .
 7. Clique em **Criar meu token de acesso**.
 8. Clique em **OAuth de teste** no canto superior direito da página.
-9. Anote a **Chave do consumidor**, o **Segredo do consumidor**, o **Token de acesso** e o **Segredo do token de acesso**. Você precisará dos valores mais tarde.
+9. Anote a **chave do consumidor**, o **Segredo do consumidor**, o **Token de acesso** e o **Segredo do token de acesso**. Você precisará dos valores mais tarde.
 
 >[AZURE.NOTE] Quando usar o comando curl no Windows, use aspas duplas, em vez de aspas simples, para os valores de opção.
 
-###Baixar tweets
+###<a name="download-tweets"></a>Baixar tweets
 
 O código Python a seguir baixará 10.000 tweets do Twitter e os salvará em um arquivo chamado __tweets.txt__.
 
@@ -70,36 +71,36 @@ O código Python a seguir baixará 10.000 tweets do Twitter e os salvará em um 
 
 1. Conecte-se ao cluster HDInsight usando SSH:
 
-		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-		
-	Caso você tenha usado uma senha para proteger sua conta de usuário SSH, ela será solicitada. Se você tiver usado uma chave pública, talvez precise usar o parâmetro `-i` para especificar a chave privada correspondente. Por exemplo: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
-		
-	Para obter mais informações sobre como usar SSH com o HDInsight baseado em Linux, confira os seguintes artigos:
-	
-	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+        
+    Caso você tenha usado uma senha para proteger sua conta de usuário SSH, ela será solicitada. Se você tiver usado uma chave pública, talvez precise usar o parâmetro `-i` para especificar a chave privada correspondente. Por exemplo: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+        
+    Para obter mais informações sobre como usar SSH com o HDInsight baseado em Linux, confira os seguintes artigos:
+    
+    * [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows)
-	
+    * [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows)
+    
 2. Por padrão, o utilitário __pip__ não está instalado no nó principal do HDInsight. Use o seguinte para instalar e atualizar esse utilitário:
 
-		sudo apt-get install python-pip
-		sudo pip install --upgrade pip
+        sudo apt-get install python-pip
+        sudo pip install --upgrade pip
 
 3. O código para baixar tweets depende do [Tweepy](http://www.tweepy.org/) e do [Progressbar](https://pypi.python.org/pypi/progressbar/2.2). Para instalá-los, use este comando:
 
-		sudo apt-get install python-dev libffi-dev libssl-dev
-		sudo apt-get remove python-openssl
-		sudo pip install tweepy progressbar pyOpenSSL requests[security]
-		
-	> [AZURE.NOTE] O segredo da remoção do python-openssl, da instalação do python-dev, libffi-dev, do libssl-dev, do pyOpenSSL e de requests[security] é evitar um aviso do InsecurePlatform ao se conectar ao Twitter via SSL desde o Python.
-	>
-	> O Tweepy v3.2.0 é usado para evitar o [um erro](https://github.com/tweepy/tweepy/issues/576) que pode ocorrer durante o processamento de tweets.
+        sudo apt-get install python-dev libffi-dev libssl-dev
+        sudo apt-get remove python-openssl
+        sudo pip install tweepy progressbar pyOpenSSL requests[security]
+        
+    > [AZURE.NOTE] O segredo da remoção do python-openssl, da instalação do python-dev, libffi-dev, do libssl-dev, do pyOpenSSL e de requests[security] é evitar um aviso do InsecurePlatform ao se conectar ao Twitter via SSL desde o Python.
+    >
+    > O Tweepy v3.2.0 é usado para evitar o [um erro](https://github.com/tweepy/tweepy/issues/576) que pode ocorrer durante o processamento de tweets.
 
 4. Use o comando a seguir para criar um novo arquivo chamado __gettweets.py__:
 
-		nano gettweets.py
+        nano gettweets.py
 
-5. Use o seguinte como o conteúdo do arquivo __gettweets.py__. Substitua as informações de espaço reservado de __consumer\_secret__, __consumer\_key__, __access\_token__ e __access\_token\_secret__ pelas informações do seu aplicativo do Twitter.
+5. Use o seguinte como o conteúdo do arquivo __gettweets.py__ . Substitua as informações de espaço reservado de __consumer\_secret__, __consumer\_key__, __access/\_token__ e __access\_token\_secret__ pelas informações do seu aplicativo do Twitter.
 
         #!/usr/bin/python
 
@@ -157,29 +158,29 @@ O código Python a seguir baixará 10.000 tweets do Twitter e os salvará em um 
 
 7. Use o comando a seguir para executar o arquivo e baixar os tweets:
 
-		python gettweets.py
+        python gettweets.py
 
-	Um indicador de progresso deve aparecer e contar até 100% enquanto os tweets são baixados e salvos no arquivo.
+    Um indicador de progresso deve aparecer e contar até 100% enquanto os tweets são baixados e salvos no arquivo.
 
     > [AZURE.NOTE] Se estiver demorando muito tempo para a barra de progresso avançar, altere o filtro para controlar os tópicos mais populares; quando há muitos tweets sobre o tópico que você está filtrando, você pode obter rapidamente os 10000 tweets necessário.
 
-###Carregar os dados
+###<a name="upload-the-data"></a>Carregar os dados
 
 Para carregar os dados no WASB (o sistema de arquivos distribuídos usado pelo HDInsight), use os seguintes comandos:
 
-	hdfs dfs -mkdir -p /tutorials/twitter/data
-	hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
+    hdfs dfs -mkdir -p /tutorials/twitter/data
+    hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 
 Isso armazenará os dados em um local que todos os nós do cluster podem acessar.
 
-##Executar o trabalho HiveQL
+##<a name="run-the-hiveql-job"></a>Executar o trabalho HiveQL
 
 
 1. Use o comando a seguir para criar um arquivo com instruções HiveQL:
 
-		nano twitter.hql
-	
-	Use o seguinte como conteúdo do arquivo:
+        nano twitter.hql
+    
+    Use o seguinte como conteúdo do arquivo:
 
         set hive.exec.dynamic.partition = true;
         set hive.exec.dynamic.partition.mode = nonstrict;
@@ -235,7 +236,7 @@ Isso armazenará os dados em um local que todos os nós do cluster podem acessar
             concat(substr (get_json_object(json_response, '$.created_at'),1,10),' ',
             substr (get_json_object(json_response, '$.created_at'),27,4)),
             substr (get_json_object(json_response, '$.created_at'),27,4),
-            case substr (get_json_object(json_response,	'$.created_at'),5,3)
+            case substr (get_json_object(json_response, '$.created_at'),5,3)
                 when "Jan" then "01"
                 when "Feb" then "02"
                 when "Mar" then "03"
@@ -284,27 +285,27 @@ Isso armazenará os dados em um local que todos os nós do cluster podem acessar
             get_json_object(json_response, '$.user.profile_image_url'),
             json_response
         WHERE (length(json_response) > 500);
-		
-		
+        
+        
 3. Pressione __Ctrl + X__ e pressione __Y__ para salvar o arquivo.
 
 4. Use o comando a seguir para executar o HiveQL contido no arquivo:
 
-		beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i twitter.hql
-		
-	Isso carregará o shell do Hive, executará o HiveQL no arquivo __twitter.hql__ e, por fim, retornará um prompt do `jdbc:hive2//localhost:10001/>`.
-	
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i twitter.hql
+        
+    Isso carregará o shell do Hive, executará o HiveQL no arquivo __twitter.hql__ e, por fim, retornará um prompt do `jdbc:hive2//localhost:10001/>`.
+    
 5. Do prompt do Beeline, use o seguinte para verificar se você pode selecionar dados da tabela de __tweets__ criada pelo HiveQL no arquivo __twitter.hql__:
-		
-		SELECT name, screen_name, count(1) as cc
-			FROM tweets
-			WHERE text like "%Azure%"
-			GROUP BY name,screen_name
-			ORDER BY cc DESC LIMIT 10;
+        
+        SELECT name, screen_name, count(1) as cc
+            FROM tweets
+            WHERE text like "%Azure%"
+            GROUP BY name,screen_name
+            ORDER BY cc DESC LIMIT 10;
 
-	Isso retornará no máximo 10 tweets com a palavra __Azure__ no texto da mensagem.
+    Isso retornará no máximo 10 tweets com a palavra __Azure__ no texto da mensagem.
 
-##Próximas etapas
+##<a name="next-steps"></a>Próximas etapas
 
 Neste tutorial vimos como transformar o conjunto de dados não estruturado JSON em tabela estruturada do Hive para consultar, explorar e analisar dados do Twitter usando o HDInsight no Azure. Para obter mais informações, consulte:
 
@@ -319,4 +320,8 @@ Neste tutorial vimos como transformar o conjunto de dados não estruturado JSON 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

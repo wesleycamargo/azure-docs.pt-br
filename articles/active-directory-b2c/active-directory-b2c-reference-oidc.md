@@ -1,39 +1,41 @@
 <properties
-	pageTitle="Azure Active Directory B2C | Microsoft Azure"
-	description="Criação de aplicativos Web usando a implementação do Azure Active Directory do protocolo de autenticação OpenID Connect."
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Azure Active Directory B2C | Microsoft Azure"
+    description="Criação de aplicativos Web usando a implementação do Azure Active Directory do protocolo de autenticação OpenID Connect."
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/22/2016"
-	ms.author="dastrock"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/22/2016"
+    ms.author="dastrock"/>
 
-# Azure Active Directory B2C: entrada na Web com o OpenID Connect
 
-O OpenID Connect é um protocolo de autenticação criado com base em OAuth 2.0 que pode ser usado para conectar com segurança os usuários em aplicativos Web. Usando a implementação do Azure Active Directory B2C (Azure AD) do OpenID Connect, você pode terceirizar a inscrição, a entrada e outras experiências de gerenciamento de identidade nos seus aplicativos Web para o do Azure AD. Este guia mostrará como fazer isso de maneira independente da linguagem. Ele descreverá como enviar e receber mensagens HTTP sem usar qualquer uma das nossas bibliotecas de software livre.
+# <a name="azure-active-directory-b2c:-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: entrada na Web com o OpenID Connect
+
+O OpenID Connect é um protocolo de autenticação criado com base em OAuth 2.0 que pode ser usado para conectar com segurança os usuários em aplicativos Web.  Usando a implementação do Azure Active Directory B2C (Azure AD) do OpenID Connect, você pode terceirizar a inscrição, a entrada e outras experiências de gerenciamento de identidade nos seus aplicativos Web para o do Azure AD. Este guia mostrará como fazer isso de maneira independente da linguagem. Ele descreverá como enviar e receber mensagens HTTP sem usar qualquer uma das nossas bibliotecas de software livre.
 
 O [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) estende o protocolo de *autorização* do OAuth 2.0 a ser usado como um protocolo de *autenticação*. Isso permite que você execute o logon único usando OAuth. Ele apresenta o conceito de um `id_token`, que é um token de segurança que permite ao cliente verificar a identidade do usuário e obter informações básicas de perfil sobre o usuário.
 
-Como ele estende o OAuth 2.0, também permite que os aplicativos adquiram **access\_tokens** com segurança. Você pode usar access\_tokens para acessar os recursos protegidos por um [servidor de autorização](active-directory-b2c-reference-protocols.md#the-basics). Nós recomendamos o OpenID Connect se você estiver criando um aplicativo Web que fica hospedado em um servidor e é acessado por meio de um navegador. Se você deseja adicionar o gerenciamento de identidades para seus aplicativos móveis ou para área de trabalho usando o Azure AD B2C, deve usar o [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) em vez do OpenID Connect.
+Como ele estende o OAuth 2.0, também permite que os aplicativos adquiram **access_tokens** com segurança. Você pode usar access_tokens para acessar os recursos protegidos por um [servidor de autorização](active-directory-b2c-reference-protocols.md#the-basics). Nós recomendamos o OpenID Connect se você estiver criando um aplicativo Web que fica hospedado em um servidor e é acessado por meio de um navegador. Se você deseja adicionar o gerenciamento de identidades para seus aplicativos móveis ou para área de trabalho usando o Azure AD B2C, deve usar o [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) em vez do OpenID Connect.
 
-O Azure AD B2C estende o protocolo padrão OpenID Connect para fazer mais do que uma simples ação de autenticação e autorização. Ele apresenta o [**parâmetro de política**](active-directory-b2c-reference-policies.md), que permite usar o OpenID Connect para adicionar experiências de usuário ao seu aplicativo, como o gerenciamento de inscrição, de entrada e de perfis. Aqui, mostraremos como usar o OpenID Connect e as políticas para implementar cada uma dessas experiências em seus aplicativos Web. Também mostraremos como obter access\_tokens para acessar APIs Web.
+O Azure AD B2C estende o protocolo padrão OpenID Connect para fazer mais do que uma simples ação de autenticação e autorização. Ele apresenta o [**parâmetro de política**](active-directory-b2c-reference-policies.md), que permite usar o OpenID Connect para adicionar experiências de usuário ao seu aplicativo, como o gerenciamento de inscrição, de entrada e de perfis. Aqui, mostraremos como usar o OpenID Connect e as políticas para implementar cada uma dessas experiências em seus aplicativos Web. Também mostraremos como obter access_tokens para acessar APIs Web.
 
-As solicitações HTTP de exemplo abaixo usam nosso diretório B2C de exemplo, **fabrikamb2c.onmicrosoft.com**, bem como nosso aplicativo **https://aadb2cplayground.azurewebsites.net** e políticas de exemplo. Fique à vontade para experimentar as solicitações usando esses valores ou os substituindo pelos seus próprios. Saiba como [obter seus próprios locatário, aplicativo e políticas B2C](#use-your-own-b2c-directory).
+As solicitações HTTP de exemplo abaixo usam nosso diretório B2C de exemplo, **fabrikamb2c.onmicrosoft.com**, bem como nossas políticas e nosso aplicativo de exemplo **https://aadb2cplayground.azurewebsites.net**. Fique à vontade para experimentar as solicitações usando esses valores ou os substituindo pelos seus próprios.
+Saiba como [obter seus próprios locatário, aplicativo e políticas B2C](#use-your-own-b2c-directory).
 
-## Enviar solicitações de autenticação
-Quando o aplicativo Web precisa autenticar o usuário e executar uma política, ele pode direcionar o usuário para o ponto de extremidade `/authorize`. Essa é a parte interativa do fluxo, em que o usuário realmente executará uma ação, dependendo da política.
+## <a name="send-authentication-requests"></a>Enviar solicitações de autenticação
+Quando o aplicativo Web precisa autenticar o usuário e executar uma política, ele pode direcionar o usuário para o ponto de extremidade `/authorize` . Essa é a parte interativa do fluxo, em que o usuário realmente executará uma ação, dependendo da política.
 
 Nessa solicitação, o cliente indica as permissões que precisa adquirir do usuário no parâmetro `scope` e a política a ser executada no parâmetro `p`. Três exemplos são fornecidos abaixo (com quebras de linha para facilitar a leitura), cada um com uma política diferente. Para ter uma ideia de como funciona cada solicitação, tente colar a solicitação em um navegador e executá-lo.
 
-#### Usar uma política de entrada
+#### <a name="use-a-sign-in-policy"></a>Usar uma política de entrada
 
 ```
 GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
@@ -47,7 +49,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-#### Usar uma política de inscrição
+#### <a name="use-a-sign-up-policy"></a>Usar uma política de inscrição
 
 ```
 GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
@@ -61,7 +63,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_up
 ```
 
-#### Usar uma política de edição de perfil
+#### <a name="use-an-edit-profile-policy"></a>Usar uma política de edição de perfil
 
 ```
 GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
@@ -77,13 +79,13 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parâmetro | Obrigatório? | Descrição |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | Obrigatório | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuiu a seu aplicativo. |
-| response\_type | Obrigatório | O tipo de resposta, que deve incluir `id_token` para o OpenID Connect. Se seu aplicativo Web também precisar de tokens para chamar uma API Web, você poderá usar `code+id_token`, como fizemos aqui. |
-| redirect\_uri | Recomendadas | O redirect\_uri do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos redirect\_uris que você registrou no portal, com exceção de que ele deve ser codificado por URL. |
-| scope | Obrigatório | Uma lista de escopos separados por espaços. Um valor de escopo único indica ao Azure AD que ambas as permissões estão sendo solicitadas. O escopo `openid` indica uma permissão para conectar o usuário e obter dados sobre ele na forma de **id\_tokens** (falaremos mais sobre isso posteriormente neste artigo). O escopo `offline_access` é opcional para aplicativos Web. Indica que seu aplicativo precisará de um **refresh\_token** para acessar os recursos a longo prazo. |
-| response\_mode | Recomendadas | O método que deve ser usado para enviar o authorization\_code resultante de volta ao aplicativo. Ele pode ser 'query', 'form\_post', or 'fragment'. 'form\_post' é recomendado para oferecer a melhor segurança. |
+| client_id | Obrigatório | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuiu a seu aplicativo. |
+| response_type | Obrigatório | O tipo de resposta, que deve incluir `id_token` para o OpenID Connect. Se seu aplicativo Web também precisar de tokens para chamar uma API Web, você poderá usar `code+id_token`, como fizemos aqui. |
+| redirect_uri | Recomendadas | O redirect_uri do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos redirect_uris que você registrou no portal, com exceção de que ele deve ser codificado por URL. |
+| scope | Obrigatório | Uma lista de escopos separados por espaços. Um valor de escopo único indica ao Azure AD que ambas as permissões estão sendo solicitadas. O escopo `openid` indica uma permissão para conectar o usuário e obter dados sobre ele na forma de **id_tokens** (falaremos mais sobre isso posteriormente neste artigo). O escopo `offline_access` é opcional para aplicativos Web. Indica que seu aplicativo precisará de um **refresh_token** para acessar os recursos a longo prazo. |
+| response_mode | Recomendadas | O método que deve ser usado para enviar o authorization_code resultante de volta ao aplicativo. Pode ser uma 'query', uma 'form_post' ou um 'fragment'.  Recomendamos 'form_post' para maior segurança. |
 | state | Recomendadas | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Um valor exclusivo gerado aleatoriamente que normalmente é usado para impedir ataques de solicitação intersite forjada. O estado também é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página em que ele estava. |
-| nonce | Obrigatório | Um valor incluído na solicitação, gerado pelo aplicativo, que será incluído no id\_token resultante como uma declaração. O aplicativo pode verificar esse valor para reduzir os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
+| nonce | Obrigatório | Um valor incluído na solicitação, gerado pelo aplicativo, que será incluído no id_token resultante como uma declaração. O aplicativo pode verificar esse valor para reduzir os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
 | p | Obrigatório | A política que será executada. É o nome de uma política criada no locatário B2C. O valor do nome da política deve começar com "b2c\_1\_". Saiba mais sobre as políticas em [Estrutura de política extensível](active-directory-b2c-reference-policies.md). |
 | prompt | Opcional | O tipo de interação do usuário que é necessário. O único valor válido no momento é 'login', que força o usuário a inserir suas credenciais na solicitação. O logon único não terá efeito. |
 
@@ -102,8 +104,8 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 
 | Parâmetro | Descrição |
 | ----------------------- | ------------------------------- |
-| id\_token | O id\_token que o aplicativo solicitou. Você pode usar o id\_token para verificar a identidade do usuário e iniciar uma sessão com o usuário. Mais detalhes sobre id\_tokens e respectivo conteúdo estão incluídos na [referência ao token do Azure AD B2C](active-directory-b2c-reference-tokens.md). |
-| código | O authorization\_code que o aplicativo solicitou, se você tiver usado `response_type=code+id_token`. O aplicativo pode usar o código de autorização para solicitar um access\_token para um recurso de destino. Os authorization\_codes têm uma vida muito curta. Normalmente, eles expiram depois de cerca de 10 minutos. |
+| id_token | O id_token que o aplicativo solicitou. Você pode usar o id_token para verificar a identidade do usuário e iniciar uma sessão com o usuário. Mais detalhes sobre id_tokens e respectivo conteúdo estão incluídos na [referência ao token do Azure AD B2C](active-directory-b2c-reference-tokens.md). |
+| código | O authorization_code que o aplicativo solicitou, se você tiver usado `response_type=code+id_token`. O aplicativo pode usar o código de autorização para solicitar um access_token para um recurso de destino. Os authorization_codes têm uma vida muito curta. Normalmente, eles expiram depois de cerca de 10 minutos. |
 | state | Se um parâmetro de estado estiver incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de estado na solicitação e na resposta são idênticos. |
 
 As respostas de erro também podem ser enviadas ao `redirect_uri` para que o aplicativo possa tratá-las adequadamente:
@@ -118,12 +120,12 @@ error=access_denied
 | Parâmetro | Descrição |
 | ----------------------- | ------------------------------- |
 | error | Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
-| error\_description | Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
+| error_description | Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
 | state | Veja a descrição completa na tabela anterior. Se um parâmetro de estado estiver incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de estado na solicitação e na resposta são idênticos. |
 
 
-## Validar o id\_token
-Apenas receber o id\_token não é suficiente para autenticar o usuário -- você deve validar a assinatura do id\_token e verificar as declarações no token de acordo com os requisitos do aplicativo. O Azure AD B2C usa [JWTs (Tokens Web JSON)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar tokens e verificar se eles são válidos.
+## <a name="validate-the-id_token"></a>Validar o id_token
+Apenas receber o id_token não é suficiente para autenticar o usuário -- você deve validar a assinatura do id_token e verificar as declarações no token de acordo com os requisitos do aplicativo. O Azure AD B2C usa [JWTs (Tokens Web JSON)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar tokens e verificar se eles são válidos.
 
 Há muitas bibliotecas de software livre para validar JWTs dependendo do idioma de preferência. Recomendamos que você explore essas opções em vez de implementar a sua própria lógica de validação. As informações aqui serão úteis para descobrir como usar essas bibliotecas adequadamente.
 
@@ -135,31 +137,31 @@ Uma das propriedades desse documento de configuração é o `jwks_uri`, cujo val
 
 `https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`.
 
-A fim de determinar qual política foi usada na assinatura de um id\_token (e onde buscar os metadados), você tem duas opções. Primeiro, o nome da política é incluído na declaração `acr` no id\_token. Para obter informações sobre como analisar as declarações de um id\_token, consulte a [referência de token do Azure AD B2C](active-directory-b2c-reference-tokens.md). A outra opção é codificar a política no valor do parâmetro `state` quando você emitir a solicitação e decodificá-la para determinar qual política foi usada. Qualquer um dos métodos é perfeitamente válido.
+A fim de determinar qual política foi usada na assinatura de um id_token (e onde buscar os metadados), você tem duas opções. Primeiro, o nome da política é incluído na declaração `acr` no id_token. Para obter informações sobre como analisar as declarações de um id_token, consulte a [referência de token do Azure AD B2C](active-directory-b2c-reference-tokens.md). A outra opção é codificar a política no valor do parâmetro `state` quando você emitir a solicitação e, em seguida, decodificá-lo para determinar qual política foi usada. Qualquer um dos métodos é perfeitamente válido.
 
-Depois que tiver adquirido o documento de metadados do ponto de extremidade de metadados OpenID Connect, você poderá usar as chaves públicas RSA256 (localizadas nesse ponto de extremidade) para validar a assinatura do id\_token. Pode haver várias chaves listadas nesse ponto de extremidade em qualquer ponto no tempo, cada uma identificada por um `kid`. O cabeçalho do id\_token também contém uma declaração `kid`, que indica quais dessas chaves foi usada para assinar o id\_token. Confira a [referência ao token do Azure AD B2C](active-directory-b2c-reference-tokens.md) para obter mais informações, incluindo as seções [Validando tokens](active-directory-b2c-reference-tokens.md#validating-tokens) e [Informações importantes sobre a substituição de chave de assinatura](active-directory-b2c-reference-tokens.md#validating-tokens).
+Depois que tiver adquirido o documento de metadados do ponto de extremidade de metadados OpenID Connect, você poderá usar as chaves públicas RSA256 (localizadas nesse ponto de extremidade) para validar a assinatura do id_token. Pode haver várias chaves listadas nesse ponto de extremidade em qualquer ponto no tempo, cada uma identificada por um `kid`. O cabeçalho do id_token também contém uma declaração `kid`, que indica quais dessas chaves foi usada para assinar o id_token. Confira a [referência ao token do Azure AD B2C](active-directory-b2c-reference-tokens.md) para obter mais informações, incluindo as seções [Validando tokens](active-directory-b2c-reference-tokens.md#validating-tokens) e [Informações importantes sobre a substituição de chave de assinatura](active-directory-b2c-reference-tokens.md#validating-tokens).
 <!--TODO: Improve the information on this-->
 
-Depois que você validar a assinatura de id\_token, há várias declarações que precisará verificar, por exemplo:
+Depois que você validar a assinatura de id_token, há várias declarações que precisará verificar, por exemplo:
 
 - Você deve validar a declaração `nonce` para evitar ataques de reprodução de token. Seu valor deve ser o que você especificou na solicitação de conexão.
-- Você deve validar a declaração `aud` para garantir que o id\_token foi emitido pelo seu aplicativo. Seu valor deve ser a ID do aplicativo do seu aplicativo.
-- Você deve validar as declarações `iat` e `exp` para garantir que o id\_token não tenha expirado.
+- Você deve validar a declaração `aud` para garantir que o id_token foi emitido pelo seu aplicativo. Seu valor deve ser a ID do aplicativo do seu aplicativo.
+- Você deve validar as declarações `iat` e `exp` para garantir que o id_token não tenha expirado.
 
-Também há várias outras validações que devem ser executadas. Elas são descritas detalhadamente na [Especificação de OpenID Connect Core](http://openid.net/specs/openid-connect-core-1_0.html). Talvez você também queira validar declarações adicionais, dependendo do cenário. Algumas validações comuns incluem:
+Também há várias outras validações que devem ser executadas. Elas são descritas detalhadamente na [Especificação de OpenID Connect Core](http://openid.net/specs/openid-connect-core-1_0.html).  Talvez você também queira validar declarações adicionais, dependendo do cenário. Algumas validações comuns incluem:
 
 - A garantia de que o usuário/organização tenha feito inscrição para usar o aplicativo.
 - A garantia de que o usuário tenha a autorização/os privilégios adequados.
 - A garantia de que uma determinada intensidade de autenticação tenha ocorrido, como o Azure Multi-Factor Authentication.
 
-Para obter mais informações sobre declarações em um id\_token, consulte a [referência ao token do Azure AD B2C](active-directory-b2c-reference-tokens.md).
+Para obter mais informações sobre declarações em um id_token, consulte a [referência ao token do Azure AD B2C](active-directory-b2c-reference-tokens.md).
 
-Depois de ter validado completamente o id\_token, você poderá iniciar uma sessão com o usuário e usar as declarações no id\_token para obter informações sobre o usuário no seu aplicativo. Essas informações podem ser usadas para exibição, registros, autorizações e outros.
+Depois de ter validado completamente o id_token, você poderá iniciar uma sessão com o usuário e usar as declarações no id_token para obter informações sobre o usuário no seu aplicativo. Essas informações podem ser usadas para exibição, registros, autorizações e outros.
 
-## Obter um token
+## <a name="get-a-token"></a>Obter um token
 Se tudo o que o seu aplicativo Web precisar fazer for executar políticas, você poderá ignorar as próximas seções. Essas seções só serão aplicáveis aos aplicativos Web que precisarem fazer chamadas autenticadas para uma API Web e que também sejam protegidas pelo Azure AD B2C.
 
-Você pode resgatar o authorization\_code adquirido (usando `response_type=code+id_token`) para um token do recurso desejado enviando uma solicitação `POST` ao ponto de extremidade `/token`. Atualmente, o único recurso para o qual você pode solicitar um token é a própria API Web de back-end do aplicativo. A convenção para solicitar um token para si mesmo é usar a ID do cliente do aplicativo como o escopo:
+Você pode resgatar o authorization_code adquirido (usando `response_type=code+id_token`) para um token do recurso desejado enviando uma solicitação `POST` ao ponto de extremidade `/token`. Atualmente, o único recurso para o qual você pode solicitar um token é a própria API Web de back-end do aplicativo. A convenção para solicitar um token para si mesmo é usar a ID do cliente do aplicativo como o escopo:
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
@@ -172,50 +174,50 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Parâmetro | Obrigatório? | Descrição |
 | ----------------------- | ------------------------------- | --------------------- |
-| p | Obrigatório | A política que foi usada para adquirir o código de autorização. Você não poderá usar uma política diferente nessa solicitação. Observe que esse parâmetro é adicionado à **cadeia de caracteres de consulta** e não ao corpo do POST. |
-| client\_id | Obrigatório | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuiu a seu aplicativo. |
-| grant\_type | Obrigatório | O tipo de concessão, que deve ser `authorization_code` para o fluxo do código de autorização. |
-| scope | Recomendadas | Uma lista de escopos separados por espaços. Um valor de escopo único indica ao Azure AD que ambas as permissões estão sendo solicitadas. O escopo `openid` indica uma permissão para conectar o usuário e obter dados sobre ele na forma de **id\_tokens**. Ele pode ser usado para obter tokens para a própria API Web de back-end do seu aplicativo, representado pela mesma ID do aplicativo do cliente. O escopo `offline_access` indica que seu aplicativo precisará de um **refresh\_token** para acessar os recursos a longo prazo. |
-| código | Obrigatório | O authorization\_code que você adquiriu na primeira ramificação do fluxo. |
-| redirect\_uri | Obrigatório | O redirect\_uri do aplicativo em que você recebeu o authorization\_code. |
-| client\_secret | Obrigatório | O segredo do aplicativo gerado no [portal do Azure](https://portal.azure.com/). O segredo do aplicativo é um artefato de segurança importante. Você deve armazená-lo com segurança no servidor. Você também deve ter cuidado para circular esse segredo do cliente em intervalos periódicos. |
+| p | Obrigatório | A política que foi usada para adquirir o código de autorização. Você não poderá usar uma política diferente nessa solicitação. Observe que esse parâmetro é adicionado à **cadeia de caracteres de consulta**e não ao corpo do POST. |
+| client_id | Obrigatório | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuiu a seu aplicativo. |
+| grant_type | Obrigatório | O tipo de concessão, que deve ser `authorization_code` para o fluxo do código de autorização. |
+| scope | Recomendadas | Uma lista de escopos separados por espaços. Um valor de escopo único indica ao Azure AD que ambas as permissões estão sendo solicitadas. O escopo `openid` indica uma permissão para conectar o usuário e obter dados sobre ele na forma de **id_tokens**. Ele pode ser usado para obter tokens para a própria API Web de back-end do seu aplicativo, representado pela mesma ID do aplicativo do cliente. O escopo `offline_access` indica que seu aplicativo precisará de um **refresh_token** para acessar os recursos a longo prazo. |
+| código | Obrigatório | O authorization_code que você adquiriu na primeira ramificação do fluxo. |
+| redirect_uri | Obrigatório | O redirect_uri do aplicativo em que você recebeu o authorization_code. |
+| client_secret | Obrigatório | O segredo do aplicativo gerado no [portal do Azure](https://portal.azure.com/). O segredo do aplicativo é um artefato de segurança importante. Você deve armazená-lo com segurança no servidor. Você também deve ter cuidado para circular esse segredo do cliente em intervalos periódicos. |
 
 Uma resposta de token bem-sucedida se parecerá com esta:
 
 ```
 {
-	"not_before": "1442340812",
-	"token_type": "Bearer",
-	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
-	"scope": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access",
-	"expires_in": "3600",
-	"refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
+    "not_before": "1442340812",
+    "token_type": "Bearer",
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
+    "scope": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access",
+    "expires_in": "3600",
+    "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
 | Parâmetro | Descrição |
 | ----------------------- | ------------------------------- |
-| not\_before | A hora em que o token é considerado válido, nos valores de hora da época. |
-| token\_type | O valor do tipo de token. O único tipo com suporte do Azure AD é Portador |
-| access\_token | O token JWT assinado que você solicitou. |
+| not_before | A hora em que o token é considerado válido, nos valores de hora da época. |
+| token_type | O valor do tipo de token. O único tipo com suporte do Azure AD é Portador |
+| access_token | O token JWT assinado que você solicitou. |
 | scope | Os escopos para os quais o token for válido, que podem ser usados no caching de tokens para uso posterior. |
-| expires\_in | O período de tempo pelo qual o access\_token é válido (em segundos). |
-| refresh\_token | O refresh\_token do OAuth 2.0. O aplicativo pode usar esse token para adquirir tokens de acesso adicionais depois que o atual expirar. Os refresh\_tokens têm longa duração e podem ser usados para reter acesso a recursos por períodos estendidos. Para obter mais detalhes, consulte a [referência ao token B2C](active-directory-b2c-reference-tokens.md). Observe que você deve ter usado o escopo `offline_access` tanto na autorização quanto nas solicitações de token para receber um token de atualização. |
+| expires_in | O período de tempo pelo qual o access_token é válido (em segundos). |
+| refresh_token | O refresh_token do OAuth 2.0. O aplicativo pode usar esse token para adquirir tokens de acesso adicionais depois que o atual expirar.  Os refresh_tokens têm longa duração e podem ser usados para reter acesso a recursos por períodos estendidos. Para obter mais detalhes, consulte a [referência ao token B2C](active-directory-b2c-reference-tokens.md). Observe que você deve ter usado o escopo `offline_access` tanto na autorização quanto nas solicitações de token para receber um token de atualização. |
 
 As respostas de erro serão parecidas com esta:
 
 ```
 {
-	"error": "access_denied",
-	"error_description": "The user revoked access to the app.",
+    "error": "access_denied",
+    "error_description": "The user revoked access to the app.",
 }
 ```
 
 | Parâmetro | Descrição |
 | ----------------------- | ------------------------------- |
 | error | Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
-| error\_description | Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
+| error_description | Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
 
-## Usar o token
+## <a name="use-the-token"></a>Usar o token
 Agora que você já adquiriu com êxito um `access_token`, pode usar o token em solicitações para as suas APIs Web de back-end incluindo-o no cabeçalho `Authorization`:
 
 ```
@@ -224,8 +226,8 @@ Host: https://mytaskwebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-## Atualizar o token
-Os id\_tokens têm vida curta. Você deve atualizá-los depois que eles expirarem para poder continuar a acessar os recursos. Faça isso enviando outra solicitação `POST` ao ponto de extremidade `/token`. Dessa vez, forneça o `refresh_token` em vez do `code`:
+## <a name="refresh-the-token"></a>Atualizar o token
+Os id_tokens têm vida curta. Você deve atualizá-los depois que eles expirarem para poder continuar a acessar os recursos. Faça isso enviando outra solicitação `POST` ao ponto de extremidade `/token`. Dessa vez, forneça o `refresh_token` em vez do `code`:
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
@@ -237,55 +239,55 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 | Parâmetro | Obrigatório | Descrição |
 | ----------------------- | ------------------------------- | -------- |
-| p | Obrigatório | A política usada para adquirir o refresh\_token original. Você não poderá usar uma política diferente nessa solicitação. Observe que esse parâmetro é adicionado à **cadeia de caracteres de consulta** e não ao corpo do POST. |
-| client\_id | Obrigatório | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuiu a seu aplicativo. |
-| grant\_type | Obrigatório | O tipo de concessão, que deve ser `refresh_token` para esse segmento do fluxo do código de autorização. |
-| scope | Recomendadas | Uma lista de escopos separados por espaços. Um valor de escopo único indica ao Azure AD que ambas as permissões estão sendo solicitadas. O escopo `openid` indica uma permissão para conectar o usuário e obter dados sobre ele na forma de **id\_tokens**. Ele pode ser usado para obter tokens para a própria API Web de back-end do seu aplicativo, representado pela mesma ID do aplicativo do cliente. O escopo `offline_access` indica que seu aplicativo precisará de um **refresh\_token** para acessar os recursos a longo prazo. |
-| redirect\_uri | Recomendadas | O redirect\_uri do aplicativo em que você recebeu o authorization\_code. |
-| refresh\_token | Obrigatório | O refresh\_token original que você adquiriu na segunda ramificação do fluxo. Observe que você deve ter usado o escopo `offline_access` tanto na autorização quanto nas solicitações de token para receber um token de atualização. |
-| client\_secret | Obrigatório | O segredo do aplicativo gerado no [portal do Azure](https://portal.azure.com/). O segredo do aplicativo é um artefato de segurança importante. Você deve armazená-lo com segurança no servidor. Você também deve ter cuidado para circular esse segredo do cliente em intervalos periódicos. |
+| p | Obrigatório | A política usada para adquirir o refresh_token original. Você não poderá usar uma política diferente nessa solicitação. Observe que esse parâmetro é adicionado à **cadeia de caracteres de consulta**e não ao corpo do POST. |
+| client_id | Obrigatório | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuiu a seu aplicativo. |
+| grant_type | Obrigatório | O tipo de concessão, que deve ser `refresh_token` para esse segmento do fluxo do código de autorização. |
+| scope | Recomendadas | Uma lista de escopos separados por espaços. Um valor de escopo único indica ao Azure AD que ambas as permissões estão sendo solicitadas. O escopo `openid` indica uma permissão para conectar o usuário e obter dados sobre ele na forma de **id_tokens**. Ele pode ser usado para obter tokens para a própria API Web de back-end do seu aplicativo, representado pela mesma ID do aplicativo do cliente. O escopo `offline_access` indica que seu aplicativo precisará de um **refresh_token** para acessar os recursos a longo prazo. |
+| redirect_uri | Recomendadas | O redirect_uri do aplicativo em que você recebeu o authorization_code. |
+| refresh_token | Obrigatório | O refresh_token original que você adquiriu na segunda ramificação do fluxo. Observe que você deve ter usado o escopo `offline_access` tanto na autorização quanto nas solicitações de token para receber um token de atualização. |
+| client_secret | Obrigatório | O segredo do aplicativo gerado no [portal do Azure](https://portal.azure.com/). O segredo do aplicativo é um artefato de segurança importante. Você deve armazená-lo com segurança no servidor. Você também deve ter cuidado para circular esse segredo do cliente em intervalos periódicos. |
 
 Uma resposta de token bem-sucedida se parecerá com esta:
 
 ```
 {
-	"not_before": "1442340812",
-	"token_type": "Bearer",
-	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
-	"scope": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access",
-	"expires_in": "3600",
-	"refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
+    "not_before": "1442340812",
+    "token_type": "Bearer",
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
+    "scope": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access",
+    "expires_in": "3600",
+    "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
 | Parâmetro | Descrição |
 | ----------------------- | ------------------------------- |
-| not\_before | A hora em que o token é considerado válido, nos valores de hora da época. |
-| token\_type | O valor do tipo de token. O único tipo com suporte do Azure AD é Portador |
-| access\_token | O token JWT assinado que você solicitou. |
+| not_before | A hora em que o token é considerado válido, nos valores de hora da época. |
+| token_type | O valor do tipo de token. O único tipo com suporte do Azure AD é Portador |
+| access_token | O token JWT assinado que você solicitou. |
 | scope | Os escopos para os quais o token for válido, que podem ser usados no caching de tokens para uso posterior. |
-| expires\_in | O período de tempo pelo qual o access\_token é válido (em segundos). |
-| refresh\_token | O refresh\_token do OAuth 2.0. O aplicativo pode usar esse token para adquirir tokens de acesso adicionais depois que o atual expirar. Os refresh\_tokens têm longa duração e podem ser usados para reter acesso a recursos por períodos estendidos. Para obter mais detalhes, consulte a [referência ao token B2C](active-directory-b2c-reference-tokens.md). |
+| expires_in | O período de tempo pelo qual o access_token é válido (em segundos). |
+| refresh_token | O refresh_token do OAuth 2.0. O aplicativo pode usar esse token para adquirir tokens de acesso adicionais depois que o atual expirar.  Os refresh_tokens têm longa duração e podem ser usados para reter acesso a recursos por períodos estendidos. Para obter mais detalhes, consulte a [referência ao token B2C](active-directory-b2c-reference-tokens.md). |
 
 As respostas de erro serão parecidas com esta:
 
 ```
 {
-	"error": "access_denied",
-	"error_description": "The user revoked access to the app.",
+    "error": "access_denied",
+    "error_description": "The user revoked access to the app.",
 }
 ```
 
 | Parâmetro | Descrição |
 | ----------------------- | ------------------------------- |
 | error | Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
-| error\_description | Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
+| error_description | Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
 
 
-## Enviar uma solicitação de saída
+## <a name="send-a-sign-out-request"></a>Enviar uma solicitação de saída
 
 Quando você deseja conectar o usuário do aplicativo, não é suficiente limpar os cookies do aplicativo e encerrar a sessão do usuário. Você também deve redirecionar o usuário ao Azure AD para sair. Se você não conseguir fazer isso, é provável que o usuário consiga se autenticar novamente no aplicativo sem ter que reinserir as credenciais. Isso ocorre porque eles terão uma sessão de logon único válida com o Azure AD.
 
-Você pode simplesmente redirecionar o usuário para o `end_session_endpoint` listado no documento de metadados do OpenID Connect descrito na seção anterior, “Validar o id\_token”:
+Você pode simplesmente redirecionar o usuário para o `end_session_endpoint` listado no documento de metadados do OpenID Connect descrito na seção anterior, “Validar o id_token”:
 
 ```
 GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
@@ -296,17 +298,21 @@ p=b2c_1_sign_in
 | Parâmetro | Obrigatório? | Descrição |
 | ----------------------- | ------------------------------- | ------------ |
 | p | Obrigatório | A política que você deseja usar para desconectar o usuário de seu aplicativo. |
-| post\_logout\_redirect\_uri | Recomendadas | A URL para a qual o usuário deve ser redirecionado após a saída com êxito. Se não estiver incluído, o usuário verá uma mensagem genérica do Azure AD B2C. |
+| post_logout_redirect_uri | Recomendadas | A URL para a qual o usuário deve ser redirecionado após a saída com êxito. Se não estiver incluído, o usuário verá uma mensagem genérica do Azure AD B2C.  |
 
 > [AZURE.NOTE]
-	Embora o direcionamento do usuário para o `end_session_endpoint` remova o estado de logon único do usuário com o Azure AD B2C, ele não desconectará a sessão do IDP (provedor de identidade) social do usuário. Se o usuário selecionar o mesmo IDP durante uma conexão posterior, ele será autenticados novamente sem precisar inserir suas credenciais. Se um usuário quiser sair do seu aplicativo B2C, isso não significa necessariamente que ele deseja desconectar totalmente sua conta do Facebook. No entanto, no caso de contas locais, a sessão do usuário será encerrada corretamente.
+    Embora o direcionamento do usuário para o `end_session_endpoint` remova o estado de logon único do usuário com o Azure AD B2C, ele não desconectará a sessão do IDP (provedor de identidade) social do usuário. Se o usuário selecionar o mesmo IDP durante uma conexão posterior, ele será autenticados novamente sem precisar inserir suas credenciais. Se um usuário quiser sair do seu aplicativo B2C, isso não significa necessariamente que ele deseja desconectar totalmente sua conta do Facebook. No entanto, no caso de contas locais, a sessão do usuário será encerrada corretamente.
 
-## Usar seu próprio locatário B2C
+## <a name="use-your-own-b2c-tenant"></a>Usar seu próprio locatário B2C
 
 Se você quiser experimentar essas solicitações por conta própria, primeiro deverá seguir estas três etapas e substituir os valores de exemplo acima pelos seus:
 
-- [Criar um locatário de B2C](active-directory-b2c-get-started.md) e usar o nome do seu locatário nas solicitações.
-- [Criar um aplicativo](active-directory-b2c-app-registration.md) para obter uma ID de aplicativo e um redirect\_uri. Você deve incluir um **aplicativo Web/API Web** em seu aplicativo e, opcionalmente, criar um **segredo do aplicativo**.
+- [Criar um locatário de B2C](active-directory-b2c-get-started.md)e usar o nome do seu locatário nas solicitações.
+- [Criar um aplicativo](active-directory-b2c-app-registration.md) para obter uma ID de aplicativo e um redirect_uri. Você deve incluir um **aplicativo Web/API Web** em seu aplicativo e, opcionalmente, criar um **segredo do aplicativo**.
 - [Criar suas regras](active-directory-b2c-reference-policies.md) para obter os nomes de política.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

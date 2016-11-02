@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Dimensionar automaticamente os conjuntos de escala de máquina virtual do Windows | Microsoft Azure"
-	description="Configurar o dimensionamento automático para um conjunto de escala de máquina virtual do Windows usando o Azure PowerShell"
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Dimensionar automaticamente os conjuntos de escala de máquina virtual do Windows | Microsoft Azure"
+    description="Configurar o dimensionamento automático para um conjunto de escala de máquina virtual do Windows usando o Azure PowerShell"
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="davidmu"/>
 
-# Dimensionar automaticamente máquinas em um conjunto de escala de máquina virtual
+
+# <a name="automatically-scale-machines-in-a-virtual-machine-scale-set"></a>Dimensionar automaticamente máquinas em um conjunto de escala de máquina virtual
 
 Os conjuntos de escala de máquina virtual facilitam a implantação e o gerenciamento de máquinas virtuais idênticas como um conjunto. Os conjuntos de dimensionamento fornecem uma camada de computação altamente escalonável e personalizável para aplicativos de hiperescala e suporte a imagens da plataforma Windows, imagens da plataforma Linux, imagens personalizadas e extensões. Para obter mais informações sobre conjuntos de dimensionamento, confira [Conjuntos de Dimensionamento de Máquina Virtual](virtual-machine-scale-sets-overview.md).
 
@@ -37,20 +38,20 @@ Neste artigo, você pode implantar os seguintes recursos e extensões:
 
 Para obter mais informações sobre os recursos do Gerenciador de recursos, confira [Computação do Azure, Rede e Provedores de Armazenamento no Gerenciador de Recursos do Azure](../virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
-## Etapa 1: instalar o PowerShell do Azure
+## <a name="step-1:-install-azure-powershell"></a>Etapa 1: instalar o PowerShell do Azure
 
 Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar no Azure.
 
-## Etapa 2: Criar um grupo de recursos e uma conta de armazenamento
+## <a name="step-2:-create-a-resource-group-and-a-storage-account"></a>Etapa 2: Criar um grupo de recursos e uma conta de armazenamento
 
 1. **Criar um grupo de recursos** – Todos os recursos devem ser implantados em um grupo de recursos. Use [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx) para criar um grupo de recursos chamado **vmsstestrg1**.
 
 2. **Criar uma conta de armazenamento** – esta conta de armazenamento é onde o modelo é armazenado. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para criar uma conta de armazenamento denominada **vmsstestsa**.
 
-## Etapa 3: Criar o modelo
+## <a name="step-3:-create-the-template"></a>Etapa 3: Criar o modelo
 Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recursos do Azure juntos usando uma descrição JSON dos recursos e parâmetros de implantação associados.
 
-1. Em seu editor favorito, crie o arquivo C:\\VMSSTemplate.json e adicione a estrutura inicial do JSON para dar suporte ao modelo.
+1. Em seu editor favorito, crie o arquivo C:\VMSSTemplate.json e adicione a estrutura inicial do JSON para dar suporte ao modelo.
 
         {
           "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
@@ -92,17 +93,17 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
         "storageAccountSuffix": [ "a", "g", "m", "s", "y" ],
         "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'a')]",
         "accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
-	      "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
-        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\% Processor Time" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU utilization" locale="pt-BR"/></PerformanceCounterConfiguration></PerformanceCounters>",
-        "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
+          "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
+        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod=\"PT1M\"><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\% Processor Time\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"CPU utilization\" locale=\"en-us\"/></PerformanceCounterConfiguration></PerformanceCounters>",
+        "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId=\"')]",
         "wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
-        "wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
+        "wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
 
   - Nomes DNS que são usados pelas interfaces de rede.
-	- Os nomes de endereços IP e prefixos para a rede virtual e sub-redes.
-	- Os nomes e os identificadores da rede virtual, balanceador de carga e interfaces de rede.
-	- Nomes de conta de armazenamento para as contas associadas com as máquinas no conjunto de dimensionamento.
-	- Configurações para a Extensão de diagnóstico que é instalada nas máquinas virtuais. Para obter mais informações sobre a Extensão de diagnóstico, confira [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o Modelo do Gerenciador de Recursos do Azure](../virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md).
+    - Os nomes de endereços IP e prefixos para a rede virtual e sub-redes.
+    - Os nomes e os identificadores da rede virtual, balanceador de carga e interfaces de rede.
+    - Nomes de conta de armazenamento para as contas associadas com as máquinas no conjunto de dimensionamento.
+    - Configurações para a Extensão de diagnóstico que é instalada nas máquinas virtuais. Para obter mais informações sobre a Extensão de diagnóstico, confira [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o Modelo do Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
     
 4. Adicione o recurso de conta de armazenamento sob o elemento pai de recursos que você adicionou ao modelo. Este modelo usa um loop para criar as cinco contas de armazenamento recomendadas nas quais os discos do sistema operacional e os dados de diagnóstico estão armazenados. Este conjunto de contas pode oferecer suporte a até 100 máquinas virtuais em um conjunto de dimensionamento, que é o máximo atual. Cada conta de armazenamento é nomeada com um designador que foi definido nas variáveis combinadas com o prefixo que você fornecer nos parâmetros do modelo.
 
@@ -118,7 +119,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
           "properties": { "accountType": "Standard_LRS" }
         },
 
-5. Adicione o recurso de rede virtual. Confira [Provedor de Recurso de Rede](../virtual-network/resource-groups-networking.md) para obter mais informações.
+5. Adicione o recurso de rede virtual. Confira [Provedor de Recurso de Rede](../virtual-network/resource-groups-networking.md)para obter mais informações.
 
         {
           "apiVersion": "2015-06-15",
@@ -275,7 +276,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
           }
         },
 
-10.	Adicione o recurso do conjunto de escala de máquina virtual e especifique a extensão de diagnóstico que é instalada em todas as máquinas virtuais no conjunto de escala. Muitas das configurações desse recurso são semelhantes ao recurso de máquina virtual. As principais diferenças são o elemento de capacidade que especifica o número de máquinas virtuais no conjunto de escala e upgradePolicy, que especifica como as atualizações são feitas em máquinas virtuais. O conjunto de escala não será criado até que todas as contas de armazenamento sejam criadas conforme especificado no elemento dependsOn.
+10. Adicione o recurso do conjunto de escala de máquina virtual e especifique a extensão de diagnóstico que é instalada em todas as máquinas virtuais no conjunto de escala. Muitas das configurações desse recurso são semelhantes ao recurso de máquina virtual. As principais diferenças são o elemento de capacidade que especifica o número de máquinas virtuais no conjunto de escala e upgradePolicy, que especifica como as atualizações são feitas em máquinas virtuais. O conjunto de escala não será criado até que todas as contas de armazenamento sejam criadas conforme especificado no elemento dependsOn.
 
             {
               "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -378,7 +379,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
               }
             },
 
-11.	Adicione o recurso autoscaleSettings que define como o conjunto de dimensionamento se ajusta com base no uso do processador nas máquinas do conjunto de escala.
+11. Adicione o recurso autoscaleSettings que define como o conjunto de dimensionamento se ajusta com base no uso do processador nas máquinas do conjunto de escala.
 
             {
               "type": "Microsoft.Insights/autoscaleSettings",
@@ -428,7 +429,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 
     Para este tutorial, estes valores são importantes:
 
-    - **metricName** – Este valor é o mesmo que o contador de desempenho que definimos na variável wadperfcounter. Usando essa variável, a extensão de Diagnóstico coleta o contador **Processor(\_Total)\\% Processor Time**.
+    - **metricName** – Este valor é o mesmo que o contador de desempenho que definimos na variável wadperfcounter. Usando essa variável, a extensão de Diagnóstico coleta o contador **Processor(_Total)\% Processor Time**.
     - **metricResourceUri** – Este valor é o identificador de recurso do conjunto de escala de máquina virtual.
     - **timeGrain** – Este valor é a granularidade das métricas que são coletadas. Neste modelo, ele é definido como um minuto.
     - **statistic** – Este valor determina como as métricas são combinadas para acomodar a ação de dimensionamento automático. Os valores possíveis são: Média, Mín, Máx. Neste modelo, o uso médio de CPU total das máquinas virtuais é coletado.
@@ -441,38 +442,38 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
     - **value** – Este valor é o número de máquinas virtuais que são adicionadas ou removidas do conjunto de escala. Este valor deve ser 1 ou maior. O valor padrão é 1. Neste modelo, o número de máquinas no conjunto de dimensionamento aumenta em 1 quando o limite é atingido.
     - **cooldown** – Este valor é a quantidade de tempo de espera desde a última ação de dimensionamento antes que ocorra a próxima ação. Esse valor deve estar entre um minuto e uma semana.
 
-12.	Salvar o arquivo de modelo.
+12. Salvar o arquivo de modelo.    
 
-## Etapa 4: Carregar o modelo para armazenamento
+## <a name="step-4:-upload-the-template-to-storage"></a>Etapa 4: Carregar o modelo para armazenamento
 
 O modelo pode ser carregado, desde que você saiba o nome e a chave primária da conta de armazenamento que você criou na etapa 1.
 
-1.	Na janela do Microsoft Azure PowerShell, defina uma variável que especifica o nome da conta de armazenamento que você criou na etapa 1.
+1.  Na janela do Microsoft Azure PowerShell, defina uma variável que especifica o nome da conta de armazenamento que você criou na etapa 1.
 
             $storageAccountName = "vmstestsa"
 
-2.	Defina uma variável que especifica a chave primária da conta de armazenamento.
+2.  Defina uma variável que especifica a chave primária da conta de armazenamento.
 
             $storageAccountKey = "<primary-account-key>"
 
-	Você pode obter essa chave clicando no ícone de chave ao exibir o recurso de conta de armazenamento no portal do Azure.
+    Você pode obter essa chave clicando no ícone de chave ao exibir o recurso de conta de armazenamento no portal do Azure.
 
-3.	Crie o objeto de contexto da conta de armazenamento que é usado para validar as operações com a conta de armazenamento.
+3.  Crie o objeto de contexto da conta de armazenamento que é usado para validar as operações com a conta de armazenamento.
 
             $ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
-4.	Crie o contêiner para armazenar o modelo.
+4.  Crie o contêiner para armazenar o modelo.
 
             $containerName = "templates"
             New-AzureStorageContainer -Name $containerName -Context $ctx  -Permission Blob
 
-5.	Carregue o arquivo de modelo para o novo contêiner.
+5.  Carregue o arquivo de modelo para o novo contêiner.
 
             $blobName = "VMSSTemplate.json"
-            $fileName = "C:" + $BlobName
+            $fileName = "C:\" + $BlobName
             Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob  $blobName -Context $ctx
 
-## Etapa 5: Implantar o modelo
+## <a name="step-5:-deploy-the-template"></a>Etapa 5: Implantar o modelo
 
 Agora que você criou o modelo, pode começar a implantar os recursos. Use este comando para iniciar o processo:
 
@@ -481,17 +482,17 @@ Agora que você criou o modelo, pode começar a implantar os recursos. Use este 
 Quando você pressiona a tecla enter, é solicitado a fornecer valores para as variáveis que você atribuiu. Forneça esses valores:
 
     vmName: vmsstestvm1
-	  vmSSName: vmsstest1
-	  instanceCount: 5
-	  adminUserName: vmadmin1
-	  adminPassword: VMpass1
-	  resourcePrefix: vmsstest
+      vmSSName: vmsstest1
+      instanceCount: 5
+      adminUserName: vmadmin1
+      adminPassword: VMpass1
+      resourcePrefix: vmsstest
 
 Deve levar cerca de 15 minutos para todos os recursos serem implantados com êxito.
 
 >[AZURE.NOTE] Você também pode usar a capacidade do portal para implantar os recursos. Use este link: "https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>"
 
-## Etapa 6: Monitorar recursos
+## <a name="step-6:-monitor-resources"></a>Etapa 6: Monitorar recursos
 
 Você pode obter informações sobre os conjuntos de dimensionamento de máquina virtual usando estes métodos:
 
@@ -512,22 +513,26 @@ Você pode obter informações sobre os conjuntos de dimensionamento de máquina
 
 >[AZURE.NOTE] Uma API REST completa para obter informações sobre conjuntos de dimensionamento podem ser encontradas nos [Conjuntos de Dimensionamento de Máquina Virtual](https://msdn.microsoft.com/library/mt589023.aspx)
 
-## Etapa 7: Remover os recursos
+## <a name="step-7:-remove-the-resources"></a>Etapa 7: Remover os recursos
 
 Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática excluir os recursos que não são mais necessários. Você não precisa excluir cada recurso separadamente de um grupo de recursos. Você pode excluir o grupo de recursos e todos os seus recursos serão excluídos automaticamente.
 
-	Remove-AzureRmResourceGroup -Name vmsstestrg1
+    Remove-AzureRmResourceGroup -Name vmsstestrg1
 
 Se você quiser manter seu grupo de recursos, pode excluir somente o conjunto de dimensionamento.
 
-	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
+    Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
     
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - Gerencie o conjunto de escala que você acabou de criar usando as informações em [Gerenciar máquinas virtuais em um conjunto de escala de máquina virtual](virtual-machine-scale-sets-windows-manage.md).
 - Saiba mais sobre a escala vertical revisando [Dimensionamento vertical automático com conjuntos de escala de máquina virtual](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 - Encontre exemplos de recursos de monitoramento do Azure Insights nos [exemplos de início rápido do PowerShell do Azure Insights](../azure-portal/insights-powershell-samples.md)
-- Saiba sobre os recursos de notificação em [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md)
+- Saiba sobre os recursos de notificação em [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) 
 - Saiba como [Usar logs de auditoria para enviar notificações de alerta por email e webhook no Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

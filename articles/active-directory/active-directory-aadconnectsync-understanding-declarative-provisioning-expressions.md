@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo | Microsoft Azure"
-	description="Explica as expressões de provisionamento declarativo."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+    pageTitle="Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo | Microsoft Azure"
+    description="Explica as expressões de provisionamento declarativo."
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
-	ms.author="markusvi;andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/31/2016"
+    ms.author="markusvi;andkjell"/>
 
 
-# Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
+
+# <a name="azure-ad-connect-sync:-understanding-declarative-provisioning-expressions"></a>Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
 A sincronização do Azure AD Connect criada com base em provisionamento declarativo foi introduzida pela primeira vez no Forefront Identity Manager 2010. Ela permite a você implementar sua lógica completa de negócios de integração de identidade sem a necessidade de escrever código compilado.
 
 Uma parte essencial do provisionamento declarativo é a linguagem de expressão usada nos fluxos de atributo. A linguagem usada é um subconjunto de VBA (Visual Basic® for Applications) da Microsoft. Essa linguagem é usada no Microsoft Office e os usuários com experiência em VBScript também a reconhecerão. A Linguagem de Expressão de Provisionamento Declarativo está apenas usando funções e não é uma linguagem estruturada. Não existem métodos nem instruções. As funções são aninhadas no fluxo do programa expresso.
@@ -26,7 +27,7 @@ Para obter mais detalhes, consulte [Bem-vindo ao Visual Basic para referência d
 
 Os atributos são fortemente tipados. Uma função aceita somente atributos do tipo correto. Ela também diferencia maiúsculas de minúsculas. Tanto nomes de função, quanto nomes de atributo devem ter a capitalização apropriada, ou um erro será gerado.
 
-## Identificadores e definições de idioma
+## <a name="language-definitions-and-identifiers"></a>Identificadores e definições de idioma
 
 - As funções têm um nome seguido por argumentos entre parênteses: FunctionName(argumento 1, argumento N).
 - Os atributos são identificados por colchetes, [NomeDoAtributo]
@@ -36,14 +37,14 @@ Os atributos são fortemente tipados. Uma função aceita somente atributos do t
 - Valores boolianos são expressos com constantes: True, False.
 - Literais e constantes internas são expressos apenas com seu nome: NULL, CRLF, IgnoreThisFlow
 
-### Funções
+### <a name="functions"></a>Funções
 O provisionamento declarativo usa muitas funções para habilitar a possibilidade de transformar valores de atributo. Essas funções podem ser aninhadas para que o resultado de uma função seja passada para outra função.
 
 `Function1(Function2(Function3()))`
 
 A lista completa de funções pode ser encontrada em [referência de função](active-directory-aadconnectsync-functions-reference.md).
 
-### Parâmetros
+### <a name="parameters"></a>Parâmetros
 Um parâmetro é definido por um Connector ou por um administrador usando o PowerShell. Geralmente, os parâmetros contêm valores que são diferentes de sistema para sistema; por exemplo, o nome do domínio no qual o usuário está localizado. Esses parâmetros podem ser usados em fluxos de atributo.
 
 O Active Directory Connector forneceu os seguintes parâmetros para Regras de Sincronização de entrada:
@@ -57,27 +58,32 @@ O Active Directory Connector forneceu os seguintes parâmetros para Regras de Si
 | Forest.FQDN | O formato FQDN do nome da floresta que está sendo importado no momento, por exemplo, fabrikam.com |
 | Forest.LDAP | O formato LDAP do nome da floresta que está sendo importado no momento, por exemplo, DC=fabrikam,DC=com |
 
-O sistema fornece o seguinte parâmetro, usado para obter o identificador do conector em execução no momento: `Connector.ID`
+O sistema fornece o seguinte parâmetro, usado para obter o identificador do conector em execução no momento:   
+`Connector.ID`
 
-Veja um exemplo que preenche o domínio de atributo metaverso com o nome netbios do domínio em que o usuário está localizado: `domain` <- `%Domain.Netbios%`
+Veja um exemplo que preenche o domínio de atributo metaverso com o nome netbios do domínio em que o usuário está localizado:   
+`domain` <- `%Domain.Netbios%`
 
-### Operadores
+### <a name="operators"></a>Operadores
 Os operadores a seguir podem ser usados:
 
 - **Comparação**: <, <=, <>, =, >, >=
-- **Matemática**: +, -, *, -
+- **Matemática**: +, -, \*, -
 - **Cadeia de caracteres**: & (concatenado)
 - **Lógica**: && (e), || (ou)
 - **Ordem de avaliação**: ( )
 
-Os operadores são avaliados da esquerda para a direita e têm a mesma prioridade de avaliação. Por exemplo, o * (multiplicador) não é avaliado antes - (subtração). 2*(5+3) não é o mesmo que 2*5+3. Os parênteses ( ) são usados para alterar a ordem de avaliação quando a ordem de avaliação da direita à esquerda não é apropriada.
+Os operadores são avaliados da esquerda para a direita e têm a mesma prioridade de avaliação. Por exemplo, o \* (multiplicador) não é avaliado antes - (subtração). 2\*(5+3) não é o mesmo que 2\*5+3. Os parênteses ( ) são usados para alterar a ordem de avaliação quando a ordem de avaliação da direita à esquerda não é apropriada.
 
-## Atributos de vários valores
+## <a name="multi-valued-attributes"></a>Atributos de vários valores
 As funções podem operar em atributos de valor único e de vários valores. Para atributos com vários valores, a função opera sobre cada valor e aplica a mesma função para cada valor.
 
-Por exemplo: `Trim([proxyAddresses])` Faz um corte de todos os valores no atributo proxyAddress. `Word([proxyAddresses],1,"@") & "@contoso.com"` Para cada valor com um símbolo @, substitua o domínio por @contoso.com. `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Procure o endereço SIP e remova-o dos valores.
+Por exemplo:   
+`Trim([proxyAddresses])` Faz um corte de todos os valores no atributo proxyAddress.  
+@-sign, Para cada valor com um `Word([proxyAddresses],1,"@") & "@contoso.com"`, substitua o domínio por @contoso.com.  
+`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Procure o endereço SIP e remova-o dos valores.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - Leia mais sobre o modelo de configuração em [Noções básicas do provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 - Veja como o provisionamento declarativo está pronto para uso em [Noções básicas sobre a configuração padrão](active-directory-aadconnectsync-understanding-default-configuration.md).
@@ -92,4 +98,8 @@ Por exemplo: `Trim([proxyAddresses])` Faz um corte de todos os valores no atribu
 
 - [Azure AD Connect Sync: referência de funções](active-directory-aadconnectsync-functions-reference.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

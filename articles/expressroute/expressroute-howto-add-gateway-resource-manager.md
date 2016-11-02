@@ -14,10 +14,11 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2016"
+   ms.date="10/10/2016"
    ms.author="charwen"/>
 
-# Configurar gateway de rede virtual para a Rota Expressa usando o Resource Manager e o PowerShell
+
+# <a name="configure-a-virtual-network-gateway-for-expressroute-using-resource-manager-and-powershell"></a>Configurar gateway de rede virtual para a Rota Expressa usando o Resource Manager e o PowerShell
 
 
 > [AZURE.SELECTOR]
@@ -25,22 +26,26 @@
 - [PowerShell - clássico](expressroute-howto-add-gateway-classic.md)
 
 
-Este artigo explica as etapas para adicionar, redimensionar e remover um gateway de VNet (rede virtual) para uma VNet já existente. As etapas desta configuração se destinam especificamente a Redes Virtuais criadas com o **modelo de implantação do Resource Manager** e que serão usadas em uma configuração da Rota Expressa.
+Este artigo explica as etapas para adicionar, redimensionar e remover um gateway de VNet (rede virtual) para uma VNet já existente. As etapas desta configuração se destinam especificamente a Redes Virtuais criadas com o **modelo de implantação do Resource Manager** e que serão usadas em uma configuração da Rota Expressa. 
 
 **Sobre modelos de implantação do Azure**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-## Antes de começar
+## <a name="before-beginning"></a>Antes de começar
 
 Verifique se você instalou os cmdlets do Azure PowerShell necessários para esta configuração (1.0.2 ou posterior). Se ainda não os instalou, será necessário fazer isso antes de iniciar as etapas de configuração. Para obter mais informações sobre como instalar o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
 
 
 [AZURE.INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 
-	
-## Próximas etapas
+    
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de criar o gateway de VNet, é possível vincular sua VNet a um circuito da Rota Expressa. Consulte [Vincular uma Rede Virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -16,7 +16,8 @@ ms.service="virtual-machines-windows"
  ms.date="07/15/2016"
  ms.author="danlep"/>
 
-# Adicionar nós de “intermitência” sob demanda a um cluster HPC Pack no Azure
+
+# <a name="add-on-demand-"burst"-nodes-to-an-hpc-pack-cluster-in-azure"></a>Adicionar nós de “intermitência” sob demanda a um cluster HPC Pack no Azure
 
 
 
@@ -30,7 +31,7 @@ As etapas neste artigo ajudam você a adicionar nós do Azure rapidamente a uma 
 
 Para ver considerações sobre o uso de um tamanho de instância de computação intensiva, veja [Sobre VMs série A de computação intensiva e série H](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Nó de cabeçalho do HPC Pack implantado em uma VM do Azure** – Você pode usar uma VM de nó de cabeçalho autônomo ou uma que faça parte de um cluster maior. Para criar um nó de cabeçalho autônomo, veja [Criar o nó principal de um cluster de Pacote HPC em uma VM do Azure com uma imagem do Marketplace](virtual-machines-windows-hpcpack-cluster-headnode.md). Para obter opções de implantação do cluster HPC Pack, veja [Opções para criar e gerenciar um cluster HPC (computação de alto desempenho) do Windows no Azure com o Microsoft HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
 
@@ -40,14 +41,14 @@ Para ver considerações sobre o uso de um tamanho de instância de computação
 
 * **Cota de núcleos** - Talvez seja necessário aumentar a cota de núcleos, especialmente se você optar por implantar vários nós do Azure com tamanhos de vários núcleos. Para aumentar a cota, [abra uma solicitação de atendimento ao cliente online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
 
-## Etapa 1: criar um serviço de nuvem e uma conta de armazenamento para os nós do Azure
+## <a name="step-1:-create-a-cloud-service-and-a-storage-account-for-the-azure-nodes"></a>Etapa 1: criar um serviço de nuvem e uma conta de armazenamento para os nós do Azure
 
 Use o portal clássico do Azure ou ferramentas equivalentes para configurar os recursos a seguir, que são necessários para implantar seus nós do Azure:
 
 * Um novo serviço de nuvem do Azure
 * Uma nova conta de armazenamento do Azure
 
->[AZURE.NOTE] Não reutilize um serviço de nuvem existente em sua assinatura.
+>[AZURE.NOTE] Não reutilize um serviço de nuvem existente em sua assinatura. 
 
 **Considerações**
 
@@ -58,15 +59,15 @@ Use o portal clássico do Azure ou ferramentas equivalentes para configurar os r
 
 
 
-## Etapa 2: configurar um certificado de gerenciamento do Azure
+## <a name="step-2:-configure-an-azure-management-certificate"></a>Etapa 2: configurar um certificado de gerenciamento do Azure
 
 Para adicionar nós do Azure como recursos de computação, você precisa ter um certificado de gerenciamento no nó de cabeçalho e carregar um certificado correspondente na assinatura do Azure usada para a implantação.
 
-Para este cenário, é possível escolher o **Certificado padrão de gerenciamento do HPC Azure** que o HPC Pack instala e configura automaticamente no nó de cabeçalho. Este certificado é útil para implantações de prova de conceito e fins de teste. Para usar esse certificado, carregue o arquivo C:\\Arquivos de Programas\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer da VM de nó de cabeçalho na assinatura. Para carregar o certificado no [portal clássico do Azure](https://manage.windowsazure.com), clique em **Configurações** > **Certificados de Gerenciamento**.
+Para este cenário, é possível escolher o **Certificado padrão de gerenciamento do HPC Azure** que o HPC Pack instala e configura automaticamente no nó de cabeçalho. Este certificado é útil para implantações de prova de conceito e fins de teste. Para usar esse certificado, carregue o arquivo C:\Arquivos de Programas\Microsoft HPC Pack 2012\Bin\hpccert.cer da VM de nó de cabeçalho na assinatura. Para carregar o certificado no [Portal clássico do Azure](https://manage.windowsazure.com), clique em **Configurações** > **Certificados de Gerenciamento**.
 
 Para obter opções adicionais para configurar o certificado de gerenciamento, veja [Cenários para configurar o certificado de gerenciamento do Azure para implantações de disparo contínuo do Azure](http://technet.microsoft.com/library/gg481759.aspx).
 
-## Etapa 3: implantar nós do Azure ao cluster
+## <a name="step-3:-deploy-azure-nodes-to-the-cluster"></a>Etapa 3: implantar nós do Azure ao cluster
 
 
 
@@ -80,13 +81,17 @@ As etapas para adicionar e iniciar os nós do Azure neste cenário geralmente s�
 
 Depois de adicionar e iniciar os nós, eles estarão prontos para uso para a execução de trabalhos de cluster.
 
-Se tiver problemas ao implantar nós do Azure, veja [Troubleshoot Deployments of Azure Nodes with Microsoft HPC Pack](http://technet.microsoft.com/library/jj159097.aspx) (Solucionar problemas de nós do Azure com o Microsoft HPC Pack).
+Se tiver problemas ao implantar nós do Azure, veja [Troubleshoot Deployments of Azure Nodes with Microsoft HPC Pack](http://technet.microsoft.com/library/jj159097.aspx)(Solucionar problemas de nós do Azure com o Microsoft HPC Pack).
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 * Caso deseje aumentar ou reduzir automaticamente os recursos de computação do Azure de acordo com a carga de trabalho do cluster, veja [Aumentar e reduzir automaticamente os recursos do cluster HPC Pack no Azure conforme a carga de trabalho do cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

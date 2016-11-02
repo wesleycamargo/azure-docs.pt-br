@@ -1,13 +1,13 @@
 <properties
     pageTitle="Tutorial do REST do Barramento de Serviço usando o sistema de mensagens de retransmissão | Microsoft Azure"
     description="Compile um aplicativo host simples de retransmissão do Barramento de Serviço que expõe uma interface baseada em REST."
-    services="service-bus-relay"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags
-    ms.service="service-bus-relay"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
@@ -15,25 +15,26 @@
     ms.date="09/27/2016"
     ms.author="sethm" />
 
-# Tutorial do REST para Retransmissão do Barramento de Serviço
+
+# <a name="service-bus-relay-rest-tutorial"></a>Tutorial do REST para Retransmissão do Barramento de Serviço
 
 Este tutorial descreve como compilar um aplicativo host simples de Barramento de Serviço que expõe uma interface baseada em REST. O REST permite que um cliente da Web, como, por exemplo, um navegador da Web, acesse as APIs de Barramento de Serviço por meio de solicitações HTTP.
 
 Este tutorial usa o modelo de programação REST do Windows Communication Foundation (WCF) para construir um serviço REST no Barramento de Serviço. Para saber mais, confira [Modelo de programação REST WCF](https://msdn.microsoft.com/library/bb412169.aspx) e [Criando e implementando serviços](https://msdn.microsoft.com/library/ms729746.aspx) na documentação do WCF.
 
-## Etapa 1: Criar um namespace de serviço
+## <a name="step-1:-create-a-service-namespace"></a>Etapa 1: Criar um namespace de serviço
 
 A primeira etapa é criar um namespace e obter uma chave de SAS (Assinatura de Acesso Compartilhado). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS é automaticamente gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace de serviço e a chave SAS fornece as credenciais para o Barramento de Serviço autenticar o acesso a um aplicativo.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Etapa 2: definir um contrato de serviço WCF baseado em REST para usar com o Barramento de Serviço
+## <a name="step-2:-define-a-rest-based-wcf-service-contract-to-use-with-service-bus"></a>Etapa 2: definir um contrato de serviço WCF baseado em REST para usar com o Barramento de Serviço
 
 Assim como ocorre com outros serviços de Barramento de Serviço, quando você cria um serviço no estilo REST, é preciso definir o contrato. O contrato especifica para quais operações o host oferece suporte. Uma operação de serviço pode ser considerada um método de serviço Web. Os contratos são criados pela definição de uma interface C++, C# ou Visual Basic. Cada método na interface corresponde a uma operação de serviço específica. O atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) deve ser aplicado a cada interface, e o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) deve ser aplicado a cada operação. Se um método em uma interface que tem o [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) não tiver o [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), tal método não será exposto. O código usado para essas tarefas é mostrado no exemplo logo após o procedimento.
 
 A principal diferença entre um contrato básico de Barramento de Serviço e um contrato no estilo REST é a adição de uma propriedade para o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Esta propriedade permite mapear um método em sua interface para um método no outro lado da interface. Nesse caso, usaremos [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) para vincular um método a HTTP GET. Isso permite que o Barramento de Serviço recupere e interprete de forma precisa os comandos enviados à interface.
 
-### Para criar um contrato de Barramento de Serviço com uma interface
+### <a name="to-create-a-service-bus-contract-with-an-interface"></a>Para criar um contrato de Barramento de Serviço com uma interface
 
 1. Abra o Visual Studio como administrador: clique com o botão direito no programa no menu **Iniciar** e, em seguida, clique em **Executar como administrador**.
 
@@ -41,75 +42,75 @@ A principal diferença entre um contrato básico de Barramento de Serviço e um 
 
 3. Para um projeto C#, o Visual Studio cria um arquivo `Program.cs`. Essa classe contém um método `Main()` vazio, necessário para um projeto de aplicativo de console ser criado corretamente.
 
-4. Adicione referências ao Barramento de Serviço e ao **System.ServiceModel.dll** ao projeto instalando o pacote do NuGet do Barramento de Serviço. Esse pacote adiciona automaticamente referências para as bibliotecas do Barramento de Serviço, bem como o WCF **System.ServiceModel**. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ImageListener** e clique em **Gerenciar Pacotes NuGet**. Clique na guia **Procurar** e pesquise `Microsoft Azure Service Bus`. Clique em **Instalar** e aceite os termos de uso.
+4. Adicione referências ao Barramento de Serviço e ao **System.ServiceModel.dll** ao projeto instalando o pacote do NuGet do Barramento de Serviço. Esse pacote adiciona automaticamente referências para as bibliotecas do Barramento de Serviço, bem como o WCF **System.ServiceModel**. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ImageListener** e clique em **Gerenciar Pacotes NuGet**. Clique na guia **Procurar** e procure `Microsoft Azure Service Bus`. Clique em **Instalar**e aceite os termos de uso.
 
 5. Você precisa adicionar explicitamente uma referência a **System.ServiceModel.Web.dll** ao projeto:
 
-	a. No Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Referências**, na pasta do projeto e clique em **Adicionar Referência**.
+    a. No Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Referências**, na pasta do projeto e clique em **Adicionar Referência**.
 
-	b. Na caixa de diálogo **Adicionar Referência**, clique na guia **Estrutura** no lado esquerdo e, na caixa **Pesquisar**, digite **System.ServiceModel.Web**. Marque a caixa de seleção **System.ServiceModel.Web** e clique em **OK**.
+    b. Na caixa de diálogo **Adicionar Referência**, clique na guia **Estrutura** no lado esquerdo e, na caixa **Pesquisar**, digite **System.ServiceModel.Web**. Marque a caixa de seleção **System.ServiceModel.Web** e clique em **OK**.
 
 6. Adicione as instruções `using` abaixo na parte superior do arquivo Program.cs.
 
-	```
-	using System.ServiceModel;
-	using System.ServiceModel.Channels;
-	using System.ServiceModel.Web;
-	using System.IO;
-	```
+    ```
+    using System.ServiceModel;
+    using System.ServiceModel.Channels;
+    using System.ServiceModel.Web;
+    using System.IO;
+    ```
 
-	[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) é o namespace que permite o acesso programático aos recursos básicos do WCF. O Barramento de Serviço usa vários dos objetos e atributos do WCF para definir contratos de serviço. Você usará este namespace na maioria dos seus aplicativos de retransmissão do Barramento de Serviço. Da mesma forma, [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) ajuda a definir o canal, que é o objeto por meio do qual você se comunica com o Barramento de Serviço e o navegador da Web do cliente. Por fim, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contém os tipos que permitem a criação de aplicativos baseados na Web.
+    [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) é o namespace que permite o acesso programático aos recursos básicos do WCF. O Barramento de Serviço usa vários dos objetos e atributos do WCF para definir contratos de serviço. Você usará este namespace na maioria dos seus aplicativos de retransmissão do Barramento de Serviço. Da mesma forma, [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) ajuda a definir o canal, que é o objeto por meio do qual você se comunica com o Barramento de Serviço e o navegador da Web do cliente. Por fim, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contém os tipos que permitem a criação de aplicativos baseados na Web.
 
 7. Renomeie o namespace `ImageListener` para **Microsoft.ServiceBus.Samples**.
 
- 	```
-	namespace Microsoft.ServiceBus.Samples
-	{
-		...
-	```
+    ```
+    namespace Microsoft.ServiceBus.Samples
+    {
+        ...
+    ```
 
 8. Imediatamente após a chave de abertura da declaração do namespace, defina uma nova interface chamada **IImageContract** e aplique o atributo **ServiceContractAttribute** à interface com um valor de `http://samples.microsoft.com/ServiceModel/Relay/`. O valor do namespace é diferente do namespace que você usa em todo o escopo do seu código. O valor do namespace é usado como um identificador exclusivo para este contrato e deve ter informações sobre a versão. Para saber mais, veja [Controle de Versão do Serviço](http://go.microsoft.com/fwlink/?LinkID=180498). Especificar o namespace de forma explícita impede a adição do valor de namespace padrão ao nome do contrato.
 
-	```
-	[ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
-	public interface IImageContract
-	{
-	}
-	```
+    ```
+    [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
+    public interface IImageContract
+    {
+    }
+    ```
 
 9. Dentro da interface `IImageContract`, declare um método para a operação individual exposta pelo contrato `IImageContract` na interface e aplique o atributo `OperationContractAttribute` ao método que você deseja expor como parte do contrato de Barramento de Serviço público.
 
-	```
-	public interface IImageContract
-	{
-		[OperationContract]
-		Stream GetImage();
-	}
-	```
+    ```
+    public interface IImageContract
+    {
+        [OperationContract]
+        Stream GetImage();
+    }
+    ```
 
 10. No atributo **OperationContract**, adicione o valor **WebGet**.
 
-	```
-	public interface IImageContract
-	{
-		[OperationContract, WebGet]
-		Stream GetImage();
-	}
-	```
+    ```
+    public interface IImageContract
+    {
+        [OperationContract, WebGet]
+        Stream GetImage();
+    }
+    ```
 
-	Isso permite que o Barramento de Serviço encaminhe as solicitações HTTP GET para `GetImage` e converta os valores de retorno de `GetImage` em uma resposta HTTP GETRESPONSE. Posteriormente no tutorial, você usará um navegador da Web para acessar esse método e exibir a imagem no navegador.
+    Isso permite que o Barramento de Serviço encaminhe as solicitações HTTP GET para `GetImage` e converta os valores de retorno de `GetImage` em uma resposta HTTP GETRESPONSE. Posteriormente no tutorial, você usará um navegador da Web para acessar esse método e exibir a imagem no navegador.
 
 11. Logo após a definição `IImageContract`, declare um canal que herde das interfaces `IImageContract` e `IClientChannel`.
 
-	```
-	public interface IImageChannel : IImageContract, IClientChannel { }
-	```
+    ```
+    public interface IImageChannel : IImageContract, IClientChannel { }
+    ```
 
-	Um canal é o objeto WCF por meio do qual o serviço e o cliente trocam informações. Posteriormente, você criará o canal em seu aplicativo host. O Barramento de Serviço usa este canal para passar as solicitações HTTP GET do navegador para a implementação **GetImage**. O Barramento de Serviço também usa o canal para obter o valor de retorno de **GetImage** e convertê-lo em uma GETRESPONSE HTTP para o navegador do cliente.
+    Um canal é o objeto WCF por meio do qual o serviço e o cliente trocam informações. Posteriormente, você criará o canal em seu aplicativo host. O Barramento de Serviço usa este canal para passar as solicitações HTTP GET do navegador para a implementação **GetImage**. O Barramento de Serviço também usa o canal para obter o valor de retorno de **GetImage** e convertê-lo em uma GETRESPONSE HTTP para o navegador do cliente.
 
 12. No menu **Compilar**, clique em **Compilar Solução** para confirmar a precisão de seu trabalho até o momento.
 
-### Exemplo
+### <a name="example"></a>Exemplo
 
 O código a seguir mostra uma interface básica que define um contrato de Barramento de Serviço.
 
@@ -144,160 +145,160 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## Etapa 3: implementar um contrato de serviço WCF baseado em REST para usar no Barramento de Serviço
+## <a name="step-3:-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Etapa 3: implementar um contrato de serviço WCF baseado em REST para usar no Barramento de Serviço
 
 A criação de um serviço de Barramento de Serviço no estilo REST exige primeiro a criação do contrato, que é definido por meio de uma interface. A próxima etapa é implementar a interface. Isso envolve a criação de uma classe chamada **ImageService** que implementa a interface **IImageContract** definida pelo usuário. Depois de implementar o contrato, configure a interface usando um arquivo App.config. O arquivo de configuração contém as informações necessárias para o aplicativo, como o nome do serviço, o nome do contrato e o tipo de protocolo usado para se comunicar com o Barramento de Serviço. O código usado para essas tarefas é fornecido no exemplo logo após o procedimento.
 
 Assim como nas etapas anteriores, há pouca diferença entre a implementação de um contrato no estilo REST e um contrato de Barramento de Serviço básico.
 
-### Para implementar um contrato de Barramento de Serviço no estilo REST
+### <a name="to-implement-a-rest-style-service-bus-contract"></a>Para implementar um contrato de Barramento de Serviço no estilo REST
 
 1. Crie uma nova classe chamada **ImageService** diretamente após a definição da interface **IImageContract**. A classe **ImageService** implementa a interface **IImageContract**.
 
-	```
-	class ImageService : IImageContract
-	{
-	}
-	```
-	Assim como outras implementações de interface, você pode implementar a definição em um arquivo diferente. No entanto, para este tutorial, a implementação é exibida no mesmo arquivo que a definição de interface e o método `Main()`.
+    ```
+    class ImageService : IImageContract
+    {
+    }
+    ```
+    Assim como outras implementações de interface, você pode implementar a definição em um arquivo diferente. No entanto, para este tutorial, a implementação é exibida no mesmo arquivo que a definição de interface e o método `Main()`.
 
 2. Aplique o atributo [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) à classe **IImageService** para indicar que a classe é uma implementação de um contrato do WCF.
 
-	```
-	[ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-	class ImageService : IImageContract
-	{
-	}
-	```
+    ```
+    [ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    class ImageService : IImageContract
+    {
+    }
+    ```
 
-	Conforme mencionado anteriormente, esse namespace não é um namespace tradicional. Em vez disso, ele faz parte da arquitetura do WCF que identifica o contrato. Para saber mais, confira o tópico [Nomes de Contrato de Dados](https://msdn.microsoft.com/library/ms731045.aspx) na documentação do WCF.
+    Conforme mencionado anteriormente, esse namespace não é um namespace tradicional. Em vez disso, ele faz parte da arquitetura do WCF que identifica o contrato. Para saber mais, confira o tópico [Nomes de Contrato de Dados](https://msdn.microsoft.com/library/ms731045.aspx) na documentação do WCF.
 
-3. Adicione uma imagem .jpg ao seu projeto.
+3. Adicione uma imagem .jpg ao seu projeto.  
 
-	Esta é uma imagem exibida pelo serviço no navegador receptor. Clique com o botão direito do mouse em seu projeto e clique em **Adicionar**. Em seguida, clique em **Item Existente**. Use a caixa de diálogo **Adicionar Item Existente** para navegar até um .jpg adequado e,em seguida, clique em **Adicionar**.
+    Esta é uma imagem exibida pelo serviço no navegador receptor. Clique com o botão direito do mouse em seu projeto e clique em **Adicionar**. Em seguida, clique em **Item Existente**. Use a caixa de diálogo **Adicionar Item Existente** para navegar até um .jpg adequado e,em seguida, clique em **Adicionar**.
 
-	Ao adicionar o arquivo, certifique-se de que a opção **Todos os Arquivos** esteja selecionada na lista suspensa ao lado do campo **Nome do arquivo:**. O restante deste tutorial supõe que o nome da imagem seja "image.jpg". Se você tiver um arquivo diferente, será necessário renomear a imagem ou alterar o código para compensar.
+    Ao adicionar o arquivo, certifique-se de que a opção **Todos os Arquivos** esteja selecionada na lista suspensa ao lado do campo **Nome do arquivo:**. O restante deste tutorial supõe que o nome da imagem seja "image.jpg". Se você tiver um arquivo diferente, será necessário renomear a imagem ou alterar o código para compensar.
 
 4. Para ter certeza de que o serviço em execução consegue encontrar o arquivo de imagem, no **Gerenciador de Soluções**, clique com o botão direito do mouse no arquivo de imagem e clique em **Propriedades**. No painel **Propriedades**, defina **Copiar para o Diretório de Saída** como **Copiar se for mais recente**.
 
-5. Adicione uma referência ao assembly **System.Drawing.dll** ao projeto, e adicione também as seguintes instruções `using` associadas.
+5. Adicione uma referência ao assembly **System.Drawing.dll** ao projeto, e adicione também as seguintes instruções `using` associadas.  
 
-	```
-	using System.Drawing;
-	using System.Drawing.Imaging;
-	using Microsoft.ServiceBus;
-	using Microsoft.ServiceBus.Web;
-	```
+    ```
+    using System.Drawing;
+    using System.Drawing.Imaging;
+    using Microsoft.ServiceBus;
+    using Microsoft.ServiceBus.Web;
+    ```
 
 6. Na classe **ImageService**, adicione o seguinte construtor que carrega o bitmap e o prepara para envio ao navegador do cliente.
 
-	```
-	class ImageService : IImageContract
-	{
-		const string imageFileName = "image.jpg";
+    ```
+    class ImageService : IImageContract
+    {
+        const string imageFileName = "image.jpg";
 
-		Image bitmap;
+        Image bitmap;
 
-		public ImageService()
-		{
-			this.bitmap = Image.FromFile(imageFileName);
-		}
-	}
-	```
+        public ImageService()
+        {
+            this.bitmap = Image.FromFile(imageFileName);
+        }
+    }
+    ```
 
 7. Logo após o código anterior, adicione o seguinte método **GetImage** à classe **ImageService** para retornar uma mensagem HTTP que contém a imagem.
 
-	```
-	public Stream GetImage()
-	{
-		MemoryStream stream = new MemoryStream();
-		this.bitmap.Save(stream, ImageFormat.Jpeg);
+    ```
+    public Stream GetImage()
+    {
+        MemoryStream stream = new MemoryStream();
+        this.bitmap.Save(stream, ImageFormat.Jpeg);
 
-		stream.Position = 0;
-		WebOperationContext.Current.OutgoingResponse.ContentType = "image/jpeg";
+        stream.Position = 0;
+        WebOperationContext.Current.OutgoingResponse.ContentType = "image/jpeg";
 
-		return stream;
-	}
-	```
+        return stream;
+    }
+    ```
 
-	Essa implementação usa **MemoryStream** para recuperar a imagem e prepará-la para transmissão por streaming para o navegador. Ela começa a posição da transmissão em zero, declara o conteúdo da transmissão como jpeg e transmite as informações.
+    Essa implementação usa **MemoryStream** para recuperar a imagem e prepará-la para transmissão por streaming para o navegador. Ela começa a posição da transmissão em zero, declara o conteúdo da transmissão como jpeg e transmite as informações.
 
 8. No menu **Compilar**, clique em **Solução de Compilação**.
 
-### Para definir a configuração a fim de executar o serviço da Web no Barramento de Serviço
+### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>Para definir a configuração a fim de executar o serviço da Web no Barramento de Serviço
 
 1. No **Gerenciador de Soluções**, clique duas vezes em **App.config** para abri-lo no editor do Visual Studio.
 
-	O arquivo **App.config** é semelhante a um arquivo de configuração do WCF e inclui o nome do serviço, o ponto de extremidade (ou seja, a localização que o Barramento de Serviço expõe para os clientes e hosts se comunicarem) e a associação (o tipo de protocolo usado para comunicação). A principal diferença é que o ponto de extremidade de serviço configurado refere-se a uma associação [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx), que não faz parte do .NET Framework.
+    O arquivo **App.config** é semelhante a um arquivo de configuração do WCF e inclui o nome do serviço, o ponto de extremidade (ou seja, a localização que o Barramento de Serviço expõe para os clientes e hosts se comunicarem) e a associação (o tipo de protocolo usado para comunicação). A principal diferença é que o ponto de extremidade de serviço configurado refere-se a uma associação [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx), que não faz parte do .NET Framework.
 
 2. O elemento XML `<system.serviceModel>` é um elemento WCF que define um ou mais serviços. Aqui, ele é usado para definir o nome do serviço e o ponto de extremidade. Na parte inferior do elemento `<system.serviceModel>` (mas ainda dentro de `<system.serviceModel>`), adicione um elemento `<bindings>` que tenha o seguinte conteúdo. Isso define as associações usadas no aplicativo. É possível definir várias associações, mas para este tutorial você definirá apenas uma.
 
-	```
-	<bindings>
-		<!-- Application Binding -->
-		<webHttpRelayBinding>
-			<binding name="default">
-				<security relayClientAuthenticationType="None" />
-			</binding>
-		</webHttpRelayBinding>
-	</bindings>
-	```
+    ```
+    <bindings>
+        <!-- Application Binding -->
+        <webHttpRelayBinding>
+            <binding name="default">
+                <security relayClientAuthenticationType="None" />
+            </binding>
+        </webHttpRelayBinding>
+    </bindings>
+    ```
 
-	Esta etapa define um associação [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx) do Barramento de Serviço com **relayClientAuthenticationType** definido como **Nenhum**. Essa configuração indica que um ponto de extremidade usando essa associação não exige uma credencial de cliente.
+    Esta etapa define um associação [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx) do Barramento de Serviço com **relayClientAuthenticationType** definido como **Nenhum**. Essa configuração indica que um ponto de extremidade usando essa associação não exige uma credencial de cliente.
 
 3. Após o elemento `<bindings>`, adicione um elemento `<services>`. Assim como nas associações, você pode definir vários serviços em um único arquivo de configuração. No entanto, para este tutorial, você definirá apenas um.
 
-	```
-	<services>
-		<!-- Application Service -->
-		<service name="Microsoft.ServiceBus.Samples.ImageService"
+    ```
+    <services>
+        <!-- Application Service -->
+        <service name="Microsoft.ServiceBus.Samples.ImageService"
              behaviorConfiguration="default">
-			<endpoint name="RelayEndpoint"
-					contract="Microsoft.ServiceBus.Samples.IImageContract"
-					binding="webHttpRelayBinding"
-					bindingConfiguration="default"
-					behaviorConfiguration="sbTokenProvider"
-					address="" />
-		</service>
-	</services>
-	```
+            <endpoint name="RelayEndpoint"
+                    contract="Microsoft.ServiceBus.Samples.IImageContract"
+                    binding="webHttpRelayBinding"
+                    bindingConfiguration="default"
+                    behaviorConfiguration="sbTokenProvider"
+                    address="" />
+        </service>
+    </services>
+    ```
 
-	Esta etapa configura um serviço que usa o padrão previamente definido **webHttpRelayBinding**. Ele também usa o padrão **sbTokenProvider**, definido na próxima etapa.
+    Esta etapa configura um serviço que usa o padrão previamente definido **webHttpRelayBinding**. Ele também usa o padrão **sbTokenProvider**, definido na próxima etapa.
 
-4. Após o elemento `<services>`, crie um elemento `<behaviors>` com o conteúdo a seguir, substituindo "SAS\_KEY" pela chave *Assinatura de Acesso Compartilhado* (SAS) obtida anteriormente no [portal do Azure][].
+4. Após o elemento `<services>`, crie um elemento `<behaviors>` com o conteúdo a seguir, substituindo "SAS_KEY" pela chave *Assinatura de Acesso Compartilhado* (SAS) obtida anteriormente no [portal do Azure][].
 
-	```
-	<behaviors>
-		<endpointBehaviors>
-			<behavior name="sbTokenProvider">
-				<transportClientEndpointBehavior>
-					<tokenProvider>
-						<sharedAccessSignature keyName="RootManageSharedAccessKey" key="SAS_KEY" />
-					</tokenProvider>
-				</transportClientEndpointBehavior>
-			</behavior>
-			</endpointBehaviors>
-			<serviceBehaviors>
-				<behavior name="default">
-					<serviceDebug httpHelpPageEnabled="false" httpsHelpPageEnabled="false" />
-				</behavior>
-			</serviceBehaviors>
-	</behaviors>
-	```
+    ```
+    <behaviors>
+        <endpointBehaviors>
+            <behavior name="sbTokenProvider">
+                <transportClientEndpointBehavior>
+                    <tokenProvider>
+                        <sharedAccessSignature keyName="RootManageSharedAccessKey" key="SAS_KEY" />
+                    </tokenProvider>
+                </transportClientEndpointBehavior>
+            </behavior>
+            </endpointBehaviors>
+            <serviceBehaviors>
+                <behavior name="default">
+                    <serviceDebug httpHelpPageEnabled="false" httpsHelpPageEnabled="false" />
+                </behavior>
+            </serviceBehaviors>
+    </behaviors>
+    ```
 
-5. Ainda em App.config, no elemento `<appSettings>`, substitua todo o valor da cadeia de conexão pela cadeia de conexão obtida anteriormente no portal.
+5. Ainda em App.config, no elemento `<appSettings>`, substitua todo o valor da cadeia de conexão pela cadeia de conexão obtida anteriormente no portal. 
 
-	```
-	<appSettings>
-   	<!-- Service Bus specific app settings for messaging connections -->
-   	<add key="Microsoft.ServiceBus.ConnectionString"
-	       value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
-	</appSettings>
-	```
+    ```
+    <appSettings>
+    <!-- Service Bus specific app settings for messaging connections -->
+    <add key="Microsoft.ServiceBus.ConnectionString"
+           value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
+    </appSettings>
+    ```
 
 6. No menu **Compilar**, clique em **Compilar Solução** para compilar a solução inteira.
 
-### Exemplo
+### <a name="example"></a>Exemplo
 
 O código a seguir mostra o contrato e a implementação do serviço para um serviço baseado em REST que está em execução no Barramento de Serviço usando a associação **WebHttpRelayBinding**.
 
@@ -454,60 +455,60 @@ O exemplo a seguir mostra o arquivo App.config associado ao serviço.
 </configuration>
 ```
 
-## Etapa 4: hospedar o serviço WCF baseado em REST para usar o Barramento de Serviço
+## <a name="step-4:-host-the-rest-based-wcf-service-to-use-service-bus"></a>Etapa 4: hospedar o serviço WCF baseado em REST para usar o Barramento de Serviço
 
 Esta etapa descreve como executar um serviço Web usando um aplicativo de console no Barramento de Serviço. Confira uma lista completa com os códigos escritos nesta etapa logo após o procedimento.
 
-### Para criar um endereço base para o serviço
+### <a name="to-create-a-base-address-for-the-service"></a>Para criar um endereço base para o serviço
 
 1. Na declaração de função `Main()`, crie uma variável para armazenar o namespace de seu projeto de Barramento de Serviço. Substitua `yourNamespace` pelo nome do namespace do serviço que você criou anteriormente.
 
-	```
-	string serviceNamespace = "yourNamespace";
-	```
-	O Barramento de Serviço usa o nome do namespace para criar um URI exclusivo.
+    ```
+    string serviceNamespace = "yourNamespace";
+    ```
+    O Barramento de Serviço usa o nome do namespace para criar um URI exclusivo.
 
 2. Crie uma instância de `Uri` para o endereço básico do serviço que está baseado no namespace.
 
-	```
-	Uri address = ServiceBusEnvironment.CreateServiceUri("https", serviceNamespace, "Image");
-	```
+    ```
+    Uri address = ServiceBusEnvironment.CreateServiceUri("https", serviceNamespace, "Image");
+    ```
 
-### Para criar e configurar o host do serviço Web
+### <a name="to-create-and-configure-the-web-service-host"></a>Para criar e configurar o host do serviço Web
 
 - Crie o host do serviço Web usando o endereço URI criado anteriormente nesta seção.
 
-	```
-	WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
-	```
-	O host do serviço é o objeto do WCF que instancia o aplicativo host. Este exemplo passa o tipo de host que você deseja criar (um **ImageService**) e também o endereço no qual você deseja expor o aplicativo host.
+    ```
+    WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
+    ```
+    O host do serviço é o objeto do WCF que instancia o aplicativo host. Este exemplo passa o tipo de host que você deseja criar (um **ImageService**) e também o endereço no qual você deseja expor o aplicativo host.
 
-### Para executar o host do serviço Web
+### <a name="to-run-the-web-service-host"></a>Para executar o host do serviço Web
 
 1. Abra o arquivo serviço.
 
-	```
-	host.Open();
-	```
-	O serviço está em execução.
+    ```
+    host.Open();
+    ```
+    O serviço está em execução.
 
 2. É exibida uma mensagem indicando que o serviço está em execução e dizendo como parar o serviço.
 
-	```
-	Console.WriteLine("Copy the following address into a browser to see the image: ");
-	Console.WriteLine(address + "GetImage");
-	Console.WriteLine();
-	Console.WriteLine("Press [Enter] to exit");
-	Console.ReadLine();
-	```
+    ```
+    Console.WriteLine("Copy the following address into a browser to see the image: ");
+    Console.WriteLine(address + "GetImage");
+    Console.WriteLine();
+    Console.WriteLine("Press [Enter] to exit");
+    Console.ReadLine();
+    ```
 
 3. Quando terminar, feche o host do serviço.
 
-	```
-	host.Close();
-	```
+    ```
+    host.Close();
+    ```
 
-## Exemplo
+## <a name="example"></a>Exemplo
 
 O exemplo a seguir inclui o contrato e a implementação do serviço das etapas anteriores no tutorial e hospeda o serviço em um aplicativo de console. Compile o código a seguir em um arquivo executável chamado ImageListener.exe.
 
@@ -583,24 +584,27 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-### Compilando o código
+### <a name="compiling-the-code"></a>Compilando o código
 
 Após compilar a solução, faça o seguinte para executar o aplicativo:
 
-1. Pressione **F5** ou navegue até a localização do arquivo executável (ImageListener\\bin\\Debug\\ImageListener.exe) para executar o serviço. Mantenha o aplicativo em execução, pois ele é necessário para executar a próxima etapa.
+1. Pressione **F5** ou navegue até a localização do arquivo executável (ImageListener\bin\Debug\ImageListener.exe) para executar o serviço. Mantenha o aplicativo em execução, pois ele é necessário para executar a próxima etapa.
 
 2. Copie e cole o endereço do prompt de comando em um navegador para ver a imagem.
 
 3. Quando tiver terminado, pressione **Enter** na janela do prompt de comando para fechar o aplicativo.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você compilou um aplicativo que usa o serviço de retransmissão do Barramento de Serviço, confira os seguintes artigos para saber mais sobre o sistema de mensagens de retransmissão:
 
-- [Visão geral da arquitetura de Barramento de Serviço do Azure](../service-bus/service-bus-fundamentals-hybrid-solutions.md#relays)
+- [Visão geral da arquitetura de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 
 - [Como usar o serviço de Retransmissão do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
 
-[portal do Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,27 +1,28 @@
 
 <properties
-	pageTitle="Gerenciar recursos com a CLI do Azure | Microsoft Azure"
-	description="Use a Interface de linha de comando (CLI) do Azure para gerenciar recursos e grupos do Azure"
-	editor=""
-	manager="timlt"
-	documentationCenter=""
-	authors="dlepow"
-	services="azure-resource-manager"/>
+    pageTitle="Gerenciar recursos com a CLI do Azure | Microsoft Azure"
+    description="Use a Interface de linha de comando (CLI) do Azure para gerenciar recursos e grupos do Azure"
+    editor=""
+    manager="timlt"
+    documentationCenter=""
+    authors="dlepow"
+    services="azure-resource-manager"/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="danlep"/>
+    ms.service="azure-resource-manager"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/22/2016"
+    ms.author="danlep"/>
 
-# Use a CLI do Azure para gerenciar recursos e grupos de recursos do Azure
+
+# <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Use a CLI do Azure para gerenciar recursos e grupos de recursos do Azure
 
 
 > [AZURE.SELECTOR]
-- [Portal](azure-portal/resource-group-portal.md)
+- [Portal](azure-portal/resource-group-portal.md) 
 - [CLI do Azure](xplat-cli-azure-resource-manager.md)
 - [PowerShell do Azure](powershell-azure-resource-manager.md)
 - [API REST](resource-manager-rest-api.md)
@@ -29,27 +30,27 @@
 
 A Interface de linha de comando do Azure (CLI do Azure) é uma das várias ferramentas que você pode usar para implantar e gerenciar recursos com o Resource Manager. Este artigo apresenta as maneiras comuns de gerenciar os recursos e os grupos de recursos do Azure usando a CLI do Azure no modo Resource Manager. Para saber mais sobre como usar a CLI para implantar recursos, confira [Implantar recursos com modelos do Resource Manager e a CLI do Azure](resource-group-template-deploy-cli.md). Para saber mais sobre o os recursos e o Resource Manager do Azure, visite a [Visão Geral do Azure Resource Manager](resource-group-overview.md).
 
->[AZURE.NOTE] Para gerenciar os recursos do Azure com a CLI do Azure, você precisa [instalar a CLI do Azure](xplat-cli-install.md), e [fazer logon no Azure](xplat-cli-connect.md) usando o comando `azure login`. Verifique se a CLI está no modo Resource Manager (execute `azure config mode arm`). Se você tiver feito isso, você está pronto para continuar.
+>[AZURE.NOTE] Para gerenciar os recursos do Azure com a CLI do Azure, você precisa [instalar a CLI](xplat-cli-install.md) do Azure, e [fazer logon no Azure](xplat-cli-connect.md) usando o comando `azure login`. Verifique se a CLI está no modo Resource Manager (execute `azure config mode arm`). Se você tiver feito isso, você está pronto para continuar.
 
 
 
-## Obtenha os grupos de recursos e os recursos
+## <a name="get-resource-groups-and-resources"></a>Obtenha os grupos de recursos e os recursos
 
-### Grupos de recursos
+### <a name="resource-groups"></a>Grupos de recursos
 
 Para obter uma lista de todos os grupos de recursos em sua assinatura e suas localizações, execute este comando.
 
     azure group list
     
 
-### Recursos
+### <a name="resources"></a>Recursos
  Para listar todos os recursos em um grupo, como um de nome *testRG*, por exemplo, use o comando a seguir.
 
-	azure resource list testRG
+    azure resource list testRG
 
 Para exibir um recurso individual dentro do grupo, como uma VM denominada *MyUbuntuVM*, use um comando semelhante ao seguinte.
 
-	azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
+    azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
     
 Observe o parâmetro **Microsoft.Compute/virtualMachines**. Esse parâmetro indica o tipo do recurso sobre o qual você está solicitando informações.
     
@@ -57,104 +58,36 @@ Observe o parâmetro **Microsoft.Compute/virtualMachines**. Esse parâmetro indi
 
 Ao exibir detalhes em um recurso, costuma ser útil usar o parâmetro `--json`. Esse parâmetro torna a saída mais legível já que alguns valores são estruturas aninhadas ou coleções. O exemplo a seguir demonstra o retorno dos resultados do comando **show** como um documento JSON.
 
-	azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json
+    azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json
 
 >[AZURE.NOTE] Caso deseje, salve os dados JSON no arquivo usando o caractere &gt; para direcionar a saída para um arquivo. Por exemplo:
 >
 > `azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
 
-### Marcas
+### <a name="tags"></a>Marcas
 
-Para ajudá-lo a organizar seus recursos, adicione [marcações](resource-group-using-tags.md) aos recursos e grupos de recursos. Para ver as marcações que já foram aplicadas, basta obter um grupo de recursos e seus recursos com **azure group show**.
+[AZURE.INCLUDE [resource-manager-tag-resources-cli](../includes/resource-manager-tag-resources-cli.md)]
 
-    azure group show -n tag-demo-group
-    
-Ele retorna metadados sobre o grupo de recursos, incluindo todas as marcações aplicadas a esse grupo.
-    
-    info:    Executing command group show
-    + Listing resource groups
-    + Listing resources for the group
-    data:    Id:                  /subscriptions/{guid}/resourceGroups/tag-demo-group
-    data:    Name:                tag-demo-group
-    data:    Location:            westus
-    data:    Provisioning State:  Succeeded
-    data:    Tags: Dept=Finance;Environment=Production
-    data:    Resources:
-    data:
-    data:      Id      : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
-    data:      Name    : tfsqlserver
-    data:      Type    : servers
-    data:      Location: eastus2
-    data:      Tags    : Dept=Finance;Environment=Production
-    ...
-
-Para obter somente as marcações do grupo de recursos, use um utilitário JSON como o [jq](http://stedolan.github.io/jq/download/).
-
-    azure group show -n tag-demo-group --json | jq ".tags"
-    
-Esse comando retorna as marcações desse grupo de recursos.
-    
-    {
-      "Dept": "Finance",
-      "Environment": "Production" 
-    }
-
-Você pode exibir as marcações de um recurso específico usando **azure resource show**.
-
-    azure resource show -g tag-demo-group -n tfsqlserver -r Microsoft.Sql/servers -o 2014-04-01-preview --json | jq ".tags"
-    
-Esse comando retorna o seguinte.
-    
-    {
-      "Dept": "Finance",
-      "Environment": "Production"
-    }
-    
-Recupere todos os recursos com uma marcação específica usando um comando semelhante ao seguinte.
-
-    azure resource list --json | jq ".[] | select(.tags.Dept == "Finance") | .name"
-    
-Esse comando retorna os nomes dos recursos com essa marcação.
-    
-    "tfsqlserver"
-    "tfsqlserver/tfsqldata"
-
-As marcas são atualizadas como um todo, portanto, se você adicionar uma marcação a um recurso que já está marcado, você precisa recuperar as marcas existentes que deseja manter. Para definir valores de marcação para um grupo de recursos, use **azure group set** e forneça todas as marcações para o grupo de recursos.
-
-    azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
-    
-Um resumo do grupo de recursos com as novas marcas é retornado.
-    
-    info:    Executing command group set
-    ...
-    data:    Name:                tag-demo-group
-    data:    Location:            westus
-    data:    Provisioning State:  Succeeded
-    data:    Tags: Dept=Finance;Environment=Production;Project=Upgrade
-    ...
-    
-Você pode listar as marcações existentes na sua assinatura com **azure tag list** e adicionar uma marcação com **azure tag create**. Para remover uma marcação de taxonomia de sua assinatura, primeiro remova a marcação dos recursos usados com a mesma e remova-a com **azure tag delete**.
-
-## Gerenciar recursos
+## <a name="manage-resources"></a>Gerenciar recursos
 
 
 Para adicionar um recurso como uma conta de armazenamento a um grupo de recursos, execute um comando semelhante a:
 
-    azure resource create testRG MyStorageAccount "Microsoft.Storage/storageAccounts" "westus" -o "2015-06-15" -p "{"accountType": "Standard_LRS"}"
+    azure resource create testRG MyStorageAccount "Microsoft.Storage/storageAccounts" "westus" -o "2015-06-15" -p "{\"accountType\": \"Standard_LRS\"}"
     
 Além de especificar a versão da API do recurso com o parâmetro **-o**, use o parâmetro **-p** para passar uma cadeia de caracteres formatada em JSON com quaisquer propriedades necessárias ou adicionais.
     
     
 Para excluir um recurso existente, como um recurso de máquina virtual, use um comando como o seguinte.
 
-	azure resource delete testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
+    azure resource delete testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
 
-Para mover os recursos existentes para outro grupo de recursos ou assinatura, use o comando **azure resource move**. O exemplo a seguir mostra como mover um Cache Redis para um novo grupo de recursos. No parâmetro **-i**, forneça uma lista separada por vírgulas de ids do recurso a serem movidas.
+Para mover os recursos existentes para outro grupo de recursos ou assinatura, use o comando **azure resource move** . O exemplo a seguir mostra como mover um Cache Redis para um novo grupo de recursos. No parâmetro **-i** , forneça uma lista separada por vírgulas de ids do recurso a serem movidas.
 
 
     azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
 
-## Controlar acesso a recursos
+## <a name="control-access-to-resources"></a>Controlar acesso a recursos
 
 Você pode usar a CLI do Azure para criar e gerenciar políticas para controlar o acesso aos recursos do Azure. Para obter informações sobre definições de política e atribuição de políticas para recursos, confira [Usar a política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
 
@@ -178,14 +111,9 @@ Em seguida, execute o comando **policy definition create**:
     
 Esse comando exibe uma saída semelhante à seguinte.
 
-    + Creating policy definition MyPolicy
-    data:    PolicyName:             MyPolicy
-    data:    PolicyDefinitionId:     /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy
+    + Creating policy definition MyPolicy data:    PolicyName:             MyPolicy data:    PolicyDefinitionId:     /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy
 
-    data:    PolicyType:             Custom
-    data:    DisplayName:            undefined
-    data:    Description:            undefined
-    data:    PolicyRule:             field=location, in=[westus, northcentralus], effect=deny
+    data:    PolicyType:             Custom data:    DisplayName:            undefined data:    Description:            undefined data:    PolicyRule:             field=location, in=[westus, northcentralus], effect=deny
 
  Para atribuir uma política no escopo desejado, use a **PolicyDefinitionId** retornada pelo comando anterior. No exemplo a seguir, este escopo é a assinatura, mas você pode definir o escopo para recursos individuais ou grupos de recursos:
 
@@ -196,7 +124,7 @@ Você pode obter, alterar ou remover definições de política usando os comando
 De modo semelhante você pode obter, alterar ou remover atribuições de política usando os comandos **policy assignment show**, **policy assignment set** e **policy assignment delete**.
 
 
-## Exportar um grupo de recursos como um modelo
+## <a name="export-a-resource-group-as-a-template"></a>Exportar um grupo de recursos como um modelo
 
 Para um grupo de recursos existente, você pode exibir o modelo Resource Manager do grupo de recursos. A exportação do modelo oferece dois benefícios:
 
@@ -222,9 +150,15 @@ Usando a CLI do Azure, você pode exportar um modelo que representa o estado atu
 
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter detalhes de operações de implantação e solucionar problemas de erros de implantação com a CLI do Azure, confira [Exibir operações de implantação com a CLI do Azure](resource-manager-troubleshoot-deployments-cli.md).
 * Se você quiser usar a CLI para configurar um aplicativo ou script para acessar recursos, confira [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](resource-group-authenticate-service-principal-cli.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

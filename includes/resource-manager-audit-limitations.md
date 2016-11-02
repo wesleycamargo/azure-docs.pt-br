@@ -2,4 +2,7 @@ O log de atividade contém todas as operações de gravação (PUT, POST, DELETE
 
 Os logs de atividade são retidos por 90 dias. Você pode consultar qualquer intervalo de datas, desde que a data inicial não seja anterior a 90 dias no passado.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

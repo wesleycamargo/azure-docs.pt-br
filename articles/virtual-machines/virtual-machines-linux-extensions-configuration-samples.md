@@ -17,7 +17,8 @@
    ms.date="09/13/2016"
    ms.author="kundanap"/>
 
-# Exemplos de configuração de extensão de VM Linux.
+
+# <a name="linux-vm-extension-configuration-samples"></a>Exemplos de configuração de extensão de VM Linux.
 
 > [AZURE.SELECTOR]
 - [PowerShell – modelo](virtual-machines-windows-extensions-configuration-samples.md)
@@ -33,7 +34,7 @@ Para saber mais sobre a criação de modelos de extensão, clique aqui: [Criando
 
 Este artigo lista os valores de configuração esperados para algumas das Extensões do Linux.
 
-## Trecho do exemplo de modelo para Extensões de VM.
+## <a name="sample-template-snippet-for-vm-extensions."></a>Trecho do exemplo de modelo para Extensões de VM.
 O trecho do modelo para Implantação de extensões tem a seguinte aparência:
 
       {
@@ -54,7 +55,7 @@ O trecho do modelo para Implantação de extensões tem a seguinte aparência:
       }
       }
 
-## Trecho de código do modelo de exemplo para extensões de VM com Conjuntos de Escala de VM.
+## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>Trecho de código do modelo de exemplo para extensões de VM com Conjuntos de Escala de VM.
 
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
@@ -80,7 +81,7 @@ Antes de implantar a extensão, verifique a versão mais recente da extensão e 
 
 O restante do artigo fornece exemplos de configurações para extensões de VM Linux.
 
-### Agente CloudLink SecureVM
+### <a name="cloudlink-securevm-agent"></a>Agente CloudLink SecureVM
           {
             "publisher": "CloudLinkEMC.SecureVM",
             "type": "CloudLinkSecureVMLinuxAgent",
@@ -90,7 +91,7 @@ O restante do artigo fornece exemplos de configurações para extensões de VM L
             }
           }
 
-### Extensão CustomScript para Linux.
+### <a name="customscript-extension-for-linux."></a>Extensão CustomScript para Linux.
     {
         "publisher": " Microsoft.Azure.Extensions",
         "type": "CustomScript",
@@ -105,7 +106,7 @@ O restante do artigo fornece exemplos de configurações para extensões de VM L
     }
 
 
-### Agente Datadog
+### <a name="datadog-agent"></a>Agente Datadog
         {
           "publisher": "Datadog.Agent",
           "type": "DatadogLinuxAgent",
@@ -115,7 +116,7 @@ O restante do artigo fornece exemplos de configurações para extensões de VM L
           }
         }
 
-### Agente Chef
+### <a name="chef-agent"></a>Agente Chef
         {
           "publisher": "Chef.Bootstrap.WindowsAzure",
           "type": "CentosChefClient|LinuxChefClient",
@@ -127,7 +128,7 @@ O restante do artigo fornece exemplos de configurações para extensões de VM L
           }
         }
 
-### Extensão de acesso a VM (redefinição de senha)
+### <a name="vm-access-extension-(password-reset)"></a>Extensão de acesso a VM (redefinição de senha)
 Para obter o esquema atualizado, consulte a [Documentação do VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
         {
@@ -143,7 +144,7 @@ Para obter o esquema atualizado, consulte a [Documentação do VMAccessForLinux]
           }
         }
 
-### Aplicação de patches de SO
+### <a name="os-patching"></a>Aplicação de patches de SO
 Para obter o esquema atualizado, consulte a [Documentação do OSPatching](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)
 
         {
@@ -168,7 +169,7 @@ Para obter o esquema atualizado, consulte a [Documentação do OSPatching](https
         }
         }
 
-### Extensão do Docker
+### <a name="docker-extension"></a>Extensão do Docker
 Para obter o esquema atualizado, consulte [Documentação de extensão do Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
 
         {
@@ -217,4 +218,8 @@ Veja abaixo um modelo de VM completo para a criação de uma VM do Linux com uma
 
 [Extensão de script personalizado em uma VM do Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

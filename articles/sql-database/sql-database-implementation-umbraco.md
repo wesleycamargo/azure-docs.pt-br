@@ -16,11 +16,12 @@
    ms.date="09/22/2016"
    ms.author="carlrab"/>
 
-# Umbraco usa o Banco de Dados SQL do Azure para provisionar e dimensionar serviços rapidamente a milhares de locatários na nuvem
+
+# <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco usa o Banco de Dados SQL do Azure para provisionar e dimensionar serviços rapidamente a milhares de locatários na nuvem
 
 ![Logotipo da Umbraco](./media/sql-database-implementation-umbraco/umbracologo.png)
 
-A Umbraco é um conhecido CMS (sistema de gerenciamento de conteúdo) de software livre que pode executar qualquer coisa, de pequenos sites de campanha e folhetos a aplicativos complexos para empresas da Fortune 500 e sites de mídia global.
+A Umbraco é um conhecido CMS (sistema de gerenciamento de conteúdo) de software livre que pode executar qualquer coisa, de pequenos sites de campanha e folhetos a aplicativos complexos para empresas da Fortune 500 e sites de mídia global. 
 
 > "Temos uma grande comunidade de desenvolvedores que usam o sistema, com mais de 100 mil desenvolvedores em nossos fóruns e mais de 350 mil sites que estão ativos, executando a Umbraco".
 
@@ -37,11 +38,11 @@ A UaaS permite que os clientes de SaaS usem os recursos de CMS da Umbraco que an
 
 Figura 1. Provisionando o ciclo de vida da UaaS (Umbraco como serviço)
  
-##Pools elásticos do Azure e automação simplificam implantações
+##<a name="azure-elastic-pools-and-automation-simplify-deployments"></a>Pools elásticos do Azure e automação simplificam implantações
 
 Com o Banco de Dados SQL do Azure e outros serviços do Azure, os clientes da Umbraco podem autoprovisionar seus ambientes, e a Umbraco pode monitorar e gerenciar facilmente bancos de dados como parte de um fluxo de trabalho intuitivo:
 
-1.	Provisão
+1.  Provisão
 
     A Umbraco mantém uma capacidade de 200 bancos de dados pré-provisionados disponíveis de pools elásticos. Quando um novo cliente se inscreve para a UaaS, a Umbraco fornece a ele um novo ambiente CMS quase em tempo real atribuindo-lhe um banco de dados do pool de disponibilidade.
 
@@ -49,7 +50,7 @@ Com o Banco de Dados SQL do Azure e outros serviços do Azure, os clientes da Um
 
     A implementação é totalmente automatizada usando bibliotecas de gerenciamento do C# e filas do Barramento de Serviço do Azure.
 
-2.	Utilização
+2.  Utilização
 
     Os clientes usam de um a três ambientes (para produção, preparo e/ou desenvolvimento), cada um com seu próprio banco de dados. Os bancos de dados do cliente estão em pools de banco de dados elásticos, o que permite à Umbraco fornecer dimensionamento sem a necessidade de provisionamento excessivo.
 
@@ -61,11 +62,11 @@ Com o Banco de Dados SQL do Azure e outros serviços do Azure, os clientes da Um
 
     O Banco de Dados SQL do Azure usa DTUs (Unidades de Transação de Banco de Dados) para representar o poder relativo exigido para transações reais de banco de dados. Para os clientes da UaaS, os bancos de dados costumam operar em aproximadamente 10 DTUs, mas cada um tem a elasticidade para dimensionamento sob demanda. Isso significa que a UaaS pode garantir que os clientes sempre tenham os recursos necessários, mesmo durante os horários de pico. Por exemplo, durante um evento esportivo recente no domingo à noite, um cliente da UaaS vivenciou picos de banco de dados de até 100 DTUs durante o jogo. Os pools elásticos do Azure permitiram que a Umbraco desse suporte a essa alta demanda sem degradação de desempenho.
 
-3.	Monitoramento
+3.  Monitoramento
 
     A Umbraco monitora a atividade do banco de dados usando painéis no portal do Azure, com alertas de email personalizados.
 
-4.	Recuperação de desastre
+4.  Recuperação de desastre
 
     O Azure fornece duas opções de DR (recuperação de desastre): Replicação Geográfica Ativa e Restauração Geográfica. A opção de DR que uma empresa deve selecionar depende de seus [objetivos de continuidade de negócios](sql-database-business-continuity.md).
 
@@ -73,11 +74,11 @@ Com o Banco de Dados SQL do Azure e outros serviços do Azure, os clientes da Um
 
     A Umbraco não exige a Replicação Geográfica, mas aproveita a Restauração Geográfica do Azure para ajudar a garantir mínimo tempo de inatividade no caso de uma interrupção. A Restauração Geográfica conta com backups de banco de dados no armazenamento do Azure com redundância geográfica. Isso permite aos usuários restaurar usando uma cópia de backup quando há uma interrupção na região primária.
 
-5.	Cancelar provisionamento
+5.  Cancelar provisionamento
 
     Quando um ambiente de projeto é excluído, todos os bancos de dados associados (desenvolvimento, preparo ou ativo) são removidos durante a limpeza da fila do Barramento de Serviço do Azure. Esse processo automatizado restaura os bancos de dados não utilizados no pool de disponibilidade de banco de dados elástico da Umbraco, disponibilizando-os para provisionamento futuro e mantendo a utilização máxima.
 
-##Pools elásticos permitem que a UaaS seja dimensionada com facilidade
+##<a name="elastic-pools-allow-uaas-to-scale-with-ease"></a>Pools elásticos permitem que a UaaS seja dimensionada com facilidade
 
 Aproveitando os pools de bancos de dados elásticos do Azure, a Umbraco pode otimizar o desempenho para seus clientes sem provisionamento excessivo ou escasso. Atualmente, a Umbraco tem quase 3.000 bancos de dados em 19 pools de bancos de dados elásticos, com a capacidade de serem dimensionados facilmente conforme a necessidade para acomodar qualquer um dos seus 325.000 clientes existentes ou novos clientes que estão prontos para implantar um CMS na nuvem.
 
@@ -89,7 +90,7 @@ Se um cliente não precisar mais de um segundo e/ou terceiro ambiente, ele simpl
 
 Figura 3. Arquitetura de implantação da UaaS no Microsoft Azure
 
-##O caminho do datacenter para a nuvem
+##<a name="the-path-from-datacenter-to-cloud"></a>O caminho do datacenter para a nuvem
 
 Quando os desenvolvedores da Umbraco inicialmente tomaram a decisão de mudar para um modelo de SaaS, eles sabiam que precisariam de uma maneira econômica e escalonável de criar o serviço.
 
@@ -105,11 +106,11 @@ Além disso, a equipe de desenvolvimento da Umbraco queria uma solução que a p
 
 Para atender a todos os critérios, a Umbraco buscou um parceiro de nuvem com as seguintes qualificações:
 
--	Confiabilidade e capacidade suficientes
--	Suporte a ferramentas de desenvolvimento da Microsoft para que os engenheiros da Umbraco não fossem forçados a reinventar completamente o ambiente de desenvolvimento
--	Presença em todos os mercados geográficos nos quais a UaaS compete (as empresas precisam ter certeza de que elas podem acessar seus dados rapidamente e que seus dados sejam armazenados em um local que atenda aos requisitos normativos regionais)
+-   Confiabilidade e capacidade suficientes
+-   Suporte a ferramentas de desenvolvimento da Microsoft para que os engenheiros da Umbraco não fossem forçados a reinventar completamente o ambiente de desenvolvimento
+-   Presença em todos os mercados geográficos nos quais a UaaS compete (as empresas precisam ter certeza de que elas podem acessar seus dados rapidamente e que seus dados sejam armazenados em um local que atenda aos requisitos normativos regionais)
 
-##Por que a Umbraco escolheu o Azure para a UaaS
+##<a name="why-umbraco-chose-azure-for-uaas"></a>Por que a Umbraco escolheu o Azure para a UaaS
 
 De acordo com Morten Christensen, "Depois de considerar todas as nossas opções, escolhemos o Azure porque ele atende a todos os nossos critérios, da capacidade de gerenciamento e escalabilidade à familiaridade e economia. Configuramos os ambientes em VMs do Azure, e cada ambiente tem sua própria instância do Banco de Dados SQL do Azure, com todas as instâncias em pools de bancos de dados elásticos. Ao separar os bancos de dados entre ambientes de desenvolvimento, preparo e ativo, podemos oferecer aos nossos clientes isolamento de desempenho robusto correspondente ao dimensionamento — uma grande vitória".
 
@@ -119,24 +120,29 @@ Morten também está satisfeito com os recursos de dimensionamento fornecidos pe
 
 Mikkel Madsen resume da seguinte maneira: "Adotamos o potente algoritmo do Azure que conecta um cenário comum de SaaS (integrando novos clientes em tempo real em escala) ao nosso padrão de aplicativo (pré-provisionando bancos de dados, tanto de desenvolvimento quanto ativos) sobre a tecnologia subjacente (usando as filas do Barramento de Serviço do Azure em conjunto com o Banco de Dados SQL do Azure)".
 
-##Com o Azure, a UaaS está superando as expectativas dos clientes
+##<a name="with-azure,-uaas-is-exceeding-customer-expectations"></a>Com o Azure, a UaaS está superando as expectativas dos clientes
 
 Desde que escolheu o Azure como seu parceiro de nuvem, a Umbraco tem sido capaz de fornecer aos clientes da UaaS desempenho otimizado de gerenciamento de conteúdo, sem o investimento em recursos de TI exigido por uma solução auto-hospedada. Como Morten afirma, "Adoramos a conveniência e a escalabilidade de desenvolvedor que o Azure nos proporciona, e nossos clientes estão empolgados com os recursos e a confiabilidade. De modo geral, tem sido uma grande vitória para nós!"
  
-## Mais informações
+## <a name="more-information"></a>Mais informações
 
 - Para saber mais sobre os pools de bancos de dados elásticos do Azure, confira os [pools de bancos de dados elásticos](sql-database-elastic-pool.md).
 
 - Para saber mais sobre o Barramento de Serviço, confira [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/).
 
-- Para saber mais sobre funções web e funções de trabalho, confira [funções de trabalho](../fundamentals-introduction-to-azure.md#compute).
+- Para saber mais sobre funções web e funções de trabalho, confira [funções de trabalho](../fundamentals-introduction-to-azure.md#compute). 
 
-- Para saber mais sobre redes virtuais, confira [redes virtuais](https://azure.microsoft.com/documentation/services/virtual-network/).
+- Para saber mais sobre redes virtuais, confira [redes virtuais](https://azure.microsoft.com/documentation/services/virtual-network/).    
 
-- Para saber mais sobre backup e recuperação, confira [continuidade de negócios](sql-database-business-continuity.md).
+- Para saber mais sobre backup e recuperação, confira [continuidade de negócios](sql-database-business-continuity.md).  
 
-- Para saber mais sobre o monitoramento de pools, confira [monitoramento de pools](sql-database-elastic-pool-manage-portal.md).
+- Para saber mais sobre o monitoramento de pools, confira [monitoramento de pools](sql-database-elastic-pool-manage-portal.md). 
 
 - Para saber mais sobre a Umbraco como serviço, confira [Umbraco](https://umbraco.com/cloud).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

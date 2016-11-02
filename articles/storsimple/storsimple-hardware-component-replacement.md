@@ -12,18 +12,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/22/2016"
+   ms.date="10/11/2016"
    ms.author="alkohli" />
 
-# Substituição de componentes de hardware do StorSimple
 
-## Visão geral
+# <a name="storsimple-hardware-component-replacement"></a>Substituição de componentes de hardware do StorSimple
+
+## <a name="overview"></a>Visão geral
 
 Os tutoriais de substituição de componentes de hardware descrevem os componentes de hardware do seu dispositivo da série 8000 do Microsoft Azure StorSimple e as etapas necessárias para removê-los e substituí-los. Este artigo descreve os ícones de segurança, fornece ponteiros para os tutoriais detalhados e lista os componentes que podem ser substituíveis.
 
 >[AZURE.IMPORTANT] Antes de tentar remover ou substituir qualquer componente do StorSimple, lembre-se de consultar as [convenções de ícones de segurança](#safety-icon-conventions) e outras [precauções de segurança](storsimple-safety.md).
  
-### Convenções de ícones de segurança
+### <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 
 A tabela a seguir descreve os ícones de segurança usados nestes tutoriais. Preste muita atenção a esses ícones de segurança ao percorrer as etapas para remover e substituir componentes do dispositivo.
 
@@ -39,23 +40,23 @@ A tabela a seguir descreve os ícones de segurança usados nestes tutoriais. Pre
 |![Ícone de leia as instruções](./media/storsimple-hardware-component-replacement/ReadInstructions.png)|**Leia todas as instruções primeiro**| |
 |![Ícone de risco de tombamento](./media/storsimple-hardware-component-replacement/TipHazard.png)|**Risco de tombamento**| |
 
-### Antes de começar
+### <a name="before-you-begin"></a>Antes de começar
 
-Familiarize-se com as informações de segurança sobre o seu dispositivo e com os ícones de segurança usados neste tutorial. Vá para [Instalar e operar seu dispositivo StorSimple com segurança](storsimple-safety.md) para obter informações completas. Examine as [Precauções de segurança](storsimple-safety.md#handling-precautions) antes manusear o seu dispositivo StorSimple.
+Familiarize-se com as informações de segurança sobre o seu dispositivo e com os ícones de segurança usados neste tutorial. Vá para [Instalar e operar seu dispositivo StorSimple com segurança](storsimple-safety.md) para obter informações completas. Examine as [Precauções de segurança](storsimple-safety.md#handling-precautions) antes manusear o seu dispositivo StorSimple. 
 
 Antes de tentar substituir um componente, considere as seguintes informações.
 
-![Ícone de aviso](./media/storsimple-hardware-component-replacement/Warning.png) ![Ícone de choque elétrico](./media/storsimple-hardware-component-replacement/Electric.png) **AVISO!**
+![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png) ![Electrical Shock Icon](./media/storsimple-hardware-component-replacement/Electric.png) **AVISO!** 
 
 - Proteja-se corretamente usando um tapete antiestático ao lidar com módulos e componentes do seu dispositivo StorSimple.
 
 - Não toque em nenhum circuito. Use as alças e os guias ao manusear componentes que possam ter circuitos expostos.
 
-![Ícone de aviso](./media/storsimple-hardware-component-replacement/Warning.png) ![Ícone de observação](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **OBSERVAÇÃO:**
+![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png) ![Notice Icon](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **OBSERVAÇÃO:**
 
 Ao substituir um módulo, **NUNCA deixe um compartimento vazio na parte traseira do compartimento**. Obtenha uma peça de reposição ou um módulo vazio antes de remover a peça com problema.
 
-## Procedimentos de substituição de componentes de hardware
+## <a name="hardware-component-replacement-procedures"></a>Procedimentos de substituição de componentes de hardware
 
 Seu dispositivo StorSimple da série 8000 consiste de vários módulos de plug-in nos compartimentos primário e/ou EBOD. O 8100 tem um único compartimento primário, enquanto o 8600 é um dispositivo de compartimento duplo com um compartimento primário e um compartimento EBOD.
 
@@ -75,8 +76,8 @@ O compartimento primário e o compartimento EBOD têm módulos de E/S diferentes
 
 |Componentes|# Presente|Módulo plug-in?| Procedimento de substituição
 |:---------|:--------|:--------------|:---------------------|
-|Chassi|1|Não| [Substituir o chassis em seu dispositivo StorSimple](storsimple-chassis-replacement.md) |
-|Controladores do EBOD|2|Sim| [Substituir um controlador EBOD em seu dispositivo StorSimple](storsimple-EBOD-controller-replacement.md) |
+|Chassi|1|Não| [Substituir o chassi em seu dispositivo StorSimple](storsimple-chassis-replacement.md) |
+|Controladores do EBOD|2|Sim| [Substituir um controlador EBOD em seu dispositivo StorSimple](storsimple-ebod-controller-replacement.md) |
 |Módulos de energia e resfriamento (PCMs) de 580W|2|Sim| [Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple](storsimple-power-cooling-module-replacement.md) |
 |Unidades de disco|12|Sim| [Substituir uma unidade de disco em seu dispositivo StorSimple](storsimple-disk-drive-replacement.md) |
 
@@ -116,7 +117,7 @@ Tanto compartimento primário como o compartimento EBOD têm módulos de suporte
 |3|Controlador 0 do EBOD|
 |4|Controlador 1 do EBOD|
 
-## Unidades renováveis
+## <a name="field-replaceable-units"></a>Unidades renováveis
 
 As seguintes unidades renováveis (FRUs) estão disponíveis para seu dispositivo StorSimple:
 
@@ -138,8 +139,12 @@ As seguintes unidades renováveis (FRUs) estão disponíveis para seu dispositiv
 
 [Entre em contato com o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para pedir qualquer uma dessas unidades de reposição.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Examine todas as [informações de segurança](storsimple-safety.md) antes de tentar substituir um componente de hardware do StorSimple.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

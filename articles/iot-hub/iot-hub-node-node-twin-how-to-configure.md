@@ -1,0 +1,280 @@
+<properties
+    pageTitle="Usar propriedades gêmeas | Microsoft Azure"
+    description="Este tutorial mostra como usar propriedades gêmeas"
+    services="iot-hub"
+    documentationCenter=".net"
+    authors="fsautomata"
+    manager="timlt"
+    editor=""/>
+
+<tags
+     ms.service="iot-hub"
+     ms.devlang="node"
+     ms.topic="article"
+     ms.tgt_pltfrm="na"
+     ms.workload="na"
+     ms.date="09/13/2016"
+     ms.author="elioda"/>
+
+
+# <a name="tutorial:-use-desired-properties-to-configure-devices-(preview)"></a>Tutorial: Usar propriedades desejadas para configurar dispositivos (visualização)
+
+[AZURE.INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
+
+No fim deste tutorial, você terá dois aplicativos de console do Node.js:
+
+* **SimulateDeviceConfiguration.js**, um aplicativo de dispositivo simulado que aguarda uma atualização da configuração desejada e reporta o status de um processo simulado de atualização de configuração.
+* **SetDesiredConfigurationAndQuery.js**, um aplicativo Node.js que deve ser executado do back-end e que define a configuração desejada em um dispositivo e consulta o processo de atualização de configuração.
+
+> [AZURE.NOTE] O artigo [SDKs do Hub IoT][lnk-hub-sdks] fornece informações sobre vários SDKs que você pode usar para compilar tanto aplicativos de back-end quanto dispositivos.
+
+Para concluir este tutorial, você precisará do seguinte:
+
++ Node.js versão 0.10.x ou posterior.
+
++ Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, veja [Avaliação Gratuita do Azure][lnk-free-trial].)
+
+Se você tiver seguido o tutorial [Introdução a gêmeos de dispositivo][lnk-twin-tutorial], você já terá um hub de gerenciamento de dispositivos habilitado e uma identidade de dispositivo chamada **myDeviceId**; você poderá então pular para a seção [Criar o aplicativo de dispositivo simulado][lnk-device app].
+
+[AZURE.INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
+
+## <a name="create-the-simulated-device-app"></a>Criar o aplicativo de dispositivo simulado
+
+Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao seu hub como **myDeviceId**, aguarda uma atualização de configuração desejada e, em seguida, reporta atualizações sobre o processo simulado de atualização de configuração.
+
+1. Crie uma nova pasta vazia denominada **simulatedeviceconfiguration**. Na pasta **simulatedeviceconfiguration**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
+
+    ```
+    npm init
+    ```
+
+2. No prompt de comando, na pasta **simulatedeviceconfiguration**, execute o seguinte comando para instalar os pacotes **azure-iot-device** e **azure-iot-device-mqtt**:
+
+    ```
+    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    ```
+
+3. Usando um editor de texto, crie um novo arquivo **SimulateDeviceConfiguration.js** na pasta **simulatedeviceconfiguration**.
+
+4. Adicione o seguinte código ao arquivo **SimulateDeviceConfiguration.js** e substitua o espaço reservado **{device connection string}** pela cadeia de conexão copiada quando você criou a identidade do dispositivo **myDeviceId**:
+
+        'use strict';
+        var Client = require('azure-iot-device').Client;
+        var Protocol = require('azure-iot-device-mqtt').Mqtt;
+
+        var connectionString = '{device connection string}';
+        var client = Client.fromConnectionString(connectionString, Protocol);
+
+        client.open(function(err) {
+            if (err) {
+                console.error('could not open IotHub client');
+            } else {
+                client.getTwin(function(err, twin) {
+                    if (err) {
+                        console.error('could not get twin');
+                    } else {
+                        console.log('retrieved device twin');
+                        twin.properties.reported.telemetryConfig = {
+                            configId: "0",
+                            sendFrequency: "24h"
+                        }
+                        twin.on('properties.desired', function(desiredChange) {
+                            console.log("received change: "+JSON.stringify(desiredChange));
+                            var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
+                            if (desiredChange.telemetryConfig &&desiredChange.telemetryConfig.configId !== currentTelemetryConfig.configId) {
+                                initConfigChange(twin);
+                            }
+                        });
+                    }
+                });
+            }
+        });
+
+    O objeto **Client** expõe todos os métodos necessários para você, do dispositivo, interagir com gêmeos de dispositivo. O código anterior, depois de inicializar o objeto **Client**, recupera o gêmeo para **myDeviceId** e anexa um manipulador para a atualização em propriedades desejadas. O manipulador verifica que há uma solicitação de alteração de configuração real ao comparar as configIds, então invoca um método que inicia a alteração de configuração.
+
+    Observe que, para simplificar, o código anterior usa um padrão embutido em código para a configuração inicial. Um aplicativo real provavelmente carregaria essa configuração de um armazenamento local.
+    
+    > [AZURE.IMPORTANT] Eventos de alteração de propriedade desejada são sempre emitidos uma vez no ato da conexão com o dispositivo, não deixe de verificar se há uma alteração real nas propriedades desejadas antes de executar qualquer ação.
+
+5. Adicione os seguintes métodos antes da invocação de `client.open()`:
+
+        var initConfigChange = function(twin) {
+            var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
+            currentTelemetryConfig.pendingConfig = twin.properties.desired.telemetryConfig;
+            currentTelemetryConfig.status = "Pending";
+
+            var patch = {
+            telemetryConfig: currentTelemetryConfig
+            };
+            twin.properties.reported.update(patch, function(err) {
+                if (err) {
+                    console.log('Could not report properties');
+                } else {
+                    console.log('Reported pending config change: ' + JSON.stringify(patch));
+                    setTimeout(function() {completeConfigChange(twin);}, 60000);
+                }
+            });
+        }
+
+        var completeConfigChange =  function(twin) {
+            var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
+            currentTelemetryConfig.configId = currentTelemetryConfig.pendingConfig.configId;
+            currentTelemetryConfig.sendFrequency = currentTelemetryConfig.pendingConfig.sendFrequency;
+            currentTelemetryConfig.status = "Success";
+            delete currentTelemetryConfig.pendingConfig;
+            
+            var patch = {
+                telemetryConfig: currentTelemetryConfig
+            };
+            patch.telemetryConfig.pendingConfig = null;
+
+            twin.properties.reported.update(patch, function(err) {
+                if (err) {
+                    console.error('Error reporting properties: ' + err);
+                } else {
+                    console.log('Reported completed config change: ' + JSON.stringify(patch));
+                }
+            });
+        };
+
+    O método **initConfigChange** atualiza as propriedades reportadas no objeto gêmeo local com a solicitação de atualização de configuração e define o status para **Pendente**, então atualiza o gêmeo do dispositivo no serviço. Depois de atualizar o gêmeo com êxito, ele simula um processo de execução demorada que termina com a execução de **completeConfigChange**. Esse método atualiza propriedades relatadas do gêmeo local definindo o status como **Êxito** e removendo o objeto **pendingConfig**. Em seguida, ele atualiza o gêmeo no serviço.
+
+    Observe que, para economizar largura de banda, as propriedades reportadas são atualizadas especificando-se apenas as propriedades a serem modificadas (chamadas de **patch** no código acima), em vez de substituir o documento inteiro.
+
+    > [AZURE.NOTE] Este tutorial não simula nenhum comportamento para atualizações de configuração simultâneas. Alguns processos de atualização de configuração podem ser capazes de acomodar as alterações de configuração de destino enquanto a atualização está em execução, outros podem colocá-las em fila e outros poderiam ainda rejeitá-las com uma condição de erro. Certifique-se de considerar o comportamento desejado para o seu processo de configuração específico e adicione a lógica apropriada antes de iniciar a alteração de configuração.
+
+6. Execute o aplicativo do dispositivo:
+
+        node SimulateDeviceConfiguration.js
+
+    Você deve ver a mensagem `retrieved device twin`. Mantenha o aplicativo em execução.
+
+## <a name="create-the-service-app"></a>Criar o aplicativo do serviço
+
+Nesta seção, você criará um aplicativo de console do Node. js que atualiza as *propriedades desejadas* no gêmeo associado à **myDeviceId** com um novo objeto de configuração de telemetria. Então, ele consulta os gêmeos de dispositivo armazenados no hub e mostra a diferença entre as configurações desejadas e as reportadas do dispositivo.
+
+1. Crie uma nova pasta vazia denominada **setdesiredandqueryapp**. Na pasta **setdesiredandqueryapp**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
+
+    ```
+    npm init
+    ```
+
+2. No prompt de comando, na pasta **setdesiredandqueryapp**, execute o seguinte comando para instalar o pacote **azure-iothub**:
+
+    ```
+    npm install azure-iothub@dtpreview node-uuid --save
+    ```
+
+3. Usando um editor de texto, crie um novo arquivo **SetDesiredAndQuery.js** na pasta **addtagsandqueryapp**.
+
+4. Adicione o seguinte código ao arquivo **SetDesiredAndQuery.js** e substitua o espaço reservado **{service connection string}** pela cadeia de conexão que você copiou quando criou seu hub:
+
+        'use strict';
+        var iothub = require('azure-iothub');
+        var uuid = require('node-uuid');
+        var connectionString = '{service connection string}';
+        var registry = iothub.Registry.fromConnectionString(connectionString);
+         
+        registry.getTwin('myDeviceId', function(err, twin){
+            if (err) {
+                console.error(err.constructor.name + ': ' + err.message);
+            } else {
+                var newConfigId = uuid.v4();
+                var newFrequency = process.argv[2] || "5m";
+                var patch = {
+                    properties: {
+                        desired: {
+                            telemetryConfig: {
+                                configId: newConfigId,
+                                sendFrequency: newFrequency
+                            }
+                        }
+                    }
+                }
+                twin.update(patch, function(err) {
+                    if (err) {
+                        console.error('Could not update twin: ' + err.constructor.name + ': ' + err.message);
+                    } else {
+                        console.log(twin.deviceId + ' twin updated successfully');
+                    }
+                });
+                setInterval(queryTwins, 10000);
+            }
+        });
+            
+
+    O objeto **Registry** expõe todos os métodos necessários para interagir com gêmeos de dispositivo do serviço. O código anterior, depois de inicializar o objeto **Registry**, recupera o gêmeo para **myDeviceId** e atualiza as propriedades desejadas com um novo objeto de configuração de telemetria. Depois disso, ele chama o evento da função **queryTwins** em 10 segundos.
+
+    > [AZURE.IMPORTANT] Esse aplicativo consulta o Hub IoT a cada 10 segundos para fins ilustrativos. Use consultas para gerar relatórios voltados para o usuário em vários dispositivos, não para detectar alterações. Se sua solução exigir notificações em tempo real de eventos de dispositivo, use [mensagens do dispositivo para a nuvem][lnk-d2c].
+
+5. Adicione o código a seguir logo antes da invocação de `registry.getDeviceTwin()` para implementar a função **queryTwins**:
+
+        var queryTwins = function() {
+            var query = registry.createQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'", 100);
+            query.nextAsTwin(function(err, results) {
+                if (err) {
+                    console.error('Failed to fetch the results: ' + err.message);
+                } else {
+                    console.log();
+                    results.forEach(function(twin) {
+                        var desiredConfig = twin.properties.desired.telemetryConfig;
+                        var reportedConfig = twin.properties.reported.telemetryConfig;
+                        console.log("Config report for: " + twin.deviceId);
+                        console.log("Desired: ");
+                        console.log(JSON.stringify(desiredConfig, null, 2));
+                        console.log("Reported: ");
+                        console.log(JSON.stringify(reportedConfig, null, 2));
+                    });
+                }
+            });
+        };
+
+    O código anterior consulta os gêmeos armazenados no hub e imprime as configurações de telemetria desejadas e reportadas. Consulte a [Linguagem de consulta de Hub IoT][lnk-query] para saber como gerar relatórios em todos os seus dispositivos.
+
+
+8. Com **SimulateDeviceConfiguration.js** em execução, execute o aplicativo com:
+
+        node SetDesiredAndQuery.js 5m
+
+    Você deve ver a configuração reportada mudar de **Êxito** para **Pendente** e para **Êxito** novamente com a nova frequência de envio ativo de cinco minutos em vez de 24 horas.
+
+    > [AZURE.IMPORTANT] Há um atraso de até um minuto entre a operação de relatório de dispositivo e o resultado da consulta. Isso é para habilitar a infraestrutura de consulta a trabalhar em escala muito alta. Para recuperar os modos de exibição consistentes de um único gêmeo, use o método **getDeviceTwin** na classe **Registry**.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Neste tutorial, você definiu uma configuração desejada como *propriedades desejadas* de um aplicativo de back-end e escreveu um aplicativo de dispositivo simulado para detectar essa alteração e simular um processo de atualização de várias etapas, reportando seu status como *propriedades reportadas* ao gêmeo.
+
+Veja os recursos a seguir para saber como:
+
+- Enviar telemetria de dispositivos com o tutorial [Introdução ao Hub IoT][lnk-iothub-getstarted],
+- agendar ou executar operações em grandes conjuntos de dispositivos, veja o tutorial [Usar trabalhos para agendar e difundir operações de dispositivo][lnk de agendamento de trabalhos].
+- controlar dispositivos interativamente (como ativar um ventilador de um aplicativo controlado pelo usuário), com o tutorial [Usar métodos diretos][lnk-methods-tutorial].
+
+
+<!-- links -->
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
+[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+
+[lnk-devguide-jobs]: iot-hub-devguide-jobs.md
+[lnk-query]: iot-hub-devguide-query-language.md
+[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-methods]: iot-hub-devguide-direct-methods.md
+[lnk-dm-overview]: iot-hub-device-management-overview.md
+[lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
+[lnk-schedule-jobs]: iot-hub-schedule-jobs.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
+[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
+[lnk-methods-tutorial]: iot-hub-c2d-methods.md
+
+[lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
+
+[lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

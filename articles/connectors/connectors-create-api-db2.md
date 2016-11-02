@@ -18,10 +18,11 @@
    ms.author="plarsen"/>
 
 
-# Introdução ao Conector do DB2
+
+# <a name="get-started-with-the-db2-connector"></a>Introdução ao Conector do DB2
 O conector da Microsoft para DB2 conecta os Aplicativos Lógicos aos recursos armazenados em um banco de dados DB2 da IBM. Este conector inclui um cliente Microsoft para se comunicar com computadores de servidores DB2 remotos em uma rede TCP/IP. Isso inclui bancos de dados de nuvem, como IBM Bluemix dashDB ou IBM DB2 para Windows em execução na virtualização do Azure e bancos de dados locais usando o gateway de dados local. Veja a [lista](connectors-create-api-db2.md#supported-db2-platforms-and-versions) de plataformas e versões do IBM DB2 com suporte (neste tópico).
 
->[AZURE.NOTE] Esta versão do artigo se aplica à disponibilidade de Aplicativos Lógicos em geral (GA).
+>[AZURE.NOTE] Esta versão do artigo se aplica à disponibilidade de Aplicativos Lógicos em geral (GA). 
 
 O Conector DB2 oferece suporte às seguintes operações do banco de dados:
 
@@ -36,10 +37,10 @@ Este tópico mostra como usar o Conector em um aplicativo lógico para processar
 
 Para saber mais sobre os Aplicativos Lógicos, consulte como [criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Ações disponíveis
+## <a name="available-actions"></a>Ações disponíveis
 O conector DB2 dá suporte às seguintes ações do aplicativo lógico:
 
-- Getables
+- GetTables
 - GetRow
 - GetRows
 - InsertRow
@@ -47,54 +48,54 @@ O conector DB2 dá suporte às seguintes ações do aplicativo lógico:
 - DeleteRow
 
 
-## Listar tabelas
+## <a name="list-tables"></a>Listar tabelas
 A criação de um aplicativo lógico para qualquer operação é composta de várias etapas executadas por meio do portal do Microsoft Azure.
 
 No aplicativo lógico, você pode adicionar uma ação para listar tabelas em um banco de dados DB2. A ação instrui o conector a processar uma instrução de esquema do DB2, como `CALL SYSIBM.SQLTABLES`.
 
-### Criar um aplicativo lógico
-1.	No **painel inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, então, **Aplicativo Lógico**.
-2.	Insira o **Nome**, como `Db2getTables`, **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
+### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
+1.  Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
+2.  Insira o **Nome**, como `Db2getTables`, **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
 
-### Adicionar um gatilho e uma ação
-1.	No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
-2.	Na lista de **gatilhos**, selecione **Recorrência**.
-3.	No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**.
-4.	Selecione a caixa **+ Nova etapa** caixa e escolha **Adicionar uma ação**.
-5.	Na lista de **ações**, digite `db2` na caixa de edição **Procurar mais ações** e selecione **DB2 - Obter tabelas (Visualização)**.
+### <a name="add-a-trigger-and-action"></a>Adicionar um gatilho e uma ação
+1.  No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
+2.  Na lista de **gatilhos**, selecione **Recorrência**. 
+3.  No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**.  
+4.  Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
+5.  Na lista de **ações**, digite `db2` na caixa de edição **Procurar mais ações** e selecione **DB2 – Obter tabelas (Visualização)**.
 
-	![](./media/connectors-create-api-db2/Db2connectorActions.png)
+    ![](./media/connectors-create-api-db2/Db2connectorActions.png)  
 
-6.	No painel de configuração **DB2 - Obter tabelas**, selecione **caixa de seleção** para habilitar **Conectar via gateway de dados local**. Observe que as configurações mudam de nuvem para local.
-	- Digite o valor para **Servidor**, na forma de número da porta com dois pontos para o endereço ou alias. Por exemplo, digite `ibmserver01:50000`.
-	- Digite o valor para o **Banco de Dados**. Por exemplo, digite `nwind`.
-	- Selecione o valor para a **Autenticação**. Por exemplo, selecione **Básica**.
-	- Digite o valor para o **Nome de Usuário**. Por exemplo, digite `db2admin`.
-	- Digite o valor para a **Senha**. Por exemplo, digite `Password1`.
-	- Selecione o valor para o **Gateway**. Por exemplo, selecione **datagateway01**.
-7. Escolha **Criar** e, em seguida, **Salvar**.
+6.  No painel de configuração **DB2 – Obter tabelas**, selecione **caixa de seleção** para habilitar **Conectar via gateway de dados local**. Observe que as configurações mudam de nuvem para local.
+    - Digite o valor para **Servidor**, na forma de número da porta com dois pontos para o endereço ou alias. Por exemplo, digite `ibmserver01:50000`.
+    - Digite o valor para o **Banco de Dados**. Por exemplo, digite `nwind`.
+    - Selecione o valor para a **Autenticação**. Por exemplo, selecione **Básica**.
+    - Digite o valor para o **Nome de Usuário**. Por exemplo, digite `db2admin`.
+    - Digite o valor para a **Senha**. Por exemplo, digite `Password1`.
+    - Selecione o valor para o **Gateway**. Por exemplo, selecione **datagateway01**.
+7. Selecione **Criar** e, em seguida, **Salvar**. 
 
-	![](./media/connectors-create-api-db2/Db2connectorOnPremisesDataGatewayConnection.png)
+    ![](./media/connectors-create-api-db2/Db2connectorOnPremisesDataGatewayConnection.png)
 
-8.	Na folha **Db2getTables**, na lista **Todas as execuções** em **Resumo**, selecione o primeiro item listado (a execução mais recente).
-9.	Na folha **Execução do aplicativo lógico**, escolha **Detalhes da Execução**. Na lista **Ação**, clique em **Get\_tables**. Confira o valor para o **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas** e exiba as saídas, que deverão incluir uma lista de tabelas.
+8.  Na folha **Db2getTables**, na lista **Todas as execuções** em **Resumo**, selecione o primeiro item listado (a execução mais recente).
+9.  Na folha **Execução do aplicativo lógico**, selecione **Detalhes da Execução**. Na lista **Ação**, clique em **Get_tables**. Confira o valor de **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas**e exiba as saídas, que deverão incluir uma lista de tabelas.
 
-	![](./media/connectors-create-api-db2/Db2connectorGetTablesLogicAppRunOutputs.png)
+    ![](./media/connectors-create-api-db2/Db2connectorGetTablesLogicAppRunOutputs.png)
 
-## Criar as conexões
-Este conector dá suporte às conexões com os bancos de dados hospedados no local e na nuvem usando as propriedades de conexão a seguir.
+## <a name="create-the-connections"></a>Criar as conexões
+Este conector dá suporte às conexões com os bancos de dados hospedados no local e na nuvem usando as propriedades de conexão a seguir. 
 
 Propriedade | Descrição
 --- | ---
-server | Obrigatório. Aceita um valor da cadeia de caracteres que representa um endereço TCP/IP ou alias no formato IPv4 ou IPv6, seguido de (delimitado por dois pontos) um número de porta TCP/IP. 
-database | Obrigatório. Aceita um valor da cadeia de caracteres que representa um Nome do Banco de Dados Relacional (RDBNAM) DRDA. O DB2 para z/OS aceita uma cadeia de caracteres de 16 bytes (o banco de dados é conhecido como um IBM DB2 para o local do z/OS). O DB2 para i5/OS aceita uma cadeia de caracteres de 18 bytes (o banco de dados é conhecido como um IBM DB2 para o banco de dados relacional i). O DB2 para LUW aceita uma cadeia de caracteres de 8 bytes.
-autenticação | Opcional. Aceita um valor de item de lista, Básica ou Windows (kerberos). 
+Servidor | Obrigatório. Aceita um valor da cadeia de caracteres que representa um endereço TCP/IP ou alias no formato IPv4 ou IPv6, seguido de (delimitado por dois pontos) um número de porta TCP/IP. 
+Banco de Dados | Obrigatório. Aceita um valor da cadeia de caracteres que representa um Nome do Banco de Dados Relacional (RDBNAM) DRDA. O DB2 para z/OS aceita uma cadeia de caracteres de 16 bytes (o banco de dados é conhecido como um IBM DB2 para o local do z/OS). O DB2 para i5/OS aceita uma cadeia de caracteres de 18 bytes (o banco de dados é conhecido como um IBM DB2 para o banco de dados relacional i). O DB2 para LUW aceita uma cadeia de caracteres de 8 bytes.
+Autenticação | Opcional. Aceita um valor de item de lista, Básica ou Windows (kerberos). 
 Nome de Usuário | Obrigatório. Aceita um valor de cadeia de caracteres. O DB2 para z/OS aceita uma cadeia de caracteres de 8 bytes. O DB2 para i aceita uma cadeia de caracteres de 10 bytes. O DB2 para Linux ou UNIX aceita uma cadeia de caracteres de 8 bytes. O DB2 para Windows aceita uma cadeia de caracteres de 30 bytes.
 Senha | Obrigatório. Aceita um valor de cadeia de caracteres.
-gateway | Obrigatório. Aceita um valor de item da lista, que representa o gateway de dados local definido para os Aplicativos Lógicos no grupo de armazenamento.  
+Gateway | Obrigatório. Aceita um valor de item de lista, que representa o gateway de dados local definido para os Aplicativos Lógicos no grupo de armazenamento.  
 
-## Criar a conexão de gateway local
-Este conector pode acessar um banco de dados DB2 local usando o gateway local. Consulte os tópicos do gateway para obter mais informações.
+## <a name="create-the-on-premises-gateway-connection"></a>Criar a conexão de gateway local
+Este conector pode acessar um banco de dados DB2 local usando o gateway local. Consulte os tópicos do gateway para obter mais informações. 
 
 1. No painel de configuração **Gateways**, marque a **caixa de seleção** para habilitar **Conectar via gateway**. Observe que as configurações mudam de nuvem para local.
 2. Digite o valor para **Servidor**, na forma de número da porta com dois pontos para o endereço ou alias. Por exemplo, digite `ibmserver01:50000`.
@@ -103,183 +104,183 @@ Este conector pode acessar um banco de dados DB2 local usando o gateway local. C
 5. Digite o valor para o **Nome de Usuário**. Por exemplo, digite `db2admin`.
 6. Digite o valor para a **Senha**. Por exemplo, digite `Password1`.
 7. Selecione o valor para o **Gateway**. Por exemplo, selecione **datagateway01**.
-8. Selecione **Criar** para continuar.
+8. Selecione **Criar** para continuar. 
 
-	![](./media/connectors-create-api-db2/Db2connectorOnPremisesDataGatewayConnection.png)
+    ![](./media/connectors-create-api-db2/Db2connectorOnPremisesDataGatewayConnection.png)
 
-## Criar a conexão de nuvem
-Este conector pode acessar um banco de dados DB2 de nuvem.
+## <a name="create-the-cloud-connection"></a>Criar a conexão de nuvem
+Este conector pode acessar um banco de dados DB2 de nuvem. 
 
-1. No painel de configuração **Gateways**, deixe a **caixa de seleção** desabilitada (não clicada) **Conectar via gateway**.
+1. No painel de configuração **Gateways**, deixe a **caixa de seleção** desabilitada (não clicada) **Conectar via gateway**. 
 2. Digite o valor para o **Nome da conexão**. Por exemplo, digite `hisdemo2`.
 3. Digite o valor para o **Nome do servidor DB2**, na forma de número da porta com dois pontos para o endereço ou alias. Por exemplo, digite `hisdemo2.cloudapp.net:50000`.
 3. Digite o valor para o **Nome do banco de dados DB2**. Por exemplo, digite `nwind`.
 4. Digite o valor para o **Nome de Usuário**. Por exemplo, digite `db2admin`.
 5. Digite o valor para a **Senha**. Por exemplo, digite `Password1`.
-6. Selecione **Criar** para continuar.
+6. Selecione **Criar** para continuar. 
 
-	![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png)
+    ![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png)
 
-## Buscar todas as linhas usando SELECT
+## <a name="fetch-all-rows-using-select"></a>Buscar todas as linhas usando SELECT
 Você pode definir uma ação de aplicativo lógico para buscar todas as linhas em uma tabela do DB2. Isso instrui o conector a processar uma instrução SELECT de DB2, como `SELECT * FROM AREA`.
 
-### Criar um aplicativo lógico
-1.	No **painel inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, então, **Aplicativo Lógico**.
-2.	Insira o **Nome**, como `Db2getRows`, **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
+### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
+1.  Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
+2.  Insira o **Nome**, como `Db2getRows`, **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
 
-### Adicionar um gatilho e uma ação
-1.	No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
-2.	Na lista de **gatilhos**, selecione **Recorrência**.
-3.	No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e selecione **Intervalo** para digitar **7**.
-4.	Selecione a caixa **+ Nova etapa** caixa e escolha **Adicionar uma ação**.
-5.	Na lista de **ações**, digite `db2` na caixa de edição **Procurar mais ações** e então selecione **DB2 - Obter linhas (Visualização)**.
+### <a name="add-a-trigger-and-action"></a>Adicionar um gatilho e uma ação
+1.  No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
+2.  Na lista de **gatilhos**, selecione **Recorrência**. 
+3.  No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
+4.  Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
+5.  Na lista de **ações**, digite `db2` na caixa de edição **Procurar mais ações** e então selecione **DB2 – Obter linhas (Visualização)**.
 6. Na ação **Obter linhas (Visualização)**, selecione **Alterar conexão**.
-7. No painel de configuração **Conexões**, selecione **Criar novo**.
+7. No painel de configuração **Conexões**, selecione **Criar novo**. 
 
-	![](./media/connectors-create-api-db2/Db2connectorNewConnection.png)
+    ![](./media/connectors-create-api-db2/Db2connectorNewConnection.png)
   
 8. No painel de configuração **Gateways**, deixe a **caixa de seleção** desabilitada (não clicada) **Conectar via gateway**.
-	- Digite o valor para o **Nome da conexão**. Por exemplo, digite `HISDEMO2`.
-	- Digite o valor para o **Nome do servidor DB2**, na forma de número da porta com dois pontos para o endereço ou alias. Por exemplo, digite `HISDEMO2.cloudapp.net:50000`.
-	- Digite o valor para o **Nome do banco de dados DB2**. Por exemplo, digite `NWIND`.
-	- Digite o valor para o **Nome de Usuário**. Por exemplo, digite `db2admin`.
-	- Digite o valor para a **Senha**. Por exemplo, digite `Password1`.
+    - Digite o valor para o **Nome da conexão**. Por exemplo, digite `HISDEMO2`.
+    - Digite o valor para o **Nome do servidor DB2**, na forma de número da porta com dois pontos para o endereço ou alias. Por exemplo, digite `HISDEMO2.cloudapp.net:50000`.
+    - Digite o valor para o **Nome do banco de dados DB2**. Por exemplo, digite `NWIND`.
+    - Digite o valor para o **Nome de Usuário**. Por exemplo, digite `db2admin`.
+    - Digite o valor para a **Senha**. Por exemplo, digite `Password1`.
 9. Selecione **Criar** para continuar.
 
-	![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png)
+    ![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png)
 
 10. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
 11. Opcionalmente, selecione **Mostrar opções avançadas** para especificar as opções de consulta.
-12. Selecione **Salvar**.
+12. Selecione **Salvar**. 
 
-	![](./media/connectors-create-api-db2/Db2connectorGetRowsTableName.png)
+    ![](./media/connectors-create-api-db2/Db2connectorGetRowsTableName.png)
 
-13.	Na folha **Db2getRows**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
-14.	Na folha **Execução do aplicativo lógico**, escolha **Detalhes da Execução**. Na lista **Ação**, selecione **Get\_rows**. Confira o valor para o **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas** e exiba as saídas, que deverão incluir uma lista de linhas.
+13. Na folha **Db2getRows**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
+14. Na folha **Execução do aplicativo lógico**, selecione **Detalhes da Execução**. Na lista **Ação**, selecione **Get_rows**. Confira o valor de **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas**e exiba as saídas, que deverão incluir uma lista de linhas.
 
-	![](./media/connectors-create-api-db2/Db2connectorGetRowsOutputs.png)
+    ![](./media/connectors-create-api-db2/Db2connectorGetRowsOutputs.png)
 
-## Adicionar uma linha usando INSERT
+## <a name="add-one-row-using-insert"></a>Adicionar uma linha usando INSERT
 Você pode definir uma ação de aplicativo lógico para adicionar uma linha a uma tabela do DB2. Essa ação instrui o conector a processar uma instrução INSERT do DB2, como `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
-### Criar um aplicativo lógico
-1.	No **painel inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, então, **Aplicativo Lógico**.
-2.	Insira o **Nome**, como `Db2insertRow`, **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
+### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
+1.  Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
+2.  Insira o **Nome**, como `Db2insertRow`, **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
 
-### Adicionar um gatilho e uma ação
-1.	No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
-2.	Na lista de **gatilhos**, selecione **Recorrência**.
-3.	No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e selecione **Intervalo** para digitar **7**.
-4.	Selecione a caixa **+ Nova etapa** caixa e escolha **Adicionar uma ação**.
-5.	Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 - Inserir linha (Visualização)**.
-6. Na ação **Obter linhas (Visualização)**, selecione **Alterar conexão**.
-7. No painel de configuração **Conexões**, clique para selecionar uma conexão. Por exemplo, selecione **hisdemo2**.
+### <a name="add-a-trigger-and-action"></a>Adicionar um gatilho e uma ação
+1.  No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
+2.  Na lista de **gatilhos**, selecione **Recorrência**. 
+3.  No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
+4.  Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
+5.  Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 – Inserir linha (Visualização)**.
+6. Na ação **Obter linhas (Visualização)**, selecione **Alterar conexão**. 
+7. No painel de configuração **Conexões** , clique para selecionar uma conexão. Por exemplo, selecione **hisdemo2**.
 
-	![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
+    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
 
 8. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
-9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**, digite `Area 99999` e digite `102` para **REGIONID**.
+9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**, digite `Area 99999` e digite `102` para **REGIONID**. 
 10. Selecione **Salvar**.
 
-	![](./media/connectors-create-api-db2/Db2connectorInsertRowValues.png)
+    ![](./media/connectors-create-api-db2/Db2connectorInsertRowValues.png)
  
-11.	Na folha **Db2insertRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
-12.	Na folha **Execução do aplicativo lógico**, escolha **Detalhes da Execução**. Na lista **Ação**, selecione **Get\_rows**. Confira o valor para o **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas** e exiba as saídas, que deverão incluir a nova linha.
+11. Na folha **Db2insertRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
+12. Na folha **Execução do aplicativo lógico**, selecione **Detalhes da Execução**. Na lista **Ação**, selecione **Get_rows**. Confira o valor de **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas**e exiba as saídas, que deverão incluir a nova linha.
 
-	![](./media/connectors-create-api-db2/Db2connectorInsertRowOutputs.png)
+    ![](./media/connectors-create-api-db2/Db2connectorInsertRowOutputs.png)
 
-## Buscar uma linha usando SELECT
+## <a name="fetch-one-row-using-select"></a>Buscar uma linha usando SELECT
 Você pode definir uma ação de aplicativo lógico para buscar uma linha em uma tabela do DB2. Essa ação instrui o conector para processar uma instrução SELECT WHERE do DB2, como `SELECT FROM AREA WHERE AREAID = '99999'`.
 
-### Criar um aplicativo lógico
-1.	No **painel inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, então, **Aplicativo Lógico**.
-2.	Insira o **Nome** (por exemplo, "**Db2getRow**"), **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
+### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
+1.  Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
+2.  Insira o **Nome** (por exemplo, "**Db2getRow**"), **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
 
-### Adicionar um gatilho e uma ação
-1.	No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
-2.	Na lista de **gatilhos**, selecione **Recorrência**.
-3.	No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e selecione **Intervalo** para digitar **7**.
-4.	Selecione a caixa **+ Nova etapa** caixa e escolha **Adicionar uma ação**.
-5.	Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 - Obter linhas (Visualização)**.
-6. Na ação **Obter linhas (Visualização)**, selecione **Alterar conexão**.
-7. No painel de configurações de **Conexões**, selecione uma conexão existente. Por exemplo, selecione **hisdemo2**.
+### <a name="add-a-trigger-and-action"></a>Adicionar um gatilho e uma ação
+1.  No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**. 
+2.  Na lista de **gatilhos**, selecione **Recorrência**. 
+3.  No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
+4.  Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
+5.  Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 – Obter linhas (Visualização)**.
+6. Na ação **Obter linhas (Visualização)**, selecione **Alterar conexão**. 
+7. No painel de configurações de **Conexões** , selecione uma conexão existente. Por exemplo, selecione **hisdemo2**.
 
-	![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
+    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
 
 8. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
-9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**.
+9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**. 
 10. Opcionalmente, selecione **Mostrar opções avançadas** para especificar as opções de consulta.
-11. Selecione **Salvar**.
+11. Selecione **Salvar**. 
 
-	![](./media/connectors-create-api-db2/Db2connectorGetRowValues.png)
+    ![](./media/connectors-create-api-db2/Db2connectorGetRowValues.png)
 
-12.	Na folha **Db2getRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
-13.	Na folha **Execução do aplicativo lógico**, escolha **Detalhes da Execução**. Na lista **Ação**, selecione **Get\_rows**. Confira o valor para o **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas** e exiba as saídas, que deverão incluir a linha.
+12. Na folha **Db2getRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
+13. Na folha **Execução do aplicativo lógico**, selecione **Detalhes da Execução**. Na lista **Ação**, selecione **Get_rows**. Confira o valor de **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas**e exiba as saídas, que deverão incluir a linha.
 
-	![](./media/connectors-create-api-db2/Db2connectorGetRowOutputs.png)
+    ![](./media/connectors-create-api-db2/Db2connectorGetRowOutputs.png)
 
-## Alterar uma linha usando UPDATE
+## <a name="change-one-row-using-update"></a>Alterar uma linha usando UPDATE
 Você pode definir uma ação de aplicativo lógico para alterar uma linha em uma tabela do DB2. Essa ação instrui o conector a processar uma instrução UPDATE do DB2, como `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
-### Criar um aplicativo lógico
-1.	No **painel inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, então, **Aplicativo Lógico**.
-2.	Insira o **Nome**, como `Db2updateRow`, **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
+### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
+1.  Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
+2.  Insira o **Nome**, como `Db2updateRow`, **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
 
-### Adicionar um gatilho e uma ação
-1.	No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
-2.	Na lista de **gatilhos**, selecione **Recorrência**.
-3.	No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e selecione **Intervalo** para digitar **7**.
-4.	Selecione a caixa **+ Nova etapa** caixa e escolha **Adicionar uma ação**.
-5.	Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 - Atualizar linha (Visualização)**.
-6. Na ação **Obter linhas (Visualização)**, selecione **Alterar conexão**.
-7. No painel de configurações de **Conexões**, selecione uma conexão existente. Por exemplo, selecione **hisdemo2**.
+### <a name="add-a-trigger-and-action"></a>Adicionar um gatilho e uma ação
+1.  No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
+2.  Na lista de **gatilhos**, selecione **Recorrência**. 
+3.  No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
+4.  Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
+5.  Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 – Atualizar linha (Visualização)**.
+6. Na ação **Obter linhas (Visualização)**, selecione **Alterar conexão**. 
+7. No painel de configurações de **Conexões** , selecione uma conexão existente. Por exemplo, selecione **hisdemo2**.
 
-	![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
+    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
 
 8. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
-9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**, digite `Updated 99999` e digite `102` para **REGIONID**.
-10. Selecione **Salvar**.
+9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**, digite `Updated 99999` e digite `102` para **REGIONID**. 
+10. Selecione **Salvar**. 
 
-	![](./media/connectors-create-api-db2/Db2connectorUpdateRowValues.png)
+    ![](./media/connectors-create-api-db2/Db2connectorUpdateRowValues.png)
 
-11.	Na folha **Db2updateRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
-12.	Na folha **Execução do aplicativo lógico**, escolha **Detalhes da Execução**. Na lista **Ação**, selecione **Get\_rows**. Confira o valor para o **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas** e exiba as saídas, que deverão incluir a nova linha.
+11. Na folha **Db2updateRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
+12. Na folha **Execução do aplicativo lógico**, selecione **Detalhes da Execução**. Na lista **Ação**, selecione **Get_rows**. Confira o valor de **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas**e exiba as saídas, que deverão incluir a nova linha.
 
-	![](./media/connectors-create-api-db2/Db2connectorUpdateRowOutputs.png)
+    ![](./media/connectors-create-api-db2/Db2connectorUpdateRowOutputs.png)
 
-## Remover uma linha usando DELETE
+## <a name="remove-one-row-using-delete"></a>Remover uma linha usando DELETE
 Você pode definir uma ação de aplicativo lógico para remover uma linha de uma tabela do DB2. Essa ação instrui o conector a processar uma instrução DELETE do DB2, como `DELETE FROM AREA WHERE AREAID = '99999'`.
 
-### Criar um aplicativo lógico
-1.	No **painel inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, então, **Aplicativo Lógico**.
-2.	Insira o **Nome**, como `Db2deleteRow`, **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
+### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
+1.  Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
+2.  Insira o **Nome**, como `Db2deleteRow`, **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
 
-### Adicionar um gatilho e uma ação
-1.	No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
-2.	Na lista de **gatilhos**, selecione **Recorrência**.
-3.	No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e selecione **Intervalo** para digitar **7**.
-4.	Selecione a caixa **+ Nova etapa** caixa e escolha **Adicionar uma ação**.
-5.	Na lista de **ações**, selecione **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 - Excluir linha (Visualização)**.
-6. Na ação **Obter linhas (Visualização)**, selecione **Alterar conexão**.
-7. No painel de configurações de **Conexões**, selecione uma conexão existente. Por exemplo, selecione **hisdemo2**.
+### <a name="add-a-trigger-and-action"></a>Adicionar um gatilho e uma ação
+1.  No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**. 
+2.  Na lista de **gatilhos**, selecione **Recorrência**. 
+3.  No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
+4.  Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
+5.  Na lista de **ações**, selecione **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 – Excluir linha (Visualização)**.
+6. Na ação **Obter linhas (Visualização)**, selecione **Alterar conexão**. 
+7. No painel de configurações de **Conexões** , selecione uma conexão existente. Por exemplo, selecione **hisdemo2**.
 
-	![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
+    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
 
 8. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
-9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**.
-10. Selecione **Salvar**.
+9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**. 
+10. Selecione **Salvar**. 
 
-	![](./media/connectors-create-api-db2/Db2connectorDeleteRowValues.png)
+    ![](./media/connectors-create-api-db2/Db2connectorDeleteRowValues.png)
 
-11.	Na folha **Db2deleteRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
-12.	Na folha **Execução do aplicativo lógico**, escolha **Detalhes da Execução**. Na lista **Ação**, selecione **Get\_rows**. Confira o valor para o **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas** e exiba as saídas, que deverão incluir a linha excluída.
+11. Na folha **Db2deleteRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
+12. Na folha **Execução do aplicativo lógico**, selecione **Detalhes da Execução**. Na lista **Ação**, selecione **Get_rows**. Confira o valor de **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas**e exiba as saídas, que deverão incluir a linha excluída.
 
-	![](./media/connectors-create-api-db2/Db2connectorDeleteRowOutputs.png)
+    ![](./media/connectors-create-api-db2/Db2connectorDeleteRowOutputs.png)
 
-## Detalhes técnicos
+## <a name="technical-details"></a>Detalhes técnicos
 
-## Ações
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. O conector do banco de dados DB2 inclui as ações a seguir.
+## <a name="actions"></a>Ações
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. O conector do banco de dados DB2 inclui as ações a seguir. 
 
 |Ação|Descrição|
 |--- | ---|
@@ -290,12 +291,12 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 |[GetTables](connectors-create-api-db2.md#get-tables)|Recupera as tabelas de um banco de dados do DB2|
 |[UpdateRow](connectors-create-api-db2.md#update-row)|Atualiza uma linha existente em uma tabela do DB2|
 
-### Detalhes da ação
+### <a name="action-details"></a>Detalhes da ação
 
 Nesta seção, consulte os detalhes específicos sobre cada ação, incluindo todas as propriedades de entrada obrigatórias ou opcionais, assim como toda saída correspondente associada ao conector.
 
-#### Obter linha 
-Recupera uma única linha de uma tabela do DB2.
+#### <a name="get-row"></a>Obter linha 
+Recupera uma única linha de uma tabela do DB2.  
 
 | Nome da Propriedade| Nome de exibição |Descrição|
 | ---|---|---|
@@ -304,7 +305,7 @@ Recupera uma única linha de uma tabela do DB2.
 
 Um asterisco (*) significa que a propriedade obrigatória.
 
-##### Detalhes da Saída
+##### <a name="output-details"></a>Detalhes da Saída
 Item
 
 | Nome da Propriedade | Tipo de Dados |
@@ -312,8 +313,8 @@ Item
 |ItemInternalId|string|
 
 
-#### Obter linhas 
-Recupera as linhas de uma tabela do DB2.
+#### <a name="get-rows"></a>Obter linhas 
+Recupera as linhas de uma tabela do DB2.  
 
 |Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
@@ -325,7 +326,7 @@ Recupera as linhas de uma tabela do DB2.
 
 Um asterisco (*) significa que a propriedade obrigatória.
 
-##### Detalhes da Saída
+##### <a name="output-details"></a>Detalhes da Saída
 ItemsList
 
 | Nome da Propriedade | Tipo de Dados |
@@ -333,8 +334,8 @@ ItemsList
 |value|array|
 
 
-#### Inserir linha 
-Insere uma nova linha em uma tabela do DB2.
+#### <a name="insert-row"></a>Inserir linha 
+Insere uma nova linha em uma tabela do DB2.  
 
 |Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
@@ -343,7 +344,7 @@ Insere uma nova linha em uma tabela do DB2.
 
 Um asterisco (*) significa que a propriedade obrigatória.
 
-##### Detalhes da Saída
+##### <a name="output-details"></a>Detalhes da Saída
 Item
 
 | Nome da Propriedade | Tipo de Dados |
@@ -351,8 +352,8 @@ Item
 |ItemInternalId|string|
 
 
-#### Excluir linha 
-Exclui uma linha de uma tabela do DB2.
+#### <a name="delete-row"></a>Excluir linha 
+Exclui uma linha de uma tabela do DB2.  
 
 |Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
@@ -361,23 +362,23 @@ Exclui uma linha de uma tabela do DB2.
 
 Um asterisco (*) significa que a propriedade obrigatória.
 
-##### Detalhes da Saída
+##### <a name="output-details"></a>Detalhes da Saída
 Nenhuma.
 
-#### Obter tabelas 
-Recupera as tabelas de um banco de dados do DB2.
+#### <a name="get-tables"></a>Obter tabelas 
+Recupera as tabelas de um banco de dados do DB2.  
 
-Não existem parâmetros para esta chamada.
+Não existem parâmetros para esta chamada. 
 
-##### Detalhes da saída 
+##### <a name="output-details"></a>Detalhes da Saída 
 TablesList
 
 | Nome da Propriedade | Tipo de Dados |
 |---|---|
 |value|array|
 
-#### Atualizar linha 
-Atualiza uma linha existente em uma tabela do DB2.
+#### <a name="update-row"></a>Atualizar linha 
+Atualiza uma linha existente em uma tabela do DB2.  
 
 |Nome da Propriedade| Nome de exibição|Descrição|
 | ---|---|---|
@@ -387,7 +388,7 @@ Atualiza uma linha existente em uma tabela do DB2.
 
 Um asterisco (*) significa que a propriedade obrigatória.
 
-##### Detalhes da Saída  
+##### <a name="output-details"></a>Detalhes da Saída  
 Item
 
 | Nome da Propriedade | Tipo de Dados |
@@ -395,9 +396,9 @@ Item
 |ItemInternalId|string|
 
 
-### Respostas HTTP
+### <a name="http-responses"></a>Respostas HTTP
 
-Ao fazer chamadas a diferentes ações, você pode obter determinadas respostas. A tabela a seguir descreve as respostas e suas descrições:
+Ao fazer chamadas a diferentes ações, você pode obter determinadas respostas. A tabela a seguir descreve as respostas e suas descrições:  
 
 |Nome|Descrição|
 |---|---|
@@ -411,7 +412,7 @@ Ao fazer chamadas a diferentes ações, você pode obter determinadas respostas.
 |padrão|Falha na Operação.|
 
 
-## Plataformas e versões com suporte do DB2
+## <a name="supported-db2-platforms-and-versions"></a>Plataformas e versões com suporte do DB2
 Este conector dá suporte às plataformas e versões do IBM DB2 a seguir, bem como os produtos IBM DB2 compatíveis (por exemplo, IBM Bluemix dashDB) que oferecem suporte às versões 10 e 11 do SQL Access Manager (SQLAM) da Distributed Relational Database Architecture (DRDA):
 
 - IBM DB2 para z/OS 11.1
@@ -423,8 +424,13 @@ Este conector dá suporte às plataformas e versões do IBM DB2 a seguir, bem co
 - IBM DB2 para LUW 10.5
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

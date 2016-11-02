@@ -1,105 +1,115 @@
 <properties
-	pageTitle="Entenda os encargos do Azure Marketplace | Microsoft Azure"
-	description="Descreve como entender os encargos relacionados a seus pedidos no Marketplace."
-	services=""
-	documentationCenter=""
-	authors="JiangChen79"
-	manager="felixwu"
-	editor=""
-	tags="billing"
-	/>
+    pageTitle="Entenda os encargos dos serviços externos do Azure | Microsoft Azure"
+    description="Saiba mais sobre a cobrança de serviços externos, anteriormente conhecidos como Marketplace, no Azure."
+    services=""
+    documentationCenter=""
+    authors="adpick"
+    manager="felixwu"
+    editor=""
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="cjiang"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/12/2016"
+    ms.author="adpick"/>
 
-# Entenda os encargos do Azure Marketplace
-Este artigo fornece uma visão geral de como entender os encargos relacionadas a seus pedidos no Marketplace. Alguns itens para ter em mente ao examinar sua fatura são os diferentes tipos de preços (Apenas Base, Apenas Uso e Base + Uso). Observe que cada pedido que você fizer no Marketplace terá seu próprio ciclo de cobrança mensal. Esses tópicos serão abordados em detalhes abaixo.
 
-> [AZURE.NOTE] Se você precisar de mais ajuda a qualquer momento neste artigo, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+# <a name="understand-your-azure-external-service-charges"></a>Entenda os encargos dos serviços externos do Azure
 
-## Examinar sua fatura do Marketplace
-Após fazer logon no [Portal de Contas do Azure](https://account.windowsazure.com/subscriptions/), você pode examinar e baixar as faturas atuais e anteriores.
+Este artigo explica a cobrança de serviços externos no Azure. Os serviços externos costumavam ser chamados de pedidos do Marketplace. Os serviços externos são fornecidos por prestadores de serviços independentes, mas estão completamente integrados ao ecossistema do Azure. Saiba como:
 
-Para exibir ou baixar sua fatura:
+- Identificar serviços externos
+- Compreender como a cobrança difere de outros recursos do Azure
+- Exibir e acompanhar os custos acumulados por uso de serviços externos
+- Gerenciar pedidos de serviços externos e como você paga por eles
 
-1. Entre no Portal de Contas do Azure usando sua ID Organizacional.
-2. Clique em **Marketplace**. É exibida uma lista completa de todos os pedidos no Marketplace que foram feitos por sua conta do Azure. Você observará que os pedidos são agrupados por ID e por nome de assinatura do Azure pai.
+## <a name="what-are-azure-external-services?"></a>O que são serviços externos do Azure?
 
-	![Pedidos no Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
+Os serviços externos costumavam ser chamados de Azure Marketplace. Em geral, são serviços publicados por terceiros disponíveis para o Azure. Por exemplo, ClearDB e SendGrid são serviços externos que você pode adquirir no Azure, mas não são publicados pela Microsoft.
 
-3. Se clicar em qualquer um dos pedidos exibidos, você será levado para a visão geral de resumo do pedido para o ciclo de cobrança atual. Uma explicação sobre os diferentes modelos de preços pode ser encontrada nas [Perguntas frequentes sobre o Marketplace]( https://azure.microsoft.com/marketplace/faq/).
+### <a name="identify-external-services"></a>Identificar serviços externos
 
-	![Resumo do pedido](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+Quando você provisiona um novo recurso ou serviço externo, um aviso é exibido:
 
-A exibição de resumo contém as seguintes informações para cada pedido:
-- Preço
-- Ciclo de Cobrança
-- Data de Compra
-- Assinatura Pai Associada
-- Moeda de Cobrança
+![Aviso de compra no Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 
-Observe que fizemos algumas alterações na maneira como essas informações são exibidas. Anteriormente, exibíamos o custo do pedido, incluindo o imposto. Isso foi atualizado para mostrar o preço, que poderá incluir ou não o imposto, dependendo do país em que você estiver. A localização do preço também foi movida da navegação à direita para o centro. Para ajudar a acompanhar a qual assinatura do Azure esses encargos estão associados, também adicionamos o nome e a ID da assinatura do Azure à navegação à direita, bem como a opção **Alterar forma de pagamento**.
+>[AZURE.NOTE] Os serviços externos são publicados por empresas que não são a Microsoft, embora, às vezes, produtos da Microsoft também sejam categorizados como serviços externos.
 
-## Atualizar Forma de Pagamento e Gerenciamento de Pedidos
-A página de resumo contém as ações do usuário, permitindo que você atualize o modelo de pagamento e as funções de gerenciamento de pedidos:
+### <a name="external-services-are-billed-separately"></a>Os serviços externos são cobrados separadamente
 
-> [AZURE.NOTE] Se estiver usando sua ID de organização para alterar informações pessoais, você precisará registrar um tíquete de suporte.
+Os serviços externos são tratados como pedidos individuais dentro de sua assinatura do Azure. O período de cobrança para cada serviço é definido quando você adquire o serviço. Ele não deve ser confundido com o período de cobrança da assinatura sob a qual você fez a compra. Você também recebe faturas separadas e seu cartão de crédito é cobrado separadamente.
 
-Para atualizar a forma de pagamento, clique no link **Alterar forma de pagamento** no lado direito da página.
+### <a name="each-external-service-has-a-different-billing-model"></a>Cada serviço externo tem um modelo de cobrança diferente
 
-![Resumo do pedido](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+Alguns serviços são pré-pagos, enquanto outros usam um modelo baseado em pagamento mensal. Você precisa de um cartão de crédito para os serviços externos do Azure. Não é possível adquirir serviços externos com pagamento por fatura.
 
-Esse link o levará a um portal diferente, em que você poderá fazer alterações na forma de pagamento preferencial.
+### <a name="you-can't-use-monthly-free-credits-for-external-services"></a>Não é possível usar créditos gratuitos mensais para serviços externos
 
-Para alterar a forma de pagamento, siga estas etapas:
+Se você estiver usando uma assinatura do Azure que inclua [créditos gratuitos](https://azure.microsoft.com/pricing/spending-limits/), eles não poderão ser aplicados a faturas de serviços externos. Use um cartão de crédito para adquirir serviços externos.
 
-1. Clique em **Alterar como você paga**.
+## <a name="view-external-service-spending-and-history"></a>Exibir o histórico e os gastos com serviços externos
 
-	![Assinaturas](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
+Você pode exibir uma lista dos serviços externos que estão em cada assinatura no [Portal do Azure](https://portal.azure.com/): 
 
-2. Selecione a forma de pagamento para a qual você deseja alterar. A opção **Pagar com** permite que você selecione seu cartão de crédito. A opção **Adicionar uma nova forma de pagamento** permite que você adicione um novo cartão de crédito.
+1. Entre no [Portal do Azure](https://portal.azure.com/) e [navegue até a folha **Cobrança**](https://portal.azure.com/?flight=1#blade/Microsoft_Azure_Billing/BillingBlade).
 
-	![Alterar forma de pagamento](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
+    ![Selecione Cobrança no menu Hub](./media/billing-understand-your-azure-marketplace-charges/billing-button.png) 
+  
+2. Na seção **Custos da assinatura**, escolha a assinatura que você quer exibir. 
+   
+    ![Selecione uma assinatura na folha de cobrança](./media/billing-understand-your-azure-marketplace-charges/select-sub.png)
 
-## Gerenciamento de pedidos
-Na página de visão geral resumida, você verá o link **Gerenciar Pedido**. Esse link levará você ao seu portal, no qual será possível ver todos os seus pedidos no Marketplace, exibir a integridade do serviço e solicitar suporte.
+3. Clique em **Serviços externos**.
 
-![Portal](./media/billing-understand-your-azure-marketplace-charges/portal.jpg)
+    ![Clique em Serviços externos na folha da assinatura](./media/billing-understand-your-azure-marketplace-charges/external-service-blade.png)
 
-Para solicitar suporte, clique no bloco **Ajuda + suporte**. Isso abrirá a página **Ajuda + suporte**, na qual você pode fazer o seguinte:
-- Abrir uma nova solicitação de suporte.
-- Gerenciar as solicitações de suporte existentes.
-- Gerenciar a integridade de recursos.
+4. Você deve ver cada um de seus pedidos de serviços externos, o nome do publicador, a camada de serviço adquirida, o nome que você deu ao recurso e o status atual do pedido. Selecione um serviço externo para ver as faturas passadas.
 
-![Solicitar suporte](./media/billing-understand-your-azure-marketplace-charges/request-support.jpg)
+    ![Selecione um serviço externo](./media/billing-understand-your-azure-marketplace-charges/external-service-blade2.png)
 
-## Histórico de Cobrança
-Um novo recurso na página de resumo é a capacidade de exibir ofertas com base no uso, como máquinas virtuais. Agora você pode baixar o uso com base no ciclo de cobrança para períodos atuais e fechados. Para exibir o uso, clique no link **Baixar Uso** do período que você deseja exibir.
+5. A partir daqui, você pode exibir os valores de faturas anteriores, incluindo o detalhamento dos impostos.
 
-Se você estiver interessado em exibir os encargos reais, clique em **Exibir Encargos**. Você será redirecionado para um portal diferente, no qual poderá exibir todos os encargos, incluindo os impostos. Se você estiver usando uma ID da organização, o botão **Exibir Encargos** não será habilitado e será preciso enviar um tíquete de suporte para solicitar um resumo dos encargos.
+    ![Exibir histórico de cobrança de serviços externos](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
 
-![Histórico de cobrança](./media/billing-understand-your-azure-marketplace-charges/billing-history.png)
+## <a name="manage-payment-methods-for-external-service-orders"></a>Gerenciar formas de pagamento para pedidos de serviços externos
 
-Para exibir os encargos reais, siga estas etapas:
+Atualize suas formas de pagamento para pedidos de serviços externos no [Centro de Contas](https://account.windowsazure.com/).
 
-1. Clique em **Exibir Encargos** na página **HISTÓRICO DE COBRANÇA**.
+> [AZURE.NOTE] Se tiver adquirido sua assinatura com uma conta corporativa ou de estudante, você deve [entrar em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para alterar sua forma de pagamento.
 
-	Será aberta uma nova guia, mostrando o [histórico de pedidos](https://account.microsoft.com/billing/orders#/).
+1. Entre no [Centro de Contas](https://account.windowsazure.com/) e [navegue até a guia **marketplace**](https://account.windowsazure.com/Store)
 
-    Observe que, se estiver tentando acessar seu uso bruto no Portal de Gerenciamento de Cobrança e Contas, você precisará chamar o suporte clicando no link de suporte na parte inferior da página).
+    ![Selecione marketplace no centro de contas](./media/billing-understand-your-azure-marketplace-charges/select-marketplace.png)
 
-	![Histórico de pedidos](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
+2. Selecione o serviço externo que você deseja gerenciar
 
-2. Identifique o pedido que deseja examinar e clique em **Detalhes** para exibir uma divisão dos encargos, o que incluirá o subtotal, o imposto e o total de encargos.
+    ![Selecione o serviço externo que você deseja gerenciar](./media/billing-understand-your-azure-marketplace-charges/select-ext-service.png)
 
-	![Detalhes do pedido](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
+3. Clique em **Alterar forma de pagamento** no lado direito da página. Este link leva você a um portal diferente para gerenciar sua forma de pagamento.
+    
+    ![Resumo do pedido](./media/billing-understand-your-azure-marketplace-charges/change-payment.PNG)
 
-> [AZURE.NOTE] Se ainda tiver dúvidas, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+4. Clique em **Editar informações** e siga as instruções para atualizar suas informações de pagamento.
 
-<!---HONumber=AcomDC_0928_2016-->
+    ![Selecione editar informações](./media/billing-understand-your-azure-marketplace-charges/edit-info.png)
+    
+## <a name="cancel-an-external-service-order"></a>Cancelar pedido de serviço externo
+
+Se você deseja cancelar seu pedido de serviço externo, será preciso excluir o recurso no [Portal do Azure](https://portal.azure.com).
+
+![Excluir recurso](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
+
+## <a name="need-help?-contact-support."></a>Precisa de ajuda? Entre em contato com o suporte.
+
+Se ainda tiver mais dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,26 +1,27 @@
 <properties
-	pageTitle="Introdução aos Hubs de eventos em C e C# | Microsoft Azure"
-	description="Siga este tutorial para começar a usar os Hubs de Eventos do Azure; enviar eventos em C; e receber eventos em C# usando o EventProcessorHost."
-	services="event-hubs"
-	documentationCenter=""
-	authors="jtaubensee"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Introdução aos Hubs de eventos em C e C# | Microsoft Azure"
+    description="Siga este tutorial para começar a usar os Hubs de Eventos do Azure; enviar eventos em C; e receber eventos em C# usando o EventProcessorHost."
+    services="event-hubs"
+    documentationCenter=""
+    authors="jtaubensee"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="event-hubs"
-	ms.workload="na"
-	ms.tgt_pltfrm="c"
-	ms.devlang="csharp"
-	ms.topic="article"
-	ms.date="08/16/2016"
-	ms.author="jotaub;sethm"/>
+    ms.service="event-hubs"
+    ms.workload="na"
+    ms.tgt_pltfrm="c"
+    ms.devlang="csharp"
+    ms.topic="article"
+    ms.date="08/16/2016"
+    ms.author="jotaub;sethm"/>
 
-# Introdução aos Hubs de Eventos
+
+# <a name="get-started-with-event-hubs"></a>Introdução aos Hubs de Eventos
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
-## Introdução
+## <a name="introduction"></a>Introdução
 
 Hubs de Eventos são um sistema de inclusão altamente dimensionável que pode receber milhões de eventos por segundo, permitindo que um aplicativo processe e analise grandes quantidades de dados produzidos por aplicativos e dispositivos conectados. Depois de coletados em Hubs de Evento, você pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou cluster de armazenamento.
 
@@ -42,25 +43,24 @@ Para concluir este tutorial, você precisará do seguinte:
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
-## Executar os aplicativos
+## <a name="run-the-applications"></a>Executar os aplicativos
 
 Agora você está pronto para executar os aplicativos.
 
-1.	Execute o projeto **Receptor** no Visual Studio e aguarde que ele inicie os receptores de todas as partições.
+1.  Execute o projeto **Receptor** no Visual Studio e aguarde que ele inicie os receptores de todas as partições.
 
-	![][21]
+    ![][21]
 
-2.	Execute o programa **Remetente** e veja os eventos aparecerem na janela do receptor.
+2.  Execute o programa **Remetente** e veja os eventos aparecerem na janela do receptor.
 
-	![][24]
+    ![][24]
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e recebe dados, você pode passar para os seguintes cenários:
 
 - Um [aplicativo de exemplo completo que usa os Hubs de Evento][].
-- O exemplo de [Escala horizontal do processamento de eventos com Hubs de Eventos][].
-- Uma [solução de mensagens na fila][] usando filas do Barramento de Serviço.
+- O exemplo de [Escala horizontal do processamento de eventos com Hubs de Eventos][] .
 - [Visão geral de Hubs de Evento][]
 
 <!-- Images. -->
@@ -68,11 +68,14 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
+[Portal clássico do Azure]: https://manage.windowsazure.com/
 [Host do Processador de Eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Visão geral de Hubs de Evento]: event-hubs-overview.md
+[Visão Geral dos Hubs de Eventos]: event-hubs-overview.md
 [aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Escala horizontal do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

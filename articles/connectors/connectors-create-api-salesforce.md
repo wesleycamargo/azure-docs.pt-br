@@ -1,10 +1,10 @@
 <properties
 pageTitle="Aprenda a usar o Conector do Salesforce em seus aplicativos lógicos | Microsoft Azure"
 description="Crie aplicativos lógicos com o serviço de Aplicativo do Azure. O Conector do Salesforce fornece uma API para trabalhar com objetos do Salesforce."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -14,73 +14,74 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/22/2016"
+ms.date="10/05/2016"
 ms.author="deonhe"/>
 
-# Introdução ao conector do Salesforce
+
+# <a name="get-started-with-the-salesforce-connector"></a>Introdução ao conector do Salesforce
 
 O Conector do Salesforce fornece uma API para trabalhar com objetos do Salesforce.
 
 Para usar [qualquer conector](./apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Ligar-se ao conector do Salesforce
+## <a name="connect-to-salesforce-connector"></a>Ligar-se ao conector do Salesforce
 
-Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma [conexão](./connectors-overview.md) fornece conectividade entre um aplicativo lógico e outro serviço.
+Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma [conexão](./connectors-overview.md) fornece uma conectividade entre um aplicativo lógico e outro serviço.  
 
-### Criar uma conexão com o conector do Salesforce
+### <a name="create-a-connection-to-salesforce-connector"></a>Criar uma conexão com o conector do Salesforce
 
->[AZURE.INCLUDE [Etapas para criar uma conexão com o conector do Salesforce](../../includes/connectors-create-api-salesforce.md)]
+>[AZURE.INCLUDE [Steps to create a connection to Salesforce Connector](../../includes/connectors-create-api-salesforce.md)]
 
-## Usar um gatilho do conector do Salesforce
+## <a name="use-a-salesforce-connector-trigger"></a>Usar um gatilho do conector do Salesforce
 
 Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
->[AZURE.INCLUDE [Etapas para criar um gatilho do Salesforce](../../includes/connectors-create-api-salesforce-trigger.md)]
+>[AZURE.INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
 
-## Adicione uma condição 
->[AZURE.INCLUDE [Etapas para criar uma condição do Salesforce](../../includes/connectors-create-api-salesforce-condition.md)]
+## <a name="add-a-condition"></a>Adicionar uma condição 
+>[AZURE.INCLUDE [Steps to create a Salesforce condition](../../includes/connectors-create-api-salesforce-condition.md)]
 
-## Usar uma ação do conector do Salesforce
+## <a name="use-a-salesforce-connector-action"></a>Usar uma ação do conector do Salesforce
 
 Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
->[AZURE.INCLUDE [Etapas para criar uma ação do Salesforce](../../includes/connectors-create-api-salesforce-action.md)]
+>[AZURE.INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
 
-## Detalhes técnicos
+## <a name="technical-details"></a>Detalhes técnicos
 
 Veja abaixo os detalhes sobre os gatilhos, as ações e as respostas que essa conexão permite:
 
-## Gatilhos do conector do Salesforce
+## <a name="salesforce-connector-triggers"></a>Gatilhos do conector do Salesforce
 
-O Conector do Salesforce tem os seguintes gatilhos:
+O Conector do Salesforce tem os seguintes gatilhos:  
 
 |Gatilho | Descrição|
 |--- | ---|
-|[Quando um objeto é criado](connectors-create-api-salesforceconnector.md#when-an-object-is-created)|Esta operação dispara um fluxo quando um objeto é criado.|
-|[Quando um objeto é modificado](connectors-create-api-salesforceconnector.md#when-an-object-is-modified)|Esta operação dispara um fluxo quando um objeto é modificado.|
+|[Quando um objeto é criado](connectors-create-api-salesforce.md#when-an-object-is-created)|Esta operação dispara um fluxo quando um objeto é criado.|
+|[Quando um objeto é modificado](connectors-create-api-salesforce.md#when-an-object-is-modified)|Esta operação dispara um fluxo quando um objeto é modificado.|
 
 
-## Ações do conector do Salesforce
+## <a name="salesforce-connector-actions"></a>Ações do conector do Salesforce
 
 O Conector do Salesforce tem as seguintes ações:
 
 
 |Ação|Descrição|
 |--- | ---|
-|[Obter objetos](connectors-create-api-salesforceconnector.md#get-objects)|Esta operação obtém objetos de um determinado tipo, como 'Lead'.|
-|[Criar objeto](connectors-create-api-salesforceconnector.md#create-object)|Esta operação cria um objeto.|
-|[Obter objeto](connectors-create-api-salesforceconnector.md#get-object)|Esta operação obtém um objeto.|
-|[Excluir objeto](connectors-create-api-salesforceconnector.md#delete-object)|Esta operação exclui um objeto.|
-|[Atualizar objeto](connectors-create-api-salesforceconnector.md#update-object)|Esta operação atualiza um objeto.|
-|[Obter tipos de objeto](connectors-create-api-salesforceconnector.md#get-object-types)|Esta operação lista os tipos de objeto disponíveis.|
-### Detalhes da ação
+|[Obter objetos](connectors-create-api-salesforce.md#get-objects)|Esta operação obtém objetos de um determinado tipo, como 'Lead'.|
+|[Criar objeto](connectors-create-api-salesforce.md#create-object)|Esta operação cria um objeto.|
+|[Obter objeto](connectors-create-api-salesforce.md#get-object)|Esta operação obtém um objeto.|
+|[Excluir objeto](connectors-create-api-salesforce.md#delete-object)|Esta operação exclui um objeto.|
+|[Atualizar objeto](connectors-create-api-salesforce.md#update-object)|Esta operação atualiza um objeto.|
+|[Obter tipos de objeto](connectors-create-api-salesforce.md#get-object-types)|Esta operação lista os tipos de objeto disponíveis.|
+### <a name="action-details"></a>Detalhes da ação
 
 Veja abaixo os detalhes das ações e dos gatilhos para esse conector, com suas respostas:
 
 
 
-### Obter objetos
-Esta operação obtém objetos de um determinado tipo, como 'Lead'.
+### <a name="get-objects"></a>Obter objetos
+Esta operação obtém objetos de um determinado tipo, como 'Lead'. 
 
 
 |Nome da Propriedade| Nome de exibição|Descrição|
@@ -93,7 +94,7 @@ Esta operação obtém objetos de um determinado tipo, como 'Lead'.
 
 Um * indica que uma propriedade é obrigatória
 
-#### Detalhes de saída
+#### <a name="output-details"></a>Detalhes de saída
 
 ItemsList
 
@@ -105,8 +106,8 @@ ItemsList
 
 
 
-### Criar objeto
-Esta operação cria um objeto.
+### <a name="create-object"></a>Criar objeto
+Esta operação cria um objeto. 
 
 
 |Nome da Propriedade| Nome de exibição|Descrição|
@@ -116,7 +117,7 @@ Esta operação cria um objeto.
 
 Um * indica que uma propriedade é obrigatória
 
-#### Detalhes de saída
+#### <a name="output-details"></a>Detalhes de saída
 
 Item
 
@@ -128,8 +129,8 @@ Item
 
 
 
-### Obter objeto
-Esta operação obtém um objeto.
+### <a name="get-object"></a>Obter objeto
+Esta operação obtém um objeto. 
 
 
 |Nome da Propriedade| Nome de exibição|Descrição|
@@ -139,7 +140,7 @@ Esta operação obtém um objeto.
 
 Um * indica que uma propriedade é obrigatória
 
-#### Detalhes de saída
+#### <a name="output-details"></a>Detalhes de saída
 
 Item
 
@@ -151,8 +152,8 @@ Item
 
 
 
-### Excluir objeto
-Esta operação exclui um objeto.
+### <a name="delete-object"></a>Excluir objeto
+Esta operação exclui um objeto. 
 
 
 |Nome da Propriedade| Nome de exibição|Descrição|
@@ -165,8 +166,8 @@ Um * indica que uma propriedade é obrigatória
 
 
 
-### Atualizar objeto
-Esta operação atualiza um objeto.
+### <a name="update-object"></a>Atualizar objeto
+Esta operação atualiza um objeto. 
 
 
 |Nome da Propriedade| Nome de exibição|Descrição|
@@ -177,7 +178,7 @@ Esta operação atualiza um objeto.
 
 Um * indica que uma propriedade é obrigatória
 
-#### Detalhes de saída
+#### <a name="output-details"></a>Detalhes de saída
 
 Item
 
@@ -189,8 +190,8 @@ Item
 
 
 
-### Quando um objeto é criado
-Esta operação dispara um fluxo quando um objeto é criado.
+### <a name="when-an-object-is-created"></a>Quando um objeto é criado
+Esta operação dispara um fluxo quando um objeto é criado. 
 
 
 |Nome da Propriedade| Nome de exibição|Descrição|
@@ -203,7 +204,7 @@ Esta operação dispara um fluxo quando um objeto é criado.
 
 Um * indica que uma propriedade é obrigatória
 
-#### Detalhes de saída
+#### <a name="output-details"></a>Detalhes de saída
 
 ItemsList
 
@@ -215,8 +216,8 @@ ItemsList
 
 
 
-### Quando um objeto é modificado
-Esta operação dispara um fluxo quando um objeto é modificado.
+### <a name="when-an-object-is-modified"></a>Quando um objeto é modificado
+Esta operação dispara um fluxo quando um objeto é modificado. 
 
 
 |Nome da Propriedade| Nome de exibição|Descrição|
@@ -229,7 +230,7 @@ Esta operação dispara um fluxo quando um objeto é modificado.
 
 Um * indica que uma propriedade é obrigatória
 
-#### Detalhes de saída
+#### <a name="output-details"></a>Detalhes de saída
 
 ItemsList
 
@@ -241,26 +242,26 @@ ItemsList
 
 
 
-### Obter tipos de objeto
-Esta operação lista os tipos de objeto disponíveis.
+### <a name="get-object-types"></a>Obter tipos de objeto
+Esta operação lista os tipos de objeto disponíveis. 
 
 
 Não há parâmetros para essa chamada
 
-#### Detalhes de saída
+#### <a name="output-details"></a>Detalhes de saída
 
 TablesList
 
 
-| Nome da Propriedade | Tipo de Dados | 
+| Nome da Propriedade | Tipo de Dados |
 |---|---|
 |value|array|
 
 
 
-## Respostas HTTP
+## <a name="http-responses"></a>Respostas HTTP
 
-As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos de status HTTP:
+As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos de status HTTP: 
 
 |Nome|Descrição|
 |---|---|
@@ -278,7 +279,10 @@ As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos 
 
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!-----HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

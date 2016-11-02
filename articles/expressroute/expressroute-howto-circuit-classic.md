@@ -13,15 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/14/2016"
+   ms.date="10/10/2016"
    ms.author="ganesr;cherylmc"/>
 
-# Criar e modificar um circuito da Rota Expressa
+
+# <a name="create-and-modify-an-expressroute-circuit"></a>Criar e modificar um circuito da Rota Expressa
 
 > [AZURE.SELECTOR]
-[Azure Portal - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-[PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
-[PowerShell - Classic](expressroute-howto-circuit-classic.md)
+[Portal do Azure - Gerenciador de Recursos](expressroute-howto-circuit-portal-resource-manager.md)
+[PowerShell - Gerenciador de Recursos](expressroute-howto-circuit-arm.md)
+[PowerShell - Clássico](expressroute-howto-circuit-classic.md)
 
 Este artigo fornece uma orientação pelas etapas de criação de um circuito da Rota Expressa do Azure usando cmdlets do PowerShell e o modelo de implantação clássico. Este artigo também mostrará a você como verificar o status, atualizar ou excluir e desprovisionar um circuito da Rota Expressa.
 
@@ -30,47 +31,47 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 
-## Antes de começar
+## <a name="before-you-begin"></a>Antes de começar
 
-### 1\. Examine os pré-requisitos e artigos de fluxo de trabalho
+### <a name="1.-review-the-prerequisites-and-workflow-articles"></a>1. Examine os pré-requisitos e artigos de fluxo de trabalho
 
-Leia os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+Leia os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.  
 
 
-### 2\. Instale a versão mais recente dos módulos do Azure PowerShell 
+### <a name="2.-install-the-latest-versions-of-the-azure-powershell-modules"></a>2. Instale a versão mais recente dos módulos do Azure PowerShell 
 
 Siga as instruções em [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter orientações passo a passo sobre como configurar o computador para usar os módulos do Azure PowerShell.
 
-### 3\. Entre em sua conta do Azure e selecione uma assinatura
+### <a name="3.-log-in-to-your-azure-account-and-select-a-subscription"></a>3. Entre em sua conta do Azure e selecione uma assinatura
 
 1. Execute os seguintes cmdlets em um prompt elevado do Windows PowerShell:
 
-		Add-AzureAccount
+        Add-AzureAccount
 2. Na tela de entrada que aparece, entre em sua conta.
 
 3. Obtenha uma lista das suas assinaturas.
 
-		Get-AzureSubscription
+        Get-AzureSubscription
 4. Selecione a assinatura que você quer usar.
-	
-		Select-AzureSubscription -SubscriptionName "mysubscriptionname"
+    
+        Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
-## Criar e provisionar um circuito da Rota Expressa
+## <a name="create-and-provision-an-expressroute-circuit"></a>Criar e provisionar um circuito da Rota Expressa
 
-### 1\. Importar os módulos do PowerShell para Rota Expressa
+### <a name="1.-import-the-powershell-modules-for-expressroute"></a>1. Importar os módulos do PowerShell para Rota Expressa
 
- Se ainda não tiver feito isso, importe os módulos do Azure e de ExpressRoute na sessão do PowerShell para começar a usar os cmdlets de ExpressRoute. Importe os módulos do local onde foram instalados para o computador local. Dependendo do método usado para instalar os módulos, o local pode ser diferente do exemplo a seguir. Modifique o exemplo, se for necessário.
+ Se ainda não tiver feito isso, importe os módulos do Azure e de ExpressRoute na sessão do PowerShell para começar a usar os cmdlets de ExpressRoute. Importe os módulos do local onde foram instalados para o computador local. Dependendo do método usado para instalar os módulos, o local pode ser diferente do exemplo a seguir. Modifique o exemplo, se for necessário.  
 
-	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
+    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
-### 2\. Obtenha a lista de provedores, de locais e de larguras de banda com suporte
+### <a name="2.-get-the-list-of-supported-providers,-locations,-and-bandwidths"></a>2. Obtenha a lista de provedores, de locais e de larguras de banda com suporte
 
 Antes de criar um circuito de Rota Expressa você precisará de uma lista de provedores de conectividade com suporte, dos locais e de opções de largura de banda.
 
 O cmdlet do PowerShell `Get-AzureDedicatedCircuitServiceProvider` retornará estas informações, que você usará em etapas posteriores:
 
-	Get-AzureDedicatedCircuitServiceProvider
+    Get-AzureDedicatedCircuitServiceProvider
 
 Verifique se o provedor de conectividade está listado. Anote as informações a seguir, pois você precisará delas mais tarde quando criar um circuito:
 
@@ -80,9 +81,9 @@ Verifique se o provedor de conectividade está listado. Anote as informações a
 
 - BandwidthsOffered
 
-Agora você está pronto para criar um circuito da Rota Expressa.
+Agora você está pronto para criar um circuito da Rota Expressa.         
 
-### 3\. Criar um circuito da Rota Expressa
+### <a name="3.-create-an-expressroute-circuit"></a>3. Criar um circuito da Rota Expressa
 
 O exemplo a seguir mostra como criar um circuito da Rota Expressa de 200 Mbps por meio da Equinix, no Vale do Silício. Se estiver usando um provedor diferente e configurações diferentes, substitua essas informações ao fazer a solicitação.
 
@@ -91,147 +92,147 @@ O exemplo a seguir mostra como criar um circuito da Rota Expressa de 200 Mbps po
 
 A seguir, um exemplo de solicitação de uma nova chave de serviço:
 
-	$Bandwidth = 200
-	$CircuitName = "MyTestCircuit"
-	$ServiceProvider = "Equinix"
-	$Location = "Silicon Valley"
+    $Bandwidth = 200
+    $CircuitName = "MyTestCircuit"
+    $ServiceProvider = "Equinix"
+    $Location = "Silicon Valley"
 
-	New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard -BillingType MeteredData
+    New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard -BillingType MeteredData
 
 Ou então, se quiser criar um circuito da Rota Expressa com o complemento premium, use o exemplo a seguir. Confira s [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) para saber mais sobre o complemento premium.
 
-	New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium - BillingType MeteredData
+    New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium - BillingType MeteredData
 
 
 A resposta conterá a chave de serviço. Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte:
 
-	get-help new-azurededicatedcircuit -detailed
+    get-help new-azurededicatedcircuit -detailed
 
-### 4\. Listar todos os circuitos da Rota Expressa
+### <a name="4.-list-all-the-expressroute-circuits"></a>4. Listar todos os circuitos da Rota Expressa
 
 Você pode executar o comando `Get-AzureDedicatedCircuit` para obter uma lista de todos os circuitos da Rota Expressa que criou:
 
 
-	Get-AzureDedicatedCircuit
+    Get-AzureDedicatedCircuit
 
 A resposta será algo semelhante ao seguinte exemplo:
 
-	Bandwidth                        : 200
-	CircuitName                      : MyTestCircuit
-	Location                         : Silicon Valley
-	ServiceKey                       : *********************************
-	ServiceProviderName              : equinix
-	ServiceProviderProvisioningState : NotProvisioned
-	Sku                              : Standard
-	Status                           : Enabled
+    Bandwidth                        : 200
+    CircuitName                      : MyTestCircuit
+    Location                         : Silicon Valley
+    ServiceKey                       : *********************************
+    ServiceProviderName              : equinix
+    ServiceProviderProvisioningState : NotProvisioned
+    Sku                              : Standard
+    Status                           : Enabled
 
-Você pode recuperar essas informações a qualquer momento usando o cmdlet `Get-AzureDedicatedCircuit`. Fazer a chamada sem parâmetros listará todos os circuitos. Sua chave de serviço estará listada no campo *ServiceKey*.
+Você pode recuperar essas informações a qualquer momento usando o cmdlet `Get-AzureDedicatedCircuit` . Fazer a chamada sem parâmetros listará todos os circuitos. Sua chave de serviço estará listada no campo *ServiceKey* .
 
-	Get-AzureDedicatedCircuit
+    Get-AzureDedicatedCircuit
 
-	Bandwidth                        : 200
-	CircuitName                      : MyTestCircuit
-	Location                         : Silicon Valley
-	ServiceKey                       : *********************************
-	ServiceProviderName              : equinix
-	ServiceProviderProvisioningState : NotProvisioned
-	Sku                              : Standard
-	Status                           : Enabled
+    Bandwidth                        : 200
+    CircuitName                      : MyTestCircuit
+    Location                         : Silicon Valley
+    ServiceKey                       : *********************************
+    ServiceProviderName              : equinix
+    ServiceProviderProvisioningState : NotProvisioned
+    Sku                              : Standard
+    Status                           : Enabled
 
 Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte:
 
-	get-help get-azurededicatedcircuit -detailed
+    get-help get-azurededicatedcircuit -detailed
 
-### 5\. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
+### <a name="5.-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
 
 
-*ServiceProviderProvisioningState* fornece informações sobre o estado atual de provisionamento no lado do provedor de serviço. *Status* fornece o estado no lado da Microsoft. Para saber mais sobre estados de provisionamento do circuito, confira o artigo [Fluxos de trabalho](expressroute-workflows.md#expressroute-circuit-provisioning-states).
+*ServiceProviderProvisioningState* fornece informações sobre o estado atual de provisionamento no lado do provedor de serviço. *Status* fornece o estado no lado da Microsoft. Para saber mais sobre estados de provisionamento do circuito, confira o artigo [Fluxos de trabalho](expressroute-workflows.md#expressroute-circuit-provisioning-states) .
 
 Quando você criar um novo circuito da Rota Expressa, ele estará no seguinte estado:
 
-	ServiceProviderProvisioningState : NotProvisioned
-	Status                           : Enabled
+    ServiceProviderProvisioningState : NotProvisioned
+    Status                           : Enabled
 
 
 O circuito assumirá o seguinte o estado quando o provedor de conectividade estiver habilitando-o para você:
 
-	ServiceProviderProvisioningState : Provisioning
-	Status                           : Enabled
+    ServiceProviderProvisioningState : Provisioning
+    Status                           : Enabled
 
 Um circuito da Rota Expressa deverá estar no seguinte estado para você poder usá-lo:
 
-	ServiceProviderProvisioningState : Provisioned
-	Status                           : Enabled
+    ServiceProviderProvisioningState : Provisioned
+    Status                           : Enabled
 
 
-### 6\. Verifique periodicamente o status e o estado da chave do circuito
+### <a name="6.-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Verifique periodicamente o status e o estado da chave do circuito
 
 Isso permite que você saiba quando seu provedor habilitou seu circuito. Após a configuração do circuito, o *ServiceProviderProvisioningState* será exibido como *Provisioned*, como mostrado neste exemplo:
 
-	Get-AzureDedicatedCircuit
+    Get-AzureDedicatedCircuit
 
-	Bandwidth                        : 200
-	CircuitName                      : MyTestCircuit
-	Location                         : Silicon Valley
-	ServiceKey                       : *********************************
-	ServiceProviderName              : equinix
-	ServiceProviderProvisioningState : Provisioned
-	Sku                              : Standard
-	Status                           : Enabled
+    Bandwidth                        : 200
+    CircuitName                      : MyTestCircuit
+    Location                         : Silicon Valley
+    ServiceKey                       : *********************************
+    ServiceProviderName              : equinix
+    ServiceProviderProvisioningState : Provisioned
+    Sku                              : Standard
+    Status                           : Enabled
 
-### 7\. Criar sua configuração de roteamento
+### <a name="7.-create-your-routing-configuration"></a>7. Criar sua configuração de roteamento
 
 Confira o artigo [Configuração de roteamento do circuito da Rota Expressa (criar e modificar emparelhamentos de circuito)](expressroute-howto-routing-classic.md) para obter instruções passo a passo.
 
 >[AZURE.IMPORTANT] Estas instruções aplicam-se apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de camada 3 (normalmente um IP VPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
 
-### 8\. Vincular uma rede virtual a um circuito de Rota Expressa
+### <a name="8.-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Vincular uma rede virtual a um circuito de Rota Expressa
 
 Em seguida, vincule uma rede virtual a seu circuito da Rota Expressa. Confira [Vincular circuitos da Rota Expressa a redes virtuais](expressroute-howto-linkvnet-classic.md) para obter instruções passo a passo. Se você precisar criar uma rede virtual usando o modelo de implantação clássico para a Rota Expressa, confira [Criar uma rede virtual para a Rota Expressa](expressroute-howto-vnet-portal-classic.md) para obter instruções.
 
-## Obtendo o status de um circuito da Rota Expressa
+## <a name="getting-the-status-of-an-expressroute-circuit"></a>Obtendo o status de um circuito da Rota Expressa
 
-Você pode recuperar essas informações a qualquer momento usando o cmdlet `Get-AzureCircuit`. Fazer a chamada sem parâmetros listará todos os circuitos.
+Você pode recuperar essas informações a qualquer momento usando o cmdlet `Get-AzureCircuit` . Fazer a chamada sem parâmetros listará todos os circuitos.
 
-	Get-AzureDedicatedCircuit
+    Get-AzureDedicatedCircuit
 
-	Bandwidth                        : 200
-	CircuitName                      : MyTestCircuit
-	Location                         : Silicon Valley
-	ServiceKey                       : *********************************
-	ServiceProviderName              : equinix
-	ServiceProviderProvisioningState : Provisioned
-	Sku                              : Standard
-	Status                           : Enabled
+    Bandwidth                        : 200
+    CircuitName                      : MyTestCircuit
+    Location                         : Silicon Valley
+    ServiceKey                       : *********************************
+    ServiceProviderName              : equinix
+    ServiceProviderProvisioningState : Provisioned
+    Sku                              : Standard
+    Status                           : Enabled
 
-	Bandwidth                        : 1000
-	CircuitName                      : MyAsiaCircuit
-	Location                         : Singapore
-	ServiceKey                       : #################################
-	ServiceProviderName              : equinix
-	ServiceProviderProvisioningState : Provisioned
-	Sku                              : Standard
-	Status                           : Enabled
+    Bandwidth                        : 1000
+    CircuitName                      : MyAsiaCircuit
+    Location                         : Singapore
+    ServiceKey                       : #################################
+    ServiceProviderName              : equinix
+    ServiceProviderProvisioningState : Provisioned
+    Sku                              : Standard
+    Status                           : Enabled
 
 Você pode obter informações sobre um circuito da Rota Expressa específico passando a chave do serviço como um parâmetro para a chamada:
 
-	Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+    Get-AzureDedicatedCircuit -ServiceKey "*********************************"
 
-	Bandwidth                        : 200
-	CircuitName                      : MyTestCircuit
-	Location                         : Silicon Valley
-	ServiceKey                       : *********************************
-	ServiceProviderName              : equinix
-	ServiceProviderProvisioningState : Provisioned
-	Sku                              : Standard
-	Status                           : Enabled
+    Bandwidth                        : 200
+    CircuitName                      : MyTestCircuit
+    Location                         : Silicon Valley
+    ServiceKey                       : *********************************
+    ServiceProviderName              : equinix
+    ServiceProviderProvisioningState : Provisioned
+    Sku                              : Standard
+    Status                           : Enabled
 
 
 Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte:
 
-	get-help get-azurededicatedcircuit -detailed
+    get-help get-azurededicatedcircuit -detailed
 
-## Modificando um circuito da Rota Expressa
+## <a name="modifying-an-expressroute-circuit"></a>Modificando um circuito da Rota Expressa
 
 Você pode modificar certas propriedades de um circuito da Rota Expressa sem afetar a conectividade.
 
@@ -244,24 +245,24 @@ Você pode fazer o seguinte sem tempo de inatividade:
 
 Confira as [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) para saber mais sobre limites e limitações.
 
-### Para habilitar o complemento premium da Rota Expressa
+### <a name="to-enable-the-expressroute-premium-add-on"></a>Para habilitar o complemento premium da Rota Expressa
 
 Você pode habilitar o complemento premium da Rota Expressa para o circuito existente usando o seguinte cmdlet do PowerShell:
 
-	Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
+    Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
 
-	Bandwidth                        : 1000
-	CircuitName                      : TestCircuit
-	Location                         : Silicon Valley
-	ServiceKey                       : *********************************
-	ServiceProviderName              : equinix
-	ServiceProviderProvisioningState : Provisioned
-	Sku                              : Premium
-	Status                           : Enabled
+    Bandwidth                        : 1000
+    CircuitName                      : TestCircuit
+    Location                         : Silicon Valley
+    ServiceKey                       : *********************************
+    ServiceProviderName              : equinix
+    ServiceProviderProvisioningState : Provisioned
+    Sku                              : Premium
+    Status                           : Enabled
 
 O seu circuito agora tem os recursos do complemento premium da Rota Expressa habilitados. Observe que passaremos a cobrar pelo recurso do complemento Premium assim que o comando for executado com êxito.
 
-### Para desabilitar o complemento premium da Rota Expressa
+### <a name="to-disable-the-expressroute-premium-add-on"></a>Para desabilitar o complemento premium da Rota Expressa
 
 >[AZURE.IMPORTANT] Esta operação poderá falhar se você estiver usando recursos que ultrapassem o que é permitido para o circuito padrão.
 
@@ -275,61 +276,76 @@ Observe o seguinte:
 
 Você pode desabilitar o complemento premium da Rota Expressa para o circuito existente usando o seguinte cmdlet do PowerShell:
 
-	Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
+    Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
 
-	Bandwidth                        : 1000
-	CircuitName                      : TestCircuit
-	Location                         : Silicon Valley
-	ServiceKey                       : *********************************
-	ServiceProviderName              : equinix
-	ServiceProviderProvisioningState : Provisioned
-	Sku                              : Standard
-	Status                           : Enabled
+    Bandwidth                        : 1000
+    CircuitName                      : TestCircuit
+    Location                         : Silicon Valley
+    ServiceKey                       : *********************************
+    ServiceProviderName              : equinix
+    ServiceProviderProvisioningState : Provisioned
+    Sku                              : Standard
+    Status                           : Enabled
 
 
 
-### Para atualizar a largura de banda do circuito da Rota Expressa
+### <a name="to-update-the-expressroute-circuit-bandwidth"></a>Para atualizar a largura de banda do circuito da Rota Expressa
 
-Confira as [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) para obter opções de largura de banda com suporte para seu provedor. Você pode escolher qualquer tamanho que seja maior do que o tamanho do circuito existente.
+Confira as [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) para obter opções de largura de banda com suporte para seu provedor. Você pode escolher um tamanho maior do que o tamanho do circuito existente, desde que a porta física (na qual o circuito foi criado) permita.
 
 >[AZURE.IMPORTANT] Não é possível reduzir a largura de banda de um circuito da Rota Expressa sem interrupções. O downgrade da largura de banda exige o desprovisionamento do circuito da Rota Expressa e um novo provisionamento de um novo circuito da Rota Expressa.
 
 Após decidir de qual tamanho precisa, você pode usar o seguinte comando para redimensionar o circuito:
 
-	Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
+    Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
 
-	Bandwidth                        : 1000
-	CircuitName                      : TestCircuit
-	Location                         : Silicon Valley
-	ServiceKey                       : *********************************
-	ServiceProviderName              : equinix
-	ServiceProviderProvisioningState : Provisioned
-	Sku                              : Standard
-	Status                           : Enabled
+    Bandwidth                        : 1000
+    CircuitName                      : TestCircuit
+    Location                         : Silicon Valley
+    ServiceKey                       : *********************************
+    ServiceProviderName              : equinix
+    ServiceProviderProvisioningState : Provisioned
+    Sku                              : Standard
+    Status                           : Enabled
 
 O circuito será sido dimensionado no lado da Microsoft. Entre em contato com seu provedor de conectividade para que ele atualize as configurações a fim de corresponder a essa alteração. Observe que passaremos a lhe cobrar pela opção de largura de banda atualizada a partir desse momento.
 
-## Desprovisionamento e exclusão de um circuito do ExpressRoute
+Se você vir o seguinte erro quando aumentar a largura de banda do circuito, isso significa que não há largura de banda suficiente restante na porta física onde o circuito existente foi criado. Será necessário excluir este circuito e criar um novo circuito do tamanho que você precisa. 
+
+    Set-AzureDedicatedCircuitProperties : InvalidOperation : Insufficient bandwidth available to perform this circuit
+    update operation
+    At line:1 char:1
+    + Set-AzureDedicatedCircuitProperties -ServiceKey ********************* ...
+    + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        + CategoryInfo          : CloseError: (:) [Set-AzureDedicatedCircuitProperties], CloudException
+        + FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.SetAzureDedicatedCircuitPropertiesCommand
+    
+
+## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Desprovisionamento e exclusão de um circuito do ExpressRoute
 
 Observe o seguinte:
 
 - Você deve desvincular todas as redes virtuais do circuto da Rota Expressa para que a operação seja bem-sucedida. Se essa operação falhar, verifique se você tem redes virtuais vinculadas ao circuito.
 
-- Se o estado de provisionamento do provedor de serviço de circuito de ExpressRoute for **Provisionando** ou **Provisionado** você deverá trabalhar com seu provedor de serviços para desprovisionar o circuito no lado dele. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
+- Se o estado de provisionamento do provedor de serviço de circuito de ExpressRoute for **Provisionando** ou **Provisionado**, você deverá trabalhar com seu provedor de serviços para que ele desprovisione o circuito. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
 
 - Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **Não provisionado**), exclua o circuito. Isso interromperá a cobrança do circuito.
 
 Você pode excluir o circuito da Rota Expressa executando o comando a seguir:
 
-	Remove-AzureDedicatedCircuit -ServiceKey "*********************************"
+    Remove-AzureDedicatedCircuit -ServiceKey "*********************************"
 
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de criar seu circuito, faça o seguinte:
 
 - [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-classic.md)
 - [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -16,7 +16,8 @@
    ms.date="09/21/2016"
    ms.author="lakshmir;barbkess;sonyama"/>
 
-# Restaurar um Azure SQL Data Warehouse (Portal)
+
+# <a name="restore-an-azure-sql-data-warehouse-(portal)"></a>Restaurar um Azure SQL Data Warehouse (Portal)
 
 > [AZURE.SELECTOR]
 - [Visão geral][]
@@ -26,12 +27,12 @@
 
 Neste artigo, você aprenderá como restaurar um Azure SQL Data Warehouse usando o Portal do Azure.
 
-## Antes de começar
+## <a name="before-you-begin"></a>Antes de começar
 
-**Verifique sua capacidade de DTU.** Cada SQL Data Warehouse é hospedado por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão. Antes de restaurar um SQL Data Warehouse, verifique se o SQL Server tem cota de DTU suficiente restante para o banco de dados que está sendo restaurado. Para saber como calcular a DTU necessária ou para solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU][].
+**Verifique sua capacidade de DTU.**  Cada SQL Data Warehouse é hospedado por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão.  Antes de restaurar um SQL Data Warehouse, verifique se o SQL Server tem cota de DTU suficiente restante para o banco de dados que está sendo restaurado. Para saber como calcular a DTU necessária ou para solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU][].
 
 
-## Restaurar um banco de dados ativo ou pausado
+## <a name="restore-an-active-or-paused-database"></a>Restaurar um banco de dados ativo ou pausado
 
 Para restaurar um banco de dados:
 
@@ -52,8 +53,8 @@ Para restaurar um banco de dados:
     ![](./media/sql-data-warehouse-restore-database-portal/01-select-restore-from-active.png)
 
 6. Especifique um novo **Nome de banco de dados**
-7. Escolha o **Ponto de Restauração** mais recente
-    1. Certifique-se de escolher o ponto de restauração mais recente. Uma vez que os pontos de restauração são mostrados em UTC, às vezes, a opção padrão mostrada não é o ponto de restauração mais recente.
+7. Escolha o **Ponto de Restauração**
+    1. Certifique-se de escolher o ponto de restauração mais recente.  Uma vez que os pontos de restauração são mostrados em UTC, às vezes, a opção padrão mostrada não é o ponto de restauração mais recente.
     
     ![](./media/sql-data-warehouse-restore-database-portal/01-restore-blade-from-active.png)
 
@@ -63,7 +64,7 @@ Para restaurar um banco de dados:
 >[AZURE.NOTE] Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo [Configurar o banco de dados após a recuperação][].
 
 
-## Restaurar um banco de dados excluído
+## <a name="restore-a-deleted-database"></a>Restaurar um banco de dados excluído
 
 Para restaurar um banco de dados excluído:
 
@@ -92,9 +93,9 @@ Para restaurar um banco de dados excluído:
 8. Clique em **OK**
 9. O processo de restauração do banco de dados começará e poderá ser monitorado usando **NOTIFICAÇÕES**
 
->[AZURE.NOTE] Para configurar o banco de dados após a conclusão da restauração, consulte [Configurar o banco de dados após a recuperação][].
+>[AZURE.NOTE] Para configurar o banco de dados após a conclusão da restauração, consulte [Configurar o banco de dados após a recuperação][]. 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre os recursos de continuidade dos negócios das edições do Banco de Dados SQL do Azure, leia a [Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure][].
 
 <!--Image references-->
@@ -115,4 +116,8 @@ Para saber mais sobre os recursos de continuidade dos negócios das edições do
 <!--Other Web references-->
 [Portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

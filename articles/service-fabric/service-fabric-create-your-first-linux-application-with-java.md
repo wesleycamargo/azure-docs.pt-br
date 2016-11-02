@@ -13,23 +13,25 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/28/2016"
+   ms.date="10/04/2016"
    ms.author="seanmck"/>
 
 
-# Criar seu primeiro aplicativo do Azure Service Fabric
+
+# <a name="create-your-first-azure-service-fabric-application"></a>Criar seu primeiro aplicativo do Azure Service Fabric
 
 > [AZURE.SELECTOR]
-- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
-- [Java](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 
 O Service Fabric fornece SDKs para compilação de serviços no Linux em .NET Core e Java. Neste tutorial, vamos ver como criar um aplicativo para Linux e compilar um serviço usando Java.
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se você [configurar o ambiente de desenvolvimento Linux](service-fabric-get-started-linux.md). Se você estiver usando Mac OS X, poderá [configurar um ambiente de uma caixa do Linux em uma máquina virtual usando Vagrant](service-fabric-get-started-mac.md).
 
-## Criar o aplicativo
+## <a name="create-the-application"></a>Criar o aplicativo
 
 Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com uma função específica no fornecimento de funcionalidade do aplicativo. O SDK do Service Fabric para Linux inclui um gerador [Yeoman](http://yeoman.io/) que facilita a criação de seu primeiro serviço e a adição de mais serviços posteriormente. Vamos usar Yeoman para criar um novo aplicativo com um único serviço.
 
@@ -43,28 +45,28 @@ Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com um
 
 >[AZURE.NOTE] Para obter mais informações sobre as opções, confira [Visão geral do modelo de programação do Service Fabric](service-fabric-choose-framework.md).
 
-## Compilar o aplicativo
+## <a name="build-the-application"></a>Compilar o aplicativo
 
 Os modelos Yeoman do Service Fabric incluem um script de compilação para [Gradle](https://gradle.org/), que pode ser usada para compilar o aplicativo no terminal.
 
   ```bash
+  cd myapp
   gradle
   ```
 
-## Implantar o aplicativo
+## <a name="deploy-the-application"></a>Implantar o aplicativo
 
 Após a compilação do aplicativo, você pode implantá-lo no cluster local usando a CLI do Azure.
 
 1. Conectar-se ao cluster local do Service Fabric.
 
     ```bash
-    azuresfcli servicefabric cluster connect
+    azure servicefabric cluster connect
     ```
 
 2. Use o script de instalação fornecido no modelo para copiar o pacote de aplicativo no repositório de imagens do cluster, registrar o tipo de aplicativo e criar uma instância do aplicativo.
 
     ```bash
-    cd myapp
     ./install.sh
     ```
 
@@ -72,7 +74,7 @@ Após a compilação do aplicativo, você pode implantá-lo no cluster local usa
 
 4. Expanda o nó Aplicativos e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
 
-## Inicie o cliente de teste e execute um failover
+## <a name="start-the-test-client-and-perform-a-failover"></a>Inicie o cliente de teste e execute um failover
 
 Projetos de atores não fazem nada por conta própria. Eles exigem outro serviço ou cliente para enviar mensagens a eles. O modelo de ator inclui um script de teste simples que você pode usar para interagir com o serviço de ator.
 
@@ -89,11 +91,11 @@ Projetos de atores não fazem nada por conta própria. Eles exigem outro serviç
 
 3. Clique no nó encontrado na etapa anterior e selecione **Desativar (Reiniciar)** no menu Ações. Isso reiniciará um dos cinco nós no cluster local e forçará um failover para uma das réplicas secundárias em execução em outro nó. Ao fazer isso, preste atenção à saída do cliente de teste e observe que o contador continua a aumentar apesar do failover.
 
-## Compilar e implantar um aplicativo com o plug-in Eclipse Neon
+## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Compilar e implantar um aplicativo com o plug-in Eclipse Neon
 
-Se você instalou o Plug-in de serviço para Eclipse Neon, você pode usá-lo para criar, compilar e implantar aplicativos do Service Fabric compilados com o Java.
+Se você instalou o Plug-in de serviço para Eclipse Neon, você pode usá-lo para criar, compilar e implantar aplicativos do Service Fabric compilados com o Java.  Ao instalar o Eclipse, escolha o **Eclipse IDE para desenvolvedores Java**.
 
-### Criar o aplicativo
+### <a name="create-the-application"></a>Criar o aplicativo
 
 O Plug-in de serviço do Service Fabric está disponível por meio da extensibilidade do Eclipse.
 
@@ -105,7 +107,7 @@ O Plug-in de serviço do Service Fabric está disponível por meio da extensibil
 
 3. Você deve confirmar o uso da perspectiva do Service Fabric, que otimiza o Eclipse para uso com projetos do Service Fabric. Selecione “Sim”.
 
-### Implantar o aplicativo
+### <a name="deploy-the-application"></a>Implantar o aplicativo
 
 Os modelos do Service Fabric incluem um conjunto de tarefas do Gradle para compilar e implantar aplicativos, que você pode disparar pelo Eclipse.
 
@@ -117,13 +119,18 @@ Os modelos do Service Fabric incluem um conjunto de tarefas do Gradle para compi
 
 Seu aplicativo será compilado e implantado em poucos instantes. Você pode monitorar o status no Service Fabric Explorer.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre as [Reliable Actors](service-fabric-reliable-actors-introduction.md)
+- [Reliable Actors](service-fabric-reliable-actors-introduction.md)
+- [Interagindo com clusters do Service Fabric usando a CLI do Azure](service-fabric-azure-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

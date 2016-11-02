@@ -15,7 +15,8 @@
    ms.date="05/05/2016"
    ms.author="jdial" />
 
-# Cenário de dispositivo virtual
+
+# <a name="virtual-appliance-scenario"></a>Cenário de dispositivo virtual
 
 Um cenário comum entre os maiores clientes do Azure é a necessidade de fornecer um aplicativo de duas camadas exposto à Internet, permitindo acesso para a camada traseira de um datacenter local. Este documento explica um cenário usando UDR (Rotas Definidas pelo Usuário), um Gateway de VPN e dispositivos virtuais de rede para implantar um ambiente de duas camadas que atende aos seguintes requisitos:
 
@@ -34,12 +35,12 @@ Esse é um cenário de DMZ padrão com um DMZ e uma rede protegida. Esse cenári
 
 A solução a seguir usa dispositivos virtuais do firewall para implementar um cenário de rede DMZ/protegido.
 
-## Considerações
+## <a name="considerations"></a>Considerações
 
 Você pode implantar o ambiente explicado anteriormente no Azure usando da seguinte maneira diferentes recursos disponíveis hoje.
 
 - **Rede virtual (VNet)**. Uma VNet do Azure funciona de maneira semelhante a uma rede local e pode ser segmentada em uma ou mais sub-redes para fornecer isolamento de tráfego e separação de preocupações.
-- **Dispositivo virtual**. Vários parceiros fornecem dispositivos virtuais no Azure Marketplace que podem ser usados para os três firewalls descritos acima.
+- **Dispositivo virtual**. Vários parceiros fornecem dispositivos virtuais no Azure Marketplace que podem ser usados para os três firewalls descritos acima. 
 - **UDR (Rotas Definidas pelo Usuário)**. As tabelas de rotas podem conter UDRs usadas pela rede do Azure para controlar o fluxo de pacotes em uma VNet. Essas tabelas de rotas podem ser aplicadas a sub-redes. Um dos recursos mais recentes no Azure é a capacidade de aplicar uma tabela de rotas para o GatewaySubnet, fornecendo a capacidade de encaminhar todo o tráfego de entrada da VNet do Azure de uma conexão híbrida para um dispositivo virtual.
 - **Encaminhamento IP**. Por padrão, o mecanismo de rede do Azure encaminhará pacotes a NICs (placas de interface de rede virtual) somente se o endereço IP de destino do pacote corresponder ao endereço IP da NIC. Portanto, se uma UDR definir que um pacote deverá ser enviado para um determinado dispositivo virtual, o mecanismo de rede do Azure deverá remover esse pacote. Para garantir que o pacote seja entregue a uma VM (no caso, um dispositivo virtual) que não seja o destino real do pacote, você precisará habilitar o encaminhamento IP para o dispositivo virtual.
 - **NSGs (Grupos de Segurança de Rede)**. O exemplo a seguir não faz uso de NSGs, mas você pode usar os NSGs aplicados às sub-redes e/ou NICs nesta solução para filtrar ainda mais o tráfego de entrada e saída dessas NICs e sub-redes.
@@ -49,69 +50,69 @@ Você pode implantar o ambiente explicado anteriormente no Azure usando da segui
 
 Neste exemplo, há uma assinatura que contém o seguinte:
 
-- 2 grupos de recursos, não mostrados no diagrama.
-	- **ONPREMRG**. Contém todos os recursos necessários para simular uma rede local.
-	- **AZURERG**. Contém todos os recursos necessários para o ambiente de rede virtual do Azure.
+- 2 grupos de recursos, não mostrados no diagrama. 
+    - **ONPREMRG**. Contém todos os recursos necessários para simular uma rede local.
+    - **AZURERG**. Contém todos os recursos necessários para o ambiente de rede virtual do Azure. 
 - Uma VNet denominada **onpremvnet** usada para imitar um datacenter local segmentado como listado abaixo.
-	- **onpremsn1**. A sub-rede que contém uma VM (máquina virtual) executando o Ubuntu para simular um servidor local.
-	- **onpremsn2**. A sub-rede que contém uma VM executando o Ubuntu para simular um computador local usado por um administrador.
+    - **onpremsn1**. A sub-rede que contém uma VM (máquina virtual) executando o Ubuntu para simular um servidor local.
+    - **onpremsn2**. A sub-rede que contém uma VM executando o Ubuntu para simular um computador local usado por um administrador.
 - Há um dispositivo virtual de firewall denominado **OPFW** em **onpremvnet** usado para manter um túnel para **azurevnet**.
 - Uma VNet denominada **azurevnet** segmentada como listado abaixo.
-	- **azsn1**. A sub-rede de firewall externo usada exclusivamente para o firewall externo. Todo o tráfego da Internet será proveniente desta sub-rede. Essa sub-rede contém apenas uma NIC associada ao firewall externo.
-	- **azsn2**. A sub-rede de front-end hospeda uma VM em execução como um servidor Web que será acessado da Internet.
-	- **azsn3**. A sub-rede de back-end hospeda uma VM que executa um servidor de aplicativos de back-end que será acessado pelo servidor Web de front-end.
-	- **azsn4**. A sub-rede de gerenciamento usada exclusivamente para fornecer acesso de gerenciamento para todos os dispositivos virtuais do firewall. Essa sub-rede contém apenas uma NIC para cada dispositivo virtual de firewall usado na solução.
-	- **GatewaySubnet**. A sub-rede de conexão híbrida do Azure necessária para o Gateway de VPN e a Rota Expressa para fornecer conectividade entre VNets do Azure e outras redes.
-- Há 3 dispositivos virtuais de firewall na rede **azurevnet**.
-	- **AZF1**. Firewall externo exposto à Internet pública usando um recurso de endereço IP público do Azure. Você precisa garantir que tem um modelo do Marketplace, ou diretamente do seu fornecedor de dispositivo, que provisiona um dispositivo virtual de 3 NICs.
-	- **AZF2**. Firewall interno usado para controlar o tráfego entre **azsn2** e **azsn3**. Isso também é um dispositivo virtual de 3 NICs.
-	- **AZF3**. O firewall de gerenciamento acessível aos administradores do datacenter local e conectado a uma sub-rede de gerenciamento usada para gerenciar todos os dispositivos de firewall. Você pode encontrar modelos de dispositivo virtual de 2 NICs no Marketplace ou solicitar uma diretamente do seu fornecedor de dispositivo.
+    - **azsn1**. A sub-rede de firewall externo usada exclusivamente para o firewall externo. Todo o tráfego da Internet será proveniente desta sub-rede. Essa sub-rede contém apenas uma NIC associada ao firewall externo.
+    - **azsn2**. A sub-rede de front-end hospeda uma VM em execução como um servidor Web que será acessado da Internet.
+    - **azsn3**. A sub-rede de back-end hospeda uma VM que executa um servidor de aplicativos de back-end que será acessado pelo servidor Web de front-end.
+    - **azsn4**. A sub-rede de gerenciamento usada exclusivamente para fornecer acesso de gerenciamento para todos os dispositivos virtuais do firewall. Essa sub-rede contém apenas uma NIC para cada dispositivo virtual de firewall usado na solução.
+    - **GatewaySubnet**. A sub-rede de conexão híbrida do Azure necessária para o Gateway de VPN e a Rota Expressa para fornecer conectividade entre VNets do Azure e outras redes. 
+- Há 3 dispositivos virtuais de firewall na rede **azurevnet** . 
+    - **AZF1**. Firewall externo exposto à Internet pública usando um recurso de endereço IP público do Azure. Você precisa garantir que tem um modelo do Marketplace, ou diretamente do seu fornecedor de dispositivo, que provisiona um dispositivo virtual de 3 NICs.
+    - **AZF2**. Firewall interno usado para controlar o tráfego entre **azsn2** e **azsn3**. Isso também é um dispositivo virtual de 3 NICs.
+    - **AZF3**. O firewall de gerenciamento acessível aos administradores do datacenter local e conectado a uma sub-rede de gerenciamento usada para gerenciar todos os dispositivos de firewall. Você pode encontrar modelos de dispositivo virtual de 2 NICs no Marketplace ou solicitar uma diretamente do seu fornecedor de dispositivo.
 
-## Roteamento definido pelo usuário (UDR)
+## <a name="user-defined-routing-(udr)"></a>Roteamento definido pelo usuário (UDR)
 
 Cada sub-rede no Azure pode ser vinculada a uma tabela UDR usada para definir como o tráfego iniciado na sub-rede é roteado. Se nenhum UDR for definido, o Azure usará as rotas padrão para permitir que o tráfego flua de uma sub-rede para outra. Para entender melhor os UDRs, visite [O que são Rotas Definidas pelo Usuário e Encaminhamento de IP](./virtual-networks-udr-overview.md#ip-forwarding).
 
 Para garantir a comunicação seja feita por meio do dispositivo de firewall correto, com base no último requisito acima, você precisará criar a seguinte tabela de rotas contendo UDRs em **azurevnet**.
 
-### azgwudr
+### <a name="azgwudr"></a>azgwudr
 
-Nesse cenário, o único tráfego fluindo local para o Azure será usado para gerenciar os firewalls se conectando ao **AZF3** e esse tráfego deve passar pelo firewall interno, **AZF2**. Portanto, é necessária apenas uma rota no **GatewaySubnet** conforme mostrado abaixo.
-
-|Destino|Próximo salto|Explicação|
-|---|---|---|
-|10\.0.4.0/24|10\.0.3.11|Permite que tráfego local alcance o gerenciamento de firewall **AZF3**|
-
-### azsn2udr
+Nesse cenário, o único tráfego fluindo do local para o Azure será usado para gerenciar os firewalls se conectando ao **AZF3** e esse tráfego deve passar pelo firewall interno, **AZF2**. Portanto, é necessária apenas uma rota no **GatewaySubnet** conforme mostrado abaixo.
 
 |Destino|Próximo salto|Explicação|
 |---|---|---|
-|10\.0.3.0/24|10\.0.2.11|Permite tráfego para a sub-rede de back-end que hospeda o servidor de aplicativos por meio do **AZF2**|
-|0\.0.0.0/0|10\.0.2.10|Permite que todos os outros tráfegos sejam roteados por meio do **AZF1**|
+|10.0.4.0/24|10.0.3.11|Permite que tráfego local alcance o gerenciamento de firewall **AZF3**|
 
-### azsn3udr
+### <a name="azsn2udr"></a>azsn2udr
 
 |Destino|Próximo salto|Explicação|
 |---|---|---|
-|10\.0.2.0/24|10\.0.3.10|Permite que o tráfego **azsn2** ao flua do servidor de aplicativos para o servidor Web por meio do **AZF2**|
+|10.0.3.0/24|10.0.2.11|Permite tráfego para a sub-rede de back-end que hospeda o servidor de aplicativos por meio do **AZF2**|
+|0.0.0.0/0|10.0.2.10|Permite que todos os outros tráfegos sejam roteados por meio do **AZF1**|
+
+### <a name="azsn3udr"></a>azsn3udr
+
+|Destino|Próximo salto|Explicação|
+|---|---|---|
+|10.0.2.0/24|10.0.3.10|Permite que o tráfego **azsn2** ao flua do servidor de aplicativos para o servidor Web por meio do **AZF2**|
 
 Você também precisa criar tabelas de rotas para as sub-redes em **onpremvnet** simularem o datacenter local.
 
-### onpremsn1udr
+### <a name="onpremsn1udr"></a>onpremsn1udr
 
 |Destino|Próximo salto|Explicação|
 |---|---|---|
-|192\.168.2.0/24|192\.168.1.4|Permite o tráfego para **onpremsn2** por meio do **OPFW**|
+|192.168.2.0/24|192.168.1.4|Permite o tráfego para **onpremsn2** por meio do **OPFW**|
 
-### onpremsn2udr
+### <a name="onpremsn2udr"></a>onpremsn2udr
 
 |Destino|Próximo salto|Explicação|
 |---|---|---|
-|10\.0.3.0/24|192\.168.2.4|Permite o tráfego para a sub-rede com suporte no Azure por meio de **OPFW**|
-|192\.168.1.0/24|192\.168.2.4|Permite o tráfego para **onpremsn1** por meio do **OPFW**|
+|10.0.3.0/24|192.168.2.4|Permite o tráfego para a sub-rede com suporte no Azure por meio de **OPFW**|
+|192.168.1.0/24|192.168.2.4|Permite o tráfego para **onpremsn1** por meio do **OPFW**|
 
-## Encaminhamento IP 
+## <a name="ip-forwarding"></a>encaminhamento IP 
 
-UDR e encaminhamento IP são recursos que podem ser usados em combinação para permitir que dispositivos virtuais sejam usados para controlar o fluxo de tráfego em uma rede virtual do Azure. Um dispositivo virtual é nada mais do que uma VM que executa um aplicativo usado para lidar com o tráfego de rede de alguma forma, como um firewall ou um dispositivo NAT.
+UDR e encaminhamento IP são recursos que podem ser usados em combinação para permitir que dispositivos virtuais sejam usados para controlar o fluxo de tráfego em uma rede virtual do Azure.  Um dispositivo virtual é nada mais do que uma VM que executa um aplicativo usado para lidar com o tráfego de rede de alguma forma, como um firewall ou um dispositivo NAT.
 
 Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada não endereçado a si mesma. Para permitir que uma VM receba o tráfego endereçado a outros destinos, você deve habilitar o Encaminhamento IP para a VM. Esta é uma configuração do Azure, não uma configuração no sistema operacional convidado. O dispositivo virtual ainda precisa executar algum tipo de aplicativo para tratar o tráfego de entrada e roteá-la adequadamente.
 
@@ -124,39 +125,39 @@ Por exemplo, imagine que você tenha a seguinte configuração em uma VNet do Az
 - Um dispositivo virtual denominado **OPFW** é conectado a **onpremsn1** e **onpremsn2**.
 - Uma rota definida pelo usuário vinculado a **onpremsn1** especifica que todo o tráfego para **onpremsn2** devem ser enviado ao **OPFW**.
 
-Nesse ponto, se **onpremvm1** tentar estabelecer uma conexão com **onpremvm2**, será usado o UDR e o tráfego será enviado para **OPFW** como o próximo salto. Tenha em mente que o destino do pacote real não está sendo alterado, ainda diz **onpremvm2** no destino.
+Nesse ponto, se **onpremvm1** tentar estabelecer uma conexão com **onpremvm2**, será usado o UDR e o tráfego será enviado para **OPFW** como o próximo salto. Tenha em mente que o destino do pacote real não está sendo alterado, ainda diz **onpremvm2** no destino. 
 
 Sem o encaminhamento IP habilitado para **OPFW**, a lógica de rede virtual do Azure removerá os pacotes, já que só permitirá que os pacotes sejam enviados a uma VM se o endereço IP da VM for o destino para o pacote.
 
-Com o encaminhamento de IP, a lógica de rede virtual do Azure encaminhará os pacotes para OPFW, sem alterar seu endereço de destino original. O **OPFW** deve lidar com os pacotes e determinar o que fazer com eles.
+Com o encaminhamento de IP, a lógica de rede virtual do Azure encaminhará os pacotes para OPFW, sem alterar seu endereço de destino original. **OPFW** deve lidar com os pacotes e determinar o que fazer com eles.
 
-Para o cenário acima para funcionar, você deve habilitar o encaminhamento de IP em NICs de **OPFW**, **AZF1**, **AZF2**, e **AZF3** que são usadas para rotear (todas as NICs exceto aquelas vinculadas à subrede de gerenciamento).
+Para o cenário acima para funcionar, você deve habilitar o encaminhamento de IP em NICs de **OPFW**, **AZF1**, **AZF2**, e **AZF3** que são usadas para rotear (todas as NICs exceto aquelas vinculadas à subrede de gerenciamento). 
 
-## Regras de firewall
+## <a name="firewall-rules"></a>Regras de firewall
 
 Conforme descrito acima, somente encaminhamento de IP garante que os pacotes sejam enviados para os dispositivos virtuais. O dispositivo ainda precisa decidir o que fazer com esses pacotes. No cenário acima, você precisa criar as seguintes regras em seus dispositivos:
 
-### OPFW
+### <a name="opfw"></a>OPFW
 
 OPFW representa um dispositivo local que contém as seguintes regras:
 
 - **Rota**: todo o tráfego para 10.0.0.0/16 (**azurevnet**) deve ser enviado pelo túnel **ONPREMAZURE**.
 - **Política**: permitir todo o tráfego bidirecional entre **port2** e **ONPREMAZURE**.
  
-### AZF1
+### <a name="azf1"></a>AZF1
 
 O AZF1 representa um dispositivo virtual do Azure que contém as seguintes regras:
 
 - **Política**: permitir todo o tráfego bidirecional entre **port1** e **port2**.
 
-### AZF2
+### <a name="azf2"></a>AZF2
 
 O AZF2 representa um dispositivo virtual do Azure que contém as seguintes regras:
 
 - **Rota**: todo o tráfego para 10.0.0.0/16 (**onpremvnet**) deve ser enviado para o endereço IP do gateway do Azure (ou seja, 10.0.0.1) por meio de **port1**.
 - **Política**: permitir todo o tráfego bidirecional entre **port1** e **port2**.
 
-## Grupos de segurança de rede (NSG)
+## <a name="network-security-groups-(nsgs)"></a>Grupos de segurança de rede (NSG)
 
 Nesse cenário, os NSGs não estão sendo usados. No entanto, você pode aplicar NSGs a cada sub-rede para restringir o tráfego de entrada e saído. Por exemplo, você pode aplicar as seguintes regras de NSG à sub-rede FW externa.
 
@@ -168,14 +169,18 @@ Nesse cenário, os NSGs não estão sendo usados. No entanto, você pode aplicar
 **Saída**
 - Negue todo tráfego para a Internet.
 
-## Etapas de alto nível
+## <a name="high-level-steps"></a>Etapas de alto nível
 
 Para implantar este cenário, siga as etapas de alto nível abaixo.
 
-1.	Faça logon na sua Assinatura do Azure.
-2.	Se você desejar implantar uma VNet para imitar a rede local, provisione os recursos que fazem parte do **ONPREMRG**.
-3.	Provisione os recursos que fazem parte do **AZURERG**.
-4.	Provisionar o túnel de **onpremvnet** para **azurevnet**.
-5.	Depois que todos os recursos forem provisionados, faça logon em **onpremvm2** e faça ping do 10.0.3.101 para testar a conectividade entre **onpremsn2** e **azsn3**.
+1.  Faça logon na sua Assinatura do Azure.
+2.  Se você desejar implantar uma VNet para imitar a rede local, provisione os recursos que fazem parte do **ONPREMRG**.
+3.  Provisione os recursos que fazem parte do **AZURERG**.
+4.  Provisionar o túnel de **onpremvnet** para **azurevnet**.
+5.  Depois que todos os recursos forem provisionados, faça logon em **onpremvm2** e faça ping do 10.0.3.101 para testar a conectividade entre **onpremsn2** e **azsn3**.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

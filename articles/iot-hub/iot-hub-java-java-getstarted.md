@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Introdução ao Hub IoT para Java | Microsoft Azure"
-	description="Tutorial de introdução ao Hub IoT do Azure para Java. Use o Hub IoT do Azure e Java com SDKs de IoT do Microsoft Azure para implementar uma solução de Internet das Coisas."
-	services="iot-hub"
-	documentationCenter="java"
-	authors="dominicbetts"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Introdução ao Hub IoT para Java | Microsoft Azure"
+    description="Tutorial de introdução ao Hub IoT do Azure para Java. Use o Hub IoT do Azure e Java com SDKs de IoT do Microsoft Azure para implementar uma solução de Internet das Coisas."
+    services="iot-hub"
+    documentationCenter="java"
+    authors="dominicbetts"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -16,7 +16,8 @@
      ms.date="08/11/2016"
      ms.author="dobett"/>
 
-# Introdução ao Hub IoT do Azure para Java
+
+# <a name="get-started-with-azure-iot-hub-for-java"></a>Introdução ao Hub IoT do Azure para Java
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
@@ -26,27 +27,27 @@ Ao fim deste tutorial, você tem três aplicativos de console do Java:
 * **read-d2c-messages**, que exibe a telemetria enviada pelo dispositivo simulado.
 * **simulated-device**, que conecta o Hub IoT com a identidade do dispositivo criada anteriormente e envia uma mensagem de telemetria a cada segundo usando o protocolo AMQPS.
 
-> [AZURE.NOTE] O artigo [SDKs do hub IoT][lnk-hub-sdks] fornece informações sobre vários SDKs que você pode usar para criar aplicativos executados em dispositivos e no back-end da solução.
+> [AZURE.NOTE] O artigo [SDKs do Hub IoT][lnk-hub-sdks]fornece informações sobre vários SDKs que você pode usar para criar aplicativos para executar nos dispositivos e no back-end da solução.
 
 Para concluir este tutorial, você precisará do seguinte:
 
 + Java SE 8. <br/> [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Java para este tutorial no Windows ou no Linux.
 
-+ Maven 3. <br/> [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Maven para este tutorial no Windows ou no Linux.
++ Maven 3.  <br/> [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Maven para este tutorial no Windows ou no Linux.
 
 + Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure][lnk-free-trial].)
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-Como etapa final, anote o valor da **Chave primária** e clique em **Sistema de Mensagens**. Na folha **Sistema de Mensagens**, anote o **nome compatível com o Hubs de Eventos** e o **ponto de extremidade compatível com o Hubs de Eventos**. Você precisa desses três valores quando cria o aplicativo **read-d2c-messages**.
+Como etapa final, anote o valor da **Chave primária**, em seguida, clique em **Mensagens**. Na folha **Mensagens**, anote o **nome compatível com o Hub de Eventos** e o **ponto de extremidade compatível com o Hub de Eventos**. Você precisa desses três valores quando cria o aplicativo **read-d2c-messages** .
 
 ![Folha Mensagens do Hub IoT do Portal do Azure][6]
 
 Você criou seu hub IoT e tem o nome de host do Hub IoT, a cadeia de conexão do Hub IoT, a Chave Primária do Hub IoT, o nome compatível com o Hubs de Eventos e o ponto de extremidade compatível com o Hubs de Eventos necessários para concluir este tutorial.
 
-## Criar uma identidade do dispositivo
+## <a name="create-a-device-identity"></a>Criar uma identidade do dispositivo
 
-Nesta seção, você cria um aplicativo do console do Java que cria uma nova identidade do dispositivo no registro de identidade em seu Hub IoT. Um dispositivo não pode se conectar ao Hub IoT, a menos que ele tenha uma entrada no registro de identidade do dispositivo. Veja a seção **Registro de identidade do dispositivo** do [Guia do Desenvolvedor do Hub IoT][lnk-devguide-identity] para obter mais informações. Quando você executa esse aplicativo de console, ele gera uma ID e chave do dispositivo exclusivas com as quais seu dispositivo poderá identificar-se ao enviar mensagens entre o dispositivo e a nuvem para o Hub IoT.
+Nesta seção, você cria um aplicativo do console do Java que cria uma nova identidade do dispositivo no registro de identidade em seu Hub IoT. Um dispositivo não pode se conectar ao Hub IoT, a menos que ele tenha uma entrada no registro de identidade do dispositivo. Consulte a seção **Registro de Identidade do Dispositivo** do [Guia do Desenvolvedor do Hub IoT][lnk-devguide-identity] para obter mais informações. Quando você executa esse aplicativo de console, ele gera uma ID e chave do dispositivo exclusivas com as quais seu dispositivo poderá identificar-se ao enviar mensagens entre o dispositivo e a nuvem para o Hub IoT.
 
 1. Crie uma nova pasta vazia chamada iot-java-get-started. Na pasta iot-java-get-started, crie um novo projeto Maven denominado **create-device-identity** usando o comando a seguir no prompt de comando. Observe que este é um comando único e longo:
 
@@ -56,19 +57,19 @@ Nesta seção, você cria um aplicativo do console do Java que cria uma nova ide
 
 2. No prompt de comando, navegue até a nova pasta create-device-identity.
 
-3. Usando um editor de texto, abra o arquivo pom.xml na pasta create-device-identity e adicione a dependência a seguir ao nó **dependencies**. Isso permite que você use o pacote iothub-service-sdk no aplicativo:
+3. Usando um editor de texto, abra o arquivo pom.xml na pasta create-device-identity e adicione a dependência a seguir ao nó **dependencies** . Isso permite que você use o pacote iothub-service-sdk no aplicativo:
 
     ```
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.7</version>
+      <version>1.0.9</version>
     </dependency>
     ```
     
 4. Salve e feche o arquivo pom.xml.
 
-5. Usando um editor de texto, abra o arquivo create-device-identity\\src\\main\\java\\com\\mycompany\\app\\App.java.
+5. Usando um editor de texto, abra o arquivo create-device-identity\src\main\java\com\mycompany\app\App.java.
 
 6. Adicione as seguintes instruções **import** ao arquivo:
 
@@ -95,7 +96,7 @@ Nesta seção, você cria um aplicativo do console do Java que cria uma nova ide
     public static void main( String[] args ) throws IOException, URISyntaxException, Exception
     ```
     
-9. Adicione o código a seguir como o corpo do método **main**. Esse código cria um dispositivo denominado *javadevice* no registro de identidade do Hub IoT, caso ele ainda não exista. Ele exibe a ID e a chave do dispositivo que são necessárias posteriormente:
+9. Adicione o código a seguir como o corpo do método **main** . Esse código cria um dispositivo denominado *javadevice* no registro de identidade do Hub IoT, caso ele ainda não exista. Ele exibe a ID e a chave do dispositivo que são necessárias posteriormente:
 
     ```
     RegistryManager registryManager = RegistryManager.createFromConnectionString(connectionString);
@@ -130,15 +131,15 @@ Nesta seção, você cria um aplicativo do console do Java que cria uma nova ide
 
 13. Anote a **Id do dispositivo** e a **Chave do dispositivo**. Você precisará delas mais tarde quando criar um aplicativo que se conecte ao Hub IoT como um dispositivo.
 
-> [AZURE.NOTE] O registro de identidade do Hub IoT armazena apenas as identidades de dispositivo para habilitar o acesso seguro ao hub. Ele armazena as IDs e as chaves do dispositivo a usar como credenciais de segurança e um sinalizador habilitado/desabilitado que você poderá usar para desabilitar o acesso de um dispositivo individual. Se seu aplicativo precisar armazenar outros metadados específicos do dispositivo, ele deverá usar um repositório específico do aplicativo. Veja o [Guia do Desenvolvedor do Hub IoT][lnk-devguide-identity] para saber mais.
+> [AZURE.NOTE] O registro de identidade do Hub IoT armazena apenas as identidades de dispositivo para habilitar o acesso seguro ao hub. Ele armazena as IDs e as chaves do dispositivo a usar como credenciais de segurança e um sinalizador habilitado/desabilitado que você poderá usar para desabilitar o acesso de um dispositivo individual. Se seu aplicativo precisar armazenar outros metadados específicos do dispositivo, ele deverá usar um repositório específico do aplicativo. Consulte o [Guia do Desenvolvedor do Hub IoT][lnk-devguide-identity] para obter mais informações.
 
-## Receber mensagens do dispositivo para a nuvem
+## <a name="receive-device-to-cloud-messages"></a>Receber mensagens do dispositivo para a nuvem
 
-Nesta seção, você cria um aplicativo do console do Java que lê mensagens do dispositivo para a nuvem do Hub IoT. Um Hub IoT expõe um ponto de extremidade compatível com os [Hubs de Eventos][lnk-event-hubs-overview] para permitir que você leia mensagens do dispositivo para a nuvem. Para simplificar, este tutorial cria um leitor básico que não é adequado para uma implantação de alta taxa de transferência. O tutorial [Processar mensagens do dispositivo para a nuvem][lnk-process-d2c-tutorial] mostra como processar as mensagens do dispositivo para a nuvem em escala. O tutorial [Introdução aos Hubs de Eventos][lnk-eventhubs-tutorial] oferece informações adicionais sobre como processar as mensagens dos Hubs de Eventos e é aplicável aos pontos de extremidade compatíveis com o Hubs de Eventos do Hub IoT.
+Nesta seção, você cria um aplicativo do console do Java que lê mensagens do dispositivo para a nuvem do Hub IoT. Um hub IoT expõe um ponto de extremidade compatível com o [Hub de Eventos][lnk-event-hubs-overview]para que você possa ler as mensagens do dispositivo para a nuvem. Para simplificar, este tutorial cria um leitor básico que não é adequado para uma implantação de alta taxa de transferência. O tutorial [Processar mensagens do dispositivo para a nuvem][lnk-process-d2c-tutorial] mostra como processar as mensagens do dispositivo para a nuvem em escala. O tutorial [Introdução aos Hubs de Eventos][lnk-eventhubs-tutorial] fornece informações adicionais sobre como processar as mensagens dos Hubs de Eventos e é aplicável aos pontos de extremidade compatíveis com os Hubs de Eventos do Hub IoT.
 
 > [AZURE.NOTE] O ponto de extremidade compatível com os Hubs de Eventos para ler mensagens do dispositivo para a nuvem sempre usa o protocolo AMQPS.
 
-1. Na pasta iot-java-get-started criada na seção *Criar uma identidade de dispositivo*, crie um novo projeto Maven denominado **read-d2c-messages** usando o comando a seguir no prompt de comando. Observe que este é um comando único e longo:
+1. Na pasta iot-java-get-started criada na seção *Criar uma identidade de dispositivo* , crie um novo projeto Maven denominado **read-d2c-messages** usando o comando a seguir no prompt de comando. Observe que este é um comando único e longo:
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-d2c-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -146,19 +147,19 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
 
 2. No prompt de comando, navegue até a nova pasta read-d2c-messages.
 
-3. Usando um editor de texto, abra o arquivo pom.xml na pasta read-d2c-messages e adicione a dependência a seguir ao nó **dependencies**. Isso permite usar o pacote eventhubs-client em seu aplicativo para ler a partir do ponto de extremidade compatível com Hubs de Eventos:
+3. Usando um editor de texto, abra o arquivo pom.xml na pasta read-d2c-messages e adicione a dependência a seguir ao nó **dependencies** . Isso permite usar o pacote eventhubs-client em seu aplicativo para ler a partir do ponto de extremidade compatível com Hubs de Eventos:
 
     ```
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.7.1</version> 
+        <version>0.8.2</version> 
     </dependency>
     ```
 
 4. Salve e feche o arquivo pom.xml.
 
-5. Usando um editor de texto, abra o arquivo read-d2c-messages\\src\\main\\java\\com\\mycompany\\app\\App.java.
+5. Usando um editor de texto, abra o arquivo read-d2c-messages\src\main\java\com\mycompany\app\App.java.
 
 6. Adicione as seguintes instruções **import** ao arquivo:
 
@@ -176,13 +177,13 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     import java.util.logging.*;
     ```
 
-7. Adicione as seguintes variáveis no nível da classe à classe **App**. Substitua **{chavedoseuhubiot}**, **{pontodeextremidadecompatívelcomseuhubdeeventos}** e **{nomecompatívelcomseuhubdeeventos}** pelos valores anotados anteriormente:
+7. Adicione as seguintes variáveis no nível da classe à classe **App** . Substitua **{suachavehubiot}**, **{pontoextremidadecompatívelcomseuhubdeeventos}** e **{nomecompatívelcomseuhubdeeventos}** pelos valores que você anotou anteriormente:
 
     ```
     private static String connStr = "Endpoint={youreventhubcompatibleendpoint};EntityPath={youreventhubcompatiblename};SharedAccessKeyName=iothubowner;SharedAccessKey={youriothubkey}";
     ```
 
-8. Adicione o método **receiveMessages** a seguir à classe **App**. Esse método cria uma instância **EventHubClient** para conectar-se ao ponto de extremidade compatível com o Hubs de Eventos e cria assincronamente uma instância **PartitionReceiver** para ler uma partição do Hubs de Eventos. Ele faz um loop contínuo e imprime os detalhes da mensagem até o aplicativo ser encerrado.
+8. Adicione o seguinte método **receiveMessages** à classe **App**. Esse método cria uma instância **EventHubClient** para conectar o ponto de extremidade compatível com os Hubs de Eventos e cria assincronamente uma instância **PartitionReceiver**para ler em uma partição do Hub de Eventos. Ele faz um loop contínuo e imprime os detalhes da mensagem até o aplicativo ser encerrado.
 
     ```
     private static EventHubClient receiveMessages(final String partitionId)
@@ -240,7 +241,7 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     }
     ```
 
-    > [AZURE.NOTE] Esse método usa um filtro ao criar o receptor para que o receptor leia apenas as mensagens enviadas para o Hub IoT após o início da execução do receptor. Isso é útil em um ambiente de teste para que você possa ver o conjunto atual de mensagens. Em um ambiente de produção, seu código deve se fazer com que ele processe todas as mensagens. Confira o tutorial [Como processar mensagens do dispositivo para a nuvem do Hub IoT][lnk-process-d2c-tutorial] para saber mais.
+    > [AZURE.NOTE] Esse método usa um filtro ao criar o receptor para que o receptor leia apenas as mensagens enviadas para o Hub IoT após o início da execução do receptor. Isso é útil em um ambiente de teste para que você possa ver o conjunto atual de mensagens. Em um ambiente de produção, seu código deve verificar se ele processa todas as mensagens - consulte o tutorial [Como processar as mensagens do dispositivo para a nuvem do Hub IoT][lnk-process-d2c-tutorial] para obter mais informações.
 
 9. Modifique a assinatura do método **main** para incluir a exceção mostrada abaixo:
 
@@ -248,7 +249,7 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     public static void main( String[] args ) throws IOException
     ```
 
-10. Adicione o código a seguir ao método **main** na classe **App**. Esse código cria as duas instâncias **EventHubClient** e **PartitionReceiver** e permite que você feche o aplicativo quando terminar o processamento de mensagens:
+10. Adicione o seguinte código ao método **main** na classe **App**. Esse código cria as duas instâncias **EventHubClient** e **PartitionReceiver**, e permite que você feche o aplicativo quando terminar de processar as mensagens:
 
     ```
     EventHubClient client0 = receiveMessages("0");
@@ -277,11 +278,11 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     mvn clean package -DskipTests
     ```
 
-## Criar um aplicativo de dispositivo simulado
+## <a name="create-a-simulated-device-app"></a>Criar um aplicativo de dispositivo simulado
 
 Nesta seção, você cria um aplicativo do console do Java que simula um dispositivo que envia mensagens do dispositivo para a nuvem para um Hub IoT.
 
-1. Na pasta iot-java-get-started, criada na seção *Criar uma identidade do dispositivo*, crie um novo projeto Maven denominado **simulated-device** usando o comando a seguir no prompt de comando. Observe que este é um comando único e longo:
+1. Na pasta iot-java-get-started, criada na seção *Criar uma identidade do dispositivo* , crie um novo projeto Maven denominado **simulated-device** usando o comando a seguir no prompt de comando. Observe que este é um comando único e longo:
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -289,13 +290,13 @@ Nesta seção, você cria um aplicativo do console do Java que simula um disposi
 
 2. No prompt de comando, navegue até a nova pasta simulated-device.
 
-3. Usando um editor de texto, abra o arquivo pom.xml na pasta simulated-device e adicione as seguintes dependências ao nó **dependencies**. Isso permite que você use o pacote iothub-java-client em seu aplicativo para se comunicar com o hub IoT e para serializar objetos Java para JSON:
+3. Usando um editor de texto, abra o arquivo pom.xml na pasta simulated-device e adicione as seguintes dependências ao nó **dependencies** . Isso permite que você use o pacote iothub-java-client em seu aplicativo para se comunicar com o hub IoT e para serializar objetos Java para JSON:
 
     ```
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.8</version>
+      <version>1.0.14</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -306,7 +307,7 @@ Nesta seção, você cria um aplicativo do console do Java que simula um disposi
 
 4. Salve e feche o arquivo pom.xml.
 
-5. Usando um editor de texto, abra o arquivo simulated-device\\src\\main\\java\\com\\mycompany\\app\\App.java.
+5. Usando um editor de texto, abra o arquivo simulated-device\src\main\java\com\mycompany\app\App.java.
 
 6. Adicione as seguintes instruções **import** ao arquivo:
 
@@ -325,7 +326,7 @@ Nesta seção, você cria um aplicativo do console do Java que simula um disposi
     import java.util.concurrent.ExecutorService;
     ```
 
-7. Adicione as seguintes variáveis no nível da classe à classe **App**, substituindo **{nomedoseuhubiot}** pelo nome do hub IoT e **{chavedoseudispositivo}** pelo valor da chave do dispositivo gerado na seção *Criar uma identidade do dispositivo*:
+7. Adicione as seguintes variáveis no nível da classe à classe **App**, substituindo **{nomedoseuhubiot}** por seu nome do hub IoT e **{chavedoseudispositivo}** pelo valor da chave do dispositivo gerado na seção *Criar uma identidade do dispositivo*:
 
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
@@ -334,9 +335,9 @@ Nesta seção, você cria um aplicativo do console do Java que simula um disposi
     private static DeviceClient client;
     ```
 
-    Este aplicativo de exemplo usa a variável **protocol** quando instancia um objeto **DeviceClient**. Você pode usar o protocolo HTTPS ou AMQPS para se comunicar com o Hub IoT.
+    Este aplicativo de exemplo usa a variável **protocol** quando cria uma instância de um objeto **DeviceClient**. Você pode usar o protocolo HTTPS ou AMQPS para se comunicar com o Hub IoT.
 
-8. Adicione a classe aninhada **TelemetryDataPoint** a seguir à classe **App** para especificar os dados de telemetria enviados pelo dispositivo ao hub IoT:
+8. Adicione a seguinte classe **TelemetryDataPoint** aninhada dentro da classe **App** para especificar os dados de telemetria que seu dispositivo envia para o hub IoT:
 
     ```
     private static class TelemetryDataPoint {
@@ -350,7 +351,7 @@ Nesta seção, você cria um aplicativo do console do Java que simula um disposi
     }
     ```
 
-9. Adicione a classe aninhada **EventCallback** a seguir à classe **App** para exibir o status de confirmação que o hub IoT retorna quando processa uma mensagem do dispositivo simulado. Esse método também notifica o thread principal do aplicativo quando a mensagem tiver sido processada:
+9. Adicione a seguinte classe **EventCallback** aninhada dentro da classe **App** para exibir o status de confirmação que o hub IoT retorna ao processar uma mensagem a partir do dispositivo simulado. Esse método também notifica o thread principal do aplicativo quando a mensagem tiver sido processada:
 
     ```
     private static class EventCallback implements IotHubEventCallback
@@ -367,7 +368,7 @@ Nesta seção, você cria um aplicativo do console do Java que simula um disposi
     }
     ```
 
-10. Adicione a classe aninhada **MessageSender** a seguir à classe **App**. O método **run** nessa classe gera dados de telemetria de exemplo a serem enviados para o hub IoT e aguarda uma confirmação antes de enviar a próxima mensagem:
+10. Adicione a seguinte classe **MessageSender** aninhada dentro da classe **App**. O método **run** nessa classe gera dados de telemetria de exemplo a serem enviados para o hub IoT e aguarda uma confirmação antes de enviar a próxima mensagem:
 
     ```
     private static class MessageSender implements Runnable {
@@ -433,9 +434,9 @@ Nesta seção, você cria um aplicativo do console do Java que simula um disposi
     mvn clean package -DskipTests
     ```
 
-> [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Tratamento de falhas transitórias][lnk-transient-faults] do MSDN.
+> [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, você deve implementar políticas de repetição (como retirada exponencial), conforme sugerido no artigo do MSDN [Tratamento de Falhas Transitórias][lnk-transient-faults].
 
-## Executar os aplicativos
+## <a name="run-the-applications"></a>Executar os aplicativos
 
 Agora você está pronto para executar os aplicativos.
 
@@ -459,17 +460,17 @@ Agora você está pronto para executar os aplicativos.
 
     ![Bloco de Uso do Portal do Azure mostrando o número de mensagens enviadas ao Hub IoT][43]
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma identidade do dispositivo no registro de identidade do hub. Você usou essa identidade do dispositivo para habilitar o aplicativo do dispositivo simulado para enviar as mensagens entre o dispositivo e a nuvem para o hub. Você também criou um aplicativo que exibe as mensagens recebidas pelo hub.
+Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma identidade do dispositivo no registro de identidade do hub. Você usou essa identidade do dispositivo para habilitar o aplicativo do dispositivo simulado para enviar as mensagens entre o dispositivo e a nuvem para o hub. Você também criou um aplicativo que exibe as mensagens recebidas pelo hub. 
 
 Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, confira:
 
-- [Conectando o dispositivo][lnk-connect-device]
-- [Introdução ao gerenciamento de dispositivo][lnk-device-management]
+- [Conectar o dispositivo][lnk-connect-device]
+- [Introdução ao gerenciamento de dispositivos][lnk-device-management]
 - [Introdução ao SDK do Gateway][lnk-gateway-SDK]
 
-Para saber como estender sua solução IoT e processar as mensagens entre o dispositivo e a nuvem em escala, consulte o tutorial [Processar as mensagens entre o dispositivo e a nuvem][lnk-process-d2c-tutorial].
+Para saber como estender sua solução de IoT e processar as mensagens do dispositivo para a nuvem em escala, consulte o tutorial [Processar mensagens do dispositivo para a nuvem][lnk-process-d2c-tutorial].
 
 <!-- Images. -->
 [6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
@@ -495,4 +496,7 @@ Para saber como estender sua solução IoT e processar as mensagens entre o disp
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_1005_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

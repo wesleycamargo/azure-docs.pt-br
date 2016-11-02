@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Configurar o Diagnóstico do Azure para enviar dados ao Application Insights | Microsoft Azure"
-   description="Atualize a configuração pública do Diagnóstico do Azure para enviar dados ao Application Insights."
+   pageTitle="Configure Azure Diagnostics to send data to Application Insights | Microsoft Azure"
+   description="Update the Azure Diagnostics public configuration to send data to Application Insights."
    services="multiple"
    documentationCenter=".net"
    authors="sbtron"
-   manager=""
+   manager="douge"
    editor="" />
 <tags
    ms.service="application-insights"
@@ -15,17 +15,19 @@
    ms.date="12/15/2015"
    ms.author="saurabh" />
 
-# Configurar o Diagnóstico do Azure para enviar dados para o Application Insights
 
-O Diagnóstico do Azure armazena dados em tabelas do Armazenamento do Azure. No entanto, você pode redirecionar todos ou um subconjunto dos dados para o Application Insights configurando "coletores" e "canais" durante o uso da extensão do Diagnóstico do Azure 1.5 ou posterior.
+# <a name="configure-azure-diagnostics-to-send-data-to-application-insights"></a>Configure Azure Diagnostics to send data to Application Insights
 
-Este artigo descreve como criar a configuração pública da extensão do Diagnóstico do Azure de forma que fique configurada para enviar dados ao Application Insights.
+Azure diagnostics stores data to Azure Storage tables.  However, you can also pipe all or a subset of the data to Application Insights by configuring “sinks” and “channels” in your configuration when using Azure Diagnostics extension 1.5 or later.
 
-## Configurando o Application Insights como um coletor
+This article describes how to create the public configuration for the Azure Diagnostics extension so that its configured to send data to Application Insights.
 
-A extensão do Diagnóstico do Azure 1.5 introduz o elemento **<SinksConfig>** na configuração pública. Isso define o *coletor* adicional para onde os dados do Diagnóstico do Azure podem ser enviados. Você pode especificar os detalhes do recurso do Application Insights para onde deseja enviar os dados do Diagnóstico do Azure como parte desta **<SinksConfig>**. Uma **SinksConfig** se parece com esta:
+## <a name="configuring-application-insights-as-a-sink"></a>Configuring Application Insights as a Sink
 
-	<SinksConfig>
+The Azure diagnostics extension 1.5 introduces the **<SinksConfig>** element in the public configuration. This defines the additional *sink* where the Azure diagnostics data can be sent. You can specify the details of the Application Insights resource where you want to send the Azure diagnostics data as part of this **<SinksConfig>**.
+An example **SinksConfig** looks like this -  
+
+    <SinksConfig>
         <Sink name="ApplicationInsights">
           <ApplicationInsights>{Insert InstrumentationKey}</ApplicationInsights>
           <Channels>
@@ -35,35 +37,38 @@ A extensão do Diagnóstico do Azure 1.5 introduz o elemento **<SinksConfig>** n
         </Sink>
       </SinksConfig>
 
-Para o elemento **Sink**, o atributo *name* especifica um valor de cadeia de caracteres que será usado para se referir exclusivamente ao coletor. O elemento **ApplicationInsights** especifica a chave de instrumentação do recurso do Application Insights para onde os dados do Diagnóstico do Azure serão enviados. Se você não tiver um recurso existente do Application Insights, confira [Criar um novo recurso do Application Insights](./application-insights/app-insights-create-new-resource.md) para saber mais sobre como criar um recurso e obter a chave de instrumentação.
+For the **Sink** element the *name* attribute specifies a string value that will be used to uniquely refer to the sink.
+The **ApplicationInsights** element specifies instrumentation key of the Application insights resource where the Azure diagnostics data will be sent. If you don't have an existing Application Insights resource, see [Create a new Application Insights resource](./application-insights/app-insights-create-new-resource.md) for more information on creating a resource and getting the instrumentation key.
 
-Se você estiver desenvolvendo um projeto de serviço de nuvem com o SDK 2.8 do Azure, essa chave de instrumentação é populada automaticamente na configuração pública baseada na configuração de serviço **APPINSIGHTS\_INSTRUMENTATIONKEY** durante o empacotamento do projeto do serviço de nuvem. Confira [Usar o Application Insights com o Diagnóstico do Azure para solucionar problemas do serviço de nuvem](./cloud-services/cloud-services-dotnet-diagnostics-applicationinsights.md).
+If you are developing a Cloud Service project with Azure SDK 2.8 this instrumentation key is automatically populated in the public configuration based on the **APPINSIGHTS_INSTRUMENTATIONKEY** service configuration setting when packaging the cloud service project. See [Use Application Insights with Azure Diagnostics to troubleshoot Cloud Service issues](./cloud-services/cloud-services-dotnet-diagnostics-applicationinsights.md).
 
-O elemento **Channels** elemento permite que você defina um ou mais elementos **Channel** para os dados que serão enviados ao coletor. O canal funciona como um filtro e permite que você selecione os níveis de log específicos que deseja enviar ao coletor. Por exemplo, você pode coletar logs detalhados e enviá-los para armazenamento, mas poderia optar por definir um canal com um nível de log de Erro e, ao enviar logs por aquele canal, somente logs de erro seriam enviados ao coletor. Em um **Channel**, o atributo *name* é usado para se referir exclusivamente a esse canal. O atributo *loglevel* permite que você especifique o nível de log permitido para o canal. Os níveis de log disponíveis na ordem de mais para menos informações
- - Detalhado
- - Informações
- - Aviso
- - Erro
- - Crítico
+The **Channels** element lets you define one or more **Channel** elements for the data that will be sent to the sink. The channel acts like a filter and allows you to select specific log levels that you would want to send to the sink. For example you could collect verbose logs and send them to storage but you could choose to define a channel with a log level of Error and when you send logs through that channel only error logs will be sent to that sink.
+For a **Channel** the *name* attribute is used to uniquely refer to that channel.
+The *loglevel* attribute lets you specify the log level that the channel will allow. The available log levels in order of most least information are
+ - Verbose
+ - Information
+ - Warning
+ - Error
+ - Critical
 
-## Enviar dados para o coletor do Application Insights
-Depois que o coletor do Application Insights tiver sido definido, você pode enviar dados para esse coletor adicionando o atributo *sink* aos elementos no nó **DiagnosticMonitorConfiguration**. A adição do elemento *sinks* a cada nó especifica que você deseja que os dados coletados daquele nó e de seus subnós sejam enviados ao coletor especificado.
+## <a name="send-data-to-the-application-insights-sink"></a>Send data to the Application Insights sink
+Once the Application Insights sink has been defined you can send data to that sink by adding the *sink* attribute to the elements under the **DiagnosticMonitorConfiguration** node. Adding the *sinks* element to each node specifies that you want data collected from that node and any node under it to be sent to the sink specified.
 
-Por exemplo, se você deseja enviar todos os dados que estão sendo coletados pelo Diagnóstico do Azure, pode adicionar o atributo *sink* diretamente ao nó **DiagnosticMonitorConfiguration**. Defina o valor dos *coletores* como o nome do coletor que foi especificado no **SinkConfig**.
+For example, if you want to send all the data that is being collected by Azure diagnostics then you can add the *sink* attribute directly to the **DiagnosticMonitorConfiguration** node. Set the value of the *sinks* to the Sink name that was specified in the **SinkConfig**.
 
-	<DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights">
+    <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights">
 
-Se você quisesse somente enviar logs de erros para o coletor do Application Insights, poderia definir o valor *sinks* como o nome do coletor seguido do nome do canal separado por um ponto ("."). Por exemplo, para enviar somente logs de erros para o coletor do Application Insights, use o canal MyTopDiagdata que foi definido no SinksConfig acima.
+If you wanted to send only error logs to the Application Insights sink then you can set the *sinks* value to be the Sink name followed by the channel name separated by a period ("."). For example to send only error logs to the Application Insights sink use the MyTopDiagdata channel which was defined in the SinksConfig above.  
 
-	<DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights.MyTopDiagdata">
+    <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights.MyTopDiagdata">
 
-Se você quisesse somente enviar logs detalhados de aplicativo para o Application Insights, deveria adicionar o atributo *sinks* ao nó **Logs**.
+If you only wanted to send Verbose application logs to Application Insights then you would add the *sinks* attribute to the **Logs** node.
 
-	<Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
+    <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
 
-Você também pode incluir vários coletores na configuração em diferentes níveis na hierarquia. Nesse caso, o coletor especificado no nível superior da hierarquia atua como uma configuração global e o especificado no elemento individual atua como uma substituição daquela configuração global.
+You can also include multiple sinks in the configuration at different levels in the hierarchy. In that case the sink specified at the top level of the hierarchy acts as a global setting and the one specified at the individual element element acts like an override to that global setting.    
 
-Eis um exemplo completo do arquivo de configuração pública que envia todos os erros ao Application Insights (especificado no nó **DiagnosticMonitorConfiguration**) e também logs de nível detalhado aos logs de aplicativo (especificados no nó **Logs**).
+Here is a complete example of the public configuration file that sends all errors to Application Insights (specified at the **DiagnosticMonitorConfiguration** node) and in addition Verbose level logs for the Application Logs (specified at the **Logs** node).
 
     <WadCfg>
       <DiagnosticMonitorConfiguration overallQuotaInMB="4096"
@@ -92,18 +97,22 @@ Eis um exemplo completo do arquivo de configuração pública que envia todos os
       </SinksConfig>
     </WadCfg>
 
-![Configuração pública do Diagnóstico](./media/azure-diagnostics-configure-applicationinsights/diagnostics-publicconfig.png)
+![Diagnostics Public Configuration](./media/azure-diagnostics-configure-applicationinsights/diagnostics-publicconfig.png)
 
-É preciso ter atenção a algumas limitações dessa funcionalidade
+There are some limitations to be aware of with this functionality
 
-- Os canais devem funcionar somente com o tipo de log, e não com os contadores de desempenho. Se você especificar um canal com um elemento contador de desempenho, ele será ignorado.
-- O nível de log para um canal não pode exceder o nível de log do que está sendo coletado pelo Diagnóstico do Azure. Por exemplo: não é possível coletar erros no Log de Aplicativo no elemento Logs e tentar enviar logs detalhados ao coletor do Application Insights. O atributo *scheduledTransferLogLevelFilter* sempre deve coletar uma quantidade igual ou maior de logs que a quantidade de logs que você está tentando enviar para um coletor.
-- Você não pode enviar dados de blob coletados pela extensão do Diagnóstico do Azure ao Application Insights. Por exemplo, nada especificado no nó *Directories*. No caso de despejos de memória, o despejo de memória real ainda será enviado para o armazenamento de blobs e somente uma notificação da geração do despejo será enviada ao Application Insights.
+- Channels are only meant to work with log type and not performance counters. If you specify a channel with a performance counter element it will be ignored.
+- The log level for a channel cannot exceed the log level for what is being collected by Azure diagnostics. For example: you cannot collect Application Log errors in the Logs element and try to send Verbose logs to the Application Insight sink. The *scheduledTransferLogLevelFilter* attribute must always collect equal or more logs than the logs you are trying to send to a sink.
+- You cannot send any blob data collected by Azure diagnostics extension to Application Insights. For example anything specified under the *Directories* node. For Crash Dumps the actual crash dump will still be sent to blob storage and only a notification that the crash dump was generated will be sent to Application Insights.
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Next Steps
 
-- Use o [PowerShell](./cloud-services/cloud-services-diagnostics-powershell.md) para habilitar a extensão do Diagnóstico do Azure para seu aplicativo. 
-- Use o [Visual Studio](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) para habilitar a extensão do Diagnóstico do Azure para seu aplicativo
+- Use [PowerShell](./cloud-services/cloud-services-diagnostics-powershell.md) to enable the Azure diagnostics extension for your application. 
+- Use [Visual Studio](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) to enable the Azure diagnostics extension for your application
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

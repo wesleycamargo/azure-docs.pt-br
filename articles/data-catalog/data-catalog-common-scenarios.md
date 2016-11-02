@@ -13,15 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/12/2016"
+   ms.date="10/03/2016"
    ms.author="maroche"/>
 
 
-# Cenários comuns de Catálogo de Dados do Azure
+
+# <a name="azure-data-catalog-common-scenarios"></a>Cenários comuns de Catálogo de Dados do Azure
 
 Este artigo apresenta cenários comuns nos quais o Catálogo de Dados do Azure pode ajudar as organizações a obter mais valor de suas fontes de dados existentes.
 
-## Cenário nº 1 - Registro de fontes de dados central
+## <a name="scenario-#1---registration-of-central-data-sources"></a>Cenário nº 1 - Registro de fontes de dados central
 
 As organizações geralmente têm um número de fontes de dados de alto valor. Essas fontes de dados incluem a linha de negócios de sistemas OLTP, data warehouse e business intelligence / bancos de dados de análise. Geralmente, o número de sistemas e a sobreposição entre os sistemas aumenta ao longo do tempo conforme as necessidades dos negócios evoluem, bem como os negócios em si evoluem através de fusões e aquisições.
 
@@ -36,7 +37,7 @@ Nesse cenário, o Catálogo de Dados do Azure pode ajudar. As fontes de dados ce
 
 Este cenário também apresenta uma oportunidade para anotar as fontes de dados de alto valor para torná-las mais fáceis de entender e de acessar. Um aspecto fundamental desse esforço é incluir informações sobre como os usuários podem solicitar acesso à fonte de dados. O Catálogo de Dados do Azure permite que os usuários forneçam o endereço de email do usuário ou da equipe responsável pelo controle do acesso à fonte de dados, dos links para ferramentas, da documentação ou do texto livre que descreve o processo de solicitação de acesso. Com essas informações incluídas no catálogo, os usuários que descobrirem fontes de dados registradas, mas que ainda não tenham permissões para acessar os dados, poderão solicitar com facilidade o acesso usando os processos definidos e controlados por proprietários da fontes de dados.
 
-## Cenário nº 2 - Autoatendimento de Business Intelligence
+## <a name="scenario-#2---self-service-business-intelligence"></a>Cenário nº 2 - Autoatendimento de Business Intelligence
 
 Embora as soluções de business intelligence corporativas tradicionais continuem a ser uma parte valiosa das estruturas de dados de muitas organizações, a alteração ritmo dos negócios tornou o BI de autoatendimento cada vez mais importante. BI de autoatendimento permite que os operadores de informações e analistas criem seus próprios relatórios, pastas de trabalho e painéis sem depender de uma equipe de TI central, nem ficando restrito à programação e disponibilidade dessa equipe de TI.
 
@@ -50,7 +51,7 @@ Esse crescimento orgânico do conteúdo do catálogo é um complemento natural p
 
 Também vale a pena observar que embora esse cenário se concentre especificamente no BI de autoatendimento, os mesmos padrões e desafios também se aplicam a projetos de BI corporativos de grande escala. Qualquer esforço que envolva um processo manual de descoberta de fonte de dados é um esforço que pode agregar valor à organização por meio do uso do Catálogo de Dados do Azure.
 
-## Cenário nº 3 - Capturando o conhecimento do grupo
+## <a name="scenario-#3---capturing-tribal-knowledge"></a>Cenário nº 3 - Capturando o conhecimento do grupo
 
 Como saber quais dados você precisa para fazer seu trabalho e onde encontrá-los?
 
@@ -66,4 +67,8 @@ Essa transferência contínua de conhecimento do grupo faz parte do processo de 
 
 O Catálogo de Dados do Azure fornece um local para compartilhar esse conhecimento de grupo, tornando-o facilmente identificável. Especialistas em dados podem anotar diretamente os ativos de dados e também incluir links para a documentação existente. Isso não apenas captura o conhecimento em si, mas também o coloca na mesma experiência usada para descoberta de fonte de dados. Quando alguém usa o catálogo para descobrir um fonte de dados, não encontrará apenas a fonte em si, mas também o conhecimento do especialista que anteriormente existia somente na mente do próprio especialista.
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

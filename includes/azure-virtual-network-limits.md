@@ -11,14 +11,14 @@ Grupos de segurança de rede (NSG) | 100 | 200
 Regras de NSG por NSG | 200 | 400
 Tabelas de rota definida pelo usuário | 100 | 200
 Rotas definidas pelo usuário por tabela de rotas | 100 | 400
-Endereços IP públicos (dinâmicos) | 5 | entre em contato com o suporte
+Endereços IP públicos (dinâmicos) | 5 | entrar em contato com o suporte
 Endereços IP públicos reservados | 20 | entre em contato com o suporte
 VIP público por implantação | 5 | entre em contato com o suporte
 VIP (ILB) privado por implantação | 1 | 1
 ACLs (Listas de Controle de Acesso de Pontos de Extremidade) | 50 | 50
 
 
-#### <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de Rede – Azure Resource Manager
+#### <a name="<a-name="azure-resource-manager-virtual-networking-limits"></a>networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de Rede – Azure Resource Manager
 
 Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure Resource Manager por região e assinatura.
 
@@ -40,7 +40,11 @@ Regras de balanceador de carga por balanceador de carga | 150 | 150
 IP público front-end por balanceador de carga | 5 | entre em contato com o suporte
 IP privado front-end por balanceador de carga | 30 | entre em contato com o suporte
 Application gateways | 50 | 50
+Emparelhamentos de VNets por rede virtual | 10 | 50
 
 Entre em contato com o suporte caso precise aumentar esses limites.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

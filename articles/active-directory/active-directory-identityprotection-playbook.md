@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Guia estratégico do Azure Active Directory Identity Protection | Microsoft Azure"
-	description="Saiba como o Azure AD Identity Protection permite limitar a capacidade de um invasor de explorar uma identidade ou um dispositivo comprometidos ou um dispositivo que sofreu comprometimento conhecido ou suspeito anteriormente."
-	services="active-directory"
-	keywords="azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Guia estratégico do Azure Active Directory Identity Protection | Microsoft Azure"
+    description="Saiba como o Azure AD Identity Protection permite limitar a capacidade de um invasor de explorar uma identidade ou um dispositivo comprometidos ou um dispositivo que sofreu comprometimento conhecido ou suspeito anteriormente."
+    services="active-directory"
+    keywords="azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
+    documentationCenter=""
+    authors="MarkusVi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/22/2016"
-	ms.author="markvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/22/2016"
+    ms.author="markvi"/>
 
-#Guia estratégico do Azure Active Directory Identity Protection 
+
+#<a name="azure-active-directory-identity-protection-playbook"></a>Guia estratégico do Azure Active Directory Identity Protection 
 
 Este guia estratégico vai ajudá-lo a:
 
@@ -25,7 +26,7 @@ Este guia estratégico vai ajudá-lo a:
 - Configurar políticas de acesso condicional baseadas em risco e testar o impacto dessas políticas
 
 
-## Simulação de Eventos de Risco
+## <a name="simulating-risk-events"></a>Simulação de Eventos de Risco
 
 Esta seção fornece as etapas para simular os seguintes tipos de evento de risco:
 
@@ -36,137 +37,147 @@ Esta seção fornece as etapas para simular os seguintes tipos de evento de risc
 Outros eventos de risco não podem ser simulados de maneira segura.
 
 
-### Entradas de endereços IP anônimos
+### <a name="signins-from-anonymous-ip-addresses"></a>Entradas de endereços IP anônimos
 
 Esse tipo de evento de risco identifica os usuários que entraram com êxito de um endereço IP que foi identificado como um endereço IP de proxy anônimo. Esses proxies geralmente são usados por usuários que desejam ocultar o endereço IP de seu dispositivo e podem ser usados com objetivos mal-intencionados.
 
 **Para simular uma entrada de um IP anônimo, realize as seguintes etapas**:
 
-1.	Baixe o [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en).
-2.	Usando o Tor Browser, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).
-3.	Insira as credenciais da conta que deseja exibir no relatório **Entradas de endereços IP anônimos**.
+1.  Baixe o [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en).
+2.  Usando o Tor Browser, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+3.  Insira as credenciais da conta que deseja exibir no relatório **Entradas de endereços IP anônimos** .
 
-A entrada será exibida no painel do Identity Protection dentro de 5 minutos.
+A entrada será exibida no painel do Identity Protection dentro de 5 minutos. 
 
 
-###Entradas de locais desconhecidos
+###<a name="signins-from-unfamiliar-locations"></a>Entradas de locais desconhecidos
 
 O risco de locais desconhecidos é um mecanismo de avaliação de entrada em tempo real que considera locais de entrada anteriores (IP, Latitude/Longitude e ASN) para determinar os locais novos/desconhecidos. O sistema armazena IPs, Latitude/Longitude e ASNs anteriores de um usuário e os considera como locais “conhecidos”. Um local de entrada é considerado desconhecido se não corresponder a nenhum dos locais familiares existentes.
 
-Azure Active Directory Identity Protection:
+Azure Active Directory Identity Protection:  
 
  - tem um período inicial de aprendizado de 14 dias, durante o qual ele não sinaliza nenhum local novo como desconhecido.
  - ignora entradas de dispositivos conhecidos e locais que estão geograficamente próximos de um local conhecido existente.
 
-Para simular locais desconhecidos, você precisa entrar de um local e um dispositivo nunca utilizados para entrada na conta.
+Para simular locais desconhecidos, você precisa entrar de um local e um dispositivo nunca utilizados para entrada na conta. 
 
 
 **Para simular uma entrada de um local desconhecido, realize as seguintes etapas**:
 
-1.	Escolha uma conta com um histórico de entrada de, pelo menos, 14 dias.
+1.  Escolha uma conta com um histórico de entrada de, pelo menos, 14 dias. 
 
-2.	Realize uma das seguintes opções:
-	
+2.  Realize uma das seguintes opções:
+    
     a. Usando uma VPN, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com) e insira as credenciais da conta para a qual deseja simular o evento de risco.
 
     b. Peça que um colega de um local diferente entre usando as credenciais da conta (não recomendado).
 
 A entrada será exibida no painel do Identity Protection dentro de 5 minutos.
  
-### Viagem impossível a um local atípico
+### <a name="impossible-travel-to-atypical-location"></a>Viagem impossível a um local atípico
 É difícil simular a condição de viagem impossível porque o algoritmo usa o aprendizado de máquina para eliminar falsos positivos, tais como viagens impossíveis de dispositivos conhecidos ou entradas de VPNs usadas por outros usuários no diretório. Além disso, o algoritmo exige um histórico de entrada de três a 14 dias para o usuário antes de começar a gerar eventos de risco.
 
 **Para simular uma viagem impossível para um local atípico, realize as seguintes etapas**:
 
-1.	Usando seu navegador padrão, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1.  Usando seu navegador padrão, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).  
 
-2.	Insira as credenciais da conta para a qual deseja gerar um evento de risco de viagem impossível.
+2.  Insira as credenciais da conta para a qual deseja gerar um evento de risco de viagem impossível.
 
-3.	Altere o agente do usuário. É possível alterar o agente do usuário no Internet Explorer nas Ferramentas de Desenvolvedor ou então no Firefox ou Chrome usando um complemento de alternador de agente do usuário.
+3.  Altere o agente do usuário. É possível alterar o agente do usuário no Internet Explorer nas Ferramentas de Desenvolvedor ou então no Firefox ou Chrome usando um complemento de alternador de agente do usuário.
 
-4.	Altere seu endereço IP. É possível alterar seu endereço IP usando uma VPN, um complemento do Tor ou criando um novo computador no Azure em um diferente.
+4.  Altere seu endereço IP. É possível alterar seu endereço IP usando uma VPN, um complemento do Tor ou criando um novo computador no Azure em um diferente.
 
-5.	Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com) usando as mesmas credenciais de antes, alguns minutos após a entrada anterior.
+5.  Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com) usando as mesmas credenciais de antes, alguns minutos após a entrada anterior.
 
-A entrada será exibida no painel do Identity Protection dentro de 2 a 4 horas.<br> Devido aos complexos modelos de aprendizado de máquina envolvidos, há uma chance de que isso não seja captado.<br> É conveniente replicar essas etapas para várias contas do Azure AD.
+A entrada será exibida no painel do Identity Protection dentro de 2 a 4 horas.<br>
+Devido aos complexos modelos de aprendizado de máquina envolvidos, há uma chance de que isso não seja captado.<br>  É conveniente replicar essas etapas para várias contas do Azure AD.
 
 
-## Simulação de vulnerabilidades 
+## <a name="simulating-vulnerabilities"></a>Simulação de vulnerabilidades 
 Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser explorados por um ator maligno. Atualmente, três tipos de vulnerabilidades são exibidas no Azure AD Identity Protection que aproveitam os outros recursos do Azure AD. Essas vulnerabilidades serão exibidas no painel do Identity Protection automaticamente depois que esses recursos forem configurados.
 
--	Azure AD [Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
--	Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
--	Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md).
+-   Azure AD [Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+-   Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
+-   Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
 
 
-##Risco de comprometimento do usuário
+##<a name="user-compromise-risk"></a>Risco de comprometimento do usuário
 
 **Para testar o Risco de comprometimento do usuário, realize as seguintes etapas**:
 
-1.	Entre em [https://portal.azure.com](https://portal.azure.com) com as credenciais de administrador global para seu locatário.
+1.  Entre em [https://portal.azure.com](https://portal.azure.com) com as credenciais de administrador global para seu locatário.
 
-2.	Navegue até **Identity Protection**.
+2.  Navegue até **Identity Protection**. 
 
-3.	Na folha principal do **Azure AD Identity Protection**, clique em **Configurações**.
+3.  Na folha principal de **Azure AD Identity Protection**, clique em **Configurações**. 
 
-4.	Na folha **Configurações do Portal**, em **Regras de segurança**, clique em **Risco de comprometimento do usuário**.
+4.  Na folha **Configurações do Portal**, em **Regras de segurança**, clique em **Risco de comprometimento do usuário**. 
 
-5.	Na folha **Risco de Entrada**, desligue **Habilitar regra** e clique em **Salvar** configurações.
+5.  Na folha **Risco de Entrada**, desative **Habilitar regra** e clique em **Salvar** configurações.
 
-6.	Para uma determinada conta de usuário, simule um evento de risco de locais desconhecidos ou IP anônimo. Isso elevará o nível de risco do usuário para **Médio**.
+6.  Para uma determinada conta de usuário, simule um evento de risco de locais desconhecidos ou IP anônimo. Isso elevará o nível de risco do usuário para **Médio**.
 
-7.	Aguarde alguns minutos e verifique se o nível do usuário é **Médio**.
+7.  Aguarde alguns minutos e verifique se o nível do usuário é **Médio**.
 
-8.	Vá para a folha **Configurações do Portal**.
+8.  Vá para a folha **Configurações do Portal** .
 
-9.	Na folha **Risco de Comprometimento do Usuário**, em **Habilitar regra**, selecione **Ativado**.
+9.  Na folha **Risco de Comprometimento do Usuário**, em **Habilitar regra**, selecione **Ativado**. 
 
-10.	Selecione uma das seguintes opções:
+10. Selecione uma das seguintes opções:
 
     a. Para bloquear, selecione **Médio** em **Bloquear entrada**.
 
     b. Para impor a alteração de senha de segurança, selecione **Médio** em **Exigir autenticação multifator**.
 
-13.	Clique em **Salvar**.
+13. Clique em **Salvar**.
 
-14. Agora você pode testar o acesso condicional baseado em risco ao entrar usando um usuário com um nível de risco elevado. Se o risco do usuário for Médio, dependendo da configuração da política, sua entrada será bloqueada ou você será forçado a alterar a senha.<br><br> ![Manual](./media/active-directory-identityprotection-playbook/201.png "Manual") <br>
+14. Agora você pode testar o acesso condicional baseado em risco ao entrar usando um usuário com um nível de risco elevado. Se o risco do usuário for Médio, dependendo da configuração da política, sua entrada será bloqueada ou você será forçado a alterar a senha. 
+<br><br>
+![Guia estratégico](./media/active-directory-identityprotection-playbook/201.png "Playbook")
+<br>
 
  
-##Risco de entrada
+##<a name="signin-risk"></a>Risco de entrada
 
  
 **Para testar um risco de entrada, realize as seguintes etapas:**
 
-1.	Entre em [https://portal.azure.com](https://portal.azure.com) com as credenciais de administrador global para seu locatário.
+1.  Entre em [https://portal.azure.com ](https://portal.azure.com) com as credenciais de administrador global para seu locatário.
 
-2.	Navegue até **Identity Protection**.
+2.  Navegue até **Identity Protection**.
 
-3.	Na folha principal do **Azure AD Identity Protection**, clique em **Configurações**.
+3.  Na folha principal de **Azure AD Identity Protection**, clique em **Configurações**. 
 
-4.	Na folha **Configurações do Portal**, em **Regras de segurança**, clique em **Risco de entrada**.
+4.  Na folha **Configurações do Portal**, em **Regras de segurança**, clique em **Risco de entrada**.
 
-5.	Na folha **Risco de Entrada**, selecione **Ativado** em **Habilitar regra**.
+5.  Na folha **Risco de Entrada**, selecione **Ativado** em **Habilitar regra**. 
 
-7.	Selecione uma das seguintes opções:
+7.  Selecione uma das seguintes opções:
 
     a. Para bloquear, selecione **Médio** em **Bloquear entrada**
 
     b. Para impor a alteração de senha de segurança, selecione **Médio** em **Exigir autenticação multifator**.
 
-8.	Para bloquear, selecione Médio em Bloquear entrada.
+8.  Para bloquear, selecione Médio em Bloquear entrada.
 
-9.	Para impor a autenticação multifator, selecione **Médio** em **Exigir autenticação multifator**.
+9.  Para impor a autenticação multifator, selecione **Médio** em **Exigir autenticação multifator**.
 
-10.	Clique em **Save**.
+10. Clique em **Save**.
 
-11.	Agora é possível testar o acesso condicional baseado em risco simulando eventos de risco de locais desconhecidos ou IP anônimo, pois são considerados eventos de risco **Médio**.
+11. Agora é possível testar o acesso condicional baseado em risco simulando eventos de risco de locais desconhecidos ou IP anônimo, pois são considerados eventos de risco **Médio** .
 
-<br> ![Manual](./media/active-directory-identityprotection-playbook/200.png "Manual") <br>
+<br>
+![Guia estratégico](./media/active-directory-identityprotection-playbook/200.png "Playbook")
+<br>
 
 
-## Confira também
+## <a name="see-also"></a>Consulte também
 
  - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

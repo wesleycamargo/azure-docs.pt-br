@@ -1,46 +1,47 @@
 <properties 
-	pageTitle="Codecs e formatos padrão do Codificador de Mídia" 
-	description="Este tópico oferece uma visão geral dos codecs e dos formatos do Codificador de Mídia Padrão." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="erikre" 
-	editor=""/>
+    pageTitle="Codecs e formatos padrão do codificador de mídia" 
+    description="Este tópico oferece uma visão geral dos codecs e dos formatos do Codificador de Mídia Padrão." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/17/2016"
-	ms.author="juliako;anilmur"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/10/2016"
+    ms.author="juliako;anilmur"/>
 
-#Codecs e formatos padrão do codificador de mídia
+
+#<a name="media-encoder-standard-formats-and-codecs"></a>Codecs e formatos padrão do codificador de mídia
 
 
 Este documento contém uma lista dos formatos de arquivo de importação e importação mais comuns que você pode usar com o Codificador de Mídia padrão.
 
 
-##Formatos de arquivo/contêiner de entrada
+##<a name="input-container/file-formats"></a>Formatos de arquivo/contêiner de entrada
 
 Formatos de arquivo (extensões de arquivo)|Suportado
 ---|---|---|---
-FLV (com codecs H.264 e AAC) (.flv) |Sim 
-MXF (.mxf) |Sim 
-GXF (.gxf) |Sim 
-MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Sim 
+FLV (com codecs H.264 e AAC) (.flv)          |Sim 
+MXF (.mxf)                  |Sim 
+GXF (.gxf)                  |Sim 
+MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg)   |Sim 
 Vídeo do Windows Media (WMV)/ASF (.wmv, .asf) |Sim 
 AVI (8 bits/10 bits descompactado) (.avi)|Sim 
 MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)|Sim 
 [Gravação (DVR-MS) de vídeo Digital da Microsoft](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Sim 
-Matroska/WebM (.mkv) |Sim 
+Matroska/WebM (.mkv)        |Sim 
 WAVE/WAV (.wav) |Sim 
 QuickTime (.mov) |Sim
 
 >[AZURE.NOTE] Acima há uma lista das extensões de arquivo encontradas mais comumente. O Media Encoder Standard dá suporte a muitos outros (por exemplo: .m2ts, .mpeg2video, .qt). Se você tentar codificar um arquivo e receber uma mensagem de erro que diz que o formato não tem suporte, forneça comentários [aqui](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
 
-###Formatos de áudio em contêineres de entrada 
+###<a name="audio-formats-in-input-containers"></a>Formatos de áudio em contêineres de entrada 
 
 O Padrão do Codificador de Mídia oferece suporte à execução dos seguintes formatos de áudio em contêineres de entrada:
 
@@ -53,23 +54,23 @@ ou o
 Observe que o suporte para mapeamento de canal explícito/fornecido pelo usuário será fornecido em um futuro próximo.
 
 
-##Codecs de vídeo de entrada
+##<a name="input-video-codecs"></a>Codecs de vídeo de entrada
 
 Codecs de vídeo de entrada|Suportado
 ---|---|---|---
-AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 
-DNxHD ávido (em MXF) |Sim 
-DVCPro/DVCProHD (em MXF) |Sim 
-Vídeo digital (VD) (em arquivos AVI) |Sim
-JPEG 2000 |Sim 
+AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra   |8 bits 4:2:0 e 4:2:2 
+DNxHD ávido (em MXF)                                 |Sim 
+DVCPro/DVCProHD (em MXF)                            |Sim 
+Vídeo digital (VD) (em arquivos AVI)                   |Sim
+JPEG 2000                                           |Sim 
 MPEG-2 (até perfil e de alto nível 422; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs ® e D10)|Até perfil 422 
-MPEG-1 |Sim 
-VC-1/WMV9 |Sim 
-Canopus HQ/HQX |Não 
-MPEG-4, parte 2 |Sim 
-[Theora](https://en.wikipedia.org/wiki/Theora) |Sim 
-YUV420 descompactado, ou mezzanine |Sim
-Apple ProRes 422 |Sim
+MPEG-1                                              |Sim 
+VC-1/WMV9                                           |Sim 
+Canopus HQ/HQX                                      |Não 
+MPEG-4, parte 2                                       |Sim 
+[Theora](https://en.wikipedia.org/wiki/Theora)      |Sim 
+YUV420 descompactado, ou mezzanine                   |Sim
+Apple ProRes 422                                    |Sim
 Apple ProRes 422 LT |Sim
 Apple ProRes 422 HQ |Sim
 Apple ProRes Proxy|Sim
@@ -78,7 +79,7 @@ Apple ProRes 4444 XQ |Sim
 
 
 
-##Codecs de áudio de entrada
+##<a name="input-audio-codecs"></a>Codecs de áudio de entrada
 
 Codecs de áudio de entrada|Suportado
 ---|---|---|---
@@ -91,36 +92,40 @@ WAV/PCM|Sim
 [Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Sim 
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Sim 
 AMR (multitaxa adaptável)|Sim
-AES (SMPTE 331M e 302M, AES3-2003) |Não 
-Dolby® E |Não 
-Dolby® Digital (AC3) |Não 
-Dolby® Digital Plus (E-AC3) |Não 
+AES (SMPTE 331M e 302M, AES3-2003)        |Não 
+Dolby® E                                    |Não 
+Dolby® Digital (AC3)                        |Não 
+Dolby® Digital Plus (E-AC3)                 |Não 
 
 
-##Formatos e codecs de saída
+##<a name="output-formats-and-codecs"></a>Formatos e codecs de saída
 
 A tabela a seguir lista os codecs e formatos de arquivo com suporte para exportação.
 
 
 Formato de arquivo|Codec de vídeo|Codec de áudio
 ---|---|---
-MP4 <br/><br/>(incluindo contêineres MP4 de múltiplas taxas de bits) |H.264 (Perfis Alto, Principal e Linha de base)|AAC-LC, HE-AAC v1, HE-AAC v2 
+MP4  <br/><br/>(incluindo contêineres MP4 de múltiplas taxas de bits) |H.264 (Perfis Alto, Principal e Linha de base)|AAC-LC, HE-AAC v1, HE-AAC v2 
 MPEG2-TS |H.264 (Perfis Alto, Principal e Linha de base)|AAC-LC, HE-AAC v1, HE-AAC v2 
 
 
 
-##Roteiros de aprendizagem dos Serviços de Mídia
+##<a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Fornecer comentários
+##<a name="provide-feedback"></a>Fornecer comentários
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##Consulte também
+##<a name="see-also"></a>Consulte também
 
 [Codificando conteúdo sob demanda com os Serviços de Mídia do Azure](media-services-encode-asset.md)
 
 [Como codificar com o Codificador de Mídia Padrão](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
