@@ -58,11 +58,11 @@ Para explorar e manipular um conjunto de dados, eles devem ser baixados da fonte
 
 Agora você está pronto para explorar os dados e gerar recursos neste conjunto de dados.
 
-##<a name="<a-name="blob-featuregen"></a>feature-generation"></a><a name="blob-featuregen"></a>Geração de recursos
+##<a name="a-nameblobfeaturegenafeature-generation"></a><a name="blob-featuregen"></a>Geração de recursos
 
 As duas seções a seguir mostram como gerar recursos categóricos com valores de indicador e de compartimentalização usando scripts Python.
 
-###<a name="<a-name="blob-countfeature"></a>indicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Geração de Recursos baseada no valor do indicador
+###<a name="a-nameblobcountfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Geração de Recursos baseada no valor do indicador
 
 Recursos categóricos podem ser criados da seguinte maneira:
 
@@ -85,7 +85,7 @@ Recursos categóricos podem ser criados da seguinte maneira:
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-###<a name="<a-name="blob-binningfeature"></a>binning-feature-generation"></a><a name="blob-binningfeature"></a>Agrupamento da Geração de Recursos
+###<a name="a-nameblobbinningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Agrupamento da Geração de Recursos
 
 Para gerar recursos compartimentalizados, faça o seguinte:
 
@@ -102,7 +102,7 @@ Para gerar recursos compartimentalizados, faça o seguinte:
 
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-##<a name="<a-name="sql-featuregen"></a>writing-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Aprendizado de Máquina do Azure
+##<a name="a-namesqlfeaturegenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Aprendizado de Máquina do Azure
 
 Depois que você já explorou os dados e criou os recursos necessários, pode carregar os dados (amostra ou recurso) para um blob do Azure e consumi-los no Aprendizado de Máquina do Azure usando as seguintes etapas: observe que os recursos adicionais podem ser criados no Estúdio de Aprendizado de Máquina do Azure também.
 1. Grave o quadro de dados no arquivo local

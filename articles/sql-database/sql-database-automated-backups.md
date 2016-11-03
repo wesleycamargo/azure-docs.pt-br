@@ -44,7 +44,7 @@ No diagrama a seguir, o Banco de Dados SQL está em execução na região Leste 
 
 <!--## What is <feature>?" -->
 
-## <a name="what-is-a-sql-database-backup?"></a>O que é um backup de Banco de Dados SQL?  
+## <a name="what-is-a-sql-database-backup"></a>O que é um backup de Banco de Dados SQL?  
 
 <!-- 
 First sentence begins with "The <feature> is ..." followed by a definition of the feature. Provide a 1-2 paragraph intro to explain what the feature is, how it works, and the importance of the feature for solving business problems.
@@ -68,15 +68,15 @@ O Banco de Dados SQL usa a [Replicação do Armazenamento do Azure](../storage/s
 >[AZURE.NOTE] No armazenamento do Azure, o termo *replicação* refere-se a copiar arquivos de uma localização para outra. A *replicação de banco de dados* do SQL refere-se a manter vários bancos de dados secundários sincronizados com o banco de dados primário. 
 
 
-## <a name="how-much-backup-storage-is-included-at-no-cost?"></a>Quanto armazenamento de backup é incluído sem custo adicional?
+## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Quanto armazenamento de backup é incluído sem custo adicional?
 
 O Banco de Dados SQL fornece até 200% de seu armazenamento máximo de banco de dados provisionado como armazenamento de backup, sem custo adicional. Por exemplo, se você tiver uma instância de banco de dados Standard com tamanho provisionado de 250 GB, você terá 500 GB de espaço de armazenamento para backup sem custo adicional. Se seu banco de dados exceder o armazenamento de backup fornecido, você poderá optar por reduzir o período de retenção entrando em contato com o suporte do Azure. Outra opção é pagar por armazenamento de backup extra, que é cobrado segundo a taxa padrão de RA-GRS (Armazenamento com Redundância Geográfica com Acesso de Leitura). 
 
-## <a name="how-often-do-backups-happen?"></a>Com que frequência os backups ocorrem?
+## <a name="how-often-do-backups-happen"></a>Com que frequência os backups ocorrem?
 
 Os backups de banco de dados completos são realizados toda semana, os backups de banco de dados diferenciais são realizados por hora e os backups do log de transação são realizados a cada cinco minutos. O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Normalmente ele é concluído em 30 minutos, mas pode levar mais tempo quando o banco de dados tem um tamanho significativo. Por exemplo, o backup inicial pode levar mais tempo para um banco de dados restaurado ou uma cópia do banco de dados. Após o primeiro backup completo, todos os outros backups são agendados automaticamente e gerenciados de forma silenciosa em segundo plano. O tempo exato de backups de banco de dados de tipo completo e [diferencial](https://msdn.microsoft.com/library/ms175526.aspx) é determinado conforme ele faz o balanceamento da carga de trabalho geral do sistema. 
 
-## <a name="how-long-do-you-keep-my-backups?"></a>Por quanto tempo meus backups são armazenados?
+## <a name="how-long-do-you-keep-my-backups"></a>Por quanto tempo meus backups são armazenados?
 
 Cada backup do Banco de Dados SQL tem um período de retenção que se baseia na [camada de serviço](sql-database-service-tiers.md) do banco de dados. O período de retenção para um banco de dados na:
 

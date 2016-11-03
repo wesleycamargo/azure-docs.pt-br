@@ -17,7 +17,7 @@
     ms.author="cephalin"/>
 
 
-# <a name="get-started-with-node.js-web-apps-in-azure-app-service"></a>Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure
+# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
@@ -35,7 +35,7 @@ Este tutorial mostra como criar um aplicativo [Node.js] simples e implantá-lo n
 - [CLI do Azure]
 - Uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita] ou [ativar seus benefícios de assinante do Visual Studio].
 
-## <a name="create-and-deploy-a-simple-node.js-web-app"></a>Criar e implantar um aplicativo web simples do Node.js
+## <a name="create-and-deploy-a-simple-nodejs-web-app"></a>Criar e implantar um aplicativo web simples do Node.js
 
 1. Abra o terminal da linha de comando de sua escolha e instale o [gerador Express para Yeoman].
 
@@ -108,11 +108,11 @@ Este tutorial mostra como criar um aplicativo [Node.js] simples e implantá-lo n
     
     ![Exemplo de navegação para o aplicativo implantado.][deployed-express-app]
 
-## <a name="update-your-node.js-web-app"></a>Atualizar o aplicativo Web do Node.js
+## <a name="update-your-nodejs-web-app"></a>Atualizar o aplicativo Web do Node.js
 
 Para fazer atualizações no aplicativo Web do Node.js em execução no Serviço de Aplicativo, basta executar `git add`, `git commit` e `git push` como você fez ao implantar pela primeira vez o aplicativo Web.
      
-## <a name="how-app-service-deploys-your-node.js-app"></a>Como o Serviço de Aplicativo implanta o aplicativo Node.js
+## <a name="how-app-service-deploys-your-nodejs-app"></a>Como o Serviço de Aplicativo implanta o aplicativo Node.js
 
 O Serviço de Aplicativo do Azure usa [iisnode] para executar aplicativos Node.js. A CLI do Azure e o mecanismo do Kudu (implantação do Git) trabalham juntos para proporcionar uma experiência simplificada quando você desenvolve e implanta aplicativos do Node.js por meio da linha de comando. 
 
@@ -123,7 +123,7 @@ O Serviço de Aplicativo do Azure usa [iisnode] para executar aplicativos Node.j
     - Gere um Web.config para iisnode que aponte para o script de inicialização em package.json (por exemplo, server.js ou app.js).
     - Personalize web.config para preparar o aplicativo para depuração com Node-Inspector.
     
-## <a name="use-a-node.js-framework"></a>Usar uma estrutura de Node.js
+## <a name="use-a-nodejs-framework"></a>Usar uma estrutura de Node.js
 
 Se você usa uma estrutura Node.js popular, como [Sails.js][SAILSJS] ou [MEAN.js][MEANSJS] para desenvolver os aplicativos, pode implantá-los no Serviço de Aplicativo. Estruturas populares do Node.js têm suas peculiaridades específicas, e suas dependências de pacotes são atualizadas continuamente. No entanto, o Serviço de Aplicativo disponibiliza os logs stdout e stderr para você, para que possa saber exatamente o que está acontecendo com o aplicativo e fazer as alterações adequadas. Para saber mais, confira [Obter os logs de stdout e stderr do iisnode](#iisnodelog).
 
@@ -134,7 +134,7 @@ Os tutoriais a seguir mostram como trabalhar com uma estrutura específica no Se
 - [Como usar io.js com Aplicativos Web do Serviço de Aplicativo do Azure]
 
 <a name="version"></a>
-## <a name="use-a-specific-node.js-engine"></a>Usar um mecanismo específico do Node.js
+## <a name="use-a-specific-nodejs-engine"></a>Usar um mecanismo específico do Node.js
 
 No fluxo de trabalho típico, você instrui o Serviço de Aplicativo a usar um mecanismo específico do Node.js, como faria normalmente em package.json.
 Por exemplo:
@@ -193,7 +193,7 @@ Para ler os logs do iisnode, siga estas etapas.
     
     ![Examinar um arquivo de log de iisnode.][iislog-kudu-console-read]
 
-## <a name="debug-your-app-with-node-inspector"></a>Depurar o aplicativo com o Node-Inspector
+## <a name="debug-your-app-with-nodeinspector"></a>Depurar o aplicativo com o Node-Inspector
 
 Se usar o Node-Inspector para depurar aplicativos Node.js, você poderá usá-lo para o aplicativo ativo do Serviço de Aplicativo. O Node-Inspector é pré-instalado na instalação do iisnode para o Serviço de Aplicativo. Se você implantar por meio do Git, o web.config gerado automaticamente do Kudu já conterá toda a configuração necessária para habilitar o Node-Inspector.
 
@@ -258,6 +258,6 @@ Para habilitar o Node-Inspector, siga estas etapas:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO1-->
 
 

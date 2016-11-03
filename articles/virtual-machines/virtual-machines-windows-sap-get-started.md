@@ -18,7 +18,7 @@
    ms.author="rclaus"/>
 
 
-# <a name="using-sap-on-windows-virtual-machines-(vms)"></a>Usando o SAP em VMs (máquinas virtuais) do Windows
+# <a name="using-sap-on-windows-virtual-machines-vms"></a>Usando o SAP em VMs (máquinas virtuais) do Windows
 
 [767598]:https://service.sap.com/sap/support/notes/767598
 [773830]:https://service.sap.com/sap/support/notes/773830
@@ -295,7 +295,7 @@ Atualizado: setembro de 2016
 
 [Esse guia pode ser encontrado aqui](virtual-machines-linux-sap-on-suse-quickstart.md)
 
-## <a name="deploying-sap-ides-ehp7-sp3-for-sap-erp-6.0-on-microsoft-azure"></a>Implantação de SAP IDES EHP7 SP3 para o SAP ERP 6.0 no Microsoft Azure
+## <a name="deploying-sap-ides-ehp7-sp3-for-sap-erp-60-on-microsoft-azure"></a>Implantação de SAP IDES EHP7 SP3 para o SAP ERP 6.0 no Microsoft Azure
 
 Título: Guia de início rápido para a instalação manual do SAP HANA em VMs do Azure
 
@@ -304,7 +304,7 @@ Resumo: esse artigo descreve como implantar o SAP IDES em execução com o SQL S
 Atualizado: setembro de 2016
 
 [Esse guia pode ser encontrado aqui](virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql.md)
-##  <a name="<a-name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>planning-and-implementation"></a><a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planejamento e implementação
+##  <a name="a-name3da0389e708b4e82b2a2e92f132df89caplanning-and-implementation"></a><a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planejamento e implementação
 
 Título: SAP NetWeaver em VMs (máquinas virtuais) do Windows — guia de planejamento e implementação
 
@@ -313,7 +313,7 @@ Resumo: este é o documento que você deverá ler primeiro se estiver pensando e
 Atualização: agosto de 2016
 
 [Este guia pode ser encontrado aqui] [guia de planejamento]
-## <a name="<a-name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>deployment"></a><a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Implantação
+## <a name="a-name6aadadd276b546d88713e8d63630e955adeployment"></a><a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Implantação
 
 Título: SAP NetWeaver em VMs (máquinas virtuais) do Windows — guia de implantação
 
@@ -323,7 +323,7 @@ Atualização: agosto de 2016
 
 [Este guia pode ser encontrado aqui][guia de implantação]
 
-## <a name="<a-name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>dbms-deployment-guide"></a><a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Guia de Implantação de DBMS
+## <a name="a-name1343ffe180214ce6a08d3a1553a4db82adbms-deployment-guide"></a><a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Guia de Implantação de DBMS
 
 Título: SAP NetWeaver em VMs (máquinas virtuais) do Windows — guia de implantação do DBMS
 
@@ -333,7 +333,7 @@ Atualização: agosto de 2016
 
 [Esse guia pode ser encontrado aqui][guia dbms]
 
-## <a name="<a-name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>high-availability-deployment-guide"></a><a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>Guia de implantação de alta disponibilidade
+## <a name="a-name63dab0282c4f46368f9990bbb264eabaahigh-availability-deployment-guide"></a><a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>Guia de implantação de alta disponibilidade
 
 Título: SAP NetWeaver on Windows Virtual Machines (VMs) – High Availability Deployment Guide (SAP NetWeaver em VMs (máquinas virtuais) do Windows — guia de implantação de alta disponibilidade)
 

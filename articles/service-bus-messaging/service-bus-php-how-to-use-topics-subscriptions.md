@@ -122,7 +122,7 @@ catch(ServiceException $e){
 
 As assinaturas do tópico também são criadas com o método **ServiceBusRestProxy->createSubscription**. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens passadas para a fila virtual da assinatura.
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
 
 O filtro **MatchAll** será o padrão usado se nenhum filtro for especificado quando uma nova assinatura for criada. Quando o filtro **MatchAll** é usado, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada 'mysubscription' e usa o filtro padrão **MatchAll**.
 
@@ -286,7 +286,7 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="how-to:-handle-application-crashes-and-unreadable-messages"></a>Como: tratar falhas do aplicativo e mensagens ilegíveis
+## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como: tratar falhas do aplicativo e mensagens ilegíveis
 
 O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não for capaz de processar a mensagem por algum motivo, ele chamará o método **unlockMessage** na mensagem recebida (em vez do método **deleteMessage**). Isso fará com que o Service Bus desbloqueie a mensagem na fila e disponibilize-a para que ela possa ser recebida novamente pelo mesmo aplicativo de consumo ou por outro.
 

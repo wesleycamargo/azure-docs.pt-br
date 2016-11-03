@@ -16,7 +16,7 @@
     ms.author="awills"/>
  
 
-# <a name="monitor-dependencies,-exceptions-and-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java
+# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java
 
 *O Application Insights está em modo de visualização.*
 
@@ -103,7 +103,7 @@ Para procurar instâncias individuais de dependência, exceções e relatórios 
 
 
 
-## <a name="questions?-problems?"></a>Perguntas? Problemas?
+## <a name="questions-problems"></a>Perguntas? Problemas?
 
 * Não há dados? [Definir exceções de firewall](app-insights-ip-addresses.md)
 * [Solucionar problemas de Java](app-insights-java-troubleshoot.md)

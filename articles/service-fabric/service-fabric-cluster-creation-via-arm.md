@@ -123,7 +123,7 @@ Se você tiver um Cofre de Chaves existente, poderá habilitá-lo para implanta�
 
 Os certificados são usados no Service Fabric para fornecer autenticação e criptografia para proteger vários aspectos de um cluster e de seus aplicativos. Para saber mais sobre como os certificados são usados no Service Fabric, veja [Cenários de segurança de cluster do Service Fabric][service-fabric-cluster-security].
 
-### <a name="cluster-and-server-certificate-(required)"></a>Certificado de cluster e de servidor (necessário) 
+### <a name="cluster-and-server-certificate-required"></a>Certificado de cluster e de servidor (necessário) 
 
 Esse certificado é necessário para proteger um cluster e impedir o acesso não autorizado a ele. Ele fornece segurança de cluster de duas maneiras:
  
@@ -136,7 +136,7 @@ Para servir a essas finalidades, o certificado deverá atender a estes requisito
  - O certificado deve ser criado para troca de chaves, exportável para um arquivo Troca de Informações Pessoais (.pfx).
  - O nome de assunto do certificado deve corresponder ao domínio usado para acessar o cluster do Service Fabric. Essa correspondência é necessária para fornecer SSL para pontos de extremidade de gerenciamento de HTTPS e Service Fabric Explorer do cluster. Você não pode obter um certificado SSL de uma autoridade de certificação (CA) para o domínio `.cloudapp.azure.com` . Você deve adquirir um nome de domínio personalizado para seu cluster. Quando você solicitar um certificado de uma AC, o nome da entidade do certificado deve corresponder ao nome de domínio personalizado usado para seu cluster.
 
-### <a name="application-certificates-(optional)"></a>Certificados de aplicativo (opcionais)
+### <a name="application-certificates-optional"></a>Certificados de aplicativo (opcionais)
 
 Qualquer número de certificados adicionais pode ser instalado em um cluster para fins de segurança do aplicativo. Antes de criar o cluster, considere os cenários de segurança de aplicativos que exigem um certificado a ser instalado em nós, como:
 
@@ -288,7 +288,7 @@ Todos os certificados que precisem ser instalados no cluster devem ser configura
 
 O certificado de autenticação de cluster também deve ser configurado no recurso de cluster do Service Fabric (Microsoft.ServiceFabric/clusters) e na extensão do Service Fabric para VMSS no recurso VMSS. Isso permite que o provedor de recursos do Service Fabric o configure para autenticação do cluster e autenticação de servidor para pontos de extremidade de gerenciamento.
 
-##### <a name="vmss-resource:"></a>Recurso VMSS:
+##### <a name="vmss-resource"></a>Recurso VMSS:
 
 ```json
 {
@@ -321,7 +321,7 @@ O certificado de autenticação de cluster também deve ser configurado no recur
 }
 ```
 
-##### <a name="service-fabric-resource:"></a>Recursos do Service Fabric:
+##### <a name="service-fabric-resource"></a>Recursos do Service Fabric:
 
 ```json
 {
@@ -368,7 +368,7 @@ A configuração do AAD criada anteriormente pode ser inserida diretamente em se
 }
 ```
 
-### <a name="<a-"configure-arm"-></a>configure-resource-manager-template-parameters"></a><a "configure-arm" ></a>Configurar os parâmetros do modelo do Resource Manager
+### <a name="a-configurearm-aconfigure-resource-manager-template-parameters"></a><a "configure-arm" ></a>Configurar os parâmetros do modelo do Resource Manager
 
 Por fim, use os valores de saída dos comandos do Cofre de Chaves e do PowerShell do AAD para preencher o arquivo de parâmetros:
 
@@ -538,7 +538,7 @@ Nenhuma função foi atribuída ao usuário no aplicativo de cluster do AAD. Ass
 
 Siga as instruções para configuração do AAD e atribuição de funções de usuário. Além disso, é recomendado que "ATRIBUIÇÃO DE USUÁRIO NECESSÁRIA PARA ACESSO do aplicativo" esteja ativado quando `SetupApplications.ps1` também estiver.
 
-### <a name="connect-with-powershell-fails-with-error:-the-specified-credentials-are-invalid"></a>Falha ao conectar-se ao PowerShell com o erro: as credenciais especificadas são inválidas
+### <a name="connect-with-powershell-fails-with-error-the-specified-credentials-are-invalid"></a>Falha ao conectar-se ao PowerShell com o erro: as credenciais especificadas são inválidas
 
 #### <a name="problem"></a>Problema
 
@@ -548,7 +548,7 @@ Ao usar o PowerShell para se conectar ao cluster usando o modo de segurança "Az
 
 Mesmo que acima.
 
-### <a name="service-fabric-explorer-signing-in-return-failure:-aadsts50011"></a>Entrar no Service Fabric Explorer retorna a falha: AADSTS50011
+### <a name="service-fabric-explorer-signing-in-return-failure-aadsts50011"></a>Entrar no Service Fabric Explorer retorna a falha: AADSTS50011
 
 #### <a name="problem"></a>Problema
 
@@ -566,13 +566,13 @@ Adicione a URL do Service Fabric Explorer para 'URL DE RESPOSTA' na guia Configu
 
 ![URL de resposta do aplicativo Web][web-application-reply-url]
 
-### <a name="can-i-reuse-the-same-aad-tenant-for-multiple-clusters?"></a>Posso reutilizar o mesmo locatário do AAD para vários clusters?
+### <a name="can-i-reuse-the-same-aad-tenant-for-multiple-clusters"></a>Posso reutilizar o mesmo locatário do AAD para vários clusters?
 
 #### <a name="answer"></a>Resposta
 
 Sim. Mas lembre-se de adicionar a URL do Service Fabric Explorer a seu aplicativo do cluster (Web), caso contrário o Service Fabric Explorer não funcionará.
 
-### <a name="why-do-i-still-need-server-certificate-while-aad-enabled?"></a>Por que eu ainda preciso do certificado do servidor enquanto o AAD está habilitado?
+### <a name="why-do-i-still-need-server-certificate-while-aad-enabled"></a>Por que eu ainda preciso do certificado do servidor enquanto o AAD está habilitado?
 
 #### <a name="answer"></a>Resposta
 

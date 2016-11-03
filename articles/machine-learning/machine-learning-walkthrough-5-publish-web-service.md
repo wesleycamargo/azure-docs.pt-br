@@ -18,7 +18,7 @@
 
 
 
-# <a name="walkthrough-step-5:-deploy-the-azure-machine-learning-web-service"></a>Etapa 5 do passo a passo: Implantar o serviço Web do Azure Machine Learning
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Etapa 5 do passo a passo: Implantar o serviço Web do Azure Machine Learning
 
 Esta é a quinta etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 

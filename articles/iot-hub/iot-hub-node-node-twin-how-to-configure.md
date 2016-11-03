@@ -17,7 +17,7 @@
      ms.author="elioda"/>
 
 
-# <a name="tutorial:-use-desired-properties-to-configure-devices-(preview)"></a>Tutorial: Usar propriedades desejadas para configurar dispositivos (visualização)
+# <a name="tutorial-use-desired-properties-to-configure-devices-preview"></a>Tutorial: Usar propriedades desejadas para configurar dispositivos (visualização)
 
 [AZURE.INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 

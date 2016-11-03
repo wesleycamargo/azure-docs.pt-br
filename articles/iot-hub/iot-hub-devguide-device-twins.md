@@ -17,7 +17,7 @@
  ms.author="elioda"/>
 
 
-# <a name="understand-device-twins---preview"></a>Noções básicas dos dispositivos gêmeos - visualização
+# <a name="understand-device-twins-preview"></a>Noções básicas dos dispositivos gêmeos - visualização
 
 ## <a name="overview"></a>Visão geral
 
