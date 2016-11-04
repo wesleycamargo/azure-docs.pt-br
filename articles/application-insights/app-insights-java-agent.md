@@ -16,7 +16,7 @@
     ms.author="awills"/>
  
 
-# <a name="monitor-dependencies,-exceptions-and-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java
+# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java
 
 *O Application Insights está em modo de visualização.*
 
@@ -95,15 +95,15 @@ Por padrão, `reportExecutionTime` é true e `reportCaughtExceptions` é false.
 
 ## <a name="view-the-data"></a>Exibir os dados
 
-No recurso do Application Insights, a dependência remota e os tempos de execução do método agregados aparecem [no bloco Desempenho][métricas]. 
+No recurso do Application Insights, a dependência remota e os tempos de execução do método agregados aparecem [no bloco Desempenho][apiexceptions]. 
 
-Para procurar instâncias individuais de dependência, exceções e relatórios de método, abra [Pesquisar][diagnóstico]. 
+Para procurar instâncias individuais de dependência, exceções e relatórios de método, abra [Pesquisar][diagnostic]. 
 
 [Diagnosticando problemas de dependência – Saiba mais](app-insights-dependencies.md#diagnosis).
 
 
 
-## <a name="questions?-problems?"></a>Perguntas? Problemas?
+## <a name="questions-problems"></a>Perguntas? Problemas?
 
 * Não há dados? [Definir exceções de firewall](app-insights-ip-addresses.md)
 * [Solucionar problemas de Java](app-insights-java-troubleshoot.md)

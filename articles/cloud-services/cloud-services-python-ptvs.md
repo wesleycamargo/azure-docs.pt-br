@@ -31,9 +31,9 @@ Este artigo oferece uma visão geral do uso das funções Web e de trabalho do P
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## <a name="what-are-python-web-and-worker-roles?"></a>O que são funções Web e de Trabalho do Python?
+## <a name="what-are-python-web-and-worker-roles"></a>O que são funções Web e de Trabalho do Python?
 
-O Azure fornece três modelos de computação para a execução de aplicativos: [recurso Aplicativos Web nos ][sites da web do modelo de execução do Serviço de Aplicativo do Azure], [vms do modelo de execução][ das máquinas virtuais do Azure] e [serviços de nuvem do modelo de execução][dos Serviços de Nuvem do Azure]. Todos os três modelos oferecem suporte ao Python. Os Serviços de Nuvem, que incluem as funções Web e de trabalho, fornecem a *PaaS (plataforma como serviço)*. Dentro de um serviço de nuvem, uma função Web fornece um servidor web dos Serviços de Informações da Internet (IIS) dedicado para hospedar aplicativos web de front-end, enquanto uma função de trabalho pode executar tarefas assíncronas, de longa execução ou perpétuas independentes de interação com o usuário ou de entrada.
+O Azure fornece três modelos de computação para a execução de aplicativos: [recurso Aplicativos Web nos sites da web do modelo de execução do Serviço de Aplicativo do Azure][modelo de execução-sites], [vms do modelo de execução das máquinas virtuais do Azure][modelo de execução-vms] e [serviços de nuvem do modelo de execução dos Serviços de Nuvem do Azure][modelo de execução-serviços de nuvem]. Todos os três modelos oferecem suporte ao Python. Os Serviços de Nuvem, que incluem as funções Web e de trabalho, fornecem a *PaaS (plataforma como serviço)*. Dentro de um serviço de nuvem, uma função Web fornece um servidor web dos Serviços de Informações da Internet (IIS) dedicado para hospedar aplicativos web de front-end, enquanto uma função de trabalho pode executar tarefas assíncronas, de longa execução ou perpétuas independentes de interação com o usuário ou de entrada.
 
 Para saber mais, confira [O que é um Serviço de Nuvem?].
 
@@ -113,7 +113,7 @@ As variáveis **PYTHON2** e **PYPATH** precisam ser adicionadas à tarefa de ini
 </Runtime>
 ```
 
-#### <a name="sample-servicedefinition.csdef"></a>ServiceDefinition.csdef de exemplo
+#### <a name="sample-servicedefinitioncsdef"></a>ServiceDefinition.csdef de exemplo
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -165,7 +165,7 @@ As variáveis **PYTHON2** e **PYPATH** precisam ser adicionadas à tarefa de ini
 
 Em seguida, crie os arquivos **PrepPython.ps1** e **PipInstaller.ps1** na pasta **./bin** da sua função.
 
-#### <a name="preppython.ps1"></a>PrepPython.ps1
+#### <a name="preppythonps1"></a>PrepPython.ps1
 
 Esse script instala o python. Se a variável de ambiente **PYTHON2** estiver definida como **ativada**, o Python 2.7 será instalado; caso contrário, o Python 3.5 será instalado.
 
@@ -212,7 +212,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="pipinstaller.ps1"></a>PipInstaller.ps1
+#### <a name="pipinstallerps1"></a>PipInstaller.ps1
 
 Esse script chama o pip e instala todas as dependências no arquivo **requirements.txt**. Se a variável de ambiente **PYTHON2** estiver definida como **ativada**, o Python 2.7 será usado; caso contrário, o Python 3.5 será usado.
 
@@ -241,7 +241,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="modify-launchworker.ps1"></a>Modificar LaunchWorker.ps1
+#### <a name="modify-launchworkerps1"></a>Modificar LaunchWorker.ps1
 
 >[AZURE.NOTE] No caso de um projeto de **função de trabalho**, o arquivo **LauncherWorker.ps1** é necessário para executar o arquivo de inicialização. Em um projeto de **função Web**, o arquivo de inicialização é definido nas propriedades do projeto.
 
@@ -284,7 +284,7 @@ else
 }
 ```
 
-#### <a name="ps.cmd"></a>ps.cmd
+#### <a name="pscmd"></a>ps.cmd
 
 Os modelos do Visual Studio devem ter criado um arquivo **ps.cmd** na pasta **./bin**. Esse script de shell chama os scripts do wrapper do PowerShell acima e fornece registros em log com base no nome do wrapper chamado pelo PowerShell. Se esse arquivo não tiver sido criado, veja qual deve ser seu conteúdo. 
 

@@ -4,7 +4,7 @@
     services=""
     documentationCenter="java"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="08/26/2016" 
+    ms.date="11/01/2016" 
     ms.author="robmcm;asirveda;martinsawicki"/>
 
 
-# <a name="what's-new-in-the-azure-toolkit-for-intellij"></a>Novidades no Kit de Ferramentas do Azure para IntelliJ
+# <a name="whats-new-in-the-azure-toolkit-for-intellij"></a>Novidades no Kit de Ferramentas do Azure para IntelliJ
 
 ## <a name="azure-toolkit-for-intellij-releases"></a>Lançamentos do Kit de Ferramentas do Azure para IntelliJ
 
@@ -25,7 +25,7 @@ Este artigo contém informações sobre as várias versões e atualizações mai
 
 > [AZURE.NOTE] Há também um kit de ferramentas do Azure para o Eclipse IDE. Para saber mais, confira [Kit de ferramentas do Azure para Eclipse].
 
-### <a name="august-26,-2016"></a>26 de agosto de 2016
+### <a name="august-26-2016"></a>26 de agosto de 2016
 
 O Kit de Ferramentas do Azure para IntelliJ, versão de agosto de 2016, inclui as seguintes melhorias:
 
@@ -37,7 +37,7 @@ O Kit de Ferramentas do Azure para IntelliJ, versão de agosto de 2016, inclui a
   - Suporte para gerenciamento de blobs da Conta de armazenamento usando o Resource Manager do Azure, que complementa a funcionalidade existente para gerenciar contas de armazenamento "clássico".
 * **Microsoft JDBC Driver 6.0 para SQL Server**. Esta atualização inclui o driver JDBC do Microsoft SQL Server (v 6.0), que é agora incluído como uma biblioteca que você pode adicionar facilmente aos seus projetos Java, substituindo a versão mais antiga.
 
-### <a name="june-29,-2016"></a>29 de junho de 2016
+### <a name="june-29-2016"></a>29 de junho de 2016
 
 O Kit de Ferramentas do Azure para IntelliJ, versão de março de 2016, inclui os seguintes aprimoramentos:
 
@@ -48,7 +48,7 @@ O Kit de Ferramentas do Azure para IntelliJ, versão de março de 2016, inclui o
 * **Integração de Ferramentas HDInsight**. As Ferramentas de HDInsight do Azure agora estão incluídas no Kit de Ferramentas do Azure para IntelliJ. Para obter mais informações, consulte [Plug-in das Ferramentas do HDInsight para IntelliJ].
 * **Depuração remota de aplicativos Web do Java**. O Kit de Ferramentas do Azure para IntelliJ agora dá suporte a depuração remota de aplicativos Web do Java no Serviço de Aplicativo do Azure.
 
-### <a name="april-12,-2016"></a>12 de abril de 2016
+### <a name="april-12-2016"></a>12 de abril de 2016
 
 O Kit de Ferramentas do Azure para IntelliJ, versão de abril de 2016, inclui as seguintes melhorias:
 

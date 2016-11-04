@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Criar um Serviço de Nuvem Hello World para o Azure no Eclipse"
-    description="Saiba como criar um aplicativo Hello World simples usando o Kit de Ferramentas do Azure para Eclipse."
+    pageTitle="Create a Hello World Cloud Service for Azure in Eclipse"
+    description="Learn how to create a simple Hello World application using the Azure Toolkit for Eclipse."
     services=""
     documentationCenter="java"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,171 +13,162 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="08/11/2016" 
+    ms.date="11/01/2016" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
 
-# Criar um Serviço de Nuvem Hello World para o Azure no Eclipse #
+# <a name="create-a-hello-world-cloud-service-for-azure-in-eclipse"></a>Create a Hello World Cloud Service for Azure in Eclipse
 
-As etapas a seguir mostram como criar e implantar um aplicativo JSP básico no Azure usando o Kit de Ferramentas do Azure para Eclipse. Um exemplo de JSP é exibido para manter a simplicidade, mas etapas muito semelhantes podem ser apropriadas para um servlet Java quando o assunto é a implantação do Azure.
+The following steps show you how to create and deploy a basic JSP application to Azure using the Azure Toolkit for Eclipse. A JSP example is shown for simplicity, but highly similar steps would be appropriate for a Java servlet, as far as Azure deployment is concerned.
 
-O aplicativo será semelhante ao seguinte:
+The application will look similar to the following:
 
 ![][ic600360]
 
-## Pré-requisitos ##
+## <a name="prerequisites"></a>Prerequisites
 
-* Um JDK (Java Developer Kit) versão 1.7 ou posterior.
-* Um IDE do Eclipse para desenvolvedores do Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>.
-* Uma distribuição de um servidor Web baseado em Java ou servidor de aplicativo, como o Apache Tomcat, o GlassFish, o JBoss Application Server, o Jetty ou o IBM® WebSphere® Application Server Liberty Core
-* Uma assinatura do Azure, que pode ser adquirida em <http://azure.microsoft.com/pricing/purchase-options/>.
-* O Kit de Ferramentas do Azure para Eclipse. Para saber mais, confira [Instalação do Kit de Ferramentas do Azure para Eclipse][].
+* A Java Developer Kit (JDK), v 1.7 or later.
+* Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
+* A distribution of a Java-based web server or application server, such as Apache Tomcat, GlassFish, JBoss Application Server, Jetty, or IBM® WebSphere® Application Server Liberty Core.
+* An Azure subscription, which can be acquired from <http://azure.microsoft.com/pricing/purchase-options/>.
+* The Azure Toolkit for Eclipse. For more information, see [Installing the Azure Toolkit for Eclipse][].
 
-## Para criar um aplicativo Hello World ##
+## <a name="to-create-a-hello-world-application"></a>To create a Hello World application
 
-Primeiro, vamos começar com a criação de um projeto Java.
+First, we'll start off with creating a Java project.
 
-*  Inicie o Eclipse, no menu clique em **Arquivo**, clique em **Novo** e depois em **Projeto Web Dinâmico**. (Se você não vir o **Projeto Web Dinâmico** listado como um projeto disponível depois de clicar em **Arquivo**, **Novo**, faça o seguinte: clique em **Arquivo**, clique em **Novo**, clique em **Projeto...**, expanda **Web**, clique em **Projeto Web Dinâmico** e clique em **Avançar**.)
-*  Para o objetivo deste tutorial, nomeie o projeto **MyHelloWorld**. (Não deixe de usar esse nome, pois as etapas subsequentes deste tutorial esperam que seu arquivo WAR seja nomeado MyHelloWorld). Sua tela será semelhante à seguinte:
-    ![][ic589576]
-* Clique em **Concluir**.
-* No modo de exibição do Gerenciador de Projeto do Eclipse, expanda **MyHelloWorld**. Clique com o botão direito do mouse em **WebContent**, clique em **Novo** e, em seguida, clique em **Arquivo JSP**.
-* Na caixa de diálogo **Novo Arquivo JSP**, nomeie o arquivo **index.jsp**. Mantenha a pasta pai como **MyHelloWorld/WebContent**, conforme mostrado a seguir:
-
-    ![][ic659262]
-* Para o objetivo deste tutorial, na caixa de diálogo **Selecionar Modelo JSP**, escolha **Novo Arquivo JSP (html)** e clique em **Concluir**.
-* Quando o arquivo index.jsp for aberto no Eclipse, adicione o texto para exibir dinamicamente **Hello World!** dentro do elemento `<body>` existente. Seu conteúdo `<body>` atualizado deve ser semelhante ao seguinte:
+*  Start Eclipse, and at the menu click **File**, click **New**, and then click **Dynamic Web Project**. (If you don't see **Dynamic Web Project** listed as an available project after clicking **File**, **New**, then do the following: click **File**, click **New**, click **Project...**, expand **Web**, click **Dynamic Web Project**, and click **Next**.)
+*  For purposes of this tutorial, name the project **MyHelloWorld**. (Ensure you use this name, subsequent steps in this tutorial expect your WAR file to be named MyHelloWorld). Your screen will appear similar to the following:  ![][ic589576]
+* Click **Finish**.
+* Within Eclipse's Project Explorer view, expand **MyHelloWorld**. Right-click **WebContent**, click **New**, and then click **JSP File**.
+* In the **New JSP File** dialog, name the file **index.jsp**. Keep the parent folder as **MyHelloWorld/WebContent**, as shown in the following:   ![][ic659262]
+* In the **Select JSP Template** dialog, for purposes of this tutorial select **New JSP File (html)** and click **Finish**.
+* When the index.jsp file opens in Eclipse, add in text to dynamically display **Hello World!** within the existing `<body>` element. Your updated `<body>` content should appear as the following:
 ```
     <body>
     <b><% out.println("Hello World!"); %></b>
     </body>
 ```
-* Salve o index.jsp.
+* Save index.jsp.
 
-## Para implantar seu aplicativo no Azure, a maneira rápida e simples ##
+## <a name="to-deploy-your-application-to-azure-the-quick-and-simple-way"></a>To deploy your application to Azure, the quick and simple way
 
-Assim que você tiver um aplicativo Web Java pronto para testar, poderá usar o atalho a seguir para experimentá-lo diretamente na nuvem do Azure.
+As soon as you have a Java web application ready to test, you can use the following shortcut to try it out directly on the Azure cloud.
 
-1. No Gerenciador de Projeto do Eclipse, clique em **MyHelloWorld**.
-1. Na barra de ferramentas do Eclipse, clique no botão suspenso **Publicar** e, em seguida, clique em **Publicar como serviço de nuvem do Azure** 
-	![][publishDropdownButton]
-1. Se você estiver publicando esse aplicativo no Azure pela primeira vez e nunca tiver criado um projeto de implantação do Azure para este aplicativo, um projeto de implantação do Azure será criado automaticamente para você. Você deverá ver o seguinte prompt, que também lista o pacote JDK e o servidor de aplicativos que será automaticamente implantado para executar o aplicativo.
-
-
+1. In Eclipse's Project Explorer, click **MyHelloWorld**.
+1. In the Eclipse toolbar, click the **Publish** drop down button and then click **Publish As Azure Cloud Service**
+    ![][publishDropdownButton]
+1. If you are publishing this application to Azure for the first time and you have not created an Azure deployment project for this application before, an Azure deployment project be created for you automatically. You should see the following prompt, which also lists the JDK package and application server that will be automatically deployed to run your application.
     ![][ic789598]
-    Essa abordagem de atalho permite uma maneira rápida e fácil de testar seu aplicativo no Azure sem precisar configurar um servidor ou JDK específico diferente dos padrões. Se você estiver satisfeito com os padrões, clique em **OK** para continuar com as etapas a seguir.
-    No entanto, se você quiser alterar o JDK ou o servidor de aplicativos a ser usado para seu aplicativo, faça isso mais tarde editando o projeto de implantação do Azure criado automaticamente para você, ou clique em **Cancelar** agora e leia a seção **Sobre projetos de implantação do Azure** deste tutorial.
-1. Na caixa de diálogo **Publicar no Azure**:
-    1. Se ainda não houver assinaturas para selecionar na lista **Assinatura**, execute estas etapas para importar as informações de sua assinatura:
-        1. Clique em **Importar do arquivo PUBLISH-SETTINGS**.
-        1. No diálogo **Importar Informações de Assinatura**, clique em **Baixar Arquivo de CONFIGURAÇÕES DE PUBLICAÇÃO**. Se você ainda não estiver conectado à sua conta do Azure, receberá uma solicitação para fazer logon. Em seguida, você receberá uma solicitação para salvar um arquivo de configurações de publicação do Azure. Salve-o em seu computador local.
-        1. Ainda na caixa de diálogo **Importar Informações de Assinatura**, clique no botão **Procurar**, selecione o arquivo de configurações de publicação que você salvou localmente na etapa anterior e, em seguida, clique em **Abrir**. Sua tela deve ser semelhante à seguinte:
 
-            ![][ic644267]
-        1. Clique em **OK**.
-    1. Para **Assinatura**, selecione a assinatura que você deseja usar para sua implantação.
-    1. Para **Conta de armazenamento**, selecione a conta de armazenamento que você deseja usar ou clique em **Novo** para criar uma nova conta de armazenamento.
-    1. Para **Nome do serviço**, selecione o serviço de nuvem que você deseja usar ou clique em **Novo** para criar um novo serviço de nuvem.
-    1. Para **SO de Destino**, selecione a versão do sistema operacional que você deseja usar para sua implantação.
-    1. Em **Ambiente de destino**, para o objetivo deste tutorial, selecione **Preparo**. (Quando você estiver pronto para implantar em seu site de produção, convém alterar isso para **Produção**.)
-    1. Opcional: verifique se **Substituir implantação anterior** está marcado se você quiser que a nova implantação substitua automaticamente a implantação anterior. Quando você habilitar essa opção, não enfrentará os problemas "409 - Conflito" ao publicar no mesmo local.
-        Observe que a caixa de diálogo **Publicar no Azure** contém uma seção para **Acesso Remoto**. Por padrão, o Acesso Remoto não está habilitado, e não habilitaremos ele para este exemplo. Para habilitar o Acesso Remoto, seria necessário digitar um nome de usuário e senha para utilização ao fazer logon remotamente. Para saber mais sobre o Acesso Remoto, confira [Habilitação do Acesso Remoto para Implantações do Azure no Eclipse][].
-        A caixa de diálogo **Publicar no Azure** será semelhante à seguinte:
-        ![][ic719488]
-1. Clique em **Publicar** para publicar no Ambiente de preparo. 
-    Quando receber uma solicitação para executar uma compilação completa, clique em **Sim**.
-    Isso pode levar alguns minutos na primeira compilação. Um **Log de Atividades do Azure** será exibido na seção de modos de exibição com guias do Eclipse.
+    This shortcut approach enables a quick and easy way to test your application in Azure without having to configure a specific server or JDK that is different from the defaults. If you are satisfied with the defaults, you can click **OK** to continue with the following steps.
+    However, if you want to change the JDK or application server to use for your application, you can do that later by editing the Azure deployment project that was automatically created for you, or you can click **Cancel** now and read the **About Azure deployment projects section** of this tutorial.
+1. In the **Publish to Azure** dialog:
+    1. If there are no subscriptions to select in the **Subscription** list yet, follow these steps to import your subscription information:
+        1. Click **Import from PUBLISH-SETTINGS file**.
+        1. In the **Import Subscription Information** dialog, click **Download PUBLISH-SETTINGS File**. If you are not yet logged into your Azure account, you will be prompted to log in. Then you'll be prompted to save an Azure publish settings file. Save it to your local machine.
+        1. Still in the **Import Subscription Information** dialog, click the **Browse** button, select the publish settings file that you saved locally in the previous step, and then click **Open**. Your screen should look similar to the following:  ![][ic644267]
+        1. Click **OK**.
+    1. For **Subscription**, select the subscription that you want use for your deployment.
+    1. For **Storage account**, select the storage account that you want to use, or click **New** to create a new storage account.
+    1. For **Service name**, select the cloud service that you want to use, or click **New** to create a new cloud service.
+    1. For **Target OS**, select the version of the operating system that you want to use for your deployment.
+    1. For **Target environment**, for purposes of this tutorial, select **Staging**. (When you're ready to deploy to your production site, you'll change this to **Production**.)
+    1. Optional: Ensure that **Overwrite previous deployment** is checked if you want your new deployment to automatically overwrite the previous deployment. When you enable this option, you will not experience "409 conflict" issues when publishing to the same location.
+        Note that the **Publish to Azure** dialog contains a section for **Remote Access**. By default, Remote Access is not enabled and we will not enable it for this example. To enable Remote Access, you would enter a user name and password to use when remotely logging in. For more information about Remote Access, see [Enabling Remote Access for Azure Deployments in Eclipse][].
+        Your **Publish to Azure** dialog will appear similar to the following:  ![][ic719488]
+1. Click **Publish** to publish to the Staging environment.
+    When prompted to perform a full build, click **Yes**. This may take several minutes for the first build.
+    An **Azure Activity Log** will display in your Eclipse tabbed views section.
     ![][ic719489]
-    Você pode usar esse log, bem como o modo de exibição de **Console**, para ver o progresso da implantação. Uma alternativa é fazer logon no [Portal de Gerenciamento do Azure][] e usar a seção **Serviços de Nuvem** para monitorar o status.
-1. Quando sua implantação tiver êxito, o **Log de Atividades do Azure** mostrará um status de **Publicada**. Clique em **Publicada**, conforme mostra a imagem a seguir, e o navegador abrirá uma instância de sua implantação.
+    You can use this log, as well as the **Console** view, to see the progress of your deployment. An alternative is to log in to the [Azure Management Portal][], and use the **Cloud Services** section to monitor the status.
+1. When your deployment is successfully deployed, the **Azure Activity Log** will show a status of **Published**. Click **Published**, as shown in the following image, and your browser will open an instance of your deployment.
     ![][ic719490]
 
-Como essa era uma implantação em um ambiente de preparo, o nome DNS estará no formato http://&lt;*guid*&gt;.cloudapp.net, e a URL conterá o nome DNS mais um sufixo para seu aplicativo. Por exemplo: http://447564652c20426f6220526f636b7321.cloudapp.net/MyHelloWorld. (A parte **MyHelloWorld** diferencia maiúsculas de minúsculas.) Você também pode ver o nome DNS se clicar no nome de implantação no Portal de Gerenciamento de Plataforma do Azure (dentro da parte Serviços de Nuvem do portal de gerenciamento).
+Because this was a deployment to a staging environment, the DNS name will be of the form http://&lt;*guid*&gt;.cloudapp.net, and the URL will contain the DNS name plus a suffix for your application. For example, http://447564652c20426f6220526f636b7321.cloudapp.net/MyHelloWorld. (The **MyHelloWorld** portion is case-sensitive.) You can also see the DNS name if you click the deployment name in the Azure Platform Management Portal (within the Cloud Services portion of the management portal).
 
-Embora este passo a passo servisse para uma implantação no ambiente de preparo, a implantação em produção segue as mesmas etapas, exceto na caixa de diálogo **Publicar no Azure**, quando você deve escolher **Produção** em vez de **Preparo** para o **Ambiente de destino**. Uma implantação em produção resulta em uma URL baseada no nome DNS de sua escolha, em vez de um GUID como foi usado para o preparo.
+Although this walk-through was for a deployment to the staging environment, a deployment to production follows the same steps, except within the **Publish to Azure** dialog, select **Production** instead of **Staging** for the **Target environment**. A deployment to production results in a URL based on the DNS name of your choice, instead of a GUID as used for staging.
 
->[AZURE.WARNING] Neste ponto, você já implantou o aplicativo do Azure na nuvem. No entanto, antes de prosseguir, perceba que um aplicativo implantado, mesmo que ele não esteja em execução, continuará acumulando horas faturáveis para sua assinatura. Portanto, é extremamente importante que você exclua as implantações indesejadas de sua assinatura do Azure.
+>[AZURE.WARNING] At this point you have deployed your Azure application to the cloud. However, before proceeding, realize that a deployed application, even if it is not running, will continue to accrue billable time for your subscription. Therefore, it is extremely important that you delete unwanted deployments from your Azure subscription.
 
-## Sobre projetos de implantação do Azure ##
+## <a name="about-azure-deployment-projects"></a>About Azure deployment projects
 
-Para implantar um ou mais aplicativos Java no Azure, é necessário um Projeto de Implantação do Azure. Ele desempenha a função de "pacote" dentro do qual seus aplicativos precisam ser agrupados para serem publicados no Azure.
+In order to deploy one or more Java applications to Azure, an Azure Deployment Project is needed. It plays the role of the "package" that your applications need to be wrapped into in order to be published on Azure.
 
-Além das informações sobre seus aplicativos, um projeto de implantação do Azure também contém informações sobre outros componentes importantes de sua implantação, acima de tudo: o contêiner de servidor de aplicativo para execução em seu aplicativo Web e o tempo de execução Java para executá-lo. O Azure suporta uma ampla seleção de tempos de execução Java e servidores de aplicativos Java para sua escolha.
+Besides the information about your applications, an Azure deployment project also contains information about other key components of your deployment, most importantly: the application server container to run your web app in, and the Java runtime to run it on. Azure supports a large selection of Java runtimes and Java application servers you can choose from.
 
-Embora o exemplo usado aqui esteja bastante simplificado para fins educacionais, um projeto de implantação do Azure também pode conter outras informações importantes de configuração que permitem a criação quase aleatória de serviços de nuvem complexos, escalonáveis, altamente disponíveis e de várias camadas com seus aplicativos. Você pode habilitar a **afinidade de sessão ("sessões temporárias")**, **cache rápido**, **depuração remota**, **descarregamento de SSL**, **firewall/roteamento de porta**, **acesso remoto** e vários outros recursos avançados.
+Although the example used here is greatly simplified for educational purposes, an Azure deployment project can also contain other important configuration information that enables you to create almost arbitrarily complex, scalable, highly available, multi-tier cloud services with your applications. You can enable **session affinity ("sticky sessions")**, **fast caching**, **remote debugging**, **SSL offloading**, **firewall/port routing**, **remote access**, and a number of other powerful capabilities.
 
-Se você tiver concluído a seção anterior deste tutorial ("Para implantar seu aplicativo no Azure, a maneira rápida e simples"), agora você verá um novo projeto de implantação do Azure no Gerenciador de Projeto gerado automaticamente para você e chamado "**MyHelloWorld\_onAzure**".
+If you've completed the previous section of this tutorial ("To deploy your application to Azure, the quick and simple way"), you will now see a new Azure deployment project in the Project Explorer generated for you automatically and named "**MyHelloWorld_onAzure**".
 
-Você também pode iniciar este tutorial criando por conta própria um projeto de implantação do Azure em branco e adicionando seus aplicativos ao projeto. É um processo mais longo, mas oferece mais controle sobre a configuração inicial desde o princípio.
+You could have also started this tutorial by first creating a blank Azure deployment project yourself and then adding your application(s) to it. It is a longer process, but giving you more control over the initial configuration from the beginning.
 
-Para criar um novo projeto de implantação do Azure do zero, clique no botão **Novo Projeto de Implantação do Azure**![][ic710876].
+To create a new Azure deployment project from scratch, click the **New Azure Deployment Project** button ![][ic710876].
 
-Independentemente de você trabalhar com um projeto de implantação existente do Azure ou criar um do zero, é possível alterar facilmente suas configurações e componentes, como o JDK ou o servidor de aplicativos, a qualquer momento.
+Regardless of whether you are working with an already existing Azure deployment project, or creating one from scratch, you are able to change its configuration settings and components, such as the JDK or the application server, equally easily at any time.
 
-Para alterar o JDK, ou o servidor de aplicativos, ou a lista de aplicativos em um projeto de implantação do Azure existente:
+To change the JDK, or the application server, or the application list in an existing Azure deployment project:
 
-1. Expanda o nó do projeto (por exemplo, **MyHelloWorld\_onAzure**) no Gerenciador de Projeto
-2. Clique com o botão direito do mouse em **WorkerRole1**
-3. Expanda o submenu **Azure** no menu de contexto
-4. Clique em **Configuração do Servidor**
+1. Expand the project node (e.g. **MyHelloWorld_onAzure**) in the Project Explorer
+2. Right-click **WorkerRole1**
+3. Expand the **Azure** submenu in the context menu
+4. Click **Server Configuration**
 
-Independentemente de você ter iniciado essas etapas de configuração do servidor editando um projeto de implantação existente do Azure, conforme exibido acima, ou criando um novo a partir do zero, você verá o mesmo tipo de caixa de diálogo permitindo a configuração do JDK, dos componentes de servidor e do aplicativo. Para saber mais sobre como alterar as configurações nessas caixas de diálogo, por exemplo, alterar o JDK, o servidor de aplicativos e adicionar ou remover aplicativos em uma implantação, confira o artigo [Propriedades de configuração do servidor][].
+Regardless of whether you started these server configuration steps by editing an existing Azure deployment project as shown above, or creating a new one from scratch, you will see the same type of dialogs allowing you to configure your JDK, server and application components. To learn more how to change the settings in those dialogs, for example to change the JDK, the application server and add or remove applications in a deployment, see the [Server configuration properties][] article.
 
-## Somente Windows: para implantar seu aplicativo no emulador de computação ##
+## <a name="windows-only-to-deploy-your-application-to-the-compute-emulator"></a>Windows only: To deploy your application to the compute emulator
 
->[AZURE.NOTE] O emulador do Azure só está disponível no Windows. Ignore esta seção se você estiver usando um sistema operacional diferente do Windows.
+>[AZURE.NOTE] The Azure emulator is only available on Windows. Skip this section if you are using an operating system other than Windows.
 
-Se você tiver criado um novo projeto de implantação do Azure executando as etapas descritas anteriormente, ou seja, implicitamente, publicando seu aplicativo no Azure, o JDK e os servidores de aplicativo terão sido configurados para a nuvem, mas não para emulação local. Para preparar seu projeto para teste no emulador local, execute estas etapas:
+If you have created a new Azure deployment project following the steps described earlier, i.e. implicitly, by publishing your application to Azure, the JDK and application servers have been configured for the cloud, but not for local emulation. To prepare your project for testing in the local emulator, follow these steps:
 
-1. No Gerenciador de Projeto do Eclipse, clique em **MyHelloWorld\_onAzure**.
-1. Clique com o botão direito do mouse em **WorkerRole1**.
-1. Expanda o submenu **Azure** no menu de contexto.
-1. Clique em **Configuração do Servidor**.
-1. Na guia **JDK**, verifique se o Kit de ferramentas pré-configurou um JDK local padrão para você. Em caso negativo, ou se você quiser alterar os padrões assumidos, certifique-se de que a caixa de seleção **Usar o JDK deste caminho de arquivo para testar localmente** esteja marcada e o local de instalação do JDK que você deseja usar tenha sido especificado. Se você quiser alterá-lo, clique no botão **Procurar** e, usando o controle de navegação, selecione o local do diretório do JDK a ser usado.
-1. Clique na guia **Servidor**.
-1. Na caixa de texto **Caminho do servidor local** na parte inferior da caixa de diálogo, digite o caminho de um servidor instalado localmente que corresponda ao tipo e ao número de versão principal do servidor selecionado na parte superior da caixa de diálogo, na caixa de seleção **Implantar um servidor deste tipo**. Se você quiser usar um tipo ou versão principal diferente do servidor de aplicativos, primeiro altere a seleção nessa caixa de seleção.
-1. Clique em **OK**.
-1. Na barra de ferramentas do Eclipse, clique no botão **Executar no Emulador do Azure**, ![][ic710879]. Se o botão **Executar no Emulador do Azure** não estiver habilitado, verifique se **MyHelloWorld\_onAzure** está selecionada no Gerenciador de Projeto do Eclipse e certifique-se de que o foco esteja na janela do Gerenciador de Projeto do Eclipse. Isso iniciará primeiro uma compilação completa de seu projeto e, em seguida, iniciará seu aplicativo Web de Java no emulador de computação. (Observe que dependendo das características de desempenho do computador, a primeira compilação poderá demorar de alguns segundos a alguns minutos, mas as compilações subsequentes serão mais rápidas.) Após a conclusão da primeira etapa da compilação, você receberá uma solicitação do UAC (Controle de Conta de Usuário) do Windows para permitir que esse comando faça alterações em seu computador. Clique em **Sim**.
+1. In Eclipse's Project Explorer, click **MyHelloWorld_onAzure**.
+1. Right-click on **WorkerRole1**.
+1. Expand the **Azure** submenu in the context menu.
+1. Click **Server Configuration**.
+1. On the **JDK** tab, check if the toolkit has pre-configured a default local JDK for you. If not, or if you want to change the assumed defaults, ensure that the **Use the JDK from this file path for testing locally** checkbox is checked and the JDK installation location that you want to use is specified. If you want to change it, click the **Browse** button and using the browse control, select the directory location of the JDK to use.
+1. Click the **Server** tab.
+1. In the **Local server path** text box at the bottom of the dialog box, enter the path of a locally-installed server that matches the type and major version number of the server selected at the top of the dialog box, under the **Deploy a server of this type** checkbox. If you want to use a different type or major version of the application server, change the selection under that checkbox first.
+1. Click **OK**.
+1. In the Eclipse toolbar, click the **Run in Azure Emulator** button, ![][ic710879]. If the **Run in Azure Emulator** button is not enabled, ensure that **MyHelloWorld_onAzure** is selected in Eclipse's Project Explorer, and ensure that Eclipse's Project Explorer has focus as the current window. This will first start a full build of your project and then launch your Java web application in the compute emulator. (Note that depending on your computer's performance characteristics, the first build may take between a few seconds to a few minutes, but subsequent builds will get faster.) After the first build step has been completed, you will be prompted by Windows User Account Control (UAC) to allow this command to make changes to your computer. Click **Yes**.
 
->[AZURE.IMPORTANT] Se você não vir o prompt do UAC, procure na barra de tarefas do Windows o ícone do UAC e clique nele primeiro. Às vezes, o prompt do UAC não aparece como uma janela de nível superior, mas fica visível somente como um ícone na barra de tarefas.
+>[AZURE.IMPORTANT] If you do not see the UAC prompt, check the Windows taskbar for the UAC icon and click it first. Sometimes the UAC prompt does not show up as a topmost window, but is visible only as a taskbar icon.
 
-1. Examine a saída do emulador de computação da interface do usuário para determinar se há problemas com o seu projeto. Dependendo do conteúdo de sua implantação, pode demorar alguns minutos para seu aplicativo ser totalmente iniciado no emulador de computação.
-1. Inicie o navegador e use a URL `http://localhost:8080/MyHelloWorld` como o endereço (a parte `MyHelloWorld` da URL diferencia maiúsculas de minúsculas). Você deve ver o aplicativo MyHelloWorld (a saída de index.jsp), semelhante à imagem a seguir:
-    ![][ic589579]
+1. Examine the output of the compute emulator UI to determine if there are any issues with your project. Depending on the contents of your deployment, it may take a couple minutes for your application to be fully started within the compute emulator.
+1. Start your browser and use the URL `http://localhost:8080/MyHelloWorld` as the address (the `MyHelloWorld` portion of the URL is case-sensitive). You should see your MyHelloWorld application (the output of index.jsp), similar to the following image:  ![][ic589579]
 
-Quando você estiver pronto para interromper a execução do aplicativo no emulador de computação, na barra de ferramentas do Eclipse, clique no botão **Redefinir Emulador do Azure**, ![][ic710880].
+When you are ready to stop your application from running in the compute emulator, in the Eclipse toolbar, click the **Reset Azure Emulator** button, ![][ic710880].
 
-## Para excluir a implantação ##
+## <a name="to-delete-your-deployment"></a>To delete your deployment
 
-Para excluir a implantação dentro do Kit de Ferramentas do Azure para Eclipse, selecione **MyHelloWorld\_onAzure** no Gerenciador de Projeto do Eclipse, certifique-se de que o foco esteja na janela do Gerenciador de Projeto do Eclipse e, em seguida, clique no botão **Cancelar publicação**, ![][ic710883], na barra de ferramentas do Eclipse. (Você pode executar a mesma operação clicando com o botão direito do mouse em **MyHelloWorld\_onAzure** no Gerenciador de Projeto do Eclipse, clicando em **Azure** e, em seguida, clicando em **Cancelar a Implantação da Nuvem do Azure**.) Isso exibirá a caixa de diálogo **Cancelar a Publicação do Projeto do Azure**.
+To delete your deployment within the Azure Toolkit for Eclipse, ensure that **MyHelloWorld_onAzure** is selected in Eclipse's Project Explorer, ensure the Eclipse Project Explorer has the current window focus, and then click the **Unpublish** button, ![][ic710883], in the Eclipse toolbar. (You could do the same operation by right-clicking **MyHelloWorld_onAzure** in Eclipse's Project Explorer, clicking **Azure** and then clicking **Undeploy from Azure Cloud**.) This will display the **Unpublish Azure Project** dialog.
 
 ![][ic719491]
 
-Selecione a assinatura e o serviço de nuvem que contém sua implantação, escolha a implantação que você deseja excluir e, em seguida, clique em **Cancelar publicação**.
+Select the subscription and cloud service that contains your deployment, select the deployment that you want to delete, and then click **Unpublish**.
 
-(Uma alternativa ao uso do kit de ferramentas para excluir a implantação é usar a seção **Serviços de Nuvem** do Portal de Gerenciamento do Azure: navegue até sua implantação, selecione-a e, em seguida, clique no botão **Excluir**. Isso interromperá e, em seguida, excluirá a implantação. Se você quiser apenas interromper a implantação e não excluí-la, clique no botão **Parar** em vez do botão **Excluir**, mas, como foi mencionado acima, se você não excluir a implantação, os encargos continuarão acumulando para sua implantação, mesmo que ela seja interrompida).
+(An alternative to using the toolkit to delete the deployment is to use the **Cloud Services** section of the Azure Management Portal: Navigate to your deployment, select it, and then click the **Delete** button. This will stop, and then delete, the deployment. If you only want to stop the deployment and not delete it, click the **Stop** button instead of the **Delete** button, but as mentioned above, if you do not delete the deployment, billable charges will continue to accrue for your deployment even if it is stopped).
 
-## Consulte também ##
+## <a name="see-also"></a>See Also
 
-[Kit de ferramentas do Azure para Eclipse][]
+[Azure Toolkit for Eclipse][]
 
-[Instalação do Kit de Ferramentas do Azure para Eclipse][]
+[Installing the Azure Toolkit for Eclipse][] 
 
-[Novidades no Kit de Ferramentas do Azure para o Eclipse][]
+[What's New in the Azure Toolkit for Eclipse][]
 
-Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure][].
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
-[Central de desenvolvimento Java do Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Portal de Gerenciamento do Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
 [Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
-[Kit de ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Habilitação do Acesso Remoto para Implantações do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699538
-[Instalação do Kit de Ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Propriedades de configuração do servidor]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
-[Novidades no Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Enabling Remote Access for Azure Deployments in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699538
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Server configuration properties]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
+[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 
@@ -198,4 +189,10 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 [publishDropdownButton]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/publishDropdownButton.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+
