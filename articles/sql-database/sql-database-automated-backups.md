@@ -19,20 +19,7 @@
 
 
 
-<!-- # H1 Title
-
- H1 title should answer the question "What is in this topic?" Write the title in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
--->
-
 # <a name="learn-about-sql-database-backups"></a>Saiba mais sobre o Banco de Dados SQL
-
-<!-- Introduction
-
-1. Sentence #1 begins with "Learn about ..." and gives the scope of what the article will cover.
-2. Sentence #2 explains the key capability or selling point of the feature.
-3. Sentence #3 begins with "Use this feature to ..." and gives a common use case.
-
--->
 
 O Banco de Dados SQL cria um backup do banco de dados local a cada cinco minutos e usa RA-GRS (Armazenamento com redundância geográfica de acesso de leitura) do Azure para copiar alguns dos backups de banco de dados para outra região geográfica. Esses backups ocorrem **automaticamente e sem nenhum custo adicional**. Use backups de banco de dados local para [restaurar um banco de dados para um ponto no tempo](sql-database-point-in-time-restore-portal.md). Use backups com redundância geográfica para [restaurar o banco de dados para uma região geográfica diferente](sql-database-geo-restore-portal.md).  
 
@@ -42,13 +29,8 @@ No diagrama a seguir, o Banco de Dados SQL está em execução na região Leste 
 
 ![Restauração geográfica](./media/sql-database-geo-restore/geo-restore-1.png)
 
-<!--## What is <feature>?" -->
-
 ## <a name="what-is-a-sql-database-backup"></a>O que é um backup de Banco de Dados SQL?  
 
-<!-- 
-First sentence begins with "The <feature> is ..." followed by a definition of the feature. Provide a 1-2 paragraph intro to explain what the feature is, how it works, and the importance of the feature for solving business problems.
--->
 Um backup de Banco de Dados SQL é um arquivo que armazena informações sobre o estado do banco de dados em um ponto específico no tempo. O Banco de Dados SQL usa a tecnologia do SQL Server para criar backups locais [completos](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciais](https://msdn.microsoft.com/library/ms175526.aspx ) e de [log de transações](https://msdn.microsoft.com/library/ms191429.aspx). Os backups de log de transação ocorrem a cada cinco minutos, o que permite que você faça uma restauração pontual para o mesmo servidor que hospeda o banco de dados. Quando você restaura um banco de dados, o serviço descobre quais backups completos, diferenciais e de log de transações precisam ser restaurados.
 
 >[AZURE.NOTE] O Banco de Dados SQL cria automaticamente backups locais do banco de dados e backups com redundância geográfica. Você não precisa fazer nada para que isso ocorra. Não há qualquer custo adicional.

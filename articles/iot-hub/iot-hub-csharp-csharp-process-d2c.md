@@ -438,7 +438,7 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 [Sobre o Armazenamento do Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Introdução aos Hubs de Eventos]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [Azure Storage scalability Guidelines]: ../storage/storage-scalability-targets.md
-[Blobs de bloco do Azure]: https://msdn.microsoft.com/library/azure/ee691964.aspx
+[Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
 [Hubs de Eventos]: ../event-hubs/event-hubs-overview.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Guia de programação de Hubs de Eventos]: ../event-hubs/event-hubs-programming-guide.md

@@ -36,7 +36,7 @@ O Hub IoT expõe um [ponto de extremidade compatível com Hubs de Eventos][lnk-c
 
 O sistema de mensagens é uma das principais funcionalidades do Hub IoT. Use-o sempre que for necessário enviar mensagens do dispositivo para o back-end ou enviar mensagens do back-end para um dispositivo.
 
-Para encontrar uma comparação dos serviços Hub IoT e Hubs de Evento, consulte [Comparação do Hub IoT com os Hubs de Eventos][lnk compare].
+Para encontrar uma comparação dos serviços Hub IoT e Hubs de Evento, consulte [Comparação do Hub IoT com os Hubs de Eventos][lnk-compare].
 
 ## <a name="devicetocloud-messages"></a>Mensagens do dispositivo para a nuvem
 

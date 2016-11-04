@@ -37,7 +37,7 @@ Use os dispositivos gêmeos para:
 * Sincronizar o estado dos fluxos de trabalho de longa duração entre o back-end e o aplicativo do dispositivo, por exemplo, o back-end especificando a nova versão do firmware para instalação, e o aplicativo do dispositivo reportando os diversos estágios do processo de atualização.
 * Consultar os metadados, a configuração ou o estado do seu dispositivo.
 
-Use [mensagens do dispositivo para a nuvem][lnk d2c] para sequências de eventos com carimbo de data e hora, como a série temporal dos dados ou alarmes do sensor. Use [métodos da nuvem para o dispositivo][lnk-methods] para controle interativo de dispositivos, como ativar um ventilador.
+Use [mensagens do dispositivo para a nuvem][lnk-d2c] para sequências de eventos com carimbo de data e hora, como a série temporal dos dados ou alarmes do sensor. Use [métodos da nuvem para o dispositivo][lnk-methods] para controle interativo de dispositivos, como ativar um ventilador.
 
 ## <a name="device-twins"></a>Dispositivos gêmeos
 

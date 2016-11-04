@@ -126,8 +126,8 @@ As informações do desempenho e diagnóstico são coletadas nas Tabelas de Arma
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentação do DataDog."
 [dynatrace-doc]: https://blog.ruxit.com/ruxit-monitoring-azure-web-apps/ "Documentação do Dynatrace."
 [newrelic-doc]: https://newrelic.com/azure "Documentação do NewRelic."
-[doc opsgenie]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentação do OpsGenie."
-[doc pagerduty]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentação do PagerDuty"
+[opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentação do OpsGenie."
+[pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentação do PagerDuty"
 [splunk-doc]: https://splunkbase.splunk.com/app/3084/#/details "Documentação do Splunk."
 [sumologic-doc]: https://www.sumologic.com/azure "Documentação do SumoLogic"
 

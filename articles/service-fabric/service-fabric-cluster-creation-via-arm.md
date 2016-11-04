@@ -197,7 +197,7 @@ Para simplificar algumas das etapas envolvidas na configuração do AAD com um c
 
 >[AZURE.NOTE] Você deve executar essas etapas *antes* de criar o cluster, por isso em casos em que os scripts esperam nomes e pontos de extremidade de cluster, eles devem ser os valores planejados, não aqueles que você já criou.
 
-1. [Baixar os scripts][IT-aad-ps-script-download] em seu computador.
+1. [Baixar os scripts][sf-aad-ps-script-download] em seu computador.
 
 2. Clique com o botão direito do mouse no arquivo zip, escolha **Properties**, marque a caixa de seleção **Unblock** e aplique.
 
