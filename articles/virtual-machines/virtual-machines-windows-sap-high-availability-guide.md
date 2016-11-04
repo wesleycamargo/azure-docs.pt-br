@@ -75,7 +75,8 @@
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../azure-subscription-service-limits.md#subscription
 
-[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md (SAP NetWeaver nas máquinas virtuais (VMs) do Windows – Guia de Implantação DBMS [dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Caching for VMs and VHDs)
+[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md (SAP NetWeaver nas máquinas virtuais (VMs) do Windows – Guia de Implantação DBMS 
+[dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Caching for VMs and VHDs)
 [dbms-guide-2.2]:virtual-machines-windows-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (Software RAID)
 [dbms-guide-2.3]:virtual-machines-windows-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 (Microsoft Azure Storage)
 [dbms-guide-2]:virtual-machines-windows-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 (Structure of a RDBMS Deployment)
@@ -461,7 +462,7 @@ Neste artigo, nós usamos modelos do Resource Manager para [SAP Netweaver de tr�
 Estes guias também tratam das implantações do SAP no Azure:
 
 - [SAP NetWeaver em VMs (máquinas virtuais) do Azure – guia de planejamento e implementação][planning-guide]
-- [SAP NetWeaver nas máquinas virtuais (VMs) do Windows – Guia de Implantação] [deployment-guide]
+- [SAP NetWeaver nas máquinas virtuais (VMs) do Windows – Guia de Implantação][deployment-guide]
 - [SAP NetWeaver em VMs (máquinas virtuais) do Windows — guia de implantação do DBMS][dbms-guide]
 - [SAP NetWeaver em VMs (máquinas virtuais) do Windows — guia de alta disponibilidade [este guia]][sap-ha-guide]
 
