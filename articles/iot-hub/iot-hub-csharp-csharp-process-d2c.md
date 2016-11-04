@@ -17,7 +17,7 @@
      ms.author="dobett"/>
 
 
-# <a name="tutorial:-how-to-process-iot-hub-device-to-cloud-messages-using-.net"></a>Tutorial: como processar mensagens do dispositivo para a nuvem do Hub IoT usando o .Net
+# <a name="tutorial-how-to-process-iot-hub-devicetocloud-messages-using-net"></a>Tutorial: como processar mensagens do dispositivo para a nuvem do Hub IoT usando o .Net
 
 [AZURE.INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -96,7 +96,7 @@ Nesta seção, você modificará o aplicativo do dispositivo simulado que você 
 
     > [AZURE.NOTE] Para simplificar, esse tutorial não implementa nenhuma política de repetição. No código de produção, você deve implementar políticas de repetição, como uma retirada exponencial, como sugerido no artigo [Tratamento de falhas transitórias]do MSDN.
 
-## <a name="process-device-to-cloud-messages"></a>Processar mensagens de dispositivo para nuvem
+## <a name="process-devicetocloud-messages"></a>Processar mensagens de dispositivo para nuvem
 
 Nesta seção, você criará um aplicativo do console do Windows que processa mensagens do dispositivo para a nuvem do Hub IoT. Um Hub IoT expõe um ponto de extremidade compatível com os [Hubs de Eventos]para permitir que um aplicativo leia mensagens do dispositivo para a nuvem. Este tutorial usa a classe [EventProcessorHost] para processar essas mensagens em um aplicativo de console. Para obter mais informações sobre como processar as mensagens dos Hubs de Eventos, confira o tutorial [Introdução aos Hubs de Eventos] .
 
@@ -438,7 +438,7 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 [Sobre o Armazenamento do Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Introdução aos Hubs de Eventos]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [Azure Storage scalability Guidelines]: ../storage/storage-scalability-targets.md
-[Blobs de bloco do Azure]: https://msdn.microsoft.com/library/azure/ee691964.aspx
+[Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
 [Hubs de Eventos]: ../event-hubs/event-hubs-overview.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Guia de programação de Hubs de Eventos]: ../event-hubs/event-hubs-programming-guide.md

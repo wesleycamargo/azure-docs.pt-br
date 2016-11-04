@@ -36,9 +36,9 @@ O Hub IoT expõe um [ponto de extremidade compatível com Hubs de Eventos][lnk-c
 
 O sistema de mensagens é uma das principais funcionalidades do Hub IoT. Use-o sempre que for necessário enviar mensagens do dispositivo para o back-end ou enviar mensagens do back-end para um dispositivo.
 
-Para encontrar uma comparação dos serviços Hub IoT e Hubs de Evento, consulte [Comparação do Hub IoT com os Hubs de Eventos][lnk compare].
+Para encontrar uma comparação dos serviços Hub IoT e Hubs de Evento, consulte [Comparação do Hub IoT com os Hubs de Eventos][lnk-compare].
 
-## <a name="device-to-cloud-messages"></a>Mensagens do dispositivo para a nuvem
+## <a name="devicetocloud-messages"></a>Mensagens do dispositivo para a nuvem
 
 Você envia mensagens do dispositivo para a nuvem por meio de um ponto de extremidade voltado para o dispositivo (**/devices/{deviceId}/messages/events**). Seu serviço de back-end recebe mensagens do dispositivo para a nuvem por meio de um ponto de extremidade voltado para o serviço (**/messages/events**) que é compatível com os [Hubs de Eventos][lnk-event-hubs]. Portanto, você pode usar os [SDKs e a integração dos Hubs de Eventos Standard][lnk-compatible-endpoint] para receber mensagens do dispositivo para a nuvem.
 
@@ -64,13 +64,13 @@ Para obter detalhes sobre como usar o sistema de mensagens do dispositivo para a
 
 > [AZURE.NOTE] Ao usar o HTTP para enviar mensagens do dispositivo para a nuvem, os nomes e valores de propriedade poderão conter apenas caracteres alfanuméricos ASCII e ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
-### <a name="non-telemetry-traffic"></a>Tráfego sem telemetria
+### <a name="nontelemetry-traffic"></a>Tráfego sem telemetria
 
 Muitos vezes, além dos pontos de dados de telemetria, os dispositivos também enviam mensagens e solicitações que exigem a execução e a manipulação da camada de lógica de negócios do aplicativo. Por exemplo, os alertas críticos que devem disparar uma ação específica no back-end ou as respostas de dispositivo a comandos enviados do back-end.
 
 Para obter mais informações sobre a melhor maneira de processar esse tipo de mensagem, consulte o [Tutorial: Como processar mensagens do dispositivo para a nuvem do Hub IoT][lnk-d2c-tutorial].
 
-### <a name="device-to-cloud-configuration-options"></a>Opções de configuração do dispositivo para a nuvem
+### <a name="devicetocloud-configuration-options"></a>Opções de configuração do dispositivo para a nuvem
 
 Um Hub IoT expõe as propriedades a seguir para permitir que você controle as mensagens do dispositivo para a nuvem.
 
@@ -81,7 +81,7 @@ Além disso, de maneira semelhante aos Hubs de Eventos, o Hub IoT permite que vo
 
 Você pode modificar todas essas propriedades, seja de maneira programática por meio de [Hub IoT do Azure – APIs do provedor de recursos][lnk-resource-provider-apis] ou usando o [Portal do Azure][lnk-management-portal].
 
-### <a name="anti-spoofing-properties"></a>Propriedades antifalsificação
+### <a name="antispoofing-properties"></a>Propriedades antifalsificação
 
 Para evitar a falsificação em mensagens do dispositivo para a nuvem, o Hub IoT carimba todas as mensagens com as seguintes propriedades:
 
@@ -101,7 +101,7 @@ A propriedade **ConnectionAuthMethod** contém um objeto JSON serializado com as
 }
 ```
 
-## <a name="cloud-to-device-messages"></a>Mensagens da nuvem para o dispositivo
+## <a name="cloudtodevice-messages"></a>Mensagens da nuvem para o dispositivo
 
 Você pode enviar mensagens da nuvem para o dispositivo por meio de um ponto de extremidade voltado para o serviço (**/messages/devicebound**). Um dispositivo as recebe por meio de um ponto de extremidade específico de dispositivo (**/devices/{deviceId}/messages/devicebound**).
 
@@ -134,7 +134,7 @@ Para obter um tutorial sobre mensagens de nuvem para dispositivos, consulte [Tut
 
 > [AZURE.NOTE] Normalmente, as mensagens da nuvem para o dispositivo serão concluídas sempre que a perda da mensagem não afetar a lógica do aplicativo. Por exemplo, o conteúdo da mensagem foi mantido com êxito no armazenamento local ou uma operação foi executada com êxito. A mensagem também pode transportar informações temporárias, cuja perda não afeta a funcionalidade do aplicativo. Às vezes, para tarefas de longa duração, você pode concluir a mensagem do dispositivo para a nuvem depois de manter a descrição da tarefa no armazenamento local. Em seguida, você pode notificar o back-end de aplicativo com uma ou mais mensagens de dispositivo para a nuvem em vários estágios de progresso da tarefa.
 
-### <a name="message-expiration-(time-to-live)"></a>Expiração da mensagem (vida útil)
+### <a name="message-expiration-time-to-live"></a>Expiração da mensagem (vida útil)
 
 Todas as mensagens da nuvem para o dispositivo têm um tempo de expiração. Esse tempo é definido pelo serviço (na propriedade **ExpiryTimeUtc**) ou pelo Hub IoT usando a *vida útil* padrão especificada como uma propriedade do Hub IoT. Consulte [Opções de configuração da nuvem para o dispositivo][lnk-c2d-configuration].
 
@@ -191,7 +191,7 @@ O exemplo a seguir mostra o corpo de uma mensagem de comentários.
 ]
 ```
 
-### <a name="cloud-to-device-configuration-options"></a>Opções de configuração da nuvem para o dispositivo
+### <a name="cloudtodevice-configuration-options"></a>Opções de configuração da nuvem para o dispositivo
 
 Cada hub IoT expõe as seguintes opções de configuração para mensagens da nuvem para o dispositivo.
 
@@ -204,7 +204,7 @@ Cada hub IoT expõe as seguintes opções de configuração para mensagens da nu
 
 Para saber mais, confira [Criar Hubs IoT][lnk-portal].
 
-## <a name="read-device-to-cloud-messages"></a>Ler mensagens do dispositivo para a nuvem
+## <a name="read-devicetocloud-messages"></a>Ler mensagens do dispositivo para a nuvem
 
 O Hub IoT expõe um ponto de extremidade para os serviços de back-end lerem as mensagens de dispositivo para nuvem recebidas por seu hub. O ponto de extremidade é compatível com os Hubs de Eventos, o que permite que você use qualquer um dos mecanismos para os quais o serviço Hubs de Eventos dá suporte para ler as mensagens.
 

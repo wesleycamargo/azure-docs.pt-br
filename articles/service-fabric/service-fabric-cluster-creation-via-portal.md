@@ -125,7 +125,7 @@ Se você tiver um Cofre de Chaves existente, poderá habilitá-lo para implanta�
 
 Os certificados são usados no Service Fabric para fornecer autenticação e criptografia para proteger vários aspectos de um cluster e de seus aplicativos. Para saber mais sobre como os certificados são usados no Service Fabric, veja [Cenários de segurança de cluster do Service Fabric][service-fabric-cluster-security].
 
-### <a name="cluster-and-server-certificate-(required)"></a>Certificado de cluster e de servidor (necessário) 
+### <a name="cluster-and-server-certificate-required"></a>Certificado de cluster e de servidor (necessário) 
 
 Esse certificado é necessário para proteger um cluster e impedir o acesso não autorizado a ele. Ele fornece segurança de cluster de duas maneiras:
  
@@ -146,7 +146,7 @@ Você não precisa carrear os certificados de autenticação do cliente no Cofre
 
 >[AZURE.NOTE] O Azure Active Directory é a maneira recomendada para autenticar clientes para operações de gerenciamento de cluster. Para usar o Azure Active Directory, você deve [criar um cluster usando o Azure Resource Manager][create-cluster-arm].
 
-### <a name="application-certificates-(optional)"></a>Certificados de aplicativo (opcionais)
+### <a name="application-certificates-optional"></a>Certificados de aplicativo (opcionais)
 
 Qualquer número de certificados adicionais pode ser instalado em um cluster para fins de segurança do aplicativo. Antes de criar o cluster, considere os cenários de segurança de aplicativos que exigem um certificado a ser instalado em nós, como:
 
@@ -205,7 +205,7 @@ Esses são todos os pré-requisitos do Cofre de Chaves para configurar um modelo
 
 ![pesquisa pelo modelo de cluster do Service Fabric no portal do Azure.][SearchforServiceFabricClusterTemplate]
 
- 1. Entre no [portal do Azure][portal do azure].
+ 1. Entre no [portal do Azure][azure-portal].
 
  2. Clique em **+ Novo** para adicionar um novo modelo de recurso. Procure o modelo Cluster do Service Fabric no **Marketplace** em **Tudo**.
 
@@ -215,7 +215,7 @@ Esses são todos os pré-requisitos do Cofre de Chaves para configurar um modelo
 
  5. A folha **Criar cluster do Service Fabric** tem as quatro etapas a seguir.
 
-#### <a name="1.-basics"></a>1. Noções básicas
+#### <a name="1-basics"></a>1. Noções básicas
 
 ![Captura de tela da criação de um novo grupo de recursos.][CreateRG]
 
@@ -233,7 +233,7 @@ Na folha Básico, você precisa fornecer os detalhes básicos do seu cluster.
 
  5. Selecione a **região** ma qual você deseja criar o cluster. Você deve usar a mesma região em que está o Cofre de Chaves.
 
-#### <a name="2.-cluster-configuration"></a>2. Configuração do cluster
+#### <a name="2-cluster-configuration"></a>2. Configuração do cluster
 
 ![Criar um tipo de nó][CreateNodeType]
 
@@ -260,7 +260,7 @@ Configure os nós de cluster. Os tipos de nó definem os tamanhos e o número de
 >[AZURE.NOTE] Damos suporte somente para clusters que executam versões com suporte do Service Fabric. Selecionando o modo **Manual** , você está assumindo a responsabilidade de atualizar seu cluster para uma versão com suporte. Para obter mais detalhes sobre o modo de atualização do Fabric, consulte o documento [service-fabric-cluster-upgrade.][service-fabric-cluster-upgrade]
 
 
-#### <a name="3.-security"></a>3. Segurança
+#### <a name="3-security"></a>3. Segurança
 
 ![Captura de tela das configurações de segurança no Portal do Azure][SecurityConfigs]
 
@@ -283,7 +283,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 - Marque a caixa **Definir configurações avançadas** para inserir certificados de cliente para **cliente administrativo** e **cliente somente leitura**. Nesses campos, insira a impressão digital do seu certificado de cliente do administrador e a impressão digital do seu certificado de cliente do usuário somente leitura, se aplicável. Quando os administradores tentam se conectar ao cluster, eles só receberão acesso se tiverem um certificado com uma impressão digital que corresponda aos valores da impressão digital inseridos aqui.  
 
 
-#### <a name="4.-summary"></a>4. Resumo
+#### <a name="4-summary"></a>4. Resumo
 
 ![Captura de tela da Tela Inicial exibindo "Implantação do cluster do Service Fabric". ][Notifications]
 

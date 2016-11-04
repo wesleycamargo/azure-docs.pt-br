@@ -18,7 +18,7 @@
 
 
 
-# <a name="walkthrough-step-5:-deploy-the-azure-machine-learning-web-service"></a>Etapa 5 do passo a passo: Implantar o serviço Web do Azure Machine Learning
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Etapa 5 do passo a passo: Implantar o serviço Web do Azure Machine Learning
 
 Esta é a quinta etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
@@ -72,7 +72,7 @@ Quando você clica em **Instalar serviço Web**, várias coisas acontecem:
 - Os módulos que foram usados para treinamento são removidos. Especificamente:
   - [Arvore de decisão aumentada duas classes][two-class-boosted-decision-tree]
   - [Treinar modelo][train-model]
-  - [Dividir dados][divide]
+  - [Dividir dados][split]
   - o segundo módulo [Executar Script R][execute-r-script] usado para dados do teste
 - O modelo treinado salvo é adicionado de volta ao teste.
 - Os módulos **Entrada de serviço Web** e **Saída de serviço Web** são adicionados.

@@ -39,21 +39,21 @@ Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as eta
 
 2. Crie uma regra de segurança permitindo acesso da Internet à porta 3389.
 
-        $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP"
-            -Access Allow -Protocol Tcp -Direction Inbound -Priority 100
-            -SourceAddressPrefix Internet -SourcePortRange *
+        $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
+            -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
+            -SourceAddressPrefix Internet -SourcePortRange * `
             -DestinationAddressPrefix * -DestinationPortRange 3389
 
 3. Crie uma regra de segurança permitindo acesso da Internet à porta 80.
 
-        $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP"
-            -Access Allow -Protocol Tcp -Direction Inbound -Priority 101
-            -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix *
+        $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
+            -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
+            -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * `
             -DestinationPortRange 80
 
 4. Adicione as regras criadas acima a um novo NSG chamado **NSG-FrontEnd**.
 
-        $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus
+        $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `
         -Name "NSG-FrontEnd" -SecurityRules $rule1,$rule2
 
 5. Verifique as regras criadas no NSG.
@@ -141,21 +141,21 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 
 1. Crie uma regra de segurança, permitindo o acesso na sub-rede front-end à porta 1433 (porta padrão usada pelo SQL Server).
 
-        $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name frontend-rule -Description "Allow FE subnet"
-            -Access Allow -Protocol Tcp -Direction Inbound -Priority 100
-            -SourceAddressPrefix 192.168.1.0/24 -SourcePortRange *
+        $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name frontend-rule -Description "Allow FE subnet" `
+            -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
+            -SourceAddressPrefix 192.168.1.0/24 -SourcePortRange * `
             -DestinationAddressPrefix * -DestinationPortRange 1433
 
 2. Crie uma regra de segurança impedindo o acesso à Internet.
 
-        $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Block Internet"
-            -Access Deny -Protocol * -Direction Outbound -Priority 200
-            -SourceAddressPrefix * -SourcePortRange *
+        $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Block Internet" `
+            -Access Deny -Protocol * -Direction Outbound -Priority 200 `
+            -SourceAddressPrefix * -SourcePortRange * `
             -DestinationAddressPrefix Internet -DestinationPortRange *
 
 3. Adicione as regras criadas acima ao novo NSG chamado **NSG-BackEnd**.
 
-        $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd"
+        $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd" `
             -SecurityRules $rule1,$rule2
 
 4. Associe o NSG criado acima à sub-rede *BackEnd* .
